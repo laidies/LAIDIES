@@ -1,3 +1,6 @@
+<!-- Current-week Weekly: REVIEWED, LOCAL WRITE; production verification pending -->
+Nine main developments plus Meta/Microsoft briefs for August31–September6. Exact producer and root-independent reviews in evidence/weekly-review-20260906. Prior stories preserved. Date selection and missed-Wednesday Sunday correction guards reject invalid dates, future/out-of-period items and replay. Local artifact /private/tmp/laidies-newsstand-weekly-correction-20260906; four public paths. Masthead remains194px.
+
 <!-- Actual colour/artwork correction: VERIFIED PUBLICLY -->
 Threeexistingpublicfiles plus sixnewartassets. Restoredserviceartsize; recoloured
 actualfourillustrations. Distinctmedical/legalart, duplicate-suppressionguard.

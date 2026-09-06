@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "newsstand-weekly-corrective-publication-proposal.v1",
+  "status": "RECOMMENDATION_ONLY_NOT_AUTHORIZATION",
+  "proposedPolicy": "CURRENT_WEEK_CORRECTIVE_WEEKLY",
+  "purpose": "Permit one new Weekly publication on its actual non-Wednesday publication day to replace a visibly stale current pointer, while preserving the ordinary Wednesday cadence and archived Weekly identity.",
+  "candidateSchemaAddition": {
+    "correctivePublication": {
+      "mode": "CURRENT_WEEK_CORRECTIVE",
+      "authorizationBinding": {
+        "path": "operations/product-stewards/newsstand/<owner-authorized-corrective-policy>.json",
+        "sha256": "exact SHA-256 required"
+      },
+      "publicationDate": "2026-09-06",
+      "editorialTimeZone": "America/Vancouver",
+      "coveredPeriod": {
+        "startDate": "2026-08-31",
+        "endDate": "2026-09-06"
+      },
+      "reason": "Correct the stale current Weekly pointer without backdating or future coverage."
+    }
+  },
+  "requiredAuthorizationFields": [
+    "mode exactly CURRENT_WEEK_CORRECTIVE",
+    "publicationDate equal the candidate date and Vancouver today at publisher execution",
+    "coveredPeriod start/end, both real Vancouver dates, ending on publicationDate",
+    "one-time authorization identity and exact checksum binding",
+    "explicit statement that the cadence resumes on the next Wednesday",
+    "expiry/no-replay protection"
+  ],
+  "exactProductionChanges": [
+    {
+      "path": "scripts/prepare-newsstand-weekly.mjs",
+      "change": "Add an explicit corrective-date mode. It must require a policy binding and a closed period ending on the actual current Vancouver day; select only approved Daily records whose Vancouver publication day falls inside that closed period. Keep the default Wednesday-to-Wednesday branch byte-for-byte semantically unchanged."
+    },
+    {
+      "path": "scripts/publish-newsstand-weekly.mjs",
+      "change": "Accept a non-Wednesday date only when a checksum-bound correctivePublication object matches the exact authorization, the date is Vancouver today, the closed period ends today, and the current pointer is older than the period. Preserve the normal Wednesday-only branch for every unbound candidate. Persist the corrective metadata and deterministic note with the dated coverage period."
+    },
+    {
+      "path": "content/newsstand-reader-contract.js",
+      "change": "Permit a current non-Wednesday Weekly only when its complete corrective metadata validates the same narrow invariant. Continue rejecting all unbound non-Wednesday dates."
+    },
+    {
+      "path": "content/newsstand.schema.json",
+      "change": "Add the optional corrective metadata shape if schema validation covers the public publication record; require it when a current Weekly editionDate is not Wednesday."
+    },
+    {
+      "path": "scripts/test-prepare-newsstand-weekly.mjs, scripts/test-publish-newsstand-weekly.mjs, scripts/test-newsstand-reader-contract.mjs",
+      "change": "Add calibrated accepts for the exact authorized Sunday fixture and rejects for missing/altered authorization, future/partial period, non-today correction, Wednesday candidate using corrective bypass, stale prior mismatch, and replay. Retain existing Wednesday assertions."
+    }
+  ],
+  "publicationInvariants": [
+    "The new Weekly is a new published record; do not alter or relabel the August 26 Weekly.",
+    "The public pointer moves only after the exact full Weekly admission chain passes.",
+    "The correction covers August 31 through September 6 inclusive in America/Vancouver, never September 7–9.",
+    "The next ordinary Weekly remains Wednesday September 9 and must use its own closed Wednesday-to-Wednesday coverage window.",
+    "The policy cannot become a general non-Wednesday scheduling path."
+  ],
+  "currentCandidateGaps": [
+    "No complete Weekly story object or hero visual.",
+    "No NEWSSTAND_WEEKLY producer contract.",
+    "No exact-prose producer review, independent review, source-evidence bindings, claim map, or content manifest.",
+    "No owner-authorized corrective policy binding.",
+    "No implementation or calibrated tests for the narrow non-Wednesday exception."
+  ],
+  "nextActions": [
+    "Root creates and binds the one-time corrective policy after deciding the exact public label.",
+    "Producer drafts one closed-period Weekly only after the producer contract passes.",
+    "Run full existing Weekly review/admission chain, then the new calibrated corrective gate tests.",
+    "Publish only with the exact candidate on September 6; otherwise leave the old Weekly truthful but visibly dated and use the normal September 9 route."
+  ]
+}

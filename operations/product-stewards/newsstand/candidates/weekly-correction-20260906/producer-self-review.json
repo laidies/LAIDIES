@@ -1,0 +1,658 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "weekly-correction-20260906",
+  "surface": "NEWSSTAND_WEEKLY",
+  "contentClass": "NEWS",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "maker": "/root/luminairy_presentation_review",
+  "reviewer": {
+    "id": "weekly-correction-producer-self-review-20260906",
+    "principalId": "/root/luminairy_presentation_review",
+    "role": "producer",
+    "modelFamily": "gpt-5.6-terra",
+    "modelEffort": "medium"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-06T20:28:19.549Z",
+  "verdict": "PASS",
+  "limitations": [
+    "This is a producer self-review only, not independent editorial or factual admission.",
+    "The source-selection packet binds current verified sources and ranked daily records, but all live sources need rechecking immediately before any admission or publication.",
+    "The article maps the selected nine developments; it does not claim exhaustive coverage beyond the cited scouting dispositions."
+  ],
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/publication-manifest.json",
+      "sha256": "13f9302213957d066c5453bc43fd37d47f122784aa50bc46a7de465700492f10"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/review-text.json",
+      "sha256": "9c9f130f4ccdfe3e627344e29b45ba942e413e0d1ce199dcc8670b259ca28523"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/luminairy_presentation_review",
+    "reviewedAt": "2026-09-06T20:28:19.549Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Plain distinctions connected to evidence and a practical reader move.",
+        "Visible limits and a concrete next question."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "private NEWS-002 frozen reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What were the biggest AI developments from August 31 through September 6, and what is actually worth carrying into next week?",
+    "promisedPayoff": "A clear map of the week’s consequential changes and their limits.",
+    "centralMentalModel": "Capability, system boundaries, law, evidence, and incentives change separately and need their own evidence.",
+    "dailyLifeConnection": "Choose what an AI system may access, inspect a shared handoff, and ask what a health or legal headline actually established.",
+    "surfaceJob": "Corrective Weekly, not a future-period recap or a collection of Daily rewrites.",
+    "desiredReaderFeeling": "I can distinguish a meaningful change from a blanket conclusion and choose a better next question."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Each section begins with the concrete reported event and gives ordinary-language scope.",
+      "artifactEvidence": [
+        {
+          "excerpt": "NVIDIA announced an agreement to acquire Hugging Face",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The conclusion gives distinct questions for launches, law, health, and shared/sponsored contexts.",
+      "artifactEvidence": [
+        {
+          "excerpt": "What is actually available for a launch?",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The voice stays direct and avoids an AI-good/AI-bad frame.",
+      "artifactEvidence": [
+        {
+          "excerpt": "NVIDIA announced an agreement",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The varied, ranked events supply momentum without invented drama.",
+      "artifactEvidence": [
+        {
+          "excerpt": "copyright filing",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Claims preserve the stated limits and map to exact source packets.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is an announced acquisition, not a completed transaction.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The exact covered period and source-specific dates are visible.",
+      "artifactEvidence": [
+        {
+          "excerpt": "August 31–September 6",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "This remains a bounded dated roundup rather than a general explainer.",
+      "artifactEvidence": [
+        {
+          "excerpt": "nine developments",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "Each selected development is tied to an August 31–September 6 primary/source date.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 3, NVIDIA announced an agreement",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The article retains transaction, health, legal, and rollout limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those are commitments in NVIDIA’s announcement, not an independently verified future policy.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Readers get concrete model, health, and source-check choices.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Test it on a real multi-step assignment",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The article makes distinctions visible and ends in a better question rather than a slogan.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The next question depends on the story.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The article can explain why the filing is not a ruling.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Statement of Interest is the government’s position, not the court’s decision.",
+          "locator": "review-text.json"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Does a stronger AI model prove it should be allowed to send a work document?",
+        "probeResponse": "No. A stronger model changes capability; the surrounding system determines which files and actions it can reach. Sending should still remain behind human approval unless a bounded, reviewed workflow says otherwise.",
+        "expectedEvidence": "Separates capability from access and approval."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The distinction transfers from advertising to checking the underlying claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A paid placement beside a useful answer is still a paid placement.",
+          "locator": "review-text.json"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A vendor says its assistant has a new model and better health-care predictions. What should a workplace buyer ask?",
+        "probeResponse": "Ask what task changed, which data or actions the system may access, what evidence supports the claimed prediction, and whether using it has demonstrated benefit in the intended setting. A model release and a prediction result are not blanket approval.",
+        "expectedEvidence": "Applies the four-part question outside the article’s named stories."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Actions are specific to the kind of development.",
+      "artifactEvidence": [
+        {
+          "excerpt": "For a launch, ask what is actually available and for which work.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The draft avoids a decorative analogy and uses direct causal distinctions.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The next question depends on the story.",
+          "locator": "review-text.json"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Full read-through found no glossaryAccumulation defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Full read-through found no templateRepetition defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Full read-through found no decorativeAnalogy defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Full read-through found no referenceConfetti defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Full read-through found no missingMechanism defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Full read-through found no genericAction defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Full read-through found no jargonBeforeMeaning defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Full read-through found no disconnectedSystem defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Full read-through found no joylessInstruction defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Full read-through found no purposeTooNarrow defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Full read-through found no mechanismBeforeMotivation defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Full read-through found no workedExampleOvertakesBookPurpose defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Full read-through found no technicalExplainerVoice defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Full read-through found no benchmarkNameDrop defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Full read-through found no communicationPastiche defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Full read-through found no corporateSludge defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Full read-through found no curiosityWithoutPayoff defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Full read-through found no entertainmentBeforeUnderstanding defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Full read-through found no factlessConfidence defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Full read-through found no familiarExampleWithoutTechnicalReturn defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Full read-through found no inflatedTakeawayEnding defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Full read-through found no mechanismCompressedBehindHook defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Full read-through found no prematureClickBeforeMechanism defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Full read-through found no staleUnreviewableClaims defect; the article keeps each term attached to the reported change, limit, and reader consequence.",
+      "artifactLocator": "review-text.json complete Weekly story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "reviewedThrough": "2026-09-06",
+    "nextTrigger": "Recheck every named official, primary, government, medical, and reporting source; confirm the publication date, corrective timing, live destinations, and any new legal or clinical development before independent admission.",
+    "correctionOwner": "NewsStand",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/source-selection-packet.json",
+        "sha256": "2cc37735db411bd32ff6b5b4df4e03653405171372c13669fe40b83b9702a494"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/source-breadth-verification.json",
+        "sha256": "aee2d7bbe751ff94577e5b4c249be614f1861655ad6d21324d0aa0b5b71e363c"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "nvidia",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "NVIDIA announced an agreement to acquire Hugging Face",
+            "locator": "story section"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/source-selection-packet.json",
+          "sha256": "2cc37735db411bd32ff6b5b4df4e03653405171372c13669fe40b83b9702a494"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "nvidia-hugging-face-acquisition-2026-09-03",
+            "locator": "source-selection-packet.json"
+          }
+        ],
+        "scopeAndFreshness": "Bounded to the current source-selection packet. Recheck original source before independent admission or publication."
+      },
+      {
+        "claimId": "astra",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI released GPT-6 Astra",
+            "locator": "story section"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/source-selection-packet.json",
+          "sha256": "2cc37735db411bd32ff6b5b4df4e03653405171372c13669fe40b83b9702a494"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "openai-gpt-6-astra-launch-2026-09-04",
+            "locator": "source-selection-packet.json"
+          }
+        ],
+        "scopeAndFreshness": "Bounded to the current source-selection packet. Recheck original source before independent admission or publication."
+      },
+      {
+        "claimId": "fable",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Anthropic released Claude Fable 5.1",
+            "locator": "story section"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/source-selection-packet.json",
+          "sha256": "2cc37735db411bd32ff6b5b4df4e03653405171372c13669fe40b83b9702a494"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "anthropic-fable-5-1-2026-09-02",
+            "locator": "source-selection-packet.json"
+          }
+        ],
+        "scopeAndFreshness": "Bounded to the current source-selection packet. Recheck original source before independent admission or publication."
+      },
+      {
+        "claimId": "gemini",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Gemini 3.8 Flash became generally available",
+            "locator": "story section"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/source-selection-packet.json",
+          "sha256": "2cc37735db411bd32ff6b5b4df4e03653405171372c13669fe40b83b9702a494"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "google-gemini-3-8-flash-ga-2026-09-02",
+            "locator": "source-selection-packet.json"
+          }
+        ],
+        "scopeAndFreshness": "Bounded to the current source-selection packet. Recheck original source before independent admission or publication."
+      },
+      {
+        "claimId": "law",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "US Department of Justice filed a Statement of Interest",
+            "locator": "story section"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/source-selection-packet.json",
+          "sha256": "2cc37735db411bd32ff6b5b4df4e03653405171372c13669fe40b83b9702a494"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "us-doj-openai-copyright-2026-09-05",
+            "locator": "source-selection-packet.json"
+          }
+        ],
+        "scopeAndFreshness": "Bounded to the current source-selection packet. Recheck original source before independent admission or publication."
+      },
+      {
+        "claimId": "cancer",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Nature Communications paper reported a system",
+            "locator": "story section"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/source-selection-packet.json",
+          "sha256": "2cc37735db411bd32ff6b5b4df4e03653405171372c13669fe40b83b9702a494"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "gastric-cancer-prediction-2026-09-05",
+            "locator": "source-selection-packet.json"
+          }
+        ],
+        "scopeAndFreshness": "Bounded to the current source-selection packet. Recheck original source before independent admission or publication."
+      },
+      {
+        "claimId": "healthcare",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "ChatGPT for Healthcare can connect authorized Epic",
+            "locator": "story section"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/source-selection-packet.json",
+          "sha256": "2cc37735db411bd32ff6b5b4df4e03653405171372c13669fe40b83b9702a494"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "openai-chatgpt-healthcare-connections-2026-09-01",
+            "locator": "source-selection-packet.json"
+          }
+        ],
+        "scopeAndFreshness": "Bounded to the current source-selection packet. Recheck original source before independent admission or publication."
+      },
+      {
+        "claimId": "wiki",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "old editable German-language wiki",
+            "locator": "story section"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/source-selection-packet.json",
+          "sha256": "2cc37735db411bd32ff6b5b4df4e03653405171372c13669fe40b83b9702a494"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "openai-wiki-message-board-2026-09-05",
+            "locator": "source-selection-packet.json"
+          }
+        ],
+        "scopeAndFreshness": "Bounded to the current source-selection packet. Recheck original source before independent admission or publication."
+      },
+      {
+        "claimId": "ads",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI’s August 31 announcement",
+            "locator": "story section"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/source-selection-packet.json",
+          "sha256": "2cc37735db411bd32ff6b5b4df4e03653405171372c13669fe40b83b9702a494"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "chatgpt-ad-expansion-2026-08-31",
+            "locator": "source-selection-packet.json"
+          }
+        ],
+        "scopeAndFreshness": "Bounded to the current source-selection packet. Recheck original source before independent admission or publication."
+      },
+      {
+        "claimId": "meta-muse-spark",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Meta released Muse Spark 1.3",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/source-breadth-verification.json",
+          "sha256": "aee2d7bbe751ff94577e5b4c249be614f1861655ad6d21324d0aa0b5b71e363c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "meta-muse-spark-1-3-2026-09-02",
+            "locator": "source-breadth-verification.json records"
+          }
+        ],
+        "scopeAndFreshness": "Bounded to the September 6 primary-source breadth capture. Recheck original source before independent admission or publication."
+      },
+      {
+        "claimId": "microsoft-mai-transcribe-2",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Microsoft released MAI-Transcribe-2",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/source-breadth-verification.json",
+          "sha256": "aee2d7bbe751ff94577e5b4c249be614f1861655ad6d21324d0aa0b5b71e363c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "microsoft-mai-transcribe-2-2026-09-03",
+            "locator": "source-breadth-verification.json records"
+          }
+        ],
+        "scopeAndFreshness": "Bounded to the September 6 primary-source breadth capture. Recheck original source before independent admission or publication."
+      }
+    ]
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 2,
+    "reviewIssues": 2,
+    "reviewCycles": 2,
+    "priorComparable": {
+      "reviewIssues": 2,
+      "reviewCycles": 1
+    },
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "weekly-correction-20260906-v1",
+    "predecessorRecord": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/predecessors/generic-reporting-date-defect-v1/REJECTION.md",
+    "repairSummary": "The predecessor was rejected for generic reporting and out-of-period source-date classification. This successor reports the concrete changes and excludes the July 30 and August 30 items.",
+    "predecessorEvidenceLimitation": "Exact v1 bytes were overwritten before preservation; the rejection record retains observed hashes and the two root-review issue categories."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Producer full read-through found no new reusable content-quality defect. Independent review remains required and may find current issues."
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/weekly-news-editorial-policy.json",
+    "sha256": "eea2289a3cb562c98e5891be288995186f99d34c50f6da51d0f2b052163e07a0"
+  }
+}

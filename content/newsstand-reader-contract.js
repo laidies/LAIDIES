@@ -15,6 +15,29 @@
     return typeof value === "string" && !isNaN(Date.parse(value));
   }
 
+  function validCalendarDate(value) {
+    if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+    var date = new Date(value + "T12:00:00Z");
+    return !isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
+  }
+
+  function addCalendarDays(date, count) {
+    var value = new Date(date + "T12:00:00Z");
+    value.setUTCDate(value.getUTCDate() + count);
+    return value.toISOString().slice(0, 10);
+  }
+
+  function validCorrectiveWeekly(item) {
+    var corrective = item && item.correctivePublication;
+    if (!validCalendarDate(item && item.editionDate) || !corrective || typeof corrective !== "object" ||
+        Object.keys(corrective).sort().join(",") !== "mode,period,publicationDate" ||
+        corrective.mode !== "MISSED_WEDNESDAY_CURRENT_WEEK" ||
+        corrective.publicationDate !== item.editionDate ||
+        !corrective.period || Object.keys(corrective.period).sort().join(",") !== "endDate,startDate" || corrective.period.endDate !== item.editionDate ||
+        corrective.period.startDate !== addCalendarDays(item.editionDate, -6)) return false;
+    return new Date(item.editionDate + "T12:00:00Z").getUTCDay() === 0;
+  }
+
   function validatePublishedStoryImage(story, label) {
     var errors = [];
     if (story && ["published", "corrected"].indexOf(story.status) !== -1 &&
@@ -53,8 +76,9 @@
             }
           }
           if (edition === "weekly" && item.status === "current") {
-            if (!/^\d{4}-\d{2}-\d{2}$/.test(String(item.editionDate || ""))) errors.push("weekly editionDate is invalid");
-            else if (new Date(item.editionDate + "T12:00:00Z").getUTCDay() !== 3) errors.push("weekly editionDate must be a Wednesday");
+            if (!validCalendarDate(item.editionDate)) errors.push("weekly editionDate is invalid");
+            else if (new Date(item.editionDate + "T12:00:00Z").getUTCDay() !== 3 && !validCorrectiveWeekly(item)) errors.push("weekly editionDate must be a Wednesday or a valid missed-Wednesday correction");
+            else if (new Date(item.editionDate + "T12:00:00Z").getUTCDay() === 3 && item.correctivePublication) errors.push("Wednesday Weekly cannot carry corrective publication metadata");
             if (!item.editorialTimeZone) errors.push("weekly editorialTimeZone is required");
           }
         }

@@ -15972,3 +15972,10 @@ remain unreconciled; cross-chat completeness is not certified.
 - Prevention: Compare requested property in exact artwork/pixels, not adjacent layout improvements. Guard duplicate thumbnail sources, preserve masthead194px, inspect computed text colours and visible edition coverage. Weekly freshness repair remains distinct from visual publication.
 - Evidence: Fouractualrecolours, siximagesindependentlyreviewed, knownbadduplicatetest, desktop/phone and explicitAug19–26period.
 - Behind the Build: Changing something near a problem is not solving the problem. Keep the public lesson general.
+
+## BTB-511 — A Weekly must scout the week, not recycle the available Dailies
+- Date: 2026-09-06
+- Failure: Old Weekly persisted; next-Wednesday preparation skipped the missed current edition. First corrective draft substituted general advice for actual news and classified ingestion dates as announcement dates. Browser catch-up extracted a numbered heading as a sentence.
+- Prevention: Scout beyond published Dailies, bind original dates within the covered period, explain actual changes and scope before advice, and use the reviewed Weekly front summary in derivatives. Strict calendar validation rejects JavaScript date rollover. Current issue quality gates remain mandatory; historical review counts are improvement metrics, not impossible publication arithmetic.
+- Evidence: Independent exact-source review; July/Aug30 exclusions; non-leap-Feb29 rejection; preserved all prior stories; desktop/mobile article and five concrete highlights inspected. Corrective test fixture was decoupled from the changing current pointer.
+- Behind the Build: A neat summary can miss the news if its input list is too narrow. Teach source coverage and original dates without exposing internal implementation.

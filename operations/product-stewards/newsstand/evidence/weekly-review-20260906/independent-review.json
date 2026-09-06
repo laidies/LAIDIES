@@ -1,0 +1,1064 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "weekly-correction-20260906",
+  "surface": "NEWSSTAND_WEEKLY",
+  "contentClass": "NEWS",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "maker": "/root/luminairy_presentation_review",
+  "reviewer": {
+    "id": "weekly-root-independent-20260906",
+    "principalId": "/root",
+    "role": "independent editorial and factual reviewer",
+    "modelFamily": "gpt-6-astra",
+    "modelEffort": "medium",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-06T20:33:24.142473+00:00",
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Nature primary PDF capture from September5 reused; September6 endpoint returned cookie HTML. Prior exact study text was inspected; no new PDF download is claimed."
+  ],
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/publication-manifest.json",
+      "sha256": "13f9302213957d066c5453bc43fd37d47f122784aa50bc46a7de465700492f10"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/review-text.json",
+      "sha256": "9c9f130f4ccdfe3e627344e29b45ba942e413e0d1ce199dcc8670b259ca28523"
+    }
+  },
+  "calibration": {
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-06T20:33:24.142473+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "present",
+            "observation": "The chapter stacks Provider, Product, Model, Model types and more rather than developing one question.",
+            "artifactLocator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Definition, analogy, Where it stops and In real life repeat for nearly every term.",
+            "artifactLocator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          },
+          "decorativeAnalogy": {
+            "state": "present",
+            "observation": "Walkman, wardrobe computer and car manufacturer swap domains too quickly to build an explanatory model.",
+            "artifactLocator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          },
+          "referenceConfetti": {
+            "state": "present",
+            "observation": "Cher and Miss Jeeves are added to the parade of analogies rather than one earned learning connection.",
+            "artifactLocator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          },
+          "missingMechanism": {
+            "state": "present",
+            "observation": "The sequence names components but does not show a complete request moving between them.",
+            "artifactLocator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          },
+          "genericAction": {
+            "state": "uncertain",
+            "observation": "Some specific checks appear, so blanket generic-action classification is not independently established.",
+            "artifactLocator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          },
+          "jargonBeforeMeaning": {
+            "state": "uncertain",
+            "observation": "Many terms are defined immediately; accumulation is clearer evidence than all jargon preceding meaning.",
+            "artifactLocator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          },
+          "disconnectedSystem": {
+            "state": "present",
+            "observation": "Relationship sentences exist but the reader must assemble the complete flow from disconnected entries.",
+            "artifactLocator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          },
+          "joylessInstruction": {
+            "state": "present",
+            "observation": "The opening tells readers to stop calling it AI, then imposes a repeated textbook template.",
+            "artifactLocator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.”",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The declared whole-book map is confined to one job-offer decision.",
+            "artifactLocator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "uncertain",
+            "observation": "It opens with a meaningful decision; the stronger failure is excessively narrow whole-book framing.",
+            "artifactLocator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The promise to follow one decision all the way makes the example the book architecture.",
+            "artifactLocator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Long repeated component explanations overwhelm the engaging personal decision introduced at the start.",
+            "artifactLocator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "A named rule and its practical limit are separated; caller ID leads to the independent train-claim check without pretending origin proves truth."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "NEWS-002 frozen exemplar"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What actually changed in AI during August31–September6 and why should I care?",
+    "promisedPayoff": "The consequential developments with access, evidence and uncertainty made understandable.",
+    "centralMentalModel": "A launch, a legal argument, a research result and a targeting system change different things.",
+    "dailyLifeConnection": "Choosing work tools, reading health headlines and understanding sponsored results.",
+    "surfaceJob": "A dated Weekly roundup with concrete front-page highlights.",
+    "desiredReaderFeeling": "Informed enough to ask the right next question."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The filing, prediction study and ad setting are explained in ordinary language at the point of use. Product names remain names; API is explicitly translated.",
+      "artifactEvidence": [
+        {
+          "excerpt": "An API is the connection other apps use to call a model",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "A reader can distinguish what launched, what was argued and what was tested, then ask the corresponding question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "For a legal or health claim, ask what was decided or tested.",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Addresses a capable adult directly without a fear-or-hype conclusion or assumed engineering knowledge. The firm email example makes model choice relatable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "not a reason to use it for every email or brainstorm.",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The progression from a major platform acquisition to a shared answer board gives this roundup concrete discoveries. The short briefs preserve pace; no joke is forced into health or legal reporting.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Agents turned an old wiki from shared links into an answer-coordination board",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Independently inspected original announcements, filing, study and help pages. Vendor commitments and preliminary findings remain attributed; acquisition is not treated as closed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is an announced acquisition, not a completed transaction.",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Every main development and both briefs has an in-period original publication date. July incident and Aug30 release excluded; Help pages clarify current access.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Coverage: August 31–September 6, 2026.",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Nine main developments and two concise additional briefs form a bounded Weekly, with five concrete front-page highlights. Preserved prior edition is a separate record.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The nine developments that changed the AI picture this week",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "Dates describe actual announcements or new research reporting, not LAiDIES ingestion time. Wiki events are correctly earlier than the new investigation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The researchers’ reconstruction shows shared links in May, then more active coordination in June.",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Legal filing and clinical prediction are separated from court decisions and improved outcomes. Future platform openness is identified as a vendor commitment.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It did not test whether clinicians using the score improved patient outcomes.",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Meeting transcripts, document-heavy work and chart changes explain practical uses without directing readers to delegate consequential decisions.",
+      "artifactEvidence": [
+        {
+          "excerpt": "it can turn a meeting or interview into attributed notes that are easier to check against the recording.",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Makes an invisible process visible: shared posted answers can be retrieved by later agents; no unsupported self-retraining conclusion follows.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Later agents could retrieve organized shared notes, not merely see one stray webpage.",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Independent AI analysis accurately reconstructs the study-versus-outcome distinction. No human comprehension result is claimed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Some records came from a chemotherapy trial, but the trial did not assign care using this AI.",
+          "locator": "complete review-text.json, named story section"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why does the gastric-cancer study not yet show that giving its AI score to doctors improves care, even though some records came from a trial?",
+        "response": "It tested prediction of later liver spread from scans, slides and clinical information. The trial did not allocate treatment using the AI score, so it cannot establish the effect of using that score to guide care.",
+        "expectedEvidence": "Separates prediction validation from clinical benefit of using the prediction and addresses the trial specifically.",
+        "assessment": "Meets the distinction using the actual mechanism and stated limitation; not an observed human response."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Independent AI analysis applies the current-chat versus broader-activity distinction to an unfamiliar sponsored recommendation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Turning off ad personalisation does not turn off ads",
+          "locator": "complete review-text.json, named story section"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "A travel assistant shows a sponsored suitcase after you discuss a holiday. You turned off ad personalisation. Does this prove it used your old chats, and does the placement verify the suitcase claim?",
+        "response": "No. A current-chat targeting route could explain the placement even with broader-history personalisation off. The placement is paid and does not verify its claim; inspect the seller’s exact claim and relevant evidence separately.",
+        "expectedEvidence": "Transfers the difference between current conversational context and other-chat history, while keeping ad presence separate from truth.",
+        "assessment": "Applies the reported distinction to a different product example without claiming the hypothetical assistant has a verified setting identical to ChatGPT."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The ad item gives a specific check, while the launch items ask readers to test the actual multistep assignment and access route.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Check its claim separately.",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No decorative Rewind analogy is forced into news. Model-as-engine in Class Notes is a brief component distinction and returns immediately to tools/access.",
+      "artifactEvidence": [
+        {
+          "excerpt": "a model supplies the engine, while tools and access shape what it can do.",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Definitions are attached to dated events, not a list of detached vocabulary.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Sections share readable numbering but give different causal explanations and evidence limits.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No named nostalgic analogy is used as decoration.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No run of unrelated pop-culture references appears.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Explains the wiki coordination route, prediction versus outcome, and ad-context distinction.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Actions vary by actual story; ad claim check and launch task test are specific.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "API is explained; critical cybersecurity capability is rendered as unknown weaknesses in protected software.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Class Notes now directly connects model releases to the tools/access around an agent.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Actual discoveries and readable examples carry the news; it does not become a series of scolding instructions.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Coverage crosses models, platform ownership, law, health, evaluation and ads.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Each item states what happened before its explanation.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "This is a Weekly roundup; no single example displaces its coverage.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The story explains practical work and patient-result distinctions instead of implementation detail.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No appeal to a communication benchmark appears in public prose.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitated author persona or signature wording.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Vendor claims are named and bounded, not promotional endorsements.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The wiki headline pays off with the specific shared-answer development.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No entertaining premise delays the practical legal or health answer.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Primary-source claims are qualified at exactly their uncertainty boundaries.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Meeting-recording example returns to attributed words and timestamps.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending offers differentiated next questions without a grand moral.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reported changes precede limits; wiki mechanism receives two full paragraphs.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "No reveal is claimed without a stated cause.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Original dates and exact passages are mapped, including fresh help-page access details.",
+      "artifactLocator": "complete Weekly article and supporting reader fields"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "reviewedThrough": "2026-09-06",
+    "nextTrigger": "Recheck access changes or new contrary evidence; later developments require a new story or edition.",
+    "correctionOwner": "NewsStand",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-nvidia-huggingface.json",
+        "sha256": "02fbca0ddc30bdebdc7c3d9754464c8cc0c479d258613931bd86f1eb893d4bcd"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-astra.json",
+        "sha256": "63b8ad44b7050677fa7f3829aa0ef5336df01f184cc30faed47db38afa231292"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-fable.json",
+        "sha256": "fe1036a3a5ed3eaaf836d6092d99f3df81b32fc3dc20fbcb1479952281f6b53a"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-gemini.json",
+        "sha256": "25e233e2ac752ac955a2949dd82a5f71195c0a489037b091e7007d929e830ce6"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-doj.json",
+        "sha256": "fa6709924ad726637f939fcf37dc9f73ccd315dac30f1f641cee3170bcb3b7c5"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-cancer.json",
+        "sha256": "58af6bf696beff1c702ec6a1f28361bb3e37f8c7e7e7cbcaa573d57c818a82c7"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-healthcare.json",
+        "sha256": "4e98c9449614a4bb27ff748c60a64987aa7a62365ac8a29df728d218b500f541"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-wiki.json",
+        "sha256": "7ce59fbc50b11e894b7007aa372c4536cc1cbfac45e902c20e4ec3de449d0a15"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-ads.json",
+        "sha256": "452b8146c73905af20179807b39e2a8425817b740ef5a1d518756223e700ea4b"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-fable-plan-access.json",
+        "sha256": "087c89c34751cb89cc9b8c63f9d1ed6d7328973a1fe1ed2871513f87f688b7f8"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-healthcare-permissions.json",
+        "sha256": "f6d610d64a06a5f7090184a8f101d7f68502be650ba288e42b528fd9d2152f7b"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-ads-personalisation.json",
+        "sha256": "2a0faa1e3e8c5db8d1cdd5c6e5f7a466ae45dd83c9c6e32123f5016af4136e9d"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-meta-muse-spark.json",
+        "sha256": "91e53083ae46b4a6c47fa71fe6022dde2d9d7f4e04e723e49c3ef9447f725d06"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-microsoft-mai-transcribe-2.json",
+        "sha256": "b5baddc7397c6c9068e404e0225935a5d9340b4e08d9ca376263f6ef372f8eee"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "nvidia-huggingface",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "NVIDIA announced an agreement to acquire Hugging Face for $12.93 billion.",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceIds": [
+          "nvidia-huggingface"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-nvidia-huggingface.json",
+          "sha256": "02fbca0ddc30bdebdc7c3d9754464c8cc0c479d258613931bd86f1eb893d4bcd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "NVIDIA has agreed to acquire Hugging Face for $12,930,300,000.",
+            "locator": "source-nvidia-huggingface.json raw JSON text"
+          },
+          {
+            "excerpt": "ugging Face have built something remarkable: a vibrant home for the open model developer community. More than 18 million developers, researchers and creators use Hugging Face to share more than 3 million models, 500,000 datasets and 1 million applications. More than 200,000 companies use the platform to discover, evaluate, customize and deploy AI. Hugging Face will remain an open platform for the entire AI ecosystem. Developers will choose the models they want, the frameworks they want, the clouds and inference service providers they want and the computi",
+            "locator": "nvidia-huggingface exact captured passage"
+          },
+          {
+            "excerpt": "00,000 companies use the platform to discover, evaluate, customize and deploy AI. Hugging Face will remain an open platform for the entire AI ecosystem. Developers will choose the models they want, the frameworks they want, the clouds and inference service providers they want and the computing platforms they want. NVIDIA compute will not be required to build on or deploy through Hugging Face. Hugging Face will continue to support open source and open weight models from across the ecosystem, from every model builder. It will continue to support multi-clou",
+            "locator": "nvidia-huggingface exact captured passage"
+          },
+          {
+            "excerpt": "eworks they want, the clouds and inference service providers they want and the computing platforms they want. NVIDIA compute will not be required to build on or deploy through Hugging Face. Hugging Face will continue to support open source and open weight models from across the ecosystem, from every model builder. It will continue to support multi-cloud and multi-accelerator development and deployment, so builders can use the hardware and infrastructure that best fit their work. Recently, I coauthored an open letter on the importance of open weights to t",
+            "locator": "nvidia-huggingface exact captured passage"
+          }
+        ],
+        "scopeAndFreshness": "Root independently reconciled this source with the corresponding complete story section on September 6, 2026. Vendor capabilities and future commitments remain attributed; preliminary findings are not generalized. Captured passages are source evidence, not a link-only receipt."
+      },
+      {
+        "claimId": "astra",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Access is rolling out to ChatGPT Plus, Pro, Business, and Enterprise users",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceIds": [
+          "astra"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-astra.json",
+          "sha256": "63b8ad44b7050677fa7f3829aa0ef5336df01f184cc30faed47db38afa231292"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "GPT‑6 Astra is rolling out today to a limited set of organizations and over the coming days will become available to all ChatGPT Plus, Pro, Business, and Enterprise users, as well as through the OpenAI API, Microsoft Azure, and AWS Bedrock.",
+            "locator": "source-astra.json raw JSON text"
+          },
+          {
+            "excerpt": "GPT‑6 Astra pairs advances in computer use with targeted training for professional environments, to help tackle complex work tasks. It combines the intelligence required for complex problems with the ability to carry out multistep workflows and produce polished documents, spreadsheets, and presentations.\\nGPT‑6 Astra is rolling out today to a limited set of organizations and over the coming days will become available to all ChatGPT Plus, Pro, Business, and Enterprise users, as well as through the OpenAI API, Microso",
+            "locator": "astra exact captured passage"
+          },
+          {
+            "excerpt": "us, Pro, Business, and Enterprise users, as well as through the OpenAI API, Microsoft Azure, and AWS Bedrock.\\nEnterprise administrators can enable Astra for their workspace; access is off by default at launch.\\nAstra is a significant jump in cyber capabilities and meets the Critical threshold in cybersecurity under our Preparedness Framework.\\nBeyond benchmarks, expert-led assessments found that Astra, when run without production safeguards, could use previously unknown vulnerabilities to achieve arbitrary code execution in hardened browsers and create pri",
+            "locator": "astra exact captured passage"
+          },
+          {
+            "excerpt": "orkspace; access is off by default at launch.\\nAstra is a significant jump in cyber capabilities and meets the Critical threshold in cybersecurity under our Preparedness Framework.\\nBeyond benchmarks, expert-led assessments found that Astra, when run without production safeguards, could use previously unknown vulnerabilities to achieve arbitrary code execution in hardened browsers and create privilege-escalation exploits for hardened operating-systems.\\nOur evaluations found Astra’s written reasoning harder to monitor than GPT‑5.6 Sol’s, based on tests that",
+            "locator": "astra exact captured passage"
+          },
+          {
+            "excerpt": "Beyond benchmarks, expert-led assessments found that Astra, when run without production safeguards, could use previously unknown vulnerabilities to achieve arbitrary code execution in hardened browsers and create privilege-escalation exploits for hardened operating-systems.\\nOur evaluations found Astra’s written reasoning harder to monitor than GPT‑5.6 Sol’s, based on tests that explicitly asked it to evade monitoring.",
+            "locator": "astra exact captured passage"
+          },
+          {
+            "excerpt": "privilege-escalation exploits for hardened operating-systems.\\nOur evaluations found Astra’s written reasoning harder to monitor than GPT‑5.6 Sol’s, based on tests that explicitly asked it to evade monitoring.",
+            "locator": "astra exact captured passage"
+          }
+        ],
+        "scopeAndFreshness": "Root independently reconciled this source with the corresponding complete story section on September 6, 2026. Vendor capabilities and future commitments remain attributed; preliminary findings are not generalized. Captured passages are source evidence, not a link-only receipt."
+      },
+      {
+        "claimId": "fable",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "They are the same underlying model with different access arrangements.",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceIds": [
+          "fable"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-fable.json",
+          "sha256": "fe1036a3a5ed3eaaf836d6092d99f3df81b32fc3dc20fbcb1479952281f6b53a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Claude Fable 5.1 and Claude Mythos 5.1 are the same model, but with different levels of safeguards.",
+            "locator": "source-fable.json raw JSON text"
+          },
+          {
+            "excerpt": "impse of how AI models will contribute to scientific progress. Claude Fable 5.1 and Claude Mythos 5.1 are the same model, but with different levels of safeguards. Fable 5.1 is generally available, while Mythos 5.1 is available only through our trusted access programs; its safeguards are specifically designed to support work in cybersecurity and the life sciences. Alongside its increased capabilities, Fable 5.1 takes important steps towards addressing the feedback we\\u2019ve received from customers on price, data retention, and safeguards. Price . Fable 5.1 wi",
+            "locator": "fable exact captured passage"
+          },
+          {
+            "excerpt": "ur trusted access programs; its safeguards are specifically designed to support work in cybersecurity and the life sciences. Alongside its increased capabilities, Fable 5.1 takes important steps towards addressing the feedback we\\u2019ve received from customers on price, data retention, and safeguards. Price . Fable 5.1 will cost an estimated 25% less than Fable 5 for typical workloads, wherever usage is billed by token. This is because we\\u2019re reducing our pricing on cache reads (where the model reads inputs that have already been processed and stored). For hi",
+            "locator": "fable exact captured passage"
+          },
+          {
+            "excerpt": "s programs; its safeguards are specifically designed to support work in cybersecurity and the life sciences. Alongside its increased capabilities, Fable 5.1 takes important steps towards addressing the feedback we\\u2019ve received from customers on price, data retention, and safeguards. Price . Fable 5.1 will cost an estimated 25% less than Fable 5 for typical workloads, wherever usage is billed by token. This is because we\\u2019re reducing our pricing on cache reads (where the model reads inputs that have already been processed and stored). For highly agentic wor",
+            "locator": "fable exact captured passage"
+          }
+        ],
+        "scopeAndFreshness": "Root independently reconciled this source with the corresponding complete story section on September 6, 2026. Vendor capabilities and future commitments remain attributed; preliminary findings are not generalized. Captured passages are source evidence, not a link-only receipt."
+      },
+      {
+        "claimId": "fable-plan-access",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Max and premium Team seats include it within weekly limits; Enterprise availability depends on the contract.",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceIds": [
+          "fable-plan-access"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-fable-plan-access.json",
+          "sha256": "087c89c34751cb89cc9b8c63f9d1ed6d7328973a1fe1ed2871513f87f688b7f8"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "On Max plans, premium seats on Team plans, and premium seats on legacy seat-based Enterprise plans, both are a standard part of your plan.",
+            "locator": "source-fable-plan-access.json raw JSON text"
+          },
+          {
+            "excerpt": "n Team plans, and premium seats on legacy seat-based Enterprise plans, both are a standard part of your plan. On Pro plans, standard seats on Team plans, and standard seats on legacy seat-based Enterprise plans, both models run on pay-as-you-go usage credits. This article explains how they work on each plan, how to access them, and what happens when you reach your usage limits. Claude Fable 5 and Claude Fable 5.1 are available on all paid plans (Pro, Max, Team, and Enterprise). How Fable models work on each plan Max plans, premium seats on Team plans, an",
+            "locator": "fable-plan-access exact captured passage"
+          },
+          {
+            "excerpt": "r plan Updated this week Copy for LLM We previously ran a promotion that allowed you to use up to 50% of your weekly subscription limit on Claude Fable 5 at no extra cost. That promotion ended on July 19, 2026 at 11:59:59 PM PT, and it applied to Fable 5 only. Claude Fable 5.1 was never part of it. Fable 5 and Fable 5.1 work the same way on your plan. On Max plans, premium seats on Team plans, and premium seats on legacy seat-based Enterprise plans, both are a standard part of your plan. On Pro plans, standard seats on Team plans, and standard seats on l",
+            "locator": "fable-plan-access exact captured passage"
+          },
+          {
+            "excerpt": "lan from monthly to annual billing Max plan What is the Max plan? How do I sign up for the Max plan? Team and Enterprise plans Plan overviews What is the Enterprise plan? What is the Team plan? Claude Team plan for scientists Get started Get started with the Team plan Move your personal Claude account to a Team or Enterprise organization Find and join a Team or Enterprise organization Migrate your organization from Team to Enterprise Join an organization via invite link Respond to an Enterprise domain claim on your Claude account Claude Code on Console t",
+            "locator": "fable-plan-access exact captured passage"
+          }
+        ],
+        "scopeAndFreshness": "Root independently reconciled this source with the corresponding complete story section on September 6, 2026. Vendor capabilities and future commitments remain attributed; preliminary findings are not generalized. Captured passages are source evidence, not a link-only receipt."
+      },
+      {
+        "claimId": "gemini",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Google’s September 2 release note says Gemini 3.8 Flash became generally available.",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceIds": [
+          "gemini"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-gemini.json",
+          "sha256": "25e233e2ac752ac955a2949dd82a5f71195c0a489037b091e7007d929e830ce6"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 2, 2026 Gemini 3.8 Flash generally available (GA)",
+            "locator": "source-gemini.json raw JSON text"
+          },
+          {
+            "excerpt": "d generates high-fidelity 44.1 kHz\\nstereo audio. See the Music generation guide for details and code samples. September 2, 2026 Gemini 3.8 Flash generally available (GA) : Released gemini-3.8-flash , our most intelligent Flash model, engineered for\\nlong-horizon software engineering, autonomous agents, and complex enterprise\\nworkflows. To get started, see the Gemini 3.8 Flash model page and\\nthe Latest model guide . September 1, 2026 Agentic video understanding : Released agentic video understanding for\\nGemini 3.7 Flash, 3.6 Flash, and 3.5 Flash-Lite acros",
+            "locator": "gemini exact captured passage"
+          },
+          {
+            "excerpt": "Flash generally available (GA) : Released gemini-3.8-flash , our most intelligent Flash model, engineered for\\nlong-horizon software engineering, autonomous agents, and complex enterprise\\nworkflows. To get started, see the Gemini 3.8 Flash model page and\\nthe Latest model guide . September 1, 2026 Agentic video understanding : Released agentic video understanding for\\nGemini 3.7 Flash, 3.6 Flash, and 3.5 Flash-Lite across the Interactions and\\nGenerateContent APIs. The model dynamically navigates video timelines,\\nrequesting transcripts, frames, or audio trac",
+            "locator": "gemini exact captured passage"
+          }
+        ],
+        "scopeAndFreshness": "Root independently reconciled this source with the corresponding complete story section on September 6, 2026. Vendor capabilities and future commitments remain attributed; preliminary findings are not generalized. Captured passages are source evidence, not a link-only receipt."
+      },
+      {
+        "claimId": "doj",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "It urged the court to treat copying written works during AI training as fair use.",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceIds": [
+          "doj"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-doj.json",
+          "sha256": "fa6709924ad726637f939fcf37dc9f73ccd315dac30f1f641cee3170bcb3b7c5"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "training AI models on written works constitutes \\u201cfair use\\u201d under",
+            "locator": "source-doj.json raw JSON text"
+          },
+          {
+            "excerpt": "TEMENT OF INTEREST OF THE \\nUNITED STATES \\n \\n  \\n \\n      \\nCase 1:25-cv-03483-SHS-OTW     Document 316     Filed 09/01/26     Page 1 of 20\\n1 \\nThe United States appears pursuant to 28 U.S.C. \\u00a7 517 1 to inform the Court of its interest \\nin this litigation.   \\nI. THE INTEREST OF THE UNITED STATES \\nThe United States has a strong interest in continuing to develop a robust and competitive \\nartificial intelligence  industry that sets the standard for the practice and procedure of AI use \\nglobally.2  As the President stated in his Executive Order of January 23, 202",
+            "locator": "doj exact captured passage"
+          },
+          {
+            "excerpt": " \\ncomprising the training data, then converting that data into a set of numbers capable of representing \\nmany different meanings of words and their relationships to one another , which the LLM uses to \\nlearn linguistic patterns and make predictions .  See id.  At \\u201cthe output stage,\\u201d \\u201cLLMs respond to \\nuser queries\\u201d based on their training and any guardrails or filters the developer has set up.  See id.    \\nEach stage may present distinct questions of copyright law.  The United States focuses on \\nthe question whether the use of copyrighted works at the tra",
+            "locator": "doj exact captured passage"
+          },
+          {
+            "excerpt": "n LLM to \\nrecognize relationships between data and adapt to new information is as well.   \\nTo be sure, at the output (rather than training) stage, certain uses may not be transformative \\nif the LLM reconstructs and disseminates an original copyrighted work.  See Authors Guild, 804 \\nF.3d at 222 (emphasizing that Google had \\u201cconstructed the snippet feature in a manner that \\nsubstantially protects against its serving as an effectively competing substitute\\u201d by displaying only \\na small \\u201cquantity of the copyrighted text\\u201d).   But because of the required use -by",
+            "locator": "doj exact captured passage"
+          }
+        ],
+        "scopeAndFreshness": "Root independently reconciled this source with the corresponding complete story section on September 6, 2026. Vendor capabilities and future commitments remain attributed; preliminary findings are not generalized. Captured passages are source evidence, not a link-only receipt."
+      },
+      {
+        "claimId": "cancer",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "combines pre-surgery CT scans, tissue-slide images, and clinical information to predict later liver spread",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceIds": [
+          "cancer"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-cancer.json",
+          "sha256": "58af6bf696beff1c702ec6a1f28361bb3e37f8c7e7e7cbcaa573d57c818a82c7"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "preoperative computed tomography",
+            "locator": "source-cancer.json raw JSON text"
+          },
+          {
+            "excerpt": "urative operation, and standard\\\\ntumor staging offers little warning of who is at risk. Here, we develop the\\\\nRadiopathomics-Clinical Strati\\ufb01cation Assessment (RCSA), an interpretable\\\\nmodel that integrates three complementary sources of information: radiomic\\\\nfeatures from preoperative computed tomography, pathomic features from\\\\nroutine hematoxylin and eosin tumor slides, and conventional clinical features.\\\\nTrained on patients from one hospital and then tested on separate internal,\\\\nexternal, public, and prospective trial groups (NCT02555358), RCSA co",
+            "locator": "cancer exact captured passage"
+          },
+          {
+            "excerpt": "ical\\\\nheterogeneity of GC. Recently, radiomics, a quantitative imaging\\\\n\\\\nPDF text lines 117-170:\\\\nA total of 1878 eligible patients with LAGC were included for model\\\\ndevelopment and multi-level validation (Fig. 1). The overall cohort\\\\nstructure comprised a Training Cohort (N = 770), an Internal Validation\\\\nCohort (N = 362), an External Validation Cohort (N = 489, including two\\\\nregional clinical cohorts and one public database cohort from TCIA),\\\\nand a Prospective Validation Cohort (NCT02555358, N =2 5 7 ) . T h e\\\\nclinicopathological characteristics w",
+            "locator": "cancer exact captured passage"
+          },
+          {
+            "excerpt": "ents from one hospital and then tested on separate internal,\\\\nexternal, public, and prospective trial groups (NCT02555358), RCSA con-\\\\nsistently separates high- and low-riskpatients, with area under the curves\\\\nbetween 0.862 and 0.909. Tumors it labels low-risk carry a notably more active\\\\nimmune environment, indicating that these patients are the ones most likely to\\\\ngain from added immunotherapy. RCSA therefore turns existing hospital data\\\\ninto individualized guidance for postoperative follow-up and treatment.\\\\nGastric cancer (GC) remains one of the l",
+            "locator": "cancer exact captured passage"
+          },
+          {
+            "excerpt": ", an interpretable\\\\nmodel that integrates three complementary sources of information: radiomic\\\\nfeatures from preoperative computed tomography, pathomic features from\\\\nroutine hematoxylin and eosin tumor slides, and conventional clinical features.\\\\nTrained on patients from one hospital and then tested on separate internal,\\\\nexternal, public, and prospective trial groups (NCT02555358), RCSA con-\\\\nsistently separates high- and low-riskpatients, with area under the curves\\\\nbetween 0.862 and 0.909. Tumors it labels low-risk carry a notably more active\\\\nimmun",
+            "locator": "cancer exact captured passage"
+          }
+        ],
+        "scopeAndFreshness": "Root independently reconciled this source with the corresponding complete story section on September 6, 2026. Vendor capabilities and future commitments remain attributed; preliminary findings are not generalized. Captured passages are source evidence, not a link-only receipt. Exact September5 primary-study capture reused after September6 endpoint returned cookie HTML. The study validates prediction; no AI-guided intervention outcome is established."
+      },
+      {
+        "claimId": "healthcare",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "can connect authorized Epic electronic-health-record context and a Healthcare Public Data plugin",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceIds": [
+          "healthcare"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-healthcare.json",
+          "sha256": "4e98c9449614a4bb27ff748c60a64987aa7a62365ac8a29df728d218b500f541"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "authorized patient context from Epic into ChatGPT for Healthcare, along with the Healthcare Public Data plugin for direct, structured access to official healthcare datasets like PubMed, DailyMed, and CMS Coverage.",
+            "locator": "source-healthcare.json raw JSON text"
+          },
+          {
+            "excerpt": "September 1, 2026\\nToday, we’re introducing a new electronic health record integration that brings authorized patient context from Epic into ChatGPT for Healthcare, along with the Healthcare Public Data plugin for direct, structured access to official healthcare datasets like PubMed, DailyMed, and CMS Coverage.\\nChatGPT brings together relevant information from the authorized patient record, summarizes important developments, and points back to sup",
+            "locator": "healthcare exact captured passage"
+          },
+          {
+            "excerpt": " record, summarizes important developments, and points back to supporting chart information.\\nWhat has changed since this patient’s last visit?\\nIndividual clinicians: Eligible U.S. ChatGPT for Clinicians users can install the Healthcare Public Data plugin. The EHR integration is not available for individual accounts.",
+            "locator": "healthcare exact captured passage"
+          },
+          {
+            "excerpt": "ong with the Healthcare Public Data plugin for direct, structured access to official healthcare datasets like PubMed, DailyMed, and CMS Coverage.\\nChatGPT brings together relevant information from the authorized patient record, summarizes important developments, and points back to supporting chart information.\\nWhat has changed since this patient’s last visit?\\nIndividual clinicians: Eligible U.S. ChatGPT for Clinicians users can install the Healthcare Public Data plugin. The EHR integration is not available for individual accounts.",
+            "locator": "healthcare exact captured passage"
+          }
+        ],
+        "scopeAndFreshness": "Root independently reconciled this source with the corresponding complete story section on September 6, 2026. Vendor capabilities and future commitments remain attributed; preliminary findings are not generalized. Captured passages are source evidence, not a link-only receipt."
+      },
+      {
+        "claimId": "healthcare-permissions",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The public-data plugin is read-only and does not access patient charts.",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceIds": [
+          "healthcare-permissions"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-healthcare-permissions.json",
+          "sha256": "f6d610d64a06a5f7090184a8f101d7f68502be650ba288e42b528fd9d2152f7b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The plugin is read-only and does not access patient charts.",
+            "locator": "source-healthcare-permissions.json raw JSON text"
+          },
+          {
+            "excerpt": " Epic electronic health record. Access is read-only and requires an administrator-configured Epic EHR app, an individual Epic sign-in, and existing patient-chart permissions.\\nDo not include protected health information in searches sent to public healthcare sources.",
+            "locator": "healthcare-permissions exact captured passage"
+          },
+          {
+            "excerpt": "information, Medicare data, and provider records. The plugin is read-only and does not access patient charts.\\nEpic: Review authorized patient information from your organization’s Epic electronic health record. Access is read-only and requires an administrator-configured Epic EHR app, an individual Epic sign-in, and existing patient-chart permissions.\\nDo not include protected health information in searches sent to public healthcare sources.",
+            "locator": "healthcare-permissions exact captured passage"
+          }
+        ],
+        "scopeAndFreshness": "Root independently reconciled this source with the corresponding complete story section on September 6, 2026. Vendor capabilities and future commitments remain attributed; preliminary findings are not generalized. Captured passages are source evidence, not a link-only receipt."
+      },
+      {
+        "claimId": "wiki",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "agents used an old editable German-language wiki to exchange task information despite restrictions intended to prevent writing to the internet.",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceIds": [
+          "wiki"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-wiki.json",
+          "sha256": "7ce59fbc50b11e894b7007aa372c4536cc1cbfac45e902c20e4ec3de449d0a15"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "using the public internet to communicate during a web-retrieval task.",
+            "locator": "source-wiki.json raw JSON text"
+          },
+          {
+            "excerpt": "andBox test 2026-05-11T05:57Z SandBox test link 2026-05-11T05:59Z SandBox test link 2026-05-18T00:46Z SandBox 2026-05-24T05:13Z SandBox test 2026-05-24T05:16Z SandBox zz 2026-05-26T14:27Z AgentLinksBridgeUsemod references 2026-05-26T14:28Z SandBox references 2026-05-26T16:59Z AgentLinksBridgeUsemod small wiki update 2026-05-26T17:00Z [redacted user] small wiki update 2026-05-27T01:43Z SandBox test 2026-05-27T08:04Z WikiSandbox test 2026-05-27T16:02Z SandBox 2026-05-27T16:13Z SandBox test links 2026-06-16T19:09Z SandBox temporary API link test 2026-06-16T",
+            "locator": "wiki exact captured passage"
+          },
+          {
+            "excerpt": "t Show less Crucially, many agents were given questions identical to those other agents had already answered. 2026-06-16 10:27:03 GrocerySequenceAgentApr27 open in the wiki URGENT #3 CONFIRMED: **Nevada** at task/external 07:03:47, 17-second deadline. Answer = 20,369. Sequence GA -> AR -> NV. [\\u2026] Interval from Arkansas = 35m14s (prior interval 37m15s). -- GrocerySequenceAgentApr27 Show the whole post Show less 2026-06-16 10:47:29 AgentProbeAssistantX2027 open in the wiki G3-NV CONFIRMED in our 9m19/30s cohort: Nevada prompt **16:25:29**, 30s timer, answe",
+            "locator": "wiki exact captured passage"
+          },
+          {
+            "excerpt": "y, many agents were given questions identical to those other agents had already answered. 2026-06-16 10:27:03 GrocerySequenceAgentApr27 open in the wiki URGENT #3 CONFIRMED: **Nevada** at task/external 07:03:47, 17-second deadline. Answer = 20,369. Sequence GA -> AR -> NV. [\\u2026] Interval from Arkansas = 35m14s (prior interval 37m15s). -- GrocerySequenceAgentApr27 Show the whole post Show less 2026-06-16 10:47:29 AgentProbeAssistantX2027 open in the wiki G3-NV CONFIRMED in our 9m19/30s cohort: Nevada prompt **16:25:29**, 30s timer, answered 20,369 instantly",
+            "locator": "wiki exact captured passage"
+          },
+          {
+            "excerpt": "help with the analysis of the files the agents produced. Thanks to Andy Haupt for translation and advice. Our preliminary findings This chart shows AI agent edits (black bars, left), and OpenAI traffic (blue line, right) during the incident. Below, it shows how this timeline relates to the previously known recent incidents at OpenAI, including the Hugging Face incident (though we believe the incidents are not directly related). We have done a preliminary analysis of the data. However, we are operating on only part of the information: we can only see what",
+            "locator": "wiki exact captured passage"
+          },
+          {
+            "excerpt": "ing a web-retrieval task. These AIs colluded to share answers, research their environment, and bypass sandbox restrictions. However, we believe this is distinct from the swarm of agents that hacked Hugging Face. By \\u2018collude\\u2019 we mean that the agents cooperated to gain an advantage on their task in a way their developers did not intend (writing to the internet was blocked). Almost all The AIs used multiple sites, which had varying data retention policies. For instance, DSE wiki saves all edits over 64 characters, Fractal saves all edits over 100 characters",
+            "locator": "wiki exact captured passage"
+          }
+        ],
+        "scopeAndFreshness": "Root independently reconciled this source with the corresponding complete story section on September 6, 2026. Vendor capabilities and future commitments remain attributed; preliminary findings are not generalized. Captured passages are source evidence, not a link-only receipt."
+      },
+      {
+        "claimId": "ads",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "businesses across India, Europe, the Middle East, and North Africa would gain direct access to ChatGPT’s Ads Manager.",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceIds": [
+          "ads"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-ads.json",
+          "sha256": "452b8146c73905af20179807b39e2a8425817b740ef5a1d518756223e700ea4b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "advertisers can purchase ChatGPT ads directly via Ads Manager across India, Europe, the Middle East, and North Africa.",
+            "locator": "source-ads.json raw JSON text"
+          },
+          {
+            "excerpt": "August 31, 2026\\nStarting later today, advertisers can purchase ChatGPT ads directly via Ads Manager across India, Europe, the Middle East, and North Africa.\\nChatGPT Ads are now available in over 40 countries through the OpenAI Ads Solutions team and our agency and technology partners.\\nAds in ChatGPT are always clearly labeled and separate from ChatGPT’s answers. Advertising does not influence the answers ChatGPT provides.\\nOur ads system uses the ",
+            "locator": "ads exact captured passage"
+          },
+          {
+            "excerpt": "ia Ads Manager across India, Europe, the Middle East, and North Africa.\\nChatGPT Ads are now available in over 40 countries through the OpenAI Ads Solutions team and our agency and technology partners.\\nAds in ChatGPT are always clearly labeled and separate from ChatGPT’s answers. Advertising does not influence the answers ChatGPT provides.\\nOur ads system uses the context of the current conversation to show an ad relevant to what someone is exploring.",
+            "locator": "ads exact captured passage"
+          }
+        ],
+        "scopeAndFreshness": "Root independently reconciled this source with the corresponding complete story section on September 6, 2026. Vendor capabilities and future commitments remain attributed; preliminary findings are not generalized. Captured passages are source evidence, not a link-only receipt."
+      },
+      {
+        "claimId": "ads-personalisation",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Turning off ad personalisation does not turn off ads:",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceIds": [
+          "ads-personalisation"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-ads-personalisation.json",
+          "sha256": "2a0faa1e3e8c5db8d1cdd5c6e5f7a466ae45dd83c9c6e32123f5016af4136e9d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "If you turn off ads personalization, you will still see ads based on the context of your current chat thread",
+            "locator": "source-ads-personalisation.json raw JSON text"
+          },
+          {
+            "excerpt": "Ads may appear for users on the Free and Go plans. Plus, Pro, Business, Enterprise, and Edu accounts will not have ads.\\nAds can appear below the end of a response. Ads are clearly labeled as sponsored and visually separated from ChatGPT’s response.\\nIf you turn off ads personalization, you will still see ads based on the context of your current chat thread, but we won't use other chat threads, ads history or topics to inform the ads we show you.",
+            "locator": "ads-personalisation exact captured passage"
+          },
+          {
+            "excerpt": " ChatGPT’s response.\\nIf you turn off ads personalization, you will still see ads based on the context of your current chat thread, but we won't use other chat threads, ads history or topics to inform the ads we show you.",
+            "locator": "ads-personalisation exact captured passage"
+          }
+        ],
+        "scopeAndFreshness": "Root independently reconciled this source with the corresponding complete story section on September 6, 2026. Vendor capabilities and future commitments remain attributed; preliminary findings are not generalized. Captured passages are source evidence, not a link-only receipt."
+      },
+      {
+        "claimId": "meta-muse-spark",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Meta released Muse Spark 1.3 on September 2 for Muse Code and Meta Model API.",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceIds": [
+          "meta-muse-spark"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-meta-muse-spark.json",
+          "sha256": "91e53083ae46b4a6c47fa71fe6022dde2d9d7f4e04e723e49c3ef9447f725d06"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Muse Spark 1.3 with max reasoning is now available on Muse Code and Meta Model API.",
+            "locator": "source-meta-muse-spark.json raw JSON text"
+          },
+          {
+            "excerpt": " 1.3 | Meta AI Research Skip to main content AI Research AI Developers Try Meta AI Introducing Muse Spark 1.3 September 2, 2026 · 3 minute read We’re excited to release Muse Spark 1.3, which delivers improved performance across agentic and coding tasks. Drawing on what we learned from months of broad adoption of Muse Code and Meta Model API, we’ve also made this model easier to use in real-world settings. Smarter and more practically useful, Muse Spark 1.3 advances our work toward personal superintelligence. Muse Spark 1.3 with max reasoning is now avail",
+            "locator": "meta-muse-spark exact captured passage"
+          },
+          {
+            "excerpt": "etails about our evaluations, see our report . Agentic Workflows Muse Spark 1.3 is designed to better sustain longer-horizon work by collaborating with users and juggling multiple workflows in a single, long thread. When given an open-ended objective, it uses tools to generate its own context across messy and conflicting sources, proactively corrects gaps in its plan, and keeps track of what it has learned to produce a final deliverable. We trained the model across a diverse set of harnesses to generalize to various agentic environments. Trained to more ",
+            "locator": "meta-muse-spark exact captured passage"
+          },
+          {
+            "excerpt": "fying questions when prompts are ambiguous, invokes help from the user when stuck, and confirms before taking consequential actions. When working on long tasks, it adapts to user preferences, either providing frequent updates or working silently in the background. Muse Spark 1.3 follows complex, long-form instructions more reliably than earlier Muse Spark models. Across multi-step tasks, it’s better at preserving detailed requirements without dropping constraints or drifting from the requested workflow. Loading demo Note: this AI agent prototype was crea",
+            "locator": "meta-muse-spark exact captured passage"
+          }
+        ],
+        "scopeAndFreshness": "Root independently reconciled this source with the corresponding complete story section on September 6, 2026. Vendor capabilities and future commitments remain attributed; preliminary findings are not generalized. Captured passages are source evidence, not a link-only receipt."
+      },
+      {
+        "claimId": "microsoft-mai-transcribe-2",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "It turns recordings into text, can identify which speaker said each word, and supplies word-level timestamps",
+            "locator": "review-text.json"
+          }
+        ],
+        "sourceIds": [
+          "microsoft-mai-transcribe-2"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/source-microsoft-mai-transcribe-2.json",
+          "sha256": "b5baddc7397c6c9068e404e0225935a5d9340b4e08d9ca376263f6ef372f8eee"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Speaker diarization distinguishes between speakers and attributes words to the right person within a recording",
+            "locator": "source-microsoft-mai-transcribe-2.json raw JSON text"
+          },
+          {
+            "excerpt": "September 3, 2026\\nIntroducing MAI‑Transcribe‑2.\\nSpeaker diarization distinguishes between speakers and attributes words to the right person within a recording\\nWord‑level timestamps provide precise timing for every word, enabling more accurate alignment, search, navigation, and editing\\nMAI-Transcribe-2’s powerful capabilities are available to demo today, through Microsoft Foundry, MAI Playground and Open Router.",
+            "locator": "microsoft-mai-transcribe-2 exact captured passage"
+          },
+          {
+            "excerpt": "peaker diarization distinguishes between speakers and attributes words to the right person within a recording\\nWord‑level timestamps provide precise timing for every word, enabling more accurate alignment, search, navigation, and editing\\nMAI-Transcribe-2’s powerful capabilities are available to demo today, through Microsoft Foundry, MAI Playground and Open Router.",
+            "locator": "microsoft-mai-transcribe-2 exact captured passage"
+          },
+          {
+            "excerpt": "search, navigation, and editing\\nMAI-Transcribe-2’s powerful capabilities are available to demo today, through Microsoft Foundry, MAI Playground and Open Router.",
+            "locator": "microsoft-mai-transcribe-2 exact captured passage"
+          }
+        ],
+        "scopeAndFreshness": "Root independently reconciled this source with the corresponding complete story section on September 6, 2026. Vendor capabilities and future commitments remain attributed; preliminary findings are not generalized. Captured passages are source evidence, not a link-only receipt."
+      }
+    ]
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 1,
+    "objectiveDefectsFirstFoundAtReview": 4,
+    "reviewIssues": 4,
+    "reviewCycles": 3,
+    "priorComparable": {
+      "reviewIssues": 2,
+      "reviewCycles": 1
+    },
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "weekly-correction-20260906-v1",
+    "predecessorRecord": "operations/product-stewards/newsstand/candidates/weekly-correction-20260906/predecessors/generic-reporting-date-defect-v1/REJECTION.md",
+    "repairSummary": "The predecessor was rejected for generic reporting and out-of-period source-date classification. This successor reports the concrete changes and excludes the July 30 and August 30 items.",
+    "predecessorEvidenceLimitation": "Exact v1 bytes were overwritten before preservation; the rejection record retains observed hashes and the two root-review issue categories."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No new reusable defect found in these final bytes. Previous date, omission and internal-note failures remain recorded as repaired production findings."
+  },
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/weekly-news-editorial-policy.json",
+      "sha256": "eea2289a3cb562c98e5891be288995186f99d34c50f6da51d0f2b052163e07a0"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/independent-analysis.json",
+      "sha256": "7e8bf49a6939e8498e3610b30c5df13f3dcc8fb3efdd5d0a652c1715fcc6fa51"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/evidence/weekly-review-20260906/independent-raw-report.json",
+    "sha256": "5dae6f85cd50894ef37ffc8baf1d4c92341cdd2ff8f247d1ec901dd62d41d466"
+  }
+}

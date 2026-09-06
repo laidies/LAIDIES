@@ -238,6 +238,24 @@ try {
   write(newsAnalysisPath, JSON.stringify(analysis));
   editorialNews.newsEditorialReview = { policy: bind(newsPolicyPath), analysis: bind(newsAnalysisPath) };
   assert.deepEqual(inspect(editorialNews), [], "authorized Daily NEWS may use bound AI editorial analysis without human observations");
+  const weeklyPolicyPath = "operations/product-stewards/newsstand/weekly-news-editorial-policy.json";
+  write(weeklyPolicyPath, fs.readFileSync(path.resolve(weeklyPolicyPath), "utf8"));
+  const weeklyNews = structuredClone(editorialNews);
+  weeklyNews.surface = "NEWSSTAND_WEEKLY";
+  const weeklyManifest = JSON.parse(fs.readFileSync(path.join(root, weeklyNews.artifact.manifest.path), "utf8"));
+  weeklyManifest.surface = "NEWSSTAND_WEEKLY";
+  write("content/weekly-manifest.json", JSON.stringify(weeklyManifest));
+  weeklyNews.artifact.manifest = bind("content/weekly-manifest.json");
+  weeklyNews.reviewedAt = "2026-09-06T13:00:00-07:00";
+  weeklyNews.newsEditorialReview.policy = bind(weeklyPolicyPath);
+  Object.assign(weeklyNews.ratchet, {reviewIssues: 4, reviewCycles: 2});
+  assert.deepEqual(inspect(weeklyNews), [], "Weekly uses its own exact policy without fabricated human observations or erased historical counts");
+  const wrongWeeklyPolicy = structuredClone(weeklyNews); wrongWeeklyPolicy.newsEditorialReview.policy = bind(newsPolicyPath);
+  assert.match(inspect(wrongWeeklyPolicy).join("\n"), /canonical policy path|scope\/status/);
+  const staleWeeklyDate = structuredClone(weeklyNews); staleWeeklyDate.reviewedAt = "2026-09-05T13:00:00-07:00";
+  assert.match(inspect(staleWeeklyDate).join("\n"), /cannot retrospectively/);
+  const weeklyCurrentFailure = structuredClone(weeklyNews); weeklyCurrentFailure.outcomes.freshnessReviewability.verdict = "FAIL";
+  assert.match(inspect(weeklyCurrentFailure).join("\n"), /PASS forbidden/);
   const blindRejectionNews = structuredClone(editorialNews);
   blindRejectionNews.calibration.mode = "ORDINARY_NEWS_BLIND_REJECTION_V1";
   blindRejectionNews.calibration.negatives[0].identifiedFailureFamilies = ["glossaryAccumulation"];
@@ -265,7 +283,7 @@ try {
   const producerCurrentHold = structuredClone(productionNews); producerCurrentHold.outcomes.factualIntegrity.verdict = "HOLD";
   assert.match(inspect(producerCurrentHold).join("\n"), /PASS forbidden: factualIntegrity did not pass/);
   const producerWrongScope = structuredClone(productionNews); producerWrongScope.surface = "NEWSSTAND_RECURRING_SERVICE_COLUMNS";
-  assert.match(inspect(producerWrongScope).join("\n"), /limited to ordinary NEWSSTAND_DAILY NEWS producer review/);
+  assert.match(inspect(producerWrongScope).join("\n"), /limited to Daily or Weekly NEWS producer review/);
   const producerStalePolicy = structuredClone(productionNews); producerStalePolicy.reviewMetricsPolicy.sha256 = "0".repeat(64);
   assert.match(inspect(producerStalePolicy).join("\n"), /SHA-256 mismatch/);
   const malformedMetrics = structuredClone(repairedNews); malformedMetrics.ratchet.reviewIssues = -1;
@@ -275,7 +293,7 @@ try {
   const stillPresent = structuredClone(repairedNews); stillPresent.failureFamilies.decorativeAnalogy.present = true;
   assert.match(inspect(stillPresent).join("\n"), /PASS forbidden: decorativeAnalogy is present/);
   const countsCannotBypassService = structuredClone(repairedNews); countsCannotBypassService.surface = "NEWSSTAND_RECURRING_SERVICE_COLUMNS";
-  assert.match(inspect(countsCannotBypassService).join("\n"), /limited to independent ordinary NEWSSTAND_DAILY NEWS review/);
+  assert.match(inspect(countsCannotBypassService).join("\n"), /limited to independent Daily or Weekly NEWS review/);
   const allClearCalibration = structuredClone(blindRejectionNews);
   for (const assessment of Object.values(allClearCalibration.calibration.negatives[0].familyAssessments)) assessment.state = "clear";
   assert.match(inspect(allClearCalibration).join("\n"), /requires a relevant registered reason for rejection/);
@@ -298,7 +316,7 @@ try {
   assert.match(inspect(missingAnalysis).join("\n"), /analysis.*required|analysis JSON|AI analysis requires/);
   const forgedHuman = structuredClone(editorialNews); forgedHuman.outcomes.explainBack.observedReaderEvidence = observedParticipants[0];
   assert.match(inspect(forgedHuman).join("\n"), /cannot claim observed humans/);
-  for (const [field, value] of [["surface", "NEWSSTAND_BIG_PICTURE"], ["surface", "NEWSSTAND_RECURRING_SERVICE_COLUMNS"], ["contentClass", "EXPLANATION"]]) { const wrong = structuredClone(editorialNews); wrong[field] = value; assert.match(inspect(wrong).join("\n"), /limited to independent ordinary NEWSSTAND_DAILY NEWS review/); }
+  for (const [field, value] of [["surface", "NEWSSTAND_BIG_PICTURE"], ["surface", "NEWSSTAND_RECURRING_SERVICE_COLUMNS"], ["contentClass", "EXPLANATION"]]) { const wrong = structuredClone(editorialNews); wrong[field] = value; assert.match(inspect(wrong).join("\n"), /limited to independent Daily or Weekly NEWS review/); }
   const stale = structuredClone(editorialNews); stale.newsEditorialReview.policy.sha256 = "0".repeat(64);
   assert.match(inspect(stale).join("\n"), /SHA-256 mismatch/);
   const missingCheck = structuredClone(editorialNews); delete analysis.checks.incidentExplained; write(newsAnalysisPath, JSON.stringify(analysis)); missingCheck.newsEditorialReview.analysis = bind(newsAnalysisPath);
@@ -314,7 +332,7 @@ try {
   const missingFacts = structuredClone(editorialNews); delete missingFacts.factualReview.claimMap;
   assert.match(inspect(missingFacts).join("\n"), /claim-to-source map/);
   const producerMisuse = structuredClone(editorialNews); producerMisuse.stage = "PRODUCER_SELF_REVIEW"; producerMisuse.reviewer.principalId = producerMisuse.maker;
-  assert.match(inspect(producerMisuse).join("\n"), /limited to independent ordinary NEWSSTAND_DAILY NEWS review/);
+  assert.match(inspect(producerMisuse).join("\n"), /limited to independent Daily or Weekly NEWS review/);
   const proseOnlyNews = structuredClone(news); delete proseOnlyNews.outcomes.unseenTransfer;
   assert.match(inspect(proseOnlyNews).join("\n"), /unseenTransfer is missing/);
   const modeCannotBypassService = structuredClone(sampledService);

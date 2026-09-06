@@ -945,7 +945,7 @@
         category: "news",
         headline: story.headline,
         state: storyState === "corrected" ? "Archive · corrected" : "Archive",
-        points: [sentence(story.the_story), sentence(story.what_this_means)].filter(Boolean),
+        points: story.edition === "weekly" && story.front_read ? [story.front_read] : [sentence(story.the_story), sentence(story.what_this_means)].filter(Boolean),
         route: "#" + story.slug,
         canOpen: Boolean(decision.canExpose),
         actionLabel: "Read the full story"

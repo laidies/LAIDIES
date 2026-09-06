@@ -20,6 +20,16 @@ proper domain source before building from it.
 
 ## Core routes
 
+September 6 NewsStand recovery implements routine Weekly reporting with the same
+independent AI editorial mechanism as Daily reporting. The exact Weekly policy is
+`operations/product-stewards/newsstand/weekly-news-editorial-policy.json`. It retains
+all current factual, clarity, source, review and public-verification requirements;
+no human observations may be invented, and historical review counts remain honest
+improvement metrics. Weekly selection must scout beyond the LAiDIES publication
+list and bind original announcement dates, not our publication or access dates.
+A Sunday missed-Wednesday correction may cover only the current Monday–Sunday
+period, preserve the old issue, and resume the normal Wednesday cadence.
+
 September 6, Ali rejected flat single-colour headers, purple text and cream/white
 backgrounds across NewsStand. Supersede the prior paper-ground treatment: reuse
 the masthead gradient, pop-art texture and navy/mint lettering; coloured reading

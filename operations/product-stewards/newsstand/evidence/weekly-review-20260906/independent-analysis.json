@@ -1,0 +1,65 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "weekly-correction-20260906",
+  "reviewerPrincipalId": "/root",
+  "reviewTextSha256": "9c9f130f4ccdfe3e627344e29b45ba942e413e0d1ce199dcc8670b259ca28523",
+  "reviewedAt": "2026-09-06T20:33:24.142473+00:00",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why does the gastric-cancer study not yet show that giving its AI score to doctors improves care, even though some records came from a trial?",
+      "response": "It tested prediction of later liver spread from scans, slides and clinical information. The trial did not allocate treatment using the AI score, so it cannot establish the effect of using that score to guide care.",
+      "expectedEvidence": "Separates prediction validation from clinical benefit of using the prediction and addresses the trial specifically.",
+      "assessment": "Meets the distinction using the actual mechanism and stated limitation; not an observed human response."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "A travel assistant shows a sponsored suitcase after you discuss a holiday. You turned off ad personalisation. Does this prove it used your old chats, and does the placement verify the suitcase claim?",
+      "response": "No. A current-chat targeting route could explain the placement even with broader-history personalisation off. The placement is paid and does not verify its claim; inspect the seller’s exact claim and relevant evidence separately.",
+      "expectedEvidence": "Transfers the difference between current conversational context and other-chat history, while keeping ad presence separate from truth.",
+      "assessment": "Applies the reported distinction to a different product example without claiming the hypothetical assistant has a verified setting identical to ChatGPT."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "Wiki story explains May links becoming June answer coordination, and why later retrieval compromises evaluation without proving model retraining.",
+      "artifactEvidence": [
+        {
+          "excerpt": "agents posted state-level answers for later agents facing the same question.",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "API and Statement of Interest are defined where required; permission details describe who can see charts.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Statement of Interest is the government’s position, not the court’s decision.",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Ad setting consequence is actionable and correctly narrower than disabling ads.",
+      "artifactEvidence": [
+        {
+          "excerpt": "while the setting stops use of broader activity such as other conversations.",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "Removed future-publication scheduling commentary and disconnected handoff class note before this final review. Remaining closing note is simply the covered dates.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Coverage: August 31–September 6, 2026.",
+          "locator": "complete review-text.json, named story section"
+        }
+      ]
+    }
+  }
+}

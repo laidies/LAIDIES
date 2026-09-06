@@ -10,6 +10,9 @@ const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content
 const NEWSSTAND_SAMPLING_POLICY = "operations/product-stewards/newsstand/recurring-service-sampling-policy.json";
 const SERVICE_REVIEW_FLOOR_POLICY = "operations/product-stewards/newsstand/recurring-service-review-floor-policy.json";
 const NEWS_EDITORIAL_POLICY = "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json";
+const WEEKLY_EDITORIAL_POLICY = "operations/product-stewards/newsstand/weekly-news-editorial-policy.json";
+const newsPolicyPath = surface => surface === "NEWSSTAND_WEEKLY" ? WEEKLY_EDITORIAL_POLICY : NEWS_EDITORIAL_POLICY;
+const isNewsSurface = surface => ["NEWSSTAND_DAILY", "NEWSSTAND_WEEKLY"].includes(surface);
 const HASH = /^[a-f0-9]{64}$/;
 const CORE = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit"];
 const TEACHING = ["connectedSystemUnderstanding", "dailyLifeConnection", "communicationBenchmark", "explainBack", "unseenTransfer", "usefulAction", "analogyIntegrity"];
@@ -153,16 +156,16 @@ function newsEditorialAnalysisFor(receipt, root, errors) {
   const profile = receipt?.newsEditorialReview;
   if (!profile) return null;
   const require = (ok, message) => { if (!ok) errors.push(`newsEditorialReview: ${message}`); };
-  require(receipt.stage === "INDEPENDENT_SEMANTIC_ADMISSION" && receipt.surface === "NEWSSTAND_DAILY" && receipt.contentClass === "NEWS", "limited to independent ordinary NEWSSTAND_DAILY NEWS review");
+  require(receipt.stage === "INDEPENDENT_SEMANTIC_ADMISSION" && isNewsSurface(receipt.surface) && receipt.contentClass === "NEWS", "limited to independent Daily or Weekly NEWS review");
   require(!receipt.samplingOverride, "cannot combine with service sampling");
-  require(profile.policy?.path === NEWS_EDITORIAL_POLICY, "canonical policy path required");
+  require(profile.policy?.path === newsPolicyPath(receipt.surface), "canonical policy path required");
   const policyText = loadBinding(root, profile.policy, "newsEditorialReview.policy", errors);
   const analysisText = loadBinding(root, profile.analysis, "newsEditorialReview.analysis", errors);
   let policy, analysis;
   try { policy = JSON.parse(policyText); analysis = JSON.parse(analysisText); }
   catch { errors.push("newsEditorialReview: invalid policy/analysis JSON"); return null; }
-  require(policy?.policyId === "ordinary-news-ai-editorial-review-2026-08-31" && policy?.status === "ACTIVE" && policy?.surface === "NEWSSTAND_DAILY" && policy?.contentClass === "NEWS" && policy?.humanCheckRequired === false, "policy scope/status mismatch");
-  require(Date.parse(receipt.reviewedAt) >= Date.parse("2026-08-31T00:00:00-07:00"), "cannot retrospectively waive older reviews");
+  require(policy?.policyId === (receipt.surface === "NEWSSTAND_WEEKLY" ? "weekly-news-ai-editorial-review-2026-09-06" : "ordinary-news-ai-editorial-review-2026-08-31") && policy?.status === "ACTIVE" && policy?.surface === receipt.surface && policy?.contentClass === "NEWS" && policy?.humanCheckRequired === false, "policy scope/status mismatch");
+  require(Date.parse(receipt.reviewedAt) >= Date.parse(`${policy.authorizedOn}T00:00:00-07:00`), "cannot retrospectively waive older reviews");
   require(analysis?.evidenceType === "AI_EDITORIAL_ANALYSIS", "analysis must declare AI_EDITORIAL_ANALYSIS");
   require(analysis?.candidateId === receipt.candidateId && analysis?.reviewerPrincipalId === receipt.reviewer?.principalId && analysis?.reviewTextSha256 === receipt.artifact?.reviewText?.sha256, "analysis must bind exact candidate, prose and independent reviewer");
   require(receipt.limitations?.includes("AI editorial assessment only; no observed human-comprehension evidence is claimed."), "must disclose absence of observed human evidence");
@@ -356,15 +359,15 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
 
   let producerNewsMetrics = false;
   if (receipt?.reviewMetricsPolicy) {
-    const inScope = receipt.stage === "PRODUCER_SELF_REVIEW" && receipt.surface === "NEWSSTAND_DAILY" && receipt.contentClass === "NEWS";
-    require(inScope, "reviewMetricsPolicy is limited to ordinary NEWSSTAND_DAILY NEWS producer review");
-    require(receipt.reviewMetricsPolicy.path === NEWS_EDITORIAL_POLICY, "producer review metrics must bind the current ordinary-news policy");
+    const inScope = receipt.stage === "PRODUCER_SELF_REVIEW" && isNewsSurface(receipt.surface) && receipt.contentClass === "NEWS";
+    require(inScope, "reviewMetricsPolicy is limited to Daily or Weekly NEWS producer review");
+    require(receipt.reviewMetricsPolicy.path === newsPolicyPath(receipt.surface), "producer review metrics must bind the current ordinary-news policy");
     require(Date.parse(receipt.reviewedAt) >= Date.parse("2026-09-05T00:00:00-07:00"), "producer review metrics cannot retrospectively waive older reviews");
     const body = loadBinding(root, receipt.reviewMetricsPolicy, "reviewMetricsPolicy", errors);
     if (body) {
       try {
         const policy = JSON.parse(body);
-        const approved = policy.status === "ACTIVE" && policy.surface === "NEWSSTAND_DAILY" && policy.contentClass === "NEWS" && policy.reviewMetrics?.mode === "IMPROVEMENT_METRICS_NOT_PUBLICATION_BLOCKERS_V1";
+        const approved = policy.status === "ACTIVE" && policy.surface === receipt.surface && policy.contentClass === "NEWS" && policy.reviewMetrics?.mode === "IMPROVEMENT_METRICS_NOT_PUBLICATION_BLOCKERS_V1";
         require(approved, "producer review metrics policy scope/status mismatch");
         producerNewsMetrics = inScope && approved;
       } catch { errors.push("reviewMetricsPolicy: invalid policy JSON"); }

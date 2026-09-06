@@ -1,0 +1,96 @@
+{
+  "policyId": "weekly-news-ai-editorial-review-2026-09-06",
+  "status": "ACTIVE",
+  "authorizedOn": "2026-09-06",
+  "authorization": "Implementation of Ali\u2019s direction to complete reliable NewsStand drafting and editorial review, with review as a backstop and historical review counts as improvement metrics. Weekly reporting uses the existing independent AI editorial mechanism; no human observations may be fabricated.",
+  "surface": "NEWSSTAND_WEEKLY",
+  "contentClass": "NEWS",
+  "humanCheckRequired": false,
+  "assessmentType": "AI_EDITORIAL_ANALYSIS",
+  "independentReviewRequired": true,
+  "scope": "Routine Weekly news roundups only. Exact current prose, source dates, broad headline scouting, factual and independent editorial review, rendering and public verification remain mandatory.",
+  "excluded": [
+    "Big Picture",
+    "Front PAiGE replacement",
+    "Library",
+    "episodes",
+    "classes",
+    "service-bank policy changes"
+  ],
+  "humanEvidenceClaim": "NONE",
+  "ongoingFeedback": "Use real reader or Ali feedback when received; never invent human observations. Human sampling is not a prerequisite for routine news publication.",
+  "storyTypeContract": {
+    "status": "REQUIRED_FOR_NEW_CANDIDATES_FROM_2026-09-05",
+    "modules": "operations/product-stewards/newsstand/story-type-modules.json",
+    "rule": "Every story declares one primary type and every applicable overlay. The universal reporting spine and every selected type module must be complete before independent review. Selecting an easier wrong type is a publication failure.",
+    "publicStructure": "The modules are private drafting and review questions. Public articles continue to use The Story, The LAiDIES Read, What This Means for You, The Cocktail Party Explanation, Class Notes and Sources rather than displaying a formulaic questionnaire.",
+    "primaryTypes": [
+      "model-tool-release",
+      "research-benchmark",
+      "safety-incident",
+      "legal-policy",
+      "health-science",
+      "work-economy",
+      "company-business"
+    ],
+    "mixedStoryRule": "A mixed story must satisfy its primary module and all selected overlays. A model launch with a safety dispute, for example, must pass both model-tool-release and safety-incident questions.",
+    "reviewRule": "The maker completes and checks the applicable questions before review. The independent reviewer verifies that the actual prose answers them clearly and accurately; metadata alone cannot prove comprehension or usefulness.",
+    "translationRule": "Every story must bridge the recognizable news version to what it actually means, explain the smallest important mechanism, translate every necessary AI term at first use, and ground the consequence in a familiar example. The exact translation sentences must appear in the article. Correct facts that a beginner cannot explain back are a failed story.",
+    "learningLinkRule": "Search governed LAiDIES learning surfaces for each durable concept. When an exact relevant Library destination exists, Class Notes must contain that exact link and state its learning payoff. When none exists, explain the concept in the story and record an owned durable learning gap with its trigger. Never add a broad, decorative or fabricated link."
+  },
+  "modelReleaseReaderContract": {
+    "status": "REQUIRED",
+    "trigger": "Any story whose subject is a newly released or materially changed AI model, tool, product or major feature.",
+    "requiredAnswers": [
+      "Who can actually access it, including whether it is available on a free plan and whether use requires separate credits or additional payment.",
+      "What kinds of work it is best suited to, expressed as recognizable human tasks rather than benchmark names.",
+      "What the product name means in plain language and where it sits in the vendor's model range.",
+      "How it differs from the nearest useful alternative, using the same real task rather than a benchmark leaderboard.",
+      "When a cheaper, faster or existing model is likely sufficient.",
+      "At least one material limitation, rollout boundary or reason not to choose it.",
+      "What the vendor claims versus what LAiDIES is inferring or recommending."
+    ],
+    "rejectIf": [
+      "The article says a model is generally available without explaining plan or tier restrictions.",
+      "The article reports token pricing or percentage savings without translating the consequence for a normal subscriber.",
+      "The article describes capabilities without giving concrete tasks a reader could accomplish.",
+      "The article names a new model or tool without explaining what it is, where it sits, or how it differs from the nearest alternative.",
+      "The article implies that a newly released model is the right choice for all users or all work."
+    ]
+  },
+  "calibration": {
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "implementedOn": "2026-09-05",
+    "implementationAuthority": "Ali\u2019s September 5 direction to repair drafting and keep review a backstop, followed by her explicit clarification that historical labels waste unnecessary time.",
+    "requirements": [
+      "Independently read every current registered negative without its expected verdict or answer keys.",
+      "Reject each negative for at least one actual registered defect; retain an explicit assessment of every registered family and the exact supporting artifact evidence.",
+      "Accept the separately admitted positive after reading its exact prose.",
+      "Bind actual reviewer model, effort, rubric, source artifact identities and current registry. Reuse that evidence until those inputs change or reader feedback invalidates it.",
+      "Record disagreements with historical secondary labels; never relabel an actual provider finding or erase a failed attempt."
+    ],
+    "candidateBoundary": "Every required current-article factual and reader outcome must still pass, every required failure family must be assessed, and any actual present or uncertain defect prevents admission.",
+    "scope": "Independent NEWSSTAND_WEEKLY NEWS review bound to this policy only.",
+    "rationale": "Rejecting the complete known-bad artifact is the operational calibration test. Requiring a model to reproduce every historical overlapping category converts classification disagreement into repeated calls even when the same bad prose is correctly withheld."
+  },
+  "reviewMetrics": {
+    "mode": "IMPROVEMENT_METRICS_NOT_PUBLICATION_BLOCKERS_V1",
+    "authorizedOn": "2026-09-05",
+    "authorization": "Ali approved making review counts improvement metrics rather than publication blockers, retaining all substantive checks and resolving every current problem.",
+    "requirements": [
+      "Preserve actual total review issues, cycles and repaired known or objective defects; never replace them with prose-only or zeroed counts.",
+      "Retain the preceding comparable candidate when one exists and use the difference to improve production. Equal or higher historical counts do not block a corrected candidate.",
+      "All current required reader and factual outcomes must pass; a present or uncertain current failure family, an evidence gap or an unresolved problem still blocks publication."
+    ],
+    "scope": "Producer and independent NEWSSTAND_WEEKLY NEWS reviews bound to this policy. Preserve all actual historical counts; every current outcome must pass."
+  },
+  "weeklySelection": {
+    "requirements": [
+      "Start from the wider news landscape and primary announcements; published LAiDIES Daily stories are inputs, not the selection universe.",
+      "Bind original event or announcement dates to the covered period. LAiDIES publication dates and source access dates cannot substitute for them.",
+      "Distinguish current-week developments from explicitly labelled older context.",
+      "State the actual change and reader consequence for each selected story. Do not replace reporting with repetitive general advice.",
+      "Do not force a fixed item count or common thesis. Prioritize consequence, reach, evidence and relevance."
+    ]
+  }
+}

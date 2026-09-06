@@ -29,6 +29,19 @@ export function weeklyPeriodFor(publicationDate) {
   if (new Date(`${publicationDate}T12:00:00Z`).getUTCDay() !== 3) reject('Weekly publication date must be Wednesday');
   return { startDate: addDays(publicationDate, -7), endDate: publicationDate };
 }
+export function correctiveWeekPeriodFor(publicationDate) {
+  if (!validDate(publicationDate)) reject('corrective publication date must be a real YYYY-MM-DD date');
+  if (new Date(`${publicationDate}T12:00:00Z`).getUTCDay() !== 0) reject('corrective Weekly publication date must be Sunday');
+  return { startDate: addDays(publicationDate, -6), endDate: publicationDate };
+}
+function validCorrectiveCurrentWeekly(current) {
+  var corrective = current && current.correctivePublication;
+  return !!(corrective && corrective.mode === 'MISSED_WEDNESDAY_CURRENT_WEEK' &&
+    corrective.publicationDate === current.editionDate &&
+    corrective.period && corrective.period.endDate === current.editionDate &&
+    corrective.period.startDate === addDays(current.editionDate, -6) &&
+    validDate(current.editionDate) && new Date(`${current.editionDate}T12:00:00Z`).getUTCDay() === 0);
+}
 function priorWednesday(date) {
   if (!validDate(date)) reject('as-of date must be a real YYYY-MM-DD date');
   const weekday = new Date(`${date}T12:00:00Z`).getUTCDay();
@@ -48,18 +61,20 @@ function continuationHolds(raw) {
     .filter(item => /\*\*HOLD\*\*|\*\*DUPLICATE \/ WATCH\*\*/.test(item.text))
     .map(item => ({ line: item.line, text: item.text.trim() }));
 }
-export function prepareNewsstandWeekly({ storiesRaw, continuationRaw = '', asOf, publicationDate = null, storiesPath = 'content/newsstand-stories.js', continuationPath = null }) {
+export function prepareNewsstandWeekly({ storiesRaw, continuationRaw = '', asOf, publicationDate = null, correctiveCurrentWeek = false, storiesPath = 'content/newsstand-stories.js', continuationPath = null }) {
   if (!validDate(asOf)) reject('as-of date must be a real YYYY-MM-DD date');
   const data = parseStories(storiesRaw);
   const current = data.publications.weekly;
-  if (current.status !== 'current' || !validDate(current.editionDate) || new Date(`${current.editionDate}T12:00:00Z`).getUTCDay() !== 3 || !current.storyId) reject('current Weekly publication pointer is invalid');
+  if (current.status !== 'current' || !validDate(current.editionDate) || !(new Date(`${current.editionDate}T12:00:00Z`).getUTCDay() === 3 || validCorrectiveCurrentWeekly(current)) || !current.storyId) reject('current Weekly publication pointer is invalid');
   const prior = data.stories.find(story => story.id === current.storyId && story.edition === 'weekly' && ['published', 'corrected'].includes(story.status) && story.sourceApproval?.status === 'approved');
   if (!prior) reject('current Weekly story is not admitted');
   const lastDueDate = priorWednesday(asOf);
   const nextDueDate = addDays(lastDueDate, 7);
   if (current.editionDate > asOf) reject('current Weekly publication cannot be after the assessment date');
-  const targetDate = publicationDate || (lastDueDate === asOf && current.editionDate < lastDueDate ? lastDueDate : nextDueDate);
-  const period = weeklyPeriodFor(targetDate);
+  if (correctiveCurrentWeek && publicationDate && publicationDate !== asOf) reject('corrective Weekly publication date must equal the current Vancouver day');
+  const targetDate = publicationDate || (correctiveCurrentWeek ? asOf : (lastDueDate === asOf && current.editionDate < lastDueDate ? lastDueDate : nextDueDate));
+  const period = correctiveCurrentWeek ? correctiveWeekPeriodFor(targetDate) : weeklyPeriodFor(targetDate);
+  if (correctiveCurrentWeek && current.editionDate >= lastDueDate) reject('corrective Weekly requires a missed Wednesday successor');
   if (targetDate <= current.editionDate) reject('target Weekly must follow the existing published edition');
   const candidates = data.stories
     .filter(story => story.edition === 'daily' && ['published', 'corrected'].includes(story.status) && story.sourceApproval?.status === 'approved' && vancouverDay(story.publishedAt) <= asOf && within(vancouverDay(story.publishedAt), period))
@@ -68,7 +83,7 @@ export function prepareNewsstandWeekly({ storiesRaw, continuationRaw = '', asOf,
   const missedIssueDate = current.editionDate < lastDueDate ? lastDueDate : null;
   return {
     schemaVersion: 'newsstand-weekly-input-packet-v1',
-    mode: 'PRIVATE_PREPARATION_ONLY',
+    mode: correctiveCurrentWeek ? 'PRIVATE_CORRECTIVE_PREPARATION_ONLY' : 'PRIVATE_PREPARATION_ONLY',
     asOf,
     publicationDate: targetDate,
     period,
@@ -80,6 +95,11 @@ export function prepareNewsstandWeekly({ storiesRaw, continuationRaw = '', asOf,
       dueStatus: missedIssueDate ? 'MISSED_WEEKLY_SUCCESSOR' : targetDate > asOf ? 'UPCOMING_WEEKLY_SUCCESSOR' : 'DUE_WEEKLY_SUCCESSOR',
       freshnessDoesNotResetCoveragePeriod: true
     },
+    correctivePublication: correctiveCurrentWeek ? {
+      mode: 'MISSED_WEDNESDAY_CURRENT_WEEK',
+      publicationDate: targetDate,
+      period
+    } : null,
     priorWeekly: {
       publication: { storyId: current.storyId, editionDate: current.editionDate, publishedAt: current.publishedAt, updatedAt: current.updatedAt, lastCheckedAt: current.lastCheckedAt, maxAgeHours: current.maxAgeHours },
       story: { id: prior.id, headline: prior.headline, publishedAt: prior.publishedAt, updatedAt: prior.updatedAt, lastCheckedAt: prior.lastCheckedAt, storySha256: sha256(stable(prior)) }
@@ -117,7 +137,7 @@ function main() {
   const continuationPath = continuationRelative ? local(ROOT, continuationRelative, '--continuation') : null;
   const output = argument('--output', args);
   if (!check && !output) reject('--output is required unless --check is used');
-  const packet = prepareNewsstandWeekly({ storiesRaw: fs.readFileSync(storiesPath, 'utf8'), continuationRaw: continuationPath ? fs.readFileSync(continuationPath, 'utf8') : '', asOf, publicationDate: argument('--publication-date', args), storiesPath: path.relative(ROOT, storiesPath), continuationPath: continuationPath ? path.relative(ROOT, continuationPath) : null });
+  const packet = prepareNewsstandWeekly({ storiesRaw: fs.readFileSync(storiesPath, 'utf8'), continuationRaw: continuationPath ? fs.readFileSync(continuationPath, 'utf8') : '', asOf, publicationDate: argument('--publication-date', args), correctiveCurrentWeek: args.includes('--corrective-current-week'), storiesPath: path.relative(ROOT, storiesPath), continuationPath: continuationPath ? path.relative(ROOT, continuationPath) : null });
   const rendered = canonical(packet);
   if (!check) {
     const outputPath = path.resolve(ROOT, output);
