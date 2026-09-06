@@ -1,5 +1,25 @@
 # Active work
 
+> **2026-09-05 — Consolidated homepage corrections BUILT / PRESENTATION HOLD.**
+> Ali said “Ok start that.” Source9b34df58, exact review packet948d0f81,
+> isolated branch `fix/homepage-corrections-20260905` in
+> `/Users/alisoneakin/Projects/laidies-homepage-corrections-20260905`.
+> Direct Episode1 start; six illustrated need entrances; corrected Jeeves/FAiRY
+> roles and Episode04 LUMINAiRY purpose; adult invitations; collapsed full
+> directory; working Express/latest-episode route and phone directory taps.
+> Existing art, type, palette and mission retained. Browser checks at1440/768/
+> 390/320, exact question handoff, no-JavaScript and failed-video fallback pass.
+> Sol/Medium and actual Claude Opus5/Medium found no blocking issue. No paid
+> answer or live account-sync proof; unchanged arrival-video pause/skip unverified.
+> Prepared artifact retains current NewsStandfa638bb5/078444d8; only index.html
+> and content/site/homepage.js differ. No preview, presentation or production deploy.
+> Extending Episode04's two-reviewer exception to the homepage is pending Ali's
+> response; the standing11-role presentation gate has not been bypassed. Resume:
+> resolve that one review requirement, present one complete candidate, then
+> continue assistant promises and connected pages in the recorded order.
+> Full status: [homepage correction plan](homepage-corrections-2026-09-05.md).
+
+
 > **2026-09-05 — Episode04 social carousel: REJECTED / DETOUR STOPPED; HOMEPAGE REVIEW RESUMES.**
 > Ali rejected preview8e498c88 for no worthwhile explanation, imagery or social value.
 > Both independent admissions and maker quality verdict are invalid. Preview deleted;
