@@ -66,3 +66,9 @@ Original: [06-neon-brushwork.png](06-neon-brushwork.png) — 1679 × 937; SHA-25
 ## Artwork review
 
 Maker inspected each original; independent Terra/Medium review applied the revised original-reference bar after rejecting old04/05 as negative calibration. No visible failure found for palette family, physical proportions, composition/variety, stretched objects or illegible text. Reviewer judged all six suitable as standalone art candidates, with Roller Rink strongest among object-led designs. This does not bind Ali taste, exact-hex matching, page compositing, contrast or release approval.
+
+## Latest Ali selection feedback
+
+Ali: “the skate ones and the boom box are good.” Positive design feedback applies to exact `02-roller-rink-v2.png` and `04-radio-night-v3.png`. Preserve these images unchanged as the two liked directions. This is design preference, not integrated-page or deployment approval.
+
+Ali objected to the disco ball as the wrong era emphasis. `01-disco.png` is REJECTED for this set and must not be selected. A CD/Discman replacement was proposed but has not been made. Other candidates remain unselected.
