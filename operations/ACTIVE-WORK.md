@@ -11,7 +11,7 @@
 > Guest restart and unsupported saved-edition handling are now repaired and locally browser-verified.
 > Official read-only Puffy catalog and versioned removal controls are built; representative removal/account-switch browser tests passed locally.
 > Paired private master export preserves Read markup/audio cues; current source bindings and four-card desktop/phone inspection are recorded.
-> Episodes02–04 full sources are now preserved in paired masters with byte-exact derivative checks; editorial updates remain open.
+> Episodes02–04 full sources are preserved in paired masters. Episode02 context/research corrections now export to both variants; full editorial updates remain open.
 > Two fresh guided responses (ChatGPT/Gemini) are captured; Claude access and full set reconciliation remain open.
 > Episode01 now makes Dolly’s Common Sense teaching job explicit, corrects Cher’s RSVP reference and qualifies Lean In survey scope in both editions.
 > Try-On now accepts a checked unchanged draft with a judgment note; zero-rating completion and truthful Not rated receipt were browser-verified locally.
