@@ -1,5 +1,13 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Small CD image still rejected
+
+Ali says the real-image CD still does not look great and questions whether a CD is the right icon. Its previous review admission is invalid for owner taste. Do not publish it. Foreground recommendation: remove the decorative icon and give the width to song text. Removal is a proposal, not an owner ruling. No further icon generation is authorized by this question.
+
+## 2026-09-06 — Shared player listening label
+
+Ali approves replacing “KSVL soundcheck · item 1” with “KSVL 99.9 · Now playing”, with the current song title underneath. Apply to the station queue label; preserve album track numbering and single-song controls.
+
 ## 2026-09-06 — No bad CSS graphics anywhere on the site
 
 Ali explicitly rejects bad CSS graphics sitewide. Decorative artwork must use suitable quality image assets rather than makeshift CSS drawings. This does not prohibit CSS layout, readable text, controls or the bright background styling requested in the same task. Both rainbow-orb and proposed CSS silver-disc mini-player treatments are rejected. Replace the player CD with a proper image asset; inventory remaining decorative CSS instances without claiming a sitewide cleanup from this one correction.

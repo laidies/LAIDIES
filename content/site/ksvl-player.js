@@ -232,7 +232,7 @@
   }
 
   // The live control is a truthful catalogue shuffle while programme objects remain unadmitted.
-  var LIVE_MIX = { id: 'live', title: 'KSVL soundcheck', sub: 'Live broadcast coming later', color: 'gold', labelStyle: 'sharpie' };
+  var LIVE_MIX = { id: 'live', title: 'KSVL 99.9', sub: 'Live broadcast coming later', color: 'gold', labelStyle: 'sharpie' };
 
   function startLive() {
     if (sendRemote('live')) return;
@@ -554,7 +554,7 @@
     if (state.mixId === 'single') {
       label = 'Now listening';
     } else if (state.mixId === 'live') {
-      label = 'KSVL soundcheck · item ' + (state.index + 1);
+      label = 'KSVL 99.9 · Now playing';
     } else if (state.mixId && state.mixId.indexOf('album:') === 0) {
       var albumArtist = state.mixId.slice(6);
       label = albumArtist + ' · Track ' + (state.index + 1) + ' / ' + state.queue.length;
