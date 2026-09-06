@@ -29,7 +29,7 @@ Ali's decisions override proposals: FAiRY provides advice and teaches future tai
 3. **Connected pages in order of the repaired homepage journeys.** LIBRAiRY/Miss Jeeves and FAiRY; episode/Blend & Snap/LUMINAiRY field trip; Visitor's Centre and other linked entrances; Card/Closet and return paths. Preserve each page's latest verified work and distinct art while applying the same adult design/voice standard.
 4. **Freshness alongside each page.** Register the claims and their actual published locations touched by that page; repair existing review/correction propagation. Avoid a separate unbounded inventory that stops delivery.
 
-## Current homepage checkpoint
+## First homepage preview — historical checkpoint
 
 The public implementation is committed as9b34df58 in `/Users/alisoneakin/Projects/laidies-homepage-corrections-20260905`. Baselinee3664990 preserves the exact incumbent homepage; no artwork, palette family, type family, authored mission or backend was replaced. Only `index.html` and `content/site/homepage.js` differ in the prepared public artifact. The latest NewsStand/LUMINAiRY deploymentac5d6108 / source5aa3716 is retained as its base.
 
@@ -37,10 +37,14 @@ Maker browser checks passed at1440,768,390 and320px: visible first action, six e
 
 Sol/Medium independently reviewed the actual desktop/mobile result, source and complete changed wording and found no blocking issue. Actual Claude Opus5 also returned ADMIT_FOR_OWNER_REVIEW, with no blocking issue. Non-blocking evidence limitations are reconciled in the packet; no second source revision was needed. Ali explicitly approved extending the two-reviewer exception to this exact homepage candidate. The scoped admission accepts these reviewed bytes and rejects six deliberately invalid cases; it does not admit future candidates or authorize production. Hosted previewee897a4e is verified at1440/390px, including actual Episode1 navigation and exact Miss Jeeves handoff. The public source bytes match the reviewed candidate; productionac5d6108 is unchanged.
 
-The exact packet is `operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/`. This is **VERIFIED PREVIEW / AWAITING ALI VISUAL REVIEW**, not a production release. Exact preview: https://ee897a4e.laidies-sunnyvaile.pages.dev/ . Present this one complete candidate; subsequent page work follows the delivery order above.
+The exact packet is `operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/`. First preview ee897a4e was presented for owner review; its masthead and collapsed directory were subsequently corrected as recorded below. It did not authorize production.
 
 ## Owner correction — original masthead restored
 
 Ali said the page looked almost the same and preferred the original two masthead buttons. Source 06311274 restores “Why women must shape AI” (#why) and “How LAiDIES works” (#method), including the original placement and treatment. This pass mainly repairs copy and navigation; it is not a material visual redesign. Other repairs are preserved.
 
 Updated preview: https://05b773cb.laidies-sunnyvaile.pages.dev/ . Both buttons were checked at 1440/390/320px before deployment and at 1440/390px on the actual hosted page, with exact HTML/runtime identity and working anchors. The latest production base e58b23d6 / 98bcb60 is preserved outside the two owned public files; live homepage/runtime and latest NewsStand version file stayed exact. Production is unchanged. Prior reviews remain bound to the archived parent, not relabelled as reviews of these restored bytes. Broader page work remains in the delivery order above.
+
+## Owner correction — four-category discovery
+
+Ali explained the four categories make the breadth of the site discoverable. Source b182b777 restores the visible original directory header and treatment: Learn and understand; Watch and listen; Use and have fun; Belong and explore. All 26 current link elements and their corrected descriptions, and the restored masthead, are exact against the preceding preview. The six immediate-need entrances and the visible whole-town categories serve different jobs; do not collapse the directory as duplicate navigation. Verified preview: https://3d473188.laidies-sunnyvaile.pages.dev/ . Four categories and all 26 links are visible and keyboard reachable; original treatment, 1440/390/320px layout and decoded KSVL image checked. Hosted 1440/390px receiving journeys, masthead anchors and exact source bytes pass. Production e58b23d6/98bcb60 and live homepage/runtime remain unchanged.
