@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Bright borders around discovery images
+
+Ali requests a small bright border around the banner thumbnails. Shared 2px outline uses --hp-lime #b7e42b, matching the burst and CTA. Apply to all eight; preserve image dimensions, crops, backgrounds, text and controls. Source c71a299f; hosted evidence b5999d7b; https://5706ad0d.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab 8 visibly updated. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
+
 ## 2026-09-06 — Lime burst behind the discovery question mark
 
 Ali requests a green burst behind the question mark matching Take me to the Mall text. Reuse existing comic burst alpha with CSS --hp-lime #b7e42b, so shape and link share the same theme colour. Keep current question mark and readable live title, tangerine text, coral/pink Miss Jeeves, latest Mall and compact dimensions. Source a6af03db; hosted evidence f27d5435; https://1abc4170.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 visibly updated. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
