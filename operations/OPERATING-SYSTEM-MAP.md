@@ -734,3 +734,45 @@ Delivery is a commit for the reference task to cherry-pick into its receiving
 branch; no independent merge. After integration, continue the operating audit's
 representative feature, editorial, rejection-to-maker, and cloud-to-Ali-to-resume
 traces. This bounded pilot does not complete the whole-system audit.
+
+
+## Executable flow findings — September 6 continuation audit
+
+| Flow | Verified endpoint | Gap and automatic/human boundary |
+|---|---|---|
+| Feature to release | Production controller run33117819445 succeeded August27 for its exact candidate. Workflow verifies immutable deployment and live bytes/APIs. | Historical controller success is not current product completeness. Agent build/review precedes configured production-approver account + phrase; Ali release authority remains separate. |
+| Scheduled NewsStand intake | Actual schedule run34051864764 succeeded September6; issue82 updated. | Signal collection is automatic. Main lacks the receiver/work-order/composer/promoter package needed to turn that signal into an owned canonical candidate. No demonstrated same-item publication chain. |
+| Rejection to maker learning | Episode04 Blend & Snap carousel rejection binds its preview/source/manifest and invalidates prior admissions. | No linked owner-admitted reusable lesson or successor trial found. Prose guard validates a pending lesson, not the admission transition. Agent owner can classify/repair; Ali's reserved product direction is already supplied. Do not invent a new human gate for routine learning work. |
+| Cloud to Ali to resumed job | Existing private Cloud maintenance reports successful checks; GitHub states were independently matched. | Scheduler provenance, direct actionable notification/reply, and same-job resumption with laptop unavailable remain unverified. Desktop-local timers require an available laptop. |
+| Active task to next step | Direct Stop checker rejects ending this unfinished audit. | Outer registration was still pinned to stopped predecessor and silently skipped this task. The routing repair covers admitted sessions only; native activation, broad session enrollment and sustained execution remain separate. |
+
+Safe primary evidence: [scheduled intake run](https://github.com/laidies/LAIDIES/actions/runs/34051864764),
+[intake issue](https://github.com/laidies/LAIDIES/issues/82),
+[historical production run](https://github.com/laidies/LAIDIES/actions/runs/33117819445).
+Exact local rejection source: `operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v3/ALI-REJECTION.md`
+in the shared checkout. This is preserved candidate history, not mainline source
+or permission to recreate the rejected product.
+
+The calibration distinction matters: existing prose tests manually construct
+review verdicts/observations. Their success establishes schema and binding
+checks, not whether a reviewer independently recognizes a bad explanation or
+wrong product purpose. A real reviewer trial must start from the artifact and
+brief without revealing the expected defect, then be reconciled by the owner.
+
+### Continuation and execution design
+
+Do not make Ali the routine trigger between authorized steps. Use the native
+long-running goal for a sustained accepted objective when explicitly activated;
+use an event/schedule for genuine external waiting. Keep one existing task
+identity, objective and acceptance boundary across milestones. The Stop hook is
+an additional bounded reminder, not the scheduler. A task with independent work
+remaining continues even while a subsidiary delivery waits for integration.
+New/unbound sessions need their own admitted objective; never inherit another
+session's unfinished portfolio work automatically.
+
+Current official docs: [Goal mode](https://learn.chatgpt.com/docs/long-running-work),
+[hook scope and trust](https://learn.chatgpt.com/docs/hooks),
+[local versus web scheduled work](https://learn.chatgpt.com/docs/automations).
+Checked September6. Goal mode retains existing permissions; local scheduled
+work requires the computer/app, and web tasks cannot directly access a laptop
+folder. No new subscription or API call is required merely to correct routing.

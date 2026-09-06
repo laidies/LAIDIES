@@ -80,6 +80,18 @@ the design. Additional monthly budget is a pending planning preference, not spen
 authorization. No new service purchase, account change or automatic publication
 is implied. Continue the original operating objective; do not substitute an inbox.
 
+## 2026-09-06 — Continuing authorized work is an operating requirement
+
+Ali reports repeated premature stops across tasks, even after explicitly saying
+to continue. A milestone or a subsidiary handoff does not end an accepted larger
+objective. Continue available independent work; genuine waiting binds the exact
+external trigger and receiver, and a reserved human decision contains the
+prepared choice. Repair actual continuation/enrollment/dispatch behavior and
+verify native execution; another prose reminder alone is not a fix. Existing
+user cancellation, permission boundaries and bounded loop controls remain.
+Native Goal mode requires an explicit activation request; no new purchase or
+schedule is implied. Current diagnosis: `OPERATING-RECOVERY-NEXT.md`.
+
 ## Current operating-system audit route
 
 The September6 whole-operation audit and dependency-ordered implementation plan

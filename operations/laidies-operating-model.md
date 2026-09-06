@@ -5,8 +5,9 @@ Date: September 6, 2026. Owner: operating-system review task
 Status: **AUDIT / PROPOSED OPERATING DESIGN; IMPLEMENTATION IN PROGRESS**.
 Latest sequence: Ali requires the full [end-to-end operating map](OPERATING-SYSTEM-MAP.md)
 and human/manual boundaries before selecting an architecture or standardizing
-quality tools. The integration sequence below is a candidate plan, superseded
-at its entry point by this map-first review. PR104 retired the legacy publisher;
+quality tools. The map is integrated through PR105; representative executable traces now
+prioritize the missing transitions below. The sequence is a proposed remediation
+plan, not a claim that the whole operating system has been implemented. PR104 retired the legacy publisher;
 the larger learning and delivery loops remain unverified.
 This replaces the July 10 v1 at this path. The prior version remains in Git
 history (37fe77ae); its operator/watchdog descriptions were not proof of running
@@ -47,8 +48,9 @@ that every visitor feature or all unpublished artifacts were inspected.
 
 | Priority | Verified finding | Effect | Correction / owner |
 |---|---|---|---|
+| P0 | Continuation registration silently excludes successor tasks: direct current-session checker blocks premature stop, but the outer command returns empty success. Only 2/19 work items are session-bound and Stop permits one reminder. | Ali becomes the scheduler despite explicit continuation instructions. | Repair obsolete routing, verify native activation, and use explicitly activated native Goal mode for sustained work; enroll each accepted objective without taking over unrelated tasks. |
 | P0 | Main referenced mandatory prose producer/review tools that it does not contain. The shared checkout contains them, their tests and the exemplar registry. | A new cloud checkout cannot follow the same process as the local maker. | Integration owner ports one complete dependency package from exact reviewed source; do not merge the mixed shared branch. |
-| P0 | The legacy Hot Goss workflow still scheduled a rewrite and direct main push; September 6 run failed at branch protection. Its retirement already existed on the NewsStand branch. | Repeated failure, possible unnecessary provider calls, and a second obsolete editorial path. | Integrate the existing manual-only, read-only-permission, artifact-only workflow. No branch-protection bypass or scheduled call; a deliberate manual run can still consume existing API/runner resources. |
+| FIXED | PR104 retired the legacy Hot Goss scheduled rewrite/direct-push path. | The obsolete unattended editorial route is removed. | Keep the manual-only artifact route; no automatic publication is inferred. |
 | P1 | Shared quality calibrations pass, but all 17 real content work orders are held. Bare release checking permits a green integrity result with zero ready content; strict candidate selection rejects held work. | Green CI is being overinterpreted as delivery/quality. | Preserve integrity CI; require exact candidate ID for admission/release. Report ready/held counts separately. |
 | P1 | The shared Straight Answers positive exemplar expects SHA8cd3d008… but current file is1c50762d…. Pending reusable lessons require PENDING_OWNER_ADMISSION, with no verified executable admission transition into the registry. | The maker either cannot pass its input contract or relies on manual knowledge transfer. | Learning owner recovers exact admitted exemplar or reviews a replacement; integration owner connects explicit owner admission to next-maker invalidation. Never replace the hash just to clear the check. |
 | P1 | Ali rejected the carousel after AI admissions: the invented pension/marketing exercise displaced the intended LUMINAiRY discovery journey. | Correct arithmetic/export tests missed the actual product purpose. | Test maker and judge on the exact known-bad artifact without supplying the expected defect; then test a new example. A checklist alone cannot establish semantic learning. |
@@ -232,3 +234,55 @@ workflow guard checks current YAML structure, not every possible indirect write
 route or editorial quality. The exact legacy publisher retirement is implemented
 locally with negative workflow tests; its remote merge/run state is recorded in the PR and
 `OPERATING-RECOVERY-NEXT.md`. All uncertain source/owner gaps above stay open.
+
+
+## Keep, combine, repair, retire — decisions from the mapped traces
+
+| Component | Recommendation | Why / exit condition |
+|---|---|---|
+| Native task + Goal mode | KEEP; explicitly activate for sustained accepted work | Native continuation is simpler than an agent repeatedly messaging itself. Verify milestones do not end the goal; retain existing permission boundaries. |
+| Existing work events/handoffs | REPAIR coverage and routing | They preserve objective/state but are an opt-in pilot, not a live dispatcher. New session -> bound objective -> real checkpoint -> continuation/wait/resolution must be exercised. |
+| 67 product roles and 34 specialists | KEEP responsibilities; COMBINE runtime execution where one competent agent suffices | Roles need not be permanent workers. Spawn a distinct reviewer only when independent judgment can reject a real failure; use specialists on demand. |
+| Baseline CI | KEEP as integrity checks | Do not label schema/fixture success content quality or end-to-end completion. Each quality claim needs its actual artifact and purpose. |
+| Shared learning guards/registry | REPAIR as one complete distributed package | Resolve admitted positive-source drift, connect pending -> admitted lesson, and run a blind real-artifact trial before trusting the evaluator. |
+| GitHub source polling / private Cloud maintenance | KEEP bounded polling; REPAIR receiver and notification evidence | Existing services already perform parts of the cloud job. One finding must reach a live owner and resume without Ali relaying context. |
+| Legacy HotGoss publisher | RETIRED by PR104 | Keep it from returning through old branches or generated instructions. |
+| Current visual reference entry | KEEP small; integrate PR106 with its current owner | Selection consumer tests matter alongside the view. Do not expand into an all-artwork archive or infer public reuse. |
+| Old worktrees and historical instructions | PRESERVE, then disposition exact packages | Start with active owner/integration gaps. Archive only after unique uncommitted work is preserved and a successor/source is verified. |
+| New project manager, graph database or messaging subscription | DEFER | No measured failure currently requires one; they would add another state store and another inbox. Reconsider only after the existing supported route fails its acceptance trial. |
+
+### How to manage this without a new bureaucracy
+
+At intake, the agent captures one outcome and acceptance condition in the existing
+work record, identifies its receiving owner and takes a bounded file lane.
+During work, checkpoints update that record and the same task continues through
+available steps. A dependency gets an exact trigger and accountable receiver;
+it does not halt unrelated authorized work. At closure, the receiving artifact,
+commit/release state and actual outcome are reconciled before the task is marked
+done. Recurring deterministic checks report exceptions; the model interprets
+only material deltas. Ali sees a decision only for her reserved authority or a
+real new constraint, with the prepared choice in the message.
+
+Use the existing operating review cadence to examine unresolved handoffs,
+repeated defects, stale instructions, orphaned work and measured usage together.
+Do not create another timer while local/cloud ownership is being reconciled.
+Track elapsed time waiting for 'continue' as a failure, independent of code-test
+success. Cost reporting separates subscription allowance, API tokens and
+platform/storage charges; account-wide usage is not a task cost measurement.
+
+### Remaining proof before calling this a working system
+
+1. Native continuation actually invokes for this task and a fresh admitted task;
+   completed, user-stopped and genuinely waiting work is not restarted.
+2. One rejected real artifact changes the maker's applicable preflight and the
+   repaired reviewer rejects that artifact unaided; a new case demonstrates the
+   intended user result. Fixture verdicts do not satisfy this.
+3. One scheduled signal reaches an executable owned candidate on the receiving
+   branch, through exact preview and applicable release approval to a live check.
+4. One meaningful cloud result reaches Ali privately and a reply resumes the same
+   job without the laptop for cloud-compatible steps. No invented test decision.
+5. Selected old work packages are integrated/superseded/parked with preserved
+   originals and verified receiving sources. No mass cleanup based on folder age.
+
+These are finite acceptance trials followed by measured operation; they cannot
+be honestly certified from a diagram, repository presence or current green CI.

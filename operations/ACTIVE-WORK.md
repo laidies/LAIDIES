@@ -1,13 +1,17 @@
 # Active work
 
+> **2026-09-06 — Operating audit / BUILDING: executable handoffs and continuation.**
+> Owner `01a077d0-0775-7af2-b631-c311573f0e0e`; same bounded integration checkout.
+> Map integrated via PR105. Visual collection PR106 belongs to its existing
+> owner. Current task reproduced the obsolete predecessor-only hook route,
+> prepared session-based correction, and traced editorial/release/learning/cloud
+> edges. Source tests are not native activation or whole-system completion.
+> Continue `OPERATING-RECOVERY-NEXT.md`; do not stop at the visual handoff or
+> replay historical branch/PR instructions below. Goal activation question is
+> pending, but does not block independent audit work.
+
 > **2026-09-06 — Small current visual references: VERIFIED LOCAL / DISTRIBUTION IN PROGRESS.** Owner: background-reference task `01a0785e-1438-7161-b041-0be213b06e9b`; isolated branch `ops/current-visual-references-20260906`. Build the small two-job entry and scoped selections, preserve exact originals and reconcile later rejections; system engineering task owns prompt-consumer reconciliation on a separate branch. No all-artwork migration or production art changes. Acceptance: exact usable references and reuse scope, honest unavailable entries, routed instructions, calibrated selection checks and repository distribution. Local index and 13 prompt-consumer checks pass; later Matron/Miss Jeeves identities and destination palettes are reconciled. Current source commits 222a10ae, 3afe85a6, 21b55575 and coordinated consumer 1b1fcf6e. Remote verification and receiving entry remain before completion. Other product work continues.
 
-> **2026-09-06 — Current operating owner: map before redesign / BUILDING.**
-> Same task and bounded checkout; branch `ops/end-to-end-system-map-20260906`.
-> PR104 merged as `4a4726e3`; old PR103/104 integration instructions below are
-> historical. Ali now requires an end-to-end map of every registered agent,
-> operation and flow with explicit human/manual boundaries and current loop/
-> graph research before standardizing quality tools. See `OPERATING-SYSTEM-MAP.md`.
 
 > **2026-09-06 — Whole-operation consultant audit / BUILDING.** Same operating owner and objective; now includes full organization/unfinished-work review, real maker-learning loop, cloud/subscription split, communication, costs and ongoing management. Branch `ops/learning-context-repair-20260906`; bounded checkout `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`. First repairs merged in PR103/37fe77ae. Research and reconcile current evidence before recommending new services or large integration. No spending or cleanup authorization inferred.
 
