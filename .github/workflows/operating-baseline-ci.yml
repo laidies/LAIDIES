@@ -24,6 +24,12 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Content quality package and rejection calibration
+        run: |
+          node scripts/test-content-quality-package.mjs
+          node scripts/test-content-producer-contract.mjs
+          node scripts/test-prose-quality-admission.mjs
+          node scripts/test-content-release-readiness.mjs
       - name: Active asset revocation calibration
         run: node scripts/test-active-asset-admission.mjs
       - name: GitHub Pages release-boundary calibration

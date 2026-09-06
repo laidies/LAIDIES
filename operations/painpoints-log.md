@@ -276,3 +276,20 @@ continuation, and keep ongoing goals separate from bounded reminders. Do not
 claim broad coverage from one directly invoked handler or a green fixture.
 Behind the Build: how an automation can contain the right code but never call it
 for the person/task that needs it; why progress and completion are different.
+
+
+## 2026-09-06 — Learning checks stranded off main; example evidence unconsumed
+
+The existing prose-quality package was absent from main although instructions
+required it. Two positive example paths no longer supplied their registered
+bytes. Both exact versions were recovered from a5615a66 and frozen internally,
+preserving current product sources and original limits. A further gap let a
+positive News example's supporting evidence disappear or change without failing
+producer/review checks; both now bind that evidence and reject stale/incomplete
+bindings. Existing CI runs package integrity and negative tests. The real queue
+remains held (17 orders, zero ready). Pending learning-owner admission and real
+semantic calibration remain open; synthetic PASS records cannot prove learning.
+Prevention: distribute a check with its exact consumed inputs and test an actual
+held queue plus the declared supporting evidence, not only temporary fixtures.
+Behind the Build: a quality checklist can be present in instructions while its
+working parts never reach the place where the work runs.

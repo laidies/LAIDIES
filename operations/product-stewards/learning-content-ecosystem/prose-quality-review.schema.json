@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/prose-quality-review.schema.json",
+  "title": "LAiDIES exact-prose producer or independent quality record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion", "candidateId", "stage", "contentClass", "surface",
+    "maker", "reviewer", "reviewMode", "reviewedAt", "artifact",
+    "calibration", "reverseBrief", "outcomes", "failureFamilies",
+    "factualReview", "ratchet", "lineage", "learningDisposition", "verdict", "limitations"
+  ],
+  "properties": {
+    "schemaVersion": { "const": "laidies-prose-quality-review.v1" },
+    "candidateId": { "type": "string", "minLength": 1 },
+    "stage": { "enum": ["PRODUCER_SELF_REVIEW", "INDEPENDENT_SEMANTIC_ADMISSION"] },
+    "contentClass": { "type": "string" },
+    "surface": { "type": "string" },
+    "maker": { "type": "string" },
+    "reviewer": { "type": "object" },
+    "reviewMode": { "const": "EXACT_PROSE_IN_FULL" },
+    "reviewedAt": { "type": "string", "format": "date-time" },
+    "artifact": { "type": "object" },
+    "calibration": {
+      "type": "object",
+      "required": ["registrySha256", "reviewerPrincipalId", "reviewedAt", "negatives", "positive"]
+    },
+    "reverseBrief": { "type": "object" },
+    "outcomes": { "type": "object" },
+    "failureFamilies": { "type": "object" },
+    "factualReview": { "type": "object" },
+    "ratchet": { "type": "object" },
+    "lineage": { "type": "object" },
+    "learningDisposition": { "type": "object" },
+    "verdict": { "enum": ["PASS", "HOLD", "REJECT"] },
+    "limitations": { "type": "array" }
+  }
+}

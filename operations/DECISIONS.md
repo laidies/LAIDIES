@@ -1,5 +1,18 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Native Goal activation and exact learning-package recovery
+
+Ali explicitly said “yes activate” for native Goal mode on the full operating
+audit/remediation objective. Continue authorized work across milestones; do not
+substitute a handoff or tests for that objective. One automatic continuation is
+observed; custom hook loading and Mac-off execution are separate proof obligations.
+Recover already-registered writing exemplars as exact internal frozen bytes,
+retaining their original scope and factual holds. A current product file cannot
+silently replace the admitted example by changing its checksum. Supporting
+evidence declared by an exemplar must remain bound in producer and review checks.
+Package status and remaining learning-owner edge: `product-stewards/learning-content-ecosystem/RECOVERY.md`.
+
+
 ## 2026-09-06 — Small current visual reference collection
 
 Ali approved one small curated entry at `operations/reference/README.md`, with scoped colours, art styles, background inspiration, current character references and current building references. Its two jobs are (1) supplying the minimum approved references to create matching new artwork and (2) finding the exact approved existing image for reuse. It is not an archive of all artwork or a new approval registry. Link exact originals and their approval sources; distinguish identity, rendering, composition and destination. Extra views need a specific purpose. Newest filenames and old ACTIVE labels cannot override later rejection. Use the existing reference manifest for reference scope and the existing active-asset registry for direct publication; unresolved approval stays explicit. Reconcile instruction consumers and distribute the selected authority with the entry, rather than adding a disconnected folder. No new visual identity, palette or public placement is approved by this organisational change.
