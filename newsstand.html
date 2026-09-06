@@ -965,6 +965,8 @@
                 escapeHTML(source.label) + escapeHTML(flag) + "</a>";
             }).join(" · ");
           }
+          var updatedAfterPublication = Number.isFinite(Date.parse(story.updatedAt)) &&
+            Number.isFinite(Date.parse(story.publishedAt)) && Date.parse(story.updatedAt) > Date.parse(story.publishedAt);
 
           if (isBigPicture && story.examination_sections && story.examination_sections.length) {
             return [
@@ -997,7 +999,7 @@
               '<header class="ns-article__head">',
                 '<p class="ns-article__edition">', escapeHTML(EDITION[edition].label), "</p>",
                 '<p class="ns-article__date">Published ', escapeHTML(formatDate(story.publishedAt)),
-                  " · Updated ", escapeHTML(formatDate(story.updatedAt)),
+                  updatedAfterPublication ? " · Updated " + escapeHTML(formatDate(story.updatedAt)) : "",
                   " · Checked ", escapeHTML(formatDate(story.lastCheckedAt)), "</p>",
                 '<h2 id="ns-story-title" tabindex="-1">', escapeHTML(story.headline), "</h2>",
                 story.thread_subtitle ? "<p><em>" + escapeHTML(story.thread_subtitle) + "</em></p>" : "",

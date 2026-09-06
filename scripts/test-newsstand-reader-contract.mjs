@@ -385,6 +385,8 @@ assert.match(html, /THE SUNNYVA<span class="ns-brand-i">i<\/span>LE NEWSSTAND/, 
 assert.match(html, /function visiblePublicationControl\(edition\)[\s\S]*?control\.offsetParent !== null/, "mobile and desktop focus recovery must resolve the currently visible paper control");
 assert.match(html, /document\.getElementById\("newsstand-rack"\)\.addEventListener\("click"[\s\S]*?lastInvoker = link;/,
   "a story opened from the front page must return focus to the exact story link");
+assert.match(html, /Date\.parse\(story\.updatedAt\) > Date\.parse\(story\.publishedAt\)/,
+  "an ordinary story must not display an update date earlier than its publication date");
 assert.doesNotMatch(html, /var firstPaper = document\.querySelector\("\.ns-publication"\)/, "arrival CTA cannot target the hidden desktop rack on mobile");
 assert.match(catchup, /Around SUNNYVA<span class="ns-brand-i">i<\/span>LE/, "the town-update group must preserve the canonical lowercase i");
 assert.match(css, /\.ns-brand-i\s*\{[\s\S]*?text-transform:\s*none;/, "canonical lowercase i override must defeat inherited uppercase transforms");
