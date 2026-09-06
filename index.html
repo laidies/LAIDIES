@@ -1038,6 +1038,35 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
 @media(max-width:1100px){.feature-directory-groups{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.feature-directory{margin:16px;padding:30px 18px 34px}.feature-directory-head{grid-template-columns:1fr;gap:12px}.feature-directory-groups{grid-template-columns:1fr}.feature-group{padding:17px}.feature-group ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:430px){.feature-group ul{grid-template-columns:1fr}}
+
+/* Bounded homepage correction: keep the illustrated incumbent and bring the
+   first useful action forward. The complete directory is opt-in browsing. */
+.makeover-notice{display:block;padding:10px clamp(22px,7vw,112px)}
+.makeover-notice summary{min-height:44px;align-content:center;cursor:pointer;font-weight:700;font-size:1rem;line-height:1.35}
+.makeover-notice details p{max-width:80ch;padding:8px 0 12px}
+.makeover-notice summary:focus-visible,.feature-directory-browse summary:focus-visible{outline:3px solid var(--hp-ink);outline-offset:4px}
+.hero-dusk .hero-copy .hero-jumps{position:static;left:auto;bottom:auto;width:100%;max-width:720px;margin:22px 0;padding:0;grid-template-columns:repeat(2,minmax(0,1fr))}
+.hero-about{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:14px}
+.hero-about a{display:inline-flex;align-items:center;min-height:44px;color:#fffdfb;font-weight:600;text-underline-offset:5px}
+.intent-radio{grid-column:1/-1;margin:8px 0 0;font-size:1.1rem}
+.intent-radio a{display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:inherit;text-underline-offset:5px}
+.intent-grid-5 a img.intent-jeeves{object-fit:contain;background:var(--hp-midnight)}
+.feature-directory{padding:0 clamp(24px,4vw,52px);margin-top:0}
+.feature-directory-browse>summary{cursor:pointer;min-height:68px;align-content:center;padding:16px 0;font-weight:700;font-size:1.12rem;line-height:1.4}
+.feature-directory-browse[open]{padding-bottom:32px}
+.feature-directory-browse .feature-directory-groups{padding-top:10px}
+.helper-advice a{color:inherit;font-weight:700;text-underline-offset:4px}
+@media(max-width:560px){.hero-dusk .hero-copy .hero-jumps{grid-template-columns:1fr;margin:20px 0}.feature-directory{margin-left:20px;margin-right:20px;padding:0 20px}.hero-about{gap:0 18px}.makeover-notice summary{font-size:.94rem}}
+
+/* Readable text keeps its established palette; narrow screens do not reserve
+   a character-sized hole inside a navigation button. */
+.closet>div>p:nth-of-type(n) strong,.closet .closet-aside{color:var(--hp-ink)}
+.closet .closet-aside{border-left-color:var(--hp-purple)}
+.town>.town-heading .town-heading-title h2{color:var(--hp-purple)}
+@media(max-width:760px){
+  .reference-inline .library-entry{width:100%;min-height:44px;margin-right:0;padding-inline:14px}
+  .reference-inline .helper-advice{box-sizing:border-box;min-height:140px;padding-right:140px;align-content:center;margin-bottom:0}
+}
   </style>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260823-resident-truth-4f8af546d716"></script>
@@ -1064,14 +1093,13 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
 <header class="topbar">
     <a class="logo" href="#top" aria-label="LAiDIES home">L<span class="lac">A</span><span class="logo-iw"><span class="lac">&#305;</span><span class="logo-tit" aria-hidden="true"></span></span>DIES</a>
     <nav aria-label="Primary">
-      <a href="#method">Start learning</a><a href="/newsstand.html">Read the headlines</a><a data-latest-episode-link href="/issues/issue-04.html">Latest episode</a><a href="#town">Explore the town</a><a class="signin-link" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></nav>
+      <a href="/issues/issue-01.html">Start learning</a><a href="/newsstand.html">Read the headlines</a><a data-latest-episode-link href="/issues/issue-04.html">Latest episode</a><a href="#town">Explore the town</a><a class="signin-link" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></nav>
     <button class="menu" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
   </header>
   <aside class="makeover-notice" aria-label="Temporary website notice">
-    <strong>LAiDIES.ai is currently in the middle of its makeover montage.</strong>
-    <p>Some features have yet to roll out, and some pages may not work quite as intended. There is still great content on the site, but bear with us while we take off our glasses, shake out our hair and put on our power outfit.</p>
+    <details><summary>LAiDIES is in the middle of its makeover montage.</summary><p>Some features have yet to roll out, and some pages may not work quite as intended. There is still great content on the site, but bear with us while we take off our glasses, shake out our hair and put on our power outfit.</p></details>
   </aside>
-  <div id="mobile-nav" class="mobile-nav" role="navigation" aria-label="Menu" hidden><a href="#method">Start learning</a><a href="/newsstand.html">Read the headlines</a><a data-latest-episode-link href="/issues/issue-04.html">Latest episode</a><a href="#town">Explore the town</a><a data-library-entry="mobile-menu" href="/library.html">LIBRAiRY</a><a href="#activities">Games and tools</a><a class="nav-ksvl" href="/radio.html">KSVL 99.9</a><a class="signin-link" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></div>
+  <div id="mobile-nav" class="mobile-nav" role="navigation" aria-label="Menu" hidden><a href="/issues/issue-01.html">Start learning</a><a href="/newsstand.html">Read the headlines</a><a data-latest-episode-link href="/issues/issue-04.html">Latest episode</a><a href="#town">Explore the town</a><a data-library-entry="mobile-menu" href="/library.html">LIBRAiRY</a><a href="#activities">Games and tools</a><a class="nav-ksvl" href="/radio.html">KSVL 99.9</a><a class="signin-link" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></div>
 
   <main id="top" tabindex="-1">
     <section class="hero hero-dusk" aria-labelledby="hero-title">
@@ -1089,25 +1117,59 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
       <div class="hero-copy">
         <p class="term-kicker"><span class="tk-pink">&gt; L<span class="ai">Ai</span>DIES ONLINE</span> <span class="tk-dot">&nbsp;·&nbsp;</span> <span class="tk-coral">CONNECTED TO THE REWIND ERA</span><span class="cursor">_</span></p>
         <h1 id="hero-title">AI fluency, taught through the pop culture you <em>never forgot.</em> <span class="hero-tagline">Made to click. Built to stick.</span></h1>
+        <div class="actions hero-jumps" role="group" aria-label="Choose where to start">
+          <a class="button mast-why" href="/issues/issue-01.html">Start with Episode 1 &rarr;</a>
+          <a class="button mast-how" href="#today">Find what I need</a>
+        </div>
         <p class="lede">LAiDIES helps women understand and use AI through stories, practical tools, games, music and community. Welcome to the <strong class="rewind-accent">Rewind Era</strong>—twenty years of pop culture, from dial-up to downloads (1990–2010)—and to <span class="town-accent">SUNNYVAiLE</span>, the learning town where <strong class="power-accent">Girl Power meets Machine Power</strong>.</p>
         <p class="namecheck"><strong>Be kind, rewind.</strong> Put the pop-culture encyclopedia in your head to work on what comes next.</p>
+        <div class="hero-about"><a href="#why">Why women must shape AI</a><a href="#method">How LAiDIES works</a></div>
         </div>
-      <div class="actions hero-jumps" role="group" aria-label="Learn about LAiDIES">
-        <a class="button mast-why" href="#why">Why women must shape AI</a>
-        <a class="button mast-how" href="#method">How LAiDIES works</a>
+
+    </section>
+
+    <section class="intent" id="today" aria-labelledby="intent-title">
+      <div><p class="eyebrow">Come for the whole story or one useful thing</p><h2 id="intent-title">What brought you to town today?</h2><p>Choose what you need. The rest of town will still be here.</p></div>
+      <div class="intent-grid intent-grid-5">
+        <a href="/library.html"><img decoding="async" src="assets/sunnyvaile-buildings/y2k-v3/03-town-library.webp" alt="The SUNNYVAiLE LIBRAiRY entrance"><div><strong>I want to understand AI</strong><span>Browse the LIBRAiRY&rsquo;s books and guides. Start with the basics or look up the bit that has been bothering you.</span></div></a>
+        <a href="/library.html#miss-jeeves"><img class="intent-jeeves" decoding="async" src="assets/homepage/characters/miss-jeeves-question-desk-cutout-v2.png" alt="Miss Jeeves at her AI question desk"><div><strong>I have an AI question</strong><span>Miss Jeeves is your technical AI question desk. Start with answers and resources from LAiDIES.</span></div></a>
+        <a href="/games/fairy-godmother.html"><img decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A writing desk overlooking the FAiRY Godmother&rsquo;s magical garden"><div><strong>I could use some advice</strong><span>Bring FAiRY Godmother a work or career situation. Get advice, then learn how to ask your own AI for help that fits your life.</span></div></a>
+        <a href="/newsstand.html" data-intent-news><img decoding="async" src="assets/town-characters/scenes/paige-newsstand-current-palette-20260823.png" alt="PAiGE at the SUNNYVAiLE NewsStand"><div><strong data-intent-news-title>I want the headline explained</strong><span data-intent-news-summary>PAiGE follows the AI news and explains what it means for your work and everyday life.</span></div></a>
+        <a href="/issues/issue-04.html" data-intent-episode data-latest-episode-link><img decoding="async" src="assets/homepage/original-restoration-20260829/chick-flicks-postcard.webp" alt="The Chick Flicks video rental store"><div><strong data-intent-episode-title>I&rsquo;m here for the next episode</strong><span data-intent-episode-summary>Episode 04: The Founding Mothers.</span></div></a>
+        <a href="/fun-connect.html"><img decoding="async" src="assets/homepage/activity-landscapes-20260831/girl-talk.png" alt="Truth and Dare cards with lavender and pink flip phones"><div><strong>I could use a little fun</strong><span>Pick up Dream Phone, pull a card or round up the girls for a Businesswomen&rsquo;s Special.</span></div></a>
       </div>
+      <p class="intent-radio">Just listening? <a href="/radio.html">Put on KSVL 99.9 &rarr;</a></p>
+    </section>
+
+    <section class="feature-directory" aria-labelledby="feature-directory-title" data-feature-directory>
+      <details class="feature-directory-browse"><summary id="feature-directory-title">Looking for a particular place? Browse every game, tool and building.</summary>
+      <div class="feature-directory-groups">
+        <article class="feature-group"><h3>Learn and understand.</h3><ul>
+          <li><a href="/learn.html"><span class="feature-link-copy"><strong>Learning hub</strong><small>Find books, explainers, people and practical guidance.</small></span></a></li><li><a href="/library.html"><span class="feature-link-copy"><strong>Books and guides</strong><small>Browse the LAiDIES learning and reference collection.</small></span></a></li><li><a href="#reference"><span class="feature-link-copy"><strong>Ask Miss Jeeves</strong><small>Find answers to technical AI questions in LAiDIES resources.</small></span></a></li><li><a href="/newsstand.html"><span class="feature-link-copy"><strong>NewsStand</strong><small>Understand current AI headlines and why they matter.</small></span></a></li><li><a href="/luminairy.html"><span class="feature-link-copy"><strong>LUMINAiRY</strong><small>Meet the women who built computing and are shaping AI.</small></span></a></li><li><a href="/blend-snap.html"><span class="feature-link-copy"><strong>Blend &amp; Snap</strong><small>Find your episode&rsquo;s practice activities and field trips.</small></span></a></li><li><a href="/sunnyvaile-high.html"><span class="feature-link-copy"><strong>SUNNYVAiLE High</strong><small>Test what you learned with quizzes and activities.</small></span></a></li>
+        </ul></article>
+        <article class="feature-group"><h3>Watch and listen.</h3><ul>
+          <li><a data-latest-episode-link href="/issues/issue-04.html"><span class="feature-link-copy"><strong>Latest episode</strong><small>Continue the SUNNYVAiLE story and its next AI lesson.</small></span></a></li><li><a href="/chick-flicks.html"><span class="feature-link-copy"><strong>Chick Flicks</strong><small>Find every episode in order at the video store.</small></span></a></li><li><a href="/radio.html"><span class="feature-link-copy"><strong>KSVL 99.9</strong><small>Hear original songs that make the AI lessons stick.</small></span></a></li><li><a href="#this-week"><span class="feature-link-copy"><strong>Wednesday route</strong><small>Choose your stops for the week&rsquo;s episode.</small></span></a></li><li><a href="/visitors-centre.html"><span class="feature-link-copy"><strong>Visitor&rsquo;s Centre</strong><small>Get oriented before you explore the town.</small></span></a></li>
+        </ul><figure class="feature-group-art"><img loading="lazy" decoding="async" src="/assets/building-interiors/ksvl-sticker-banner.jpg" alt="A colourful collage of KSVL 99.9 radio stickers"><figcaption>Now playing: original LAiDIES songs and Rewind Era radio.</figcaption></figure></article>
+        <article class="feature-group"><h3>Use and have fun.</h3><ul>
+          <li><a href="/games/fairy-godmother.html"><span class="feature-link-copy"><strong>FAiRY Godmother</strong><small>Get work or career advice and learn to ask your own AI for tailored help.</small></span></a></li><li><a href="/fun-connect.html"><span class="feature-link-copy"><strong>All games and tools</strong><small>Find practical help, decisions, laughs and connection.</small></span></a></li><li><a href="/games/madame-claio.html"><span class="feature-link-copy"><strong>Mme CLAi-O</strong><small>Pull a Rewind Era card for a playful reading.</small></span></a></li><li><a href="/games/businesswomens-special.html"><span class="feature-link-copy"><strong>Businesswomen&rsquo;s Special</strong><small>Pick a drink and conversation prompt for the table.</small></span></a></li><li><a href="/games/dream-phone.html"><span class="feature-link-copy"><strong>Dream Phone</strong><small>Just Call for fun, or try the experimental game.</small></span></a></li><li><a href="/mall.html"><span class="feature-link-copy"><strong>The Mall</strong><small>Browse the Rewind Era reference catalogue.</small></span></a></li><li><a href="/bronze-aige.html"><span class="feature-link-copy"><strong>BRONZE AiGE</strong><small>Find happy-hour tools and conversation starters.</small></span></a></li>
+        </ul></article>
+        <article class="feature-group"><h3>Belong and explore.</h3><ul>
+          <li><a href="#town"><span class="feature-link-copy"><strong>Explore SUNNYVAiLE</strong><small>Open the map and visit every town building.</small></span></a></li><li><a href="/sorority-house.html"><span class="feature-link-copy"><strong>Delta LAi Nu</strong><small>Visit the community home, its rooms and Girl Talk.</small></span></a></li><li><a href="/games/girl-talk.html"><span class="feature-link-copy"><strong>Girl Talk</strong><small>Try the private honour-system truth-or-dare game.</small></span></a></li><li><a href="/maikeover.html"><span class="feature-link-copy"><strong>Make a Resident Card</strong><small>Create your town ID and begin your Resident experience.</small></span></a></li><li><a href="/laidies-card.html"><span class="feature-link-copy"><strong>Open your Closet</strong><small>See your Card, supported saves and keepsakes.</small></span></a></li><li><a href="/post-office.html"><span class="feature-link-copy"><strong>Post Office</strong><small>Request the weekly Postcard and discover town mail.</small></span></a></li><li><a href="/town-hall.html"><span class="feature-link-copy"><strong>Town Hall</strong><small>Meet Mayor Deb, read notices and share feedback.</small></span></a></li>
+        </ul></article>
+      </div>
+      </details>
     </section>
 
     <section class="town-switchboard-hero" aria-labelledby="town-switchboard-title" hidden>
       <div class="town-switchboard-inner">
         <header class="town-switchboard-head"><div><p class="eyebrow">Around SUNNYVAiLE</p><h2 id="town-switchboard-title">Pick your next stop.</h2></div><p>See what is new, ask a question, put on the radio or find something useful to try.</p></header>
         <div class="town-switchboard-grid">
-          <a class="town-switchboard-card town-switchboard-news" data-switchboard-news href="/newsstand.html"><img src="/assets/homepage/original-restoration-20260829/newsstand-building.jpg" alt="The SUNNYVAiLE NewsStand"><div class="town-switchboard-copy"><span class="town-switchboard-kicker" data-switchboard-news-kicker>At the NewsStand</span><h3 data-switchboard-news-title>See the latest headlines.</h3><p data-switchboard-news-summary>PAiGE gathers released reporting and explains what it means in real life.</p><span class="town-switchboard-go">Read the NewsStand &rarr;</span></div></a>
+          <a class="town-switchboard-card town-switchboard-news" data-switchboard-news href="/newsstand.html"><img src="/assets/homepage/original-restoration-20260829/newsstand-building.jpg" alt="The SUNNYVAiLE NewsStand"><div class="town-switchboard-copy"><span class="town-switchboard-kicker" data-switchboard-news-kicker>At the NewsStand</span><h3 data-switchboard-news-title>See the latest headlines.</h3><p data-switchboard-news-summary>PAiGE follows AI news and explains what it means in real life.</p><span class="town-switchboard-go">Read the NewsStand &rarr;</span></div></a>
           <a class="town-switchboard-card town-switchboard-radio" href="/radio.html"><img src="/assets/building-interiors/ksvl-sticker-banner.jpg" alt="KSVL 99.9, SUNNYVAiLE's radio station"><div class="town-switchboard-copy"><span class="town-switchboard-kicker">Now playing</span><h3>KSVL 99.9 is on the air.</h3><p>Hear LAiDIES original songs, lesson hooks and Rewind Era radio.</p><span class="town-switchboard-go">Listen to KSVL &rarr;</span></div></a>
           <a class="town-switchboard-card town-switchboard-jeeves" href="#reference"><img loading="lazy" src="/assets/sunnyvaile-buildings/y2k-v3/03-town-library.webp" alt="The SUNNYVAiLE LIBRAiRY"><div class="town-switchboard-copy"><span class="town-switchboard-kicker">Your AI reference desk</span><h3>Ask Miss Jeeves.</h3><p>She searches LAiDIES books, episodes, NewsStand stories, Study Packs, tools and activities.</p><span class="town-switchboard-go">Ask a question &rarr;</span></div></a>
           <a class="town-switchboard-card town-switchboard-games" href="/fun-connect.html"><img loading="lazy" src="/assets/homepage/original-restoration-20260829/puffy-binder.webp" alt="A Rewind Era binder covered with LAiDIES keepsakes"><div class="town-switchboard-copy"><span class="town-switchboard-kicker">Games, tools and quick diversions</span><h3>Find something useful or fun.</h3><p>Get help with a draft, investigate a claim, pull a card or start a conversation.</p><span class="town-switchboard-go">Explore games and tools &rarr;</span></div></a>
         </div>
-        <a class="town-switchboard-resume" data-switchboard-resume href="#this-week" hidden><strong>Continue where you left off.</strong><span>Return to your released episode &rarr;</span></a>
+        <a class="town-switchboard-resume" data-switchboard-resume href="#this-week" hidden><strong>Continue where you left off.</strong><span>Return to your episode &rarr;</span></a>
       </div>
     </section>
 
@@ -1126,7 +1188,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
           </a>
           <a class="dyk-slide" data-dyk-slide href="/games/fairy-godmother.html" style="--dyk-accent:var(--hp-pink)" hidden>
             <div class="dyk-media"><img loading="lazy" src="/assets/sunnyvaile-buildings/y2k-v3/11-fairy-godmother-house.webp" alt="The FAiRY Godmother's magical house in SUNNYVAiLE"></div>
-            <div class="dyk-copy"><p class="dyk-kicker">Prompt rescue</p><h3>Bring her the prompt that isn&rsquo;t working.</h3><p>The FAiRY Godmother can sharpen a prompt, rescue a work draft and turn a vague request into something more useful.</p><span class="dyk-cta">Ask the FAiRY Godmother</span></div>
+            <div class="dyk-copy"><p class="dyk-kicker">Advice for work and career</p><h3>Tell her what you are dealing with.</h3><p>The FAiRY Godmother offers work and career advice and helps you ask your own AI for guidance tailored to your situation.</p><span class="dyk-cta">Ask the FAiRY Godmother</span></div>
           </a>
           <a class="dyk-slide" data-dyk-slide href="/games/businesswomens-special.html" style="--dyk-accent:var(--hp-orange)" hidden>
             <div class="dyk-media"><img loading="lazy" src="/assets/businesswomen-special-fortune-teller-v1.webp" alt="The Businesswomen's Special paper drink picker"></div>
@@ -1216,10 +1278,10 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
       <h3 class="steps-title">How it all works</h3>
       </div>
       <ol class="explainer-steps method-step-grid">
-        <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/homepage/original-restoration-20260829/chick-flicks-postcard.webp" alt="The Chick Flicks video rental store at dusk"><div class="method-step-body"><span class="step-n n-teal">1</span><div><h3>Follow the plot</h3><p>Start with <a class="inline-link" href="/visitors-centre.html">the Visitor’s Centre</a>, then read or hear the episodes in order as our main character learns AI and discovers SUNNYVAiLE alongside you.</p><details><summary>Read more</summary><p>Season One teaches the AI basics in 24 episodes, because we remember the glory days when a season had time for a proper plot, a questionable haircut and at least one inexplicable musical episode. Future seasons will continue the story&mdash;and take your AI fluency further.</p></details></div></div></li>
+        <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/homepage/original-restoration-20260829/chick-flicks-postcard.webp" alt="The Chick Flicks video rental store at dusk"><div class="method-step-body"><span class="step-n n-teal">1</span><div><h3>Follow the plot</h3><p>Start with <a class="inline-link" href="/issues/issue-01.html">Episode 1</a>, then follow the story in order as our main character learns AI and discovers SUNNYVAiLE alongside you.</p><details><summary>Read more</summary><p>Season One teaches the AI basics in 24 episodes, because we remember the glory days when a season had time for a proper plot, a questionable haircut and at least one inexplicable musical episode. Future seasons will continue the story&mdash;and take your AI fluency further.</p></details></div></div></li>
         <li><div class="method-step-media method-step-media--edge-crop"><img class="method-step-image" loading="lazy" decoding="async" src="assets/homepage/original-restoration-20260829/puffy-binder.webp" alt="A Rewind Era binder covered with computer, cassette, camera and music stickers"></div><div class="method-step-body"><span class="step-n n-pink">2</span><div><h3>Unlock the idea</h3><p>Each episode pairs an unfamiliar AI concept with a film, television moment, character, lyric or gloriously specific Y2K reference your brain already understands.</p><details><summary>Read more</summary><p>Because sometimes &ldquo;context window&rdquo; makes more sense when explained through <em>The Devil Wears Prada</em>&mdash;and butterfly clips, roll-on glitter and a suspiciously translucent landline have waited long enough to contribute to your professional development.</p></details></div></div></li>
-        <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A laptop and a marked-up practical guide on a colourful desk"><div class="method-step-body"><span class="step-n n-coral">3</span><div><h3>Make it click</h3><p>Open the practice pieces that are actually ready for that episode. Blend &amp; Snap keeps each Try-On, one-page guide and teaching-card pack unavailable until its exact component passes review; the Pop Quiz remains a separate stop.</p><details><summary>Read more</summary><p>When a piece is available, it should leave you with something you can actually use&mdash;not just another tab you opened with excellent intentions and quietly abandoned three Tuesdays ago.</p></details></div></div></li>
-        <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/building-interiors/ksvl-booth.jpg" alt="The KSVL 99.9 radio booth with microphones, mixing desk and record library"><div class="method-step-body"><span class="step-n n-yellow">4</span><div><h3>Make it stick</h3><p>KSVL turns central lessons into memorable LAiDIES original songs.</p><p>Twenty-nine tracks are ready to hear. Pick a song, start listening and let the hook do the revision.</p><a class="tune-in" href="/radio.html">Listen to KSVL</a></div></div></li>
+        <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A laptop and a marked-up practical guide on a colourful desk"><div class="method-step-body"><span class="step-n n-coral">3</span><div><h3>Make it click</h3><p>Visit <a class="inline-link" href="/blend-snap.html">Blend &amp; Snap</a> for the activities that go with your episode. Episode 04 takes you to the LUMINAiRY to meet the MAiVENS and TRAiLBLAZERS and read what they contributed to computing and AI.</p><details><summary>Read more</summary><p>Read their stories, follow what interests you and see whose work you had been using without knowing her name. <a class="inline-link" href="/luminairy.html">Take the LUMINAiRY field trip &rarr;</a></p></details></div></div></li>
+        <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/building-interiors/ksvl-booth.jpg" alt="The KSVL 99.9 radio booth with microphones, mixing desk and record library"><div class="method-step-body"><span class="step-n n-yellow">4</span><div><h3>Make it stick</h3><p>KSVL turns central lessons into memorable LAiDIES original songs.</p><p>Pick a song and let the hook do the revision. Finally, a chorus stuck in your head that can help at work.</p><a class="tune-in" href="/radio.html">Listen to KSVL</a></div></div></li>
       </ol>
 
     </section>
@@ -1236,48 +1298,18 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
             <a class="sunny-now-radio" href="/radio.html">Listen to KSVL 99.9 &mdash; SUNNYVAiLE&rsquo;s very own radio station &rarr;</a>
           </div>
         </div>
-        <div class="sunny-now-footer"><a class="sunny-now-all" href="/newsstand.html">See all the latest headlines &rarr;</a><p class="sunny-now-status" data-now-status aria-live="polite">Browse the released NewsStand.</p></div>
-      </div>
-    </section>
-
-    <section class="intent" id="today" aria-labelledby="intent-title">
-      <div><p class="eyebrow">Come for the whole story or one useful thing</p><h2 id="intent-title">What brought you to town today?</h2><p>You do not need to learn the town before you can use it.</p></div>
-      <div class="intent-grid intent-grid-5">
-        <a href="/learn.html"><img decoding="async" src="assets/sunnyvaile-buildings/y2k-v3/03-town-library.webp" alt="The SUNNYVAiLE LIBRAiRY entrance"><div><strong>I want to learn</strong><span>Find learning resources, including books, tips, explanations, and guides.</span></div></a>
-        <a href="#reference"><img decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A colourful desk ready for an AI question"><div><strong>I have an AI question</strong><span>Ask Miss Jeeves anything about AI: why something is happening, what a headline means, which tool or model fits, or how to do a task.</span></div></a>
-        <a href="/newsstand.html" data-intent-news><img decoding="async" src="assets/town-characters/scenes/paige-newsstand-current-palette-20260823.png" alt="PAiGE at the SUNNYVAiLE NewsStand"><div><strong data-intent-news-title>I want today&rsquo;s headline explained</strong><span data-intent-news-summary>See current released reporting and what it means in real life.</span></div></a>
-        <a href="#this-week" data-intent-episode data-latest-episode-link><img decoding="async" src="assets/homepage/original-restoration-20260829/chick-flicks-postcard.webp" alt="The Chick Flicks video rental store"><div><strong data-intent-episode-title>Continue or catch the latest episode</strong><span data-intent-episode-summary>Episode 04: The Founding Mothers.</span></div></a>
-        <a href="/radio.html"><img decoding="async" src="assets/building-interiors/ksvl-sticker-banner.jpg" alt="KSVL 99.9, SUNNYVAiLE's radio station"><div><strong>I want something to listen to</strong><span>Tune into KSVL 99.9 for LAiDIES original songs and Rewind Era radio.</span></div></a>
-        <a href="/fun-connect.html"><img decoding="async" src="assets/homepage/activity-landscapes-20260831/girl-talk.png" alt="Truth and Dare card stacks with lavender and pink flip-phone artwork"><div><strong>I want something useful or fun</strong><span>Find games, practical tools, drinks, conversation and the LAiDIES at Delta LAi Nu.</span></div></a>
-      </div>
-    </section>
-
-    <section class="feature-directory" aria-labelledby="feature-directory-title" data-feature-directory>
-      <header class="feature-directory-head"><div><p class="eyebrow">Browse the whole town</p><h2 id="feature-directory-title">Everything you can do in LAiDIES.</h2></div><p>The six doors above get you started. This directory makes the rest visible, so you can discover something you did not arrive looking for.</p></header>
-      <div class="feature-directory-groups">
-        <article class="feature-group"><h3>Learn and understand.</h3><ul>
-          <li><a href="/learn.html"><span class="feature-link-copy"><strong>Learning hub</strong><small>Find books, explainers, people and practical guidance.</small></span></a></li><li><a href="/library.html"><span class="feature-link-copy"><strong>Books and guides</strong><small>Browse the LAiDIES learning and reference collection.</small></span></a></li><li><a href="#reference"><span class="feature-link-copy"><strong>Ask Miss Jeeves</strong><small>Ask why AI is behaving that way, what a headline means, which tool or model to use, or how to do something.</small></span></a></li><li><a href="/newsstand.html"><span class="feature-link-copy"><strong>NewsStand</strong><small>Understand current AI headlines and why they matter.</small></span></a></li><li><a href="/luminairy.html"><span class="feature-link-copy"><strong>LUMINAiRY</strong><small>Meet the women who built computing and are shaping AI.</small></span></a></li><li><a href="/blend-snap.html"><span class="feature-link-copy"><strong>Blend &amp; Snap</strong><small>Open practical Study Packs, Try-Ons and teaching cards.</small></span></a></li><li><a href="/sunnyvaile-high.html"><span class="feature-link-copy"><strong>SUNNYVAiLE High</strong><small>Test what you learned with quizzes and activities.</small></span></a></li>
-        </ul></article>
-        <article class="feature-group"><h3>Watch and listen.</h3><ul>
-          <li><a data-latest-episode-link href="/issues/issue-04.html"><span class="feature-link-copy"><strong>Latest episode</strong><small>Continue the SUNNYVAiLE story and its next AI lesson.</small></span></a></li><li><a href="/chick-flicks.html"><span class="feature-link-copy"><strong>Chick Flicks</strong><small>Find every episode in order at the video store.</small></span></a></li><li><a href="/radio.html"><span class="feature-link-copy"><strong>KSVL 99.9</strong><small>Hear original songs that make the AI lessons stick.</small></span></a></li><li><a href="#this-week"><span class="feature-link-copy"><strong>Wednesday route</strong><small>Follow the weekly eight-stop learning route.</small></span></a></li><li><a href="/visitors-centre.html"><span class="feature-link-copy"><strong>Visitor&rsquo;s Centre</strong><small>Get oriented before you explore the town.</small></span></a></li>
-        </ul><figure class="feature-group-art"><img loading="lazy" decoding="async" src="/assets/building-interiors/ksvl-sticker-banner.jpg" alt="A colourful collage of KSVL 99.9 radio stickers"><figcaption>Now playing: original LAiDIES songs and Rewind Era radio.</figcaption></figure></article>
-        <article class="feature-group"><h3>Use and have fun.</h3><ul>
-          <li><a href="/games/fairy-godmother.html"><span class="feature-link-copy"><strong>FAiRY Godmother</strong><small>Improve a prompt or draft with guided feedback.</small></span></a></li><li><a href="/fun-connect.html"><span class="feature-link-copy"><strong>All games and tools</strong><small>Find practical help, decisions, laughs and connection.</small></span></a></li><li><a href="/games/madame-claio.html"><span class="feature-link-copy"><strong>Mme CLAi-O</strong><small>Pull a Rewind Era card for a playful reading.</small></span></a></li><li><a href="/games/businesswomens-special.html"><span class="feature-link-copy"><strong>Businesswomen&rsquo;s Special</strong><small>Pick a drink and conversation prompt for the table.</small></span></a></li><li><a href="/games/dream-phone.html"><span class="feature-link-copy"><strong>Dream Phone</strong><small>Call a town character or investigate an AI claim.</small></span></a></li><li><a href="/mall.html"><span class="feature-link-copy"><strong>The Mall</strong><small>Browse the Rewind Era reference catalogue.</small></span></a></li><li><a href="/bronze-aige.html"><span class="feature-link-copy"><strong>BRONZE AiGE</strong><small>Find happy-hour tools and conversation starters.</small></span></a></li>
-        </ul></article>
-        <article class="feature-group"><h3>Belong and explore.</h3><ul>
-          <li><a href="#town"><span class="feature-link-copy"><strong>Explore SUNNYVAiLE</strong><small>Open the map and visit every town building.</small></span></a></li><li><a href="/sorority-house.html"><span class="feature-link-copy"><strong>Delta LAi Nu</strong><small>Visit the community home, its rooms and Girl Talk.</small></span></a></li><li><a href="/games/girl-talk.html"><span class="feature-link-copy"><strong>Girl Talk</strong><small>Try the private honour-system truth-or-dare game.</small></span></a></li><li><a href="/maikeover.html"><span class="feature-link-copy"><strong>Make a Resident Card</strong><small>Create your town ID and begin your Resident experience.</small></span></a></li><li><a href="/laidies-card.html"><span class="feature-link-copy"><strong>Open your Closet</strong><small>See your Card, supported saves and keepsakes.</small></span></a></li><li><a href="/post-office.html"><span class="feature-link-copy"><strong>Post Office</strong><small>Request the weekly Postcard and discover town mail.</small></span></a></li><li><a href="/town-hall.html"><span class="feature-link-copy"><strong>Town Hall</strong><small>Meet Mayor Deb, read notices and share feedback.</small></span></a></li>
-        </ul></article>
+        <div class="sunny-now-footer"><a class="sunny-now-all" href="/newsstand.html">See all the latest headlines &rarr;</a><p class="sunny-now-status" data-now-status aria-live="polite">Browse the NewsStand.</p></div>
       </div>
     </section>
 
     <section id="this-week" class="weekly">
-      <div class="section-heading"><p class="eyebrow">The weekly route</p><h2>Your Wednesday in SUNNYV<span class="ai">Ai</span>LE.</h2><p>On Wednesdays we do AI. The route below shows the intended eight-stop weekly experience, and each destination tells you what is actually available. Released episode pages and KSVL remain open; held Study Pack, video and NewsStand pieces stay unavailable until their exact reviews pass. Start at the Visitor&rsquo;s Centre, then Episode 1, or resume the latest released episode page.</p></div>
+      <div class="section-heading"><p class="eyebrow">The weekly route</p><h2>Your Wednesday in SUNNYV<span class="ai">Ai</span>LE.</h2><p>On Wednesdays we do AI. Read or listen to the episode, try its activities, then take the long way home through SUNNYVAiLE. Make an evening of it, or choose the stop you have time for.</p></div>
       <div class="weekly-layout">
         <div class="weekly-side">
         <article id="new-here" class="feature-card">
           <img loading="lazy" decoding="async" src="assets/homepage/original-restoration-20260829/chick-flicks-postcard.webp" alt="The Chick Flicks video rental postcard">
           <div class="fc-state fc-default">
-            <span class="tag">Where you are in the season</span>
+            <span class="tag">The latest episode</span>
             <h3>Ep 04 · The Founding Mothers</h3>
             <ol class="season-track">
               <li><a href="/visitors-centre.html">The Visitor’s Centre</a></li>
@@ -1286,9 +1318,9 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
               <li><a href="/issues/issue-03.html"><i>03</i>The Burn Book Problem</a></li>
               <li class="st-current"><a href="/issues/issue-04.html"><i>04</i>The Founding Mothers</a><a class="play-chip pc-mini" href="/radio.html" aria-label="Listen to the Episode 04 anthem at KSVL"><span class="pc-icon">&#9654;</span></a></li>
             </ol>
-            <p>New to LAiDIES? Start at the Visitor’s Centre to get oriented. Then Episode 1 begins the season in order.</p>
+            <p>New to LAiDIES? Episode 1 starts the story. The Visitor&rsquo;s Centre is there if you would like a look around first.</p>
             <div class="weekly-actions" role="group" aria-label="Start, sign in, read or listen">
-              <a class="text-link" href="/visitors-centre.html">Start at the Visitor’s Centre</a>
+              <a class="text-link" href="/issues/issue-01.html">Start with Episode 1</a>
               <a class="side-link fc-signin" href="/resident-card.html#rcAccountTitle">Sign in</a>
               <a class="fc-btn fc-btn-teal" href="/issues/issue-04.html">Read Episode 04</a>
               <a class="fc-btn fc-btn-coral" href="/watch.html?ep=04">Listen to Episode 04</a>
@@ -1297,39 +1329,39 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
           <div class="fc-state fc-resume" hidden>
             <span class="tag">Where you are in the season</span>
             <h3 class="fc-resume-title"></h3>
-            <p>We&rsquo;ve taken you to where you left off.</p>
+            <p>Your last episode is ready when you are.</p>
             <a class="text-link fc-resume-link" href="/chick-flicks.html">Continue your episode →</a>
           </div>
         </article>
       </div>
-        <div class="route-cell"><div class="route-head"><strong>The weekly route</strong><small>8 intended stops &mdash; open each destination for its current availability</small></div><a class="play-chip chip-route chip-ghost" href="/radio.html"><span class="pc-icon" aria-hidden="true">&#9654;</span> Hear the Wednesday theme at KSVL</a>
+        <div class="route-cell"><div class="route-head"><strong>The weekly route</strong><small>Eight stops. Choose your own Wednesday.</small></div><a class="play-chip chip-route chip-ghost" href="/radio.html"><span class="pc-icon" aria-hidden="true">&#9654;</span> Hear the Wednesday theme at KSVL</a>
         <ol class="ritual">
-          <li data-stop="newsstand"><a class="ritual-stop" href="/newsstand.html"><span>1</span><div><strong>Check the NewsStand</strong><small>Current reporting when the evidence earns it; released archive otherwise</small></div><b>Full Route</b></a></li>
-          <li data-stop="chick-flicks"><a class="ritual-stop" href="/chick-flicks.html"><span>2</span><div><strong>Read or hear the episode</strong><small>The Chick Flicks · latest released episode, or start at Episode 1</small></div><b>Learn</b></a></li>
-          <li data-stop="blend-snap"><a class="ritual-stop" href="/blend-snap.html"><span>3</span><div><strong>See available Study Pack pieces</strong><small>Blend &amp; Snap · only components marked available</small></div><b>Practise</b></a></li>
+          <li data-stop="newsstand"><a class="ritual-stop" href="/newsstand.html"><span>1</span><div><strong>Check the NewsStand</strong><small>AI news and what it means in real life</small></div><b>Full Route</b></a></li>
+          <li data-stop="chick-flicks"><a class="ritual-stop" href="/chick-flicks.html"><span>2</span><div><strong>Read or hear the episode</strong><small>The Chick Flicks · start at Episode 1 or pick up the story</small></div><b>Learn</b></a></li>
+          <li data-stop="blend-snap"><a class="ritual-stop" href="/blend-snap.html"><span>3</span><div><strong>Try the episode&rsquo;s activities</strong><small>Blend &amp; Snap · including the Episode 04 LUMINAiRY field trip</small></div><b>Practise</b></a></li>
           <li data-stop="ksvl"><a class="ritual-stop" href="/radio.html"><span>4</span><div><strong>Listen to KSVL 99.9</strong><small>LAiDIES original songs</small></div><b>Listen</b></a></li>
           <li data-stop="sunnyvaile-high"><a class="ritual-stop" href="/sunnyvaile-high.html"><span>5</span><div><strong>Take the Pop Quiz</strong><small>SUNNYVAiLE High</small></div><b>Check</b></a></li>
           <li data-stop="mall"><a class="ritual-stop" href="/mall.html"><span>6</span><div><strong>Take some free time</strong><small>Choose an activity around town</small></div><b>Explore</b></a></li>
           <li data-stop="bronze-aige"><a class="ritual-stop" href="/bronze-aige.html"><span>7</span><div><strong>Visit the BRONZE AiGE</strong><small>Happy-hour tools and Businesswomen’s Special</small></div><b>Connect</b></a></li>
-          <li data-stop="sorority-house"><a class="ritual-stop" href="/sorority-house.html"><span>8</span><div><strong>Bring it home</strong><small>Delta LAi Nu · progress, haul and Girl Talk</small></div><b>Finish</b></a></li>
+          <li data-stop="sorority-house"><a class="ritual-stop" href="/sorority-house.html"><span>8</span><div><strong>Bring it home</strong><small>Delta LAi Nu · conversation, community and Girl Talk</small></div><b>Finish</b></a></li>
         </ol></div>
       </div>
-      <a class="express" href="/this-week.html"><strong>Short on time? Check the Express Route:</strong> episode page → any available practice → quiz. Held pieces stay out of the route. <b class="express-go">Start →</b></a>
+      <a class="express" data-latest-episode-link href="/issues/issue-04.html"><strong>Just here for the episode?</strong> Open the latest story and choose read or listen. <b class="express-go">Open the episode &rarr;</b></a>
     </section>
 
     <section id="activities" class="activities">
       <div class="section-heading"><p class="eyebrow">Come for one thing. Stay if you feel like it.</p><h2>Games, tools and quick ways to use AI.</h2><p>Quick, useful activities around town—real help with work, a decision, or just a laugh with a blast from the past. No lesson required.</p></div>
       <div class="filter" role="group" aria-label="Filter activities"><button class="active" data-filter="all">Everything</button><button data-filter="help">Work help</button><button data-filter="decide">Help me decide</button><button data-filter="fun">Make me laugh</button><button data-filter="quick">Under 5 min</button></div>
       <div class="activity-grid">
-        <article data-tags="help quick" id="help"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A writing desk with a laptop, drafts and a star wand overlooking the FAiRY Godmother’s magical garden"><div><span class="tag">Prompt and writing help · 3–5 min</span><h3>FAiRY Godmother</h3><p>Bring her a prompt or draft and get help making it clearer, more specific and more useful.</p><button onclick="location.href='/games/fairy-godmother.html'">Ask the FAiRY Godmother</button></div></article>
+        <article data-tags="help quick" id="help"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A writing desk with a laptop, drafts and a star wand overlooking the FAiRY Godmother’s magical garden"><div><span class="tag">Advice you can put to work</span><h3>FAiRY Godmother</h3><p>Your boss has asked for something you have never done. Or you have a decision to make and sixteen tabs open about it. Tell FAiRY what is going on: get advice now, and learn how to ask your own AI for help next time.</p><button onclick="location.href='/games/fairy-godmother.html'">Ask the FAiRY Godmother</button></div></article>
         <article data-tags="fun decide quick"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/mme-claio.png" alt="Mme CLAi-O with tarot cards"><div><span class="tag">Just for fun · 2 min</span><h3>Mme CLAi-O</h3><p>Tarot, but the deck is Rewind Era objects and experiences. Pull a card for a reading and advice&mdash;practical, with late-night-commercial drama.</p><button onclick="location.href='/games/madame-claio.html'">Consult Mme CLAi-O</button></div></article>
-        <article data-tags="fun quick"><img loading="lazy" decoding="async" class="img-center" src="assets/homepage/activity-landscapes-20260831/businesswomens-special.png" alt="The Businesswomen’s Special paper fortune teller on the bar: Bubbles, After Dark, Citrus, Classic"><div><span class="tag">Happy hour · cocktail or spirit-free</span><h3>Businesswomen’s Special</h3><p>A social AI ritual with an equal-choice paper fortune teller and a conversation menu for the table.</p><button onclick="location.href='/games/businesswomens-special.html'">Visit the Businesswomen’s Special</button></div></article>
-        <article data-tags="help fun"><img loading="lazy" decoding="async" src="assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp" alt="The Dream Phone booth on MAiN Street"><div><span class="tag">Call a character or spot the hallucination · 3–5 min</span><h3>Dream Phone</h3><p>Phone a SUNNYVAiLE character for a funny new perspective, or try For Real / As If and investigate an AI claim.</p><button onclick="location.href='/games/dream-phone.html'">Answer Dream Phone</button></div></article>
-        <article data-tags="fun"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/girl-talk.png" alt="Truth and Dare card stacks with lavender and pink flip-phone artwork"><div><span class="tag">Private honour-system game · 5–10 min</span><h3>Girl Talk</h3><p>Truth or dare for LAiDIES, with optional community-room inspiration. Open to browse; live conversation uses Hyvor&rsquo;s separate sign-in when available.</p><button onclick="location.href='/sorority-house.html'">Visit Delta LAi Nu</button></div></article>
+        <article data-tags="fun quick"><img loading="lazy" decoding="async" class="img-center" src="assets/homepage/activity-landscapes-20260831/businesswomens-special.png" alt="The Businesswomen’s Special paper fortune teller on the bar: Bubbles, After Dark, Citrus, Classic"><div><span class="tag">Happy hour · cocktail or spirit-free</span><h3>Businesswomen’s Special</h3><p>We&rsquo;re businesswomen. We have a special. Let the paper fortune teller pick your drink&mdash;cocktail or spirit-free&mdash;then give the group chat something to discuss in person.</p><button onclick="location.href='/games/businesswomens-special.html'">Visit the Businesswomen’s Special</button></div></article>
+        <article data-tags="help fun"><img loading="lazy" decoding="async" src="assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp" alt="The Dream Phone booth on MAiN Street"><div><span class="tag">Just Call · experimental game also available</span><h3>Dream Phone</h3><p>Remember Dream Phone and the hunt for your secret crush? We brought it to SUNNYVAiLE. Just Call for a playful bit of advice from someone who would have written more than &ldquo;Have a great summer!&rdquo; in your yearbook. The full game is still experimental.</p><button onclick="location.href='/games/dream-phone.html'">Answer Dream Phone</button></div></article>
+        <article data-tags="fun"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/girl-talk.png" alt="Truth and Dare card stacks with lavender and pink flip-phone artwork"><div><span class="tag">Truth or dare · with your girls</span><h3>Girl Talk</h3><p>The sleepover classic has grown up with you. Play truth or dare privately, or visit Delta LAi Nu to find the community rooms. Posting in the rooms has its own sign-in.</p><button onclick="location.href='/sorority-house.html'">Visit Delta LAi Nu</button></div></article>
         <article data-tags="help quick"><img loading="lazy" decoding="async" src="assets/town-characters/scenes/paige-newsstand-current-palette-20260823.png" alt="Paige at the NewsStand counter beside her source-checking board"><div><span class="tag">AI news, explained for real life</span><h3>The NewsStand</h3><p>Catch breaking news, a clear daily explainer, the week&rsquo;s bigger picture and thoughtful opinion.</p><button onclick="location.href='/newsstand.html'">Read the NewsStand</button></div></article>
       </div>
       <section id="reference" class="reference reference-inline" aria-labelledby="jeeves-title">
-        <div><p class="eyebrow">Your AI question desk</p><h2 id="jeeves-title">Ask Miss Jeeves anything about AI.</h2><p>Tell her what is happening, what everyone is talking about, or what you want to do. Miss Jeeves checks current LAiDIES books, episodes, NewsStand reporting, Study Packs, tools and activities. If LAiDIES covers it, she gives you a direct answer and the best place to continue. If it does not, she tells you honestly and can pass the question to the editorial team only with your consent.</p><p class="reference-beta-note"><strong>Beta:</strong> Reliable for finding your way around LAiDIES. Broader AI answers are still being tested and improved.</p><form id="homepage-jeeves-form"><label for="lookup">What do you want to know or do?</label><div><input id="lookup" maxlength="240" autocomplete="off" placeholder="Why is everyone talking about Nvidia?"><button type="submit">Ask Miss Jeeves</button></div></form><div class="popular"><span>For example:</span><a href="/library.html#miss-jeeves?q=Why%20does%20the%20AI%20ignore%20part%20of%20my%20prompt%3F&amp;from=homepage">Why does the AI ignore part of my prompt?</a><a href="/library.html#miss-jeeves?q=Why%20is%20everyone%20talking%20about%20Nvidia%3F&amp;from=homepage">Why is everyone talking about Nvidia?</a><a href="/library.html#miss-jeeves?q=I%20want%20to%20turn%20meeting%20notes%20into%20a%20clear%20summary.%20Which%20AI%20tool%20or%20model%20should%20I%20use%3F&amp;from=homepage">Which AI tool or model should I use for meeting notes?</a></div><p class="question-routing-note">Ask in plain language. Do not include private, confidential or account information.</p><a class="library-entry" data-library-entry="reference" href="/library.html#miss-jeeves">Visit Miss Jeeves in the LIBRAiRY &rarr;</a></div>
+        <div><p class="eyebrow">Your technical AI question desk</p><h2 id="jeeves-title">Ask Miss Jeeves.</h2><p>AI has given you enough new things to figure out. You do not need to guess which bookshelf the answer lives on, too. Ask in plain language and Miss Jeeves will look through LAiDIES for answers and places to read more.</p><p class="reference-beta-note"><strong>Miss Jeeves is in beta.</strong> She works best with questions covered by LAiDIES. Check the sources she gives you; broader AI answers are still being improved.</p><form id="homepage-jeeves-form"><label for="lookup">What would you like to find in LAiDIES?</label><div><input id="lookup" maxlength="240" autocomplete="off" placeholder="Where can I learn the basics of AI?"><button type="submit">Ask Miss Jeeves</button></div></form><p class="question-routing-note">Do not include private, confidential or account information. Your question opens at Miss Jeeves&rsquo; desk in the LIBRAiRY.</p><a class="library-entry" data-library-entry="reference" href="/library.html#miss-jeeves">Visit Miss Jeeves in the LIBRAiRY &rarr;</a><p class="helper-advice">Work or career advice? <a href="/games/fairy-godmother.html">Talk to FAiRY Godmother.</a></p></div>
         <img class="jeeves-corner-cutout" loading="lazy" decoding="async" src="assets/homepage/characters/miss-jeeves-question-desk-cutout-v2.png" alt="" aria-hidden="true">
       </section>
     </section>
@@ -1345,7 +1377,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
         <button class="map-spot" style="left:16.2%;top:1.7%;width:14%;height:47%" data-name="Town Hall" data-desc="Mayor Deb, notices and feedback" data-href="/town-hall.html" aria-label="Town Hall"></button>
         <button class="map-spot" style="left:29.3%;top:29.8%;width:10.5%;height:23%" data-name="The LIBRAiRY" data-desc="Miss Jeeves&rsquo; reference desk" data-href="/library.html" aria-label="The LIBRAiRY"></button>
         <button class="map-spot" style="left:43.9%;top:18.3%;width:16.4%;height:19.5%" data-name="SUNNYVAiLE High" data-desc="Pop Quiz and the Book Fair" data-href="/sunnyvaile-high.html" aria-label="SUNNYVAiLE High"></button>
-        <button class="map-spot" style="left:55.5%;top:31.5%;width:9.7%;height:22.4%" data-name="FAiRY Godmother" data-desc="Prompt help and guidance" data-href="/games/fairy-godmother.html" aria-label="FAiRY Godmother"></button>
+        <button class="map-spot" style="left:55.5%;top:31.5%;width:9.7%;height:22.4%" data-name="FAiRY Godmother" data-desc="Work and career advice; help using your own AI" data-href="/games/fairy-godmother.html" aria-label="FAiRY Godmother"></button>
         <button class="map-spot" style="left:72.2%;top:28.1%;width:6.8%;height:22.4%" data-name="Delta LAi Nu" data-desc="Girl Talk, room prompts and your Closet" data-href="/sorority-house.html" aria-label="Delta LAi Nu"></button>
         <button class="map-spot" style="left:76.5%;top:3.4%;width:11.8%;height:22.9%" data-name="The LUMINAiRY" data-desc="Saints, MAiVENS and Trailblazers" data-href="/luminairy.html" aria-label="The LUMINAiRY"></button>
         <button class="map-spot" style="left:91%;top:0%;width:8.5%;height:83%" data-name="KSVL 99.9" data-desc="Community radio and LAiDIES original songs" data-href="/radio.html" aria-label="KSVL 99.9"></button>
@@ -1356,7 +1388,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
         <button class="map-spot" style="left:46%;top:61.4%;width:8.9%;height:30%" data-name="Mme CLAi-O" data-desc="A reading for your question" data-href="/games/madame-claio.html" aria-label="Mme CLAi-O"></button>
         <button class="map-spot" style="left:55.5%;top:62.5%;width:10.2%;height:29%" data-name="MAiKEOVER on MAiN" data-desc="Make a Resident Card" data-href="/maikeover.html" aria-label="MAiKEOVER on MAiN"></button>
         <button class="map-spot" style="left:66.8%;top:61.9%;width:8.6%;height:30%" data-name="BRONZE AiGE" data-desc="Happy-hour social AI ritual and conversation menu" data-href="/bronze-aige.html" aria-label="BRONZE AiGE"></button>
-        <button class="map-spot" style="left:75.7%;top:70.5%;width:3.2%;height:22%" data-name="Dream Phone" data-desc="Call a town character for a prewritten perspective, or try For Real / As If and investigate an AI claim. For fun—not personalized or professional advice." data-href="/games/dream-phone.html" aria-label="Dream Phone"></button>
+        <button class="map-spot" style="left:75.7%;top:70.5%;width:3.2%;height:22%" data-name="Dream Phone" data-desc="Just Call for a playful, prewritten perspective, or try the experimental game. For entertainment." data-href="/games/dream-phone.html" aria-label="Dream Phone"></button>
         <button class="map-spot" style="left:79.2%;top:47.6%;width:11.3%;height:40%" data-name="The Mall" data-desc="The Rewind Era reference catalogue" data-href="/mall.html" aria-label="The Mall"></button>
       </div><figcaption class="building-map-caption" aria-live="polite">Choose a building on the map or in the list.</figcaption></figure>
       <nav class="building-directory" aria-label="Buildings in SUNNYVAiLE">
@@ -1369,14 +1401,14 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
           <li><small class="building-address">5 MAiN Street</small><a class="building-name" href="/games/madame-claio.html" data-building-link>Mme CLAi-O</a><p>A reading for your question</p></li>
           <li><small class="building-address">6 MAiN Street</small><a class="building-name" href="/maikeover.html" data-building-link>MAiKEOVER on MAiN</a><p>Make a Resident Card</p></li>
           <li><small class="building-address">7 MAiN Street</small><a class="building-name" href="/bronze-aige.html" data-building-link>BRONZE AiGE</a><p>Happy-hour social AI ritual and conversation menu</p></li>
-          <li><small class="building-address">8 MAiN Street</small><a class="building-name" href="/games/dream-phone.html" data-building-link>Dream Phone</a><p>Call a town character or try For Real / As If. For fun—not personalized or professional advice.</p></li>
+          <li><small class="building-address">8 MAiN Street</small><a class="building-name" href="/games/dream-phone.html" data-building-link>Dream Phone</a><p>Just Call for a playful perspective, or try the experimental game. For entertainment.</p></li>
           <li><small class="building-address">9 MAiN Street</small><a class="building-name" href="/mall.html" data-building-link>The Mall</a><p>The Rewind Era reference catalogue</p></li>
           <li><small class="building-address">10 MAiN Street</small><a class="building-name" href="/radio.html" data-building-link>KSVL 99.9</a><p>LAiDIES original songs</p></li>
           <li><small class="building-address">1 Civic Square</small><a class="building-name" href="/post-office.html" data-building-link>Post Office</a><p>The Wednesday newsletter, town mail and postcards</p></li>
           <li><small class="building-address">2 Civic Square</small><a class="building-name" href="/town-hall.html" data-building-link>Town Hall</a><p>Mayor Deb, notices and feedback</p></li>
           <li><small class="building-address">3 Civic Square</small><a class="building-name" data-library-entry="directory" href="/library.html" data-building-link>The LIBRAiRY</a><p>Miss Jeeves, books and the reference desk</p></li>
           <li><small class="building-address">1 School House Road</small><a class="building-name" href="/sunnyvaile-high.html" data-building-link>SUNNYVAiLE High</a><p>Pop Quiz and the Book Fair</p></li>
-          <li><small class="building-address">1 Willow Lane</small><a class="building-name" href="/games/fairy-godmother.html" data-building-link>FAiRY Godmother</a><p>Prompt help and guidance</p></li>
+          <li><small class="building-address">1 Willow Lane</small><a class="building-name" href="/games/fairy-godmother.html" data-building-link>FAiRY Godmother</a><p>Work and career advice; help using your own AI</p></li>
           <li><small class="building-address">1 Wisteria Lane</small><a class="building-name" href="/sorority-house.html" data-building-link>Delta LAi Nu</a><p>Girl Talk, room prompts and your Closet</p></li>
           <li><small class="building-address">1 Lantern Hill</small><a class="building-name" href="/luminairy.html" data-building-link>The LUMINAiRY</a><p>Saints, MAiVENS and Trailblazers</p></li>
         </ul>
@@ -1397,17 +1429,10 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
 
     <section class="closet" id="collect"><div><p class="eyebrow">Resident Card · Closet · Community</p><h2>Move to SUNNYVAiLE.</h2>
       <figure class="closet-photo-frame"><img loading="lazy" decoding="async" class="closet-photo" src="assets/homepage/original-restoration-20260829/puffy-binder.webp" alt="A Y2K puffy binder covered with LAiDIES collectibles"></figure>
-      <p>Ready to make it official? Create your <strong>Resident Card</strong> at MAiKEOVER on MAiN. It is your SUNNYVAiLE town ID and gives you your own <strong>Closet</strong>&mdash;the place where your Card, supported saves and keepsakes live.</p>
-      <p>Then visit <strong>Delta LAi Nu</strong>, SUNNYVAiLE&rsquo;s sorority house and community home. Explore the rooms, join the conversation and try Girl Talk&mdash;our private honour-system spin on classic &rsquo;90s truth or dare.</p>
+      <p>Ready to make it official? Create your <strong>Resident Card</strong> at MAiKEOVER on MAiN. It is your SUNNYVAiLE town ID and gives you your own <strong>Closet</strong>&mdash;a place for your Card and the keepsakes you collect around town.</p>
+      <p>Then visit <strong>Delta LAi Nu</strong>, SUNNYVAiLE&rsquo;s sorority house and community home. Explore the rooms, join the conversation and try Girl Talk&mdash;our private spin on classic &rsquo;90s truth or dare.</p>
       <p class="closet-aside">It&rsquo;s considerably more fun than joining yet another professional networking group.</p>
-      <p>Inside your <strong>Closet</strong>, you can keep track of what you have found around town:</p>
-      <ul class="closet-haul">
-        <li><strong>Charms:</strong> Hidden around town. Spot one and it snaps onto your bracelet.</li>
-        <li><strong>Puffies:</strong> Puffy stickers that mark your favourite Handbook pages. The Puffy Board keeps them together.</li>
-        <li><strong>Stickers:</strong> Selected quizzes and activities can add keepsakes to your Card. They are saved in this browser.</li>
-        <li><strong>Trading cards:</strong> Preview the teaching prompts planned for each episode. Packs, ownership, duplicates and trading are not available yet.</li>
-        <li><strong>Mail:</strong> Notes and gifts to your girls through the Post Office. Coming soon.</li>
-      </ul>
+      <p>Your Card and keepsakes begin in this browser. Your Closet explains what is saved on this device and what is connected to your account.</p>
       <p>Cher was right: &ldquo;It does not say RSVP on the Statue of Liberty.&rdquo; But we&rsquo;d love yours. Move to SUNNYVAiLE and make yourself at home.</p>
       <div class="closet-actions"><a class="button" href="/maikeover.html">Move to SUNNYVAiLE</a><a class="closet-open" href="/laidies-card.html">Open my Closet</a></div></div></section>
     <aside class="postcard-band" aria-labelledby="postcard-title">
@@ -1426,7 +1451,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
   <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
   <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
   <script defer src="/content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
-  <script src="/content/site/homepage.js?v=20260904-complete-discovery"></script>
+  <script src="/content/site/homepage.js?v=20260905-homepage-corrections"></script>
   <script>
   /* Size corresponding card slots to the largest current label, never clip text.
      Recalculate after fonts, resizing and filters; do not fix the card height. */
@@ -1440,6 +1465,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
       ['.tag','h3','p','button'].forEach(function(selector){
         var slots=cards.map(function(card){return card.querySelector(selector);}).filter(Boolean);
         slots.forEach(function(slot){slot.style.minHeight='';});
+        if(getComputedStyle(grid).gridTemplateColumns.trim().split(/\s+/).length===1) return;
         var height=Math.ceil(Math.max(0,...slots.map(function(slot){return slot.getBoundingClientRect().height;})));
         slots.forEach(function(slot){slot.style.minHeight=height+'px';});
       });

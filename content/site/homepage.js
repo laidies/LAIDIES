@@ -20,16 +20,6 @@
     src: '/content/music/dj-jaidy-week-04-it-was-women-all-along.mp3'
   };
 
-  /* ---------- one starting system, followed by the complete feature directory ---------- */
-  (function () {
-    var hero = document.querySelector('.hero');
-    var intent = document.querySelector('.intent');
-    var directory = document.querySelector('[data-feature-directory]');
-    if (!hero || !intent || !directory) return;
-    hero.insertAdjacentElement('afterend', intent);
-    intent.insertAdjacentElement('afterend', directory);
-  })();
-
   /* ---------- approved first-visit dial-up arrival ---------- */
   (function () {
     var arrival = document.querySelector('[data-home-arrival]');
@@ -270,6 +260,13 @@
           open(entry, node);
         });
       });
+      // Treat the illustrated directory row as the same destination. Touch
+      // clicks can land on the row when press/release cross child elements.
+      entry.link.closest('li').addEventListener('click', function (event) {
+        if (entry.link.contains(event.target) || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        entry.link.click();
+      });
     });
     close.addEventListener('click', function () { dialog.close(); });
     dialog.addEventListener('cancel', function (event) { event.preventDefault(); dialog.close(); });
@@ -491,15 +488,15 @@
     if (!current) {
       if (kicker) kicker.textContent = 'From the NewsStand archive';
       if (heading) heading.textContent = 'What\u2019s worth reading in SUNNYVAiLE?';
-      if (status) status.textContent = 'The current edition is between press runs. These are released stories from the archive.';
+      if (status) status.textContent = 'The current edition is between press runs. You can still read the archive.';
     } else if (status) {
       if (kicker) kicker.textContent = 'Fresh from the NewsStand';
       if (heading) heading.textContent = 'What\u2019s happening in SUNNYVAiLE right now?';
-      status.textContent = 'Updated ' + dateLabel(feed.generatedAt) + ' · released stories only.';
+      status.textContent = 'Updated ' + dateLabel(feed.generatedAt) + '.';
     }
   }).catch(function () {
     var status = root.querySelector('[data-now-status]');
-    if (status) status.textContent = 'The presses are quiet. Browse every released story at the NewsStand.';
+    if (status) status.textContent = 'The presses are quiet. Browse the archive at the NewsStand.';
   });
 })();
 
