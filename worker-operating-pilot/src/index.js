@@ -35,4 +35,6 @@ export class OperatingHandoffPilot extends WorkflowEntrypoint {
   }
 }
 
-export default { fetch: privateFeedbackFetch };
+export default {
+  fetch(request, env) { return privateFeedbackFetch(request, env); }
+};
