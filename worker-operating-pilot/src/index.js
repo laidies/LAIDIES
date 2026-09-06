@@ -1,3 +1,4 @@
+import { privateFeedbackFetch } from './private-feedback.mjs';
 import { WorkflowEntrypoint } from "cloudflare:workers";
 import { NonRetryableError } from "cloudflare:workflows";
 import { checkpointHandoff, unacknowledgedResult, validateAcknowledgement } from "./contract.mjs";
@@ -35,7 +36,5 @@ export class OperatingHandoffPilot extends WorkflowEntrypoint {
 }
 
 export default {
-  fetch() {
-    return new Response("Not found", { status: 404 });
-  }
+  fetch(request, env) { return privateFeedbackFetch(request, env); }
 };

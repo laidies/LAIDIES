@@ -56,7 +56,7 @@ const key = "sb_publishable_fixture_only_12345";
 const payload = { p_request_id: input.requestId, p_capability: input.readCapability };
 const rpcResult = await decisionRpc(key, "read_operating_decision_v1", payload, async (url, options) => {
   assert.equal(url, `${SUPABASE_ORIGIN}/rest/v1/rpc/read_operating_decision_v1`);
-  assert.equal(options.redirect, "error");
+  assert.equal(options.redirect, "manual");
   assert.equal(options.headers.apikey, key);
   assert.deepEqual(JSON.parse(options.body), payload);
   return Response.json(canonical);

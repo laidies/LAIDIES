@@ -291,7 +291,7 @@ The fixture and client tests are in baseline CI.
 branch to reuse. The global executable being absent is not missing access:
 use the already saved `npm exec --yes --package=supabase@2.116.0 -- supabase`.
 
-**Concrete next decision:** a temporary data-less Micro preview branch named
+**Withdrawn proposal — not the next action:** a temporary data-less Micro preview branch named
 `town-hall-feedback-staging-20260905`, created under the existing project, with
 no git association, production data copy, merge-to-main, persistent flag or plan
 upgrade. Apply only the feedback migration to that branch and exercise the real
@@ -542,3 +542,91 @@ history includes version/statements/name/created_by/idempotency_key/rollback;
 apply only the exact reviewed additive migration through that mechanism.
 No live schema/data/auth configuration, founder grant, public route, website,
 dispatcher or hosted Founder Workflow changed during this preparation.
+
+### 2026-09-05 — Continue through a usable private hosted inbox
+
+The paid staging proposal is withdrawn. PR99 is merged at
+`3e490e3d720e1e4cf2333823c49b9c0684c1a222`. Repeatedly ending after an internal
+commit did not satisfy the user outcome. The active acceptance condition is an
+opened private hosted inbox with a synthetic submission, stable retry receipt,
+one stored record and observed review transition.
+
+The existing `laidies-operating-handoff-pilot` Worker now has a separately gated
+private route and static inbox assets. Its existing workflows are preserved.
+The owner capability stays in browser memory; a distinct server-only database
+capability uses an anonymous project key and a narrowly scoped RPC, never a
+service-role key. The database stores only the capability hash. Missing or bad
+capabilities, cross-origin requests and the public submission route fail closed.
+The browser does not persist message text.
+
+The exact feedback migrations are 20260905030000 and 20260905040000; the optional
+founder migration is excluded. Both ran in a hosted transaction that rolled back;
+the final read confirmed zero feedback rows and no candidate schema. Local SQL,
+private HTTP and preserved workflow runtime checks pass, including negative
+cases. Deployment packaging succeeds. Persistent activation and browser proof
+are still in progress at this source checkpoint.
+
+This is a private synthetic pilot. Real visitor intake stays closed pending the
+retention/deletion and triage decisions. Automatic deletion is not enabled; the
+UI states that limitation and requests test messages only. No new database,
+subscription or recurring schedule is part of this continuation.
+
+### Hosted private inbox verified — 2026-09-06 00:38 UTC
+
+Deployed source: `37bbb46f9524571d398f0e1e2e2d450b6d499dbd`. Cloudflare version:
+`5253e07f-a7d6-4cdf-a537-ce0ed76a89c9`, existing Worker
+`laidies-operating-handoff-pilot`. The private shell lives at
+https://laidies-operating-handoff-pilot.wednesday-laidies.workers.dev/private-feedback/ ;
+access requires the separate private capability. No access capability appears
+in this repository. A reusable owner access link is saved outside Git at
+`/Users/alisoneakin/.codex/private/LAiDIES-private-inbox.md`.
+
+Both exact feedback migrations are persistently installed and recorded in
+Supabase migration history. Anonymous direct table access is denied; only the
+capability bridge permits the private actions. The founder package remains
+uninstalled. Hosted REST tests rejected a wrong capability and direct table
+access. Deployed tests matched all four asset files, rejected a wrong Worker
+owner token, returned 404 for public submission, replayed the same receipt for
+one synthetic record, and reviewed that record to addressed.
+
+Actual in-app browser journey: “Browser journey check” was submitted, receipt
+`d2b14412-6e5c-468f-9e33-f5a75845dabb` appeared, and the visible row moved from
+filed to triaged to addressed. The access fragment was removed from the visible
+URL. Three synthetic rows currently remain (direct diagnostic, retry test,
+browser test); no real visitor input was submitted or read. The inbox remains
+open in the task's browser panel.
+
+The public https://laidies.ai/town-hall Comments station was independently
+opened after deployment: its closed-inbox notice and disabled inputs/button
+remain present. This is HOSTED PRIVATE PILOT VERIFIED, not a public intake
+release. Automatic deletion is not enabled, retention/triage policy is still
+an owner decision, no new schedule or subscription was created, and no
+Mac-off/first scheduled-trigger proof is claimed.
+
+Two adapter faults were repaired before this verdict: the platform execution
+context must not occupy the injectable transport argument; native workerd
+rejects redirect:error despite Node accepting it. Regression tests reject the
+old entrypoint and bind manual redirects with 302 rejection. The latter fix
+also covers the existing feedback and prepared founder server adapters.
+
+### Owner visual rejection — repair active
+
+Ali rejected the first private inbox's appearance: “yeah but it looks like shit.”
+The observed submit/review result remains functional evidence only; it is not
+visual acceptance. Repair the private screen in place: inbox-first layout,
+readable message cards, human dates and status/action labels, and coherent
+LAiDIES plum/rose/cream styling. Preserve the proven authentication and retry
+flow. Inspect the actual desktop/mobile appearance before presenting it again.
+
+The repaired UI is deployed from `df7f7a7c` as Worker version
+`a330a8f2-66db-4159-89ce-50bca93a5040`. Its four hosted assets match source.
+Desktop and 390px phone layouts were inspected; no horizontal overflow was
+observed. A new hosted “Updated inbox check” submission showed the concise
+confirmation, moved through Mark reviewed/Mark addressed, left Needs attention
+and increased Closed from 2 to 3. Four synthetic notes now remain. The revised
+screen is loaded in the original task panel; Ali's aesthetic acceptance is not
+implied. A final loading-state correction prevents a false empty-inbox message
+before the first successful fetch. Final deployed source is
+`6e32324a823418f248c813759213dd9640b60704`, Worker version
+`0ed12473-317d-4456-b43f-da8b31500637`; all four hosted asset bytes were
+rechecked against that source after deployment.

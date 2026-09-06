@@ -63,7 +63,7 @@ export async function decisionRpc(publicKey, name, payload, fetcher = fetch) {
   let reader;
   try {
     const response = await fetcher(`${SUPABASE_ORIGIN}/rest/v1/rpc/${name}`, {
-      method: "POST", redirect: "error", signal: controller.signal,
+      method: "POST", redirect: "manual", signal: controller.signal,
       headers: { apikey: publicKey, "Content-Type": "application/json" }, body: JSON.stringify(payload)
     });
     if (!response.ok || !response.body) throw new Error("RPC unavailable");

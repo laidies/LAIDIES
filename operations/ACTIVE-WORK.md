@@ -1110,3 +1110,29 @@ objective; every open lane keeps its own checkpoint.
 - **Calibration:** the controller rejects an in-repository output and altered approval. The scope guard rejects an unrelated `index.html` mutation, a newly added public file and a no-op candidate. The unchanged live NewsStand baseline passes canonical migration, private Daily composition/promotion, story validation, ten reader states, 217 rendered browser checks and release-pipeline tests.
 - **Next trigger:** install the exact same controller bytes on the default branch so GitHub can dispatch it, bind `PRODUCTION_CONTROLLER_SHA` to that default-branch commit, then prepare the admitted Daily candidate on top of exact live source commit `466def319c47d9aaf02d48504738f80900ff9685`. No deploy occurs until exact prose, observed-reader, semantic, visual and release gates pass.
 - **Authority:** controller implementation only. No visitor-facing byte, canonical story, Cloudflare deployment or public state changed at this checkpoint.
+
+### 2026-09-05 private hosted inbox execution
+
+BUILDING in `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`,
+branch `ops/private-feedback-inbox-20260905`. User outcome: an opened, usable
+private inbox, proven against the existing hosted services with synthetic input.
+Source and negative access checks are ready; persistent activation and actual
+browser submit/review remain open. Public Town Hall intake remains closed.
+The paid preview proposal is withdrawn. Details: `operations/OPERATING-RECOVERY-NEXT.md`.
+
+### 2026-09-05 private inbox usable outcome
+
+HOSTED PRIVATE PILOT VERIFIED: actual browser submit, receipt, inbox row and
+filed→triaged→addressed observed against the existing hosted services. Source
+`37bbb46f9524571d398f0e1e2e2d450b6d499dbd`; Worker version
+`5253e07f-a7d6-4cdf-a537-ce0ed76a89c9`. The private inbox is open in this task.
+See the current verified section in `operations/OPERATING-RECOVERY-NEXT.md`.
+Public Town Hall is independently verified closed; automatic deletion and
+public retention/triage decisions are unresolved. No new service, subscription
+or schedule was created. This closes the private usable-inbox acceptance
+condition, not the overall operating roadmap or public feedback launch.
+
+Private inbox appearance correction: Ali rejected the initial bare screen.
+The revised inbox-first layout, human labels/dates and filters are hosted and
+passed an actual new submission/review journey plus desktop/390px inspection.
+This is maker-verified repair, not an owner visual-approval claim.
