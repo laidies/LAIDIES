@@ -1,5 +1,29 @@
 # Active work
 
+> **2026-09-05 — Assistant continuation: SAVED / RELEASE HOLD.**
+> Latest FAiRY advice-first page recovered from the interrupted live-site task
+> and preserved in 11923863. The 81 browser checks pass with fixtures; its old
+> type/panel design remains VISUAL HOLD, not an admitted new experience.
+> Miss Jeeves backend d0ec6d17 passes the complete npm test: 137 Worker tests,
+> 45-answer and 79-classifier fixture checks. Missing sparse dependencies were
+> restored from tracked HEAD without changing source bytes. Pages service
+> binding and full production binding set restored in 8c98cf87; calibrated
+> service-config regression guard committed in 1fea36d4. Wrangler validates
+> all four production bindings; service integrity checks pass. No deployment
+> or paid Sol call was made. Research remains disabled.
+> OpenAI settings show the site's existing keys in one shared Default project,
+> which currently has no enforced project spend limit. Ali's $100 decision
+> was for Miss Jeeves. A clarification is pending on whether a temporary $100
+> shared ceiling may also cover FAiRY and avatars. No limit was changed and no
+> funding re-verification is required. Next: resolve this budget scope, enforce
+> the agreed limit, run a bounded actual Sol quality/cost pilot, then integrate
+> the already-built free search and consented research using the latest full
+> production artifact. Preserve existing Answer Bank/column architecture.
+> Ali later found old homepage preview ee897a4e open. That exact visible tab
+> was replaced with 3d473188 and its rendered original masthead buttons and
+> visible four-category directory were checked. The homepage remains preview
+> only. See homepage-corrections-2026-09-05.md for the whole delivery order.
+
 > **2026-09-05 — Four-category homepage discovery restored / PREVIEW VERIFIED.**
 > Ali clarified that the four categories exist to reveal the breadth of the site.
 > Original visible directory header and treatment restored in b182b777. All 26

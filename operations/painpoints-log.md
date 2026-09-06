@@ -14643,3 +14643,26 @@ HTML and local custom properties.
 - Owner correction: Ali rejected the two new masthead buttons and found little visible improvement. Restored the incumbent component in 06311274; hosted evidence 0ccc44dc / preview 05b773cb. Do not sell copy/navigation corrections as a visual redesign or change settled masthead choices without a concrete visitor benefit. Bounded component verification replaced another review cycle. Production e58b23d6 stayed unchanged.
 
 - Discovery correction: Ali explained that the four categories make the whole site discoverable. Collapsing them confused quick access with discovery and hid the breadth of the product. Restored original visible presentation, retained all 26 links and descriptions, and recorded the distinction in DECISIONS.md. Source b182b777; updated hosted preview checked. Scope remained original-component restoration, with no new full-page review.
+
+## BTB-ASSISTANT-CONTINUATION-20260905 — Saved repairs and the actual receiving surface
+
+- Failure: a stale homepage preview still showed Ali the buttons she had
+  rejected, despite a correct successor in another tab. The displayed tab was
+  replaced and the actual masthead checked. Prevention: finish at the user's
+  visible receiving tab, not merely a valid URL or a different open tab.
+- Integration gap: mocked Miss Jeeves calls passed while the Pages deployment
+  file omitted FAIRY_AI. Restored the historical service plus the full
+  production binding set and added a guard that rejects either missing
+  service section. Wrangler validates all four production bindings.
+- Recovery: the latest FAiRY UI was uncommitted interrupted work, while live
+  still presented the earlier page. Preserved it as 11923863; fixture success
+  does not admit its old visual treatment. Existing backend tests passed once
+  tracked sparse inputs were restored. Avoid stopping separately for each
+  missing tracked test dependency; restore the bounded command's dependencies.
+- Verification boundary: 137 Worker tests and 81 page checks are useful
+  functional evidence, not real Sol cost, answer quality or public release.
+  The broad FAiRY commit hook also hit unrelated missing Episode 03 assets and
+  two extensionless links; a documented preservation-only hook bypass saved
+  the held revision. No production gate was waived.
+- Behind the Build angle: a fix is not delivered until the user receives it;
+  and passing a mocked connection is not proof that deployment connects it.

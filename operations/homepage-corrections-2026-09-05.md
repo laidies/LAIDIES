@@ -48,3 +48,31 @@ Updated preview: https://05b773cb.laidies-sunnyvaile.pages.dev/ . Both buttons w
 ## Owner correction — four-category discovery
 
 Ali explained the four categories make the breadth of the site discoverable. Source b182b777 restores the visible original directory header and treatment: Learn and understand; Watch and listen; Use and have fun; Belong and explore. All 26 current link elements and their corrected descriptions, and the restored masthead, are exact against the preceding preview. The six immediate-need entrances and the visible whole-town categories serve different jobs; do not collapse the directory as duplicate navigation. Verified preview: https://3d473188.laidies-sunnyvaile.pages.dev/ . Four categories and all 26 links are visible and keyboard reachable; original treatment, 1440/390/320px layout and decoded KSVL image checked. Hosted 1440/390px receiving journeys, masthead anchors and exact source bytes pass. Production e58b23d6/98bcb60 and live homepage/runtime remain unchanged.
+
+## Assistant continuation and visible preview correction — 2026-09-05
+
+The newest FAiRY page was local work left by the interrupted `Audit broken live
+site` task. It is preserved in 11923863 with its situation-first form and
+non-submitting examples. Interface suite: 81 checks pass with fixtures.
+The old typography and flat panel treatment remain a visual hold. Do not show
+this as a finished current-style page or silently replace it with the old live
+experience when auditing FAiRY. No new page visual admission or release.
+
+Miss Jeeves backend d0ec6d17 now passes its full npm test (137 Worker tests,
+45-answer and 79-classifier fixture checks); only sparse dependencies needed
+restoring. The Pages caller already correctly uses the virtual hostname
+miss-jeeves.internal through a service binding. Its current deployment file
+had lost that binding. Source 8c98cf87 restores it and the full production
+binding set; 1fea36d4 adds a calibrated guard. Wrangler production config and
+the service integrity suite pass. No backend or Pages deployment, or real Sol
+call, was made. Actual cost and answer quality remain unverified.
+
+The existing OpenAI keys share Default project, whose spend limit is unset.
+The owner has been asked whether the approved $100 may temporarily be enforced
+across the shared project; otherwise Miss Jeeves needs separate provider
+budget isolation. This does not reopen the settled funding confirmation.
+
+Ali's later screenshot was ee897a4e, not the restored successor. The actual
+visible review tab was navigated to https://3d473188.laidies-sunnyvaile.pages.dev/
+and visually checked: original two masthead buttons below the introduction;
+four directory categories visible with 26 links. No production promotion.
