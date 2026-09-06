@@ -334,3 +334,7 @@ command's dependency closure, registry and actual candidate before claiming
 adoption. Preserve dirty work and use the receiving owner's clean branch.
 Behind the Build: the fixed version can exist while the working version still
 uses the old mistake; learning requires delivery to the next maker.
+The existing generated work index was also stale and its builder consumes fixed
+source records rather than discovering actual execution. A fresh generation time
+cannot prove source freshness. Reconcile its authoritative inputs before using
+it to choose an adoption, cleanup or owner action.

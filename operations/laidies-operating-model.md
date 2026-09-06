@@ -133,6 +133,19 @@ and receiving integration/release owner. Give old packages one disposition:
 continue, integrate selected work, superseded with successor, parked with trigger,
 or unknown/preserve. A task is not finished because its branch is old or clean.
 
+Current limitation of that existing index: the shared copy was generated on
+August 4 from July 26–August 4 sources. Its run queue has zero active entries;
+the three completed-not-integrated entries refer to July Blend & Snap, Homepage
+and NewsStand work. These are historical leads, not current merge instructions.
+`build-control-room-work-index.mjs` and its generated index are absent from main.
+The builder combines six fixed source files; its downstream owner-control-plane
+consumer does not discover live tasks, worktrees or newly merged repairs.
+Regenerating without reconciling those source records would only put a fresh
+timestamp on stale information. Keep the current adoption handoff in its existing
+learning recovery record until the Control Room owner reconciles the appropriate
+consumed source; do not invent a duplicate portfolio or silently enroll work in
+an ambiguous queue. No historical package is discarded by this finding.
+
 Keep sustained work in bounded non-iCloud checkouts. Preserve the shared tree:
 its inventory had642 tracked and3264 untracked status entries (entries, not a
 validated file total). One episode-delivery checkout had9729 tracked differences;
