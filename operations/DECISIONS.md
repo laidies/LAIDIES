@@ -20,6 +20,10 @@ proper domain source before building from it.
 
 ## Core routes
 
+NewsStand town layout must collapse reserved columns when their feature is
+hidden or absent; a failed data load must not leave an empty half-page. Inspect
+the exact visitor tab before treating an old open document as a failed deploy.
+
 September 6 spotlight substance correction: Ali rejected Hannah Fry's title-only
 treatment. Every spotlight must earn why LAiDIES celebrates its subject through
 a distinctive contribution, concrete example, reader consequence and useful

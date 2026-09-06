@@ -1,3 +1,8 @@
+<!-- Blank town column repair: tested / publication pending -->
+Actual user IAB tab refreshed from old version; reading restored. CSS successor
+collapses absent/hidden Mme column; real1200/650 ready/missing checks verified.
+Exact two-file overlay /private/tmp/laidies-newsstand-town-fallback-20260906.
+
 <!-- Hannah Fry spotlight substance: RESEARCHED / production open -->
 Ali rejected the title-only Hannah Fry profile. Verified Cambridge, Penguin and
 DeepMind evidence is in candidates/hannah-fry-why-maiven-20260906/research-brief.md

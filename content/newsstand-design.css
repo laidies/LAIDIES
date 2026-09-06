@@ -569,3 +569,11 @@
 @media (max-width: 600px) {
   .ns-redesign .ns-luminairy__profile > img { width: 105px; height: 130px; margin: 0 0 14px 18px; }
 }
+
+/* If the reading is unavailable, the remaining town features use the full row. */
+@media (min-width: 601px) {
+  .ns-redesign .ns-feature-desk__grid--town:not(:has(> [data-desk="mme_claio"]:not([hidden]))) > [data-desk] {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}

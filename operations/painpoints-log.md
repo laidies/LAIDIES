@@ -15937,3 +15937,10 @@ remain unreconciled; cross-chat completeness is not certified.
 - Prevention: Profile production must bind distinctive contribution, specific example, reader consequence and the reason for inclusion before drafting; identity and source integrity alone cannot admit editorial usefulness. Apply across the roster.
 - Evidence: Current Hannah about is one Cambridge-title sentence. Verified Cambridge prize, Penguin book and official podcast provide concrete substance. Successor research is preserved; signed editorial admission remains open.
 - Behind the Build: Checking whether a statement is true and whether it answers the reader's question are different jobs. Keep the site's private workflow out of public treatment.
+
+## BTB-506 — The visitor's open document stayed behind
+- Date: 2026-09-06
+- Finding: Ali's actual IAB tab still displayed old three-profile content and missing Mme. Refreshing that exact tab restored current live features. Independently, hidden Mme left a fixed empty grid column.
+- Prevention: Inspect the visitor's actual tab; test missing/hidden as well as ready layout. CSS now collapses remaining town cards across the full grid when Mme is absent.
+- Calibration: Old CSS leaves left592px blank at1200; new CSS left2px and full1180 width.650px checked too; ready geometry unchanged. Reviewer initially misread breakpoint; root corrected to601 and verified actual browser.
+- Behind the Build: A fresh test page and the page a reader already has open can behave differently; show general lesson without internal configuration.
