@@ -1,5 +1,5 @@
-<!-- Archive presentation: VERIFIED LOCALLY, release pending -->
-Compact search-first newspaper index; optional filters/topics and case-normalised matches. Root desktop390/320 and independent desktop390 reviewed. Existing anchor initial-scroll and filtered-context return remain navigation follow-ups. Evidence: operations/product-stewards/newsstand/evidence/archive-design-20260906/.
+<!-- Archive presentation: VERIFIED PUBLICLY -->
+Source f39614e5 deployed 65a7ff3e; four exact public responses match. Actual live IAB search returned the copyright story; compact view and unique topics verified. Compact search-first newspaper index; optional filters/topics and case-normalised matches. Root desktop390/320 and independent desktop390 reviewed. Existing anchor initial-scroll and filtered-context return remain navigation follow-ups. Evidence: operations/product-stewards/newsstand/evidence/archive-design-20260906/.
 
 <!-- Current-week Weekly: VERIFIED PUBLICLY -->
 Source0875d9be deployed234eebcf. Four public paths match exact scoped artifact on custom and immutable URLs (8 responses). Actual IAB opened all9main sections, verified source links and opened preserved August26 Weekly from archive; live390px no overflow. Masthead remains194px on desktop with Paige at edge. All17previous stories preserved. Evidence: operations/product-stewards/newsstand/evidence/weekly-review-20260906/.
