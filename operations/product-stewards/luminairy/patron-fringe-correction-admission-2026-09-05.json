@@ -1,0 +1,24 @@
+{
+  "schema": "laidies.luminairy-patron-fringe-correction.v1",
+  "reviewedAt": "2026-09-05",
+  "method": "Rebuilt each foreground from its saved raw chroma-key source, including new reference-bound raw sources where applicable, with the current deterministic despill path, then recomposited it over the unchanged wing background.",
+  "images": {
+    "david-rose": "63b185fc87fcaf34cfc0c57a067eaf8fd9508d15d277c363526b440b59809208",
+    "elle-woods": "93ac6d0a66692c2bab19040c938d16f2c1e8996a6d3d3617437d43da069dfb62",
+    "samantha-jones": "fb334e3a615991c1d8b3d9648993a505fdf5e1ce8df8f74fdd5e722a9cc0bb22",
+    "miranda-priestly": "6aede33b19e2aef2253a2bcb973f6ba1b7559578bc6143df18656338120f2dcb",
+    "buffy-summers": "b5b28897f6dd90a89fb5590f4246645d3cee361c91012a48ae02cd967a73c0e7",
+    "dolly-parton": "c555d4effb7ea59bffbbcb1206df1c64d5ce5cdcadf07bd40c0fa62d6e5cb7e3",
+    "carrie-bradshaw": "a51611de93b4588b8d459f9c2b5928426ab1d0dabbd36a12562f7c1d9d2067fd",
+    "bette-midler": "ad947860d0323313acf3448c1c279276a68e305f314d14f31a7b24497b119cd8",
+    "the-golden-girls": "835618b374dbb1d3cc614941d996b824716cd706866632ba5c91a6761f00d71e",
+    "regina-george": "3df37df94b12c09f42d655c006b828a00f17fb2247f1270d723e38c349ae6b3f"
+  },
+  "backgrounds": {
+    "standard": "operations/product-stewards/luminairy/recovered-portrait-layers-2026-09-05/backgrounds/patrons-pink-fashion-window-master.png",
+    "antiSaint": "operations/product-stewards/luminairy/recovered-portrait-layers-2026-09-05/backgrounds/regina-red-fashion-window-master.png"
+  },
+  "review": "Role-distinct full-size and contact-sheet review found the former lime-green contour removed from every affected silhouette, with 0 of 13 Patron cards held for pixel finish.",
+  "calibration": "Substituting Elle Woods' valid same-family image bytes at David Rose's path made the completeness gate fail on Patron despill bytes changed david-rose; restoring the admitted bytes returned PASS.",
+  "verdict": "PASS"
+}

@@ -82,9 +82,37 @@ for (const retired of ["Oprah Winfrey", "Jessica Fletcher", "Jennifer Lopez"]) {
 const cher = profiles.saints?.find((profile) => profile.id === "cher-dionne");
 if (!cher || sha256(localPath(cher.image)) !== "c675af16c8584950f897433debd0c9136d6aa8a89971f241444dfa33d7c5440e") errors.push("Cher and Dionne must use the exact approved V12 image bytes");
 const regina = profiles.saints?.find((profile) => profile.id === "regina-george");
-if (!regina?.antiSaint || sha256(localPath(regina.image)) !== "d6b419f23588f77e182f5719a3cffc89e7c6c4546ecf611d68881bad23c6bb47") errors.push("Regina must remain the exact red anti-saint image");
+if (!regina?.antiSaint || sha256(localPath(regina.image)) !== "3df37df94b12c09f42d655c006b828a00f17fb2247f1270d723e38c349ae6b3f") errors.push("Regina must remain the exact reference-bound red anti-saint image");
 const deb = profiles.saints?.find((profile) => profile.id === "deb");
 if (!deb || sha256(localPath(deb.image)) !== "8ead4e383486f664df849e2cc25f13da707d3486fc490ef9bae2e3bda1ba3cc6") errors.push("Deb must use the exact reference-bound Mayor Deb image bytes");
+const samantha = profiles.saints?.find((profile) => profile.id === "samantha-jones");
+if (!samantha || sha256(localPath(samantha.image)) !== "fb334e3a615991c1d8b3d9648993a505fdf5e1ce8df8f74fdd5e722a9cc0bb22") errors.push("Samantha Jones must use the exact reference-bound corrected image bytes");
+const carrie = profiles.saints?.find((profile) => profile.id === "carrie-bradshaw");
+if (!carrie || sha256(localPath(carrie.image)) !== "a51611de93b4588b8d459f9c2b5928426ab1d0dabbd36a12562f7c1d9d2067fd") errors.push("Carrie Bradshaw must use the exact reference-bound corrected image bytes");
+
+const patronFringeAdmissionPath = path.join(root, "operations/product-stewards/luminairy/patron-fringe-correction-admission-2026-09-05.json");
+if (!fs.existsSync(patronFringeAdmissionPath)) {
+  errors.push("Patron fringe-correction admission is missing");
+} else {
+  const patronFringeAdmission = JSON.parse(fs.readFileSync(patronFringeAdmissionPath, "utf8"));
+  for (const [id, expectedHash] of Object.entries(patronFringeAdmission.images || {})) {
+    const profile = profiles.saints?.find((candidate) => candidate.id === id);
+    if (!profile || sha256(localPath(profile.image)) !== expectedHash) errors.push(`Patron despill bytes changed ${id}`);
+  }
+}
+
+const patronLikenessAdmissionPath = path.join(root, "operations/product-stewards/luminairy/patron-likeness-admission-2026-09-05.json");
+if (!fs.existsSync(patronLikenessAdmissionPath)) {
+  errors.push("Patron likeness admission is missing");
+} else {
+  const patronLikenessAdmission = JSON.parse(fs.readFileSync(patronLikenessAdmissionPath, "utf8"));
+  if (patronLikenessAdmission.verdict !== "PASS" || patronLikenessAdmission.identityHolds !== 0 || patronLikenessAdmission.pixelFinishHolds !== 0) errors.push("Patron likeness admission must remain a zero-hold PASS");
+  if (patronLikenessAdmission.profiles?.length !== 13) errors.push("Patron likeness admission must bind all 13 profiles");
+  for (const entry of patronLikenessAdmission.profiles || []) {
+    const profile = profiles.saints?.find((candidate) => candidate.id === entry.id);
+    if (!profile || sha256(localPath(profile.image)) !== entry.imageSha256) errors.push(`Patron likeness bytes changed ${entry.id}`);
+  }
+}
 
 if (errors.length) {
   console.error("LUMINAiRY COMPLETE PROFILE CHECK FAIL");

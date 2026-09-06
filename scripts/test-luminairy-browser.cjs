@@ -428,6 +428,7 @@ async function run() {
     assert.equal(await mobilePage.locator(".lum-card").count(), 7);
     assert.equal(await mobilePage.locator(".lum-tabs").evaluate((element) => getComputedStyle(element).gridTemplateColumns.split(" ").length), 1, "mobile tabs must stack");
     await mobilePage.locator(".lum-card__cover").first().click();
+    await mobilePage.locator("#lumProfile").waitFor();
     assert.ok(await mobilePage.evaluate(() => document.documentElement.scrollWidth - window.innerWidth) <= 1, "390px complete profile must not overflow");
     assert.equal(await mobilePage.locator("#lumProfile").isVisible(), true, "390px complete profile must render");
     await mobileContext.close();
@@ -441,6 +442,7 @@ async function run() {
     assert.equal(await narrowPage.locator(".lum-card").count(), 7, "320px view must render all Trailblazers");
     assert.deepEqual(await imageFailures(narrowPage), [], "320px view must decode all Trailblazer images");
     await narrowPage.locator(".lum-card__cover").first().click();
+    await narrowPage.locator("#lumProfile").waitFor();
     assert.ok(await narrowPage.evaluate(() => document.documentElement.scrollWidth - window.innerWidth) <= 1, "320px complete profile must not overflow");
     await narrowContext.close();
 
