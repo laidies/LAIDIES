@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Miss Jeeves backdrop must use LAiDIES colour
+
+Ali rejects the plain white backdrop behind Miss Jeeves: LAiDIES does not use plain white backgrounds. Replace the banner portrait tile with the existing coral-to-pink palette, preserving separation from her navy clothes. Carry this no-plain-white visual preference forward. Keep the portrait, tangerine text, current artwork, layout and actions; preview only.
+
 ## 2026-09-06 — Banner text uses coral or tangerine, not white
 
 Ali explicitly rejects white text in Did you know and requests coral or tangerine from the existing palette. Compare these on the current cool background; use the clearer warm colour while preserving the compact banner, question mark, latest Mall image, copy, destinations and controls. Preview only. This supersedes the preceding white body/heading choice.

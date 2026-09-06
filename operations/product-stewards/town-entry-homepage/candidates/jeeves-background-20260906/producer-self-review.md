@@ -1,0 +1,1 @@
+Maker inspected actual1440/390 paired pixels. Existing coral-to-pink backdrop replaces white; navy clothing and portrait remain distinct. No new image editing/generation. All8slide copy/images/destinations/height and tangerine text preserved. Local32parent/candidate rows pass. No remaining material or objective issue found.

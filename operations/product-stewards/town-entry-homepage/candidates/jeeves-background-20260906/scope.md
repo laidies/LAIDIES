@@ -1,0 +1,1 @@
+Ali rejects plain white behind Miss Jeeves and states plain white backgrounds are not LAiDIES style. Replace only the banner portrait tile with existing coral-to-pink gradient; keep existing portrait, tangerine heading/body, lime links, question mark, latest Mall crop, all copy, geometry and behavior. Preview only; no new art or whole-page changes.
