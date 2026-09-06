@@ -40,8 +40,15 @@ first actual scheduled execution (saved September 6), direct phone response and
 Mac-off observation. Last-run and next-run fields still returned null. A manual
 run is not scheduled evidence. The cloud job owns that trigger; the parent owns
 reconciliation and broader operating repair. No duplicate schedule is needed.
-Native automatic hook loading for this task remains unverified; executable hook
-fixture tests alone do not establish it. Preserve the current session and test
+The outer workspace now has a bounded hook definition copied from
+`operations/codex-contract/operating-continuation-workspace-hooks.json`.
+It routes only this session to the isolated checkout; unrelated sessions return
+without action. The first route test exposed the sparse checkout's missing run
+queue; materializing that tracked file fixed it. Both exact commands then ran
+from a non-repository cwd. No trust records or global settings were changed.
+Native automatic hook loading remains unverified; executable fixture tests do
+not establish it. Hook definition review/trust is a separate platform boundary:
+https://learn.chatgpt.com/docs/hooks . Preserve the current session and test
 loading at a supported resume rather than claiming this conversation is fixed.
 
 Run: `node scripts/test-project-work-events.mjs` and
