@@ -397,3 +397,6 @@ Ali's subsequent direction: focus practical uses on personal life first so every
 
 ## D-2026-09-06-EPISODE-07-STUDY-PACK — ACTIVE
 Ali suggests the Episode7 study pack as the immediate home for detailed practical opportunities and work adaptations. Use the existing pack: one complete personal-life exercise followed by an optional work adaptation covering limited workplace AI, permitted personal-tool use and capable approved systems. Dear Miss Jeeves remains a possible later treatment for questions needing fuller answers; do not commission a separate feature merely to deliver this episode support. No pack prose or public update is claimed produced.
+
+## D-2026-09-06-GORGEOUS-BEAUTIFUL — LOCKED
+Ali dislikes “gorgeous” and “beautiful” except when describing someone’s appearance. Apply in conversation and writing; use specific descriptions or no adjective elsewhere. Authority: Ali direct instruction; operations/voice/laidies-writing-lock.md.
