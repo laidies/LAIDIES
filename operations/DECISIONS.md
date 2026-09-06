@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Player restoration copy speaks to listeners
+
+Ali rejects “Saved KSVL position restored on this device…” as internal language. Use listener-facing help for the next action. The paused restoration message is “Pick up where you left off. Press Resume to keep listening.” Preserve paused restoration and the explicit Resume control; no autoplay or persistence change.
+
 ## 2026-09-06 — Small CD image still rejected
 
 Ali says the real-image CD still does not look great and questions whether a CD is the right icon. Its previous review admission is invalid for owner taste. Do not publish it. Foreground recommendation: remove the decorative icon and give the width to song text. Removal is a proposal, not an owner ruling. No further icon generation is authorized by this question.

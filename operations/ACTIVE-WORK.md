@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Player restoration copy: VERIFIED LOCAL.** Actual reopened preview displays “Pick up where you left off. Press Resume to keep listening.” with Resume visible; source syntax checked. Only visitor wording changes; no playback behavior changed. CD remains rejected pending icon decision. Not published.
+
 > **2026-09-06 — Player label corrected; CD choice rejected.** The local player visibly reads “KSVL 99.9 · NOW PLAYING” above the current song, replacing soundcheck/item wording; syntax and exact browser label verified. Ali rejects the replacement CD’s appearance too. No public deployment. Next design decision: recommended removal of the decorative icon; do not generate another asset or treat the current CD as approved.
 
 > **2026-09-06 — Player CD replacement: LOCAL PREVIEW / OWNER REVIEW PENDING.** Ali rejects CSS decorative drawings sitewide. Real transparent silver-CD PNG now replaces the shared deck disc and Mix-CD fallback; fake disc pseudo-elements and faux jewel reflection removed. Desktop/390px real-image load and playback/pause checked. Guard accepts new implementation and rejects original six ways. Full-site decorative-art audit remains open. No deployment; image is a full-resolution preview source and should receive an optimized web export before release. Worktree `/Users/alisoneakin/Projects/laidies-ksvl-player-colours-20260906`.

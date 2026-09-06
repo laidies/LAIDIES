@@ -1051,7 +1051,7 @@
       else audio.addEventListener('loadedmetadata', seekRestored, {once: true});
       if (!restoration.play) {
         state.paused = true;
-        announce('Saved KSVL position restored on this device. Choose Resume to continue; sound will not start automatically.', 'status');
+        announce('Pick up where you left off. Press Resume to keep listening.', 'status');
         updateNowPlaying();
         syncSoundControls();
         return;
