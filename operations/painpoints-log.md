@@ -162,3 +162,9 @@ continue across commit/CI boundaries, and stop only at that outcome or an actual
 required owner decision. Restore sparse fixtures before interpreting a missing
 file as a regression. Behind the Build angle: a green test is one piece of
 evidence; it does not deliver the user's working tool.
+
+The first hosted inbox call exposed an adapter error: exporting a test-injectable
+handler directly let Cloudflare's ExecutionContext occupy its transport argument.
+The explicit two-argument wrapper fixes it. The new entrypoint regression loads
+the real export and passes a third runtime context; it also runs the previous
+broken adapter and confirms rejection. Local helper tests alone missed this.

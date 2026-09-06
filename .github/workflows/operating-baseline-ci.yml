@@ -56,6 +56,7 @@ jobs:
           node worker-operating-pilot/test-feedback-http.mjs
           node worker-operating-pilot/test-feedback-client.mjs
           node worker-operating-pilot/test-private-feedback.mjs
+          node --experimental-vm-modules worker-operating-pilot/test-private-entrypoint.mjs
           node worker-operating-pilot/build-private-feedback.mjs
       - name: Founder decision and bounded resumption calibration
         run: node worker-operating-pilot/test-founder.mjs
