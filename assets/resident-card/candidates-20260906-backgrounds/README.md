@@ -54,3 +54,11 @@ Both retain the previous layout and portrait-layering requirements. Latest direc
 05-mixtape-pink-teal.png: (1681, 936), SHA-256 `d2522d7e7bd056611f973406f58f5c0844030a8e8dea6c799b6c88ef1bb07637`.
 
 Colour-revision review: maker and independent Terra/Medium pixel review confirm distinct body/header pairings, retained geometry and no visible generated text, faces, grids or ruled lines. Mixtape still requires the portrait above its bottom decoration. Artwork-only candidate review, no page approval.
+
+## Ali rejection — stretched border and off-brand colours
+
+Ali said the first revised option looks stretched and the colours are not really LAiDIES colours. Both04 and05 are rejected as colour authorities and are no longer eligible current selections. Do not integrate. Prior maker/reviewer eligibility is withdrawn: it checked colour difference without enforcing the exact current brand palette and missed compressed border proportions. Rebuild compact naturally proportioned motifs and use current approved electric palette values, not invented lighter mixes. Six options remain the requested set; no final selection.
+
+## Superseded collection
+
+The current six rebuilt options are in [full-composition candidates](../candidates-20260906-full-patterns/README.md). This earlier collection is history only; do not select from it.
