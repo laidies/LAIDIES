@@ -130,4 +130,4 @@ or episode source.
 
 | T-20260905-TRYON-SOCIAL-V3 |2026-09-05| REJECTED BY ALI / WITHDRAWN; both admissions invalid; product direction repair remains required | fb5294e9; rejected preview8e498c88; manifest53bce777; no production change | operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v3/ALI-REJECTION.md |
 
-| T-20260905-HOMEPAGE-CORRECTIONS | 2026-09-05 | ORIGINAL MASTHEAD RESTORED / UPDATED PREVIEW VERIFIED; whole-page approval pending | Owner rejected replacement buttons; exact original treatment restored in 06311274. Hosted verification 0ccc44dc checks both anchors at 1440/390px. Production e58b23d6/98bcb60 unchanged. | https://05b773cb.laidies-sunnyvaile.pages.dev/ ; operations/homepage-corrections-2026-09-05.md |
+| T-20260905-HOMEPAGE-CORRECTIONS | 2026-09-05 | VISIBLE FOUR-CATEGORY DISCOVERY RESTORED / VERIFIED PREVIEW; whole-page approval pending | Source b182b777 restores original directory presentation. All 26 links/descriptions and masthead preserved. Hosted verification 80e2bdd7; production e58b23d6/98bcb60 unchanged. | https://3d473188.laidies-sunnyvaile.pages.dev/ ; operations/homepage-corrections-2026-09-05.md |

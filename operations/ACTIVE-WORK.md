@@ -1,19 +1,16 @@
 # Active work
 
-> **2026-09-05 — Homepage masthead restored / UPDATED PREVIEW VERIFIED.**
-> Ali rejected the replacement masthead buttons and said the page looked almost
-> the same. Original “Why women must shape AI” and “How LAiDIES works” buttons,
-> placement and treatment restored. Other copy/navigation repairs retained.
-> Preview: https://05b773cb.laidies-sunnyvaile.pages.dev/ — opened in the existing
-> in-app browser tab. Source 06311274; hosted verification 0ccc44dc. Worktree:
-> `/Users/alisoneakin/Projects/laidies-homepage-corrections-20260905`.
-> Restored component checked at 1440/390/320px, then actual hosted 1440/390px
-> anchors and exact HTML/runtime verified. Prior reviews remain bound to the
-> archived parent; no additional full-page quality verdict was manufactured.
-> Latest production e58b23d6 / 98bcb60 retained; live homepage/runtime unchanged.
-> This is mainly a copy/navigation correction, not a material visual redesign.
-> Whole-page owner approval and production release remain outstanding. Continue
-> the consolidated homepage and connected-page order in the correction plan.
+> **2026-09-05 — Four-category homepage discovery restored / PREVIEW VERIFIED.**
+> Ali clarified that the four categories exist to reveal the breadth of the site.
+> Original visible directory header and treatment restored in b182b777. All 26
+> existing links/descriptions and the original masthead remain intact. The six
+> immediate-need choices complement this overview; they do not replace it.
+> Preview: https://3d473188.laidies-sunnyvaile.pages.dev/ — opened in the existing tab.
+> Desktop/phone category visibility, link access, layout and images checked;
+> hosted HTML/runtime match the exact source. Source b182b777; verification
+> 80e2bdd7. Latest production e58b23d6/98bcb60
+> retained and unchanged. Whole-page approval and production release pending.
+> Continue the consolidated homepage and connected-page correction plan.
 
 > **2026-09-05 — Episode04 social carousel: REJECTED / DETOUR STOPPED; HOMEPAGE REVIEW RESUMES.**
 > Ali rejected preview8e498c88 for no worthwhile explanation, imagery or social value.
