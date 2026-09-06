@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Consistent activity-description weight
+
+Ali flags isolated bold Ghostbuster in the Businesswomen’s Special description. Removed its strong wrapper; every word and all other homepage bytes retained. All six descriptions checked; this was their only strong/b element. Source a97d1e74; mechanical binding8ec1f32c; https://3c284745.laidies-sunnyvaile.pages.dev/#activities. Hosted bytes and actual in-app desktop pixels verified. Tier3 correction; existing layout review retained for unchanged layout only. Preview only; production unchanged.
+
 ## 2026-09-06 — Activity cards use natural content height
 
 Ali flags the repeated oversized blank panels in the six homepage activity cards. Remove global equal-row sizing and paragraph min-height alignment; each card ends after its own content and button. Tags/titles may align within a visible row, but body copy and card heights must never be stretched to match a longer card. Current art, crops, palette, fonts, descriptions and routes are retained. Verify all filters and mobile resizing. Source fce065a4; hosted evidence 2f7e3e74; https://e5794abf.laidies-sunnyvaile.pages.dev/#activities . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
