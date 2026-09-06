@@ -1,5 +1,9 @@
 # Homepage correction plan — September 5, 2026
 
+## Current preview: 40010f23 — September6 owner navigation requests
+
+Source8e2a45aa restores the original six needs shortcuts (learning page and multiple-help choices). The full directory remains underneath, now compact with a full-width expansion pill at Ali’s request. Slim rotating Did you know sits under the masthead. Hosted desktop/phone journeys, automatic advance/pause and real learning routes pass; current NewsStand production preserved. Existing tab8 visibly replaced. Preview only; owner whole-homepage verdict and production release remain pending. Evidence: product-stewards/town-entry-homepage/candidates/shortcut-restoration-20260906/handoff.md.
+
 **Foreground:** finish the homepage review and corrections, then proceed page by page. Ali explicitly restored this scope after the Episode 4 social detour. Do not start another isolated redesign or new feature instead of closing this list.
 
 ## Source and corrections

@@ -6,7 +6,7 @@ Ali confirmed the original “I want to learn” shortcut led to the already-bui
 
 Ali then approved minimizing the directory to its current heading/intro and requested a full-width pill across the bottom to make expansion obvious. Use an accessible native disclosure labelled “Show the full directory +”; expansion reveals all four categories and all26 direct links in place, with the existing KSVL pill. Keep the current typography, palette, illustrations, masthead and other corrections. This supersedes September5’s instruction to remove the needs cards and keep the complete directory expanded. Preview update only; no production promotion.
 
-Acceptance: original six illustrated shortcuts and learning/help destinations; full directory collapsed to heading/intro plus obvious full-width pill; native keyboard and no-JavaScript expansion; all26 links and four categories retained; existing runtime and Worker byte-identical; next episode updates title and href; no overflow or broken shortcut images at1440/390; existing preview preserved elsewhere.
+Acceptance: original six illustrated shortcuts and learning/help destinations; full directory collapsed to heading/intro plus obvious full-width pill; native keyboard and no-JavaScript expansion; all26 links and four categories retained; existing runtime preserved outside banner controls; Worker byte-identical; next episode updates title and href; no overflow or broken shortcut images at1440/390; existing preview preserved elsewhere.
 
 Production: no mutation. Predecessor review applies only to unchanged bytes. The exact navigation delta receives maker and independent inspection.
 
