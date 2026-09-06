@@ -1,5 +1,12 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Restore existing needs shortcuts; compact directory by owner request
+
+Ali confirmed the original “I want to learn” shortcut led to the already-built /learn.html page and instructed: “yup. ok lets put that back please”. Restore the original six needs shortcuts and existing artwork above the complete directory. Learning routes to /learn.html; the broad AI-question shortcut routes to that page’s existing #help-now choices, rather than implying all help is Miss Jeeves. Preserve published-episode and current-headline updating.
+
+Ali then approved minimizing the directory to its current heading/intro and requested a full-width pill across the bottom to make expansion obvious. Use an accessible native disclosure labelled “Show the full directory +”; expansion reveals all four categories and all26 direct links in place, with the existing KSVL pill. Keep the current typography, palette, illustrations, masthead and other corrections. This supersedes September5’s instruction to remove the needs cards and keep the complete directory expanded. Preview update only; no production promotion.
+
+
 ## 2026-09-05 — Owner rejects homepage information and interaction regressions
 
 Preview 3d473188 is rejected for narrowed categories, missing inline Miss Jeeves answers/examples, weak feature copy, episode-specific method text and missing Resident benefits. Restore the complete four-category discovery with all direct destinations. A third masthead “Find what I need” action is allowed; preserve the original two. Give KSVL a full-width pill explaining the town radio. Answer on the homepage, show examples and use the portrait to balance the layout. Preserve Ali's Dream Phone invitation and yearbook joke with only spelling and verified availability adjustments. Name Ghostbusters and the Romy and Michele reference. Explain Blend & Snap and the quiz across episodes. State the actual differences between visiting, making a Card and signing in. Latest-episode visible wording and destinations must advance together only on publication. No production approval. This successor repairs the same homepage pass; it does not reopen the social detour or authorize an unrelated redesign.
@@ -240,3 +247,5 @@ current source or silently become implementation authority.
 Write a new decision into the narrowest current domain source in the same task.
 Add or change a row here only when routing itself changes. Do not grow this file
 into another decision ledger.
+
+Ali also requested a small rotating “Did you know?” banner directly under the masthead, about the header width. Reuse existing feature artwork and source-supported feature highlights; keep it a slim strip, not the retired large carousel. Include previous/next and persistent pause, respect reduced motion, and pause while hovered, focused or offscreen. Final order: masthead → slim Did you know → visible needs shortcuts → compact expandable full directory.

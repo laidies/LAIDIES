@@ -22,6 +22,34 @@ export function inspectHomepageCorrection(item, root) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if (a.owner_feedback_successor === 'SHORTCUTS_DIRECTORY_AND_SLIM_BANNER') {
+      const p = 'operations/product-stewards/town-entry-homepage/candidates/shortcut-restoration-20260906/';
+      const read = file => JSON.parse(bytes(p + file));
+      assert(item.id === homepageCorrectionId && item.review_type === 'building_page_visual', 'wrong scoped candidate');
+      for (const [name, binding] of [['homepage', a.candidate], ['runtime', a.runtime], ['worker', a.worker]]) assert(binding && digest(binding.path) === binding.sha256, name + ' bytes differ');
+      for (const binding of a.evidence || []) assert(digest(binding.path) === binding.sha256, 'stale evidence: ' + binding.path);
+      for (const name of ['scope.md','manifest.json','producer-contract.json','producer-self-review.md','source-diff.patch','browser-checks.json','motion-check.json','independent-review.md','claude-review-result.json','visuals.json']) assert(a.evidence?.some(b => b.path === p + name), 'missing bound evidence: ' + (name.startsWith('claude') ? 'claude' : name));
+      const manifest = read('manifest.json');
+      for (const source of manifest.source) assert(digest(source.path) === source.sha256, 'manifest source differs');
+      assert(digest(p + 'parent.html') === '58faa8ecba670e0899c14c8d3d705f83d1b7a8f7a6fb5678c9087880e773b3b6', 'wrong restoration parent');
+      assert(a.worker.sha256 === '9ddfba4179ce757019a2bacf75dbc814a222410628821b17c5feaba09337e764', 'unrelated Worker changed');
+      const independent = bytes(p + 'independent-review.md').toString();
+      const claude = read('claude-review-result.json');
+      assert(independent.includes('ADMIT_FOR_OWNER_REVIEW'), 'independent review not admitted');
+      assert(!claude.is_error && claude.modelUsage?.['claude-opus-5'] && claude.result?.includes('ADMIT_FOR_OWNER_REVIEW'), 'actual Claude review not admitted');
+      for (const hash of [a.candidate.sha256,a.runtime.sha256]) assert(independent.includes(hash) && claude.result?.includes(hash), 'review source differs');
+      const checks = read('browser-checks.json');
+      assert(checks.status === 'PASS' && checks.sourceSha256 === a.candidate.sha256 && checks.noJavaScriptDisclosure, 'browser source or native fallback differs');
+      for (const width of [1440,390]) assert(checks.checks.some(c => c.width === width && c.shortcuts === 6 && c.directLinks === 26 && c.categories === 4 && c.collapsedInitially && c.keyboardExpandCollapse && c.pillFullWidth && c.learningJourney && c.helpJourney && c.overflow <= width && !c.errors.length), 'navigation journey missing: ' + width);
+      const motion = read('motion-check.json');
+      assert(motion.status === 'PASS' && motion.automaticAdvance && motion.persistentPause, 'banner motion not proved');
+      for (const visual of read('visuals.json')) assert(digest(visual.path) === visual.sha256, 'stale visual');
+      const html = bytes('index.html').toString();
+      assert(html.includes('class="intent" id="today"') && html.includes('href="/learn.html#help-now"') && html.includes('class="directory-disclosure"') && html.includes('Show the full directory') && html.includes('did-you-know dyk-slim'), 'owner navigation missing');
+      assert(bytes('operations/DECISIONS.md').toString().includes('Restore existing needs shortcuts; compact directory by owner request'), 'owner scope missing');
+      assert(a.production_release_approved === false, 'owner presentation does not authorize production');
+      return errors;
+    }
     if (a.owner_feedback_successor === 'HOMEPAGE_INFORMATION_AND_INTERACTION') {
       const p = 'operations/product-stewards/town-entry-homepage/candidates/homepage-feedback-20260905/';
       const read = file => JSON.parse(bytes(p + file));

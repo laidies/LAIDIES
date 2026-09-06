@@ -594,16 +594,11 @@
   var previous = root.querySelector('[data-dyk-prev]');
   var next = root.querySelector('[data-dyk-next]');
   var status = root.querySelector('[data-dyk-status]');
-  var pause = root.querySelector('[data-dyk-pause]');
   if (!slides.length || !previous || !next) return;
-  root.querySelector('.dyk-controls').hidden = false;
 
   var index = 0;
   var timer = 0;
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var paused = reduced;
-  var inView = false;
-  if (pause) pause.textContent = paused ? 'Play' : 'Pause';
 
   function labelFor(slide) {
     var heading = slide.querySelector('h3');
@@ -633,7 +628,7 @@
 
   function start() {
     stop();
-    if (!paused && inView && !document.hidden && !root.matches(':hover') && !root.contains(document.activeElement)) {
+    if (!reduced && !document.hidden) {
       timer = window.setInterval(function () { show(index + 1, false); }, 8000);
     }
   }
@@ -646,17 +641,6 @@
       start();
     });
   });
-  if (pause) pause.addEventListener('click', function () {
-    paused = !paused;
-    pause.textContent = paused ? 'Play' : 'Pause';
-    if (paused) stop(); else start();
-  });
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      inView = entries[0].isIntersecting;
-      if (inView) start(); else stop();
-    }).observe(root);
-  } else inView = true;
   root.addEventListener('mouseenter', stop);
   root.addEventListener('mouseleave', start);
   root.addEventListener('focusin', stop);
