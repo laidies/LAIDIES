@@ -1,0 +1,26 @@
+diff --git a/index.html b/index.html
+index 0573c2b1..c728e365 100644
+--- a/index.html
++++ b/index.html
+@@ -1111,6 +1111,12 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
+ .why-full-link>span{max-width:42ch}.why-full-link strong{color:var(--hp-lime)}
+ .why-full-link>img{display:block;flex:0 0 auto;width:62px;height:94px;object-fit:contain;transform:rotate(5deg)}
+ @media(max-width:560px){.why-women-copy{padding-bottom:20px}.why-laidies{padding-top:12px}#why a.why-full-link:not(.inline-link){gap:16px;padding:14px 18px;border-radius:22px}.why-full-link>img{width:50px;height:76px}}
++/* Shared footer keeps the women-feature links beneath both columns. */
++#why .why-laidies{padding-bottom:24px;row-gap:20px}
++#why .why-laidies>.why-links{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0}
++#why .why-laidies>.why-links a{width:100%;height:100%;min-width:0;justify-content:center;text-align:center;padding:12px 20px}
++@media(max-width:900px){#why .why-laidies>.why-links{grid-template-columns:1fr;gap:12px}}
++#why .why-laidies>div:not(.why-links)>p:last-child{margin-bottom:0}
+ </style>
+   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+   <script defer src="/content/site/sv-global-header.js?v=20260906-shared-radio"></script>
+@@ -1291,8 +1297,8 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
+           <p>So join LAiDIES and make sure women continue to light the way.</p>
+           <p class="eyebrow">Inside the LUMINA<span class="keep-i">i</span>RY</p>
+           <p>The LUMINAiRY brings together the amazing women who helped build the foundations of computing and AI&mdash;and the women continuing to shape what AI becomes. Visit to meet the <strong>MAiVENS</strong> and <strong>TRAiLBLAZERS</strong>, explore their stories and learn more about their work.</p>
+-          <div class="why-links"><a href="/luminairy.html">Meet the MAiVENS and TRAiLBLAZERS &rarr;</a><a href="/issues/issue-04.html">Read Episode 04: The Founding Mothers &rarr;</a></div>
+         </div>
++        <div class="why-links"><a href="/luminairy.html">Meet the MAiVENS and TRAiLBLAZERS &rarr;</a><a href="/issues/issue-04.html">Read Episode 04: The Founding Mothers &rarr;</a></div>
+       </aside>
+     </section>

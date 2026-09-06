@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Balance the women feature footer
+
+Ali flags the empty lower-left space beside the stacked LUMINAiRY/Episode04 links. Move those existing links beneath both columns, use an equal-width desktop row and full-width phone stack, and tighten the footer padding. Preserve artwork, copy, destinations, colours and the preceding book-link correction. Preview only.
+
 ## 2026-09-06 — Compact book-to-women transition and full-width book link
 
 Ali flags excess gap above the women-behind-AI feature and the dull partial-width navy/white Fundamentals CTA. Reduce adjoining vertical padding; span the existing content width with brighter tangerine/lime text and the current book cover at right. Preserve wording, exact book/chapter route, section backgrounds and new Rewind wallpaper. Preview only.
