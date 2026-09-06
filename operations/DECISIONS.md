@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Current cards and FAiRY artwork; supersede retired thumbnail selection
+
+Ali explicitly retires assets/girl-talk-board.png/.webp and assets/sunnyvaile-buildings/y2k-v3/11-fairy-godmother-house.webp. Prior board-selection and visual-admission records are superseded; they were wrong. Current Girl Talk uses lavender/pink flip-phone Truth/Dare card faces already represented elsewhere on the homepage; exact compact assets are assets/games/girl-talk/truth-card-face.webp and dare-card-face.webp, shown separately without rotation or clipped wordmarks. Current FAiRY thumbnail reuses assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png, anchored left to show laptop/wand. Historical social plans and file existence do not prove current artwork authority. Ali selects plain Jost Bold700, matching the directory heading; remove outlines from DYK message/CTA and needs heading. Tangerine/lime lettering remains; deeper purple/cobalt banner ground is a supporting contrast adjustment, not an owner-approved new palette. Source 402559f8; hosted evidence d124d44f; https://5ae26b3c.laidies-sunnyvaile.pages.dev/#dyk-title . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
+
 ## 2026-09-06 — Sharper Girl Talk thumbnail in Did you know
 
 Ali reports the Truth or Dare thumbnail still looks pixelated. At72px/56px the prior landscape grunge becomes noise despite its1536px source. Replace only the first DYK image with existing assets/girl-talk-board.webp (980x653); preserve current size, lime border, typography, colours,8invitations, links and controls. Larger landscape uses remain unchanged; this does not retire their artwork. Source f922d52a; hosted evidence 6e95b196; https://1e77d547.laidies-sunnyvaile.pages.dev/#dyk-title . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
