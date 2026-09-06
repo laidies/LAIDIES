@@ -316,6 +316,8 @@
     + '.ksvl-np-track { display: block; font-size: 15px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }'
     + '.ksvl-np-position { font-size: 11px; opacity: 0.7; }'
     + '.ksvl-np-status { display: block; margin-top: 3px; min-height: 1.25em; font-size: 11px; line-height: 1.25; color: #202020; }'
+    + '.ksvl-np-up-next { display: block; margin-top: 3px; font-size: 11px; line-height: 1.3; color: #202020; overflow-wrap: anywhere; } .ksvl-np-up-next[hidden] { display: none; }'
+    + '.ksvl-np-status[data-kind="routine"] { position: absolute; width: 1px; height: 1px; min-height: 0; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }'
     + '.ksvl-np-storage-limit:not([hidden]) { display:block; margin-top:3px; font-size:11px; line-height:1.25; color:#492878; }'
     + '.ksvl-np-status[data-kind="error"], .ksvl-np-status[data-kind="held"] { color: #492878; }'
     + '.ksvl-np-retry { margin-top: 6px; min-height: 44px; padding: 8px 14px; border: 1px solid #492878; border-radius: 999px; background: transparent; color: #202020; font: 800 11px/1 "Jost", sans-serif; cursor: pointer; }'
@@ -368,6 +370,7 @@
     queue: [],
     index: 0,
     currentPart: 0,       // for multi-part tracks (intro+spot)
+    nextChoice: null,     // reserve shuffle once for preview, preload and playback
     paused: false,
     shuffle: false,
     repeatMode: 'all',    // 'off' | 'all' | 'one'
@@ -387,7 +390,44 @@
   }
   function currentSrc() { var p = currentPart(); return p ? p.src : null; }
 
-  var np, npMini, npMix, npTrack, npPosition, npStatus, npRetry, npPlayBtn,
+  // One resolver owns the actual next item, including multipart intros/spots.
+  function nextInFlow() {
+    var track = state.queue[state.index];
+    if (!track) return null;
+    if (track.parts && state.currentPart < track.parts.length - 1) {
+      return {index: state.index, part: state.currentPart + 1, item: track.parts[state.currentPart + 1]};
+    }
+    if (state.signingOff || state.mixId === 'single') return null;
+    var index;
+    if (state.repeatMode === 'one') index = state.index;
+    else if (state.shuffle) {
+      var choice = state.nextChoice;
+      if (!choice || choice.queue !== state.queue || choice.from !== state.index) {
+        choice = {queue: state.queue, from: state.index, index: Math.floor(Math.random() * state.queue.length)};
+        state.nextChoice = choice;
+      }
+      index = choice.index;
+    } else if (state.repeatMode === 'off' && state.index >= state.queue.length - 1) return null;
+    else index = (state.index + 1) % state.queue.length;
+    var next = state.queue[index];
+    return next ? {index: index, part: 0, item: next.parts && next.parts.length ? next.parts[0] : next} : null;
+  }
+
+  function nextTitle() {
+    var next = nextInFlow();
+    return next && next.item ? next.item.title || state.queue[next.index].title : '';
+  }
+
+  function updateUpNext() {
+    if (!npUpNext) return;
+    var title = remoteOwner ? remoteOwner.upNextTitle : nextTitle();
+    // Older remote players cannot promise a shuffled choice they have not made.
+    npUpNext.hidden = typeof title !== 'string';
+    npUpNext.textContent = typeof title !== 'string' ? '' : title ? 'Up next: ' + title : 'Up next: End of playlist';
+  }
+
+
+  var np, npMini, npMix, npTrack, npPosition, npStatus, npUpNext, npRetry, npPlayBtn,
     npShuffleBtn, npRepeatBtn, npMuteBtn, npVolume, npSeek, npStorageLimit;
   var storageLimit = '';
   function reportStorageLimit() {
@@ -403,10 +443,10 @@
     } catch (e) { reportStorageLimit(); }
   }
 
-  function announce(message, kind) {
+  function announce(message, kind, quiet) {
     ensureNowPlaying();
     npStatus.textContent = message || '';
-    npStatus.dataset.kind = kind || 'status';
+    npStatus.dataset.kind = quiet || kind === 'playing' ? 'routine' : kind || 'status';
     npRetry.hidden = kind !== 'error';
     if (kind === 'error') {
       window.requestAnimationFrame(function() { npRetry.focus(); });
@@ -469,6 +509,8 @@
     info.appendChild(npMix);
     info.appendChild(npTrack);
     info.appendChild(npPosition);
+    npUpNext = el('span', {class: 'ksvl-np-up-next'});
+    info.appendChild(npUpNext);
     info.appendChild(npStatus);
     npStorageLimit = el('span', {class: 'ksvl-np-storage-limit', role: 'status', text: storageLimit});
     npStorageLimit.hidden = !storageLimit;
@@ -562,6 +604,7 @@
       label = (mix ? mix.title : 'KSVL') + ' · Track ' + (state.index + 1) + ' / ' + state.queue.length;
     }
     npMix.textContent = label;
+    updateUpNext();
     // Show the current part's label if this is a multi-part track (intro/spot pair).
     var displayTitle = (track.parts && part && part.title) ? part.title : track.title;
     var displayArtist = (track.parts && part && part.artist) ? part.artist : track.artist;
@@ -609,7 +652,7 @@
     if (!state.audio) return;
     state.audio.muted = !state.audio.muted;
     state.muted = state.audio.muted;
-    announce(state.audio.muted ? 'KSVL is muted.' : 'KSVL sound is on.', 'status');
+    announce(state.audio.muted ? 'KSVL is muted.' : 'KSVL sound is on.', 'status', true);
     syncSoundControls();
     saveState();
   }
@@ -623,7 +666,7 @@
       if (value > 0 && state.audio.muted) state.audio.muted = false;
       state.muted = state.audio.muted;
     }
-    announce('Volume ' + Math.round(value * 100) + ' percent on this device.', 'status');
+    announce('Volume ' + Math.round(value * 100) + ' percent on this device.', 'status', true);
     syncSoundControls();
     saveState();
   }
@@ -636,7 +679,7 @@
     }
     try {
       state.audio.currentTime = (Number(npSeek.value) / 1000) * state.audio.duration;
-      announce('Moved within ' + ((currentPart() || {}).title || 'the current track') + '.', 'status');
+      announce('Moved within ' + ((currentPart() || {}).title || 'the current track') + '.', 'status', true);
     } catch (error) {
       announce('The browser could not seek in this track. Playback position was not changed.', 'error');
     }
@@ -803,7 +846,8 @@
           !Number.isFinite(item.at) || item.at > Date.now() || Date.now() - item.at > 15000 ||
           typeof item.popup !== 'boolean' || !Number.isFinite(item.duration) ||
           item.duration < 0 || item.duration > 86400 ||
-          !validateSavedState(item.playback)) return null;
+          !validateSavedState(item.playback) ||
+          (item.upNextTitle !== undefined && (typeof item.upNextTitle !== 'string' || item.upNextTitle.length > 500))) return null;
       return item;
     } catch (e) { return null; }
   }
@@ -940,6 +984,7 @@
   var playToken = 0;
   function playIndex(i) {
     state.restoring = false;
+    state.nextChoice = null;
     state.index = ((i % state.queue.length) + state.queue.length) % state.queue.length;
     state.currentPart = 0;
     if (window.plausible) { try { window.plausible('KSVL play', { props: { track: (state.queue[state.index] || {}).title || '' } }); } catch (e) {} }
@@ -995,7 +1040,7 @@
         state.currentPart++;
         playCurrentPart();
       } else {
-        announce(displayTitle + ' ended.', 'status');
+        announce(displayTitle + ' ended.', 'status', true);
         advanceOnEnded();
       }
     });
@@ -1034,7 +1079,7 @@
     audio.addEventListener('pause', function() {
       if (myToken !== playToken || audio.ended) return;
       state.paused = true;
-      announce(displayTitle + ' is paused.', 'status');
+      announce(displayTitle + ' is paused.', 'status', true);
       updateNowPlaying();
     });
     state.audio = audio;
@@ -1051,7 +1096,7 @@
       else audio.addEventListener('loadedmetadata', seekRestored, {once: true});
       if (!restoration.play) {
         state.paused = true;
-        announce('Pick up where you left off. Press Resume to keep listening.', 'status');
+        announce('Pick up where you left off. Press Resume to keep listening.', 'status', true);
         updateNowPlaying();
         syncSoundControls();
         return;
@@ -1082,21 +1127,10 @@
 
   // Preload whatever plays next in the flow: next part of current track, or first part of next track.
   function preloadNextInFlow() {
-    var track = state.queue[state.index];
-    var nextSrc = null;
-    if (track && track.parts && state.currentPart < track.parts.length - 1) {
-      nextSrc = track.parts[state.currentPart + 1].src;
-    } else {
-      var nextIdx;
-      if (state.repeatMode === 'one') { nextIdx = state.index; }
-      else if (state.shuffle) { return; /* shuffle picks at runtime */ }
-      else if (state.repeatMode === 'off' && state.index >= state.queue.length - 1) { return; }
-      else { nextIdx = (state.index + 1) % state.queue.length; }
-      var nextTrack = state.queue[nextIdx];
-      if (!nextTrack) return;
-      nextSrc = nextTrack.parts ? nextTrack.parts[0].src : nextTrack.src;
-    }
-    if (!nextSrc) return;
+    var upcoming = nextInFlow();
+    var nextSrc = upcoming && upcoming.item.src;
+    if (nextSrc && nextSrc === state.preloadedSrc) return;
+    if (!nextSrc) { state.preloadedAudio = null; state.preloadedSrc = null; return; }
     var next = new Audio(nextSrc);
     next.preload = 'auto';
     state.preloadedAudio = next;
@@ -1106,31 +1140,36 @@
   function advanceOnEnded() {
     if (state.signingOff) { realStopPlayer(); return; }
     if (state.mixId === 'single') { realStopPlayer(); return; }
-    if (state.repeatMode === 'one') { playIndex(state.index); return; }
-    if (state.shuffle) { playIndex(Math.floor(Math.random() * state.queue.length)); return; }
-    if (state.repeatMode === 'off' && state.index >= state.queue.length - 1) { stopPlayer(); return; }
-    playIndex(state.index + 1);
+    var next = nextInFlow();
+    if (!next) { stopPlayer(); return; }
+    playIndex(next.index);
   }
 
   function toggleShuffle() {
     if (sendRemote('shuffle')) return;
     state.shuffle = !state.shuffle;
+    state.nextChoice = null;
     if (npShuffleBtn) {
       npShuffleBtn.classList.toggle('is-active', state.shuffle);
       npShuffleBtn.setAttribute('aria-label', state.shuffle ? 'Shuffle · on' : 'Shuffle · off');
     }
+    updateUpNext();
+    preloadNextInFlow();
     saveState();
   }
 
   function cycleRepeat() {
     if (sendRemote('repeat')) return;
     state.repeatMode = state.repeatMode === 'off' ? 'all' : (state.repeatMode === 'all' ? 'one' : 'off');
+    state.nextChoice = null;
     if (npRepeatBtn) {
       npRepeatBtn.classList.toggle('is-active', state.repeatMode !== 'off');
       setBtnIcon(npRepeatBtn, state.repeatMode === 'one' ? '🔂' : '🔁');
       npRepeatBtn.setAttribute('aria-label', state.repeatMode === 'off' ? 'Repeat off' : (state.repeatMode === 'one' ? 'Repeat one' : 'Repeat all'));
       npRepeatBtn.setAttribute('title', 'Repeat: ' + state.repeatMode);
     }
+    updateUpNext();
+    preloadNextInFlow();
     saveState();
   }
 
@@ -1225,7 +1264,7 @@
     }
     try {
       state.audio.currentTime = Math.max(0, Math.min(1, Number(ratio))) * state.audio.duration;
-      announce('Moved within ' + ((currentPart() || {}).title || 'the current track') + '.', 'status');
+      announce('Moved within ' + ((currentPart() || {}).title || 'the current track') + '.', 'status', true);
       syncSoundControls();
       return true;
     } catch (error) {
@@ -1250,6 +1289,7 @@
   };
 
   function nextTrack() { if (!sendRemote('next') && state.queue.length) playIndex(state.index + 1); }
+
   function prevTrack() { if (!sendRemote('previous') && state.queue.length) playIndex(state.index - 1); }
 
   function togglePlay() {
@@ -1273,7 +1313,7 @@
     } else {
       state.audio.pause();
       state.paused = true;
-      announce(((currentPart() || {}).title || 'This track') + ' is paused.', 'status');
+      announce(((currentPart() || {}).title || 'This track') + ' is paused.', 'status', true);
       updateNowPlaying();
     }
   }
@@ -1469,7 +1509,7 @@
       localStorage.setItem(LS_KEY, JSON.stringify(payload));
       localStorage.setItem(OWNER_KEY, JSON.stringify({id: ownerId, at: Date.now(), popup: IS_POPUP,
         duration: state.audio && Number.isFinite(state.audio.duration) ? state.audio.duration : 0,
-        playback: payload}));
+        playback: payload, upNextTitle: nextTitle()}));
       return true;
     } catch(e) { reportStorageLimit(); return false; }
   }

@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Player shows the actual upcoming song or ad
+
+Ali requests “Up next:” followed by the next song or ad, replacing routine saved-position chatter in the bottom player. Derive it from the exact next queued item/segment; do not invent advertising or programme entries. Preview, preload and automatic advance share one next-item choice, including shuffle/repeat. Playback errors remain visible.
+
 ## 2026-09-06 — Player restoration copy speaks to listeners
 
 Ali rejects “Saved KSVL position restored on this device…” as internal language. Use listener-facing help for the next action. The paused restoration message is “Pick up where you left off. Press Resume to keep listening.” Preserve paused restoration and the explicit Resume control; no autoplay or persistence change.

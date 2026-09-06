@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Up next: VERIFIED LOCAL.** Player displays the actual next queued song/segment instead of routine saved-position/playing chatter. Shared resolver binds preview/preload/automatic advance; shuffle reserves one choice; owner heartbeat shares the actual title with follower pages. Browser verified the announced Businesswomen’s Special became the next song after seek-to-end, both tabs agreed, and390px had no overflow. Extracted-source tests pass for multipart intros/spots, repeat, shuffle and end-of-queue; deliberately wrong selector fails. Ads are supported when actually queued, not added by this task. CD remains rejected; no deployment.
+
 > **2026-09-06 — Player restoration copy: VERIFIED LOCAL.** Actual reopened preview displays “Pick up where you left off. Press Resume to keep listening.” with Resume visible; source syntax checked. Only visitor wording changes; no playback behavior changed. CD remains rejected pending icon decision. Not published.
 
 > **2026-09-06 — Player label corrected; CD choice rejected.** The local player visibly reads “KSVL 99.9 · NOW PLAYING” above the current song, replacing soundcheck/item wording; syntax and exact browser label verified. Ali rejects the replacement CD’s appearance too. No public deployment. Next design decision: recommended removal of the decorative icon; do not generate another asset or treat the current CD as approved.
