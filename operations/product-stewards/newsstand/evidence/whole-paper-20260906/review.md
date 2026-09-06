@@ -8,3 +8,6 @@ Reader contract10fixtures and distinct-art calibrated rejection passed. Root dir
 - content/newsstand-design.css: `a9e786aaddb3992086d51160dac615367777c30ba98e59ec82bee401f1c07a35`
 
 Release scope retains other753files byte-for-byte from production65a7ff3e. General sparse repository hooks skipped in favour of scoped checks. Additional puzzles/ads/Behind the Build remain captured, not launched.
+
+## Public verification
+Source commit875c07d5 deployed https://8ec6a1db.laidies-sunnyvaile.pages.dev and https://laidies.ai/newsstand. Four exact-file comparisons matched both origins. Fresh live Chrome render1200/390/320: no horizontal overflow or broken images; masthead194desktop/204mobile. Six current/retained column links open exact matching article bodies. Root inspected live desktop service spread and phone Mme reading. No claim that broader editorial/backlog work is complete.
