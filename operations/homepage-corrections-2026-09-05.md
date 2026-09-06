@@ -114,3 +114,7 @@ Ali rejected the separate-tab listening route. Radio banner and full-width liste
 ## Banner colour correction
 
 Source d0d980f0; hosted verification3100a51e; https://6520c72e.laidies-sunnyvaile.pages.dev/ . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905; existing tab8 visibly updated. Existing mint-to-cyan replaces repeated warm background; source differs by one CSS declaration. Hosted1440/390 and exact source checks pass; contrast5.698:1 conservatively over pattern. Both bounded reviewers admit. No copy/artwork/runtime changes or production promotion. Packet: operations/product-stewards/town-entry-homepage/candidates/banner-colour-20260906/.
+
+## Bright blue needs heading
+
+Source e23685eb; hosted evidence89ce4069; https://c48d8896.laidies-sunnyvaile.pages.dev/#today . Existing tab8 visibly updated; worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Exact single heading rule uses cobalt with fine navy letter edge. Hosted1440/390 and visible in-app check passed; identical wrapping/dimensions/background; no content or runtime change. Both bounded reviewers admit. Current production148f456e/5122aae preserved; no production promotion. Evidence packet: operations/product-stewards/town-entry-homepage/candidates/heading-blue-20260906/.

@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Needs heading: bright blue text only
+
+Ali clarified “just the text” for “What brought you to town today?”. Use existing bright cobalt for this heading, leaving background, banner, cards and layout intact. Fine navy edge is the implementation choice for readability over warm colours. Source e23685eb; hosted evidence89ce4069; https://c48d8896.laidies-sunnyvaile.pages.dev/#today . Existing tab8 visibly updated; worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
+
 ## 2026-09-06 — Did you know colour contrasts with section below
 
 Ali requests a different banner colour from the next section. Reuse existing homepage mint-to-cyan gradient with navy text. Preserve artwork, spacing, all eight invitations and bottom-radio action. Source d0d980f0; hosted verification3100a51e; https://6520c72e.laidies-sunnyvaile.pages.dev/ . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905; existing tab8 visibly updated. Preview only, no production promotion.
