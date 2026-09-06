@@ -334,7 +334,7 @@
     + '.ksvl-np-time { font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }'
     + '.ksvl-np-slider-field:has(.ksvl-np-volume) { width: 92px; } .ksvl-np-slider-field:has(.ksvl-np-seek) { width: min(190px,24vw); }'
     + '@media (max-width:620px) { .ksvl-np-slider-field:has(.ksvl-np-seek) { width:132px; } .ksvl-np-field-heading { min-height:31px; align-content:flex-start; } }'
-    + '.ksvl-np-volume, .ksvl-np-seek { min-height: 44px; accent-color: #492878; }'
+    + '.ksvl-np-volume, .ksvl-np-seek { min-height: 44px; accent-color: #e62a92; }'
     + '.ksvl-np-volume { width: 92px; } .ksvl-np-seek { width: min(190px, 24vw); }'
     + '.ksvl-np-lbl { font-size: 7.5px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; opacity: 0.72; white-space: nowrap; }'
     + '.ksvl-np-btn:hover .ksvl-np-lbl { opacity: 1; }'

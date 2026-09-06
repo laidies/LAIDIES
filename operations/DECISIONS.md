@@ -342,3 +342,5 @@ Ali also requested a small rotating “Did you know?” banner directly under th
 2026-09-06 — Typography clarification applied: Song and its title bold; Band label bold but band name regular; Up next regular; control-panel labels bold. Supersedes the earlier whole-player regular-weight interpretation.
 
 2026-09-06 — Band label refinement: Ali rejects bold Band. Band label and band name both regular; Song/title and controls remain bold. Supersedes the bold Band label clarification.
+
+2026-09-06 — Slider colour: Ali rejects purple against green and requests bright pink for progress and volume. Both native range accents now #e62a92.
