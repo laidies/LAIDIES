@@ -387,7 +387,7 @@
     + '@keyframes ksvl-title-scroll { 0%,20% { transform:translateX(0); } 80%,100% { transform:translateX(var(--title-travel,0px)); } }'
     + '@media(prefers-reduced-motion:reduce) { .ksvl-np-title-text { animation:none!important; } }'
     + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-sound .ksvl-np-slider-field { width:80px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-volume { width:100%; }'
-    + '@media(max-width:620px) { .ksvl-now-playing:not(.is-expanded) { flex-wrap:wrap; gap:0; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:1 1 100%; display:flex; align-items:center; gap:10px; padding:2px 6px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-track { flex:1; min-width:0; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-position { max-width:40%; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { flex:1 1 100%; justify-content:center; gap:4px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-sound > .ksvl-np-btn { display:none; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-sound .ksvl-np-slider-field { width:65px; } .ksvl-now-playing.is-expanded .ksvl-np-sound { grid-column:1 / -1; justify-content:center; } }';
+    + '@media(max-width:620px) { .ksvl-now-playing:not(.is-expanded) { flex-wrap:wrap; gap:0; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:1 1 100%; display:flex; align-items:center; gap:10px; padding:2px 6px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-track { flex:1; min-width:0; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-position { max-width:40%; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { flex:1 1 100%; justify-content:center; gap:4px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-sound > .ksvl-np-btn { display:flex; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-sound .ksvl-np-slider-field { width:65px; } .ksvl-now-playing.is-expanded .ksvl-np-sound { grid-column:1 / -1; justify-content:center; } }';
 
   // Preserve the illustrated identity; only phones need disclosure.
   STYLE += '.ksvl-now-playing:not(.is-expanded) { background:#c195e9 url("/assets/homepage/rewind-wallpaper-20260906.webp") repeat center /380px 380px; border-top:3px solid #492878; }'
@@ -396,6 +396,8 @@
 
   STYLE += '.ksvl-now-playing .ksvl-np-field-heading { justify-content:center; text-align:center; transform:translateY(9px); pointer-events:none; }'
     + '.ksvl-now-playing .ksvl-np-time { display:block; text-align:center; font-size:9px; line-height:1; margin-top:-6px; } .ksvl-np-btn--play .ksvl-np-ico svg { display:block; flex:none; }';
+
+  STYLE += '@media(max-width:620px) { .ksvl-np-more { grid-column:2; grid-row:1; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-more { margin-left:auto; } }';
 
   function updateTitleOverflow() {
     if (!npTrack || !npTrack.firstElementChild) return;
@@ -606,7 +608,6 @@
         more.textContent = open ? 'Collapse' : 'Expand';
       }
     });
-    controls.appendChild(more);
     var extras = el('div', {class: 'ksvl-np-extras', id: 'ksvl-np-extras'});
     var modes = el('div', {class: 'ksvl-np-group ksvl-np-modes'}, [npShuffleBtn, npRepeatBtn]);
     extras.appendChild(modes);
@@ -647,6 +648,7 @@
     progressField.classList.add('ksvl-np-progress-field');
     controls.appendChild(progressField);
     controls.appendChild(sound);
+    controls.appendChild(more);
     // Group 2 — station: pop out · KSVL · stop
     var station = el('div', {class: 'ksvl-np-group'});
     if (!IS_POPUP) {

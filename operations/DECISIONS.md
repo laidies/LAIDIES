@@ -332,3 +332,5 @@ Ali also requested a small rotating “Did you know?” banner directly under th
 2026-09-06 — Desktop controls never require expansion. Ali explicitly reserves Expand for phone screens; larger screens show all controls. Preserve the Rewind wallpaper and mint/lime panels while reducing bulk. Flat mint replacement is rejected.
 
 2026-09-06 — Player detail alignment: Ali requests Track progress and Volume centred close above their sliders and the Resume triangle visually centred inside its circle. Labels retain functional clarity; elapsed/total time sits below progress.
+
+2026-09-06 — Phone control order: Ali requests Expand at the far right and use available space for more controls. Mute is now visible beside Volume; order is Back, Play/Resume, Next, Mute, Volume, Expand. Phone collapsed and expanded320px verified without overflow.

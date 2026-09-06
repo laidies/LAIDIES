@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Phone controls: VERIFIED LOCAL.** Expand moved after sound controls, far right. Mute exposed beside Volume. Actual320px collapsed/expanded no overflow; Mute/Unmute and Expand/Collapse clicked successfully. Desktop disclosure unchanged. Not published.
+
 > **2026-09-06 — Control alignment: VERIFIED LOCAL.** Track progress and Volume labels centred and moved nearer their ranges; elapsed time below progress. Play/pause uses deterministic SVG geometry instead of a font glyph, with optical play centring. Actual desktop and expanded390px checked; volume keyboard input works. Preview only.
 
 > **2026-09-06 — Desktop full controls / restored artwork: LOCAL PREVIEW.** Above620px, all controls and Up next show with no Expand button. Rewind casing and mint/lime panels restored following owner rejection of flat mint. Actual1074px desktop83px high and390px phone96px high; no overflow. Phone Expand/Collapse verified. No deployment.
