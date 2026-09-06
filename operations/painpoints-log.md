@@ -153,3 +153,12 @@ Repeatedly ending at a helper or a pending launch-policy question stopped work t
 ### 2026-09-05 — Finish browser staging before presenting a hosting charge
 
 A merged server package was again treated as a stopping point while its browser client/staging work remained authorized. Prevention: follow the dependent visitor flow through the actual UI, then stop only at a concrete external dependency. Browser staging now verifies draft-preserving uncertain-response retry, one stored card and staff disposition. A missing global Supabase command also caused a false access stop; the saved pinned npm-exec CLI works and verified there are no staging branches. Root bounded a hanging challenge callback with a real deadline and fixed a staging migration path through a runnable smoke test. The PR check exposed a client-test race: a zero-delay timer did not prove async hashing had reached the challenge callback; the test now awaits an explicit callback-start signal instead of elapsed time. Possible Behind the Build angle: distinguish a real cost decision from an unfinished implementation step.
+
+### 2026-09-05 — Internal milestones repeatedly ended an unfinished task
+
+Failure: reporting a commit or test and ending with “next” forced Ali to restart
+execution repeatedly. Prevention: bind completion to the usable hosted journey,
+continue across commit/CI boundaries, and stop only at that outcome or an actual
+required owner decision. Restore sparse fixtures before interpreting a missing
+file as a regression. Behind the Build angle: a green test is one piece of
+evidence; it does not deliver the user's working tool.

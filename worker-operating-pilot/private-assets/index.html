@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'none'; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <title>Private feedback inbox</title>
+  <style>
+    body { max-width: 48rem; margin: 2rem auto; padding: 0 1rem; font: 1rem/1.5 system-ui, sans-serif; color: #1d2430; }
+    section { margin: 2rem 0; padding: 1rem; border: 1px solid #b8c1cc; border-radius: .4rem; }
+    label, input, select, textarea, button { display: block; box-sizing: border-box; width: 100%; margin-top: .45rem; }
+    input, select, textarea, button { padding: .55rem; font: inherit; }
+    textarea { min-height: 8rem; resize: vertical; }
+    button { width: auto; margin-top: 1rem; cursor: pointer; }
+    article { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #d4dae1; }
+    article button { display: inline-block; width: auto; margin-right: .5rem; }
+    output { display: block; min-height: 1.5rem; margin-top: .75rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Private feedback inbox</h1>
+    <p id="token-note" role="status">Opening private inbox…</p>
+    <p>Private pilot. Public visitor submissions are closed. Use test messages; automatic deletion is not enabled.</p>
+
+    <section aria-labelledby="send-heading">
+      <h2 id="send-heading">Send a private note</h2>
+      <form id="intake-form" method="post" action="/private-feedback/" autocomplete="off">
+        <fieldset id="intake-fields" disabled>
+          <legend>Feedback</legend>
+          <label for="submission-type">Type</label>
+          <select id="submission-type">
+            <option value="suggestion">Suggestion</option>
+            <option value="complaint">Complaint</option>
+            <option value="compliment">Compliment</option>
+          </select>
+          <label for="subject">Subject (optional)</label>
+          <input id="subject" maxlength="100" autocomplete="off">
+          <label for="body">Message</label>
+          <textarea id="body" required minlength="3" maxlength="2000" autocomplete="off"></textarea>
+          <button id="send-button" type="submit">Send private note</button>
+        </fieldset>
+      </form>
+      <output id="intake-status" role="status" aria-live="polite"></output>
+    </section>
+
+    <section aria-labelledby="inbox-heading">
+      <h2 id="inbox-heading">Inbox</h2>
+      <button id="refresh-button" type="button" disabled>Refresh inbox</button>
+      <output id="inbox-status" role="status" aria-live="polite"></output>
+      <div id="feedback-list" aria-live="polite"></div>
+    </section>
+  </main>
+  <script type="module" src="/private-feedback/app.mjs"></script>
+</body>
+</html>

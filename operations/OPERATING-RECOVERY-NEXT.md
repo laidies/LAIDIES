@@ -291,7 +291,7 @@ The fixture and client tests are in baseline CI.
 branch to reuse. The global executable being absent is not missing access:
 use the already saved `npm exec --yes --package=supabase@2.116.0 -- supabase`.
 
-**Concrete next decision:** a temporary data-less Micro preview branch named
+**Withdrawn proposal — not the next action:** a temporary data-less Micro preview branch named
 `town-hall-feedback-staging-20260905`, created under the existing project, with
 no git association, production data copy, merge-to-main, persistent flag or plan
 upgrade. Apply only the feedback migration to that branch and exercise the real
@@ -542,3 +542,31 @@ history includes version/statements/name/created_by/idempotency_key/rollback;
 apply only the exact reviewed additive migration through that mechanism.
 No live schema/data/auth configuration, founder grant, public route, website,
 dispatcher or hosted Founder Workflow changed during this preparation.
+
+### 2026-09-05 — Continue through a usable private hosted inbox
+
+The paid staging proposal is withdrawn. PR99 is merged at
+`3e490e3d720e1e4cf2333823c49b9c0684c1a222`. Repeatedly ending after an internal
+commit did not satisfy the user outcome. The active acceptance condition is an
+opened private hosted inbox with a synthetic submission, stable retry receipt,
+one stored record and observed review transition.
+
+The existing `laidies-operating-handoff-pilot` Worker now has a separately gated
+private route and static inbox assets. Its existing workflows are preserved.
+The owner capability stays in browser memory; a distinct server-only database
+capability uses an anonymous project key and a narrowly scoped RPC, never a
+service-role key. The database stores only the capability hash. Missing or bad
+capabilities, cross-origin requests and the public submission route fail closed.
+The browser does not persist message text.
+
+The exact feedback migrations are 20260905030000 and 20260905040000; the optional
+founder migration is excluded. Both ran in a hosted transaction that rolled back;
+the final read confirmed zero feedback rows and no candidate schema. Local SQL,
+private HTTP and preserved workflow runtime checks pass, including negative
+cases. Deployment packaging succeeds. Persistent activation and browser proof
+are still in progress at this source checkpoint.
+
+This is a private synthetic pilot. Real visitor intake stays closed pending the
+retention/deletion and triage decisions. Automatic deletion is not enabled; the
+UI states that limitation and requests test messages only. No new database,
+subscription or recurring schedule is part of this continuation.
