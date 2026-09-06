@@ -1,8 +1,10 @@
-<!-- Actual colour/artwork correction: VERIFIED LOCALLY / release in progress -->
+<!-- Actual colour/artwork correction: VERIFIED PUBLICLY -->
 Threeexistingpublicfiles plus sixnewartassets. Restoredserviceartsize; recoloured
 actualfourillustrations. Distinctmedical/legalart, duplicate-suppressionguard.
 Masthead194px withPaigeatbottom; inheritedpurpletextcorrected. Independent1200
 art/visualACCEPT; root390checked. Candidate/tmp/laidies-newsstand-masthead-language-20260906.
+Source6a3c2883 deployed7614029e;18exactpublicresponsesmatch. ActualIAB refreshed
+andverified194pxmasthead, sixnewassetswired,3distinctloadedLatestimages,nooverflow.
 Weekly visiblecoveredperiod nowAug19–26; actualcurrent-week replacement isstill
 BUILDING in candidates/weekly-correction-20260906. Do notclaimnewWeeklypublished.
 
