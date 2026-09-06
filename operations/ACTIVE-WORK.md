@@ -1165,3 +1165,5 @@ remains closed; this repair does not change message handling.
 
 ## 2026-09-06 — Resident Card background candidates
 Owner: 01a0785e-1438-7161-b041-0be213b06e9b. Three original landscape background assets created on art/resident-card-backgrounds-20260906, reviewed as standalone art; exact results and prompts at assets/resident-card/candidates-20260906-backgrounds/README.md. Request fulfilled as candidate artwork, selection and integration remain Ali/page-owner work. No page modification or deployment.
+
+Resident Card colour revision: Ali rejected Memphis and repeated colour fields. Current candidates04/05 are cyan/periwinkle Zigzag and pink/teal Mixtape; reviewed standalone art, awaiting Ali selection. Old colours superseded; page task notified.

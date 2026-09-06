@@ -20,11 +20,11 @@ The initial tall navy pilot followed obsolete inline markup before the current s
 
 Generated with the built-in image tool. Exact prompts are in `prompts.json`. These backgrounds need actual page-fit and desktop/mobile integration checks before release. They do not replace the currently embedded physical shell automatically or remap the six saved finish IDs.
 
-## The three designs
+## Superseded first set — not current selections
 
 1. [Electric zigzag](01-electric-zigzag-v2.png) — sharp cyan/pink/purple graphics and halftone.
 2. [Mixtape](02-mixtape.png) — cassettes, confetti and zigzags.
-3. [Memphis](03-memphis.png) — curved shapes, discs and halftone.
+3. Memphis — REJECTED by Ali. Retained only as rejection history; never select.
 
 ## Review result and implementation limits
 
@@ -37,3 +37,20 @@ The original prompt conservatively asked for clearance through y87%; the actual 
 | 01-electric-zigzag-v2.png | 37ea584c7909fd30e552fbd595bb76b2ab5e4f8fa915d46f408af29902d892c8 |
 | 02-mixtape.png | b94ca12a47497b913ce88dd01db4bf0766d161388a27350d36dad8f6f437a2a7 |
 | 03-memphis.png | e248046f29e15f74aa480cc2e6aaee586f7206d7bac0d0412a824d5160a3c287 |
+
+## Ali feedback — colour variation correction
+
+Ali said the first set was only okay: the repeated background/header colours made the options too similar, and she did not like Memphis. Memphis is REJECTED: do not select or integrate it. The first Zigzag and Mixtape colourways are superseded candidates, not selected assets. Revise those two with distinct body/header combinations while preserving the Card content layout. This latest direct request authorizes variation from the repeated lavender-body/raspberry-header treatment for these new candidates.
+
+## Current revised candidates — awaiting Ali selection
+
+- [Zigzag: cyan body / periwinkle header](04-zigzag-cyan-periwinkle.png)
+- [Mixtape: pink body / teal header](05-mixtape-pink-teal.png)
+
+Both retain the previous layout and portrait-layering requirements. Latest direct feedback authorizes distinct body/header colours; do not reimpose the uniform first-set colours. Memphis is excluded. No page integration or deployment.
+
+04-zigzag-cyan-periwinkle.png: (1681, 936), SHA-256 `5047c12cc2d0f79f46211d0e03e2899d6441cb283af834603ab99fdd95631eb7`.
+
+05-mixtape-pink-teal.png: (1681, 936), SHA-256 `d2522d7e7bd056611f973406f58f5c0844030a8e8dea6c799b6c88ef1bb07637`.
+
+Colour-revision review: maker and independent Terra/Medium pixel review confirm distinct body/header pairings, retained geometry and no visible generated text, faces, grids or ruled lines. Mixtape still requires the portrait above its bottom decoration. Artwork-only candidate review, no page approval.

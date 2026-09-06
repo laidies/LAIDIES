@@ -263,3 +263,7 @@ The small visual-reference intake found a rejected Matron identity still selecte
 
 ## 2026-09-06 — Resolve Card stylesheet overrides before image generation
 An early pilot used obsolete inline tall-card geometry and navy styling before the active CSS and later Card-specific ruling were reconciled. Discarded that pilot, used it as reviewer negative calibration, and rebuilt in landscape with lavender body/raspberry header. Prevention: inspect current override stylesheet and destination decisions before starting generation, not only base markup or a reference summary. The general reference colour view does not replace later owner-specific Card rulings. Maker also reduced initial lower decoration before creating companions. Behind the Build: a beautiful background is still wrong when it belongs to an old version of the object.
+
+
+## 2026-09-06 — Resident Card variants must vary the visible colour fields
+Ali found the first set only okay because all alternatives repeated the same lavender body and pink header, and rejected Memphis. Do not count a changed bottom ornament as a meaningfully different colour option. Two successors keep the useful layout with cyan/periwinkle and pink/teal colour pairings. Later direct feedback overrides the older uniform candidate palette. Memphis is rejected in the candidate entry and receiving page task. Behind the Build: variation must change the part people actually see, not merely a small decorative detail.
