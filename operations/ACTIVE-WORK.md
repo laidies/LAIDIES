@@ -1,12 +1,15 @@
-<!-- NewsStand September 6 display repair: BUILDING -->
-NewsStand display recovery is active: images and player now verified in the full
-HTTP candidate; mint theme control at bottom-right at desktop and 390 px. Front
-counter restores still-current issued Concept and town notices without changing
-Daily history. Mme CLAi-O remains expired and requires renewal. Three public-file
-overlay of deployment 2d4735ee prepared; not yet deployed. The approved recurring
-service 0/1 floor and prevention of omitted service carry are implemented and
-calibrated. Catch Me Up independent admission still pending. Continue existing
-NewsStand editorial work after closing this visitor-reported regression.
+<!-- NewsStand September 6 display repair: VERIFIED PUBLICLY; editorial renewal BUILDING -->
+NewsStand display repair is deployed at https://3cccc225.laidies-sunnyvaile.pages.dev
+and verified at https://laidies.ai/newsstand, source b84ee694. All 14 custom/immutable
+byte checks match the exact 749-file successor; only HTML, design CSS and front
+counter rendering changed. Live desktop/390 px show restored Concept alongside
+Paige, Corner Office and Jeeves; mint bottom-right button plays the NewsStand
+song in-page. No loaded broken images or horizontal overflow. Raw-file sparse
+preview was not a functional site; requested the app open the actual live URL
+(tool queued). Mme CLAi-O renewal is actively being prepared; Catch Me Up passed
+current producer review and its actual independent review is running. Existing
+broader NewsStand editorial work remains open.
+
 
 # Active work
 
