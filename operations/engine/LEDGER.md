@@ -140,4 +140,8 @@ or episode source.
 
 
 ## D-2026-09-06-TRAILER-PROMISES — LOCKED
-Ali requires broken functionality mentioned in the trailer to become operational, rather than removing the promise. Preserve the trailer's intended experiences, inventory gaps and route repairs to existing owners; completion requires real end-to-end verification. No trailer shortening, relocation of orientation or functionality removal is approved. Authority: Ali's direct correction in the episode review task, 2026-09-06; `operations/DECISIONS.md` corresponding ruling.
+Ali requires broken functionality mentioned in the trailer to become operational, rather than removing the promise. Preserve the trailer's intended experiences, inventory gaps and route repairs to existing owners; completion requires real end-to-end verification. At this point no relocation of orientation was approved; the subsequent D-2026-09-06-TRAILER-VISITORS-TOUR ruling supersedes that editorial boundary, while preserving operational delivery obligations. Authority: Ali's direct correction in the episode review task, 2026-09-06; `operations/DECISIONS.md` corresponding ruling.
+
+
+## D-2026-09-06-TRAILER-VISITORS-TOUR — LOCKED / GUIDED TOUR DECIDED
+Ali approves an evergreen trailer centered on the eight-stop Wednesday Tour and Express Tour, with an invitation to explore the wider town. A separate guided site tour lives in the Visitors Centre and is updated as needed. The guided tour's format remains unspecified and it is not claimed built. Detailed orientation may move there; functionality promises still require repair rather than cancellation. See the matching DECISIONS.md entry. Episode editorial review remains foreground.

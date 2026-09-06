@@ -1263,3 +1263,7 @@ REVIEW IN PROGRESS: Ali restored trailer/Episodes 1–4 written-and-narration re
 
 ### 2026-09-06 — Trailer scope correction
 Ali requires promised but broken experiences to become operational, not be removed. Next review inventories promises against live behavior and routes gaps to repair owners and end-to-end acceptance conditions. The prior suggestion to shorten/move orientation is not approved. Editorial review and operational gap tracking remain open; no feature is claimed fixed by this record.
+
+
+### 2026-09-06 — Trailer / Visitors Centre split approved
+DECIDED: trailer focuses on the eight-stop Wednesday Tour and Express Tour, inviting wider exploration. A separate guided site tour lives in the Visitors Centre and is updated as needed; format unspecified, not built. This supersedes the prior unapproved-orientation-move status without cancelling functionality repairs. Continue trailer and Episodes 1–4 written/narration review, then Season 1 map; do not switch this task into building the Visitors Centre.

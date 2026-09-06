@@ -1,8 +1,12 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Evergreen trailer and updateable Visitors Centre tour
+
+LOCKED — Ali approved focusing the trailer on the eight-stop Wednesday Tour and the Express version, with an invitation to explore the many other things in town. Preserve the heroine, town personality, learning purpose and freedom to explore at any time. A separate guided tour of the site will live in the Visitors Centre and be updated as the town grows. Detailed evolving site orientation belongs there; the trailer need not enumerate every building and feature. The guided tour is DECIDED, not built or released; its format is not yet specified. This supersedes the earlier statement that moving detailed orientation had not been approved. Broken promised functionality still requires operational repair and end-to-end verification; relocating its explanation does not cancel that obligation. Keep the foreground on trailer/Episodes 1–4 written and narration review, then Season 1 mapping.
+
 ## 2026-09-06 — Trailer promises define functionality to deliver
 
-LOCKED — Ali: “anything that is broken that we mention in the trailer though the goal is to actually get operational and not remove.” During trailer/episode review, identify each promised experience, verify its real behavior and route any gap to operational completion. A broken or unavailable feature is repair scope, not an editorial reason to remove its promise. Preserve the intended experience unless Ali explicitly changes it. Factual corrections and clarity edits remain appropriate; shortening the trailer or moving orientation elsewhere is not approved by this ruling. Future release claims still require actual end-to-end verification; this decision is not evidence a feature already works. Review checkpoint: `episode-review-resume-2026-09-06.md`.
+LOCKED — Ali: “anything that is broken that we mention in the trailer though the goal is to actually get operational and not remove.” During trailer/episode review, identify each promised experience, verify its real behavior and route any gap to operational completion. A broken or unavailable feature is repair scope, not an editorial reason to remove its promise. Preserve the intended experience unless Ali explicitly changes it. Factual corrections and clarity edits remain appropriate; this ruling itself did not approve moving orientation; the subsequent evergreen-trailer/Visitors Centre ruling above now governs that editorial split. Future release claims still require actual end-to-end verification; this decision is not evidence a feature already works. Review checkpoint: `episode-review-resume-2026-09-06.md`.
 
 ## 2026-09-05 — Homepage feedback supersedes 3d473188
 
