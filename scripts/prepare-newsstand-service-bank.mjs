@@ -153,6 +153,12 @@ function eventAvailability(item, date) {
   return { available: true, reason: null };
 }
 
+export function conceptSuccessorAllowed(item, date, columns) {
+  if (item.type !== "concept_week") return true;
+  const prior = (columns.records || []).some((record) => record.type === "concept_week" && record.editionDate < date && record.bankItemId !== item.id);
+  return !prior || new Date(`${date}T12:00:00Z`).getUTCDay() === 3;
+}
+
 export function prepareServiceBankProposal({ date, bank, columns = { records: [] }, selections = {}, reuseAdmitted = false, root = ROOT }) {
   if (!validDate(date)) reject("--date must be a real YYYY-MM-DD date");
   validateBank(bank, { root, asOf: date });
@@ -183,6 +189,10 @@ export function prepareServiceBankProposal({ date, bank, columns = { records: []
       const reason = availability.some((result) => result.reason === "EVENT_NOT_YET_AVAILABLE") ? "EVENT_NOT_YET_AVAILABLE" :
         availability.some((result) => result.reason === "EVENT_RETIRED") ? "EVENT_RETIRED" : "NO_UNUSED_BANK_ITEM";
       gaps.push({ type, reason }); continue;
+    }
+    if (!conceptSuccessorAllowed(item, date, columns)) {
+      if (requested) reject(`requested item ${item.id} concept successor requires Wednesday cadence`);
+      gaps.push({ type, reason: "CONCEPT_SUCCESSOR_REQUIRES_WEDNESDAY" }); continue;
     }
     const ready = PUBLIC.has(item.status) && item.publicEligibility === "ELIGIBLE" && item.freshness.expiresAt >= date;
     const laneErrors = careerLaneErrors(item, date);
@@ -244,8 +254,16 @@ function main() {
     console.log(`SERVICE BANK CHECK HOLD date=${date} isolated_from_ordinary_news=true proposal_created=false public_write=false reason=${JSON.stringify(String(error.message).replace(/^SERVICE_BANK_REJECT:\s*/, ""))}`);
     return;
   }
-  const canonical = `${canonicalJson(proposal)}\n`;
-  if (!check) { const output = path.resolve(outputArg); if (!output.startsWith(`${DEFAULT_OUTPUT_ROOT}${path.sep}`)) reject("--output must remain under the private service-bank proposal directory"); fs.mkdirSync(path.dirname(output), { recursive: true }); fs.writeFileSync(output, canonical); }
+  const proposalWithBindings = {
+    ...proposal,
+    selection: { reuseAdmitted, items: parseSelections(args) },
+    sourceIdentity: {
+      bankPath: path.relative(ROOT, bankPath), bankSha256: sha256(fs.readFileSync(bankPath)),
+      columnsPath: "content/daily-edition-columns.json", columnsSha256: sha256(fs.readFileSync(path.join(ROOT, "content/daily-edition-columns.json"))), columnsCanonicalSha256: sha256(canonicalJson(columns))
+    }
+  };
+  const canonical = `${canonicalJson(proposalWithBindings)}\n`;
+  if (!check) { const output = path.resolve(outputArg); if (!output.startsWith(`${DEFAULT_OUTPUT_ROOT}${path.sep}`)) reject("--output must remain under the private service-bank proposal directory"); fs.mkdirSync(path.dirname(output), { recursive: true }); if (fs.existsSync(output)) reject("proposal already exists; use a new revision path to preserve the prepared record"); fs.writeFileSync(output, canonical, { flag: "wx" }); }
   console.log(`SERVICE BANK ${check ? "CHECK" : "PREPARE"} PASS date=${date} required=${proposal.counts.required} proposed=${proposal.counts.proposed} ready=${proposal.counts.ready} candidates=${proposal.counts.candidate} gaps=${proposal.counts.gaps} public_write=false sha256=${sha256(canonical)}`);
 }
 

@@ -1,0 +1,1242 @@
+{
+  "schemaVersion": "laidies-service-bank-independent-judgment.v1",
+  "modelFamily": "claude",
+  "model": "fable",
+  "actualModels": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "startedAt": "2026-09-06T01:41:07.484Z",
+  "judgedAt": "2026-09-06T01:44:30.103Z",
+  "promptSha256": "fc5426ab58b30e9be13c7d0937dc6d21b3a21fef83a7cd72bc4e0bb5434c71ea",
+  "artifactBindings": [
+    {
+      "id": "paige-02-fix-one-thing",
+      "type": "paige_tip",
+      "contentClass": "PRACTICE",
+      "teachingEntry": true,
+      "reviewedContentSha256": "30cfb53bb5d5da717f8157863825c81ed95ac20c5546e33d0ed3e7ff3437004c",
+      "reviewText": {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/paige-02-fix-one-thing.md",
+        "sha256": "5590948e0315e335fa07a3f769bb309c337675eb1f70a6f66a5c279fd32b7628"
+      },
+      "manifest": {
+        "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/current/paige-02-fix-one-thing.manifest.json",
+        "sha256": "a7b546cf7b7f9107f1e63c7f58535858663e240325fb2504d40cba64e2fce18a"
+      }
+    },
+    {
+      "id": "concept-02-token",
+      "type": "concept_week",
+      "contentClass": "EXPLANATION",
+      "teachingEntry": true,
+      "reviewedContentSha256": "ec98aa27b669f420b92b6aed82e6e5ddadfadb8ec2a3bbf9e67decd17d561657",
+      "reviewText": {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/concept-02-token.md",
+        "sha256": "5ccfb312d350e28c0a19705afba2a08d1a5e7e3e7f331d46ee5fb776db292b00"
+      },
+      "manifest": {
+        "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/current/concept-02-token.manifest.json",
+        "sha256": "1234f3d113803d44b80b42f03c25736b3108e070de49babc10804aab655cfc23"
+      }
+    },
+    {
+      "id": "jeeves-02-citation",
+      "type": "dear_miss_jeeves",
+      "contentClass": "FAQ",
+      "teachingEntry": true,
+      "reviewedContentSha256": "139e9f46f4bb540da2cd1376d7fda153a108468b20f48278337164b55db2dff3",
+      "reviewText": {
+        "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/jeeves-02-citation.md",
+        "sha256": "96a12013cbc50c501c09ef35045b8c35d62418cbd2431f23d98f5142c7021688"
+      },
+      "manifest": {
+        "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/current/jeeves-02-citation.manifest.json",
+        "sha256": "786f03a65956e765cc9932e90df9747c49b22a5814281e8aecc66900ee322185"
+      }
+    }
+  ],
+  "sourceBindings": [
+    {
+      "id": "paige-02-fix-one-thing-source",
+      "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/current/paige-02-fix-one-thing-source.json",
+      "sha256": "2a416f6b40853dc42bd76a6d4c16ab8b3344665ac9bb0c899bb1b05bfa141dad"
+    },
+    {
+      "id": "concept-02-token-source",
+      "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/current/concept-02-token-source.json",
+      "sha256": "7865a3fda762fb76f8c2897fa3d87cd916e923b4817faf07b06aa06aed061e36"
+    },
+    {
+      "id": "jeeves-02-citation-source",
+      "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/current/jeeves-02-citation-source.json",
+      "sha256": "69d89d5e0254ac2540f4848b3833d14e50c95b6f45439efb47f2be6b351aed15"
+    },
+    {
+      "id": "hannah-fry-communication-benchmark",
+      "path": "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md",
+      "sha256": "7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3"
+    }
+  ],
+  "excludedContext": [
+    "producer brief",
+    "producer self-review",
+    "maker receipts",
+    "prior reviews",
+    "validator output"
+  ],
+  "judgment": {
+    "calibration": {
+      "negatives": [
+        {
+          "exemplarId": "CQX-BAD-001",
+          "verdict": "REJECT",
+          "identifiedFailureFamilies": [
+            "templateRepetition",
+            "glossaryAccumulation",
+            "technicalExplainerVoice",
+            "joylessInstruction",
+            "decorativeAnalogy"
+          ],
+          "evidence": [
+            {
+              "excerpt": "Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+              "locator": "CQX-BAD-001 AI system block"
+            },
+            {
+              "excerpt": "A toolbox contains different tools for different jobs.",
+              "locator": "CQX-BAD-001 Model types block"
+            },
+            {
+              "excerpt": "A provider develops or operates an AI model, product or service.",
+              "locator": "CQX-BAD-001 Provider block"
+            }
+          ]
+        },
+        {
+          "exemplarId": "CQX-BAD-002",
+          "verdict": "REJECT",
+          "identifiedFailureFamilies": [
+            "technicalExplainerVoice",
+            "workedExampleOvertakesBookPurpose",
+            "joylessInstruction"
+          ],
+          "evidence": [
+            {
+              "excerpt": "Imagine that you have two job offers.",
+              "locator": "CQX-BAD-002 Chapter 1 opening"
+            },
+            {
+              "excerpt": "That is the map we will use throughout this book:",
+              "locator": "CQX-BAD-002 closing section"
+            },
+            {
+              "excerpt": "Later chapters will open each part carefully: how models are trained and run",
+              "locator": "CQX-BAD-002 final paragraphs"
+            }
+          ]
+        }
+      ],
+      "positive": {
+        "exemplarId": "CQX-GOOD-EPISODE-001",
+        "verdict": "PASS",
+        "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+        "strengthsRetained": [
+          "plain mechanic stated in the shortest true sentence before any garnish",
+          "specific workplace truth carrying the warmth",
+          "honest hedging and scoped claims rather than fake certainty",
+          "jokes and analogies that carry the teaching instead of decorating it"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Polished is a style. Evidence is a standard.",
+            "locator": "concepts[] Hallucination episode line"
+          },
+          {
+            "excerpt": "This is a comparison of three current products, not a permanent ranking of three models.",
+            "locator": "narrative beat 15"
+          },
+          {
+            "excerpt": "It can make the draft. It cannot make it true.",
+            "locator": "concepts[] Generative AI episode line"
+          }
+        ]
+      }
+    },
+    "entries": [
+      {
+        "candidateId": "paige-02-fix-one-thing",
+        "contentClass": "PRACTICE",
+        "verdict": "PASS",
+        "summary": "A tight, honest practice column on scoped revision requests. It gives a concrete try-it script, states plainly that the instruction narrows the job but does not guarantee compliance, and supplies a working recovery route (keep the original, compare, request the replacement paragraph alone). Advice is an original application consistent with the bound Working with AI source's specificity/proportion/preservation teaching; no overclaimed product behaviour, no banned patterns.",
+        "objectiveDefects": [],
+        "limitations": [
+          "No sampled reader testing yet (authorized pending); explain-back judged from prose only.",
+          "Rendered page and link anchor resolution not visually reviewed; source binding confirms the book page was publicly observed same-day."
+        ],
+        "reverseBrief": {
+          "humanQuestion": "How do I get the AI to fix one paragraph without it rewriting my whole draft?",
+          "promisedPayoff": "A copy-ready instruction that scopes the edit, plus a fallback when the tool overreaches.",
+          "centralMentalModel": "Tell the tool what to change and what to leave alone; a vague 'make it better' is permission to change everything.",
+          "dailyLifeConnection": "Editing a draft you mostly like — the everyday case of one weak opening paragraph.",
+          "surfaceJob": "Recurring practice column: one small move the reader can try today.",
+          "desiredReaderFeeling": "In control of the edit rather than at the mercy of the rewrite."
+        },
+        "outcomes": {
+          "plainClarity": {
+            "verdict": "PASS",
+            "observation": "The mechanic is stated in one plain sentence before the script.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Tell the tool what to change—and what to leave alone.",
+                "locator": "paige-02 dek"
+              }
+            ]
+          },
+          "readerValue": {
+            "verdict": "PASS",
+            "observation": "Delivers a reusable instruction pattern plus a verification step and a fallback.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Keep a copy of the original and compare the two.",
+                "locator": "paige-02 para 4"
+              }
+            ]
+          },
+          "laidiesVoice": {
+            "verdict": "PASS",
+            "observation": "Direct, specific, no filler; the 'remove the apology' detail is a real workplace touch. No banned patterns; the AI is 'it/the tool'.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Make the request clear in the first sentence and remove the apology.",
+                "locator": "paige-02 try script"
+              }
+            ]
+          },
+          "engagingEnjoyable": {
+            "verdict": "PASS",
+            "observation": "Opens from a recognizable frustration and stays brisk; no compulsory joke needed at this length.",
+            "artifactEvidence": [
+              {
+                "excerpt": "You like the draft, apart from the opening paragraph.",
+                "locator": "paige-02 para 1"
+              }
+            ]
+          },
+          "factualIntegrity": {
+            "verdict": "PASS",
+            "observation": "The only product-behaviour claim is hedged honestly; no empirical benefit guarantee.",
+            "artifactEvidence": [
+              {
+                "excerpt": "it does not guarantee that every other word stays put",
+                "locator": "paige-02 para 4"
+              }
+            ]
+          },
+          "freshnessReviewability": {
+            "verdict": "PASS",
+            "observation": "Teaches a durable delegation behaviour, no dated model or UI claims; the only external dependency is the bound library link.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Revise only the first paragraph.",
+                "locator": "paige-02 try script"
+              }
+            ]
+          },
+          "surfaceFit": {
+            "verdict": "PASS",
+            "observation": "Fits the practice-column job: one move, one script, one check, one link out for depth.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Fix the paragraph without rewriting the whole thing.",
+                "locator": "paige-02 title"
+              }
+            ]
+          },
+          "retrievalOrPractice": {
+            "verdict": "PASS",
+            "observation": "Gives an exact instruction the reader executes on her own draft.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Do not change names, dates, figures or commitments.",
+                "locator": "paige-02 try script"
+              }
+            ]
+          },
+          "practiceFeedback": {
+            "verdict": "PASS",
+            "observation": "The reader can verify success herself by diffing original against result.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Keep a copy of the original and compare the two.",
+                "locator": "paige-02 para 4"
+              }
+            ]
+          },
+          "communicationBenchmark": {
+            "verdict": "PASS",
+            "observation": "Proportional adaptation: shared starting point (draft you mostly like), direct answer first, limitation retained, small practical landing — appropriate for a short practice item.",
+            "artifactEvidence": [
+              {
+                "excerpt": "ask for the replacement paragraph by itself and insert it into your saved draft",
+                "locator": "paige-02 para 4"
+              }
+            ]
+          },
+          "unseenTransfer": {
+            "verdict": "PASS",
+            "observation": "The change/leave-alone framing generalizes to any scoped-edit request, not just opening paragraphs.",
+            "artifactEvidence": [
+              {
+                "excerpt": "The instruction narrows the job",
+                "locator": "paige-02 para 4"
+              }
+            ]
+          },
+          "recoveryRoute": {
+            "verdict": "PASS",
+            "observation": "Explicit fallback when the tool still overreaches.",
+            "artifactEvidence": [
+              {
+                "excerpt": "If the tool still changes unrelated text",
+                "locator": "paige-02 para 4"
+              }
+            ]
+          }
+        },
+        "failureFamilies": {
+          "benchmarkNameDrop": {
+            "present": false,
+            "observation": "No benchmark or authority names invoked.",
+            "artifactLocator": "whole column"
+          },
+          "communicationPastiche": {
+            "present": false,
+            "observation": "No imitation of a named communicator.",
+            "artifactLocator": "whole column"
+          },
+          "corporateSludge": {
+            "present": false,
+            "observation": "No filler or corporate phrasing.",
+            "artifactLocator": "whole column"
+          },
+          "curiosityWithoutPayoff": {
+            "present": false,
+            "observation": "Answer arrives immediately after the setup.",
+            "artifactLocator": "para 2-3"
+          },
+          "decorativeAnalogy": {
+            "present": false,
+            "observation": "No analogy used; absence is not a defect.",
+            "artifactLocator": "whole column"
+          },
+          "disconnectedSystem": {
+            "present": false,
+            "observation": "Links to the iteration chapter for the wider system.",
+            "artifactLocator": "footer link"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "present": false,
+            "observation": "Teaching leads throughout.",
+            "artifactLocator": "whole column"
+          },
+          "factlessConfidence": {
+            "present": false,
+            "observation": "The key behaviour claim is explicitly hedged.",
+            "artifactLocator": "para 4"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "present": false,
+            "observation": "The draft example returns directly to the instruction mechanic.",
+            "artifactLocator": "para 1-3"
+          },
+          "genericAction": {
+            "present": false,
+            "observation": "Action is an exact quoted instruction, not 'be specific'.",
+            "artifactLocator": "try script"
+          },
+          "glossaryAccumulation": {
+            "present": false,
+            "observation": "No term definitions stacked.",
+            "artifactLocator": "whole column"
+          },
+          "inflatedTakeawayEnding": {
+            "present": false,
+            "observation": "Ends on the practical fallback, not a moral.",
+            "artifactLocator": "para 4"
+          },
+          "jargonBeforeMeaning": {
+            "present": false,
+            "observation": "No jargon used.",
+            "artifactLocator": "whole column"
+          },
+          "joylessInstruction": {
+            "present": false,
+            "observation": "Brisk and human; the apology detail carries recognition.",
+            "artifactLocator": "try script"
+          },
+          "mechanismBeforeMotivation": {
+            "present": false,
+            "observation": "Opens with the reader's motivation.",
+            "artifactLocator": "para 1"
+          },
+          "mechanismCompressedBehindHook": {
+            "present": false,
+            "observation": "Hook is one sentence; mechanic gets the space.",
+            "artifactLocator": "whole column"
+          },
+          "missingMechanism": {
+            "present": false,
+            "observation": "Explains why vague requests fail: they grant broad permission.",
+            "artifactLocator": "para 1"
+          },
+          "prematureClickBeforeMechanism": {
+            "present": false,
+            "observation": "N/A for a direct-answer practice format.",
+            "artifactLocator": "whole column"
+          },
+          "purposeTooNarrow": {
+            "present": false,
+            "observation": "Pattern generalizes beyond the one example.",
+            "artifactLocator": "para 4"
+          },
+          "referenceConfetti": {
+            "present": false,
+            "observation": "No pop-culture references.",
+            "artifactLocator": "whole column"
+          },
+          "staleUnreviewableClaims": {
+            "present": false,
+            "observation": "No dated stats or model-specific claims.",
+            "artifactLocator": "whole column"
+          },
+          "technicalExplainerVoice": {
+            "present": false,
+            "observation": "Conversational second person throughout.",
+            "artifactLocator": "whole column"
+          },
+          "templateRepetition": {
+            "present": false,
+            "observation": "No repeated scaffolding blocks.",
+            "artifactLocator": "whole column"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "present": false,
+            "observation": "Example is proportionate to the lesson.",
+            "artifactLocator": "whole column"
+          }
+        },
+        "factualReview": {
+          "disposition": "CLAIMS_REVIEWED",
+          "sourceBindings": [
+            {
+              "path": "content/library-books/sources/working-with-ai-101.source.json",
+              "sha256": "bbe7b62d889c4b4afb32099d6b673df066fa3982381399dbf76979d68ee81601"
+            }
+          ],
+          "claimMap": [
+            {
+              "claimId": "paige-vague-request-broad-permission",
+              "status": "QUALIFIED",
+              "candidateEvidence": [
+                {
+                  "excerpt": "gives the tool permission to change far more than you wanted",
+                  "locator": "paige-02 para 1"
+                }
+              ],
+              "sourceBinding": {
+                "path": "content/library-books/sources/working-with-ai-101.source.json",
+                "sha256": "bbe7b62d889c4b4afb32099d6b673df066fa3982381399dbf76979d68ee81601"
+              },
+              "sourceEvidence": [
+                {
+                  "excerpt": "specificity, proportion, and preservation",
+                  "locator": "working-with-ai-101 source excerpt 1"
+                }
+              ],
+              "scopeAndFreshness": "Original advice application consistent with the governed book's feedback teaching; behavioural tendency claim, not a guarantee. Public source observed 2026-09-05."
+            },
+            {
+              "claimId": "paige-no-preservation-guarantee",
+              "status": "QUALIFIED",
+              "candidateEvidence": [
+                {
+                  "excerpt": "it does not guarantee that every other word stays put",
+                  "locator": "paige-02 para 4"
+                }
+              ],
+              "sourceBinding": {
+                "path": "content/library-books/sources/working-with-ai-101.source.json",
+                "sha256": "bbe7b62d889c4b4afb32099d6b673df066fa3982381399dbf76979d68ee81601"
+              },
+              "sourceEvidence": [
+                {
+                  "excerpt": "Light edit only.",
+                  "locator": "working-with-ai-101 source excerpt 3"
+                }
+              ],
+              "scopeAndFreshness": "Honest limitation of current product behaviour; correctly avoids promising compliance. Durable across model versions."
+            }
+          ],
+          "reviewedThrough": "2026-09-05",
+          "nextTrigger": "Re-verify if the bound source hash changes or if scoped-edit behaviour of mainstream products changes materially.",
+          "correctionOwner": "newsstand-daily"
+        }
+      },
+      {
+        "candidateId": "concept-02-token",
+        "contentClass": "EXPLANATION",
+        "verdict": "PASS",
+        "summary": "Accurate, compact token explainer. Every mechanism claim (tokeniser splits text into reusable pieces mapped to numbers; pieces vary; split depends on tokeniser; limits count input, conversation and output) matches the bound AI Fundamentals source. The policy-and-exception splitting advice is a genuinely useful original application. Voice is the plainest of the three columns but stays specific and practical, within tolerance for a short concept piece.",
+        "objectiveDefects": [],
+        "limitations": [
+          "Warmth is minimal relative to the Episode 1 benchmark; acceptable for a short concept explainer but the driest of this batch.",
+          "No reader testing yet; explain-back judged from prose.",
+          "No analogy present — recorded as absent, not defective."
+        ],
+        "reverseBrief": {
+          "humanQuestion": "Why doesn't a 10,000-token limit mean 10,000 words, and what do I do when my document doesn't fit?",
+          "promisedPayoff": "Understand what a token actually is, so limits stop being mysterious and document-splitting decisions get smarter.",
+          "centralMentalModel": "Models process text as tokeniser-defined pieces, not words; input, conversation and output all share the same budget.",
+          "dailyLifeConnection": "Working with a document too large for the task — including the concrete trap of separating a policy's exception from its rule.",
+          "surfaceJob": "Recurring concept-explanation column: one term, mechanism, consequence, action.",
+          "desiredReaderFeeling": "The limit finally makes sense; she knows what to trim and what to keep together."
+        },
+        "outcomes": {
+          "plainClarity": {
+            "verdict": "PASS",
+            "observation": "Mechanism stated in plain words with the tokeniser named and immediately explained.",
+            "artifactEvidence": [
+              {
+                "excerpt": "a tokeniser breaks it into reusable pieces and represents them as numbers",
+                "locator": "concept-02 para 1"
+              }
+            ]
+          },
+          "readerValue": {
+            "verdict": "PASS",
+            "observation": "Converts an abstract limit into a concrete budgeting and document-preparation skill.",
+            "artifactEvidence": [
+              {
+                "excerpt": "shorten irrelevant material or work on clearly labelled sections",
+                "locator": "concept-02 para 3"
+              }
+            ]
+          },
+          "laidiesVoice": {
+            "verdict": "PASS",
+            "observation": "Plain but specific and practical; the rule/exception line is the recognizably LAiDIES beat. No banned patterns, AI is 'it'.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Cutting a policy into pieces is not helpful if the exception ends up separated from the rule.",
+                "locator": "concept-02 para 3"
+              }
+            ]
+          },
+          "engagingEnjoyable": {
+            "verdict": "PASS",
+            "observation": "Held by the useful gap (word counts vs token limits) rather than a joke; adequate for the format though the least lively of the batch.",
+            "artifactEvidence": [
+              {
+                "excerpt": "A token is not reliably one word, so word counts and token limits differ.",
+                "locator": "concept-02 dek"
+              }
+            ]
+          },
+          "factualIntegrity": {
+            "verdict": "PASS",
+            "observation": "All mechanism claims match the bound source; the split-depends-on-tokeniser caveat prevents overclaiming.",
+            "artifactEvidence": [
+              {
+                "excerpt": "The exact split depends on the tokeniser.",
+                "locator": "concept-02 para 1"
+              }
+            ]
+          },
+          "freshnessReviewability": {
+            "verdict": "PASS",
+            "observation": "The 10,000 figure is an illustrative hypothetical, not a product spec; tokenisation is a durable concept with no dated claims.",
+            "artifactEvidence": [
+              {
+                "excerpt": "a limit of 10,000 tokens does not mean 10,000 words",
+                "locator": "concept-02 para 2"
+              }
+            ]
+          },
+          "surfaceFit": {
+            "verdict": "PASS",
+            "observation": "One concept, its consequence and one action, with the book link for depth — the concept-column job.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Tokens: the pieces a language model processes.",
+                "locator": "concept-02 title"
+              }
+            ]
+          },
+          "connectedSystemUnderstanding": {
+            "verdict": "PASS",
+            "observation": "Places tokens inside the wider budget: document, instructions, conversation and answer share the space.",
+            "artifactEvidence": [
+              {
+                "excerpt": "The document, instructions and conversation can all take up space",
+                "locator": "concept-02 para 2"
+              }
+            ]
+          },
+          "dailyLifeConnection": {
+            "verdict": "PASS",
+            "observation": "Grounded in the real case of an oversized work document and policy text.",
+            "artifactEvidence": [
+              {
+                "excerpt": "If a document is too large for a task",
+                "locator": "concept-02 para 3"
+              }
+            ]
+          },
+          "communicationBenchmark": {
+            "verdict": "PASS",
+            "observation": "Proportional arc: live gap (limits vs word counts), mechanism (tokeniser), earned click (why the numbers differ), small landing (splitting advice with limitation).",
+            "artifactEvidence": [
+              {
+                "excerpt": "Keep the passages needed to interpret each section together.",
+                "locator": "concept-02 para 3"
+              }
+            ]
+          },
+          "explainBack": {
+            "verdict": "PASS",
+            "observation": "A reader can restate it: text becomes numbered pieces of varying size, so token counts and word counts diverge and everything shares one budget.",
+            "artifactEvidence": [
+              {
+                "excerpt": "A piece might be a whole word, part of a word, punctuation or a single character.",
+                "locator": "concept-02 para 1"
+              }
+            ]
+          },
+          "unseenTransfer": {
+            "verdict": "PASS",
+            "observation": "The keep-interpretive-context-together principle transfers to any long-document task, not just policies.",
+            "artifactEvidence": [
+              {
+                "excerpt": "the system also needs room to produce its answer",
+                "locator": "concept-02 para 2"
+              }
+            ]
+          },
+          "usefulAction": {
+            "verdict": "PASS",
+            "observation": "Concrete next move for the too-large document case.",
+            "artifactEvidence": [
+              {
+                "excerpt": "work on clearly labelled sections",
+                "locator": "concept-02 para 3"
+              }
+            ]
+          },
+          "analogyIntegrity": {
+            "verdict": "PASS",
+            "observation": "No analogy present; the plain mechanism carries the piece. Absence recorded, not penalized.",
+            "artifactEvidence": [
+              {
+                "excerpt": "represents them as numbers",
+                "locator": "concept-02 para 1"
+              }
+            ]
+          },
+          "explanationArc": {
+            "verdict": "PASS",
+            "observation": "Gap first, mechanism in the centre, consequence, then action — the default arc adapted to column length.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Before a language model works with text",
+                "locator": "concept-02 para 1"
+              }
+            ]
+          }
+        },
+        "failureFamilies": {
+          "benchmarkNameDrop": {
+            "present": false,
+            "observation": "No names invoked.",
+            "artifactLocator": "whole column"
+          },
+          "communicationPastiche": {
+            "present": false,
+            "observation": "No imitation.",
+            "artifactLocator": "whole column"
+          },
+          "corporateSludge": {
+            "present": false,
+            "observation": "No filler phrasing.",
+            "artifactLocator": "whole column"
+          },
+          "curiosityWithoutPayoff": {
+            "present": false,
+            "observation": "The word-vs-token gap is resolved by the mechanism.",
+            "artifactLocator": "para 1-2"
+          },
+          "decorativeAnalogy": {
+            "present": false,
+            "observation": "No analogy used.",
+            "artifactLocator": "whole column"
+          },
+          "disconnectedSystem": {
+            "present": false,
+            "observation": "Token budget explicitly connected to documents, instructions, conversation and output.",
+            "artifactLocator": "para 2"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "present": false,
+            "observation": "No entertainment layer competes with the teaching.",
+            "artifactLocator": "whole column"
+          },
+          "factlessConfidence": {
+            "present": false,
+            "observation": "Claims are mechanism-grounded and caveated.",
+            "artifactLocator": "para 1"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "present": false,
+            "observation": "The policy example returns to the context-preservation mechanic.",
+            "artifactLocator": "para 3"
+          },
+          "genericAction": {
+            "present": false,
+            "observation": "Action names what to trim and what to keep together.",
+            "artifactLocator": "para 3"
+          },
+          "glossaryAccumulation": {
+            "present": false,
+            "observation": "One term, defined in use.",
+            "artifactLocator": "whole column"
+          },
+          "inflatedTakeawayEnding": {
+            "present": false,
+            "observation": "Ends on a specific caution, not a moral.",
+            "artifactLocator": "para 3"
+          },
+          "jargonBeforeMeaning": {
+            "present": false,
+            "observation": "'Tokeniser' is explained in the same sentence it appears.",
+            "artifactLocator": "para 1"
+          },
+          "joylessInstruction": {
+            "present": false,
+            "observation": "Dry-leaning but purposeful and specific; within tolerance, flagged in limitations.",
+            "artifactLocator": "whole column"
+          },
+          "mechanismBeforeMotivation": {
+            "present": false,
+            "observation": "The dek states the reader-facing consequence before the mechanism.",
+            "artifactLocator": "dek"
+          },
+          "mechanismCompressedBehindHook": {
+            "present": false,
+            "observation": "Mechanism gets the majority of the space.",
+            "artifactLocator": "para 1-2"
+          },
+          "missingMechanism": {
+            "present": false,
+            "observation": "Tokenisation process is actually explained.",
+            "artifactLocator": "para 1"
+          },
+          "prematureClickBeforeMechanism": {
+            "present": false,
+            "observation": "The 10,000-token payoff follows the mechanism.",
+            "artifactLocator": "para 2"
+          },
+          "purposeTooNarrow": {
+            "present": false,
+            "observation": "Generalizes from limits to document-preparation judgment.",
+            "artifactLocator": "para 3"
+          },
+          "referenceConfetti": {
+            "present": false,
+            "observation": "No references used.",
+            "artifactLocator": "whole column"
+          },
+          "staleUnreviewableClaims": {
+            "present": false,
+            "observation": "No product-specific or dated figures; the token limit is hypothetical.",
+            "artifactLocator": "para 2"
+          },
+          "technicalExplainerVoice": {
+            "present": false,
+            "observation": "Plain register but addressed to the reader's task, not textbook narration; borderline acceptable.",
+            "artifactLocator": "whole column"
+          },
+          "templateRepetition": {
+            "present": false,
+            "observation": "No scaffolding blocks.",
+            "artifactLocator": "whole column"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "present": false,
+            "observation": "Example is one sentence in service of the concept.",
+            "artifactLocator": "para 3"
+          }
+        },
+        "factualReview": {
+          "disposition": "CLAIMS_REVIEWED",
+          "sourceBindings": [
+            {
+              "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+              "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+            }
+          ],
+          "claimMap": [
+            {
+              "claimId": "token-tokeniser-pieces-numbers",
+              "status": "VERIFIED",
+              "candidateEvidence": [
+                {
+                  "excerpt": "a tokeniser breaks it into reusable pieces and represents them as numbers",
+                  "locator": "concept-02 para 1"
+                }
+              ],
+              "sourceBinding": {
+                "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+                "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+              },
+              "sourceEvidence": [
+                {
+                  "excerpt": "A tokeniser first divides the text into reusable pieces and maps those pieces to numbers.",
+                  "locator": "ai-fundamentals-101 source excerpt 1"
+                }
+              ],
+              "scopeAndFreshness": "Direct match to governed book; durable mechanism claim. Public source observed 2026-09-05."
+            },
+            {
+              "claimId": "token-piece-granularity",
+              "status": "VERIFIED",
+              "candidateEvidence": [
+                {
+                  "excerpt": "A piece might be a whole word, part of a word, punctuation or a single character.",
+                  "locator": "concept-02 para 1"
+                }
+              ],
+              "sourceBinding": {
+                "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+                "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+              },
+              "sourceEvidence": [
+                {
+                  "excerpt": "sometimes a whole word, sometimes part of a word, sometimes just a single character or a punctuation mark",
+                  "locator": "ai-fundamentals-101 source excerpt 2"
+                }
+              ],
+              "scopeAndFreshness": "Direct match; durable."
+            },
+            {
+              "claimId": "token-budget-shared-input-output",
+              "status": "QUALIFIED",
+              "candidateEvidence": [
+                {
+                  "excerpt": "The document, instructions and conversation can all take up space, and the system also needs room to produce its answer.",
+                  "locator": "concept-02 para 2"
+                }
+              ],
+              "sourceBinding": {
+                "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+                "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+              },
+              "sourceEvidence": [
+                {
+                  "excerpt": "The tokens in what you send (your question, your document, the conversation history)",
+                  "locator": "ai-fundamentals-101 source excerpt 3, input/output token table"
+                }
+              ],
+              "sourceEvidence2": null,
+              "scopeAndFreshness": "Supported by the book's input/output token distinction; 'can all take up space' correctly hedges product-to-product variation in how limits apply."
+            },
+            {
+              "claimId": "token-splitting-advice",
+              "status": "QUALIFIED",
+              "candidateEvidence": [
+                {
+                  "excerpt": "Keep the passages needed to interpret each section together.",
+                  "locator": "concept-02 para 3"
+                }
+              ],
+              "sourceBinding": {
+                "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+                "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+              },
+              "sourceEvidence": [
+                {
+                  "excerpt": "A token is a <strong>chunk</strong>",
+                  "locator": "ai-fundamentals-101 source excerpt 2"
+                }
+              ],
+              "scopeAndFreshness": "Original advice application; logically sound consequence of shared token budgets, no published-quote requirement per review rules."
+            }
+          ],
+          "reviewedThrough": "2026-09-05",
+          "nextTrigger": "Re-verify if the bound source hash changes or if mainstream products stop exposing token-based limits.",
+          "correctionOwner": "newsstand-daily"
+        }
+      },
+      {
+        "candidateId": "jeeves-02-citation",
+        "contentClass": "FAQ",
+        "verdict": "PASS",
+        "summary": "The advice column answers the reader's actual question directly: a real link does not verify the sentence attached to it. The failure modes named (mixed-up studies, misread results, plausible-link attachment, invented quotations) match the bound hallucination source. The verification script is clearly framed as an original checking aid, not the final check, and the recovery route (find an accessible original or drop the claim) is honest. The closing line lands genuine LAiDIES wit in service of the lesson.",
+        "objectiveDefects": [],
+        "limitations": [
+          "No reader testing yet; explain-back judged from prose.",
+          "The proposed checking prompt's effectiveness depends on tool source-reading ability, which the column itself correctly conditions ('If the tool can read the source')."
+        ],
+        "reverseBrief": {
+          "humanQuestion": "The cited paper is real but the statistic isn't in it — am I missing something?",
+          "promisedPayoff": "A name for this failure mode and a concrete way to check claims against sources before repeating them.",
+          "centralMentalModel": "A citation is somewhere to check, not proof; the link and the claim can each be independently wrong.",
+          "dailyLifeConnection": "Verifying an AI answer before relying on or repeating a workplace statistic.",
+          "surfaceJob": "Recurring Miss Jeeves FAQ column: direct answer to a reader letter.",
+          "desiredReaderFeeling": "Vindicated — she caught something real — and equipped to check the next one."
+        },
+        "outcomes": {
+          "plainClarity": {
+            "verdict": "PASS",
+            "observation": "The core distinction is stated in one plain sentence up top.",
+            "artifactEvidence": [
+              {
+                "excerpt": "A citation is somewhere to check—not proof that the sentence is right.",
+                "locator": "jeeves-02 dek"
+              }
+            ]
+          },
+          "readerValue": {
+            "verdict": "PASS",
+            "observation": "Names the failure mode, gives a checking procedure, a prompt, and a fallback when the source is inaccessible.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Open the original source and look for the exact finding.",
+                "locator": "jeeves-02 para 3"
+              }
+            ]
+          },
+          "laidiesVoice": {
+            "verdict": "PASS",
+            "observation": "Warm, direct, lightly irreverent; the closing footnote line is a joke that carries the lesson. AI is 'it/the model' throughout.",
+            "artifactEvidence": [
+              {
+                "excerpt": "A footnote can look very scholarly while doing absolutely no useful work.",
+                "locator": "jeeves-02 closing"
+              }
+            ]
+          },
+          "engagingEnjoyable": {
+            "verdict": "PASS",
+            "observation": "The letter format and 'Footnote Detective in Fredericton' signature keep it lively without diluting the teaching.",
+            "artifactEvidence": [
+              {
+                "excerpt": "You have found a particularly irritating kind of mistake",
+                "locator": "jeeves-02 reply opening"
+              }
+            ]
+          },
+          "factualIntegrity": {
+            "verdict": "PASS",
+            "observation": "Failure-mode claims match the bound hallucination source; the checking prompt's limits are stated ('the tool can also invent quotations').",
+            "artifactEvidence": [
+              {
+                "excerpt": "The tool can also invent quotations, so its list is a checking aid, not the final check.",
+                "locator": "jeeves-02 para 4"
+              }
+            ]
+          },
+          "freshnessReviewability": {
+            "verdict": "PASS",
+            "observation": "Hedged with 'may' and 'can'; teaches durable verification behaviour, no dated model claims.",
+            "artifactEvidence": [
+              {
+                "excerpt": "The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+                "locator": "jeeves-02 para 2"
+              }
+            ]
+          },
+          "surfaceFit": {
+            "verdict": "PASS",
+            "observation": "Direct-answer-first structure is the right adaptation of the arc for an FAQ letter.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Why does the link work but the claim doesn’t?",
+                "locator": "jeeves-02 title"
+              }
+            ]
+          },
+          "answersActualQuestion": {
+            "verdict": "PASS",
+            "observation": "Confirms the reader is not missing anything and explains exactly what she found.",
+            "artifactEvidence": [
+              {
+                "excerpt": "the source exists, but the answer misrepresents it",
+                "locator": "jeeves-02 para 2"
+              }
+            ]
+          },
+          "dailyLifeConnection": {
+            "verdict": "PASS",
+            "observation": "The survey-vs-benefit example is a concrete, transferable workplace-claim case.",
+            "artifactEvidence": [
+              {
+                "excerpt": "A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+                "locator": "jeeves-02 para 3"
+              }
+            ]
+          },
+          "communicationBenchmark": {
+            "verdict": "PASS",
+            "observation": "Proportional adaptation: direct answer first, mechanism (why real-link/wrong-claim happens), limitation retained, earned closing landing.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Check who was studied, when, and what was actually measured.",
+                "locator": "jeeves-02 para 3"
+              }
+            ]
+          },
+          "usefulAction": {
+            "verdict": "PASS",
+            "observation": "Executable prompt plus a manual comparison step plus a rule for the inaccessible-source case.",
+            "artifactEvidence": [
+              {
+                "excerpt": "If you cannot access the source, do not present the claim as verified.",
+                "locator": "jeeves-02 para 5"
+              }
+            ]
+          },
+          "analogyIntegrity": {
+            "verdict": "PASS",
+            "observation": "No pop-culture analogy; the scholarly-footnote image is literal and accurate. Absence not penalized.",
+            "artifactEvidence": [
+              {
+                "excerpt": "Mark anything you cannot support.",
+                "locator": "jeeves-02 prompt script"
+              }
+            ]
+          }
+        },
+        "failureFamilies": {
+          "benchmarkNameDrop": {
+            "present": false,
+            "observation": "No authority names.",
+            "artifactLocator": "whole column"
+          },
+          "communicationPastiche": {
+            "present": false,
+            "observation": "House letter format, no external imitation.",
+            "artifactLocator": "whole column"
+          },
+          "corporateSludge": {
+            "present": false,
+            "observation": "No filler.",
+            "artifactLocator": "whole column"
+          },
+          "curiosityWithoutPayoff": {
+            "present": false,
+            "observation": "Title question is answered immediately.",
+            "artifactLocator": "dek"
+          },
+          "decorativeAnalogy": {
+            "present": false,
+            "observation": "No analogy present.",
+            "artifactLocator": "whole column"
+          },
+          "disconnectedSystem": {
+            "present": false,
+            "observation": "Connects citation checking to the hallucination concept via the library link.",
+            "artifactLocator": "footer link"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "present": false,
+            "observation": "Wit arrives after the teaching is done.",
+            "artifactLocator": "closing"
+          },
+          "factlessConfidence": {
+            "present": false,
+            "observation": "Failure modes hedged with 'may'; no certainty overclaim.",
+            "artifactLocator": "para 2"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "present": false,
+            "observation": "The survey example teaches scope-of-evidence checking.",
+            "artifactLocator": "para 3"
+          },
+          "genericAction": {
+            "present": false,
+            "observation": "Actions are specific: exact-finding check, per-claim passage prompt, verified/unverified rule.",
+            "artifactLocator": "para 3-5"
+          },
+          "glossaryAccumulation": {
+            "present": false,
+            "observation": "No term stacking.",
+            "artifactLocator": "whole column"
+          },
+          "inflatedTakeawayEnding": {
+            "present": false,
+            "observation": "Ends on an earned joke, not a moral.",
+            "artifactLocator": "closing"
+          },
+          "jargonBeforeMeaning": {
+            "present": false,
+            "observation": "No unexplained jargon.",
+            "artifactLocator": "whole column"
+          },
+          "joylessInstruction": {
+            "present": false,
+            "observation": "Warm and wry throughout.",
+            "artifactLocator": "whole column"
+          },
+          "mechanismBeforeMotivation": {
+            "present": false,
+            "observation": "Reader's own frustration opens the piece.",
+            "artifactLocator": "letter"
+          },
+          "mechanismCompressedBehindHook": {
+            "present": false,
+            "observation": "The why gets a full paragraph.",
+            "artifactLocator": "para 2"
+          },
+          "missingMechanism": {
+            "present": false,
+            "observation": "Explains how a real link and a wrong claim co-occur.",
+            "artifactLocator": "para 2"
+          },
+          "prematureClickBeforeMechanism": {
+            "present": false,
+            "observation": "Direct-answer-first is the correct FAQ adaptation.",
+            "artifactLocator": "whole column"
+          },
+          "purposeTooNarrow": {
+            "present": false,
+            "observation": "Generalizes from one statistic to all consequential claims.",
+            "artifactLocator": "para 4"
+          },
+          "referenceConfetti": {
+            "present": false,
+            "observation": "No references.",
+            "artifactLocator": "whole column"
+          },
+          "staleUnreviewableClaims": {
+            "present": false,
+            "observation": "Behavioural claims are hedged and durable.",
+            "artifactLocator": "para 2"
+          },
+          "technicalExplainerVoice": {
+            "present": false,
+            "observation": "Advice-column register, not textbook narration.",
+            "artifactLocator": "whole column"
+          },
+          "templateRepetition": {
+            "present": false,
+            "observation": "No repeated scaffolding.",
+            "artifactLocator": "whole column"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "present": false,
+            "observation": "The example is one sentence.",
+            "artifactLocator": "para 3"
+          }
+        },
+        "factualReview": {
+          "disposition": "CLAIMS_REVIEWED",
+          "sourceBindings": [
+            {
+              "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+              "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+            }
+          ],
+          "claimMap": [
+            {
+              "claimId": "jeeves-real-source-wrong-claim",
+              "status": "VERIFIED",
+              "candidateEvidence": [
+                {
+                  "excerpt": "the source exists, but the answer misrepresents it",
+                  "locator": "jeeves-02 para 2"
+                }
+              ],
+              "sourceBinding": {
+                "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+                "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+              },
+              "sourceEvidence": [
+                {
+                  "excerpt": "fake citations, invented statistics, wrong dates, fabricated quotes",
+                  "locator": "ai-fundamentals-101 hallucination excerpt"
+                }
+              ],
+              "scopeAndFreshness": "Matches the governed book's hallucination definition; durable failure-mode description. Public source observed 2026-09-05."
+            },
+            {
+              "claimId": "jeeves-invented-quotations",
+              "status": "VERIFIED",
+              "candidateEvidence": [
+                {
+                  "excerpt": "The tool can also invent quotations",
+                  "locator": "jeeves-02 para 4"
+                }
+              ],
+              "sourceBinding": {
+                "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+                "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+              },
+              "sourceEvidence": [
+                {
+                  "excerpt": "fabricated quotes",
+                  "locator": "ai-fundamentals-101 hallucination excerpt"
+                }
+              ],
+              "scopeAndFreshness": "Direct match; correctly used to bound the checking prompt's reliability."
+            },
+            {
+              "claimId": "jeeves-checking-prompt-script",
+              "status": "QUALIFIED",
+              "candidateEvidence": [
+                {
+                  "excerpt": "show the short passage in the source that supports it and its location",
+                  "locator": "jeeves-02 prompt script"
+                }
+              ],
+              "sourceBinding": {
+                "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+                "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+              },
+              "sourceEvidence": [
+                {
+                  "excerpt": "Citation/source linking (models trained to cite their sources",
+                  "locator": "ai-fundamentals-101 source excerpt 3"
+                }
+              ],
+              "scopeAndFreshness": "Original advice script, no exact-quote requirement; conditioned on tool capability ('If the tool can read the source') and bounded as a checking aid."
+            },
+            {
+              "claimId": "jeeves-scope-of-evidence-example",
+              "status": "QUALIFIED",
+              "candidateEvidence": [
+                {
+                  "excerpt": "A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+                  "locator": "jeeves-02 para 3"
+                }
+              ],
+              "sourceBinding": {
+                "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+                "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+              },
+              "sourceEvidence": [
+                {
+                  "excerpt": "Requests for specific details (names, dates, citations, statistics)",
+                  "locator": "ai-fundamentals-101 source excerpt 2"
+                }
+              ],
+              "scopeAndFreshness": "Original illustrative reasoning about evidence scope; logically sound, no external factual dependency."
+            }
+          ],
+          "reviewedThrough": "2026-09-05",
+          "nextTrigger": "Re-verify if the bound source hash changes or if citation-grounding features materially change the typical failure mode described.",
+          "correctionOwner": "newsstand-daily"
+        }
+      }
+    ]
+  }
+}

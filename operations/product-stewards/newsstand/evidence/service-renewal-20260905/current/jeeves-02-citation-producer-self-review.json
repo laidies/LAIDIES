@@ -1,0 +1,671 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "jeeves-02-citation",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "FAQ",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact-prose current renewal",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-06T01:40:22.144670Z",
+  "encodedAt": "2026-09-06T01:40:22.144670Z",
+  "producerNotes": {
+    "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/current/producer-self-review.md",
+    "sha256": "1f006f1d00ddc9a20a0978b146b30786870981d023140dd46a7e1f342affad66"
+  },
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/jeeves-02-citation.md",
+      "sha256": "96a12013cbc50c501c09ef35045b8c35d62418cbd2431f23d98f5142c7021688"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/current/jeeves-02-citation.manifest.json",
+      "sha256": "786f03a65956e765cc9932e90df9747c49b22a5814281e8aecc66900ee322185"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-06T01:40:22.144670Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check\u2014not on one invisib",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every pa",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Recognisable work problem before theory",
+        "Specific checks and retained reader judgment",
+        "Warmth without inflated takeaways"
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud \u2014 then keep your judgment on the output.",
+          "locator": "content/episodes/episode-01.canon.md"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why does the source exist but not contain the statistic?",
+    "promisedPayoff": "Open the original source, locate the exact finding, and leave an inaccessible or unsupported claim out.",
+    "centralMentalModel": "A source must support the actual claim, not merely exist; AI-generated checking passages also require comparison.",
+    "dailyLifeConnection": "Why does the source exist but not contain the statistic?",
+    "surfaceJob": "A complete dear_miss_jeeves column with its own useful answer and a related destination.",
+    "desiredReaderFeeling": "I understand this and know what to try or where to go."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The question distinguishes an existing paper from an unsupported statistic. The answer checks population, date and what was measured, then gives a source-excerpt request with a manual comparison and inaccessible-source fallback.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check\u2014not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: \u201cFor each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.\u201d Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The question distinguishes an existing paper from an unsupported statistic. The answer checks population, date and what was measured, then gives a source-excerpt request with a manual comparison and inaccessible-source fallback.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check\u2014not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: \u201cFor each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.\u201d Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Footnote Detective and the scholarly-looking but useless footnote add a small joke that reinforces the actual checking problem. The reader is treated as capable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check\u2014not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: \u201cFor each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.\u201d Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Footnote Detective and the scholarly-looking but useless footnote add a small joke that reinforces the actual checking problem. The reader is treated as capable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check\u2014not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: \u201cFor each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.\u201d Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The question distinguishes an existing paper from an unsupported statistic. The answer checks population, date and what was measured, then gives a source-excerpt request with a manual comparison and inaccessible-source fallback.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check\u2014not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: \u201cFor each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.\u201d Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The question distinguishes an existing paper from an unsupported statistic. The answer checks population, date and what was measured, then gives a source-excerpt request with a manual comparison and inaccessible-source fallback.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check\u2014not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: \u201cFor each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.\u201d Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Footnote Detective and the scholarly-looking but useless footnote add a small joke that reinforces the actual checking problem. The reader is treated as capable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check\u2014not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: \u201cFor each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.\u201d Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "answersActualQuestion": {
+      "verdict": "PASS",
+      "observation": "The question distinguishes an existing paper from an unsupported statistic. The answer checks population, date and what was measured, then gives a source-excerpt request with a manual comparison and inaccessible-source fallback.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check\u2014not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: \u201cFor each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.\u201d Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The question distinguishes an existing paper from an unsupported statistic. The answer checks population, date and what was measured, then gives a source-excerpt request with a manual comparison and inaccessible-source fallback.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check\u2014not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: \u201cFor each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.\u201d Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Footnote Detective and the scholarly-looking but useless footnote add a small joke that reinforces the actual checking problem. The reader is treated as capable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check\u2014not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: \u201cFor each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.\u201d Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Locate the finding in the original, compare the proposed supporting excerpt, and obtain an accessible original or omit the unsupported claim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check\u2014not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: \u201cFor each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.\u201d Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Generating a plausible claim/link can misrepresent a real source; asking the same generator for quotations is not independent proof. Checking the original passage closes that gap.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A citation is somewhere to check\u2014not proof that the sentence is right.",
+          "locator": "jeeves-02-citation: summary"
+        },
+        {
+          "excerpt": "Dear Footnote Detective,",
+          "locator": "jeeves-02-citation: body paragraph 1"
+        },
+        {
+          "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+          "locator": "jeeves-02-citation: body paragraph 2"
+        },
+        {
+          "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+          "locator": "jeeves-02-citation: body paragraph 3"
+        },
+        {
+          "excerpt": "If the tool can read the source, try: \u201cFor each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.\u201d Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+          "locator": "jeeves-02-citation: body paragraph 4"
+        },
+        {
+          "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+          "locator": "jeeves-02-citation: body paragraph 5"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for benchmarkNameDrop. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for communicationPastiche. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for corporateSludge. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for curiosityWithoutPayoff. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for decorativeAnalogy. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for disconnectedSystem. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for entertainmentBeforeUnderstanding. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for factlessConfidence. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for familiarExampleWithoutTechnicalReturn. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for genericAction. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for glossaryAccumulation. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for inflatedTakeawayEnding. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for jargonBeforeMeaning. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for joylessInstruction. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for mechanismBeforeMotivation. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for mechanismCompressedBehindHook. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for missingMechanism. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for prematureClickBeforeMechanism. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for purposeTooNarrow. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for referenceConfetti. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for staleUnreviewableClaims. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for technicalExplainerVoice. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for templateRepetition. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed the complete unchanged entry for workedExampleOvertakesBookPurpose. The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback.",
+      "artifactLocator": "jeeves-02-citation: complete entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+        "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "jeeves-02-citation-mechanism-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A citation is somewhere to check\u2014not proof that the sentence is right.",
+            "locator": "jeeves-02-citation: summary"
+          },
+          {
+            "excerpt": "Dear Footnote Detective,",
+            "locator": "jeeves-02-citation: body paragraph 1"
+          },
+          {
+            "excerpt": "You have found a particularly irritating kind of mistake: the source exists, but the answer misrepresents it. The model may have mixed up two studies, misunderstood a result or attached a plausible link to a claim it generated.",
+            "locator": "jeeves-02-citation: body paragraph 2"
+          },
+          {
+            "excerpt": "Open the original source and look for the exact finding. Check who was studied, when, and what was actually measured. A survey about whether people use AI cannot prove that AI made them better at their jobs.",
+            "locator": "jeeves-02-citation: body paragraph 3"
+          },
+          {
+            "excerpt": "If the tool can read the source, try: \u201cFor each factual claim in this paragraph, show the short passage in the source that supports it and its location. Mark anything you cannot support.\u201d Then compare those passages with the original yourself. The tool can also invent quotations, so its list is a checking aid, not the final check.",
+            "locator": "jeeves-02-citation: body paragraph 4"
+          },
+          {
+            "excerpt": "If you cannot access the source, do not present the claim as verified. Find an accessible original source or leave the claim out. A footnote can look very scholarly while doing absolutely no useful work.",
+            "locator": "jeeves-02-citation: body paragraph 5"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/library-books/sources/ai-fundamentals-101.source.json",
+          "sha256": "edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "<strong>Hallucination</strong> is when the model generates text that sounds confident and factual but isn't true \u2014 fake citations, invented statistics, wrong dates, fabricated quotes.",
+            "locator": "content/library-books/sources/ai-fundamentals-101.source.json: current source excerpt 1"
+          },
+          {
+            "excerpt": "Requests for specific details (names, dates, citations, statistics)",
+            "locator": "content/library-books/sources/ai-fundamentals-101.source.json: current source excerpt 2"
+          },
+          {
+            "excerpt": "Citation/source linking (models trained to cite their sources, so outputs can be verified)",
+            "locator": "content/library-books/sources/ai-fundamentals-101.source.json: current source excerpt 3"
+          }
+        ],
+        "scopeAndFreshness": "A source must support the actual claim, not merely exist; AI-generated checking passages also require comparison. Current direct public rendered source fetch is recorded in operations/product-stewards/newsstand/evidence/service-renewal-20260905/current-source-evidence.json; no product-specific performance guarantee is claimed."
+      }
+    ],
+    "reviewedThrough": "2026-09-05",
+    "nextTrigger": "Source text, linked destination or relevant product behaviour changes.; Recheck before selecting for a dated issue; a bank draft is not publication permission.",
+    "correctionOwner": "newsstand-daily",
+    "currentSourceEvidence": {
+      "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/current-source-evidence.json",
+      "sha256": "1c5300cc1e3de97068352709a400450a3981b8df42d2ac8b939d0c277907d7c9"
+    }
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "Unchanged service prose is being renewed against the current registry and same-day verified sources. Only current freshness metadata and review bindings change; earlier records remain preserved."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The letter answers the exact source-versus-statistic problem, tells the reader to check population, date and measure, and gives an accessible-source fallback."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer read of exact unchanged prose and current freshness metadata only; independent admission and issued-service publication remain required.",
+    "No observed human-comprehension evidence or guaranteed product performance is claimed.",
+    "Original source-expiry date retained; current source support checked September 5."
+  ]
+}

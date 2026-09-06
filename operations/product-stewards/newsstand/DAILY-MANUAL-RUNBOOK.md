@@ -1111,3 +1111,60 @@ block publication. Ordinary NEWS producer self-review uses the same count rule
 only with a checksum-bound `reviewMetricsPolicy` pointing to the active
 `ordinary-news-editorial-policy.json`; an absent binding retains strict checks.
 This exception does not extend to other content surfaces.
+
+
+### Recurring service renewal: current evidence into the dated paper
+
+Recheck the precise guidance and destination before renewing a bank item. Preserve
+its old draft and old review files. A real freshness-date change needs a new
+manifest because freshness is part of the reviewed content identity. Use a small
+private index containing the selected full prose, exact manifests and complete
+supporting passages; do not supply unrelated source packs or obsolete dates.
+
+`node scripts/run-service-bank-judge.mjs --index <private-evidence-index.json>
+--reviewed-through YYYY-MM-DD --ids <comma-separated-ids> --output
+<new-private-evidence-report.json> --prepare-only` checks every binding before
+provider use. After the producer's full-prose review passes, omit `--prepare-only`
+for one actual independent assessment. Requests and raw responses are preserved;
+existing attempt files prevent accidental resubmission. Import actual judgments
+with `scripts/import-service-bank-judgment.mjs` and bind both passing stages into
+the bank before setting APPROVED/ELIGIBLE. No source or public-column date is
+renewed merely because the checker runs.
+
+The recurring-service calibration mode requires evidenced rejection of every
+registered bad reference for a relevant registered reason and acceptance of the
+applicable positive. It retains differing historical labels instead of rerunning
+a reviewer until its vocabulary matches. All current required outcomes and
+failure families still gate admission; this does not waive the service ratchet,
+actual source review or the honest pending-human-sampling disclosure. The current
+source/reader judgments for Paige-02, Concept-02 and Jeeves-02 passed. They are
+bank-ready, not already present in the public dated edition.
+
+Prepare the exact dated proposal after bank admission, then use the existing
+column authority before composing the issue. This was the missing handoff: a
+private bank proposal alone is invisible to the Daily composer.
+
+```sh
+node scripts/prepare-newsstand-service-bank.mjs --date YYYY-MM-DD --reuse-admitted --output operations/product-stewards/newsstand/release-pipeline-v1/service-bank-proposals/YYYY-MM-DD-r1.json
+node scripts/materialize-newsstand-service-proposal.mjs --proposal operations/product-stewards/newsstand/release-pipeline-v1/service-bank-proposals/YYYY-MM-DD-r1.json --columns content/daily-edition-columns.json --check
+node scripts/materialize-newsstand-service-proposal.mjs --proposal operations/product-stewards/newsstand/release-pipeline-v1/service-bank-proposals/YYYY-MM-DD-r1.json --columns content/daily-edition-columns.json
+```
+
+At 20:00, prepare tomorrow's private proposal only. At 07:00, refresh the source
+and bank checks, prepare a new revision if any bound input changed, then check
+and materialize today's proposal. Existing proposal files are never overwritten.
+The materializer rechecks the complete producer/independent-review chain and exact
+bank selection on every run, including retries. It appends only eligible rows,
+preserves every predecessor, rejects changed or partial records and refuses a
+future effective date. A repeated exact transaction makes no further change.
+This is selection and transfer, not editorial approval or publication. Continue
+through the existing issue composition, fresh carried-service predecessor proof,
+independent issue admission, promotion, publishing, derivatives and exact public
+release verification. Isolate a held service from admitted ordinary news.
+
+Concept of the Week changes on Wednesday. Automatic selection keeps a new
+Concept out of a Sunday proposal; explicit off-cadence replacement fails early.
+The actual September 6 proposal selects Paige-02 and Jeeves-02. A read-only
+next-day check with the real bank and reviews appended those two rows, preserved
+26 predecessors and passed exact replay. Concept-02 is eligible for September 9.
+Those checks do not assert that either future issue has been published.

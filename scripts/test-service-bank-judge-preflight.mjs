@@ -1,0 +1,61 @@
+#!/usr/bin/env node
+import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import {preflightServiceBankJudge,serviceBankJudgmentEnvelope} from './run-service-bank-judge.mjs';
+
+const root=fs.mkdtempSync(path.join(os.tmpdir(),'laidies-service-judge-preflight-'));
+const hash=value=>crypto.createHash('sha256').update(value).digest('hex');
+const write=(relative,value)=>{const target=path.join(root,relative);fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,value);return {path:relative,sha256:hash(value)}};
+const bind=(id,relative,value)=>({id,...write(relative,value)});
+try {
+  write('operations/voice/laidies-writing-lock.md','Use direct, useful language.\n');
+  write('operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md','Begin with a human question and explain the mechanism.\n');
+  write('content/episodes/episode-01.canon.md',"A reader keeps her judgment on the output.\n");
+  const negative=write('fixtures/negative.md','A known bad example labels terms without explaining their relationship.\n');
+  write('operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json',JSON.stringify({negativeExemplars:[{id:'BAD',path:'fixtures/negative.md',sha256:negative.sha256,failureFamilies:['missingMechanism']}]}));
+  const prose=bind(null,'operations/product-stewards/newsstand/evidence/service-renewal-20260905/candidate.md','A scoped edit changes one paragraph while preserving the saved original.\n');
+  const manifest=bind(null,'operations/product-stewards/newsstand/evidence/service-renewal-20260905/candidate.manifest.json','{"schemaVersion":"fixture"}\n');
+  const source=bind('current-source','operations/product-stewards/newsstand/evidence/service-renewal-20260905/source.txt','A source supports a scoped edit without promising every other word stays unchanged.\n');
+  const indexPath='operations/product-stewards/newsstand/evidence/service-renewal-20260905/current-index.json';
+  write(indexPath,JSON.stringify({artifacts:[{id:'paige-02-fix-one-thing',type:'paige_tip',contentClass:'PRACTICE',reviewText:prose,manifest,reviewedContentSha256:'a'.repeat(64)}],sources:[source]}));
+  const args=['--index',indexPath,'--output','operations/product-stewards/newsstand/evidence/service-renewal-20260905/judgment.json','--reviewed-through','2026-09-05','--ids','paige-02-fix-one-thing','--prepare-only'];
+  const plan=preflightServiceBankJudge({args,root});
+  assert.equal(plan.reviewedThrough,'2026-09-05');
+  assert.deepEqual(plan.entries.map(entry=>entry.id),['paige-02-fix-one-thing']);
+  assert.ok(plan.sources.some(entry=>entry.id==='hannah-fry-communication-benchmark'),'benchmark is supplied to the judge');
+  const envelope=serviceBankJudgmentEnvelope({plan,response:{modelUsage:{'claude-fable-5':{}},structured_output:{calibration:{},entries:[]}},requestSha256:'b'.repeat(64),startedAt:'2026-09-05T00:00:00Z',judgedAt:'2026-09-05T00:01:00Z'});
+  assert.deepEqual(envelope.artifactBindings[0].reviewText,{path:prose.path,sha256:prose.sha256});
+  assert.deepEqual(envelope.artifactBindings[0].manifest,{path:manifest.path,sha256:manifest.sha256});
+  assert.equal(Object.hasOwn(envelope.artifactBindings[0].reviewText,'text'),false);
+  const invalidId=[...args];invalidId[invalidId.indexOf('--ids')+1]='unknown';
+  assert.throws(()=>preflightServiceBankJudge({args:invalidId,root}),/Unknown ID unknown/);
+  const invalidDate=[...args];invalidDate[invalidDate.indexOf('--reviewed-through')+1]='2026-02-30';
+  assert.throws(()=>preflightServiceBankJudge({args:invalidDate,root}),/reviewed-through/);
+  const unsafeOutput=[...args];unsafeOutput[unsafeOutput.indexOf('--output')+1]='operations/product-stewards/newsstand/evidence/../outside.json';
+  assert.throws(()=>preflightServiceBankJudge({args:unsafeOutput,root}),/must remain beneath/);
+  const external=fs.mkdtempSync(path.join(os.tmpdir(),'laidies-service-judge-external-'));
+  fs.symlinkSync(external,path.join(root,'operations/product-stewards/newsstand/evidence/linked-output'));
+  const linkedOutput=[...args];linkedOutput[linkedOutput.indexOf('--output')+1]='operations/product-stewards/newsstand/evidence/linked-output/judgment.json';
+  assert.throws(()=>preflightServiceBankJudge({args:linkedOutput,root}),/resolves outside/);
+  fs.rmSync(external,{recursive:true,force:true});
+  write('operations/product-stewards/newsstand/evidence/service-renewal-20260905/judgment.json','existing\n');
+  assert.throws(()=>preflightServiceBankJudge({args,root}),/new private review file/);
+  fs.rmSync(path.join(root,'operations/product-stewards/newsstand/evidence/service-renewal-20260905/judgment.json'));
+  write('operations/product-stewards/newsstand/evidence/service-renewal-20260905/judgment.json.request.json','preserved request\n');
+  assert.throws(()=>preflightServiceBankJudge({args,root}),/preserved review attempt/);
+  fs.rmSync(path.join(root,'operations/product-stewards/newsstand/evidence/service-renewal-20260905/judgment.json.request.json'));
+  fs.writeFileSync(path.join(root,source.path),'changed source\n');
+  assert.throws(()=>preflightServiceBankJudge({args,root}),/SHA-256 mismatch/);
+  const sourceExternal=fs.mkdtempSync(path.join(os.tmpdir(),'laidies-service-judge-source-external-'));
+  fs.writeFileSync(path.join(sourceExternal,'source.txt'),'A source supports a scoped edit without promising every other word stays unchanged.\n');
+  fs.rmSync(path.join(root,source.path));
+  fs.symlinkSync(path.join(sourceExternal,'source.txt'),path.join(root,source.path));
+  assert.throws(()=>preflightServiceBankJudge({args,root}),/resolves outside the repository/);
+  fs.rmSync(sourceExternal,{recursive:true,force:true});
+  console.log('SERVICE BANK JUDGE PREFLIGHT PASS bound_index=1 artifact_bindings=1 benchmark=1 invalid_id=1 invalid_date=1 unsafe_output=1 overwrite=1 preserved_attempt=1 stale_source=1 source_symlink=1 provider_calls=0');
+} finally {
+  fs.rmSync(root,{recursive:true,force:true});
+}

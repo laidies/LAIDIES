@@ -83,41 +83,43 @@ export function checkDailyEditionColumns(data, { root = ROOT, asOf = calendarDat
   return { errors, records: records.length, publicRecords, issueDate, issuePublicRecords };
 }
 
-const data = JSON.parse(fs.readFileSync(path.join(ROOT, "content/daily-edition-columns.json"), "utf8"));
-const release = process.argv.includes("--release");
-const valueAfter = (flag) => {
-  const index = process.argv.indexOf(flag);
-  return index === -1 ? null : process.argv[index + 1];
-};
-const issueDate = valueAfter("--issue-date");
-const asOf = valueAfter("--as-of") || calendarDateInZone();
-if (process.argv.includes("--calibrate")) {
-  const bad = structuredClone(data);
-  bad.records.push(structuredClone(bad.records[0]));
-  const result = checkDailyEditionColumns(bad);
-  if (!result.errors.some((error) => error.includes("duplicate"))) {
-    console.error("DAILY EDITION COLUMN CALIBRATION FAIL");
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  const data = JSON.parse(fs.readFileSync(path.join(ROOT, "content/daily-edition-columns.json"), "utf8"));
+  const release = process.argv.includes("--release");
+  const valueAfter = (flag) => {
+    const index = process.argv.indexOf(flag);
+    return index === -1 ? null : process.argv[index + 1];
+  };
+  const issueDate = valueAfter("--issue-date");
+  const asOf = valueAfter("--as-of") || calendarDateInZone();
+  if (process.argv.includes("--calibrate")) {
+    const bad = structuredClone(data);
+    bad.records.push(structuredClone(bad.records[0]));
+    const result = checkDailyEditionColumns(bad);
+    if (!result.errors.some((error) => error.includes("duplicate"))) {
+      console.error("DAILY EDITION COLUMN CALIBRATION FAIL");
+      process.exit(1);
+    }
+    const empty = structuredClone(data);
+    empty.records = [];
+    const emptyResult = checkDailyEditionColumns(empty, { release: true, issueDate: "2026-08-04", asOf: "2026-08-04" });
+    if (!emptyResult.errors.some((error) => error.includes("no records")) || !emptyResult.errors.some((error) => error.includes("no public records"))) {
+      console.error("DAILY EDITION COLUMN CALIBRATION FAIL empty_release_accepted=1");
+      process.exit(1);
+    }
+    const staleDateResult = checkDailyEditionColumns(data, { release: true, issueDate: "2026-08-04", asOf: "2026-08-04" });
+    if (!staleDateResult.errors.some((error) => error.includes("no public records for issueDate 2026-08-04"))) {
+      console.error("DAILY EDITION COLUMN CALIBRATION FAIL prior_date_issue_accepted=1");
+      process.exit(1);
+    }
+    console.log("DAILY EDITION COLUMN CALIBRATION PASS deliberate_duplicate_rejected=1 empty_release_rejected=1 prior_date_issue_rejected=1");
+    process.exit(0);
+  }
+  const result = checkDailyEditionColumns(data, { release, issueDate, asOf });
+  if (result.errors.length) {
+    console.error(`DAILY EDITION COLUMN ${release ? "RELEASE READINESS" : "SPECIFICATION"} CHECK FAIL`);
+    result.errors.forEach((error) => console.error(`- ${error}`));
     process.exit(1);
   }
-  const empty = structuredClone(data);
-  empty.records = [];
-  const emptyResult = checkDailyEditionColumns(empty, { release: true, issueDate: "2026-08-04", asOf: "2026-08-04" });
-  if (!emptyResult.errors.some((error) => error.includes("no records")) || !emptyResult.errors.some((error) => error.includes("no public records"))) {
-    console.error("DAILY EDITION COLUMN CALIBRATION FAIL empty_release_accepted=1");
-    process.exit(1);
-  }
-  const staleDateResult = checkDailyEditionColumns(data, { release: true, issueDate: "2026-08-04", asOf: "2026-08-04" });
-  if (!staleDateResult.errors.some((error) => error.includes("no public records for issueDate 2026-08-04"))) {
-    console.error("DAILY EDITION COLUMN CALIBRATION FAIL prior_date_issue_accepted=1");
-    process.exit(1);
-  }
-  console.log("DAILY EDITION COLUMN CALIBRATION PASS deliberate_duplicate_rejected=1 empty_release_rejected=1 prior_date_issue_rejected=1");
-  process.exit(0);
+  console.log(`DAILY EDITION COLUMN ${release ? "RELEASE READINESS" : "SPECIFICATION"} CHECK PASS records=${result.records} public_records=${result.publicRecords}${release ? ` issue_date=${result.issueDate} issue_public_records=${result.issuePublicRecords}` : ""}`);
 }
-const result = checkDailyEditionColumns(data, { release, issueDate, asOf });
-if (result.errors.length) {
-  console.error(`DAILY EDITION COLUMN ${release ? "RELEASE READINESS" : "SPECIFICATION"} CHECK FAIL`);
-  result.errors.forEach((error) => console.error(`- ${error}`));
-  process.exit(1);
-}
-console.log(`DAILY EDITION COLUMN ${release ? "RELEASE READINESS" : "SPECIFICATION"} CHECK PASS records=${result.records} public_records=${result.publicRecords}${release ? ` issue_date=${result.issueDate} issue_public_records=${result.issuePublicRecords}` : ""}`);

@@ -187,6 +187,10 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   require(text(receipt?.calibration?.reviewedAt) && Date.parse(receipt.calibration.reviewedAt) <= Date.parse(receipt.reviewedAt), "calibration must be completed by this reviewer before candidate review");
   const suppliedNegatives = new Map((receipt?.calibration?.negatives || []).map(item => [item.exemplarId, item]));
   const newsRejectionCalibration = receipt?.calibration?.mode === "ORDINARY_NEWS_BLIND_REJECTION_V1" && newsAnalysis?.calibrationPolicy?.mode === "ORDINARY_NEWS_BLIND_REJECTION_V1";
+  const serviceRejectionCalibration = receipt?.calibration?.mode === "RECURRING_SERVICE_ARTIFACT_REJECTION_V1" &&
+    samplingPolicy?.calibration?.mode === "RECURRING_SERVICE_ARTIFACT_REJECTION_V1" &&
+    receipt.stage === "INDEPENDENT_SEMANTIC_ADMISSION" && receipt.surface === "NEWSSTAND_RECURRING_SERVICE_COLUMNS" &&
+    Date.parse(receipt.reviewedAt) >= Date.parse("2026-09-05T00:00:00-07:00");
   require(suppliedNegatives.size === negativeRegistry.size, "every registered negative exemplar must be calibrated");
   for (const [id, negative] of negativeRegistry) {
     const calibration = suppliedNegatives.get(id);
@@ -203,6 +207,8 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
       const present = known.filter(family => assessed[family]?.state === "present");
       require(present.length > 0, `known-bad calibration ${id} requires a relevant registered reason for rejection`);
       require(present.every(family => calibration?.identifiedFailureFamilies?.includes(family)), `known-bad calibration ${id} identified families do not match its actual findings`);
+    } else if (serviceRejectionCalibration) {
+      require((negative.failureFamilies || []).some(family => calibration?.identifiedFailureFamilies?.includes(family)), `known-bad calibration ${id} requires a relevant registered reason for rejection`);
     } else {
       for (const family of negative?.failureFamilies || []) require(calibration?.identifiedFailureFamilies?.includes(family), `known-bad calibration ${id} missed ${family}`);
     }

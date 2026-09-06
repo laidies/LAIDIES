@@ -48,6 +48,18 @@ The current task must implement and exercise that producer path; reviewer
 calibration alone cannot close the NewsStand quality gap. Root retains ownership
 through implementation and verification rather than ending at a saved HOLD.
 
+The same September 5 historical-label defect was then reproduced in recurring
+NewsStand services: all three current pieces passed every required outcome, and
+the independent judge rejected both bad references, but import demanded seven
+additional old labels. The existing recurring-service policy now accepts each
+bad artifact's evidenced rejection for a relevant registered reason, retains all
+actual judgments, and still rejects every current source/reader/voice defect.
+This is the bounded service implementation of Ali's direction against historical
+label matching, recorded in `recurring-service-sampling-policy.json`; it does not
+extend ordinary-news count exceptions or change other surfaces. The known-bad
+service references were labelled as such, so this is not claimed as an unlabelled
+blind trial. No provider call is repeated merely to reconcile secondary labels.
+
 NewsStand's ordinary-news review now uses one complete-artifact editorial call,
 with cached blind qualification and mechanical receipt assembly. An evidence-only
 repair retains an unchanged passing reader review. Actual source excerpts must

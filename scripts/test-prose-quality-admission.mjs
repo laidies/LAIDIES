@@ -149,6 +149,23 @@ try {
     sampleQueue: ["concept-01-context"], correctionFeedbackStatus: "PENDING_RECURRING_REVIEWER_FEEDBACK"
   };
   assert.deepEqual(inspect(sampledService), [], "authorized NewsStand service profile may use pending batch sampling without fabricated human evidence");
+  const serviceBlind = structuredClone(sampledService);
+  serviceBlind.calibration.mode = "RECURRING_SERVICE_ARTIFACT_REJECTION_V1";
+  serviceBlind.reviewedAt = "2026-09-05T20:00:00Z";
+  serviceBlind.calibration.negatives[0].identifiedFailureFamilies = [negativeFamilies[0]];
+  assert.deepEqual(inspect(serviceBlind), [], "service calibration retains relevant bad-artifact rejection without matching every old label");
+  const unrelatedServiceReason = structuredClone(serviceBlind); unrelatedServiceReason.calibration.negatives[0].identifiedFailureFamilies = ["unregistered-tag"];
+  assert.ok(inspect(unrelatedServiceReason).some(error => error.includes("relevant registered reason")));
+  const acceptedBadService = structuredClone(serviceBlind); acceptedBadService.calibration.negatives[0].verdict = "PASS";
+  assert.ok(inspect(acceptedBadService).some(error => error.includes("must be rejected")));
+  const currentServiceDefect = structuredClone(serviceBlind); currentServiceDefect.outcomes.factualIntegrity.verdict = "HOLD";
+  assert.ok(inspect(currentServiceDefect).some(error => error.includes("factualIntegrity")));
+  const noServiceMode = structuredClone(serviceBlind); delete noServiceMode.calibration.mode;
+  assert.ok(inspect(noServiceMode).some(error => error.includes("missed")));
+  const oldServiceTime = structuredClone(serviceBlind); oldServiceTime.reviewedAt = "2026-09-04T20:00:00Z";
+  assert.ok(inspect(oldServiceTime).some(error => error.includes("missed")));
+  const serviceCrossSurface = structuredClone(serviceBlind); serviceCrossSurface.surface = "NEWSSTAND_BIG_PICTURE";
+  assert.ok(inspect(serviceCrossSurface).some(error => error.includes("missed")));
   const crossSurface = structuredClone(sampledService); crossSurface.surface = "NEWSSTAND";
   assert.match(inspect(crossSurface).join("\n"), /limited to NEWSSTAND_RECURRING_SERVICE_COLUMNS/);
   const bigPicture = structuredClone(sampledService); bigPicture.surface = "NEWSSTAND_BIG_PICTURE";

@@ -1,0 +1,479 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "paige-02-fix-one-thing",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-service-renewal-20260905",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/current/independent-claude.json",
+      "sha256": "1e6ae18107bb1cf9d5b65ab134cc98bbf6dbd719e572183b4389038315094258"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-06T01:44:30.103Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/paige-02-fix-one-thing.md",
+      "sha256": "5590948e0315e335fa07a3f769bb309c337675eb1f70a6f66a5c279fd32b7628"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/current/paige-02-fix-one-thing.manifest.json",
+      "sha256": "a7b546cf7b7f9107f1e63c7f58535858663e240325fb2504d40cba64e2fce18a"
+    }
+  },
+  "calibration": {
+    "mode": "RECURRING_SERVICE_ARTIFACT_REJECTION_V1",
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "claude-fable-service-renewal-20260905",
+    "reviewedAt": "2026-09-06T01:44:30.103Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "glossaryAccumulation",
+          "technicalExplainerVoice",
+          "joylessInstruction",
+          "decorativeAnalogy"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "CQX-BAD-001 AI system block"
+          },
+          {
+            "excerpt": "A toolbox contains different tools for different jobs.",
+            "locator": "CQX-BAD-001 Model types block"
+          },
+          {
+            "excerpt": "A provider develops or operates an AI model, product or service.",
+            "locator": "CQX-BAD-001 Provider block"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "technicalExplainerVoice",
+          "workedExampleOvertakesBookPurpose",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Imagine that you have two job offers.",
+            "locator": "CQX-BAD-002 Chapter 1 opening"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "CQX-BAD-002 closing section"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run",
+            "locator": "CQX-BAD-002 final paragraphs"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "plain mechanic stated in the shortest true sentence before any garnish",
+        "specific workplace truth carrying the warmth",
+        "honest hedging and scoped claims rather than fake certainty",
+        "jokes and analogies that carry the teaching instead of decorating it"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Polished is a style. Evidence is a standard.",
+          "locator": "concepts[] Hallucination episode line"
+        },
+        {
+          "excerpt": "This is a comparison of three current products, not a permanent ranking of three models.",
+          "locator": "narrative beat 15"
+        },
+        {
+          "excerpt": "It can make the draft. It cannot make it true.",
+          "locator": "concepts[] Generative AI episode line"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "How do I get the AI to fix one paragraph without it rewriting my whole draft?",
+    "promisedPayoff": "A copy-ready instruction that scopes the edit, plus a fallback when the tool overreaches.",
+    "centralMentalModel": "Tell the tool what to change and what to leave alone; a vague 'make it better' is permission to change everything.",
+    "dailyLifeConnection": "Editing a draft you mostly like — the everyday case of one weak opening paragraph.",
+    "surfaceJob": "Recurring practice column: one small move the reader can try today.",
+    "desiredReaderFeeling": "In control of the edit rather than at the mercy of the rewrite."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The mechanic is stated in one plain sentence before the script.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Tell the tool what to change—and what to leave alone.",
+          "locator": "paige-02 dek"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Delivers a reusable instruction pattern plus a verification step and a fallback.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep a copy of the original and compare the two.",
+          "locator": "paige-02 para 4"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Direct, specific, no filler; the 'remove the apology' detail is a real workplace touch. No banned patterns; the AI is 'it/the tool'.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make the request clear in the first sentence and remove the apology.",
+          "locator": "paige-02 try script"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Opens from a recognizable frustration and stays brisk; no compulsory joke needed at this length.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You like the draft, apart from the opening paragraph.",
+          "locator": "paige-02 para 1"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The only product-behaviour claim is hedged honestly; no empirical benefit guarantee.",
+      "artifactEvidence": [
+        {
+          "excerpt": "it does not guarantee that every other word stays put",
+          "locator": "paige-02 para 4"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Teaches a durable delegation behaviour, no dated model or UI claims; the only external dependency is the bound library link.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Revise only the first paragraph.",
+          "locator": "paige-02 try script"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Fits the practice-column job: one move, one script, one check, one link out for depth.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Fix the paragraph without rewriting the whole thing.",
+          "locator": "paige-02 title"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "Gives an exact instruction the reader executes on her own draft.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Do not change names, dates, figures or commitments.",
+          "locator": "paige-02 try script"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "The reader can verify success herself by diffing original against result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep a copy of the original and compare the two.",
+          "locator": "paige-02 para 4"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Proportional adaptation: shared starting point (draft you mostly like), direct answer first, limitation retained, small practical landing — appropriate for a short practice item.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ask for the replacement paragraph by itself and insert it into your saved draft",
+          "locator": "paige-02 para 4"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The change/leave-alone framing generalizes to any scoped-edit request, not just opening paragraphs.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The instruction narrows the job",
+          "locator": "paige-02 para 4"
+        }
+      ]
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "Explicit fallback when the tool still overreaches.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If the tool still changes unrelated text",
+          "locator": "paige-02 para 4"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No benchmark or authority names invoked.",
+      "artifactLocator": "whole column"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitation of a named communicator.",
+      "artifactLocator": "whole column"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No filler or corporate phrasing.",
+      "artifactLocator": "whole column"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Answer arrives immediately after the setup.",
+      "artifactLocator": "para 2-3"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy used; absence is not a defect.",
+      "artifactLocator": "whole column"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Links to the iteration chapter for the wider system.",
+      "artifactLocator": "footer link"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Teaching leads throughout.",
+      "artifactLocator": "whole column"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The key behaviour claim is explicitly hedged.",
+      "artifactLocator": "para 4"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The draft example returns directly to the instruction mechanic.",
+      "artifactLocator": "para 1-3"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Action is an exact quoted instruction, not 'be specific'.",
+      "artifactLocator": "try script"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No term definitions stacked.",
+      "artifactLocator": "whole column"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on the practical fallback, not a moral.",
+      "artifactLocator": "para 4"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "No jargon used.",
+      "artifactLocator": "whole column"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Brisk and human; the apology detail carries recognition.",
+      "artifactLocator": "try script"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Opens with the reader's motivation.",
+      "artifactLocator": "para 1"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Hook is one sentence; mechanic gets the space.",
+      "artifactLocator": "whole column"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Explains why vague requests fail: they grant broad permission.",
+      "artifactLocator": "para 1"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "N/A for a direct-answer practice format.",
+      "artifactLocator": "whole column"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Pattern generalizes beyond the one example.",
+      "artifactLocator": "para 4"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture references.",
+      "artifactLocator": "whole column"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "No dated stats or model-specific claims.",
+      "artifactLocator": "whole column"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Conversational second person throughout.",
+      "artifactLocator": "whole column"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "No repeated scaffolding blocks.",
+      "artifactLocator": "whole column"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Example is proportionate to the lesson.",
+      "artifactLocator": "whole column"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "content/library-books/sources/working-with-ai-101.source.json",
+        "sha256": "bbe7b62d889c4b4afb32099d6b673df066fa3982381399dbf76979d68ee81601"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "paige-vague-request-broad-permission",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "gives the tool permission to change far more than you wanted",
+            "locator": "paige-02 para 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/library-books/sources/working-with-ai-101.source.json",
+          "sha256": "bbe7b62d889c4b4afb32099d6b673df066fa3982381399dbf76979d68ee81601"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "specificity, proportion, and preservation",
+            "locator": "working-with-ai-101 source excerpt 1"
+          }
+        ],
+        "scopeAndFreshness": "Original advice application consistent with the governed book's feedback teaching; behavioural tendency claim, not a guarantee. Public source observed 2026-09-05."
+      },
+      {
+        "claimId": "paige-no-preservation-guarantee",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "it does not guarantee that every other word stays put",
+            "locator": "paige-02 para 4"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/library-books/sources/working-with-ai-101.source.json",
+          "sha256": "bbe7b62d889c4b4afb32099d6b673df066fa3982381399dbf76979d68ee81601"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Light edit only.",
+            "locator": "working-with-ai-101 source excerpt 3"
+          }
+        ],
+        "scopeAndFreshness": "Honest limitation of current product behaviour; correctly avoids promising compliance. Durable across model versions."
+      }
+    ],
+    "reviewedThrough": "2026-09-05",
+    "nextTrigger": "Re-verify if the bound source hash changes or if scoped-edit behaviour of mainstream products changes materially.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First current-registry renewal assessment of unchanged service prose with September 5 freshness metadata. No successor prose was drafted. All older reviews remain preserved; this does not reset the historical production record."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The actual September 5 independent review read the unchanged full service entry and reported no current substantive defect."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "No sampled reader testing yet (authorized pending); explain-back judged from prose only.",
+    "Rendered page and link anchor resolution not visually reviewed; source binding confirms the book page was publicly observed same-day.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "ec109c70a9bca639f7d04882c6dc245a9f7353eac11aaa56ed5d5b8f5a07664c"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "paige_tip",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-1e6ae18107bb",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

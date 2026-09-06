@@ -90,6 +90,7 @@ function receiptFor({ report, reportBinding, artifact, candidate, context, polic
     reviewedAt: report.judgedAt,
     artifact: { reviewText: clone(artifact.reviewText), manifest: clone(artifact.manifest) },
     calibration: {
+      ...(policy.calibration?.mode === "RECURRING_SERVICE_ARTIFACT_REJECTION_V1" ? { mode: policy.calibration.mode } : {}),
       registrySha256: sha256(fs.readFileSync(path.join(ROOT, REGISTRY))),
       reviewerPrincipalId: reviewerPrincipal,
       reviewedAt: report.judgedAt,
