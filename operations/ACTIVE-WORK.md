@@ -1,5 +1,6 @@
-<!-- Current-week Weekly: REVIEWED, LOCAL WRITE; production verification pending -->
-Nine main developments plus Meta/Microsoft briefs for August31–September6. Exact producer and root-independent reviews in evidence/weekly-review-20260906. Prior stories preserved. Date selection and missed-Wednesday Sunday correction guards reject invalid dates, future/out-of-period items and replay. Local artifact /private/tmp/laidies-newsstand-weekly-correction-20260906; four public paths. Masthead remains194px.
+<!-- Current-week Weekly: VERIFIED PUBLICLY -->
+Source0875d9be deployed234eebcf. Four public paths match exact scoped artifact on custom and immutable URLs (8 responses). Actual IAB opened all9main sections, verified source links and opened preserved August26 Weekly from archive; live390px no overflow. Masthead remains194px on desktop with Paige at edge. All17previous stories preserved. Evidence: operations/product-stewards/newsstand/evidence/weekly-review-20260906/.
+Remaining broader work: Hannah substance/signing route and sustained source/service renewal. Do not claim full editorial operation completion.
 
 <!-- Actual colour/artwork correction: VERIFIED PUBLICLY -->
 Threeexistingpublicfiles plus sixnewartassets. Restoredserviceartsize; recoloured
@@ -8,8 +9,7 @@ Masthead194px withPaigeatbottom; inheritedpurpletextcorrected. Independent1200
 art/visualACCEPT; root390checked. Candidate/tmp/laidies-newsstand-masthead-language-20260906.
 Source6a3c2883 deployed7614029e;18exactpublicresponsesmatch. ActualIAB refreshed
 andverified194pxmasthead, sixnewassetswired,3distinctloadedLatestimages,nooverflow.
-Weekly visiblecoveredperiod nowAug19–26; actualcurrent-week replacement isstill
-BUILDING in candidates/weekly-correction-20260906. Do notclaimnewWeeklypublished.
+Weekly replacement now published at234eebcf; originalAugust26 issue remains accessible.
 
 <!-- Compact newspaper features: VERIFIED PUBLICLY -->
 Ali rejected full-width pale profile sprawl; compact spotlight preserves all copy,
