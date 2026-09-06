@@ -1,0 +1,20 @@
+/* Original brush ident, preserved as one video; only the camera and bookends are new. */
+.original-arrival{position:absolute;inset:0;bottom:auto;height:min(100%,calc(100svh - var(--arrival-top,120px)));min-height:330px;z-index:12;overflow:hidden;isolation:isolate;background:#270777 url('./background.png?v=base-1') center/cover;color:#fff}
+.original-arrival[hidden]{display:none!important}
+.original-arrival__screen{position:absolute;left:50%;top:50%;width:100%;aspect-ratio:16/9;transform:translate(-50%,-50%);overflow:hidden;box-shadow:0 0 65px #41129c}
+.original-arrival__video{display:block;width:100%;height:100%;object-fit:contain;transform-origin:0 0;will-change:transform;opacity:0}
+.original-arrival__dial{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(460px,calc(100% - 44px));background:#210954;border:2px solid #ef39c4;box-shadow:6px 6px 0 #16042e,0 0 0 2px #f6d543;padding:0 20px 22px;font:22px/1.2 'VT323',monospace;color:#f9ebff}
+.original-arrival__bar{margin:0 -20px 20px;background:#e734bb;padding:6px 10px;font-size:15px;color:#200743;border-bottom:2px solid #f6d543;letter-spacing:.06em;display:flex;justify-content:space-between}
+.original-arrival__dial h2{font:inherit;font-size:clamp(24px,3vw,34px);margin:0 0 14px;color:#ffed54}
+.original-arrival__dial p{margin:8px 0}.original-arrival__meter{height:12px;border:1px solid #8eeaff;padding:2px}.original-arrival__meter span{display:block;height:100%;background:repeating-linear-gradient(90deg,#22d5ed 0 12px,transparent 12px 15px);transform-origin:left;transform:scaleX(0)}
+.original-arrival__tracking{position:absolute;inset:-25% 0;opacity:0;pointer-events:none;z-index:3;background:repeating-linear-gradient(0deg,transparent 0 3px,#eddbff33 3px 4px),linear-gradient(0deg,transparent 46%,#fff9 48%,#37ddec 48.7%,#fc36ba 49.4%,#fff 50%,transparent 51%);mix-blend-mode:screen}
+.original-arrival__controls{position:absolute;right:14px;top:14px;display:flex;gap:8px;z-index:4}
+.original-arrival__controls button,.arrival-replay{min-height:44px;padding:10px 16px;border:1px solid #a2efe8;background:#211047;color:#dafcf8;font:600 14px Jost,sans-serif;border-radius:999px;cursor:pointer}
+.original-arrival__controls button:focus-visible,.arrival-replay:focus-visible{outline:3px solid #ffdc46;outline-offset:4px}
+.arrival-replay{position:relative;display:inline-flex;margin-top:12px}.arrival-replay[hidden]{display:inline-flex;visibility:hidden;pointer-events:none}
+
+@media(prefers-reduced-motion:reduce){.original-arrival,.arrival-replay{display:none!important}}
+/* Blend only the footage's outer background edge into its original companion plate. */
+.original-arrival__screen{mask-image:linear-gradient(to bottom,transparent,#000 5%,#000 95%,transparent)}
+@media(max-width:560px){.original-arrival__screen{mask-image:linear-gradient(to bottom,transparent,#000 30%,#000 72%,transparent)}}
+.original-arrival::before{content:"";position:absolute;inset:0;z-index:-1;background:#270777 url('./background.png?v=base-1') center/cover;transform:translate(var(--plate-x,0%),var(--plate-y,0px)) scale(var(--plate-scale,1));will-change:transform}

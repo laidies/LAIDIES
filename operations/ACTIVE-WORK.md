@@ -1,11 +1,12 @@
 # Active work
 
-## 2026-09-06 Homepage Ai arrival — private candidate
+## 2026-09-06 Homepage Ai arrival — original-footage repair
 
-- **Status:** IMPLEMENTED AND LOCALLY VERIFIED; owner-authorized private presentation ADMITTED. Isolated branch `codex/homepage-ai-reveal-20260906`, parent b5999d7b. Other active lanes below are preserved.
-- **Result:** 6.2-second dial-up / VHS / LAiDIES / centred Ai with original six i-dot icons / LAiDIES / VHS / masthead. Existing session behavior, static fallback and manual controls retained.
-- **Evidence:** `operations/product-stewards/town-entry-homepage/candidates/ai-reveal-20260906/`. Real browser checks at 1440/390/320, negative-calibrated geometry/control guard, actual Sol and Claude Opus5 pixel reviews admit owner preview. Review found mobile Replay overlap; repaired and successor accepted. Final replay focus/scroll repair has real-click evidence.
-- **Presentation:** Ali approved this exact two-reviewer exception and routine preview autonomy. The real admission gate passes; wrong candidate SHA is rejected. Show local browser preview; no hosted candidate deployment or public release. Fine temporal smoothness is not established by the sampled recording.
+- **Status:** IMPLEMENTED AND LOCALLY VERIFIED; private preview ADMITTED under owner routine-preview autonomy. Branch `codex/homepage-ai-reveal-20260906`.
+- **Owner rejection:** Native-text pilot invalidated: wrong lettering/backgrounds, boring icon crossfades, unwanted slogan. Exact bytes quarantined; prior verdicts invalidated. Ali directed continued repair, not acknowledgment-only stops.
+- **Repair:** Reuses byte-identical original brush-lettered v10 video and original icon motion. Eased camera toward original Ai, then returns full word; dial-up and VHS bookends. No slogan. Phone seam repaired and companion plate synchronized.
+- **Evidence:** `operations/product-stewards/town-entry-homepage/candidates/ai-original-repair-20260906/`. Original-pixel comparison, independent Sol blind failure calibration, actual Sol/Claude successor admission, desktop/390/320 checks, uninterrupted clip completion, pause/resume, static reduced-motion fallback, both tracking frames. New guard rejects replacement footage and slogan. Fine temporal smoothness is not independently judged by still reviewers; browser dropped-frame API unavailable.
+- **Boundary:** Private owner preview only; no public deployment. Do not infer Ali visual approval. Current browser preview runs localhost8789.
 
 ## 2026-09-05 NewsStand source-to-reader continuation
 

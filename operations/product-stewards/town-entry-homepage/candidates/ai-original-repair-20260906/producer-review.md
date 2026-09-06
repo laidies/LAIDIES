@@ -1,0 +1,7 @@
+# Producer inspection — original-footage repair
+
+Original v10 video reused byte-for-byte (05a52c003ecf0b0caad7dcdb9c056da3b77dd9ee27d9dc67ee0aa7eaf2c1ffa3). No raster image editing, footage regeneration, new wordmark, recolouring, or sprite crossfade. Camera push max1.55, focal position .365/.465, then exact native scale. Original icon motion retained. Original companion comic plate extends the phone frame and follows the camera; peripheral blend leaves central brush word and underline opaque. Dial-up graphic text is limited to connection states; no brand explanation.
+
+Maker inspected original and desktop/phone/narrow candidate pixels. First phone blend showed seams; retained in previous images, repaired with broader peripheral fade and synchronized plate. Independent Sol admits final images. Full actual browser sequence trace records all six phases and original clip ending at4.666667s, then masthead. Pause freezes the video; resume completes. No horizontal overflow or unwanted slogan. Browser playback-quality API unavailable, so no dropped-frame or fine temporal smoothness claim. New VHS start/end frames directly inspected. Public site untouched.
+
+Final bounded correction requested by Claude: dial fade completes at1.08s, before video appears at1.10s; removes status ghost-text overlap. This changes only the first bookend opacity timing, with no change to video, camera, phone blend or wordmark.

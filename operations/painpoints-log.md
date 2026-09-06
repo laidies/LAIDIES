@@ -1,5 +1,12 @@
 # LAiDIES build learning ledger
 
+## Original-animation fidelity failure and recovery — 2026-09-06
+
+- **Failure:** Native Jost reconstruction replaced approved brush lettering and dimmed original rich backgrounds; basic sprite fades replaced original icon choreography. Both reviewers admitted an inferior substitute. Owner rejected it and the unrequested slogan. Foreground then repeatedly acknowledged instead of repairing.
+- **Prevention:** Original footage/pixels are the baseline for choreography changes. Preserve identity by exact master reuse, reject new typography or explanatory copy, compare incumbent and candidate before receipts. Revised Sol reviewer rejected the old artifact unaided; exact owner rejection is quarantined. Continue authorized repair after feedback instead of ending with promises.
+- **Recovery:** Byte-identical master plus eased camera; no new raster reconstruction. Actual phone seam review caught mismatched background scale; broad peripheral blend and synchronized plate repaired it. Actual Sol/Claude successor admits private preview; no public release or owner visual approval claimed.
+- **Possible public angle:** A general lesson about preserving what already works when changing one aspect of a design. Keep internal reviewer wiring private.
+
 ## Homepage Ai arrival — completed-state control regression
 
 - **Date:** 2026-09-06

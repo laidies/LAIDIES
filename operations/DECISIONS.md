@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Ai pilot rejected; preserve original animation
+
+Ali rejected the native-text pilot: lettering/backgrounds plain and unrelated, icon crossfades boring, and brand-explanation slogan unwanted. Preserve original brush lettering, vivid comic backgrounds and energetic original icon motion. Ai emphasis must be motion only. Original admitted v10 video is the baseline, not the Jost web masthead. The previous pilot review verdicts are invalidated; exact rejection and prevention live in ai-original-repair-20260906/owner-rejection.md. Continue repair autonomously under routine preview authority. Original-footage successor is privately reviewable after actual Sol/Claude successor admission; bind its exact source, original master hash and corrected phone evidence. This is not visual approval or public release.
+
 ## 2026-09-06 — Ai arrival preview exception approved; routine preview autonomy
 
 Ali answered yes to applying the two-reviewer exception to this exact animation, then instructed: “no need to ask me for persmission on these things” and “just do your thing”. Apply routine private-preview review exceptions without asking again; do the actual review, preserve exact evidence and present the result. This does not authorize public release or infer approval of visual taste. This candidate is bound by the six source hashes and actual Sol/Claude reviews in its admission manifest.
