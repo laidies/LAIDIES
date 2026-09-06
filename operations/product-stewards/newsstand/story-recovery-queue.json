@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-06T00:17:37.583474Z",
+  "updatedAt": "2026-09-06T00:26:54.799Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -43,8 +43,8 @@
       "producerPrincipal": "/root",
       "sourceIdentitySha256": "41dc0fc5b426b2166aff8cab13296fc5593d4811244901350a5107bdb90b886b",
       "artifactSha256": "7fb3e264ef50bd166edd4b461cb4f88b0edd5b0a88f276e80dce47c1864bcad4",
-      "status": "READY_FOR_ADMISSION",
-      "active": true,
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
       "consequencePriority": 3,
       "firstSeenAt": "2026-09-05T20:07:54.752Z",
       "lastReviewedAt": "2026-09-05T23:14:50.530Z",
@@ -59,7 +59,7 @@
         }
       ],
       "unresolvedDefects": [],
-      "nextAction": "ADMIT_EXACT_ISSUE_AND_VERIFY_PUBLICATION",
+      "nextAction": "MONITOR_CORRECTIONS",
       "terminalDisposition": null,
       "reviewHistory": "operations/product-stewards/newsstand/candidates/openai-wiki-message-board-2026-09-05/review-status.json",
       "metrics": "operations/product-stewards/newsstand/candidates/openai-wiki-message-board-2026-09-05/producer-repair/review-metrics.json",
@@ -68,6 +68,21 @@
         "approvedOn": "2026-09-05",
         "policy": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
         "decision": "Actual review counts retained as improvement metrics; every current substantive check must pass."
+      },
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "c8353edf-a94c-417f-af8a-2e634e6f0375",
+        "sourceCommit": "c197eb5b4dccd8ba58328d92f720adb27c080b28",
+        "immutableUrl": "https://c8353edf.laidies-sunnyvaile.pages.dev/newsstand#openai-wiki-message-board-2026-09-05",
+        "customUrl": "https://laidies.ai/newsstand#openai-wiki-message-board-2026-09-05",
+        "artifactIdentitySha256": "f2c96fd62bac08bf5bc8e6db6f2fcb1e4e920eec31adbbe2e281894dfebc8ceb",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-06T00:26:54.799Z",
+        "publicByteChecks": 28,
+        "browserChecksPerOrigin": 53,
+        "actualArticleJourneys": 4,
+        "providerConfigurationUnchanged": true
       }
     }
   ]

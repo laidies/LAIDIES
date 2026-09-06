@@ -1,13 +1,13 @@
 {
-  "status": "READY_FOR_ISSUE_ADMISSION",
-  "asOf": "2026-09-06T00:17:37.583474Z",
+  "status": "PUBLISHED_VERIFIED",
+  "asOf": "2026-09-06T00:26:54.799Z",
   "owner": "NewsStand editorial owner /root",
   "candidateId": "openai-wiki-message-board-2026-09-05",
   "reviewTextSha256": "7fb3e264ef50bd166edd4b461cb4f88b0edd5b0a88f276e80dce47c1864bcad4",
-  "publiclyPublished": false,
+  "publiclyPublished": true,
   "independentAdmissionReceiptCreated": true,
   "confirmedArticleDefects": [],
-  "qualification": "Exact repaired article independently passes reader and factual assessment. Full article admission succeeds under Ali-approved metrics policy; issue/publication still required.",
+  "qualification": "Exact repaired prose and facts independently admitted; exact September 5 issue independently admitted, committed, deployed and verified at immutable/custom origins.",
   "currentFailure": null,
   "attempts": [
     {
@@ -76,9 +76,24 @@
       "fullAdmission": "HOLD on existing count rule, mechanically confirmed in admission-attempt-5"
     }
   ],
-  "nextAction": "ADMIT_EXACT_ISSUE_AND_VERIFY_PUBLICATION",
+  "nextAction": "MONITOR_CORRECTIONS",
   "resumeFreshness": "Recheck source developments and actual publication date. If edition date changes, rebuild and bind the affected candidate metadata/review text honestly rather than backdate it. Reacquire public predecessor proof after its validity window or any new production head.",
   "reserve": "Six currently admitted public columns can carry forward with original dates under the valid predecessor proof; private service bank still has zero newly ready items.",
   "boundary": "Drafting prevention and history implementation tested; actual independent reader and facts passed. Full article admission, services, Weekly and public release remain incomplete.",
-  "sourceEvidence": "Current producer-repair/editorial-input.json includes 12 claims and complete relevant passages, including independently restored separate-group and Nevada excerpts. Earlier source packets remain preserved."
+  "sourceEvidence": "Current producer-repair/editorial-input.json includes 12 claims and complete relevant passages, including independently restored separate-group and Nevada excerpts. Earlier source packets remain preserved.",
+  "publication": {
+    "schema": "laidies.newsstand-publication-verification.v1",
+    "deploymentId": "c8353edf-a94c-417f-af8a-2e634e6f0375",
+    "sourceCommit": "c197eb5b4dccd8ba58328d92f720adb27c080b28",
+    "immutableUrl": "https://c8353edf.laidies-sunnyvaile.pages.dev/newsstand#openai-wiki-message-board-2026-09-05",
+    "customUrl": "https://laidies.ai/newsstand#openai-wiki-message-board-2026-09-05",
+    "artifactIdentitySha256": "f2c96fd62bac08bf5bc8e6db6f2fcb1e4e920eec31adbbe2e281894dfebc8ceb",
+    "customAndImmutableMatch": true,
+    "readerJourneyPassed": true,
+    "verifiedAt": "2026-09-06T00:26:54.799Z",
+    "publicByteChecks": 28,
+    "browserChecksPerOrigin": 53,
+    "actualArticleJourneys": 4,
+    "providerConfigurationUnchanged": true
+  }
 }
