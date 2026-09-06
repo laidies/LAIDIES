@@ -1,0 +1,72 @@
+{
+  "task": "WRK-20260906-operating-continuation",
+  "outcome": "Manual cloud continuation reconciled; scheduled execution and native hook loading remain outstanding.",
+  "artifact": {
+    "path": "operations/runtime/operating-continuation-20260906/manual-result.md",
+    "sha256": "807ff8a23ad8c5dad5a7b895c6c06b4fbbe6928db6ffa4e246e75e5019314cb4"
+  },
+  "brief": {
+    "path": "operations/runtime/operating-continuation-20260906/brief.md",
+    "sha256": "a65444592d1343d4666521276db24d55ad346974dced3657e508815d499bbe38"
+  },
+  "inputs": [
+    {
+      "path": "scripts/project-work-events.mjs",
+      "sha256": "b095e8118a21d091409f69de886a9d29dad831066ddb290a2c006f563a1f20ef"
+    },
+    {
+      "path": ".codex/hooks/session_start.py",
+      "sha256": "38534ff39ee4b9b8d65771941501edb319ef1f970993630b090e1a29f45c3563"
+    },
+    {
+      "path": ".codex/hooks/stop_operational_integrity.py",
+      "sha256": "a226b7f020771eea078efc6d259733f8d0574997b53b3a4b34ff880b84f68538"
+    }
+  ],
+  "forbidden": [
+    "inbox redesign",
+    "Homepage takeover",
+    "new task store",
+    "duplicate schedule",
+    "PR95 activation",
+    "claiming automatic operation from fixture tests"
+  ],
+  "accept": [
+    "Reject substituted brief or acceptance milestone and unfinished bound Stop; allow documented external waiting.",
+    "Recover existing Cloud maintenance scope and accepted decision; reconcile current qualifying PR result.",
+    "Observe scheduled execution separately; keep native hook loading, Mac-off and phone evidence explicit."
+  ],
+  "run": [
+    "node scripts/test-project-work-events.mjs",
+    "node scripts/test-codex-hook-guards.mjs"
+  ],
+  "return": {
+    "status": "IN_PROGRESS_WITH_EXTERNAL_DEPENDENCY"
+  },
+  "budget": {
+    "in": 0,
+    "out": 0,
+    "wall": 0
+  },
+  "evidence_time": "2026-09-06T05:09:03.322868+00:00",
+  "locks": [],
+  "acceptance_owner": "operating-recovery-owner",
+  "next_trigger": "Existing Cloud maintenance scheduled execution on 2026-09-06 at 09:00 America/Vancouver; parent reconciles actual result and native hook loading separately.",
+  "authority_truth": {
+    "public": false,
+    "deploy": false,
+    "spend": false,
+    "ali_approval": false
+  },
+  "worktree_truth": {
+    "state": "COMMITTED",
+    "commit": "eff35570111af61907bee215aef65f54ce3d2003",
+    "paths": [
+      "operations/runtime/operating-continuation-20260906/manual-result.md",
+      "operations/runtime/operating-continuation-20260906/brief.md",
+      "scripts/project-work-events.mjs",
+      ".codex/hooks/session_start.py",
+      ".codex/hooks/stop_operational_integrity.py"
+    ]
+  }
+}

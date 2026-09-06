@@ -109,6 +109,53 @@ try {
   const held = makeHandoff('held', { return: { status: 'HOLD' } });
   fail([admitted, started, event('E3', 'EVIDENCE_RECORDED', { handoff: held, worktree_truth: truth }), waiting, event('E5', 'WORK_STARTED', { resume_from: 'E3' }), resolved], 'cannot resolve a HOLD checkpoint');
 
+  const scopedAdmission = { ...admitted, payload: { ...admitted.payload, recovery_scope: { session_id: 'session-recovery', brief: binding('brief.md'), accept: ['same bytes'] } } };
+  const scopedWait = { ...waiting, payload: { status: 'WAITING_EXTERNAL', owner: 'existing-cloud-job', reason: 'scheduled run not due', next_trigger: 'independent review', checkpoint_event_id: 'E3' } };
+  const scopedGood = [scopedAdmission, started, checkpoint];
+  assert.equal(run([...scopedGood, scopedWait, resumed, resolved]).status, 0);
+  fail([...scopedGood, waiting], 'bound waiting requires');
+  const narrowed = makeHandoff('subsidiary-inbox', { accept: ['private inbox deployed'] });
+  fail([scopedAdmission, started, { ...checkpoint, payload: { handoff: narrowed, worktree_truth: truth } }], 'changes admitted brief or acceptance');
+  const rebriefed = makeHandoff('substituted-brief', { brief: binding('input.md') });
+  fail([scopedAdmission, started, { ...checkpoint, payload: { handoff: rebriefed, worktree_truth: truth } }], 'changes admitted brief or acceptance');
+  fail([...scopedGood, { ...admitted, event_id: 'E4', at: waiting.at, work_id: 'OTHER', payload: scopedAdmission.payload }], 'already has an unfinished governing task');
+  fail([...scopedGood, { ...waiting, type: 'WORK_STOPPED', actor: 'judge', payload: {} }], 'bound stop requires');
+  fail([...scopedGood, { ...scopedWait, payload: { ...scopedWait.payload, checkpoint_event_id: 'old' } }], 'latest checkpoint');
+  fail([...scopedGood, { ...scopedWait, payload: { ...scopedWait.payload, next_trigger: 'unrelated inbox' } }], 'exact next_trigger');
+  fail([...scopedGood, { ...waiting, type: 'WORK_STOPPED', payload: { reason: 'switch', next_trigger: 'inbox' } }], 'acceptance_owner');
+  const packet = JSON.parse(run([...scopedGood, scopedWait], {}, ['--session', 'session-recovery']).stdout);
+  assert.equal(packet.stop_allowed, true); assert.equal(packet.objective, 'Recover'); assert.equal(packet.checkpoint, 'E3');
+  assert.deepEqual(packet.scope.accept, ['same bytes']);
+  assert.equal(JSON.parse(run(scopedGood, {}, ['--session', 'session-recovery']).stdout).stop_allowed, false);
+  assert.equal(JSON.parse(run(scopedGood, {}, ['--session', 'unrelated']).stdout).bound, false);
+  // Exercise the real Stop hook with a fresh projection: consistency alone used to allow this.
+  const hook = '.codex/hooks/stop_operational_integrity.py';
+  write(hook, fs.readFileSync(path.join(sourceRoot, hook)));
+  const stop = (events, session = 'session-recovery', extraPayload = {}) => {
+    const projection = run(events); assert.equal(projection.status, 0, projection.stderr);
+    write('operations/runtime/work-current-projection.json', projection.stdout);
+    return JSON.parse(spawnSync('/usr/bin/python3', [path.join(repo, hook)], { cwd: os.tmpdir(), input: JSON.stringify({ session_id: session, stop_hook_active: false, ...extraPayload }), encoding: 'utf8', env: { ...process.env, LAIDIES_WORK_EVENTS_PATH: eventsFile } }).stdout);
+  };
+  assert.equal(stop(scopedGood).decision, 'block', 'fresh ledger cannot hide unfinished governing task');
+  assert.equal(stop([...scopedGood, scopedWait]).continue, true, 'explicit external wait may yield');
+  assert.equal(stop([...scopedGood, scopedWait, resumed]).decision, 'block', 'resumption restores continuation duty');
+  assert.equal(stop([...scopedGood, scopedWait, resumed, resolved]).continue, true);
+  assert.equal(stop(scopedGood, 'unrelated').continue, true, 'unrelated session must not be trapped');
+  assert.equal(stop(scopedGood, 'session-recovery', { stop_hook_active: true }).continue, true, 'one reminder must not become an infinite loop');
+  // Native SessionStart payload, actual Python entrypoint, isolated source bindings.
+  const startHook = '.codex/hooks/session_start.py';
+  write(startHook, fs.readFileSync(path.join(sourceRoot, startHook)));
+  const cardSources = { decisions: 'operations/DECISIONS.md', lessons: 'operations/LESSONS-ACTIVE.md', canon: 'operations/voice/laidies-canon-index.md', agreement: 'operations/CODEX-WORKING-AGREEMENT.md' };
+  let card = '# Test standing card\n';
+  for (const [label, relative] of Object.entries(cardSources)) { write(relative, label); card += `${label}-sha256: ${binding(relative).sha256}\n`; }
+  write('operations/runtime/STANDING-CARD.md', card);
+  const startSession = payload => spawnSync('/usr/bin/python3', [path.join(repo, startHook)], { cwd: os.tmpdir(), input: JSON.stringify(payload), encoding: 'utf8', env: { ...process.env, LAIDIES_WORK_EVENTS_PATH: eventsFile, LAIDIES_CLAIMED_LANE: 'test' } });
+  run([...scopedGood, scopedWait]);
+  const injected = startSession({ session_id: 'session-recovery' });
+  assert.equal(injected.status, 0, injected.stderr); assert.match(injected.stdout, /GOVERNING TASK/); assert.match(injected.stdout, /same bytes/);
+  assert.notEqual(startSession({ session_id: {} }).status, 0);
+  console.log('GOVERNING TASK CALIBRATION PASS narrowed-objective=blocked changed-brief=blocked duplicate-lane=blocked unfinished-stop=blocked external-wait=allowed resume=blocked exact-resolution=allowed unrelated-session=allowed');
+
   fs.writeFileSync(eventsFile, `${[admitted, started, checkpoint, waiting].map(item => JSON.stringify(item)).join('\n')}\n`);
   const resume = spawnSync(process.execPath, [checker, '--resume', 'WRK-RECOVERY'], { cwd: repo, encoding: 'utf8', env: { ...process.env, LAIDIES_WORK_EVENTS_PATH: eventsFile } });
   assert.equal(resume.status, 0, resume.stderr); assert.match(resume.stdout, /"resume_from": "E3"/);

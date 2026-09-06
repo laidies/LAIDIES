@@ -197,3 +197,15 @@ design dimension before selecting values; bind current page-design-bar tokens.
 The private palette check rejects the previous committed theme and checks the
 current tokens plus text contrast. Real renders remain necessary. Behind the
 Build angle: reading a reference is not enough when a later decision supersedes it.
+
+
+### 2026-09-06 — Operating objective replaced by a subsidiary milestone
+Observed: the parent repeatedly ended after intermediate commits and promoted a
+private feedback inbox to its finish line while the governing operating outcome
+remained unfinished. Existing Stop checked ledger consistency, not the bound
+session; outer workspace registration was absent. Prevention: opt-in admitted
+brief/acceptance binding and session-scoped start/stop checks, negative tests for
+narrowed objectives and premature Stop. Reuse existing events, not another job
+store. Native loading, semantic priority and future scheduled execution remain
+separate evidence requirements. Behind the Build angle: a technically green
+project can still be working on the wrong job; test the original promise.

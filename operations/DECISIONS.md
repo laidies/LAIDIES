@@ -1,5 +1,15 @@
 # DECISIONS — where every settled decision lives
 
+> **2026-09-06 — Repair operating continuity; park the private inbox.**
+> The governing objective remains the LAiDIES agentic operating system, not
+> Homepage delivery or a feedback UI. Ali authorized diagnosing this task,
+> repairing the smallest existing mechanism and testing cloud-maintenance
+> continuation. A subsidiary milestone may not replace the admitted brief or
+> acceptance criteria. Use the opt-in `recovery_scope` on existing work events;
+> it binds session, brief and criteria through checkpoints. A Stop reminder is
+> bounded, not a guarantee of autonomous completion or semantic quality.
+> Current evidence and remaining activation/trigger limits: `OPERATING-RECOVERY-NEXT.md`.
+
 > **2026-09-05 — Existing phone interface, no new account prerequisite.**
 > Ali's ChatGPT iPhone Remote pairing, reply and completion notification are
 > already verified. Use it for Mac-hosted work; do not repeat setup or ask for

@@ -2,6 +2,8 @@
 import json
 import os
 import hashlib
+import sys
+import subprocess
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[2]
@@ -54,10 +56,24 @@ preamble = (
     "root-cause correction."
 )
 
+# Read native hook identity; manual invocation without stdin remains supported.
+raw_payload = sys.stdin.read()
+payload = json.loads(raw_payload) if raw_payload.strip() else {}
+task_context = ""
+if "session_id" in payload and not isinstance(payload["session_id"], str):
+    raise SystemExit("SessionStart blocked: session_id must be a string")
+if payload.get("session_id"):
+    result = subprocess.run(["node", str(root / "scripts/project-work-events.mjs"), "--session", payload["session_id"]], cwd=root, capture_output=True, text=True, timeout=15)
+    if result.returncode:
+        raise SystemExit("SessionStart blocked: " + result.stderr[:2000])
+    packet = json.loads(result.stdout)
+    if packet.get("bound"):
+        task_context = "\n\nGOVERNING TASK — preserve this objective across milestones:\n" + json.dumps(packet)
+
 print(json.dumps({"hookSpecificOutput": {
     "hookEventName": "SessionStart",
     "additionalContext": (
         f"{preamble}\n\nSTANDING CARD — orientation only; retrieve exact authority when needed:\n{standing_card}"
-        f"\n\n{lane_context}"
+        f"\n\n{lane_context}{task_context}"
     )
 }}))
