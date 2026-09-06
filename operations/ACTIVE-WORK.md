@@ -1259,3 +1259,7 @@ objective; every open lane keeps its own checkpoint.
 
 ## 2026-09-06 — Episode editorial review resumed (isolated branch)
 REVIEW IN PROGRESS: Ali restored trailer/Episodes 1–4 written-and-narration review, then Season 1 mapping. First-pass findings and next action: operations/episode-review-resume-2026-09-06.md. No rewritten episodes, generated narration, approved future map or deployment. This entry preserves this lane; existing owners and work remain active.
+
+
+### 2026-09-06 — Trailer scope correction
+Ali requires promised but broken experiences to become operational, not be removed. Next review inventories promises against live behavior and routes gaps to repair owners and end-to-end acceptance conditions. The prior suggestion to shorten/move orientation is not approved. Editorial review and operational gap tracking remain open; no feature is claimed fixed by this record.

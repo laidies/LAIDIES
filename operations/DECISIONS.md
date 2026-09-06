@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Trailer promises define functionality to deliver
+
+LOCKED — Ali: “anything that is broken that we mention in the trailer though the goal is to actually get operational and not remove.” During trailer/episode review, identify each promised experience, verify its real behavior and route any gap to operational completion. A broken or unavailable feature is repair scope, not an editorial reason to remove its promise. Preserve the intended experience unless Ali explicitly changes it. Factual corrections and clarity edits remain appropriate; shortening the trailer or moving orientation elsewhere is not approved by this ruling. Future release claims still require actual end-to-end verification; this decision is not evidence a feature already works. Review checkpoint: `episode-review-resume-2026-09-06.md`.
+
 ## 2026-09-05 — Homepage feedback supersedes 3d473188
 
 Ali rejected the six narrow intent destinations because they concealed the breadth of each need. The primary discovery section must expose the full four categories and all26 direct links; remove the duplicate six-card detour. Preserve the original masthead actions; an additional Find what I need button is permitted. KSVL99.9 needs a full-width pill explaining it is SUNNYVAiLE's radio station.
