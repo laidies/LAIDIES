@@ -15876,3 +15876,5 @@ A separator dot did not communicate which text was the band. Label Song and Band
 
 ## 2026-09-06 — Persistent player space budget
 Earlier visual review missed the governing cross-page cost: a large, readable player still obscures too much of the host page. Ali prioritized transport and volume over metadata. New compact preview checks actual narrow-phone height and another content page; title is bounded and smaller. Prevention: review persistent components against host-page reading space, not only in isolation. Behind the Build: controls earn space; metadata adapts.
+
+2026-09-06 player follow-up: compactness must preserve accepted decorative identity. Do not propagate phone disclosure onto desktop where controls fit; verify the actual breakpoint result.

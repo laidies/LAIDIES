@@ -389,6 +389,11 @@
     + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-sound .ksvl-np-slider-field { width:80px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-volume { width:100%; }'
     + '@media(max-width:620px) { .ksvl-now-playing:not(.is-expanded) { flex-wrap:wrap; gap:0; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:1 1 100%; display:flex; align-items:center; gap:10px; padding:2px 6px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-track { flex:1; min-width:0; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-position { max-width:40%; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { flex:1 1 100%; justify-content:center; gap:4px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-sound > .ksvl-np-btn { display:none; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-sound .ksvl-np-slider-field { width:65px; } .ksvl-now-playing.is-expanded .ksvl-np-sound { grid-column:1 / -1; justify-content:center; } }';
 
+  // Preserve the illustrated identity; only phones need disclosure.
+  STYLE += '.ksvl-now-playing:not(.is-expanded) { background:#c195e9 url("/assets/homepage/rewind-wallpaper-20260906.webp") repeat center /380px 380px; border-top:3px solid #492878; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-info { background:#7de2c2; border-radius:7px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { background:#b7e42b; border-radius:7px; }'
+    + '@media(min-width:621px) { .ksvl-now-playing { flex-wrap:nowrap; align-items:stretch; } .ksvl-np-more { display:none!important; } .ksvl-now-playing .ksvl-np-extras { display:flex; flex-wrap:wrap; justify-content:center; gap:6px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:0 1 220px; display:flex; flex-direction:column; justify-content:center; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { flex:0 1 auto; flex-wrap:wrap; justify-content:center; padding:4px 8px; gap:8px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-up-next { display:block; font-size:10px; margin-top:3px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-progress-field { display:flex; width:150px!important; } }';
+
   function updateTitleOverflow() {
     if (!npTrack || !npTrack.firstElementChild) return;
     var overflow = npTrack.firstElementChild.scrollWidth - npTrack.clientWidth;

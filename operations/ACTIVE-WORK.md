@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Desktop full controls / restored artwork: LOCAL PREVIEW.** Above620px, all controls and Up next show with no Expand button. Rewind casing and mint/lime panels restored following owner rejection of flat mint. Actual1074px desktop83px high and390px phone96px high; no overflow. Phone Expand/Collapse verified. No deployment.
+
 > **2026-09-06 — Compact control-first player: LOCAL PREVIEW.** Revised after Ali rejected oversized title area. Unified strip, smaller bounded title, Back/Play/Next/Volume visible on phone; Expand reveals secondary controls and full metadata. Actual Radio/NewsStand preview checked at320/390/1280. Phone320 height98px, desktop1280 height81px; no overflow. Volume keyboard, expansion, Stop & close and NewsStand song restart checked. Not published; all-page deployment audit not performed.
 
 > **2026-09-06 — Attribution labels: VERIFIED LOCAL.** Dot replaced by explicit Song and Band labels, both visible on phones; DJ intro uses Now and Host. Browser reads Song: Welcome to SUNNYVAiLE / Band: THE LAiDIES. Dolly Parton is part of a saint-song title; catalogue band is Grand Ol' Query, not Dolly. No publishing. Slim default player remains outstanding; current wallpaper size is not accepted.
