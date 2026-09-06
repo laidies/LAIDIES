@@ -36,14 +36,27 @@ export function inspectHomepageCorrection(item, root) {
       let expected = parent.replace(/    <section class="hero hero-dusk"[\s\S]*?<\/section>/, hero.trimEnd());
       for (const line of r.removedStyleLines) expected = expected.replace(line + '\n', '');
       expected = expected.replace(r.mobileStyleBefore, r.mobileStyleAfter);
-      const restoredSha = 'eedeb4b4e8308e6d21a5a428db73c97079589f484461dc01e9348e2571819b47';
+      let restoredSha = 'eedeb4b4e8308e6d21a5a428db73c97079589f484461dc01e9348e2571819b47';
+      if (a.owner_directory_restoration === 'VISIBLE_FOUR_CATEGORIES') {
+        const d = json('category-restoration/restoration.json');
+        assert(d.parentSha256 === restoredSha && d.kind === 'OWNER_REQUESTED_VISIBLE_DIRECTORY_RESTORATION', 'wrong directory restoration parent');
+        expected = expected.replace('<details class="feature-directory-browse"><summary id="feature-directory-title">Looking for a particular place? Browse every game, tool and building.</summary>', d.originalHeader);
+        expected = expected.replace(/(<section class="feature-directory"[\s\S]*?)      <\/details>\n/, '$1');
+        for (const line of d.removedStyleLines) expected = expected.replace(line + '\n', '');
+        expected = expected.replace('.makeover-notice summary:focus-visible,.feature-directory-browse summary:focus-visible{', '.makeover-notice summary:focus-visible{');
+        expected = expected.replace('@media(max-width:560px){.feature-directory{margin-left:20px;margin-right:20px;padding:0 20px}.makeover-notice summary{font-size:.94rem}}', '@media(max-width:560px){.makeover-notice summary{font-size:.94rem}}');
+        restoredSha = 'abbd5ec8403fe2eeee7d8a6d60592ea8ab89b73fa9a151751aac5c3d53dd619a';
+        const c = json('category-restoration/checks.json');
+        assert(c.status === 'PASS' && c.sourceSha256 === restoredSha, 'visible directory checks are missing or stale');
+        assert(bytes('operations/DECISIONS.md').toString().includes('Homepage four-category discovery remains visible'), 'directory owner ruling is not registered');
+      }
       assert(a.candidate?.path === 'index.html' && a.candidate.sha256 === restoredSha && digest('index.html') === restoredSha && bytes('index.html').toString() === expected, 'homepage bytes differ from the exact owner restoration');
       assert(a.runtime?.sha256 === jsSha && digest('content/site/homepage.js') === jsSha, 'runtime bytes differ');
       for (const b of a.evidence || []) assert(digest(b.path) === b.sha256, `stale evidence: ${b.path}`);
       assert(a.evidence?.some(b => b.path === homepageCorrectionPacket + 'claude-review-result.json'), 'missing bound evidence: claude');
       assert(a.production_release_approved === false, 'owner presentation does not authorize production');
       const checks = JSON.parse(bytes(p + 'checks.json'));
-      assert(checks.status === 'PASS' && checks.sourceSha256 === restoredSha, 'restored masthead checks are missing or stale');
+      assert(checks.status === 'PASS' && checks.sourceSha256 === 'eedeb4b4e8308e6d21a5a428db73c97079589f484461dc01e9348e2571819b47', 'restored masthead checks are missing or stale');
       assert(bytes('operations/DECISIONS.md').toString().includes('Homepage masthead: restore Ali’s preferred original buttons'), 'owner ruling is not registered');
       return errors;
     }

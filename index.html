@@ -1044,16 +1044,12 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
 .makeover-notice{display:block;padding:10px clamp(22px,7vw,112px)}
 .makeover-notice summary{min-height:44px;align-content:center;cursor:pointer;font-weight:700;font-size:1rem;line-height:1.35}
 .makeover-notice details p{max-width:80ch;padding:8px 0 12px}
-.makeover-notice summary:focus-visible,.feature-directory-browse summary:focus-visible{outline:3px solid var(--hp-ink);outline-offset:4px}
+.makeover-notice summary:focus-visible{outline:3px solid var(--hp-ink);outline-offset:4px}
 .intent-radio{grid-column:1/-1;margin:8px 0 0;font-size:1.1rem}
 .intent-radio a{display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:inherit;text-underline-offset:5px}
 .intent-grid-5 a img.intent-jeeves{object-fit:contain;background:var(--hp-midnight)}
-.feature-directory{padding:0 clamp(24px,4vw,52px);margin-top:0}
-.feature-directory-browse>summary{cursor:pointer;min-height:68px;align-content:center;padding:16px 0;font-weight:700;font-size:1.12rem;line-height:1.4}
-.feature-directory-browse[open]{padding-bottom:32px}
-.feature-directory-browse .feature-directory-groups{padding-top:10px}
 .helper-advice a{color:inherit;font-weight:700;text-underline-offset:4px}
-@media(max-width:560px){.feature-directory{margin-left:20px;margin-right:20px;padding:0 20px}.makeover-notice summary{font-size:.94rem}}
+@media(max-width:560px){.makeover-notice summary{font-size:.94rem}}
 
 /* Readable text keeps its established palette; narrow screens do not reserve
    a character-sized hole inside a navigation button. */
@@ -1137,7 +1133,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
     </section>
 
     <section class="feature-directory" aria-labelledby="feature-directory-title" data-feature-directory>
-      <details class="feature-directory-browse"><summary id="feature-directory-title">Looking for a particular place? Browse every game, tool and building.</summary>
+      <header class="feature-directory-head"><div><p class="eyebrow">Browse the whole town</p><h2 id="feature-directory-title">Everything you can do in LAiDIES.</h2></div><p>The six doors above get you started. This directory makes the rest visible, so you can discover something you did not arrive looking for.</p></header>
       <div class="feature-directory-groups">
         <article class="feature-group"><h3>Learn and understand.</h3><ul>
           <li><a href="/learn.html"><span class="feature-link-copy"><strong>Learning hub</strong><small>Find books, explainers, people and practical guidance.</small></span></a></li><li><a href="/library.html"><span class="feature-link-copy"><strong>Books and guides</strong><small>Browse the LAiDIES learning and reference collection.</small></span></a></li><li><a href="#reference"><span class="feature-link-copy"><strong>Ask Miss Jeeves</strong><small>Find answers to technical AI questions in LAiDIES resources.</small></span></a></li><li><a href="/newsstand.html"><span class="feature-link-copy"><strong>NewsStand</strong><small>Understand current AI headlines and why they matter.</small></span></a></li><li><a href="/luminairy.html"><span class="feature-link-copy"><strong>LUMINAiRY</strong><small>Meet the women who built computing and are shaping AI.</small></span></a></li><li><a href="/blend-snap.html"><span class="feature-link-copy"><strong>Blend &amp; Snap</strong><small>Find your episode&rsquo;s practice activities and field trips.</small></span></a></li><li><a href="/sunnyvaile-high.html"><span class="feature-link-copy"><strong>SUNNYVAiLE High</strong><small>Test what you learned with quizzes and activities.</small></span></a></li>
@@ -1152,7 +1148,6 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
           <li><a href="#town"><span class="feature-link-copy"><strong>Explore SUNNYVAiLE</strong><small>Open the map and visit every town building.</small></span></a></li><li><a href="/sorority-house.html"><span class="feature-link-copy"><strong>Delta LAi Nu</strong><small>Visit the community home, its rooms and Girl Talk.</small></span></a></li><li><a href="/games/girl-talk.html"><span class="feature-link-copy"><strong>Girl Talk</strong><small>Try the private honour-system truth-or-dare game.</small></span></a></li><li><a href="/maikeover.html"><span class="feature-link-copy"><strong>Make a Resident Card</strong><small>Create your town ID and begin your Resident experience.</small></span></a></li><li><a href="/laidies-card.html"><span class="feature-link-copy"><strong>Open your Closet</strong><small>See your Card, supported saves and keepsakes.</small></span></a></li><li><a href="/post-office.html"><span class="feature-link-copy"><strong>Post Office</strong><small>Request the weekly Postcard and discover town mail.</small></span></a></li><li><a href="/town-hall.html"><span class="feature-link-copy"><strong>Town Hall</strong><small>Meet Mayor Deb, read notices and share feedback.</small></span></a></li>
         </ul></article>
       </div>
-      </details>
     </section>
 
     <section class="town-switchboard-hero" aria-labelledby="town-switchboard-title" hidden>

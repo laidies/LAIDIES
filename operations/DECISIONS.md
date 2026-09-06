@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-05 — Homepage four-category discovery remains visible
+
+Ali explained that the four-category section exists because the site has many features which are otherwise hard to discover. Keep Learn and understand, Watch and listen, Use and have fun, and Belong and explore visibly expanded as the whole-town discovery section. Restore its original heading and visual treatment; do not hide it behind a disclosure or substitute only the six immediate-need links. Preserve all existing destinations and the current corrected descriptions. This is a preview correction, not whole-page or production approval.
+
 ## 2026-09-05 — Homepage masthead: restore Ali’s preferred original buttons
 
 Ali judged previewee897a4e visually almost unchanged and rejected its replacement masthead buttons: “I prefer the old ones.” Restore “Why women must shape AI” → #why and “How LAiDIES works” → #method with the original masthead placement and treatment. Preserve the other bounded navigation and copy repairs. This is a direct owner-requested restoration of the incumbent component, not approval of the whole homepage or a production release. Do not call the prior preview a material visual redesign or add another design/review program to reverse these buttons.
