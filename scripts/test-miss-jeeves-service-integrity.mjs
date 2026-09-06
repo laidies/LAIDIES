@@ -1,6 +1,20 @@
 import assert from 'node:assert/strict';
 import { pathToFileURL } from 'node:url';
 import path from 'node:path';
+import fs from 'node:fs';
+const pagesConfig = fs.readFileSync(new URL('../wrangler.toml', import.meta.url), 'utf8');
+// A working mock cannot prove that Pages will receive the required binding.
+function requireGuidanceBinding(config, section) {
+  const block = config.split(`[[${section}]]`)[1]?.split(/^\[/m)[0] || '';
+  assert.match(block, /^binding\s*=\s*"FAIRY_AI"\s*$/m, `${section}: required Pages service binding`);
+  assert.match(block, /^service\s*=\s*"laidies-fairy-godmother"\s*$/m, `${section}: preserve the shared production service`);
+}
+for (const section of ['services', 'env.production.services']) {
+  requireGuidanceBinding(pagesConfig, section);
+  const withoutSection = pagesConfig.replace(`[[${section}]]`, `[[missing.${section}]]`);
+  assert.throws(() => requireGuidanceBinding(withoutSection, section), /required Pages service binding/,
+    `${section}: calibration must reject the missing-binding regression`);
+}
 const workerPath = path.resolve(process.argv[2] || new URL('../_worker.js', import.meta.url).pathname);
 const { default: worker } = await import(pathToFileURL(workerPath));
 let legacyCalls = 0;
