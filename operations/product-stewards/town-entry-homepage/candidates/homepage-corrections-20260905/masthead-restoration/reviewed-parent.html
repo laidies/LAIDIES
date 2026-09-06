@@ -1045,6 +1045,9 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
 .makeover-notice summary{min-height:44px;align-content:center;cursor:pointer;font-weight:700;font-size:1rem;line-height:1.35}
 .makeover-notice details p{max-width:80ch;padding:8px 0 12px}
 .makeover-notice summary:focus-visible,.feature-directory-browse summary:focus-visible{outline:3px solid var(--hp-ink);outline-offset:4px}
+.hero-dusk .hero-copy .hero-jumps{position:static;left:auto;bottom:auto;width:100%;max-width:720px;margin:22px 0;padding:0;grid-template-columns:repeat(2,minmax(0,1fr))}
+.hero-about{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:14px}
+.hero-about a{display:inline-flex;align-items:center;min-height:44px;color:#fffdfb;font-weight:600;text-underline-offset:5px}
 .intent-radio{grid-column:1/-1;margin:8px 0 0;font-size:1.1rem}
 .intent-radio a{display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:inherit;text-underline-offset:5px}
 .intent-grid-5 a img.intent-jeeves{object-fit:contain;background:var(--hp-midnight)}
@@ -1053,7 +1056,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
 .feature-directory-browse[open]{padding-bottom:32px}
 .feature-directory-browse .feature-directory-groups{padding-top:10px}
 .helper-advice a{color:inherit;font-weight:700;text-underline-offset:4px}
-@media(max-width:560px){.feature-directory{margin-left:20px;margin-right:20px;padding:0 20px}.makeover-notice summary{font-size:.94rem}}
+@media(max-width:560px){.hero-dusk .hero-copy .hero-jumps{grid-template-columns:1fr;margin:20px 0}.feature-directory{margin-left:20px;margin-right:20px;padding:0 20px}.hero-about{gap:0 18px}.makeover-notice summary{font-size:.94rem}}
 
 /* Readable text keeps its established palette; narrow screens do not reserve
    a character-sized hole inside a navigation button. */
@@ -1114,13 +1117,15 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
       <div class="hero-copy">
         <p class="term-kicker"><span class="tk-pink">&gt; L<span class="ai">Ai</span>DIES ONLINE</span> <span class="tk-dot">&nbsp;·&nbsp;</span> <span class="tk-coral">CONNECTED TO THE REWIND ERA</span><span class="cursor">_</span></p>
         <h1 id="hero-title">AI fluency, taught through the pop culture you <em>never forgot.</em> <span class="hero-tagline">Made to click. Built to stick.</span></h1>
+        <div class="actions hero-jumps" role="group" aria-label="Choose where to start">
+          <a class="button mast-why" href="/issues/issue-01.html">Start with Episode 1 &rarr;</a>
+          <a class="button mast-how" href="#today">Find what I need</a>
+        </div>
         <p class="lede">LAiDIES helps women understand and use AI through stories, practical tools, games, music and community. Welcome to the <strong class="rewind-accent">Rewind Era</strong>—twenty years of pop culture, from dial-up to downloads (1990–2010)—and to <span class="town-accent">SUNNYVAiLE</span>, the learning town where <strong class="power-accent">Girl Power meets Machine Power</strong>.</p>
         <p class="namecheck"><strong>Be kind, rewind.</strong> Put the pop-culture encyclopedia in your head to work on what comes next.</p>
+        <div class="hero-about"><a href="#why">Why women must shape AI</a><a href="#method">How LAiDIES works</a></div>
         </div>
-      <div class="actions hero-jumps" role="group" aria-label="Learn about LAiDIES">
-        <a class="button mast-why" href="#why">Why women must shape AI</a>
-        <a class="button mast-how" href="#method">How LAiDIES works</a>
-      </div>
+
     </section>
 
     <section class="intent" id="today" aria-labelledby="intent-title">

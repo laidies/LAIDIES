@@ -1,5 +1,10 @@
 # LAiDIES decision router
 
+## 2026-09-05 — Homepage masthead: restore Ali’s preferred original buttons
+
+Ali judged previewee897a4e visually almost unchanged and rejected its replacement masthead buttons: “I prefer the old ones.” Restore “Why women must shape AI” → #why and “How LAiDIES works” → #method with the original masthead placement and treatment. Preserve the other bounded navigation and copy repairs. This is a direct owner-requested restoration of the incumbent component, not approval of the whole homepage or a production release. Do not call the prior preview a material visual redesign or add another design/review program to reverse these buttons.
+
+
 ## 2026-09-05 — Homepage correction: two-reviewer presentation exception approved
 
 Ali answered “Yes” to: “May I apply the two-reviewer exception to this homepage pass so I can show you the complete preview?” This admits the completed independent Sol/Medium and actual Claude Opus5/Medium reviews as the sufficient review route for the exact consolidated homepage candidate9b34df58 (index SHA2565629cada90e5ccd3b58c71c897bff0dacf4c48c60c88f74c35932b4c11f21303; homepage.js SHA25605232f254fd17c4e031b068f62e9cf839312d6fcff1c9b714932181798c4bf47). Do not commission eleven additional roles or ask for this permission again. Bind the actual reviews, preserved incumbent, exact source, current release scope and hosted preview verification. No reviewer identity, quality judgment or runtime evidence may be fabricated to fill the old form. This authorizes preparing and showing the preview; it is not approval of the visual result or production release. Other candidates retain their existing admission rules.

@@ -1,0 +1,30 @@
+{
+  "kind": "BOUNDED_MASTHEAD_RESTORATION_VERIFICATION",
+  "candidate": "index.html",
+  "status": "PASS",
+  "sourceSha256": "eedeb4b4e8308e6d21a5a428db73c97079589f484461dc01e9348e2571819b47",
+  "runtime": {
+    "previewOrigin": "https://ee897a4e.laidies-sunnyvaile.pages.dev/",
+    "interception": "Only the homepage HTML response was fulfilled from the candidate; all other requests used the preview origin.",
+    "browser": "Google Chrome via Playwright Core"
+  },
+  "result": "PASS",
+  "checks": {
+    "labelsAndHrefs": "PASS — exactly one hero link labelled 'Why women must shape AI' points to #why and exactly one hero link labelled 'How LAiDIES works' points to #method at 1440px, 390px and 320px.",
+    "duplicateHeroAboutLinks": "PASS — the only #why and #method links are the two restored masthead buttons; no .hero-about links remain.",
+    "placement": "PASS — both buttons follow the hero lede in DOM order at every tested viewport.",
+    "targetSize": "PASS — every tested button measured 44px high; desktop widths were 354px and narrow widths were 346px (390px viewport) and 276px (320px viewport).",
+    "layout": "PASS — no document or hero horizontal overflow and no button overlap at 1440px, 390px or 320px.",
+    "anchorNavigation": "PASS — direct activation reached existing #why and #method sections with their target top at 96px after smooth scrolling.",
+    "incumbentComparison": "PASS — against e3664990 at 1440px, labels, hrefs, horizontal two-button treatment, dimensions and post-lede DOM placement match. The candidate's button row is 48.56px higher because the reviewed parent hero content above it differs; this verification did not re-review that unchanged parent copy."
+  },
+  "screenshots": [
+    "/tmp/laidies-homepage-correction-20260905/restored-1440.png",
+    "/tmp/laidies-homepage-correction-20260905/restored-390.png",
+    "/tmp/laidies-homepage-correction-20260905/restored-320.png"
+  ],
+  "limits": [
+    "This is a mechanical restoration check only, not a new visual-design or full-page copy review.",
+    "The candidate was tested through an intercepted preview document; it has not been deployed."
+  ]
+}

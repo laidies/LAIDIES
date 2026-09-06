@@ -80,7 +80,8 @@ if (exception) {
       verification.responseBodies?.homepage?.receivedSha256 !== digest ||
       verification.responseBodies?.homepageJs?.receivedSha256 !== hosted.runtimeSha256 ||
       ![1440, 390].every(width => verification.viewports?.some(v => v.width === width && v.pass)) ||
-      !verification.journeys?.episode1?.pass || !verification.journeys?.missJeeves?.pass) fail('hosted visitor paths were not verified');
+      (exception.design_admission.owner_restoration ? !verification.journeys?.mastheadAnchors?.pass :
+        !verification.journeys?.episode1?.pass || !verification.journeys?.missJeeves?.pass)) fail('hosted visitor paths were not verified');
   console.log(`DESIGN PRESENTATION ADMITTED ${admitted.id}`);
   console.log(hosted.url);
   process.exit(0);

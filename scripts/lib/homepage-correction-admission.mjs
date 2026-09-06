@@ -22,6 +22,31 @@ export function inspectHomepageCorrection(item, root) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if (a.owner_restoration === 'ORIGINAL_MASTHEAD_BUTTONS') {
+      // Owner-directed reuse is checked as an exact delta. Historical reviewers
+      // are not falsely recorded as having reviewed the successor HTML.
+      const p = homepageCorrectionPacket + 'masthead-restoration/';
+      const r = JSON.parse(bytes(p + 'restoration.json'));
+      const parent = bytes(p + 'reviewed-parent.html').toString();
+      const hero = bytes(p + 'incumbent-masthead.html').toString();
+      assert(item.id === homepageCorrectionId && item.review_type === 'building_page_visual', 'wrong scoped candidate');
+      assert(digest(p + 'reviewed-parent.html') === htmlSha && r.parentSha256 === htmlSha, 'reviewed parent differs');
+      assert(digest(p + 'incumbent-masthead.html') === '2669e9932e30ae1060f47288a503433b1bf92a32012312b4fa0cf19ecabd7c0a', 'incumbent masthead differs');
+      assert(r.userRuling === 'I prefer the old ones.' && r.kind === 'OWNER_REQUESTED_INCUMBENT_RESTORATION', 'owner restoration direction is missing');
+      let expected = parent.replace(/    <section class="hero hero-dusk"[\s\S]*?<\/section>/, hero.trimEnd());
+      for (const line of r.removedStyleLines) expected = expected.replace(line + '\n', '');
+      expected = expected.replace(r.mobileStyleBefore, r.mobileStyleAfter);
+      const restoredSha = 'eedeb4b4e8308e6d21a5a428db73c97079589f484461dc01e9348e2571819b47';
+      assert(a.candidate?.path === 'index.html' && a.candidate.sha256 === restoredSha && digest('index.html') === restoredSha && bytes('index.html').toString() === expected, 'homepage bytes differ from the exact owner restoration');
+      assert(a.runtime?.sha256 === jsSha && digest('content/site/homepage.js') === jsSha, 'runtime bytes differ');
+      for (const b of a.evidence || []) assert(digest(b.path) === b.sha256, `stale evidence: ${b.path}`);
+      assert(a.evidence?.some(b => b.path === homepageCorrectionPacket + 'claude-review-result.json'), 'missing bound evidence: claude');
+      assert(a.production_release_approved === false, 'owner presentation does not authorize production');
+      const checks = JSON.parse(bytes(p + 'checks.json'));
+      assert(checks.status === 'PASS' && checks.sourceSha256 === restoredSha, 'restored masthead checks are missing or stale');
+      assert(bytes('operations/DECISIONS.md').toString().includes('Homepage masthead: restore Ali’s preferred original buttons'), 'owner ruling is not registered');
+      return errors;
+    }
     assert(item.id === homepageCorrectionId && item.review_type === 'building_page_visual', 'wrong scoped candidate');
     assert(a?.candidate?.path === 'index.html' && a.candidate.sha256 === htmlSha && digest('index.html') === htmlSha, 'homepage bytes differ from approved review scope');
     assert(a?.runtime?.path === 'content/site/homepage.js' && a.runtime.sha256 === jsSha && digest(a.runtime.path) === jsSha, 'runtime bytes differ from approved review scope');
