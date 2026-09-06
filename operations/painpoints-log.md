@@ -15873,3 +15873,8 @@ remain unreconciled; cross-chat completeness is not certified.
 - Repair: calibrated reviewer rejected old zoom unaided; successor separated original brush pixels, protected i stem, excluded background vocabulary from moving masks, and completed all original icon frames before reassembly.
 - Prevention: inspect full-name / isolated Ai / return pixels on desktop and phone before presentation. Require a persistent readable i, stationary backdrop, no moving vocabulary, and actual continuous playback. Exact source fidelity alone is not effect fidelity. Local media server must support byte ranges before seek-based occurrence checks count.
 - Possible Behind the Build angle: why zooming toward the right letters can still fail to communicate the idea. Private only; no public content produced.
+
+## 2026-09-06 — Returning source letter misclassified as icon
+- Failure: keeping icon extraction active until video.ended placed the source closing whole i above the retained stem. Settled CD/full-name screenshots missed it.
+- Repair: exact decoded last-icon boundary3.55s selects native I. Checked every closing frame213–279 against native-I pixels; old renderer rejected by the same check.
+- Prevention: when reusing a source animation inside another composition, distinguish its content phases from file duration; inspect boundary frames plus all closing frames when identity changes. Possible Behind the Build angle: a correct video can become wrong when a letter is mistaken for an icon. No public content produced.

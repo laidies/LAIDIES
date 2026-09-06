@@ -33,7 +33,11 @@ out.data.set(d.data.subarray(n,n+4),n);out.data[n+3]=255;}
 // Remove disconnected remnants of neighbouring brush strokes, retaining the central morph.
 const seen=new Uint8Array(W*H);for(let y=160;y<332;y++)for(let x=347;x<485;x++){const seed=y*W+x;if(seen[seed]||!out.data[seed*4+3])continue;const stack=[seed],part=[];let sx=0,sy=0;seen[seed]=1;while(stack.length){const n=stack.pop();part.push(n);const px=n%W,py=Math.floor(n/W);sx+=px;sy+=py;for(const next of [n-1,n+1,n-W,n+W]){if(next<0||next>=W*H||seen[next]||!out.data[next*4+3])continue;seen[next]=1;stack.push(next);}}const cx=sx/part.length,cy=sy/part.length;if(part.length<150&&!(Math.abs(cx-414)<30&&Math.abs(cy-246)<50))for(const n of part)out.data[n*4+3]=0;}
 dc.putImageData(out,0,0);return dyn;}
-return function(p,showOriginalI){ctx.clearRect(0,0,W,H);
+return function(p,showOriginalI){
+// The source ends by morphing back into a whole i. Never scale that letter
+// into the dot slot above our permanent stem: restore the single native i.
+showOriginalI=showOriginalI||video.currentTime>=3.55;
+ctx.clearRect(0,0,W,H);
 ctx.save();ctx.globalAlpha=1-p;ctx.save();ctx.beginPath();ctx.rect(0,0,300-95*p,H);ctx.clip();ctx.drawImage(wings,-95*p,0);ctx.restore();ctx.save();ctx.beginPath();ctx.rect(300+95*p,0,W,H);ctx.clip();ctx.drawImage(wings,95*p,0);ctx.restore();ctx.restore();
 ctx.save();ctx.translate(480,270);ctx.scale(1+(canvas.clientWidth<560?.9:.25)*p,1+(canvas.clientWidth<560?.9:.25)*p);ctx.translate(-480+130*p,-270);ctx.drawImage(A,0,0);if(showOriginalI)ctx.drawImage(I,0,0);else{ctx.drawImage(stem,0,0);ctx.translate(441,198);ctx.scale(.58,.58);ctx.translate(-414,-246);ctx.drawImage(iconFrame(),0,0);}ctx.restore();};
 };

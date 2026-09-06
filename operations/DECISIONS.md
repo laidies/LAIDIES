@@ -313,3 +313,6 @@ Add or change a row here only when routing itself changes. Do not grow this file
 into another decision ledger.
 
 Ali also requested a small rotating “Did you know?” banner directly under the masthead, about the header width. Reuse existing feature artwork and source-supported feature highlights; keep it a slim strip, not the retired large carousel. Include previous/next and persistent pause, respect reduced motion, and pause while hovered, focused or offscreen. Final order: masthead → slim Did you know → visible needs shortcuts → compact expandable full directory.
+
+### 2026-09-06 — Source closing i is not a seventh icon
+Ali reported “an extra i at the end” / “like an icon of an i.” In the layered homepage ident, stop dot-slot video extraction by source frame214 (3.5667s); restore the native brush I at frame213 (3.55s). A returning whole letter must never be treated as another icon above a retained stem. Closing-frame pixel checks must cover the entire return interval, not only settled poses.

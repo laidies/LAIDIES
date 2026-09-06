@@ -1,0 +1,2 @@
+# Sol Medium focused regression review
+Reviewer /root/independent_ai_judge: ACCEPT, certain for supplied pixels. single-i-desktop.png shows one brush i with one permanent stem and one dot; miniature second stem from extra-i-before.png gone. single-i-phone.png shows one clean i, no duplicate, detached mini-glyph or extraction residue. No visible blocker in bounded regression. Two screenshots only; reviewer did not independently replay the full sequence. NO_REPOSITORY_MUTATION.

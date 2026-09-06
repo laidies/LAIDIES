@@ -6,6 +6,7 @@
 - **Owner rejection:** Both native-text rewrite and whole-frame zoom are rejected; earlier admission verdicts invalidated. Preserve original brush/background/icon character; no slogan; Ai itself must take centre.
 - **Repair:** Source brush pixels split into original A, i and outer letters. L/DIES move aside while Ai centres; permanent i stem remains under original six icon transformations. All source frames finish before full-name reassembly, visual dial-up/VHS bookends lead to masthead. Fixed stationary background; phone undistorted original comic base.
 - **Evidence:** `operations/product-stewards/town-entry-homepage/candidates/ai-letter-layer-repair-20260906/`. Actual Sol and Claude pixel admissions after fragment/stem repairs; continuous 7.7-second browser completion; canvas/video pause, Skip focus, reduced-motion and narrow-phone checks. Stills do not prove smooth motion. Dial-up audio not added.
+- **Single-i correction:** Owner caught source closing i being rendered as a miniature icon. Renderer now restores native I from3.55s; all67 closing source frames match native-I pixels, and the old renderer fails the same test. Focused desktop/390 inspection; prior ending assurance invalidated.
 - **Boundary:** Private preview only at localhost8789; no public deployment or owner taste approval. Original rejected versions preserved in quarantine. Do not resume the rejected camera version.
 
 ## 2026-09-05 NewsStand source-to-reader continuation
