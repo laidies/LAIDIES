@@ -15979,3 +15979,10 @@ remain unreconciled; cross-chat completeness is not certified.
 - Prevention: Scout beyond published Dailies, bind original dates within the covered period, explain actual changes and scope before advice, and use the reviewed Weekly front summary in derivatives. Strict calendar validation rejects JavaScript date rollover. Current issue quality gates remain mandatory; historical review counts are improvement metrics, not impossible publication arithmetic.
 - Evidence: Independent exact-source review; July/Aug30 exclusions; non-leap-Feb29 rejection; preserved all prior stories; desktop/mobile article and five concrete highlights inspected. Corrective test fixture was decoupled from the changing current pointer.
 - Behind the Build: A neat summary can miss the news if its input list is too narrow. Teach source coverage and original dates without exposing internal implementation.
+
+## BTB-512 — A colourful border does not make a newspaper index
+- Date: 2026-09-06
+- Failure: Prior archive review accepted a large form and taxonomy wall; Ali rejected both hierarchy and colouring.
+- Prevention: Inspect collapsed default reading path and actual background/text colours at desktop and narrow phone; keep optional controls optional. Case-normalise taxonomy labels and matching together.
+- Evidence: Native collapsed controls, desktop/390 independent review, root320 date-field repair and negative case-variant regression test.
+- Behind the Build: Make the first useful action obvious before presenting every option. Share the general design lesson only.

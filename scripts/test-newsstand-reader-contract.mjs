@@ -334,7 +334,15 @@ assert.match(html, /sameSources[\s\S]*?samePublishedBytes[\s\S]*?&& sameSources/
 assert.match(html, /function renderTopicButtons\(\)/, "the archive must derive its browse-by-topic controls from eligible stories");
 assert.match(html, /function defaultSearchHint\(\)/, "search suggestions must come from the eligible archive rather than stale examples");
 assert.doesNotMatch(html, /Try [“\"]agents[”\"].*[“\"]policy[”\"].*[“\"]Slack[”\"]/s, "the page cannot suggest searches that return no eligible issue");
-assert.match(html, /completeArchiveItems\(\)\.forEach/, "topic controls must come from the admitted complete archive index or its gated story fallback");
+assert.match(html, /completeArchiveItems\(\)\.flatMap/, "topic controls must come from the admitted complete archive index or its gated story fallback");
+const archiveFns = html.slice(html.indexOf('function archiveTermKey('), html.indexOf('function filteredArchiveItems('));
+const archiveTest = { result: null };
+vm.runInNewContext(archiveFns + 'result = archiveTerms(["Model Capabilities", "model capabilities", " Health ", "health", ""]);', archiveTest);
+assert.deepEqual(Array.from(archiveTest.result), ['Health', 'Model Capabilities'], 'case variants must collapse without dropping distinct topics');
+const filterFn = html.slice(html.indexOf('function filteredArchiveItems('), html.indexOf('function populateArchiveFilters('));
+const filterTest = { archiveFilterValues: () => ({theme:'model capabilities',concept:'context'}), completeArchiveItems: () => [{id:1,themes:['Model Capabilities'],concepts:['Context']},{id:2,themes:['model capabilities'],concepts:['context']},{id:3,themes:['health'],concepts:['context']}], result:null };
+vm.runInNewContext(archiveFns + filterFn + 'result = filteredArchiveItems("").map(item => item.id);', filterTest);
+assert.deepEqual(Array.from(filterTest.result), [1,2], 'normalised filters must retain both casing variants and reject unrelated topics');
 assert.match(html, /data-topic=/, "topic controls need deterministic topic identities");
 assert.match(html, /contract\.accessDecision\(data, story, \{ scope: "search" \}, now\)\.canExpose/, "browse-all must use the same eligibility boundary as archive search");
 assert.match(html, /if \(view\.type === "archive"\)/, "browse-all state must restore through history");

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260901-homepage-header-1">
     <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
-    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260906-masthead-language-1">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260906-archive-1">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -259,6 +259,10 @@
             <button id="ns-search-button" type="button">Search the crate</button>
           </div>
           <p class="ns-archive__hint" id="ns-search-hint">Browse all, choose a topic, or search the crate.</p>
+          <div class="ns-archive__tools">
+          <button class="ns-archive__browse-all" id="ns-browse-all" type="button">Browse all back issues</button>
+          <details class="ns-archive__refine">
+          <summary>Filter by date, theme or concept</summary>
           <div class="ns-archive__filters" aria-label="Filter the NewsStand archive">
             <label for="ns-archive-from">From date
               <input id="ns-archive-from" type="date">
@@ -274,10 +278,11 @@
             </label>
             <button id="ns-archive-clear" type="button">Clear filters</button>
           </div>
-          <button class="ns-archive__browse-all" id="ns-browse-all" type="button">Browse all back issues</button>
-          <div class="ns-topic-browser" id="ns-topic-browser" hidden>
-            <p id="ns-topic-title">Browse by topic</p>
+          </details>
+          <details class="ns-topic-browser" id="ns-topic-browser" hidden>
+            <summary id="ns-topic-title">Browse by topic</summary>
             <div class="ns-topic-buttons" id="ns-topic-buttons" aria-labelledby="ns-topic-title"></div>
+          </details>
           </div>
         </div>
       </section>
@@ -718,13 +723,24 @@
           };
         }
 
+        function archiveTermKey(value) { return String(value).trim().toLowerCase(); }
+
+        function archiveTerms(values) {
+          var labels = new Map();
+          values.forEach(function (value) {
+            var key = archiveTermKey(value);
+            if (key && !labels.has(key)) labels.set(key, String(value).trim());
+          });
+          return Array.from(labels.values()).sort(function (a,b) { return a.localeCompare(b, undefined, {sensitivity: "base"}); });
+        }
+
         function filteredArchiveItems(query) {
           var filters = archiveFilterValues();
           return completeArchiveItems().filter(function (item) {
             if (filters.from && item.editionDate < filters.from) return false;
             if (filters.to && item.editionDate > filters.to) return false;
-            if (filters.theme && (item.themes || []).indexOf(filters.theme) === -1) return false;
-            if (filters.concept && (item.concepts || []).indexOf(filters.concept) === -1) return false;
+            if (filters.theme && !(item.themes || []).some(function (value) { return archiveTermKey(value) === archiveTermKey(filters.theme); })) return false;
+            if (filters.concept && !(item.concepts || []).some(function (value) { return archiveTermKey(value) === archiveTermKey(filters.concept); })) return false;
             return !query || archiveItemSearchText(item).indexOf(query) !== -1;
           });
         }
@@ -753,8 +769,8 @@
 
         function populateArchiveFilters() {
           var items = completeArchiveItems();
-          var themes = Array.from(new Set(items.flatMap(function (item) { return item.themes || []; }))).sort();
-          var concepts = Array.from(new Set(items.flatMap(function (item) { return item.concepts || []; }))).sort();
+          var themes = archiveTerms(items.flatMap(function (item) { return item.themes || []; }));
+          var concepts = archiveTerms(items.flatMap(function (item) { return item.concepts || []; }));
           var theme = document.getElementById("ns-archive-theme");
           var concept = document.getElementById("ns-archive-concept");
           theme.innerHTML = '<option value="">All themes</option>' + themes.map(function (value) {
@@ -1218,19 +1234,8 @@
         }
 
         function eligibleTopics() {
-          var counts = {};
-          completeArchiveItems().forEach(function (item) {
-            (item.themes || []).forEach(function (theme) {
-              var key = String(theme).trim();
-              if (key) counts[key] = (counts[key] || 0) + 1;
-            });
-          });
-          return {
-            counts: counts,
-            topics: Object.keys(counts).sort(function (a, b) {
-              return a.localeCompare(b, undefined, { sensitivity: "base" });
-            })
-          };
+          var labels = archiveTerms(completeArchiveItems().flatMap(function (item) { return item.themes || []; }));
+          return { topics: labels };
         }
 
         function defaultSearchHint() {

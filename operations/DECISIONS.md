@@ -379,3 +379,6 @@ Add or change a row here only when routing itself changes. Do not grow this file
 into another decision ledger.
 
 - 2026-09-06 Ali: Big Picture publication date belongs in compact footer with the reading action, not a separate row above the headline. Preserve the original date.
+
+## 2026-09-06 — NewsStand archive presentation correction
+Ali rejects the oversized form, flat yellow sidebar and cream/purple archive treatment. Use a compact newspaper index with masthead texture, navy text and coloured reading surface; search first, optional filters/topics collapsed. Merge casing variants without losing matching stories. This supersedes prior archive visual acceptance, not content or reader policy.
