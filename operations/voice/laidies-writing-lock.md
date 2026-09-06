@@ -1,5 +1,54 @@
 LAiDIES Writing Lock
 
+## Adult audience and rejected Try-On — Ali, 2026-09-05
+
+Ali rejected “One name. One sentence. One friend.”, the reassurance “You do not have to meet everyone today”, and the “Who did you meet?” / “Save my discovery” worksheet. She identified it as an activity for twelve-year-olds, not grown adult women. The defect is the low-value activity as well as the prose: changing its colours or wording is insufficient. Rewind Era playfulness must offer adult usefulness, taste and wit; do not ask visitors to perform a school assignment before receiving a result. For the replacement, provide a complete shareable social post with optional preview/download/share. Whole-experience review must judge whether an adult would want the result, separately from whether its controls work. “Vanity visual held” and similar production notes never belong in public copy.
+
+## Ali's Dream Phone invitation example — 2026-09-05
+
+Ali supplied the following example to clarify what she means by elevating
+homepage and subpage language. Preserve it as her verbatim voice reference;
+spelling slips are not stylistic requirements. This is a supplied example,
+not a newly verified product-capability statement or publication instruction.
+
+> Remember Dream Phone -- that incredible game from the 90s where you had to figure out your secret crush? We do to. And we brought it back, but this time with a LAiDIES twist!  Play the full game to improve your skills at spotting and correcting hallucinations from your AI tool; or use the Just Call version to get fun advice from one someone who slayed their 90s highs chool yearbook picture.
+
+Alternative closing supplied by Ali in the same conversation (verbatim;
+retain both options until the exact copy is selected):
+
+> or  from someone who would have written something way better than "Have a great summer!" (brutal) in your high school year book.
+
+### Confirmed voice goal and collaborative development — Ali, 2026-09-05
+
+Ali explicitly endorsed the yearbook-message joke as the voice/tone goal:
+make the reader laugh, remember the line and want to try the game. These are
+intended reader effects, not measured conversion or universal-laughter claims.
+Rewind Era references should create shared recognition and carry the humour,
+invitation and memory. For product invitations, that is a useful job in its own
+right; every joke need not explain a technical AI mechanism. Teaching claims
+and advertised experiences still need accurate, understandable substance.
+Do not turn this into a compulsory nostalgic opening or identical joke pattern
+on every page. Use the reference that belongs to the particular experience.
+
+Ali offered to partner in developing the voice through iterative feedback.
+Bring small, coherent excerpts from real pages, in context, with a recommended
+version and a concise explanation of the editorial choice. Codex handles its
+own spelling, clarity, factual and functional checks before inviting Ali's
+creative judgment. Capture her specific reactions and accepted examples here;
+update applicable existing producer/review references when a reusable lesson
+is admitted. Apply each lesson to the next piece rather than asking her to
+repeat it. Preserve experimentation and disagreement; an example is evidence
+of taste, not a substitute for judgment. This collaboration adds to the active
+copy pass and does not abandon the current functional repair sequence.
+
+Use the example for its shared memory, conversational enthusiasm, concrete
+invitation, useful learning purpose and specific character humour. Product
+copy can explain the practical benefit inside the invitation. Preserve the
+adult warmth and playfulness when editing for clarity. This is a positive
+reference, not a mandatory paragraph formula: each destination needs its own
+accurate promise, relevant memory and earned joke. Confirm advertised gameplay
+and learning outcomes against the current experience before publishing.
+
 This is the writing standard for LAiDIES.
 
 Canonical guide name: the SLAiYER Handbook.
@@ -141,6 +190,12 @@ violet, bright coral and sunshine yellow. Light lavender, pale blue and pink
 may support a page background, but the result must not wash the page into
 candy pastels.
 
+> ⛔ **SUPERSEDED 2026-08-03 — do not follow the paragraph below.** Ali: "plum and
+> pearl are not the primary colours for the page. it's the vibrant 90s versions of
+> the candy colours." The live palette and the locked background gradients are in
+> `operations/page-design-bar.md`. Plum survives only as ink-on-candy `#3a1838`;
+> `#4b2148` is retired as a UI colour and fails the page-design hook.
+
 Plum is the primary text and outline colour. Do not use solid plum as a
 section, card or button background.
 
@@ -259,15 +314,6 @@ Buttons say what will happen:
 * Open My Closet
 * Make my Resident Card
 * Send me the Wednesday Postcard
-
-The visitor-visible words **Play**, **plays**, **played** and **playing** are
-banned across the site. Name the real action instead: **Listen**, **Start
-listening**, **Resume listening**, **Try**,
-**Open**, **Use**, **Start the episode**, or **FAiRY allowance**, according to
-what actually happens. **Pause** may remain where it is the real media state.
-This rule applies to visible copy, labels, titles, placeholders and accessible
-names. It does not rename technical media APIs, events, identifiers, analytics
-keys or CSS classes such as `.play()`, the `play` event or `is-playing`.
 
 Do not use “Learn more” when the destination has a name. Do not make a link
 look like a button in one place and plain underlined text in another without a
@@ -404,23 +450,25 @@ Say what aspect of Cher matters.
 
 For example:
 
-* Cher Horowitz = make it yours — fearless with the new thing; sets it up so it truly knows her (the closet computer; "make over my soul")
+* Cher Horowitz + Dionne Davenport = trendsetting — use a new capability to create a useful, personal way of working that other people want to copy (Cher's closet computer is the anchor example)
 * David Rose = specificity — know exactly what you want; "make it nice" gets you nothing
-* Elle Woods = receipts — preparation, cross-examination, underestimated competence ("I did the reading")
-* Samantha Jones = orientation — reads the whole room, the right one for the occasion, unintimidated by the options
+* Elle Woods = critical thinking — reads closely, challenges assumptions, tests the logic, asks the next targeted question and decides whether the conclusion holds ("I did the reading" is preparation, not her entire lesson)
+* Samantha Jones = tool choice — reads the whole room and picks the right tool or model for the occasion
 * Miranda Priestly = standards — discernment, no beige work ("not good enough — again")
-* Buffy = slaying — takes the thing everyone else is avoiding
+* Buffy = execution — moves beyond dabbling and uses AI to finish a bounded whole job
 * Deb = boundaries ("Loop Me Out") — knows when to say Nope; won't let AI quietly take over. Corporate cryptid.
 * Dolly Parton = common sense — knows her worth; plain-spoken, self-made
 * Sister Mary Clarence, aka Deloris Van Cartier (Sister Act) = teaching — lifts the whole room up with her (lead with "Sister Mary Clarence" / "the Sister Act nun" for instant recognition)
-* Oprah = staying current — on top of it; tells you the one worth your time (NOT "curiosity")
-* J.Lo = range / multimodal — sings, acts, dances, all of it; don't be just one thing
+* Carrie Bradshaw = staying current — keeps a small, reliable update habit without doomscrolling
+* Bette Midler = doing it all — uses AI for text, images, audio, files, data and code; one tool need not be best at every mode
+* The Golden Girls = never too late — starts at any age or career stage and brings decades of judgment with her
 
 Regina George = the ANTI-SAINT ("…don't be like Regina"). Confidently wrong AND careless with secrets — the Burn Book is both. The Cautionary Tale; not a Court member.
 
 The character must match the lesson. A saint is a durable THEME, not an episode slot — she recurs all season, and an episode may invoke two or three (like the week's two songs).
 
-David is specificity. Cher is make-it-yours. Samantha is orientation. Do not blur them.
+David is specificity. Cher + Dionne are trendsetting. Samantha is tool choice. Do not blur them.
+Cher + Dionne create the approach; Carrie maintains the information habit that reveals what has changed. Do not describe Trendsetting as merely being early or keeping up.
 
 AI Pronoun Rule
 
@@ -466,17 +514,18 @@ Use recurring LAiDIES references consistently.
 
 Current Patron Saints — each is a durable THEME (a way of being) plus her **native Court title** (the job she holds in her own story). Rethought 2026-07-10 (see [[saint-roster-rethink-2026-07]]). They recur across the season, NOT one per episode; an episode may invoke two or three.
 
-* Cher Horowitz — make it yours (Setup) — **The Makeover Artist**
+* Cher Horowitz + Dionne Davenport — set the useful new direction (Trendsetting) — **The Trendsetters**
 * David Rose — say exactly what you want (Specificity) — **The Curator**
-* Elle Woods — I did the reading (Receipts) — **The Attorney**
-* Samantha Jones — I know my way around (Orientation) — **The Publicist**
+* Elle Woods — I tested the argument (Critical Thinking) — **The Attorney**
+* Samantha Jones — I know which one to use (Tool Choice) — **The Publicist**
 * Miranda Priestly — not good enough, again (Standards) — **The Editor**
 * Deb — that's not mine to carry (Boundaries / "Loop Me Out") — **The Gatekeeper**
-* Buffy Summers — I'll take the hard one (Slaying) — **The Slayer**
+* Buffy Summers — I'll finish the whole job (Execution) — **The Slayer**
 * Dolly Parton — I know what I'm worth (Common Sense) — **The Boss**
 * Sister Mary Clarence (aka Deloris Van Cartier) / Sister Act — I bring the whole room up with me (Teaching) — **The Choir Director**
-* Oprah — on top of it; here's the one worth your time (Staying Current) — **The Talk Show Host**
-* J.Lo — don't be just one thing (Multimodal / range) — **The Triple Threat**
+* Carrie Bradshaw — I keep up without doomscrolling (Staying Current) — **The Columnist**
+* Bette Midler — I use the whole show (Doing It All / multimodal range) — **The Triple Threat**
+* The Golden Girls — I am not too late (Never Too Late) — **The Late Bloomers**
 
 Anti-saint: **Regina George — The Cautionary Tale** ("…don't be like Regina"). Lives in the LUMINAiRY as the one red window, set off to the side. NOT a Court member.
 
@@ -635,7 +684,7 @@ Ask Perplexity for the kind of sources you want: official sources, primary docum
 A vendor blog, a government page, a news article, and someone’s opinion post are not the same kind of receipt.
 
 **LAiDIES analogy:**  
-That is like Elle Woods walking into court with “I heard it somewhere.” Absolutely not. She checked the perm rules, the timeline, and the witness. Receipts matter.
+That is like Elle Woods walking into court with “I heard it somewhere.” Absolutely not. She tested the claim against the perm rules, the timeline and the witness. Critical thinking means checking whether the evidence and logic actually support the conclusion.
 
 **What not to do:**  
 Do not use Perplexity’s summary as the source. Click the link, check what it actually says, and only then decide whether it belongs in your answer.
@@ -681,7 +730,7 @@ The LAiDIES Grimoire includes:
 * Ask the Book
 * Patron Saints
 
-Patron Saints (full themes + titles above under Canon Consistency Rule): Cher (The Makeover Artist), David Rose (The Curator), Elle Woods (The Attorney), Samantha Jones (The Publicist), Miranda Priestly (The Editor), Deb (The Gatekeeper), Buffy (The Slayer), Dolly Parton (The Boss), Sister Mary Clarence / Deloris Van Cartier (The Choir Director), Oprah (The Talk Show Host), J.Lo (The Triple Threat). Anti-saint: Regina George (The Cautionary Tale) — not a Court member.
+Patron Saint seats (full themes + titles above under Canon Consistency Rule): Cher Horowitz + Dionne Davenport (The Trendsetters), David Rose (The Curator), Elle Woods (The Attorney), Samantha Jones (The Publicist), Miranda Priestly (The Editor), Deb (The Gatekeeper), Buffy Summers (The Slayer), Dolly Parton (The Boss), Sister Mary Clarence / Deloris Van Cartier (The Choir Director), Carrie Bradshaw (The Columnist), Bette Midler (The Triple Threat), The Golden Girls (The Late Bloomers). Anti-saint: Regina George (The Cautionary Tale) — not a Court member. Oprah Winfrey and J.Lo are cut; Jessica Fletcher is retired and her follow-up-question behaviour belongs to Elle’s Critical Thinking role; “Making It Yours” and “Early Adoption” are not saint lanes.
 
 Deb is a corporate cryptid. She survived every reorg, wants an early retirement package, no one knows what she does, she does it with disdain, and IT has had to accommodate her ancient end-of-life desktop setup.
 

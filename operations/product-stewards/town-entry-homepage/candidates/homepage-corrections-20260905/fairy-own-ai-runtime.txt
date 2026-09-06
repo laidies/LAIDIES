@@ -1,0 +1,82 @@
+Preserved c8353edf production artifact: games/fairy-godmother.html. Bounded implemented optional own-AI component; landing route verified separately in receiving-pages.json. This proves a component exists, not that every answer includes it or that its advice has passed a new quality pilot.
+
+wer.nextMove);
+
+      // Optional preparation is text from the same answer, not another call or
+      // an entitlement to rehearsal. Never import the private research bank.
+      if (answer.aiAssist && typeof answer.aiAssist.instruction === "string" &&
+          answer.aiAssist.instruction.length <= 6000) {
+        const isWorkspace = answer.aiAssist.kind === "career_workspace";
+        const preparation = document.createElement("details");
+        preparation.className = "fairy-ai-preparation";
+        const summary = document.createElement("summary");
+        summary.textContent = (isWorkspace ? "Build this in your own AI: " : "Optional AI preparation: ") +
+          String(answer.aiAssist.label || "Prepare your next step");
+        summary.style.minHeight = "44px";
+        summary.style.cursor = "pointer";
+        preparation.appendChild(summary);
+        appendTypedSection(preparation, "What this helps with", answer.aiAssist.why);
+        if (isWorkspace && Array.isArray(answer.aiAssist.materials) && answer.aiAssist.materials.length) {
+          appendTypedSection(preparation, "Useful material to consider", answer.aiAssist.materials);
+        }
+        appendTypedSection(preparation, isWorkspace ? "Career Workspace setup prompt" : "Preparation prompt",
+          answer.aiAssist.instruction, { preformatted: true });
+        const preparationText = answer.aiAssist.instruction;
+        const preparationCopy = makeInlineAction(isWorkspace ? "Copy Career Workspace setup" : "Copy preparation prompt",
+          () => preparationText);
+        preparationCopy.querySelector("button").style.minHeight = "44px";
+        preparation.appendChild(preparationCopy);
+        const note = document.createElement("p");
+        note.textContent = isWorkspace
+          ? "Copying this does not run another AI call, and it does not upload or save those materials in FAiRY. Your own AI tool will conduct the interview. Check that tool’s current privacy, account and workplace settings; use only the smallest non-confidential, redacted excerpts you are permitted to share."
+          : "Opening or copying this does not run another AI call. Use only non-confidential information in a tool approved for your work. Multi-turn rehearsal inside FAiRY is not available in this pilot.";
+        preparation.appendChild(note);
+        output.appendChild(preparation);
+      }
+
+      const disclosure = document.createElement("div");
+      disclosure.className = "laidy-disclosure";
+      disclosure.innerHTML =
+        "The FAiRY Godmother is AI, and AI can wear a great outfit with the price tag still on. <strong>Check the names, dates, numbers, assumptions, and anything in brackets before using this.</strong>";
+      output.appendChild(disclosure);
+      scrollBody.appendChild(output);
+
+      lastPostGlowUpText = String(answer.deliverable || "");
+      lastPromptGlowUpText = "";
+      currentCaseReceipt = data.case && data.case.id && Number.isInteger(data.case.version)
+        ? { id: data.case.id, version: data.case.version,
+            fittingsRemaining: Number.isInteger(data.case.fittingsRemaining) ? data.case.fittingsRemaining : 3 }
+        : null;
+      if (lastPostGlowUpText) {
+        output.insertBefore(makeInlineAction("Copy usable answer", () => lastPostGlowUpText), disclosure);
+        if (currentCaseReceipt && currentCaseReceipt.fittingsRemaining > 0) {
+          output.insertBefore(makeRevisionRow(), disclosure);
+        }
+      }
+
+      if (coachActions) coachActions.classList.remove("is-visible");
+      if (coachCopyStatus) coachCopyStatus.textContent = "";
+      if (feedbackEl) feedbackEl.classList.remove("is-visible");
+      revealScroll();
+
+      const excerpt = String(answer.read || answer.deliverable || "").replace(/\s+/g, " ").trim().slice(0, 140);
+      adviceHistory.unshift({ q: question || "Surprise prompt", a: excerpt });
+      if (adviceHistory.length > 3) adviceHistory.pop();
+      renderHistory();
+    }
+
+    function showTypedOutcome(data) {
+      const parts = [];
+      if (data && data.message) parts.push(String(data.message));
+      if (data && data.question) parts.push(String(data.question));
+      if (data && data.usefulNow) parts.push(String(data.usefulNow));
+      if (data && data.sourcePlan && Array.isArray(data.sourcePlan.criteria)) {
+        parts.push(data.sourcePlan.criteria.join(" "));
+      }
+      showError(parts.join(" ") || "The FAiRY Godmother could not safely complete that request. Nothing was counted.");
+    }
+
+    function renderHistory() {
+      if (adviceHistory.length === 0) { historySection.style.display = "none"; return; }
+      historySection.style.display = "block";
+      history

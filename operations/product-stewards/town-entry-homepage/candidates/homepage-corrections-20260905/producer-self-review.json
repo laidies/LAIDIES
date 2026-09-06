@@ -1,0 +1,592 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "homepage-corrections-20260905",
+  "surface": "HOMEPAGE",
+  "contentClass": "PROMOTIONAL",
+  "maker": "/root",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "producer",
+    "modelFamily": "GPT-6"
+  },
+  "reviewedAt": "2026-09-06T02:06:53.716676+00:00",
+  "verdict": "PASS",
+  "limitations": [
+    "Maker self-review only; no independent or design admission.",
+    "Existing mission, historical prose and episode narration unchanged and not re-admitted by this scoped copy review.",
+    "No paid AI call, research-cost pilot, account sync test or public release.",
+    "Current landing text and implemented components establish availability scope, not the quality of every generated answer."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/copy-changes.md",
+      "sha256": "82ea4324d9ebd29614aaa24bb38183152868242647c2846ad2c36629a020a90e"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/content-manifest.json",
+      "sha256": "1014ea4089a2554cd7aeac502eaf84bcc1ce7708b38263895cb8b658c1b74ac7"
+    },
+    "rendered": {
+      "path": "index.html",
+      "sha256": "5629cada90e5ccd3b58c71c897bff0dacf4c48c60c88f74c35932b4c11f21303"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e02cfa8221ae19b2121f7628cd3d04f66988bdec9938b23993ab29e3a0da98de",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-06T02:06:53.716676+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.”",
+            "locator": "opening and repeated term / analogy / In real life scaffold"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "Introduction and Chapter 1: job-offer case displaces broad orientation"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "The concepts that make the story legible",
+            "locator": "glossary interlude and five-question homework ending"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-INVITATION-ALI-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The yearbook joke makes the particular experience memorable and supplies a reason to try it; current experimental status remains explicit."
+      ],
+      "evidence": [
+        {
+          "excerpt": "Have a great summer!",
+          "locator": "Ali Dream Phone alternative ending"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Where can I start, or find what I came for?",
+    "promisedPayoff": "Choose a useful available route with an accurate understanding of the result.",
+    "centralMentalModel": "A learning town with direct entrances for distinct visitor needs.",
+    "dailyLifeConnection": "Work and career advice, questions, news, stories and a playful break.",
+    "surfaceJob": "Welcome and route visitors, with current capability boundaries.",
+    "desiredReaderFeeling": "Recognised, interested and able to choose without doing homework."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The named first action opens a real readable episode; the secondary action says what it helps the visitor find.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Start with Episode 1 →",
+          "locator": "hero first action"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Six recognizable needs route directly to books, Jeeves, FAiRY, news, the episode and games; the directory no longer interrupts arrival.",
+      "artifactEvidence": [
+        {
+          "excerpt": "I could use some advice Bring FAiRY Godmother a work or career situation.",
+          "locator": "intent advice card"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The specific yearbook disappointment is Ali's endorsed humour, attached to the actual Just Call experience. BWS uses the joke intrinsic to its name.",
+      "artifactEvidence": [
+        {
+          "excerpt": "someone who would have written more than “Have a great summer!” in your yearbook.",
+          "locator": "Dream Phone invitation"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The weekly invitation offers a short visit or a longer evening; it does not require a worksheet or a sequence of chores.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make an evening of it, or choose the stop you have time for.",
+          "locator": "weekly introduction"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Capability wording is bounded to existing routes. FAiRY is qualified to work/career, Miss Jeeves to LAiDIES coverage, and the Dream Phone game remains experimental. No paid research or automatic freshness guarantee is added.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The full game is still experimental.",
+          "locator": "Dream Phone invitation"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Date-stamped current receiving-page text and exact HTML locators bind feature promises. Role, availability, route or account-scope changes require a copy recheck.",
+      "artifactEvidence": [
+        {
+          "excerpt": "She works best with questions covered by LAiDIES.",
+          "locator": "Miss Jeeves beta qualification"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "These are homepage invitations and route descriptions. Existing teaching and mission statements are retained; no new explanatory tutorial is inserted.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Looking for a particular place? Browse every game, tool and building.",
+          "locator": "collapsed directory"
+        }
+      ]
+    },
+    "truthfulPromise": {
+      "verdict": "PASS",
+      "observation": "The field trip is the verified existing LUMINAiRY entrance. Card/device and provider sign-in boundaries remain visible.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Episode 04 takes you to the LUMINAiRY to meet the MAiVENS and TRAiLBLAZERS",
+          "locator": "method practice card"
+        }
+      ]
+    },
+    "clearAction": {
+      "verdict": "PASS",
+      "observation": "The broken Express invitation is replaced with the precise episode action; original direct form submission wording is preserved on receipt.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Just here for the episode? Open the latest story and choose read or listen.",
+          "locator": "weekly last action"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The changed copy teaches no technical mechanism by analogy. Product-specific humour earns the invitation.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Promises are checked against current public routes; research API and future answer-bank capabilities are deliberately not advertised.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Beta, experimental and device boundaries remain explicit; landing verification is not described as end-answer quality proof.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Named links lead to concrete receiving pages, including Episode 1 and the LUMINAiRY field trip.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The invitation uses the endorsed yearbook joke and offers an optional Wednesday visit; there is no discovery worksheet.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Dream Phone/yearbook and Businesswomen references belong to those two destinations; they are not distributed as decorative lesson analogies.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "Component review, held-release and equal-choice machinery are removed from changed visitor text.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Exact claim locations and dated receiving-page evidence are retained; no unverified model/pricing or source-freshness superlative is introduced.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Distinct visitor jobs, route types and invitations; no glossary or repeated lesson template.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Not present in this bounded promotional correction: no new technical lesson, glossary, policy argument or transfer assignment is drafted; concrete route and visitor purpose come first.",
+      "artifactLocator": "copy-changes.md: complete changed wording; relevant route and invitation blocks"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json",
+        "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"
+      },
+      {
+        "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/fairy-own-ai-runtime.txt",
+        "sha256": "d0171518f47a8fde0a5cd18c5fa13ef3390dbef4bb99fe5603b5cb82c213ea87"
+      },
+      {
+        "path": "operations/library-decisions.md",
+        "sha256": "6eb8a6d31736a5fd4e4a2bb08dd82b99c7ff8ab6c52a89a7cb9acb58f6c5e0ba"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "HP-START",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Start with Episode 1",
+            "locator": "HP-START homepage occurrence"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json",
+          "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "SEASON 1 · EPISODE 01 · READING EDITION",
+            "locator": "current receiving page or bounded runtime component"
+          }
+        ],
+        "scopeAndFreshness": "Episode 1 readable without sign-in; source is current landing text, not a media quality review. Recheck if the destination, source or capability changes."
+      },
+      {
+        "claimId": "HP-FAIRY",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Bring FAiRY Godmother a work or career situation.",
+            "locator": "HP-FAIRY homepage occurrence"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json",
+          "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Practical help for a work or career situation: a clear read, language you can use, and the reasoning and assumptions to check.",
+            "locator": "current receiving page or bounded runtime component"
+          }
+        ],
+        "scopeAndFreshness": "Current beta advertises work/career scope. Homepage does not promise medical, legal or regulated advice. Recheck if the destination, source or capability changes."
+      },
+      {
+        "claimId": "HP-FAIRY-OWN-AI",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "learn how to ask your own AI for help that fits your life.",
+            "locator": "HP-FAIRY-OWN-AI homepage occurrence"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/fairy-own-ai-runtime.txt",
+          "sha256": "d0171518f47a8fde0a5cd18c5fa13ef3390dbef4bb99fe5603b5cb82c213ea87"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Build this in your own AI:",
+            "locator": "current receiving page or bounded runtime component"
+          }
+        ],
+        "scopeAndFreshness": "Implemented optional own-AI component plus Ali role decision. This review does not establish new live answer quality or promise every answer includes the component. Recheck if the destination, source or capability changes."
+      },
+      {
+        "claimId": "HP-JEEVES",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "She works best with questions covered by LAiDIES.",
+            "locator": "HP-JEEVES homepage occurrence"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json",
+          "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "She works best with questions about LAiDIES, its lessons and its trusted resources.",
+            "locator": "current receiving page or bounded runtime component"
+          }
+        ],
+        "scopeAndFreshness": "Current beta/site coverage only; no claim that Sol research is deployed. Recheck if the destination, source or capability changes."
+      },
+      {
+        "claimId": "HP-FIELDTRIP",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Episode 04 takes you to the LUMINAiRY",
+            "locator": "HP-FIELDTRIP homepage occurrence"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json",
+          "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "LUMINAiRY field trip — meet a MAiVEN",
+            "locator": "current receiving page or bounded runtime component"
+          }
+        ],
+        "scopeAndFreshness": "Existing Episode 4 activity invitation routes to the LUMINAiRY with MAiVENS and TRAiLBLAZERS wings. No forced Karen exercise or social output promise. Recheck if the destination, source or capability changes."
+      },
+      {
+        "claimId": "HP-DREAM",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The full game is still experimental.",
+            "locator": "HP-DREAM homepage occurrence"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json",
+          "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Try Dream Phone (experimental)",
+            "locator": "current receiving page or bounded runtime component"
+          }
+        ],
+        "scopeAndFreshness": "Current game label; Just Call remains playful prewritten entertainment. Recheck if the destination, source or capability changes."
+      },
+      {
+        "claimId": "HP-BWS",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "cocktail or spirit-free",
+            "locator": "HP-BWS homepage occurrence"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json",
+          "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Pick the cocktail or equally complete spirit-free lane",
+            "locator": "current receiving page or bounded runtime component"
+          }
+        ],
+        "scopeAndFreshness": "Current fortune-teller offering, not real drink ordering. Recheck if the destination, source or capability changes."
+      },
+      {
+        "claimId": "HP-GIRLTALK",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Posting in the rooms has its own sign-in.",
+            "locator": "HP-GIRLTALK homepage occurrence"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json",
+          "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Discussion is hosted by Hyvor, which controls its own sign-in, publication and moderation.",
+            "locator": "current receiving page or bounded runtime component"
+          }
+        ],
+        "scopeAndFreshness": "Posting boundary retained. No visitor posts or accounts changed. Recheck if the destination, source or capability changes."
+      },
+      {
+        "claimId": "HP-CLOSET",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Your Card and keepsakes begin in this browser.",
+            "locator": "HP-CLOSET homepage occurrence"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json",
+          "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Device-local view: this Closet shows only the Card and supported information saved in this browser.",
+            "locator": "current receiving page or bounded runtime component"
+          }
+        ],
+        "scopeAndFreshness": "Device state named; portable account history or rewards are not promised. Recheck if the destination, source or capability changes."
+      }
+    ],
+    "reviewedThrough": "2026-09-06T02:06:53.716676+00:00",
+    "nextTrigger": "Any changed homepage bytes, receiving route, helper capability, game release status, account boundary or source expiry. Refresh the production base before a deploy.",
+    "correctionOwner": "town-entry-homepage with receiving-product owner"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 0,
+    "makerRepairs": [
+      "Removed inherited relative-position offsets after moving hero actions.",
+      "Fixed incumbent mobile directory-row tap fallback.",
+      "Removed inherited single-column card height equalization.",
+      "Corrected narrow reference button and low-contrast Closet/map text.",
+      "Qualified FAiRY invitations to current work/career beta scope."
+    ],
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First consolidated correction of the current c8353edf homepage against its live audit. The rejected Episode 4 social carousel was a different visitor job and surface, not a predecessor to this homepage copy."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Known route, role, internal-language and adult-invitation requirements were applied before independent review. Candidate-specific layout repairs are recorded; no new prose defect is claimed admitted to the shared registry."
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "candidateId": "homepage-corrections-20260905",
+  "surface": "HOMEPAGE",
+  "contentClass": "PROMOTIONAL",
+  "maker": "/root",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/homepage_independent_review",
+    "principalId": "/root/homepage_independent_review",
+    "role": "independent homepage reviewer",
+    "modelFamily": "GPT-5.6",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewedAt": "2026-09-06T02:13:57Z",
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial and product assessment only; no observed human-reader evidence is claimed.",
+    "Candidate exercised locally; no deployment or public-origin claim.",
+    "Receiving-page evidence establishes landing availability, not the quality of every generated Miss Jeeves or FAiRY answer.",
+    "Real account-backed continuation was not independently exercised.",
+    "No paid research call, private question, account write, reward action or community post was performed."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/copy-changes.md",
+      "sha256": "82ea4324d9ebd29614aaa24bb38183152868242647c2846ad2c36629a020a90e"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/content-manifest.json",
+      "sha256": "1014ea4089a2554cd7aeac502eaf84bcc1ce7708b38263895cb8b658c1b74ac7"
+    },
+    "producerContract": {
+      "path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/producer-contract.json",
+      "sha256": "9ad2013937a21fb3f4376213d3e0bb2b57aedcf74c96242513e990cb1b14ae5d"
+    },
+    "rendered": {
+      "path": "index.html",
+      "sha256": "5629cada90e5ccd3b58c71c897bff0dacf4c48c60c88f74c35932b4c11f21303"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e02cfa8221ae19b2121f7628cd3d04f66988bdec9938b23993ab29e3a0da98de",
+    "reviewerPrincipalId": "/root/homepage_independent_review",
+    "reviewedAt": "2026-09-06T02:12:30Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"],
+        "evidence": [{"excerpt": "First, stop calling the whole thing “the AI.”", "locator": "opening followed by repeated dictionary, analogy and in-real-life blocks"}]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": ["purposeTooNarrow", "mechanismBeforeMotivation", "workedExampleOvertakesBookPurpose", "technicalExplainerVoice"],
+        "evidence": [{"excerpt": "We will begin with one decision and follow it all the way through.", "locator": "job-offer case displaces the book's broader opening purpose"}]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": ["policyMemoVoice", "glossaryInterruptsStory", "checklistTurnsNewsIntoHomework", "missingHumanTension", "scaffoldingVisible", "technicalExplainerVoice"],
+        "evidence": [{"excerpt": "The concepts that make the story legible", "locator": "glossary interlude and five-question homework ending"}]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-INVITATION-ALI-001",
+      "verdict": "PASS",
+      "strengthsRetained": ["Shared Dream Phone recognition leads to a specific invitation, and the yearbook line supplies adult humour without obscuring the experimental boundary."],
+      "evidence": [{"excerpt": "Have a great summer!", "locator": "Ali's endorsed Dream Phone alternative ending"}]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Where should I start, and which available destination fits what I need today?",
+    "promisedPayoff": "The visitor can identify a useful route and choose it immediately with an accurate understanding of its result and limits.",
+    "centralMentalModel": "LAiDIES is a learning town with direct entrances for stories, technical questions, advice, news and play.",
+    "dailyLifeConnection": "A busy adult can arrive with a work problem, AI question, current headline, learning goal or wish for a quick diversion.",
+    "surfaceJob": "Welcome the visitor, explain the town sufficiently and route her to a real available destination.",
+    "desiredReaderFeeling": "Recognised, interested and able to choose without decoding internal machinery or completing homework."
+  },
+  "outcomes": {
+    "plainClarity": {"verdict": "PASS", "observation": "The hero names one concrete first action and one needs-based alternative, both before the longer explanation.", "artifactEvidence": [{"excerpt": "Start with Episode 1 →", "locator": "hero primary action"}]},
+    "readerValue": {"verdict": "PASS", "observation": "Six distinct needs cover learning, technical questions, advice, news, the next episode and play without requiring the complete directory first.", "artifactEvidence": [{"excerpt": "Choose what you need. The rest of town will still be here.", "locator": "needs chooser introduction"}]},
+    "laidiesVoice": {"verdict": "PASS", "observation": "The strongest new invitation uses the endorsed adult Dream Phone and yearbook recognition; the remaining routes stay direct rather than forcing jokes into every card.", "artifactEvidence": [{"excerpt": "someone who would have written more than “Have a great summer!” in your yearbook.", "locator": "Dream Phone activity invitation"}]},
+    "engagingEnjoyable": {"verdict": "PASS", "observation": "The copy permits one useful stop or a longer weekly ritual and avoids turning discovery into a worksheet.", "artifactEvidence": [{"excerpt": "Make an evening of it, or choose the stop you have time for.", "locator": "weekly route introduction"}]},
+    "factualIntegrity": {"verdict": "PASS", "observation": "Roles and availability are bounded: Jeeves is beta and LAiDIES-grounded, FAiRY is work and career advice, Dream Phone's full game is experimental, and device/community limits remain explicit.", "artifactEvidence": [{"excerpt": "The full game is still experimental.", "locator": "Dream Phone activity invitation"}]},
+    "freshnessReviewability": {"verdict": "PASS", "observation": "The changed capability statements have exact receiving-page or runtime bindings and avoid claiming that optional Sol research or an automatic freshness system is live.", "artifactEvidence": [{"excerpt": "She works best with questions covered by LAiDIES.", "locator": "Miss Jeeves beta note"}]},
+    "surfaceFit": {"verdict": "PASS", "observation": "The changes are concise homepage invitations and action labels; the full directory is preserved but collapsed below the six primary needs.", "artifactEvidence": [{"excerpt": "Looking for a particular place? Browse every game, tool and building.", "locator": "collapsed complete directory summary"}]},
+    "truthfulPromise": {"verdict": "PASS", "observation": "The homepage promises only routes and components supported by current landing evidence, while naming beta, experimental, device and separate-sign-in boundaries where they affect the choice.", "artifactEvidence": [{"excerpt": "Your Card and keepsakes begin in this browser.", "locator": "Resident Card and Closet boundary"}]},
+    "clearAction": {"verdict": "PASS", "observation": "The former Express loop is replaced by a direct action to the current episode and the Episode 1 start is repeated where a new visitor needs it.", "artifactEvidence": [{"excerpt": "Just here for the episode? Open the latest story and choose read or listen.", "locator": "direct latest-episode action"}]}
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {"present": false, "observation": "No benchmark or reviewer language appears in the changed visitor copy.", "artifactLocator": "complete changed wording"},
+    "checklistTurnsNewsIntoHomework": {"present": false, "observation": "The NewsStand invitation routes to reporting without adding a visitor checklist.", "artifactLocator": "headline and NewsStand invitations"},
+    "communicationPastiche": {"present": false, "observation": "The copy uses LAiDIES destination language and does not imitate the named communication benchmark.", "artifactLocator": "complete changed wording"},
+    "corporateSludge": {"present": false, "observation": "No memo, workflow or generic empowerment language replaces the concrete destinations.", "artifactLocator": "complete changed wording"},
+    "curiosityWithoutPayoff": {"present": false, "observation": "Every curiosity-led entrance names a route or result.", "artifactLocator": "six needs cards and action labels"},
+    "decorativeAnalogy": {"present": false, "observation": "The changed copy adds product-specific recognition and no decorative technical analogy.", "artifactLocator": "Dream Phone and weekly invitations"},
+    "disconnectedSystem": {"present": false, "observation": "Role, route and availability promises are connected to current receiving-page or runtime evidence.", "artifactLocator": "Miss Jeeves, FAiRY, Episode 04, Dream Phone and Closet wording"},
+    "entertainmentBeforeUnderstanding": {"present": false, "observation": "Play is one optional route alongside direct learning, question, advice, news and episode routes.", "artifactLocator": "six needs cards"},
+    "factlessConfidence": {"present": false, "observation": "Beta, experimental, privacy, device and sign-in limits remain visible.", "artifactLocator": "Miss Jeeves, Dream Phone, Girl Talk and Closet wording"},
+    "familiarExampleWithoutTechnicalReturn": {"present": false, "observation": "No changed technical explanation depends on a familiar example.", "artifactLocator": "complete changed wording"},
+    "genericAction": {"present": false, "observation": "Actions name Episode 1, the current episode, Miss Jeeves, FAiRY, the NewsStand and other exact destinations.", "artifactLocator": "hero, weekly route and activity actions"},
+    "glossaryAccumulation": {"present": false, "observation": "No glossary or term catalogue is inserted into the arrival path.", "artifactLocator": "complete changed wording"},
+    "glossaryInterruptsStory": {"present": false, "observation": "No definition block interrupts the homepage sequence.", "artifactLocator": "complete changed wording"},
+    "inflatedTakeawayEnding": {"present": false, "observation": "The changed ending preserves a bounded Card, Closet and community invitation rather than a grand moral.", "artifactLocator": "Move to SUNNYVAiLE wording"},
+    "jargonBeforeMeaning": {"present": false, "observation": "Visitor needs and actions appear before product detail; branded places receive plain descriptions.", "artifactLocator": "six needs cards"},
+    "joylessInstruction": {"present": false, "observation": "The weekly route is optional and the Dream Phone invitation provides specific adult humour.", "artifactLocator": "weekly and Dream Phone wording"},
+    "mechanismBeforeMotivation": {"present": false, "observation": "The page starts with the visitor's desired outcome rather than technical machinery.", "artifactLocator": "hero and needs chooser"},
+    "mechanismCompressedBehindHook": {"present": false, "observation": "No changed technical mechanism is hidden behind a slogan.", "artifactLocator": "complete changed wording"},
+    "missingHumanTension": {"present": false, "observation": "The advice invitation names a boss request, a decision and sixteen open tabs as recognizable adult situations.", "artifactLocator": "FAiRY Godmother activity invitation"},
+    "missingMechanism": {"present": false, "observation": "This promotional correction promises destinations and available actions rather than teaching a new technical mechanism.", "artifactLocator": "complete changed wording"},
+    "policyMemoVoice": {"present": false, "observation": "Visitor copy contains no policy framing or institutional briefing structure.", "artifactLocator": "complete changed wording"},
+    "prematureClickBeforeMechanism": {"present": false, "observation": "No changed teaching sequence requires a mechanism before the action; each promotional action states its result.", "artifactLocator": "hero, needs chooser and weekly action"},
+    "purposeTooNarrow": {"present": false, "observation": "The homepage supports several legitimate visitor goals while keeping one direct start.", "artifactLocator": "hero and six needs cards"},
+    "referenceConfetti": {"present": false, "observation": "The yearbook and Businesswomen references stay attached to the experiences they describe.", "artifactLocator": "Dream Phone and Businesswomen's Special invitations"},
+    "scaffoldingVisible": {"present": false, "observation": "Review, release and backend vocabulary is absent from the changed public copy.", "artifactLocator": "complete changed wording"},
+    "staleUnreviewableClaims": {"present": false, "observation": "No model, price, budget, reward or automatic freshness claim is added.", "artifactLocator": "complete changed wording"},
+    "technicalExplainerVoice": {"present": false, "observation": "The changes read as invitations and route descriptions, not a technical lesson or product manual.", "artifactLocator": "complete changed wording"},
+    "templateRepetition": {"present": false, "observation": "The six needs are parallel for scanning but use distinct jobs, outcomes and destinations.", "artifactLocator": "six needs cards"},
+    "workedExampleOvertakesBookPurpose": {"present": false, "observation": "No worked case displaces the homepage's town-entry purpose.", "artifactLocator": "complete changed wording"}
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {"path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json", "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"},
+      {"path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/fairy-own-ai-runtime.txt", "sha256": "d0171518f47a8fde0a5cd18c5fa13ef3390dbef4bb99fe5603b5cb82c213ea87"},
+      {"path": "operations/library-decisions.md", "sha256": "6eb8a6d31736a5fd4e4a2bb08dd82b99c7ff8ab6c52a89a7cb9acb58f6c5e0ba"}
+    ],
+    "claimMap": [
+      {"claimId": "HP-START", "status": "VERIFIED", "candidateEvidence": [{"excerpt": "Start with Episode 1", "locator": "hero and weekly new-visitor actions"}], "sourceBinding": {"path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json", "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"}, "sourceEvidence": [{"excerpt": "SEASON 1 · EPISODE 01 · READING EDITION", "locator": "current Episode 1 landing text"}], "scopeAndFreshness": "Landing availability only; recheck if the route or published episode changes."},
+      {"claimId": "HP-FAIRY", "status": "VERIFIED", "candidateEvidence": [{"excerpt": "Bring FAiRY Godmother a work or career situation.", "locator": "advice need card"}], "sourceBinding": {"path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json", "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"}, "sourceEvidence": [{"excerpt": "Practical help for a work or career situation", "locator": "current FAiRY landing text"}], "scopeAndFreshness": "Current work and career beta scope; no generated-answer quality claim."},
+      {"claimId": "HP-FAIRY-OWN-AI", "status": "QUALIFIED", "candidateEvidence": [{"excerpt": "learn how to ask your own AI for help that fits your life.", "locator": "advice need card"}], "sourceBinding": {"path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/fairy-own-ai-runtime.txt", "sha256": "d0171518f47a8fde0a5cd18c5fa13ef3390dbef4bb99fe5603b5cb82c213ea87"}, "sourceEvidence": [{"excerpt": "Optional AI preparation:", "locator": "implemented optional own-AI preparation component"}], "scopeAndFreshness": "The component exists for eligible answers; this does not promise it on every answer or establish new answer quality."},
+      {"claimId": "HP-JEEVES", "status": "QUALIFIED", "candidateEvidence": [{"excerpt": "She works best with questions covered by LAiDIES.", "locator": "Miss Jeeves beta note"}], "sourceBinding": {"path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json", "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"}, "sourceEvidence": [{"excerpt": "She works best with questions about LAiDIES", "locator": "current Miss Jeeves landing text"}], "scopeAndFreshness": "Current LAiDIES-grounded beta only; no claim that optional Sol research is live."},
+      {"claimId": "HP-FIELDTRIP", "status": "VERIFIED", "candidateEvidence": [{"excerpt": "Episode 04 takes you to the LUMINAiRY", "locator": "method practice card"}], "sourceBinding": {"path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json", "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"}, "sourceEvidence": [{"excerpt": "LUMINAiRY field trip — meet a MAiVEN", "locator": "current Blend and Snap landing text"}], "scopeAndFreshness": "Current Episode 04 activity route; no rejected social or pension exercise promise."},
+      {"claimId": "HP-DREAM", "status": "QUALIFIED", "candidateEvidence": [{"excerpt": "The full game is still experimental.", "locator": "Dream Phone invitation"}], "sourceBinding": {"path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json", "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"}, "sourceEvidence": [{"excerpt": "Try Dream Phone (experimental)", "locator": "current Dream Phone landing text"}], "scopeAndFreshness": "Just Call is available entertainment; full game remains experimental."},
+      {"claimId": "HP-BWS", "status": "VERIFIED", "candidateEvidence": [{"excerpt": "cocktail or spirit-free", "locator": "Businesswomen's Special invitation"}], "sourceBinding": {"path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json", "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"}, "sourceEvidence": [{"excerpt": "cocktail or equally complete spirit-free lane", "locator": "current Businesswomen's Special landing text"}], "scopeAndFreshness": "Current paper fortune-teller routes; no drink-ordering promise."},
+      {"claimId": "HP-GIRLTALK", "status": "VERIFIED", "candidateEvidence": [{"excerpt": "Posting in the rooms has its own sign-in.", "locator": "Girl Talk invitation"}], "sourceBinding": {"path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json", "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"}, "sourceEvidence": [{"excerpt": "Hyvor separately controls discussion sign-in", "locator": "current Delta LAi Nu landing text"}], "scopeAndFreshness": "Community participation remains a separate provider-controlled action."},
+      {"claimId": "HP-CLOSET", "status": "QUALIFIED", "candidateEvidence": [{"excerpt": "Your Card and keepsakes begin in this browser.", "locator": "Move to SUNNYVAiLE section"}], "sourceBinding": {"path": "operations/product-stewards/town-entry-homepage/candidates/homepage-corrections-20260905/receiving-pages.json", "sha256": "622d9bac5e1f3a5b614d2349795b1fb06776006ae47c55e0fb2d3d3f80643d4b"}, "sourceEvidence": [{"excerpt": "Device-local view: this Closet shows only the Card", "locator": "current Closet landing text"}], "scopeAndFreshness": "Device-local start is explicit; no portable activity-history or reward promise."}
+    ],
+    "reviewedThrough": "2026-09-06T02:13:57Z",
+    "nextTrigger": "Any changed homepage bytes, receiving route, helper capability, game status, account boundary, deployment base or source expiry.",
+    "correctionOwner": "town-entry-homepage with each receiving-product owner"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "This is the first consolidated correction of the protected current homepage; the rejected Episode 04 social carousel had a different surface and visitor job."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The candidate introduces no reusable prose defect and no blocking candidate-only issue in this bounded review."
+  },
+  "dependencyReconciliation": {
+    "reconciledAt": "2026-09-06T02:26:00Z",
+    "kind": "RETAINED_SOURCE_DEPENDENCY_RECONCILIATION",
+    "reviewCycleChanged": false,
+    "note": "The refreshed registry preserves the three previously inspected negatives and the same applicable Ali invitation positive. It adds CQX-GOOD-NEWS-002 for NEWS and EXPLANATION while retaining CQX-GOOD-NEWS-001 as superseded; neither is applicable to this PROMOTIONAL homepage candidate. Candidate HTML, runtime, changed wording and screenshots are unchanged, so the existing PASS and one-cycle ratchet are retained."
+  }
+}

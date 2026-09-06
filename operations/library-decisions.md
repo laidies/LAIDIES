@@ -1,68 +1,423 @@
-# The LIBRAiRY — active instruction packet
+# LIBRAiRY — ACTIVE DECISION OVERRIDES
 
-**Status:** CURRENT PAGE ROUTER
-**Owner:** Library product steward
-**Effective date:** 2026-08-22
-**Supersedes:** older Library visual/public-framing instructions where they conflict
+> **2026-09-05 — Reuse and Dear Miss Jeeves publishing: existing design recovered.**
+> Ali recalled the established Answer Bank and publication routing. Reuse the
+> recovered `operations/product-stewards/learning-content-ecosystem/MISS-JEEVES-ANSWER-ROUTING.md`:
+> durable same-answer explanations go to Straight Answers; transferable
+> situations go to Dear Miss Jeeves. Private saving, internal reuse and public
+> admission are separate. Equivalent questions require matching conditions and
+> current reviewed evidence. Existing intake/static column are not an automatic
+> promotion pipeline. This is an existing accepted policy with implementation
+> gaps, not a newly invented bank. Current Sol/free-search/$100 rules supersede
+> the original fixed counts and cheaper-model route.
 
-This compact packet contains only current page-wide overrides, routing, active assets and prohibited regressions. Do not load historical design packets unless a routed current packet names one.
+## Miss Jeeves reuse and publication — recovered 2026-09-05
 
-## Current page-wide decisions
+The current authority is the recovered
+`operations/product-stewards/learning-content-ecosystem/MISS-JEEVES-ANSWER-ROUTING.md`
+and companion JSON. Both originated in committed source `701adc30`; current
+funding/model decisions are reconciled there. A policy validator checks the
+specified boundaries; it does not establish runtime implementation.
 
-- Preserve the bright, bold pop-art energy, the established semantic teaching-box colours, physical entering-the-building idea and selected-book preview.
-- Use the vibrant production tokens already established in `library.html`: midnight `#070f2b`, ink `#11183b`, pink `#f254a9`, purple `#7137d6`, cyan `#15bce0`, cobalt `#2457e6`, sky `#78c7ff`, coral `#ff7366`, orange `#ff9b3d`, lime `#b7e42b`, mint `#7de2c2` and cream `#fffdfb`. Use saturated gradients, halftone/pop-art texture, ink keylines, hard offset shadows and layered editorial framing. Yellow is not an active Library colour; do not recolour everything blue or purple.
-- Use Ali's 2026-08-23 wide masthead crop reference: the full curved desk and all of Miss Jeeves, both public computers, staircase/shelves and a useful band of geometric carpet remain visible. Preserve the image's natural aspect ratio at every viewport; `object-fit: cover` and fixed-height crops are prohibited because they cut off Miss Jeeves's head. Its painted walls use the light blue-cyan from the Ask Miss Jeeves palette (`#65d1e3` target), not pink, neon blue or dark teal. Do not add a black inset/frame. Preserve the established Library title treatment exactly; do not add a later masthead-specific title-colour override. Keep title and navigation as deterministic live UI.
-- The top orientation panel is compact, not a second hero. At compact-desktop/tablet widths it keeps title and orientation copy side by side with reduced padding and gap; it stacks only at phone widths. Do not carry desktop title size, 50px-plus gaps or large empty padding into the stacked layout.
-- Public choices are **Ask Miss Jeeves** and **Browse all books**. The visible browse heading is exactly **Browse all books**—not “Browse all four books,” “Browse the books,” “Browse the shelves” or “Catalogue.”
-- Reference Desk and Browse must have different composition, weight and direction.
-- Launch with four large individual book-cover images directly beneath **Browse all books**, where the three collection boxes previously sat. Do not place them inside a bookshelf, shelf case, library-wall mockup or book wallpaper; the bookshelf approach was explicitly rejected as visually bad. Do not show 101s/Tools/Reference as separate choices until inventory growth makes them useful. Keep collection type only as searchable metadata and a Miss Jeeves result label. The four covers remain prominent and identifiable rather than shrinking to thumbnails.
-- All four launch books remain visible together. Search titles and topics gets a generous unclipped writing area at desktop and mobile sizes; results appear only after a search/topic choice.
-- One cover opens one adjacent preview with job, contents, depth, currentness and truthful availability. Back restores the initiating control and position. **Open this book** appears only when admitted.
-- Mount the canonical visible shared header. A loaded script, hidden return or hover-only control is not navigation.
-- Prompting is one beginner entry point within the broader work of providing and managing task, audience, sources, constraints, examples, tools, history and maintained context. Do not teach magic words.
-- The four opening books may ship with a selected set of accepted visuals; rejected or failed visuals stay out and may be added only through a later admitted update.
-- Teaching visuals belong inside the exact section whose mechanism they explain, after the relevant explanatory copy. Do not stack visuals immediately after a chapter or introduction title, and do not place an image before the reader has reached the idea it depicts. The source builder and placement guard enforce this for AI Fundamentals and Working with AI.
-- A rendered book does not repeat a full Contents page inside its reading body; the persistent reader index owns that job. Desktop may show the full side index in its independently scrolling rail. Mobile opens a compact chapter-first index: only actual numbered chapters receive numbers, front matter/parts/letters remain unnumbered, and subtitles expand beneath their owning chapter or group. The book title is never a numbered destination. Every chapter and subtitle remains directly reachable, and the persistent Top control remains available.
-- AI Fundamentals opens with Ali's purpose-led preface built around three reader transformations: from frustration to understanding why an AI result went off track; from hype or panic to judging claims; and, exactly, from “Whatever” to “RSVP: Yes. I have notes.” for informed participation in work and public decisions. The accepted preface source is `content/library-books/sources/ai-fundamentals-101.preface.md`; do not replace it with the flatter standalone “How This Book Works” front matter, the unrelated August 24 system-map substitute or a chapter-list wall before Chapter 1. The rough draft's three reading modes are not a public promise unless the reader actually implements them. Ali corrected the exact third transformation on 2026-08-24.
-- AI Fundamentals chapters begin with their first numbered teaching section, not utility panels. The unchanged “By the end of this chapter” objective and “Key Terms Introduced in This Chapter” table close that opening section before section `.2`. A chapter title followed by two panels before any teaching prose is a rejected rhythm. This order applies across all 20 chapters and is enforced in build, admission and responsive reader tests.
-- The four-book reader uses the Ali-selected pop-zine textbook direction approved on 2026-08-24. Exact composition authority is `/Users/alisoneakin/.codex/generated_images/01a02f80-da71-7c03-9874-ffff309f2e40/exec-6ffbe44e-7d11-4ae4-8884-546946b2a867.png`: angled warm-white paper in a full lavender halftone comic frame; oversized split `AI Fundamentals 101` lockup; compact top-right controls; a left-edge Contents tab; the Preface starburst, divider and brush rule; main reading column; and two outlined semantic cards at right. Later corrections change only the cards' truthful labels/content, the Save artwork and the Rewind/computer motif mix; they do not authorize flattening the composition into a conventional white reader or substituting an unrelated visual direction. ImageGen is the required production method for a continuous replacement frame: it must preserve the approved composition and palette as one seamless raster per responsive format, never a mechanically tiled continuation. The cassette, one lightning bolt and small stars may remain; the approved retro-computer and holographic-cursor Puffies replace the oversized mouth and some generic decoration. Purpose-labelled semantic boxes remain and keep distinct colours, outlines and labels; ordinary prose and numbered section headings are never put into a box merely for layout. “From ‘Whatever’ to ‘RSVP: Yes. I have notes.’” is a full preface section, not a Natural Question label. Ali's 2026-08-25 correction makes the Contents tab horizontal, compact and minimizable at desktop and mobile widths; its opened index and the Puffy save prompt use light, thin-edged overlays rather than large thick-outlined boxes. Save uses the approved teal floppy-disk Puffy image to open the visitor's ten preselected Puffy Stickers. Desktop geometry scales from the reference width; it must not shrink the entire sheet from viewport height, stretch the bitmap to an unrelated aspect ratio or apply full-desktop fixed offsets inside a narrowed sheet. A short desktop window keeps the top composition at full width and scrolls the reading pane; mobile uses its explicit stacked reflow. The flattened local successor at commit `e8f2f22147ffa9cb88e1e5293b12f4264ea77b49`, the height-shrunk successor at commit `01a0da16815d140ee5e36b346671f23a486b55c4`, the wholesale lavender AI-tech replacement at commit `9d452153edf9dc56423b02b318ca38582e9d9ba4`, and commits `0e8ac1155f35fcf9fc14446497ca154dfba06a95` and `c73560ff12e0d7708858a7171e774a75622909e1` were rejected by Ali and are not visual authority. `0e8ac115` added useful discrete-spread behaviour but still loaded the rejected v1 surface; functional change did not make it a visual successor.
-- Commits `9ce041c0`, `0e8ac115` and `c73560ff` are rejected visual predecessors. `c73560ff` is specifically rejected because it repeated a short raster strip down the page, creating visible horizontal seams, and pasted a second lower-right burst into the continuation. The frame and decorative imagery must be one continuous ImageGen-authored raster per responsive format; no repeated strip, stacked layer or separately pasted burst is allowed. The title and manuscript remain live accessible typography, while the underline, burst, divider and rules use real raster assets rather than CSS-drawn substitutes. The active local successor uses `ai-fundamentals-frame-imagegen-v6.png` on desktop and `ai-fundamentals-frame-mobile-imagegen-v6.png` on mobile. Neither asset has lower-right decoration because a fixed frame remains behind the entire internally scrolling manuscript; any art there can cover unrelated text later in the book. The shared companion-book frames follow the same protected-centre rule in `library-book-page-art-v4.png` and `library-book-page-art-mobile-v4.png`.
-- The ImageGen artwork is the perimeter frame, not a text background. All headings, body copy, semantic cards and reading controls sit inside the protected warm-white area. No live text may overlap lavender halftone, computer/AI stickers, bursts or other edge decoration at any responsive width or internal scroll position. Section-level Save controls reserve their own heading space and may never float over or cover the heading text. That reservation must preserve the heading's normal full-width block flow; do not turn the heading itself into a grid or flex container because its `::before`/`::after` decoration participates in layout and can force live title text into the control column.
-- Ali's 2026-08-26 correction is interaction authority: this is a continuously scrolling book, not turn-the-page functionality. The complete manuscript remains in one readable internal scroll; there are no Previous/Next controls, hidden authored spreads or `x / total` page counter. A compact persistent header keeps the horizontal minimizable Contents control and Top available everywhere. Contents opens any chapter or subtitle directly, Top returns to the start, and both work at desktop and mobile widths without requiring a reader to traverse the full scroll manually. Desktop preserves the selected composition; mobile reflows the same continuous book and controls. The current raster successor has maker comparison evidence only and requires Ali's direct exact-candidate approval before it becomes implementation authority or enters release.
-- Opening Contents changes the reading area into a dedicated index view; it does not drop an absolutely positioned box over the manuscript. The prose is temporarily hidden while the index is open and returns at the same reading position when Contents closes. Chapter/group labels and destination links use at least 16px live type with clear nested hierarchy. On desktop the index aligns to the left edge of the main reading column rather than centring in the available white space; mobile retains its compact inset. Choosing a destination closes Contents, restores the manuscript and jumps to the exact heading. The same non-overlapping model applies on desktop and mobile.
-- Opening-day book admission requires exact-source and rendered-artifact binding, current claim/source review, artifact-first instructional and usability review, correction readiness, responsive/accessibility journeys, Ali approval, release and public-origin verification. A paid or formal unfamiliar-reader study is not an opening-day requirement (Ali, 2026-08-23). Internal simulated-reader or browser audits must identify themselves truthfully and may never be labelled observed-human evidence.
-- Miss Jeeves gives a short current evidence-bound answer and grouped exact learning routes; she states no coverage honestly. Suggested questions must resolve. Browser-hardcoded answers are not a second authority.
-- Miss Jeeves displays a compact row of genuinely common example questions. “How do I write a better prompt?” and other prompt-first shortcuts are rejected. Every visible example must be tested against a governed exact route; selecting it submits the question through the same backend as typed input. Examples never carry browser-hardcoded answers or a client-side fallback index.
-- Topic demand separates “we have it but people cannot find it” from “we need coverage.” Passive records use controlled IDs only; explicit requests alone may store disclosed visitor text. Popularity never creates a promise or publication.
-- The public Miss Jeeves answer path uses the governed catalogue first, then Cloudflare Workers AI only to interpret and summarize those supplied records. The production model is `@cf/meta/llama-3.1-8b-instruct-fp8-fast` in structured-JSON mode; any provider, format or capacity failure falls back to deterministic retrieval instead of breaking the answer or inventing from model memory.
-- A visitor may explicitly consent to submit an uncovered topic. That separate path issues a public receipt and status reference, stores the elected wording in the encrypted D1 payload vault for 30 days, retains only an HMAC-keyed duplicate digest and controlled topic/placement metadata outside the vault, and supports editorial `reviewing`, `planned`, `answered` or `declined` states. It never creates a public promise or publication automatically.
-- Passive Miss Jeeves outcome/result-open collection is active through `MISS_JEEVES_SIGNALS` and `laidies_miss_jeeves_signals_v1`. It sends controlled topic, outcome, placement, source IDs and counts only; raw questions are never a passive signal. Cloudflare retains Analytics Engine records for three months.
-- Puffy saves preserve whole-book versus exact-section scope. The first save attempt owns the Resident Card explanation; My Closet remains in the Sorority House.
-- Mobile explanation precedes what it explains; controls, covers and text remain readable without horizontal overflow. Desktop and mobile require real browser inspection.
+Bounded inspection found the consented topic-request intake and status/receipt
+code, plus a directly authored Dear Miss Jeeves letter in `newsstand.html` and
+a renderer for separately admitted daily column records. It did not find the
+connection from a researched answer to a reviewed private Answer Bank entry,
+equivalent-question reuse, a governed editorial candidate, public admission,
+or shared freshness/correction propagation. No production behavior is inferred
+from these source files. The attempted public read returned 403; live column
+visibility was not established in this inspection.
 
-## Route by task
+Preserve the existing private/public split. A reviewed, de-identified internal
+entry may answer equivalent questions while current without being publicly
+browsable. A direct hit consumes no API allowance; fresh model-generated
+tailoring still does. Similar wording alone is not equivalence: compare the
+question's decision-changing tool, plan, version, region and workplace
+conditions. Corrections or expired evidence hold reuse. Candidate promotion
+remains a separate governed action; private saved responses and raw visitor
+text never become public merely through repetition or positive ratings.
 
-- Page purpose/boundaries: `operations/product-stewards/library/CHARTER.md` and `operations/product-stewards/library/EXPERIENCE-BRIEF.md`.
-- Journeys/dependencies: `operations/product-stewards/library/FUNCTIONALITY-MAP.md`.
-- Page visual implementation: `operations/product-stewards/library/BUILD-PACKET-LIBRARY-PAGE-ELEVATION-2026-08-22.md`.
-- Book reading/teaching behavior: `operations/product-stewards/library/BOOK-EXPERIENCE-CONTRACT-2026-08-22.md`, plus the exact book source and admission records routed by `operations/DECISIONS.md`.
-- Miss Jeeves: `operations/product-stewards/library/subproducts/miss-jeeves.md` and its current build packet.
-- Cross-product or later decisions: `operations/DECISIONS.md`.
+> **2026-09-05 — Miss Jeeves service value — Ali ruling.**
+> Miss Jeeves should explain that her research draws from AI voices,
+> organizations and institutions LAiDIES has assessed for relevant expertise and
+> trustworthy guidance, with the particular guidance checked for currentness.
+> She turns that evidence into understandable, practical help tailored to the
+> visitor, asking necessary follow-up questions rather than inventing details.
+> The value is an established source-selection and explanation process that the
+> visitor need not design in a prompt. Do not claim generic chat tools cannot do
+> these things, that trusted identity proves every page current, or that source
+> citations eliminate error. Explain the method when the implementation supports
+> it; show useful citations and relevant uncertainty with answers.
+> Unlimited LAiDIES search stays free and makes no AI call. Tailored synthesis
+> and outside research remain the explicitly chosen Sol research experience.
+> This strengthens the active repair; billing/fair-use and release holds remain.
+
+> **2026-09-05 — Miss Jeeves free site search and optional paid research — Ali ruling.**
+> Anyone may search only LAiDIES, without a usage limit and without an AI API
+> call. Alongside any related LAiDIES material, offer optional research beyond the
+> site when the visitor needs more; some matches do not prove a complete answer.
+> Also offer research when there are no matches. Research starts only after the visitor deliberately accepts; it
+> uses Sol and is subject to per-person allowances and an enforced total spend
+> ceiling. Never spend on an initial site search or silently promote a search
+> into paid research. Ali approved a maximum research budget of US$100 per calendar month.
+> Count all provider attempts, including failures; free search remains available
+> when research is exhausted. Use a UTC calendar month for the shared counter. This supersedes automatic
+> Sol answering for every initial question, while retaining the prohibition on
+> silent model substitution. Existing work remains the site-improvement task.
+
+## Miss Jeeves source and explanation requirements — 2026-09-05
+
+Ali's service promise above is DECIDED. Implementation remains RELEASE HOLD.
+The existing governed source roster is the starting point; do not create a
+parallel bank. This bounded inspection used backend commit `8f56d4ba` in
+`/Users/alisoneakin/Projects/laidies-jeeves-sol-backend-20260905`.
+
+- **What exists:** `miss-jeeves-trusted-sources.js` projects named source records
+  with review/expiry dates, excludes scouts as direct authority, and constrains
+  research domains. Guidance instructions distinguish official facts from
+  attributed practitioner advice. This is evidence of configured source
+  selection, not a fresh independent assessment of every source or claim.
+- **What remains:** standing-authority domains lack individual review-expiry
+  records. The initial answer gate accepted one allowed citation alongside bad
+  citations; the local successor now rejects all mixed/invalid URL provenance and
+  requires its policy marker in Pages. Important claims can still be unsupported
+  by an otherwise allowed citation. Currentness, useful tailoring and when to
+  clarify largely depend on model
+  instructions. Parsing a cooperative mock's follow-up does not establish
+  that real answers reliably ask the necessary question.
+- **Required source check:** record why a source is qualified for the relevant
+  subject, its evidence/primary-source relationship and material interests or
+  limitations. Check the particular guidance's applicable date, product/version,
+  plan/region and prerequisites where these affect the answer. An old document
+  is not automatically wrong; a trusted publisher is not automatically current.
+- **Required answer check:** important factual claims must be supported by the
+  cited material, conditions preserved, practitioner judgments attributed and
+  material disagreement/uncertainty visible. Explain unfamiliar terms in context,
+  connect the evidence to the visitor's stated goal and give a feasible next
+  step. Ask only for missing details that materially change the answer; do not
+  invent the person's tool, access, employer permission or circumstances.
+- **Proof before the public promise:** test representative actual Sol answers,
+  including an allowed source with obsolete guidance, mixed/insufficient citations,
+  conflicting evidence and the original ambiguous work-document case. Review
+  the exact answers and source passages. Citation position or a sentence regex
+  cannot prove factual support, currentness or teaching quality. Reuse the
+  existing freshness/claims workflow for retained guidance and corrections.
+
+No public copy, new runtime enforcement or live source-quality verification is
+claimed by this record. Billing verification and measured adaptive fair-use work
+continue within the existing Miss Jeeves repair.
+
+## Miss Jeeves and FAiRY roles — Ali ruling, 2026-09-05
+
+**Status: DECIDED / SPECIFIED; shared answering and handoff not implemented or verified by this task.**
+
+- **Miss Jeeves** helps answer more technical AI questions in plain English.
+- **FAiRY Godmother** offers advice and teaches the user how to use her own AI
+  to get tailored advice in future. Helping with today's situation and teaching
+  future use are both part of the intended outcome. This is a clarification of
+  existing intent, not a claim that the capability must be built from scratch.
+- **Intentional overlap:** “my boss asked me to do X, how can I use AI to help?”
+  should ideally be answerable by either helper, with the same answer. Do not
+  force a transfer merely because the question is practical or personal.
+- **Conditional fallback if that is too difficult:** offer a handoff in either
+  direction. Only after the user says yes, open the other helper's page and
+  prepopulate its question box. The user can review/edit it and must press its
+  Ask/submit button. Navigation and prepopulation must never auto-submit.
+  Declining keeps the visitor and question at the current desk. Preserve the
+  question rather than silently rewriting it or adding private conversation.
+
+This supersedes the September 5 audit's strict “understand versus do” split
+and older wording that assigns all personal/practical AI questions exclusively
+to FAiRY. Both may explain and advise within their supported coverage.
+
+**Implementation recommendation, not yet tested:** use shared answer rules,
+maintained sources and an answer path for overlapping questions. Same facts,
+advice, limitations and next steps should survive either character's
+presentation. Exact wording across separate generated answers is not assured
+by shared instructions; whether exact wording is required remains unspecified.
+The fallback is conditional, not the selected default architecture.
+
+Before implementation, inspect the newest saved and deployed FAiRY experience;
+retain existing advice and teaching behavior. Saved source already includes
+situation advice and a prompt to take to the user's own AI. That is not proof
+of deployment. The September 5 live audit completed one prompt-improvement
+case with a usable answer, reasons, assumptions and next move. A follow-up
+workplace question hit the daily guest allowance; it produced no second answer.
+Do not describe that limited test as a complete evaluation of the updated tool.
+
+Future acceptance: exercise the boss/X example at both desks with equivalent
+context; preserve consistent substance; verify advice teaches future use of
+one's own AI; and, if needed, test both handoff directions, consent/decline,
+editable prefill and zero submission or case charge before the final Ask click.
+Keep private question text out of analytics and ordinary URL query logging.
+No new retention, allowance, provider, visual design or public release follows
+from this ruling. Next step is a bounded inspection and shared-answer pilot,
+not another redesign or a claim that the current implementation lacks teaching.
+
+
+Active packet only: `operations/DECISIONS.md`;
+`operations/product-stewards/library/CHARTER.md`;
+`operations/product-stewards/library/EXPERIENCE-BRIEF.md`;
+`operations/product-stewards/library/FUNCTIONALITY-MAP.md`; then this file.
+
+Last reconciled: 2026-08-05.
+
+## Current overrides
+
+- **Collection guide restored — 2026-08-06.** Before the working catalogue
+  controls, show 101s, Tools and Reference as three distinct comic-pop visual
+  collection guides made from current book covers, with a short plain-English
+  explanation directly underneath each image. Each complete guide is an
+  operable route to that exact physical shelf. The guide explains which shelf
+  to choose; it does not reinstate the retired brown freestanding bookcase
+  assets, duplicate full book previews, or add availability warnings at rest.
+- **Library title — 2026-08-06.** The page title is **The LIBRAiRY**, not
+  **The Town LIBRAiRY**.
+
+- **Catalogue reading surface — 2026-08-06.** Pop-art is the energetic frame,
+  not the surface behind working text. The catalogue heading, search, topic
+  controls and Closet route use one quiet, high-contrast composition with the
+  rounded panels and pill controls established by Miss Jeeves. The catalogue
+  eyebrow uses the same coloured pill treatment so it reads as part of the
+  same page system. At rest, do not show an instruction paragraph, held-book
+  warning, or total-book count.
+  Search results appear only after a visitor searches or selects a topic, and
+  the result is contained inside the catalogue control surface rather than
+  floating over the comic background.
+- **Collection-room depth and identity — 2026-08-06.** The three collection
+  rooms must not look like the same freestanding-room photograph stacked three
+  times. Crop the approved room image into its central wall so the metal case
+  reads against that wall, and give 101s, Tools and Reference distinct
+  locked-palette wall colours. Render books behind the case artwork: signs and
+  metal rails stay in front, books fit wholly inside one shelf opening, and no
+  cover may cross a sign, upright or rail.
+- **Working reference-desk masthead — 2026-08-06.** The Library masthead is a
+  functioning, funny reference desk rather than an empty room photograph. Keep
+  readable funny environmental signage—including the established “DON'T FEED
+  THE PRINTER” joke—and visible practical desk tools. These are physical scene details, not
+  floating interface labels, and must not obstruct the title or Miss Jeeves.
+  Do not add a redundant `SUNNYVAiLE LIBRAiRY` sign inside the room. Do not put
+  a checkout card on the wall or use “PLEASE REWIND YOUR FLOPPY”: neither
+  belongs there or communicates a useful Library idea. Any wall detail above
+  the public computers must have a plausible Library job, not merely fill
+  space.
+- **Shelf density and floor contact — 2026-08-06.** Four-book collections use a
+  compact two-bay case rather than four books scattered across a mostly empty
+  three-bay case. Six-book collections may use all three bays. In every case,
+  each cover's complete bottom edge remains visible immediately above the
+  shelf's front lip. The rail may overlap the book's shadow but may not cover
+  its artwork or make it look as though it fell behind the shelf. The visible
+  bottom of the case meets the room floor/base line; transparent padding may
+  not make books or furniture appear to float. A compact case must come from
+  one intact source render: do not stitch bays, duplicate the centre upright,
+  or rebuild metal rails from mismatched fragments.
+- **Masthead preservation boundary — 2026-08-06.** Localized environmental
+  corrections may not re-render Miss Jeeves or the whole room. Preserve her
+  identity, face, body, clothing and clean textures while editing only the
+  named room object. Reject the blotchy/lumpy v6 image and the confused
+  under-stair wall junction it introduced. The later
+  `library-interior-purple-sign-wall-v7-clean-metal-stacks.png` is also
+  rejected: the whole-image edit visibly mottled Miss Jeeves's face, hair,
+  cardigan and hands. The later hand-inked replacement changed the entire
+  masthead and retained artificial texture, so it is rejected too. The v8
+  image edit over-rendered Miss Jeeves again and added nonsensical wall décor;
+  it is rejected. Ali also rejected the earlier purple-room v5 source on
+  2026-08-06: Miss Jeeves remains visibly lumpy, the public-computer signs are
+  redundant, and the under-stair cases are wood rather than metal. The active
+  source is the historical no-baked-text v4 room, which removes the redundant
+  signs and restores metal cases without another whole-scene generation. The
+  required printer joke is a separate localized prop seated beside the printer,
+  so it can be positioned or replaced without changing Miss Jeeves or the room.
+  Do not add a scanner as a floating overlay: the rejected attempt hung over the
+  desk edge and did not read as part of the physical scene. This is
+  a bounded correction, not a visual-acceptance claim. Do not run another
+  whole-scene style replacement over her.
+  Each collection room uses the same unfiltered `floor-geometric-v1.png` carpet;
+  only the wall layer changes colour between 101s, Tools and Reference.
+- **Masthead orientation and Card timing — 2026-08-06.** Use direct visitor
+  choices: “Not sure where to start? Ask Miss Jeeves. Looking for a specific
+  topic? Browse the shelves.” Do not show generic Resident Card/Puffy setup in
+  the arrival masthead. Explain the Card only when the visitor first tries to
+  save; the save dialog already owns that explanation.
+- **Miss Jeeves masthead identity successor — 2026-09-01.** Ali approved the
+  Miss Geist-inspired Miss Jeeves identity pilot for the existing LIBRAiRY
+  masthead and authorized replacing the old masthead character. This supersedes
+  only the old character-preservation clause above: the historical v4 room,
+  equipment, composition and separate shelf-room background remain fixed. Use
+  a new masthead-only asset, keep her face and identity cues visible in the
+  centred 320px crop, and do not use this character replacement to redesign the
+  room or resolve the separate printer-joke prop.
+- **Miss Jeeves successor approval withdrawn — 2026-09-01.** Ali rejected both
+  the integrated masthead candidate and its first correction: the first woman
+  is too old and badly misses Ms Geist; the correction is younger and better
+  but still looks like a polished generic librarian rather than Ms Geist. The
+  wardrobe also fails to read specifically as 1995. Restore the historical v4
+  masthead as the active arrival image. Before any new masthead integration,
+  admit one identity pilot against actual 1995 film stills of Twink Caplan as
+  Ms Geist: her smaller messy dark bob, huge round wire glasses, narrow face,
+  blue eyes, expressive awkward warmth and screen-worn oversized white collar
+  with red sweater or teal mailroom blouse. Do not substitute glamorous curls,
+  arched fashion brows, a cardigan-and-paisley librarian costume or an elderly
+  face. Ali must approve the corrected identity pilot before room integration.
+- **Miss Jeeves v4 identity pilot rejected — 2026-09-01.** Ali's direct visual
+  ruling supersedes its internal reviewer PASS: the narrowed hair correction
+  also produced a gaunt, hollow-cheeked, wide-eyed face that reads as Gollum,
+  not Ms Geist or a warm SUNNYVAiLE guide. Preserve the incumbent masthead.
+  Any successor starts from the warmer v2 facial proportions, restores fuller
+  cheeks, normal eye scale, a softer jaw and healthy neck/shoulder proportions,
+  and treats the compact bob as a separate hair-only requirement. A visual
+  checker that admitted v4 is not calibrated for gaunt/uncanny face drift.
+- **Miss Jeeves pencil-free teal identity approved — 2026-09-01.** Ali selected
+  `assets/library/candidates-20260901/miss-jeeves-geist-identity-selected-pencil-removed.png`
+  (SHA-256 `89c44d4be49d16d3fe69648f90da31fb3a4e505f439e019e2d20daef93dbb13f`)
+  as the exact identity source for masthead integration. Preserve its healthy
+  full face, warm expression, dark full curls, round gold glasses, pearl studs,
+  clean teal-blue cardigan and oversized white pointed collar. The earlier
+  pencil-in-hair version and the later compact-hair v7 candidate are superseded.
+  This approval authorizes a Library masthead candidate; it does not authorize
+  a page replacement, push or deployment without approval of the integrated image.
+- **Library masthead wall authority is the live cyan room — 2026-09-01.** Ali
+  rejected the lavender-wall integration because it does not match the current
+  public Library. Masthead successors must use the exact live cyan source
+  `library-interior-wide-jeeves-blue-walls-v3.png` as the room base, preserving
+  its 1746x901 geometry and aqua/cyan painted walls (representative median RGB
+  `119,204,221`). Do not recolour the stale lavender local room and call that a
+  public match. The corrected local candidate is
+  `assets/building-interiors/delivery-20260901-library-miss-jeeves-successor-v3/library-masthead-miss-jeeves-selected-live-cyan-v3.png`.
+- **Miss Jeeves section colour and texture — 2026-08-06.** The reference-desk
+  section must not repeat the blue-led catalogue surface immediately below it.
+  Use the locked vivid pink → purple → blue gradient with the approved
+  Episode 01 pop-comic background visible at supporting opacity. Keep strong
+  quiet zones behind every working input, button and body-copy line so comic
+  energy never reduces legibility.
+- **Closet control alignment — 2026-08-06.** Centre the My Closet title and
+  device-state copy vertically as one left-aligned text group inside the pill.
+  Give it enough internal height and width that the last word is not stranded
+  by avoidable padding or an undersized catalogue column.
+- **Miss Jeeves sample-question boundary — 2026-08-06.** Suggested questions
+  must be a specific, bounded reader question or job and stay within
+  deterministic routes supported by current admitted Library material.
+  Do not suggest “Which AI do I use?” or “How does AI work?”: the first teaches
+  the wrong tool-choice method and the second is too broad for a useful,
+  catalogue-grounded answer. Tool-choice suggestions must model Episode 04's
+  job-first method. Every visible suggestion must resolve to an exact
+  answer/source route.
+
+- **Exact successor rejection — 2026-08-05.** `library.html` SHA
+  `7d4d01f4…c7c9` is rejected and quarantined: oversized mostly empty shelving
+  rooms, awkward/floating books and pasted-on title labels fail the Library
+  experience. Do not repair or reuse that composition. The active page baseline
+  is restored checkpoint SHA `db924c0d…bd6e`; it is a safe checkpoint, not an
+  approved page. Preserve the accepted masthead and physical-shelf concept while
+  finding a coherent way to make books readable.
+- **Page-review cutline — 2026-08-05.** A Library page successor receives one
+  maker browser check for objective functional, accessibility and responsive
+  breakage, then Ali judges the exact visible candidate. Do not commission
+  multi-role, dossier or repeated procedural page reviews. Automated checks
+  remain only where they can reject a real defect. Book-content accuracy and
+  admission gates, privacy/security, and exact public deploy verification are
+  unchanged.
+
+- **Exact visual rejection — 2026-08-05.** `library.html` SHA
+  `615a80f7…dab` is **REJECTED / DO NOT PREVIEW / DEPLOY / PUBLISH**: covers are
+  unreadably small and the boring blue recolour repeats the rejected shelf
+  composition. Checks cannot reopen it. Preserve the accepted masthead and the
+  books-on-physical-shelves concept only—not the current shelf scale or layout.
+  Every other page area must be rebuilt from the active feedback below.
+- **Opening-book set correction — 2026-08-23.** Zero books are admitted. The
+  four opening identities are AI Fundamentals 101, Working with AI 101,
+  Straight Answers About AI and The AI Dictionary. This supersedes Briefing
+  101, Setup 101 and Accounts 101 as opening requirements without deleting
+  their preserved material. AI Fundamentals owns foundational definitions and
+  connected concepts; Working with AI may own additional practice-specific
+  terms. The AI Dictionary derives its plain definitions and exact read-more
+  links from those maintained source anchors and may not become a parallel
+  definition authority. Concepts 101 SHA `bb25fae4…08f4b` remains HOLD /
+  source-mine-only, and retired Vocab 101 is not restored.
+- **D-093 is superseded by Ali's direct 2026-08-05 shelf ruling.** The shelf
+  shows the proper physical case and materially large, readable book covers;
+  it does not render the full preview beside every book. One cover click opens
+  one preview with job, contents, depth, currentness and availability. The
+  preview then offers **Back to the shelf** or **Open this book** when admitted.
+  Back restores the exact initiating shelf control and position. Tiny covers
+  still fail; SHA `615a80f7…dab` remains rejected.
+
+- **No shelf pagination; current scale is rejected.** All books matching the current catalogue view remain
+  visible together. Do not add Previous/Next pages and do not shrink covers to
+  force growth. Materially enlarge the physical books and readable titles by
+  reducing books per visible bay/row or adding vertical room/shelf capacity.
+  Growth adds another physical bay or room/shelf unit.
+- **The unfiltered catalogue currently contains 14 books.** All 14 are visible;
+  readiness remains truthful per book.
+- **Books physically meet the shelf rails.** Floating covers fail. Primary
+  covers remain at least 120 CSS px in their rendered reading dimension and
+  use an operable target of at least 44 CSS px. The measurement uses the
+  visible non-transparent book pixels, not the rectangular `<img>` box. Every
+  visible book in a row is checked, not only the first. The numeric floor is a
+  rejection guard, not a visual PASS: titles and covers must also be plainly
+  identifiable at the real desktop and mobile review viewports.
+- **Ask Miss Jeeves is not catalogue search.** Miss Jeeves accepts a question,
+  gives a bounded direct answer when available and routes to the best exact
+  admitted place across the whole town. Homepage and Library are placements of
+  this same service; Library prioritizes books and exact sections. Catalogue
+  search finds a known title or topic.
+- **Miss Jeeves has a privacy-safe learning bank.** Record controlled topic,
+  answered/partly-covered/not-covered/unavailable outcome, placement and
+  recommended source IDs. Never send raw question wording, answers, reading
+  text or inferred personal need to analytics or session replay.
+- **Clean initial state.** An unavailable index must not display an unsolicited
+  Miss Jeeves error before the visitor asks anything. A failed request retains
+  the question and gives a useful recovery path without navigation or a console
+  exception.
+- **Book and class roles stay distinct.** A book is a scannable, resumable
+  reference with a preview, contents jumps and continuous reading—not a class
+  in text form and not a page-flip simulation.
+- **Reader navigation remains reachable.** Every open book keeps a compact
+  desktop-and-mobile header above the reading column. It opens the complete
+  chapter-and-section contents, names the current section and includes a
+  touch-sized return-to-top control. A contents jump closes the menu and lands
+  directly on the chosen heading; a long book never requires scrolling back
+  through its prose merely to recover navigation.
+- **Puffy saves use the Resident Card's 10 active stickers.** A discreet floppy
+  control saves a whole book, a chapter or an exact subtitle-defined section.
+  Activating it opens the reader's existing pouch of exactly 10 preselected
+  Puffy Stickers; the selected sticker and saved object retain the exact scope,
+  book version and deep link. Do not restore repeated save rows, a wand save
+  symbol or a separate sticker catalogue. My Closet remains in the Sorority
+  House.
+- **Visual bar.** Use the current electric 1990s page system and real approved
+  Library room, shelf and cover assets. The soft candy system is retired for
+  page UI. No white/plum, plum-on-purple, pastel-candy bands, generic navy
+  slabs, dingy beige/yellow, generic card grid, random CSS circles/lines/outlines,
+  floating objects or disconnected boxes. Typography is one coherent
+  display/body system.
+- **Shelf objects are environmental, not an overlay.** The case is visibly
+  attached to the Library wall; every book is normalized by visible artwork
+  bounds, sits on its exact rail and uses the same visible scale. Availability
+  remains accessible and appears in the selected-book preview; do not paste
+  `READY`, `PREVIEW` or `COMING` slabs over covers.
+- **Saved-find handback is not a generic footer slab.** It belongs in the
+  Library/Closet journey at the point it helps the visitor and inherits the
+  page's environmental/electric composition. The rejected dark-navy
+  `.library-handback` band must not be restored.
+- **Mobile reading order.** Explanation precedes the objects it explains and
+  never becomes stranded beside the next section heading.
+- **Masthead overlay rejection — 2026-08-06.** Commit `75dc0f97` and every
+  separate `arrival-prop` treatment are rejected: the clock and printer signs
+  read as flat CSS stickers pasted over a photographic room. Do not restore
+  them or solve this with another absolute-positioned transparent asset. The
+  text-free v4 masthead remains the protected baseline. Future clocks, signs or
+  desk equipment must be integrated into one bounded scene composite with the
+  room's perspective, lighting, material texture, occlusion and grain while
+  preserving Miss Jeeves and all pixels outside the approved edit masks.
 
 ## Current implementation assets
 
-- Masthead: `assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-wide-jeeves-blue-walls-v3.png`
-- Large individual covers: `assets/library-101/bright-family-v2/textbook-ai-fundamentals-101.png`; `assets/library-101/bright-family-v2/textbook-working-with-ai-101.png`; `assets/library-101/bright-family-v2/book-straight-answers-about-ai.png`; `assets/library-101/bright-family-v2/book-ai-dictionary.png`
-- Shelf wall, floor and case assets are not active inputs for the four-book browse presentation.
+- Masthead: `assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png`
+- Rooms: shared `assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png` plus `assets/building-interiors/library-shelf/room/floor-geometric-v1.png`; wall tint varies by section and carpet does not.
+- Cases: `assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png`; compact `assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png`; mobile `delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png`.
 
-## Release boundary
-
-Ali authorized the owner-corrected page and Miss Jeeves backend for production on 2026-08-23, then directly corrected opening-book image placement, the duplicate Contents page, flat mobile index, missing purpose-led AI Fundamentals preface, its exact “Whatever” to “RSVP: Yes. I have notes.” third transformation and chapter-opening panel order on 2026-08-24. The accepted production successor is source `e7fc827018aa937c5ae06bc72be0ba56a6616213`, artifact `efe5cc550385c5be3dc8d112141b1e0ee5f99ef3fa387862a71bdfebbbe6c922` and deployment `c3cde9a0-b530-4e9f-bfd2-7dcc3c48a6d2`; both public origins matched all changed visitor files and the live mobile/desktop reader contract. Any visual successor still requires Ali's direct exact-candidate approval. Book admission remains separate. A local page, integrity receipt, checker pass or HTTP 200 is not publication.
-
-## Prohibited active inputs
-
-Rejected page identities `615a80f7…dab` and `7d4d01f4…c7c9` remain excluded; `db924c0d…bd6e` is a protected baseline, not approval.
-Rejected exploration identities retained by hash only: `46185b93…7f3d`, `db5e59cd…6972`, `ccb390bd…b536`, `dda48deb…8fb72`, `057714da…9bb`, `621549b4…5632`, `57b889a9…8d45`. Their bytes are available in Git history, not the active tree.
+## Retired inputs — machine-readable
 
 ```banned
 101-shelf-kit.png
@@ -73,10 +428,7 @@ library-aisle-backdrop-v1.png
 bk-status
 shelf-pages
 library-handback
-arrival-prop
 library-interior-purple-sign-wall-v6-metal-stacks.png
 library-interior-purple-sign-wall-v5.png
-library-interior-purple-sign-wall-v7-clean-metal-stacks.png
 library-wall-case-2bay-clean-v1.png
-commit:75dc0f97
 ```
