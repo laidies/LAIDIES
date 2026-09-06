@@ -1,5 +1,16 @@
 # Active work
 
+> **2026-09-06 — Episodes 01–04 refresh: BUILDING.**
+> Ali's active goal includes revised written editions and narration/audio, useful concise Cheat Sheets,
+> interactive exercises, four-concept Episode01 trading cards, quizzes and account-backed episode binders.
+> Episodes01–03 govern voice/Rewind reference density; every episode needs one or two current Saints with teaching jobs.
+> Core `9f94f4c2` and exercise integration `f8205755` are local implementation checkpoints, not public release.
+> Synthetic browser and actual isolated PostgreSQL checks cover complete Episode01 fields, retry and account separation.
+> Closet retrieval, pack/card/quiz integration, full design/content review, live saving and new audio remain open.
+> Continue in `/Users/alisoneakin/Projects/laidies-episode-review-20260906`; detailed resume: `operations/episode-review-resume-2026-09-06.md`.
+> Trailer, other binders and later-season mapping are deferred. Shared iCloud working files are preserved.
+
+
 > **2026-09-06 — Scheduled freshness cycle executed / corrections remain open.** Read the evolving canonical bank and actual producer sources; receive five absent committed NewsStand signals without replacing prior records. Reviewed the due HBS participation estimate against the real May2026 PDF and August6 institutional update: NO_CHANGE, next source review2026-10-06; audio/cue/consumer holds unchanged. Eight real desktop/phone Blend & Snap/Quiz journeys complete; held components remain unlinked, available Try-Ons save/reload synthetic notes, all four quizzes score and explain answers. Existing Episode04 mismatch remains open; route observed Quiz bonus naming/product-model wording through the existing model-guidance signal. No public edits/deployment or broad dispatcher change. Full observations and owned next actions: /Users/alisoneakin/Projects/laidies-blend-snap-menu-20260905/operations/product-stewards/learning-content-ecosystem/freshness-runs/2026-09-06-review.md
 
 > **2026-09-05 — Homepage owner-feedback correction: VERIFIED PREVIEW / OWNER REVIEW PENDING.**

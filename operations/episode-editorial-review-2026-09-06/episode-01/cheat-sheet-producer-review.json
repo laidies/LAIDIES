@@ -1,0 +1,507 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "episode-01-cheat-sheet-20260906",
+  "surface": "Episode01 cheat-sheet",
+  "contentClass": "REFERENCE",
+  "maker": "foreground-episode-editor",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "foreground-episode-editor",
+    "principalId": "foreground-episode-editor",
+    "role": "producer",
+    "modelFamily": "gpt-6-astra"
+  },
+  "reviewedAt": "2026-09-06T19:04:28.314Z",
+  "verdict": "HOLD",
+  "limitations": [
+    "Prose-only self-review; no independent admission, designed render, actual saved journey or publication.",
+    "New exercise/binder routes are under construction; final usefulAction and surfaceFit remain held until the representative journey exists.",
+    "Privacy input boundary and no-automatic-training explanation need exact primary-source bindings before final source admission."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/episode-editorial-review-2026-09-06/episode-01/cheat-sheet.md",
+      "sha256": "e1efd586614a32c8c68cb1f28313ecc11c55124b513f6e7a70aa317d15353bc8"
+    },
+    "manifest": {
+      "path": "operations/episode-editorial-review-2026-09-06/episode-01/cheat-sheet-manifest.json",
+      "sha256": "fdbc1518d93ce515fa9c79f77818558fbdc34fdc2014fc14d5d829763d578adc"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e8168d084b0db3c4d80478eb77df966d016fdff5734055130232b466b713a8b7",
+    "reviewerPrincipalId": "foreground-episode-editor",
+    "reviewedAt": "2026-09-06T18:00:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.”",
+            "locator": "Known-bad full text: opening or repeated structural heading"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "Known-bad full text: opening or repeated structural heading"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "## The concepts that make the story legible",
+            "locator": "Known-bad full text: opening or repeated structural heading"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-STRAIGHT-ANSWERS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Answer-first architecture only; dated claims explicitly not inherited."
+      ],
+      "evidence": [
+        {
+          "excerpt": "Real questions about AI. Real data.",
+          "locator": "Opening reader promise"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What should I remember and use from Episode1?",
+    "promisedPayoff": "Find the four concepts and compare a small task without rereading the entire episode.",
+    "centralMentalModel": "Learned patterns plus available context produce a draft that needs checking.",
+    "dailyLifeConnection": "A personal invitation with a fabricated reservation.",
+    "surfaceJob": "Compact on-screen reference saved alongside the editable Try-On.",
+    "desiredReaderFeeling": "Able to recall and use the lesson."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Names what a generated draft depends on, then what the reader checks.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your request supplies material for this answer.",
+          "locator": "plainClarity"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Provides definitions plus the three specific comparison questions a reader needs later.",
+      "artifactEvidence": [
+        {
+          "excerpt": "What could I actually use?",
+          "locator": "readerValue"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Carries Steve and Dolly from the episode and one relevant reservation joke without adding new pop-culture references.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Steve does not get a monopoly on the useful tools.",
+          "locator": "laidiesVoice"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The invented reservation makes unsupported output memorable without making the adult reader do a worksheet.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Confidence is not a reservation.",
+          "locator": "engagingEnjoyable"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Definitions retain trained component versus product and false detail within useful work; no numeric study claims are reproduced.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It measures use, not ability.",
+          "locator": "factualIntegrity"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "HOLD",
+      "observation": "Product-specific capabilities remain conditional and no plan/price promises appear.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The product may also supply earlier messages, saved preferences, files or search results.",
+          "locator": "freshnessReviewability"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "HOLD",
+      "observation": "396-word on-screen reference is separated from editable exercise; visual fit and page extent await rendering.",
+      "artifactEvidence": [
+        {
+          "excerpt": "## Your first useful comparison",
+          "locator": "surfaceFit"
+        }
+      ]
+    },
+    "lookupAccuracy": {
+      "verdict": "PASS",
+      "observation": "Four ruled concepts are named explicitly and accompanied by the consequence needed for use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "**A model** is the trained component that processes input and produces output.",
+          "locator": "lookupAccuracy"
+        }
+      ]
+    },
+    "systemRelationship": {
+      "verdict": "PASS",
+      "observation": "Connects training and current context to generated response and checking.",
+      "artifactEvidence": [
+        {
+          "excerpt": "**Learned patterns + the context available now → a generated draft → your check and edit.**",
+          "locator": "systemRelationship"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Personal invitation with invented booking is ordinary, low-risk and inspectable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If the invitation sounds like you but says a table is booked when it isn't",
+          "locator": "dailyLifeConnection"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Concrete invisible mechanism plus a visible unsupported detail serve reference retrieval without a long suspense arc.",
+      "artifactEvidence": [
+        {
+          "excerpt": "One made-up reservation inside an otherwise useful invitation counts.",
+          "locator": "communicationBenchmark"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "HOLD",
+      "observation": "Reader compares understanding, usefulness and necessary changes; one-product entry avoids an access barrier.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Start there. Save the result and add another comparison when you can.",
+          "locator": "usefulAction"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Reservation humour describes a literal unsupported detail; no metaphor replaces the technical mechanism.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Confidence is not a reservation.",
+          "locator": "analogyIntegrity"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. Primary-source binding is still an evidence gap, not a claim of verified freshness.",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No occurrence identified in the complete concise reference; definitions are the reference job, connected through request-to-draft and reservation example. ",
+      "artifactLocator": "Full cheat-sheet.md"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "content/episodes/episode-01.canon.md",
+        "sha256": "adb06272c394bb8c502699ea10e67a2ecd1e7c822dfa2d8a9502973f28e21929"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "EP01-generated",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "**Generative AI** produces content, such as text or images, from learned patterns and the input available to it.",
+            "locator": "Four things worth remembering"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/episodes/episode-01.canon.md",
+          "sha256": "adb06272c394bb8c502699ea10e67a2ecd1e7c822dfa2d8a9502973f28e21929"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "It works from patterns learned during training plus the context available now.",
+            "locator": "concepts[]"
+          }
+        ],
+        "scopeAndFreshness": "Current canonical concept definition; this is not independent primary-source admission."
+      },
+      {
+        "claimId": "EP01-model",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "**A model** is the trained component that processes input and produces output.",
+            "locator": "Four things worth remembering"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/episodes/episode-01.canon.md",
+          "sha256": "adb06272c394bb8c502699ea10e67a2ecd1e7c822dfa2d8a9502973f28e21929"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "the trained component of an AI system that turns input into output.",
+            "locator": "concepts[]"
+          }
+        ],
+        "scopeAndFreshness": "Current canonical concept definition; this is not independent primary-source admission."
+      },
+      {
+        "claimId": "EP01-hallucination",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "**A hallucination** is false or unsupported content in an AI answer.",
+            "locator": "Four things worth remembering"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/episodes/episode-01.canon.md",
+          "sha256": "adb06272c394bb8c502699ea10e67a2ecd1e7c822dfa2d8a9502973f28e21929"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "false or unsupported content delivered as part of an AI-generated answer.",
+            "locator": "concepts[]"
+          }
+        ],
+        "scopeAndFreshness": "Current canonical concept definition; this is not independent primary-source admission."
+      },
+      {
+        "claimId": "EP01-participation",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "It measures use, not ability.",
+            "locator": "Four things worth remembering"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/episodes/episode-01.canon.md",
+          "sha256": "adb06272c394bb8c502699ea10e67a2ecd1e7c822dfa2d8a9502973f28e21929"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "That measures participation, not potential.",
+            "locator": "concepts[]"
+          }
+        ],
+        "scopeAndFreshness": "Current canonical concept definition; this is not independent primary-source admission."
+      }
+    ],
+    "reviewedThrough": "2026-09-06",
+    "nextTrigger": "Complete primary source map and real binder route before admission.",
+    "correctionOwner": "episode-experience / learning-content-ecosystem"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First governed prose-only review of this concise reference; the legacy four-page printable has no comparable exact-prose review counts in this packet."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 0,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "learningDisposition": {
+    "disposition": "EVIDENCE_GAP",
+    "rationale": "Complete source bindings and the real reference/save journey before requesting admission."
+  }
+}
