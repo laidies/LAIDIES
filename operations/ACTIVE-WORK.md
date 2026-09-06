@@ -1131,3 +1131,8 @@ Public Town Hall is independently verified closed; automatic deletion and
 public retention/triage decisions are unresolved. No new service, subscription
 or schedule was created. This closes the private usable-inbox acceptance
 condition, not the overall operating roadmap or public feedback launch.
+
+Private inbox appearance correction: Ali rejected the initial bare screen.
+The revised inbox-first layout, human labels/dates and filters are hosted and
+passed an actual new submission/review journey plus desktop/390px inspection.
+This is maker-verified repair, not an owner visual-approval claim.

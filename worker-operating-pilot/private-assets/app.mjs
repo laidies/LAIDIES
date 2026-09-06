@@ -31,6 +31,7 @@ const receiptValue = document.querySelector('#receipt-value');
 let inboxBusy = false;
 let frozenInput = null;
 let latestRows = [];
+let hasLoaded = false;
 let activeFilter = 'all';
 
 function setPrivateControls(enabled) {
@@ -134,6 +135,7 @@ function updateCounts() {
 
 function renderInbox() {
   feedbackList.replaceChildren();
+  if (!hasLoaded) return;
   const visible = visibleRows();
   if (!visible.length) {
     const empty = document.createElement('p');
@@ -199,6 +201,7 @@ async function refreshInbox() {
     const rows = await response.json();
     if (!Array.isArray(rows)) throw new Error('invalid inbox response');
     latestRows = [...rows].sort(newestFirst);
+    hasLoaded = true;
     updateCounts();
     renderInbox();
     inboxStatus.textContent = latestRows.length ? 'Inbox updated.' : 'No active feedback.';

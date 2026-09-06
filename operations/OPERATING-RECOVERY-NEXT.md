@@ -617,3 +617,13 @@ visual acceptance. Repair the private screen in place: inbox-first layout,
 readable message cards, human dates and status/action labels, and coherent
 LAiDIES plum/rose/cream styling. Preserve the proven authentication and retry
 flow. Inspect the actual desktop/mobile appearance before presenting it again.
+
+The repaired UI is deployed from `df7f7a7c` as Worker version
+`a330a8f2-66db-4159-89ce-50bca93a5040`. Its four hosted assets match source.
+Desktop and 390px phone layouts were inspected; no horizontal overflow was
+observed. A new hosted “Updated inbox check” submission showed the concise
+confirmation, moved through Mark reviewed/Mark addressed, left Needs attention
+and increased Closed from 2 to 3. Four synthetic notes now remain. The revised
+screen is loaded in the original task panel; Ali's aesthetic acceptance is not
+implied. A final loading-state correction prevents a false empty-inbox message
+before the first successful fetch; source and deployment binding follows below.
