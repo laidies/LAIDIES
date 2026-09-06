@@ -4,7 +4,7 @@
 
 **Existing options described as okay, not great:** Diagonal Print, Pocket Tech and CD Player.
 
-**Getting Ready v2 is the current revision:** Ali said the scrunchie is okay and asked whether the purple and green objects are rings. The revision retains the scrunchie and replaces the unclear rings with lipstick and a lip print, plus a compact mirror in place of the third butterfly clip. Removing the rings is the maker's clarification, not an explicit user rejection of rings. This is not approval of the whole image. The original remains saved but is superseded for review.
+**Getting Ready v2 — APPROVED by Ali, 2026-09-06.** Ali replied “aprpoved” directly to the displayed revision in task `01a0785e-1438-7161-b041-0be213b06e9b`. Exact selected artwork: `11-getting-ready-v2.png`, SHA-256 `06085887508984a498c5de4146d00e07eadeb599314f1c9db2dcb65a57f19295`, source commit `fa4c715f`. This approval covers the background artwork shown, not an unseen page composition or deployment. It retains the pink scrunchie and replaces the unclear rings with lipstick and a lip print, plus a compact mirror in place of the third butterfly clip. The original `10-getting-ready.png` remains saved but is superseded and must not be selected instead.
 
 **Girls’ Night Out withdrawn:** Ali rejected the heels-and-bag image, leopard print, and its colour combination with dark blue. Do not reuse this treatment in successor Resident Card options. This does not retire dark blue across the brand or reject all possible heels/bag illustrations.
 
@@ -46,6 +46,6 @@ Only the seven displayed images belong to this review. Purple Brushwork was with
 
 [Open original](08-cd-summer-v2.png)
 
-## 7. Getting Ready v2 — Scrunchie retained; revision awaiting verdict.
+## 7. Getting Ready v2 — APPROVED by Ali, 2026-09-06.
 
 ![Getting Ready v2](11-getting-ready-v2.png)
