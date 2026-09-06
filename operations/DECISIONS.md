@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Tighter homepage transition and full-width book link
+
+Ali flags the excess gap above the women-behind-AI feature and the partial-width navy/white Fundamentals CTA. Reduce adjoining padding and use the existing content width with tangerine copy, lime book title, thin orange border and current book cover at right. Preserve exact wording, chapter route, section backgrounds and the approved Rewind wallpaper. Source 6fe31945; hosted evidence fb53d4cf; https://f4a00196.laidies-sunnyvaile.pages.dev/#why-laidies-title . Existing preview tab 8 visibly updated. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
+
 ## 2026-09-06 — Original Rewind Era outer wallpaper
 
 Ali requests replacing the homepage full-page navy ground using inspiration in operations/reference/reusable-backgrounds/90s-background-inspiration. She loves the original lilac illustrated direction, says the purple may be fine, and requests fewer cassettes with shoes/lips instead. Retain the palette and illustration style; two cassette motifs replaced by glossy lips and a high heel. New original asset assets/homepage/rewind-wallpaper-20260906.webp; reference originals preserved. Scope is homepage body only, preserving opaque section backgrounds, copy, cards and controls. Source deeee9ae; hosted evidence d4e96d7e; https://0081455c.laidies-sunnyvaile.pages.dev/#dyk-title . Existing preview tab 8 visibly updated. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
