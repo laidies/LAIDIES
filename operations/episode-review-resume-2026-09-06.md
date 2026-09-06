@@ -121,3 +121,5 @@ Previous goal turn was progress: committed/pushed functional and paired-copy cha
 Episodes02–04 now have private paired `episode-0N.master.md`, exact original `issue-0N.html` / `episode-0N-narration.txt` derivatives and source/hash manifests. All six derivatives matched original bytes and passed the existing exporter check. These are **PRESERVED_SOURCE_NOT_UPDATED**; they do not claim completed editorial correction. Ep03 source is current `issue-03-reskin.html`, not its served stale counterpart, as verified directly in current canon. Ep04 retains the tagged script, all authored monologues and article-only differences. This is mechanical source preparation, not scaling an unapproved design.
 
 Live Supabase route question remains unanswered; no authentication, migration, public deployment, new audio or final design/content admission occurred. Continue with independent candidate work. Do not treat two guided captures or four master containers as goal completion.
+
+Source-preservation and actual-run checkpoint committed/pushed at `563353f7`; source bytes and capture limits are in the per-episode records. No goal completion.
