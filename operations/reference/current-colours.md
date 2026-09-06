@@ -6,6 +6,16 @@ These are scoped colour references, not one mandatory palette for every building
 
 <!-- Generated from existing authority by scripts/build-current-reference-index.mjs. Do not edit this view; update the source and regenerate. -->
 
+## Current LIBRAiRY palette and Homepage adoption
+
+![Library destination swatches](current-library-colour-swatches.svg)
+
+**midnight** `#070f2b` · **ink** `#11183b` · **pink** `#f254a9` · **purple** `#7137d6` · **cyan** `#15bce0` · **cobalt** `#2457e6` · **sky** `#78c7ff` · **coral** `#ff7366` · **orange** `#ff9b3d` · **lime** `#b7e42b` · **mint** `#7de2c2` · **cream** `#fffdfb`
+
+[Exact destination colour rulings](source-decisions.md#current-library-and-homepage-colours). The Homepage adoption explicitly names pink, cyan, orange, lime, sky and ink from this family. Yellow is not an active Library colour. Cream is a bounded paper colour, not permission for a plain white page backdrop. This newer destination palette takes precedence over the older general accents below for that destination.
+
+## Earlier general page-UI accents
+
 ![Page UI accent swatches](current-colour-swatches.svg)
 
 | Page UI accent | Exact code |

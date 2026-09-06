@@ -30,7 +30,7 @@ try {
     assert.throws(()=>buildViews(),/Reference checksum mismatch: GRAMMAR_TRADING_CARDS/);
   } finally { fs.writeFileSync(grammarPath,grammarBytes); }
   const views=buildViews();
-  assert.equal(views.size,5);
+  assert.equal(views.size,6);
   const characters=views.get('current-characters.md');
   assert(characters.includes('miss-jeeves-geist-identity-selected-pencil-removed.png'));
   assert(characters.includes('matron-lumen-sunnyvaile-identity-pilot-v1.png'));
