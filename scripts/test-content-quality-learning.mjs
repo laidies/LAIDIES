@@ -61,6 +61,13 @@ try {
   }
   fs.writeFileSync(reviewPath, `${JSON.stringify(review, null, 2)}\n`);
   assertNoMutation(makeDecision({ admittedAt: "1" }), /ISO date-time/);
+  const validRegistryBytes = fs.readFileSync(registryFile);
+  for (const malformedRegistry of [null, false, 3, []]) {
+    fs.writeFileSync(registryFile, JSON.stringify(malformedRegistry));
+    assertNoMutation(makeDecision(), /registry must be an object/);
+  }
+  fs.writeFileSync(registryFile, validRegistryBytes);
+
 
   // Use a fresh empty registry for failure isolation so duplicate protections do not mask each assertion.
   fs.writeFileSync(registryFile, `${JSON.stringify(registry, null, 2)}\n`);

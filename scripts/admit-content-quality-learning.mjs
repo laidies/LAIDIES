@@ -106,7 +106,11 @@ function inspectAdmissionRecord(decision, { root = ROOT } = {}) {
     registryBytes = fs.readFileSync(registryPath); registry = JSON.parse(registryBytes.toString("utf8"));
   }
   catch (error) { errors.push(`exemplar registry unavailable: ${error.message}`); }
-  if (!pendingBound || !reviewBound || !registry) return { errors, status: null };
+  if (!registry || typeof registry !== "object" || Array.isArray(registry)) {
+    errors.push("exemplar registry must be an object");
+    return { errors, status: null };
+  }
+  if (!pendingBound || !reviewBound) return { errors, status: null };
   const pending = pendingBound.value;
   const review = reviewBound.value;
   if (!pending || typeof pending !== "object" || Array.isArray(pending)) return { errors: [...errors, "pending record must be an object"], status: null };
