@@ -6,6 +6,14 @@ and their exact artifacts outrank historical snapshots below.
 
 ## Current continuation — full consultant audit, September 6
 
+**Latest direction: map first.** The next quality integration package is deferred
+pending `OPERATING-SYSTEM-MAP.md`: each registered agent/flow/operation, exact
+inputs and recipients, dependencies, failure and human/manual boundaries.
+Current loop/graph research informs options, not a preselected new framework.
+PR104 is merged (`4a4726e3`); its obsolete scheduled publisher is retired.
+Continue on `ops/end-to-end-system-map-20260906` in the same bounded checkout.
+Older sequencing below is historical where it conflicts with this paragraph.
+
 Ali broadened this same operating review into a complete practical audit and
 remediation plan. Scope: organization/source authority, unfinished work,
 quality/learning feedback, context, cloud versus subscription execution, cost,

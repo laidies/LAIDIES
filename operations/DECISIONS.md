@@ -1,5 +1,15 @@
 # DECISIONS — where every settled decision lives
 
+> **2026-09-06 — Map before redesign or quality-tool integration.** Ali requires
+> the full end-to-end operating map for each agent, flow and operation, including
+> inputs, outputs, dependencies, failure/recovery, completion and human/manual
+> boundaries. Research current loop and graph engineering; distinguish observed
+> execution from configured, specified, stale and unknown behavior. Use the map
+> to identify simplification, shared capabilities and justified task-specific
+> paths before choosing checks, tools or an agent architecture. This supersedes
+> the proposed immediate quality-tool integration sequence, not the governing
+> whole-operation objective. Route: `OPERATING-SYSTEM-MAP.md`.
+
 > **2026-09-06 — Repair operating continuity; park the private inbox.**
 > The governing objective remains the LAiDIES agentic operating system, not
 > Homepage delivery or a feedback UI. Ali authorized diagnosing this task,

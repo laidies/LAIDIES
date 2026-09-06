@@ -3,6 +3,11 @@
 Date: September 6, 2026. Owner: operating-system review task
 `01a077d0-0775-7af2-b631-c311573f0e0e`.
 Status: **AUDIT / PROPOSED OPERATING DESIGN; IMPLEMENTATION IN PROGRESS**.
+Latest sequence: Ali requires the full [end-to-end operating map](OPERATING-SYSTEM-MAP.md)
+and human/manual boundaries before selecting an architecture or standardizing
+quality tools. The integration sequence below is a candidate plan, superseded
+at its entry point by this map-first review. PR104 retired the legacy publisher;
+the larger learning and delivery loops remain unverified.
 This replaces the July 10 v1 at this path. The prior version remains in Git
 history (37fe77ae); its operator/watchdog descriptions were not proof of running
 services. Product decisions and current product owners remain authoritative.
