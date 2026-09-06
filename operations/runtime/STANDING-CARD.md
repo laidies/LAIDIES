@@ -1,10 +1,10 @@
 # LAiDIES standing card
 
 <!-- GENERATED FILE. Run: node scripts/build-standing-card.mjs -->
-decisions-sha256: bc8026bfc87f760bc4ae61456239fce6fb5810ea6da36c8e8ab0d32f013bf80e
+decisions-sha256: 02f448857a607039aa8c592e1a30b78946b330d71bdc31e2bbdc3ae80f0ae5a8
 lessons-sha256: 769f2a243497a39d291ce1a0294cde96ffe03229150855c0b62f60736c1a827c
 canon-sha256: e093f3ecd7c221f8cee12c1620123632fdb8e4bd0d7016fe734fffb6c9da0fe4
-agreement-sha256: 21bf897f165a78597f6a3113de088a3a90e15008d10cfe7c2caf9f171933b336
+agreement-sha256: 0d43a67723a6975b81205f6686d1e4d9f72ffceaed75b4ecdb6a4253a7956560
 
 ## The job
 

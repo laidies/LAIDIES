@@ -1,5 +1,7 @@
 # Model routing calibration — September 2026
 
+Active rule (D-2026-09-05-143): one row per completed substantial task through the earlier of September 19 or 20 tasks; review after at least 12 comparable tasks. Record actual routes, time band, observable task usage, first-pass outcome, corrections and cheaper-route judgment. Account-wide usage is not task cost.
+
 | Date / task | Actual route and reason | Time / usage | Result and corrections | Cheaper route |
 | --- | --- | --- | --- | --- |
 

@@ -105,16 +105,44 @@ which model or reasoning level every task deserves.
 
 The project baseline is:
 
-- **foreground:** GPT-5.6 Sol at Medium;
+- **foreground starting model:** GPT-6 Astra at Medium;
 - **planning:** High when deeper planning is genuinely required;
 - **supporting/background agents:** GPT-5.6 Terra at Medium by default; and
 - **Fast mode:** off.
 
 Codex uses the lowest setting that reliably meets the quality and risk bar:
-Terra Low/Medium for bounded scans and mechanical work; Sol Medium for normal
-creative, implementation and synthesis work; Sol High for difficult
-architecture, debugging, reconciliation or high-risk review. Extra High, Max
-and Ultra are exceptions, not ambient settings.
+Luna Low for clear, repetitive high-volume work; Terra Low/Medium for bounded
+research, reporting, routine implementation and tests that still need judgment;
+Sol Medium/High for demanding professional work where Astra is unlikely to
+change the decision or reduce rework enough to justify its higher usage; Astra
+Medium for the hardest cross-domain, end-to-end work where stronger reasoning,
+computer use or instruction handling can materially improve the outcome. Astra
+High, Extra High, Max and Ultra are exceptions, not ambient settings.
+
+The default is a starting point, not a universal assignment. Before material
+work, Codex classifies the task by ambiguity, consequence, modalities, context
+load, tool depth and cost of a wrong answer. Use the cheapest model likely to
+clear the actual acceptance conditions. Prefer a bounded lower-cost lane when
+the foreground model is more capable than the work requires. Escalate only when
+the lower route fails, the task crosses several systems, or stronger judgment
+could plausibly prevent a costly review cycle. If model choice would require Ali
+to change the active chat, give one concise recommendation and reason; do not
+turn routine routing into her job.
+
+For Astra, keep the authority chain explicit. When instructions conflict, apply
+the registered authority order and Ali's latest direct instruction; if the
+conflict forces a pause or changes the course, name the exact file and rule.
+Inspect the existing architecture and tools before proposing a new mechanism.
+Do not implement a novel system merely because Astra can devise one: first show
+why the current mechanism cannot meet the goal and surface any material change
+in scope, cost or reversibility as one decision.
+
+From 2026-09-05 through the earlier of 2026-09-19 or 20 completed substantial
+tasks, append one outcome row per completed Tier 1 or material Tier 2 task to
+`operations/model-routing-calibration-2026-09.md`. Do not log simple questions
+or pretend account-wide usage is task-specific. Review routing only after 12
+comparable tasks unless a repeated high-cost failure requires an immediate
+correction.
 
 Before an expensive exception, Codex states the concrete reason. Subagents are
 not “free parallelism”: each performs its own model and tool work. They are

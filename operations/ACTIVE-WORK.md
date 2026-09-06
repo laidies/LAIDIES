@@ -1,5 +1,19 @@
 # Active work
 
+> **2026-09-06 — Operating-system review / BUILDING.** Fresh owner task
+> `01a077d0-0775-7af2-b631-c311573f0e0e`, bounded checkout
+> `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`, branch
+> `ops/system-review-handoff-20260906`. Original whole-operation objective is
+> bound in `WRK-20260906-system-review`; parent is stopped, not completed.
+> Approved Astra distribution is reconciled, isolated-parent writes prevented,
+> and negative instruction/config tests pass. CLI prompt inspection loads Astra
+> safeguards; native hook invocation/trust remains unverified. Current next:
+> commit, run remote CI and integrate this bounded repair into main, then reconcile
+> operating coverage and the existing Cloud maintenance trigger. Homepage and
+> NewsStand remain with their current active owners; media lanes are retained.
+> Details and ranked remaining work: `OPERATING-RECOVERY-NEXT.md`.
+
+
 > **2026-09-06 — Transfer to LAiDIES system engineering review.**
 > Ali requested a fresh session for the whole-system review and repair.
 > The successor owns implementation; the hosted-operations parent stops writes

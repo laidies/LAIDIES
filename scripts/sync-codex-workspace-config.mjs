@@ -5,7 +5,9 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const source = process.env.LAIDIES_CODEX_WORKSPACE_SOURCE || path.join(root, 'operations/codex-contract/workspace-config.toml');
-const target = process.env.LAIDIES_CODEX_WORKSPACE_TARGET || path.join(root, '..', '.codex', 'config.toml');
+// Default to this checkout. The outer workspace requires an explicit target;
+// a worktree's parent may be a shared Projects folder, not a LAiDIES workspace.
+const target = process.env.LAIDIES_CODEX_WORKSPACE_TARGET || path.join(root, '.codex', 'config.toml');
 const check = process.argv.includes('--check');
 
 const expected = fs.readFileSync(source, 'utf8');
