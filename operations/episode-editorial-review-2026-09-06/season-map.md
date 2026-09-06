@@ -23,7 +23,7 @@ Town appearances follow story need. Patron Saints recur in their locked roles; t
 ## Proposed continuation
 | Ep | Planning focus | Story pressure and useful change | Optional High/course extension |
 |---|---|---|---|
-| 7 | Boundaries before convenience | Someone offers her a shortcut using a real client file. She identifies what she may share and chooses a safe way forward. Deb's boundary role has a concrete consequence. | Safe task setup and work-approved tools; classify and redact permitted examples. |
+| 7 | From your life to your work | She uses a generic brief to prepare a tricky personal conversation, without uploading someone else’s messages. The useful result makes her consider a work conversation. She learns what can transfer—the method—and what needs fresh judgment: permission, information and the tool. Personal use is a complete win even if the work adaptation is unavailable. | Practise with an invented personal scenario, then optionally adapt the method to a permitted work task. Detailed workplace-access examples belong in the episode study pack. |
 | 8 | Memory and working context | Her helpful assistant remembers the wrong thing and misses the important thing. She separates current chat, saved preferences and project material; supplies/corrects the right context. | Configure and test memory/projects in current tools, including deletion and a fresh-session check. |
 | 9 | How it learned that | At happy hour, a friend assumes a chatbot answer is something it looked up. She explains learning patterns versus retrieving a source, and why novel fluent output can still be wrong. | A short visual training/inference demonstration; optional depth, no maths prerequisite. |
 | 10 | Show it, tell it, hear it | A practical problem is easier to show than describe. Voice/image input helps, but a missed visual detail forces her to check what was actually understood. | Voice, image and file handling; permissions and modality limits. |
@@ -65,3 +65,39 @@ Approve or adjust this7–24 learning/story sequence before it replaces either l
 
 ## Verification and limits
 Compared against both existing maps, locked1–6 jobs, current Patron Saint roles and recovered Ali learning/story requirements. This is an internal proposal, not final prose, a live course catalogue or a published curriculum. Technical examples and tool steps will be verified at production time. The current review task has not rewritten or recorded Episodes1–4.
+
+## Companion feature bank — workplace access
+The earlier workplace-first Episode7 framing is superseded by the personal-first direction below. Retain this bank for the optional companion. Its reader's question is: What useful work can I do with the AI I actually have access to? Existing company policy is a starting constraint; the episode does not ask her to invent her employer's rules. Personal tools are a real use case to explain without treating their use as automatically authorized. A powerful approved system may support much more, but capability alone does not establish permission for every document or action.
+
+Internal example bank for the episode and a possible Dear Miss Jeeves feature (not published advice or final prose):
+
+| Access situation | Candidate useful tasks | Input boundary to make visible |
+|---|---|---|
+| Workplace AI mostly supports writing | Clarify an allowed email draft; make the request and next action explicit; create alternative tones; turn permitted notes into an agenda. | Use only content permitted for that actual workplace tool. Do not imply an email assistant can access arbitrary files or the whole business. |
+| Personal tool, where the intended use is permitted | Practise a difficult conversation with fictional roles; ask for a blank proposal outline or meeting structure; learn a spreadsheet formula using invented rows; develop questions for a decision using a generic scenario; explain a public document. | No actual client correspondence, matter details, employee records or internal commercial material without authorization. Removing names alone does not make a source safe: distinctive facts and business secrets may remain. Insert sensitive specifics locally in approved systems. |
+| Capable approved workplace setup | Compare permitted document versions; synthesize allowed meeting notes; analyse an authorized dataset; draft a source-linked briefing; build a reusable task workflow. | Confirm the tool actually supports the task and is approved for the particular data, connections and actions; check outputs before relying on them. |
+
+The same task can demonstrate the distinction: a useful client-meeting agenda can begin as a blank structure in a permitted personal tool, be refined from allowed notes in limited workplace AI, or draw on authorized project material in an approved connected system. The richer route is optional; the first route must still produce something useful. Avoid promises of universal access or guaranteed anonymity.
+
+Possible Dear Miss Jeeves questions for editorial development:
+- My work AI only helps with emails. What else can I accomplish with that?
+- Can my personal AI help me prepare for a work conversation without seeing the actual email?
+- I have removed the client name. What else could make this document sensitive?
+- My employer has a capable AI tool. How do I choose a useful first workflow?
+
+Keep the episode to one earned story and a useful result. The companion feature can carry detailed scenarios, current tool differences and source-backed input guidance. Reuse the canonical Straight Answers answer system; no separate advice product or automatic publication. The remaining proposed season sequence is unchanged and is not deemed approved by this refinement.
+
+## Subsequent direction — personal-life practice first
+Ali's latest steering makes personal-life usefulness the accessible starting point. Workplace adoption, subscription quality and access cannot be prerequisites for gaining value from the season. Preserve her work story and growing recognition; make practical participation possible independently of it. Personal use still needs care with other people's messages, identities and private information.
+
+Apply this to future episode briefs without rewriting settled Episodes1–6 stories:
+- Conversation preparation: rehearse an invented difficult conversation; optionally transfer the structure to an authorized work discussion.
+- Documents: compare public information for two community classes; optionally compare permitted work documents. Both require checking the actual terms.
+- Numbers: use an invented household-event budget to explore costs; optionally apply the checked method to an authorized work dataset.
+- Repeatable methods: prepare a reusable weekly personal planning brief; optionally adapt it to recurring work preparation.
+- Bounded helpers: draft a personal planning checklist from supplied non-sensitive material; optionally adapt a tested helper to an approved work setting. No connections or side effects appear by implication.
+
+These are internal example options, not final public scenes or extra compulsory exercises. Choose one strong personal task per relevant practical brief, with a short optional work adaptation only when it adds value. Do not double every episode's length or turn the main story into an unrelated household tutorial. The earlier workplace-access example bank remains useful for the captured Dear Miss Jeeves companion. Episode7's final story/title is still to be written.
+
+## Immediate destination — Episode7 study pack
+Ali subsequently suggested putting the detailed practical support in this episode’s existing study pack. Adopt that simpler destination: (1) one personal-life task with a visible useful result; (2) optional work adaptation of the same method; (3) examples matched to limited workplace AI, permitted personal-tool use and capable approved systems. Keep information/permission guidance adjacent to the example it qualifies. The workplace bank above feeds the pack first. Dear Miss Jeeves remains a later optional expansion, not another required deliverable. No new pack or public prose has been produced in this planning update.

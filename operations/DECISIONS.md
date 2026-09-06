@@ -384,3 +384,16 @@ Status words: **LOCKED** (settled, don't relitigate) · **ACTIVE** (in force,
 may evolve) · **PROPOSED** (not decided — not binding) · **SUPERSEDED** (kept
 for history; mark `SUPERSEDED →` and point at the replacement, never delete —
 half of repeat questions are about things decided and then reversed).
+
+
+## D-2026-09-06-EPISODE-07-WORK-ACCESS — LOCKED DIRECTION / FEATURE CAPTURED
+Ali refines Episode 7 around useful work with the AI access a woman actually has: capable approved workplace AI, limited workplace AI, or a personal tool she would like to use for work. Existing company rules are the starting condition, not a policy-writing lesson. Teach practical opportunities as well as what information/tasks may be supplied to each tool. Lack of employer AI, disappointing features, a paid personal subscription or absent guidance does not itself establish permission. Tool capability and permission are separate. Do not generalize Ali's law-firm example into an industry fact.
+
+CAPTURED: a Dear Miss Jeeves feature could develop concrete questions and worked examples in greater detail. Follow the existing Straight Answers single-source arrangement (stable answer/source/freshness identity, reusable column presentation), without creating a second answer archive or changing Miss Jeeves's product role. This is an editorial idea, not a built or admitted answer. Exact feature title and publication remain open. See `operations/episode-editorial-review-2026-09-06/season-map.md`.
+
+
+## D-2026-09-06-PERSONAL-FIRST-PRACTICE — ACTIVE
+Ali's subsequent direction: focus practical uses on personal life first so every woman can benefit even without workplace AI; then explain useful work adaptations where appropriate and permitted. This refines the preceding Episode7 access ruling: differing workplace setups belong in optional adaptations and the captured Dear Miss Jeeves companion, rather than being the entry requirement for the main practical task. Preserve the existing workplace story and recognition payoff; do not infer cancellation of that arc or approval of all proposed7–24 titles.
+
+## D-2026-09-06-EPISODE-07-STUDY-PACK — ACTIVE
+Ali suggests the Episode7 study pack as the immediate home for detailed practical opportunities and work adaptations. Use the existing pack: one complete personal-life exercise followed by an optional work adaptation covering limited workplace AI, permitted personal-tool use and capable approved systems. Dear Miss Jeeves remains a possible later treatment for questions needing fuller answers; do not commission a separate feature merely to deliver this episode support. No pack prose or public update is claimed produced.

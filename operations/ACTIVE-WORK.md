@@ -1271,3 +1271,10 @@ DECIDED: trailer focuses on the eight-stop Wednesday Tour and Express Tour, invi
 
 ### 2026-09-06 — Trailer master and paired editorial review prepared
 REVIEW READY, overall episode work still open. Added `content/episodes/episode-00.canon.md`: existing narration preserved verbatim and all76 written main-body blocks extracted; the two legacy narration copies differ only in whitespace. Paired correction plan and proposed24-episode progression: `operations/episode-editorial-review-2026-09-06/review.md` and `season-map.md`. Latest owner correction preserved: D-139 Hedy dialogue is authored story, not a failed archival quotation. Independent history/source and season-prerequisite readings reconciled; first helper explicitly draft-only. Next specific Ali decision: approve/adjust proposed7–24 sequence, especially the17–22 helper/supervision allocation. Trailer split is already approved. No public prose rewritten, audio generated, automatic generator built, functionality repaired or deployment performed. Continue current editorial scope; preserve existing product owners.
+
+### 2026-09-06 — Episode 7 access and opportunity refinement
+DECIDED direction: useful work within actual AI access, from limited workplace tools through permitted personal tools to capable approved systems. Detailed Dear Miss Jeeves companion CAPTURED, not produced. Example bank and constraints saved in season-map.md. Continue trailer master revision preparation; remaining season ruling does not block trailer/Episodes1–4 work.
+
+Latest refinement: personal-life practice first, optional permitted work adaptation. No workplace AI access is required to benefit. Keep the existing workplace story payoff; detailed access scenarios remain a captured Dear Miss Jeeves companion. See D-2026-09-06-PERSONAL-FIRST-PRACTICE and the final section of season-map.md.
+
+Latest destination: put the practical detail and optional work adaptations in Episode7’s study pack first. Dear Miss Jeeves is a possible later expansion, not a required parallel feature.

@@ -145,3 +145,6 @@ Ali requires broken functionality mentioned in the trailer to become operational
 
 ## D-2026-09-06-TRAILER-VISITORS-TOUR — LOCKED / GUIDED TOUR DECIDED
 Ali approves an evergreen trailer centered on the eight-stop Wednesday Tour and Express Tour, with an invitation to explore the wider town. A separate guided site tour lives in the Visitors Centre and is updated as needed. The guided tour's format remains unspecified and it is not claimed built. Detailed orientation may move there; functionality promises still require repair rather than cancellation. See the matching DECISIONS.md entry. Episode editorial review remains foreground.
+
+## D-2026-09-06-PERSONAL-FIRST-PRACTICE — ACTIVE
+Ali refined Episode7 and future practical examples: useful personal-life participation first, optional permitted work adaptation; preserve workplace story payoff. Detailed workplace-access opportunities captured for a possible Dear Miss Jeeves companion using the existing Straight Answers source arrangement. Planning only; no public prose or feature produced. See DECISIONS.md and operations/episode-editorial-review-2026-09-06/season-map.md.

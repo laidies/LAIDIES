@@ -38,3 +38,10 @@ The trailer baseline/master and paired episode correction review are prepared: `
 
 ## Limits
 First-pass review superseded by operations/episode-editorial-review-2026-09-06/review.md and season-map.md; trailer baseline established in content/episodes/episode-00.canon.md. No complete line-by-line written-edition review, audio listening, current live-site journey verification, new prose, media generation, deployment or season approval. Shared iCloud files untouched. This branch saves continuity only and does not replace another owner's active work.
+
+## Latest steering — Episode 7
+Ali broadened Episode7 to useful work across capable approved AI, limited workplace AI and permitted personal-tool use. Policy is a starting condition; practical opportunities and sensitive-input judgment share the lesson. A possible Dear Miss Jeeves/ Straight Answers companion is captured with an example bank in season-map.md. Continue trailer paired prose preparation independently of the remaining season ruling; do not make the whole editorial task wait for approval of7–24. No companion answer or revised episode prose is yet produced.
+
+Latest refinement: personal-life practice first, optional permitted work adaptation. No workplace AI access is required to benefit. Keep the existing workplace story payoff; detailed access scenarios remain a captured Dear Miss Jeeves companion. See D-2026-09-06-PERSONAL-FIRST-PRACTICE and the final section of season-map.md.
+
+Latest destination: put the practical detail and optional work adaptations in Episode7’s study pack first. Dear Miss Jeeves is a possible later expansion, not a required parallel feature.
