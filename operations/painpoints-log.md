@@ -14666,3 +14666,8 @@ HTML and local custom properties.
   the held revision. No production gate was waived.
 - Behind the Build angle: a fix is not delivered until the user receives it;
   and passing a mocked connection is not proof that deployment connects it.
+
+- Continuation, homepage feedback: exact owner wording and broad discovery were lost despite prior review. Restored the original full directory and compared the whole changed journey. Prevention: bind each owner correction to its real visitor action and current rendered section before further copy revision; do not treat a narrower shortcut as equivalent discovery.
+- Review-source failure: a judge read stale sparse iCloud files rather than the explicitly named current deployment artifact. Live checks resolved the apparent FAiRY contradiction. Bind receiving source identity before judging current product promises.
+- Evidence failure: a screenshot helper overwrote functional browser results with an empty array. Separate capture and functional outputs; rerun the four actual widths before admission. Preserve the first HOLD and its reconciliation rather than hiding the repair.
+- Release preservation: another lane deployed newer NewsStand date fixes during review. Refreshed the complete release base, preserving746 unrelated files; only the three homepage/public-search files changed. Mac lock makes the corrected preview opening queued, not delivered visibly. Behind the Build extension: a passing review cannot compensate for ignored owner corrections or the wrong source.

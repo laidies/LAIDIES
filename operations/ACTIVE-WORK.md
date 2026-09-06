@@ -1,5 +1,18 @@
 # Active work
 
+> **2026-09-05 — Homepage owner-feedback correction: VERIFIED PREVIEW / OWNER REVIEW PENDING.**
+> Rejected 3d473188 is superseded by https://4be035a6.laidies-sunnyvaile.pages.dev/ .
+> Source96993bf2, hosted evidence0037b07a in /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905.
+> Restored the full four-category directory with26 direct links; removed the six narrow duplicates.
+> Preserved original masthead actions plus owner-permitted Find what I need; added the full-width KSVL explanation.
+> Restored owner Dream Phone wording, Ghostbusters/Romy and Michele, general Blend & Snap plus Pop Quiz, and explicit Visitor/Card/signed-in benefits.
+> Miss Jeeves now returns source excerpts inline; examples prefill without submitting. Explicit free search exits before either paid AI binding.
+> Published episode data updates the label, buttons and season list together; draft entries are excluded.
+> Local four-width checks and hosted1440/390 journeys pass. Current production2d0b8144/144b77c and its newer NewsStand fixes preserved.
+> Actual Sol/Medium and Claude Opus5/Medium successor reviews admit owner preview only. Mac locked: corrected tab opening queued, not visibly confirmed.
+> Next: owner review of this coherent homepage batch; then existing assistant release and connected pages in the established order. No new social detour.
+> Paid Miss Jeeves research/budget scope and saved FAiRY visual hold remain as recorded below; no further funding/sign-in verification.
+
 > **2026-09-05 — Assistant continuation: SAVED / RELEASE HOLD.**
 > Latest FAiRY advice-first page recovered from the interrupted live-site task
 > and preserved in 11923863. The 81 browser checks pass with fixtures; its old

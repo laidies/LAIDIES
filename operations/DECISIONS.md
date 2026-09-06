@@ -1,5 +1,13 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-05 — Homepage feedback supersedes 3d473188
+
+Ali rejected the six narrow intent destinations because they concealed the breadth of each need. The primary discovery section must expose the full four categories and all26 direct links; remove the duplicate six-card detour. Preserve the original masthead actions; an additional Find what I need button is permitted. KSVL99.9 needs a full-width pill explaining it is SUNNYVAiLE's radio station.
+
+Miss Jeeves examples and answers belong on the homepage. Explicit unlimited site search returns existing source excerpts in place and cannot silently trigger paid research. Restore Ali's actual Dream Phone opening and the 'Have a great summer!' (brutal) yearbook joke. Name Ghostbusters as spirit-free and retain Romy and Michele. The general learning method covers Blend & Snap and Pop Quiz, not a single episode. Explain what visiting, making a Card and signing in each provide, using current live behavior.
+
+Latest episode labels, destinations and weekly actions must derive together from the published episode index; a draft cannot become latest. The predecessor's quality admission is invalid. Fresh successor source96993bf2 and hosted4be035a6 are preview only. Current receiving production and named release artifact are authority for feature facts; a stale sparse checkout cannot override them. The locked Mac prevented visible-tab confirmation; app opening is queued and must not be represented as completed.
+
 ## 2026-09-05 — Preview handoff must replace the stale visible candidate
 
 Ali found the rejected masthead buttons still visible at ee897a4e after their

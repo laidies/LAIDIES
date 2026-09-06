@@ -76,3 +76,17 @@ Ali's later screenshot was ee897a4e, not the restored successor. The actual
 visible review tab was navigated to https://3d473188.laidies-sunnyvaile.pages.dev/
 and visually checked: original two masthead buttons below the introduction;
 four directory categories visible with 26 links. No production promotion.
+
+## Current owner-feedback successor — 4be035a6 (supersedes all prior preview verdicts)
+
+Ali rejected3d473188 for narrower discovery, missing examples and extra question navigation, ignored Dream Phone wording, episode-specific general method copy, lost Ghostbusters/Romy and Michele context, and an uninformative Resident invitation. Those objections are accepted; earlier admissions are invalidated, not reused.
+
+Source96993bf2 restores the four-category directory with26 direct destinations and removes the six duplicate cards. The original two masthead actions remain, with owner-permitted Find what I need added. KSVL has a full-width explanation. Miss Jeeves has three non-submitting examples, a balanced existing portrait and actual inline catalogue excerpts. Explicit intent:search returns before either paid binding; legacy Library behavior remains intact. Exact owner Dream Phone wording and joke, Ghostbusters/Romy and Michele, Girl Talk's actual route, general Blend & Snap plus Pop Quiz, and a Visitor/Card/signed-in comparison are restored.
+
+The latest-episode defect was real: href changed while label and weekly actions stayed fixed. Published episode data now updates title, read/listen actions and season list together. A local Episode05 publication fixture advances every display; draft06 remains excluded. No episode was actually published for a test.
+
+Verification: local1440/390/320/768 journeys; real-catalogue free-search tests with throwing paid bindings (zero calls for explicit search); no-match/privacy/legacy calibration; actual1440/390 hosted form submission, source opening,26 links, hero anchors and overflow checks. Producer schema/identity checks and the calibrated scoped admission pass. Actual Sol/Medium and Claude Opus5/Medium independently reviewed current copy and rendered bytes. Sol's first HOLD used a stale sparse checkout for FAiRY facts; current live source parity resolved it. An actual browser-evidence overwrite was repaired by rerunning all four widths and separating capture output. Both first verdict and reconciliation are preserved.
+
+Preview https://4be035a6.laidies-sunnyvaile.pages.dev/ is source96993bf2; hosted evidence0037b07a. The full latest production artifact2d0b8144/144b77c retains746 unchanged public files, including newer NewsStand dates and Library compatibility. Exactly index.html, content/site/homepage.js and _worker.js differ. Production homepage/runtime and current NewsStand bytes were rechecked unchanged. Full research rollout and the saved FAiRY visual hold are not closed by this homepage preview.
+
+Handoff limitation: CUA reports the Mac locked; open_in_codex queued the new URL. The old visible tab has not been confirmed replaced. The direct corrected link is the receiving artifact until the app presents it. Owner review and production promotion remain pending; do not describe the entire homepage audit or site correction programme as complete. Continue the delivery order above after this batch.
