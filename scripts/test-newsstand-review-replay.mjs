@@ -11,7 +11,7 @@ const learning='operations/product-stewards/learning-content-ecosystem/';
 const candidate='operations/product-stewards/newsstand/candidates/openai-wiki-message-board-2026-09-05/';
 const attempt=candidate+'bounded-claude-v2/';
 const copy=p=>{fs.mkdirSync(path.dirname(path.join(fixture,p)),{recursive:true});fs.copyFileSync(path.join(root,p),path.join(fixture,p))};
-for(const p of [runtime+'protocol.mjs',runtime+'run-pilot.mjs',learning+'content-quality-exemplars.json',learning+'HANNAH-FRY-COMMUNICATION-BENCHMARK.md','operations/library-decisions.md','operations/product-stewards/newsstand/ordinary-news-editorial-policy.json','scripts/prepare-newsstand-draft.mjs','scripts/check-content-producer-contract.mjs','scripts/check-prose-quality-admission.mjs'])copy(p);
+for(const p of [runtime+'protocol.mjs',runtime+'run-pilot.mjs',learning+'content-quality-exemplars.json',learning+'HANNAH-FRY-COMMUNICATION-BENCHMARK.md','operations/library-decisions.md','operations/product-stewards/newsstand/ordinary-news-editorial-policy.json','content/newsstand-reader-contract.js','scripts/prepare-newsstand-draft.mjs','scripts/check-content-producer-contract.mjs','scripts/check-prose-quality-admission.mjs'])copy(p);
 const registry=JSON.parse(fs.readFileSync(path.join(root,learning+'content-quality-exemplars.json'),'utf8'));
 for(const item of [...registry.negativeExemplars,...registry.positiveExemplars.filter(p=>/^CQX-GOOD-NEWS-00[12]$/.test(p.id))])copy(item.path);
 for(const p of fs.readdirSync(path.join(root,attempt)).filter(p=>p!=='calibration-result.json'))copy(attempt+p);

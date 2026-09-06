@@ -20,7 +20,7 @@ const readJson = relative => JSON.parse(fs.readFileSync(path.join(sourceRoot, re
 const contract = readJson(contractPath);
 const registry = readJson(registryPath);
 for (const relative of [contractPath, storyPath, observationsPath, registryPath, contract.communicationDesign.benchmark.path, ...contract.canonicalTruth.map(item => item.source.path), ...registry.positiveExemplars.map(item => item.path), ...registry.negativeExemplars.map(item => item.path)]) copy(relative);
-for (const relative of ["scripts/prepare-newsstand-draft.mjs", "scripts/check-content-producer-contract.mjs"]) copy(relative);
+for (const relative of ["content/newsstand-reader-contract.js", "scripts/prepare-newsstand-draft.mjs", "scripts/check-content-producer-contract.mjs"]) copy(relative);
 
 const fixtureContract = JSON.parse(fs.readFileSync(path.join(root, contractPath), "utf8"));
 const story = JSON.parse(fs.readFileSync(path.join(root, storyPath), "utf8"));
@@ -30,6 +30,9 @@ assert.equal(packet.packet.qualityVerdict, undefined, "writer packet cannot manu
 assert.equal(packet.packet.outputBoundary, "PRIVATE_PRODUCER_ARTIFACT_REQUIRES_SELF_REVIEW_AND_INDEPENDENT_ADMISSION");
 assert.equal(inspectPreparedDraft(story, packet, observations).qualityVerdict, null, "draft inspection is presence/identity only");
 assert.deepEqual(inspectPreparedDraft(story, packet, observations).errors, [], "actual bound repair inputs prepare and inspect cleanly");
+assert.ok(inspectPreparedDraft({ ...story, heroVisual: null }, packet, observations).errors.some(error => /published story image is missing or incomplete/.test(error)), "missing eventual published hero rejects before review");
+assert.ok(inspectPreparedDraft({ ...story, heroVisual: { src: "/assets/newsstand/design-20260830/latest-checking.png", alt: "short" } }, packet, observations).errors.some(error => /published story image is missing or incomplete/.test(error)), "incomplete image alt rejects before review");
+assert.ok(inspectPreparedDraft({ ...story, heroVisual: { src: "/unapproved/story.gif", alt: "A sufficiently descriptive synthetic fixture image." } }, packet, observations).errors.some(error => /published story image is missing or incomplete/.test(error)), "incomplete image path rejects before review");
 
 const reject = (mutate, pattern) => {
   const candidate = structuredClone(fixtureContract); mutate(candidate);
@@ -56,4 +59,4 @@ assert.equal(JSON.parse(fs.readFileSync(path.join(root, output), "utf8")).packet
 const traversal = spawnSync(process.execPath, [path.join(root, "scripts/prepare-newsstand-draft.mjs"), contractPath, "operations/product-stewards/../public-writer-input.json"], { cwd: root, encoding: "utf8" });
 assert.notEqual(traversal.status, 0, "private-output traversal must fail");
 assert.match(traversal.stderr, /Draft input must remain private/);
-console.log("NEWSSTAND DRAFT PREPARATION PASS valid_packet=1 no_quality_verdict=1 bound_input_rejections=4 inspection_rejections=4 private_output_traversal_rejected=1 fixture=" + root);
+console.log("NEWSSTAND DRAFT PREPARATION PASS valid_packet=1 no_quality_verdict=1 bound_input_rejections=4 inspection_rejections=7 image_rejections=3 private_output_traversal_rejected=1 fixture=" + root);

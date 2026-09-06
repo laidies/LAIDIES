@@ -1053,7 +1053,10 @@ September 5 issue or new public article was admitted by those tests.
    `scripts/prepare-newsstand-draft.mjs`. The writer receives the current meaning,
    voice, known-failure and communication guidance together. Read the full draft,
    check every necessary term and promised answer, and repair it before review.
-   Split compound claims and retain every needed source excerpt, including
+   The pre-review inspection also applies the existing published-image rule: a
+   usable image path and descriptive alternative text must be present before
+   spending an editorial call. Reuse an appropriate admitted illustration when
+   available. Split compound claims and retain every needed source excerpt, including
    supplementary passages and uncertainty. A short quote about a date cannot
    establish a named example or a separate incident.
 2. Reuse a qualified reviewer for unchanged model/effort, actual rubric, registry
@@ -1063,7 +1066,13 @@ September 5 issue or new public article was admitted by those tests.
    historical labels. `reconcile-calibration` can verify saved actual requests and
    judgments offline after a mechanical normalizer repair. It cannot coach a
    reviewer, change judgments or qualify a changed rubric.
-3. Run `review-runtime/run-pilot.mjs article claude` with `--candidate-dir`,
+3. Supply each primary passage once in the source collection and give claims
+   `sourceIds` pointing to it. For older duplicated packets, run
+   `node scripts/compact-newsstand-editorial-input.mjs <private-input> <new-private-output>`
+   before binding producer review and requesting editorial review. It preserves
+   full article/source text and rejects unmatched excerpts or locations. Retain
+   the original; never overwrite an already reviewed packet.
+   Run `review-runtime/run-pilot.mjs article claude` with `--candidate-dir`,
    `--calibration` and a fresh private `--output`. Native structured output supplies
    one complete-artifact reader/facts assessment. The reviewer supplies judgments;
    code supplies field names and exact passage bindings. Missing sources, unclear
@@ -1098,4 +1107,7 @@ Ordinary-news review counts remain truthful improvement metrics under Ali’s
 September 5 approval. Equal or higher historical counts do not block a repaired
 article. Retain all rounds and repaired defects when assembling the review;
 current unresolved defects, evidence gaps or non-passing required outcomes still
-block publication. This exception does not extend to other content surfaces.
+block publication. Ordinary NEWS producer self-review uses the same count rule
+only with a checksum-bound `reviewMetricsPolicy` pointing to the active
+`ordinary-news-editorial-policy.json`; an absent binding retains strict checks.
+This exception does not extend to other content surfaces.

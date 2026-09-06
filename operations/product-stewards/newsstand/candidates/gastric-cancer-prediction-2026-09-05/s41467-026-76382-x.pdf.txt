@@ -1,0 +1,2058 @@
+--- Page 1 ---
+Article | Article in Press https://doi.org/10.1038/s41467-026-76382-x
+Multimodal radiopathomics model predicts
+postoperative metachronous liver
+metastasis in gastric cancer
+Ping’an Ding 1,2,3,17 ,J i a x u a nY a n g1,2,3,17, Honghai Guo1,2,3, Sheng Chen1,2,3,
+Yueping Liu 4,X i a oH a n 5, Songpu Li6,7,J i a x i a n gW u1,2,3,L iY a n g8,
+Haotian Wu1,2,3,N i n gM e n g9, Xiaolong Li10,R e n j u nG u11,12,Y u a nT i a n1,2,3,
+Lilong Zhang13, Zhenjiang Guo14,L eL u 15,S e nY a n g 15 ,
+Lingjiao Meng 16 & Qun Zhao 1,2,3
+In locally advanced gastric cancer, a substantial number of patients relapse with
+liver metastasis months after an apparently curative operation, and standard
+tumor staging offers little warning of who is at risk. Here, we develop the
+Radiopathomics-Clinical Stratiﬁcation Assessment (RCSA), an interpretable
+model that integrates three complementary sources of information: radiomic
+features from preoperative computed tomography, pathomic features from
+routine hematoxylin and eosin tumor slides, and conventional clinical features.
+Trained on patients from one hospital and then tested on separate internal,
+external, public, and prospective trial groups (NCT02555358), RCSA con-
+sistently separates high- and low-riskpatients, with area under the curves
+between 0.862 and 0.909. Tumors it labels low-risk carry a notably more active
+immune environment, indicating that these patients are the ones most likely to
+gain from added immunotherapy. RCSA therefore turns existing hospital data
+into individualized guidance for postoperative follow-up and treatment.
+Gastric cancer (GC) remains one of the leading causes of cancer-
+related deaths worldwide, particularly in East Asian countries, includ-
+ing China, Japan, and South Korea1,2. Despite improvements in surgical
+techniques, chemotherapy regimens, and targeted therapies, the
+prognosis for patients with locally advanced gastric cancer (LAGC)
+remains suboptimal due to the high rate of distant metastases, parti-
+cularly metachronous liver metastasis (MLM) occurring after curative
+resection3,4. MLM has been consistently associated with poor clinical
+Received: 29 April 2025
+Accepted: 27 July 2026
+Check for updates
+1The Third Department of Surgery, the Fourth Hospital of Hebei Medical University, Shijiazhuang, Hebei, China.2Hebei Key Laboratory of Precision Diagnosis
+and Comprehensive Treatment of Gastric Cancer, the Fourth Hospital of Hebei Medical University, Shijiazhuang, Hebei, China.3Hebei Provincial Engineering
+Research Center for Big Data Analysis and Mining Application for Precise Diagnosis and Treatment of Gastric Cancer, the Fourth Hospital of Hebei Medical
+University, Shijiazhuang, Hebei, China.4Department of Pathology, The Fourth Hospital of Hebei Medical University, Shijiazhuang, Hebei, China.5College of
+Biomedical Engineering, Sichuan University, Chengdu, Sichuan, China.6Intelligent Information Technology Research Center, Jingchu University of Techol-
+ogy, Jingmen, China. 7Jingmen Cryptometry Application Techology Research Center, Jingmen, China.8The Department of CT/MRI, The Fourth Hospital of
+Hebei Medical University, Shijiazhuang, Hebei, China.9Department of General Surgery, Shijiazhuang People’s Hospital, Shijiazhuang, Hebei, China.
+10Department of General Surgery, Baoding Central Hospital, Baoding, Hebei, China.11School of Chinese Medicine & School of Integrated Chinese and Western
+Medicine, Nanjing University of Chinese Medicine, Nanjing, Jiangsu, China.12Department of Gastroenterology and Hepatology, Jinling Hospital, Medical
+School of Nanjing University, Nanjing, Jiangsu, China.13Department of General Surgery, Renmin Hospital of Wuhan University, Wuhan, Hubei, China.
+14Department of General Surgery, Hengshui People’s Hospital, Hengshui, Hebei, China.15Ant Healthcare (AFU), Ant Group, Hangzhou, Zhejiang, China.
+16Research Center and Tumor Research Institute of the Fourth Hospital of Hebei Medical University, Shijiazhuang, Hebei, China.17These authors contributed
+equally: Ping’an Ding, Jiaxuan Yang. e-mail: ding_ping_an@hebmu.edu.cn; sen.yang.scu@gmail.com; ljmeng@hebmu.edu.cn; zhaoqun@hebmu.edu.cn
+Nature Communications Article in Press
+1234567890():,;
+1234567890():,;
+
+--- Page 2 ---
+outcomes and signi ﬁcantly compromises long-term survival, high-
+lighting the urgent need for reliable predictive biomarkers and risk
+stratiﬁcation tools to guide postoperative management and indivi-
+dualized treatment strategies for these patients
+5–7.
+Previous efforts to predict postoperative recurrence and metas-
+tasis in GC have primarily relied on clinical and pathological char-
+acteristics, including tumor-node-metastasis (TNM) stage, tumor
+differentiation, Lauren classiﬁcation, and serum tumor markers
+8–10.
+However, such clinical prognostic models often demonstrate limited
+accuracy and reproducibility due to the inherent biological and clinical
+heterogeneity of GC. Recently, radiomics, a quantitative imaging
+approach extracting high-dimensional features from standard medical
+images, has emerged as a promising predictive tool, capable of cap-
+turing tumor heterogeneity and underlying biological behavior
+beyond conventional imaging evaluation
+11–13. For instance, prior stu-
+dies have demonstrated the potential of radiomic features derived
+from computed tomography (CT) scans to accurately predict recur-
+rence and survival outcomes in gastric cancer patients, indicating the
+advantage of integrating radiological biomarkers into clinical
+practice
+14–16.
+Parallelly, digital pathology, particularly deep learning-based
+pathomics, has increasingly been recognized as a powerful modality
+to provide detailed insights into tumor microenvironment (TME)
+characteristics and histopathological heterogeneity
+17,18.D e e pl e a r n i n g
+methods have facilitated the analysis of whole-slide images (WSI),
+capturing subtle histological patterns and complex spatial relation-
+ships between tumor cells and surrounding stromal or immune
+cells
+19,20. Recent studies have shown that deep learning-derived
+pathological features are signi ﬁcantly associated with clinical out-
+comes and treatment response in patients with gastric cancer 21–26.
+However, despite these promising advances, most previous predictive
+models have been developed based on either radiomics or pathomics
+independently, and few studies have systematically integrated these
+complementary modalities with clinical predictors to build compre-
+hensive multimodal prediction models.
+Here, we develop and validate a clinically interpretable multi-
+modal model, the Radiopathomics-Clinical Stratiﬁcation Assessment
+(RCSA), which integrates conventional clinical variables, preoperative
+CT-derived radiomic features, and deep learning-based pathomic
+features from routine hematoxylin and eosin slides to predict post-
+operative MLM in patients with LAGC. Across a retrospective multi-
+center development cohort and multiple internal, external, public, and
+prospective trial validation cohorts, the RCSA model shows strong and
+stable discrimination (area under the curves ranging from 0.862 to
+0.909) and outperforms clinical-only and single-modality models,
+while also stratifying patients by overall survival. Interpretability ana-
+lysis identiﬁes the imaging and pathological features that contribute
+most to risk. Transcriptomic sequencing and immune proﬁling further
+reveal that RCSA-deﬁned low-risk tumors harbor an immune-enriched
+microenvironment with greater CD8
++ Tc e l li nﬁltration and elevated
+immune-checkpoint gene expression, indicating that these patients
+may be more responsive to adjuvant immunotherapy. Together, these
+ﬁndings suggest that the RCSA model may support risk-adapted
+postoperative surveillance and personalized treatment in LAGC.
+Results
+Patient cohorts and clinical characteristics
+A total of 1878 eligible patients with LAGC were included for model
+development and multi-level validation (Fig. 1). The overall cohort
+structure comprised a Training Cohort (N = 770), an Internal Validation
+Cohort (N = 362), an External Validation Cohort (N = 489, including two
+regional clinical cohorts and one public database cohort from TCIA),
+and a Prospective Validation Cohort (NCT02555358, N =2 5 7 ) . T h e
+clinicopathological characteristics were well balanced across the six
+participating medical centers, with a clear male predominance (65.6%
+male versus 34.4% female), consistent with the recognized sex dis-
+tribution of gastric cancer (Supplementary Table 4).
+The training cohort ( n = 770) had a median follow-up of 69
+months (95% CI, 67.5 –71.0), during which 128 MLM events were
+observed (16.6%). The internal validation cohort (n =3 6 2 )w a ss t r a t iﬁed
+by treatment period into an earlier cohort (cohort I;n =1 9 4 )a n dal a t e r
+cohort (cohort II; n = 168). Median follow-up was 62 months (95% CI:
+58.5–64.5) in cohort I, with 28 MLM events (14.4%), and 54 months (95%
+CI: 50.0–57.5) in cohort II, with 27 MLM events (16.1%).
+The external validation cohort was subdivided by geographic
+region. The External Validation I ( n = 257) had a median follow-up of
+53.5 months (95% CI, 51.0–56.0), with 45 MLM events (17.5%), whereas
+the External Validation II ( n = 191) had a median follow-up of
+58.7 months (95% CI: 55.0 –62.0), with 32 MLM events (16.8%). The
+External Validation III (TCIA cohort; n = 41) consisted of patients
+retrieved from a public database; in this cohort, 6 MLM events (14.6%)
+were identiﬁed. Due to the nature of the public dataset, long-term
+survival follow-up was not available for this speci ﬁcg r o u p .T h ep r o -
+spective validation cohort ( n = 257) had a median follow-up of
+63 months (95% CI, 60.5–65.5), with 38 MLM events observed (14.8%).
+Development and validation of the RCSA model for predicting
+postoperative MLM
+Multivariate logistic regression analysis identi ﬁed pathological type
+(OR = 2.125, 95% CI: 1.226–3.685, P = 0.007), postoperative pTNM stage
+(OR = 3.688, 95% CI: 1.124 –12.099, P = 0.031), Lauren classi ﬁcation
+(OR = 2.708, 95% CI: 1.571 –4.669, P = 0.001), radiomic features
+(OR = 7.873, 95% CI: 4.651 –13.328, P < 0.001), and pathomic features
+(OR = 13.474, 95% CI: 8.037 –22.590, P < 0.001) as independent pre-
+dictors of MLM in LAGC patients (Supplementary Table 5). Based on
+these variables, a comprehensive nomogram was constructed to
+develop the Radiopathomics-Clinical Stratiﬁcation Assessment (RCSA)
+model (Fig. 2A), which demonstrated strong predictive performance
+(AUC = 0.909, 95% CI: 0.881–0.937; Fig. 2B–E).
+Model comparison showed superior predictive performance of
+the RCSA model over models using clinical, radiomic, or pathomic
+features alone (Supplementary Table 6). We compared the perfor-
+mance of the RCSA model with a state-of-the-art transformer-based
+multimodal deep learning architecture. RCSA exceeded the perfor-
+mance of the transformer-based model, achieving AUC values ranging
+from 0.865 to 0.908 across the internal, external, and prospective
+validation cohorts, compared with 0.708–0.869 for the transformer-
+based model (Supplementary Fig. 3 and Supplementary Table 7).
+Compared with the clinical model, the RCSA model achieved sig-
+niﬁcant improvements in prediction accuracy, with a NRI of 0.658 (95%
+CI: 0.467–0.850, P < 0.001) and an IDI of 0.376 (95% CI: 0.326 –0.426,
+P < 0.001). DeLong’st e s tf u r t h e rc o nﬁrmed that the RCSA model sig-
+niﬁcantly outperformed the clinical model (AUC: 0.909 vs. 0.701,
+P < 0.001; Supplementary Table 8), and its calibration curve supported
+strong predictive accuracy (Brier score = 0.080; Supplemen-
+tary Fig. 4B).
+In addition, sensitivity analyses were conducted using multiple
+imputation by chained equations (MICE) to account for missing clinical
+data. When re-evaluated on the imputed dataset, the RCSA model
+achieved an AUC of 0.861 (95% CI: 0.840 –0.883), compared with an
+AUC of 0.895 (95% CI: 0.873–0.917) obtained from the complete-case
+analysis in the overall dataset (Supplementary Fig 5 and Supplemen-
+tary Table 9).
+Risk stratiﬁcation based on the Youden index classi ﬁed patients
+into low- and high-risk groups, with the RCSA model identifying more
+low-risk patients with MLM compared to the clinical model (70.3% vs.
+60.8%; Supplementary Fig. 4D). Decision curve and clinical impact
+analyses further demonstrated the RCSA model ’s superior clinical
+utility (Fig. 2F and Supplementary Fig 4A).
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press
+
+--- Page 3 ---
+Survival analysis revealed signiﬁcantly lower 5-year OS in high-risk
+patients compared to low-risk patients (38.9% vs. 55.6%; P < 0.001;
+Fig. 2G). In multivariate Cox regression adjusted for clin-
+icopathological factors (including N stage and the receipt of adjuvant
+chemotherapy), the RCSA model remained an independent prognostic
+factor for 5-year OS (HR = 1.517, 95% CI: 1.225 –1.880; Supplementary
+Table 10). In addition, the RCSA model achieved a concordance index
+(C-index) of 0.660 (95% CI: 0.634–0.686) in the training set, indicating
+moderate discriminative performance for survival prediction (Sup-
+plementary Table 11).
+Bootstrap resampling (1000 iterations) con ﬁrmed the RCSA
+model’s superior diagnostic performance for MLM prediction (Mean
+AUC = 0.909, 95% CI: 0.881 –0.935) compared to the clinical model
+(Mean AUC = 0.701, 95% CI: 0.654–0.749; Supplementary Fig. 4C). Ten-
+fold cross-validation further supported the model ’s robustness,
+demonstrating superior discrimination, sensitivity, and speci ﬁcity
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press
+
+--- Page 4 ---
+compared to single-feature models (Fig.2H). Subgroup analyses stra-
+tiﬁed by serum tumor markers (CA72-4, CA19-9, CEA) and HER2 status
+also con ﬁrmed the RCSA model ’s superior predictive performance
+(Fig. 2I). Detailed results for these analyses are presented in the Sup-
+plementary Information (Supplementary Figs. 4E, 6 –8 and Supple-
+mentary Tables 12–13). Additionally, stratiﬁcation based on serum AFP
+status and the presence of Hepatocellular carcinoma (HCC) demon-
+strated that the RCSA model consistently maintained the highest AUC
+(ranging from 0.860 to 0.917) and overall superior performance
+compared to Pathomics, Radiomics, and Clinical models in all sub-
+groups (Supplementary Fig 9; Supplementary Tables 12–13).
+Internal validation of the RCSA model
+To further validate the RCSA model, we retrospectively analyzed 362
+LAGC patients treated at the FHHMU, divided into two internal vali-
+dation cohorts based on treatment period: Cohort I (January
+2012–December 2013,n = 194) and Cohort II (January 2018–December
+2019, n = 168). Clinical characteristics were comparable between
+cohorts (all P > 0.05; Supplementary Table 14). In Cohort I, the RCSA
+model demonstrated superior predictive performance compared to
+models based solely on clinical, radiomic, or pathomic features
+(AUC = 0.908, 95% CI: 0.848 –0.968; Figs. 3A, C, Supplementary
+Fig. 10A, 10C and Supplementary Table 15), with a signiﬁcant difference
+conﬁrmed by DeLong’st e s t(P < 0.001; Supplementary Table 8). The
+RCSA model also showed signiﬁcant improvements in reclassiﬁcation
+(NRI = 0.834, 95% CI: 0.349 –1.256, P < 0.001) and discrimination
+(IDI = 0.407, 95% CI: 0.274–0.531,P < 0.001), with enhanced calibration
+(Brier score = 0.053; Fig.3E). Similar results were observed in Cohort II
+(Figs. 3B, D, F; Supplementary Fig 10B, 10D; and Supplementary
+Table 15).
+In both cohorts, concentric circle plots indicated that the RCSA
+model identiﬁed a higher proportion of high-risk MLM patients than
+the clinical model (Cohort I: 11.9% vs. 6.2%; Cohort II: 13.1% vs. 11.3%,
+Fig. 3G). Decision curve and clinical impact analyses further conﬁrmed
+the superior clinical utility of the RCSA model in both cohorts (Fig.3H-
+I; Supplementary Fig. 10G–H). Survival analysis revealed signiﬁcantly
+better 5-year OS for low-risk patients compared to high-risk patients as
+stratiﬁed by the RCSA model (Cohort I: 57.6% vs. 41.9%, P = 0.009,
+Supplementary Fig. 10E; Cohort II: 47.5% vs. 29.6%, P =0 . 0 1 2 ,S u p p l e -
+mentary Fig. 10F). The RCSA model achieved robust discriminative
+performance for survival prediction across the internal validation
+cohorts, with concordance indices of 0.633 (95% CI: 0.573 –0.692) in
+cohort I and 0.650 (95% CI: 0.596–0.704) in cohort II (Supplementary
+Table 11).
+A sensitivity analysis combining both internal validation cohorts
+and an independent dataset further conﬁrmed the model’sr o b u s t n e s s :
+the RCSA model identi ﬁed more high-risk MLM patients than the
+clinical model (51.2% vs. 28.0%), representing a 23.2% increase in
+detection, with a 5.7% reduction in low-risk misclassiﬁcation (Fig. 3J).
+External validation and clinical applicability of the RCSA model
+To further assess the clinical applicability and broad generalizability of
+the RCSA model, we included three independent external validation
+cohorts. The ﬁrst cohort (External Validation I) consisted of 257 LAGC
+patients from three medical centers in northern China (SJZPH, BDCH,
+HSPH), while the second (External Validation II) included 191 patients
+from two centers in southern China (WHRH, NJJLH), primarily to
+account for geographical and regional differences within the Chinese
+population. The clinicopathological characteristics of these external
+cohorts are summarized in Supplementary Table 16. Furthermore, to
+evaluate the robustness of the model across publicly available data
+sources, we incorporated an independent external validation cohort
+comprising 41 LAGC patients retrieved from TCIA. These patients were
+enrolled following the same stringent inclusion and exclusion criteria
+applied to the multi-center clinical cohorts.
+In External Validation I, the RCSA model outperformed models
+based on individual features in predicting postoperative MLM, with an
+AUC of 0.890 (95% CI: 0.828–0.951; Fig.4A, B; Supplementary Fig. 11B;
+and Supplementary Table 17). Compared with the clinical model, the
+RCSA model showed signi ﬁcant improvement in NRI (0.882, 95% CI:
+0.568–1.212, P < 0.001) and IDI (0.364, 95% CI: 0.277–0.446, P < 0.001;
+Supplementary Table 8). Calibration analysis further con ﬁrmed its
+predictive accuracy (Brier score = 0.071; Fig.4C). Similar results were
+observed in External Validation II (Fig. 4D–F; Supplementary Fig. 11B;
+Supplementary Table 17). Decision curve analysis demonstrated the
+highest net clinical bene ﬁt for the RCSA model in both external
+cohorts (Supplementary Fig. 11C, D), which was further supported by
+clinical impact curve analysis (Supplementary Fig. 11E, F). Concentric
+circle plots revealed that the RCSA model identi ﬁed a greater pro-
+portion of high-risk MLM patients compared to the clinical model in
+both cohorts (External I: 14.8% vs. 10.1%, Fig. 4I; External II: 14.2% vs.
+7.3%, Fig. 4J).
+In the TCIA validation cohort, the RCSA model demonstrated
+robust predictive performance with an AUC of 0.862 (95%CI: 0.721-
+1.000) (Supplementary Fig. 12A –C; Supplementary Table 17). Com-
+pared to the clinical model, RCSA achieved signi ﬁcantly improved
+accuracy (DeLong’ test P = 0.004) and superior risk stratiﬁcation, evi-
+denced by an NRI of 0.695 and an IDI of 0.382 (Supplementary
+Table 8). Performance across models was further quanti ﬁed through
+confusion matrices and radar charts, where RCSA maintained a high
+sensitivity of 0.833 and an NPV of 0.964 (Supplementary Fig. 12D and
+Supplementary Table 17). Additionally, concentric donut plots con-
+ﬁrmed that the RCSA model more effectively identiﬁed high-risk MLM
+patients (12.2%) compared to the clinical model (Supplementary
+Fig. 12E).
+Follow-up survival data showed signi ﬁcantly worse 5-year OS
+among high-risk patients compared to low-risk patients, as stratiﬁed by
+the RCSA model (External I: 33.8% vs. 51.9%,P =0 . 0 0 2 ,F i g .4K; External
+II: 37.9% vs. 54.1%,P = 0.012, Fig.4L and Supplementary Fig. 12H). RCSA
+Fig. 1 | Study design overview. A Radiomics Workﬂow: After image acquisition,
+segmentation was performed using nnU-Net. Radiomic features were extracted and
+modeled using 3D Slicer.BP a t h o m i c sW o r kﬂow: Whole slide images (WSIs) were
+tiled into patches, which were input into a feature extractor to generate pathomic
+features. C RCSA Model Development: Construction and validation of the RCSA
+model for predicting MLM in patients with LAGC, along with performance eva-
+luation. D Bioinformatics Workﬂow: RNA sequencing was conducted on 82 pro-
+spectively collected tissue samples. Bioinformatic analyses were performed to
+explore biological characteristics and immune inﬁltration patterns associated with
+key features, reﬂecting tumor heterogeneity in LAGC. E Study Cohort: A total of
+1878 eligible patients with LAGC were enrolled from six medical centers in China
+and a public dataset (TCIA cohort). All patients had preoperative abdominal CT
+scans and postoperative H&E-stained pathological slides. The cohort structure
+includes training, internal, and external validation sets (predominantly primary
+surgery) and a ﬁnal prospective validation set (including both primary surgery and
+NACT patients).F Model Extension and Veriﬁcation: The predictive performance
+of the RCSA model was further veriﬁed in specialized populations, including
+hepatoid adenocarcinoma and serum AFP-positive gastric cancer, to assess its
+generalizability for liver metastasis prediction.Participating Centers:Center 1:
+The Fourth Hospital of Hebei Medical University; Center 2: Shijiazhuang People’s
+Hospital; Center 3: Baoding Central Hospital; Center 4: Hengshui People’sH o s p i t a l ;
+Center 5: Jinling Hospital, Nanjing; Center 6: Renmin Hospital of Wuhan University.
+AFP alpha-fetoprotein; CT computed tomography; H&E haematoxylin and eosin;
+LAGC locally advanced gastric cancer; MLM metachronous liver metastasis; NACT
+neoadjuvant chemotherapy; nnU-Net, no-new-Net segmentation framework; RCSA
+Radiopathomics-Clinical Stratiﬁcation Assessment; TCIA The Cancer Imaging
+Archive; TNM tumour–node–metastasis; UNI pathology foundation model used for
+pathomic feature extraction; WSI whole-slide image. Schematic illustrations in this
+ﬁgure were created with BioRender.com.
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press
+
+--- Page 5 ---
+achieved robust discriminative performance across all external vali-
+dation cohorts, with concordance indices of 0.618 (95% CI:
+0.572–0.664) in External validation I, 0.646 (95% CI: 0.592 –0.699) in
+External validation II (Supplementary Table 11). A sensitivity analysis
+combining the two external validation cohorts into a single indepen-
+dent dataset showed that the RCSA model identiﬁed 21.5% more high-
+risk MLM patients than the clinical model, while reducing the
+proportion of misclassi ﬁed low-risk patients by 8.0%, potentially
+minimizing unnecessary follow-up imaging (Supplementary Fig. 11G).
+Prospective validation of the RCSA Model
+To evaluate the RCSA model ’s performance in a prospective setting,
+we retrospectively analyzed data from a multicenter prospective
+clinical study (NCT 02555358). A total of 257 LAGC patients were
+Points 0 1 02 03 04 05 06 07 08 09 0 1 0 0
+Histology
+High
+Low
+TNM stage
+I III
+II
+Lauren
+Intestinal
+Mixed/diffuse
+Radiomics
+Low
+High
+Pathomics
+Low
+High
+Total Points
+0 50 100 150 200 250 300 350
+Risk
+0.1 0.3 0.5 0.7 0.9
+0.0 0.2 0.4 0.6 0.8 1.0
+Sensitivity
+0.0 0.2 0.4 0.6 0.8 1.0
+1 − Specificity
+Clinical feature AUC=0.701
+Pathomics AUC=0.832
+RCSA model AUC=0.909
+Radiomics AUC=0.820
+Recall
+0.2 0.4 0.6 0.8 1.00.0
+Precision
+0.0 0.2 0.4 0.6 0.8 1.0Clinical feature PRC=0.287
+Pathomics PRC=0.486
+RCSA model PRC=0.731
+Radiomics PRC=0.550
+−0.05 0.00 0.05 0.10 0.15
+Net Benefit
+0.0 0.2 0.4 0.6 0.8 1.0
+1:100 1:4 2:3 3:2 4:1 100:1
+High Risk Threshold
+Cost:Benefit Ratio
+RCSA model
+Pathomics
+Radiomics
+Clinical features
+All
+None |
+|
+Log−rank p<0.001
+0.00
+0.25
+0.50
+0.75
+1.00
+0 1 22 43 64 86 0
+Overall survival
+229 223 190 142 112 89
+541 530 484 407 334 301Low
+High
+0 1 22 43 64 86 0
+Time(month)
+Number at risk
+| Low risk | High riskRCSA Model
+*
+**********
+0.0 0.2 0.4 0.6 0.8 1.0AUC
+Clinical Pathomics Radiomics RCSA model
+****
+********
+0.0 0.2 0.4 0.6 0.8 1.0Sensitivity
+****
+*****
+0.0 0.2 0.4 0.6 0.8 1.0Specificity
+****
+**********
+0.0 0.2 0.4 0.6 0.8 1.0Accuracy
+PathomicsClinical RCSA model Radiomics
+0%
+25%
+50%
+75%
+100%
+Recur Non−recur
+NRC
+RC
+High Low
+85
+217
+43
+425
+Recur Non−recur
+High Low
+84
+109
+44
+533
+Recur Non−recur
+High Low
+89
+102
+39
+540
+Recur Non−recur
+High Low
+108
+121
+20
+521
+0%
+25%
+50%
+75%
+100%
+NRC
+RC
+0%
+25%
+50%
+75%
+100%
+NRC
+RC
+0%
+25%
+50%
+75%
+100%
+NRC
+RC
+28.1
+71.9
+9.2
+90.8
+43.5
+56.5
+7.6
+92.4
+46.6
+53.4
+6.7
+93.3
+47.2
+52.8
+3.7
+96.3
+Clinical Feature Radiomics Pathomics RCSA model
+HER2 Negative HER2 Positive Tumor marker Negative Tumor marker Positive
+NPV
+NLR
+F1 Score
+PLR (x10)
+AUC
+Accuracy
+Sensitivity
+Specificity
+PPV
+0
+0.5
+1
+Clinical Pathomics Radiomics RCSA model
+NPV
+NLR
+F1 Score
+PLR (x10)
+AUC
+Accuracy
+Sensitivity
+Specificity
+PPV
+SSS
+0
+0.5
+1
+NPV
+NLR
+F1 Score
+PLR (x10)
+AUC
+Accuracy
+Sensitivity
+Specificity
+PPV
+SSS
+0
+0.5
+1
+NPV
+NLR
+F1 Score
+PLR
+AUC
+Accuracy
+Sensitivity
+Specificity
+PPV
+SS
+SS
+0
+0.5
+1
+NPV
+NLR
+F1 Score
+PLR (x10)
+AUC
+Accuracy
+Sensitivity
+Specificity
+PPV
+SSS
+0
+0.5
+1
+A B C
+D
+E F G
+H
+I
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press
+
+--- Page 6 ---
+included based on strict inclusion and exclusion criteria: 93 underwent
+primary surgery, 86 received neoadjuvant XELOX chemotherapy
+(oxaliplatin + capecitabine), and 78 received the DOX regimen (doc-
+etaxel + oxaliplatin + capecitabine). Clinical characteristics are sum-
+marized in Supplementary Table 18, with clinical outcomes previously
+detailed in our published work
+27.
+In the surgery cohort, the RCSA model outperformed clinical,
+radiomic, and pathomic models in predicting postoperative MLM, with
+an AUC of 0.898 (95% CI: 0.816 –0.980; Figs. 5A, B, D; Supplementary
+Fig. 13A, B and Supplementary Table 19). Compared with the clinical
+model, the RCSA model achieved signi ﬁcant improvements in NRI
+(0.630) and IDI (0.284), with similar advantages observed when com-
+pared to radiomic and pathomic models (Supplementary Table 8).
+Concentric circle plots showed that the RCSA model identi ﬁed more
+high-risk MLM patients than the clinical model (10.8% vs. 8.6%; Fig.5F).
+Decision curve analysis and clinical impact curves further conﬁrmed its
+superior clinical utility in the primary surgery cohort (Fig. 5C; and
+Supplementary Fig. 13C). Further survival analysis found that the 5-year
+OS of patients in the low-risk group of the RCSA model was sig-
+niﬁcantly better than that of patients in the high-risk group (57.7% vs.
+31.8%; P = 0.009; Fig. 5K). In the prospective direct surgery cohort,
+RCSA achieved a concordance index of 0.632 (95% CI: 0.553–0.711) for
+survival prediction (Supplementary Table 11).
+A similar analysis in the neoadjuvant chemotherapy cohorts
+demonstrated consistently strong predictive performance of the RCSA
+model (AUC = 0.786, 95% CI: 0.680–0.893; Figs. 5E, G–J; Supplemen-
+tary Fig. 13D, 13F, G; and Supplementary Table 8, 19), with predictions
+correlating signi ﬁcantly with treatment response (Supplementary
+Fig. 13E). In the prospective neoadjuvant chemotherapy cohort, RCSA
+stratiﬁed patients into groups with different 5-year OS (low-risk 55.1%
+versus high-risk 43.9%,P = 0.044; Fig.5L), with a concordance index of
+0.602 (95% CI: 0.539–0.666) (Supplementary Table 11).
+Model explainability and individualized prediction validation
+b a s e do nS H A Pa n a l y s i s
+We applied SHapley Additive exPlanations (SHAP) to examine feature
+contributions in the radiomics and pathomics models. As shown in the
+SHAP Bee Swarm Plots (Fig. 6A–L and Supplementary Fig. 14), the
+detailed impact patterns of key features on the model ’s prediction
+results are revealed: high feature values (warm-colored dots) for both
+Radiomics (e.g., Feature-268, Feature-471) and Pathomics (e.g., Fea-
+ture-437, Feature-232) features primarily aggregate in the positive
+SHAP value region, indicating a signi ﬁcant contribution to high-risk
+prediction; conversely, low feature values (cool-colored dots) tend
+toward a negative contribution. Concurrently, the SHAP Mean Bar
+Plots (Supplementary Fig. 15) identify the core driving features: Fea-
+ture-268, Feature-471, and Feature-108 consistently hold the highest
+mean absolute SHAP values in the Radiomics model, while Feature-
+437, Feature-232, and Feature-188 dominate the Pathomics model.
+Similar patterns of feature importance were observed across cohorts.
+To provide clinical interpretability for the model, we present two
+patient cases with different outcomes for individualized prediction
+explanation in Fig. 6M. This visualization integrates the patient ’sC T
+images, H&E sections, and corresponding feature maps, utilizing SHAP
+values to quantify the contribution of each feature to the ﬁnal pre-
+diction. In the case of Patient 1 (46-month recurrence-free follow-up),
+the feature contribution plot leans toward a negative prediction (f(x) =
+−0.174); for example, the radiomic feature Feature-268 provides the
+dominant negative contribution (SHAP = −0.124), supporting the low
+recurrence risk assessment. Conversely, in the case of Patient 2 (21-
+month liver recurrence), the plot shifts toward a positive prediction
+(f(x) = +0.007), with Feature-268 providing the dominant positive
+contribution (SHAP = +0.051), clearly supporting the high recur-
+rence risk.
+A cost–beneﬁt analysis based on current hospital follow-up pro-
+tocols (Supplementary Fig. 16) showed improved resource utilization
+compared with the clinical model. In clinical terms, RCSA increased the
+identiﬁcation rate of MLM by 9.2% (92.3% versus 83.1%) and reduced
+missed MLM cases (false negatives) by 24 patients (from 44 to 20).
+Molecular and immune landscape differences between
+risk groups
+To investigate the molecular differences between high- and low-risk
+groups, we conducted transcriptome sequencing and identi ﬁed dis-
+tinct gene expression pro ﬁles (Fig. 7A). Gene Set Variation Analysis
+(GSVA) and Gene Set Enrichment Analysis (GSEA) consistently revealed
+as i g n iﬁcant enrichment of core immune-related pathways, including
+interferon-γ and interferon- α responses, alongside in ﬂammation-
+related pathways (IL6/JAK/STAT3, TNF- α, IL2/STAT5 signaling, and
+general inﬂammatory response), predominantly in the low-risk cohort
+(Fig. 7B, C and Supplementary Fig. 17A).
+We next examined the immune microenvironment. ESTIMATE
+analysis con ﬁrmed that the low-risk group exhibited signi ﬁcantly
+higher Stromal, Immune, and overall ESTIMATE scores (Supplemen-
+tary Fig. 17B), indicative of a more active and “hot” tumor micro-
+environment. CIBERSORT cell in ﬁltration analysis further validated
+this immune activity, showing that the abundance of T cells (especially
+CD8 + T cells) was signiﬁcantly higher in the low-risk group (Fig.7D, F),
+which is consistent with the results of MCPcounter (Supplementary
+Fig. 17C, 17D). Furthermore, expression pro ﬁling of immune
+Fig. 2 | Construction and performance evaluation of the multimodal RCSA
+model in the training cohort. A A multimodal nomogram (RCSA model) devel-
+oped by integrating independent clinical predictors (histology, pTNM stage, and
+Lauren classiﬁcation) with radiomic and pathomic signatures for predicting MLM in
+patients with LAGC. B ROC curves comparing the discriminative performance of
+the RCSA model (AUC = 0.909) against unimodal and clinical-only models.
+C Precision-recall curves demonstrating the model’s reliability in handling imbal-
+anced event distribution.D Radar chart illustrating multiple performance metrics
+(including Accuracy, Sensitivity, Speciﬁcity, PPV, NPV, PLR, NLR and F1 score)
+across different models.E Confusion matrices showing the classiﬁcation results
+and detection rates for the RCSA-deﬁned high- and low-risk groups. RC, cases that
+developed metachronous liver metastasis; NRC, cases that did not.F Decision curve
+analysis evaluating the clinical net beneﬁt of the RCSA model across various
+threshold probabilities.G Kaplan–Meier curves showing overall survival according
+to the low- and high-risk groups deﬁned by the RCSA model using the optimal
+Youden index cutoff. Solid lines indicate the estimated survival probabilities, and
+shaded regions represent 95% conﬁdence intervals. The low-risk and high-risk
+groups included 541 and 229 patients, respectively. Survival distributions were
+compared using a two-sided log-rank test (exactP =4 . 4 1 3×1 0⁻⁶). H Tenfold cross-
+validation was used to assess the stability of model performance. Each dot
+corresponds to the result obtained from one validation fold, with the 770 inde-
+pendent patients partitioned into ten mutually exclusive subsets. Bars show the
+average value across folds, and error bars denote the standard deviation (SD).
+Differences between the RCSA model and the Pathomics, Radiomics and Clinical
+feature models were evaluated using two-sided Wilcoxon rank-sum tests. The exact
+P values for RCSA versus Pathomics, RCSA versus Radiomics and RCSA versus
+Clinical feature were, respectively: AUC,P =5 . 8 0×1 0⁻⁴, P =3 . 3 0×1 0⁻⁴ and
+P =1 . 8 3×1 0⁻⁴;S e n s i t i v i t y ,P = 0.01696, P = 0.00715 and P =1 . 7 6×1 0⁻⁴;S p e c iﬁcity,
+P = 0.03108, P = 0.03742 and P =9 . 9 9×1 0⁻⁴; and Accuracy, P =1 . 8 2×1 0⁻⁴,
+P =1 . 8 2×1 0⁻⁴ and P =1 . 8 1×1 0⁻⁴
+. Source data are provided as a Source Data ﬁle.
+I Radar charts showcasing the robust predictive performance of the RCSA model in
+speciﬁc subgroups stratiﬁed by HER2 status and serum tumor markers. Data are
+presented as mean ± SD for cross-validation where applicable; *P <0 . 0 5 ,* *P <0 . 0 1 ,
+***P < 0.001. AUC, area under the receiver operating characteristic curve; F1 score
+harmonic mean of precision and recall; HER2 human epidermal growth factor
+receptor 2; NLR negative likelihood ratio; NPV negative predictive value; PLR
+positive likelihood ratio; PPV positive predictive value; PRC precision–recall curve;
+RCSA radiopathomics-clinical stratiﬁcation assessment. Source data are provided
+as a Source Data ﬁle.
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press
+
+--- Page 7 ---
+0.0 0.2 0.4 0.6 0.8 1.0
+Sensitivity
+0.0 0.2 0.4 0.6 0.8 1.0
+1 − Specificity
+Clinical feature AUC=0.688
+Pathomics AUC=0.811
+RCSA model AUC=0.908
+Radiomics AUC=0.800
+0.0 0.2 0.4 0.6 0.8 1.0
+Sensitivity
+0.0 0.2 0.4 0.6 0.8 1.0
+1 − Specificity
+Clinical feature AUC=0.688
+Pathomics AUC=0.816
+RCSA model AUC=0.903
+Radiomics AUC=0.798
+0.0 0.2 0.4 0.6 0.8 1.00.0 0.2 0.4 0.6 0.8 1.0
+Nomogram Predicted 
+Actual Probability Apparent
+Ideal
+Bias−corrected
+Brier Score: 0.053
+0.0 0.2 0.4 0.6 0.8 1.00.0 0.2 0.4 0.6 0.8 1.0
+Nomogram Predicted 
+Actual Probability
+Apparent
+Ideal
+Bias−corrected
+Brier Score: 0.0707
+1:100 1:4 2:3 3:2 4:1 100:1
+High Risk Threshold
+Cost:Benefit Ratio
+1:100 1:4 2:3 3:2 4:1 100:1
+Cost:Benefit Ratio
+RCSA model
+Pathomics
+Radiomics
+Clinical features
+All
+None
+RCSA model
+Pathomics
+Radiomics
+Clinical features
+All
+None
+RCSA modelPathomicsRadiomicsClinical
+Low Risk High Risk Non-Recur Recur
+0.0 0.2 0.4 0.6 0.8 1.0
+−0.05 0.00 0.05 0.10 0.15
+Net Benefit
+−0.05 0.00 0.05 0.10 0.15
+Net Benefit
+High Risk Threshold
+0.0 0.2 0.4 0.6 0.8 1.0
+AB
+EF
+G H
+I
+J
+NPV
+NLR
+F1 Score
+PLR (x10)
+AUC
+Accuracy
+Sensitivity
+Specificity
+PPV
+SSS
+0
+0.5
+1
+Clinical Pathomics Radiomics RCSA model
+NPV
+NLR
+F1 Score
+PLR (x10)
+AUC
+Accuracy
+Sensitivity
+Specificity
+PPV
+e
+0
+0.5
+1
+Clinical Pathomics Radiomics RCSA model
+C
+D
+Fig. 3 | Internal validation and clinical utility of the RCSA model in two inde-
+pendent cohorts. A, B ROC curves of the RCSA model compared with clinical,
+radiomic, and pathomic models in Internal Validation Set I (A)a n dS e tI I(B).
+C, D Radar charts summarizing the multi-dimensional performance metrics for all
+models across the two validation cohorts.E, F Calibration curves showing the high
+agreement between RCSA-predicted probabilities and actual MLM incidence (Brier
+score = 0.053 for Set I; 0.071 for Set II). G Concentric circle plots visualizing the
+clinical beneﬁt and risk stratiﬁcation, demonstrating that the RCSA model identiﬁes
+a higher proportion of true-positive MLM cases compared to the clinical-only
+model. H, I Decision curve analysis illustrating that the RCSA model provides the
+highest net clinical beneﬁt across a wide range of threshold probabilities in both
+cohorts. J Ac o m p r e h e n s i v eﬂow diagram illustrating the reclassiﬁcation improve-
+ment of the RCSA model over clinical features, highlighting a signiﬁcant increase in
+high-risk detection (from 28.0% to 51.2%) and a reduction in low-risk mis-
+classiﬁcation. Source data are provided as a Source Dataﬁle. Schematic illustrations
+in this ﬁgure were created with BioRender.com.
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press
+
+--- Page 8 ---
+checkpoint genes showed signiﬁcantly elevated expression in the low-
+risk group, particularly genes associated with T cell co-stimulatory
+activation (Fig. 7G and Supplementary Fig. 17E).
+Extending this biological correlation, a multicellular ecosystem
+analysis demonstrated that communities CE3, CE9, and CE10 were
+more abundant in the low-risk group (Fig. 7E and Supplementary Fig.
+18), and scoring based on IFN- γ and effector T cell-related gene
+signatures conﬁrmed signiﬁcantly elevated expression of IFNγ-6, IFNγ-
+18, effector T cells, and IFN γ/T cell signaling signatures in low-risk
+patients (Fig. 7H). Collectively, these robust immunological ﬁndings
+provide a strong molecular basis for the RCSA model ’s prognostic
+capability and suggest that low-risk patients, characterized by a potent
+anti-tumor immune response, may be more responsive to adjuvant
+immunotherapy.
+0.0 0.2 0.4 0.6 0.8 1.0
+Sensitivity
+0.0 0.2 0.4 0.6 0.8 1.0
+1 − Specificity
+Clinical feature AUC=0.691
+Pathomics AUC=0.823
+RCSA model AUC=0.890
+Radiomics AUC=0.791
+0 . 00 . 20 . 40 . 60 . 81 . 0
+Sensitivity
+0.0 0.2 0.4 0.6 0.8 1.0
+1 − Specificity
+Clinical feature AUC=0.653
+Pathomics AUC=0.812
+RCSA model AUC=0.865
+Radiomics AUC=0.790
+Precision
+0.0 0.2 0.4 0.6 0.8 1.0
+Recall
+0 . 20 . 40 . 60 . 81 . 00.0
+Clinical feature PRC=0.320
+Pathomics PRC=0.513
+RCSA model PRC=0.737
+Radiomics PRC=0.545
+Precision
+0.0 0.2 0.4 0.6 0.8 1.0
+Recall
+0.2 0.4 0.6 0.8 1.00.0
+Clinical feature PRC=0.306
+Pathomics PRC=0.407
+RCSA model PRC=0.596
+Radiomics PRC=0.430
+0.0 0.2 0.4 0.6 0.8 1.00.0 0.2 0.4 0.6 0.8 1.0
+Nomogram Predicted 
+Actual Probability Apparent
+Ideal
+Bias−corrected
+Brier Score: 0.0708
+0.0 0.2 0.4 0.6 0.8 1.00.0 0.2 0.4 0.6 0.8 1.0
+Nomogram Predicted 
+Actual Probability Apparent
+Ideal
+Bias−corrected
+Brier Score: 0.082
+RadiomicsClinical Pathomics RCSA model RadiomicsClinical Pathomics RCSA model
+RCSA modelPathomicsRadiomicsClinical
+Low Risk High Risk Non-Recur Recur
+RCSA modelPathomicsRadiomicsClinical
+Low Risk High Risk Non-Recur Recur
+|
+|
+p = 0.0021Log−rank
+0.00
+0.25
+0.50
+0.75
+1.00
+0 1 22 43 64 86 0
+Time(month)
+Overall Survival
+| Low risk | High riskRCSA Model | Low risk | High riskRCSA Model
+68 64 49 34 28 23
+189 186 164 136 109 98Low
+High
+Number at risk
+0 1 22 43 64 86 0
+Time(month)
+01 2 2 4 3 6 4 8 6 0
+Time(month)
+Low
+High
+Number at risk
+0 1 22 43 64 86 0
+Time(month)
+A BC
+DEF
+G H
+IJ
+K L
+0.00
+0.25
+0.50
+0.75
+1.00Overall survival
+|
+|
+p = 0.0123Log−rank
+58 56 43 31 26 22
+133 129 116 101 78 72
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press
+
+--- Page 9 ---
+Discussion
+In this study, we developed and validated a comprehensive RCSA
+model for predicting MLM in patients with LAGC. The RCSA model
+integrates clinical parameters, radiomic features derived from pre-
+operative CT scans, and deep learning-based pathomic features from
+histopathological slides. The model demonstrated strong predictive
+performance across multiple cohorts, including internal, external, and
+prospective validation datasets, signi ﬁcantly outperforming models
+that rely solely on clinical, radiomic, or pathological features. Notably,
+the RCSA model achieved consistent robustness and accuracy across
+distinct geographical regions and treatment strategies, reinforcing its
+potential clinical applicability. Furthermore, transcriptomic analysis
+revealed substantial differences in molecular pathways and immune
+inﬁltration between high-risk and low-risk patient groups, highlighting
+the biological relevance of the RCSA-based strati ﬁcation and sug-
+gesting potential therapeutic implications, particularly concerning
+immunotherapy responsiveness.
+The predictive capacity of the RCSA model exceeds previously
+reported clinical and unimodal prediction models. Prior studies pri-
+marily used either clinical or radiomic factors separately to predict
+gastric cancer prognosis. For example, Cao et al. constructed a
+radiomics model based on preoperative CT images, which accurately
+predicted recurrence and survival in gastric cancer patients
+28.T h e i r
+model achieved a respectable predictive value (AUC ~0.80–0.85), but
+its generalizability remained uncertain due to lack of external valida-
+tion across diverse cohorts. In contrast, the RCSA model presented
+herein demonstrated signiﬁcantly improved predictive power (AUC >
+0.89 consistently), validated through multiple external cohorts across
+different regional contexts. This enhanced generalizability is likely
+attributed to the integration of pathological features, adding crucial
+information that radiomics or clinical data alone might overlook, such
+as microscopic tumor heterogeneity and TME complexity. Chen et al.
+also developed pathology-based predictive models utilizing machine
+learning approaches, yet they encountered notable accuracy reduc-
+tions upon external validation
+29. This phenomenon underscores the
+importance of multimodal integration, as observed in our RCSA
+model, which leverages complementary information across radiomics
+and pathomics, thereby maintaining high predictive accuracy even in
+external validation scenarios.
+The RCSA model ’s robustness was also demonstrated by its
+effectiveness in patients undergoing neoadjuvant chemotherapy, a
+clinically relevant subgroup. Cui et al. previously reported that
+neoadjuvant chemotherapy signi ﬁcantly alters radiomic character-
+istics, potentially diminishing the predictive reliability of preoperative
+imaging-based models
+30. Interestingly, our RCSA model maintained
+robust performance in the cohort receiving neoadjuvant chemother-
+apy (AUC = 0.786). This suggests that the integration of deep learning-
+based pathological features effectively captures chemotherapy-
+induced histopathological changes, compensating for limitations of
+radiomic features alone. Additionally, geographical disparities in gas-
+tric cancer biology and management have been acknowledged in the
+literature, notably by Lu et al., who indicated signi ﬁcant regional
+variability in metastasis incidence and tumor aggressiveness
+31.B y
+incorporating data from northern and southern China, our model
+validated its broad applicability across distinct epidemiological set-
+tings, thereby af ﬁrming the generalizability of RCSA across diverse
+clinical populations. The improved predictive performance of RCSA
+may translate into meaningful clinical and economic bene ﬁts. The
+observed reduction in false-negative cases could help reduce delays in
+the detection of postoperative MLM, thereby supporting timely clin-
+ical intervention. Conversely, a lower false-positive rate may reduce
+the need for intensive follow-up in patients at low risk, with potential
+implications for decreasing unnecessary procedures and optimizing
+resource utilization.
+The exploration of molecular mechanisms underlying the pre-
+dictive stratiﬁcation provided crucial insights into the biological basis
+of RCSA-derived risk groups. RNA sequencing analysis demonstrated
+distinct transcriptional proﬁles between low-risk and high-risk groups,
+particularly highlighting signi ﬁcant enrichment of immune-related
+pathways in the low-risk group. Pathways such as interferon- γ,i n t e r -
+feron-α responses, and various in ﬂammation-associated signaling
+cascades (IL6/JAK/STAT3, IL2/STAT5) were prominently activated
+among patients classiﬁed as low risk. These results are consistent with
+recent studies suggesting immune activation as a favorable prognostic
+indicator and potential biomarker for immunotherapy responsiveness
+in gastric cancer
+32–34. Furthermore, detailed immune microenviron-
+ment analysis using ESTIMATE, CIBERSORT, and MCPcounter indi-
+cated robust inﬁltration of CD8⁺ T cells in low-risk tumors. Thisﬁnding
+aligns with the prevailing understanding that enhanced cytotoxic
+T-cell inﬁltration correlates positively with prognosis and may predict
+improved response to immunotherapy. Elevated expression of
+immune checkpoint genes, notably those involved in T-cell co-stimu-
+lation, further supports the hypothesis that low-risk patients identiﬁed
+by the RCSA model may preferentially bene ﬁt from immunother-
+apeutic strategies. Based on these transcriptomic ﬁndings, immune-
+inﬂamed, low-risk tumors identiﬁed by RCSA may be associated with
+MSI-H status or higher TMB, both of which have been linked to
+enhanced antitumor immune responses and favorable outcomes in
+gastric cancer
+35. Conversely, immune-cold, high-risk tumors may
+exhibit a higher prevalence of alterations in DDR pathways, which
+could contribute to genomic instability and metastatic potential
+36.
+Future integration of genomic features with radiopathomic pro ﬁles
+may facilitate a more comprehensive radiopathogenomics framework
+for MLM prediction. Beyond prognosis, the RCSA model may support a
+risk-adapted surveillance framework. Patients classi ﬁed as high risk
+could undergo more frequent imaging assessments (for example, CT
+or MRI every 3–4 months), whereas patients at low risk may be suitable
+for standard surveillance intervals.
+Despite these notable strengths, several limitations of this study
+should be recognized. First, the retrospective nature of the primary
+dataset poses potential selection biases, though mitigated by pro-
+spective validation and rigorous multicenter analyses. Additionally,
+despite extensive validation, further large-scale, prospective trials
+across international centers are warranted to solidify the model ’s
+global applicability. Second, the complexity inherent in multimodal
+data integration, especially deep learning-based pathological analysis,
+poses signi ﬁcant challenges for practical clinical implementation.
+Developing streamlined, user-friendly computational tools and
+Fig. 4 | Multi-center external validation of the RCSA model across diverse
+geographical cohorts. AROC curves in External Validation Set I.B Precision-recall
+curves in External Validation Set I. C Calibration curve for External Validation Set I
+(Brier score = 0.071). D ROC curves in External Validation Set II. E Precision-recall
+curves in External Validation Set II.F Calibration curve for External Validation Set II
+(Brier score = 0.082).G Confusion matrices for Set I.H Confusion matrices for Set II.
+I Concentric circle plots for Set I.J Concentric circle plots for Set II.K Kaplan–Meier
+curves for overall survival in External Validation Set I, stratiﬁed by the RCSA-deﬁned
+low- and high-risk groups using the cutoff derived from the training cohort. Solid
+lines indicate the estimated survival probabilities, and shaded bands represent the
+95% conﬁdence intervals. The low-risk and high-risk groups includedn = 189 and
+n = 68 independent patients, respectively. Survival differences were evaluated
+using a two-sided log-rank test (exact P = 0.002072).L Kaplan–Meier curves for
+overall survival in External Validation Set II, stratiﬁed by the same RCSA cutoff. Solid
+lines indicate the estimated survival probabilities, and shaded bands represent the
+95% conﬁdence intervals. The low-risk and high-risk groups includedn = 133 and
+n = 58 independent patients, respectively. Survival differences were evaluated
+using a two-sided log-rank test (exact P = 0.012295). AUC area under the receiver
+operating characteristic curve; PRC precision–recall curve; RCSA radiopathomics-
+clinical stratiﬁcation assessment. Source data are provided as a Source Data ﬁle.
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press
+
+--- Page 10 ---
+automated workﬂows will be essential for real-world adoption of the
+RCSA model. To address this, we propose a multi-layered integration
+strategy centered on developing a browser-based interface compatible
+with existing hospital picture archiving and communication systems
+and laboratory information systems, aiming to enable automated data
+acquisition, standardized feature extraction, and seamless reporting to
+the EHR system. Finally, although comprehensive, the current model
+lacks genomic characterization. F uture studies integrating genomic
+proﬁling could further enhance predictive accuracy and personalize
+therapeutic strategies by providing deeper insights into underlying
+genetic determinants of MLM risk.
+0.0 0.2 0.4 0.6 0.8 1.0
+Sensitivity
+0.0 0.2 0.4 0.6 0.8 1.0
+1 − Specificity
+Clinical feature AUC=0.694
+Pathomics AUC=0.776
+RCSA model AUC=0.898
+Radiomics AUC=0.765
+−0.05 0.00 0.05 0.10
+Net Benefit
+0.0 0.2 0.4 0.6 0.8 1.0
+1:100 1:4 2:3 3:2 4:1 100:1
+High Risk Threshold
+Cost:Benefit Ratio
+RCSA model
+Pathomics
+Radiomics
+Clinical features
+All
+None
+RadiomicsClinical Pathomics RCSA model RadiomicsClinical Pathomics RCSA model
+RCSA modelPathomicsRadiomicsClinical
+Low Risk High Risk Non-Recur Recur
+RCSA modelPathomicsRadiomicsClinical
+Low Risk High Risk Non-Recur Recur
+0.0 0.2 0.4 0.6 0.8 1.0
+Sensitivity
+0.0 0.2 0.4 0.6 0.8 1.0
+1 − Specificity
+Clinical feature AUC=0.686
+Pathomics AUC=0.724
+RCSA model AUC=0.786
+Radiomics AUC=0.734
+Recall
+0.2 0.4 0.6 0.8 1.00.0
+Precision
+0.0 0.2 0.4 0.6 0.8 1.0Clinical feature PRC=0.282
+Pathomics PRC=0.365
+RCSA model PRC=0.596
+Radiomics PRC=0.387
+|
+|
+p = 0.0094Log−rank
+0.00
+0.25
+0.50
+0.75
+1.00
+0 1 22 43 64 86 0
+Time(month)
+Overall Survival
+| Low risk | High riskRCSA Model
+|
+|
+Log−rank p=0.044
+0.00
+0.25
+0.50
+0.75
+1.00Overall survival
+57 55 45 34 30 25
+107 107 103 86 72 59Low
+High
+Number at risk
+0 1 22 43 64 86 0
+Time(month)
+0 1 22 43 64 86 0
+Time(month)
+| Low risk | High riskRCSA Model
+22 21 16 11 8 7
+71 71 64 54 45 41Low
+High
+Number at risk
+0 1 22 43 64 86 0
+Time(month)
+NPV
+NLR
+F1 Score
+PLR (x10)
+AUC
+Accuracy
+Sensitivity
+Specificity
+PPV
+)
+SS
+0
+0.5
+1
+Clinical Pathomics Radiomics RCSA model
+NPV
+NLR
+F1 Score
+PLR (x10)
+AUC
+Accuracy
+Sensitivity
+Specificity
+PPV
+SSSS
+0
+0.5
+1
+Clinical Pathomics Radiomics RCSA model
+AB C
+D E
+FG
+H I J
+K L
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press
+
+--- Page 11 ---
+In conclusion, our study established and validated a multimodal
+RCSA prediction model that improves the accuracy of postoperative
+MLM risk assessment in patients with LAGC. The integration of clinical,
+radiomic, and pathomic data not only enhanced predictive capabilities
+but also provided insights into tumor biology, particularly concerning
+immune modulation. This model demonstrated superior performance
+across geographically diverse cohorts and different treatment regi-
+mens, underscoring its broad clinical utility. While prospective vali-
+dation, further te chnological re ﬁnement and the integration of
+genomic data remain necessary, the model is intended to serve as a
+postoperative risk stratiﬁcation tool. This approach may inform per-
+sonalized adjuvant therapy planning and surveillance strategies, with
+the potential to improve outcomes in patients with LAGC.
+Methods
+Ethics approval and consent to participate
+This study was conducted in accordance with the Declaration of Hel-
+sinki and all applicable ethical regulations. This study was approved by
+the Institutional Review Board of the Fourth Hospital of Hebei Medical
+University (approval no. 2025KT150). The requirement for written
+informed consent was waived because the study involved the retro-
+spective analysis of previously collected clinical, imaging and patho-
+logical data that were anonymized before analysis, involved no
+additional patient contact or inte rvention, and posed no more than
+minimal risk to participants. Participants contributing tumor tissue to
+the prospective transcriptomic cohort each provided written informed
+consent before sample collection. Patients in the retrospective cohorts
+received no compensation, and those in the prospective sequencing
+cohort received no ﬁnancial compensation beyond their routine clin-
+ical care. Participant sex was obtained from the medical records as self-
+reported; both male and female patients with locally advanced gastric
+cancer were included, and no analyses were restricted to a single sex or
+gender. This prediction-model study is reported in accordance with
+the TRIPOD + AI reporting guideline
+37, and the underlying multicenter
+observational cohort is additionally reported following the STROBE
+statement
+38.
+Study cohort
+We retrospectively analyzed data from patients with LAGC treated
+between January 2012 and December 2019 at four medical centers in
+Hebei Province: the Fourth Hospital of Hebei Medical University
+(FHHMU), Shijiazhuang People ’s Hospital (SJZPH), Baoding Central
+Hospital (BDCH), and Hengshui People’sH o s p i t a l( H S P H ) .D a t af r o m
+two additional centers in southern China, Renmin Hospital of Wuhan
+University (WHRH) and Nanjing Jinling Hospital (NJJLH), were also
+included for external validation (Fig.1).
+A total of 1878 LAGC patients from six centers and The Cancer
+Imaging Archive (TCIA) public database were enrolled according to
+strict inclusion and exclusion criteria (Supplementary Methods). The
+cohort was divided into three datasets: a training cohort of 770
+patients from the FHHMU (Center 1, 2014–2017); an internal validation
+cohort of 362 patients, further split by diagnosis time into Internal
+Validation I (2012–2013, N = 194) and Internal Validation II (2018–2019,
+N = 168); and an external validation cohort of 489 patients from ﬁve
+centers and a public dataset. The external cohort was subdivided
+based on geographic region: External Validation I (Northern China:
+Centers 2 –4, N = 257) and External Validation II (Southern China:
+Centers 5–6, N = 191). To further evaluate the model’s generalizability
+across diverse clinical settings, an additional independent validation
+was conducted using a public dataset from The Cancer Imaging
+Archive (TCIA). By applying the same inclusion and exclusion criteria
+as the primary cohorts, a total of 41 LAGC patients were enrolled from
+the TCIA database for analysis.
+To assess clinical applicability, we retrospectively analyzed a
+separately selected cohort from a registered multicenter randomized
+controlled trial (ClinicalTrials.gov, NCT02555358;ﬁrst posted 21 Sep-
+tember 2015; https://clinicaltrials.gov/study/NCT02555358), indepen-
+dent of the retrospective training and validation datasets. The trial
+compared neoadjuvant chemotherapy regimens (docetaxel, oxalipla-
+tin plus capecitabine [DOX] versus oxaliplatin plus capecitabine
+[XELOX]) with surgery alone, using pathological complete response as
+the prespeciﬁed primary endpoint. The present evaluation of meta-
+chronous liver metastasis prediction represents a post-hoc, explora-
+tory secondary use of this trial cohort and was not part of the
+registered protocol or analysis plan;n oh y p o t h e s i sr e g a r d i n gt h eR C S A
+model was prespeci ﬁed for this population, and it is reported here
+solely to assess the generalizability of the RCSA model in an inde-
+pendently enrolled cohort. This cohort included 257 LAGC patients, of
+whom 93 underwent primary surgery and 164 received neoadjuvant
+chemotherapy (NACT). Although the training and retrospective
+cohorts strictly excluded NACT patients, all patients in this cohort
+were screened using consistent inclusion/exclusion criteria appro-
+priate for this study population. Inclusion of the NACT subgroup
+enabled evaluation of model performance across different initial
+treatment strategies.
+To explore the biological relevance of the model, we pro-
+spectively collected fresh tumor tissues from 82 LAGC patients for
+transcriptomic sequencing and functional enrichment analysis. These
+samples were fully consumed and destroyed during sequencing, with
+none retained for further analysis or sharing. The protocols for RNA
+processing and sequencing are provided in detail in the Supplemen-
+tary Methods.
+Clinical outcomes
+Postoperative management, including adjuvant chemotherapy and
+systematic follow-up, was performed for all patients in accordance
+with the recommendations of the Chinese Society of Clinical Oncology
+(CSCO)
+39 and the National Comprehensive Cancer Network (NCCN)40
+Fig. 5 | Prospective validation of the RCSA model in a multicenter clinical study
+cohort. A ROC curves in the primary surgery group, showing the superior dis-
+criminative power of the RCSA model (AUC = 0.898).B Radar chart summarizing
+performance metrics (Accuracy, Sensitivity, Speciﬁcity, etc.) for the primary sur-
+gery group.C Decision curve analysis demonstrating the highest clinical net beneﬁt
+for the RCSA model in the surgery cohort.D Confusion matrices and classiﬁcation
+results for the primary surgery group. E Confusion matrices for the neoadjuvant
+chemotherapy (NACT) group.F Concentric circle plots visualizing risk stratiﬁcation
+and clinical beneﬁt in the primary surgery group. G Concentric circle plots for the
+NACT group. H ROC curves in the NACT group, highlighting the robust perfor-
+mance of the RCSA model (AUC = 0.786) even after chemotherapy.I Precision-
+recall curves in the NACT group, demonstrating superior predictive stability.
+J Radar chart summarizing multi-dimensional performance metrics for the NACT
+group. K Kaplan–Meier curves for overall survival in the primary surgery group,
+stratiﬁed according to the RCSA-deﬁned low- and high-risk groups using the cutoff
+derived from the training cohort. Solid lines indicate the estimated survival prob-
+abilities and shaded bands represent the 95% conﬁdence intervals. The low-risk and
+high-risk groups includedn =7 1a n dn = 22 independent patients, respectively.
+Survival distributions were compared using a two-sided log-rank test (exact
+P = 0.009414). L Kaplan–Meier curves for overall survival in the NACT group,
+stratiﬁed using the same RCSA cutoff. Solid lines indicate the estimated survival
+probabilities and shaded bands represent the 95% conﬁdence intervals. The low-
+risk and high-risk groups included n = 107 and n = 57 independent patients,
+respectively. Survival distributions were compared using a two-sided log-rank test
+(exact P = 0.044057). AUC area under the receiver operating characteristic curve;
+NACT, neoadjuvant chemotherapy; PPV positive predictive value; NPV negative
+predictive value; PLR positive likelihood ratio; NLR negative likelihood ratio; RCSA
+radiopathomics-clinical stratiﬁcation assessment. Source data are provided as a
+Source Data ﬁle.
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press
+
+--- Page 12 ---
+guidelines. MLM was deﬁned as metachronous liver metastasis arising
+more than six months after curative surgery for LAGC, with liver
+recurrence conﬁrmed by clinical symptoms, reoperation, or imaging
+(abdominal CT, MRI, ultrasound, or PET/CT). The primary endpoint
+was postoperative MLM and the secondary endpoint was OS, deﬁned
+as the interval from surgery to death from any cause.
+Image acquisition, segmentation, and radiomics feature
+selection
+All patients underwent contrast-enhanced abdominal CT, and portal
+venous phase images were retrieved through the Picture Archiving and
+Communication System. A total of 200 CT scans were used to train and
+test an automatic 3D tumor segmentation model based on the nnU-Net
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press
+
+--- Page 13 ---
+framework. From the resulting three-dimensional regions of interest
+(3D-ROIs), 1130 radiomics features were extracted and standardized;
+full details of CT image acquisition, the automated segmentation
+pipeline, and feature extraction are provided in the Supplementary
+Methods. To identify the most discriminative variables, univariate
+analysis was followed by two feature-selection strategies, LASSO
+regression and Random Forest, which yielded 14 and 10 candidate
+features, respectively (Supplementary Fig. 1A, B). These feature sets
+were then combined with nine machine learning algorithms to assess
+different modeling conﬁgurations. Among the 18 conﬁgurations eval-
+uated, a stepwise logistic regression model built on the LASSO-
+selected features was the top-performing classi ﬁer (Training:
+AUC = 0.820, 95%CI: 0.779 –0.861; Validation: AUC = 0.800, 95%CI:
+0.691–0.909; Supplementary Fig. 1C, D; and Supplementary Table 1, 2).
+Pathological feature extraction and selection based on the
+UNI model
+Formalin-ﬁxed, paraf ﬁn-embedded (FFPE) hematoxylin and eosin
+(H&E)-stained slides were prepared for all patients and digitized into
+whole-slide images (WSI). From each slide, 1024 pathomic features
+were extracted using the UNI
+41 tissue-speciﬁc encoder (based on the
+DINOv2 self-supervised algorithm) and aggregated to the slide level;
+full details of WSI preprocessing, feature extraction, aggregation, and
+quality control are provided in the Supplementary Methods. Dis-
+criminative pathological features were then ﬁltered using univariate
+screening followed by two selection methods (LASSO and Random
+Forest), yielding 18 and 10 features, respectively (Supplementary
+Fig. 2A, B). To determine the optimal predictive framework, the two
+feature sets were paired with nine machine learning architectures, and
+the resulting 18 classi ﬁcation models were compared. The ﬁnal
+pathology-based signature (Supplementary Table 2) was built using a
+stepwise logistic regression model derived from the LASSO feature set,
+which achieved the best performance among all tested models
+(Training AUC = 0.832, 95%CI: 0.796 –0.868; Validation AUC = 0.811,
+95%CI: 0.699–0.923; Supplementary Fig. 2C –D and Supplementary
+Table 3).
+Development and evaluation of a multimodal model for pre-
+dicting MLM in LAGC patients
+To predict postoperative MLM in patients with LAGC, univariate
+logistic regression was used to screen clinical variables, and signiﬁcant
+variables were entered into a multivariate logistic regression model to
+identify independent clinical predictors. Model discrimination was
+assessed using the AUC, accuracy, sensitivity, speciﬁcity, and F1 score,
+and AUCs were compared using the DeLong test; the incremental value
+of the model was quanti ﬁed using the net reclassi ﬁcation
+improvement (NRI) and integrated discrimination improvement (IDI).
+Calibration was evaluated by plotting calibration curves comparing
+p r e d i c t e da n do b s e r v e dM L Mi n c i d e n c e ,a n do v e r a l lp e r f o r m a n c ew a s
+summarized using prediction error curves and the integrated Brier
+score. To benchmark the RCSA model against contemporary methods,
+we additionally constructed a Transformer-based multimodal deep
+learning model for comparison
+42, with full details provided in the
+Supplementary Methods.
+Biological characteristics and immune inﬁltration
+We collected 82 tissue samples from the study cohort for RNA
+sequencing and exploratory analyses. Functional enrichment analysis,
+together with the inference of immune in ﬁltration, cell states, and
+cancer ecosystems using CIBERSORTx and EcoTyper, was performed
+as detailed in the Supplementary Methods. All samples were pro-
+cessed and sequenced in a single batch to minimize technical batch
+effects. Multiple testing correction was conducted using the
+Benjamini-Hochberg procedure, with an adjustedP value (FDR) < 0.05
+considered statistically signiﬁcant.
+Statistics and reproducibility
+This multicenter, retrospective observational study developed and
+validated the RCSA model for predicting MLM after curative resection
+in LAGC, using cohorts from six Chinese hospitals, a public dataset
+(TCIA), and a registered randomized controlled trial (NCT02555358).
+No statistical method was used to predetermine sample size; all con-
+secutive eligible patients at each center were included. Although no a
+priori calculation was performed, a post-hoc check using the criteria of
+Riley et al.
+43 conﬁrmed adequacy: for the ﬁnal RCSA model (the
+radiomic and pathomic signatures entered as single composite pre-
+dictors plus three independent clinical predictors), an outcome pro-
+portion of 0.166 (128 events among 770 patients) and a conservative
+Cox-Snell R² of 0.15 yielded a minimum required size of 384 (18.3
+events per predictor parameter), which the development cohort
+exceeded; LASSO penalization together with internal, external, public,
+and prospective validation and calibration and bootstrap optimism
+analyses further guarded against overﬁtting. Data were excluded only
+by the predeﬁned eligibility criteria (neoadjuvant chemotherapy in the
+retrospective cohorts, surgery-related death, loss to follow-up, image
+artifacts or missing imaging, and missing essential clinical informa-
+tion), with per-reason counts given in the participantﬂow diagram; no
+otherwise eligible data were excluded after analysis. The study was not
+randomized, as patients were grouped by institution and data source
+in keeping with the observational design. Investigators were not blin-
+ded; model development and evaluation were performed computa-
+tionally using prede ﬁned pipelines, and the MLM outcome was
+Fig. 6 | Model explainability and individualized prediction validation based on
+SHAP analysis.SHAP bee swarm plots show the contribution of the top features to
+the model’s predictions across six cohorts, presented separately for the radiomic
+and pathomic modalities, with each radiomic panel and its vertically paired
+pathomic panel derived from the same cohort. A–C, G–I SHAP summary plots for
+the top radiomic features in Internal Validation Set I (A), Internal Validation Set II
+(B), External Validation Set I (C), External Validation Set II (G), the NCT02555358
+direct surgery cohort (H), and the TCIA set (I). D–F, J–L SHAP summary plots for the
+top pathomic features in the corresponding cohorts, namely Internal Validation Set
+I( D), Internal Validation Set II (E), External Validation Set I (F), External Validation
+Set II (J), the NCT02555358 direct surgery cohort (K), and the TCIA set (L). In every
+plot each point represents an individual patient, its position along the horizontal
+axis gives the SHAP value and therefore the direction and magnitude of that fea-
+ture’s contribution to the predicted MLM risk, and the point color encodes the
+feature value, with warm colors denoting high values and cool colors denoting low
+values. Features are ordered from top to bottom by mean absolute SHAP value.
+M Individualized prediction explanations for two representative patients. Patient 1
+(left) represents a low-risk case with no recurrence over a 46-month follow-up; the
+visualization includes CT and H&E primary lesion images with corresponding SHAP
+force plots leaning toward a negative (low-risk) prediction. Patient 2 (right)
+represents a high-risk case with liver recurrence at 21 months; the SHAP force plots
+for both radiomic and pathomic features strongly lean toward a positive (high-risk)
+prediction. The red arrows in the follow-up CT images indicate the detected
+metachronous liver metastasis. Note on features: Radiomic features are mathe-
+matically deﬁned according to the IBSI standards, where: Feature-108: LoG-ﬁltered
+(sigma=1.0) ﬁrst-order skewness. Feature-268: LoG-ﬁltered (sigma=2.0) GLSZM
+size-zone non-uniformity normalized. Feature-323: LoG-ﬁltered (sigma=3.0) GLDM
+dependence non-uniformity. Feature-375: Wavelet-LLHﬁltered ﬁrst-order energy.
+Feature-410: Wavelet-LLHﬁltered GLCM maximum correlation coefﬁcient. Feature-
+471: Wavelet-LHL ﬁltered ﬁrst-order kurtosis. Feature-627: Wavelet-LHHﬁltered
+GLRLM run variance. Feature-666: Wavelet-HLLﬁltered ﬁrst-order skewness. Fea-
+ture-79: Original GLSZM large area low gray-level emphasis. Pathomic features (e.g.,
+Feature-437, Feature-232) represent high-dimensional latent representations
+extracted by the UNI deep-learning foundation model and do not have discrete
+descriptive names. Source data are provided as a Source Data ﬁle.
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press
+
+--- Page 14 ---
+ascertained from radiological follow-up independently of the model
+predictions.
+Statistical analysis
+All statistical analyses were conducted using SPSS version 28.0 (IBM)
+and R version 4.3.3 ( http://www.r-project.org). Continuous variables
+were analyzed using unpaired two-tailed t tests or Mann-Whitney U
+tests, while categorical variables were evaluated using the Chi-square
+test or Fisher’s exact test. Univariate and multivariate Cox regression
+analyses were performed to assess the prognostic value of variables for
+survival. Missing data patterns across clinical variables were examined
+and were consistent with a missing-at-random (MAR) assumption. The
+primary analyses were conducted using complete-case analysis (CCA).
+In addition, sensitivity analyses were performed using multiple impu-
+tation by chained equations (MICE) to account for missing clinical data
+and to evaluate the potential impact of missingness on the results
+44,45.
+Detailed descriptions of the statistical algorithms are provided in the
+0.0
+2.5
+5.0
+7.5
+10.0
+−5.0 −2.5 0.0 2.5 5.0
+Log2FoldChange
+−log10(pval)
+Significant
+Down
+Not
+Up
+ALLOGRAFT_REJECTION
+INTERFERON_GAMMA_RESPONSE
+INFLAMMATORY_RESPONSE
+IL2_STAT5_SIGNALING
+INTERFERON_ALPHA_RESPONSE
+IL6_JAK_STAT3_SIGNALING
+TNFA_SIGNALING_VIA_NFKB
+MITOTIC_SPINDLE
+PANCREAS_BETA_CELLS
+UV_RESPONSE_DN
+HEDGEHOG_SIGNALING
+ESTROGEN_RESPONSE_EARL Y
+NOTCH_SIGNALING
+WNT_BETA_CATENIN_SIGNALING
+−5.0 −2.5 0.0 2.5
+t value of GSVA score
+−0.50
+−0.25
+0.00
+Running Enrichment 
+ALLOGRAFT_REJECTION
+IL6_JAK_STAT3_SIGNALING
+INFLAMMATORY_RESPONSE
+INTERFERON_ALPHA_RESPONSE
+INTERFERON_GAMMA_RESPONSE
+Enriched in low risk group
+−5
+0
+5
+10
+5000 10000
+Rank in Ordered Dataset
+Ranked List 
+Relative Percent
+0%
+20%
+40%
+60%
+80%
+100%
+High risk Low risk
+B cells naive
+B cells memory
+Plasma cells
+T cells CD8
+T cells CD4 naive
+T cells CD4 memory resting
+T cells CD4 memory activated
+T cells follicular helper
+T cells regulatory (Tregs)
+T cells gamma delta
+NK cells resting
+NK cells activated
+Monocytes
+Macrophages M0
+Macrophages M1
+Macrophages M2
+Dendritic cells resting
+Dendritic cells activated
+Mast cells resting
+Mast cells activated
+Eosinophils
+Neutrophils
+risk
+Ecotype
+Ecotype
+CellType
+State
+Ecotype
+CE1
+CE2
+CE3
+CE4
+CE5
+CE6
+CE7
+CE8
+CE9
+CE10
+CellType
+B.cells
+CD4.T.cells
+CD8.T.cells
+Dendritic.cells
+Endothelial.cells
+Epithelial.cells
+Fibroblasts
+Mast.cells
+Monocytes and 
+MacrophagesNK.cells PCs PMNs
+State S01 S02 S03 S04 S05 S06 S07 S08 S09
+Risk
+Low
+High
+State abundance
+0 0.1 0.2 0.3
+** * * * * * * * * * *
+0.0
+0.2
+0.4
+0.6
+B cell
+s nai
+ve
+B cells 
+me
+mo
+ry
+Plas
+ma c
+ells
+T cells CD8
+T c
+ells
+ CD4 nai
+ve
+T cells
+ CD4 memo
+ry res
+ting
+T cells
+ CD4
+ memo
+ry activ
+ated
+T ce
+lls f
+ollicula
+r hel
+per
+T ce
+lls r
+egula
+tory 
+(Tre
+gs)
+T ce
+lls gamma deltaNK cell
+s re
+sting
+NK cel
+ls a
+ctivated
+Monocytes
+Macr
+opha
+ge
+s M0
+Macrophages 
+M1
+Macro
+phage
+s M2
+Dendritic 
+cells
+ res
+ting
+Dendr
+itic c
+ells 
+activ
+ated
+Mast cell
+s re
+sting
+Mast cel
+ls activ
+ated
+EosinophilsNe
+utrophils
+Fraction
+High Low
+** ** *** * *** * ** ** *** ** *** ** ** *** *** * *** *** ** * *** * ***
+0.0
+2.5
+5.0
+7.5
+TNFRSF9
+LA
+G3
+CD8
+6
+HHLA
+2
+CD48
+TNFSF4CD2
+74
+CD80
+CD244CD70IDO1
+HA
+VCR
+2
+ICOS
+LG
+CTLA4ICOSLAIR
+1
+KIR3DL1TIGITBTLA
+TN
+FRSF4PDCD1
+IDO
+2
+PDC
+D1LG2
+Gene expression
+***
+−3
+−2
+−1
+0
+1
+2
+High risk Low risk
+IFN effector T cell
+***
+−2
+0
+2
+High risk Low risk
+IFN 18
+***2
+0
+−2
+High risk Low risk
+IFN 6
+***2
+0
+−2
+High risk Low risk
+Effector T cell
+High Low
+A B C
+DE
+F G
+H
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press
+
+--- Page 15 ---
+Supplementary Methods.At w o - s i d e dP value < 0.05 was considered
+statistically signiﬁcant.
+Reporting summary
+Further information on research design is available in the Nature
+Portfolio Reporting Summary linked to this article.
+Data availability
+This study used CT and pathology HE images from the TCGA-STAD
+collection in The Cancer Imaging Archive ( https://www.
+cancerimagingarchive.net/collection/tcga-stad/). The RNA-
+sequencing data produced in this work have been archived in the
+Genome Sequence Archive for Human (GSA-Human) at the National
+Genomics Data Center (NGDC) and can be retrieved under accession
+HRA013404. Because these sequencing data carry a risk of patient re-
+identiﬁcation, they are held under managed access in keeping with the
+applicable privacy regulations; investigators who wish to reuse them
+should apply to the GSA-Human Data Access Committee and provide a
+short outline of the planned study, the speciﬁcd a t aﬁelds needed, and
+the intended analyses, together with the committee’ss t a n d a r dr e q u e s t
+form. Individual-level clinical records, along with the in-house CT and
+HE images, cannot be shared openly because they are governed by
+national privacy legislation and by the conditions of our institutional
+review board. Researchers seeking these materials should send a
+written project proposal to the corresponding author, Qun Zhao
+(zhaoqun@hebmu.edu.cn). Each application is assessed by the insti-
+tutional data-governance committee on the basis of regulatory com-
+pliance and scientiﬁc rationale, with a decision returned within two
+weeks; once a request is approved, the data remain available for the
+agreed lifetime of that project. Processed sequencing results can
+likewise be obtained from GSA-Human. Source data are provided with
+this paper.
+Code availability
+All code used for the computational analyses in this study is available at
+(https://github.com/hebeidpa/GC-MLM-RCSA), and the exact version
+used for this study is archived on Zenodo (DOI: 10.5281/
+zenodo.20667762)
+46. The code is released under the MIT License, an
+Open Source Initiative-approved license, and may be reused without
+restriction under the terms of that license.
+References
+1 . S i e g e l ,R .L . ,K r a t z e r ,T .B . ,G i a q u i n t o ,A .N . ,S u n g ,H .&J e m a l ,A .
+Cancer statistics, 2025.CA Cancer J. Clin. 75,1 0– 45 (2025).
+2. Bray, F. et al. Global cancer statistics 2022: GLOBOCAN estimates
+of incidence and mortality worldwide for 36 cancers in 185 coun-
+tries. CA Cancer J. Clin. 74, 229– 263 (2024).
+3. Joshi, S. S. & Badgwell, B. D. Current treatment and recent progress
+in gastric cancer. CA Cancer J. Clin. 71,2 6 4– 279 (2021).
+4. Sexton, R. E., Al Hallak, M. N., Diab, M. & Azmi, A. S. Gastric cancer: a
+comprehensive review of current and future treatment strategies.
+Cancer Metas. Rev. 39, 1179– 1203 (2020).
+5. Takahashi, K. et al. Surgical treatment for liver metastasis from
+gastric cancer: a systematic review and meta-analysis of long-term
+outcomes and prognostic factors.Eur. J. Surg. Oncol. 50,
+108582 (2024).
+6. Conde Monroy, D. et al. Survival outcomes of hepatectomy in
+gastric cancer liver metastasis: a systematic review and meta-
+analysis. J. Clin. Med. 12, 704 (2023).
+7. Wang, C., Zhang, Y., Zhang, Y. & Li, B. A bibliometric analysis of
+gastric cancer liver metastases: advances in mechanisms of
+occurrence and treatment options.Int J. Surg. 110,
+2288– 2299 (2024).
+8. Li, G. Z., Doherty, G. M. & Wang, J. Surgical management of gastric
+cancer: a review. JAMA Surg. 157,4 4 6– 454 (2022).
+Fig. 7 | Molecular and immune characteristics of the RCSA-deﬁned high- and
+low-risk groups. A Volcano plot showing differentially expressed genes between
+the high-risk and low-risk groups. Differential expression was assessed using edgeR
+generalized linear models with likelihood-ratio tests, followed by
+Benjamini–Hochberg correction for multiple testing. Genes with an absolute log2
+fold change greater than 1.5 and a false-discovery-rate-adjustedP value below 0.05
+were considered differentially expressed.B Gene Set Variation Analysis (GSVA) of
+the 50 MSigDB hallmark gene sets. Bars represent the moderated t statistics
+obtained using limma, with positive and negative values indicating pathways
+enriched in the high-risk and low-risk groups, respectively.P values were adjusted
+across the 50 gene sets using the Benjamini–Hochberg method. C Gene Set
+Enrichment Analysis (GSEA) showing selected hallmark pathways enriched in the
+low-risk group. Normalized enrichment scores and nominal P values were calcu-
+lated using 1,.000 permutations, andP values were adjusted using the
+Benjamini–Hochberg method. Vertical tick marks indicate the positions of pathway
+genes in the ranked gene list.D Relative proportions of 22 immune-cell populations
+estimated using CIBERSORT for each tumour sample. Each column represents one
+independent patient sample, and the stacked fractions within each column sum to
+1. E EcoTyper analysis showing the abundance of cell states and their organization
+into cancer ecotypes across tumour samples. Rows represent cell states, columns
+represent independent patient samples, and the colour scale indicates estimated
+state abundance. The annotation bars indicate the dominant ecotype, cell type, cell
+state and RCSA-deﬁned risk group, as deﬁned in the keys within the panel.
+F Comparison of the estimated fractions of 22 CIBERSORT immune-cell popula-
+tions between the high-risk group (n = 28) and low-risk group (n = 54). Each data
+point represents one independent patient and biological replicate. Box centres
+indicate medians, box bounds represent the 25th and 75th percentiles, and whis-
+kers extend to the most extreme values within 1.5 times the interquartile range;
+observations outside the whiskers are plotted individually. Groups were compared
+using two-sided Mann–Whitney U tests without adjustment for multiple compar-
+isons. Exact P values for signiﬁcant comparisons were: plasma cells,P = 0.024199;
+CD8 T cells, P = 0.001189; activated memory CD4 T cells, P = 0.000253; follicular
+helper T cells, P =0 . 0 1 9 0 4 6 ;γδ Tc e l l s ,P = 0.001125; M1 macrophages,
+P = 0.008901; and neutrophils,P = 0.019644. G Expression of selected immune-
+checkpoint and immune-regulatory genes in the high-risk (n = 28) and low-risk
+(n = 54) groups, shown from left to right as TNFRSF9, LAG3, CD86, HHLA2, CD48,
+TNFSF4, CD274, CD80, CD244, CD70, IDO1, HAVCR2, ICOSLG, CTLA4, ICOS, LAIR1,
+KIR3DL1, TIGIT, BTLA, TNFRSF4, PDCD1, IDO2 and PDCD1LG2. Each data point
+represents one independent patient and biological replicate. Box centres indicate
+medians, box bounds represent the 25th and 75th percentiles, and whiskers extend
+to the most extreme values within 1.5 times the interquartile range; observations
+outside the whiskers are plotted individually. Groups were compared using two-
+sided Mann–WhitneyU tests without adjustment for multiple comparisons. ExactP
+values for signiﬁcant genes were: TNFRSF9, P = 0.003568; LAG3, P = 0.001110;
+CD86, P = 0.000966; HHLA2, P =0 . 0 2 1 8 4 4 ;C D 4 8 ,P =3 . 7 6 1×1 0⁻⁵;T N F S F 4 ,
+P = 0.017260; CD274, P = 0.005823; CD80, P = 0.002208; CD244, P =0 . 0 0 0 2 9 7 ;
+CD70, P = 0.003349; IDO1, P = 0.000032; HAVCR2,P = 0.008902; ICOSLG,
+P = 0.007485; CTLA4, P =0 . 0 0 0 3 7 9 ;I C O S ,P = 0.000063; LAIR1, P =0 . 0 1 5 1 0 0 ;
+KIR3DL1, P = 0.000102; TIGIT, P = 0.000160; BTLA, P = 0.002725; TNFRSF4,
+P =0 . 0 1 4 3 0 3 ;P D C D 1 ,P = 0.000275; IDO2, P = 0.036244; and PDCD1LG2,
+P =0 . 0 0 0 0 2 1 .H Violin plots comparing, from left to right, the IFN-γ/effector T-cell,
+IFN-γ 18-gene, IFN-γ 6-gene and effector T-cell signature scores between the high-
+risk (n = 28) and low-risk (n = 54) groups. Each data point represents one inde-
+pendent patient and biological replicate. The violin outlines show the kernel-
+density distribution; the internal boxes span the 25th–75th percentiles, centre lines
+indicate medians, and whiskers extend to the most extreme values within 1.5 times
+the interquartile range. Groups were compared using two-sided Mann–Whitney U
+tests without adjustment for multiple comparisons. ExactP values were
+P =4 . 2 7 6×1 0⁻¹⁰ for the IFN-γ/effector T-cell signature,P =2 . 5 2 2×1 0⁻⁹ for the IFN-γ
+18-gene signature,P = 1.226 × 10⁻⁸ for the IFN-γ 6-gene signature and
+P =2 . 3 7 5×1 0⁻⁹ for the effector T-cell signature. No technical replicate was treated
+as an independent observation. *P <0 . 0 5 ,* *P < 0.01 and ***P < 0.001. CE cancer
+ecotype; DEG differentially expressed gene; GSEA gene set enrichment analysis;
+GSVA gene set variation analysis; IFN interferon; RCSA Radiopathomics-Clinical
+Stratiﬁcation Assessment. Source data are provided as a Source Data ﬁle.
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press
+
+--- Page 16 ---
+9. Spolverato, G. et al. Development of a prognostic nomogram and
+nomogram software application tool to predict overall survival and
+disease-free survival after curative-intent gastrectomy for gastric
+cancer. Ann. Surg. Oncol. 29, 1220– 1229 (2022).
+10. Ding, P. et al. Transcriptomics-based liquid biopsy for early detec-
+tion of recurrence in locally advanced gastric cancer.Adv. Sci.
+(Weinh.). 11, e2406276 (2024).
+11. Chen, Q. et al. Radiomics in precision medicine for gastric cancer:
+opportunities and challenges.Eur. Radiol. 32,5 8 5 2– 5868 (2022).
+12. Wang, W. et al. Development and validation of a computed
+tomography-based radiomics signature to predict response to
+neoadjuvant chemotherapy for locally advanced gastric cancer.
+JAMA Netw. Open. 4, e2121143 (2021).
+13. Sun, Z. et al. Comprehensive assessment of immune context and
+immunotherapy response via noninvasive imaging in gastric can-
+cer. J. Clin. Invest. 134, e175834 (2024).
+14. Sun, Z. et al. Noninvasive imaging evaluation of peritoneal recur-
+rence and chemotherapy beneﬁt in gastric cancer after gas-
+trectomy: a multicenter study.Int J. Surg. 109,2 0 1 0– 2024 (2023).
+15. Adili, D., Mohetaer, A. & Zha ng, W. Diagnostic accuracy of
+radiomics-based machine learning for neoadjuvant chemotherapy
+response and survival prediction ingastric cancer patients: A sys-
+tematic review and meta-analysis.Eur. J. Radiol.173, 111249 (2024).
+16. Shen, L. L. et al. Delta computed tomography radiomics features-
+based nomogram predicts long-term efﬁcacy after neoadjuvant
+chemotherapy in advanced gastric cancer.Radio. Med. 128,
+402– 414 (2023).
+17. Wang, X. et al. A pathology foundation model for cancer diagnosis
+and prognosis prediction.Nature 634,9 7 0– 978 (2024).
+18. Chang, L. et al. Advancing precision medicine: the transformative
+role of artiﬁcial intelligence in immunogenomics, radiomics, and
+pathomics for biomarker discovery and immunotherapy optimiza-
+tion. Cancer Biol. Med. 22,3 3– 47 (2025).
+19. Prelaj, A. et al. Arti ﬁcial intelligence for predictive biomarker dis-
+covery in immuno-oncology: a systematic review.Ann. Oncol. 35,
+29– 65 (2024).
+20. Zhang, Y. et al. Histopathology i m a g e s - b a s e dd e e pl e a r n i n gp r e -
+diction of prognosis and therapeutic response in small cell lung
+cancer. NPJ Digit Med. 7,1 5( 2 0 2 4 ) .
+21. Han, Z. et al. Development and inte rpretation of a pathomics-driven
+ensemble model for predictingthe response to immunotherapy in
+gastric cancer. J. Immunother. Cancer12,e 0 0 8 9 2 7( 2 0 2 4 ) .
+22. Wang, R. et al. Development of a novel combined nomogram model
+integrating deep learning-pathomics, radiomics and immunoscore
+to predict postoperative outcome of colorectal cancer lung
+metastasis patients.J. Hematol. Oncol. 15, 11 (2022).
+23. Jiang, W. et al. Pathomics signature for prognosis and chemother-
+apy beneﬁts in stage III colon cancer. JAMA Surg. 159,
+519– 528 (2024).
+24. Yuan, W. et al. Pancancer outcome prediction via a uni ﬁed weakly
+supervised deep learning model.Signal Transduct. Target Ther.10,
+285 (2025).
+25. Wang, H. et al. Deep learning-based pathomics signature predicts
+prognosis and treatment response in gastric cancer: a multicenter
+retrospective study.NPJ Precis Oncol. 10, 206 (2026).
+26. Chen, D. et al. Prognostic and predictive value of a pathomics sig-
+nature in gastric cancer. Nat. Commun. 13, 6903 (2022).
+27. Tian, Y. et al. Neoadjuvant doceta xel, oxaliplatin plus capecitabine
+versus oxaliplatin plus capecitabine for patients with locally
+advanced gastric adenocarcinoma: long-term results of a phase III
+randomized controlled trial.Int J. Surg. 109,4 0 0 0– 4008 (2023).
+28. Cao, M. et al. Development and validation of a deep learning model
+for predicting gastric cancer recurrence based on CT imaging: a
+multicenter study.Int J. Surg. 110,7 5 9 8– 7606 (2024).
+29. Chen, D. et al. Predicting peritoneal recurrence in gastric cancer
+with serosal invasion using a pathomics nomogram.iScience 26,
+106246 (2023).
+30. Cui, Y. et al. A CT-based deep learning radiomics nomogram for
+predicting the response to neoadjuvant chemotherapy in patients
+with locally advanced gastric cancer: a multicenter cohort study.
+EClinicalMedicine46, 101348 (2022).
+31. Lu, Z. et al. The landscape of cancer research and cancer care in
+China. Nat. Med. 29,3 0 2 2– 3032 (2023).
+32. Zeng, D. et al. Tumor microenvironment characterization in gastric
+cancer identiﬁes prognostic and immunotherapeutically relevant
+gene signatures.Cancer Immunol. Res. 7,7 3 7– 750 (2019).
+33. de Visser, K. E. & Joyce, J. A. The evolving tumor microenvironment:
+from cancer initiation to metastatic outgrowth.Cancer Cell. 41,
+374– 403 (2023).
+34. Bagaev, A. et al. Conserved pan-cancer microenvironment sub-
+types predict response to immunotherapy.Cancer Cell. 39,
+845– 865.e7 (2021).
+35. Yoon, H. H. et al. Association of PD-L1 expression and other variables
+with beneﬁt from immune checkpoint inhibition in advanced gas-
+troesophageal cancer: systematic review and meta-analysis of 17
+phase 3 randomized clinical trials.JAMA Oncol. 8,
+1456– 1465 (2022).
+36. Baxter, M. A. et al. An investigation of the clinical impact and ther-
+apeutic relevance of a DNA damage immune response (DDIR) sig-
+nature in patients with advanced gastroesophageal
+adenocarcinoma.ESMO Open. 9,1 0 3 4 5 0( 2 0 2 4 ) .
+37. Collins, G. S. et al. TRIPOD+AI statement: updated guidance for
+reporting clinical prediction models that use regression or machine
+learning methods.BMJ 385, e078378 (2024).
+38. von Elm, E. et al. STROBE initiative. the strengthening the reporting
+of observational studies in epidemiology (STROBE) statement:
+guidelines for reporting observational studies.Lancet 370,
+1453– 1457 (2007).
+39. Wang, F. H. et al. The Chinese Society of Clinical Oncology (CSCO):
+clinical guidelines for the diagnosis and treatment of gastric cancer,
+2023. Cancer Commun. (Lond.).44,1 2 7– 172 (2024).
+40. Ajani, J. A. et al. Gastric cancer, version 2.2022, NCCN clinical
+practice guidelines in oncology.J .N a t l .C o m p r .C a n cN e t w .20,
+167– 192 (2022).
+41. Chen, R. J. et al. Towards a general-purpose foundation model for
+computational pathology.Nat. Med. 30,8 5 0– 862 (2024).
+42. van Buuren, S. Flexible Imputation of Missing Data. Second Edition
+(2nd ed.). Chapman and Hall/CRC. (2018).
+4 3 . R i l e y ,R .D .e ta l .C a l c u l a t i n gt h esample size required for develop-
+ing a clinical prediction model.BMJ 368, m441 (2020).
+44. Vaswani, A. et al. Attention is all you need. Preprint at arXiv https://
+doi.org/10.48550/arXiv.1706.03762(2017).
+45. Carson, J. L. et al. MINT investigators. restrictive or liberal transfu-
+sion strategy in myocardial infarction and anemia.N. Engl. J. Med.
+389, 2446– 2456 (2023).
+46. hebeidpa. hebeidpa/GC-MLM-RCSA: V1.1. Version v1.1, Zenodo
+https://doi.org/10.5281/zenodo.20667762(2026).
+Acknowledgments
+We sincerely thank the pathologists and radiologists who contributed to
+this study, namely Yan Ding, Fang Li, Huiyan Deng, Jinze Li, Yang Li, and
+Xiaosheng Xu.
+Author contributions
+Conception and design: P.A.D., L.J.M., Q.Z.; Administrative support:
+Q.Z.; Provision of study materials or patients: P.A.D., J.X.Y., S.C., H.H.G.,
+S.P.L., J.X.W., H.T.W., Y.T., N.M., X.L.L., R.J.G., L.L.Z., Z.J.G., L.Y., Y.P.L.,
+X.H.; Collection and assembly of data: P.A.D., J.X.Y., S.C., H.H.G., S.P.L.,
+J.X.W., H.T.W.; Data analysis and interpretation: P.A.D., J.X.Y., S.C.,
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press
+
+--- Page 17 ---
+H.H.G., X.H., L.L., S.Y.; Manuscript writing: P.A.D., J.X.Y., S.C., H.H.G.,
+S.Y.; Final approval of manuscript: all authors.
+Funding
+Q.Z. is in part supported by the National Natural Science Foundation of
+China (No. 82573273), the Hebei Natural Science Foundation (No.
+H2026206726), the S&T Program of Hebei (23297701Z and 25290101D),
+the Hebei Province Medical Applicable Technology Tracking Project
+(GZ20250046), the Hengrui-Hebei Innovative Development Medical
+Cooperation Program Project (HR202501001), and the Hebei Province
+Medical Research-Enterprise Joint Innovation Special Project
+(LH20250005). P.A.D. is in part supported by the National Natural Sci-
+ence Foundation of China (No. 82503478), the Hebei Natural Science
+Foundation (No. H2025206841), the Hebei Province Medical Research-
+Enterprise Joint Innovation Special Project (LH20250134), the Hebei
+Provincial Medical Science Research Project Plan (20260519), and the
+Hebei Provincial Government Funding Program for Outstanding Clinical
+Medical Talents (ZF2025180). L.J.M. is in part supported by the Hebei
+Province Medical Research-Enterprise Joint Innovation Special Project
+(LH20250167), the Hebei Provincial Medical Science Research Project
+Plan (20270514), and the Hebei Provincial Government Funding Program
+for Outstanding Clinical Medical Talents (ZF2025194). H.H.G. is sup-
+ported by the Hebei Provincial Government Funding Program for Out-
+standing Clinical Medical Talents(ZF2026215), and the Hebei Natural
+Science Foundation (No. H2026206682). X.H. is supported by the Fun-
+damental Research Funds for the Central Universities (1082204112M91).
+Competing interests
+The authors declare no competing interests.
+Additional information
+Supplementary informationThe online version contains
+supplementary material available at
+https://doi.org/10.1038/s41467-026-76382-x
+.
+Correspondenceand requests for materials should be addressed to
+Ping’an Ding, Sen Yang, Lingjiao Meng or Qun Zhao.
+Peer review informationNature Communicationsthanks Enrico Capo-
+bianco, and the other, anonymous, reviewer(s) for their contribution to
+the peer review of this work. A peer review ﬁle is available.
+Reprints and permissions informationis available at
+http://www.nature.com/reprints
+Publisher’s note Springer Nature remains neutral with regard to jur-
+isdictional claims in published maps and institutional afﬁliations.
+Open Access This article is licensed under a Creative Commons
+Attribution-NonCommercial-NoDerivatives 4.0 International License,
+which permits any non-commercial use, sharing, distribution and
+reproduction in any medium or format, as long as you give appropriate
+credit to the original author(s) and the source, provide a link to the
+Creative Commons licence, and indicate if you modiﬁed the licensed
+material. You do not have permission under this licence to share adapted
+material derived from this article or parts of it. The images or other third
+party material in this article are included in the article's Creative
+Commons licence, unless indicatedotherwise in a credit line to the
+material. If material is not included in the article's Creative Commons
+licence and your intended use is not permitted by statutory regulation or
+exceeds the permitted use, you will need to obtain permission directly
+from the copyright holder. To view a copy of this licence, visit http://
+creativecommons.org/licenses/by-nc-nd/4.0/
+.
+© The Author(s) 2026
+This Article in Press is shared early to give you faster access to new
+research. It is citable and carries a permanent DOI. The ﬁnal edited
+version will replace it automatically.
+Article https://doi.org/10.1038/s41467-026-76382-x
+Nature Communications Article in Press

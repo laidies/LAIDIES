@@ -1,0 +1,92 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "us-doj-openai-copyright-2026-09-05",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "4d0e7f414afc5da51f1624748ee024a1dfcd69c440eff38158b11f9e66e6d6c3",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why does the DOJ filing not settle whether you can paste an AI-generated paragraph that closely matches a published newsletter into a client presentation?",
+      "response": "Because fair use is judged use-by-use, the filing only argues about one use: copying works to adjust a model's numerical settings during training. Your act would be a different use — reproducing and distributing expression to an audience — which the filing itself concedes can raise a different question when an output reconstructs a copyrighted work. And even for training, the filing is the government's argument to a court, not the court's decision, so nothing has been legally settled at any stage.",
+      "expectedEvidence": "P005–P006 (stage separation and training focus), P007 (factors weighed case by case), P009 (output reconstruction caveat), P003 (argument, not decision).",
+      "assessment": "The article supplies every link needed for this causal answer in ordinary language; a non-technical reader following P003, P005–P007 and P009 can reproduce it accurately."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using only this article's reasoning, how should she assess the colleague's claim?",
+      "response": "She should split the plan into stages. Obtaining the archive, fine-tuning on it, and publishing digest posts are different uses that raise different copyright questions (P005–P006). The filing argues only that copying at the training stage is fair use, and it is an argument put to a court, not a ruling (P002–P003), so even the fine-tuning step is not settled. The published digests are outputs; if they closely track the reports' expression, the filing itself allows that reconstruction and distribution can raise a different question (P009), and fair use would weigh purpose, amount and market effect on the reports case by case with no safe word count (P007). Her precise next question is P011's: 'What is our basis for using this material for each of these uses?' — asked separately for the training data and for the published digests.",
+      "expectedEvidence": "Correct application requires the stage split (P005–P006), argument-vs-ruling (P003), the output caveat (P009), the case-by-case factors (P007), and the scripted question (P011).",
+      "assessment": "The article's mechanism resolves this genuinely new scenario without any outside knowledge, which is strong evidence of transferable understanding rather than headline recall."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "What happened (Sept 1 DOJ Statement of Interest supporting OpenAI), what kind of document it is, and what it argues are all laid out in sequence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 1, the US Department of Justice submitted an argument supporting OpenAI in the New York copyright lawsuits. It urged the court to treat copying written work to teach AI patterns as <strong>fair use</strong>: certain uses US law permits without the copyright owner’s permission.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The document is a <strong>Statement of Interest</strong>—the government explaining its position to the court. It is not the court’s decision. What changed was the government’s intervention in the argument, not a new permission slip for everyone using AI.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The filing distinguishes the copyright questions at those stages. Its focus is copying works during training. The department argues that using articles to develop a tool that can generate responses has a different purpose from publishing those articles for people to read. It also argues that requiring developers to pay for permission to use works could make it harder for smaller AI developers to compete. These are reasons it gives the court for accepting its position.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Fair use, Statement of Interest, training, model and output each get a plain-language gloss in their first meaningful context, tied to how the system works.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 1, the US Department of Justice submitted an argument supporting OpenAI in the New York copyright lawsuits. It urged the court to treat copying written work to teach AI patterns as <strong>fair use</strong>: certain uses US law permits without the copyright owner’s permission.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The document is a <strong>Statement of Interest</strong>—the government explaining its position to the court. It is not the court’s decision. What changed was the government’s intervention in the argument, not a new permission slip for everyone using AI.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The filing separates three things that can get bundled into “AI used someone’s work”. A developer first obtains material. During <strong>training</strong>, software adjusts numerical settings using examples, developing patterns it can apply later. The trained part that produces a response is the <strong>model</strong>. When someone uses it, the answer it produces is an <strong>output</strong>.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is grounded in a specific situation — a near-copy paragraph headed for a client presentation — not abstract legal worry.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Imagine AI gives you a paragraph very close to a newsletter you found online. This filing does not establish that you can put it in a client presentation. Ask the person responsible for the material, “What is our basis for using this passage?” A claim about the model’s training does not answer that question about your proposed use.</p>",
+          "locator": "P011"
+        },
+        {
+          "excerpt": "<p>You can want AI to help with your work and want the work you create to be respected. Understanding the disagreement lets you ask about both: what becomes possible through these tools, and whose material, permission and income are involved?</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; the advice given follows directly from the use-by-use framework and the filing's own output caveat.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Imagine AI gives you a paragraph very close to a newsletter you found online. This filing does not establish that you can put it in a client presentation. Ask the person responsible for the material, “What is our basis for using this passage?” A claim about the model’s training does not answer that question about your proposed use.</p>",
+          "locator": "P011"
+        },
+        {
+          "excerpt": "<p>When the next headline says the copyright fight is settled, look for who actually decided what. A court ruling addressing a particular use would be a different development from this government filing. This report covers the September 1 submission; we have not verified a later ruling on its argument. And the discussion is about US law, not automatic permission in every country.</p>",
+          "locator": "P012"
+        },
+        {
+          "excerpt": "Practise checking what an original source actually supports in <a href=\\\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\\\">Working with AI 101: Trusting the Output (And Checking It)</a>. The section explains why a few correct checks cannot guarantee that a whole AI answer is right.",
+          "locator": "P014"
+        }
+      ]
+    }
+  }
+}

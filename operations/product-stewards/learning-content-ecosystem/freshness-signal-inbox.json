@@ -100,6 +100,25 @@
       "status": "OPEN",
       "ownerDecision": null,
       "notes": "NewsStand owns receiving follow-through with Learning System/LIBRAiRY. Exact manuscript lines 2227,2231,2259 and structured chapter 8 say knowledge never updates, context disappears at response completion, and the model is always stateless. Section 8.9 says any new chatbot conversation cannot know your name, ignoring product memory settings. These are scope/accuracy review targets, not accepted replacement wording. Separate model weights, request inputs, cached state, conversation storage and product memory; verify current official product behavior. No chapter was changed or marked current; exact claim registration and propagation remain open."
+    },
+    {
+      "id": "SIG-NEWSSTAND-2026-09-05-TRAINING-MEMORISATION",
+      "sourceSystem": "NEWSSTAND",
+      "sourcePath": "operations/product-stewards/newsstand/candidates/us-doj-openai-copyright-2026-09-05/research-reuse.md",
+      "receivedAt": "2026-09-05",
+      "summary": "Copyright reporting exposed a categorical denial of model memorisation in AI Fundamentals 101 section 5.1. The same exact passage is live; primary extraction research contradicts the universal denial.",
+      "affectedClaimIds": [],
+      "affectedEntities": [
+        "AI Fundamentals 101 section 5.1",
+        "content/library-books/sources/ai-fundamentals-101.manuscript.md:1196",
+        "content/library-books/sources/ai-fundamentals-101.source.json#chapter-5",
+        "content/library-books/rendered/ai-fundamentals-101.html:510",
+        "Training, memorisation and copyright reference consumers"
+      ],
+      "severity": "MATERIAL",
+      "status": "OPEN",
+      "ownerDecision": null,
+      "notes": "NewsStand retains receiving follow-through with Learning/LIBRAiRY. Correct the universal denial while preserving the distinction between learned parameters and a retrieval database; do not imply all outputs are copies or every model reproduces every training example. Source reference is Carlini et al. 2021, arXiv:2012.07805v2, abstract reporting verbatim GPT-2 extraction. Not a current-model vulnerability or lawsuit finding. No public book correction yet; map exact consumers and admit precise replacement before release."
     }
   ]
 }

@@ -7,6 +7,7 @@ import crypto from 'node:crypto';
 import vm from 'node:vm';
 import {fileURLToPath} from 'node:url';
 import {inspectContentProducerContract} from './check-content-producer-contract.mjs';
+import readerContract from '../content/newsstand-reader-contract.js';
 
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
@@ -62,6 +63,7 @@ export function inspectPreparedDraft(story,input,observations){
  const prose=['headline','the_story','laidies_read','what_this_means','cocktail_party','class_notes'].map(k=>story[k]||'').join('\n').replace(/<[^>]*>/g,'').replace(/\s+/g,' ');
  const require=(ok,msg)=>{if(!ok)errors.push(msg)};
  require(story.id===packet.candidateId,'Writer input belongs to a different story');
+ for(const error of readerContract.validatePublishedStoryImage({...story,status:'published'},story.slug||story.id||'story'))errors.push(error);
  require(observations?.completeTextRead===true,'Producer must read the complete current draft');
  require(observations?.storySha256===hash(JSON.stringify(story)),'Producer observations bind a different draft');
  require(Array.isArray(packet.explanationPlan?.readerQuestions)&&packet.explanationPlan.readerQuestions.length>0,'Writer must identify the reader questions before drafting');

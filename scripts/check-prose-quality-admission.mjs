@@ -304,7 +304,23 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   }
   for (const field of ["reviewedThrough", "nextTrigger", "correctionOwner"]) require(text(receipt?.factualReview?.[field]), `factualReview.${field} is required`);
 
-  const newsImprovementMetrics = newsAnalysis?.reviewMetricsPolicy?.mode === "IMPROVEMENT_METRICS_NOT_PUBLICATION_BLOCKERS_V1";
+  let producerNewsMetrics = false;
+  if (receipt?.reviewMetricsPolicy) {
+    const inScope = receipt.stage === "PRODUCER_SELF_REVIEW" && receipt.surface === "NEWSSTAND_DAILY" && receipt.contentClass === "NEWS";
+    require(inScope, "reviewMetricsPolicy is limited to ordinary NEWSSTAND_DAILY NEWS producer review");
+    require(receipt.reviewMetricsPolicy.path === NEWS_EDITORIAL_POLICY, "producer review metrics must bind the current ordinary-news policy");
+    require(Date.parse(receipt.reviewedAt) >= Date.parse("2026-09-05T00:00:00-07:00"), "producer review metrics cannot retrospectively waive older reviews");
+    const body = loadBinding(root, receipt.reviewMetricsPolicy, "reviewMetricsPolicy", errors);
+    if (body) {
+      try {
+        const policy = JSON.parse(body);
+        const approved = policy.status === "ACTIVE" && policy.surface === "NEWSSTAND_DAILY" && policy.contentClass === "NEWS" && policy.reviewMetrics?.mode === "IMPROVEMENT_METRICS_NOT_PUBLICATION_BLOCKERS_V1";
+        require(approved, "producer review metrics policy scope/status mismatch");
+        producerNewsMetrics = inScope && approved;
+      } catch { errors.push("reviewMetricsPolicy: invalid policy JSON"); }
+    }
+  }
+  const newsImprovementMetrics = producerNewsMetrics || newsAnalysis?.reviewMetricsPolicy?.mode === "IMPROVEMENT_METRICS_NOT_PUBLICATION_BLOCKERS_V1";
   if (newsImprovementMetrics) {
     // Historical production counts stay visible; current outcomes and families above still gate PASS.
     for (const field of ["repeatedKnownDefects", "objectiveDefectsFirstFoundAtReview", "reviewIssues", "reviewCycles"]) {

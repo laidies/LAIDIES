@@ -24,8 +24,10 @@ Ali approved on September 5 that ordinary NewsStand review counts are production
 improvement metrics, not publication blockers. Preserve actual issues, cycles and
 repaired defects; do not require a corrected story to beat its predecessor’s
 counts. Every current factual and reader outcome must pass and no current defect
-may remain. This supersedes the strict-count gate only for independent ordinary
-NEWSSTAND_DAILY NEWS admission under `ordinary-news-editorial-policy.json`; it
+may remain. This supersedes the strict-count gate only for ordinary
+NEWSSTAND_DAILY NEWS production and independent admission under
+`ordinary-news-editorial-policy.json`. The producer must bind the exact active
+policy explicitly; a service, Big Picture or Library producer cannot opt in. It
 does not change the excluded surface or owner-approval boundaries.
 
 Ali's September 5 clarification rejects time spent reconciling historical defect

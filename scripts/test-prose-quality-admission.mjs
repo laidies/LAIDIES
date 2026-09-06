@@ -215,6 +215,25 @@ try {
   const repairedNews = structuredClone(blindRejectionNews);
   Object.assign(repairedNews.ratchet, { repeatedKnownDefects: 1, objectiveDefectsFirstFoundAtReview: 2, reviewIssues: 2, reviewCycles: 3 });
   assert.deepEqual(inspect(repairedNews), [], "actual repaired counts are improvement metrics for ordinary news");
+  const productionNews = structuredClone(editorialNews);
+  delete productionNews.newsEditorialReview;
+  productionNews.stage = "PRODUCER_SELF_REVIEW";
+  productionNews.reviewedAt = "2026-09-05T10:00:00-07:00";
+  productionNews.reviewer = structuredClone(producer.reviewer);
+  productionNews.calibration.reviewerPrincipalId = productionNews.reviewer.principalId;
+  productionNews.reviewMetricsPolicy = bind(newsPolicyPath);
+  for (const name of ["explainBack", "unseenTransfer"]) {
+    delete productionNews.outcomes[name].aiEditorialAnalysis;
+    productionNews.outcomes[name].simulatedReaderProbe = structuredClone(producer.outcomes[name].simulatedReaderProbe);
+  }
+  Object.assign(productionNews.ratchet, { reviewIssues: 2, reviewCycles: 3 });
+  assert.deepEqual(inspect(productionNews), [], "approved ordinary-news counts cannot block the producer before independent review");
+  const producerCurrentHold = structuredClone(productionNews); producerCurrentHold.outcomes.factualIntegrity.verdict = "HOLD";
+  assert.match(inspect(producerCurrentHold).join("\n"), /PASS forbidden: factualIntegrity did not pass/);
+  const producerWrongScope = structuredClone(productionNews); producerWrongScope.surface = "NEWSSTAND_RECURRING_SERVICE_COLUMNS";
+  assert.match(inspect(producerWrongScope).join("\n"), /limited to ordinary NEWSSTAND_DAILY NEWS producer review/);
+  const producerStalePolicy = structuredClone(productionNews); producerStalePolicy.reviewMetricsPolicy.sha256 = "0".repeat(64);
+  assert.match(inspect(producerStalePolicy).join("\n"), /SHA-256 mismatch/);
   const malformedMetrics = structuredClone(repairedNews); malformedMetrics.ratchet.reviewIssues = -1;
   assert.match(inspect(malformedMetrics).join("\n"), /must retain a valid actual count/);
   const stillUnresolved = structuredClone(repairedNews); stillUnresolved.outcomes.factualIntegrity.verdict = "HOLD";

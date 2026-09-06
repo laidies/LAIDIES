@@ -14,6 +14,16 @@
     return typeof value === "string" && !isNaN(Date.parse(value));
   }
 
+  function validatePublishedStoryImage(story, label) {
+    var errors = [];
+    if (story && ["published", "corrected"].indexOf(story.status) !== -1 &&
+        (!story.heroVisual || !/^\/(?:approved-assets|assets)\/.+\.(?:png|jpe?g|webp|avif)$/i.test(String(story.heroVisual.src || "")) ||
+         typeof story.heroVisual.alt !== "string" || story.heroVisual.alt.trim().length < 10)) {
+      errors.push(label + " published story image is missing or incomplete");
+    }
+    return errors;
+  }
+
   function validate(data) {
     var errors = [];
     if (!data || typeof data !== "object") return ["dataset is missing"];
@@ -97,11 +107,7 @@
             !Array.isArray(story.concepts) || !story.concepts.length) {
           errors.push(label + " theme/concept metadata is missing");
         }
-        if (story && ["published", "corrected"].indexOf(story.status) !== -1 &&
-            (!story.heroVisual || !/^\/(?:approved-assets|assets)\/.+\.(?:png|jpe?g|webp|avif)$/i.test(String(story.heroVisual.src || "")) ||
-             typeof story.heroVisual.alt !== "string" || story.heroVisual.alt.trim().length < 10)) {
-          errors.push(label + " published story image is missing or incomplete");
-        }
+        errors.push.apply(errors, validatePublishedStoryImage(story, label));
         if (story && story.edition === "big-picture" && (!story.bigPicture ||
             !validDate(story.bigPicture.originallyPublishedAt) ||
             !validDate(story.bigPicture.lastMeaningfullyUpdatedAt) ||
@@ -411,6 +417,7 @@
   return {
     EDITIONS: EDITIONS,
     validate: validate,
+    validatePublishedStoryImage: validatePublishedStoryImage,
     ageHours: ageHours,
     withinRecentCalendarDays: withinRecentCalendarDays,
     datasetState: datasetState,
