@@ -330,3 +330,5 @@ Ali also requested a small rotating “Did you know?” banner directly under th
 2026-09-06 — Compact shared player: Ali rejects the oversized split song/control panels and prioritizes controls over song text. Default strip uses small explicitly labelled song/band text, bounded scrolling for overflowing song titles, visible Back/Play/Next/Volume and Expand. Reduced-motion setting disables title animation; expanded view exposes complete titles and secondary controls. Stop & close accurately names existing stop/hide/clear-position behavior. Preview only, no release.
 
 2026-09-06 — Desktop controls never require expansion. Ali explicitly reserves Expand for phone screens; larger screens show all controls. Preserve the Rewind wallpaper and mint/lime panels while reducing bulk. Flat mint replacement is rejected.
+
+2026-09-06 — Player detail alignment: Ali requests Track progress and Volume centred close above their sliders and the Resume triangle visually centred inside its circle. Labels retain functional clarity; elapsed/total time sits below progress.

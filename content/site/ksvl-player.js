@@ -394,6 +394,9 @@
     + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-info { background:#7de2c2; border-radius:7px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { background:#b7e42b; border-radius:7px; }'
     + '@media(min-width:621px) { .ksvl-now-playing { flex-wrap:nowrap; align-items:stretch; } .ksvl-np-more { display:none!important; } .ksvl-now-playing .ksvl-np-extras { display:flex; flex-wrap:wrap; justify-content:center; gap:6px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:0 1 220px; display:flex; flex-direction:column; justify-content:center; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { flex:0 1 auto; flex-wrap:wrap; justify-content:center; padding:4px 8px; gap:8px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-up-next { display:block; font-size:10px; margin-top:3px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-progress-field { display:flex; width:150px!important; } }';
 
+  STYLE += '.ksvl-now-playing .ksvl-np-field-heading { justify-content:center; text-align:center; transform:translateY(9px); pointer-events:none; }'
+    + '.ksvl-now-playing .ksvl-np-time { display:block; text-align:center; font-size:9px; line-height:1; margin-top:-6px; } .ksvl-np-btn--play .ksvl-np-ico svg { display:block; flex:none; }';
+
   function updateTitleOverflow() {
     if (!npTrack || !npTrack.firstElementChild) return;
     var overflow = npTrack.firstElementChild.scrollWidth - npTrack.clientWidth;
@@ -534,7 +537,16 @@
   function setBtnIcon(btn, glyph) {
     if (!btn) return;
     var ico = btn.querySelector('.ksvl-np-ico');
-    if (ico) ico.textContent = glyph; else btn.textContent = glyph;
+    if (ico && btn.classList.contains('ksvl-np-btn--play')) {
+      ico.textContent = '';
+      var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('width', '20'); svg.setAttribute('height', '20');
+      svg.setAttribute('aria-hidden', 'true');
+      var shape = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      shape.setAttribute('d', glyph === '▶' ? 'M8 4 L21 12 L8 20 Z' : 'M6 5H10V19H6Z M14 5H18V19H14Z');
+      shape.setAttribute('fill', 'currentColor'); svg.appendChild(shape); ico.appendChild(svg);
+    } else if (ico) ico.textContent = glyph; else btn.textContent = glyph;
   }
   function setBtnLabel(btn, label) {
     if (!btn) return;
@@ -628,8 +640,8 @@
     npTime = el('span', {class: 'ksvl-np-time', text: '0:00 / —:—', 'aria-hidden': 'true'});
     var progressField = el('label', {class: 'ksvl-np-slider-field'}, [
       el('span', {class: 'ksvl-np-field-heading'}, [
-        el('span', {text: 'Track progress'}), npTime
-      ]), npSeek
+        el('span', {text: 'Track progress'})
+      ]), npSeek, npTime
     ]);
     sound.appendChild(volumeField);
     progressField.classList.add('ksvl-np-progress-field');
