@@ -1,16 +1,16 @@
 # Active work
 
-> **2026-09-05 — Episode04 social carousel: PREVIEW VERIFIED / READY FOR ALI.**
-> The rejected953b8d2e deployment is deleted and both prior admissions are invalid.
-> Three-image v3 now has two actual independent admissions (Astra/Medium, Sol/Medium),
-> source/mechanism verification and live PNG/ZIP, keyboard, private-data, adjacent
-> episode and recovery proof. Runtimefb5294e9 pushed; manifest53bce777; preview8e498c88.
-> All18 downloaded images match the reviewed six;16 authored resources match.
-> Latest NewsStand productionc8353edf is preserved; this task made no production change.
-> Ali approves the finished visible result before promotion. Native mobile OS sharing
-> and observed human learning are not claimed. Resume from operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v3/review.md.
-> Keep the freshness mismatch open until production proof. Miss Jeeves Sol/cost/reuse
-> and other recommendations remain next; funding is settled, do not recheck it.
+> **2026-09-05 — Episode04 social carousel: REJECTED / DETOUR STOPPED; HOMEPAGE REVIEW RESUMES.**
+> Ali rejected preview8e498c88 for no worthwhile explanation, imagery or social value.
+> Both independent admissions and maker quality verdict are invalid. Preview deleted;
+> removed from owner review. No production change. Exact rejected artifacts are preserved.
+> Ali clarified the primary job: Episode 4 field trip to LUMINAiRY, exploring MAiVENS
+> and Trailblazers and reading their stories. Social sharing is an optional takeaway.
+> Ali restored the original foreground: homepage review/correction, then page by page.
+> Current step: reconcile original recommendations with committed/deployed/live evidence.
+> Field-trip resume brief: operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/successor-brief.md.
+> The feature remains unfinished; retain the two-reviewer authorization and keep the
+> freshness mismatch open. Miss Jeeves and other recommendations retain their resume points.
 
 
 > **2026-09-05 — HISTORICAL Try-On preview — REJECTED; DO NOT PROMOTE.**

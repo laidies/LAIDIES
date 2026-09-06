@@ -1,5 +1,10 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-05 — Ali rejects social carousel8e498c88: repair the product brief
+
+The exact v3 carousel is rejected, both AI admissions invalidated and preview withdrawn. Ali found no useful explanation, compelling images or social value, and questioned why an invented pension/marketing-plan exercise occupied a piece carrying Karen Spärck Jones's name. The exercise was a maker invention, not a biographical connection. A working export and correct arithmetic do not satisfy the requested adult illustrated LAiDIES story. Do not inherit that exercise, a three-slide format or geometric-box composition into a successor. Ali clarified the original purpose: Episode 4 field trip to LUMINAiRY, where visitors explore MAiVENS and Trailblazers and read about the women. Restore that journey. Social sharing is only an optional takeaway from their discovery. Discard the pension-plan tutorial and flat geometric-box design. Ali also restored the original foreground scope: homepage review/corrections, then page-by-page site repairs. Stop this isolated redesign detour, reconcile original recommendations with actual completion evidence, and resume that order. Existing two-reviewer authorization persists; no additional review program is requested. Exact rejection and corrected brief: `product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v3/ALI-REJECTION.md` and `../successor-brief.md`.
+
+
 > **2026-09-05 — Ali rejects the social successor953b8d2e; both admissions invalid.**
 > The graphic looks poor and does not explain the concept. “More weight” is
 > undefined; the example restates the claim without showing the causal effect.

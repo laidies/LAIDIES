@@ -2,12 +2,9 @@
 
 ## Active successor — social sharing (Ali, September 5)
 
-Ali rejected preview953b8d2e; its two admissions are invalid and the deployment is deleted. The v3 three-image social carousel has now passed two independent complete-experience reviews and actual PNG/ZIP, privacy and recovery checks. Preview8e498c88 is verified from pushed sourcefb5294e9; current productionc8353edf remains unchanged. Ali still approves the visible result before production.
+Ali rejected preview8e498c88: weak explanation, no compelling imagery and no worthwhile social result. The invented pension-plan exercise displaced the Episode 4 field trip. Ali clarified the primary journey: LUMINAiRY, MAiVENS and Trailblazers, reading their stories; social sharing is an optional takeaway. Both independent admissions and maker quality verdict are invalid; the preview is deleted and removed from owner review. No production change. This feature remains unfinished.
 
-Two reviewers remain the approved process for this feature; flag only material outcome defects. Preserve current Homepage/LIBRAiRY references, private notes, Episode02/03 and the latest production Resident Card. Exact artifacts and limitations: candidates/tryon-ep04-2026-09-05/v3/review.md.
-
-
-**Status:** BOUNDED LOCAL PASS — REPAIR 2 INDEPENDENT RE-JUDGE 90/100; RELEASE HOLDS REMAIN
+Correct the direction before producing another candidate: candidates/tryon-ep04-2026-09-05/successor-brief.md. Preserve exact rejected artifacts in v3; neither palette matching nor functional checks establish the adult illustrated social experience. Two independent reviewers remain authorized, limited to material outcome defects. Ali still approves the finished visible result before production.
 
 ## Identity and purpose
 

@@ -1,14 +1,7 @@
-# Episode04 social carousel
+# Episode04 social carousel — REJECTED BY ALI
 
-Two independent reviewers (Astra/Medium and Sol/Medium) admitted exact manifest53bce777b0bbb37965a2b47789e219aa938fb14429f6622a3ba927b3000b5e11. The three-image sequence replaces the rejected single-image presentation: six files, relative match points, then result order. Each image is available in Post4:5 and Story9:16; download individually or as a ZIP, with an optional caption and share sheet.
+Ali rejected the actual preview: no worthwhile story, explanation or compelling imagery; invented pension/marketing files displaced Karen and the reader payoff. Palette, arithmetic and working exports did not establish value.
 
-The previous953b8d2e preview was rejected by Ali and deleted. Both prior admissions are invalid. The intermediate v2 remains held history; v3 resolves its two material defects. The first reviewer independently rejected the original velvet/blazer card for an undefined mechanism before reading maker reports.
+Both independent admissions and the maker quality verdict are invalid. Preview8e498c88 was deleted. Production was not changed. Exact artifacts and historical browser/source data are preserved; these do not admit the result.
 
-Actual browser checks at1440/390/320 verify eighteen PNG downloads, six ZIP downloads with extracted-byte parity, three-file sharing, caption, keyboard, private-note isolation, other episodes and failure recovery. Sharing APIs are simulated; native mobile OS share-sheet and observed human learning tests are not claimed. The source and scoring were checked against Spärck Jones’s1972 paper.
-
-Design admission and11 failure mutations pass in the full canonical checkout; its history is intentionally absent from the sparse runtime worktree. These are integrity checks, separate from the independent pixel/prose judgments. No production admission or actual human explain-back is implied.
-
-Status: PREVIEW VERIFIED / READY FOR ALI / PRODUCTION UNCHANGED.
-
-Review URL: https://8e498c88.laidies-sunnyvaile.pages.dev/try-on?issue=4&from=blend-snap
-Runtime source:fb5294e9 (pushed). The actual hosted preview passes all browser checks. Eighteen PNG downloads match the six reviewed images byte-for-byte; all six ZIPs contain their correct images. Sixteen authored resource/route comparisons match the prepared artifact. Preserve current production c8353edf/c197eb5, including the latest NewsStand changes. The750-file prepared preview changes exactly four existing paths and adds three social files, with743 files unchanged. No backend or paid-model changes.
+See [Ali rejection](ALI-REJECTION.md) and [corrected brief](../successor-brief.md). No successor is produced or approved.
