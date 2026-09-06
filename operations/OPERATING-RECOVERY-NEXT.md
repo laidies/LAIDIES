@@ -4,36 +4,41 @@ Updated September 5, 2026. This is the compact entry for one workstream, not
 universal agent context or a second portfolio database. Current product owners
 and their exact artifacts outrank historical snapshots below.
 
-## Current continuation — full consultant audit, September 6
+## Current continuation — executable flow audit, September 6
 
-**Latest direction: map first.** The next quality integration package is deferred
-pending `OPERATING-SYSTEM-MAP.md`: each registered agent/flow/operation, exact
-inputs and recipients, dependencies, failure and human/manual boundaries.
-Current loop/graph research informs options, not a preselected new framework.
-PR104 is merged (`4a4726e3`); its obsolete scheduled publisher is retired.
-Continue on `ops/end-to-end-system-map-20260906` in the same bounded checkout.
-Older sequencing below is historical where it conflicts with this paragraph.
+The map is integrated through PR105. The full consultant objective remains
+BUILDING; the visual-reference pilot is in PR106 with its existing owner.
+Continue the representative feature, editorial, rejection/learning and cloud
+notification/resumption traces. The map and operating model contain current
+findings; older proposed integration sequences below do not override this step.
 
-Ali broadened this same operating review into a complete practical audit and
-remediation plan. Scope: organization/source authority, unfinished work,
-quality/learning feedback, context, cloud versus subscription execution, cost,
-communication and ongoing management. Existing first repairs are merged through
-PR103; this continuation works on ops/learning-context-repair-20260906 in the same
-bounded checkout. No product takeover, deletion or additional spending.
+**Repeated premature stop, reproduced September 6:** this task ended after a
+consumer handoff despite remaining authorized independent work. Ali reports the
+same failure across tasks even after explicit instructions to continue. The
+outer-workspace hook is restricted to predecessor session `01a0739d-47b1-7330-93f2-c20f8d984ffe`.
+Its registered command returned exit 0 and empty output for current session
+`01a077d0-0775-7af2-b631-c311573f0e0e`; calling the existing Stop handler directly
+returned a continuation block for unfinished `WRK-20260906-system-review`.
+Only 2 of 19 projected work items have session bindings, one already STOPPED.
+The existing `stop_hook_active` escape allows one automatic continuation only.
+Neither one reminder nor a file's presence establishes ongoing execution.
 
-Current consultant audit and full plan: `operations/laidies-operating-model.md`.
-Legacy publisher repair uses the existing owner branch's exact bounded workflow,
-with a calibrated no-schedule/no-push/read-only-permission check. No API invocation,
-new subscription, new schedule, broad worktree cleanup or product takeover.
-Next integration package is the existing prose/learning dependency chain, after
-its stale exemplar and owner-admission transition are resolved. Broader plan is
-not an implemented end-to-end service.
+Bounded repair: route registered hooks through the existing session-work query,
+so admitted successor sessions reach the same checker and unbound/terminal work
+is untouched. Keep the recursion bound; do not convert an incomplete hook into
+an unlimited scheduler. Native review/trust and actual invocation are separate
+acceptance steps. Do not edit trust records or infer their approval from source
+tests. Goal mode is the documented native mechanism to evaluate for sustained
+work; activation was asked explicitly because its tool requires a direct request.
+Meanwhile continue all independent audit work. No duplicate automation or new
+API/service spend is authorized by this repair.
 
-Current findings awaiting reconciliation: live worktree inventory; prose guards
-and exemplar registry absent from main despite mandatory instructions; shared
-Straight Answers positive exemplar hash is stale; pending-learning owner
-admission has no located executable completion path. Do not integrate the entire
-shared branch or change an approved exemplar merely to make a check pass.
+Current trace findings: scheduled NewsStand intake reaches issue82, but its
+mainline candidate receiver is incomplete; the carousel rejection invalidates
+admission but has no demonstrated admitted-learning-to-successor path. These
+are incomplete edges, not grounds to take over product owners or import the
+whole dirty shared branch. Acceptance requires source distribution and real
+consumer use, not another instruction or a fixture-only quality claim.
 
 ## Prior repair and ranked sequence — 2026-09-06
 

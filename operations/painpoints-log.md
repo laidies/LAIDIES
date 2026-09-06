@@ -259,3 +259,20 @@ actually has to act, not by drawing a box for every fashionable agent role.
 ## 2026-09-06 — Current references need source and consumer binding
 
 The small visual-reference intake found a rejected Matron identity still selected by an older reference manifest, a different Miss Jeeves status in shared versus receiving main, and source approvals missing from fresh checkouts. Prevention: current views derive from the existing scoped manifests/registry, bind exact approval-source and image bytes, and fail on revoked paths, rejected hashes, changed sources or stale generated views. Never infer approval from a filename. The first targeted review found unverified category-library links and an overbroad people-style label; category sources and map now receive the same checks, with a deliberate changed-category failure test, and the people style is explicitly episode/trailer-scoped. Consumer repair is integrated from system engineering commit e952f87c as 1b1fcf6e: no filename approval, explicit episode destination/size/IDs, preserved likeness/continuity holds, shared revocation/source resolver, and 13 calibrated tests. During integration Git reapplied cone sparsity and removed locally materialized tracked images; persistent exact-file sparse patterns restored the committed originals, and the full checks passed again. Native installed-hook invocation and legacy exact-film assembler source strings remain outside this bounded repair. Behind the Build: an inspiration library becomes dependable when it explains what each reference is allowed to decide, and when the tools stop selecting superseded versions. This is selection/integrity evidence, not new art approval.
+
+## Successor excluded from continuation hook — 2026-09-06
+
+Observed: after reporting no decision was needed, the operating task still ended
+at its visual-reference handoff. The outer registered Stop command silently
+returned exit0/empty output for this session because it contained the stopped
+predecessor's ID. The underlying handler correctly returned a continuation
+block. Only2/19 projected items are session-bound; one-reminder recursion escape
+is intentional and does not constitute a scheduler. Source repair routes through
+the existing session query. Tests now exercise that outer route for successor,
+unrelated, completed, waiting and recursive cases; independent review found no
+material route defect. Native hook review/loading remains unverified.
+Prevention: test actual registration -> current session -> handler -> runtime
+continuation, and keep ongoing goals separate from bounded reminders. Do not
+claim broad coverage from one directly invoked handler or a green fixture.
+Behind the Build: how an automation can contain the right code but never call it
+for the person/task that needs it; why progress and completion are different.

@@ -1,13 +1,13 @@
 {
-  "description": "Bounded operating-continuation pilot for one existing thread only. Uses the isolated checkout; no Git-root assumption in the outer workspace. Native trust/loading must be observed separately.",
+  "description": "Route each existing admitted LAiDIES session to its governing task. Unbound or terminal sessions are untouched. This bounded guard is not a scheduler; native trust/loading remains separately verified.",
   "hooks": {
     "SessionStart": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "/usr/bin/python3 -c 'import json,sys,subprocess; p=json.load(sys.stdin); sys.exit(0) if p.get(\"session_id\") != '\"'\"'01a0739d-47b1-7330-93f2-c20f8d984ffe'\"'\"' else None; sys.exit(subprocess.run([\"/usr/bin/python3\",'\"'\"'/Users/alisoneakin/Projects/laidies-operating-integration-20260905/.codex/hooks/session_start.py'\"'\"'],input=json.dumps(p),text=True).returncode)'",
-            "timeout": 20,
+            "command": "/usr/bin/python3 \"/Users/alisoneakin/Projects/laidies-operating-integration-20260905/.codex/hooks/route_operating_session.py\"",
+            "timeout": 40,
             "statusMessage": "Checking the bound operating task"
           }
         ]
@@ -18,8 +18,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/usr/bin/python3 -c 'import json,sys,subprocess; p=json.load(sys.stdin); sys.exit(0) if p.get(\"session_id\") != '\"'\"'01a0739d-47b1-7330-93f2-c20f8d984ffe'\"'\"' else None; sys.exit(subprocess.run([\"/usr/bin/python3\",'\"'\"'/Users/alisoneakin/Projects/laidies-operating-integration-20260905/.codex/hooks/stop_operational_integrity.py'\"'\"'],input=json.dumps(p),text=True).returncode)'",
-            "timeout": 20,
+            "command": "/usr/bin/python3 \"/Users/alisoneakin/Projects/laidies-operating-integration-20260905/.codex/hooks/route_operating_session.py\"",
+            "timeout": 40,
             "statusMessage": "Checking the bound operating task"
           }
         ]

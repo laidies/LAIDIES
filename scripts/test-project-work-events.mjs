@@ -142,6 +142,30 @@ try {
   assert.equal(stop([...scopedGood, scopedWait, resumed, resolved]).continue, true);
   assert.equal(stop(scopedGood, 'unrelated').continue, true, 'unrelated session must not be trapped');
   assert.equal(stop(scopedGood, 'session-recovery', { stop_hook_active: true }).continue, true, 'one reminder must not become an infinite loop');
+  // Exercise the outer entrypoint too: the prior registration silently ignored
+  // every successor because it embedded the first pilot's session ID.
+  const router = '.codex/hooks/route_operating_session.py';
+  write(router, fs.readFileSync(path.join(sourceRoot, router)));
+  const outerConfig = JSON.parse(fs.readFileSync(path.join(sourceRoot, 'operations/codex-contract/operating-continuation-workspace-hooks.json')));
+  for (const eventName of ['Stop', 'SessionStart']) {
+    const command = outerConfig.hooks[eventName][0].hooks[0].command;
+    assert.match(command, /route_operating_session\.py/);
+    assert.doesNotMatch(command, /01a0739d|session_id.*!=/);
+  }
+  function routed(events, session, extra = {}) {
+    const projection = run(events); assert.equal(projection.status, 0, projection.stderr);
+    write('operations/runtime/work-current-projection.json', projection.stdout);
+    const result = spawnSync('/usr/bin/python3', [path.join(repo, router)], {
+      cwd: os.tmpdir(), input: JSON.stringify({ hook_event_name: 'Stop', session_id: session, stop_hook_active: false, ...extra }),
+      encoding: 'utf8', env: { ...process.env, LAIDIES_WORK_EVENTS_PATH: eventsFile },
+    });
+    assert.equal(result.status, 0, result.stderr); return JSON.parse(result.stdout);
+  }
+  assert.equal(routed(scopedGood, 'session-recovery').decision, 'block', 'successor admitted session must reach Stop handler');
+  assert.equal(routed(scopedGood, 'unrelated').continue, true, 'unbound session must not inherit portfolio work');
+  assert.equal(routed([...scopedGood, scopedWait], 'session-recovery').continue, true, 'actual external wait may yield through router');
+  assert.equal(routed([...scopedGood, scopedWait, resumed, resolved], 'session-recovery').continue, true, 'resolved session is not restarted');
+  assert.equal(routed(scopedGood, 'session-recovery', { stop_hook_active: true }).continue, true, 'routing must not remove recursion bound');
   // Native SessionStart payload, actual Python entrypoint, isolated source bindings.
   const startHook = '.codex/hooks/session_start.py';
   write(startHook, fs.readFileSync(path.join(sourceRoot, startHook)));
