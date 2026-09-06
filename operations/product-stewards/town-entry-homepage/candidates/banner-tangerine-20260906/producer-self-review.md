@@ -1,0 +1,1 @@
+Producer inspected exact paired1440px and390px pixels. Tangerine heading and body are clear against the retained navy edge; phone line breaks and size unchanged. All8slides/2widths retain copy, links, portraits, radio marker and height with no overflow. White parent is rejected against latest owner ruling. No objective or material maker-found issues remain.

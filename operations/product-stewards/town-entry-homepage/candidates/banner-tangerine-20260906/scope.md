@@ -1,0 +1,1 @@
+Owner rejects white Did you know text and permits coral or tangerine. Only banner heading/body foreground changes to existing tangerine #ff9b3d. Existing fine navy edge, lime CTA, mint controls, graphic, updated Mall, copy, layout and actions retained. Preview only. Tangerine/navy contrast8.22:1 versus coral/navy6.48:1. Whole homepage and Mall receiving page are off-limits.

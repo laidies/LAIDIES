@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Banner text uses coral or tangerine, not white
+
+Ali explicitly rejects white text in Did you know and requests coral or tangerine from the existing palette. Compare these on the current cool background; use the clearer warm colour while preserving the compact banner, question mark, latest Mall image, copy, destinations and controls. Preview only. This supersedes the preceding white body/heading choice.
+
 ## 2026-09-06 — Replace the Mall banner image
 
 Ali rejects the Mall thumbnail in Did you know. Use an existing Mall exterior or interior that clearly reads as the Rewind Era Mall at thumbnail size, replacing the unrelated small directory-card crop. Preserve bright banner text, illustrated question mark, compact layout, Mall copy/destination and all other features. Preview only.
