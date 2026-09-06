@@ -8,7 +8,9 @@ and human/manual boundaries before selecting an architecture or standardizing
 quality tools. The map is integrated through PR105; representative executable traces now
 prioritize the missing transitions below. The sequence is a proposed remediation
 plan, not a claim that the whole operating system has been implemented. PR104 retired the legacy publisher;
-the larger learning and delivery loops remain unverified.
+PR108 restored the complete prose-quality package and PR109 connected owner-admitted
+learning to producer plans. The shared working checkout has not adopted that
+dependency closure. Real successor learning and delivery loops remain unverified.
 This replaces the July 10 v1 at this path. The prior version remains in Git
 history (37fe77ae); its operator/watchdog descriptions were not proof of running
 services. Product decisions and current product owners remain authoritative.
@@ -48,12 +50,12 @@ that every visitor feature or all unpublished artifacts were inspected.
 
 | Priority | Verified finding | Effect | Correction / owner |
 |---|---|---|---|
-| P0 | Continuation registration silently excludes successor tasks: direct current-session checker blocks premature stop, but the outer command returns empty success. Only 2/19 work items are session-bound and Stop permits one reminder. | Ali becomes the scheduler despite explicit continuation instructions. | Repair obsolete routing, verify native activation, and use explicitly activated native Goal mode for sustained work; enroll each accepted objective without taking over unrelated tasks. |
-| P0 | Main referenced mandatory prose producer/review tools that it does not contain. The shared checkout contains them, their tests and the exemplar registry. | A new cloud checkout cannot follow the same process as the local maker. | Integration owner ports one complete dependency package from exact reviewed source; do not merge the mixed shared branch. |
+| REPAIRED / LIMITED | PR107 repaired the reproduced outer-registration bypass. Its configured command reaches this unfinished task; native Goal has automatically continued it. Custom hook trust/loading remains unverified and broader event coverage remains opt-in. | The current goal can continue, but this does not certify every task or laptop-independent execution. | Operating owner preserves explicit objective/session binding and separates native Goal evidence from custom-hook claims. |
+| P0 | PR108/109 restored and repaired the complete prose-quality chain on main, but shared HEAD3091a1fd contains neither merge and still executes older producer/review consumers. Its admission command and two package tests are missing. | Main CI success does not make the working product checkout an adopter. The release checker has identical bytes but imports older local dependencies. | Adopt the complete package into a clean owner-selected receiving branch, reconcile its registry once and run that destination’s actual CI. Preserve the dirty shared checkout. |
 | FIXED | PR104 retired the legacy Hot Goss scheduled rewrite/direct-push path. | The obsolete unattended editorial route is removed. | Keep the manual-only artifact route; no automatic publication is inferred. |
 | P1 | Shared quality calibrations pass, but all 17 real content work orders are held. Bare release checking permits a green integrity result with zero ready content; strict candidate selection rejects held work. | Green CI is being overinterpreted as delivery/quality. | Preserve integrity CI; require exact candidate ID for admission/release. Report ready/held counts separately. |
-| P1 | The shared Straight Answers positive exemplar expects SHA8cd3d008… but current file is1c50762d…. Pending reusable lessons require PENDING_OWNER_ADMISSION, with no verified executable admission transition into the registry. | The maker either cannot pass its input contract or relies on manual knowledge transfer. | Learning owner recovers exact admitted exemplar or reviews a replacement; integration owner connects explicit owner admission to next-maker invalidation. Never replace the hash just to clear the check. |
-| P1 | Ali rejected the carousel after AI admissions: the invented pension/marketing exercise displaced the intended LUMINAiRY discovery journey. | Correct arithmetic/export tests missed the actual product purpose. | Test maker and judge on the exact known-bad artifact without supplying the expected defect; then test a new example. A checklist alone cannot establish semantic learning. |
+| SOURCE REPAIRED / OUTCOME OPEN | PR108 recovered exact historic exemplars without changing current products. PR109 added immutable owner admission, provenance revalidation and required producer-plan application. Calibrated tests pass; no new real lesson or successor was admitted. | The executable prevention route exists on main; actual adoption and improved maker behavior remain unproved. | Learning owner dispositions one appropriate real prose rejection, then its product owner produces and evaluates a successor. Do not use a visual incident as prose evidence. |
+| P1 | Ali rejected the carousel after AI admissions. A fresh independent expert also returned REPAIR on its exact preserved output against the corrected field-trip purpose, without seeing the expected defects. | Correct arithmetic/export tests missed product purpose. The trial detects material failures but is not a historical-original-brief test or learner study. | Existing product/learning owners resolve the incident and evaluate a real successor. The expert trial alone cannot establish that the maker improved. |
 | P1 | Current working tasks and old central records disagree; the dispatcher is intentionally paused and work events remain an opt-in pilot. | Work can have a task, files and a handoff without accountable continuation. | Bind one existing real job through owner acceptance, execution, outcome, next owner and closure; extend only after it works. |
 | P1 | Main CI passed after PR103; the current NewsStand branch has repeated minimum-session-context failures. | Integration failures are mixed with product progress. | Reconcile that branch's standing-card/source bindings before integration; do not disable the guard or restart the editorial work. |
 | P2 | 58 registered worktrees: one clean ancestor of main, two ancestors with local state, 55 not proven integrated by ancestry/unknown. No prunable registrations at this snapshot. | Folder age cannot safely identify obsolete work. Non-ancestry also includes cherry-picked equivalent work. | Reuse the existing clean-worktree recovery plan and work index; classify exact owned packages and recovery links before archive. |
@@ -62,7 +64,9 @@ that every visitor feature or all unpublished artifacts were inspected.
 Evidence anchors: `scripts/check-content-producer-contract.mjs`,
 `check-prose-quality-admission.mjs`, `check-content-release-readiness.mjs` and
 `operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json`
-are **shared-checkout sources absent from main at audit**, not working main paths.
+were shared-only at the initial audit and are now present on main through PR108/109.
+The September 6 adoption comparison found the shared consumers still older;
+package and destination details are in the learning ecosystem `RECOVERY.md`.
 Shared `state.json` explicitly records local build and surface-adoption holds.
 Shared carousel evidence: `operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v3/ALI-REJECTION.md`.
 [Failing legacy scheduled run](https://github.com/laidies/LAIDIES/actions/runs/34039375615).
@@ -128,6 +132,19 @@ one confirmed owner/task, source branch/path, exact next action, finish conditio
 and receiving integration/release owner. Give old packages one disposition:
 continue, integrate selected work, superseded with successor, parked with trigger,
 or unknown/preserve. A task is not finished because its branch is old or clean.
+
+Current limitation of that existing index: the shared copy was generated on
+August 4 from July 26–August 4 sources. Its run queue has zero active entries;
+the three completed-not-integrated entries refer to July Blend & Snap, Homepage
+and NewsStand work. These are historical leads, not current merge instructions.
+`build-control-room-work-index.mjs` and its generated index are absent from main.
+The builder combines six fixed source files; its downstream owner-control-plane
+consumer does not discover live tasks, worktrees or newly merged repairs.
+Regenerating without reconciling those source records would only put a fresh
+timestamp on stale information. Keep the current adoption handoff in its existing
+learning recovery record until the Control Room owner reconciles the appropriate
+consumed source; do not invent a duplicate portfolio or silently enroll work in
+an ambiguous queue. No historical package is discarded by this finding.
 
 Keep sustained work in bounded non-iCloud checkouts. Preserve the shared tree:
 its inventory had642 tracked and3264 untracked status entries (entries, not a
@@ -217,9 +234,10 @@ status view; product owners retain their products. Review active work and overdu
 handoffs weekly, schedules and cost monthly, and archive only after exact
 recovery/successor proof. Measure complete jobs, missing/failed runs, waiting
 for owner/decision, repeat defects, Ali review rounds and actual per-job usage.
-Unmeasured values stay unknown. The next work is package2, not another audit
-report: integrate one complete existing quality package after resolving its
-source bindings, then demonstrate package3 on a real rejection.
+Unmeasured values stay unknown. Package2 is integrated on main. Next adopt its
+complete dependency closure in an actual receiving owner checkout and close
+package3 with a real owner-dispositioned rejection and successor. Preserve the
+active NewsStand lane; an old task or source snapshot does not authorize takeover.
 
 ## Limits and changes in this audit
 
@@ -231,8 +249,8 @@ merged. No provider call was made by this audit. A manual legacy dispatch may ca
 Anthropic and may retain the old feed when no new stories arrive; its artifact
 is inspection material, not an admitted or necessarily fresh candidate. The
 workflow guard checks current YAML structure, not every possible indirect write
-route or editorial quality. The exact legacy publisher retirement is implemented
-locally with negative workflow tests; its remote merge/run state is recorded in the PR and
+route or editorial quality. The exact legacy publisher retirement merged through PR104 with negative
+workflow tests; its source/run boundaries are recorded in the PR and
 `OPERATING-RECOVERY-NEXT.md`. All uncertain source/owner gaps above stay open.
 
 
@@ -244,10 +262,10 @@ locally with negative workflow tests; its remote merge/run state is recorded in 
 | Existing work events/handoffs | REPAIR coverage and routing | They preserve objective/state but are an opt-in pilot, not a live dispatcher. New session -> bound objective -> real checkpoint -> continuation/wait/resolution must be exercised. |
 | 67 product roles and 34 specialists | KEEP responsibilities; COMBINE runtime execution where one competent agent suffices | Roles need not be permanent workers. Spawn a distinct reviewer only when independent judgment can reject a real failure; use specialists on demand. |
 | Baseline CI | KEEP as integrity checks | Do not label schema/fixture success content quality or end-to-end completion. Each quality claim needs its actual artifact and purpose. |
-| Shared learning guards/registry | REPAIR as one complete distributed package | Resolve admitted positive-source drift, connect pending -> admitted lesson, and run a blind real-artifact trial before trusting the evaluator. |
+| Shared learning guards/registry | ADOPT the complete PR108/109 package | Main source and calibrated propagation are repaired; shared consumers remain older. Real expert trials returned REPAIR, but new owner admission and successor proof remain open. |
 | GitHub source polling / private Cloud maintenance | KEEP bounded polling; REPAIR receiver and notification evidence | Existing services already perform parts of the cloud job. One finding must reach a live owner and resume without Ali relaying context. |
 | Legacy HotGoss publisher | RETIRED by PR104 | Keep it from returning through old branches or generated instructions. |
-| Current visual reference entry | KEEP small; integrate PR106 with its current owner | Selection consumer tests matter alongside the view. Do not expand into an all-artwork archive or infer public reuse. |
+| Current visual reference entry | KEEP small; PR106 merged, shared entry pointer committed | Selection consumer tests matter alongside the view. Do not expand into an all-artwork archive or infer public reuse. |
 | Old worktrees and historical instructions | PRESERVE, then disposition exact packages | Start with active owner/integration gaps. Archive only after unique uncommitted work is preserved and a successor/source is verified. |
 | New project manager, graph database or messaging subscription | DEFER | No measured failure currently requires one; they would add another state store and another inbox. Reconsider only after the existing supported route fails its acceptance trial. |
 
@@ -297,8 +315,9 @@ Foreground independently matched the read-only recovery. Preserve its registered
 architecture-only scope; neither the registry's authority label nor commit
 metadata approves the later changed file. The integration package can use those
 exact historical exemplar bytes without overwriting the current product book.
-A future replacement needs its own scoped admission. This resolves source
-recoverability, not the missing reusable-learning transition or evaluator trial.
+A future replacement needs its own scoped admission. PR108 integrates these
+exact internal bytes; PR109 supplies the bounded prose-learning transition.
+Neither changes the current product book or proves a successor improved.
 
 Continuation source repair `bc95574d` is rebased onto the reference package as
 `36ccb875` in PR107. The outer config was updated only after byte-matching its
@@ -310,10 +329,12 @@ baseline CI jobs passed. Ali then activated native Goal mode; one automatic
 continuation was observed. The whole-operation objective remains active.
 
 
-Learning package recovery now uses exact historical Episode 1 and Straight
-Answers bytes as internal exemplars, preserving their existing scope. The
-producer/review/release scripts, tests and real 17 held orders are recovered for
-mainline integration. A missing positive-example evidence check was repaired in
-both consumers. This closes source recoverability, not the learning-owner
-admission edge, real semantic evaluation or destination adoption. See
-`product-stewards/learning-content-ecosystem/RECOVERY.md`.
+Learning package recovery merged through PR108 (`9a372e70`); owner-admission
+and producer-plan propagation merged through PR109 (`53b7d833`). Both exact
+source heads passed cloud baseline CI. All 17 real content orders remain held.
+The September 6 adoption audit compared real shared files and commit ancestry:
+shared HEAD `3091a1fd` contains neither merge, has no admission command/package
+recovery record, and runs older producer/review code. The identical release
+checker does not compensate for its older imports. See the existing package
+[recovery and adoption instructions](product-stewards/learning-content-ecosystem/RECOVERY.md).
+No shared product files were overwritten and no owner task was restarted.

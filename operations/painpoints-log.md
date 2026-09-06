@@ -321,3 +321,20 @@ and test the next producer consuming the correction; do not use a saved review
 or a principal label as proof that learning happened.
 Behind the Build: why a system can demand feedback yet make it too expensive to
 record—and why recording feedback is only the start of learning.
+
+
+## 2026-09-06 — Main integration is not receiving-checkout adoption
+
+PR108/109 passed mainline CI, but the shared product checkout had neither merge,
+no admission adapter/package tests and older producer/review code. Identical
+release-checker bytes hid changed behavior through its local imports. The audit
+itself also retained obsolete present-tense findings after repairs merged.
+Prevention: reconcile the existing audit in place and check the receiving
+command's dependency closure, registry and actual candidate before claiming
+adoption. Preserve dirty work and use the receiving owner's clean branch.
+Behind the Build: the fixed version can exist while the working version still
+uses the old mistake; learning requires delivery to the next maker.
+The existing generated work index was also stale and its builder consumes fixed
+source records rather than discovering actual execution. A fresh generation time
+cannot prove source freshness. Reconcile its authoritative inputs before using
+it to choose an adoption, cleanup or owner action.
