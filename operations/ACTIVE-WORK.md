@@ -1,3 +1,4 @@
+<!-- NewsStand correction 2026-09-06: whitish paper #fffdfb with tangerine #ff9b3d dots; supersedes the orange ground. Two public files only; deployment verification pending. -->
 <!-- Tangerine printed paper: VERIFIED PUBLICLY -->
 Ali suggests tangerineorbrightpink; tangerineff9b3d applied to texturedpaper. Sourceb5129512 deployedbb17edd9; independentreviewaccepted,live1200/390/320clear; exact2filesbothorigins. Evidence operations/product-stewards/newsstand/evidence/tangerine-20260906/.
 

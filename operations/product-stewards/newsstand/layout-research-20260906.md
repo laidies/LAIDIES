@@ -65,3 +65,5 @@ Ali also endorses balanced composition with colour used selectively rather than 
 Ali finds off-whiteprintground too subtle and requests an actualpalettecolour. Use establishedsky78c7ff behindarticles with slightlymorevisibleprintgrain. Preservefeaturecolours/layout.
 
 Lateststeering suggests tangerine orbrightpink. Use establishedtangerineff9b3d forpaper, preservingbrightpinkmasthead/art; supersedes privateskycandidate beforepublication.
+
+CORRECTION: Ali meant whitishpaper with tangerinedots, not tangerinepaper. Restore paperfffdfb; printdots use tangerineff9b3d. Supersedes fullorangeground.
