@@ -1,0 +1,38 @@
+name: Current visual references
+on:
+  pull_request:
+    paths:
+      - 'operations/reference/**'
+      - 'operations/assets/active-asset-registry.json'
+      - 'operations/episode-visual-system-lock.md'
+      - 'operations/page-design-bar.md'
+      - 'operations/resident-card-design-decisions.md'
+      - 'scripts/*current-reference*'
+      - 'scripts/lib/active-asset-admission.mjs'
+      - 'assets/**'
+      - '.github/workflows/current-reference-check.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'operations/reference/**'
+      - 'operations/assets/active-asset-registry.json'
+      - 'operations/episode-visual-system-lock.md'
+      - 'operations/page-design-bar.md'
+      - 'operations/resident-card-design-decisions.md'
+      - 'scripts/*current-reference*'
+      - 'scripts/lib/active-asset-admission.mjs'
+      - 'assets/**'
+      - '.github/workflows/current-reference-check.yml'
+permissions:
+  contents: read
+jobs:
+  exact-current-references:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/test-active-asset-admission.mjs
+      - run: node scripts/test-current-reference-index.mjs
+      - run: node scripts/build-current-reference-index.mjs --check

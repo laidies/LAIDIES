@@ -254,3 +254,8 @@ inventory. Independent review corrected overdrawn cloud runtime edges and the
 false implication that real provider tests necessarily require a human tester.
 Behind the Build: a diagram earns its value by showing broken handoffs and who
 actually has to act, not by drawing a box for every fashionable agent role.
+
+
+## 2026-09-06 — Current references need source and consumer binding
+
+The small visual-reference intake found a rejected Matron identity still selected by an older reference manifest, a different Miss Jeeves status in shared versus receiving main, and source approvals missing from fresh checkouts. Prevention: current views derive from the existing scoped manifests/registry, bind exact approval-source and image bytes, and fail on revoked paths, rejected hashes, changed sources or stale generated views. Never infer approval from a filename. The first targeted review found unverified category-library links and an overbroad people-style label; category sources and map now receive the same checks, with a deliberate changed-category failure test, and the people style is explicitly episode/trailer-scoped. Consumer repair is coordinated with the system engineering task. Behind the Build: an inspiration library becomes dependable when it explains what each reference is allowed to decide, and when the tools stop selecting superseded versions. This is selection/integrity evidence, not new art approval.

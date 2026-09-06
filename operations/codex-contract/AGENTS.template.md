@@ -11,6 +11,11 @@
 2. `{{OPS}}/DECISIONS.md` — the router: authority order, per-area decision
    docs, and the process/tooling decisions that post-date the Canon Index.
 
+For art or visual work, next open `{{OPS}}/reference/README.md` and only the
+relevant current view. Choose matching-new-art versus exact-image reuse; check
+its bound source and destination scope before selecting any image. Do not
+choose by filename, folder age or an old approval label.
+
 The Canon Index is not product-architecture authority. For LIBRAiRY architecture,
 read the current Library source routed by `DECISIONS.md`; never recover a layout,
 palette or interaction from the Canon Index or an older evidence packet.
