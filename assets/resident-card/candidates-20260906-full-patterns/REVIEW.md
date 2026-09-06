@@ -4,9 +4,11 @@
 
 **Existing options described as okay, not great:** Diagonal Print, Pocket Tech and CD Player.
 
-**Two new options:** Girls’ Night Out and Getting Ready, following Ali's request for heels, lips and other fun feminine accessories.
+**Getting Ready remains under review:** Ali said the scrunchie is okay and asked whether the purple and green objects are rings. This is not approval of the whole image.
 
-Only these eight images belong to this review. Purple Brushwork was withdrawn because Ali found it too similar to Diagonal Print. Disco, Memphis and all older stretched/pastel/thin-border drafts are excluded. These are artwork choices; page fit, readable text and installation remain separate work. Nothing is installed.
+**Girls’ Night Out withdrawn:** Ali rejected the heels-and-bag image, leopard print, and its colour combination with dark blue. Do not reuse this treatment in successor Resident Card options. This does not retire dark blue across the brand or reject all possible heels/bag illustrations.
+
+Only the seven displayed images belong to this review. Purple Brushwork was withdrawn because Ali found it too similar to Diagonal Print. Girls’ Night Out, Disco, Memphis and all older stretched/pastel/thin-border drafts are excluded. These are artwork choices; page fit, readable text and installation remain separate work. Nothing is installed.
 
 ## 1. Skates — You said this is good.
 
@@ -44,10 +46,6 @@ Only these eight images belong to this review. Purple Brushwork was withdrawn be
 
 [Open original](08-cd-summer-v2.png)
 
-## 7. Girls’ Night Out — New, awaiting Ali's verdict.
-
-![Girls’ Night Out](09-girls-night-out.png)
-
-## 8. Getting Ready — New, awaiting Ali's verdict.
+## 7. Getting Ready — Scrunchie okay; whole image not approved.
 
 ![Getting Ready](10-getting-ready.png)
