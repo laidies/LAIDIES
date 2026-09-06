@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Tangerine replaces rejected white banner text
+
+Ali rejects white and permits coral or tangerine. Existing tangerine #ff9b3d replaces white heading/body in Did you know, with existing navy letter edge and lime links. Source ebe7c330; hosted evidence563533d9; https://51a924f9.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 visibly updated. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. No copy, image, layout or action changes. Preview only; supersedes white text ruling.
+
 ## 2026-09-06 — Mall discovery-banner image replacement
 
 Ali rejects the directory-card Mall thumbnail. Reuse the existing homepage Main Street dusk artwork: crop x925/y100/300×300 shows the Mall glass dome and neon frontage. Preserve bright banner text, question-mark graphic, dimensions, copy and all destinations. Source 2d421e8d; hosted evidence 3b1a2e17; https://22aa181e.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 updated and paused on the Mall. Worktree: /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only; owner review remains pending.
