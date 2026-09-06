@@ -1,0 +1,1 @@
+Add lime-green burst behind existing question mark matching Take me to the Mall text exactly via --hp-lime #b7e42b. Reuse existing burst raster alpha as CSS mask, no pixel editing or generation. Keep text readable, compact geometry, pointer events none, current Mall, coral/pink Jeeves, tangerine text and all copy/actions. Preview only.

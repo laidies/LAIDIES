@@ -1,0 +1,1 @@
+Inspected paired1440/390 pixels: lime burst visible behind unchanged dimensional question mark, live tangerine title remains readable, no visible clipping or crowding. Same CTA/shape lime token. Existing assets unchanged. All32paired slide rows preserve copy, images, actions, backgrounds and height; no overflow. No maker-found material issues remain.

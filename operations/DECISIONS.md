@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Lime burst behind the question mark
+
+Ali requests a green burst behind the Did you know question mark matching the Take me to the Mall link. Bind the existing --hp-lime #b7e42b. Keep the existing question mark, tangerine text, coral/pink Miss Jeeves backdrop, compact geometry and all content/actions. Reuse suitable existing art where available; no flat generic substitute. Preview only.
+
 ## 2026-09-06 — Miss Jeeves backdrop must use LAiDIES colour
 
 Ali rejects the plain white backdrop behind Miss Jeeves: LAiDIES does not use plain white backgrounds. Replace the banner portrait tile with the existing coral-to-pink palette, preserving separation from her navy clothes. Carry this no-plain-white visual preference forward. Keep the portrait, tangerine text, current artwork, layout and actions; preview only.
