@@ -54,7 +54,9 @@ reviewer detecting weak teaching. No current content is admitted or published.
 
 ## Rejection to reusable learning — current implementation
 
-The adapter is built locally on `ops/learning-admission-transition-20260906`.
+The adapter is merged through PR109 as
+`53b7d83384e71f83d679ff2bf005fbcd4af9e2b3`. Both cloud baseline jobs passed on
+exact source `703afb371425d249d797e399eb96e25c858bd6e0`.
 It completes the previously missing source-integrity edge, using the existing
 registry. It has not admitted a new real product lesson or produced a successor.
 

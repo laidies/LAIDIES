@@ -6,7 +6,7 @@ and their exact artifacts outrank historical snapshots below.
 
 ## Current continuation — executable flow audit, September 6
 
-PR103–108 are merged: instruction distribution, retired obsolete publisher,
+PR103–109 are merged: instruction distribution, retired obsolete publisher,
 full map, current visual references/consumers and session-based continuation
 routing, plus the existing prose-quality package. PR108 is `9a372e70`, with
 both cloud CI jobs successful. PR107 merge is `f29dfb57cd6f1c27b925016b884e3181d8a0671e`; both baseline
@@ -19,15 +19,21 @@ observed after the activation response. This proves that continuation, not
 unattended Mac-off operation or indefinite persistence. Keep the goal active
 through intermediate milestones; the Stop hook retains its recursion bound.
 
-Current branch `ops/learning-admission-transition-20260906` continues after
+Current branch `ops/operating-audit-reconciliation-20260906` continues after
 the existing producer/review/release package was restored to main by PR108. Two registered writing
 examples are frozen at their exact historical bytes under internal operations;
 current product sources are untouched. The News exemplar's supporting evidence
 now participates in both producer and review checks. All 17 real work orders
 remain held. See the package `RECOVERY.md` for exact scope and remaining edges.
-The pending-learning adapter and producer propagation are now built locally.
-Integrate the tested source edge, then obtain a real owner-admitted learning and
-independently evaluated successor; do not fabricate a fresh incident. The package recovery record also binds
+The pending-learning adapter and producer-plan bindings merged through PR109
+as `53b7d833`, with both cloud baseline jobs successful on exact source
+`703afb37`. Next reconcile the complete audit plan/map with actual owner/runtime
+adoption and remaining handoff/cloud proof. Real learning-owner disposition and
+a successor remain open; do not fabricate a fresh incident or take over an
+active product owner. NewsStand task `01a071e7-db55-7a22-8c99-04eba5060355` was
+confirmed active in native status after this merge; Learning owner
+`019f9f7f-9e4c-72d2-8882-447bcbe01691` was notLoaded, which does not establish
+abandonment. No cross-owner messages were sent in this step. The package recovery record also binds
 a fresh expert trial that returned REPAIR on exact known-bad chapter bytes;
 that limited result is not complete calibration or learner research. Do
 not treat fixture verdicts as semantic review or invent a second learning registry.
