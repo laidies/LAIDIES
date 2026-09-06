@@ -6,3 +6,5 @@ Root1200/390/320 freshvisit: no overflow/brokenimages; BigPicture320title comple
 
 - newsstand.html: `c130aa8688e4a369454e49d65f5b576fe88509b7df6baa673cae020447443260`
 - content/newsstand-design.css: `58507ecd208c6d77d983f4beccf3bd216441e45a735856599d78b09d8e28f1fc`
+
+Returning-reader1200/320 fixture also inspected: fiveupdates, no statusrectangle/overflow. Six exact service bodies opened. Source2f56dadf published https://833c5a33.laidies-sunnyvaile.pages.dev and https://laidies.ai/newsstand. Both files exact at both origins; fresh live1200/390/320 clear. Root inspected live Jost/violetserviceheadings. General sparse hooks skipped; scoped reader/interaction/render/release checks used. Broader pinkpaper concern remains open.
