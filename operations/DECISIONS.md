@@ -1,5 +1,10 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Owner supplies eight Did you know highlights
+
+Use Ali's eight supplied banner invitations: Rewind Era games, Miss Jeeves, KSVL radio while browsing, women in computing, LIBRAiRY textbooks, NewsStand headlines and Big Picture, FAiRY career advice and learning to use one's own AI, and Mall references. Preserve her examples and direct, welcoming language, with spelling/canon and source-supported factual corrections. “Over 200 years” is not established by the 1843 Ada Lovelace source; use computing since the 1800s. Keep the rotating banner slim below the masthead, with direct links and existing art, alongside the restored needs shortcuts and compact expandable full directory. Update the preview only.
+
+
 ## 2026-09-06 — Restore existing needs shortcuts; compact directory by owner request
 
 Ali confirmed the original “I want to learn” shortcut led to the already-built /learn.html page and instructed: “yup. ok lets put that back please”. Restore the original six needs shortcuts and existing artwork above the complete directory. Learning routes to /learn.html; the broad AI-question shortcut routes to that page’s existing #help-now choices, rather than implying all help is Miss Jeeves. Preserve published-episode and current-headline updating.

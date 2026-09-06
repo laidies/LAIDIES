@@ -1,0 +1,9 @@
+# PRODUCER_SELF_REVIEW — eight owner highlights
+
+Maker /root read all eight exact highlights in full, checked the source diff, and inspected actual desktop/phone banner pixels. Copy preserves the owner examples and next-click purpose. The history claim is scoped to computing since the 1800s, supported by the Science Museum 1843 source in scope.md. Radio explicitly opens a separate tab, supporting browsing while that player remains open. No universal answer guarantee, paid research, full-game availability or new pricing claim is added.
+
+All eight current images decode and match the features; all hrefs match the exact highlights map. Shared heading avoids repetitive Did you know text. NewsStand keeps both headlines and Big Picture. FAiRY keeps advice now plus own-AI next time. Games retain Dream Phone, Girl Talk and paper fortune teller. Existing assets, fonts and palette are reused. No new artwork is generated.
+
+Maker caught the inherited 21ch h3 cap, which produced a 228px desktop banner, and removed it before independent review. At desktop1440/phone390 the repaired banner is compact, readable and stable through all eight slides. No clipping or horizontal overflow. Longer mobile copy flows beneath the thumbnail. Invisible slides reserve the maximum height and remain noninteractive/hidden. Browser checks cover all eight, buttons/wraparound, reduced-motion default, directory keyboard/no-JS and actual learning/help destinations. Existing runtime is unchanged; timed rotation and persistent pause were exercised.
+
+Exact HTML 81b4f6619755e2c637fab8cc8e684026d3599ed5d03aa0522b2ee57f8d8f7edb; runtime 281e247abba7e10e5594a0ad8eab17912d2403074c2e3e0a778b23c99a3e7fe5. Maker result: ready for independent owner-preview review. No production release, paid-service verification or broad unchanged-page quality claim.

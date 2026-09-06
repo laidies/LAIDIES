@@ -22,8 +22,9 @@ export function inspectHomepageCorrection(item, root) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
-    if (a.owner_feedback_successor === 'SHORTCUTS_DIRECTORY_AND_SLIM_BANNER') {
-      const p = 'operations/product-stewards/town-entry-homepage/candidates/shortcut-restoration-20260906/';
+    if (['SHORTCUTS_DIRECTORY_AND_SLIM_BANNER','OWNER_EIGHT_BANNER_HIGHLIGHTS'].includes(a.owner_feedback_successor)) {
+      const bannerOnly = a.owner_feedback_successor === 'OWNER_EIGHT_BANNER_HIGHLIGHTS';
+      const p = 'operations/product-stewards/town-entry-homepage/candidates/' + (bannerOnly ? 'banner-highlights-20260906/' : 'shortcut-restoration-20260906/');
       const read = file => JSON.parse(bytes(p + file));
       assert(item.id === homepageCorrectionId && item.review_type === 'building_page_visual', 'wrong scoped candidate');
       for (const [name, binding] of [['homepage', a.candidate], ['runtime', a.runtime], ['worker', a.worker]]) assert(binding && digest(binding.path) === binding.sha256, name + ' bytes differ');
@@ -31,7 +32,7 @@ export function inspectHomepageCorrection(item, root) {
       for (const name of ['scope.md','manifest.json','producer-contract.json','producer-self-review.md','source-diff.patch','browser-checks.json','motion-check.json','independent-review.md','claude-review-result.json','visuals.json']) assert(a.evidence?.some(b => b.path === p + name), 'missing bound evidence: ' + (name.startsWith('claude') ? 'claude' : name));
       const manifest = read('manifest.json');
       for (const source of manifest.source) assert(digest(source.path) === source.sha256, 'manifest source differs');
-      assert(digest(p + 'parent.html') === '58faa8ecba670e0899c14c8d3d705f83d1b7a8f7a6fb5678c9087880e773b3b6', 'wrong restoration parent');
+      assert(digest(p + 'parent.html') === (bannerOnly ? 'e44657f518fcd27810a2895080b34835b2fa60d6fb8481f4ae42ceb30f7ed977' : '58faa8ecba670e0899c14c8d3d705f83d1b7a8f7a6fb5678c9087880e773b3b6'), 'wrong restoration parent');
       assert(a.worker.sha256 === '9ddfba4179ce757019a2bacf75dbc814a222410628821b17c5feaba09337e764', 'unrelated Worker changed');
       const independent = bytes(p + 'independent-review.md').toString();
       const claude = read('claude-review-result.json');
@@ -47,6 +48,14 @@ export function inspectHomepageCorrection(item, root) {
       const html = bytes('index.html').toString();
       assert(html.includes('class="intent" id="today"') && html.includes('href="/learn.html#help-now"') && html.includes('class="directory-disclosure"') && html.includes('Show the full directory') && html.includes('did-you-know dyk-slim'), 'owner navigation missing');
       assert(bytes('operations/DECISIONS.md').toString().includes('Restore existing needs shortcuts; compact directory by owner request'), 'owner scope missing');
+      if (bannerOnly) {
+        assert(a.runtime.sha256 === '281e247abba7e10e5594a0ad8eab17912d2403074c2e3e0a778b23c99a3e7fe5', 'unrelated runtime changed');
+        assert((html.match(/data-dyk-slide/g)||[]).length === 8 && !html.includes('over 200 years'), 'owner eight highlights missing');
+        const strip = text => text.replace(/    <section class="did-you-know dyk-slim"[\s\S]*?<\/section>/, '').replace(/\.dyk-slim \.dyk-copy h3\{max-width:none\}[\s\S]*?(?=<\/style>)/, '');
+        assert(strip(html) === strip(bytes(p + 'parent.html').toString()), 'unrelated homepage content changed');
+        assert(checks.checks.every(c => c.bannerSlides === 8 && c.stableBannerHeight), 'eight-slide fit not proved');
+        assert(bytes('operations/DECISIONS.md').toString().includes('Owner supplies eight Did you know highlights'), 'banner owner scope missing');
+      }
       assert(a.production_release_approved === false, 'owner presentation does not authorize production');
       return errors;
     }
