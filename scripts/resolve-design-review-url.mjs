@@ -43,4 +43,4 @@ const admitted = (queue.review_now || []).find(item =>
 if (!admitted) fail('exact candidate path and SHA-256 are not admitted in review_now');
 
 console.log(`DESIGN PRESENTATION ADMITTED ${admitted.id}`);
-console.log(pathToFileURL(candidatePath).href);
+console.log(admitted.design_admission.scope === 'try-on-episode04-social-20260905' && admitted.design_admission.preview?.url || pathToFileURL(candidatePath).href);

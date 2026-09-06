@@ -1,15 +1,15 @@
 {
-  "status": "BUILT_LOCALLY / DESIGN_ADMISSION_HOLD / NOT_DEPLOYED",
+  "status": "REJECTED_BY_ALI / DO_NOT_PROMOTE",
   "time": "2026-09-05T22:44:09.175318+00:00",
   "owned_files": {
     "try-on.html": "7c957ba804ab37a492b99bdb2f3e35e40e938c57b6d45e0b04e63beb00343bed",
     "content/try-on-social.css": "3d50b594bf5f5c9e00e71dc9a3dcdabb26268bb1d140cc27f10e8c9c2d6f0f7f",
-    "content/site/try-on-social.js": "038868dc7eabd00c3e65764422589207e5332a9dfe788dc0445a519ceb77a5a3",
+    "content/site/try-on-social.js": "593bfe5c97fa114e0e001740383f442e1a1d0475c4c1ba7fc7b227bc8db03e15",
     "content/blend-snap-weekly-packs.json": "45cc28e4f80d6361c2daee01c84e93c3750c7bedb08a61a24a88ac76d8c39fbd",
     "blend-snap.html": "67d18e56a4f9b6579c2a9a5fcc420ec192ae9854903f70263aae075a18c803bc",
     "resident-card.html": "7da5112406836a72149374cab665d839a95b9cd8cdf5e49a7b39ad2c7c975dfc",
     "scripts/test-try-on-browser.mjs": "c1f35bcf51ab2575fb2fcdd2429111e576626d14eba3c23e179d11906cdcef65",
-    "scripts/test-try-on-social-browser.mjs": "ee7e3966fe6f48f30af98137e65405082898a49d734ab5efdfbd7582f66dbc91",
+    "scripts/test-try-on-social-browser.mjs": "0ee8d463feddff28aa96c5d2e4091c5b6122fd4ec6952f98133baac536b44002",
     "scripts/check-try-on-social.mjs": "2cf34a575def2911ad53f82ccfa310c0ed397b31df03ec801b282d4fe9797e7f"
   },
   "rendered_evidence": {
@@ -25,10 +25,11 @@
     "public_removal": "Deleted fac9da31 preview returns HTTP404, checked 2026-09-05T22:36:42Z. No replacement deployment.",
     "not_verified": [
       "Real mobile OS share sheet",
-      "Owner-facing full design admission",
+      "Full screen-reader behavior",
       "Production successor behavior"
     ],
-    "failure_recovery": "Eight result groups: prior desktop/mobile/export/private-data/episode checks plus no file-sharing support, non-cancel share failure, denied clipboard with full selected fallback, simultaneous Story/Post clicks where latest Post wins."
+    "failure_recovery": "Eight result groups: prior desktop/mobile/export/private-data/episode checks plus no file-sharing support, non-cancel share failure, denied clipboard with full selected fallback, simultaneous Story/Post clicks where latest Post wins.",
+    "live_preview": "social-preview-proof.json"
   },
   "independent_review": {
     "principal": "/root/blend_failure_trace",
@@ -38,12 +39,13 @@
     "limits": "No actual phone OS share-sheet proof or separate primary-source re-verification; not full multi-role repository admission."
   },
   "review_blocker": {
-    "required_check": "scripts/check-design-review-admission.mjs",
-    "requirement": "Distinct role reviews including exact Claude Opus 5, plus owner queue bindings, before candidate presentation.",
-    "attempt": "Claude CLI requested exact claude-opus-5 for artifact-first blind calibration; returned no result for more than five minutes; only that process was terminated with SIGTERM (exit143).",
-    "outcome": "No Claude review or formal design admission claimed. No automatic approval-review rejection occurred.",
-    "second_attempt": "Safe-mode Claude CLI with medium effort and exact model made requests but returned no complete review before the bounded 90-second timeout. This does not establish model unavailability; no review verdict exists.",
-    "pending_owner_decision": "Requested permission to use two independent available full-experience reviewers plus source/export/privacy checks for this feature only, replacing the eleven-reviewer requirement. No answer or approval assumed; formal gate remains unchanged."
+    "status": "SUPERSEDED_BY_ALI_AUTHORIZATION",
+    "authorization": "social-review-authorization.json",
+    "current_reviews": [
+      "social-reviewer-1.json",
+      "social-reviewer-2.json"
+    ],
+    "further_review": "Only for material changes, failure or new contradictory evidence"
   },
   "blind_calibration": {
     "principal": "/root/tryon_blind_calibration",
@@ -62,5 +64,5 @@
     ],
     "finding": "Primary paper and Cambridge CV support author/year, collection-frequency weighting and the conditional velvet/blazer example. Caption does not materially overstate. Frequent terms are not discarded; no all-modern-search claim is made."
   },
-  "last_updated": "2026-09-05T23:00:50.358623+00:00"
+  "last_updated": "2026-09-05T23:31:00.169547+00:00"
 }

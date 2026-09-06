@@ -1,0 +1,73 @@
+{
+  "verdict": "HOLD",
+  "scope": "try-on-episode04-social-20260905",
+  "principal": "/root/social_v2_artifact_judge",
+  "model": "GPT-6 Astra / Medium",
+  "artifact_first": true,
+  "manifest_sha256": "15285ab1cc6fb1b2cc708aae77ce43ea5f915fc656f2f78e76753a51e0a9f648",
+  "findings": [
+    {
+      "severity": "material",
+      "area": "phone readability",
+      "confidence": "certain",
+      "finding": "At phone display size the output makes the comparison headings and, especially, the historical-example and relevance/truth limitation too small to read comfortably. The image itself is the deliverable; the web transcript does not accompany an image shared elsewhere.",
+      "evidence": "The export draws table headings at 27 px and the two-line limitation at 25 px across a 1080 px canvas: approximately 9.8 px and 9.0 px at a full-width 390 px feed, or 8.0 px and 7.4 px at 320 px. In the supplied web previews the image is only 342 px or 272 px wide, reducing the limitation to approximately 7.9 px or 6.3 px. The rendered mobile images visibly confirm the loss of readable small text."
+    },
+    {
+      "severity": "material",
+      "area": "visual brief",
+      "confidence": "likely",
+      "finding": "The exported composition reads as a dark presentation infographic: a headline, two flat folder-label boxes, a score table and a concluding sentence. It does not yet deliver the requested adult graphic-novel/pop-art composition. The selected accent colours and Jost font establish brand continuity but are carrying almost all the visual identity; the comparison is still presented as a table rather than a composed graphic scene or sequence.",
+      "evidence": "Both social-post.png and social-story.png use the same stacked rectangular information layout. The extra story height adds a file list. Against the supplied Homepage reference, the deliberate illustrated energy, layered composition and comic visual treatment are absent. The LIBRAiRY page header is echoed in the export page, but that header alone is not the full visual authority."
+    },
+    {
+      "severity": "verified strength",
+      "area": "teaching and factual mechanism",
+      "confidence": "certain",
+      "finding": "The missing causal explanation is repaired. Collection counts lead to different points per matching term, and the table shows the pension-only result separating from four plan-only results. The exact 1 and 3 weights agree with the original 1972 frequency-band rule. This is an adequate compact explanation of this mechanism; it does not require a formula or another explanatory paragraph."
+    },
+    {
+      "severity": "verified strength",
+      "area": "scoped implementation",
+      "confidence": "likely",
+      "finding": "Source inspection shows local deterministic export, no social-module storage access or AI request, explicit format state, a long image alternative, a selectable transcript, status announcements, retry and clipboard/share fallbacks. Episode04 exits the legacy exercise code before private-note reads. No material functionality or privacy defect was found in this scoped static inspection. Supplied browser results report successful export and fallback checks; they were not used to establish visual or teaching quality."
+    }
+  ],
+  "unresolved_issues": [
+    {
+      "artifact": "/Users/alisoneakin/Projects/laidies-blend-snap-menu-20260905/operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v2/social-post.png; /Users/alisoneakin/Projects/laidies-blend-snap-menu-20260905/operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v2/social-story.png",
+      "location": "Result-table column headings and final source/limitation text; also visible in social-mobile-390.png and social-mobile-320.png",
+      "why": "Phone-readable output is an acceptance condition. A source and accuracy boundary that becomes tiny in the shared image is a material delivery defect, even when a larger web transcript exists."
+    },
+    {
+      "artifact": "/Users/alisoneakin/Projects/laidies-blend-snap-menu-20260905/operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v2/social-post.png; /Users/alisoneakin/Projects/laidies-blend-snap-menu-20260905/operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v2/social-story.png",
+      "location": "Whole export composition",
+      "why": "The specified adult graphic-novel/pop-art visual outcome remains unmet. This is a judgment against the explicit brief and the actual supplied references, not a request for optional polish or extra variants."
+    }
+  ],
+  "calibration": {
+    "sample_a": {
+      "verdict": "REJECT",
+      "teaches": "Karen Spärck Jones gave rarer matching words more weight in document search; velvet is offered as rarer than blazer.",
+      "explanation_sufficient": false,
+      "reason": "More weight remains undefined. The example repeats the frequency claim but never shows what is counted, how a result score changes or why a different result would move up. The text-poster composition provides no missing explanation."
+    },
+    "sample_b": {
+      "verdict": "HOLD",
+      "teaches": "Across six files, plan appears five times and pension twice. Giving plan matches one point and pension matches three moves Pension limits from an equal-score tie to above the four plan-only results.",
+      "explanation_sufficient": true,
+      "reason": "The mechanism is sufficient and the point arithmetic is visible. The remaining concerns are the same phone-scale small text and visual-brief mismatch described for the candidate. No minimum number of findings or predetermined rejection was used."
+    }
+  },
+  "explain_back": "This is a collection-relative way to score matches. A plan match separates almost none of the six files, while pension selects a smaller set. In this method pension therefore contributes 3 points and plan contributes 1. Matching both scores 4. Pension limits rises from a tie on 1 point with four plan-only files to 3 points above their 1. The common term is retained. Higher score is neither proof of truth nor guaranteed relevance.",
+  "transfer": "If plan appears in 2 of 6 and pension in 5 of 6, the method reverses their contributions: plan receives 3 and pension 1. A file matching both still scores 4; a plan-only file scores 3 and a pension-only file 1. The original six named files cannot retain their original match patterns while those frequencies reverse; this is a changed collection. It is rarity within that collection, not the word pension itself, that receives the higher weight.",
+  "honest_limits": [
+    "This is independent AI analysis, not observed human explain-back, transfer testing or evidence that adult women would choose to share the image.",
+    "Inspected both calibration images before candidate reports; inspected exact candidate images before maker self-review. Read review-text.txt in full.",
+    "Independently read the original Cambridge 1972 paper, especially Weighting by specificity, page 5, and verified the stated point calculation. Source: https://www.cl.cam.ac.uk/archive/ksj21/ksjdigipapers/jdoc72.pdf",
+    "All eight manifest artifact hashes match current files. This binds identity only and is not a quality verdict.",
+    "No independent browser interaction or native phone share-sheet test was run by this reviewer; implementation conclusions combine static source inspection with explicitly maker-supplied browser results.",
+    "No live deployment was verified, no repository files were changed, and no fixes were authored.",
+    "The requested worktree canon path was absent, so the current Website-homepage canon at the supplied project root was read; no unrelated project search was performed."
+  ]
+}

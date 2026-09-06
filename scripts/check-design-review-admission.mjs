@@ -3,6 +3,8 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 
+import {socialScope, verifyEpisode04Social} from './check-episode04-social-admission.mjs';
+
 const root = process.cwd();
 const fixtureMode = process.argv.includes('--fixture');
 const queuePath = fixtureMode && process.env.LAIDIES_QUEUE_PATH
@@ -120,6 +122,10 @@ for (const item of designGateCandidates) {
     continue;
   }
   if (htmlArtifacts.length && !['building_page_visual','building_page_visual_concept'].includes(item.review_type)) errors.push(`${item.id}: HTML design candidate must declare a building-page visual review type`);
+  if (admission.scope === socialScope) {
+    verifyEpisode04Social(item, {verifyBinding, read, errors});
+    continue;
+  }
   const requiredStage = isConcept ? 'CONCEPT' : 'IMPLEMENTED';
   if (admission.presentation_stage !== requiredStage) errors.push(`${item.id}: presentation_stage must be ${requiredStage}`);
   if (admission.scope !== 'FULL_PRODUCT') errors.push(`${item.id}: scoped or mechanical review cannot admit a building page`);

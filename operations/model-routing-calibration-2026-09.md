@@ -1,0 +1,3 @@
+# LAiDIES model-routing calibration - September2026
+
+|2026-09-05| Episode04 social carousel repair | Astra foreground (effort not reported); Astra/Medium and Sol/Medium judges; Luna/Low ZIP and tests | Prior cheaper reviews missed central visual and teaching defects; stronger bounded judgment was warranted | Over60m | UNAVAILABLE | NO: Ali rejected original; v2 held; v3 admitted by both reviewers | Dense one-image format replaced with three images; exact live downloads/ZIPs verified; repeated process and sparse-check detours cost time | Use Luna for deterministic packaging/tests; keep one strong early visual judgment on representative phone output |

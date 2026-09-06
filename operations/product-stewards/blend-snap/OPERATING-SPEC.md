@@ -2,11 +2,9 @@
 
 ## Active successor — social sharing (Ali, September 5)
 
-Ali rejected the Episode04 name/sentence worksheet as an activity for twelve-year-olds, not adult women, and rejected its reassurance, palette/type and visible internal hold note. Rewording or recolouring that exercise is insufficient. The replacement supplies a finished social post; personal writing and sharing remain optional.
+Ali rejected preview953b8d2e; its two admissions are invalid and the deployment is deleted. The v3 three-image social carousel has now passed two independent complete-experience reviews and actual PNG/ZIP, privacy and recovery checks. Preview8e498c88 is verified from pushed sourcefb5294e9; current productionc8353edf remains unchanged. Ali still approves the visible result before production.
 
-Source f5ad5104 implements one Karen Spärck Jones post/story export with prepared caption, source, download, capability-detected share and retry/fallback. The actual PNGs and desktop/mobile flows pass focused tests; private notes and episodes02/03 remain intact. The Study Pack job is aligned. Held-art labels are removed from Try-On, Blend & Snap and Resident Card in the candidate. This is not a deployed change.
-
-A distinct Terra reviewer accepted the internal product/visual result. Full presentation admission remains HOLD: the required exact Claude Opus5 run produced no result after five minutes; remaining role receipts and real-phone OS sharing proof are open. Blind calibration rejected the old artifact for status/value but did not fully detect the old palette/adult-audience faults. Do not call the evaluator fully learned. Resume from candidates/tryon-ep04-2026-09-05/social-review.md; preserve the current production artifact before any release.
+Two reviewers remain the approved process for this feature; flag only material outcome defects. Preserve current Homepage/LIBRAiRY references, private notes, Episode02/03 and the latest production Resident Card. Exact artifacts and limitations: candidates/tryon-ep04-2026-09-05/v3/review.md.
 
 
 **Status:** BOUNDED LOCAL PASS — REPAIR 2 INDEPENDENT RE-JUDGE 90/100; RELEASE HOLDS REMAIN

@@ -1,23 +1,16 @@
 # Active work
 
-> **2026-09-05 — Episode04 social successor BUILT LOCALLY / DESIGN ADMISSION HOLD.**
-> Resumed: 0fb7020f adds passing recovery/race checks and independent primary-
-> source verification. Ali has been asked about a task-specific two-reviewer
-> contract; the answer is pending. Do not assume approval or change the gate.
-> Ali rejected fac9da31/e5943d18: childish, low-value notes activity, generic
-> reassurance, wrong type/colours and exposed internal status. The preview was
-> deleted and its URL returned404. Do not promote that candidate.
-> f5ad5104 supplies one complete Karen Spärck Jones social post, Post/Story PNGs,
-> caption copy and optional native sharing. No private notes or provider calls;
-> episodes02/03 save/reload remain working. Actual downloads and 1440/390/320px
-> checks pass. Terra independently accepted the scoped new experience.
-> Presentation/release remains held: exact Claude Opus5 review timed out after
-> five minutes; full distinct-role admission and real-phone share-sheet proof
-> are missing. Blind old-artifact review rejected its status/value but did not
-> fully identify the palette/adult-audience failures; calibration is partial.
-> Resume from candidates/tryon-ep04-2026-09-05/social-review.md and social-build.json.
-> No successor deployment. Miss Jeeves/Sol/reuse and the other recommendations
-> remain active; funding is settled and must not be rechecked.
+> **2026-09-05 — Episode04 social carousel: PREVIEW VERIFIED / READY FOR ALI.**
+> The rejected953b8d2e deployment is deleted and both prior admissions are invalid.
+> Three-image v3 now has two actual independent admissions (Astra/Medium, Sol/Medium),
+> source/mechanism verification and live PNG/ZIP, keyboard, private-data, adjacent
+> episode and recovery proof. Runtimefb5294e9 pushed; manifest53bce777; preview8e498c88.
+> All18 downloaded images match the reviewed six;16 authored resources match.
+> Latest NewsStand productionc8353edf is preserved; this task made no production change.
+> Ali approves the finished visible result before promotion. Native mobile OS sharing
+> and observed human learning are not claimed. Resume from operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v3/review.md.
+> Keep the freshness mismatch open until production proof. Miss Jeeves Sol/cost/reuse
+> and other recommendations remain next; funding is settled, do not recheck it.
 
 
 > **2026-09-05 — HISTORICAL Try-On preview — REJECTED; DO NOT PROMOTE.**
