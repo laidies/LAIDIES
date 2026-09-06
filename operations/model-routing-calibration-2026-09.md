@@ -123,3 +123,5 @@ and the next review date only if continued measurement can change a decision.
 | 37 | 2026-09-06 | Town/catch-up layout research | Astra foreground; Terra Low bounded review | 15–60m / usage unavailable | Research recommendation; visual pilot HOLD | Ali steered from immediate fix to research; preserved pilot without release | Terra adequate for source inventory | Primary UX/practitioner sources, exact screenshots; no audience-test claim |
 
 | 38 | 2026-09-06 | Whole-paper composition | Astra foreground; Terra Medium independent visual review | 15–60m / usage unavailable | Accepted after root layout fixes | CUA screenshot stalls; isolated Chrome used. Reviewer lazy-image false alarm withdrawn | Terra adequate for bounded CSS implementation | Desktop1200/390/320, exact six column journeys, protected194pxmasthead |
+
+| 39 | 2026-09-06 | Mme reading prominence correction | Astra foreground; Terra Medium independent review | <15m / usage unavailable | Candidate accepted | Previous whole-paper review missed feature prominence; narrowed scope | Terra adequate | Real1200/390/320, same card dimensions, complete text |

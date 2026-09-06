@@ -38,3 +38,6 @@ Next deliverable should be one cohesive full-paper composition with actual conte
 
 ## Implemented composition
 Continuous pink newspaper canvas and navy rules; varied lead, brief, weekly and feature hierarchy. Useful columns pair with a narrow LUMINAiRY sidebar; Mme uses a dedicated image/text row, followed by two large illustrated town columns. Colour-block catch-up becomes a chronological ruled list. Original desktop masthead194px preserved. Additional feature ideas remain backlog.
+
+## Ali correction — Mme reading prominence
+The full-width pink Mme strip is rejected: it fades into the paper and leaves excessive right-side space. Give this specific feature a compact, vivid editorial insert treatment, preserving prominent card art and fixed text flow. Do not generalise the treatment into another page of boxes.

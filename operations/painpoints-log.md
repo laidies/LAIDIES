@@ -15998,3 +15998,9 @@ remain unreconciled; cross-chat completeness is not certified.
 - Failure: Local section treatments kept repeating the generic website structure Ali rejected.
 - Prevention: Review continuous desktop/mobile reading order with actual loaded artwork; preserve image prominence and use different editorial scales. Trigger lazy assets before judging blank screenshots.
 - Behind the Build: A page needs a reading rhythm, not just individually tidy pieces; share the general lesson without operating details.
+
+## BTB-515 — Feature prominence is distinct from page consistency
+- Date:2026-09-06
+- Failure: A correctly aligned full-width Mme strip still blended into the paper and wasted right space; previous composition review missed it.
+- Prevention: Inspect each recurring feature for immediate visual identity and content-fitted width as well as page rhythm. Preserve large art; narrow the copy footprint instead.
+- Behind the Build: Consistency should help recognition without making every feature disappear into the same background.

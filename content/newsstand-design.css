@@ -915,3 +915,29 @@
 .ns-redesign .ns-feature-desk__head { align-self: start; }
 .ns-redesign .ns-feature-desk > .ns-luminairy { width: auto; }
 .ns-redesign .ns-feature-desk__grid--town > [data-desk="mme_claio"]:nth-child(n) { grid-column: 1/-1; }
+
+/* Mme reading: a compact illustrated insert, with its own printed colour. */
+.ns-redesign .ns-feature-desk__grid--town > [data-desk="mme_claio"]:nth-child(n) {
+  width: min(100%, 930px); justify-self: center; padding: 20px 24px;
+  border: 3px solid #11183b; border-left: 10px solid #ff2ea6;
+  background: linear-gradient(105deg,#00d4e9 0 93%,transparent 93%), radial-gradient(circle,#11183b 1px,transparent 1.5px), linear-gradient(135deg,#ff2ea6,#7031dd); background-size: auto, 8px 8px, auto; box-shadow: 7px 7px 0 #11183b; margin: 0 7px 12px 0;
+  box-sizing: border-box;
+}
+.ns-redesign .ns-feature-desk__grid--town .ns-reading-card {
+  grid-template-columns: 220px minmax(0,1fr); gap: 24px; padding: 0; align-items: center;
+}
+.ns-redesign .ns-feature-desk__grid--town .ns-reading-card > img { height: 330px; width: 220px; }
+.ns-redesign .ns-reading-card > div { max-width: none; }
+.ns-redesign .ns-feature-desk__grid--town .ns-reading-card small { font: 900 31px/1.05 var(--ns-news-serif); text-shadow: 2px 2px 0 #f8c9e6; }
+.ns-redesign .ns-feature-desk__grid--town .ns-reading-card .ns-reading-label { font-size: 13px; font-style: normal; font-weight: 800; text-transform: uppercase; letter-spacing: .1em; margin: 6px 0 14px; }
+.ns-redesign .ns-reading-card h3 { font-size: 36px; line-height: 1.08; margin: 0 0 12px; }
+.ns-redesign .ns-feature-desk__grid--town .ns-reading-card p { font-size: 16px; line-height: 1.45; margin: 9px 0; }
+.ns-redesign .ns-feature-desk__grid--town .ns-reading-card p:nth-last-of-type(2) { border-left: 4px solid #ff2ea6; padding: 8px 12px; background: #7de2c2; font-weight: 700; }
+.ns-redesign .ns-feature-desk__grid--town .ns-reading-card p:last-of-type { font-size: 12px; margin: 10px 0; }
+.ns-redesign .ns-reading-card a { display: inline-block; margin-top: 4px; border-bottom: 2px solid #11183b; font-size: 16px; }
+@media(max-width:600px) {
+ .ns-redesign .ns-feature-desk__grid--town > [data-desk="mme_claio"]:nth-child(n) { width: calc(100% - 7px); padding: 18px 16px; border-left-width: 6px; }
+ .ns-redesign .ns-feature-desk__grid--town .ns-reading-card { grid-template-columns: minmax(0,1fr); gap: 18px; }
+ .ns-redesign .ns-feature-desk__grid--town .ns-reading-card > img { width: 100%; height: 330px; }
+ .ns-redesign .ns-reading-card h3 { font-size: 31px; }
+}
