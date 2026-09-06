@@ -626,4 +626,7 @@ confirmation, moved through Mark reviewed/Mark addressed, left Needs attention
 and increased Closed from 2 to 3. Four synthetic notes now remain. The revised
 screen is loaded in the original task panel; Ali's aesthetic acceptance is not
 implied. A final loading-state correction prevents a false empty-inbox message
-before the first successful fetch; source and deployment binding follows below.
+before the first successful fetch. Final deployed source is
+`6e32324a823418f248c813759213dd9640b60704`, Worker version
+`0ed12473-317d-4456-b43f-da8b31500637`; all four hosted asset bytes were
+rechecked against that source after deployment.
