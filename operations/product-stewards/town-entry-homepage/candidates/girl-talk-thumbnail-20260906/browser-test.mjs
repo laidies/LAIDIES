@@ -1,0 +1,26 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+import {chromium} from '/Users/alisoneakin/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/index.mjs';
+const packet='operations/product-stewards/town-entry-homepage/candidates/girl-talk-thumbnail-20260906',hosted=!!process.env.THUMBNAIL_ORIGIN,origin=process.env.THUMBNAIL_ORIGIN||'https://9201610d.laidies-sunnyvaile.pages.dev',stage=fs.readFileSync('/tmp/laidies-jeeves-warm-stage.txt','utf8').trim();
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex'),sourceSha256=sha(fs.readFileSync('index.html')),assetSha256=sha(fs.readFileSync('assets/girl-talk-board.webp'));
+const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true}),rows=[];
+try{for(const width of [1440,390])for(const kind of hosted?['hosted']:['parent','candidate']){
+const ctx=await browser.newContext({viewport:{width,height:1000},deviceScaleFactor:2,reducedMotion:'reduce'});
+if(!hosted){await ctx.route(origin+'/assets/**',r=>{const u=new URL(r.request().url()).pathname,p=u==='/assets/girl-talk-board.webp'?'assets/girl-talk-board.webp':stage+u;return fs.existsSync(p)?r.fulfill({path:p}):r.continue();});await ctx.route(origin+'/',r=>r.fulfill({body:fs.readFileSync(kind==='parent'?packet+'/parent.html':'index.html'),contentType:'text/html'}));}
+const page=await ctx.newPage();const response=await page.goto(origin+'/',{waitUntil:'domcontentloaded'});if(kind!=='parent')assert.equal(sha(await response.body()),sourceSha256);
+await page.evaluate(()=>document.fonts.ready);
+await page.evaluate(()=>Promise.all(['/assets/homepage/pattern-purple-computing.png','/assets/homepage/did-you-know-question-mark-20260906.webp','/assets/library-reader/preface-burst-v1.png'].map(src=>new Promise((resolve,reject)=>{const i=new Image();i.onload=resolve;i.onerror=reject;i.src=src;}))));
+const first=page.locator('[data-dyk-slide]').first();await first.locator('img').evaluate(i=>i.decode());
+const get=()=>page.evaluate(()=>{const box=e=>{const r=e.getBoundingClientRect();return {width:r.width,height:r.height};},all=[...document.querySelectorAll('[data-dyk-slide]')],s=all[0],i=s.querySelector('img'),st=getComputedStyle(i),font=e=>{const c=getComputedStyle(e);return [c.fontFamily,c.fontWeight,c.fontSize,c.color];};return {overflow:document.documentElement.scrollWidth>innerWidth,image:i.getAttribute('src'),decoded:i.naturalWidth>0,natural:[i.naturalWidth,i.naturalHeight],imageRendering:st.imageRendering,filter:st.filter,media:box(i),banner:box(document.querySelector('[data-dyk]')),allText:document.querySelector('main').textContent.replace(/\s+/g,' ').trim(),allLinks:[...document.querySelectorAll('main a')].map(a=>a.getAttribute('href')),allImages:[...document.querySelectorAll('main img')].map(i=>i.getAttribute('src')),slides:all.map(s=>({text:s.textContent.replace(/\s+/g,' ').trim(),href:s.getAttribute('href'),radio:s.hasAttribute('data-ksvl-start-live')})),fonts:[font(document.querySelector('#dyk-title')),font(s.querySelector('h3,.dyk-title')),font(s.querySelector('.dyk-cta'))],border:getComputedStyle(s.querySelector('.dyk-media')).outline,bodyBackground:getComputedStyle(document.body).backgroundImage};});
+const state=await get();assert(!state.overflow&&state.decoded);assert.equal(state.slides.length,8);
+const checkImage=r=>{assert.equal(r.image,'/assets/girl-talk-board.webp');assert.deepEqual(r.natural,[980,653]);assert.equal(r.imageRendering,'auto');assert.equal(r.filter,'none');};
+if(kind!=='parent')checkImage(state);else assert.throws(()=>checkImage(state));
+const capture=async(selector,suffix)=>{await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));const clip=await page.locator(selector).first().evaluate(el=>{const r=el.getBoundingClientRect();return{x:r.x,y:r.y+scrollY,width:r.width,height:r.height};});await page.screenshot({path:packet+'/'+kind+'-'+width+'-'+suffix+'.png',fullPage:true,clip,animations:'disabled'});};
+await capture('[data-dyk]','banner');await capture('[data-dyk-slide] .dyk-media','thumbnail');
+await page.locator('[data-dyk-next]').click();assert(await first.isHidden());await page.locator('[data-dyk-prev]').click();assert(await first.isVisible());
+const pause=page.locator('[data-dyk-pause]');assert(await pause.isEnabled());
+rows.push({kind,width,dpr:2,...state,controls:true});await ctx.close();
+}}finally{await browser.close();}
+if(!hosted)for(const width of[1440,390]){const a=rows.find(r=>r.width===width&&r.kind==='parent'),b=rows.find(r=>r.width===width&&r.kind==='candidate');for(const k of ['media','banner','allText','allLinks','slides','fonts','border','bodyBackground'])assert.deepEqual(a[k],b[k],k+' preserved');assert.equal(a.allImages.filter((v,i)=>v!==b.allImages[i]).length,1);}
+fs.writeFileSync(packet+'/'+(hosted?'hosted-checks':'checks')+'.json',JSON.stringify({status:'PASS',sourceSha256,assetSha256,oldThumbnailRejected:!hosted,rows},null,2)+'\n');console.log(JSON.stringify({status:'PASS',sourceSha256,rows:rows.map(r=>({kind:r.kind,width:r.width,natural:r.natural,media:r.media,banner:r.banner,overflow:r.overflow,controls:r.controls}))}));

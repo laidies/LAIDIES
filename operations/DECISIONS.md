@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Correct the grainy Girl Talk banner thumbnail
+
+Ali reports that the Truth or Dare image in Did you know still looks pixelated. Correct the actual small rendered thumbnail, preserving compact banner geometry, current artwork elsewhere, colours, Jost700 typography, all eight messages and destinations, and controls. Reuse a sharper existing Girl Talk asset after checking it at desktop and phone sizes. Preview only.
+
 ## 2026-09-06 — Directory heading is the typography reference
 
 Ali selects the existing “Everything you can do in LAiDIES.” heading as her preferred style for headings and bold text. She specifically flags the Did you know banner as looking different. Match the actual selected typeface/weight, retaining the sizes needed by each component and regular-weight body text. Preserve the compact banner, warm/cool palette decisions, artwork and behavior. Check actual computed fonts rather than inferring a font from its appearance.
