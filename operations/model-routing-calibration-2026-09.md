@@ -127,3 +127,5 @@ and the next review date only if continued measurement can change a decision.
 | 39 | 2026-09-06 | Mme reading prominence correction | Astra foreground; Terra Medium independent review | <15m / usage unavailable | Candidate accepted | Previous whole-paper review missed feature prominence; narrowed scope | Terra adequate | Real1200/390/320, same card dimensions, complete text |
 
 | 40 | 2026-09-06 | Section markers and duplicate rules | Astra foreground; Terra Medium independent review | <15m / usage unavailable | Root candidate clear | Incorporated second screenshot into same fix | Terra adequate |1200/390/320; duplicate-rule negativecase |
+
+| 41 | 2026-09-06 | Typography and catch-up index | Astra foreground; Terra Medium independent review | <15m / usage unavailable | Exact scope accepted | User steered away from more colourpanels; live Jost verified | Terra adequate | Fresh/returning1200/320, preservedart, readerfixtures |

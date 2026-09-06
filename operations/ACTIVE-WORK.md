@@ -1,3 +1,6 @@
+<!-- NewsStand type/index correction: REVIEWED -->
+Use verified live-homepage Jost, violet recurring titles and compact catch-up index without filled accountrectangle. Independent review accepted exact scope; broader pink palette is not declared resolved. Evidence: operations/product-stewards/newsstand/evidence/type-index-20260906/review.md. Next scoped release/live verification.
+
 <!-- Section marker/rule correction: VERIFIED PUBLICLY -->
 Contrasting compact eyebrow tabs and matching section rules; paired Latest borders removed. Root1200/390/320 checks clear. Evidence: operations/product-stewards/newsstand/evidence/desk-markers-20260906/review.md. Independent Terra review accepted. Source27ce80b0 deployed7f8acf61; two files match both public origins. Live1200/390/320 no overflow/broken art; single-boundary negative guard passed.
 

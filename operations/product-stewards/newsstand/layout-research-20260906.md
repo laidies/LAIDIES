@@ -46,3 +46,6 @@ The full-width pink Mme strip is rejected: it fades into the paper and leaves ex
 Section breaks and eyebrows need contrasting colours to stand apart from navy article text on pink. Use compact coloured eyebrow tabs and matching strong rules; retain newspaper composition, heading readability and large artwork.
 
 Ali also rejects the many thin Latest rules. Remove the paired bottom/top borders and use one clear divider per story boundary; do not add a second lower rule beneath the coloured section marker.
+
+## Ali correction — type and random panels
+Ali rejects the unrelated serif fonts, near-black recurring column headings, long pink stretches and random coloured rectangles. Use verified live homepage Jost headings/body, deliberate violet recurring-column titles and a compact editorial catch-up index. Remove the status rectangle; improve hierarchy and density rather than adding another coloured panel.

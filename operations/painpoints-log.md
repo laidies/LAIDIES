@@ -16010,3 +16010,9 @@ remain unreconciled; cross-chat completeness is not certified.
 - Failure: Adjacent article bottom/top rules doubled visual noise; navy section eyebrows disappeared into navy article text.
 - Prevention: One border owner per story boundary, calibrated with deliberate duplication; section-level colour markers distinct from article typography.
 - Behind the Build: More lines do not necessarily make a page easier to scan.
+
+## BTB-517 — Newspaper composition does not require a foreign typeface
+- Date:2026-09-06
+- Failure: Adding a separate serif family disconnected NewsStand from live LAiDIES typography; decorative panels did not repair reading flow.
+- Prevention: Bind actual live heading/body type before changing typography; compact content structure before adding colour blocks.
+- Behind the Build: Borrow a format’s hierarchy, not every visual convention.
