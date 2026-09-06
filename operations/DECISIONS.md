@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-05 — Owner rejects homepage information and interaction regressions
+
+Preview 3d473188 is rejected for narrowed categories, missing inline Miss Jeeves answers/examples, weak feature copy, episode-specific method text and missing Resident benefits. Restore the complete four-category discovery with all direct destinations. A third masthead “Find what I need” action is allowed; preserve the original two. Give KSVL a full-width pill explaining the town radio. Answer on the homepage, show examples and use the portrait to balance the layout. Preserve Ali's Dream Phone invitation and yearbook joke with only spelling and verified availability adjustments. Name Ghostbusters and the Romy and Michele reference. Explain Blend & Snap and the quiz across episodes. State the actual differences between visiting, making a Card and signing in. Latest-episode visible wording and destinations must advance together only on publication. No production approval. This successor repairs the same homepage pass; it does not reopen the social detour or authorize an unrelated redesign.
+
 ## 2026-09-05 — Homepage four-category discovery remains visible
 
 Ali explained that the four-category section exists because the site has many features which are otherwise hard to discover. Keep Learn and understand, Watch and listen, Use and have fun, and Belong and explore visibly expanded as the whole-town discovery section. Restore its original heading and visual treatment; do not hide it behind a disclosure or substitute only the six immediate-need links. Preserve all existing destinations and the current corrected descriptions. This is a preview correction, not whole-page or production approval.

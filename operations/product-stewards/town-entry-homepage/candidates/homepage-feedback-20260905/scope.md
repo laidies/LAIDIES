@@ -1,0 +1,11 @@
+# Homepage owner feedback correction
+
+Tier 1. BUILDING. Predecessor 3d473188 / source 80e2bdd7 rejected; prior quality verdict does not admit a successor.
+
+## 2026-09-05 — Owner rejects homepage information and interaction regressions
+
+Preview 3d473188 is rejected for narrowed categories, missing inline Miss Jeeves answers/examples, weak feature copy, episode-specific method text and missing Resident benefits. Restore the complete four-category discovery with all direct destinations. A third masthead “Find what I need” action is allowed; preserve the original two. Give KSVL a full-width pill explaining the town radio. Answer on the homepage, show examples and use the portrait to balance the layout. Preserve Ali's Dream Phone invitation and yearbook joke with only spelling and verified availability adjustments. Name Ghostbusters and the Romy and Michele reference. Explain Blend & Snap and the quiz across episodes. State the actual differences between visiting, making a Card and signing in. Latest-episode visible wording and destinations must advance together only on publication. No production approval. This successor repairs the same homepage pass; it does not reopen the social detour or authorize an unrelated redesign.
+
+Acceptance: all 26 direct category links visible; original two masthead actions retained; third anchors to the full directory; full-width explained radio link; inline Jeeves form and three examples with loading/error/result states; no automatic paid research; owner Dream Phone voice; general practice plus quiz; Ghostbusters/Romy and Michele; accurate visitor/Card/account comparison; published episode title and link change together, drafts cannot replace it. Preserve existing imagery, palette and type. Inspect desktop/mobile against predecessor before independent review. No new assets required.
+
+Source truth: current public resident-card.html account details explain local versus account continuation; games/businesswomens-special.html identifies Ghostbusters and Romy and Michele; games/dream-phone.html parks full gameplay. Detailed source extraction comes from the bounded current-experience lane. Existing paid assistant work remains checkpointed and research disabled.
