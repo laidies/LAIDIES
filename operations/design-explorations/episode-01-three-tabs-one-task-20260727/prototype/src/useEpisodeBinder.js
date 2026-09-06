@@ -118,6 +118,13 @@ export function useEpisodeBinder(snapshot,restore,reset) {
       setMessage(error instanceof TypeError||error instanceof RangeError?error.message:'The save could not be confirmed. Your work is still here. Retry to check the same save.');
     }
   };
+  const startUnsaved=()=>{
+    const r=refs.current;
+    if(r.owner){setMessage('Your account is connected. Save this task before starting another.');return;}
+    r.epoch++;r.exerciseId=`${schema.exerciseId}:${crypto.randomUUID()}`;r.saved=null;r.pendingKey=null;r.undo=null;
+    const url=new URL(location.href);url.searchParams.set('exercise',r.exerciseId);url.searchParams.set('version',schema.exerciseVersion);history.replaceState({},'',url);
+    latest.current.reset();setSavedFingerprint(initialFingerprint.current||'');setPhase('guest');setMessage('A new task is open. The previous unsaved draft was cleared at your request.');
+  };
   const startAnother=async()=>{
     const saved=await save();
     if(!saved)return;
@@ -136,5 +143,5 @@ export function useEpisodeBinder(snapshot,restore,reset) {
     } catch (_) {setPhase('error');setMessage('The saved exercise could not be opened. Your current work has been kept.');}
   };
   const undoRestore=()=>{if(refs.current.undo){latest.current.restore(refs.current.undo);refs.current.undo=null;setPhase('ready');setMessage('Your previous draft is back. Save it when you are ready.');}};
-  return {phase,message,save,startAnother,reopen,undoRestore,canUndo:!!refs.current.undo,checkSignIn:()=>read().catch(()=>{setPhase('unavailable');setMessage('Account saving is unavailable. Your current work is still here.');}),hasSaved:!!refs.current.saved,dirty:!!fingerprint&&fingerprint!==savedFingerprint};
+  return {phase,message,save,startAnother,startUnsaved,reopen,undoRestore,canUndo:!!refs.current.undo,checkSignIn:()=>read().catch(()=>{setPhase('unavailable');setMessage('Account saving is unavailable. Your current work is still here.');}),hasSaved:!!refs.current.saved,dirty:!!fingerprint&&fingerprint!==savedFingerprint};
 }

@@ -159,13 +159,19 @@ function Inline({text}) {
   return text.split(/(\*\*[^*]+\*\*)/g).map((part,index)=>part.startsWith('**')?<strong key={index}>{part.slice(2,-2)}</strong>:part);
 }
 function CheatSheet({onBack}) {
+  const requested = new URLSearchParams(location.search).get('packVersion');
+  if (requested !== null && requested !== '2026-09-06-v1') return <main className="cheat-view"><section className="cheat-actions"><div><h1>This saved edition cannot be opened here.</h1><p>Your saved Cheat Sheet has not been changed.</p><a href="/laidies-card.html#episodeBinderVessel">Return to my Episode Binder</a></div></section></main>;
+  return <CurrentCheatSheet onBack={onBack} />;
+}
+
+function CurrentCheatSheet({onBack}) {
   const binder=useCardBinder([{id:'episode-01-cheat-sheet'}],'2026-09-06-v1','packs');
   const sections=sheet.split(/^## /m).slice(1).map(block=>{const [title,...lines]=block.trim().split('\n');return {title,blocks:lines.join('\n').trim().split(/\n\n+/)};});
   return <main className="cheat-view" data-clarity-mask="True">
     <nav className="study-pack-breadcrumb" aria-label="Study Pack breadcrumb"><button type="button" className="back-button" onClick={onBack}>← BACK TO EPISODE 01 PACK</button><span>EPISODE 01 · CHEAT SHEET</span></nav>
     <section className="cheat-actions" aria-label="Save the Cheat Sheet">
       <div><strong>Keep the lesson handy.</strong><p role="status">{binder.message}</p></div>
-      <div className="pdf-actions"><button type="button" disabled={binder.busy} onClick={binder.save}>{binder.retry?'RETRY SAVE':'SAVE TO MY EPISODE BINDER'}</button><button type="button" disabled={binder.busy} onClick={binder.refresh}>CHECK SAVED COPY</button><a href="/laidies-card.html#episodeBinderVessel">OPEN MY BINDER</a>{binder.guest&&<a href="/laidies-card.html" target="_blank" rel="noreferrer">SIGN IN AT MY CLOSET</a>}</div>
+      <div className="pdf-actions">{binder.guest?<a href="/laidies-card.html" target="_blank" rel="noreferrer">SIGN IN TO SAVE</a>:<button type="button" disabled={binder.busy} onClick={binder.save}>{binder.retry?'RETRY SAVE':'SAVE TO MY BINDER'}</button>}<a href="/laidies-card.html#episodeBinderVessel">OPEN MY BINDER</a></div>
     </section>
     <article className="cheat-sheet cheat-sheet-detail-source current-summary">
       <header className="cheat-hero"><img src="/assets/episodes/episode-01.png" alt="On Wednesdays We Do AI episode artwork"/><div className="cheat-hero-copy"><p>EPISODE 01 · CHEAT SHEET</p><h1>On Wednesdays We Do AI</h1></div></header>

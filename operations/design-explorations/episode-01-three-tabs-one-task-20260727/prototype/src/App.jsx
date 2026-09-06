@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import {useEpisodeBinder} from './useEpisodeBinder';
+import exerciseSchema from '../../../../../content/episodes/episode-01.exercise-fields.json';
 import {
   ArrowCounterClockwise,
   ArrowRight,
@@ -214,7 +215,7 @@ function Header({ task, journeyMode }) {
         <a
           className="brand-wordmark"
           data-brand-wordmark="current-live-jost"
-          href="/?review=episode-01-pack"
+          href="/blend-snap.html#episode-01-pack"
           aria-label="Return to Episode 01 Study Pack"
         >
           L<span className="brand-ai">A</span>
@@ -866,7 +867,10 @@ function ReceiptStage({
   humanChange,
   notify,
   restart,
+  guest,
+  startUnsaved,
 }) {
+  const [confirmRestart, setConfirmRestart] = useState(false);
   const chosen = providers.find((provider) => provider.id === chosenProvider);
   const chosenRun = runs[chosenProvider];
   const receiptRatingLabels =
@@ -1016,19 +1020,28 @@ This is a task-specific observation, not a permanent tool ranking.`;
         >
           Print receipt
         </AppButton>
-        <AppButton
+        {guest ? <div>{confirmRestart ? <><p>This clears the draft open on this page. Sign in to save it first if you want to keep it in your binder.</p><AppButton kind="secondary" onClick={()=>setConfirmRestart(false)}>Keep this draft open</AppButton><AppButton kind="ghost" onClick={startUnsaved}>Clear this draft and start another</AppButton></> : <AppButton kind="ghost" onClick={()=>setConfirmRestart(true)}>Try another task</AppButton>}</div> : <AppButton
           kind="ghost"
           onClick={restart}
           icon={<ArrowCounterClockwise weight="bold" />}
         >
           Save and try another task
-        </AppButton>
+        </AppButton>}
       </div>
     </section>
   );
 }
 
 export function App() {
+  const query = new URLSearchParams(location.search);
+  const requested = query.get('version');
+  const exercise = query.get('exercise');
+  const validExercise = exercise === null || exercise === exerciseSchema.exerciseId || exercise.startsWith(exerciseSchema.exerciseId + ':') && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(exercise.slice(exerciseSchema.exerciseId.length + 1));
+  if (!validExercise || requested !== null && requested !== exerciseSchema.exerciseVersion) return <main className="app-shell"><h1>This saved edition cannot be opened here.</h1><p>Your saved work has not been changed. Return to your binder to choose an available exercise.</p><a className="button button-primary" href="/laidies-card.html#episodeBinderVessel">Return to my Episode Binder</a></main>;
+  return <ExerciseApp />;
+}
+
+function ExerciseApp() {
   const [step, setStep] = useState("task");
   const [completedSteps, setCompletedSteps] = useState([]);
   const [task, setTask] = useState("");
@@ -1092,7 +1105,7 @@ export function App() {
         </div>
         <div className="binder-save-actions">
           {binder.phase==='guest'?<>
-            <a className="button button-primary" href="https://laidies.ai/resident-card.html#rcAccountTitle" target="_blank" rel="noreferrer">Sign in to save</a>
+            <a className="button button-primary" href="/laidies-card.html" target="_blank" rel="noreferrer">Sign in to save</a>
             <button className="button button-secondary" type="button" onClick={binder.checkSignIn}>Check sign-in</button>
           </>:<button className="button button-primary" type="button" onClick={binder.save} disabled={!task.trim()||['loading','saving','unavailable','conflict'].includes(binder.phase)}>{binder.phase==='saving'?'Saving…':binder.phase==='error'?'Retry save':'Save to My Closet'}</button>}
           {binder.hasSaved&&<button className="button button-secondary" type="button" onClick={binder.reopen} disabled={binder.phase==='saving'}>Open saved copy</button>}
@@ -1179,6 +1192,8 @@ export function App() {
           humanChange={humanChange}
           notify={notify}
           restart={binder.startAnother}
+          guest={binder.phase === "guest" || binder.phase === "unavailable"}
+          startUnsaved={binder.startUnsaved}
         />
       )}
       <div className={`toast ${toast ? "is-visible" : ""}`} role="status">

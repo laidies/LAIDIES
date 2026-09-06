@@ -2,6 +2,15 @@
 
 Status: BUILDING — Episodes 01–04. Ali subsequently authorized full written/narration updates, useful study packs, interactive exercises, trading-card flashcards, quizzes and account-backed Closet saving. The initial review below is historical context, not a restriction on that authorization. No revised public release or new audio is claimed.
 
+## Current implementation checkpoint (supersedes historical next actions below)
+Episode01 remains BUILDING, not admitted or deployed. Separate saved exercises are committed in `d0696769`. Guest restart now explicitly offers keep-draft or clear-and-start; both paths were browser-tested, including intact receipt text after cancellation and an empty task after deliberate clearing. Same-origin sign-in and return-to-pack links replace the Try-On's production-only/misrouted links.
+
+Current-version checks run before the exercise/card/sheet save components mount and before the quiz form/account mounts. Unsupported edition browser checks showed the unavailable message across all four surfaces; exercise/card/quiz fixtures made zero account requests (the sheet's global header made one separate request). Invalid exercise identifiers also reject rather than defaulting to the original saved record. Shared static-resource save status refreshes after account changes; browser A→B→A returned saved→empty→saved. Phone sheet spacing/control density corrected and inspected at390px.
+
+`LAIDIESPuffyCatalogV1` now provides a read-only official75-artwork catalog, deterministic Binder-safe IDs and a validated ten-item device-local pouch view. Positive/malformed/duplicate/unavailable/no-write checks pass. It is not yet connected to placement UI and does not prove account pouch restoration.
+
+Next work: complete the representative Episode01's visual/content admission and source bindings; connect real Puffy placement and saved-item deletion; recover the existing canonical exporter before changing paired Read/narration architecture; then actual account integration and new audio. Obtain Ali's feedback on the complete internally checked Episode01 before scaling Episodes02–04. Do not keep expanding backend audits or treat local browser checks as public proof.
+
 ## Governing request
 Return to reviewing the trailer and Episodes 1–4 written editions and narration, then map the rest of Season 1. Recover relevant work from task 01a0725e-963e-73e1-9437-b85d7139c311 without resuming its operating-infrastructure detour.
 

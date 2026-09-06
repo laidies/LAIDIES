@@ -86,14 +86,14 @@ function CollectionCard({
   );
 }
 
-function PackHeader() {
+function PackHeader({canPrint=true}) {
   return (
     <header className="pack-header">
       <a href="/blend-snap.html#episode-01-pack">BACK TO EPISODE 01 PACK</a>
       <Wordmark />
-      <button type="button" onClick={() => window.print()}>
+      {canPrint && <button type="button" onClick={() => window.print()}>
         PRINT CARDS
-      </button>
+      </button>}
     </header>
   );
 }
@@ -138,6 +138,12 @@ function OpeningExperience({ onFinish }) {
 }
 
 export function App() {
+  const requested = new URLSearchParams(location.search).get('version');
+  if (requested !== null && requested !== deck.version) return <main className="pack"><PackHeader canPrint={false} /><section className="collection-intro"><div><h1>This saved edition cannot be opened here.</h1><p>Your saved cards have not been changed.</p><a href="/laidies-card.html#episodeBinderVessel">Return to my Episode Binder</a></div></section></main>;
+  return <CardPack />;
+}
+
+function CardPack() {
   const [opened, setOpened] = useState(new URLSearchParams(location.search).get("version") === deck.version);
   const [current, setCurrent] = useState(0);
   const [flippedCard, setFlippedCard] = useState(null);

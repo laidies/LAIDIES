@@ -8,7 +8,8 @@
 > Synthetic browser and actual isolated PostgreSQL checks cover complete Episode01 fields, retry and account separation.
 > Local sheet → Closet → exact edition and quiz → Closet → exact attempt reopening are now browser-verified with synthetic accounts.
 > Separate exercise instances now preserve completed work in local browser checks.
-> Puffy integration, deletion/guest restart polish, complete design/content review, live saving and new audio remain open.
+> Guest restart and unsupported saved-edition handling are now repaired and locally browser-verified.
+> Official read-only Puffy catalog adapter is built; placement UI, deletion, complete design/content review, live saving and new audio remain open.
 > Continue in `/Users/alisoneakin/Projects/laidies-episode-review-20260906`; detailed resume: `operations/episode-review-resume-2026-09-06.md`.
 > Trailer, other binders and later-season mapping are deferred. Shared iCloud working files are preserved.
 

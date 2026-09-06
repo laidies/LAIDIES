@@ -434,6 +434,52 @@
     return '/assets/puffies/' + (stickerByFile(file) ? file : DEFAULT_POUCH[0]);
   }
 
+  function binderStickerId(file) {
+    return 'puffy:' + file.replace(/\//g, ':').replace(/\.png$/, '');
+  }
+
+  function catalogDescriptor(sticker) {
+    return {
+      sticker_id: binderStickerId(sticker.file),
+      file: sticker.file,
+      label: sticker.label,
+      url: stickerUrl(sticker.file)
+    };
+  }
+
+  function readOnlyPouch() {
+    var raw;
+    var parsed;
+    try {
+      raw = localStorage.getItem(POUCH_KEY);
+    } catch (_) {
+      return { state: 'unavailable', items: [] };
+    }
+    if (raw === null) return { state: 'not-configured', items: [] };
+    try {
+      parsed = JSON.parse(raw);
+    } catch (_) {
+      return { state: 'needs-closet-review', items: [] };
+    }
+    var normalized = normalizePouch(parsed);
+    if (normalized.rejected || normalized.list.length !== 10) {
+      return { state: 'needs-closet-review', items: [] };
+    }
+    return {
+      state: 'device-local',
+      items: normalized.list.map(function (item) { return catalogDescriptor(stickerByFile(item.file)); })
+    };
+  }
+
+  window.LAIDIESPuffyCatalogV1 = Object.freeze({
+    catalog: function () { return STICKERS.map(catalogDescriptor); },
+    resolve: function (stickerId) {
+      var sticker = STICKERS.find(function (candidate) { return binderStickerId(candidate.file) === stickerId; });
+      return sticker ? catalogDescriptor(sticker) : null;
+    },
+    readPouch: readOnlyPouch
+  });
+
   function closePicker(restoreFocus) {
     if (!activePicker) return;
     var opener = activePickerOpener;

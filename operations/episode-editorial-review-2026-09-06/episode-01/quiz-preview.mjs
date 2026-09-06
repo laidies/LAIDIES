@@ -271,6 +271,12 @@ async function start() {
   const response = await fetch(new URL("./quiz.json", import.meta.url), { cache: "no-store" });
   if (!response.ok) throw new Error("candidate-quiz-unavailable");
   quiz = await response.json();
+  const requestedVersion = new URLSearchParams(location.search).get('version');
+  if (requestedVersion !== null && requestedVersion !== quiz.version) {
+    message('This saved edition cannot be opened here. Your saved attempts have not been changed.');
+    const link = document.createElement('a');link.href='/laidies-card.html#episodeBinderVessel';link.textContent='Return to my Episode Binder';status.after(link);return;
+  }
+  openSavedButton.textContent = requestedAttempt ? 'Open this saved attempt' : 'Open latest saved attempt';
   renderQuestions();
   form.hidden = false;
   await mountAccount();
@@ -306,7 +312,7 @@ form.addEventListener("submit", (event) => {
 });
 
 $("#quizResetButton").addEventListener("click", () => {
-  requestedAttempt="";const url=new URL(location.href);url.searchParams.delete("attempt");history.replaceState({},"",url);
+  requestedAttempt="";openSavedButton.textContent="Open latest saved attempt";const url=new URL(location.href);url.searchParams.delete("attempt");history.replaceState({},"",url);
   form.reset();
   clearFeedback();
   pendingAttempt = null;

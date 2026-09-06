@@ -43,14 +43,14 @@ export function useCardBinder(cards,version,kind="cards") {
     r.pending=null;report({busy:false,guest:false,retry:false,message:`Saved the ${label} to your Episode Binder in My Closet.`});
   }catch(error){failure(error,token);}}
   useEffect(()=>{
-    const r=ref.current;r.live=true;let subscription,live=true;
+    const r=ref.current;r.live=true;let subscription,live=true,refreshTimer;
     (async()=>{try{
       const runtime=await window.LAIDIESResidentAccountRuntime.get();if(!live)return;
       r.runtime=runtime;r.binder=window.LAIDIESResidentEpisodeBinderV1.create(runtime);
-      subscription=runtime.client.auth.onAuthStateChange((_event,session)=>{if(r.owner&&r.owner!==session?.user?.id)close();}).data.subscription;
+      subscription=runtime.client.auth.onAuthStateChange((_event,session)=>{if(r.owner&&r.owner!==session?.user?.id)close();if(session?.user?.id&&!r.owner){clearTimeout(refreshTimer);refreshTimer=setTimeout(()=>{if(live)refresh();},0);}}).data.subscription;
       await refresh();
     }catch(error){if(live)failure(error);}})();
-    return()=>{live=false;r.live=false;r.epoch++;subscription?.unsubscribe();r.binder?.dispose();};
+    return()=>{live=false;clearTimeout(refreshTimer);r.live=false;r.epoch++;subscription?.unsubscribe();r.binder?.dispose();};
   },[]);
   return {...view,refresh,save};
 }
