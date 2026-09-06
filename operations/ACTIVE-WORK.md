@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Player text weights: VERIFIED LOCAL.** Only Song/title bold. Browser computed title700; band, Up next, slider headings, control labels and Expand400. Preview refreshed; not published.
+
 > **2026-09-06 — Mute alignment: VERIFIED LOCAL.** Removed collapsed sound-group vertical offset and standardized circle dimensions. Actual320px Back/Resume/Next/Mute circles all y679.60 and labels all y714.60; no overflow. Preview only.
 
 > **2026-09-06 — Phone controls: VERIFIED LOCAL.** Expand moved after sound controls, far right. Mute exposed beside Volume. Actual320px collapsed/expanded no overflow; Mute/Unmute and Expand/Collapse clicked successfully. Desktop disclosure unchanged. Not published.

@@ -334,3 +334,5 @@ Ali also requested a small rotating “Did you know?” banner directly under th
 2026-09-06 — Player detail alignment: Ali requests Track progress and Volume centred close above their sliders and the Resume triangle visually centred inside its circle. Labels retain functional clarity; elapsed/total time sits below progress.
 
 2026-09-06 — Phone control order: Ali requests Expand at the far right and use available space for more controls. Mute is now visible beside Volume; order is Back, Play/Resume, Next, Mute, Volume, Expand. Phone collapsed and expanded320px verified without overflow.
+
+2026-09-06 — Player typography: Ali requests only Song and the song title bold; all other player text regular weight. Applies to band, Up next, slider labels, buttons and station text.

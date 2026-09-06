@@ -401,6 +401,8 @@
 
   STYLE += '.ksvl-now-playing:not(.is-expanded) .ksvl-np-sound { display:contents; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-ico { width:32px; height:32px; }';
 
+  STYLE += '.ksvl-now-playing, .ksvl-now-playing * { font-weight:400!important; } .ksvl-now-playing .ksvl-np-track, .ksvl-now-playing .ksvl-np-title-text { font-weight:700!important; }';
+
   function updateTitleOverflow() {
     if (!npTrack || !npTrack.firstElementChild) return;
     var overflow = npTrack.firstElementChild.scrollWidth - npTrack.clientWidth;
