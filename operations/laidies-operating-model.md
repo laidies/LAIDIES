@@ -286,3 +286,23 @@ platform/storage charges; account-wide usage is not a task cost measurement.
 
 These are finite acceptance trials followed by measured operation; they cannot
 be honestly certified from a diagram, repository presence or current green CI.
+
+
+### Recovered learning dependency
+
+The exact registered Straight Answers example is recoverable at
+`a5615a66ee2a513f69de7dda656161b38185f5d8:content/library-books/straight-answers.md`,
+SHA256 `8cd3d008ea6399563152250c0bf51716d79800bd7ab7a22a596be9f1ba8058d6`.
+Foreground independently matched the read-only recovery. Preserve its registered
+architecture-only scope; neither the registry's authority label nor commit
+metadata approves the later changed file. The integration package can use those
+exact historical exemplar bytes without overwriting the current product book.
+A future replacement needs its own scoped admission. This resolves source
+recoverability, not the missing reusable-learning transition or evaluator trial.
+
+Continuation source repair `bc95574d` is rebased onto the reference package as
+`36ccb875` in PR107. The outer config was updated only after byte-matching its
+previous committed source; the actual configured command now rejects ending
+this unfinished task. Native trust/loading remains unverified, and the existing
+recursion bound is preserved. PR107 depends on the reference owner's PR106;
+remote checks/integration are separate from this local result.
