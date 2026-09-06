@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Episode review and proposed season route
+
+PROPOSED, NOT LOCKED: `episode-editorial-review-2026-09-06/season-map.md` contains the reconciled discussion proposal for Episodes7–24; neither older map is superseded until Ali rules. `episode-editorial-review-2026-09-06/review.md` owns the paired written/narration correction inventory. New `content/episodes/episode-00.canon.md` is an internal preserved trailer baseline plus the approved outline direction, not an admitted rewritten trailer. Automatic generation remains the later version of the existing master-source specification. D-2026-09-05-139 continues to protect Hedy's authored dialogue; no unsolicited historical-quotation disclaimer is required.
+
 ## 2026-09-06 — Evergreen trailer and updateable Visitors Centre tour
 
 LOCKED — Ali approved focusing the trailer on the eight-stop Wednesday Tour and the Express version, with an invitation to explore the many other things in town. Preserve the heroine, town personality, learning purpose and freedom to explore at any time. A separate guided tour of the site will live in the Visitors Centre and be updated as the town grows. Detailed evolving site orientation belongs there; the trailer need not enumerate every building and feature. The guided tour is DECIDED, not built or released; its format is not yet specified. This supersedes the earlier statement that moving detailed orientation had not been approved. Broken promised functionality still requires operational repair and end-to-end verification; relocating its explanation does not cancel that obligation. Keep the foreground on trailer/Episodes 1–4 written and narration review, then Season 1 mapping.

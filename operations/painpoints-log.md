@@ -14681,3 +14681,7 @@ HTML and local custom properties.
 
 ## 2026-09-06 — Preserve the episode review objective
 Failure recovered: the earlier curriculum task expanded into hosted operations and lost the original editorial work. Prevention: one compact episode review record, paired written/spoken changes, and trailer -> 1–4 -> season map order; infrastructure remains with its existing owner. Behind the Build angle: a shared meaning source helps only when its spoken and written editions actually carry the same corrections.
+
+
+### 2026-09-06 — Episode recovery task, consolidated follow-through
+The trailer's two narration files are whitespace variants, not competing word versions; compare actual content before creating an editorial decision. Canonical-source v1 is manual propagation, while automatic generation is only the later spec. A named master and selected-string checker do not prove synchronized meaning. Preserve one paired change register and inspect complete story paragraphs, not only updated glossaries. Source checks found the Mollick quote's classroom context distinct from the consultant trial, and KPMG fake citation titles distinct from wholly invented sources. The first-pass historical-quotation concern was corrected against existing D-139: Hedy's line is authored dialogue and must not be re-litigated as an archival quote. Behind the Build angle: distinguish authored story, cited evidence and product promises, then give each the right check. Single consolidated learning entry for this task; no new shared defect registry admission is claimed.
