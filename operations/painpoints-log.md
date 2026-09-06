@@ -239,3 +239,18 @@ the next maker and unaided evaluation proves the change. Do not invent a second
 worktree manifest: reuse the existing recovery plan and work index.
 Behind the Build: the same project can contain a fixed version and still run the
 broken one; test the copy that actually executes.
+
+### 2026-09-06 — Map the connections before endorsing the machinery
+Observed: recommending integration of current checks assumed their fitness before
+mapping the system. Ali corrected the sequence to whole-system, per-agent/flow
+mapping with human/manual boundaries. The inventory found 67 responsibilities,
+34 guild roles and 5 conditional roles, not that many executing agents. A sparse
+checkout initially misled a read-only inventory lane about main workflow absence;
+Git object inspection verified seven workflows. Prevention: map trigger, owner,
+input, output recipient, failure/recovery, acceptance and evidence state first;
+separate role contracts from runners, human judgment from agent execution and
+missing automation from permanent human work. Use main Git objects for sparse
+inventory. Independent review corrected overdrawn cloud runtime edges and the
+false implication that real provider tests necessarily require a human tester.
+Behind the Build: a diagram earns its value by showing broken handoffs and who
+actually has to act, not by drawing a box for every fashionable agent role.

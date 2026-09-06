@@ -1,5 +1,12 @@
 # Active work
 
+> **2026-09-06 — Current operating owner: map before redesign / BUILDING.**
+> Same task and bounded checkout; branch `ops/end-to-end-system-map-20260906`.
+> PR104 merged as `4a4726e3`; old PR103/104 integration instructions below are
+> historical. Ali now requires an end-to-end map of every registered agent,
+> operation and flow with explicit human/manual boundaries and current loop/
+> graph research before standardizing quality tools. See `OPERATING-SYSTEM-MAP.md`.
+
 > **2026-09-06 — Whole-operation consultant audit / BUILDING.** Same operating owner and objective; now includes full organization/unfinished-work review, real maker-learning loop, cloud/subscription split, communication, costs and ongoing management. Branch `ops/learning-context-repair-20260906`; bounded checkout `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`. First repairs merged in PR103/37fe77ae. Research and reconcile current evidence before recommending new services or large integration. No spending or cleanup authorization inferred.
 
 > **2026-09-06 — Operating-system review / BUILDING.** Fresh owner task
