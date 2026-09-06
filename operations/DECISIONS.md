@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Eight owner-supplied Did you know highlights
+
+Ali supplied eight invitations for the slim rotating banner: Rewind Era games (Dream Phone, Girl Talk, paper fortune teller); Miss Jeeves; KSVL while browsing; women computing history; LIBRAiRY textbooks; NewsStand headlines and Big Picture; FAiRY career advice plus own-AI guidance; Mall references. Preserve her examples and welcoming direct voice, correcting spelling/canon and unsupported facts only. Since the1800s replaces unestablished over200years based on Ada1843. Radio explicitly opens another tab for listening while browsing. Preview a3e89267 implements these eight; six needs shortcuts and compact expandable directory remain. No production approval.
+
 ## 2026-09-06 — Existing needs routes plus compact full directory and slim banner
 
 Ali confirmed the original “I want to learn” shortcut led to /learn.html and requested its restoration. Restore the six needs shortcuts; the broad AI-question route uses /learn.html#help-now so it exposes the existing help choices. Do not substitute Library-only or MissJeeves-only destinations for these broad needs.
