@@ -14869,3 +14869,29 @@ while remaining falsely unfinished in the launch record.
   stopped.
 - **Status:** Candidate-specific defects repaired; prevention applies to every
   remaining practical-guide chapter. Full manuscripts and publication remain HOLD.
+
+## LIBRARY-NEW-MODEL-IS-NOT-A-RENAME-20260906 — A successor changes access and operating advice
+
+- **Finding:** GPT-6 Astra changed the OpenAI task-fit ladder and agent-control
+  advice, while Fable 5.1 resolved plan access but added model-specific credit,
+  retention, fallback and prompting boundaries. Replacing “5” with “5.1” or
+  adding Astra to a model table would leave materially wrong beginner guidance.
+  The first Astra chapter revision also called a multi-step tool task
+  “agentic” before explaining it; independent review held the chapter until the
+  mechanism replaced the label.
+- **Prevention:** On every model release, re-open the current official model,
+  effort, plan, retention/safety and prompting sources. Compare each affected
+  manuscript claim, preserve the no-picker/Free route, and add model-specific
+  controls only where they change a reader action. Keep vendor benchmarks
+  labelled as vendor evidence and require account observation before claiming
+  tested product behaviour. In beginner prose, explain the steps, tools and
+  consequences before using a category label—or omit the label when it adds no
+  value.
+- **Evidence:**
+  `operations/product-stewards/library/FOUR-GUIDE-LIVE-REFRESH-REPORT-SOURCE-2026-09-06.md`,
+  the refreshed practical-guidance spine and the ChatGPT chapter Astra source
+  card and successor.
+- **Possible Behind the Build angle:** Why the AI textbook could be out of date
+  four days after admission—and why the fix was not adding one row to a table.
+- **Status:** Internal research and first chapter successor produced; complete
+  manuscripts, account tests and public release remain HOLD.

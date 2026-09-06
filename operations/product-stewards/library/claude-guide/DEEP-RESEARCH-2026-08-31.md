@@ -1,6 +1,6 @@
 # Claude practical-guide research packet — 2026-08-31
 
-**Status:** SOURCE SYNTHESIS; manuscript, account-access checks, and comparative product tests remain HOLD.
+**Status:** SOURCE SYNTHESIS; manuscript, account-access checks, and comparative product tests remain HOLD. Fable 5.1 plan, prompting, retention and fallback facts were refreshed on 2026-09-06.
 
 **Purpose:** current source inventory for the proposed nontechnical Claude guide. This is not a feature-comparison verdict, a tested workflow, or publishable prose. Product claims below were checked on 2026-08-31, with the model and operating-guidance refresh checked on 2026-09-01; availability, limits, regions, models, and pricing can change. The maintained cross-guide practical synthesis is `../CURRENT-PRACTICAL-GUIDANCE-2026-09-01.md`.
 
@@ -22,9 +22,13 @@ Source: [current model overview](https://platform.claude.com/docs/en/models/over
 Effort is not a hard spending limit. Exact effort choices and defaults are an
 API/product-surface fact, not a promise about a reader's model picker. Older
 support pages describing **Fable 5** consumer-plan access are not evidence of
-**Fable 5.1** access. Fable 5.1 app entitlement remains HOLD until the current
-plan/support source is reconciled. Do not infer Mythos consumer access from an
-older prompt page or API record.
+**Fable 5.1** access. Fable 5.1 is not available on Free. On Max and premium
+Team/Enterprise seats it draws from the ordinary weekly allowance, with Fable
+use capped at 50% of that allowance. On Pro and standard Team/Enterprise seats
+it requires usage credits from the first use. Model-picker visibility still
+depends on account, organisation enablement, region and current app version.
+Do not infer Mythos consumer access from a Fable prompt page or API record.
+Source: [Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan), checked 2026-09-06.
 
 The official sources give three recommendations with different scopes. The
 general model overview says to start with Opus 5 for most workloads and use
@@ -92,7 +96,8 @@ App skills are documented for Free and paid accounts with code execution enabled
 and applicable organization controls. Source:
 [Use skills](https://support.claude.com/en/articles/12512180-use-skills-in-claude).
 
-Still open: Free selector/caps; paid execution; Cowork instruction placement;
+Still open: actual account picker/effort controls, credit price and balance,
+region/organisation enablement, fallback behaviour, paid execution and Cowork instruction placement;
 older exposed models' distinct recipes; actual skill contents and install trials
 for substantial document/code examples. No purchases, installations or model
 trial runs were made for this addendum.
@@ -120,7 +125,7 @@ The book should teach a job-routing system, not “the Claude prompt.” **Chat*
 
 **Plans and money.** The current individual list price shown by Anthropic is Free $0; Pro US$20 monthly or US$200 annually; Max 5x US$100 monthly; Max 20x US$200 monthly. Team is distinct organisation billing (Standard US$25 monthly / $20 annual-equivalent; Premium US$125 monthly / $100 annual-equivalent on the current page). These are source facts, not reader recommendations. Never translate capacity ratios into an exact message quota: Anthropic explicitly says capacity varies with task and may impose other caps. Paid users may enable usage credits, but API Console billing is separate from a consumer subscription. [Plan guide, 2026-05-19](https://support.claude.com/en/articles/11049762-choose-a-claude-plan); [pricing](https://claude.com/pricing)
 
-**Privacy and permission framing.** Incognito chat is available on all listed plans and is not in chat history/memory or used for training, but is retained for 30 days by default; it is not available inside Projects and organisation exports can include it. It is therefore a privacy control, not an invisible scratchpad. [Incognito, 2026-07-16](https://support.claude.com/en/articles/12260368-use-incognito-chats) Consumer Free/Pro/Max training choice differs from Team/Enterprise’s no-training-by-default claim, so the guide must have readers check their plan and settings rather than write “Claude never trains on your work.” Connector data is not trained on, but consumer users who opt into model improvement can bring copied connector content into a trainable chat. [Google connector privacy](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors)
+**Privacy and permission framing.** Incognito chat is available on all listed plans and is not in chat history/memory or used for training, but is retained for 30 days by default; it is not available inside Projects and organisation exports can include it. It is therefore a privacy control, not an invisible scratchpad. [Incognito, 2026-07-16](https://support.claude.com/en/articles/12260368-use-incognito-chats) Consumer Free/Pro/Max training choice differs from Team/Enterprise’s no-training-by-default claim, so the guide must have readers check their plan and settings rather than write “Claude never trains on your work.” Connector data is not trained on, but consumer users who opt into model improvement can bring copied connector content into a trainable chat. [Google connector privacy](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors) Separately, Fable 5.1 is a Covered Model: its use requires 30-day retention unless Anthropic expressly authorizes an eligible organisation's ZDR/EFS arrangement. Do not put sensitive work into Fable merely because a consumer chat setting looks private. [Covered Models](https://support.claude.com/en/articles/15425695-covered-models)
 
 ## Three paired free-to-paid workflows
 
@@ -163,7 +168,7 @@ is an explicit remaining inventory item, not a settled universal picker.
 * **Cowork local/cloud conflict resolved:** older launch coverage often says local/macOS/Max. Current official help says paid plans, cloud-default beta, and desktop-mediated local reach; use the current official help and date the claim. Do **not** say it runs only locally or that closing the laptop stops purely cloud work. [Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 * **Surface overlap is real:** connectors can be available across Chat, Desktop, Cowork, Code, and API, but local desktop extensions are not available in web/mobile/Cowork. The manuscript needs a “where this runs” label beside every tutorial. [Connector surfaces](https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors)
 * **No claims here are hands-on tests.** Before drafting worked chapters, run the same bounded report/slides job, copied-folder manifest job, and interactive tool job in Free Chat, paid Chat/Research, Cowork, and Code where access exists. Record plan, surface, model/mode, source files, permissions, time, usage/cost, exact outputs, failures, repair, export, and what a human checked.
-* **Research gap:** availability may vary by region, account, rollout, organisation policy, and enabled capabilities. This packet does not verify an account’s entitlement, exact message caps, model picker, API rates, browser/computer permissions, or any third-party connector. Those must remain explicit test variables rather than textbook promises.
+* **Research gap:** official Fable 5.1 Free/paid policy, API identity and rates are now verified, but availability may still vary by region, account, rollout, organisation policy and enabled capabilities. This packet does not verify an individual account's picker, shown effort/default, current credit balance or price, exact message caps, browser/computer permissions, fallback event or any third-party connector. Those remain explicit account-test variables rather than textbook promises.
 
 ## Opened-source register (not a link dump)
 
@@ -190,6 +195,13 @@ the row records the 2026-09-01 refresh.
 | [Claude Code best practices](https://code.claude.com/docs/en/best-practices) | Anthropic, living documentation checked 2026-08-31 | current project-context, verification and hook methods |
 | [Models overview](https://platform.claude.com/docs/en/models/overview) | Anthropic, living documentation checked 2026-09-01 | Fable 5.1 current lineup, defaults and general model route |
 | [Effort](https://platform.claude.com/docs/en/build-with-claude/effort) | Anthropic, living documentation checked 2026-09-01 | all supported levels, defaults and model-specific effort guidance |
+| [Fable 5.1 overview](https://platform.claude.com/docs/en/models/fable-5-1/overview) | Anthropic, checked 2026-09-06 | model ID, context, output and availability |
+| [Fable 5.1 announcement](https://www.anthropic.com/claude/fable) | Anthropic, 2026-09-01; checked 2026-09-06 | launch, positioning, consumer surface defaults and price |
+| [Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan) | Anthropic, updated week of 2026-09-06 | Free exclusion, paid-plan and usage-credit rules |
+| [Paid-plan context](https://support.claude.com/en/articles/8606394-how-large-is-the-context-window-on-paid-claude-plans) | Anthropic, updated week of 2026-09-06 | 1M paid Chat, Code and Cowork context; compaction boundary |
+| [Prompting Fable 5.1](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1) | Anthropic, checked 2026-09-06 | effort and model-specific behaviour controls |
+| [Covered Models](https://support.claude.com/en/articles/15425695-covered-models) | Anthropic, checked 2026-09-06 | model-specific retention and limited ZDR/EFS route |
+| [Fable fallback behaviour](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1) | Anthropic, checked 2026-09-06 | protected-domain fallback and responder identity boundary |
 | [Optimizing for cost and intelligence](https://platform.claude.com/docs/en/about-claude/models/optimizing-for-cost-and-intelligence) | Anthropic, living documentation checked 2026-09-01 | effort sweeps, cost per completed task and workload-dependent model selection |
 | [Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) | Anthropic, living documentation checked 2026-09-01 | examples, structured prompts and long-context placement |
 | [Agentic coding and persistent returns to expertise](https://www.anthropic.com/research/claude-code-expertise) | Anthropic Research, 2026-06-16; checked 2026-09-01 | preliminary aggregate evidence on planning, execution, verification and domain expertise |

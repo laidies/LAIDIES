@@ -162,23 +162,43 @@ If your account does not show a model picker, use the model it provides. Do not
 spend twenty minutes searching for a menu that is not part of your plan or
 surface.
 
-If you do have a choice, OpenAI's current GPT-5.6 family has three practical
-starting points:
+If you do have a choice, OpenAI's current line-up has four practical starting
+points. The newest name is not automatically the right answer:
 
 | Model | Reach for it when… | Reunion example |
 | --- | --- | --- |
 | **Luna** | The instructions are clear, the pattern repeats and speed or volume matters. | Extract every date, time and RSVP instruction from a folder of invitations. |
 | **Terra** | You need a capable everyday all-rounder for a well-bounded job. | Compare three sources, explain the conflicts and draft corrected copy. |
-| **Sol** | The task is open-ended, unusually complicated or needs deeper judgment and polish. | Reconcile contradictory committee notes, preserve a distinctive voice and propose a defensible final package. |
+| **Sol** | The job is demanding and professional, and depth or polish may reduce meaningful repair. | Reconcile contradictory committee notes, preserve a distinctive voice and propose a defensible final package. |
+| **Astra** | The work crosses several systems or disciplines, carries a long context, or needs tools and deeper synthesis to stay coherent. | Reconcile years of event records, update the site and invitation pack, coordinate independent research, and verify that every public version agrees. |
 
 **Our starting choice:** Terra, if it is available, because the source hierarchy
 and output are clear but the job needs more judgment than mechanical extraction.
-The current Power default is Sol at medium effort, so using the default is also
-reasonable.
+If Terra is not in your picker, use the model your account provides. This small
+reunion job does not become an Astra job merely because Astra is newer.
 
 Do not treat this table as a permanent ranking. Model families and defaults
 change. More importantly, a smaller model with a crisp job and clean source pack
 can outperform a larger model asked to guess what you meant.
+
+Astra earns its place when its extra synthesis can change the outcome. If you
+use it for a long job that can take several steps or use tools on your behalf,
+add four boundaries that a small chat may not need:
+
+```text
+Authority: the signed event brief wins over meeting notes and old pages.
+Autonomy: continue with reversible in-scope work; stop for publishing, spending,
+deletion or a real change of scope.
+Delegation: split independent research and checking when that saves time, but
+keep one owner for each final file.
+Testing: check the changed journey and its real dependencies. Stop when those
+checks pass; do not widen this into a general audit.
+```
+
+Why be this explicit? OpenAI's current Astra guidance says it can be sensitive
+to long instruction stacks, may stop for a focused question, may not delegate
+enough and can test a small task more thoroughly than it needs. The boundaries
+do not make it infallible. They tell a powerful worker what finished means.
 
 ## How much effort should you choose?
 
@@ -192,7 +212,7 @@ failed in a specific way.
 
 | Effort | Good use | What to watch |
 | --- | --- | --- |
-| **Light** in desktop, Work web and the IDE; **Low** in the command line | Quick, well-scoped work: extract, format, classify or make one obvious edit. | It may not trace subtle dependencies unless you name them. |
+| **Light** | Quick, well-scoped work: extract, format, classify or make one obvious edit. | It may not trace subtle dependencies unless you name them. |
 | **Medium** | The best everyday starting point when the task needs some judgment. | Still inspect the result; “medium” is not a confidence score. |
 | **High** | Several steps, sources or trade-offs must be considered together. | More reasoning can produce more commentary and review than a small job needs. Define the finish line. |
 | **Extra High** | The same kind of demanding work, with more room for a careful pass. | Use it because the task has earned it, not because the label sounds reassuring. |
@@ -203,12 +223,19 @@ For our three-source reunion check, **Medium** is enough. Move to High if the
 committee supplies six contradictory versions, or if Medium demonstrably
 misses linked occurrences after a clear prompt.
 
-High effort is a setting, not a tiara. You do not win anything for wearing it to
-the grocery store.
+High effort is a setting, not a tiara. The useful question is not whether the
+job feels important. It is whether extra reasoning is likely to improve the
+result: deeper synthesis, more linked constraints, or a specific failure at a
+lower setting. Without a clear finish line, higher effort can buy more
+commentary and review rather than a better answer.
 
-If you use the API later, you may see a different list running from `none`
-through `max`. API **Pro execution mode** is also a technical service option; it
-is not the same thing as buying a ChatGPT Pro subscription.
+The exact effort menu depends on the model, plan and surface. Eligible ChatGPT
+Power accounts currently show combinations including Terra Light, Sol Light,
+Sol Medium, Astra Light, Astra Medium and Astra Extra High. Other options can
+be absent. If you use the API later, Astra has a different list—`low`, `medium`,
+`high`, `xhigh` and `max`—and does not accept `none`. API **Pro execution mode**
+is also a technical service option; it is not the same thing as buying a
+ChatGPT Pro subscription.
 
 ## Now do the job
 
@@ -531,8 +558,10 @@ likely to send the entire Class of 2002 to an empty roller rink.
 - [Artifacts and files](https://learn.chatgpt.com/docs/artifacts-viewer)
 - [Settings reference](https://learn.chatgpt.com/docs/reference/settings)
 - [Pricing and plan access](https://learn.chatgpt.com/docs/pricing)
-- [GPT-5.6 developer guide](https://developers.openai.com/api/docs/guides/latest-model)
+- [GPT-6 Astra and current model guidance](https://developers.openai.com/api/docs/guides/latest-model)
+- [GPT-6 Astra API model card](https://developers.openai.com/api/docs/models/gpt-6-astra)
+- [Enterprise model availability](https://learn.chatgpt.com/docs/enterprise/workspace-model-availability)
 
-These sources were checked on 2 September 2026. Model names, defaults, plan
+These sources were checked on 6 September 2026. Model names, defaults, plan
 limits, prices and interface controls are living facts and must be rechecked
 before publication.

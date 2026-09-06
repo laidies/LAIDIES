@@ -1,6 +1,6 @@
 # ChatGPT and Claude — current practical guidance spine
 
-**Checked:** 2026-09-01
+**Checked:** 2026-09-06
 **Status:** INTERNAL SOURCE SYNTHESIS. This is the maintained practical input
 for the two guide manuscripts, not publication approval or a claim that every
 feature is available in every account.
@@ -280,17 +280,21 @@ sample data.
 
 **Evidence:** official OpenAI best-practice guidance, checked 2026-09-01.
 
-### 9. Choose GPT-5.6 model and effort as separate decisions
+### 9. Choose the OpenAI model and effort as separate decisions
 
 **Use when:** the chosen OpenAI surface actually exposes model or effort
 controls. Do not invent these controls for a Free chat that does not show them.
 
-**Do this:** use Luna for narrow high-volume work, Terra as the balanced route
-and Sol when the task genuinely needs the strongest capability. For the API,
-OpenAI currently documents `none`, `low`, `medium`, `high`, `xhigh` and `max`.
-Medium is the balanced starting point; test one level lower. Raise effort only
-when the same representative task shows a meaningful quality gain. Pro mode is
-an API execution mode independent of model and effort—not the ChatGPT Pro plan.
+**Do this:** use Luna for narrow high-volume work, Terra as the balanced route,
+Sol for demanding professional work and Astra for the hardest cross-domain,
+long-context or tool-heavy work where stronger synthesis can change the result.
+In eligible ChatGPT Power accounts, the current practical ladder runs from
+Terra Light through Sol Light/Medium to Astra Light/Medium/Extra High; exact
+options vary by plan and rollout. The Astra API instead exposes `low`, `medium`,
+`high`, `xhigh` and `max` and does not accept `none`. Begin with the lowest
+setting likely to finish the actual job, then raise it only when the same
+representative task shows a meaningful quality gain. Pro execution mode is an
+API service option independent of model and effort—not the ChatGPT Pro plan.
 
 **Why it helps:** the model, effort, execution mode and subscription answer
 different questions. The most expensive combination is not automatically the
@@ -304,7 +308,16 @@ the same checks. **Paid/API extension:** compare the same prompt, tools and
 finish line across the candidate settings; record quality, time, tokens and
 manual repair.
 
-**Evidence:** official OpenAI GPT-5.6 model guidance, checked 2026-09-01.
+**Astra-specific control:** for a long job that can take several steps or use
+tools on the reader's behalf, state which source wins, whether reversible work
+should continue without another question, what may be delegated and how much
+testing is enough. OpenAI notes that Astra can be
+sensitive to long instruction stacks, may under-delegate and may over-test a
+small task. More effort without a bounded finish line can buy more review rather
+than a better result.
+
+**Evidence:** official OpenAI model and Astra prompting guidance, checked
+2026-09-06. See `FOUR-GUIDE-LIVE-REFRESH-REPORT-SOURCE-2026-09-06.md`.
 
 ## Claude, Cowork and Claude Code — practical operating cards
 
@@ -413,6 +426,22 @@ evidence, repair, time and cost.
 **Evidence:** official Anthropic model overview and cost/intelligence guide,
 checked 2026-09-01. The cited measurements are Anthropic-internal and
 directional, not a universal benchmark.
+
+**Current access boundary, checked 2026-09-06:** Fable 5.1 has no Free route.
+On Max and premium Team/Enterprise seats it uses the shared weekly allowance,
+with Fable limited to half of that allowance; on Pro and standard seats it uses
+pay-as-you-go credits from the first request. Anthropic says the current default
+is Medium in Claude.ai and Cowork but High in Claude Code; the API default is
+also High. These are surface defaults, not a reason to select High for every
+task. Fable 5.1 is also a Covered Model with a 30-day retention requirement
+unless Anthropic expressly authorizes an eligible organisational arrangement.
+
+**Fable 5.1-specific control:** ask explicitly for search when current facts
+matter at Low; name exclusions and the exact finish line; request brief progress
+updates if silence during tool work is confusing; and ask for targeted edits
+rather than whole-file rewrites when only a small part should change. At xhigh
+or max, use a long-output request only after a lower effort has shown a real
+quality gap.
 
 ### 14. Use XML only when structure is actually the problem
 

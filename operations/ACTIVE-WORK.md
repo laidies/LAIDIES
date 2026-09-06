@@ -4,6 +4,40 @@
 
 ## Current task
 
+### 2026-09-06 — four-guide Astra and Fable 5.1 live refresh
+
+- **Status:** CURRENT PRIMARY-SOURCE REFRESH COMPLETE / CHATGPT CHAPTER ASTRA
+  SUCCESSOR EXACT-PROSE INDEPENDENTLY ADMITTED / FULL MANUSCRIPTS, READER TESTS,
+  DESIGN AND PUBLICATION HOLD.
+- **Scope:** *Who's Who in AI*, *ChatGPT Guide*, *Claude Guide* and *Tool &
+  Application Selection Guide*.
+- **Verified current change:** OpenAI now places GPT-6 Astra above the retained
+  Luna/Terra/Sol task-fit ladder. Anthropic now documents Fable 5.1 as paid-only;
+  Max/premium seats use the shared weekly allowance while Pro/standard seats
+  require usage credits from the first use. Current effort, context, retention,
+  fallback and prompting differences are recorded in
+  `operations/product-stewards/library/FOUR-GUIDE-LIVE-REFRESH-REPORT-SOURCE-2026-09-06.md`.
+- **Produced:** refreshed shared practical guidance; corrected Claude research;
+  an Astra-specific chapter source card and producer contract; and a 4,200-word
+  ChatGPT chapter successor that explains when Astra earns its cost and gives
+  an exact authority/autonomy/delegation/testing control block. The chapter
+  retains a complete no-picker route and does not inflate the small reunion case
+  into an Astra task.
+- **Review:** the first independent read held on the unexplained word
+  `agentic`. The current exact chapter replaces it with “a long job that can
+  take several steps or use tools on your behalf.” Producer and independent
+  exact-prose receipts now validate PASS against SHA-256
+  `bc496216cfed9ce262cd549658de7e2ed32c87c67d3789f3b82d98fda72b8d01`.
+- **Public truth:** `https://laidies.ai/library` currently marks *Who's Who in
+  AI* HOLD and ChatGPT/Claude as previews; it does not contain the commissioned
+  complete guides. The current HTML contains no catalogue entry for the new
+  Tool & Application Selection Guide.
+- **Not done:** no representative current account comparison, unfamiliar-human
+  comprehension observation, complete manuscript, designed reader derivative,
+  catalogue admission, release deployment or public verification of a new book.
+- **Next:** draft the remaining ChatGPT manuscript and the Claude manuscript
+  from the refreshed source ledger before building or advertising a release.
+
 ### 2026-09-02 — ChatGPT guide complete chapter proof
 
 - **Status:** FIRST COMPLETE CHAPTER EXACT-PROSE ADMITTED / FULL MANUSCRIPT,
