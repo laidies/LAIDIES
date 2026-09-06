@@ -619,3 +619,57 @@
   .ns-redesign .ns-front-desk--big-picture .ns-front-status { margin: 0; }
   .ns-redesign .ns-big-picture-index { grid-template-columns: 1fr; }
 }
+
+/* September 6: compact newspaper columns, with saturated Rewind accents. */
+@media(min-width: 601px) {
+  .ns-redesign .ns-front-desk--big-picture {
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+    grid-template-areas: 'label label' 'image contents' 'footer contents';
+    grid-template-rows: auto auto auto; align-items: start;
+  }
+  .ns-redesign .ns-front-desk--big-picture .ns-front-status { align-self: start; margin: 0; }
+  .ns-redesign .ns-front-desk--big-picture .ns-publication__headline { font-size: clamp(26px,2.4vw,34px); }
+}
+.ns-redesign .ns-feature-desk__head { padding: 14px 18px; border-color: #11183b; }
+.ns-redesign .ns-feature-desk__head--useful { background: #ff2e9f; box-shadow: none; border-bottom: 6px solid #ffea32; }
+.ns-redesign .ns-feature-desk__head--town { background: #00d8ef; box-shadow: none; border-bottom: 6px solid #7137d6; margin-top: 26px; }
+.ns-redesign .ns-feature-desk__head h2 { color: #11183b; font: 900 clamp(26px,3vw,38px)/1.05 Jost,sans-serif; letter-spacing: -.035em; }
+.ns-redesign .ns-feature-desk__head--useful h2 { text-shadow: 2px 2px 0 #ffea32; }
+.ns-redesign .ns-feature-desk__head--town h2 { text-shadow: 2px 2px 0 #ffea32; }
+.ns-redesign .ns-feature-desk__grid { background: #11183b; border-color: #11183b; }
+.ns-redesign .ns-feature-desk__grid > li { padding: 18px; background: #fff0f6; }
+.ns-redesign .ns-feature-desk__grid--useful > li { border-top: 5px solid var(--desk-accent,#7137d6); }
+.ns-redesign [data-desk="dear_miss_jeeves"] { --desk-accent: #ff2e9f; }
+.ns-redesign [data-desk="career_life"] { --desk-accent: #7137d6; }
+.ns-redesign [data-desk="paige_tip"] { --desk-accent: #00d8ef; }
+.ns-redesign [data-desk="concept_week"] { --desk-accent: #ffea32; }
+.ns-redesign .ns-feature-desk__grid > li > a,
+.ns-redesign .ns-feature-desk__grid [data-desk="whats_new_sunnyvaile"] > a,
+.ns-redesign .ns-feature-desk__grid [data-desk="did_you_know"] > a { display: flow-root; height: auto; }
+.ns-redesign .ns-feature-desk__grid .ns-desk-image { float: right; width: 88px; height: auto; aspect-ratio: auto; object-fit: contain; margin: 0 0 12px 12px; border: 1px solid #11183b; box-shadow: 3px 3px 0 var(--desk-accent,#00d8ef); }
+.ns-redesign .ns-feature-desk__grid small { font-size: 22px; line-height: 1.15; }
+.ns-redesign .ns-feature-desk__grid strong { clear: both; padding-top: 6px; }
+.ns-redesign .ns-feature-desk__grid--town .ns-desk-image { width: 120px; }
+.ns-redesign .ns-reading-card { display: flow-root; height: auto; }
+.ns-redesign .ns-reading-card > img { float: left; width: 38%; max-width: 170px; height: auto; margin: 0 18px 12px 0; }
+.ns-redesign .ns-reading-card h3 { font-size: 24px; }
+.ns-redesign .ns-reading-card p { font-size: 16px; line-height: 1.5; }
+.ns-redesign .ns-reading-card a { display: inline-block; min-height: 44px; padding-top: 10px; color: #6430b7; font-weight: 700; }
+@media(min-width:601px) and (max-width:1050px) {
+  .ns-redesign .ns-feature-desk__grid--useful { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .ns-redesign .ns-reading-card > img { float: none; width: 140px; margin: 0 0 14px; }
+}
+@media(max-width:600px) {
+  .ns-redesign .ns-front-desk--big-picture .ns-publication__headline { font-size: 27px; }
+  .ns-redesign .ns-feature-desk__head .ns-kicker { margin-bottom: 8px; }
+  .ns-redesign .ns-feature-desk__grid > li { padding: 16px; }
+  .ns-redesign .ns-feature-desk__grid .ns-desk-image { width: 88px; }
+  .ns-redesign .ns-reading-card > img { width: 112px; margin-right: 14px; }
+}
+
+.ns-redesign .ns-big-picture-footer { grid-area: footer; display: flex; align-items: center; flex-wrap: wrap; gap: 12px 18px; }
+.ns-redesign .ns-big-picture-footer .ns-front-status { align-self: center; margin: 0; font: 500 12px/1.4 Jost,sans-serif; }
+.ns-redesign .ns-big-picture-footer .ns-front-action { font-size: 15px; }
+@media(max-width:600px) {
+  .ns-redesign .ns-big-picture-footer { width: 100%; gap: 12px; }
+}

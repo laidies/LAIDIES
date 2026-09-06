@@ -15951,3 +15951,10 @@ remain unreconciled; cross-chat completeness is not certified.
 - Prevention: Use the existing masthead visual language with a calm text surface; collection derives all permitted stories and shows at2+, retaining access checks.
 - Verification: Actual desktop390/320 and native expanded five-item fixture; old generic pseudo-element display:none initially suppressed the texture and was repaired before independent review.
 - Behind the Build: Editorial importance must be visible in the layout, not only in a section label.
+
+## BTB-508 — Metadata and oversized cards wasted newspaper space
+- Date: 2026-09-06
+- Finding: Big Picture date row displaced the headline and unbalanced image/text heights; oversized muted service-card framing weakened newspaper hierarchy.
+- Prevention: Place date with reading action; inspect actual relative heights and whitespace at desktop and narrow widths. No-overflow alone is not a visual-quality verdict. Preserve original art proportions and complete summaries.
+- Verification: Independent desktop accepted; root1200/390/320 and reading action passed. Original images and prose unchanged.
+- Behind the Build: Small metadata placement can change the balance of a whole page. Explain the general design lesson without exposing private operations.

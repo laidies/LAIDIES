@@ -20,6 +20,11 @@ proper domain source before building from it.
 
 ## Core routes
 
+September 6, Ali rejected wasted space beneath the Big Picture image and the
+oversized muted advice cards. Balance the Big Picture image/text columns, use
+compact newspaper illustrations and stronger pink/cyan/yellow/purple section
+accents. Preserve the full artwork, original prose, features and article links.
+
 September 6, Ali requested that Big Picture stand out using the masthead's
 fun pop-art direction rather than its white background. Provide a Read all
 Big Picture control once at least two articles are published and accessible.
@@ -350,3 +355,5 @@ current source or silently become implementation authority.
 Write a new decision into the narrowest current domain source in the same task.
 Add or change a row here only when routing itself changes. Do not grow this file
 into another decision ledger.
+
+- 2026-09-06 Ali: Big Picture publication date belongs in compact footer with the reading action, not a separate row above the headline. Preserve the original date.
