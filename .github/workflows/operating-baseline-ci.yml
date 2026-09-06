@@ -76,7 +76,11 @@ jobs:
       - name: Role-distinct review routing
         run: node scripts/test-agent-role-routing.mjs
       - name: Workspace configuration reproducibility
-        run: node scripts/test-sync-codex-workspace-config.mjs
+        run: |
+          node scripts/test-sync-codex-workspace-config.mjs
+          node scripts/test-codex-instruction-distribution.mjs
+          node scripts/sync-codex-workspace-config.mjs --check
+          bash operations/codex-contract/build-agents-md.sh --check
       - name: Local push protection calibration
         run: node scripts/test-pre-push-protection.mjs
       - name: Codex lifecycle hook guards

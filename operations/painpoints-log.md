@@ -209,3 +209,18 @@ narrowed objectives and premature Stop. Reuse existing events, not another job
 store. Native loading, semantic priority and future scheduled execution remain
 separate evidence requirements. Behind the Build angle: a technically green
 project can still be working on the wrong job; test the original promise.
+
+### 2026-09-06 — Approved instructions stranded outside default-branch distribution
+Observed: approved Astra source and local outer config coexisted with Sol in
+both main config sources; prior sync tests exercised synthetic files without
+checking repository parity. An isolated worktree's parent was also an unsafe
+implicit output target. Prevention: compare real tracked config and generated
+instructions in CI; calibrate missing/stale outputs and preservation of an
+unrelated parent; require an explicit outer config target. CLI loading, active
+model selection and native hook trust remain separate claims. Independent
+review caught a stale feature-key reference; repaired before integration.
+The standing-card maker also hardcoded a fixed Library study size against the
+routed proportional rule and omitted latest-direct-ruling priority. Both
+summaries now follow current authority; production gates remain unchanged.
+Behind the Build: changing the master instructions does not update every copy
+that workers actually read. Test distribution, not just the writing tool.

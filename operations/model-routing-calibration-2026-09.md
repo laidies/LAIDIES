@@ -1,5 +1,7 @@
 # Model routing calibration — September 2026
 
+Active rule (D-2026-09-05-143): one row per completed substantial task through the earlier of September 19 or 20 tasks; review after at least 12 comparable tasks. Record actual routes, time band, observable task usage, first-pass outcome, corrections and cheaper-route judgment. Account-wide usage is not task cost.
+
 | Date / task | Actual route and reason | Time / usage | Result and corrections | Cheaper route |
 | --- | --- | --- | --- | --- |
 
@@ -28,3 +30,5 @@
 | 2026-09-05 / private inbox current colours | GPT-6 foreground, effort unavailable; Terra/Medium bounded current-token lookup | 5–15 minutes; task usage unavailable | Correct current decision source found; retired palette replaced; desktop/390px and contrast inspected; previous theme rejected by guard | Bounded colour repair could use Terra; root needed to correct its own missed authority rather than create another design direction |
 
 | 2026-09-06 | Operating continuity repair | GPT-6 foreground; Terra Medium read-only code review | Cross-system failure trace and bounded hook/event integration | 15–30 min | Task usage unavailable | Negative controls passed; native loading and future trigger unverified | Sparse fixture materialized; no product expansion | Terra suitable for inventory; foreground synthesis needed |
+
+| 2026-09-06 / operating review and Astra distribution repair | GPT-6 Astra foreground, effort unavailable; Terra/Medium read-only inventory and independent review. Cross-checkout authority, native loading and owner continuity required foreground synthesis | 15–60m; task usage UNAVAILABLE | First pass NO: reviewer found stale feature-key wording; fixed. Missing sparse site fixture prevented unrelated pre-commit check, explicitly bypassed. Targeted negative tests and CLI loading passed; remote integration evidence PR103. Existing sync repaired, no new operating service | LIKELY cheaper for mechanical edits; independent inventory/review already Terra. Cross-system synthesis not compared |

@@ -69,7 +69,7 @@ owner, reason and next trigger. Read-only work records
 
 ## PARALLEL WORK — mandatory
 
-Subagents are enabled (`features.multi_agent_v2`), capped at 2 concurrent threads.
+Subagents are enabled (`features.multi_agent`), capped at 2 concurrent threads.
 Serial execution of genuinely independent work is a defect, not caution.
 
 **Write safety.** Concurrent threads share one working tree with full access, so:
@@ -342,21 +342,24 @@ acceptance conditions are met.
 
 Use the least expensive model/reasoning configuration that can reliably meet
 the task's quality and risk bar. The project `.codex/config.toml` sets the
-normal foreground baseline to **GPT-5.6 Sol / Medium**, planning to **High**,
+foreground starting model to **GPT-6 Astra / Medium**, planning to **High**,
 subagents to **GPT-5.6 Terra / Medium**, 2 concurrent threads, and Fast mode off.
 
 - Use **Luna / Low** for high-volume work with clear success criteria:
   extraction, classification, mechanical transformation, structured summaries,
   repeatable edits. It is the cheapest and should carry this whole category.
 - Use **Terra / Low or Medium** for bounded reading, search, inventory,
-  routine tests and monitoring that still needs judgment.
-- Use **Sol / Medium** for the normal LAiDIES foreground: implementation,
-  synthesis, creative/editorial development and multi-step work.
-- Escalate to **Sol / High** for genuinely difficult architecture, debugging,
-  source reconciliation or high-risk review.
-- Use **Extra High, Max or Ultra only as a bounded exception** when the task is
-  unusually ambiguous, consequential or resistant to a lower setting. State
-  the reason before the expensive work.
+  reporting, routine implementation, tests and monitoring that still need
+  judgment.
+- Use **Sol / Medium or High** for demanding professional work where Astra is
+  unlikely to change the decision or reduce rework enough to justify its higher
+  usage. Sol remains an active value route, not a deprecated fallback.
+- Use **Astra / Medium** for the hardest cross-domain, end-to-end work where
+  stronger reasoning, computer use, long-context instruction handling or
+  multi-surface synthesis can materially improve the outcome.
+- Use **Astra / High, Extra High, Max or Ultra only as a bounded exception**
+  when the task is unusually ambiguous, consequential or resistant to a lower
+  setting. State the reason before the expensive work.
 - Start at the lowest effort that produces a satisfactory result and escalate
   only on evidence. Effort levels do not map across model generations — retest
   familiar tasks lower than you expect.
@@ -369,6 +372,40 @@ subagents to **GPT-5.6 Terra / Medium**, 2 concurrent threads, and Fast mode off
 - A composer/model-picker choice for the active chat can override project
   defaults. After unusually difficult work, step new tasks back down to the
   project baseline.
+
+The project default is a starting point, not a universal assignment. Before
+material work, classify the task by ambiguity, consequence, modalities, context
+load, tool depth and cost of a wrong answer. Use the cheapest model likely to
+clear the actual acceptance conditions. Prefer a bounded Luna or Terra lane
+when the foreground model is more capable than the work requires. Escalate only
+when the lower route fails, the task crosses several systems, or stronger
+judgment could plausibly prevent a costly review cycle. Do not make Ali manage
+routine routing.
+
+## ASTRA-SPECIFIC CONTROL — mandatory when Astra is active
+
+Astra follows long instruction stacks closely and can be more sensitive to
+conflicts. Apply the authority order in `{{OPS}}/DECISIONS.md` and Ali's latest
+direct instruction. If a conflict forces a pause, leaves work unfinished or
+changes course, name the exact file and rule; do not silently invent a narrower
+scope.
+
+Inspect the existing architecture, tools and approved assets before proposing a
+new mechanism. Do not implement novel infrastructure merely because Astra can
+devise it. First show why the current mechanism cannot meet the goal. If the new
+approach materially changes scope, cost, reversibility or an Ali-owned product
+decision, complete all independent preparation and present that one decision
+before implementation.
+
+## MODEL-ROUTING CALIBRATION — active through 2026-09-19
+
+At the end of each completed Tier 1 or material Tier 2 task, append one row to
+`{{OPS}}/model-routing-calibration-2026-09.md`. Record the actual model/effort,
+route reason, time band, task-specific usage only when available, first-pass
+result, material corrections or detours and whether a cheaper route was likely.
+Exclude simple questions, one-step maintenance and waiting. Do not infer task
+cost from account-wide usage. Review after 12–20 comparable real tasks; do not
+create synthetic benchmark work merely to fill the table.
 
 ## CONTINUITY + IDEA INTAKE — mandatory
 

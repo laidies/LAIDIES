@@ -549,7 +549,7 @@
     },
     {
       "work_id": "WRK-20260906-operating-continuation",
-      "status": "WAITING_EXTERNAL",
+      "status": "STOPPED",
       "title": "Repair operating priority and continuity; prove existing cloud-maintenance continuation",
       "work_class": null,
       "lane_mode": null,
@@ -557,7 +557,7 @@
       "admitted_at": "2026-09-06T05:09:03.401769+00:00",
       "started_at": "2026-09-06T05:09:03.402769+00:00",
       "resolved_at": null,
-      "last_event_at": "2026-09-06T05:09:03.404769+00:00",
+      "last_event_at": "2026-09-06T17:41:08.873884+00:00",
       "evidence": [
         {
           "verdict": "HOLD",
@@ -646,7 +646,37 @@
           "Observe scheduled execution separately; keep native hook loading, Mac-off and phone evidence explicit."
         ]
       },
-      "last_event_id": "EVT-20260906-continuation-3"
+      "last_event_id": "EVT-20260906-continuation-transferred"
+    },
+    {
+      "work_id": "WRK-20260906-system-review",
+      "status": "IN_PROGRESS",
+      "title": "Review and repair the whole LAiDIES operating system; finish approved Astra rollout and rank remaining delivery gaps",
+      "work_class": null,
+      "lane_mode": null,
+      "acceptance_owner": "operating-system-review-owner",
+      "admitted_at": "2026-09-06T17:46:02.678008+00:00",
+      "started_at": "2026-09-06T17:46:02.678439+00:00",
+      "resolved_at": null,
+      "last_event_at": "2026-09-06T17:46:02.678439+00:00",
+      "evidence": [],
+      "dependencies": [],
+      "metric_events": [],
+      "recovery_contract": "artifact-handoff.v1",
+      "checkpoint": null,
+      "recovery_scope": {
+        "session_id": "01a077d0-0775-7af2-b631-c311573f0e0e",
+        "brief": {
+          "path": "operations/OPERATING-SYSTEM-REVIEW-HANDOFF-20260906.md",
+          "sha256": "04166167272a1f2ff7446e6ad3f2a86076821b6ed17bca85a957f5b7fdbcc560"
+        },
+        "accept": [
+          "Reconcile approved Astra instructions and both config layers into main with calibrated distribution checks; separate native loading from file presence.",
+          "Reuse the whole-operation audit, verify current owners and runtime evidence, and rank repairs across idea, ownership, execution, acceptance, release and follow-up.",
+          "Implement bounded high-value corrections, preserve product ownership and record exact tests, remaining gaps and the next operational step; do not substitute an inbox or Homepage project."
+        ]
+      },
+      "last_event_id": "EVT-20260906-system-review-1"
     }
   ]
 }

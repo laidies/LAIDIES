@@ -1,13 +1,11 @@
-# LAiDIES adaptive-compute baseline.
-# This copy is required because Website-homepage is its own Git/project root;
-# Codex project discovery may stop here instead of loading the workspace layer.
+# Tracked source for the LAiDIES workspace-level Codex configuration.
+# Sync/check this checkout: node scripts/sync-codex-workspace-config.mjs [--check]
+# Outer workspace: set LAIDIES_CODEX_WORKSPACE_TARGET to its exact config path.
 
-model = "gpt-5.6-sol"
+model = "gpt-6-astra"
 model_reasoning_effort = "medium"
 plan_mode_reasoning_effort = "high"
 
-# Must match the parent workspace layer, otherwise Codex asks for approval on
-# every command here but not one directory up.
 sandbox_mode = "danger-full-access"
 
 [agents]
@@ -16,11 +14,6 @@ default_subagent_model = "gpt-5.6-terra"
 default_subagent_reasoning_effort = "medium"
 
 [features]
-# Parallel subagents and repository lifecycle hooks. These are the current
-# stable feature keys in the installed Codex runtime.
 multi_agent = true
 hooks = true
-
-# Fast mode trades materially more credits for lower latency. Keep it off
-# unless Ali explicitly says that speed matters more than usage for a task.
 fast_mode = false

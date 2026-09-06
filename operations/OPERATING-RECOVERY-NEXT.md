@@ -4,7 +4,80 @@ Updated September 5, 2026. This is the compact entry for one workstream, not
 universal agent context or a second portfolio database. Current product owners
 and their exact artifacts outrank historical snapshots below.
 
-## Current priority — 2026-09-06: operating continuity repair
+## Current repair and ranked sequence — 2026-09-06
+
+Owner: fresh task `01a077d0-0775-7af2-b631-c311573f0e0e`.
+Original whole-operation audit (September 5) was re-read and compared with the
+current event projector, run queue, current app owners, config and GitHub checks.
+The parent handoff remains immutable as this task's bound brief.
+
+1. **Instruction distribution — committed/pushed; integrate PR103 after CI.** Apply
+   the approved Astra/Medium default and safeguards from 532386f9/683db5ad,
+   retaining D-141/D-143 and cheaper task-fit roles. Both tracked configs now
+   match; generated instructions and config parity are CI requirements. The
+   builder and sync default remain inside isolated checkouts; an outer config
+   target is explicit. Deliberately missing/stale instructions and stale config
+   fail. Both actual shared config layers received the same source. Named Sol
+   maker/judge/product-owner profiles remain intentional task-specific routes.
+2. **Objective and handoff coverage — current task bound; broader gap open.**
+   The existing event store now admits and starts WRK-20260906-system-review,
+   with this fresh session, exact original brief and immutable acceptance.
+   The dispatcher remains paused; legacy records remain pilot-only. Next use
+   the existing handoff mechanism for one real accepted owner transfer, not a
+   second portfolio database. Do not widen automatic dispatch from stale data.
+3. **Cloud maintenance evidence — result reported; trigger not independently
+   established.** Current private task reports September 6 09:17:40 Vancouver
+   scheduled completion and ten successful PR checks. PR102 exact head
+   1632390f36d09aa3df891a0913b33958d7602a60 and successful checks were independently
+   matched on GitHub. The task API places the new message in the prior manual
+   turn and exposes no scheduler run metadata; retain it as a reported scheduled
+   result, not independently observed trigger proof. Mac-off and direct phone
+   observations remain separate. No duplicate schedule or manual rerun.
+4. **Canonical context conflicts — two summary defects repaired.** The standing
+   card now honors Ali's latest direct ruling and routes LIBRAiRY review to the
+   existing proportional standard rather than imposing a universal three-person
+   study. Exact DECISIONS and current LEARNING-CONTENT-STANDARD passages were
+   checked independently and by the foreground; no admission gate was loosened.
+   Next test one source-change -> existing owner -> affected consumer result.
+5. **Full production loops — owner work, not implemented here.** Homepage and
+   NewsStand were active in native task status; animation and podcast were
+   notLoaded, which is not proof of completion or abandonment. Keep baseline,
+   ongoing editorial, Wednesday package and idea development distinct. Hosted
+   site/CI/cloud intake do not prove unattended research-to-publication or media
+   production. Existing product owners retain these remaining delivery steps.
+
+Repair commits: `297b0ea6` (distribution and current-task binding), `6195f638`
+(standing-card authority corrections). PR103 includes the prior handoff commits.
+Remote merge/check truth: https://github.com/laidies/LAIDIES/pull/103 .
+
+Loading evidence: installed Codex 0.153.4 `debug prompt-input` returned the
+Astra safeguards, adaptive routing and calibration in the isolated checkout.
+`doctor` loaded Astra config; its aggregate exit was failure because the tool
+terminal is TERM=dumb, unrelated to config loading. No trust record or native
+hook registration was changed. Official config reference checked September 6:
+https://learn.chatgpt.com/docs/config-file/config-reference#configtoml . Project
+config requires trust; current composer/session overrides remain independent.
+
+Skipped check: the local town-wide pre-commit check failed with ENOENT for
+`content/episode-index.json` in this sparse operations checkout. Its documented
+bypass was used for these ops-only commits; no site consistency pass is claimed.
+
+Local verification: config-sync calibration; instruction-distribution
+calibration; exact generated/config comparisons; work-event and hook guard
+suites; regenerated standing-card source bindings; independent Terra review.
+One reviewer correction: remove the retired multi_agent_v2 name from generated
+instructions. No site release, private inbox activation, account changes, spend,
+PR95 activation, cleanup, or phone setup was performed.
+
+## Historical fresh-session transfer — 2026-09-06
+
+Ali authorized a whole-system review and repairs, with an interview where needed,
+and explicitly requested a fresh session. The successor owns implementation.
+Read `OPERATING-SYSTEM-REVIEW-HANDOFF-20260906.md` for the current mandate and
+first action: finish the already-approved Astra instruction/config rollout.
+The original operating objective remains; this transfer is not completion.
+
+## Previous checkpoint — 2026-09-06: operating continuity repair
 
 This section supersedes all historical “next” instructions below. The inbox is
 PARKED; it is a synthetic pilot, not an accepted design or Ali's working tool.
@@ -58,7 +131,7 @@ it permits exact resolution and a documented external wait. Initial full-hook
 local test lacked sparse library.html; materializing that tracked fixture fixed
 the environment, and the unchanged hook suite then passed.
 
-## Owner and continuity
+## Historical parent owner and continuity
 
 Task: **LAiDIES operating system and launch readiness**
 Current owner: LAiDIES — hosted operations execution,
