@@ -15,6 +15,9 @@
  */
 (function() {
   'use strict';
+  // Shared header and page-local loaders may race; never create a second deck.
+  if (window.__KSVL_CANONICAL_PLAYER__) return;
+  window.__KSVL_CANONICAL_PLAYER__ = true;
 
   var MUSIC = '/content/music/';
   // ---- Track library (single source of truth) ----
@@ -232,6 +235,7 @@
   var LIVE_MIX = { id: 'live', title: 'KSVL soundcheck', sub: 'Live broadcast coming later', color: 'gold', labelStyle: 'sharpie' };
 
   function startLive() {
+    if (sendRemote('live')) return;
     if (!TRACKS.length) {
       announce('KSVL cannot start a track right now. Please try again later.', 'held');
       return;
@@ -316,6 +320,7 @@
     + '.ksvl-np-track { display: block; font-size: 15px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }'
     + '.ksvl-np-position { font-size: 11px; opacity: 0.7; }'
     + '.ksvl-np-status { display: block; margin-top: 3px; min-height: 1.25em; font-size: 11px; line-height: 1.25; color: var(--cream, #fffdfb); }'
+    + '.ksvl-np-storage-limit:not([hidden]) { display:block; margin-top:3px; font-size:11px; line-height:1.25; color:#ffe6a8; }'
     + '.ksvl-np-status[data-kind="error"], .ksvl-np-status[data-kind="held"] { color: #ffe6a8; }'
     + '.ksvl-np-retry { margin-top: 6px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--gold, #c9a227); border-radius: 999px; background: transparent; color: var(--cream, #fffdfb); font: 800 11px/1 "Jost", sans-serif; cursor: pointer; }'
     + '.ksvl-np-controls { display: flex; align-items: flex-start; flex-wrap: wrap; }'
@@ -337,8 +342,7 @@
     + '.ksvl-np-btn--toggle.is-active .ksvl-np-lbl { opacity: 1; color: var(--gold, #c9a227); }'
     + '.ksvl-np-btn--stop:hover .ksvl-np-ico { border-color: #ff9db4; color: #ffb8c9; background: rgba(255,157,180,0.12); }'
     + '@media (max-width: 860px) { .ksvl-np-lbl { display: none; } .ksvl-np-group + .ksvl-np-group { margin-left: 6px; padding-left: 8px; } }'
-    + '@media (max-width: 720px) { .ksvl-np-btn--toggle { display: none; } }'
-    + '@media (max-width: 620px) { .ksvl-np-info .ksvl-np-position { display: none; } .ksvl-now-playing { padding: 8px 12px; gap: 10px; flex-wrap: wrap; } .ksvl-np-info { flex: 1 1 calc(100% - 54px); } .ksvl-np-controls { flex: 1 1 100%; justify-content: center; } .ksvl-np-ico { width: 31px; height: 31px; } .ksvl-np-btn--play .ksvl-np-ico { width: 42px; height: 42px; } .ksvl-np-btn--link .ksvl-np-ico { display: none; } .ksvl-np-btn--link { display: none; } .ksvl-np-seek { width: 132px; } }';
+    + '@media (max-width: 620px) { .ksvl-np-info .ksvl-np-position { display: none; } .ksvl-now-playing { padding: 8px 12px; gap: 6px; flex-wrap: wrap; } .ksvl-np-info { flex: 1 1 calc(100% - 54px); } .ksvl-np-controls { flex: 1 1 100%; justify-content: center; gap: 4px; } .ksvl-np-group + .ksvl-np-group { margin: 0; padding: 0; border: 0; } .ksvl-np-ico { width: 31px; height: 31px; } .ksvl-np-btn--play .ksvl-np-ico { width: 42px; height: 42px; } .ksvl-np-seek { width: 132px; } }';
 
   function injectStyle() {
     if (document.getElementById('ksvl-mix-cds-style')) return;
@@ -387,7 +391,20 @@
   function currentSrc() { var p = currentPart(); return p ? p.src : null; }
 
   var np, npMini, npMix, npTrack, npPosition, npStatus, npRetry, npPlayBtn,
-    npShuffleBtn, npRepeatBtn, npMuteBtn, npVolume, npSeek;
+    npShuffleBtn, npRepeatBtn, npMuteBtn, npVolume, npSeek, npStorageLimit;
+  var storageLimit = '';
+  function reportStorageLimit() {
+    storageLimit = 'Browser storage is unavailable. Music can play here, but may not follow you to another page or keep your position.';
+    if (npStorageLimit) { npStorageLimit.textContent = storageLimit; npStorageLimit.hidden = false; }
+  }
+  function checkContinuityStorage() {
+    try {
+      [localStorage, sessionStorage].forEach(function(storage) {
+        var key = 'laidies_ksvl_storage_probe_v2';
+        storage.setItem(key, '1'); storage.removeItem(key);
+      });
+    } catch (e) { reportStorageLimit(); }
+  }
 
   function announce(message, kind) {
     ensureNowPlaying();
@@ -401,6 +418,7 @@
   }
 
   function retryCurrent() {
+    if (sendRemote('retry')) return;
     if (!state.lastFailure || !state.queue.length) return;
     state.lastFailure = null;
     announce('Trying that track again…', 'loading');
@@ -455,6 +473,9 @@
     info.appendChild(npTrack);
     info.appendChild(npPosition);
     info.appendChild(npStatus);
+    npStorageLimit = el('span', {class: 'ksvl-np-storage-limit', role: 'status', text: storageLimit});
+    npStorageLimit.hidden = !storageLimit;
+    info.appendChild(npStorageLimit);
     info.appendChild(npRetry);
     var controls = el('div', {class: 'ksvl-np-controls'});
     // Group 1 — the deck: shuffle · back · PLAY · next · repeat
@@ -509,6 +530,11 @@
     np.appendChild(info);
     np.appendChild(controls);
     document.body.appendChild(np);
+    var spacer = el('div', {'aria-hidden': 'true', class: 'ksvl-player-space'});
+    document.body.appendChild(spacer);
+    if (typeof ResizeObserver === 'function') {
+      new ResizeObserver(function() { spacer.style.height = np.getBoundingClientRect().height + 'px'; }).observe(np);
+    }
     return np;
   }
 
@@ -547,31 +573,42 @@
     setBtnIcon(npPlayBtn, state.paused ? '▶' : '⏸');
     setBtnLabel(npPlayBtn, state.paused ? 'Resume' : 'Pause');
     npPlayBtn.setAttribute('aria-label', state.paused ? 'Resume' : 'Pause');
+    npShuffleBtn.classList.toggle('is-active', state.shuffle);
+    npShuffleBtn.setAttribute('aria-label', state.shuffle ? 'Shuffle · on' : 'Shuffle · off');
+    npRepeatBtn.classList.toggle('is-active', state.repeatMode !== 'off');
+    npRepeatBtn.setAttribute('aria-label', state.repeatMode === 'off' ? 'Repeat off' : state.repeatMode === 'one' ? 'Repeat one' : 'Repeat all');
+    setBtnIcon(npRepeatBtn, state.repeatMode === 'one' ? '🔂' : '🔁');
     if (state.paused) npMini.classList.add('is-paused');
     else npMini.classList.remove('is-paused');
     np.classList.toggle('is-live', state.mixId === 'live');
     np.classList.add('is-visible');
     updateCDPlayingClass();
     updateMediaSession(displayTitle, displayArtist);
+    if (!remoteOwner) saveState();
   }
 
   function syncSoundControls() {
-    if (!state.audio) return;
+    var sound = remoteOwner ? {
+      muted: state.muted, volume: state.volume,
+      duration: remoteOwner.duration, currentTime: remoteOwner.playback.currentTime
+    } : state.audio;
+    if (!sound) return;
     if (npMuteBtn) {
-      setBtnIcon(npMuteBtn, state.audio.muted ? '🔇' : '🔊');
-      setBtnLabel(npMuteBtn, state.audio.muted ? 'Unmute' : 'Mute');
-      npMuteBtn.setAttribute('aria-label', state.audio.muted ? 'Unmute' : 'Mute');
+      setBtnIcon(npMuteBtn, sound.muted ? '🔇' : '🔊');
+      setBtnLabel(npMuteBtn, sound.muted ? 'Unmute' : 'Mute');
+      npMuteBtn.setAttribute('aria-label', sound.muted ? 'Unmute' : 'Mute');
     }
-    if (npVolume) npVolume.value = String(state.audio.volume);
+    if (npVolume) npVolume.value = String(sound.volume);
     if (npSeek) {
-      var duration = Number(state.audio.duration);
+      var duration = Number(sound.duration);
       npSeek.disabled = !Number.isFinite(duration) || duration <= 0;
       npSeek.value = npSeek.disabled ? '0' :
-        String(Math.round((state.audio.currentTime / duration) * 1000));
+        String(Math.round((sound.currentTime / duration) * 1000));
     }
   }
 
   function toggleMute() {
+    if (sendRemote('mute')) return;
     if (!state.audio) return;
     state.audio.muted = !state.audio.muted;
     state.muted = state.audio.muted;
@@ -582,6 +619,7 @@
 
   function setVolumeFromControl() {
     var value = Math.max(0, Math.min(1, Number(npVolume.value)));
+    if (sendRemote('volume', value)) return;
     state.volume = value;
     if (state.audio) {
       state.audio.volume = value;
@@ -594,6 +632,7 @@
   }
 
   function seekFromControl() {
+    if (sendRemote('seek', Number(npSeek.value) / 1000)) return;
     if (!state.audio || !Number.isFinite(state.audio.duration) || state.audio.duration <= 0) {
       announce('This track does not provide usable seek metadata.', 'error');
       return;
@@ -636,7 +675,10 @@
       state.audio = null;
     }
     // Also pause any other <audio> elements from other players (e.g. individual saint buttons)
-    document.querySelectorAll('audio').forEach(function(a) { try { a.pause(); } catch(e) {} });
+    document.querySelectorAll('audio, video').forEach(function(a) {
+      if (a.tagName === 'VIDEO' && a.muted) return;
+      try { a.pause(); } catch(e) {}
+    });
     // And stop any playing standalone ♪ song button (they use detached
     // Audio objects the selector above can't see).
     stopActiveThemeBtn();
@@ -671,20 +713,7 @@
           if (state.mutedAutoplay) { state.mutedAutoplay = false; try { state.audio.muted = false; } catch(e) {} }
           updateNowPlaying();
           hideResumeNudge();
-          // When no ♪ button is playing anymore (song ended or stopped),
-          // the station comes back — like the DJ waiting out a request.
-          // (.ksvl-cd is excluded: the active mix's CD keeps its class.)
-          var watch = setInterval(function() {
-            if (document.querySelector('button.is-playing:not(.ksvl-cd)')) return;
-            clearInterval(watch);
-            themeBtnActive = null;
-            if (state.paused && state.audio) {
-              state.audio.play().then(function() {
-                state.paused = false;
-                updateNowPlaying();
-              }).catch(function() {});
-            }
-          }, 600);
+          // A different listening choice never schedules a surprise KSVL resume.
         }
       }
       return r;
@@ -760,27 +789,160 @@
   // window keeps the audio alive no matter where the main window goes.
   // The popup heartbeats into localStorage so regular pages know not to
   // fight it for the audio.
-  var IS_POPUP = /ksvl-popup\.html$/.test(window.location.pathname);
-  var POPUP_BEAT_KEY = 'laidies_ksvl_popup_beat';
-  function popupActive() {
-    if (IS_POPUP) return false;
-    try { return (Date.now() - (+localStorage.getItem(POPUP_BEAT_KEY) || 0)) < 6000; } catch(e) { return false; }
+  var IS_POPUP = /\/ksvl-popup(?:\.html)?\/?$/.test(window.location.pathname);
+  var OWNER_KEY = 'laidies_ksvl_owner_v2';
+  var COMMAND_KEY = 'laidies_ksvl_command_v2';
+  var NAV_KEY = 'laidies_ksvl_navigation_v2';
+  var TRANSFER_KEY = 'laidies_ksvl_transfer_v2';
+  var ownerId = typeof crypto.randomUUID === 'function' ? crypto.randomUUID() :
+    Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
+  var ownsAudio = false, releaseAudioLock = null, acquiringAudio = null;
+  var remoteOwner = null, pageLeaving = false;
+
+  function readOwner() {
+    try {
+      var item = JSON.parse(localStorage.getItem(OWNER_KEY));
+      if (!item || typeof item.id !== 'string' || item.id.length > 80 ||
+          !Number.isFinite(item.at) || item.at > Date.now() || Date.now() - item.at > 15000 ||
+          typeof item.popup !== 'boolean' || !Number.isFinite(item.duration) ||
+          item.duration < 0 || item.duration > 86400 ||
+          !validateSavedState(item.playback)) return null;
+      return item;
+    } catch (e) { return null; }
   }
-  if (IS_POPUP) {
-    try { localStorage.setItem(POPUP_BEAT_KEY, String(Date.now())); } catch(e) {}
-    setInterval(function() { try { localStorage.setItem(POPUP_BEAT_KEY, String(Date.now())); } catch(e) {} }, 2000);
-    window.addEventListener('pagehide', function() { try { localStorage.removeItem(POPUP_BEAT_KEY); } catch(e) {} });
+
+  function releaseOwnership() {
+    ownsAudio = false;
+    if (releaseAudioLock) { releaseAudioLock(); releaseAudioLock = null; }
+    try {
+      var item = JSON.parse(localStorage.getItem(OWNER_KEY));
+      if (item && item.id === ownerId) localStorage.removeItem(OWNER_KEY);
+    } catch (e) {}
   }
+
+  function acquireOwnership() {
+    if (ownsAudio) return Promise.resolve(true);
+    if (acquiringAudio) return acquiringAudio;
+    // The browser lock is the authority; the heartbeat supplies display state,
+    // never permission to steal a background tab's audio.
+    if (navigator.locks && navigator.locks.request) {
+      acquiringAudio = new Promise(function(resolve) {
+        navigator.locks.request('laidies-ksvl-audio-v2', {ifAvailable: true}, function(lock) {
+          if (!lock || pageLeaving) { resolve(false); return; }
+          ownsAudio = true;
+          remoteOwner = null;
+          resolve(true);
+          return new Promise(function(release) { releaseAudioLock = release; });
+        }).catch(function() { resolve(false); });
+      }).then(function(value) { acquiringAudio = null; return value; });
+      return acquiringAudio;
+    }
+    // Without Web Locks, only the visible page may own sound. Cross-window
+    // continuity is unavailable rather than permitted to create competing audio.
+    if (document.visibilityState === 'hidden') return Promise.resolve(false);
+    ownsAudio = true;
+    remoteOwner = null;
+    return Promise.resolve(true);
+  }
+
+  function followOwner() {
+    if (ownsAudio || pageLeaving) return false;
+    var item = readOwner();
+    if (!item || item.id === ownerId) {
+      if (remoteOwner) {
+        remoteOwner = null;
+        state.queue = []; state.mixId = null;
+        if (np) np.classList.remove('is-visible');
+        hydrateFromStorage(false);
+      }
+      return false;
+    }
+    remoteOwner = item;
+    restoreQueue(item.playback);
+    state.paused = item.playback.paused;
+    updateNowPlaying();
+    announce((item.popup ? 'Pop-out player' : 'Another town tab') +
+      (state.paused ? ' is paused. Resume here or in that window.' : ' is playing. These controls operate that player.'), 'status');
+    syncSoundControls();
+    return true;
+  }
+
+  function sendRemote(action, value) {
+    if (ownsAudio) return false;
+    var item = readOwner();
+    if (!item || item.id === ownerId) return false;
+    try {
+      localStorage.setItem(COMMAND_KEY, JSON.stringify({target: item.id,
+        at: Date.now(), nonce: Math.random().toString(36), action: action, value: value}));
+      followOwner();
+    } catch (e) { announce('The other player could not be reached. Use its own controls.', 'error'); }
+    return true;
+  }
+
+  window.addEventListener('storage', function(event) {
+    if (event.key === OWNER_KEY) { followOwner(); return; }
+    if (event.key !== COMMAND_KEY || !ownsAudio) return;
+    try {
+      var command = JSON.parse(event.newValue);
+      if (!command || command.target !== ownerId || !Number.isFinite(command.at) ||
+          command.at > Date.now() || Date.now() - command.at > 5000) return;
+      var value = command.value;
+      switch (command.action) {
+        case 'toggle': togglePlay(); break;
+        case 'pause': if (state.audio && !state.paused) togglePlay(); break;
+        case 'next': nextTrack(); break;
+        case 'previous': prevTrack(); break;
+        case 'stop': stopPlayer(); break;
+        case 'mute': toggleMute(); break;
+        case 'shuffle': toggleShuffle(); break;
+        case 'repeat': cycleRepeat(); break;
+        case 'retry': retryCurrent(); break;
+        case 'live': startLive(); break;
+        case 'track': if (typeof value === 'string') window.KSVL_playTrackById(value); break;
+        case 'mix': if (value && typeof value.id === 'string' && Number.isInteger(value.index)) startMix(value.id, value.index); break;
+        case 'album': if (value && typeof value.id === 'string' && Number.isInteger(value.index)) startAlbum(value.id, value.index); break;
+        case 'volume': if (Number.isFinite(value) && value >= 0 && value <= 1) { npVolume.value = String(value); setVolumeFromControl(); } break;
+        case 'seek': if (Number.isFinite(value) && value >= 0 && value <= 1) window.KSVL_seekToRatio(value); break;
+      }
+      saveState();
+    } catch (e) {}
+  });
+  setInterval(function() { if (ownsAudio) saveState(); else followOwner(); }, 1000);
+  document.addEventListener('play', function(event) {
+    var media = event.target;
+    if (!media || media === state.audio || media.muted || !/^(AUDIO|VIDEO)$/.test(media.tagName)) return;
+    if (!sendRemote('pause') && state.audio && !state.paused) togglePlay();
+  }, true);
+
   function popOutPlayer() {
-    saveState();
+    if (!(navigator.locks && navigator.locks.request)) {
+      announce('This browser cannot keep a separate player safely connected. Continue listening here.', 'status');
+      return;
+    }
+    if (remoteOwner) {
+      announce('The music is already controlled by another window. These controls remain connected to it.', 'status');
+      return;
+    }
+    if (!saveState()) return;
+    var transfer = ownerId + '-' + Date.now();
+    try { localStorage.setItem(TRANSFER_KEY, JSON.stringify({token: transfer, at: Date.now(), playing: !state.paused})); }
+    catch (e) { announce('Pop-out needs browser storage. Your music is still playing here.', 'status'); return; }
+    var popup = window.open('/ksvl-popup.html?transfer=' + encodeURIComponent(transfer), 'ksvlPopup', 'width=440,height=420,resizable=yes');
+    if (!popup) {
+      try { localStorage.removeItem(TRANSFER_KEY); } catch (e) {}
+      announce('The browser blocked the pop-out. Your music is still here.', 'status');
+      return;
+    }
+    ++playToken;
     stopExistingAudio();
-    state.queue = []; state.mixId = null; state.paused = false;
-    if (np) { np.remove(); np = null; }
-    window.open('/ksvl-popup.html', 'ksvlPopup', 'width=440,height=320,resizable=yes');
+    releaseOwnership();
+    state.queue = []; state.mixId = null; state.paused = true;
+    announce('Opening the pop-out player. Its controls will also appear here.', 'status');
   }
 
   var playToken = 0;
   function playIndex(i) {
+    state.restoring = false;
     state.index = ((i % state.queue.length) + state.queue.length) % state.queue.length;
     state.currentPart = 0;
     if (window.plausible) { try { window.plausible('KSVL play', { props: { track: (state.queue[state.index] || {}).title || '' } }); } catch (e) {} }
@@ -790,6 +952,17 @@
   // Play the current part (or the whole track if no parts). Handles intro→spot flow.
   function playCurrentPart() {
     var myToken = ++playToken;
+    acquireOwnership().then(function(acquired) {
+      if (myToken !== playToken || pageLeaving) return;
+      if (!acquired) {
+        if (!followOwner()) announce('Another town window owns the music. Return to that player or choose Resume after it closes.', 'status');
+        return;
+      }
+      playOwnedPart(myToken);
+    });
+  }
+
+  function playOwnedPart(myToken) {
     stopExistingAudio();
     var track = state.queue[state.index];
     var part = currentPart();
@@ -869,12 +1042,23 @@
     });
     state.audio = audio;
     if (state.restoring) {
+      var restoration = state.restoring;
       state.restoring = false;
-      state.paused = true;
-      announce('Saved KSVL position restored on this device. Choose Resume to continue; sound will not start automatically.', 'status');
-      updateNowPlaying();
-      syncSoundControls();
-      return;
+      var seekRestored = function() {
+        if (myToken !== playToken || state.audio !== audio) return;
+        try { if (Number.isFinite(audio.duration)) audio.currentTime = Math.min(restoration.time, Math.max(0, audio.duration - 0.5)); } catch (e) {}
+        syncSoundControls();
+        saveState();
+      };
+      if (audio.readyState >= 1) seekRestored();
+      else audio.addEventListener('loadedmetadata', seekRestored, {once: true});
+      if (!restoration.play) {
+        state.paused = true;
+        announce('Saved KSVL position restored on this device. Choose Resume to continue; sound will not start automatically.', 'status');
+        updateNowPlaying();
+        syncSoundControls();
+        return;
+      }
     }
     state.paused = true;
     announce('Starting ' + displayTitle + '…', 'loading');
@@ -932,14 +1116,17 @@
   }
 
   function toggleShuffle() {
+    if (sendRemote('shuffle')) return;
     state.shuffle = !state.shuffle;
     if (npShuffleBtn) {
       npShuffleBtn.classList.toggle('is-active', state.shuffle);
       npShuffleBtn.setAttribute('aria-label', state.shuffle ? 'Shuffle · on' : 'Shuffle · off');
     }
+    saveState();
   }
 
   function cycleRepeat() {
+    if (sendRemote('repeat')) return;
     state.repeatMode = state.repeatMode === 'off' ? 'all' : (state.repeatMode === 'all' ? 'one' : 'off');
     if (npRepeatBtn) {
       npRepeatBtn.classList.toggle('is-active', state.repeatMode !== 'off');
@@ -947,9 +1134,11 @@
       npRepeatBtn.setAttribute('aria-label', state.repeatMode === 'off' ? 'Repeat off' : (state.repeatMode === 'one' ? 'Repeat one' : 'Repeat all'));
       npRepeatBtn.setAttribute('title', 'Repeat: ' + state.repeatMode);
     }
+    saveState();
   }
 
   function startMix(mixId, startTrackIndex) {
+    if (sendRemote('mix', {id: mixId, index: startTrackIndex || 0})) return;
     var mix = MIXES.filter(function(m) { return m.id === mixId; })[0];
     if (!mix) return;
     var queue = tracksForMix(mixId);
@@ -968,6 +1157,7 @@
     return TRACKS.filter(function(t) { return t.artist === artist; });
   }
   function startAlbum(artist, startTrackIndex) {
+    if (sendRemote('album', {id: artist, index: startTrackIndex || 0})) return;
     var queue = tracksForArtist(artist);
     if (!queue.length) return;
     state.mixId = 'album:' + artist;
@@ -989,6 +1179,10 @@
       announce('That track cannot start right now. Please choose another one.', 'held');
       return false;
     }
+    // External theme callers pass a URL; resolve it back to the canonical ID.
+    track = TRACKS.filter(function(item) { return item.src === track.src; })[0];
+    if (!track) return false;
+    if (sendRemote('track', track.id)) return true;
     state.mixId = 'single';
     state.queue = [{ id: track.id || '', title: track.title || 'LAiDIES', artist: track.artist || 'LAiDIES', src: track.src }];
     state.index = 0;
@@ -1017,7 +1211,7 @@
     });
   };
   window.KSVL_togglePlayback = function() {
-    if (!state.audio) return false;
+    if (!state.audio && !remoteOwner) return false;
     togglePlay();
     return true;
   };
@@ -1026,6 +1220,8 @@
     return state.repeatMode;
   };
   window.KSVL_seekToRatio = function(ratio) {
+    if (!Number.isFinite(Number(ratio))) return false;
+    if (sendRemote('seek', Math.max(0, Math.min(1, Number(ratio))))) return true;
     if (!state.audio || !Number.isFinite(state.audio.duration) || state.audio.duration <= 0) {
       announce('This track does not provide usable seek metadata.', 'error');
       return false;
@@ -1049,18 +1245,22 @@
       artist: track.artist || '',
       paused: !!state.paused,
       repeatMode: state.repeatMode,
-      currentTime: state.audio && Number.isFinite(state.audio.currentTime) ? state.audio.currentTime : 0,
-      duration: state.audio && Number.isFinite(state.audio.duration) ? state.audio.duration : 0,
+      currentTime: remoteOwner ? remoteOwner.playback.currentTime : state.audio && Number.isFinite(state.audio.currentTime) ? state.audio.currentTime : 0,
+      duration: remoteOwner ? remoteOwner.duration : state.audio && Number.isFinite(state.audio.duration) ? state.audio.duration : 0,
       status: npStatus ? npStatus.textContent : '',
       partTitle: part && part.title ? part.title : ''
     } : null;
   };
 
-  function nextTrack() { if (state.queue.length) playIndex(state.index + 1); }
-  function prevTrack() { if (state.queue.length) playIndex(state.index - 1); }
+  function nextTrack() { if (!sendRemote('next') && state.queue.length) playIndex(state.index + 1); }
+  function prevTrack() { if (!sendRemote('previous') && state.queue.length) playIndex(state.index - 1); }
 
   function togglePlay() {
-    if (!state.audio) return;
+    if (sendRemote('toggle')) return;
+    if (!state.audio) {
+      if (state.queue.length) { state.restoring = false; playCurrentPart(); }
+      return;
+    }
     if (state.paused) {
       announce('Starting ' + ((currentPart() || {}).title || 'this track') + '…', 'loading');
       state.audio.play().then(function() {
@@ -1083,6 +1283,7 @@
 
   // Immediate hard-stop. Used after signoff finishes or if user double-taps Stop.
   function realStopPlayer() {
+    ++playToken;
     stopExistingAudio();
     state.mixId = null; state.queue = []; state.index = 0; state.currentPart = 0; state.paused = false;
     state.signingOff = false;
@@ -1090,10 +1291,12 @@
     if (np) np.classList.remove('is-visible');
     document.querySelectorAll('.ksvl-cd').forEach(function(cd) { cd.classList.remove('is-playing'); });
     try { localStorage.removeItem('laidies_ksvl_player_state_v1'); } catch(e) {}
+    releaseOwnership();
   }
 
   // Programme objects remain held; Stop therefore ends the admitted catalogue directly.
   function stopPlayer() {
+    if (sendRemote('stop')) return;
     realStopPlayer();
   }
 
@@ -1166,16 +1369,24 @@
       tabindex: '0',
       'aria-label': 'Flip ' + mix.title + ' CD to see the tracklist'
     }, [front, back]);
+    function flipCD(flipped) {
+      flipContainer.classList.toggle('is-flipped', flipped);
+      flipContainer.setAttribute('aria-expanded', String(flipped));
+      front.inert = flipped; back.inert = !flipped;
+      front.setAttribute('aria-hidden', String(flipped));
+      back.setAttribute('aria-hidden', String(!flipped));
+    }
+    flipCD(false);
     flipContainer.addEventListener('click', function(e) {
       if (e.target.closest('button')) return;
-      flipContainer.classList.toggle('is-flipped');
+      flipCD(!flipContainer.classList.contains('is-flipped'));
     });
     flipContainer.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flipContainer.classList.toggle('is-flipped'); }
+      if (e.target === flipContainer && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); flipCD(!flipContainer.classList.contains('is-flipped')); }
     });
     flipBackBtn.addEventListener('click', function(e) {
       e.stopPropagation();
-      flipContainer.classList.remove('is-flipped');
+      flipCD(false);
     });
 
     var caption = el('div', {class: 'ksvl-cd-caption'}, [
@@ -1188,6 +1399,7 @@
 
   function mount() {
     injectStyle();
+    checkContinuityStorage();
     var mountEl = document.getElementById('ksvl-mix-cds');
     if (mountEl) {
       var rack = el('div', {class: 'ksvl-mix-rack'}, [
@@ -1209,7 +1421,7 @@
     // Always try to hydrate saved playback — the persistent bar follows the visitor
     // across every page, so any page can pick up where they left off.
     // Unless the pop-out player window is live: it owns the audio.
-    if (!popupActive()) hydrateFromStorage();
+    if (!followOwner()) hydrateFromStorage(consumeContinuation());
     if (!TRACKS.length && (mountEl || IS_POPUP)) {
       announce(catalogFailure ||
         'KSVL cannot start a track right now. Please try again later.', 'held');
@@ -1225,18 +1437,13 @@
     return (item && item.id) ? item.id : null;
   }
 
-  function saveState() {
-    try {
-      // A page that never owned playback must NOT clobber the stored state —
-      // another window (the pop-out) or the previous page may own it.
-      // Deliberate stops clear the key explicitly in realStopPlayer().
-      if (!state.mixId || !state.queue.length) { return; }
-      if (!activeRegistryId) { localStorage.removeItem(LS_KEY); return; }
+  function buildSavedState() {
+      if (!state.mixId || !state.queue.length || !activeRegistryId) return null;
       var ctx = null, extra = {};
       if (state.mixId.indexOf('album:') === 0) { ctx = 'album'; extra.artist = state.mixId.slice(6); }
       else if (MIXES.some(function(m){ return m.id === state.mixId; })) { ctx = 'mix'; extra.mixId = state.mixId; }
-      else if (state.mixId === 'single') { return; }
-      else { localStorage.removeItem(LS_KEY); return; }
+      else if (state.mixId === 'single' || state.mixId === 'live') { ctx = state.mixId; }
+      else { return null; }
       var track = state.queue[state.index];
       var currentTime = 0;
       try { if (state.audio && !isNaN(state.audio.currentTime)) currentTime = state.audio.currentTime; } catch(e) {}
@@ -1254,8 +1461,20 @@
         savedAt: (new Date()).valueOf()
       };
       Object.keys(extra).forEach(function(k){ payload[k] = extra[k]; });
+      return payload;
+  }
+
+  function saveState() {
+    if (!ownsAudio || remoteOwner) return false;
+    try {
+      var payload = buildSavedState();
+      if (!payload) return false;
       localStorage.setItem(LS_KEY, JSON.stringify(payload));
-    } catch(e) { /* localStorage quota / disabled — silently ignore */ }
+      localStorage.setItem(OWNER_KEY, JSON.stringify({id: ownerId, at: Date.now(), popup: IS_POPUP,
+        duration: state.audio && Number.isFinite(state.audio.duration) ? state.audio.duration : 0,
+        playback: payload}));
+      return true;
+    } catch(e) { reportStorageLimit(); return false; }
   }
 
   function readSavedState() {
@@ -1266,17 +1485,23 @@
     try {
       var raw = localStorage.getItem(LS_KEY);
       if (!raw) return null;
-      var s = JSON.parse(raw);
+      var s = validateSavedState(JSON.parse(raw));
+      return s || discard();
+    } catch(e) { return discard(); }
+  }
+
+  function validateSavedState(s) {
       var baseKeys = ['v','registryId','ctx','trackId','currentTime','paused','shuffle','repeatMode','volume','muted','savedAt'];
       var expectedKeys = s && s.ctx === 'mix' ? baseKeys.concat('mixId') :
-        (s && s.ctx === 'album' ? baseKeys.concat('artist') : []);
+        (s && s.ctx === 'album' ? baseKeys.concat('artist') :
+          (s && ['live','single'].includes(s.ctx) ? baseKeys : []));
       var now = Date.now();
       if (!s || !expectedKeys.length ||
           Object.keys(s).sort().join('|') !== expectedKeys.sort().join('|') ||
           s.v !== 1 || s.registryId !== activeRegistryId ||
-          !['mix','album'].includes(s.ctx) ||
+          !['mix','album','live','single'].includes(s.ctx) ||
           typeof s.trackId !== 'string' || !s.trackId ||
-          !Number.isFinite(s.currentTime) || s.currentTime < 0 ||
+          !Number.isFinite(s.currentTime) || s.currentTime < 0 || s.currentTime > 86400 ||
           typeof s.paused !== 'boolean' || typeof s.shuffle !== 'boolean' ||
           !['off','all','one'].includes(s.repeatMode) ||
           !Number.isFinite(s.volume) || s.volume < 0 || s.volume > 1 ||
@@ -1285,23 +1510,22 @@
           s.savedAt < now - STATE_TTL_MS ||
           (s.ctx === 'mix' && !MIXES.some(function(m) { return m.id === s.mixId; })) ||
           (s.ctx === 'album' && (typeof s.artist !== 'string' || !s.artist.trim()))) {
-        return discard();
+        return null;
       }
+      if (!queueForSaved(s).some(function(track) { return track.id === s.trackId; })) return null;
       return s;
-    } catch(e) { return discard(); }
   }
 
-  function hydrateFromStorage() {
-    var s = readSavedState();
-    if (!s) return;
-    // Build the queue for the saved context.
-    var queue = null;
-    if (s.ctx === 'mix') { queue = tracksForMix(s.mixId); }
-    else if (s.ctx === 'album') { queue = tracksForArtist(s.artist); }
-    if (!queue || !queue.length) {
-      try { localStorage.removeItem(LS_KEY); } catch (error) {}
-      return;
-    }
+  function queueForSaved(s) {
+    if (s.ctx === 'mix') return tracksForMix(s.mixId);
+    if (s.ctx === 'album') return tracksForArtist(s.artist);
+    if (s.ctx === 'live') return TRACKS.slice();
+    if (s.ctx === 'single') return TRACKS.filter(function(track) { return track.id === s.trackId; });
+    return [];
+  }
+
+  function restoreQueue(s) {
+    var queue = queueForSaved(s);
     // Find the saved track in the queue.
     var trackIdx = -1;
     if (s.trackId) {
@@ -1312,7 +1536,7 @@
       return;
     }
     // Rehydrate state — station opener is added at queue[0], real tracks start at 1.
-    state.mixId = (s.ctx === 'album') ? ('album:' + s.artist) : s.mixId;
+    state.mixId = (s.ctx === 'album') ? ('album:' + s.artist) : (s.ctx === 'mix' ? s.mixId : s.ctx);
     state.queue = queue.map(wrapWithIntro);
     state.index = trackIdx;
     state.currentPart = 0;
@@ -1325,31 +1549,64 @@
       npRepeatBtn.classList.toggle('is-active', state.repeatMode !== 'off');
       setBtnIcon(npRepeatBtn, state.repeatMode === 'one' ? '🔂' : '🔁');
     }
-    // Play through the current track, seeking on canplay to the saved position.
-    state.restoring = true;
+  }
+
+  function hydrateFromStorage(continuePlaying) {
+    var s = readSavedState();
+    if (!s) return;
+    restoreQueue(s);
+    state.restoring = {time: s.currentTime, play: !!continuePlaying && !s.paused};
     playCurrentPart();
-    var seekTo = +s.currentTime || 0;
-    var wasPaused = !!s.paused;
-    var attemptSeek = function() {
-      if (!state.audio) return;
-      try { if (seekTo > 0 && !isNaN(state.audio.duration)) state.audio.currentTime = Math.min(seekTo, Math.max(0, state.audio.duration - 0.5)); } catch(e) {}
-      if (wasPaused) {
-        try { state.audio.pause(); } catch(e) {}
-        state.paused = true;
-        updateNowPlaying();
+  }
+
+  function normalPath(path) { return path.replace(/\.html$/, '').replace(/\/$/, '') || '/'; }
+  function consumeContinuation() {
+    try {
+      if (IS_POPUP) {
+        var transfer = JSON.parse(localStorage.getItem(TRANSFER_KEY));
+        var token = new URLSearchParams(location.search).get('transfer');
+        if (token && transfer && transfer.token === token && Date.now() - transfer.at >= 0 && Date.now() - transfer.at < 15000) {
+          localStorage.removeItem(TRANSFER_KEY);
+          return transfer.playing === true;
+        }
+        return false;
       }
-    };
-    if (state.audio) {
-      if (state.audio.readyState >= 1 /* HAVE_METADATA */) attemptSeek();
-      else state.audio.addEventListener('loadedmetadata', attemptSeek, { once: true });
-    }
+      var navigation = JSON.parse(sessionStorage.getItem(NAV_KEY));
+      sessionStorage.removeItem(NAV_KEY);
+      return !!(navigation && navigation.playing === true && Date.now() - navigation.at >= 0 &&
+        Date.now() - navigation.at < 15000 && navigation.to === normalPath(location.pathname));
+    } catch (e) { return false; }
   }
 
   function bindPersistenceHooks() {
     // Save aggressively — the exact unload event varies by browser + platform.
     window.addEventListener('beforeunload', saveState);
-    window.addEventListener('pagehide', saveState);
-    document.addEventListener('visibilitychange', function() { if (document.visibilityState === 'hidden') saveState(); });
+    document.addEventListener('click', function(event) {
+      var link = event.target.closest && event.target.closest('a[href]');
+      if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey ||
+          link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
+      var target = new URL(link.href, location.href);
+      if (target.origin !== location.origin || (target.pathname === location.pathname && target.search === location.search)) return;
+      try { sessionStorage.setItem(NAV_KEY, JSON.stringify({at: Date.now(), to: normalPath(target.pathname), playing: ownsAudio && !!state.audio && !state.paused})); } catch (e) { reportStorageLimit(); }
+      saveState();
+    });
+    window.addEventListener('pagehide', function() {
+      saveState(); pageLeaving = true; ++playToken;
+      stopExistingAudio(); releaseOwnership();
+    });
+    window.addEventListener('pageshow', function(event) {
+      if (!event.persisted) return;
+      pageLeaving = false;
+      if (!followOwner()) hydrateFromStorage(false);
+    });
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'hidden') {
+        saveState();
+        if (!(navigator.locks && navigator.locks.request)) {
+          ++playToken; stopExistingAudio(); state.paused = true; releaseOwnership();
+        }
+      }
+    });
     // Periodic save while playing, so a browser crash doesn't lose position.
     setInterval(function() { if (state.audio && !state.paused) saveState(); }, 5000);
   }
