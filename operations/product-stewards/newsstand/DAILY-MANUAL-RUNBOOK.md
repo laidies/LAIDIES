@@ -1184,3 +1184,57 @@ Service handoff adoption was updated and read back in the existing heartbeat
 after source 07936d61 was committed/pushed. Both 20:00 and 07:00 hours, ACTIVE
 status, target task and notification behavior remain. This proves configured
 adoption, not a successfully observed scheduled publication.
+
+
+### Weekly preparation and separate publication
+
+Assess the actual Wednesday coverage date every cycle. A September 1 recheck
+of the August 26 Weekly cannot conceal the missed September 2 issue. Keep the
+incumbent honestly dated and accessible while its successor is produced.
+
+```sh
+node scripts/prepare-newsstand-weekly.mjs --as-of YYYY-MM-DD --publication-date YYYY-MM-DD --check
+node scripts/prepare-newsstand-weekly.mjs --as-of YYYY-MM-DD --publication-date YYYY-MM-DD --output operations/product-stewards/newsstand/release-pipeline-v1/weekly-inputs/YYYY-MM-DD-r1.json
+```
+
+The target is Wednesday. On Wednesday the default selects today's unfilled
+edition; on other days it prepares the next one. New private paths preserve
+prior attempts. The packet binds complete canonical input identity and the
+prior Weekly. It lists eligible Daily stories in date order, explicitly not
+editorial importance, and preserves held research for judgment. An absent dated
+source assessment remains missing; no older research file is silently substituted.
+
+The editor reconciles the whole covered week's reporting, including major
+stories absent from LAiDIES, identifies the most consequential developments,
+explains enough for a reader who missed the Daily, and compares with the prior
+roundup. Distinguish event dates from the dates LAiDIES covered them. Do not force
+unrelated news into a convenient thesis or declare a future week complete.
+
+Draft under the existing producer contract and full Weekly prose/source review.
+The `newsstand-weekly-candidate-v1` record binds the complete story, current
+canonical predecessor, contract, producer and independent receipts, original
+independent report, exact claim map and every public source. The independently
+reviewed complete story includes its image, highlights, explanation, guidance
+and source destinations. Current ordinary-news and service exceptions are
+explicitly rejected here. No synthetic test observation is real reader evidence.
+
+```sh
+node scripts/publish-newsstand-weekly.mjs --candidate <private-weekly-candidate.json>
+node scripts/publish-newsstand-weekly.mjs --candidate <private-weekly-candidate.json> --write
+```
+
+The default is check-only. A write requires the actual current Wednesday in
+Vancouver, current source review, exact passing artifacts and unchanged canonical
+bytes. It appends the admitted Weekly and replaces only its pointer, preserving
+Daily/Breaking/Big Picture and every older article. A repeated transaction
+rejects explicitly. Reconcile the current state rather than resubmitting it.
+The date override is exclusively for disposable test roots. Follow with normal
+derivative generation, scoped complete-artifact release, and custom/immutable
+reader verification. A local canonical write is not public publication.
+
+The September 5 private input packet identifies the missed September 2 edition
+and six candidate Daily inputs toward September 9. It leaves ranking and source
+coverage open. The calibrated test runs the actual contract, independent-review
+chain and reader validator, changes only a disposable dataset through the CLI,
+preserves all predecessors and rejects 18 invalid cases. No actual Weekly
+successor or observed scheduled Weekly run is claimed by these tests.

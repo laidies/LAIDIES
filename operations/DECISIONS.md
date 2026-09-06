@@ -69,6 +69,11 @@ The resolved private reference replacement and preserved prior attempts are in
 Execution, calibration reuse and publication boundaries remain in the NewsStand
 runbook and `review-runtime/README.md`; a reference or article review is not a release.
 
+Weekly coverage is determined by its actual edition date, never renewed by a
+source recheck. The separate Weekly preparation/publication procedure in the
+NewsStand runbook preserves the incumbent and appends an independently admitted
+successor atomically; Daily issue work does not replace the Weekly.
+
 Related-song buttons across LAiDIES use the existing in-page KSVL player.
 Ali's September 5 ruling and the first NewsStand masthead implementation are
 recorded under “Related songs use the shared player” in
