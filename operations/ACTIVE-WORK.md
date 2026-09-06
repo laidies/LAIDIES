@@ -1,10 +1,12 @@
-<!-- Newspaper spacing and compact Big Picture date: LOCAL VERIFIED / release in progress -->
+<!-- Newspaper spacing and compact Big Picture date: VERIFIED PUBLICLY -->
 Two public paths only: newsstand.html and content/newsstand-design.css.
 Balanced Big Picture columns; date beside reading action below image. Smaller
 advice/town illustrations and saturated pink/cyan/yellow/purple framing.
 Independent desktop ACCEPT; root1200/390/320 and actual reader passed.
 Artifact /private/tmp/laidies-newsstand-paper-density-20260906 based on148f456e.
-This closes the current spacing/date/advice-town presentation request only.
+Source5a20cc6e deployed1cf867f1. Eight custom/immutable responses match.
+Actual user IAB refreshed: compact date/footer, seven desks, no overflow;
+Big Picture opens correct article. This closes current spacing/date/advice-town presentation only.
 Duplicate Latest artwork, Hannah profile and broader editorial work remain open.
 
 <!-- Big Picture emphasis: VERIFIED PUBLICLY -->
