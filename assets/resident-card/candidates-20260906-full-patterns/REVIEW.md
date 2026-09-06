@@ -1,8 +1,10 @@
 # Resident Card backgrounds — current review
 
-These are the only five designs in the current review. **Skates, Boombox and Computer are the three Ali likes.** Diagonal print and Purple brushwork are optional additions still awaiting her verdict.
+**Three you like:** Skates, Boombox and Computer. Those image files are unchanged.
 
-Disco, Memphis, all earlier thin-border designs and all stretched/pastel revisions are excluded. No CD/Discman replacement has been created. These are artwork choices only; actual Card layout, text contrast and page integration still need verification. Nothing has been installed.
+**Three awaiting your verdict:** Diagonal Print, Pocket Tech and CD Player.
+
+Only these six images belong to this review. Purple Brushwork was withdrawn because Ali found it too similar to Diagonal Print. Disco, Memphis and all older stretched/pastel/thin-border drafts are excluded. These are artwork choices; page fit, readable text and installation remain separate work. Nothing is installed.
 
 ## 1. Skates — You said this is good.
 
@@ -28,8 +30,14 @@ Disco, Memphis, all earlier thin-border designs and all stretched/pastel revisio
 
 [Open original](05-electric-diagonal.png)
 
-## 5. Purple brushwork — Awaiting your verdict.
+## 5. Pocket tech — New replacement for Purple Brushwork.
 
-![Purple brushwork](06-neon-brushwork.png)
+![Pocket tech](07-pocket-tech-v2.png)
 
-[Open original](06-neon-brushwork.png)
+[Open original](07-pocket-tech-v2.png)
+
+## 6. CD player — New replacement for Disco.
+
+![CD player](08-cd-summer-v2.png)
+
+[Open original](08-cd-summer-v2.png)

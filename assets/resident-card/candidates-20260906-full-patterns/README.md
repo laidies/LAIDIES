@@ -1,6 +1,6 @@
 # Resident Card backgrounds — current review
 
-Open [CURRENT REVIEW — five designs and their status](REVIEW.md). Ali likes Roller Rink, Radio Night and Retro Desktop. Electric Diagonal and Neon Brushwork remain awaiting her verdict. Disco is rejected and excluded from the review; earlier stretched/pastel/Memphis versions are also excluded. Nothing is installed on the page.
+Open [CURRENT REVIEW — six designs and their status](REVIEW.md). Ali likes Roller Rink, Radio Night and Retro Desktop. Diagonal Print, Pocket Tech and CD Player await her verdict; Purple Brushwork is withdrawn for similarity. Disco is rejected and excluded from the review; earlier stretched/pastel/Memphis versions are also excluded. Nothing is installed on the page.
 
 ## What changed
 
@@ -46,15 +46,6 @@ Broad diagonal print, round halftone and splatter; cyan, pink, ink and orange. I
 
 Original: [05-electric-diagonal.png](05-electric-diagonal.png) — 1681 × 936; SHA-256 `300c9babf4baa98b485beeefd0d1e04cee6a8ce80e2626c53354fbc7a543d814`.
 
-### Neon brushwork
-
-Layered dry-ink strokes and angular shapes; purple, pink, coral, cyan and ink. Inspiration references: 02.
-
-![Neon brushwork](06-neon-brushwork.png)
-
-Original: [06-neon-brushwork.png](06-neon-brushwork.png) — 1679 × 937; SHA-256 `237a57cb0ff360562d8e5ff4666a70be9f43bcfccf791d9807323ecf8c5628ec`.
-
-
 ## Artwork review
 
 Maker inspected each original; independent Terra/Medium review applied the revised original-reference bar after rejecting old04/05 as negative calibration. No visible failure found for palette family, physical proportions, composition/variety, stretched objects or illegible text. Reviewer judged all six suitable as standalone art candidates, with Roller Rink strongest among object-led designs. This does not bind Ali taste, exact-hex matching, page compositing, contrast or release approval.
@@ -66,3 +57,13 @@ Ali: “the skate ones and the boom box are good.” Positive design feedback ap
 Ali objected to the disco ball as the wrong era emphasis. `01-disco.png` is REJECTED for this set and must not be selected. A CD/Discman replacement was proposed but has not been made. Other candidates remain unselected.
 
 Ali additionally said “the computer one is good.” Positive design preference now includes exact `03-retro-desktop.png`, alongside02-roller-rink-v2 and04-radio-night-v3. This does not authorize deployment.
+
+## Latest replacement set
+
+Ali found the two abstracts too similar. Purple Brushwork is withdrawn from the current review; Diagonal Print is retained as the sole abstract, still unselected. New Pocket Tech and CD Player candidates supply distinct period objects and fulfil the Disco replacement. Three liked source files stay byte-for-byte unchanged. Current review is REVIEW.md.
+
+07-pocket-tech-v2.png: (1681, 936); SHA-256 `825ccb4455ad7104689b0eb09a1c3808c2bd861d2f8e5d5fc4452f9a6c7da76d`.
+
+08-cd-summer-v2.png: (1679, 937); SHA-256 `4dcaa802810c71946a92ac913496927d86112bb4913fb9ec610e974ff922aa5d`.
+
+Replacement review: maker and independent Terra/Medium inspection found no visible text/logo, stretched-object or cable-coherence failure in exact07v2/08v2. Both judged distinct standalone artwork candidates; no page-fit or deployment approval.

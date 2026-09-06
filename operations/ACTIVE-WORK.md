@@ -1169,3 +1169,5 @@ Owner: 01a0785e-1438-7161-b041-0be213b06e9b. Three original landscape background
 Resident Card colour revision: Ali rejected Memphis and repeated colour fields. Current candidates04/05 are cyan/periwinkle Zigzag and pink/teal Mixtape; reviewed standalone art, awaiting Ali selection. Old colours superseded; page task notified.
 
 Resident Card full-composition rebuild: Ali flagged stretched geometry, off-brand colours, cassette-only repetition and requested stronger work against the full original reference set. Prior candidate eligibility is withdrawn; six originals now at assets/resident-card/candidates-20260906-full-patterns/README.md. These are artwork options only: full page fit, contrast and selection remain open.
+
+Card review consolidated at assets/resident-card/candidates-20260906-full-patterns/REVIEW.md: three liked unchanged designs (skates, boombox, computer); three awaiting verdict (diagonal, new pocket tech, newCD player). Purple Brushwork withdrawn for similarity; Disco rejected. All artwork-only, no installation.
