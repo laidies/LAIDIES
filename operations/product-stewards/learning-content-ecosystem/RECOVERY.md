@@ -6,6 +6,44 @@ Integration work under the whole-operation audit; the Learning
 System & Concepts Director retains shared learning ownership and surface owners
 retain their candidates and release decisions.
 
+## Destination adoption — verified gap, September 6
+
+PR108 (`9a372e701742dcc2cb9820e49bb39c3e82b5d9df`) and PR109
+(`53b7d83384e71f83d679ff2bf005fbcd4af9e2b3`) are on main and the isolated
+operating integration checkout. Shared `Website-homepage` HEAD `3091a1fd`
+contains neither. Its producer/review files are older, its admission command,
+package/admission tests and this recovery record are missing, and its registry
+has the older source bindings. Its release checker has identical bytes but
+imports the older local checkers. Repository distribution is therefore verified;
+shared-runtime adoption is not.
+
+The shared `package.json` `ci:build` and `exact-library-preview.yml` use that
+checkout's local scripts. Do not copy the new admission script alone or overwrite
+the dirty shared tree. Adoption must include the registry, schemas, six immutable
+examples, supporting News evidence, all checker imports and calibration tests.
+The changed-path lists in PR108/109 identify that closure; their central audit
+status files are not product changes to merge blindly.
+
+Prepared receiving-owner action (not dispatched): the Learning System & Concepts
+Director selects a clean receiving integration branch with the affected product
+owner. Start from current main where possible; otherwise reconcile the selected
+PR108 then PR109 dependency paths against destination changes. Preserve the real
+work-order queue and reconcile any new registry entries rather than replacing
+them with this snapshot. Add `test-content-quality-package.mjs` and
+`test-content-quality-learning.mjs` to the destination's existing `ci:build`
+before its producer/review/release tests, then run that full destination command.
+Confirm the actual candidate invokes those same consumers. Run strict release
+checking for its exact work-order ID; held orders remain held. Report receiving
+commit, actual command and result, real candidate state, and owner/next trigger.
+No release, schedule or new product commission follows from adoption.
+
+Current receiving roles: learning owner task
+`019f9f7f-9e4c-72d2-8882-447bcbe01691` (“LEARNING SYSTEM — Concepts & Curriculum”)
+was notLoaded; this is not abandonment. NewsStand task
+`01a071e7-db55-7a22-8c99-04eba5060355` (“Audit NewsStand agentic workflow”)
+was active after PR109. Do not interrupt, restart or duplicate either lane.
+The operating task has prepared this handoff but has not sent a new assignment.
+
 ## What is recovered
 
 The existing producer, exact-prose review and release-readiness scripts, their

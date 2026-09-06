@@ -45,6 +45,18 @@ are incomplete edges, not grounds to take over product owners or import the
 whole dirty shared branch. Acceptance requires source distribution and real
 consumer use, not another instruction or a fixture-only quality claim.
 
+### Verified receiving-checkout gap
+
+The full audit has been reconciled with PR108/109 rather than treating their
+initial absence as a current main defect. Shared HEAD3091a1fd still uses older
+producer/review consumers and lacks the owner-admission command and two package
+tests. Its identical release checker imports those older consumers. The existing
+learning `RECOVERY.md` now contains the complete receiving-owner action, including
+registry reconciliation and destination `ci:build`; no isolated script copy,
+dirty-tree overwrite, new owner assignment or public release was performed.
+Next obtain the existing owner's adoption into its chosen clean receiver and
+observe one real lesson/successor. No new message to that owner has been sent.
+
 ## Prior repair and ranked sequence — 2026-09-06
 
 Owner: fresh task `01a077d0-0775-7af2-b631-c311573f0e0e`.

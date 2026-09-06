@@ -11,8 +11,10 @@
 > reviewer returned REPAIR on the known-bad chapter without seeing its history;
 > full calibration remains open. PR109/53b7d833 distributes the tested admission adapter and producer-plan
 > propagation; real new learning-owner admission and successor remain open.
-> Next reconcile the full plan/map against current owners and source/runtime
-> adoption, then close the remaining real handoff and cloud proof where accessible; continue editorial/cloud edges in `OPERATING-RECOVERY-NEXT.md`.
+> Audit reconciled: shared HEAD3091a1fd still executes older quality consumers.
+> Complete adoption instructions are in the learning ecosystem RECOVERY.md.
+> Next verify the existing owner adopts the package and completes a real
+> lesson/successor; cloud and delivery proof remain open in `OPERATING-RECOVERY-NEXT.md`.
 > No new paid service, public release or takeover of surface owners.
 
 > **2026-09-06 — Small current visual references: REPOSITORY-DISTRIBUTED / PR106 MERGED.** Owner: background-reference task `01a0785e-1438-7161-b041-0be213b06e9b`; isolated branch `ops/current-visual-references-20260906`. Build the small two-job entry and scoped selections, preserve exact originals and reconcile later rejections; system engineering task owns prompt-consumer reconciliation on a separate branch. No all-artwork migration or production art changes. Acceptance: exact usable references and reuse scope, honest unavailable entries, routed instructions, calibrated selection checks and repository distribution. Local index and 13 prompt-consumer checks pass; later Matron/Miss Jeeves identities and destination palettes are reconciled. Current source commits 222a10ae, 3afe85a6, 21b55575 and coordinated consumer 1b1fcf6e. PR106 merged as a38d5068e67582e089e1e7b9ef983fa60882f7c4 after targeted reference CI and both baseline jobs passed; shared entry pointer committed e0812106. Source/consumer delivery is complete; no new artwork, public deployment or native hook activation is claimed. Other product work continues.
