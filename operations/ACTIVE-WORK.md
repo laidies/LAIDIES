@@ -1,22 +1,19 @@
 # Active work
 
-> **2026-09-05 — Complete homepage preview VERIFIED / READY FOR ALI REVIEW.**
-> Ali approved the two completed independent reviews for this exact candidate.
-> Preview: https://ee897a4e.laidies-sunnyvaile.pages.dev/ — opened visibly in
-> the in-app browser and retained as the deliverable. Source9b34df58;
-> admission87078d06; hosted verification324d021c. Worktree:
+> **2026-09-05 — Homepage masthead restored / UPDATED PREVIEW VERIFIED.**
+> Ali rejected the replacement masthead buttons and said the page looked almost
+> the same. Original “Why women must shape AI” and “How LAiDIES works” buttons,
+> placement and treatment restored. Other copy/navigation repairs retained.
+> Preview: https://05b773cb.laidies-sunnyvaile.pages.dev/ — opened in the existing
+> in-app browser tab. Source 06311274; hosted verification 0ccc44dc. Worktree:
 > `/Users/alisoneakin/Projects/laidies-homepage-corrections-20260905`.
-> Exact hosted homepage/runtime match the reviewed bytes. Real1440/390px
-> first actions, six entrances, disclosure, phone menu/Escape and directory
-> taps pass; Episode1 opens readably and Miss Jeeves preserves the question.
-> Its API was intercepted before any paid answer. Account syncing and the
-> normal-motion arrival pause/skip sequence remain unverified in this pass.
-> All746 other public files retain current productionac5d6108/source5aa3716,
-> including the newer NewsStand/LUMINAiRY work. Production is unchanged.
-> Only owner visual approval is pending; no further review-role permission
-> is needed. Next: integrate any material owner corrections or approved
-> production release, then assistant promises and connected pages in the
-> [homepage correction plan](homepage-corrections-2026-09-05.md).
+> Restored component checked at 1440/390/320px, then actual hosted 1440/390px
+> anchors and exact HTML/runtime verified. Prior reviews remain bound to the
+> archived parent; no additional full-page quality verdict was manufactured.
+> Latest production e58b23d6 / 98bcb60 retained; live homepage/runtime unchanged.
+> This is mainly a copy/navigation correction, not a material visual redesign.
+> Whole-page owner approval and production release remain outstanding. Continue
+> the consolidated homepage and connected-page order in the correction plan.
 
 > **2026-09-05 — Episode04 social carousel: REJECTED / DETOUR STOPPED; HOMEPAGE REVIEW RESUMES.**
 > Ali rejected preview8e498c88 for no worthwhile explanation, imagery or social value.

@@ -14639,3 +14639,5 @@ HTML and local custom properties.
 - Status: implementation9b34df58 / packet948d0f81 committed; not shown or deployed.
 
 - Preview closure: Ali explicitly approved the two-reviewer exception for the exact homepage. The narrow admission rejects six altered/missing/out-of-scope cases and requires exact hosted browser evidence before resolving a presentation URL. Previewee897a4e is verified and opened; productionac5d6108 stays unchanged. A second new release base was retained before upload. Python urllib received403; ordinary curl and actual browser responses succeeded and matched exact bytes, so the failed request was not treated as a website outage. Admission87078d06 and hosted evidence324d021c; no new subjective review cycle.
+
+- Owner correction: Ali rejected the two new masthead buttons and found little visible improvement. Restored the incumbent component in 06311274; hosted evidence 0ccc44dc / preview 05b773cb. Do not sell copy/navigation corrections as a visual redesign or change settled masthead choices without a concrete visitor benefit. Bounded component verification replaced another review cycle. Production e58b23d6 stayed unchanged.
