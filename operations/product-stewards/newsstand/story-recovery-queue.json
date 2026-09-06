@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-06T06:42:01.352Z",
+  "updatedAt": "2026-09-06T14:26:18.000Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -91,7 +91,7 @@
       "producerPrincipal": "/root",
       "sourceIdentitySha256": "812db2ae3f249e6441fc595458957a0178b65bb772bc6d498ce3e81a780f7539",
       "artifactSha256": "438dee3af18e16695b9cac0e9ac407b87f32d8c43192601338f6fbd513f0b82c",
-      "status": "READY_FOR_ADMISSION",
+      "status": "REPAIR_REQUIRED",
       "active": true,
       "consequencePriority": 0,
       "firstSeenAt": "2026-09-05T20:57:59-07:00",
@@ -113,9 +113,20 @@
           }
         }
       ],
-      "unresolvedDefects": [],
-      "nextAction": "COMPOSE_AND_ADMIT_EXACT_ARTIFACT",
+      "unresolvedDefects": [
+        {
+          "id": "NVIDIA-HF-CLOSING-TIMETABLE-MATERIAL-CHANGE",
+          "description": "A newly recovered SEC 8-K says the parties expect the transaction to close in the first half of 2027, subject to closing conditions and required regulatory approvals. The reviewed artifact says the closing timetable was not verified, so its exact source and prose identities are stale.",
+          "repairability": "REPAIRABLE"
+        }
+      ],
+      "nextAction": "REDRAFT_ONLY_THE_EXACT_FAILED_REQUIREMENTS",
       "terminalDisposition": null,
+      "freshnessInvalidation": {
+        "recordedAt": "2026-09-06T07:26:18-07:00",
+        "evidence": "operations/product-stewards/newsstand/candidates/nvidia-hugging-face-acquisition-2026-09-05/morning-2026-09-06/material-change-hold.md",
+        "boundary": "This invalidates readiness only. The prior review attempt remains historical evidence and does not approve a corrected artifact."
+      },
       "assembledCandidate": {
         "path": "operations/product-stewards/newsstand/candidates/nvidia-hugging-face-acquisition-2026-09-05/admission/ordinary-candidate.json",
         "sha256": "edccfe3ed499a863bdb535bfb352b6b4f2ce062a78170a4fb4b3d15e10fbc6a6"
@@ -141,8 +152,8 @@
       "producerPrincipal": "/root",
       "sourceIdentitySha256": "46d3da6ed43ce2bfb18c1596ae4a014f515f0970c3089ef222140312d6515bb4",
       "artifactSha256": "94eb8f857baacf00cb55a900e3de9b0b868c9f30d8052225352ff930489f19ae",
-      "status": "READY_FOR_ADMISSION",
-      "active": true,
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
       "consequencePriority": 0,
       "firstSeenAt": "2026-09-05T22:58:40-07:00",
       "lastReviewedAt": "2026-09-06T06:11:35.734Z",
@@ -164,8 +175,19 @@
         }
       ],
       "unresolvedDefects": [],
-      "nextAction": "COMPOSE_AND_ADMIT_EXACT_ARTIFACT",
+      "nextAction": "MONITOR_CORRECTIONS",
       "terminalDisposition": null,
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "2d4735ee-d9ea-4ed6-b672-d5a4ba448ee7",
+        "sourceCommit": "4bc156e3",
+        "immutableUrl": "https://2d4735ee.laidies-sunnyvaile.pages.dev/newsstand#gastric-cancer-prediction-2026-09-05",
+        "customUrl": "https://laidies.ai/newsstand#gastric-cancer-prediction-2026-09-05",
+        "artifactIdentitySha256": "3fe804ef44ef6042630105fa83c2beafd44cc15409964d8807e0f6dfbb210252",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-06T07:26:18-07:00"
+      },
       "assembledCandidate": {
         "path": "operations/product-stewards/newsstand/candidates/gastric-cancer-prediction-2026-09-05/admission/ordinary-candidate.json",
         "sha256": "90854c55a7d6797cb517862bee3bcca247b705c3a22b8b0883c6586ca7b2c610"

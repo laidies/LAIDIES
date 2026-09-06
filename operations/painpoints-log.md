@@ -15902,3 +15902,14 @@ remain unreconciled; cross-chat completeness is not certified.
 - **Possible Behind the Build angle:** The difference between “we could not
   verify this” and “this was false”—and why every hold needs a wake-up call.
 - **Publication status:** PRIVATE RESEARCH ONLY / NO PUBLIC COPY OR DEPLOYMENT.
+
+## BTB-500 — A current issue should not be blocked by stale history
+
+- **Date:** 2026-09-06
+- **Area:** NewsStand recurring issue validation and reader dates.
+- **Failure:** The real September 6 cycle initially failed because date-bound tests had a hard-coded prior date and the release validator re-applied current expiry and missing-receipt rules to unrelated historical service rows. A separate reader defect displayed an update date earlier than the new publication date.
+- **Root cause:** Test clocks were not derived from the run date, and one validator used specification-wide freshness rules in the issue-release path instead of validating the exact rows bound to the dated issue. The article chrome also treated any differing timestamps as a reason to show “Updated”.
+- **Prevention rule:** Derive future/replay test dates from the actual editorial clock. In release mode, bind freshness, expiry and receipt checks to the exact issue date and service IDs while retaining the full historical audit in specification mode. Display an update date only when it is later than publication.
+- **Durable correction:** The three affected date-bound suites now advance from the current editorial date; the calibrated column checker ignores irrelevant historical expiry in release mode but rejects an expired current row; the reader regression rejects “updated before published”. Composer, promoter, publisher, derivative, continuity and reader suites pass on the actual September 6 issue.
+- **Possible Behind the Build angle:** Why checking every old newspaper clipping with today’s deadline can stop today’s paper from printing.
+- **Publication status:** VERIFIED PUBLICLY in deployment `2d4735ee-d9ea-4ed6-b672-d5a4ba448ee7`.
