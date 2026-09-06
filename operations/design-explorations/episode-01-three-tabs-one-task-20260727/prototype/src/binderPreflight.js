@@ -14,6 +14,12 @@ export function installBinderPreflight() {
     if(!requestOwner)return {error:new Error('authentication-required')};
     if(args?.p_expected_owner!==requestOwner)return {error:new Error('account-changed-reload-binder')};
     const data=store();
+    if(name==='wallet_snapshot') {
+      const history=Object.entries(data.walletGrants||{}).filter(([key])=>key.startsWith(`${requestOwner}:`)).map(([,entry])=>entry);
+      const total=history.reduce((sum,entry)=>sum+entry.units,0);
+      const legacy=Object.keys(data.quizAwards||{}).some(key=>key.startsWith(`${requestOwner}:`)&&!data.walletGrants?.[key]);
+      return {data:{available:total,pending:0,lifetime_earned:total,lifetime_spent:0,lifetime_refunded:0,lifetime_adjusted:0,history,next_cursor:null,legacy_review_required:legacy}};
+    }
     if(name==='get_my_quiz_first_reward_v1'||name==='submit_quiz_first_reward_v1') {
       data.quizAwards ||= {};
       const rewardKey=`${requestOwner}:${args.p_episode}`,prior=data.quizAwards[rewardKey];
@@ -24,7 +30,10 @@ export function installBinderPreflight() {
       if(quiz.version!==args.p_quiz_version)return {error:new Error('unsupported-quiz-version')};
       const core=quiz.questions.filter(q=>!q.bonus),score=core.filter(q=>args.p_answers[q.id]===q.answer).length;
       const award={state:'claimed',episode:args.p_episode,quiz_version:quiz.version,attempt_id:args.p_attempt_id,score,max_score:core.length,clips:Math.max(score,1),completed_at:new Date().toISOString()};
-      data.quizAwards[rewardKey]=award;localStorage.setItem(storageKey,JSON.stringify(data));
+      data.quizAwards[rewardKey]=award;
+      data.walletGrants ||= {};
+      data.walletGrants[rewardKey]={event_id:crypto.randomUUID(),event_type:'GRANT',units:award.clips,reason:'Episode 01 first completed Pop Quiz',occurred_at:award.completed_at,source_completion_id:award.attempt_id,currency_or_asset:'butterfly_clips'};
+      localStorage.setItem(storageKey,JSON.stringify(data));
       if(dropNext){dropNext=false;return {error:new Error('synthetic-lost-confirmation')};}
       return {data:award};
     }

@@ -944,6 +944,9 @@
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "xnqcp37urd");
   </script>
+<style>
+#butterflyJar[hidden],#clipWalletMore[hidden]{display:none!important}.clip-wallet-totals{display:flex;flex-wrap:wrap;gap:16px 28px}.clip-wallet-totals div{min-width:80px}.clip-wallet-totals dd{margin:4px 0;font-weight:700}#butterflyJar button{color:var(--plum,#35223d);background:var(--cream,#fffaf0);border:2px solid var(--rose,#8d4565);border-radius:6px;min-height:44px;padding:10px 16px;margin:12px 8px 12px 0;font:inherit;cursor:pointer}#localQuizProgress summary{cursor:pointer;font-weight:700}#localQuizProgress .clip-jar-glass{display:none}
+</style>
 </head>
 <body class="closet-page">
 
@@ -1144,7 +1147,7 @@
         { icon: '📒', label: 'My Episode Binder', src: 'episodeBinderCount', target: 'episodeBinderVessel', total: null, pub: false, unknown: '—', hint: 'Private · saved learning items' },
         { icon: '🌸', label: 'Charms this week',  src: 'charmCount',     target: 'charmBracelet',    total: 7,    pub: true,  hint: 'Hiding in town images' },
         { icon: '🗺️', label: 'Tour stops',        src: 'tourCount',      target: 'tourVessel',       total: 8,    pub: false, hint: 'Resets Wednesday' },
-        { icon: '✦', label: 'Quiz + Express progress', src: 'clipJarTotal', target: 'butterflyJar', total: null, pub: false, hint: 'This-device summary' },
+        { icon: '✦', label: 'Quiz + Express progress', src: 'clipJarTotal', target: 'localQuizProgress', total: null, pub: false, hint: 'This-device summary' },
         { icon: '📓', label: 'Stickers',          src: 'stickerCount',   target: 'stickerGrid',      total: null, pub: true,  hint: 'Quizzes + Express tours' },
         { icon: '🎗️', label: 'Merit badges',      src: 'meritCount',     target: 'meritGrid',        total: null, pub: true,  hint: 'Earned around town' },
         { icon: '🃏', label: 'Trading cards',     src: 'tradingCount',   target: 'tradingGrid',      total: null, pub: true,  hint: 'Packs at Blend & Snap' },
@@ -1489,8 +1492,19 @@
       <p class="vessel-note">Hidden charms tucked in the town's images each week. Look closely — every stop page has one.</p>
     </div>
 
-    <!-- Device-local summary of Pop Quiz scores and Express completions. -->
-    <div class="vessel vessel--clip-jar" id="butterflyJar">
+    <!-- Private wallet reads one authoritative account projection. -->
+    <section class="vessel vessel--clip-jar" id="butterflyJar" data-clarity-mask="True" hidden>
+      <div class="vessel-header"><h3 class="vessel-title">Butterfly Clip Jar</h3><span class="vessel-count" id="clipWalletCount">Account balance</span></div>
+      <div class="clip-jar"><div class="clip-jar-glass" aria-hidden="true"><span class="clip-jar-total" id="clipWalletTotal">—</span><span class="clip-jar-unit">available clips</span></div></div>
+      <p id="clipWalletStatus" role="status">Checking your saved clip balance…</p>
+      <dl class="clip-wallet-totals"><div><dt>Pending</dt><dd id="clipWalletPending">—</dd></div><div><dt>Earned</dt><dd id="clipWalletEarned">—</dd></div><div><dt>Spent</dt><dd id="clipWalletSpent">—</dd></div><div><dt>Refunded</dt><dd id="clipWalletRefunded">—</dd></div><div><dt>Adjusted</dt><dd id="clipWalletAdjusted">—</dd></div></dl>
+      <button type="button" class="card-action-btn" id="clipWalletRefresh">Refresh my clip balance</button>
+      <ul class="clip-jar-ledger" id="clipWalletHistory"></ul><button type="button" class="card-action-btn" id="clipWalletMore" hidden>Earlier transactions</button>
+    </section>
+
+    <!-- Original device records remain readable without being treated as money. -->
+    <details class="vessel" id="localQuizProgress"><summary>Earlier device progress</summary>
+    <div>
       <div class="vessel-header">
         <h3 class="vessel-title">Quiz + Express Progress</h3>
         <span class="vessel-count" id="clipJarCount">No local records yet</span>
@@ -1504,6 +1518,8 @@
       </div>
       <p class="vessel-note">On this device, this is a playful summary of your best Pop Quiz score for each episode plus completed Express tours. It is not a Butterfly Clip balance, reward, purchase record, or synced account history. <a href="/sunnyvaile-high.html#report-card">Your local Report Card →</a> · <a href="/sunnyvaile-high.html">Take this week's quiz →</a></p>
     </div>
+
+    </details>
 
     <!-- Episode binder: private account material; never shown on public cards. -->
     <section class="episode-binder" id="episodeBinderVessel" aria-labelledby="episodeBinderTitle" data-clarity-mask="True" hidden>
@@ -1736,6 +1752,7 @@
 <script src="/content/site/resident-account-runtime-v1.js?v=20260727-account-1"></script>
 <script src="/content/site/resident-episode-binder-v1.js"></script>
 <script src="/content/site/resident-episode-binder-closet-v1.js"></script>
+<script type="module" src="/content/site/clip-wallet-closet.mjs"></script>
 <script>
 (function() {
   'use strict';

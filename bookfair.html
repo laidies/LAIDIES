@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Baseline: Website-homepage/bookfair.html SHA-256 94e4f4caf045f21f81f5a5dd2ffa16d51386f394a3deda896beefcb81fab514f. -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -10,7 +11,16 @@
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
-  <script defer src="/content/site/clip-bank.js?v=20260716-2"></script>
+  <script src="/content/site/supabase-config.js"></script>
+  <script src="/content/site/resident-card-contract-v1.js"></script>
+  <script src="/content/site/identity-client-v1.js"></script>
+  <script src="/content/site/resident-account-runtime-v1.js"></script>
+  <script type="module">
+    import { createClipWalletClient } from '/content/site/clip-wallet-client.mjs';
+    window.LAIDIESCreateClipWalletClientV1 = createClipWalletClient;
+    document.dispatchEvent(new Event('laidies:clip-wallet-client-ready'));
+  </script>
+  <script defer src="/content/site/clip-bank.js?v=20260906-account-1"></script>
   <style>
     .bf-hero { background: radial-gradient(circle at 50% 30%, var(--blush) 0%, var(--pearl) 100%); padding: 44px 24px 34px; text-align: center; border-radius: 14px; margin: 24px 0 22px; }
     .bf-hero-eyebrow { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: var(--rose); margin-bottom: 12px; }
@@ -84,8 +94,8 @@
     </section>
 
     <div class="bf-balance" aria-label="Butterfly clip balance">
-      <span class="bf-balance__n" id="bfClipN">0</span>
-      <span class="bf-balance__lbl">device-local Pop Quiz rating preview · not spendable while the Fair is stocking · <a href="/sunnyvaile-high.html">Return to High →</a></span>
+      <span class="bf-balance__n" id="bfClipN">—</span>
+      <span class="bf-balance__lbl" id="bfClipStatus">Sign in to see your account Clip Jar · <a href="/laidies-card.html">Sign in</a> · not spendable while the Fair is stocking · <a href="/sunnyvaile-high.html">Return to High →</a></span>
     </div>
     <div class="bf-toast" id="bfToast" aria-live="polite"></div>
 
@@ -99,7 +109,7 @@
     </section>
 
     <p class="bf-note">
-      <strong>★ Preview only.</strong> The current butterfly-clip number is a device-local quiz rating, not spendable currency. The planned fair-exclusive drops, Closet delivery, print downloads and merchandise ordering are unavailable while the Fair is stocking.
+      <strong>★ Preview only.</strong> Your account Clip Jar can be shown here when you are signed in. The planned fair-exclusive drops, Closet delivery, print downloads and merchandise ordering are unavailable while the Fair is stocking.
     </p>
 
     <div class="sv-ctas">
@@ -149,10 +159,21 @@
       var grid = document.getElementById('bfGrid');
       var nEl = document.getElementById('bfClipN');
       var toast = document.getElementById('bfToast');
-      if (!grid || !Bank) return;
+      var status = document.getElementById('bfClipStatus');
+      if (!grid || grid.dataset.bookfairReady) return;
+      if (!Bank) { document.addEventListener('laidies:clip-bank-ready', initBookFair, { once: true }); return; }
+      grid.dataset.bookfairReady = 'true';
       function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]; }); }
       function say(msg){ toast.textContent = msg || ''; }
-      function refreshBalance(){ nEl.textContent = String(Bank.available()); }
+      function refreshBalance(){
+        var available = Bank.available();
+        nEl.textContent = Number.isInteger(available) ? String(available) : '—';
+        var state = Bank.status();
+        if (state === 'ready') status.innerHTML = 'account Clip Jar · not spendable while the Fair is stocking · <a href="/sunnyvaile-high.html">Return to High →</a>';
+        else if (state === 'reconciliation') status.innerHTML = 'Earlier reward records need reconciliation · account number unavailable · <a href="/laidies-card.html">Open your Closet</a>';
+        else if (state === 'signin') status.innerHTML = 'Sign in to see your account Clip Jar · <a href="/laidies-card.html">Sign in</a> · not spendable while the Fair is stocking';
+        else status.textContent = 'Your account Clip Jar is unavailable right now. Fair drops remain unavailable.';
+      }
 
       function cardHtml(d) {
         var owned = Bank.owns(d.id);
@@ -211,7 +232,9 @@
         }
       });
 
+      document.addEventListener('laidies:clip-wallet-change', refreshBalance);
       render();
+      Promise.resolve(Bank.ready()).then(refreshBalance, refreshBalance);
     }
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initBookFair);
     else initBookFair();

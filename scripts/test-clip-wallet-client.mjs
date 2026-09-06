@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import {createClipWalletClient} from '../content/site/clip-wallet-client.mjs';
+const A='11111111-1111-4111-8111-111111111111',B='22222222-2222-4222-8222-222222222222';
+let owner=A,notify,resolveRpc,calls=0,unsubscribed=false;
+const projection={available:6,pending:0,lifetime_earned:6,lifetime_spent:0,lifetime_refunded:0,lifetime_adjusted:0,history:[],next_cursor:null};
+let response=async()=>({data:projection});
+const wallet=createClipWalletClient({controller:{getSession:async()=>({user:{id:owner}})},client:{auth:{onAuthStateChange(fn){notify=fn;return{data:{subscription:{unsubscribe(){unsubscribed=true;}}}};}},rpc:async(name,args)=>{calls++;assert.equal(name,'wallet_snapshot');assert.equal(args.p_expected_owner,A);return response();}}});
+assert.equal((await wallet.snapshot(A)).available,6);
+owner=B;await assert.rejects(wallet.snapshot(A),/account-changed/);assert.equal(calls,1);
+owner=A;response=()=>new Promise(resolve=>{resolveRpc=resolve;});
+const pending=wallet.snapshot(A);
+await new Promise(resolve=>setImmediate(resolve));
+owner=B;notify();owner=A;notify();resolveRpc({data:projection});
+await assert.rejects(pending,/account-changed/);
+response=async()=>({data:{...projection,available:'6'}});
+await assert.rejects(wallet.snapshot(A),/invalid-wallet-response/);
+wallet.dispose();assert.equal(unsubscribed,true);await assert.rejects(wallet.snapshot(A),/account-changed/);
+console.log('Clip wallet client: projection, wrong owner, delayed A-B-A reply, malformed response, and disposal checks pass.');

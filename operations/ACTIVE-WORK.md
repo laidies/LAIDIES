@@ -1,6 +1,7 @@
 # Active work
 
 > **2026-09-06 — Episodes 01–04 refresh: BUILDING.**
+> Account Clip Jar candidate now shares a server earning projection across Closet and Book Fair; synthetic first6→both6 and account clearing verified. Earning-only ledger and owner/race/legacy/account-deletion tests passed locally. No live migration, spend fulfilment, new audio or completed episode release.
 > Ali's active goal includes revised written editions and narration/audio, useful concise Cheat Sheets,
 > interactive exercises, four-concept Episode01 trading cards, quizzes and account-backed episode binders.
 > Episodes01–03 govern voice/Rewind reference density; every episode needs one or two current Saints with teaching jobs.
