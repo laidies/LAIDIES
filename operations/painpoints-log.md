@@ -15867,3 +15867,6 @@ The player previously selected shuffled songs only at ended time, so a separatel
 
 ## 2026-09-06 — Player sliders had no visible purpose
 Accessible names alone did not tell sighted listeners which bare slider was volume versus progress. Added visible semantic labels and elapsed/total time. The progress heading wraps on phones, so both heading areas reserve the same height to keep slider rails aligned. Prevention: show purpose without hover and check both fields together at320px. Behind the Build: a control can be accessible to a screen reader and still unclear to everybody looking at it.
+
+## 2026-09-06 — KSVL compact wallpaper preview
+- Reuse actual approved-site illustration assets for decorative casing; keep busy art outside opaque reading/control panels. Remove an unwanted ornament instead of generating successive replacements. Mobile secondary controls can collapse while transport, progress/time and Up next remain visible. Verified with real narrow and expanded layouts. Behind the Build angle: familiar artwork and obvious controls can coexist in a small music player.

@@ -78,3 +78,5 @@ and the next review date only if continued measurement can change a decision.
 | 2026-09-06 | Player Up next | Foreground model/effort not exposed; Terra/Low extracted-source tests | Bounded playback/UI state change | 10–20 min | unavailable | Queue tests and real shuffle transition passed | Reserved random choice required; preserved manual skip; refined routine status visibility | Terra likely sufficient with explicit owner-state edge cases |
 
 | 2026-09-06 | Player slider labels/time and suggestions | Foreground model/effort not exposed; Terra/Low background inventory | Bounded DOM/time formatting with local visual checks | 5–15 min | unavailable | Labels/time work; mobile heading alignment repaired | Reused actual wallpaper reference; suggestions not built | Terra likely adequate |
+
+| 2026-09-06 | KSVL wallpaper preview | Astra foreground; Terra Low independent source/pixel review | Existing asset reuse and responsive interaction verification | Short | Unavailable | First visual review: no blockers | No new generation or deployment | Cheaper foreground likely sufficient for bounded implementation |

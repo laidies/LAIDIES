@@ -302,12 +302,11 @@
     + '.ksvl-cd-back-track-icon { flex-shrink: 0; width: 16px; height: 16px; border-radius: 999px; background: var(--gold, #c9a227); color: var(--cream, #fffdfb); display: inline-flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 800; }'
     + '.ksvl-cd-back-track:hover .ksvl-cd-back-track-icon { background: var(--rose, #9b3f5f); }'
     + '.ksvl-cd-back-track-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }'
-    /* Now Playing bar — the KSVL deck. Bright turquoise/lime surface, iridescent CD,
+    /* Now Playing bar — the KSVL deck. Bright wallpaper casing and mint/lime panels,
        prominent tangerine play button, and a tiny label under every control so no
        button is ever a mystery. */
     + '.ksvl-now-playing { position: fixed; left: 0; right: 0; bottom: 0; background: linear-gradient(110deg, #15bce0 0%, #7de2c2 58%, #b7e42b 100%); border-top: 3px solid #7137d6; color: #202020; padding: 9px 20px 8px; display: none; align-items: center; gap: 16px; z-index: 9997; box-shadow: 0 -10px 30px rgba(7,15,43,0.4); font-family: "Jost", sans-serif; }'
     + '.ksvl-now-playing.is-visible { display: flex; }'
-    + '.ksvl-np-cd-mini { flex-shrink: 0; width: 44px; height: 44px; object-fit: contain; display: block; }'
     + '.ksvl-np-info { flex: 1; min-width: 0; }'
     + '.ksvl-np-mix { display: flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #492878; margin-bottom: 2px; }'
     + '.ksvl-now-playing.is-live .ksvl-np-mix::before { content: ""; flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: #ff4f4f; box-shadow: 0 0 6px rgba(255,79,79,0.9); animation: ksvl-np-onair 1.4s ease-in-out infinite; }'
@@ -348,6 +347,21 @@
     + '.ksvl-np-btn--stop:hover .ksvl-np-ico { border-color: #492878; color: #492878; background: rgba(113,55,214,0.18); }'
     + '@media (max-width: 860px) { .ksvl-np-lbl { display: none; } .ksvl-np-group + .ksvl-np-group { margin-left: 6px; padding-left: 8px; } }'
     + '@media (max-width: 620px) { .ksvl-np-info .ksvl-np-position { display: none; } .ksvl-now-playing { padding: 8px 12px; gap: 6px; flex-wrap: wrap; } .ksvl-np-info { flex: 1 1 calc(100% - 54px); } .ksvl-np-controls { flex: 1 1 100%; justify-content: center; gap: 4px; } .ksvl-np-group + .ksvl-np-group { margin: 0; padding: 0; border: 0; } .ksvl-np-ico { width: 31px; height: 31px; } .ksvl-np-btn--play .ksvl-np-ico { width: 42px; height: 42px; } .ksvl-np-seek { width: 132px; } }';
+
+  // Rewind artwork is a real image; CSS only frames readable working panels.
+  STYLE += '.ksvl-now-playing { box-sizing:border-box; background:#c195e9 url("/assets/homepage/rewind-wallpaper-20260906.webp") repeat center center / 380px 380px; border-top:3px solid #492878; padding:12px 16px; gap:12px; align-items:stretch; box-shadow:0 -4px 14px rgba(40,20,65,.2); }'
+    + '.ksvl-np-info { padding:12px 16px; border:2px solid #492878; border-radius:12px; background:#7de2c2; box-shadow:3px 3px 0 #492878; }'
+    + '.ksvl-np-track { font-size:19px; line-height:1.2; font-weight:800; white-space:normal; overflow-wrap:anywhere; } .ksvl-np-position { font-size:12px; opacity:1; } .ksvl-np-up-next { font-size:12px; margin-top:5px; line-height:1.3; }'
+    + '.ksvl-np-mix { font-size:10px; letter-spacing:.14em; margin-bottom:5px; } .ksvl-now-playing.is-live .ksvl-np-mix::before { display:none; }'
+    + '.ksvl-np-controls { padding:10px 12px; border:2px solid #492878; border-radius:12px; background:#b7e42b; box-shadow:3px 3px 0 #492878; gap:12px; align-items:center; flex-wrap:nowrap; }'
+    + '.ksvl-np-extras { display:flex; align-items:center; gap:10px; } .ksvl-np-group + .ksvl-np-group { margin:0; padding:0; border:0; }'
+    + '.ksvl-np-lbl { display:block; font-size:9px; letter-spacing:.04em; opacity:1; } .ksvl-np-ico { background:#7de2c2; border-width:2px; } .ksvl-np-btn--play .ksvl-np-ico { width:46px; height:46px; background:#ff9b3d; }'
+    + '.ksvl-np-more { display:none; min-height:44px; border:2px solid #492878; border-radius:8px; padding:7px 10px; background:#c195e9; color:#24152f; font:700 12px/1.2 Jost,sans-serif; cursor:pointer; }'
+    + '.ksvl-np-field-heading { min-height:0; font-size:11px; } .ksvl-np-progress-field { width:180px!important; } .ksvl-np-progress-field input { width:100%; margin-inline:0; }'
+    + '@media(max-width:1100px) { .ksvl-now-playing { flex-wrap:wrap; } .ksvl-np-info { flex:1 1 100%; } .ksvl-np-controls { flex:1 1 100%; justify-content:center; } }'
+    + '@media(max-width:620px) { .ksvl-now-playing { padding:8px; gap:7px; max-height:85dvh; overflow-y:auto; } .ksvl-np-info { padding:9px 12px; } .ksvl-np-track { font-size:17px; } .ksvl-np-info .ksvl-np-position { display:none; } .ksvl-np-mix { font-size:9px; margin-bottom:3px; } .ksvl-np-up-next { font-size:11px; margin-top:3px; }'
+    + '.ksvl-np-controls { display:grid; grid-template-columns:1fr auto; padding:7px 10px; gap:3px 8px; } .ksvl-np-deck { justify-content:flex-start; gap:8px; } .ksvl-np-more { display:block; } .ksvl-np-progress-field { grid-column:1 / -1; width:100%!important; } .ksvl-np-field-heading { min-height:0; flex-wrap:nowrap; } .ksvl-np-progress-field input { min-height:32px; }'
+    + '.ksvl-np-extras { display:none; grid-column:1 / -1; flex-wrap:wrap; justify-content:center; gap:6px 12px; padding-top:6px; border-top:1px solid #492878; } .ksvl-now-playing.is-expanded .ksvl-np-extras { display:flex; } .ksvl-np-extras .ksvl-np-slider-field { width:92px; } .ksvl-np-lbl { font-size:9px; } .ksvl-np-ico { width:30px; height:30px; } .ksvl-np-btn--play .ksvl-np-ico { width:38px; height:38px; } }';
 
   function injectStyle() {
     if (document.getElementById('ksvl-mix-cds-style')) return;
@@ -433,7 +447,7 @@
   }
 
 
-  var np, npMini, npMix, npTrack, npPosition, npStatus, npUpNext, npRetry, npPlayBtn,
+  var np, npMix, npTrack, npPosition, npStatus, npUpNext, npRetry, npPlayBtn,
     npShuffleBtn, npRepeatBtn, npMuteBtn, npVolume, npSeek, npTime, npStorageLimit;
   var storageLimit = '';
   function reportStorageLimit() {
@@ -493,7 +507,6 @@
   function ensureNowPlaying() {
     if (np) return np;
     np = el('div', {class: 'ksvl-now-playing'});
-    npMini = el('img', {class: 'ksvl-np-cd-mini', src: '/assets/ksvl/player-cd-silver-v1.png', alt: '', width: '44', height: '44'});
     var info = el('div', {class: 'ksvl-np-info'});
     npMix = el('span', {class: 'ksvl-np-mix'});
     npTrack = el('span', {class: 'ksvl-np-track'});
@@ -524,18 +537,28 @@
     info.appendChild(npRetry);
     var controls = el('div', {class: 'ksvl-np-controls'});
     // Group 1 — the deck: shuffle · back · PLAY · next · repeat
-    var deck = el('div', {class: 'ksvl-np-group'});
+    var deck = el('div', {class: 'ksvl-np-group ksvl-np-deck'});
     npShuffleBtn = npButton('ksvl-np-btn--toggle', '🔀', 'Shuffle', {'aria-label': 'Shuffle · off', title: 'Shuffle', onclick: toggleShuffle});
     var prev = npButton('', '⏮', 'Back', {'aria-label': 'Previous track', title: 'Previous track', onclick: prevTrack});
     npPlayBtn = npButton('ksvl-np-btn--play', '⏸', 'Pause', {'aria-label': 'Pause', title: 'Listen / Pause', onclick: togglePlay});
     var next = npButton('', '⏭', 'Next', {'aria-label': 'Next track', title: 'Next track', onclick: nextTrack});
     npRepeatBtn = npButton('ksvl-np-btn--toggle is-active', '🔁', 'Repeat', {'aria-label': 'Repeat all', title: 'Repeat', onclick: cycleRepeat});
-    deck.appendChild(npShuffleBtn);
     deck.appendChild(prev);
     deck.appendChild(npPlayBtn);
     deck.appendChild(next);
-    deck.appendChild(npRepeatBtn);
     controls.appendChild(deck);
+    var more = el('button', {type: 'button', class: 'ksvl-np-more',
+      'aria-expanded': 'false', 'aria-controls': 'ksvl-np-extras', text: 'More controls',
+      onclick: function() {
+        var open = np.classList.toggle('is-expanded');
+        more.setAttribute('aria-expanded', String(open));
+        more.textContent = open ? 'Fewer controls' : 'More controls';
+      }
+    });
+    controls.appendChild(more);
+    var extras = el('div', {class: 'ksvl-np-extras', id: 'ksvl-np-extras'});
+    var modes = el('div', {class: 'ksvl-np-group ksvl-np-modes'}, [npShuffleBtn, npRepeatBtn]);
+    extras.appendChild(modes);
     var sound = el('div', {class: 'ksvl-np-group ksvl-np-sound'});
     npMuteBtn = npButton('', '🔊', 'Mute', {'aria-label': 'Mute', title: 'Mute', onclick: toggleMute});
     npVolume = el('input', {
@@ -570,8 +593,9 @@
       ]), npSeek
     ]);
     sound.appendChild(volumeField);
-    sound.appendChild(progressField);
-    controls.appendChild(sound);
+    progressField.classList.add('ksvl-np-progress-field');
+    controls.appendChild(progressField);
+    extras.appendChild(sound);
     // Group 2 — station: pop out · KSVL · stop
     var station = el('div', {class: 'ksvl-np-group'});
     if (!IS_POPUP) {
@@ -579,8 +603,8 @@
     }
     station.appendChild(npButton('ksvl-np-btn--link', '📻', 'KSVL', {href: '/radio.html', 'aria-label': 'Go to KSVL Radio', title: 'Open KSVL Radio'}));
     station.appendChild(npButton('ksvl-np-btn--stop', '✕', 'Stop', {'aria-label': 'Stop the music', title: 'Stop', onclick: stopPlayer}));
-    controls.appendChild(station);
-    np.appendChild(npMini);
+    extras.appendChild(station);
+    controls.appendChild(extras);
     np.appendChild(info);
     np.appendChild(controls);
     document.body.appendChild(np);
@@ -633,8 +657,6 @@
     npRepeatBtn.classList.toggle('is-active', state.repeatMode !== 'off');
     npRepeatBtn.setAttribute('aria-label', state.repeatMode === 'off' ? 'Repeat off' : state.repeatMode === 'one' ? 'Repeat one' : 'Repeat all');
     setBtnIcon(npRepeatBtn, state.repeatMode === 'one' ? '🔂' : '🔁');
-    if (state.paused) npMini.classList.add('is-paused');
-    else npMini.classList.remove('is-paused');
     np.classList.toggle('is-live', state.mixId === 'live');
     np.classList.add('is-visible');
     updateCDPlayingClass();
