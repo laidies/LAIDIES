@@ -1,3 +1,4 @@
+<!-- NewsStand halftone preview: LOCAL_PREVIEW. Ali requested larger spaced tangerine dots at edges and section breaks. Desktop/mobile render checked; not deployed. -->
 <!-- NewsStand correction 2026-09-06: whitish paper #fffdfb with tangerine #ff9b3d dots; supersedes the orange ground. Two public files only; live verified at laidies.ai/newsstand and 17c48db8.laidies-sunnyvaile.pages.dev; source a5dcf15e. Desktop 1200 and mobile 390/320 have no overflow or broken images. -->
 <!-- Tangerine printed paper: VERIFIED PUBLICLY -->
 Ali suggests tangerineorbrightpink; tangerineff9b3d applied to texturedpaper. Sourceb5129512 deployedbb17edd9; independentreviewaccepted,live1200/390/320clear; exact2filesbothorigins. Evidence operations/product-stewards/newsstand/evidence/tangerine-20260906/.

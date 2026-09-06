@@ -67,3 +67,7 @@ Ali finds off-whiteprintground too subtle and requests an actualpalettecolour. U
 Lateststeering suggests tangerine orbrightpink. Use establishedtangerineff9b3d forpaper, preservingbrightpinkmasthead/art; supersedes privateskycandidate beforepublication.
 
 CORRECTION: Ali meant whitishpaper with tangerinedots, not tangerinepaper. Restore paperfffdfb; printdots use tangerineff9b3d. Supersedes fullorangeground.
+
+Preview requested: larger, spaced tangerine halftone dots restricted to outside gutters and section-break margins; clear whitish reading areas. Preserve artwork, layout and masthead. Not yet approved for production.
+
+Maker/reviewer correction: continuous dotted edge rails were still noisy, especially on mobile. Removed rails; final preview uses 8px dots spaced on a 24px pitch in short section-break clusters, with clear whitish paper throughout reading areas.

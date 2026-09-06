@@ -1032,6 +1032,13 @@
 
 /* Selective colour: quiet textured paper supports the vivid editorial features. */
 .ns-redesign { --ns-newsprint: #fffdfb; background: #fffdfb; }
-.ns-redesign .ns-page { background-color: #fffdfb; background-image: radial-gradient(rgba(255,155,61,.55) .65px,transparent .95px); background-size: 5px 5px; }
+.ns-redesign .ns-page { background: #fffdfb; }
 .ns-redesign .ns-page::before { display: none; }
 .ns-redesign .ns-archive__search { background: #fffdfb; }
+
+/* Halftone punctuation lives above section headings, never behind reading copy. */
+.ns-redesign :is(.ns-feature-desk__head,.ns-luminairy__head) { position: relative; }
+.ns-redesign :is(.ns-feature-desk__head,.ns-luminairy__head)::after { content: ""; display: block; position: absolute; pointer-events: none; right: 0; top: 2px; width: min(25%,144px); height: 24px; background: radial-gradient(circle,#ff9b3d 4px,transparent 4.5px) 0 0 / 24px 24px; }
+@media(max-width:650px) {
+ .ns-redesign :is(.ns-feature-desk__head,.ns-luminairy__head)::after { width: 48px; }
+}
