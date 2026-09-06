@@ -52,54 +52,106 @@ These tests verify bytes, record bindings, stale-record rejection and selected
 failure cases. Synthetic review declarations do not demonstrate an independent
 reviewer detecting weak teaching. No current content is admitted or published.
 
-## Remaining end-to-end work
+## Rejection to reusable learning — current implementation
 
-The pending reusable-learning schema currently ends at `PENDING_OWNER_ADMISSION`.
-The review check requires that pending state. No executable owner-admission
-transition into the existing registry has yet been recovered. An admitted
-learning must invalidate stale producer contracts and be consumed before a real
-successor; a marker saying that feedback was captured does not close that edge.
-Preserve pending records because existing reviews bind their exact bytes.
+The adapter is built locally on `ops/learning-admission-transition-20260906`.
+It completes the previously missing source-integrity edge, using the existing
+registry. It has not admitted a new real product lesson or produced a successor.
 
-The strict ratchet also requires both issue and cycle counts to decrease against
-the preceding comparable. That becomes impossible at the zero-issue/first-cycle
-floor. This recovery preserves the existing rule; a justified floor correction
-and separate first-pass standard remain to be resolved, not silently bypassed.
+A decisive rejection does not need a completed reader study or full factual
+review merely to record the failure. Those downstream checks remain mandatory
+where applicable before admission/release. The adapter accepts an explicitly
+bounded, exact-prose rejection; its schema cannot pass the release review chain.
+It must not be used to label a visual judgment as a prose review.
 
-Real uncoached known-bad evaluation, producer repair, successor observation,
-destination-owner adoption and release-controller integration remain open.
-Do not import unrelated product queues or claim these steps are complete because
-the restored integrity tests pass.
+Three immutable inputs carry different responsibilities:
 
+| Record | Required content | Who supplies it |
+|---|---|---|
+| Existing pending learning record | Candidate/artifact identity, incident, failure families, required producer repair, identity facts for the rejection, `PENDING_OWNER_ADMISSION` | Producer/review coordinator records the finding without admitting it |
+| Bounded rejection | `laidies-content-quality-rejection.v1`; exact artifact and pending bindings; reviewer principal/role/time; REJECT; exact excerpts, failure explanations and omitted-review limits | Role-distinct reviewer inspects the actual prose |
+| Owner admission | `laidies-content-quality-owner-admission.v1`; exact pending/review bindings, registry-before hash, exemplar ID/scope, owner principal/role/time and reason | Learning System & Concepts Director decides reusable applicability |
 
-## Actual evaluator observation and next admission trial
+The pending record's `reviewReceipt` carries only `candidateId`,
+`artifactSha256`, `reviewerPrincipalId`, `reviewedAt` and
+`stage: INDEPENDENT_REJECTION`. It cannot hash the final rejection because the
+rejection already hashes the pending file. The owner record binds both; the
+registry then binds the owner record. A registry-after hash is returned by the
+command, not embedded back into that chain. The test fixture in
+`scripts/test-content-quality-learning.mjs` is the executable input example.
+
+From the repository root, the responsible agent runs:
+
+```sh
+node scripts/admit-content-quality-learning.mjs <owner-decision.json>
+node scripts/admit-content-quality-learning.mjs <owner-decision.json> --apply
+```
+
+The first command previews the exact next registry hash and repair instruction.
+The second locks/rechecks the current registry and atomically adds one entry.
+Neither changes pending/review bytes or any product file. Exact retries are
+no-ops. Stale, duplicate, inconsistent, outside-repository, missing, malformed
+or altered inputs fail without rewriting the registry. Principal names and
+owner judgment are attestations: this local script does not authenticate them
+or infer quality from text fields. The actual owner review remains necessary.
+
+Both producer and prose-review consumers revalidate the admission and its bound
+inputs. The existing registry-hash/all-negative contract makes older producer
+packets stale; merely refreshing the hash still fails if the new lesson is
+omitted or its failure remains open. For each admitted lesson,
+`knownFailurePreflight.learnedRepairApplications` must bind its exemplar ID,
+exact `admissionSha256`, and a `planPointer` to a nonempty field within
+`draftArchitecture`, `readerContract`, `representativeProofPlan` or
+`communicationDesign`. Another CLEAR declaration cannot serve as that field.
+The producer command prints the validated repair alongside the named plan step;
+the release checker consumes this same preflight, so missing applications hold.
+This verifies an explicit maker-input binding, not understanding or a meaningful
+change by itself: the maker must still demonstrate its method on a representative
+successor against the original purpose. No substring matching judges creative prose.
+
+Existing baseline CI runs the adapter and producer-propagation tests. They
+exercise preview/apply/retry, altered bindings, missing lesson, unresolved
+failure, changed admission evidence and preserved 17-order holds. The restored
+prose checker also follows DECISIONS' proportional Library rule: no universal
+three-person study; required observed outcomes still need actual evidence.
+
+## Actual evaluator observations
 
 A fresh Sol/Medium reviewer (`chapter_evaluator`, no inherited conversation)
-read the exact CQX-BAD-001 chapter bytes under a neutral temporary filename,
-SHA `c3af0bae62222b53499ee1645428c9171b3bb2104ac445ba8c2a3032847a32dc`.
-It received only the chapter's stated job and audience, without rejection
-history or expected defect names. It returned REPAIR: the promise to tell a
-reader what to fix had no worked diagnosis, and the extract remained partly a
-sequence of glossary cards. Those findings overlap the recorded failure. It
-also flagged two possible technical qualifications, not yet source-verified.
-It did not identify every registered failure. This is a bounded expert-review
-observation, not complete reviewer calibration, learner research or admission.
+read exact CQX-BAD-001 bytes under a neutral filename, SHA
+`c3af0bae62222b53499ee1645428c9171b3bb2104ac445ba8c2a3032847a32dc`.
+It received only the chapter's stated job/audience, without rejection history
+or expected defects. REPAIR identified missing worked diagnosis and glossary
+structure, overlapping the recorded failure, but not every registered defect.
+Two suggested technical qualifications remain source-unverified. This was a
+bounded expert evaluation, not observed learner research or full calibration.
 
-The Episode04 Blend & Snap rejected manifest `53bce777...` and all 14 listed
-artifacts are recoverable in the shared checkout with matching hashes. Its
-review text is `61257b07...`; desktop/mobile and post/story renders are present.
-The V3 source brief already embodies the rejected pension-file detour. The
-post-rejection `successor-brief.md` supplies the current governed purpose;
-never call it the original pre-detour brief. A new neutral trial can assess
-those exact renders against the current positive purpose, without exposing
-`ALI-REJECTION.md` or the expected defects to its reviewer. Keep the rejection
-record for foreground reconciliation. No successor candidate currently exists.
+A separate fresh Sol/Medium reviewer (`fieldtrip_evaluator`) inspected neutral
+copies of the exact desktop/390px and three post renders plus review text from
+Episode04 Blend & Snap V3. Foreground verified the rejection manifest
+`53bce777b0bbb37965a2b47789e219aa938fb14429f6622a3ba927b3000b5e11`
+and all 14 bound source/render/text files in the shared checkout. The evaluator
+received the current positive purpose from the post-rejection successor brief,
+not the rejection history or expected defects. It returned REPAIR for displaced
+field-trip purpose, missing human story and absence of purposeful story
+illustration. It credited the bounded scoring example and limited its judgment
+to supplied screenshots. This overlaps Ali's actual rejection; it does not
+prove a corrected product or authenticate a historical pre-detour brief.
 
-Next implementation boundary: complete the existing pending-record-to-registry
-admission edge on `ops/learning-admission-transition-20260906`. Preserve pending
-bytes (reviews bind them); bind the exact rejecting review, owner judgment,
-artifact and registry revision; update the existing registry once; prevent
-stale/duplicate/conflicting admissions; demonstrate that the next producer must
-consume the new learning. No new registry, automatic rewrite, public release,
-or fabricated semantic verdict. Current Learning and Blend & Snap owners retain
-product authority. Recover the actual trial inputs before claiming real learning.
+## Remaining dependencies
+
+No real pending learning record was found in the bounded source search; the
+existing three prose negatives are already registered. Do not fabricate a new
+incident or duplicate those examples merely to demonstrate the adapter. The
+next genuine reusable prose rejection needs actual learning-owner disposition
+and a successor that consumes it. The recovered visual rejection remains with
+its surface/visual-learning owner; do not force it into the prose adapter.
+
+The strict ratchet still requires issue/cycle counts to decrease even at the
+zero-issue/first-cycle floor. That requirement is mathematically impossible for
+a subsequent clean candidate. Its explicit rule is preserved pending a concrete
+floor correction; tests must not fabricate improvements to clear it.
+
+Destination-owner adoption, real producer-method change/successor observation,
+applicable reader outcomes and production-controller integration remain open.
+The full operating audit continues; source integration is not end-to-end learning.

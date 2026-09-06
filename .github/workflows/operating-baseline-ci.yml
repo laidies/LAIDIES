@@ -27,6 +27,7 @@ jobs:
       - name: Content quality package and rejection calibration
         run: |
           node scripts/test-content-quality-package.mjs
+          node scripts/test-content-quality-learning.mjs
           node scripts/test-content-producer-contract.mjs
           node scripts/test-prose-quality-admission.mjs
           node scripts/test-content-release-readiness.mjs

@@ -9,8 +9,8 @@
 > Existing producer/review/release checks and exact internal exemplars are now
 > distributed through PR108/9a372e70; all 17 real orders remain held. A fresh
 > reviewer returned REPAIR on the known-bad chapter without seeing its history;
-> full calibration remains open. Next: close the learning-owner admission edge
-> and observe a real successor; continue editorial/cloud edges in `OPERATING-RECOVERY-NEXT.md`.
+> full calibration remains open. The bounded admission adapter and producer propagation are now built locally;
+> integrate them, then obtain a real owner disposition and successor observation; continue editorial/cloud edges in `OPERATING-RECOVERY-NEXT.md`.
 > No new paid service, public release or takeover of surface owners.
 
 > **2026-09-06 — Small current visual references: REPOSITORY-DISTRIBUTED / PR106 MERGED.** Owner: background-reference task `01a0785e-1438-7161-b041-0be213b06e9b`; isolated branch `ops/current-visual-references-20260906`. Build the small two-job entry and scoped selections, preserve exact originals and reconcile later rejections; system engineering task owns prompt-consumer reconciliation on a separate branch. No all-artwork migration or production art changes. Acceptance: exact usable references and reuse scope, honest unavailable entries, routed instructions, calibrated selection checks and repository distribution. Local index and 13 prompt-consumer checks pass; later Matron/Miss Jeeves identities and destination palettes are reconciled. Current source commits 222a10ae, 3afe85a6, 21b55575 and coordinated consumer 1b1fcf6e. PR106 merged as a38d5068e67582e089e1e7b9ef983fa60882f7c4 after targeted reference CI and both baseline jobs passed; shared entry pointer committed e0812106. Source/consumer delivery is complete; no new artwork, public deployment or native hook activation is claimed. Other product work continues.

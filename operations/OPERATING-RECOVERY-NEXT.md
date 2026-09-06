@@ -25,8 +25,9 @@ examples are frozen at their exact historical bytes under internal operations;
 current product sources are untouched. The News exemplar's supporting evidence
 now participates in both producer and review checks. All 17 real work orders
 remain held. See the package `RECOVERY.md` for exact scope and remaining edges.
-Next complete the existing pending-learning owner admission transition and a
-real, independently evaluated successor. The package recovery record also binds
+The pending-learning adapter and producer propagation are now built locally.
+Integrate the tested source edge, then obtain a real owner-admitted learning and
+independently evaluated successor; do not fabricate a fresh incident. The package recovery record also binds
 a fresh expert trial that returned REPAIR on exact known-bad chapter bytes;
 that limited result is not complete calibration or learner research. Do
 not treat fixture verdicts as semantic review or invent a second learning registry.
