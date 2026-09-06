@@ -399,6 +399,8 @@
 
   STYLE += '@media(max-width:620px) { .ksvl-np-more { grid-column:2; grid-row:1; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-more { margin-left:auto; } }';
 
+  STYLE += '.ksvl-now-playing:not(.is-expanded) .ksvl-np-sound { display:contents; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-ico { width:32px; height:32px; }';
+
   function updateTitleOverflow() {
     if (!npTrack || !npTrack.firstElementChild) return;
     var overflow = npTrack.firstElementChild.scrollWidth - npTrack.clientWidth;

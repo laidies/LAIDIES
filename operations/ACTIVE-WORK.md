@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Mute alignment: VERIFIED LOCAL.** Removed collapsed sound-group vertical offset and standardized circle dimensions. Actual320px Back/Resume/Next/Mute circles all y679.60 and labels all y714.60; no overflow. Preview only.
+
 > **2026-09-06 — Phone controls: VERIFIED LOCAL.** Expand moved after sound controls, far right. Mute exposed beside Volume. Actual320px collapsed/expanded no overflow; Mute/Unmute and Expand/Collapse clicked successfully. Desktop disclosure unchanged. Not published.
 
 > **2026-09-06 — Control alignment: VERIFIED LOCAL.** Track progress and Volume labels centred and moved nearer their ranges; elapsed time below progress. Play/pause uses deterministic SVG geometry instead of a font glyph, with optical play centring. Actual desktop and expanded390px checked; volume keyboard input works. Preview only.
