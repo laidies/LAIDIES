@@ -1,0 +1,504 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "tryon-ep04-social-v2-2026-09-05",
+  "surface": "TRY_ON",
+  "maker": "/root",
+  "contentClass": "EXPLANATION",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "producer",
+    "modelFamily": "GPT-6 Astra"
+  },
+  "reviewedAt": "2026-09-06T00:10:54.358267+00:00",
+  "verdict": "PASS",
+  "limitations": [
+    "Maker judgment only. No observed human explain-back or transfer. Two independent feature reviews and Ali approval are still required; production unchanged.",
+    "The page preview thumbnail is smaller than a full-width social post; selectable transcript is available. Native mobile OS share sheet was not tested."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v2/review-text.txt",
+      "sha256": "01de9eb8e8cd374f592ce7af3f09f0d708c6a792706bc5aee1b36f812a2f538b"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v2/content-manifest.json",
+      "sha256": "e021cc156e1c25590a5438bc1640d157fe09179b1f753c1c17f2345deffb8b58"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v2/social-post.png",
+      "sha256": "08c9829c0578cc7d4cf8b85a356a7e8a4a63d5700cb225640ab455bdb107ea1b"
+    }
+  },
+  "calibration": {
+    "registrySha256": "5a1df8fc0e2c2ffce5910a505967d1de4f9426017690ad0281faa14ffd3df30b",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-06T00:10:54.358267+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.”",
+            "locator": "Opening definition: repeated glossary templates never join the system."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "Opening: the high-stakes job-offer case narrows the broad book promise and leads to architecture-heavy explanation."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "For a proposal near you, ask five things:",
+            "locator": "Action section: checklist and glossary interrupt the human news story."
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "A useful origin signal is explicitly separated from accuracy; no broad benefit claim or required homework."
+      ],
+      "evidence": [
+        {
+          "excerpt": "That disclosure helps you ask the next question. It does not prove that the output is accurate, fair, safe or lawful.",
+          "locator": "Meaning and limits paragraph"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What did Karen Spärck Jones contribute, and why would this improve a search?",
+    "promisedPayoff": "Explain collection-frequency scoring through one visible tie break; download a shareable example.",
+    "centralMentalModel": "Rarer matches within a collection can contribute more points, separating equally matched documents.",
+    "dailyLifeConnection": "Find pension-plan work files among other plans.",
+    "surfaceJob": "Ready-to-use social post and story, with source and optional caption.",
+    "desiredReaderFeeling": "Recognition of a familiar annoyance and a concrete understanding of the scoring change."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The graphic introduces match points with explicit +1/+3 labels before using weighted as a table heading; the resulting scores are printed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Caption included",
+          "locator": "Graphic, caption or page control, exact captured text"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The reader sees a changed result score and can take a finished image and caption.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Pension limits breaks the tie with four unrelated",
+          "locator": "Graphic, caption or page control, exact captured text"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The dry workplace aside has a recognizable job in the example; it asks for no journal entry or inspirational declaration.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The marketing plan can wait.",
+          "locator": "Graphic, caption or page control, exact captured text"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The mismatch between pension and marketing starts the small story; the coloured pension row makes the consequential score change immediately comparable. Maker judgment remains subject to independent visual review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The marketing plan can wait.",
+          "locator": "Graphic, caption or page control, exact captured text"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The collection is invented and the historical method is named; source reasoning verifies exact weights and totals.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Invented files; scores use Spärck Jones’s 1972 method.",
+          "locator": "Graphic, caption or page control, exact captured text"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The caption points to the original 1972 paper and distinguishes this example from current search systems.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Her paper: https://www.cl.cam.ac.uk/archive/ksj21/ksjdigipapers/jdoc72.pdf",
+          "locator": "Graphic, caption or page control, exact captured text"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The visitor chooses a real downloadable social format and optional caption; no completion ritual.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Caption included",
+          "locator": "Graphic, caption or page control, exact captured text"
+        }
+      ]
+    },
+    "connectedSystemUnderstanding": {
+      "verdict": "PASS",
+      "observation": "Five versus two appearances explains the distinguishing value; +1/+3 points feed a single comparison table that separates a previous tie.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Pension limits breaks the tie with four unrelated",
+          "locator": "Graphic, caption or page control, exact captured text"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Work file names express a familiar search failure without requiring jargon or financial advice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "SEARCH: PENSION PLAN · SIX WORK FILES",
+          "locator": "Graphic, caption or page control, exact captured text"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "A familiar frustrating search makes invisible match scoring visible; the footer preserves the limit instead of claiming relevance is solved.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A rarer match does not",
+          "locator": "Graphic, caption or page control, exact captured text"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Maker simulation traces the table and explains the score change; this is not observed human evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Pension limits breaks the tie with four unrelated",
+          "locator": "Graphic, caption or page control, exact captured text"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Why does Pension limits now rank above the other plans?",
+        "probeResponse": "It matches pension, present in only two files, so that match earns three points. The four plan-only files each still earn one. Previously all five earned one and tied.",
+        "expectedEvidence": "Counts connect to points and then score/order; common terms still contribute."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Maker simulation changes the collection and predicts changed weighting, avoiding an intrinsic pension-is-special belief.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Caption included",
+          "locator": "Graphic, caption or page control, exact captured text"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "In another collection, pension appears in five of six files and plan in two. Which match gets more points?",
+        "probeResponse": "Plan now distinguishes the smaller set and gets three points, while pension gets one. The word is not permanently more important; the collection determines it.",
+        "expectedEvidence": "Collection-relative weighting reverses; no rarity-is-truth inference."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The prepared image and included caption can be used without authoring a response; source opens for readers who want the research.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Caption included",
+          "locator": "Graphic, caption or page control, exact captured text"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The work-file search is a direct toy instance of document retrieval, not an analogy with missing causal links.",
+      "artifactEvidence": [
+        {
+          "excerpt": "SEARCH: PENSION PLAN · SIX WORK FILES",
+          "locator": "Graphic, caption or page control, exact captured text"
+        }
+      ]
+    },
+    "explanationArc": {
+      "verdict": "PASS",
+      "observation": "Search frustration leads to counts, point values, result totals and a bounded tie-breaking payoff.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Pension limits breaks the tie",
+          "locator": "Graphic, caption or page control, exact captured text"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The exact short sequence stays with the same work-file search, its score change and an optional export; it contains no benchmarkNameDrop device.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "No checklist, news claim or user exercise is introduced.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The exact short sequence stays with the same work-file search, its score change and an optional export; it contains no communicationPastiche device.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The exact short sequence stays with the same work-file search, its score change and an optional export; it contains no corporateSludge device.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The exact short sequence stays with the same work-file search, its score change and an optional export; it contains no curiosityWithoutPayoff device.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Work-file search directly instantiates retrieval; no decorative substitute mechanism.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The exact short sequence stays with the same work-file search, its score change and an optional export; it contains no disconnectedSystem device.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The exact short sequence stays with the same work-file search, its score change and an optional export; it contains no entertainmentBeforeUnderstanding device.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Invented corpus and historical method are marked; no guarantee of relevance or truth.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The exact short sequence stays with the same work-file search, its score change and an optional export; it contains no familiarExampleWithoutTechnicalReturn device.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Visitor can download a completed social artifact without a journal assignment.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No definition list; one calculation is followed from inputs to score.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "The exact short sequence stays with the same work-file search, its score change and an optional export; it contains no glossaryInterruptsStory device.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ending only asserts the demonstrated broken tie and retains the result-quality limit.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Points and visible contributions precede the table label weighted.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The marketing-plan aside recognizes workplace frustration; no task list is imposed.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The failed pension-plan search is introduced before scoring.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The exact short sequence stays with the same work-file search, its score change and an optional export; it contains no mechanismCompressedBehindHook device.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "Irrelevant marketing plans appear during a pension-plan search.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Counts5/2 produce match points1/3 and total scores4/3/1; the former tie changes.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "The exact short sequence stays with the same work-file search, its score change and an optional export; it contains no policyMemoVoice device.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The exact short sequence stays with the same work-file search, its score change and an optional export; it contains no prematureClickBeforeMechanism device.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "This is one bounded social explanation, not an AI curriculum reduced to a single case.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The exact short sequence stays with the same work-file search, its score change and an optional export; it contains no referenceConfetti device.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "No internal status, review label or maker instruction appears in the public content.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Original paper is linked; current search is only mentioned as potentially using other signals.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The exact short sequence stays with the same work-file search, its score change and an optional export; it contains no technicalExplainerVoice device.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The exact short sequence stays with the same work-file search, its score change and an optional export; it contains no templateRepetition device.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "There is no book promise; the single retrieval example is the entire declared job.",
+      "artifactLocator": "Captured graphic and caption, read in full"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v2/source-and-brief.md",
+        "sha256": "29fec41886ee5d53e55f21a2eefe21fc801e44c49bc2b205b24374da62a34c27"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "historical-frequency-and-sum",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Her 1972 method gives each plan match 1 point and each pension match 3.",
+            "locator": "Caption paragraph3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v2/source-and-brief.md",
+          "sha256": "29fec41886ee5d53e55f21a2eefe21fc801e44c49bc2b205b24374da62a34c27"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Applying the paper's stated frequency-band rule to this six-document toy collection gives weight **1** to a term in five documents and weight **3** to a term in two documents.",
+            "locator": "Accuracy and simplification notes"
+          }
+        ],
+        "scopeAndFreshness": "Primary paper weighting section; exact six-file arithmetic, not a modern product claim."
+      },
+      {
+        "claimId": "limitations",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Rarity does not guarantee relevance or truth; current search systems may use other signals too.",
+            "locator": "Caption paragraph4"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v2/source-and-brief.md",
+          "sha256": "29fec41886ee5d53e55f21a2eefe21fc801e44c49bc2b205b24374da62a34c27"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A less frequent term can be misleading or accidental.",
+            "locator": "Accuracy notes"
+          }
+        ],
+        "scopeAndFreshness": "Explicit boundary; no predictive guarantee or claim about a named current service."
+      }
+    ],
+    "reviewedThrough": "2026-09-05",
+    "nextTrigger": "Change to example, weighting, primary source or current-product assertion.",
+    "correctionOwner": "blend-snap"
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "tryon-ep04-social-953b8d2e"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 0,
+    "priorComparable": {
+      "candidateId": "tryon-ep04-social-953b8d2e",
+      "reviewIssues": 3,
+      "reviewCycles": 2,
+      "basis": "One independent keyboard defect, then Ali visual and mechanism rejection; two completed review rounds."
+    },
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Maker repaired the dense pilot and stale brief before this self-review. This is readiness for independent judgment, not human validation or public approval."
+  }
+}

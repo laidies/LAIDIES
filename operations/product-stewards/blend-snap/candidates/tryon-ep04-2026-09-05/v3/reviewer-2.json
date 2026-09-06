@@ -1,0 +1,24 @@
+{
+  "verdict": "ADMIT",
+  "scope": "try-on-episode04-social-20260905",
+  "principal": "/root/social_v3_second_judge",
+  "model": "GPT-5.6 Sol / Medium",
+  "artifact_first": true,
+  "manifest_sha256": "53bce777b0bbb37965a2b47789e219aa938fb14429f6622a3ba927b3000b5e11",
+  "findings": [
+    "The six exports form a coherent, adult three-beat sequence: a familiar bad search result, visible collection counts and per-match points, then summed scores and changed ranking. Large Jost type, hot pink, teal, purple, cream, navy outlines, halftone and cut-corner panels read as deliberate 1990s pop editorial craft and stay legible in both post and story formats.",
+    "The image itself repairs the rejected undefined-more-weight problem. It shows plan in 5 of 6 files earning 1 point, pension in 2 of 6 earning 3, and the resulting 4/3/1 scores moving Pension limits from a five-way tie to second place.",
+    "The explanation is factually faithful to Spärck Jones's 1972 paper. The paper defines a six-document collection's frequency-band weights as 1 for a term in five documents and 3 for a term in two, then sums matching-term values into a retrieval level. The artifact also keeps the necessary limit that rarity does not make a result true or always relevant.",
+    "The page gives the visitor a finished, optional social artifact: preview all three slides, choose post or story, download one image or the exact three-image ZIP, optionally share all three files, and copy a sourced caption. It contains no worksheet, private reflection, reward, automatic publishing, provider call or internal review language.",
+    "A fresh local browser verification at 1440, 390 and 320 reproduced the reviewed PNG hashes exactly. Individual and ZIP downloads, three-file share behavior, unsupported-share and failed-share fallbacks, clipboard denial fallback, font failure recovery, rapid format switching, skip-link focus, retained private local data and Episode 02/03 save journeys all passed."
+  ],
+  "unresolved_issues": [],
+  "explain_back": "The common word plan matches almost the whole collection, so it does little to separate one file from another and contributes 1 point. Pension appears in only two files, so it is more distinguishing here and contributes 3 points. A file matching both terms gets 4, a pension-only file gets 3, and plan-only files get 1; that changed score breaks the former tie and changes the result order.",
+  "transfer": "In another six-file collection where plan appears twice and pension appears five times, the weights reverse: plan earns 3 points and pension earns 1. A file matching both still scores 4, a plan-only file scores 3, and a pension-only file scores 1. Plan now has more influence because it narrows that collection more; neither word is permanently important.",
+  "honest_limits": [
+    "This is AI analysis and simulated explain-back/transfer, not an observed human comprehension test.",
+    "The native mobile operating-system share sheet was not tested; browser sharing was exercised with controlled navigator.share behavior.",
+    "Visual judgment used the exact exports and desktop/mobile screenshots before implementation evidence, but did not test social-platform compression, cropping or an actual published post.",
+    "No deployment or live-production verification was performed, as excluded by the review brief."
+  ]
+}

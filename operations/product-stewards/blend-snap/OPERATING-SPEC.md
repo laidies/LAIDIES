@@ -1,5 +1,11 @@
 # Blend & Snap operating specification
 
+## Active successor — social sharing (Ali, September 5)
+
+Ali rejected preview953b8d2e; its two admissions are invalid and the deployment is deleted. The v3 three-image social carousel has now passed two independent complete-experience reviews and actual PNG/ZIP, privacy and recovery checks. The hosted review preview is being verified. Ali still approves the visible result before production.
+
+Two reviewers remain the approved process for this feature; flag only material outcome defects. Preserve current Homepage/LIBRAiRY references, private notes, Episode02/03 and the latest production Resident Card. Exact artifacts and limitations: candidates/tryon-ep04-2026-09-05/v3/review.md.
+
 ## Approved repair publicly verified — 2026-09-05
 
 **Status: MENU REPAIR PUBLICLY VERIFIED / AUTOMATIC REVIEW SCHEDULE ACTIVE /

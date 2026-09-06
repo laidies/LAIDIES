@@ -11,7 +11,7 @@ const resolver = path.join(root, 'scripts/resolve-design-review-url.mjs');
 const hash = relative => crypto.createHash('sha256').update(fs.readFileSync(path.join(root, relative))).digest('hex');
 const binding = relative => ({ path: relative, sha256: hash(relative) });
 const candidate = binding('operations/control-room/review-inbox.html');
-const conceptCandidate = binding('operations/control-room/evidence/owner-review-inbox-2026-08-01/desktop.png');
+const conceptCandidate = binding('operations/control-room/evidence/owner-control-plane-2026-08-02/desktop.png');
 
 const fixtureRoot = `operations/control-room/.design-admission-test-${process.pid}`;
 const fixtureRootAbsolute = path.join(root, fixtureRoot);
@@ -37,8 +37,6 @@ const jsonVisual = `${fixtureRoot}/linked-visual.json`;
 fs.writeFileSync(path.join(root, jsonVisual), JSON.stringify({ candidate_path: 'concept.webm' }));
 const jsonArtifactVisual = `${fixtureRoot}/artifact-visual.json`;
 fs.writeFileSync(path.join(root, jsonArtifactVisual), JSON.stringify({ artifact: 'concept.bmp' }));
-const fixturePdf = `${fixtureRoot}/visual.pdf`;
-fs.writeFileSync(path.join(root, fixturePdf), '%PDF-1.4\n% fixture only\n');
 
 const itemEvidence = candidateBoundEvidence('item summary');
 const receipts = Object.fromEntries([
@@ -60,14 +58,14 @@ const validItem = {
     status: 'INDEPENDENT GATES PASS',
     candidate,
     screenshots: {
-      desktop_1440: screenshot('operations/control-room/evidence/owner-review-inbox-2026-08-01/desktop.png'),
-      mobile_390: screenshot('operations/control-room/evidence/owner-review-inbox-2026-08-01/mobile.png'),
-      mobile_320: screenshot('operations/control-room/evidence/opening-day-media-review-2026-07-31/review-inbox-desktop.png')
+      desktop_1440: screenshot('operations/control-room/evidence/owner-control-plane-2026-08-02/desktop.png'),
+      mobile_390: screenshot('operations/control-room/evidence/owner-control-plane-2026-08-02/mobile.png'),
+      mobile_320: screenshot('operations/control-room/evidence/owner-review-inbox-2026-08-01/mobile.png')
     },
     original_brief: binding('operations/product-stewards/library/EXPERIENCE-BRIEF.md'),
     incumbent_reference: binding('library.html'),
     research_brief: binding('operations/product-stewards/library/building-experience-championship-cycle-1-2026-07-26.md'),
-    page_architecture: binding('operations/product-stewards/library/BUILD-PACKET-LIBRARY-PAGE-ELEVATION-2026-08-22.md'),
+    page_architecture: binding('operations/product-stewards/library/page-architecture-successor-2026-08-03.md'),
     journey_handoff_map: binding('operations/product-stewards/library/FUNCTIONALITY-MAP.md'),
     roles: {
       building_champion: { agent_id: 'champion-a', receipt: receipts.champion },
@@ -96,7 +94,7 @@ const validItem = {
       feature_and_building_placement: { result: 'PASS', mislocated_products: [], missing_core_features: [], evidence: candidateBoundEvidence('feature placement') },
       decorative_discipline: { result: 'PASS', unjustified_filler_count: 0, evidence: candidateBoundEvidence('decorative discipline') },
       incumbent_comparison: { result: 'PASS', same_viewports: true, candidate_not_worse: true, visible_regressions: [], locked_decision_violations: [], evidence: candidateBoundEvidence('incumbent comparison') },
-      reviewer_calibration: { result: 'PASS', reviewer_result: 'REJECT', known_bad_candidate_sha256: '00125c9740e7ac2865bd2ea62b4486b397c91baa4138af8a576738d7daaaa95a', evidence: candidateBoundEvidence('reviewer calibration') },
+      reviewer_calibration: { result: 'PASS', reviewer_result: 'REJECT', known_bad_candidate_sha256: '46185b93c1ff08bd67e43a2fe111bb5badb01aa55a0e87b2b06126550b407f3d', evidence: candidateBoundEvidence('reviewer calibration') },
       quality_ratchet: { result: 'PASS', repeated_known_defects: 0, objective_defects_deferred_to_review: 0, review_issue_count: 0, review_cycle_count: 1, preceding_comparable: { review_issue_count: 4, review_cycle_count: 2 }, known_failure_sources: [binding('operations/DECISIONS.md'), binding('operations/control-room/rejections.json'), binding('operations/painpoints-log.md')], evidence: candidateBoundEvidence('quality ratchet') },
       instruction_reconciliation: { result: 'PASS', authority_order: ['ALI_CURRENT_RULING','DECISIONS_ROUTER','CANON_AND_LOCKS','AREA_DECISIONS','PROCESS_CONTRACT','HISTORICAL_EVIDENCE'], governing_sources: [binding('operations/DECISIONS.md'), binding('operations/voice/laidies-canon-index.md'), binding('operations/library-decisions.md')], superseded_sources: [], unresolved_conflicts: [], evidence: candidateBoundEvidence('instruction reconciliation') },
       visual_world_continuity: { result: 'PASS', relationship: 'MASTHEAD_NATIVE', page_purpose_specific: true, visible_mismatches: [], masthead_reference: binding('assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png'), evidence: candidateBoundEvidence('visual world continuity') },
@@ -159,7 +157,7 @@ const presentationPassing = resolveForReview(validItem);
 if (presentationPassing.status !== 0 || !presentationPassing.stdout.includes('DESIGN PRESENTATION ADMITTED fixture-building-page')) {
   throw new Error(`admitted presentation did not resolve:\n${presentationPassing.stdout}${presentationPassing.stderr}`);
 }
-const presentationBlocked = resolveForReview(validItem, 'assets/building-interiors/delivery-20260723-visitors-centre-lobby-v1/visitors-centre-lobby-map-wall-comic-candidate-v2.png');
+const presentationBlocked = resolveForReview(validItem, 'operations/design-explorations/library-modular-reading-system-v3-20260803/index.html');
 if (presentationBlocked.status === 0 || !presentationBlocked.stderr.includes('DESIGN PRESENTATION BLOCKED')) {
   throw new Error(`unadmitted local candidate was not blocked:\n${presentationBlocked.stdout}${presentationBlocked.stderr}`);
 }
@@ -179,10 +177,10 @@ expectFail('self-approved maker', item => { item.design_admission.roles.product_
 expectFail('scoped mechanics pass', item => { item.design_admission.scope = 'MECHANICS_ONLY'; }, 'scoped or mechanical review');
 expectFail('missing brand verdict', item => { delete item.design_admission.roles.brand_visual_judge; }, 'missing brand_visual_judge.agent_id');
 expectFail('rejected SHA resubmit', item => {
-  item.design_admission.candidate = binding('assets/building-interiors/delivery-20260723-visitors-centre-lobby-v1/visitors-centre-lobby-map-wall-comic-candidate-v2.png');
+  item.design_admission.candidate = binding('operations/design-explorations/library-environment-successor-v2-20260803/index.html');
   item.review_artifacts = [item.design_admission.candidate];
 }, 'rejected artifact SHA');
-expectFail('quarantined receipt', item => { item.design_admission.roles.environment_artwork_maker.receipt = binding('assets/building-interiors/delivery-20260723-visitors-centre-lobby-v1/visitors-centre-lobby-map-wall-comic-candidate-v2.png'); }, 'quarantined artifact directory');
+expectFail('quarantined receipt', item => { item.design_admission.roles.environment_artwork_maker.receipt = binding('operations/design-explorations/library-environment-successor-v2-20260803/MAKER-RECEIPT.md'); }, 'quarantined artifact directory');
 expectFail('unbound receipt', item => { item.design_admission.roles.environment_artwork_maker.receipt = binding(unboundReceipt); }, 'does not bind candidate SHA-256');
 expectFail('standing document receipt', item => { item.design_admission.roles.building_champion.receipt = binding('operations/product-stewards/library/CHARTER.md'); }, 'standing governing document');
 expectFail('duplicate role receipt', item => { item.design_admission.roles.research_benchmarking.receipt = item.design_admission.roles.building_champion.receipt; }, 'two roles share receipt');
@@ -235,7 +233,7 @@ expectFail('untyped PNG', item => { delete item.review_type; }, 'visual artifact
 expectFail('untyped PDF', item => {
   delete item.review_type;
   delete item.design_admission;
-  item.review_artifacts = [binding(fixturePdf)];
+  item.review_artifacts = [binding('output/pdf/episode-01-open-the-tab-cheat-sheet-a4.pdf')];
 }, 'building-page visual is missing design_admission');
 expectFail('untyped embedded visual', item => {
   delete item.review_type;

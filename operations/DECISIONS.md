@@ -1,5 +1,25 @@
 # LAiDIES decision router
 
+> **2026-09-05 — Ali rejects the social successor953b8d2e; both admissions invalid.**
+> The graphic looks poor and does not explain the concept. “More weight” is
+> undefined; the example restates the claim without showing the causal effect.
+> Gradients, brand fonts and boxed paragraphs do not establish adult graphic-novel
+> craft or a shareworthy result. Functional/source checks do not admit teaching
+> or visual quality. Withdraw this candidate. Prove a concrete, understandable
+> search mechanism and a composed visual explanation before another export UI.
+> Two independent reviewers remain the approved process for this feature; their
+> previous ADMIT judgments are invalidated. Review must catch these material
+> failures, without inventing optional findings or another large process.
+
+> **2026-09-05 — Review must earn its cost — Ali ruling.**
+> Do not manufacture findings or optional improvements to justify a reviewer run.
+> Block only concrete defects that materially affect the requested outcome,
+> accuracy, usefulness, accessibility, privacy, working journeys or approved
+> design. Preference-only polish and unrelated improvements are non-blocking.
+> Stop after the agreed acceptance conditions pass; reopen review only for a
+> material change, failed check or new contradictory evidence. Token cost and
+> delivery time are part of quality. This applies to Claude and other reviewers.
+
 > **2026-09-05 — Ali approves two independent reviewers for the Episode04 social replacement only.**
 > Ali answered “yes” to replacing the eleven-reviewer requirement for this feature
 > with two independent available reviewers of the complete experience against the

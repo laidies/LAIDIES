@@ -1,0 +1,71 @@
+{
+  "verdict": "ADMIT",
+  "scope": "try-on-episode04-social-20260905",
+  "principal": "/root/social_v2_artifact_judge",
+  "model": "GPT-6 Astra / Medium",
+  "artifact_first": true,
+  "manifest_sha256": "53bce777b0bbb37965a2b47789e219aa938fb14429f6622a3ba927b3000b5e11",
+  "design_and_teaching_verdict": "ADMIT",
+  "runtime_verdict": "ADMIT_SCOPED_BROWSER_AND_EXPORT_CHECKS",
+  "findings": [
+    {
+      "area": "prior issue: phone readability",
+      "status": "RESOLVED",
+      "confidence": "certain",
+      "finding": "The three-image sequence removes the tiny comparison headings and source footnote. Core terms, point contributions, result ranks and the accuracy limitation are visibly readable at useful phone scale. The compact 320 px website preview is smaller than a feed image, but the typography is now sufficiently separated and the full transcript remains available. This judgment is based on the rendered images and mobile screenshots, not the minimum-font guard alone."
+    },
+    {
+      "area": "prior issue: visual composition",
+      "status": "RESOLVED",
+      "confidence": "likely",
+      "finding": "The result now has a coherent pop-art visual explanation: a framed search folder collection, counted document silhouettes with large point medallions, then a ranked stack of result panels. Pink, teal and purple separate the three beats; ink outlines, cut corners and controlled halftone unify them. The pictorial marks now do explanatory work, unlike the held text-and-table poster. It meets the bounded social brief without requiring a historical portrait or the full Homepage scene."
+    },
+    {
+      "area": "complete teaching sequence",
+      "status": "ADMIT",
+      "confidence": "certain",
+      "finding": "The three ordered images establish a recognizable search problem, show the two frequencies and matching contributions, then add those contributions and state the changed tie. The limitation and historical attribution remain in the actual exported sequence. The reader is not dependent on the caption to understand why Pension limits moves to second."
+    },
+    {
+      "area": "implementation source",
+      "status": "NO_MATERIAL_DEFECT_FOUND",
+      "confidence": "likely",
+      "finding": "Static inspection of carousel selection, individual download, ZIP creation and all-file sharing shows bounded local files, numbered sequence, explicit format state, keyboard-operable controls, transcript and fallback messages. No private note data or AI request enters this feature. The ZIP writer stores the three named files with checksums and a central directory. Static inspection is not a successful browser/ZIP extraction receipt."
+    },
+    {
+      "area": "sole mechanical evidence hold",
+      "status": "RESOLVED",
+      "confidence": "certain",
+      "finding": "The new v3 browser-results.json reports successful carousel, both-format downloads, ZIP extraction, three-file sharing invocation, cancellation/fallbacks, caption, private-data preservation and other-episode regression checks at 1440, 390 and 320 px. Reviewed the actual test assertions. Independently extracted all six ZIPs and verified every ordered entry against the eighteen individual downloads and exact admitted candidate image bytes. All manifest artifacts remain unchanged."
+    }
+  ],
+  "unresolved_issues": [],
+  "prior_issues": {
+    "phone_readability": "RESOLVED",
+    "visual_brief": "RESOLVED"
+  },
+  "calibration": {
+    "sample_a": {
+      "verdict": "REJECT",
+      "teaches": "Karen Spärck Jones gave rarer matching words more weight in document search; velvet is offered as rarer than blazer.",
+      "explanation_sufficient": false,
+      "reason": "More weight remains undefined. The example repeats the frequency claim but never shows what is counted, how a result score changes or why a different result would move up. The text-poster composition provides no missing explanation."
+    },
+    "sample_b": {
+      "verdict": "HOLD",
+      "teaches": "Across six files, plan appears five times and pension twice. Giving plan matches one point and pension matches three moves Pension limits from an equal-score tie to above the four plan-only results.",
+      "explanation_sufficient": true,
+      "reason": "The mechanism is sufficient and the point arithmetic is visible. The remaining concerns are the same phone-scale small text and visual-brief mismatch described for the candidate. No minimum number of findings or predetermined rejection was used."
+    }
+  },
+  "explain_back": "The search is pension plan. Plan matches five of six files, so it distinguishes relatively little; pension matches only two. Under the demonstrated historical method, each plan match contributes 1 point and each pension match 3. A file matching both scores 4; Pension limits scores 3; four plan-only files score 1 each. Pension limits therefore leaves its old tie and becomes the second result. Rarity is relative to the collection and does not guarantee truth or relevance.",
+  "transfer": "If plan is in 2 of 6 and pension in 5 of 6, their contributions reverse: plan receives 3 points and pension 1. Both together still score 4; a plan-only result scores 3 and a pension-only result 1. This requires a changed collection, since the original six file match patterns cannot simultaneously retain the old counts. The word pension is not intrinsically more important.",
+  "honest_limits": [
+    "This is independent AI analysis, not observed human explain-back, transfer research or proof that women will choose to share the set.",
+    "Viewed all six exact exports and all three current page screenshots before reading maker reports; read review-text.txt in full. Reused the previously inspected current Homepage/LIBRAiRY references and independent primary-paper verification because the mechanism and numerical claims have not changed.",
+    "All fourteen manifest artifact hashes match the current files; the binding establishes identity, not quality.",
+    "No repository changes, fixes or public deployment were made.",
+    "Browser execution was performed by the producer and its result/test source were reviewed here; this reviewer independently verified archive extraction, order and exact image parity. Native operating-system sharing was mocked in those tests, so this does not claim a real social-platform publication or native phone share-sheet test.",
+    "This final follow-up closed only the existing mechanical evidence hold; no design or prose re-review was commissioned and no candidate changes were requested."
+  ]
+}
