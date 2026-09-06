@@ -92,6 +92,8 @@ flowchart LR
 | Buttondown / community / analytics / media providers | Explicit user or approved publishing request → provider-owned operation → provider receipt | Per-product contracts contain missing delivery/moderation/measurement evidence. Exact current account entitlements and bills not audited. |
 | Backup | Available local files → existing encrypted backup → integrity/recovery evidence | Local dependency is legitimate. No cloud process can back up unavailable laptop-only bytes. |
 
+Current tracked model configuration: `.codex/config.toml` starts the foreground on GPT-6 Astra/Medium, planning on High, and subagents on GPT-5.6 Terra/Medium; its configured concurrency is two and Fast mode is off. `DECISIONS.md` routes clear mechanical work toward Luna/Low, bounded judgment toward Terra, and demanding work toward Sol or Astra when justified. These are configuration/policy, not observed per-task model usage; an app task override may differ. No fixed model is assigned to every product role. Native hook activation remains unverified despite configured hooks and passing fixtures.
+
 Cloud does not automatically mean API billing. Work Cloud and Codex can share subscription allowance; API-key operations are separately metered. The cost decision is per job, not per “agent”. [Official Work pricing](https://learn.chatgpt.com/docs/pricing). No new service is selected by this map.
 
 ## 3. One job: complete loop and human boundaries
