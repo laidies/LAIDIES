@@ -202,8 +202,9 @@ try {
   check(await desktop.page.locator(".fg-exterior.fg-exterior-held").isVisible() &&
     await desktop.page.locator(".fg-exterior img").count() === 0,
     "visitor sees the honest exterior hold without an unapproved cottage request");
-  check(await desktop.page.locator(".fg-room-image").isVisible(),
-    "visitor sees the parlour as the interface");
+  check(await desktop.page.locator(".fairy-console").isVisible() &&
+    !(await desktop.page.locator(".fg-room-image").isVisible()),
+    "visitor sees the working desk without a pretend parlour image");
   check(await desktop.page.locator(".fairy-disclosure").isVisible(),
     "sensitive-data/currentness warning is visible before submission");
   check((await desktop.page.locator("#fgArrivalStatus").innerText()).toLowerCase().includes("guest beta: one case today"),
@@ -214,6 +215,34 @@ try {
   check(!(await desktop.page.evaluate(() =>
     document.documentElement.scrollWidth > document.documentElement.clientWidth + 1)),
   "desktop page has no horizontal overflow");
+  const desktopQuestionBox = await desktop.page.locator("#fairyQuestion").boundingBox();
+  const desktopToneCount = await desktop.page.locator(".fg-tone-picker > summary").count();
+  const desktopToneBox = desktopToneCount === 1
+    ? await desktop.page.locator(".fg-tone-picker > summary").boundingBox()
+    : null;
+  check(desktopQuestionBox && desktopQuestionBox.y < 900,
+    "desktop puts the question box in the opening viewport");
+  check(desktopToneCount === 1 && desktopToneBox && desktopQuestionBox && desktopQuestionBox.y < desktopToneBox.y,
+    "the visitor's situation comes before the optional tone choice");
+  const scenarioChoiceCount = await desktop.page.locator(".fg-scenario-choice").count();
+  check(scenarioChoiceCount === 4,
+    "the desk exposes four current career-situation starting points");
+  check(await desktop.page.locator(".fg-example-picker > summary").evaluate((summary) =>
+    summary.getBoundingClientRect().height >= 44),
+  "the collapsed example picker has at least a 44px target");
+  await desktop.page.locator(".fg-example-picker > summary").click();
+  check(scenarioChoiceCount === 4 && await desktop.page.locator(".fg-scenario-choice").evaluateAll((buttons) =>
+    buttons.every((button) => button.getBoundingClientRect().height >= 44)),
+  "every situation starter has at least a 44px target");
+  await desktop.page.locator("#randomButton").click();
+  check((await desktop.page.locator("#fairyQuestion").inputValue()).length > 40 &&
+    await desktop.page.evaluate(() => window.__FAIRY_REQUESTS__.length) === 0,
+  "Try another example fills the question without spending or sending a case");
+  if (scenarioChoiceCount === 4) await desktop.page.locator(".fg-scenario-choice").first().click();
+  check(scenarioChoiceCount === 4 &&
+    (await desktop.page.locator("#fairyQuestion").inputValue()).includes("timely, specific feedback") &&
+    await desktop.page.evaluate(() => window.__FAIRY_REQUESTS__.length) === 0,
+  "a situation starter fills the question without submitting it");
   await submit(desktop.page);
   for (const heading of [
     "FAiRY’s read",
@@ -301,6 +330,9 @@ try {
   check(!(await mobileGuest.page.evaluate(() =>
     document.documentElement.scrollWidth > document.documentElement.clientWidth + 1)),
   "390px page has no horizontal overflow");
+  const mobileQuestionBox = await mobileGuest.page.locator("#fairyQuestion").boundingBox();
+  check(mobileQuestionBox && mobileQuestionBox.y < 1100,
+    "390px visitor reaches the question without crossing the old two-screen preamble");
   await submit(mobileGuest.page);
   check(await mobileGuest.page.locator(".laidy-revision-button").count() === 4,
     "mobile typed success exposes four fitting choices for the case-bound allowance");

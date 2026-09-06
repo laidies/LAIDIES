@@ -10,7 +10,7 @@
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#b95d78" />
-    <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg?v=20260902-ai-v2" sizes="any" />
     <link rel="stylesheet" href="../styles.css?v=sticky-fix-2" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -815,7 +815,7 @@
       plausible.init()
     </script>
       <link rel="stylesheet" href="../content/site/mini-player.css">
-      <link rel="stylesheet" href="../content/fairy-godmother-v2.css?v=20260724-1">
+      <link rel="stylesheet" href="../content/fairy-godmother-v2.css?v=20260902-usable-desk-1">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260830-ksvl-service-1"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
@@ -850,7 +850,7 @@
     <div class="fg-exterior fg-exterior-held" data-asset-status="held">
       <div class="fg-exterior-copy" aria-hidden="true">
         <span>Walk-ins welcome</span>
-        <strong>Stuck prompt?<br>Come inside.</strong>
+        <strong>The advice desk is open.</strong>
       </div>
     </div>
 
@@ -864,8 +864,13 @@
         <section class="fairy-hero">
           <div class="fg-hero-copy">
             <p class="eyebrow brand-preserve-case">The FA<span class="ai-highlight">i</span>RY Godmother</p>
-            <h1>Bring the prompt<br><span>that won&rsquo;t behave.</span></h1>
-            <p class="subtitle">Practical help for a work or career situation: a clear read, language you can use, and the reasoning and assumptions to check.</p>
+            <h1>Bring the situation.<br><span>Leave with the words.</span></h1>
+            <p class="subtitle">Practical help for a work or career moment: a clear read, language you can actually use, and the assumptions worth checking.</p>
+            <ul class="fg-promise" aria-label="What FAiRY gives you">
+              <li>Words to use</li>
+              <li>Why they fit</li>
+              <li>A concrete next step</li>
+            </ul>
             <button class="fg-song-button" type="button"
                     aria-label="Listen to the FAiRY Godmother song on KSVL"
                     data-src="/content/music/game-ask-laidy.mp3"
@@ -896,42 +901,54 @@
               <p><strong>One guest case or three signed-in Resident cases per UTC day.</strong> Every completed case includes up to three fittings. Failed, incomplete, safely declined, or current-information requests do not use a case.</p>
               <p>Your Resident sign-in works across devices. FAiRY does not save the words in your question or answer as case history; this page keeps recent answers only for this visit.</p>
             </details>
-            <div class="fg-console-heading">
-              <p>Step one</p>
-              <h2>Pick your PATRON SA<span class="ai-highlight">i</span>NT&rsquo;s energy.</h2>
-              <span>Choose a preferred tone. It changes presentation, not the facts or safety boundary.</span>
-            </div>
-
-            <label class="fg-visually-hidden" for="fairyMode">Pick the energy</label>
-            <select id="fairyMode">
-              <option value="auto" selected>FAiRY Godmother tone (default)</option>
-              <option value="dolly">Dolly Energy &mdash; warm &amp; direct</option>
-              <option value="miranda">Miranda Polish &mdash; executive clean</option>
-              <option value="elle">Elle Evidence &mdash; facts in heels</option>
-              <option value="cher">Cher Closet Check &mdash; needs a better outfit</option>
-              <option value="sophia">Sophia Says &mdash; wise &amp; short</option>
-              <option value="david">David Specificity &mdash; be particular</option>
-              <option value="buffy">Buffy Courage &mdash; slayer briefing</option>
-            </select>
-            <div class="fg-saint-rail" id="fgSaintRail" aria-label="Choose a PATRON SAiNT"></div>
-
             <div class="fg-prompt-step">
-              <p>Step two</p>
-              <label for="fairyQuestion">What do you need help with?</label>
-              <textarea id="fairyQuestion" rows="4" placeholder="Example: I need to ask my VP for more time without sounding chaotic."></textarea>
-              <p class="fairy-disclosure">AI-powered beta. Do not paste confidential details; anonymize sensitive information first. Maximum 8,000 characters. FAiRY will stop rather than improvise current facts or regulated advice.</p>
+              <p>Start here</p>
+              <label for="fairyQuestion">What happened&mdash;and what do you need next?</label>
+              <span class="fg-question-help" id="fairyQuestionHelp">A sentence or two is enough. You can ask for language to use, help sorting feedback from bias, or a practical plan.</span>
+              <textarea id="fairyQuestion" rows="5" aria-describedby="fairyQuestionHelp fairyDisclosure" placeholder="Example: My manager says I need more executive presence, but gave no examples. Help me work out what is useful and what to ask for."></textarea>
+              <p class="fairy-disclosure" id="fairyDisclosure"><strong>Keep it non-confidential.</strong> Change names and identifying details. FAiRY will stop rather than invent current facts or give regulated advice. Maximum 8,000 characters.</p>
+              <details class="fg-example-picker">
+                <summary>Not sure how to begin? <span>Choose an example</span></summary>
+                <div class="fg-scenario-starters" aria-label="Example situations">
+                  <button type="button" class="fg-scenario-choice" data-fairy-prompt="I manage someone whose recent work needs to improve. Help me give timely, specific feedback privately and agree on what happens next.">Give useful feedback</button>
+                  <button type="button" class="fg-scenario-choice" data-fairy-prompt="I received vague feedback about executive presence. Help me separate anything useful from unsupported labels and decide what evidence or criteria to ask for.">Make sense of feedback</button>
+                  <button type="button" class="fg-scenario-choice" data-fairy-prompt="I need to raise a work problem with someone more senior. Help me explain the impact, make a clear request and choose a lower-exposure route if speaking up is risky.">Speak up safely</button>
+                  <button type="button" class="fg-scenario-choice" data-fairy-prompt="I am considering a career change but cannot afford a dramatic leap. Help me choose one small, realistic experiment and decide what I need to learn from it.">Plan a career move</button>
+                </div>
+              </details>
             </div>
+
+            <details class="fg-tone-picker">
+              <summary>Choose a different tone <span>(optional)</span></summary>
+              <div class="fg-console-heading">
+                <h2>Same practical advice. Different delivery.</h2>
+                <span>Tone changes the presentation, not the facts, safeguards or quality bar.</span>
+              </div>
+
+              <label class="fg-visually-hidden" for="fairyMode">Pick the energy</label>
+              <select id="fairyMode">
+                <option value="auto" selected>FAiRY Godmother tone (default)</option>
+                <option value="dolly">Dolly Energy &mdash; warm &amp; direct</option>
+                <option value="miranda">Miranda Polish &mdash; executive clean</option>
+                <option value="elle">Elle Evidence &mdash; facts in heels</option>
+                <option value="cher">Cher Closet Check &mdash; needs a better outfit</option>
+                <option value="sophia">Sophia Says &mdash; wise &amp; short</option>
+                <option value="david">David Specificity &mdash; be particular</option>
+                <option value="buffy">Buffy Courage &mdash; slayer briefing</option>
+              </select>
+              <div class="fg-saint-rail" id="fgSaintRail" aria-label="Choose a PATRON SAiNT"></div>
+            </details>
 
             <div class="fairy-buttons">
               <button class="wand-button" type="button" id="wandButton">
-                <span class="wand-icon" aria-hidden="true">✦</span> <span>Wave the Wand</span>
+                <span class="wand-icon" aria-hidden="true">✦</span> <span>Get practical advice</span>
               </button>
               <button class="random-button" type="button" id="randomButton">
-                Surprise me
+                Try another example
               </button>
             </div>
             <p class="fairy-wait-status" id="fairyWaitStatus" role="status" aria-live="polite" aria-atomic="true" hidden></p>
-            <p class="wisdom-counter">Wisdom <strong id="wisdomCount">0</strong></p>
+            <p class="wisdom-counter">Answers this visit <strong id="wisdomCount">0</strong></p>
           </section>
         </section>
 
@@ -1026,16 +1043,12 @@
       buffy: "Buffy Courage"
     };
 
-    const NAMED_ENERGIES = ["dolly", "miranda", "elle", "cher", "sophia", "david", "buffy"];
-
     const STARTER_PROMPTS = [
-      "Help me write a follow-up email after a meeting where nothing was decided",
-      "Summarize a long document and pull out the three things I actually need to act on",
-      "Ask my manager for feedback without sounding needy",
-      "Write a Slack message declining a meeting I definitely don’t need to be in",
-      "Turn my bullet-point brain dump into a clear brief",
-      "Write a subject line for an email my VP will actually open",
-      "Help me say no to a request without burning a relationship"
+      "I need to give a colleague feedback about a missed handoff without acting like their manager. Help me say it clearly and keep the focus on our shared work.",
+      "My manager gave me vague feedback about being more confident. Help me identify what is actionable, what evidence is missing and what questions to ask next.",
+      "I need to disagree with a senior leader about a project risk. Help me make the work impact visible and choose a safer route if direct feedback could affect my job.",
+      "I am considering a different kind of role but cannot risk quitting. Help me design one small experiment that tells me something useful.",
+      "I need to follow up after a difficult conversation. Help me write down what was agreed, who owns the next step and when we will return to it."
     ];
 
     // ===== STATE =====
@@ -1723,13 +1736,11 @@
 
     wandBtn.addEventListener("click", runWand);
 
-    // Surprise me — pick a random named energy + starter prompt, then auto-fire the wand.
+    // Offer a realistic example without silently spending the visitor's case.
     randomBtn.addEventListener("click", () => {
-      const energyValue = NAMED_ENERGIES[Math.floor(Math.random() * NAMED_ENERGIES.length)];
       const prompt = STARTER_PROMPTS[Math.floor(Math.random() * STARTER_PROMPTS.length)];
-      modeEl.value = energyValue;
       questionEl.value = prompt;
-      runWand();
+      questionEl.focus();
     });
 
     if (resetPromptButton) {
@@ -1847,7 +1858,7 @@
       });
     })();
     </script>
-      <script src="../content/site/fairy-godmother-v2.js?v=20260901-beta-1"></script>
+      <script src="../content/site/fairy-godmother-v2.js?v=20260902-usable-desk-1"></script>
       <script src="../content/site/mini-player.js?v=20260712ep-04-songs-1"></script>
     <script src="../content/site/brand-polish.js?v=wm2" defer></script>
 <script>

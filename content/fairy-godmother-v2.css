@@ -1218,3 +1218,431 @@ body *::after {
     scroll-behavior: auto !important;
   }
 }
+
+/* 2026-09-02: put the working advice desk before decorative ceremony. */
+.fg-exterior {
+  min-height: 118px;
+  background:
+    linear-gradient(105deg, rgba(123, 67, 232, .28), transparent 46%),
+    var(--fg-midnight);
+}
+
+.fg-exterior::after {
+  background:
+    linear-gradient(90deg, rgba(8, 13, 36, .22), transparent 70%),
+    linear-gradient(0deg, rgba(8, 13, 36, .2), transparent);
+}
+
+.fg-exterior-copy {
+  inset: 0;
+  display: flex;
+  max-width: none;
+  align-items: center;
+  gap: 18px;
+  padding: 22px clamp(22px, 5vw, 76px);
+}
+
+.fg-exterior-copy span {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.fg-exterior-copy strong {
+  max-width: none;
+  font-size: clamp(2rem, 3.7vw, 4rem);
+  line-height: 1;
+  text-shadow: 0 3px 0 rgba(8, 13, 36, .7);
+}
+
+.game-page-wrap {
+  display: grid;
+  grid-template-columns: minmax(320px, .72fr) minmax(560px, 1.28fr);
+}
+
+.game-page-header.fg-return,
+.fg-results,
+.fg-exit-strip {
+  grid-column: 1 / -1;
+}
+
+.fairy-hero {
+  grid-column: 1;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  align-content: start;
+  align-items: start;
+  padding: clamp(52px, 6vw, 82px) clamp(30px, 5vw, 76px);
+}
+
+.fairy-hero h1 {
+  font-size: clamp(3.5rem, 5.7vw, 6.4rem);
+}
+
+.fairy-hero .subtitle {
+  margin-top: 24px;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+}
+
+.fg-promise {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fg-promise li {
+  padding: 8px 11px;
+  border: 2px solid var(--fg-ink);
+  background: rgba(255, 255, 255, .7);
+  color: var(--fg-ink);
+  font-size: .7rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.fg-arrival {
+  align-self: end;
+  max-width: 440px;
+  margin-top: 8px;
+  padding: 24px 22px;
+  box-shadow: 10px 10px 0 var(--fg-cyan);
+}
+
+.fg-arrival strong {
+  max-width: none;
+  font-size: clamp(1.7rem, 2.35vw, 2.55rem);
+}
+
+.fg-arrival p {
+  margin-top: 12px;
+}
+
+.fg-room {
+  grid-column: 2;
+  min-height: 0;
+  padding: clamp(42px, 5vw, 72px) clamp(30px, 5vw, 76px) clamp(52px, 6vw, 84px);
+  overflow: visible;
+  background:
+    linear-gradient(145deg, rgba(123, 67, 232, .44), transparent 52%),
+    var(--fg-midnight);
+}
+
+.fg-room::after,
+.fg-room-image {
+  display: none;
+}
+
+.fg-room-sign {
+  position: relative;
+  inset: auto;
+  width: auto;
+  margin: 0 0 24px;
+}
+
+.fg-room-sign strong {
+  font-size: clamp(2.5rem, 4.2vw, 4.8rem);
+}
+
+.fairy-console {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  max-height: none;
+  padding: clamp(26px, 3vw, 42px);
+  overflow: visible;
+  background: var(--fg-pearl);
+  backdrop-filter: none;
+}
+
+.fg-prompt-step {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.fg-prompt-step label {
+  max-width: 19ch;
+  margin-bottom: 10px;
+  font-size: clamp(1.8rem, 2.7vw, 3.15rem);
+}
+
+.fg-question-help {
+  display: block;
+  max-width: 62ch;
+  margin-bottom: 18px;
+  color: #4e566f;
+  font-size: .91rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.fg-scenario-starters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0 0 18px;
+}
+
+.fg-example-picker {
+  margin-top: 18px;
+  border-top: 1px solid rgba(8, 13, 36, .22);
+}
+
+.fg-example-picker > summary {
+  min-height: 46px;
+  padding: 13px 2px;
+  color: var(--fg-ink);
+  font-size: .78rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.fg-example-picker > summary span {
+  color: var(--fg-blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fg-example-picker[open] > summary {
+  margin-bottom: 8px;
+}
+
+.fg-scenario-choice {
+  min-height: 44px;
+  padding: 9px 11px;
+  border: 2px solid var(--fg-ink);
+  background: #fff;
+  color: var(--fg-ink);
+  font: 800 .72rem/1.2 "Jost", sans-serif;
+  text-align: left;
+  cursor: pointer;
+}
+
+.fg-scenario-choice:hover,
+.fg-scenario-choice:focus-visible {
+  border-color: var(--fg-blue);
+  outline: 3px solid rgba(18, 199, 215, .3);
+  background: #eefcff;
+}
+
+.fairy-console textarea {
+  min-height: 136px;
+}
+
+.fairy-disclosure strong {
+  color: var(--fg-ink);
+}
+
+.fg-tone-picker {
+  margin-top: 22px;
+  border-top: 2px solid var(--fg-ink);
+  border-bottom: 2px solid var(--fg-ink);
+}
+
+.fg-tone-picker > summary {
+  min-height: 48px;
+  padding: 14px 2px;
+  color: var(--fg-ink);
+  font-size: .76rem;
+  font-weight: 900;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.fg-tone-picker > summary span {
+  color: #626980;
+  font-weight: 700;
+}
+
+.fg-tone-picker[open] {
+  padding-bottom: 20px;
+}
+
+.fg-tone-picker .fg-console-heading {
+  padding: 8px 0 0;
+}
+
+.fg-tone-picker .fg-console-heading h2 {
+  max-width: 22ch;
+  font-size: clamp(1.45rem, 2vw, 2.2rem);
+}
+
+.fg-tone-picker .fg-saint-rail {
+  margin-top: 18px;
+}
+
+.fairy-buttons {
+  margin-top: 22px;
+}
+
+.wand-button {
+  font-size: .88rem;
+}
+
+.fg-results {
+  min-height: 0;
+  padding-top: clamp(58px, 7vw, 94px);
+  padding-bottom: clamp(64px, 8vw, 108px);
+}
+
+.fg-results-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(240px, .7fr);
+  gap: 28px 60px;
+  align-items: end;
+  padding-bottom: 38px;
+}
+
+.fg-results-intro > p {
+  grid-column: 1 / -1;
+  margin-bottom: -8px;
+}
+
+.fg-results-intro h2 {
+  font-size: clamp(3rem, 5.2vw, 5.7rem);
+}
+
+.fg-results-intro > span {
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .game-page-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .fairy-hero,
+  .fg-room {
+    grid-column: 1;
+  }
+
+  .fairy-hero {
+    padding-bottom: 58px;
+  }
+
+  .fg-arrival {
+    width: min(100%, 500px);
+  }
+
+  .fg-room {
+    padding-top: 42px;
+  }
+}
+
+@media (max-width: 760px) {
+  .fg-exterior {
+    display: none;
+  }
+
+  .fg-exterior-copy {
+    right: auto;
+    bottom: auto;
+    left: auto;
+    gap: 10px;
+    padding: 18px 20px;
+  }
+
+  .fg-exterior-copy strong {
+    max-width: none;
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+  }
+
+  .fairy-hero {
+    gap: 18px;
+    padding: 30px 20px 38px;
+  }
+
+  .fairy-hero h1 {
+    font-size: clamp(3rem, 14vw, 4.6rem);
+  }
+
+  .fairy-hero .eyebrow {
+    margin-bottom: 11px;
+  }
+
+  .fairy-hero .subtitle {
+    margin-top: 16px;
+    line-height: 1.45;
+  }
+
+  .fg-promise {
+    display: none;
+  }
+
+  .fg-song-button {
+    display: none;
+  }
+
+  .fg-arrival {
+    margin-top: 2px;
+    padding: 14px 16px;
+  }
+
+  .fg-arrival::before {
+    display: none;
+  }
+
+  .fg-arrival strong {
+    display: inline;
+    font-size: 1.35rem;
+  }
+
+  .fg-arrival p {
+    display: none;
+  }
+
+  .fg-arrival > span {
+    display: inline;
+    margin: 0 8px 0 0;
+  }
+
+  .fg-room {
+    padding: 26px 18px 48px;
+  }
+
+  .fg-room-sign {
+    display: none;
+  }
+
+  .fg-room-sign strong {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+
+  .fairy-console {
+    padding: 30px 20px 34px;
+    box-shadow: 9px 9px 0 var(--fg-cyan);
+  }
+
+  .fg-results {
+    min-height: 0;
+    padding-top: 58px;
+  }
+
+  .fg-results-intro {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .fg-results-intro > p {
+    grid-column: 1;
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 440px) {
+  .fg-exterior-copy span {
+    display: none;
+  }
+
+  .fg-scenario-starters {
+    grid-template-columns: 1fr;
+  }
+
+  .fairy-console textarea {
+    min-height: 150px;
+  }
+}

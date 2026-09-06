@@ -7,6 +7,7 @@
   var emptyResults = document.getElementById("fgEmptyResults");
   var arrivalStatus = document.getElementById("fgArrivalStatus");
   var arrivalNote = document.getElementById("fgArrivalNote");
+  var question = document.getElementById("fairyQuestion");
 
   var saints = [
     {
@@ -137,6 +138,13 @@
   }
 
   buildSaintRail();
+  document.querySelectorAll("[data-fairy-prompt]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      if (!question) return;
+      question.value = button.dataset.fairyPrompt || "";
+      question.focus();
+    });
+  });
   void setArrivalState();
   syncResultsState();
 
