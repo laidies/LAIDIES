@@ -15870,3 +15870,6 @@ Accessible names alone did not tell sighted listeners which bare slider was volu
 
 ## 2026-09-06 — KSVL compact wallpaper preview
 - Reuse actual approved-site illustration assets for decorative casing; keep busy art outside opaque reading/control panels. Remove an unwanted ornament instead of generating successive replacements. Mobile secondary controls can collapse while transport, progress/time and Up next remain visible. Verified with real narrow and expanded layouts. Behind the Build angle: familiar artwork and obvious controls can coexist in a small music player.
+
+## 2026-09-06 — Player attribution clarity
+A separator dot did not communicate which text was the band. Label Song and Band explicitly, retain credits on phones, and never confuse the subject of a tribute with its performer. Actual browser text and narrow-screen visibility checked. Behind the Build: attractive metadata still needs clear meaning.

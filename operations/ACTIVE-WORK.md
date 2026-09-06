@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Attribution labels: VERIFIED LOCAL.** Dot replaced by explicit Song and Band labels, both visible on phones; DJ intro uses Now and Host. Browser reads Song: Welcome to SUNNYVAiLE / Band: THE LAiDIES. Dolly Parton is part of a saint-song title; catalogue band is Grand Ol' Query, not Dolly. No publishing. Slim default player remains outstanding; current wallpaper size is not accepted.
+
 > **2026-09-06 — Wallpaper player: LOCAL PREVIEW / OWNER REVIEW PENDING.** Ali requested a preview of the proposed illustrated casing and compact phone controls. Existing Rewind wallpaper reused with mint/lime panels, larger title, decorative CD removed. Mobile More controls reveals volume, shuffle, repeat, pop-out, station and stop; progress and transport stay visible. Actual 1280/390/320px checked with no horizontal overflow; native toggle, volume keyboard and pause work. No deployment. Evidence: `operations/ksvl-player-colours-20260906/WALLPAPER-PREVIEW.md`.
 
 > **2026-09-06 — Slider clarity: VERIFIED LOCAL.** Visible Volume and Track progress labels plus elapsed/total time implemented. Actual1280/390/320px checked, narrow sliders align and no overflow; keyboard volume changed75% to70%, progress/time updated from0:41 to1:24 of4:04. Time format boundaries and existing Up next tests pass. Not published; CD remains rejected. Suggested next direction (not built/approved): illustrated casing inspired by current homepage Rewind wallpaper, larger song hierarchy, compact expandable phone controls.

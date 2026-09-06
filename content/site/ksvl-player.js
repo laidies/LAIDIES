@@ -346,7 +346,7 @@
     + '.ksvl-np-btn--toggle.is-active .ksvl-np-lbl { opacity: 1; color: #492878; }'
     + '.ksvl-np-btn--stop:hover .ksvl-np-ico { border-color: #492878; color: #492878; background: rgba(113,55,214,0.18); }'
     + '@media (max-width: 860px) { .ksvl-np-lbl { display: none; } .ksvl-np-group + .ksvl-np-group { margin-left: 6px; padding-left: 8px; } }'
-    + '@media (max-width: 620px) { .ksvl-np-info .ksvl-np-position { display: none; } .ksvl-now-playing { padding: 8px 12px; gap: 6px; flex-wrap: wrap; } .ksvl-np-info { flex: 1 1 calc(100% - 54px); } .ksvl-np-controls { flex: 1 1 100%; justify-content: center; gap: 4px; } .ksvl-np-group + .ksvl-np-group { margin: 0; padding: 0; border: 0; } .ksvl-np-ico { width: 31px; height: 31px; } .ksvl-np-btn--play .ksvl-np-ico { width: 42px; height: 42px; } .ksvl-np-seek { width: 132px; } }';
+    + '@media (max-width: 620px) { .ksvl-np-info .ksvl-np-position { display: block; } .ksvl-now-playing { padding: 8px 12px; gap: 6px; flex-wrap: wrap; } .ksvl-np-info { flex: 1 1 calc(100% - 54px); } .ksvl-np-controls { flex: 1 1 100%; justify-content: center; gap: 4px; } .ksvl-np-group + .ksvl-np-group { margin: 0; padding: 0; border: 0; } .ksvl-np-ico { width: 31px; height: 31px; } .ksvl-np-btn--play .ksvl-np-ico { width: 42px; height: 42px; } .ksvl-np-seek { width: 132px; } }';
 
   // Rewind artwork is a real image; CSS only frames readable working panels.
   STYLE += '.ksvl-now-playing { box-sizing:border-box; background:#c195e9 url("/assets/homepage/rewind-wallpaper-20260906.webp") repeat center center / 380px 380px; border-top:3px solid #492878; padding:12px 16px; gap:12px; align-items:stretch; box-shadow:0 -4px 14px rgba(40,20,65,.2); }'
@@ -359,7 +359,7 @@
     + '.ksvl-np-more { display:none; min-height:44px; border:2px solid #492878; border-radius:8px; padding:7px 10px; background:#c195e9; color:#24152f; font:700 12px/1.2 Jost,sans-serif; cursor:pointer; }'
     + '.ksvl-np-field-heading { min-height:0; font-size:11px; } .ksvl-np-progress-field { width:180px!important; } .ksvl-np-progress-field input { width:100%; margin-inline:0; }'
     + '@media(max-width:1100px) { .ksvl-now-playing { flex-wrap:wrap; } .ksvl-np-info { flex:1 1 100%; } .ksvl-np-controls { flex:1 1 100%; justify-content:center; } }'
-    + '@media(max-width:620px) { .ksvl-now-playing { padding:8px; gap:7px; max-height:85dvh; overflow-y:auto; } .ksvl-np-info { padding:9px 12px; } .ksvl-np-track { font-size:17px; } .ksvl-np-info .ksvl-np-position { display:none; } .ksvl-np-mix { font-size:9px; margin-bottom:3px; } .ksvl-np-up-next { font-size:11px; margin-top:3px; }'
+    + '@media(max-width:620px) { .ksvl-now-playing { padding:8px; gap:7px; max-height:85dvh; overflow-y:auto; } .ksvl-np-info { padding:9px 12px; } .ksvl-np-track { font-size:17px; } .ksvl-np-info .ksvl-np-position { display:block; } .ksvl-np-mix { font-size:9px; margin-bottom:3px; } .ksvl-np-up-next { font-size:11px; margin-top:3px; }'
     + '.ksvl-np-controls { display:grid; grid-template-columns:1fr auto; padding:7px 10px; gap:3px 8px; } .ksvl-np-deck { justify-content:flex-start; gap:8px; } .ksvl-np-more { display:block; } .ksvl-np-progress-field { grid-column:1 / -1; width:100%!important; } .ksvl-np-field-heading { min-height:0; flex-wrap:nowrap; } .ksvl-np-progress-field input { min-height:32px; }'
     + '.ksvl-np-extras { display:none; grid-column:1 / -1; flex-wrap:wrap; justify-content:center; gap:6px 12px; padding-top:6px; border-top:1px solid #492878; } .ksvl-now-playing.is-expanded .ksvl-np-extras { display:flex; } .ksvl-np-extras .ksvl-np-slider-field { width:92px; } .ksvl-np-lbl { font-size:9px; } .ksvl-np-ico { width:30px; height:30px; } .ksvl-np-btn--play .ksvl-np-ico { width:38px; height:38px; } }';
 
@@ -647,8 +647,8 @@
     // Show the current part's label if this is a multi-part track (intro/spot pair).
     var displayTitle = (track.parts && part && part.title) ? part.title : track.title;
     var displayArtist = (track.parts && part && part.artist) ? part.artist : track.artist;
-    npTrack.textContent = displayTitle;
-    npPosition.textContent = ' · ' + displayArtist;
+    npTrack.textContent = ((track.parts && part && part.artist === 'DJ SunnyV') ? 'Now: ' : 'Song: ') + displayTitle;
+    npPosition.textContent = ((track.parts && part && part.artist === 'DJ SunnyV') ? 'Host: ' : 'Band: ') + displayArtist;
     setBtnIcon(npPlayBtn, state.paused ? '▶' : '⏸');
     setBtnLabel(npPlayBtn, state.paused ? 'Resume' : 'Pause');
     npPlayBtn.setAttribute('aria-label', state.paused ? 'Resume' : 'Pause');
