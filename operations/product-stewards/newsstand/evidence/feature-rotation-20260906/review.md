@@ -7,3 +7,5 @@ Root inspected complete desktop rendering and original generated pixels. Indepen
 Both game constructors and NewsStand use shared versioned artwork. The game was recovered from the current public predecessor, preserving newer public header/player fixes absent from git HEAD. Only two game image URL expressions changed against production. Canonical deck unchanged, SHA c5df582745bea20584e8a593498cbb9f286bee3a1703a77ec282b1017f319bd1.
 
 Only Backpack and Jelly artwork replaced. Four untracked legacy art copies are excluded. Catch Me Up independent review remains HOLD due source-packet evidence mismatch; no new admission or publication claimed. Individual Mme service renewal superseded by reuse of existing deck. Broader editorial work remains open.
+
+Published source 1a9474fd, immutable 00e6bc4c. 18 exact public byte comparisons and actual custom-origin desktop/390px checks succeeded. Game active/history versioned images loaded in a real draw. General git hooks were skipped because this sparse worktree omits their unrelated dependencies; targeted tests and scope checks ran.

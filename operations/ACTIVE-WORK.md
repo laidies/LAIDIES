@@ -1,10 +1,14 @@
-<!-- September 6 shared art / rotation: BUILDING, publication pending -->
-Candidate /private/tmp/laidies-newsstand-full-rotation-56bo37_7 reuses all 100 Mme
-CLAi-O cards, one weekly LUMINAiRY spotlight and Ali's teaching/sisterhood message.
-Backpack and Jelly shared art replaced in candidate, versioned in game/history
-and newspaper. Independent Terra reviews accepted; exact scoped release pending.
-Mme individual renewal superseded. Catch Me Up actual review stopped on a source
-packet evidence mismatch; it remains private HOLD, not published.
+<!-- September 6 shared art / rotation: VERIFIED PUBLICLY -->
+Published source 1a9474fd at https://00e6bc4c.laidies-sunnyvaile.pages.dev and
+https://laidies.ai/newsstand. Seven changed public paths; 742 predecessor files
+preserved. All 18 custom/immutable response hashes match. Live desktop/390 px:
+Jelly image loaded at 1024px, no broken loaded images or overflow, single Sister
+Mary Clarence spotlight. Game journey drew canonical text-only Milky Pen and
+illustrated Zenon with versioned active/history paths. Candidate saint song
+played to seek61 and stopped. Full 100-card and three-wing roster fixtures pass.
+Only Backpack and Jelly artwork replaced; all other deck art remains as before.
+Mme individual renewal superseded by canonical deck rotation. Catch Me Up remains
+private HOLD on source-packet mismatch; broader editorial work remains open.
 
 <!-- NewsStand September 6 display repair: VERIFIED PUBLICLY; editorial renewal BUILDING -->
 NewsStand display repair is deployed at https://3cccc225.laidies-sunnyvaile.pages.dev
