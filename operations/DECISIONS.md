@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Whole-frame zoom rejected; independent Ai motion required
+
+Ali rejected the original-footage zoom as worse and ineffective. No whole-frame zoom/crop qualifies as Ai emphasis. Preserve original brush artwork and rich background; isolate the original A/i letter group for independent centred movement, with L/DIES moving apart and reassembling. No slogan. Both earlier candidate admissions are invalidated. Original flattened footage is the baseline; layer extraction needs private proof before another owner preview.
+
 ## 2026-09-06 — Ai pilot rejected; preserve original animation
 
 Ali rejected the native-text pilot: lettering/backgrounds plain and unrelated, icon crossfades boring, and brand-explanation slogan unwanted. Preserve original brush lettering, vivid comic backgrounds and energetic original icon motion. Ai emphasis must be motion only. Original admitted v10 video is the baseline, not the Jost web masthead. The previous pilot review verdicts are invalidated; exact rejection and prevention live in ai-original-repair-20260906/owner-rejection.md. Continue repair autonomously under routine preview authority. Original-footage successor is privately reviewable after actual Sol/Claude successor admission; bind its exact source, original master hash and corrected phone evidence. This is not visual approval or public release.

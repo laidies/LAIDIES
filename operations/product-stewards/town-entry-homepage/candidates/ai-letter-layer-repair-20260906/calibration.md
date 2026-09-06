@@ -1,0 +1,2 @@
+# Rejection calibration
+Sol /root/independent_ai_judge inspected the preceding zoom candidate without the expected verdict and rejected its cropped L/D/IES remnants and failure to isolate Ai. See sol-review-v1.md. Owner rejection invalidates prior zoom admissions. The current successor also first received HOLD for moving background fragments; those masks were repaired before admission. Exact-file admission is separately forward-tested using an incorrect candidate SHA; it must reject.

@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { homepageCorrectionId, inspectHomepageCorrection } from './lib/homepage-correction-admission.mjs';
 
-import { aiArrivalId, inspectAiArrival, originalArrivalId, inspectOriginalArrival } from './lib/ai-arrival-admission.mjs';
+import { aiArrivalId, inspectAiArrival, originalArrivalId, inspectOriginalArrival, letterArrivalId, inspectLetterArrival } from './lib/ai-arrival-admission.mjs';
 
 const root = process.cwd();
 const fixtureMode = process.argv.includes('--fixture');
@@ -109,6 +109,10 @@ for (const item of designGateCandidates) {
   const admission = item.design_admission;
   if (!admission) {
     errors.push(`${item.id}: building-page visual is missing design_admission`);
+    continue;
+  }
+  if (admission.owner_exception === letterArrivalId) {
+    errors.push(...inspectLetterArrival(item, root).map(error => `${item.id}: ${error}`));
     continue;
   }
   if (admission.owner_exception === originalArrivalId) {

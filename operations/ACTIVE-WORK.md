@@ -1,12 +1,12 @@
 # Active work
 
-## 2026-09-06 Homepage Ai arrival — original-footage repair
+## 2026-09-06 Homepage Ai arrival — independent letter repair
 
-- **Status:** IMPLEMENTED AND LOCALLY VERIFIED; private preview ADMITTED under owner routine-preview autonomy. Branch `codex/homepage-ai-reveal-20260906`.
-- **Owner rejection:** Native-text pilot invalidated: wrong lettering/backgrounds, boring icon crossfades, unwanted slogan. Exact bytes quarantined; prior verdicts invalidated. Ali directed continued repair, not acknowledgment-only stops.
-- **Repair:** Reuses byte-identical original brush-lettered v10 video and original icon motion. Eased camera toward original Ai, then returns full word; dial-up and VHS bookends. No slogan. Phone seam repaired and companion plate synchronized.
-- **Evidence:** `operations/product-stewards/town-entry-homepage/candidates/ai-original-repair-20260906/`. Original-pixel comparison, independent Sol blind failure calibration, actual Sol/Claude successor admission, desktop/390/320 checks, uninterrupted clip completion, pause/resume, static reduced-motion fallback, both tracking frames. New guard rejects replacement footage and slogan. Fine temporal smoothness is not independently judged by still reviewers; browser dropped-frame API unavailable.
-- **Boundary:** Private owner preview only; no public deployment. Do not infer Ali visual approval. Current browser preview runs localhost8789.
+- **Status:** BUILT LOCALLY; exact private preview admission passed, including wrong-SHA rejection calibration. Ali taste acceptance pending. Branch `codex/homepage-ai-reveal-20260906`.
+- **Owner rejection:** Both native-text rewrite and whole-frame zoom are rejected; earlier admission verdicts invalidated. Preserve original brush/background/icon character; no slogan; Ai itself must take centre.
+- **Repair:** Source brush pixels split into original A, i and outer letters. L/DIES move aside while Ai centres; permanent i stem remains under original six icon transformations. All source frames finish before full-name reassembly, visual dial-up/VHS bookends lead to masthead. Fixed stationary background; phone undistorted original comic base.
+- **Evidence:** `operations/product-stewards/town-entry-homepage/candidates/ai-letter-layer-repair-20260906/`. Actual Sol and Claude pixel admissions after fragment/stem repairs; continuous 7.7-second browser completion; canvas/video pause, Skip focus, reduced-motion and narrow-phone checks. Stills do not prove smooth motion. Dial-up audio not added.
+- **Boundary:** Private preview only at localhost8789; no public deployment or owner taste approval. Original rejected versions preserved in quarantine. Do not resume the rejected camera version.
 
 ## 2026-09-05 NewsStand source-to-reader continuation
 
