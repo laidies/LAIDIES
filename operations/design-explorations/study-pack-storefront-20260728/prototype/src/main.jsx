@@ -1,14 +1,15 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import "../../../../../content/site/sv-gold-icons.js";
-import "../../../../../content/site/sunnyvaile-directory.js";
-import "../../../../../content/site/sv-global-header.js";
-import "../../../../../content/site/sv-nav-auth.js";
 import { App } from "./App.jsx";
 import "./styles.css";
-
-createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-);
+async function start(){
+  if(import.meta.env.DEV&&['localhost','127.0.0.1'].includes(location.hostname)&&new URLSearchParams(location.search).get('fixture')==='synthetic-episode-binder'){
+    const {installBinderPreflight}=await import('../../../episode-01-three-tabs-one-task-20260727/prototype/src/binderPreflight.js');installBinderPreflight();
+  }
+  await import('../../../../../content/site/sv-gold-icons.js');
+  await import('../../../../../content/site/sunnyvaile-directory.js');
+  await import('../../../../../content/site/sv-global-header.js');
+  await import('../../../../../content/site/sv-nav-auth.js');
+  createRoot(document.getElementById('root')).render(<React.StrictMode><App/></React.StrictMode>);
+}
+start();

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Episode 01 Pop Quiz candidate · private review</title>
+  <link rel="stylesheet" href="/content/site/quiz-v2.css">
+</head>
+<body class="quiz-v2" data-clarity-mask="true">
+  <p class="quiz-result" role="note">Episode 01 private candidate · local review only · not admitted public content.</p>
+  <main>
+    <section class="quiz-hero">
+      <p class="eyebrow">Pop Quiz · SUNNYVAiLE High</p>
+      <h1>On Wednesdays We Do AI</h1>
+      <p>Answer the ten scored questions, then add either bonus answer if you want. Review each explanation before deciding whether to save this private attempt to your Episode Binder.</p>
+    </section>
+    <div class="quiz-container" id="quiz-start">
+      <div class="quiz-console">
+        <div class="quiz-console-header">
+          <p class="eyebrow">Episode 01 candidate · version 2026-09-06-v1</p>
+          <h3>Check what each answer means</h3>
+        </div>
+        <p class="quiz-result" id="quizStatus" aria-live="polite">Loading the private candidate…</p>
+        <form id="quizForm" class="quiz-form" hidden>
+          <div id="quizQuestions" class="quiz-questions" aria-live="polite"></div>
+          <div class="quiz-actions">
+            <button class="button primary" type="submit">Check my answers</button>
+            <button class="button secondary" id="quizResetButton" type="button">Start a new attempt</button>
+            <button class="button secondary" id="quizSaveButton" type="button" disabled>Save this attempt to my binder</button>
+            <button class="button ghost" id="quizRetryButton" type="button" hidden>Retry this save</button>
+            <button class="button ghost" id="quizAbandonButton" type="button" hidden>Abandon uncertain save</button>
+            <button class="button ghost" id="quizOpenSavedButton" type="button" hidden>Open latest saved attempt</button>
+            <a class="button ghost" id="quizSignInLink" href="/laidies-card.html">Sign in to save</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+  <script src="/content/site/supabase-config.js"></script>
+  <script src="/content/site/identity-client-v1.js"></script>
+  <script src="/content/site/resident-account-runtime-v1.js"></script>
+  <script src="/content/site/resident-episode-binder-v1.js"></script>
+  <script type="module" src="./quiz-preview.mjs"></script>
+</body>
+</html>

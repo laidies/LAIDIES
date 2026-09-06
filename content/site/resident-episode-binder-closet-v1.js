@@ -25,7 +25,7 @@
         }
         for(const pack of Object.values(episode.packs)){
           const card=element('article',undefined,'episode-binder-item');card.append(element('h4','Study Pack'),element('p',`Saved ${formatDate(pack.saved_at)}`,'episode-binder-date'));
-          card.append(element('p','Your saved edition is kept. Opening this pack is being connected.'));inside.append(card);
+          if(number==='01'&&pack.content_id==='episode-01-cheat-sheet'&&pack.content_version==='2026-09-06-v1'){const link=element('a','Open my Cheat Sheet','episode-binder-open');link.href='/blend-snap.html?packVersion=2026-09-06-v1#episode-01-cheat-sheet';card.append(link);}else card.append(element('p','This earlier saved edition is kept. Its reading page is not available here yet.'));inside.append(card);
         }
         if(Object.keys(episode.cards).length){
           const card=element('article',undefined,'episode-binder-item');card.append(element('h4','Trading cards'),element('p',`${Object.keys(episode.cards).length} saved cards`));
@@ -34,7 +34,7 @@
           const older=Object.keys(episode.cards).filter(key=>!currentDeck||!['generative-ai','model','hallucination','participation-gap'].some(id=>key===`${id}@2026-09-06-v1`)).length;
           if(older)card.append(element('p',`${older} earlier cards are kept. Their reading pages are not available here yet.`));inside.append(card);
         }
-        for(const quiz of Object.values(episode.quizzes))for(const attempt of quiz.attempts){const card=element('article',undefined,'episode-binder-item');card.append(element('h4','Pop Quiz'),element('p',`${attempt.score} / ${attempt.max_score}`),element('p',`Completed ${formatDate(attempt.completed_at)}`,'episode-binder-date'));inside.append(card);}
+        for(const [quizKey,quiz] of Object.entries(episode.quizzes))for(const attempt of quiz.attempts){const card=element('article',undefined,'episode-binder-item');card.append(element('h4','Pop Quiz'),element('p',`${attempt.score} / ${attempt.max_score}`),element('p',`Completed ${formatDate(attempt.completed_at)}`,'episode-binder-date'));if(number==='01'&&quizKey==='episode-01-quiz@2026-09-06-v1'){const link=element('a','Review this quiz attempt','episode-binder-open');link.href=`/learn/quiz.html?issue=1&version=2026-09-06-v1&attempt=${encodeURIComponent(attempt.attempt_id)}`;card.append(link);}inside.append(card);}
       }
       page.append(inside);host.append(page);
     }

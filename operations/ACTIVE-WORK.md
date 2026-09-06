@@ -4,9 +4,10 @@
 > Ali's active goal includes revised written editions and narration/audio, useful concise Cheat Sheets,
 > interactive exercises, four-concept Episode01 trading cards, quizzes and account-backed episode binders.
 > Episodes01–03 govern voice/Rewind reference density; every episode needs one or two current Saints with teaching jobs.
-> Core `9f94f4c2` and exercise integration `f8205755` are local implementation checkpoints, not public release.
+> Core/exercise work, Closet integration `41dc8993` and cards/scorer `b5248743` are implementation checkpoints, not public release.
 > Synthetic browser and actual isolated PostgreSQL checks cover complete Episode01 fields, retry and account separation.
-> Closet retrieval, pack/card/quiz integration, full design/content review, live saving and new audio remain open.
+> Local sheet → Closet → exact edition and quiz → Closet → exact attempt reopening are now browser-verified with synthetic accounts.
+> Puffy integration, multiple exercise preservation, complete design/content review, live saving and new audio remain open.
 > Continue in `/Users/alisoneakin/Projects/laidies-episode-review-20260906`; detailed resume: `operations/episode-review-resume-2026-09-06.md`.
 > Trailer, other binders and later-season mapping are deferred. Shared iCloud working files are preserved.
 
