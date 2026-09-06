@@ -617,6 +617,42 @@ For `YYYY-MM-DD`, the authoritative radar input must exist at:
 Its NewsStand row uses the structured `- **NewsStand:** ...` form. A quiet
 day is `- **NewsStand:** NO NEW HANDOFF.`; the coordinated radar's explicit
 `**Result:** QUIET` is also accepted when no NewsStand row is present.
+For a final QUIET issue dated September 5, 2026 or later, that line alone is
+insufficient. Add exactly one fenced JSON block with
+`schemaVersion: "newsstand-daily-coverage-v1"` to the same dated radar. It contains:
+
+- `asOf`: the actual Vancouver research date, equal to the issue date.
+- `deskChecks`: all six current routes from
+  `operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json`.
+  Each object has exactly `routeId`, `readAt`, `outcome`, `assessmentSummary`,
+  `dispositionRefs`, `unresolvedCandidateIds` and `sourceChecks`.
+- Each `sourceChecks` object has exactly `sourceId`, `url`, `readAt`, `outcome`,
+  `assessmentSummary` and `dispositionRefs`. Include every exact source ID/URL
+  governed by that route. Record actual assessments and timezone-bearing ISO
+  times on that Vancouver date; future timestamps fail.
+- Outcomes are `NO_MATERIAL_CHANGE`, or `NO_UNCOVERED_MATERIAL_STORY` with
+  nonempty disposition references. References are `story:<published-story-id>`
+  or `terminal:<reason>:<candidate-id>`, where reason is `duplicate`,
+  `false-premise`, `no-distinct-reader-value` or `no-longer-relevant`. Explain
+  the terminal judgment in the assessment. An evidence/access hold is not a
+  terminal disposition. Every `unresolvedCandidateIds` array must be empty.
+- `aidb` has exactly `inventory` and `cursor`, each an exact `{path, sha256}`
+  binding. Inventory is the existing `daily/YYYY-MM-DD-aidb-inventory.json`;
+  cursor is the existing `edition-cursor.json`, both under
+  `operations/agents/aidb-intelligence-desk/`. The actual selector must return
+  `QUIET_NO_NEW_COMPLETE_AIDB_EDITION` with `quietAllowed: true`.
+
+The composer binds this block and the authoritative promoter rechecks it.
+Expired routes, omitted desks, incomplete channels, unreviewed releases,
+invented published-story references and changed evidence fail. This records
+inspectable work; it does not prove exhaustive coverage or comprehension of a
+remote page. Preserve an admitted issue's bound radar unchanged and put later
+research in a separate private continuation. Evening research keeps its actual
+date; morning checks record when they really happened.
+
+This requirement applies only to final QUIET issues. Independently admitted
+ordinary news and SERVICE_READY issues can publish while other desks have
+outstanding source work. Never describe that publication as complete research.
 A quiet news day may still produce a SERVICE_READY issue from exactly admitted,
 unexpired bank content. Reuse requires a newly dated record with a unique ID,
 `predecessorRecordId`, unchanged source copy and exact independent admission.

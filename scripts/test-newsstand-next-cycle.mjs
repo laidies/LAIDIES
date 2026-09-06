@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Isolated synthetic fixtures only. Never admits a real candidate or writes the site.
 import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -9,8 +10,9 @@ import { pathToFileURL, fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const fixture = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), 'newsstand-next-cycle-test-')));
 const put = (name, value) => { const dest = path.join(fixture, name); fs.mkdirSync(path.dirname(dest), {recursive:true}); fs.writeFileSync(dest, value); };
-for (const name of ['newsstand-service-continuity','newsstand-career-lane','validate-newsstand-ordinary-story-candidate','newsstand-story-lineage','prepare-newsstand-draft','validate-newsstand-story-type-coverage','check-content-producer-contract','check-prose-quality-admission','compose-daily-edition','promote-daily-edition','publish-daily-edition','build-newsstand-derivatives']) put(`scripts/${name}.mjs`, fs.readFileSync(path.join(ROOT, `scripts/${name}.mjs`)));
+for (const name of ['newsstand-service-continuity','newsstand-career-lane','select-aidb-edition','check-practitioner-signal-pilot','validate-newsstand-ordinary-story-candidate','newsstand-story-lineage','prepare-newsstand-draft','validate-newsstand-story-type-coverage','check-content-producer-contract','check-prose-quality-admission','compose-daily-edition','promote-daily-edition','publish-daily-edition','build-newsstand-derivatives']) put(`scripts/${name}.mjs`, fs.readFileSync(path.join(ROOT, `scripts/${name}.mjs`)));
 put('operations/product-stewards/newsstand/story-type-modules.json', fs.readFileSync(path.join(ROOT, 'operations/product-stewards/newsstand/story-type-modules.json')));
+put('operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json', fs.readFileSync(path.join(ROOT, 'operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json')));
 put('scripts/lib/newsstand-luminairy-links.mjs', fs.readFileSync(path.join(ROOT, 'scripts/lib/newsstand-luminairy-links.mjs')));
 put('content/newsstand-reader-contract.js', fs.readFileSync(path.join(ROOT, 'content/newsstand-reader-contract.js')));
 put('content/luminairy-profiles.json', fs.readFileSync(path.join(ROOT, 'content/luminairy-profiles.json')));
@@ -28,18 +30,35 @@ const contract = contractContext.module.exports;
 const tomorrow = new Date(Date.parse(base.publications.daily.editionDate+'T12:00:00Z')+86400000).toISOString().slice(0,10);
 const encode = data => `window.NEWSSTAND_DATA = ${JSON.stringify(data,null,2)};\n`;
 const store = {schemaVersion:'daily-issues-v1',owner:'newsstand-daily',issues:[]};
-function compose(date, data=base, columns=bank) {
+const sourceRoster = JSON.parse(fs.readFileSync(path.join(ROOT, 'operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json'), 'utf8'));
+const hash = value => crypto.createHash('sha256').update(value).digest('hex');
+function quietCoverage(date) {
+  const inventoryPath = `operations/agents/aidb-intelligence-desk/daily/${date}-aidb-inventory.json`;
+  const cursorPath = 'operations/agents/aidb-intelligence-desk/edition-cursor.json';
+  const inventory = { schema: 'aidb-edition-inventory.v2', editions: [], channelChecks: [
+    { channel: 'website', url: 'https://fixture.invalid/website', checkedAt: `${date}T18:00:00Z`, status: 'CHECKED', releaseUrls: [] },
+    { channel: 'podcast', url: 'https://fixture.invalid/podcast', checkedAt: `${date}T18:00:00Z`, status: 'CHECKED', releaseUrls: [] }
+  ] };
+  const cursor = { schemaVersion: 'aidb-edition-cursor-v1', processedEditions: [] };
+  put(inventoryPath, JSON.stringify(inventory)); put(cursorPath, JSON.stringify(cursor));
+  return { schemaVersion: 'newsstand-daily-coverage-v1', asOf: date,
+    deskChecks: sourceRoster.newsstandCoverage.deskRoutes.map(route => ({ routeId: route.id, readAt: `${date}T18:00:00Z`, outcome: 'NO_MATERIAL_CHANGE', assessmentSummary: 'SYNTHETIC FIXTURE ONLY: no new material simulated.', dispositionRefs: [], unresolvedCandidateIds: [], sourceChecks: route.sourceIds.map(sourceId => ({ sourceId, url: sourceRoster.sources.find(source => source.id === sourceId).channelUrl, readAt: `${date}T18:00:00Z`, outcome: 'NO_MATERIAL_CHANGE', assessmentSummary: 'SYNTHETIC FIXTURE ONLY: no new material simulated.', dispositionRefs: [] })) })),
+    aidb: { inventory: { path: inventoryPath, sha256: hash(JSON.stringify(inventory)) }, cursor: { path: cursorPath, sha256: hash(JSON.stringify(cursor)) } }
+  };
+}
+function compose(date, data=base, columns=bank, { sourceHold = false } = {}) {
   const radarPath = path.join(fixture,`operations/agents/aidb-intelligence-desk/daily/${date}.md`);
-  const radarRaw = `# Synthetic test only ${date}\n\n**Result:** QUIET\n`;
+  const coverage = sourceHold ? null : quietCoverage(date);
+  const radarRaw = `# Synthetic test only ${date}\n\n**Result:** QUIET\n${sourceHold ? '\nSYNTHETIC SOURCE HOLD: AIDB reconciliation is intentionally incomplete.\n' : `\n\`\`\`json\n${JSON.stringify(coverage, null, 2)}\n\`\`\`\n`}`;
   const storiesRaw=encode(data), columnsRaw=JSON.stringify(columns);
   put(path.relative(fixture,radarPath),radarRaw); put('content/newsstand-stories.js',storiesRaw); put('content/daily-edition-columns.json',columnsRaw);
-  const args={date,radarPath,radarRaw,storiesRaw,columnsRaw};
+  const args={date,radarPath,radarRaw,storiesRaw,columnsRaw,now:`${date}T20:00:00Z`};
   const a=composeDailyEnvelope(args), b=composeDailyEnvelope(args);
   assert.equal(a.canonical,b.canonical,'composition deterministic');
   return a;
 }
-function cycle(date,data,columns) {
-  const c=compose(date,data,columns), now=`${date}T20:00:00Z`;
+function cycle(date,data,columns, options) {
+  const c=compose(date,data,columns, options), now=`${date}T20:00:00Z`;
   const decision={schemaVersion:'daily-issue-admission-v1',decision:'ACCEPT_LOCAL_CANONICAL_WRITE',editionDate:date,envelopeSha256:c.sha256,reviewedAt:now,reviewedBy:'independent-synthetic-test-fixture',reviewerRole:'independent test fixture ONLY, not editorial admission'};
   const args={store,envelope:c.envelope,envelopeRaw:c.canonical,decision,maker:'synthetic-fixture-maker',now};
   const first=promoteDailyIssue(args);
@@ -65,11 +84,12 @@ const prior=bank.records.find(r=>admittedIds.has(r.id)&&r.type!=='career_life'&&
 if (!prior) throw new Error('test needs one previously admitted service exemplar');
 const service={...structuredClone(prior),id:`TEST-${tomorrow}-SERVICE`,editionDate:tomorrow,predecessorRecordId:prior.id,freshness:{...prior.freshness,expiresAt:tomorrow}};
 const serviceBank={...bank,records:[...bank.records,service]};
-const ready=cycle(tomorrow,base,serviceBank);
+const ready=cycle(tomorrow,base,serviceBank,{sourceHold:true});
 const afterQuiet=cycle(tomorrow,quiet.projected,serviceBank);
 assert.deepEqual(afterQuiet.first.issue.serviceRecordIds,[service.id],'service test does not depend on a nonempty incumbent issue');
 assert.deepEqual(ready.first.issue.serviceRecordIds,[service.id]);
 assert.equal(ready.first.issue.disposition,'service_ready');
+assert.equal(ready.c.envelope.sourceIdentity.dailyCoverage, undefined, 'synthetic source hold cannot block an independently admitted service issue or become a quiet binding');
 for (const invalid of [{status:'HOLD'},{publicEligibility:'INELIGIBLE'},{editionDate:'2099-01-01'},{freshness:{...service.freshness,expiresAt:'2000-01-01'}}]) {
   assert.equal(compose(tomorrow,base,{...bank,records:[{...service,...invalid}]}).envelope.desks.filter(d=>d.state==='ready').length,0,'unsafe service excluded');
 }

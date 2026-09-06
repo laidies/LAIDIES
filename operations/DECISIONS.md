@@ -91,7 +91,16 @@ release is introduced.
 The September 5 runbook also requires a dated standing-route check and actual
 independent desk research; a route PASS cannot certify source coverage. The
 existing roster and `check-practitioner-signal-pilot.mjs --newsstand-only`
-bind those local inputs. Behind the Build reuses
+bind those local inputs. For issue dates from September 5, a final QUIET issue
+must bind the dated six-desk/source assessments and exact AIDB inventory/cursor
+in its existing radar record. Both composer and authoritative promoter validate
+these through the existing source-route and AIDB selectors. Missing access,
+unreviewed releases and unresolved candidates cannot become quiet. This is a
+recorded-work completeness check, not certification that remote research is
+exhaustive. Independently admitted news and SERVICE_READY issues remain able to
+publish while unrelated source work is held; earlier frozen issues retain their
+historical contract. The runbook names the exact record shape and failure tests.
+Behind the Build reuses
 `docs/product/behind-the-build-learning-system.md`, the existing painpoints log
 and publication queue; the service preparer supports it as optional, not a new
 required daily desk. Ali's real lessons/mistakes/corrections purpose is DECIDED;

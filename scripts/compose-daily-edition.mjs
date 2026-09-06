@@ -10,6 +10,8 @@ import { careerLaneErrors } from "./newsstand-career-lane.mjs";
 import { fileURLToPath } from "node:url";
 import { loadOrdinaryStoryCandidate, vancouverDay } from "./validate-newsstand-ordinary-story-candidate.mjs";
 import { loadServicePredecessor, carryIdentity, serviceEligible, validateServiceSelection } from "./newsstand-service-continuity.mjs";
+import { selectAidbEdition } from "./select-aidb-edition.mjs";
+import { validateNewsstandSourceRoutes } from "./check-practitioner-signal-pilot.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PRIVATE_ROOT = path.join(ROOT, "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private");
@@ -25,6 +27,8 @@ const canonicalJson = (value) => {
   return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${canonicalJson(value[key])}`).join(",")}}`;
 };
 const reject = (message) => { throw new Error(`DAILY_EDITION_COMPOSER_REJECT: ${message}`); };
+const QUIET_COVERAGE_START = "2026-09-05";
+const HASH = /^[a-f0-9]{64}$/;
 
 function parseStories(raw) {
   const context = { window: {} };
@@ -33,7 +37,92 @@ function parseStories(raw) {
   return JSON.parse(JSON.stringify(context.window.NEWSSTAND_DATA));
 }
 
-export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw, candidateBinding = null, servicePredecessor = null, root = ROOT }) {
+const coverageVancouverDay = (value) => {
+  if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/.test(value) || !Number.isFinite(Date.parse(value))) return null;
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Vancouver", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date(value));
+};
+const exactKeys = (value, keys, label) => {
+  if (!value || typeof value !== "object" || Array.isArray(value) || Object.keys(value).sort().join("\n") !== [...keys].sort().join("\n")) reject(`${label} keys do not match the contract`);
+};
+const validDispositionRefs = (refs) => Array.isArray(refs) && refs.every((ref) => typeof ref === "string" && /^(?:story:[a-z0-9]+(?:-[a-z0-9]+)*|terminal:(?:duplicate|false-premise|no-distinct-reader-value|no-longer-relevant):[a-z0-9]+(?:-[a-z0-9]+)*)$/.test(ref));
+const readBoundJson = (root, binding, expectedPath, label) => {
+  exactKeys(binding, ["path", "sha256"], label);
+  if (binding.path !== expectedPath || !HASH.test(binding.sha256 || "")) reject(`${label} binding is invalid`);
+  const absolute = path.join(root, binding.path);
+  if (!fs.existsSync(absolute)) reject(`${label} file is missing`);
+  const raw = fs.readFileSync(absolute, "utf8");
+  if (sha256(raw) !== binding.sha256) reject(`${label} bytes changed`);
+  try { return { raw, value: JSON.parse(raw) }; } catch { reject(`${label} is not valid JSON`); }
+};
+
+// A dated receipt is evidence of recorded source work, not proof that a person
+// understood a remote page. Quiet is withheld unless that record is complete.
+export function validateDailyQuietCoverage({ date, radarRaw, root = ROOT, now = new Date().toISOString() }) {
+  const nowMs = Date.parse(now);
+  if (!Number.isFinite(nowMs)) reject("quiet coverage validation time is invalid");
+  const fenced = [...radarRaw.matchAll(/```json\s*\n([\s\S]*?)\n```/g)].map((match) => {
+    try { return { raw: match[1], value: JSON.parse(match[1]) }; } catch { return null; }
+  }).filter(Boolean).filter((block) => block.value?.schemaVersion === "newsstand-daily-coverage-v1");
+  if (fenced.length !== 1) reject("quiet receipt requires exactly one newsstand-daily-coverage-v1 JSON block");
+  const { raw: coverageRaw, value: coverage } = fenced[0];
+  exactKeys(coverage, ["schemaVersion", "asOf", "deskChecks", "aidb"], "quiet coverage");
+  if (coverage.asOf !== date || date < QUIET_COVERAGE_START) reject("quiet coverage date is invalid");
+  const rosterPath = path.join(root, "operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json");
+  if (!fs.existsSync(rosterPath)) reject("quiet coverage source roster is missing");
+  const roster = JSON.parse(fs.readFileSync(rosterPath, "utf8"));
+  try { validateNewsstandSourceRoutes(roster, date); }
+  catch (error) { reject(`quiet coverage source routes failed: ${error.message}`); }
+  const routes = roster.newsstandCoverage?.deskRoutes;
+  const sources = new Map((roster.sources || []).map((source) => [source.id, source]));
+  const canonicalStoriesPath = path.join(root, "content/newsstand-stories.js");
+  if (!fs.existsSync(canonicalStoriesPath)) reject("quiet coverage canonical stories are missing");
+  const canonicalStories = new Map(parseStories(fs.readFileSync(canonicalStoriesPath, "utf8")).stories.map((story) => [story.id, story]));
+  const validRef = (ref) => {
+    if (!validDispositionRefs([ref])) return false;
+    if (!ref.startsWith("story:")) return true;
+    const story = canonicalStories.get(ref.slice("story:".length));
+    return Boolean(story && ["published", "corrected"].includes(story.status) && story.sourceApproval?.status === "approved" && Number.isFinite(Date.parse(story.publishedAt)) && Date.parse(story.publishedAt) <= nowMs);
+  };
+  if (roster.newsstandCoverage?.status !== "BOUNDED_RECURRING_ROUTES" || roster.newsstandCoverage?.researchCompletionCertified !== false || !Array.isArray(routes) || routes.length !== 6) reject("quiet coverage source routes are invalid");
+  if (!Array.isArray(coverage.deskChecks) || coverage.deskChecks.length !== routes.length) reject("quiet coverage requires all six desk checks");
+  const checks = new Map(coverage.deskChecks.map((check) => [check?.routeId, check]));
+  if (checks.size !== routes.length) reject("quiet coverage desk routes are duplicated or missing");
+  for (const route of routes) {
+    const check = checks.get(route.id);
+    exactKeys(check, ["routeId", "readAt", "outcome", "assessmentSummary", "dispositionRefs", "unresolvedCandidateIds", "sourceChecks"], `quiet coverage desk ${route.id}`);
+    if (coverageVancouverDay(check.readAt) !== date || Date.parse(check.readAt) > nowMs) reject(`quiet coverage desk ${route.id} was not read on the research date`);
+    if (!['NO_MATERIAL_CHANGE', 'NO_UNCOVERED_MATERIAL_STORY'].includes(check.outcome) || typeof check.assessmentSummary !== "string" || !check.assessmentSummary.trim() || !validDispositionRefs(check.dispositionRefs) || !check.dispositionRefs.every(validRef) || !Array.isArray(check.unresolvedCandidateIds) || check.unresolvedCandidateIds.length || (check.outcome === 'NO_UNCOVERED_MATERIAL_STORY' && !check.dispositionRefs.length)) reject(`quiet coverage desk ${route.id} has unresolved work`);
+    if (!Array.isArray(check.sourceChecks) || check.sourceChecks.length !== route.sourceIds.length) reject(`quiet coverage desk ${route.id} source checks are incomplete`);
+    const sourceChecks = new Map(check.sourceChecks.map((sourceCheck) => [sourceCheck?.sourceId, sourceCheck]));
+    if (sourceChecks.size !== route.sourceIds.length) reject(`quiet coverage desk ${route.id} source checks are duplicated or missing`);
+    for (const sourceId of route.sourceIds) {
+      const source = sources.get(sourceId);
+      const sourceCheck = sourceChecks.get(sourceId);
+      exactKeys(sourceCheck, ["sourceId", "url", "readAt", "outcome", "assessmentSummary", "dispositionRefs"], `quiet coverage source ${sourceId}`);
+      if (!source || sourceCheck.url !== source.channelUrl || coverageVancouverDay(sourceCheck.readAt) !== date || Date.parse(sourceCheck.readAt) > nowMs || !['NO_MATERIAL_CHANGE', 'NO_UNCOVERED_MATERIAL_STORY'].includes(sourceCheck.outcome) || typeof sourceCheck.assessmentSummary !== "string" || !sourceCheck.assessmentSummary.trim() || !validDispositionRefs(sourceCheck.dispositionRefs) || !sourceCheck.dispositionRefs.every(validRef) || (sourceCheck.outcome === 'NO_UNCOVERED_MATERIAL_STORY' && !sourceCheck.dispositionRefs.length)) reject(`quiet coverage source ${sourceId} is not a dated assessment`);
+    }
+  }
+  exactKeys(coverage.aidb, ["inventory", "cursor"], "quiet coverage AIDB");
+  const inventoryPath = `operations/agents/aidb-intelligence-desk/daily/${date}-aidb-inventory.json`;
+  const cursorPath = "operations/agents/aidb-intelligence-desk/edition-cursor.json";
+  const inventory = readBoundJson(root, coverage.aidb.inventory, inventoryPath, "quiet coverage AIDB inventory");
+  const cursor = readBoundJson(root, coverage.aidb.cursor, cursorPath, "quiet coverage AIDB cursor");
+  let aidbSelection;
+  try { aidbSelection = selectAidbEdition(inventory.value, cursor.value, date); }
+  catch (error) { reject(`quiet coverage AIDB selection failed: ${error.message}`); }
+  if (!aidbSelection.quietAllowed || aidbSelection.status !== "QUIET_NO_NEW_COMPLETE_AIDB_EDITION") reject(`quiet coverage AIDB is ${aidbSelection.status}`);
+  return {
+    schemaVersion: coverage.schemaVersion,
+    coverageSha256: sha256(coverageRaw),
+    inventoryPath: coverage.aidb.inventory.path,
+    inventorySha256: coverage.aidb.inventory.sha256,
+    cursorPath: coverage.aidb.cursor.path,
+    cursorSha256: coverage.aidb.cursor.sha256,
+    aidbStatus: "QUIET_NO_NEW_COMPLETE_AIDB_EDITION"
+  };
+}
+
+export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, columnsRaw, candidateBinding = null, servicePredecessor = null, root = ROOT, now = new Date().toISOString() }) {
   if (!DATE.test(date || "")) reject("--date must be YYYY-MM-DD");
   const allowedReceiptPaths = [
     path.join(root, `operations/agents/aidb-intelligence-desk/daily/${date}.md`),
@@ -131,6 +220,8 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
       emptyState: columnsData.emptyStates && columnsData.emptyStates[type] || "No admitted item is filed in this desk."
     };
   });
+  const quietIssue = quiet && !exactStories.length && !eligible.length;
+  const dailyCoverage = quietIssue && date >= QUIET_COVERAGE_START ? validateDailyQuietCoverage({ date, radarRaw, root, now }) : null;
   const envelope = {
     schemaVersion: "daily-private-issue-v1",
     mode: "PRIVATE_DRAFT_ONLY",
@@ -146,7 +237,7 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
     sourceIdentity: {
       radarPath: path.relative(root, radarPath), radarSha256: sha256(radarRaw),
       storiesPath: "content/newsstand-stories.js", storiesSha256: sha256(storiesRaw),
-      columnsPath: "content/daily-edition-columns.json", columnsSha256: sha256(columnsRaw), ...(candidateIdentity ? { ordinaryCandidate: candidateIdentity } : {}),
+      columnsPath: "content/daily-edition-columns.json", columnsSha256: sha256(columnsRaw), ...(dailyCoverage ? { dailyCoverage } : {}), ...(candidateIdentity ? { ordinaryCandidate: candidateIdentity } : {}),
       ...(servicePredecessor ? { servicePredecessor } : {})
     },
     canonicalWrite: false,
