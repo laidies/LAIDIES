@@ -19,7 +19,9 @@
           const card=element('article',undefined,'episode-binder-item');
           const fields=exercise.input_state.fields||exercise.input_state;
           card.append(element('h4','Try-On exercise'),element('p',fields.task||'Saved exercise'),element('p',`Saved ${formatDate(exercise.updated_at)}`,'episode-binder-date'));
-          if(number==='01'&&key===CURRENT_EXERCISE){const link=element('a','Open my exercise','episode-binder-open');link.href='/episode-01-try-on/';card.append(link);}
+          const exerciseId=key.split('@')[0];
+          const currentInstance=key===CURRENT_EXERCISE||key.endsWith('@2026-09-06-v1')&&/^ep01-same-task-different-drafts:[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(exerciseId);
+          if(number==='01'&&currentInstance){const link=element('a','Open my exercise','episode-binder-open');link.href=`/episode-01-try-on/?exercise=${encodeURIComponent(exerciseId)}&version=2026-09-06-v1`;card.append(link);}
           else card.append(element('p','This earlier exercise is kept in your binder. Its editing page is not available here yet.'));
           inside.append(card);
         }

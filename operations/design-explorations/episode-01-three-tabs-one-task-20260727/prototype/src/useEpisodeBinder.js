@@ -7,14 +7,16 @@ import '../../../../../content/site/identity-client-v1.js';
 import '../../../../../content/site/resident-account-runtime-v1.js';
 import '../../../../../content/site/resident-episode-binder-v1.js';
 
-const recordKey=`${schema.exerciseId}@${schema.exerciseVersion}`;
+const UUID=/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+function openingId(){const value=new URLSearchParams(location.search).get('exercise')||schema.exerciseId;return value===schema.exerciseId||value.startsWith(schema.exerciseId+':')&&UUID.test(value.slice(schema.exerciseId.length+1))?value:schema.exerciseId;}
+const recordKey=id=>`${id}@${schema.exerciseVersion}`;
 const fingerprintOf=input=>JSON.stringify(Object.keys(input.fields).sort().map(key=>[key,input.fields[key]]));
 export function useEpisodeBinder(snapshot,restore,reset) {
   const [phase,setPhase]=useState('loading');
   const [message,setMessage]=useState('Checking your episode binder…');
   const [savedFingerprint,setSavedFingerprint]=useState('');
   const latest=useRef({snapshot,restore,reset}); latest.current={snapshot,restore,reset};
-  const refs=useRef({runtime:null,binder:null,owner:'',pendingKey:null,saved:null,undo:null,epoch:0});
+  const refs=useRef({runtime:null,binder:null,owner:'',pendingKey:null,saved:null,undo:null,epoch:0,exerciseId:openingId()});
   let fingerprint='';
   try {fingerprint=fingerprintOf(encodeEpisode01(snapshot,schema));} catch (_) {}
   const initialFingerprint=useRef(null);
@@ -60,7 +62,7 @@ export function useEpisodeBinder(snapshot,restore,reset) {
       throw error;
     }
     if(!isCurrent(token))return {authenticated:false,stale:true};
-    r.saved=result.document.episodes['01']?.exercises[recordKey]||null;
+    r.saved=result.document.episodes['01']?.exercises[recordKey(r.exerciseId)]||null;
     if(autoRestore&&r.saved&&!latest.current.snapshot.task.trim()) applySaved(r.saved);
     else if(!r.saved)setSavedFingerprint(initialFingerprint.current||fingerprint);
     setPhase('ready');setMessage(r.saved?'Your saved exercise is available in your binder.':'Save your exercise whenever you want to pause.');
@@ -103,17 +105,29 @@ export function useEpisodeBinder(snapshot,restore,reset) {
       const input=encodeEpisode01(latest.current.snapshot,schema);
       r.pendingKey ||= crypto.randomUUID();
       setPhase('saving');setMessage('Saving your exercise…');
-      const result=await r.binder.saveExercise(1,{exercise_id:schema.exerciseId,exercise_version:schema.exerciseVersion,input_state:input,placements:r.saved?.placements||[]},r.pendingKey,token.owner);
+      const result=await r.binder.saveExercise(1,{exercise_id:r.exerciseId,exercise_version:schema.exerciseVersion,input_state:input,placements:r.saved?.placements||[]},r.pendingKey,token.owner);
       if(!isCurrent(token))return;
       if(result.state==='conflict') {r.pendingKey=null;setPhase('conflict');setMessage('Your binder changed elsewhere. Your current work is still here; reopen the saved copy before choosing what to keep.');return;}
-      r.pendingKey=null;r.saved=result.document.episodes['01'].exercises[recordKey];
+      r.pendingKey=null;r.saved=result.document.episodes['01'].exercises[recordKey(r.exerciseId)];
       setSavedFingerprint(fingerprintOf(r.saved.input_state));setPhase('ready');setMessage('Saved to your episode binder in My Closet.');
+      return r.saved;
     } catch(error) {
       if(token&&!isCurrent(token))return;
       if(isAccountChange(error)){clearOwner(true);setPhase('guest');setMessage('The account changed. Previous account work has been closed.');return;}
       setPhase('error');
       setMessage(error instanceof TypeError||error instanceof RangeError?error.message:'The save could not be confirmed. Your work is still here. Retry to check the same save.');
     }
+  };
+  const startAnother=async()=>{
+    const saved=await save();
+    if(!saved)return;
+    const r=refs.current;
+    if(fingerprintOf(encodeEpisode01(latest.current.snapshot,schema))!==fingerprintOf(saved.input_state)){
+      setMessage('Your earlier save is safe. Save the newest changes before starting another task.');return;
+    }
+    r.epoch++;r.exerciseId=`${schema.exerciseId}:${crypto.randomUUID()}`;r.saved=null;r.pendingKey=null;r.undo=null;
+    const url=new URL(location.href);url.searchParams.set('exercise',r.exerciseId);url.searchParams.set('version',schema.exerciseVersion);history.replaceState({},'',url);
+    latest.current.reset();setSavedFingerprint(initialFingerprint.current||'');setPhase('ready');setMessage('Your previous exercise is saved in My Closet. This new task will have its own place in the binder.');
   };
   const reopen=async()=>{
     try {
@@ -122,5 +136,5 @@ export function useEpisodeBinder(snapshot,restore,reset) {
     } catch (_) {setPhase('error');setMessage('The saved exercise could not be opened. Your current work has been kept.');}
   };
   const undoRestore=()=>{if(refs.current.undo){latest.current.restore(refs.current.undo);refs.current.undo=null;setPhase('ready');setMessage('Your previous draft is back. Save it when you are ready.');}};
-  return {phase,message,save,reopen,undoRestore,canUndo:!!refs.current.undo,checkSignIn:()=>read().catch(()=>{setPhase('unavailable');setMessage('Account saving is unavailable. Your current work is still here.');}),hasSaved:!!refs.current.saved,dirty:!!fingerprint&&fingerprint!==savedFingerprint};
+  return {phase,message,save,startAnother,reopen,undoRestore,canUndo:!!refs.current.undo,checkSignIn:()=>read().catch(()=>{setPhase('unavailable');setMessage('Account saving is unavailable. Your current work is still here.');}),hasSaved:!!refs.current.saved,dirty:!!fingerprint&&fingerprint!==savedFingerprint};
 }

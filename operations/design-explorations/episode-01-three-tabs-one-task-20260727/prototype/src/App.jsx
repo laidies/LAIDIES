@@ -1021,7 +1021,7 @@ This is a task-specific observation, not a permanent tool ranking.`;
           onClick={restart}
           icon={<ArrowCounterClockwise weight="bold" />}
         >
-          Try another task
+          Save and try another task
         </AppButton>
       </div>
     </section>
@@ -1178,7 +1178,7 @@ export function App() {
           editedDraft={editedDraft}
           humanChange={humanChange}
           notify={notify}
-          restart={restart}
+          restart={binder.startAnother}
         />
       )}
       <div className={`toast ${toast ? "is-visible" : ""}`} role="status">

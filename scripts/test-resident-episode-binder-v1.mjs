@@ -132,6 +132,12 @@ saved=await binder.load(owner);
 const restoredFields=saved.document.episodes["01"].exercises[`${exerciseFields.exerciseId}@${exerciseFields.exerciseVersion}`].input_state.fields;
 assert.equal(JSON.stringify(restoredFields),JSON.stringify(fullFields),"all 57 current exercise fields round-trip without filtering or remapping");
 
+const secondExerciseId=`${exerciseFields.exerciseId}:${uuid()}`;
+await binder.saveExercise("01",{exercise_id:secondExerciseId,exercise_version:exerciseFields.exerciseVersion,input_state:{fields:{...fullFields,task:"A separate second task"}},placements:[]},uuid(),owner);
+const separateExercises=(await binder.load(owner)).document.episodes["01"].exercises;
+assert.equal(separateExercises[`${exerciseFields.exerciseId}@${exerciseFields.exerciseVersion}`].input_state.fields.task,fullFields.task,"saving another task preserves the completed original");
+assert.equal(separateExercises[`${secondExerciseId}@${exerciseFields.exerciseVersion}`].input_state.fields.task,"A separate second task","each exercise instance keeps its own saved fields");
+
 const invalidFieldStates=[
   {name:"nested object",value:{fields:{task:{nested:"no"}}}},
   {name:"array",value:{fields:{task:["no"]}}},
