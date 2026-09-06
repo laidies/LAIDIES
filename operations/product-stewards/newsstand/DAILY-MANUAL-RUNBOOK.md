@@ -979,36 +979,23 @@ is the current scheduling record. Local tests or a prior publicly verified
 issue do not prove a later unattended run or notification delivery.
 
 
-### September 5 afternoon: current reserve and review execution
+### September 5 review recovery — superseded attempt history
 
-The private service bank's 18 old APPROVED entries were moved to CANDIDATE /
-INELIGIBLE because their frozen reviews bind a superseded calibration registry.
-Their text, source bindings, original freshness dates and old review records
-remain unchanged. Existing published columns are unaffected. This is an
-eligibility correction, not 18 new drafts or a successful replenishment cycle.
-The actual September 5 preparation now reports seven private candidates,
-zero ready entries and one required gap; content still needs renewed admission.
+Earlier attempts held the 18-entry bank after registry changes and failed to
+obtain complete independent judgments. Their source/prose and raw failures are
+preserved in `evidence/service-renewal-20260905/`; these earlier holds are not
+current instructions. The wiki and DOJ stories are publicly verified. Five
+service entries now have valid current admissions; the other thirteen remain
+ineligible. Use the current bank, ACTIVE-WORK and recurring-service procedure
+below for selection.
 
-Paige `paige-02-fix-one-thing`, Concept `concept-02-token` and Miss Jeeves
-`jeeves-02-citation` have source-currency checks and new producer self-reviews
-in `evidence/service-renewal-20260905/`. They have no valid independent receipt.
-The original Claude session expired. A bounded Meta fallback reached inference
-but its Paige result omitted required judgments; neither that PASS label nor
-provider connectivity earns eligibility. The complete wiki article likewise
-remains held after independent-review request timeouts. Preserve the raw
-failures, do not fabricate missing fields, and resume with a bounded complete
-review packet or the restored existing reviewer. Source research and private
-preparation continue during this hold. This does not require Ali to approve
-ordinary news or operate the reviewer tools.
-
-Do not reuse `corner-03-reconnect` until attribution is repaired: the source's
-current author metadata identifies Jon, not Dorie Clark. Do not redate an old
-What's New event or advance Concept's Wednesday cadence to fill a slot.
-Read the September 5 editorial intake for the new context/memory textbook
-signal and source lead dispositions. None of these records certifies complete
-headline coverage, a textbook correction, a new issued service or automatic
-receiving-lane delivery.
-
+The metadata-only Corner Office attribution diagnosis was corrected after
+reading the complete original pages: both visible bylines credit Dorie Clark;
+Jon appears in metadata. Corner-02 and Corner-03 passed actual source/editorial
+review without a prose rewrite. Preserve that discrepancy in private evidence.
+Do not redate an old What's New event or advance Concept's Wednesday cadence
+to fill a slot. Current review/selection readiness still does not establish a
+new issued service, complete headline coverage or automatic receiving delivery.
 
 The exercised local fallback is preserved at `review-runtime/README.md`,
 `review-runtime/worker.mjs` and `review-runtime/wrangler.jsonc`. Its initial
@@ -1238,3 +1225,30 @@ coverage open. The calibrated test runs the actual contract, independent-review
 chain and reader validator, changes only a disposable dataset through the CLI,
 preserves all predecessors and rejects 18 invalid cases. No actual Weekly
 successor or observed scheduled Weekly run is claimed by these tests.
+
+
+### LUMINAiRY discovery section
+
+The first NewsStand feature reuses the existing LUMINAiRY profile data, signed
+claim gate and admitted artwork. It selects one PATRON SAiNT (excluding the
+ANTI-SAINT lane), one MAiVEN and one TRAiLBLAZER each Wednesday in Vancouver.
+It preserves the exact role, about, lesson, checked-date wording and destinations;
+rotation never renews a claim. All profile admission must succeed before any
+profile prose appears. Missing, changed or expired evidence shows a useful
+unavailable state while the newspaper remains usable.
+
+The Saint song uses the existing admitted KSVL catalogue and in-page player.
+The shared adapter now handles controls inserted after page load, including
+pages without an initial related-song button. Unknown/held songs stay disabled;
+Stop returns focus to the invoking control. There is no second player or autoplay.
+
+This is a discovery feature using existing reviewed profiles. Deeper articles
+on a Saint's community message or a woman's causal contribution still require
+their own source, writing and admission; the profile section does not close that
+editorial request. Use the exact current production profile authority: the
+September 2 public Allie K. Miller profile is newer than this sparse checkout's
+copy. Do not overlay the stale profile/claims/receipt files during this release.
+
+Weekly procedure adoption was updated and read back after source d5e7fee5 was
+committed/pushed. Both hours, ACTIVE status, target task and unmuted meaningful
+notifications remain. A configured procedure is not an observed scheduled run.

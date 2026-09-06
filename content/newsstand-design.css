@@ -524,3 +524,40 @@
 @media (max-width: 600px) {
   .ns-redesign .ns-theme-button { font-size: 13px; padding: 8px 10px; }
 }
+
+/* The same admitted women and Saints, brought into the newspaper's reading grid. */
+.ns-redesign .ns-luminairy { width: calc(100% - (2 * var(--ns-page-gutter))); margin: 36px auto 0; border-top: 3px solid #281333; border-bottom: 1px solid #b8afc0; color: #281333; }
+.ns-redesign .ns-luminairy__head { padding: 24px 0 20px; }
+.ns-redesign .ns-luminairy__head h2 { margin: 5px 0 10px; font: 800 clamp(30px, 3.5vw, 46px)/1.1 var(--ns-news-serif); }
+.ns-redesign .ns-luminairy__head > p:last-child { margin: 0; font: 400 17px/1.5 var(--ns-body); }
+.ns-redesign .ns-luminairy__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #b8afc0; }
+.ns-redesign .ns-luminairy__grid[hidden] { display: none; }
+.ns-redesign .ns-luminairy__profile { min-width: 0; padding: 24px; border-right: 1px solid #b8afc0; }
+.ns-redesign .ns-luminairy__profile:first-child { padding-left: 0; }
+.ns-redesign .ns-luminairy__profile:last-child { border-right: 0; padding-right: 0; }
+.ns-redesign .ns-luminairy__wing { margin: 0 0 14px; font: 800 12px/1.4 var(--ns-body); letter-spacing: .12em; }
+.ns-redesign .ns-luminairy__profile > img { display: block; width: 144px; height: 176px; object-fit: cover; object-position: top; margin: 0 0 18px; border: 2px solid #281333; background: #ece4ed; }
+.ns-redesign .ns-luminairy__profile h3 { margin: 0 0 8px; font: 800 28px/1.12 var(--ns-news-serif); }
+.ns-redesign .ns-luminairy__profile p { font-family: var(--ns-body); }
+.ns-redesign .ns-luminairy__role { margin: 0 0 14px; font-size: 15px; line-height: 1.4; font-weight: 700; }
+.ns-redesign .ns-luminairy__about, .ns-redesign .ns-luminairy__lesson p { margin: 0 0 16px; font-size: 17px; line-height: 1.55; }
+.ns-redesign .ns-luminairy__lesson { border-left: 4px solid #f25ba8; padding-left: 14px; margin: 20px 0; }
+.ns-redesign .ns-luminairy__profile--mavens .ns-luminairy__lesson { border-color: #54d7e8; }
+.ns-redesign .ns-luminairy__profile--trailblazers .ns-luminairy__lesson { border-color: #b7ef65; }
+.ns-redesign .ns-luminairy__lesson h4 { margin: 0 0 6px; font: 800 13px/1.4 var(--ns-body); letter-spacing: .04em; text-transform: uppercase; }
+.ns-redesign .ns-luminairy__links { display: flex; align-items: flex-start; flex-direction: column; gap: 6px; }
+.ns-redesign .ns-luminairy a, .ns-redesign .ns-luminairy button { box-sizing: border-box; display: inline-flex; align-items: center; min-height: 44px; max-width: 100%; color: #281333; font: 700 16px/1.4 var(--ns-body); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.ns-redesign .ns-luminairy button { border: 1px solid #281333; background: #fff1f7; padding: 9px 14px; cursor: pointer; text-decoration: none; }
+.ns-redesign .ns-luminairy button:disabled { opacity: .65; cursor: default; }
+.ns-redesign .ns-luminairy a:focus-visible, .ns-redesign .ns-luminairy button:focus-visible { outline: 3px solid #7625aa; outline-offset: 3px; }
+.ns-redesign .ns-luminairy__song-status, .ns-redesign .ns-luminairy__freshness { font: 400 13px/1.5 var(--ns-body); color: #6d6075; }
+.ns-redesign .ns-luminairy__freshness { margin: 12px 0 0; }
+.ns-redesign .ns-luminairy__all { margin: 12px 0; }
+.ns-redesign .ns-luminairy__status { font: 400 17px/1.5 var(--ns-body); }
+@media (max-width: 760px) {
+  .ns-redesign .ns-luminairy__grid { grid-template-columns: 1fr; }
+  .ns-redesign .ns-luminairy__profile:nth-child(n) { padding: 24px 0; border-right: 0; border-bottom: 1px solid #b8afc0; }
+  .ns-redesign .ns-luminairy__profile:last-child { border-bottom: 0; }
+  .ns-redesign .ns-luminairy__profile > img { float: right; width: 105px; height: 130px; margin: 0 0 14px 18px; }
+  .ns-redesign .ns-luminairy__lesson { clear: both; }
+}

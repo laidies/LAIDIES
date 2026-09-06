@@ -57,6 +57,66 @@ async function context(width) {
   });
   return ctx;
 }
+async function insertRelatedSong(page, id, label) {
+  await page.evaluate(({id, label}) => {
+    const control = document.createElement('div');
+    control.className = 'related-song-test';
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.dataset.ksvlTrack = id;
+    button.setAttribute('aria-describedby', 'related-song-status');
+    button.textContent = label;
+    const status = document.createElement('span');
+    status.id = 'related-song-status';
+    status.setAttribute('role', 'status');
+    control.append(button, status);
+    document.body.append(control);
+  }, {id, label});
+  return page.getByRole('button', {name:label, exact:true});
+}
+async function assertDynamicAdmittedSong(page, ctx) {
+  const label = 'Play Sister Mary Clarence theme';
+  const button = await insertRelatedSong(page, 'saint-sister-mary-clarence', label);
+  await page.waitForFunction(name => {
+    const candidate = Array.from(document.querySelectorAll('button[data-ksvl-track]'))
+      .find(button => button.textContent === name);
+    return candidate && !candidate.disabled;
+  }, label);
+  assert.equal(await page.evaluate(() => window.__themeAudio.some(audio => !audio.paused)), false, 'Inserting a related song must not autoplay');
+  await button.focus();
+  await page.keyboard.press('Enter');
+  await page.waitForFunction(() => {
+    const state = window.KSVL_getPublicState();
+    return state && state.trackId === 'saint-sister-mary-clarence' && !state.paused;
+  });
+  await page.waitForFunction(() => document.querySelector('.ksvl-now-playing.is-visible'));
+  assert.equal(await page.locator('.ksvl-now-playing.is-visible').count(), 1, 'Dynamic selection must use the existing in-page deck');
+  assert.equal(await page.locator('.ksvl-np-btn--play').evaluate(el => document.activeElement === el), true, 'Dynamic keyboard selection must move focus to the deck');
+  assert.equal(ctx.pages().length, 1, 'Dynamic selection must not open another tab');
+  await page.locator('.ksvl-np-btn--stop').click();
+  await page.waitForFunction(name => document.activeElement && document.activeElement.textContent === name, label);
+  assert.equal(await page.evaluate(() => window.__themeAudio.every(audio => audio.paused)), true);
+  await button.evaluate(button => button.closest('.related-song-test').remove());
+  const reinserted = await insertRelatedSong(page, 'saint-sister-mary-clarence', label);
+  await page.waitForFunction(name => {
+    const candidate = Array.from(document.querySelectorAll('button[data-ksvl-track]'))
+      .find(button => button.textContent === name);
+    return candidate && !candidate.disabled;
+  }, label);
+  await reinserted.click();
+  await page.waitForFunction(() => window.__themeAudio.filter(audio => !audio.paused).length === 1);
+  await page.locator('.ksvl-np-btn--stop').click();
+}
+async function assertDynamicUnavailableSong(page, id, label) {
+  const button = await insertRelatedSong(page, id, label);
+  await page.waitForFunction(name => {
+    const candidate = Array.from(document.querySelectorAll('button[data-ksvl-track]'))
+      .find(button => button.textContent === name);
+    return candidate && candidate.disabled && /unavailable/.test(document.getElementById('related-song-status').textContent);
+  }, label);
+  assert.equal(await button.isDisabled(), true, 'Unavailable dynamic song must remain disabled');
+  assert.equal(await page.evaluate(() => window.__themeAudio.some(audio => !audio.paused)), false, 'Unavailable dynamic song must not autoplay');
+}
 try {
   for (const width of [1280, 390, 320]) {
     const ctx = await context(width);
@@ -82,6 +142,7 @@ try {
     assert.equal(page.url(), origin + '/newsstand', 'Theme must not navigate away');
     const deck = page.locator('.ksvl-now-playing.is-visible');
     assert.equal(await deck.count(), 1);
+    await page.waitForFunction(() => document.activeElement === document.querySelector('.ksvl-np-btn--play'));
     assert.equal(await page.locator('.ksvl-np-btn--play').evaluate(el => document.activeElement === el), true, 'Keyboard focus must reach player controls');
     await page.keyboard.press('Space');
     await page.waitForFunction(() => window.__themeAudio.every(a => a.paused));
@@ -100,10 +161,27 @@ try {
     assert.equal(await page.evaluate(() => window.__themeAudio.every(a => a.paused)), true);
     assert.equal(await page.locator('.ksvl-now-playing.is-visible').count(), 0);
     if (output) await page.screenshot({path:path.join(output, `masthead-${width}.png`)});
+    await assertDynamicAdmittedSong(page, ctx);
+    await assertDynamicUnavailableSong(page, 'not-in-the-admitted-catalogue', 'Play unknown related song');
     results.push({width, result:'PASS', track:state.trackId, duration:state.duration});
     await ctx.close();
   }
   if (!external) {
+    {
+      const ctx = await context(390);
+      const page = await ctx.newPage();
+      const zeroButtonNewsStand = fs.readFileSync(path.join(root, 'newsstand.html'), 'utf8')
+        .replace(/\s*<div class="ns-theme-control">[\s\S]*?<\/div>\s*<\/div>\s*<\/header>/, '\n          </div>\n        </header>');
+      assert.equal(/data-ksvl-track/.test(zeroButtonNewsStand), false, 'Zero-button fixture must not retain an initial related-song control');
+      await page.route('**/empty-related-songs', route => route.fulfill({contentType:'text/html', body:zeroButtonNewsStand}));
+      await page.goto(origin + '/empty-related-songs', {waitUntil:'domcontentloaded'});
+      await page.waitForFunction(() => typeof window.KSVL_whenReady === 'function');
+      const zeroCatalogue = await page.evaluate(() => window.KSVL_whenReady());
+      assert.equal(zeroCatalogue.ready, true, 'The zero-button page must receive the admitted catalogue: ' + JSON.stringify(zeroCatalogue));
+      await assertDynamicAdmittedSong(page, ctx);
+      results.push({scenario:'zero-initial-buttons', result:'PASS'});
+      await ctx.close();
+    }
     for (const failure of ['held-song', 'missing-player', 'broken-audio']) {
       const ctx = await context(390);
       const page = await ctx.newPage();
@@ -120,6 +198,16 @@ try {
         await page.route('**/sunnyvaile-newsstand.mp3', route => route.fulfill({status:404, body:'Not found'}));
       }
       await page.goto(origin + '/newsstand', {waitUntil:'domcontentloaded'});
+      if (failure === 'held-song') {
+        const held = await insertRelatedSong(page, 'the-newsstand', 'Play held related song');
+        await page.waitForFunction(() => {
+          const button = Array.from(document.querySelectorAll('button[data-ksvl-track]'))
+            .find(candidate => candidate.textContent === 'Play held related song');
+          return button && button.disabled && /unavailable/.test(document.getElementById('related-song-status').textContent);
+        });
+        assert.equal(await held.isDisabled(), true, 'Held dynamic song must remain disabled');
+        assert.equal(await page.evaluate(() => window.__themeAudio.some(audio => !audio.paused)), false, 'Held dynamic song must not autoplay');
+      }
       if (failure === 'broken-audio') {
         await page.waitForFunction(() => !document.querySelector('[data-ksvl-track]').disabled);
         await page.getByRole('button', {name:'Play the NewsStand theme', exact:true}).click();
@@ -129,7 +217,7 @@ try {
         assert.equal(await page.evaluate(() => window.__themeAudio.every(a => a.error && a.readyState === 0 && a.currentTime === 0)), true, 'Broken media must report a native error without playable frames');
       } else {
         await page.waitForFunction(() => /unavailable/.test(document.getElementById('ns-theme-status').textContent));
-        assert.equal(await page.locator('[data-ksvl-track]').isDisabled(), true);
+        assert.equal(await page.getByRole('button', {name:'Play the NewsStand theme', exact:true}).isDisabled(), true);
         assert.equal(await page.evaluate(() => window.__themeAudio.some(a => !a.paused)), false);
       }
       results.push({failure, result:'PASS'});
