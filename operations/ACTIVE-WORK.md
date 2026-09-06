@@ -1217,10 +1217,11 @@ objective; every open lane keeps its own checkpoint.
 
 ### 2026-09-05 LUMINAiRY complete-page release audit and repair
 
-- **Current state:** `43 OF 43 COMPLETE / INDEPENDENT SEMANTIC AND VISUAL PASS / SIGNED AND BROWSER-VERIFIED LOCALLY / NOT DEPLOYED`.
+- **Current state:** `43 OF 43 IMPLEMENTED / INDEPENDENT SEMANTIC AND VISUAL PASS / SIGNED AND BROWSER-VERIFIED LOCALLY / OWNER REVIEW NOT YET OBTAINED / NOT DEPLOYED`.
 - **Arrival:** the Matron hero now explains the 43-profile archive, the distinct job of all three wings, the full-profile payoff, applicable Read/Watch/Listen/Follow routes and the optional Your Luminaries circle. Explicit paper-white classes prevent the explanation from inheriting unreadable shared hero text at desktop, 390px or 320px.
 - **Discovery:** active-wing search remains honest about its scope. A valid name in another wing now produces a named cross-wing route; the calibrated Ada-from-Saints case opens Ada Lovelace's complete MAiVEN profile.
 - **Editorial cleanup:** internal review language was removed from Meredith Whittaker, Hedy Lamarr, the ENIAC Six, Mira Murati and Fidji Simo. The completeness gate rejects the known evidence-pipeline phrases if they return.
 - **Mobile navigation:** the shared SUNNYVAiLE return pill now sits in document flow below page content on widths up to 899px, so it cannot cover hero, search, cards or profiles. The Handbook consumes the same corrected shared component.
 - **Verification:** signed 43-profile claim admission, artwork boundary, prose-receipt integrity and the complete HTTP browser suite pass. Independent semantic re-review and independent 1440/390/320 visual re-review report no remaining blocker in the repaired areas.
 - **Deliberate remaining item:** Carrie Bradshaw's song remains deferred by Ali's earlier instruction and is labelled honestly. No push, deployment or public-origin verification occurred.
+- **Owner-review correction:** Ali has not yet been given a usable exact-page and complete-card review, so this candidate is not owner-approved and must not be described as fully complete or release-ready. The next action is a reviewable exact visual plus the 13/23/7 content ledger; any Ali correction reopens the relevant card or page layer.

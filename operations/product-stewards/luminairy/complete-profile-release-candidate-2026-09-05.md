@@ -2,9 +2,9 @@
 
 ## Verdict
 
-`LOCAL RELEASE CANDIDATE COMPLETE / 43 OF 43 RESOLVED / 0 CONTENT OR IMAGE HOLDS / NOT DEPLOYED`
+`43 OF 43 IMPLEMENTED AND VERIFIED LOCALLY / OWNER REVIEW NOT YET OBTAINED / NOT DEPLOYED`
 
-This candidate completes the visitor-facing LUMINAiRY page in the assigned owner branch. It does not claim a public release.
+This candidate implements and independently verifies the visitor-facing LUMINAiRY page in the assigned owner branch. Ali has not yet received the complete exact-page/card review, so it is not owner-approved and does not claim release readiness or a public release.
 
 Implementation commit: `49c2277d166922302935b83f96802fcb6d01a1f0` on `feature/luminairy-card-profile-20260905`.
 
