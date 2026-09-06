@@ -11,6 +11,7 @@ const provider = async (url, init) => {
   calls++;
   assert.equal(url.href, 'https://database.example/rest/v1/rpc/private_feedback_bridge_v1');
   assert.equal(init.headers.apikey, 'public-key');
+  assert.equal(init.redirect, 'manual');
   const body = JSON.parse(init.body);
   assert.equal(body.p_capability, env.PRIVATE_FEEDBACK_DB_CAPABILITY);
   if (body.p_action === 'intake') actors.push(body.p_payload.actor_hash);
@@ -40,3 +41,10 @@ assert.equal(shell.headers.get('Referrer-Policy'), 'no-referrer');
 assert.equal(shell.headers.get('Cache-Control'), 'no-store');
 assert.ok(shell.headers.get('Content-Security-Policy').includes("frame-ancestors 'none'"));
 console.log('PRIVATE WORKER PASS denied_bad_tokens=3 origin_media_gate=2 public_route_closed=1 private_actions=3 provider_error_redacted=1 shell_policy=1');
+
+const redirect = await privateFeedbackFetch(req('list'), env, async (_url, init) => {
+  assert.equal(init.redirect, 'manual');
+  return new Response(null, { status: 302, headers: { Location: 'https://untrusted.invalid' } });
+});
+assert.equal(redirect.status, 503);
+console.log('PRIVATE REDIRECT PASS provider_redirect_not_followed_or_returned=1');

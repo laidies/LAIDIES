@@ -66,7 +66,7 @@ const abort = new AbortController();
 const payload = { p_key: randomUUID(), p_digest: 'a'.repeat(64), p_actor_hash: 'b'.repeat(64), p_input: input };
 const store = createSupabaseFeedbackStore({ url: 'https://db.invalid', serverKey: 'synthetic-only', fetcher: async (url, init) => {
   assert.equal(url.pathname, '/rest/v1/rpc/intake_town_hall_feedback_v1');
-  assert.equal(init.redirect, 'error');
+  assert.equal(init.redirect, 'manual');
   assert.equal(init.signal, abort.signal);
   assert.equal(init.headers.Authorization, 'Bearer synthetic-only');
   assert.deepEqual(JSON.parse(init.body), payload);

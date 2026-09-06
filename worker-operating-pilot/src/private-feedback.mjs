@@ -14,10 +14,11 @@ export function createPrivateBridge(env, fetcher = fetch) {
   if (base.protocol !== 'https:' || base.username || base.password || base.pathname !== '/' || base.search || base.hash || !env.PRIVATE_FEEDBACK_ANON_KEY || !/^[a-f0-9]{64}$/.test(env.PRIVATE_FEEDBACK_DB_CAPABILITY || '')) throw new Error('feedback_closed');
   return async (action, payload, signal) => {
     const response = await fetcher(new URL('/rest/v1/rpc/private_feedback_bridge_v1', base), {
-      method: 'POST', redirect: 'error', signal,
+      method: 'POST', redirect: 'manual', signal,
       headers: { 'Content-Type': 'application/json', apikey: env.PRIVATE_FEEDBACK_ANON_KEY, Authorization: `Bearer ${env.PRIVATE_FEEDBACK_ANON_KEY}` },
       body: JSON.stringify({ p_capability: env.PRIVATE_FEEDBACK_DB_CAPABILITY, p_action: action, p_payload: payload })
     });
+    if (response.status >= 300 && response.status < 400) { void response.body?.cancel(); throw new Error('feedback_unavailable'); }
     const result = await boundedJson(response, action === 'list' ? 600000 : 4096, signal);
     if (!response.ok) { const error = new Error(Object.hasOwn(codes, result?.message) ? result.message : 'feedback_unavailable'); error.providerStatus = response.status; throw error; }
     if (action === 'list' && (!Array.isArray(result) || result.length > 50)) throw new Error('feedback_unavailable');
@@ -59,5 +60,5 @@ export async function privateFeedbackFetch(request, env, fetcher = fetch) {
     const payload = await boundedJson(request, 1024, signal);
     stage = 'provider_call';
     return json(200, await bridge(action, payload, signal));
-  } catch (error) { return json(codes[error?.message] || 503, { error: Object.hasOwn(codes, error?.message) ? error.message : 'feedback_unavailable', failure_stage: stage, failure_kind: ['TypeError', 'TimeoutError', 'AbortError'].includes(error?.name) ? error.name : 'Error', failure_native: error?.name === 'TypeError' ? String(error.message).replace(/[A-Za-z0-9_=-]{24,}/g, '[redacted]').slice(0,180) : undefined, failure_detail: /Illegal invocation|Illegal receiver/.test(error?.message || '') ? 'receiver' : /not a function/.test(error?.message || '') ? 'function' : /URL/.test(error?.message || '') ? 'url' : 'other', ...(Number.isInteger(error?.providerStatus) ? { provider_status: error.providerStatus } : {}) }); }
+  } catch (error) { return json(codes[error?.message] || 503, { error: Object.hasOwn(codes, error?.message) ? error.message : 'feedback_unavailable', failure_stage: stage, failure_kind: ['TypeError', 'TimeoutError', 'AbortError'].includes(error?.name) ? error.name : 'Error', ...(Number.isInteger(error?.providerStatus) ? { provider_status: error.providerStatus } : {}) }); }
 }

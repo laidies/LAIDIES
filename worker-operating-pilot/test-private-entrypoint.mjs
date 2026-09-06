@@ -19,7 +19,11 @@ await entry.evaluate();
 const originalFetch = globalThis.fetch;
 let providerCalls = 0;
 try {
-  globalThis.fetch = async () => { providerCalls++; return Response.json([]); };
+  globalThis.fetch = async (_url, options) => {
+    if (options.redirect === 'error') throw new TypeError('Invalid redirect value: native workerd requires manual or follow');
+    assert.equal(options.redirect, 'manual');
+    providerCalls++; return Response.json([]);
+  };
   const env = { PRIVATE_FEEDBACK_ENABLED: 'true', PRIVATE_FEEDBACK_OWNER_TOKEN: 'a'.repeat(64), PRIVATE_FEEDBACK_DB_CAPABILITY: 'b'.repeat(64), PRIVATE_FEEDBACK_ANON_KEY: 'public-key', PRIVATE_FEEDBACK_SUPABASE_URL: 'https://database.example' };
   const request = new Request('https://private.example/private-feedback/api/list', { method: 'POST', headers: { Origin: 'https://private.example', Authorization: `Bearer ${env.PRIVATE_FEEDBACK_OWNER_TOKEN}`, 'Content-Type': 'application/json' }, body: '{}' });
   const response = await entry.namespace.default.fetch(request, env, { waitUntil() {}, passThroughOnException() {} });

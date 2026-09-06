@@ -84,9 +84,10 @@ export function createSupabaseFeedbackStore({ url, serverKey, fetcher = fetch })
   if (base.protocol !== 'https:' || base.username || base.password || base.pathname !== '/' || base.search || base.hash || !serverKey) throw new Error('invalid storage configuration');
   return async (payload, { signal }) => {
     const response = await fetcher(new URL('/rest/v1/rpc/intake_town_hall_feedback_v1', base), {
-      method: 'POST', redirect: 'error', signal,
+      method: 'POST', redirect: 'manual', signal,
       headers: { 'Content-Type': 'application/json', apikey: serverKey, Authorization: `Bearer ${serverKey}` }, body: JSON.stringify(payload)
     });
+    if (response.status >= 300 && response.status < 400) { void response.body?.cancel(); throw new Error('feedback_uncertain'); }
     const body = await boundedJson(response, 4096, signal);
     if (!response.ok) throw new Error(Object.hasOwn(errors, body?.message) ? body.message : 'feedback_uncertain');
     return body;
@@ -97,9 +98,10 @@ export function createTurnstileVerifier({ secret, hostname, fetcher = fetch }) {
   if (!secret || !hostname) throw new Error('invalid challenge configuration');
   return async ({ token, key, remoteAddress, signal }) => {
     const response = await fetcher('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-      method: 'POST', redirect: 'error', signal, headers: { 'Content-Type': 'application/json' },
+      method: 'POST', redirect: 'manual', signal, headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ secret, response: token, remoteip: remoteAddress, idempotency_key: key })
     });
+    if (response.status >= 300 && response.status < 400) { void response.body?.cancel(); throw new Error('feedback_uncertain'); }
     const body = await boundedJson(response, 4096, signal);
     return response.ok && body.success === true && body.hostname === hostname && body.action === 'town_hall_feedback';
   };

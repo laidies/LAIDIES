@@ -168,3 +168,11 @@ handler directly let Cloudflare's ExecutionContext occupy its transport argument
 The explicit two-argument wrapper fixes it. The new entrypoint regression loads
 the real export and passes a third runtime context; it also runs the previous
 broken adapter and confirms rejection. Local helper tests alone missed this.
+
+A second real-runtime failure was `redirect: error`: native workerd rejected it
+with TypeError while Node accepted it. An isolated workerd probe reproduced the
+rejection and confirmed manual mode. All affected server adapters now use manual
+mode and reject redirects; browser-only fetch keeps its valid error mode.
+Provider tests bind manual mode and a 302 rejection; temporary native diagnostic
+text was removed. Do not infer platform support from Node or a documentation
+type declaration when the real runtime is available.
