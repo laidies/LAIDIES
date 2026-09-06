@@ -409,3 +409,6 @@ Ali explicitly rejects a generic CSS/worksheet treatment and a print/manual-firs
 
 ### Clarification — cheat sheet may be static
 Ali clarifies that the cheat sheet itself does not need interactive controls. It can be a concise, designed on-screen lesson reference saved in the episode binder. Typed input belongs where useful in exercises/notes; quizzes retain their interactions and saved results. Preserve the90s design and account save/return requirements; do not force interactivity into reference material.
+
+## D-2026-09-06-EPISODE-FLASHCARDS — ACTIVE
+Ali recalls/wants flashcards styled as trading cards as part of the episode learning material. Reuse and inspect the existing Trading Card Pack and approved trading-card references before adding designs. Cards must support lesson recall, with a concept/question front and explanation/answer reverse as the proposed interaction, and belong in the episode binder. Existing held cards are not deemed approved or publicly available by this ruling; preserve canonical concept definitions and distinguish learning cards from reward claims.
