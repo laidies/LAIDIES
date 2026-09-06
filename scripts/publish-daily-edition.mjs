@@ -29,6 +29,7 @@ export function verifyProjectionAdmission({ issue, envelopeRaw, decision, root =
   }
   const envelope = JSON.parse(envelopeRaw);
   const ordinary = envelope.sourceIdentity.ordinaryCandidate ? loadOrdinaryStoryCandidate(envelope.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate, admittedHistoricalBase: true }) : null;
+  if (ordinary?.overnightFreshness && !(Date.parse(issue.admission.reviewedAt) >= Date.parse(ordinary.overnightFreshness.checkedAt))) reject("issue admission cannot precede the overnight freshness check");
   if (ordinary && !["daily-issue-admission-v1", "daily-issue-news-revision-admission-v1"].includes(decision.schemaVersion)) reject("ordinary projection requires initial or news-revision admission");
   if (envelope.sourceIdentity.storyCorrection && decision.schemaVersion !== "daily-issue-story-correction-admission-v1") reject("story correction projection requires explicit correction admission");
   const expected = {
@@ -54,6 +55,7 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
   const isAdmitted = (story) => story && ["published", "corrected"].includes(story.status) && story.sourceApproval?.status === "approved";
   const ordinary = issue.sourceIdentity?.ordinaryCandidate ? loadOrdinaryStoryCandidate(issue.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate, admittedHistoricalBase: true }) : null;
   if (ordinary) {
+    if (ordinary.overnightFreshness && !(Date.parse(issue.admission.reviewedAt) >= Date.parse(ordinary.overnightFreshness.checkedAt))) reject("issue admission cannot precede the overnight freshness check");
     const published = publishCandidateStory(ordinary.story, issue.admission.reviewedAt);
     const snapshot = issue.stories.find(story => story.id === published.id);
     if (!issue.storyIds.includes(published.id) || stable(snapshot) !== stable(published)) reject("ordinary candidate differs from its independently admitted snapshot");

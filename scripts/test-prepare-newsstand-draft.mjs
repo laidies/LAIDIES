@@ -20,7 +20,7 @@ const readJson = relative => JSON.parse(fs.readFileSync(path.join(sourceRoot, re
 const contract = readJson(contractPath);
 const registry = readJson(registryPath);
 for (const relative of [contractPath, storyPath, observationsPath, registryPath, contract.communicationDesign.benchmark.path, ...contract.canonicalTruth.map(item => item.source.path), ...registry.positiveExemplars.map(item => item.path), ...registry.negativeExemplars.map(item => item.path)]) copy(relative);
-for (const relative of ["content/newsstand-reader-contract.js", "scripts/prepare-newsstand-draft.mjs", "scripts/check-content-producer-contract.mjs"]) copy(relative);
+for (const relative of ["content/newsstand-reader-contract.js", "content/newsstand-big-picture-versions.js", "scripts/prepare-newsstand-draft.mjs", "scripts/check-content-producer-contract.mjs"]) copy(relative);
 
 const fixtureContract = JSON.parse(fs.readFileSync(path.join(root, contractPath), "utf8"));
 const story = JSON.parse(fs.readFileSync(path.join(root, storyPath), "utf8"));

@@ -14,7 +14,9 @@ for (const name of ['newsstand-service-continuity','newsstand-career-lane','sele
 put('operations/product-stewards/newsstand/story-type-modules.json', fs.readFileSync(path.join(ROOT, 'operations/product-stewards/newsstand/story-type-modules.json')));
 put('operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json', fs.readFileSync(path.join(ROOT, 'operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json')));
 put('scripts/lib/newsstand-luminairy-links.mjs', fs.readFileSync(path.join(ROOT, 'scripts/lib/newsstand-luminairy-links.mjs')));
+put('scripts/lib/newsstand-overnight-freshness.mjs', fs.readFileSync(path.join(ROOT, 'scripts/lib/newsstand-overnight-freshness.mjs')));
 put('content/newsstand-reader-contract.js', fs.readFileSync(path.join(ROOT, 'content/newsstand-reader-contract.js')));
+put('content/newsstand-big-picture-versions.js', fs.readFileSync(path.join(ROOT, 'content/newsstand-big-picture-versions.js')));
 put('content/luminairy-profiles.json', fs.readFileSync(path.join(ROOT, 'content/luminairy-profiles.json')));
 const {composeDailyEnvelope} = await import(pathToFileURL(path.join(fixture, 'scripts/compose-daily-edition.mjs')));
 const {promoteDailyIssue} = await import(pathToFileURL(path.join(fixture, 'scripts/promote-daily-edition.mjs')));

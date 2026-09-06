@@ -71,6 +71,23 @@ try {
   };
   const inspect = value => inspectProseQualityReview(value, { root }).errors;
   assert.deepEqual(inspect(receipt), [], "valid exact-prose review must match");
+  const quotedSource = 'The source says "permission depends on the project licence".';
+  const sourcePacketPath = "evidence/news-source-packet.json";
+  write(sourcePacketPath, JSON.stringify({
+    completeArtifact: "This claim appears only in the candidate and is not source evidence.",
+    sources: [{ id: "original", source: { url: "https://example.org/original", passage: quotedSource } }]
+  }));
+  const structuredSource = structuredClone(receipt);
+  structuredSource.factualReview.sourceBindings = [bind(sourcePacketPath)];
+  structuredSource.factualReview.claimMap[0].sourceBinding = bind(sourcePacketPath);
+  structuredSource.factualReview.claimMap[0].sourceEvidence = [{ excerpt: quotedSource, locator: "https://example.org/original" }];
+  assert.deepEqual(inspect(structuredSource), [], "JSON quoting must not invalidate an exact original source passage");
+  const selfCorroboration = structuredClone(structuredSource);
+  selfCorroboration.factualReview.claimMap[0].sourceEvidence[0].excerpt = "This claim appears only in the candidate and is not source evidence.";
+  assert.match(inspect(selfCorroboration).join("\n"), /does not occur/, "candidate prose cannot supply its own source evidence");
+  const wrongSource = structuredClone(structuredSource);
+  wrongSource.factualReview.claimMap[0].sourceEvidence[0].locator = "https://example.org/another-source";
+  assert.match(inspect(wrongSource).join("\n"), /does not occur/, "an excerpt must belong to the cited source");
   const blind = structuredClone(receipt); blind.outcomes.plainClarity.artifactEvidence[0].excerpt = "words that are not in the prose";
   assert.match(inspect(blind).join("\n"), /does not occur/);
   const missing = structuredClone(receipt); delete missing.outcomes.unseenTransfer;

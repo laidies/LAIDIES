@@ -2,6 +2,8 @@
 
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import path from "node:path";
+import { spawnSync } from "node:child_process";
 import { validateStoryTypeCoverage, validateStoryTypeModuleDefinition } from "./validate-newsstand-story-type-coverage.mjs";
 
 const modules = JSON.parse(fs.readFileSync("operations/product-stewards/newsstand/story-type-modules.json", "utf8"));
@@ -97,5 +99,20 @@ const producerRepair = "operations/product-stewards/newsstand/candidates/openai-
 const actualCoverage = JSON.parse(fs.readFileSync(`${producerRepair}/story-type-coverage.json`, "utf8"));
 const actualStory = JSON.parse(fs.readFileSync(`${producerRepair}/story.json`, "utf8"));
 assert.deepEqual(validateStoryTypeCoverage(actualCoverage, actualStory.themes, modules, { story: actualStory }), [], "the actual producer-repair story contains every required reader translation and term explanation");
+
+const preflightDirectory = fs.mkdtempSync("operations/product-stewards/newsstand/candidates/reporting-preflight-test-");
+try {
+  const badCoverage = structuredClone(actualCoverage);
+  badCoverage.universalAnswers.readerAction = badCoverage.universalAnswers.whatHappened;
+  fs.writeFileSync(path.join(preflightDirectory, "story.json"), JSON.stringify(actualStory));
+  fs.writeFileSync(path.join(preflightDirectory, "story-type-coverage.json"), JSON.stringify(badCoverage));
+  const result = spawnSync(process.execPath, ["operations/product-stewards/newsstand/review-runtime/run-pilot.mjs", "article", "claude", "--candidate-dir", preflightDirectory, "--output", `${preflightDirectory}/output`], { encoding: "utf8" });
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /Repair reporting coverage before calling the independent editor/);
+  assert.match(result.stderr, /identical filler/);
+  assert.deepEqual(fs.readdirSync(path.join(preflightDirectory, "output")), [], "invalid coverage must fail before a provider request is created");
+} finally {
+  fs.rmSync(preflightDirectory, { recursive: true });
+}
 
 console.log("NEWSSTAND STORY TYPE COVERAGE PASS types=7 universal=1 mixed_overlays=1 wrong_template=1 astra_omissions=6 translation=1 jargon_in_prose=1 inline_formatting=1 block_boundaries=1 actual_producer_repair=1 learning_link=1 placeholders=1 duplicate_filler=1");

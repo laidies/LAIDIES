@@ -62,6 +62,24 @@ function evidenceAppears(body, evidence, label, errors) {
   }
 }
 
+function sourceEvidenceAppears(body, evidence, label, errors) {
+  let packet;
+  try { packet = JSON.parse(body); } catch { /* Plain source documents retain exact-text matching. */ }
+  const newsPacket = Array.isArray(packet?.sources) &&
+    (typeof packet.completeArtifact === "string" || packet.schemaVersion === "laidies-newsstand-source-evidence.v1");
+  if (!newsPacket) return evidenceAppears(body, evidence, label, errors);
+  if (!Array.isArray(evidence) || evidence.length === 0) return evidenceAppears(null, evidence, label, errors);
+  for (const [index, item] of evidence.entries()) {
+    // Decode JSON quoting, but search only the cited source's supplied passages.
+    // Candidate prose, instructions and the claim map cannot corroborate themselves.
+    const passages = packet.sources.flatMap(row => {
+      const source = row.source || row;
+      return source.url === item?.locator ? [source.passage, source.additionalPassage].filter(text) : [];
+    });
+    evidenceAppears(passages.join("\n"), [item], `${label}[${index}]`, errors);
+  }
+}
+
 function samplingOverrideFor(receipt, root, errors) {
   const override = receipt?.samplingOverride;
   if (!override) return null;
@@ -300,7 +318,7 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
       const sourceBody = loadBinding(root, claim?.sourceBinding, `factualReview.claimMap[${index}].sourceBinding`, errors);
       const sourceRegistered = (receipt.factualReview.sourceBindings || []).some(binding => binding.path === claim?.sourceBinding?.path && binding.sha256 === claim?.sourceBinding?.sha256);
       require(sourceRegistered, `factualReview.claimMap[${index}] source is not in sourceBindings`);
-      evidenceAppears(sourceBody, claim?.sourceEvidence, `factualReview.claimMap[${index}].sourceEvidence`, errors);
+      sourceEvidenceAppears(sourceBody, claim?.sourceEvidence, `factualReview.claimMap[${index}].sourceEvidence`, errors);
       require(text(claim?.scopeAndFreshness), `factualReview.claimMap[${index}].scopeAndFreshness is required`);
     }
   } else {

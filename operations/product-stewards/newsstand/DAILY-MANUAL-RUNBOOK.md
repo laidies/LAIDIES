@@ -531,6 +531,65 @@ A blocked review must be reported as a blocked review, not converted to QUIET.
 An existing same-day issue with no admitted delta stays unchanged; do not
 overwrite it with a freshly dated quiet envelope.
 
+### Reuse a reviewed evening article without rewriting its dates
+
+The September 5 20:00 preparation run was observed; the paired September 6
+07:00 publication run has not yet been observed. NVIDIA/Hugging Face now has
+one passing full independent editorial review and a complete private candidate
+at `candidates/nvidia-hugging-face-acquisition-2026-09-05/admission/ordinary-candidate.json`
+under this NewsStand directory. Its `publication-readiness.md` is the exact
+continuation. It remains unpublished; no morning check has been invented.
+
+Use `scripts/prepare-newsstand-overnight-candidate.mjs` only after an actual
+next-day source and development check. The private
+`laidies-newsstand-overnight-freshness.v1` record must bind the exact reviewed
+candidate, story hash, independent review and claim map; name the checker,
+actual publication-day `checkedAt`, and `NO_MATERIAL_CHANGE`. It supplies one
+`sourceChecks` entry for every original source, with the exact original
+ID/URL/evidence binding, an `UNCHANGED` disposition and explanation, actual
+`currentCheckedAt`, bound `currentEvidence` and an exact `currentExcerpt`.
+A separate `developmentCheck` binds a current search/index check, its query,
+actual timestamp, exact evidence/excerpt and explained `NO_MATERIAL_CHANGE`.
+The source capture is JSON `laidies-newsstand-current-source-capture.v1` with
+`sourceUrl`, `capturedAt` and actual captured `content`. Its URL and timestamp
+must match the check; the excerpt must be inside that content. Development
+capture uses `laidies-newsstand-development-capture.v1` with matching `query`,
+`capturedAt`, nonempty `sourceUrls` identifying the checked pages, and captured
+`content`. A freeform note or metadata-only excerpt rejects. These records make
+the source check auditable; they do not prove a fetch or replace reading it.
+Reopening an unchanged announcement alone does not establish that no later
+closing, correction, restriction or other material development occurred.
+
+The implementation and calibrated record examples are in
+`scripts/lib/newsstand-overnight-freshness.mjs` and
+`scripts/test-newsstand-overnight-freshness.mjs`. Test examples are synthetic;
+never copy their dates or evidence into a real publication record. Current
+source excerpts must come from actual pages read on the publication day.
+Changed, inaccessible, uncertain or unverified material holds this reuse path.
+Resolve it with additional research and, if the article changes, a new producer
+and independent review of that actual successor.
+
+Run `node scripts/prepare-newsstand-overnight-candidate.mjs --freshness <actual-private-morning-record> --output <new-private-candidate-path>`.
+The output changes only the package's issue date and adds the bound morning
+record. Article prose, source access dates, original last-check/write dates and
+independent verdict remain exact. It is limited to the immediately following
+Vancouver calendar day; fresh preparation/composition/admission must occur on
+that day. Pass its exact file/hash to the existing composer and promoter.
+Issue admission must follow the morning check; both promotion and publication
+reject an earlier timestamp. The article receives the admitted publication
+time. Exact historical reproduction remains possible without pretending to
+perform a new check. This is evidence integrity/completeness, not an automatic
+judgment of the truth of the source or the checker’s conclusion.
+
+When an earlier story has changed the current publication base, freeze that
+verified current base and rerun the existing `review-runtime/assemble-review.mjs`
+with `--publication-base` and a new `--output-dir`, reusing the same exact
+passing review, calibration and metrics. Bind that mechanically reassembled
+candidate in the morning record. Do not overwrite the old base or rerun a
+provider merely to reconcile publication metadata. Do not relax the exact-base
+guard. The existing issue admission, full-artifact release and actual public
+reader verification still apply.
+
 ### Failed stories must repair, not disappear
 
 Before drafting a new ordinary story, classify it with
@@ -543,6 +602,9 @@ candidate packages use `newsstand-ordinary-story-candidate-v2` and bind this
 exact `storyTypeCoverage` object.
 
 Run `scripts/validate-newsstand-story-type-coverage.mjs` before producer review.
+The article runtime also runs it before any independent-provider call, so missing
+reporting answers, repeated filler and disconnected teaching links are producer
+repairs rather than paid editor discoveries.
 The independent reviewer then checks whether the actual prose answers those
 questions accurately and understandably; populated metadata is not proof. A
 story whose topics require an unselected module fails. Mixed stories must pass

@@ -215,6 +215,15 @@ editorial branch remains HOLD until its separate admissions are earned.
 | Runtime/Control Room truth | `operations/product-stewards/control-room/dashboard-state.json` |
 | Ideas not yet active | `docs/growth/ali-idea-backlog.md` |
 
+The NewsStand manual runbook also governs exact overnight review reuse:
+unchanged reviewed prose keeps its original dates and needs a separately bound,
+actual next-morning source and development check before issue admission. The
+candidate preparation, composer, promoter and publisher enforce that boundary.
+Reporting completeness runs before the independent provider. Exact quoted
+source validation decodes source JSON and resolves the cited source; candidate
+prose or another source cannot supply its own corroboration. These are upstream
+repairs, not new editorial approval or a relaxation of current factual review.
+
 ## Area routes
 
 | Area | Current source |

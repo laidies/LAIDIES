@@ -7,6 +7,7 @@ import assert from 'node:assert/strict';
 import {sha,paragraphs,storyParagraphs,requestFor,normalize} from './protocol.mjs';
 import {inspectPreparedDraft} from '../../../../scripts/prepare-newsstand-draft.mjs';
 import {inspectProseQualityReview} from '../../../../scripts/check-prose-quality-admission.mjs';
+import {validateStoryTypeCoverage} from '../../../../scripts/validate-newsstand-story-type-coverage.mjs';
 const root=process.cwd();
 const option=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv[i+1]};
 const privateDirectory=p=>{const resolved=path.resolve(root,p);assert.ok(resolved.startsWith(path.resolve(root,'operations/product-stewards')+path.sep),'Review files must remain private');return path.relative(root,resolved)+'/'};
@@ -125,6 +126,8 @@ if(mode==='reconcile-calibration'){
  }
  const result={status:evaluations.length===items.length&&evaluations.every(e=>e.passed)?'CALIBRATION_PASSED':'HOLD_CALIBRATION',mode:calibrationMode,scope:'Blind editorial calibration only; no publication, source accuracy or human comprehension claim.',providerRoute,effort,protocolSha256,registrySha256:sha(read(registryPath)),policy:{path:policyPath,sha256:sha(read(policyPath))},notRun:items.slice(evaluations.length).map(e=>e.id),evaluations};write(out+'calibration-result.json',result);console.log(JSON.stringify(result));if(result.status!=='CALIBRATION_PASSED')process.exitCode=1;
 }else if(mode==='article'){
+ const reportingStory=json(dir+'story.json');
+ assert.deepEqual(validateStoryTypeCoverage(json(dir+'story-type-coverage.json'),reportingStory.themes||[],undefined,{story:reportingStory,root}),[],'Repair reporting coverage before calling the independent editor');
  const calibrationDir=privateDirectory(option('--calibration')||out);
  const calibration=json(calibrationDir+'calibration-result.json');assert.equal(calibration.status,'CALIBRATION_PASSED','Calibrate before article assessment');assert.equal(calibration.registrySha256,sha(read(registryPath)));assert.equal(calibration.protocolSha256,protocolSha256,'Calibration protocol changed');assert.equal(calibration.providerRoute,providerRoute,'Calibration provider changed');
  assert.equal(calibration.effort||'medium',effort,'Calibration effort changed');

@@ -10,6 +10,7 @@ import { inspectNewsstandLuminairyLinks } from "./lib/newsstand-luminairy-links.
 import { validateStoryTypeCoverage } from "./validate-newsstand-story-type-coverage.mjs";
 import { applyStoryLineageTransaction } from "./newsstand-story-lineage.mjs";
 import { inspectPreparedDraft } from "./prepare-newsstand-draft.mjs";
+import { validateOvernightFreshness } from "./lib/newsstand-overnight-freshness.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const readerContract = createRequire(import.meta.url)("../content/newsstand-reader-contract.js");
@@ -48,17 +49,25 @@ export function validateModelReleaseUtility(story) {
   if (!/(?:Anthropic says|OpenAI says|Google says|Meta says|vendor|not a promise|LAiDIES)/i.test(prose)) errors.push("model release does not distinguish vendor claims from interpretation");
   return errors;
 }
-export function loadOrdinaryStoryCandidate(binding, { root = ROOT, date, admittedHistoricalBase = false } = {}) {
+export function loadOrdinaryStoryCandidate(binding, { root = ROOT, date, admittedHistoricalBase = false, now = new Date().toISOString() } = {}) {
   if (!binding?.path?.startsWith("operations/product-stewards/newsstand/candidates/")) throw new Error("ordinary candidate must be private NewsStand candidate input");
   const candidate = JSON.parse(read(root, binding, "ordinary candidate package"));
-  const result = validateOrdinaryStoryCandidate(candidate, { root, admittedHistoricalBase });
+  const result = validateOrdinaryStoryCandidate(candidate, { root, admittedHistoricalBase, now });
   if (binding.storyId !== undefined || binding.unpublishedState !== undefined) {
     if (binding.storyId !== candidate.story.id || stable(binding.unpublishedState) !== stable({ status: candidate.story.status, publishedAt: candidate.story.publishedAt, sourceApproval: candidate.story.sourceApproval })) throw new Error('ordinary envelope pre-publication state differs from exact candidate');
   }
   if (date && candidate.editionDate !== date) throw new Error("ordinary candidate date mismatch");
   return { ...result, candidate };
 }
-export function validateOrdinaryStoryCandidate(candidate, { root = ROOT, admittedHistoricalBase = false } = {}) {
+export function validateOrdinaryStoryCandidate(candidate, { root = ROOT, admittedHistoricalBase = false, now = new Date().toISOString() } = {}) {
+  if (candidate?.overnightFreshness !== undefined) {
+    const record = JSON.parse(read(root, candidate.overnightFreshness, "overnight freshness record"));
+    const originalCandidate = JSON.parse(read(root, record.reviewedCandidate, "overnight original candidate"));
+    if (originalCandidate.overnightFreshness !== undefined) throw new Error("overnight freshness cannot be chained");
+    const original = validateOrdinaryStoryCandidate(originalCandidate, { root, admittedHistoricalBase, now });
+    const freshness = validateOvernightFreshness(record, { candidate, originalCandidate, root, now, readBinding: read, admittedHistoricalBase });
+    return { ...original, overnightFreshness: freshness };
+  }
   if (!candidate || !["newsstand-ordinary-story-candidate-v1", "newsstand-ordinary-story-candidate-v2"].includes(candidate.schemaVersion) || candidate.candidateStatus !== "READY_FOR_ISSUE_ADMISSION") throw new Error("ordinary candidate schema/status invalid");
   if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(candidate.candidateId || "") || !/^\d{4}-\d{2}-\d{2}$/.test(candidate.editionDate || "")) throw new Error("ordinary candidate ID/date invalid");
   if (!admittedHistoricalBase && candidate.editionDate >= "2026-09-05" && candidate.schemaVersion !== "newsstand-ordinary-story-candidate-v2") throw new Error("new ordinary candidates require the v2 story-type reporting frame");

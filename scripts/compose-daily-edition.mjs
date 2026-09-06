@@ -169,7 +169,7 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
     ["published", "corrected"].includes(story.status) && story.sourceApproval && story.sourceApproval.status === "approved");
   let candidateIdentity = null;
   if (candidateBinding) {
-    let validated; try { validated = loadOrdinaryStoryCandidate(candidateBinding, { root, date }); } catch (error) { reject(error.message); }
+    let validated; try { validated = loadOrdinaryStoryCandidate(candidateBinding, { root, date, now }); } catch (error) { reject(error.message); }
     if (validated.publicationBaseRaw !== storiesRaw) reject("ordinary candidate publication base differs from current canonical source");
     if (storiesData.stories.some(story => story.id === validated.story.id || story.slug === validated.story.slug)) reject("ordinary candidate duplicates an incumbent ID or slug");
     exactStories.push(validated.story);

@@ -16,6 +16,7 @@ import { promoteDailyIssue } from './promote-daily-edition.mjs';
 import { projectDailySourceRaw, verifyProjectionAdmission } from './publish-daily-edition.mjs';
 import { validateOrdinaryStoryCandidate, candidateReviewText, stable, sha256 } from './validate-newsstand-ordinary-story-candidate.mjs';
 import { enforcedFailureFamilies } from './check-prose-quality-admission.mjs';
+import { prepareOvernightCandidate } from './prepare-newsstand-overnight-candidate.mjs';
 
 const SOURCE = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const root = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), 'newsstand-ordinary-fixture-')));
@@ -114,6 +115,43 @@ assert.throws(() => promote(generic), /not generic\/service/);
 // Exercise a first issue too, with no pre-existing same-date issue.
 const firstDecision = { ...decision, schemaVersion: 'daily-issue-admission-v1', decision: 'ACCEPT_LOCAL_CANONICAL_WRITE' }; delete firstDecision.predecessorEnvelopeSha256; delete firstDecision.addedStoryIds;
 assert.equal(promote(firstDecision, { ...originalStore, issues: [] }).issue.storyIds.at(-1), story.id);
+// Real composition, issue admission and public projection of unchanged evening
+// prose. The records below are synthetic and confined to this disposable root.
+const morningDate='2026-08-31',morningNow=`${morningDate}T14:10:00Z`;
+const morningSource=put(`${prefix}/morning-source.json`,{schemaVersion:'laidies-newsstand-current-source-capture.v1',sourceUrl:candidate.sources[0].url,capturedAt:`${morningDate}T13:55:00Z`,content:'Synthetic morning source check: the original bounded setting change is unchanged.'});
+const developmentEvidence=put(`${prefix}/morning-developments.json`,{schemaVersion:'laidies-newsstand-development-capture.v1',query:'Synthetic latest development index',capturedAt:`${morningDate}T13:58:00Z`,sourceUrls:['https://example.test/latest'],content:'Synthetic current index check: no later development changes the bounded setting claim.'});
+const morningRecord={schemaVersion:'laidies-newsstand-overnight-freshness.v1',candidateId:candidate.candidateId,storySha256:candidate.storySha256,reviewedCandidate:candidateBinding,independentReview:candidate.reviewEvidence.independent,claimMap:candidate.claimMap,publicationDate:morningDate,checkedAt:`${morningDate}T14:00:00Z`,checker:'synthetic-fixture-checker',disposition:'NO_MATERIAL_CHANGE',sourceChecks:[{id:candidate.sources[0].id,url:candidate.sources[0].url,originalEvidence:sourceBinding,disposition:'UNCHANGED',explanation:'Synthetic recheck of the exact material claim, not a real source assessment.',currentCheckedAt:`${morningDate}T13:55:00Z`,currentEvidence:morningSource,currentExcerpt:'Synthetic morning source check: the original bounded setting change is unchanged.'}],developmentCheck:{disposition:'NO_MATERIAL_CHANGE',checkedAt:`${morningDate}T13:58:00Z`,query:'Synthetic latest development index',explanation:'No new development in this synthetic fixture.',evidence:developmentEvidence,currentExcerpt:'Synthetic current index check: no later development changes the bounded setting claim.'}};
+const morningRecordBinding=put(`${prefix}/morning-check.json`,morningRecord);
+const overnightCandidate=prepareOvernightCandidate(morningRecordBinding,{root,now:morningNow});
+assert.deepEqual(overnightCandidate.story,candidate.story,'overnight preparation must not change prose or original dates');
+const overnightBinding=put(`${prefix}/overnight-candidate.json`,overnightCandidate);
+const morningRadarPath=`operations/product-stewards/newsstand/editorial-intake/${morningDate}.md`;
+const morningRadar=`${morningDate}\n- **NewsStand:** REVIEW CANDIDATE fixture-current-news.\n`;
+put(morningRadarPath,morningRadar);
+const morningEnvelope=composeDailyEnvelope({root,date:morningDate,now:morningNow,radarPath:path.join(root,morningRadarPath),radarRaw:morningRadar,storiesRaw:base,columnsRaw,candidateBinding:overnightBinding});
+const morningDecision={schemaVersion:'daily-issue-admission-v1',decision:'ACCEPT_LOCAL_CANONICAL_WRITE',editionDate:morningDate,envelopeSha256:morningEnvelope.sha256,reviewedBy:'independent-fixture-judge',reviewerRole:'independent NewsStand issue judge',reviewedAt:`${morningDate}T14:05:00Z`};
+const morningAdmission=promoteDailyIssue({root,store:{...originalStore,issues:[]},envelope:morningEnvelope.envelope,envelopeRaw:morningEnvelope.canonical,decision:morningDecision,maker:'fixture-maker',now:morningNow});
+verifyProjectionAdmission({root,issue:morningAdmission.issue,envelopeRaw:morningEnvelope.canonical,decision:morningDecision});
+const prematureDecision={...morningDecision,reviewedAt:`${morningDate}T13:59:00Z`};
+assert.throws(()=>promoteDailyIssue({root,store:{...originalStore,issues:[]},envelope:morningEnvelope.envelope,envelopeRaw:morningEnvelope.canonical,decision:prematureDecision,maker:'fixture-maker',now:morningNow}),/cannot precede the overnight freshness check/);
+const prematureIssue=structuredClone(morningAdmission.issue);
+prematureIssue.admission.reviewedAt=prematureDecision.reviewedAt;
+prematureIssue.stories.find(item=>item.id===story.id).publishedAt=prematureDecision.reviewedAt;
+assert.throws(()=>verifyProjectionAdmission({root,issue:prematureIssue,envelopeRaw:morningEnvelope.canonical,decision:prematureDecision}),/cannot precede the overnight freshness check/);
+assert.throws(()=>projectDailySourceRaw({root,raw:base,issue:prematureIssue,columns}),/cannot precede the overnight freshness check/);
+const morningOutput=projectDailySourceRaw({root,raw:base,issue:morningAdmission.issue,columns});
+const morningPublic=parse(morningOutput),morningStory=morningPublic.stories.find(item=>item.id===story.id);
+assert.equal(morningStory.publishedAt,morningDecision.reviewedAt);
+assert.equal(morningStory.updatedAt,story.updatedAt);
+assert.equal(morningStory.lastCheckedAt,story.lastCheckedAt);
+assert.deepEqual(morningStory.sources,story.sources);
+assert.equal(morningStory.the_story,story.the_story);
+assert.deepEqual(reader.validate(morningPublic),[]);
+assert.equal(projectDailySourceRaw({root,raw:morningOutput,issue:morningAdmission.issue,columns}),morningOutput,'admitted historical overnight projection remains exactly replayable');
+assert.equal(fs.readFileSync(path.join(root,'content/newsstand-stories.js'),'utf8'),base,'overnight preparation and projection never silently write canonical files');
+assert.throws(()=>prepareOvernightCandidate(morningRecordBinding,{root,now:`${date}T23:00:00Z`}),/publication day|non-future/);
+const changedMorningRecord=put(`${prefix}/changed-morning-check.json`,{...morningRecord,disposition:'MATERIAL_CHANGE'});
+assert.throws(()=>prepareOvernightCandidate(changedMorningRecord,{root,now:morningNow}),/NO_MATERIAL_CHANGE/);
 let rejected = 0;
 const badCandidate = (change, pattern) => { const copy = structuredClone(candidate); change(copy); assert.throws(() => validateOrdinaryStoryCandidate(copy, { root }), pattern); rejected++; };
 badCandidate(c => { c.story.headline = 'Changed after review'; }, /story hash/);
@@ -164,6 +202,8 @@ put(sourceBinding.path, 'Synthetic authority: This fixture changes one setting, 
 for (const name of ['newsstand-service-continuity', 'newsstand-career-lane', 'select-aidb-edition', 'check-practitioner-signal-pilot', 'compose-daily-edition', 'promote-daily-edition', 'publish-daily-edition', 'validate-newsstand-ordinary-story-candidate', 'newsstand-story-lineage', 'prepare-newsstand-draft', 'validate-newsstand-story-type-coverage', 'check-prose-quality-admission', 'check-content-producer-contract', 'build-newsstand-derivatives']) put(`scripts/${name}.mjs`, fs.readFileSync(path.join(SOURCE, `scripts/${name}.mjs`), 'utf8'));
 put('operations/product-stewards/newsstand/story-type-modules.json', fs.readFileSync(path.join(SOURCE, 'operations/product-stewards/newsstand/story-type-modules.json'), 'utf8'));
 put('scripts/lib/newsstand-luminairy-links.mjs', fs.readFileSync(path.join(SOURCE, 'scripts/lib/newsstand-luminairy-links.mjs'), 'utf8'));
+put('scripts/lib/newsstand-overnight-freshness.mjs', fs.readFileSync(path.join(SOURCE, 'scripts/lib/newsstand-overnight-freshness.mjs'), 'utf8'));
+put('content/newsstand-big-picture-versions.js', fs.readFileSync(path.join(SOURCE, 'content/newsstand-big-picture-versions.js'), 'utf8'));
 put('content/newsstand-reader-contract.js', fs.readFileSync(path.join(SOURCE, 'content/newsstand-reader-contract.js'), 'utf8'));
 const envelopePath = `operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/${date}-fixture-revision.json`;
 const decisionPath = `operations/product-stewards/newsstand/evidence/${date}-fixture-admission.json`;
@@ -189,6 +229,11 @@ const sandbox={window:{crypto:webcrypto,NEWSSTAND_DATA:publicData,localStorage:{
 vm.runInNewContext(fs.readFileSync(path.join(SOURCE,'content/site/newsstand-catchup-v1.js'),'utf8').replace('})(window);',`global.test={validDailyIssueStore,set(c){columns=c;}};})(window);`),sandbox);
 sandbox.window.test.set(columns);
 assert.equal(await sandbox.window.test.validDailyIssueStore(admitted.store),true,sandbox.window.__newsstandDailyIssueValidationFailure);
+class MorningDate extends Date { constructor(...a){super(...(a.length?a:[morningNow]));}static now(){return Date.parse(morningNow);} }
+const morningSandbox={window:{crypto:webcrypto,NEWSSTAND_DATA:morningPublic,localStorage:{getItem:()=>null}},document:{readyState:'loading',addEventListener(){}},Date:MorningDate,TextEncoder,URL,Intl,Set};
+vm.runInNewContext(fs.readFileSync(path.join(SOURCE,'content/site/newsstand-catchup-v1.js'),'utf8').replace('})(window);',`global.test={validDailyIssueStore,set(c){columns=c;}};})(window);`),morningSandbox);
+morningSandbox.window.test.set(columns);
+assert.equal(await morningSandbox.window.test.validDailyIssueStore(morningAdmission.store),true,morningSandbox.window.__newsstandDailyIssueValidationFailure);
 const changedState=structuredClone(admitted.store);changedState.issues.at(-1).sourceIdentity.ordinaryCandidate.unpublishedState.status='published';
 assert.equal(await sandbox.window.test.validDailyIssueStore(changedState),false,'changed original candidate state fails envelope identity');
 // Actual reviewed ordinary candidate + seven original-date services in one
@@ -232,4 +277,4 @@ assert.equal(combinedDerived.archive.items.filter(i=>i.kind==='service').length,
 assert.ok(combinedDerived.archive.items.filter(i=>i.kind==='service').every(i=>i.editionDate===oldDate));
 sandbox.window.test.set(carryColumns);
 assert.equal(await sandbox.window.test.validDailyIssueStore(combinedResult.store),true,sandbox.window.__newsstandDailyIssueValidationFailure);
-console.log(`ORDINARY NEWS PIPELINE PASS private_composition=1 first_issue=1 same_day_append=1 published_only_after_admission=1 incumbents_preserved=1 repeat_and_resume=1 base_drift_rejected=1 draft_preparation_required=1 changed_observations_rejected=1 review_mutations_rejected=${rejected} human_gate_preserved=1 real_cli=1 feed_archive_reader=1 fixture=${root} REAL_PUBLIC_WRITES=0`);
+console.log(`ORDINARY NEWS PIPELINE PASS private_composition=1 first_issue=1 same_day_append=1 published_only_after_admission=1 overnight_real_projection=1 premature_morning_admission_rejected=1 incumbents_preserved=1 repeat_and_resume=1 base_drift_rejected=1 draft_preparation_required=1 changed_observations_rejected=1 review_mutations_rejected=${rejected} human_gate_preserved=1 real_cli=1 feed_archive_reader=1 fixture=${root} REAL_PUBLIC_WRITES=0`);

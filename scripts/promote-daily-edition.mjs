@@ -124,7 +124,7 @@ function validateEnvelope(value, root = ROOT, store = null, now = new Date().toI
   const dailyCoverage = value.sourceIdentity?.dailyCoverage;
   if (candidateBinding && correctionBinding) reject("ordinary candidate and story correction cannot share one issue envelope");
   exactKeys(value.sourceIdentity, ["radarPath", "radarSha256", "storiesPath", "storiesSha256", "columnsPath", "columnsSha256", ...(dailyCoverage ? ["dailyCoverage"] : []), ...(candidateBinding ? ["ordinaryCandidate"] : []), ...(correctionBinding ? ["storyCorrection"] : []), ...(value.sourceIdentity.servicePredecessor ? ["servicePredecessor"] : [])], "sourceIdentity");
-  const candidate = candidateBinding ? loadOrdinaryStoryCandidate(candidateBinding, { root, date: value.editionDate }).story : null;
+  const candidate = candidateBinding ? loadOrdinaryStoryCandidate(candidateBinding, { root, date: value.editionDate, now }).story : null;
   if (correctionBinding) {
     exactKeys(correctionBinding, ["storyId", "predecessorStorySha256", "successorStorySha256", "evidence"], "story correction");
     if (typeof correctionBinding.storyId !== "string" || !HASH.test(correctionBinding.predecessorStorySha256 || "") ||
@@ -287,12 +287,13 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
     reject("independent reviewer identity/time is invalid");
   }
   if (decision.editionDate !== envelope.editionDate) reject("decision date does not match the envelope");
-  const ordinary = envelope.sourceIdentity.ordinaryCandidate ? loadOrdinaryStoryCandidate(envelope.sourceIdentity.ordinaryCandidate, { root, date: envelope.editionDate }) : null;
+  const ordinary = envelope.sourceIdentity.ordinaryCandidate ? loadOrdinaryStoryCandidate(envelope.sourceIdentity.ordinaryCandidate, { root, date: envelope.editionDate, now }) : null;
   if (ordinary) {
     if (ordinary.maker !== maker || ordinary.maker === decision.reviewedBy) reject("candidate maker identity differs from issue maker or self-admits");
     if (successorDecision || serviceRevisionDecision || storyCorrectionDecision) reject("ordinary candidate requires initial admission or explicit news revision, not generic/service/correction successor");
     if (sha256(ordinary.publicationBaseRaw) !== envelope.sourceIdentity.storiesSha256) reject("ordinary candidate publication base does not match envelope source");
     if (Date.parse(decision.reviewedAt) < Date.parse(ordinary.reviewedAt)) reject("issue admission cannot precede independent story review");
+    if (ordinary.overnightFreshness && !(Date.parse(decision.reviewedAt) >= Date.parse(ordinary.overnightFreshness.checkedAt))) reject("issue admission cannot precede the overnight freshness check");
     const day = vancouverDay(decision.reviewedAt);
     if (day !== envelope.editionDate) reject("ordinary story publication must be admitted on its Vancouver issue date");
   }
