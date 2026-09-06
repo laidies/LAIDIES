@@ -22,6 +22,28 @@ export function inspectHomepageCorrection(item, root) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if (a.owner_feedback_successor === 'PAGE_RETRO_BACKGROUND') {
+      const p = 'operations/product-stewards/town-entry-homepage/candidates/retro-page-background-20260906/';
+      assert(item.id === homepageCorrectionId && item.review_type === 'building_page_visual', 'wrong scoped candidate');
+      for (const [name,binding] of [['homepage',a.candidate],['runtime',a.runtime],['worker',a.worker],['graphic',a.graphic],['Mall image',a.mallImage],['burst',a.burst],['wallpaper',a.wallpaper]]) assert(binding && digest(binding.path) === binding.sha256, name+' bytes differ');
+      const parent = bytes(p+'parent.html').toString();
+      assert(digest(p+'parent.html') === '9dfc3c62af3dcd4545a2f5438312ca44628affd2ac0cb4dd80d34a318cd12328', 'wrong outer background parent');
+      assert(bytes('index.html').toString() === parent.replace('body{background:var(--hp-ink)}','body{background:#c195e9 url("/assets/homepage/rewind-wallpaper-20260906.webp") repeat 0 0 / 680px 680px;background-attachment:scroll}\n@media(max-width:700px){body{background-size:480px 480px}}'), 'unrelated homepage change');
+      for (const b of a.evidence || []) assert(digest(b.path) === b.sha256,'stale evidence: '+b.path);
+      for (const f of ['scope.md','parent.html','source-diff.patch','background-brief.json','prompt.txt','checks.json','producer-self-review.md','independent-review.md','claude-review-result.json','visuals.json','browser-test.mjs','production-preservation.json']) assert(a.evidence?.some(b=>b.path===p+f),'missing bound evidence: '+(f.startsWith('claude')?'claude':f));
+      const checks=JSON.parse(bytes(p+'checks.json'));
+      assert(checks.status==='PASS' && checks.sourceSha256===a.candidate.sha256 && checks.assetSha256===a.wallpaper.sha256 && checks.missingWallpaperRejected,'wallpaper source or checks differ');
+      for (const width of [1440,390]) {
+        const row=checks.rows.find(r=>r.width===width && r.kind==='candidate'),old=checks.rows.find(r=>r.width===width && r.kind==='parent');
+        assert(row && old && !row.overflow && row.background.includes(a.wallpaper.path) && row.backgroundSize===(width===390?'480px 480px':'680px 680px') && row.attachment==='scroll' && ['content','links','panels','bannerImages','bodyHeight'].every(k=>JSON.stringify(row[k])===JSON.stringify(old[k])),'wallpaper fit or preserved panels differ');
+      }
+      const independent=bytes(p+'independent-review.md').toString(),claude=JSON.parse(bytes(p+'claude-review-result.json'));
+      assert(independent.includes('ADMIT_FOR_OWNER_REVIEW') && independent.includes(a.candidate.sha256),'independent wallpaper review differs');
+      assert(!claude.is_error && claude.modelUsage?.['claude-opus-5'] && claude.result?.includes('ADMIT_FOR_OWNER_REVIEW') && claude.result.includes(a.candidate.sha256),'actual Claude wallpaper review differs');
+      for (const v of JSON.parse(bytes(p+'visuals.json'))) assert(digest(v.path)===v.sha256,'stale visual');
+      assert(a.production_release_approved===false,'owner presentation does not authorize production');
+      return errors;
+    }
     if (a.owner_feedback_successor === 'MALL_BANNER_IMAGE') {
       const p = 'operations/product-stewards/town-entry-homepage/candidates/mall-thumbnail-20260906/';
       assert(item.id === homepageCorrectionId && item.review_type === 'building_page_visual', 'wrong scoped candidate');

@@ -1,5 +1,13 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Retain lilac wallpaper; vary the motifs
+
+Ali loves the original wallpaper and says its purple may be fine alongside the sections. Preserve the current purple, palette and rendered illustration style. Replace some repeated cassette motifs with shoes and lips, as in the supplied examples; retain retro-tech objects and the existing skate. This is refinement of the approved direction, not a new palette exploration.
+
+## 2026-09-06 — Original 90s homepage outer background
+
+Ali requests replacing the full-page navy ground with a background inspired by operations/reference/reusable-backgrounds/90s-background-inspiration. Use original artwork in current LAiDIES colours, drawing on the roomy retro-tech composition of example 05. Scope is the homepage outer canvas, not section backgrounds, cards or copy. Preserve original references. Preview only.
+
 ## 2026-09-06 — Bright border around discovery images
 
 Ali requests a small bright border around the banner thumbnails. Use a thin2px outline in existing --hp-lime #b7e42b, matching the burst/links. Apply to all8 small images; preserve their size/crop, existing backgrounds, text, layout and controls. Preview only.

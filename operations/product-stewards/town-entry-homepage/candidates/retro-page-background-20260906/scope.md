@@ -1,0 +1,1 @@
+Replace homepage outer navy canvas with original lilac 1990s illustrated wallpaper inspired by owner reference 05. Body background only. Preserve every opaque content panel, image, banner, header, footer, copy, link and interaction. Desktop tile 680px; mobile 480px. Static CSS repeat, no fixed-scroll animation. Reference is inspiration only; original preserved. Preview only.
