@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Women footer, warm Miss Jeeves and selected heading style
+
+Ali flags lower-left empty space beside stacked LUMINAiRY/Episode04 links. Put the existing links beneath both columns in an equal-width desktop row/full-width phone stack; tighten row/paragraph/footer spacing. She also rejects navy-on-navy Miss Jeeves and blue/green dominance: use current pink/coral/tangerine with existing subtle print texture, dark readable copy and warm controls; no plain-white panel. Finally she selects “Everything you can do in LAiDIES.” as typography reference for headings/bold text and specifically flags DYK. Actual typeface is Jost in both; match DYK heading/messages/links/controls to reference Bold700 while retaining compact sizes, line heights, colours and outline. Regular body text and intentional quote/radio treatments preserved. Source b7f41fed; hosted evidence d80249b5 (supersedes early captures6a137a9e); https://9201610d.laidies-sunnyvaile.pages.dev/#dyk-title . Existing preview tab8 visibly updated. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
+
 ## 2026-09-06 — Tighter homepage transition and full-width book link
 
 Ali flags the excess gap above the women-behind-AI feature and the partial-width navy/white Fundamentals CTA. Reduce adjoining padding and use the existing content width with tangerine copy, lime book title, thin orange border and current book cover at right. Preserve exact wording, chapter route, section backgrounds and the approved Rewind wallpaper. Source 6fe31945; hosted evidence fb53d4cf; https://f4a00196.laidies-sunnyvaile.pages.dev/#why-laidies-title . Existing preview tab 8 visibly updated. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
