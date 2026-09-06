@@ -1,0 +1,14 @@
+Command:
+node scripts/check-content-producer-contract.mjs operations/product-stewards/learning-content-ecosystem/trials/2026-09-06-producer-transfer/case-a/producer-contract.json
+
+Final exit code: 0
+Final output:
+CONTENT PRODUCER CONTRACT INTEGRITY MATCH status=READY_TO_DRAFT quality_authority=none
+
+Earlier calibration/setup run:
+Exit code: 1
+CONTENT PRODUCER CONTRACT FAIL
+- communicationDesign.explanationArc.order must preserve the default explanatory sequence
+
+Correction before drafting:
+Added the required explanationArc.order value to producer-contract.json, then reran the checker successfully. No explanation prose existed during either preflight run.

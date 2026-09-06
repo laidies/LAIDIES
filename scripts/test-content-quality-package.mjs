@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { PRODUCER_INSTRUCTION_PATHS, inspectContentProducerContract } from './check-content-producer-contract.mjs';
 import { checkContentReleaseReadiness } from './check-content-release-readiness.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -28,6 +29,15 @@ for (const entry of entries) {
 }
 assert.throws(() => checkBinding(entries[0].path, '0'.repeat(64)), /bound bytes changed/);
 assert.throws(() => checkBinding(base + 'missing-calibration-artifact', entries[0].sha256), /ENOENT/);
+// Exercise actual package instruction bindings, separately from semantic quality.
+for (const relative of Object.values(PRODUCER_INSTRUCTION_PATHS)) {
+  const bytes = fs.readFileSync(path.join(root, relative));
+  assert.ok(bytes.length > 0, `current instruction missing or empty: ${relative}`);
+}
+const failedTrialPath = base + 'trials/2026-09-06-producer-transfer/case-a/producer-contract.json';
+const failedTrial = JSON.parse(fs.readFileSync(path.join(root, failedTrialPath)));
+assert.ok(inspectContentProducerContract(failedTrial, { root }).errors.some(error => error.startsWith('instructionBindings.')),
+  'the preserved real producer trial must remain rejected without current instruction bindings');
 const queue = JSON.parse(fs.readFileSync(path.join(root, base, 'content-work-orders.json')));
 assert.ok(Array.isArray(queue.workOrders) && queue.workOrders.length > 0, 'real work queue missing or empty');
 assert.equal(new Set(queue.workOrders.map(order => order.id)).size, queue.workOrders.length, 'duplicate work order');

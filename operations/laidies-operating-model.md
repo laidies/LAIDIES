@@ -46,6 +46,19 @@ that every visitor feature or all unpublished artifacts were inspected.
   and GitHub/Cloudflare billing documentation. Exact existing invoices, complete
   account entitlements and task-specific costs were not available.
 
+## Fresh-producer trial changed the diagnosis
+
+The authorized trial failed source adoption before independent review or its
+second case. A fresh maker used a historic learning-standard blob because
+three routed current instruction sources were absent main, yet preflight
+returned READY_TO_DRAFT. All19 declared source hashes matched; matching those
+records did not establish complete current instructions. This narrows the
+PR108/109 completion claim to executable/example integration. The bounded repair
+recovers the required sources and binds them in preflight; the unchanged trial
+contract now fails. A partial draft is preserved without a quality verdict.
+Exact result and remaining steps: learning ecosystem
+`trials/2026-09-06-producer-transfer/RESULT.md` and `RECOVERY.md`.
+
 ## Ranked findings
 
 | Priority | Verified finding | Effect | Correction / owner |

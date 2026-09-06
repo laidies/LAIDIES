@@ -1,9 +1,9 @@
 # Active work
 
-> **2026-09-06 — Operating audit / BUILDING: Goal active, learning package recovery.**
+> **2026-09-06 — Operating audit / BUILDING: learning trial and instruction recovery.**
 > Owner `01a077d0-0775-7af2-b631-c311573f0e0e`; bounded checkout
 > `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`, branch
-> `ops/operating-ci-continuation-20260906`. PR103–110 are merged. Ali explicitly
+> `ops/producer-transfer-trial-20260906`. PR103–111 are merged. Ali explicitly
 > activated native Goal mode; one automatic continuation was observed. Custom
 > hook trust/loading and sustained execution remain separate, unverified claims.
 > Existing producer/review/release checks and exact internal exemplars are now
@@ -13,8 +13,11 @@
 > propagation; real new learning-owner admission and successor remain open.
 > Audit reconciled: shared HEAD3091a1fd still executes older quality consumers.
 > Complete adoption instructions are in the learning ecosystem RECOVERY.md.
-> Next verify the existing owner adopts the package and completes a real
-> lesson/successor; cloud and delivery proof remain open in `OPERATING-RECOVERY-NEXT.md`.
+> Authorized fresh-producer trial failed source adoption: preflight allowed
+> missing current instructions and an older Standard. Trial stopped; preserved
+> draft has no quality verdict. Current instruction-binding repair is local;
+> no second producer or independent review was run. See the learning trial RESULT.md.
+> Owner adoption, real learning/successor and cloud/delivery proof remain open.
 > No new paid service, public release or takeover of surface owners.
 
 > **2026-09-06 — Small current visual references: REPOSITORY-DISTRIBUTED / PR106 MERGED.** Owner: background-reference task `01a0785e-1438-7161-b041-0be213b06e9b`; isolated branch `ops/current-visual-references-20260906`. Build the small two-job entry and scoped selections, preserve exact originals and reconcile later rejections; system engineering task owns prompt-consumer reconciliation on a separate branch. No all-artwork migration or production art changes. Acceptance: exact usable references and reuse scope, honest unavailable entries, routed instructions, calibrated selection checks and repository distribution. Local index and 13 prompt-consumer checks pass; later Matron/Miss Jeeves identities and destination palettes are reconciled. Current source commits 222a10ae, 3afe85a6, 21b55575 and coordinated consumer 1b1fcf6e. PR106 merged as a38d5068e67582e089e1e7b9ef983fa60882f7c4 after targeted reference CI and both baseline jobs passed; shared entry pointer committed e0812106. Source/consumer delivery is complete; no new artwork, public deployment or native hook activation is claimed. Other product work continues.
