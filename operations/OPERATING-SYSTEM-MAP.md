@@ -730,8 +730,8 @@ public release remain unverified. The legacy exact-film assembler's embedded
 comic-v1 text remains with its episode owner; episode `qc-frames.py` keeps its
 valid 1920x1080 output check. No archive sweep or extra tool subscription.
 
-Delivery is a commit for the reference task to cherry-pick into its receiving
-branch; no independent merge. After integration, continue the operating audit's
+Delivery completed through the receiving reference task and PR106, merged as
+`a38d5068`. Continue the operating audit's
 representative feature, editorial, rejection-to-maker, and cloud-to-Ali-to-resume
 traces. This bounded pilot does not complete the whole-system audit.
 
@@ -744,7 +744,7 @@ traces. This bounded pilot does not complete the whole-system audit.
 | Scheduled NewsStand intake | Actual schedule run34051864764 succeeded September6; issue82 updated. | Signal collection is automatic. Main lacks the receiver/work-order/composer/promoter package needed to turn that signal into an owned canonical candidate. No demonstrated same-item publication chain. |
 | Rejection to maker learning | Episode04 Blend & Snap carousel rejection binds its preview/source/manifest and invalidates prior admissions. | No linked owner-admitted reusable lesson or successor trial found. Prose guard validates a pending lesson, not the admission transition. Agent owner can classify/repair; Ali's reserved product direction is already supplied. Do not invent a new human gate for routine learning work. |
 | Cloud to Ali to resumed job | Existing private Cloud maintenance reports successful checks; GitHub states were independently matched. | Scheduler provenance, direct actionable notification/reply, and same-job resumption with laptop unavailable remain unverified. Desktop-local timers require an available laptop. |
-| Active task to next step | Direct Stop checker rejects ending this unfinished audit. | Outer registration was still pinned to stopped predecessor and silently skipped this task. The routing repair covers admitted sessions only; native activation, broad session enrollment and sustained execution remain separate. |
+| Active task to next step | PR107 session routing is merged and the actual outer command reaches this task. Ali activated native Goal mode; one automatic continuation observed. | Custom hook trust/loading, broader session enrollment and sustained execution remain separate. Goal does not prove Mac-off execution. |
 
 Safe primary evidence: [scheduled intake run](https://github.com/laidies/LAIDIES/actions/runs/34051864764),
 [intake issue](https://github.com/laidies/LAIDIES/issues/82),
@@ -776,3 +776,13 @@ Current official docs: [Goal mode](https://learn.chatgpt.com/docs/long-running-w
 Checked September6. Goal mode retains existing permissions; local scheduled
 work requires the computer/app, and web tasks cannot directly access a laptop
 folder. No new subscription or API call is required merely to correct routing.
+
+### Learning package recovery checkpoint — September 6
+
+The existing producer, prose-review and release-readiness package is recovered
+on `ops/learning-package-recovery-20260906` for integration. Six registered examples
+match exact bytes, including two frozen historical positives that preserve current
+product sources. Supporting evidence now participates in both positive-example
+checks. Fixture negatives pass; a real queue readiness requirement fails with
+zero ready items and 17 held. Owner admission, an uncoached evaluator trial and
+successor use remain open. Scope: `product-stewards/learning-content-ecosystem/RECOVERY.md`.

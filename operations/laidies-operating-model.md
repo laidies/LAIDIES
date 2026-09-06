@@ -305,5 +305,15 @@ Continuation source repair `bc95574d` is rebased onto the reference package as
 previous committed source; the actual configured command now rejects ending
 this unfinished task. Native trust/loading remains unverified, and the existing
 recursion bound is preserved. PR106 is now merged as a38d5068e67582e089e1e7b9ef983fa60882f7c4 with
-all three checks passing. PR107 is rebased onto that mainline result; its own
-remote checks/integration remain separate from the local routing test.
+all three checks passing. PR107 subsequently merged as `f29dfb57` after both
+baseline CI jobs passed. Ali then activated native Goal mode; one automatic
+continuation was observed. The whole-operation objective remains active.
+
+
+Learning package recovery now uses exact historical Episode 1 and Straight
+Answers bytes as internal exemplars, preserving their existing scope. The
+producer/review/release scripts, tests and real 17 held orders are recovered for
+mainline integration. A missing positive-example evidence check was repaired in
+both consumers. This closes source recoverability, not the learning-owner
+admission edge, real semantic evaluation or destination adoption. See
+`product-stewards/learning-content-ecosystem/RECOVERY.md`.

@@ -1,33 +1,21 @@
 # Active work
 
-> **2026-09-06 — Operating audit / BUILDING: executable handoffs and continuation.**
-> Owner `01a077d0-0775-7af2-b631-c311573f0e0e`; same bounded integration checkout.
-> Map integrated via PR105. Visual collection PR106 belongs to its existing
-> owner. Current task reproduced the obsolete predecessor-only hook route,
-> prepared session-based correction, and traced editorial/release/learning/cloud
-> edges. Source tests are not native activation or whole-system completion.
-> Continue `OPERATING-RECOVERY-NEXT.md`; do not stop at the visual handoff or
-> replay historical branch/PR instructions below. Goal activation question is
-> pending, but does not block independent audit work.
+> **2026-09-06 — Operating audit / BUILDING: Goal active, learning package recovery.**
+> Owner `01a077d0-0775-7af2-b631-c311573f0e0e`; bounded checkout
+> `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`, branch
+> `ops/learning-package-recovery-20260906`. PR103–107 are merged. Ali explicitly
+> activated native Goal mode; one automatic continuation was observed. Custom
+> hook trust/loading and sustained execution remain separate, unverified claims.
+> Current work recovers the existing producer/review/release checks and exact
+> internal exemplars. All 17 real content orders remain held. Next: integrate
+> this package, close the existing learning-owner admission edge and observe a
+> real successor; continue editorial/cloud edges in `OPERATING-RECOVERY-NEXT.md`.
+> No new paid service, public release or takeover of surface owners.
 
 > **2026-09-06 — Small current visual references: REPOSITORY-DISTRIBUTED / PR106 MERGED.** Owner: background-reference task `01a0785e-1438-7161-b041-0be213b06e9b`; isolated branch `ops/current-visual-references-20260906`. Build the small two-job entry and scoped selections, preserve exact originals and reconcile later rejections; system engineering task owns prompt-consumer reconciliation on a separate branch. No all-artwork migration or production art changes. Acceptance: exact usable references and reuse scope, honest unavailable entries, routed instructions, calibrated selection checks and repository distribution. Local index and 13 prompt-consumer checks pass; later Matron/Miss Jeeves identities and destination palettes are reconciled. Current source commits 222a10ae, 3afe85a6, 21b55575 and coordinated consumer 1b1fcf6e. PR106 merged as a38d5068e67582e089e1e7b9ef983fa60882f7c4 after targeted reference CI and both baseline jobs passed; shared entry pointer committed e0812106. Source/consumer delivery is complete; no new artwork, public deployment or native hook activation is claimed. Other product work continues.
 
 
-> **2026-09-06 — Whole-operation consultant audit / BUILDING.** Same operating owner and objective; now includes full organization/unfinished-work review, real maker-learning loop, cloud/subscription split, communication, costs and ongoing management. Branch `ops/learning-context-repair-20260906`; bounded checkout `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`. First repairs merged in PR103/37fe77ae. Research and reconcile current evidence before recommending new services or large integration. No spending or cleanup authorization inferred.
-
-> **2026-09-06 — Operating-system review / BUILDING.** Fresh owner task
-> `01a077d0-0775-7af2-b631-c311573f0e0e`, bounded checkout
-> `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`, branch
-> `ops/system-review-handoff-20260906`. Original whole-operation objective is
-> bound in `WRK-20260906-system-review`; parent is stopped, not completed.
-> Approved Astra distribution is reconciled, isolated-parent writes prevented,
-> and negative instruction/config tests pass. CLI prompt inspection loads Astra
-> safeguards; native hook invocation/trust remains unverified. Current next:
-> finish remote CI and integrate PR103 (source297b0ea6/6195f638) into main, then reconcile
-> operating coverage and the existing Cloud maintenance trigger. Homepage and
-> NewsStand remain with their current active owners; media lanes are retained.
-> Details and ranked remaining work: `OPERATING-RECOVERY-NEXT.md`.
-
+<!-- Prior integration milestones are in OPERATING-RECOVERY-NEXT.md and Git history. -->
 
 > **2026-09-06 — Transfer to LAiDIES system engineering review.**
 > Ali requested a fresh session for the whole-system review and repair.

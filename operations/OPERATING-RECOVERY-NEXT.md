@@ -1,37 +1,32 @@
 # LAiDIES operating recovery: next action
 
-Updated September 5, 2026. This is the compact entry for one workstream, not
+Updated September 6, 2026. This is the compact entry for one workstream, not
 universal agent context or a second portfolio database. Current product owners
 and their exact artifacts outrank historical snapshots below.
 
 ## Current continuation — executable flow audit, September 6
 
-The map is integrated through PR105. The full consultant objective remains
-BUILDING; the visual-reference pilot is in PR106 with its existing owner.
-Continue the representative feature, editorial, rejection/learning and cloud
-notification/resumption traces. The map and operating model contain current
-findings; older proposed integration sequences below do not override this step.
+PR103–107 are merged: instruction distribution, retired obsolete publisher,
+full map, current visual references/consumers and session-based continuation
+routing. PR107 merge is `f29dfb57cd6f1c27b925016b884e3181d8a0671e`; both baseline
+CI jobs passed. The actual outer hook registration was updated and its configured
+command now reaches this session. Native hook trust/loading remains unverified.
 
-**Repeated premature stop, reproduced September 6:** this task ended after a
-consumer handoff despite remaining authorized independent work. Ali reports the
-same failure across tasks even after explicit instructions to continue. The
-outer-workspace hook is restricted to predecessor session `01a0739d-47b1-7330-93f2-c20f8d984ffe`.
-Its registered command returned exit 0 and empty output for current session
-`01a077d0-0775-7af2-b631-c311573f0e0e`; calling the existing Stop handler directly
-returned a continuation block for unfinished `WRK-20260906-system-review`.
-Only 2 of 19 projected work items have session bindings, one already STOPPED.
-The existing `stop_hook_active` escape allows one automatic continuation only.
-Neither one reminder nor a file's presence establishes ongoing execution.
+Ali explicitly activated native Goal mode (“yes activate”). The goal is active
+for the original whole-operation objective and one automatic continuation was
+observed after the activation response. This proves that continuation, not
+unattended Mac-off operation or indefinite persistence. Keep the goal active
+through intermediate milestones; the Stop hook retains its recursion bound.
 
-Bounded repair: route registered hooks through the existing session-work query,
-so admitted successor sessions reach the same checker and unbound/terminal work
-is untouched. Keep the recursion bound; do not convert an incomplete hook into
-an unlimited scheduler. Native review/trust and actual invocation are separate
-acceptance steps. Do not edit trust records or infer their approval from source
-tests. Goal mode is the documented native mechanism to evaluate for sustained
-work; activation was asked explicitly because its tool requires a direct request.
-Meanwhile continue all independent audit work. No duplicate automation or new
-API/service spend is authorized by this repair.
+Current branch `ops/learning-package-recovery-20260906` restores the existing
+producer/review/release package absent from main. Two registered writing
+examples are frozen at their exact historical bytes under internal operations;
+current product sources are untouched. The News exemplar's supporting evidence
+now participates in both producer and review checks. All 17 real work orders
+remain held. See the package `RECOVERY.md` for exact scope and remaining edges.
+Next integrate/test this package, then complete the existing pending-learning
+owner admission transition and a real, independently evaluated successor. Do
+not treat fixture verdicts as semantic review or invent a second learning registry.
 
 Current trace findings: scheduled NewsStand intake reaches issue82, but its
 mainline candidate receiver is incomplete; the carousel rejection invalidates
