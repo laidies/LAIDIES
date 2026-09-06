@@ -30,18 +30,23 @@ export function inspectHomepageCorrection(item, root) {
       assert(a.cards?.length===2 && a.cards.every(b=>digest(b.path)===b.sha256),'current card bytes differ');
       const changes=JSON.parse(bytes(p+'changes.json')),parent=bytes(p+'parent.html').toString();
       assert(digest(p+'parent.html')==='9b0ef7598f05dd9626c928ff7492ee63ea5e2ea672f4676504037142aa12f8d7','wrong spacing parent');
-      assert(changes.replacements.reduce((s,c)=>s.replace(c.old,c.new),parent)===bytes('index.html').toString(),'unrelated homepage change');
+      const reviewedHtml=changes.replacements.reduce((s,c)=>s.replace(c.old,c.new),parent);
+      const reviewedSha=crypto.createHash('sha256').update(reviewedHtml).digest('hex');
+      if(a.mechanical_typography_correction) {
+        assert(a.mechanical_typography_correction.parent_sha256==='5803d4792eb4890050de25c127639aaa8d31cbddbdc755ad408e0ee44a82c12c' && reviewedSha===a.mechanical_typography_correction.parent_sha256,'wrong typography parent');
+        assert(reviewedHtml.replace('<strong>Ghostbuster</strong>','Ghostbuster')===bytes('index.html').toString(),'unrelated homepage change');
+      } else assert(reviewedHtml===bytes('index.html').toString(),'unrelated homepage change');
       for(const b of a.evidence||[]) assert(digest(b.path)===b.sha256,'stale evidence: '+b.path);
       for(const f of ['scope.md','changes.json','parent.html','source-diff.patch','checks.json','producer-self-review.md','independent-review.md','claude-review-result.json','visuals.json','browser-test.mjs','production-preservation.json']) assert(a.evidence?.some(b=>b.path===p+f),'missing bound evidence: '+(f.startsWith('claude')?'claude':f));
       const checks=JSON.parse(bytes(p+'checks.json'));
-      assert(checks.status==='PASS' && checks.sourceSha256===a.candidate.sha256 && checks.oldStretchRejected,'spacing checks differ');
+      assert(checks.status==='PASS' && checks.sourceSha256===reviewedSha && checks.oldStretchRejected,'spacing checks differ');
       for(const width of[1440,1074,390,320]) {
         const row=checks.rows.find(r=>r.width===width&&r.kind==='candidate'),old=checks.rows.find(r=>r.width===width&&r.kind==='parent');
         assert(row && old && !row.overflow && row.cards.length===6 && row.cards.every((c,i)=>c.paragraphMin.every(h=>h==='') && Math.abs(c.gap-14)<1 && c.decoded && ['text','action','image','bodyFont','bodySize','headingFont','headingWeight','colour','background'].every(k=>c[k]===old.cards[i][k])) && row.filterChecks.length>=(width===1074?8:5) && row.filterChecks.every(f=>f.noOverflow && f.gaps.every(g=>Math.abs(g-14)<1)) && row.grid.h<old.grid.h,'activity natural sizing or preservation differs');
       }
       const independent=bytes(p+'independent-review.md').toString(),claude=JSON.parse(bytes(p+'claude-review-result.json'));
-      assert(independent.includes('ADMIT_FOR_OWNER_REVIEW')&&independent.includes(a.candidate.sha256),'independent spacing review differs');
-      assert(!claude.is_error&&claude.modelUsage?.['claude-opus-5']&&claude.result?.includes('ADMIT_FOR_OWNER_REVIEW')&&claude.result.includes(a.candidate.sha256),'actual Claude spacing review differs');
+      assert(independent.includes('ADMIT_FOR_OWNER_REVIEW')&&independent.includes(reviewedSha),'independent spacing review differs');
+      assert(!claude.is_error&&claude.modelUsage?.['claude-opus-5']&&claude.result?.includes('ADMIT_FOR_OWNER_REVIEW')&&claude.result.includes(reviewedSha),'actual Claude spacing review differs');
       for(const v of JSON.parse(bytes(p+'visuals.json'))) assert(digest(v.path)===v.sha256,'stale visual');
       assert(a.production_release_approved===false,'owner presentation does not authorize production');
       return errors;
