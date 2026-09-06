@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Banner text alignment and restored portraits
+
+Ali requests vertically centred Did you know copy, different text colour, a contrasting background behind Miss Jeeves and the updated Ada artwork/background. Reuse existing deep purple#3b145f, paper tile and recovered homepage Ada artwork with top crop. Source1f07e68f; hosted evidence16ecd377; https://f26fd99e.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 visibly updated; worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only; approved needs heading, eight copy strings/destinations and shared player action preserved.
+
 ## 2026-09-06 — Needs heading: bright blue text only
 
 Ali clarified “just the text” for “What brought you to town today?”. Use existing bright cobalt for this heading, leaving background, banner, cards and layout intact. Fine navy edge is the implementation choice for readability over warm colours. Source e23685eb; hosted evidence89ce4069; https://c48d8896.laidies-sunnyvaile.pages.dev/#today . Existing tab8 visibly updated; worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.

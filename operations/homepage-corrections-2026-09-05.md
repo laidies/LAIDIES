@@ -118,3 +118,7 @@ Source d0d980f0; hosted verification3100a51e; https://6520c72e.laidies-sunnyvail
 ## Bright blue needs heading
 
 Source e23685eb; hosted evidence89ce4069; https://c48d8896.laidies-sunnyvaile.pages.dev/#today . Existing tab8 visibly updated; worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Exact single heading rule uses cobalt with fine navy letter edge. Hosted1440/390 and visible in-app check passed; identical wrapping/dimensions/background; no content or runtime change. Both bounded reviewers admit. Current production148f456e/5122aae preserved; no production promotion. Evidence packet: operations/product-stewards/town-entry-homepage/candidates/heading-blue-20260906/.
+
+## Banner alignment and portrait correction
+
+Source1f07e68f; hosted evidence16ecd377; https://f26fd99e.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 visibly updated; worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Inherited CTA48px minimum removed, existing purple#3b145f, paper backdrop behind Miss Jeeves and recovered Ada with face-preserving top crop. All eight slides have decoded images, stable height, unchanged copy/destinations and no desktop/mobile overflow. Exact public bytes verified; current NewsStand preserved. Six invalid admission variants rejected; both scoped reviews admit. No production promotion, prose changes, generated art, unrelated radio runtime or broad review. Packet: operations/product-stewards/town-entry-homepage/candidates/banner-polish-20260906/.

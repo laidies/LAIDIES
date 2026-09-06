@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Banner alignment/portraits: VERIFIED PREVIEW / OWNER REVIEW PENDING.** Source1f07e68f; hosted evidence16ecd377; https://f26fd99e.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 visibly updated; worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Hosted desktop/mobile all16 slide checks and exact public bytes pass; both focused reviewers admit. Production unchanged. Continue consolidated homepage review.
+
 > **2026-09-06 — Needs heading blue: VERIFIED PREVIEW / OWNER REVIEW PENDING.** Source e23685eb; hosted evidence89ce4069; https://c48d8896.laidies-sunnyvaile.pages.dev/#today . Existing tab8 visibly updated; worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Only heading styling changed. Desktop/mobile source, dimensions and visual checks pass. Production unchanged; continue consolidated homepage review.
 
 > **2026-09-06 — Banner colour: VERIFIED PREVIEW / OWNER REVIEW PENDING.** Source d0d980f0; hosted verification3100a51e; https://6520c72e.laidies-sunnyvaile.pages.dev/ . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905; existing tab8 visibly updated. Single CSS background declaration changed; desktop/mobile appearance and contrast verified. Existing radio integration and homepage content retained. New NewsStand production148f456e/5122aae retained. Continue consolidated homepage review.
