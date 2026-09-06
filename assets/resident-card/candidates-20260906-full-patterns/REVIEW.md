@@ -2,9 +2,11 @@
 
 **Three you like:** Skates, Boombox and Computer. Those image files are unchanged.
 
-**Three awaiting your verdict:** Diagonal Print, Pocket Tech and CD Player.
+**Existing options described as okay, not great:** Diagonal Print, Pocket Tech and CD Player.
 
-Only these six images belong to this review. Purple Brushwork was withdrawn because Ali found it too similar to Diagonal Print. Disco, Memphis and all older stretched/pastel/thin-border drafts are excluded. These are artwork choices; page fit, readable text and installation remain separate work. Nothing is installed.
+**Two new options:** Girls’ Night Out and Getting Ready, following Ali's request for heels, lips and other fun feminine accessories.
+
+Only these eight images belong to this review. Purple Brushwork was withdrawn because Ali found it too similar to Diagonal Print. Disco, Memphis and all older stretched/pastel/thin-border drafts are excluded. These are artwork choices; page fit, readable text and installation remain separate work. Nothing is installed.
 
 ## 1. Skates — You said this is good.
 
@@ -41,3 +43,11 @@ Only these six images belong to this review. Purple Brushwork was withdrawn beca
 ![CD player](08-cd-summer-v2.png)
 
 [Open original](08-cd-summer-v2.png)
+
+## 7. Girls’ Night Out — New, awaiting Ali's verdict.
+
+![Girls’ Night Out](09-girls-night-out.png)
+
+## 8. Getting Ready — New, awaiting Ali's verdict.
+
+![Getting Ready](10-getting-ready.png)
