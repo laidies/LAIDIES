@@ -1,6 +1,6 @@
 # NewsStand editorial dates — bounded release
 
-Status: PREPARED / independent Terra artifact-first review ACCEPT / not deployed.
+Status: VERIFIED PUBLICLY. Source144b77cc was committed/pushed before production2d0b8144-4c4f-43d4-8444-592558da77cd. Both custom and immutable origins match all32 changed/protected byte checks and pass six real page journeys across1280/390/320. Root inspected public phone pixels. Actual provider configuration is unchanged, ignoring comments/whitespace.
 
 The real incumbent grouped two September 5 Vancouver stories under September 6 in Catch Me Up and archive filters; readers outside Vancouver also saw the wrong article date. The candidate uses Vancouver for instants and preserves valid literal edition dates. The masthead and date-derived town details use the same day. Impossible calendar literals are rejected by the derivative builder and do not silently turn into a different displayed day.
 
