@@ -5,7 +5,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { inspectContentProducerContract } from "./check-content-producer-contract.mjs";
+import { inspectContentProducerContract, PRODUCER_INSTRUCTION_PATHS } from "./check-content-producer-contract.mjs";
 import { loadOwnerAdmission, applyAdmission } from "./admit-content-quality-learning.mjs";
 
 const root = fs.mkdtempSync(path.join(os.tmpdir(), "laidies-producer-contract-"));
@@ -13,6 +13,10 @@ const write = (relative, value) => { const target = path.join(root, relative); f
 const hash = file => crypto.createHash("sha256").update(fs.readFileSync(file)).digest("hex");
 
 try {
+  const instructionBindings = Object.fromEntries(Object.entries(PRODUCER_INSTRUCTION_PATHS).map(([key, relative]) => {
+    const file = write(relative, `Current instruction fixture: ${key}\n`);
+    return [key, { path: relative, sha256: hash(file) }];
+  }));
   const badPath = "evidence/bad.txt";
   const goodPath = "evidence/good.txt";
   const sourcePath = "evidence/source.md";
@@ -34,6 +38,7 @@ try {
     surface: "LIBRAIRY",
     contentClass: "EXPLANATION",
     producer: "fixture-maker",
+    instructionBindings,
     readerContract: {
       humanQuestion: "How does this work?", promisedPayoff: "Understand and use it.", priorKnowledge: "None assumed.",
       centralMentalModel: "Input moves through a system to a checked decision.", dailyLifeConnection: "A work handover.",
@@ -80,6 +85,39 @@ try {
   };
   const inspect = candidate => inspectContentProducerContract(candidate, { root }).errors;
   assert.deepEqual(inspect(contract), [], "complete prevention-first contract must match");
+
+  // Reproduce the fresh-maker failure: metadata-complete but missing current instructions.
+  const missingInstructionBindings = structuredClone(contract);
+  delete missingInstructionBindings.instructionBindings;
+  assert.match(inspect(missingInstructionBindings).join("\n"), /instructionBindings\.learningStandard/);
+  for (const [key, relative] of Object.entries(PRODUCER_INSTRUCTION_PATHS)) {
+    const filename = path.join(root, relative);
+    const currentBytes = fs.readFileSync(filename);
+    fs.unlinkSync(filename);
+    assert.match(inspect(contract).join("\n"), new RegExp(`instructionBindings\\.${key}: bound file is missing`));
+    fs.writeFileSync(filename, currentBytes);
+    fs.appendFileSync(filename, "Changed instruction.\n");
+    assert.match(inspect(contract).join("\n"), new RegExp(`instructionBindings\\.${key}: SHA-256 mismatch`));
+    fs.writeFileSync(filename, currentBytes);
+    const historical = structuredClone(contract);
+    historical.instructionBindings[key] = { path: sourcePath, sha256: hash(source) };
+    assert.match(inspect(historical).join("\n"), new RegExp(`instructionBindings\\.${key}\\.path must be`));
+  }
+  // A link at the correct path cannot substitute an external historical source.
+  const instructionPath = path.join(root, PRODUCER_INSTRUCTION_PATHS.learningStandard);
+  const instructionBytes = fs.readFileSync(instructionPath);
+  const externalInstruction = `${root}-external-instruction.md`;
+  try {
+    fs.writeFileSync(externalInstruction, instructionBytes);
+    fs.unlinkSync(instructionPath);
+    fs.symlinkSync(externalInstruction, instructionPath);
+    assert.match(inspect(contract).join("\n"), /instructionBindings\.learningStandard: bound file resolves outside/);
+  } finally {
+    fs.unlinkSync(instructionPath);
+    fs.writeFileSync(instructionPath, instructionBytes);
+    fs.rmSync(externalInstruction, { force: true });
+  }
+  assert.deepEqual(inspect(contract), [], "restored exact current instructions match");
 
   // An owner-admitted learning must reach the real producer preflight API.
   const registryBeforeLearning = fs.readFileSync(registry, "utf8");
@@ -190,7 +228,7 @@ try {
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=20 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1");
+  console.log("CONTENT PRODUCER INPUT CALIBRATION PASS: current instructions, missing/changed/substituted bindings, known defects and learned-plan propagation; semantic quality NOT EVALUATED");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

@@ -353,3 +353,24 @@ Prevention: inspect actual execution inputs before deleting a seemingly duplicat
 check. Concurrency is scheduling efficiency, not evidence of content quality.
 Behind the Build: two green checks can look redundant while testing different
 questions—and an older version can keep wasting work after its replacement exists.
+
+
+## 2026-09-06 — A fresh producer exposed the missing instruction dependency
+
+The agreed bounded trial reached a green preflight using a historic learning
+standard and without two current routed documents. Foreground reproduced it;
+all19 manifest hashes matched, but the manifest was not a preflight input and
+the required instruction sources were not checked. Earlier complete-package
+claims confused executable/example recovery with full instruction distribution.
+Trial stopped before independent review or the transfer case. The draft remains
+unreviewed; no improved-learning claim is made. Current instruction bindings now
+make the same unchanged contract fail, with missing/changed/substituted inputs
+calibrated. The recovered Gate also no longer claims synthetic tests prove
+semantic detection. Prevention: test the normal fresh-maker entry before calling
+source distribution adopted, and bind governed instructions as well as examples.
+Behind the Build: why19 correct checksums can still leave an agent following old
+rules—and why this trial's failure is more useful than another green certificate.
+Independent guard review caught a lexical-path bypass: a symlink at the required
+instruction path could read an external historical file. The shared binding
+helper now checks real path containment and regular-file type for every input
+it handles; a matching-hash external symlink regression is rejected.

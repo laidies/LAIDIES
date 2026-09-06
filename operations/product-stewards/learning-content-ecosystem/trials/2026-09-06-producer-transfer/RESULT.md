@@ -52,3 +52,13 @@ current exact bindings before preflight readiness. This remains integrity,
 not semantic understanding, full owner-checkout adoption or beginner evidence.
 Any guard regression test is a software test, not a rerun of this producer trial.
 Original maker artifacts remain unchanged even after the guard is repaired.
+
+## Bounded guard repair after diagnosis
+
+The original producer files remain unchanged. Required instruction sources were
+recovered and the preflight now rejects this exact saved contract because its
+three current instructionBindings are absent. Its previous exit0 and revised
+exit1 are source-integrity observations, not semantic reviewer outcomes.
+Regression checks exercise missing/changed/substituted instruction inputs;
+valid fixtures still pass and release still holds the17 real orders.
+No independent review or second producer trial was started after the stop.

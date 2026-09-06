@@ -815,3 +815,16 @@ chapter and the field-trip candidate, with the scoped limitations recorded in
 `product-stewards/learning-content-ecosystem/RECOVERY.md`. The visual trial used
 the current corrected purpose, not a reconstructed historical brief. It does
 not run through the exact-prose adapter or claim a corrected product exists.
+
+
+### Fresh-maker entry trial — observed source gap
+
+The September6 internal trial started a fresh Sol/Medium producer through the
+normal maker and canonical learning-depth routes. Its current instruction
+sources were missing main; it read a historic Standard and recorded the Admission
+Gate unavailable. The preflight still returned READY_TO_DRAFT. Foreground
+reproduced that result and stopped the trial before independent review or caseB.
+The instruction-source edge now requires explicit current bindings; software
+checks reject the same unchanged contract. No semantic or production-success
+edge is inferred. See the existing learning trial RESULT.md for the exact source
+and preserved partial-artifact boundaries. No new graph, registry or schedule.

@@ -7,6 +7,7 @@ import os from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { PRODUCER_INSTRUCTION_PATHS } from "./check-content-producer-contract.mjs";
 import { checkContentReleaseReadiness } from "./check-content-release-readiness.mjs";
 
 const root = fs.mkdtempSync(path.join(os.tmpdir(), "laidies-content-release-"));
@@ -46,6 +47,10 @@ function allHeldOrder() {
 }
 
 function validOrder() {
+  const instructionBindings = Object.fromEntries(Object.entries(PRODUCER_INSTRUCTION_PATHS).map(([key, relative]) => {
+    const file = write(relative, `Current instruction fixture: ${key}\n`);
+    return [key, { path: relative, sha256: sha256(file) }];
+  }));
   const id = "fixture-ready";
   const manifestPath = "content/fixture-manifest.json";
   const payloadPath = "content/fixture-payload.html";
@@ -109,6 +114,7 @@ function validOrder() {
   const dispositions = Object.fromEntries(negativeFamilies.map(name => [name, { status: "CLEAR", producerGuard: `Prevent ${name}.`, preventionEvidence: `Fixture architecture explicitly prevents ${name}.` }]));
   const producerContractPath = "evidence/producer-contract.json";
   write(producerContractPath, JSON.stringify({
+    instructionBindings,
     schemaVersion: "laidies-content-producer-contract.v1", candidateId: id, surface: "LIBRAIRY", contentClass: "EXPLANATION", producer: "maker", status: "READY_TO_DRAFT",
     readerContract: { humanQuestion: "How does this work?", promisedPayoff: "Understand and use it.", priorKnowledge: "None assumed.", centralMentalModel: "Context and evidence lead to a checked decision.", dailyLifeConnection: "A work question.", surfaceJob: "Durable explanation.", desiredFeeling: "Oh, I get it now." },
     canonicalTruth: [{ claimId: "fixture", owner: "fixture-owner", freshnessTrigger: "source changes", source: { path: sourcePath, sha256: sha256(path.join(root, sourcePath)) } }],

@@ -8,7 +8,7 @@
     "schemaVersion", "candidateId", "surface", "contentClass", "producer",
     "readerContract", "canonicalTruth", "positiveExemplars",
     "knownFailurePreflight", "draftArchitecture", "communicationDesign", "representativeProofPlan",
-    "ratchet", "status"
+    "ratchet", "status", "instructionBindings"
   ],
   "properties": {
     "schemaVersion": { "const": "laidies-content-producer-contract.v1" },
@@ -16,6 +16,15 @@
     "surface": { "type": "string", "minLength": 1 },
     "contentClass": { "enum": ["EPISODE", "CLASS", "EXPLANATION", "REFERENCE", "FAQ", "NEWS", "PRACTICE", "INTERACTIVE", "PROMOTIONAL", "MICROCOPY"] },
     "producer": { "type": "string", "minLength": 1 },
+    "instructionBindings": {
+      "type": "object", "additionalProperties": false,
+      "required": ["learningStandard", "contentAdmission", "learningOrchestration"],
+      "properties": {
+        "learningStandard": {"type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": {"path": {"const": "operations/product-stewards/LEARNING-CONTENT-STANDARD.md"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}},
+        "contentAdmission": {"type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": {"path": {"const": "operations/product-stewards/learning-content-ecosystem/CONTENT-QUALITY-ADMISSION-GATE.md"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}},
+        "learningOrchestration": {"type": "object", "additionalProperties": false, "required": ["path", "sha256"], "properties": {"path": {"const": "operations/product-stewards/learning-content-ecosystem/LEARNING-ORCHESTRATION-GUIDE.md"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}}
+      }
+    },
     "readerContract": { "type": "object" },
     "canonicalTruth": { "type": "array", "minItems": 1 },
     "positiveExemplars": { "type": "array", "minItems": 1 },

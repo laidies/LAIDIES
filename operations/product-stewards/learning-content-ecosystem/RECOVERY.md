@@ -6,6 +6,51 @@ Integration work under the whole-operation audit; the Learning
 System & Concepts Director retains shared learning ownership and surface owners
 retain their candidates and release decisions.
 
+## Fresh-producer trial exposed an incomplete instruction package
+
+Ali authorized the explicit four-test trial. It is frozen and recorded in
+`trials/2026-09-06-producer-transfer/TRIAL.md` and `RESULT.md`. A fresh Sol/Medium
+maker reached READY_TO_DRAFT with the current learning-depth instruction routes
+missing from main, reading an older Standard blob instead. Foreground reproduced
+the green preflight on the unchanged contract. Trial stopped before independent
+review or case B; its partial draft has no quality verdict. This corrects earlier
+claims of a complete instruction dependency package.
+
+The three already-routed documents are now recovered at their original paths.
+Shared source hashes at recovery: Standard `a152357f7aa9e12b8f3b1dba661df1f2829fc1016a819fd05161a20a2a9e6267`,
+Admission Gate `d1d8958f9a6234840e428fd3a3b053066573daeae0d578fc8518fa5823908605`,
+Orchestration Guide `2ed1db9ff0b97e1ac7bc4bd5e3a6503f71f18dc385416683597b4026c2117edf`.
+Standard and Guide preserve those exact bytes. The Gate receives two factual
+clarifications: ACTIVE is policy status, not proof of runtime; synthetic tests
+cannot establish a reviewer's semantic detection. No public-release rule changed.
+Transitive references describe applicable requirements, not proof that every
+referenced service or script is installed and running.
+
+Producer contracts now require `instructionBindings.learningStandard`,
+`instructionBindings.contentAdmission` and
+`instructionBindings.learningOrchestration`, each with the prescribed current
+repository path and SHA-256. The existing preflight rejects missing, changed or
+substituted bindings before readiness; release uses that same preflight. Use the
+current receiving checkout's governed sources, never a historical blob selected
+merely because it is recoverable. This checks source identity, not whether an
+agent understood or followed it.
+
+The original trial contract is preserved without new fields and now fails the
+real checker. Software regression checks reject each missing/changed/substituted
+instruction and a matching-hash external symlink, while retaining a valid
+exact-binding case. The shared file-binding helper now checks actual filesystem
+target containment for all its source/example/benchmark inputs. These are guard tests, not
+another content trial. The fresh-producer/independent-review/transfer sequence
+has not been rerun, existing owner checkout adoption remains open, and the17
+real content orders remain held.
+
+Related legacy path-check debt remains explicitly outside this instruction
+repair: `scripts/check-prose-quality-admission.mjs` loadBinding still uses lexical
+containment, and `scripts/check-content-release-readiness.mjs` existingEvidence
+checks existence without real-target containment. Operating integration owns
+assessment/correction before claiming end-to-end path-integrity protection.
+The repaired producer helper does not certify those separate consumers.
+
 ## Destination adoption — verified gap, September 6
 
 PR108 (`9a372e701742dcc2cb9820e49bb39c3e82b5d9df`) and PR109

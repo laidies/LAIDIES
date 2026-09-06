@@ -1,5 +1,18 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Bounded producer trial and current instruction bindings
+
+Ali approved the four-test fresh-producer, independent-review, transfer and
+actual-source-adoption trial. It stopped on a real source-entry failure before
+independent review or a second task; do not call its preserved draft good or bad.
+Existing required learning-depth instruction sources must be available in the
+receiving checkout and bound in the producer preflight. Recoverable historical
+bytes cannot silently stand in for current authority. The input-integrity guard
+is repaired against the unchanged failed contract; this does not certify maker
+understanding, owner adoption, human comprehension or public release.
+Details: `product-stewards/learning-content-ecosystem/trials/2026-09-06-producer-transfer/RESULT.md`.
+
+
 ## 2026-09-06 — Existing learning-owner rule now has an executable receiver
 
 Implementation under the authorized operating audit: a decisive exact-prose

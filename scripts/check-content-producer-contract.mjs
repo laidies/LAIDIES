@@ -9,6 +9,14 @@ import { inspectRegisteredLearning } from "./admit-content-quality-learning.mjs"
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
 const COMMUNICATION_BENCHMARK = "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md";
+// These are the existing learning-depth routes in the canonical dependency map.
+// Current instruction bytes must be present and bound; historical Git fallback
+// does not establish readiness in a receiving checkout.
+export const PRODUCER_INSTRUCTION_PATHS = Object.freeze({
+  learningStandard: "operations/product-stewards/LEARNING-CONTENT-STANDARD.md",
+  contentAdmission: "operations/product-stewards/learning-content-ecosystem/CONTENT-QUALITY-ADMISSION-GATE.md",
+  learningOrchestration: "operations/product-stewards/learning-content-ecosystem/LEARNING-ORCHESTRATION-GUIDE.md"
+});
 const HASH = /^[a-f0-9]{64}$/;
 const CONTENT_CLASSES = new Set(["EPISODE", "CLASS", "EXPLANATION", "REFERENCE", "FAQ", "NEWS", "PRACTICE", "INTERACTIVE", "PROMOTIONAL", "MICROCOPY"]);
 const FULL_COMMUNICATION_CLASSES = new Set(["EPISODE", "CLASS", "EXPLANATION"]);
@@ -33,8 +41,18 @@ function boundFile(root, binding, label, errors) {
     errors.push(`${label}: bound file is missing or outside the repository`);
     return;
   }
-  const actual = sha256(fs.readFileSync(absolute));
-  if (actual !== binding.sha256) errors.push(`${label}: SHA-256 mismatch expected=${binding.sha256} actual=${actual}`);
+  try {
+    const actualPath = fs.realpathSync(absolute);
+    const actualRoot = fs.realpathSync(path.resolve(root));
+    if (!actualPath.startsWith(`${actualRoot}${path.sep}`) || !fs.statSync(actualPath).isFile()) {
+      errors.push(`${label}: bound file resolves outside the repository or is not a file`);
+      return;
+    }
+    const actual = sha256(fs.readFileSync(actualPath));
+    if (actual !== binding.sha256) errors.push(`${label}: SHA-256 mismatch expected=${binding.sha256} actual=${actual}`);
+  } catch (error) {
+    errors.push(`${label}: bound file cannot be read: ${error.code || error.message}`);
+  }
 }
 
 function producerPlanValue(contract, pointer) {
@@ -65,6 +83,12 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
   require(CONTENT_CLASSES.has(contract?.contentClass), "contentClass is invalid");
   require(text(contract?.producer), "producer identity is required");
   require(["READY_TO_DRAFT", "REPAIR_PRODUCER", "SUPERSEDED"].includes(contract?.status), "status is invalid");
+
+  for (const [key, requiredPath] of Object.entries(PRODUCER_INSTRUCTION_PATHS)) {
+    const binding = contract?.instructionBindings?.[key];
+    require(binding?.path === requiredPath, `instructionBindings.${key}.path must be ${requiredPath}; use current checkout instructions, not historical substitutes`);
+    boundFile(root, binding, `instructionBindings.${key}`, errors);
+  }
 
   for (const field of ["humanQuestion", "promisedPayoff", "priorKnowledge", "centralMentalModel", "dailyLifeConnection", "surfaceJob", "desiredFeeling"]) {
     require(text(contract?.readerContract?.[field]), `readerContract.${field} is required`);

@@ -19,7 +19,7 @@ observed after the activation response. This proves that continuation, not
 unattended Mac-off operation or indefinite persistence. Keep the goal active
 through intermediate milestones; the Stop hook retains its recursion bound.
 
-Current branch `ops/operating-ci-continuation-20260906` continues after
+Current branch `ops/producer-transfer-trial-20260906` continues after
 the existing producer/review/release package was restored to main by PR108. Two registered writing
 examples are frozen at their exact historical bytes under internal operations;
 current product sources are untouched. The News exemplar's supporting evidence
@@ -62,6 +62,20 @@ registry reconciliation and destination `ci:build`; no isolated script copy,
 dirty-tree overwrite, new owner assignment or public release was performed.
 Next obtain the existing owner's adoption into its chosen clean receiver and
 observe one real lesson/successor. No new message to that owner has been sent.
+
+### Actual fresh-producer trial — stopped at input failure
+
+Ali approved the four-test sequence. Its first fresh maker used older committed
+learning-standard bytes because required current instruction documents were
+absent main, while the producer preflight still returned READY_TO_DRAFT. That
+failure was independently reproduced. The partial draft is preserved; no
+independent review, second case or content-success claim followed.
+Current bounded repair recovers the three routed instruction sources and binds
+them in preflight; the unchanged failed contract is now rejected. See the existing
+learning RECOVERY.md and trial RESULT.md. Guard tests are not a repeated semantic
+trial. PR111 merged as1ebd5738 after both CI checks passed. The latest native Goal
+status query returned usageLimited; do not report automatic continuation as
+currently active or consume a reset without explicit authorization.
 
 ## Prior repair and ranked sequence — 2026-09-06
 
