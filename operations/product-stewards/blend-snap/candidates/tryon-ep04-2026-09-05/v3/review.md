@@ -8,4 +8,7 @@ Actual browser checks at1440/390/320 verify eighteen PNG downloads, six ZIP down
 
 Design admission and11 failure mutations pass in the full canonical checkout; its history is intentionally absent from the sparse runtime worktree. These are integrity checks, separate from the independent pixel/prose judgments. No production admission or actual human explain-back is implied.
 
-Status: READY FOR ALI; hosted preview verification pending. Preserve current production c8353edf/c197eb5, including the latest NewsStand changes. The750-file prepared preview changes exactly four existing paths and adds three social files, with743 files unchanged. No backend or paid-model changes.
+Status: PREVIEW VERIFIED / READY FOR ALI / PRODUCTION UNCHANGED.
+
+Review URL: https://8e498c88.laidies-sunnyvaile.pages.dev/try-on?issue=4&from=blend-snap
+Runtime source:fb5294e9 (pushed). The actual hosted preview passes all browser checks. Eighteen PNG downloads match the six reviewed images byte-for-byte; all six ZIPs contain their correct images. Sixteen authored resource/route comparisons match the prepared artifact. Preserve current production c8353edf/c197eb5, including the latest NewsStand changes. The750-file prepared preview changes exactly four existing paths and adds three social files, with743 files unchanged. No backend or paid-model changes.
