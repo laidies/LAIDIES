@@ -43,10 +43,12 @@ function sourceEvidence(source) {
 }
 function calibrationFrom(result, directory) {
   if (result.status !== "CALIBRATION_PASSED" || result.mode !== "ORDINARY_NEWS_BLIND_REJECTION_V1") throw Error("ASSEMBLY HOLD: current ordinary-news calibration is not passed");
-  const negatives = [], positive = result.evaluations?.find(item => item.actual === "PASS");
+  const negatives = [], reviewTimes = [], positive = result.evaluations?.find(item => item.actual === "PASS");
   for (const item of result.evaluations || []) {
     const checkedPath = path.resolve(ROOT, item.checkedBinding?.path || "");
     const checked = json(checkedPath);
+    if (!Number.isFinite(Date.parse(checked.completedAt))) throw Error("ASSEMBLY HOLD: original calibration review time is missing");
+    reviewTimes.push(Date.parse(checked.completedAt));
     const rawPath = path.resolve(ROOT, item.rawBinding?.path || "");
     if (binding(checkedPath).sha256 !== item.checkedBinding?.sha256 || binding(rawPath).sha256 !== item.rawBinding?.sha256 || json(checkedPath).rawSha256 !== item.rawBinding?.sha256) throw Error(`ASSEMBLY HOLD: calibration binding/raw normalization drift for ${item.exemplarId}`);
     const name = path.basename(rawPath).replace("-provider.raw.json", ""), sampleDir = path.dirname(rawPath);
@@ -67,7 +69,7 @@ function calibrationFrom(result, directory) {
   }
   if (!positive) throw Error("ASSEMBLY HOLD: passed positive calibration is missing");
   const positiveChecked = json(path.resolve(ROOT, positive.checkedBinding.path));
-  return { registrySha256: result.registrySha256, reviewerPrincipalId: "anthropic:claude-fable-5:newsstand-editorial:medium", reviewedAt: result.completedAt, mode: result.mode, negatives, positive: { exemplarId: positive.exemplarId, verdict: "PASS", strengthsRetained: positiveChecked.strengths, evidence: (positiveChecked.families ? Object.values(positiveChecked.families).flatMap(value => value.artifactEvidence || []).slice(0, 2) : []) } };
+  return { registrySha256: result.registrySha256, reviewerPrincipalId: "anthropic:claude-fable-5:newsstand-editorial:medium", reviewedAt: new Date(Math.max(...reviewTimes)).toISOString(), mode: result.mode, negatives, positive: { exemplarId: positive.exemplarId, verdict: "PASS", strengthsRetained: positiveChecked.strengths, evidence: (positiveChecked.families ? Object.values(positiveChecked.families).flatMap(value => value.artifactEvidence || []).slice(0, 2) : []) } };
 }
 
 function main() {

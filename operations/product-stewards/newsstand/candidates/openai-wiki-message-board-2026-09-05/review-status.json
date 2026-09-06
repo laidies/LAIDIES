@@ -1,20 +1,14 @@
 {
-  "status": "HOLD_ADMISSION_METRICS_RULE",
-  "asOf": "2026-09-05T23:34:18.421Z",
+  "status": "READY_FOR_ISSUE_ADMISSION",
+  "asOf": "2026-09-06T00:17:37.583474Z",
   "owner": "NewsStand editorial owner /root",
   "candidateId": "openai-wiki-message-board-2026-09-05",
   "reviewTextSha256": "7fb3e264ef50bd166edd4b461cb4f88b0edd5b0a88f276e80dce47c1864bcad4",
   "publiclyPublished": false,
-  "independentAdmissionReceiptCreated": false,
+  "independentAdmissionReceiptCreated": true,
   "confirmedArticleDefects": [],
-  "qualification": "Exact repaired article independently passes reader and factual assessment. Full admission still fails the historical count rule; no publication.",
-  "currentFailure": {
-    "finding": "Current AGENTS rule blocks PASS with objective defects first discovered in review and requires strictly lower total issue/cycle counts. Two source-excerpt gaps were repaired; actual three factual rounds retained. Owner ruling requested, not assumed.",
-    "notRun": [
-      "issue admission",
-      "public article release"
-    ]
-  },
+  "qualification": "Exact repaired article independently passes reader and factual assessment. Full article admission succeeds under Ali-approved metrics policy; issue/publication still required.",
+  "currentFailure": null,
   "attempts": [
     {
       "route": "Claude",
@@ -82,7 +76,7 @@
       "fullAdmission": "HOLD on existing count rule, mechanically confirmed in admission-attempt-5"
     }
   ],
-  "nextAction": "Consume Ali decision on count rule; if approved, record bounded ordinary-news policy change before gate edit. Preserve all counts and actual PASS/HOLD raw results, reassemble complete existing chain without another unchanged reader/calibration call, admit issue and verify actual public result.",
+  "nextAction": "ADMIT_EXACT_ISSUE_AND_VERIFY_PUBLICATION",
   "resumeFreshness": "Recheck source developments and actual publication date. If edition date changes, rebuild and bind the affected candidate metadata/review text honestly rather than backdate it. Reacquire public predecessor proof after its validity window or any new production head.",
   "reserve": "Six currently admitted public columns can carry forward with original dates under the valid predecessor proof; private service bank still has zero newly ready items.",
   "boundary": "Drafting prevention and history implementation tested; actual independent reader and facts passed. Full article admission, services, Weekly and public release remain incomplete.",

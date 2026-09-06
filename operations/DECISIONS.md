@@ -20,6 +20,14 @@ proper domain source before building from it.
 
 ## Core routes
 
+Ali approved on September 5 that ordinary NewsStand review counts are production
+improvement metrics, not publication blockers. Preserve actual issues, cycles and
+repaired defects; do not require a corrected story to beat its predecessor’s
+counts. Every current factual and reader outcome must pass and no current defect
+may remain. This supersedes the strict-count gate only for independent ordinary
+NEWSSTAND_DAILY NEWS admission under `ordinary-news-editorial-policy.json`; it
+does not change the excluded surface or owner-approval boundaries.
+
 Ali's September 5 clarification rejects time spent reconciling historical defect
 labels. Ordinary NewsStand calibration tests whether every known-bad artifact is
 rejected for a relevant reason and the admitted good reference is accepted;

@@ -1057,3 +1057,9 @@ Focused checks: `test-prepare-newsstand-draft.mjs`,
 `test-prose-quality-admission.mjs`, `test-newsstand-ordinary-publication.mjs`,
 `test-newsstand-story-lineage.mjs` and `test-newsstand-lineage-reader.mjs`.
 They include deliberate bad inputs; schema/identity checks are not prose reviews.
+
+Ordinary-news review counts remain truthful improvement metrics under Ali’s
+September 5 approval. Equal or higher historical counts do not block a repaired
+article. Retain all rounds and repaired defects when assembling the review;
+current unresolved defects, evidence gaps or non-passing required outcomes still
+block publication. This exception does not extend to other content surfaces.

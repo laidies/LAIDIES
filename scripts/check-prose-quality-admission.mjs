@@ -123,7 +123,7 @@ function newsEditorialAnalysisFor(receipt, root, errors) {
   require(analysis?.evidenceType === "AI_EDITORIAL_ANALYSIS", "analysis must declare AI_EDITORIAL_ANALYSIS");
   require(analysis?.candidateId === receipt.candidateId && analysis?.reviewerPrincipalId === receipt.reviewer?.principalId && analysis?.reviewTextSha256 === receipt.artifact?.reviewText?.sha256, "analysis must bind exact candidate, prose and independent reviewer");
   require(receipt.limitations?.includes("AI editorial assessment only; no observed human-comprehension evidence is claimed."), "must disclose absence of observed human evidence");
-  return { ...analysis, calibrationPolicy: policy.calibration };
+  return { ...analysis, calibrationPolicy: policy.calibration, reviewMetricsPolicy: policy.reviewMetrics };
 }
 
 export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
@@ -304,8 +304,19 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   }
   for (const field of ["reviewedThrough", "nextTrigger", "correctionOwner"]) require(text(receipt?.factualReview?.[field]), `factualReview.${field} is required`);
 
-  require(receipt?.ratchet?.repeatedKnownDefects === 0 || receipt?.verdict !== "PASS", "PASS forbidden with a repeated known defect");
-  require(receipt?.ratchet?.objectiveDefectsFirstFoundAtReview === 0 || receipt?.verdict !== "PASS", "PASS forbidden with an objective defect first found at review");
+  const newsImprovementMetrics = newsAnalysis?.reviewMetricsPolicy?.mode === "IMPROVEMENT_METRICS_NOT_PUBLICATION_BLOCKERS_V1";
+  if (newsImprovementMetrics) {
+    // Historical production counts stay visible; current outcomes and families above still gate PASS.
+    for (const field of ["repeatedKnownDefects", "objectiveDefectsFirstFoundAtReview", "reviewIssues", "reviewCycles"]) {
+      require(Number.isInteger(receipt?.ratchet?.[field]) && receipt.ratchet[field] >= (field === "reviewCycles" ? 1 : 0), `ratchet.${field} must retain a valid actual count`);
+    }
+    if (receipt?.ratchet?.priorComparable) {
+      for (const field of ["reviewIssues", "reviewCycles"]) require(Number.isInteger(receipt.ratchet.priorComparable[field]) && receipt.ratchet.priorComparable[field] >= (field === "reviewCycles" ? 1 : 0), `ratchet.priorComparable.${field} must retain a valid actual count`);
+    }
+  } else {
+    require(receipt?.ratchet?.repeatedKnownDefects === 0 || receipt?.verdict !== "PASS", "PASS forbidden with a repeated known defect");
+    require(receipt?.ratchet?.objectiveDefectsFirstFoundAtReview === 0 || receipt?.verdict !== "PASS", "PASS forbidden with an objective defect first found at review");
+  }
   require(["FIRST", "SUCCESSOR"].includes(receipt?.lineage?.kind), "lineage.kind is required");
   if (receipt?.lineage?.kind === "SUCCESSOR") {
     require(text(receipt?.lineage?.predecessorCandidateId), "successor lineage requires predecessorCandidateId");
@@ -313,7 +324,7 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   } else {
     require(text(receipt?.lineage?.noComparableReason), "first candidate requires a noComparableReason");
   }
-  if (receipt?.ratchet?.priorComparable) {
+  if (receipt?.ratchet?.priorComparable && !newsImprovementMetrics) {
     require(receipt.ratchet.reviewIssues < receipt.ratchet.priorComparable.reviewIssues, "review issues did not decrease against the comparable candidate");
     require(receipt.ratchet.reviewCycles < receipt.ratchet.priorComparable.reviewCycles, "review cycles did not decrease against the comparable candidate");
   }

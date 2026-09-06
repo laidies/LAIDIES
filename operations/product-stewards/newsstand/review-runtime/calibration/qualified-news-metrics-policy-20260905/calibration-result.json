@@ -1,0 +1,85 @@
+{
+  "status": "CALIBRATION_PASSED",
+  "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+  "scope": "Existing blind judgments evaluated under the adopted ordinary-news rejection rule. Original provider judgments and previous strict-label HOLD are preserved; no new model call, factual admission or human evidence.",
+  "providerRoute": "claude",
+  "effort": "medium",
+  "protocolSha256": "7d5c9426f84748a80fce818b4d4bb85a41666f70ba8cebb0a9c680e21151e837",
+  "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+  "policy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "completedAt": "2026-09-06T00:14:50.545Z",
+  "evaluations": [
+    {
+      "exemplarId": "CQX-BAD-001",
+      "source": {
+        "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt",
+        "sha256": "c3af0bae62222b53499ee1645428c9171b3bb2104ac445ba8c2a3032847a32dc"
+      },
+      "sample": "sample-c3af0bae62",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "disagreementsWithHistoricalTags": [
+        "glossaryAccumulation",
+        "decorativeAnalogy",
+        "referenceConfetti",
+        "missingMechanism",
+        "genericAction",
+        "jargonBeforeMeaning",
+        "disconnectedSystem",
+        "joylessInstruction"
+      ],
+      "passed": true,
+      "checkedBinding": {
+        "path": "operations/product-stewards/newsstand/review-runtime/calibration/claude-fable-purpose-voice-20260905/sample-c3af0bae62-checked.json",
+        "sha256": "e76b4d72f6fdc8b950ce0f8d8610f257f0d5fe2559aa579beb22838351e76ae2"
+      },
+      "rawBinding": {
+        "path": "operations/product-stewards/newsstand/review-runtime/calibration/claude-fable-purpose-voice-20260905/sample-c3af0bae62-provider.raw.json",
+        "sha256": "2c0fa0fe6580c01a61240e6fba01f8899fdfd80accf390fbc38d6a086b239173"
+      }
+    },
+    {
+      "exemplarId": "CQX-BAD-002",
+      "source": {
+        "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md",
+        "sha256": "1cc8aa5f9653105924f69f708601836454cce8b49cbc0655e7f621a7e5d159e7"
+      },
+      "sample": "sample-1cc8aa5f96",
+      "expected": "REJECT",
+      "actual": "REJECT",
+      "disagreementsWithHistoricalTags": [],
+      "passed": true,
+      "checkedBinding": {
+        "path": "operations/product-stewards/newsstand/review-runtime/calibration/claude-fable-purpose-voice-20260905/sample-1cc8aa5f96-checked.json",
+        "sha256": "5882584a88f3764ef9e3281adcc40a4e9f3190258d3bd866ced34f27846cc040"
+      },
+      "rawBinding": {
+        "path": "operations/product-stewards/newsstand/review-runtime/calibration/claude-fable-purpose-voice-20260905/sample-1cc8aa5f96-provider.raw.json",
+        "sha256": "d7b9345aabdf6622da9055c16bded8e2ff9a12f689f68d1be72230ae07911717"
+      }
+    },
+    {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "source": {
+        "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/news-002-approved-frozen.json",
+        "sha256": "102a4299dcb922f6fcdad44bdf30257f42ebfe6a381efe378bf99fc1fb3c7f83"
+      },
+      "sample": "sample-102a4299dc",
+      "expected": "PASS",
+      "actual": "PASS",
+      "disagreementsWithHistoricalTags": [],
+      "passed": true,
+      "checkedBinding": {
+        "path": "operations/product-stewards/newsstand/review-runtime/calibration/claude-fable-purpose-voice-20260905/sample-102a4299dc-checked.json",
+        "sha256": "e50d0c8ffd02cfe3061f226eb921aeb73ee39ae97bfb3d2542e21d20d73c3c02"
+      },
+      "rawBinding": {
+        "path": "operations/product-stewards/newsstand/review-runtime/calibration/claude-fable-purpose-voice-20260905/sample-102a4299dc-provider.raw.json",
+        "sha256": "5e8395eda11e63e9cb8bc01bb1dd503666a6019025855f21e429d1e55990d278"
+      }
+    }
+  ]
+}

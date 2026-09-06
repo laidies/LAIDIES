@@ -106,3 +106,9 @@ oversized bodies), both exact allowed routes and a provider error. Those used a
 synthetic provider and prove only local request handling. Real provider review
 and content admission remain separate. This connection is neither a new
 approval authority nor an autonomous publisher.
+
+Ordinary-news review counts remain truthful improvement metrics under Ali’s
+September 5 approval. Equal or higher historical counts do not block a repaired
+article. Retain all rounds and repaired defects when assembling the review;
+current unresolved defects, evidence gaps or non-passing required outcomes still
+block publication. This exception does not extend to other content surfaces.

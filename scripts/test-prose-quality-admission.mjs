@@ -212,6 +212,17 @@ try {
     observation: `${family} was assessed against the complete known-bad artifact.`, artifactLocator: "bad.txt:1"
   }]));
   assert.deepEqual(inspect(blindRejectionNews), [], "ordinary-news blind calibration accepts a relevant rejection while retaining clear and uncertain secondary assessments");
+  const repairedNews = structuredClone(blindRejectionNews);
+  Object.assign(repairedNews.ratchet, { repeatedKnownDefects: 1, objectiveDefectsFirstFoundAtReview: 2, reviewIssues: 2, reviewCycles: 3 });
+  assert.deepEqual(inspect(repairedNews), [], "actual repaired counts are improvement metrics for ordinary news");
+  const malformedMetrics = structuredClone(repairedNews); malformedMetrics.ratchet.reviewIssues = -1;
+  assert.match(inspect(malformedMetrics).join("\n"), /must retain a valid actual count/);
+  const stillUnresolved = structuredClone(repairedNews); stillUnresolved.outcomes.factualIntegrity.verdict = "HOLD";
+  assert.match(inspect(stillUnresolved).join("\n"), /PASS forbidden: factualIntegrity did not pass/);
+  const stillPresent = structuredClone(repairedNews); stillPresent.failureFamilies.decorativeAnalogy.present = true;
+  assert.match(inspect(stillPresent).join("\n"), /PASS forbidden: decorativeAnalogy is present/);
+  const countsCannotBypassService = structuredClone(repairedNews); countsCannotBypassService.surface = "NEWSSTAND_RECURRING_SERVICE_COLUMNS";
+  assert.match(inspect(countsCannotBypassService).join("\n"), /limited to independent ordinary NEWSSTAND_DAILY NEWS review/);
   const allClearCalibration = structuredClone(blindRejectionNews);
   for (const assessment of Object.values(allClearCalibration.calibration.negatives[0].familyAssessments)) assessment.state = "clear";
   assert.match(inspect(allClearCalibration).join("\n"), /requires a relevant registered reason for rejection/);
@@ -258,7 +269,7 @@ try {
   modeCannotBypassService.calibration.negatives[0].identifiedFailureFamilies = ["glossaryAccumulation"];
   modeCannotBypassService.calibration.negatives[0].familyAssessments = blindRejectionNews.calibration.negatives[0].familyAssessments;
   assert.match(inspect(modeCannotBypassService).join("\n"), /known-bad calibration BAD missed/);
-  console.log("PROSE QUALITY CALIBRATION PASS valid=4 hold=1 rejected=31 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 blind_news_rejection=1 family_assessments=1 current_article_still_strict=1 service_mode_bypass_rejected=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1 sampled_service_profile=1");
+  console.log("PROSE QUALITY CALIBRATION PASS valid=4 hold=1 rejected=31 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 other_surface_strict_ratchet=1 ordinary_news_improvement_metrics=1 invalid_metrics_rejected=1 successor_comparable=1 news_transfer=1 blind_news_rejection=1 family_assessments=1 current_article_still_strict=1 service_mode_bypass_rejected=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1 sampled_service_profile=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }
