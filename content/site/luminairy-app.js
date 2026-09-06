@@ -52,6 +52,7 @@
   const profileView = document.getElementById("lumProfile");
   const search = document.getElementById("lumSearch");
   const resultStatus = document.getElementById("lumResultStatus");
+  const searchRecovery = document.getElementById("lumSearchRecovery");
   const audio = document.getElementById("lumAudio");
   const audioStatus = document.getElementById("lumAudioStatus");
   const playlistButton = document.getElementById("lumPlaylist");
@@ -492,6 +493,30 @@
     grid.replaceChildren(fragment);
     const itemNoun = state.wing === "saints" ? "cards" : "profiles";
     resultStatus.textContent = profiles.length + " of " + state.data[state.wing].length + " " + itemNoun + " shown" + (query ? " for “" + state.query.trim() + "”." : ".");
+    searchRecovery.hidden = true;
+    searchRecovery.replaceChildren();
+    if (query && profiles.length === 0) {
+      const matches = Object.keys(wingMeta)
+        .filter((wing) => wing !== state.wing)
+        .flatMap((wing) => state.data[wing]
+          .filter((profile) => [profile.name, profile.role, profile.archetype, profile.about, profile.lesson]
+            .filter(Boolean).join(" ").toLocaleLowerCase().includes(query))
+          .map((profile) => ({ wing, profile })))
+        .slice(0, 6);
+      if (matches.length) {
+        const intro = textElement("p", "lum-search-recovery__intro", "That name is in another wing:");
+        const links = document.createElement("div");
+        links.className = "lum-search-recovery__links";
+        matches.forEach(({ wing, profile }) => {
+          const link = textElement("a", "lum-search-recovery__link", profile.name + " · " + wingMeta[wing].label.split(" · ")[0]);
+          link.href = "#" + encodeURIComponent(profile.id);
+          links.appendChild(link);
+        });
+        searchRecovery.append(intro, links);
+        searchRecovery.hidden = false;
+        resultStatus.textContent = "No " + itemNoun + " in this wing match “" + state.query.trim() + "”.";
+      }
+    }
     updateSongButtons();
     if (state.profileId) {
       const wing = wingForProfileId(state.profileId);

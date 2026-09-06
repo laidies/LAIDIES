@@ -322,7 +322,7 @@ Why this profile is here: Hedy Lamarr is here because the record is more interes
 
 Contribution:
 - Lamarr and Antheil patented a frequency-hopping communication system in 1942.
-- The verified record is narrower than the common claim that she invented Wi-Fi, while still showing that an idea can take a long and indirect route into later technology.
+- Lamarr did not invent Wi-Fi. Her frequency-hopping patent became one part of a much longer, indirect technological lineage.
 
 The move to borrow: In LAiDIES terms, keep the chain of evidence attached to the claim. When a striking origin story appears in an AI pitch, separate what someone demonstrably did from the later technology people associate with it. Precision does not make the story smaller; it makes the reader less easy to mislead.
 
@@ -519,7 +519,7 @@ Why this profile is here: Meredith Whittaker is here because privacy is a design
 
 Contribution:
 - Whittaker is President of Signal and Chief Advisor and former Faculty Director of the AI Now Institute, which she co-founded.
-- Her verified routes include work on Signal's mission, AI Now, and open-source AI.
+- Her public work spans Signal's mission, AI Now, and open-source AI.
 
 The move to borrow: In LAiDIES terms, ask what a system is permitted to collect before you ask what it can do. Collecting less limits direct exposure and can reduce the opportunities for sensitive inferences, although proxy data may still reveal things a person never supplied explicitly. That makes privacy a practical part of system design.
 
@@ -575,7 +575,7 @@ The move to borrow: In LAiDIES terms, look for the work hidden behind a finished
 
 Try it at work: Choose one AI-assisted process in your team that now feels automatic. List the people who supplied source material, shaped the instruction, checked the output, and decided when it could be used. Check the list with the team before describing the result as the tool's work alone. Use what you find to clarify ownership of the next revision.
 
-Where this lesson stops: This card is a group profile, not a face-by-face portrait key. Its teaching point does not claim that every invisible contribution can be recovered from one list.
+Where this lesson stops: This group profile honours a shared contribution; it does not pretend one short card can recover each woman's full story or treat the six women as interchangeable.
 
 Destinations:
 - READ: Read about the Women of ENIAC — https://www.computer.org/volunteering/awards/pioneer/about-women-of-eniac
@@ -822,14 +822,14 @@ At a glance: Murati is co-founder and CEO of Thinking Machines Lab.
 Why this profile is here: Mira Murati belongs here because she is co-founder and CEO of Thinking Machines Lab, a current AI-building role with a direct public route into the organisation’s work. Her place in this wing is about present-day AI being built, not a claim that she represents a complete philosophy of AI.
 
 Contribution:
-- The verified record supports a narrow but important fact: Murati is building an AI organisation. This profile uses that current building role to ask how advanced systems are made available, adapted, and used.
+- As co-founder and CEO of Thinking Machines Lab, Murati is building an AI organisation rather than commenting from the sidelines. That present-day role opens a practical question: how can people adapt and steer advanced systems for the work they actually need done?
 - As a LAiDIES teaching interpretation, it asks whether a system can be inspected and steered enough for the real job at hand, rather than being treated as a black-box answer machine.
 
 The move to borrow: LAiDIES interpretation: ask for the handles you need to direct and inspect an AI system in your own work. A capable model is more useful when the person accountable for the outcome can see what to adjust and what to check.
 
 Try it at work: Take one AI task where the first answer is too generic, such as drafting a project brief. List the three choices a human owner needs to steer: audience, source material, and success criteria. Run the Murati check: can you change those choices and see how the result changes? If not, do not treat the output as ready for a decision; add the missing context or choose a workflow with clearer control.
 
-Where this lesson stops: The evidence here supports Murati’s current role and organisation destinations, not a detailed account of her personal product philosophy. The practical move is LAiDIES interpretation.
+Where this lesson stops: This profile does not assign Murati a personal philosophy she has not stated. Its steering lesson is LAiDIES' interpretation of the work of building an AI organisation.
 
 Destinations:
 - READ: Read Thinking Machines Lab — https://thinkingmachines.ai/
@@ -887,7 +887,7 @@ Role: Builder of deployment
 
 At a glance: Simo is CEO of Applications at OpenAI.
 
-Why this profile is here: Fidji Simo belongs here because she is CEO of Applications at OpenAI. The evidence supports that current role and two OpenAI destinations; this profile uses the role only as a narrow starting point for a LAiDIES lesson about deployment.
+Why this profile is here: Fidji Simo belongs here because she is CEO of Applications at OpenAI, a role focused on turning AI capabilities into products people can use. Her place in this wing asks a practical deployment question: what has to be true before a promising system belongs in someone's real workflow?
 
 Contribution:
 - LAiDIES interpretation: a model working in a test setting is not the same thing as a product working for people. An application connects technical capability to a task, a team, and a workflow where value or harm can show up.

@@ -78,6 +78,9 @@ const allText = JSON.stringify(profiles);
 for (const retired of ["Oprah Winfrey", "Jessica Fletcher", "Jennifer Lopez"]) {
   if (allText.includes(retired)) errors.push(`retired profile remains: ${retired}`);
 }
+for (const processPhrase of ["verified routes", "verified record", "the evidence here supports", "portrait key", "evidence supports that current role"]) {
+  if (allText.toLocaleLowerCase().includes(processPhrase)) errors.push(`internal evidence-process wording remains in visitor profile prose: ${processPhrase}`);
+}
 
 const cher = profiles.saints?.find((profile) => profile.id === "cher-dionne");
 if (!cher || sha256(localPath(cher.image)) !== "c675af16c8584950f897433debd0c9136d6aa8a89971f241444dfa33d7c5440e") errors.push("Cher and Dionne must use the exact approved V12 image bytes");

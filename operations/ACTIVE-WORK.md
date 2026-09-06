@@ -1214,3 +1214,13 @@ objective; every open lane keeps its own checkpoint.
 - **Implementation commit:** `49c2277d166922302935b83f96802fcb6d01a1f0` on `feature/luminairy-card-profile-20260905`.
 - **Patron correction commits:** Mayor Deb correction `eb96f40276db433830d384eea522c155e7960580`; complete 13-card likeness/edge pass `e443a814a0533fe554bd84f86ede5c545454b139`.
 - **Release boundary:** no push or deployment. Recover and verify the exact current production artifact and coordinated Pages slot before any public release, then verify custom and immutable origins.
+
+### 2026-09-05 LUMINAiRY complete-page release audit and repair
+
+- **Current state:** `43 OF 43 COMPLETE / INDEPENDENT SEMANTIC AND VISUAL PASS / SIGNED AND BROWSER-VERIFIED LOCALLY / NOT DEPLOYED`.
+- **Arrival:** the Matron hero now explains the 43-profile archive, the distinct job of all three wings, the full-profile payoff, applicable Read/Watch/Listen/Follow routes and the optional Your Luminaries circle. Explicit paper-white classes prevent the explanation from inheriting unreadable shared hero text at desktop, 390px or 320px.
+- **Discovery:** active-wing search remains honest about its scope. A valid name in another wing now produces a named cross-wing route; the calibrated Ada-from-Saints case opens Ada Lovelace's complete MAiVEN profile.
+- **Editorial cleanup:** internal review language was removed from Meredith Whittaker, Hedy Lamarr, the ENIAC Six, Mira Murati and Fidji Simo. The completeness gate rejects the known evidence-pipeline phrases if they return.
+- **Mobile navigation:** the shared SUNNYVAiLE return pill now sits in document flow below page content on widths up to 899px, so it cannot cover hero, search, cards or profiles. The Handbook consumes the same corrected shared component.
+- **Verification:** signed 43-profile claim admission, artwork boundary, prose-receipt integrity and the complete HTTP browser suite pass. Independent semantic re-review and independent 1440/390/320 visual re-review report no remaining blocker in the repaired areas.
+- **Deliberate remaining item:** Carrie Bradshaw's song remains deferred by Ali's earlier instruction and is labelled honestly. No push, deployment or public-origin verification occurred.

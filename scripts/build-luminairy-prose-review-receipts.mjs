@@ -146,13 +146,13 @@ const common = {
     objectiveDefectsFirstFoundAtReview: 0,
     reviewIssues: 0,
     reviewCycles: 1,
-    priorComparable: { reviewIssues: 6, reviewCycles: 2 },
+    priorComparable: { reviewIssues: 4, reviewCycles: 2 },
     onKnownDefect: "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
   },
   lineage: { kind: "SUCCESSOR", predecessorCandidateId: "LUMINAIRY-COMPLETE-PROFILES-20260905-PRE-SEMANTIC-REPAIR" },
   learningDisposition: {
     disposition: "NO_NEW_DEFECT",
-    rationale: "The repaired successor clears the registered failure families and the independent review introduced no new reusable defect."
+    rationale: "The repaired successor clears the registered failure families; predecessor defects are recorded in the LUMINAiRY product guards and BTB-506."
   },
   verdict: "PASS",
   limitations: [

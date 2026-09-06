@@ -9,11 +9,11 @@
   <meta property="og:url" content="https://laidies.ai/luminairy">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
-  <link rel="stylesheet" href="/content/luminairy-v2.css?v=20260905-complete-profiles-v2">
+  <link rel="stylesheet" href="/content/luminairy-v2.css?v=20260905-complete-profiles-v3">
   <script defer src="/content/site/sv-global-header.js?v=20260905-account-luminaries-v2"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
   <script defer src="/content/site/luminairy-claim-gate.js?v=20260905-r6"></script>
-  <script defer src="/content/site/luminairy-app.js?v=20260905-complete-profiles-v2"></script>
+  <script defer src="/content/site/luminairy-app.js?v=20260905-complete-profiles-v3"></script>
 </head>
 <body>
   <header class="sv-header"></header>
@@ -25,7 +25,8 @@
         <p>Lantern Hill · SUNNYVAiLE</p>
         <h1 id="lumTitle">The <span class="ai">LUMINAiRY</span>.</h1>
         <blockquote>"We pledge Allegiance to the united SAiNTS of SUNNYVAiLE."</blockquote>
-        <p>Cross the nave. Push one door. Meet the women and characters who lit the way.</p>
+        <p class="lum-nave__summary">The LUMINAiRY is a 43-profile archive with three wings: practical AI habits from Patron Saints, the women who shaped computing in the MAiVENs, and present-day AI work in the Trailblazers.</p>
+        <p class="lum-nave__action">Open a card for the full story, one move to try, and—where applicable—verified places to read, watch, listen, or follow. Choose one from each wing to build Your Luminaries in My Closet.</p>
       </div>
     </section>
 
@@ -76,6 +77,7 @@
           <input id="lumSearch" type="search" autocomplete="off" placeholder="Try a name, role, or lesson…">
         </label>
         <p class="lum-result-status" id="lumResultStatus" role="status" aria-live="polite"></p>
+        <div class="lum-search-recovery" id="lumSearchRecovery" hidden></div>
         <div class="lum-grid" id="lumGrid"></div>
       </div>
 
@@ -103,6 +105,6 @@
   <div class="lum-audio-status" id="lumAudioStatus" role="status" aria-live="assertive" hidden></div>
 
   <footer class="lum-footer">© LAiDIES · Filed from SUNNYVAiLE · The LUMINAiRY at Lantern Hill · <a href="/town-hall.html#town-hall-feedback">Corrections</a></footer>
-  <script defer src="/content/site/sv-back-nav.js?v=svbn-2026-08-29-v3-f3347a06b810"></script>
+  <script defer src="/content/site/sv-back-nav.js?v=svbn-2026-09-05-mobile-static-v4"></script>
 </body>
 </html>

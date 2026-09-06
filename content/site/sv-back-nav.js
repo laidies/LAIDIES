@@ -2,8 +2,8 @@
  * SUNNYVAiLE back-nav — right-rail item
  *
  * Renders as a shared contextual-return control. Desktop keeps the compact
- * right-side rail treatment; mobile always shows a readable 44px+ pill because
- * phones have no hover state.
+ * right-side rail treatment; mobile places the readable 44px+ return pill in
+ * normal document flow so it never covers the page a visitor is reading.
  *
  * A same-origin referrer becomes the exact return destination. Direct,
  * external, bookmarked and new-tab arrivals fall back to the town home. The
@@ -132,13 +132,15 @@
         '.sv-rail-item--checkin .sv-rail-item__icon{ font-family: "Jost", sans-serif; }',
         '@media (max-width: 899px){',
         '  .sv-side-rail{',
-        '    right: max(10px, env(safe-area-inset-right));',
-        '    top: auto;',
-        '    bottom: max(12px, env(safe-area-inset-bottom));',
+        '    position: relative;',
+        '    right: auto; top: auto; bottom: auto;',
         '    transform: none;',
-        '    align-items: flex-end;',
+        '    align-items: center;',
+        '    width: 100%;',
+        '    margin: 18px auto calc(18px + env(safe-area-inset-bottom));',
+        '    padding: 0 10px;',
         '  }',
-        '  body.sv-has-rail{ padding-right: 0; padding-bottom: calc(64px + env(safe-area-inset-bottom)); }',
+        '  body.sv-has-rail{ padding-right: 0; padding-bottom: 0; }',
         '  .sv-rail-item{',
         '    min-height: 48px; min-width: 48px; max-width: min(280px, calc(100vw - 20px));',
         '    padding: 0 16px 0 6px; justify-content: flex-start;',
@@ -158,7 +160,9 @@
     if (!rail) {
       rail = document.createElement('div');
       rail.className = 'sv-side-rail';
-      document.body.appendChild(rail);
+      var footer = document.querySelector('body > footer');
+      if (footer) document.body.insertBefore(rail, footer);
+      else document.body.appendChild(rail);
     }
     document.body.classList.add('sv-has-rail');
 

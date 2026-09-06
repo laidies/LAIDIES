@@ -14685,3 +14685,15 @@ HTML and local custom properties.
 - **Test correction:** the final 390px run exposed an existing race that asserted profile visibility immediately after activation. The mobile checks now wait for the asynchronous complete profile before measuring visibility and overflow; the repaired 390/320 run passes.
 - **Possible Behind the Build angle:** “It matched the collection and still was not her”—why a design-system pass is not an identity check.
 - **Publication status:** BUILT AND VERIFIED LOCALLY / NOT PUSHED / NOT DEPLOYED.
+
+## BTB-506 — A green component suite can still hide the product and cover the page
+
+- **Date:** 2026-09-05
+- **Area:** LUMINAiRY complete-page release audit.
+- **Failure:** the profile-level suite passed while the arrival explained atmosphere instead of the product, wing-scoped search falsely dead-ended on valid names in another wing, internal evidence-process wording remained in five profiles, and the shared mobile return pill covered live content. The first hero-copy repair then inherited dark shared text and became unreadable over the nave.
+- **Root cause:** checks proved roster integrity and individual profile journeys but did not test first-visit comprehension, cross-taxonomy recovery, process-language leakage, fixed-control occlusion or the exact computed color of newly added hero prose.
+- **Prevention rule:** every archive release tests the concrete arrival proposition, a known valid query from the wrong category, forbidden evidence-pipeline phrases, and fixed/sticky control overlap at required phone widths. New hero prose receives an explicit page token and a computed-style assertion instead of relying on shared inheritance.
+- **Durable correction:** the arrival now names all 43 profiles and their three jobs; Ada searched from Saints routes to MAiVENs; the visitor prose is clean; the mobile return control sits in document flow; and the full browser suite plus independent semantic and 1440/390/320 visual re-reviews pass.
+- **Calibration:** a temporary profile fixture reintroduced “verified routes”; `scripts/check-luminairy-complete-profiles.mjs` rejected it specifically for internal evidence-process wording before the clean file passed.
+- **Possible Behind the Build angle:** “All 43 cards worked, but the room still did not tell you why to enter”—why component completeness is not product clarity.
+- **Publication status:** VERIFIED LOCALLY / NOT PUSHED / NOT DEPLOYED.

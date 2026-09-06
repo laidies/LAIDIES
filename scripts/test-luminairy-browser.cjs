@@ -81,7 +81,9 @@ async function run() {
     assert.equal(await page.locator(".lum-orientation").count(), 0, "a second defensive orientation band must not return after the hero explains the room");
     const heroIntroduction = (await page.locator(".lum-nave__copy").textContent()).trim();
     assert.match(heroIntroduction, /Lantern Hill.+SUNNYVAiLE/i, "the approved Matron arrival must locate the building in SUNNYVAiLE");
-    assert.match(heroIntroduction, /Cross the nave.+Push one door.+Meet the women and characters who lit the way/is, "the arrival must direct visitors into the three wings");
+    assert.match(heroIntroduction, /43-profile archive.+practical AI habits.+women who shaped computing.+present-day AI work/is, "the arrival must explain what the LUMINAiRY contains and why its three wings differ");
+    assert.match(heroIntroduction, /Open a card.+one move to try.+read, watch, listen, or follow.+Your Luminaries in My Closet/is, "the arrival must explain the card payoff, verified destinations, and optional personal circle");
+    assert.equal(await page.locator(".lum-nave__summary").evaluate((element) => getComputedStyle(element).color), "rgb(247, 244, 255)", "the concrete LUMINAiRY explanation must stay readable over the dark nave instead of inheriting shared dark hero text");
     assert.equal((await page.locator("#archiveTitle").textContent()).trim(), "Meet the three wings.", "archive heading must preserve the distinct wing jobs");
     assert.equal((await page.locator("#localTitle").textContent()).trim(), "Choose who you want in your corner.", "personalization must explain the human payoff rather than only issue an instruction");
     assert.match(await page.locator("#lumLocalBenefit").textContent(), /working habit.+perspective.+person shaping what comes next.+My Closet/is, "the panel must explain why each of the three choices is useful and where it goes");
@@ -96,9 +98,9 @@ async function run() {
     assert.equal(await page.locator(".lum-counts").count(), 0, "the redundant stretched collection-count strip must not return");
     assert.equal(await page.locator(".lum-method").count(), 0, "the redundant legalistic label-explanation panel must not return");
     assert.doesNotMatch(await page.locator("body").textContent(), /correction-route status|admiration is not the evidence|same-browser reminder|not a badge|claim that you mastered/i, "internal correction-route and defensive implementation language must not appear on the visitor page");
-    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /20260905-complete-profiles-v2$/, "the complete-profile successor must load its matching cache-busted stylesheet");
+    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /20260905-complete-profiles-v3$/, "the complete-profile successor must load its matching cache-busted stylesheet");
     assert.match(await page.locator('script[src*="luminairy-claim-gate.js"]').getAttribute("src"), /20260905-r6$/, "the complete profile-resource release must load the matching admission gate");
-    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /20260905-complete-profiles-v2$/, "the complete-profile runtime must load its matching cache-busted script");
+    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /20260905-complete-profiles-v3$/, "the complete-profile runtime must load its matching cache-busted script");
     assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
     assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
     assert.equal(await page.locator(".lum-tab__image").count(), 3, "each operative wing door needs its established artwork");
@@ -213,6 +215,16 @@ async function run() {
     await page.locator("#lumSearch").fill("privacy");
     assert.ok(await page.locator(".lum-card").count() >= 2, "search should find more than one privacy-related Maven");
     await page.locator("#lumSearch").fill("");
+
+    await page.getByRole("tab", { name: /PATRON SAiNTS/ }).click();
+    await page.locator("#lumSearch").fill("Ada Lovelace");
+    assert.equal(await page.locator(".lum-card").count(), 0, "a valid person outside the active wing must not be misrepresented as an in-wing match");
+    assert.equal(await page.locator("#lumSearchRecovery").isVisible(), true, "a valid cross-wing name must offer a recovery route");
+    assert.equal(await page.locator("#lumSearchRecovery").getByRole("link", { name: /Ada Lovelace · MAiVENS/i }).count(), 1, "cross-wing recovery must name Ada and her wing");
+    await page.locator("#lumSearchRecovery").getByRole("link", { name: /Ada Lovelace/i }).click();
+    await page.locator("#lumProfileTitle", { hasText: "Ada Lovelace" }).waitFor();
+    await page.locator(".lum-profile__back").click();
+    await page.locator("#lumPanel").waitFor();
 
     const mavenTab = page.getByRole("tab", { name: /MAiVENS/ });
     await mavenTab.focus();
@@ -426,6 +438,8 @@ async function run() {
     const overflow = await mobilePage.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     assert.ok(overflow <= 1, `mobile horizontal overflow must be <=1px, got ${overflow}px`);
     assert.equal(await mobilePage.locator(".lum-card").count(), 7);
+    assert.equal(await mobilePage.locator(".lum-nave__summary").evaluate((element) => getComputedStyle(element).color), "rgb(247, 244, 255)", "the concrete hero explanation must remain readable at 390px");
+    assert.equal(await mobilePage.locator(".sv-side-rail").evaluate((rail) => getComputedStyle(rail).position), "relative", "390px return control must stay in document flow rather than covering cards or search");
     assert.equal(await mobilePage.locator(".lum-tabs").evaluate((element) => getComputedStyle(element).gridTemplateColumns.split(" ").length), 1, "mobile tabs must stack");
     await mobilePage.locator(".lum-card__cover").first().click();
     await mobilePage.locator("#lumProfile").waitFor();
@@ -440,6 +454,7 @@ async function run() {
     const narrowOverflow = await narrowPage.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     assert.ok(narrowOverflow <= 1, `320px horizontal overflow must be <=1px, got ${narrowOverflow}px`);
     assert.equal(await narrowPage.locator(".lum-card").count(), 7, "320px view must render all Trailblazers");
+    assert.equal(await narrowPage.locator(".sv-side-rail").evaluate((rail) => getComputedStyle(rail).position), "relative", "320px return control must stay in document flow rather than covering profile content");
     assert.deepEqual(await imageFailures(narrowPage), [], "320px view must decode all Trailblazer images");
     await narrowPage.locator(".lum-card__cover").first().click();
     await narrowPage.locator("#lumProfile").waitFor();
@@ -448,7 +463,7 @@ async function run() {
 
     const relevantConsoleErrors = consoleErrors.filter((message) => !/favicon|ERR_ABORTED|404/.test(message));
     assert.deepEqual(relevantConsoleErrors, [], "unexpected console errors: " + relevantConsoleErrors.join(" | "));
-    console.log("LUMINAiRY browser PASS: 13/23/7 cover-only cards, complete profile routes, exact 30-profile typed destinations, honest 12-song playlist/deferred Carrie state, signed admission with/without Web Crypto, images, external links, keyboard activation/focus return, invalid-route handling, local persistence/failure, account-backed cross-device restore into My Closet, audio failure, compact-desktop overflow, and 390/320 mobile overflow");
+    console.log("LUMINAiRY browser PASS: 13/23/7 cover-only cards, complete profile routes, cross-wing search recovery, exact 30-profile typed destinations, honest 12-song playlist/deferred Carrie state, signed admission with/without Web Crypto, images, external links, keyboard activation/focus return, invalid-route handling, local persistence/failure, account-backed cross-device restore into My Closet, audio failure, compact-desktop overflow, non-overlapping mobile return control, and 390/320 mobile overflow");
   } finally {
     await browser.close();
   }

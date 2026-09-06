@@ -125,12 +125,19 @@ body {
   line-height: 1.35;
 }
 
-.lum-nave__copy > p:last-child {
+.lum-nave__copy > .lum-nave__summary,
+.lum-nave__copy > .lum-nave__action {
   max-width: 570px;
   margin: 0;
   color: rgba(255, 250, 244, 0.82);
   font-size: clamp(16px, 1.5vw, 21px);
   line-height: 1.5;
+}
+
+.lum-nave__copy > .lum-nave__summary {
+  margin-bottom: 10px;
+  color: var(--lum-paper);
+  font-weight: 600;
 }
 
 @media (max-width: 760px) {
@@ -527,9 +534,21 @@ input:focus-visible,
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16), 0 24px 70px rgba(0, 0, 0, 0.28);
 }
 
-body[data-lum-wing="saints"] .lum-panel { background: linear-gradient(145deg, rgba(239, 77, 156, 0.32), #111733 420px); }
-body[data-lum-wing="mavens"] .lum-panel { background: linear-gradient(145deg, rgba(49, 92, 173, 0.5), #0b1e49 420px); }
-body[data-lum-wing="trailblazers"] .lum-panel { background: linear-gradient(145deg, rgba(240, 165, 38, 0.35), #191729 420px); }
+body[data-lum-wing="saints"] .lum-panel {
+  --wing-accent: var(--lum-pink);
+  --wing-link-ink: var(--lum-ink);
+  background: linear-gradient(145deg, rgba(239, 77, 156, 0.32), #111733 420px);
+}
+body[data-lum-wing="mavens"] .lum-panel {
+  --wing-accent: var(--lum-sapphire);
+  --wing-link-ink: var(--lum-white);
+  background: linear-gradient(145deg, rgba(49, 92, 173, 0.5), #0b1e49 420px);
+}
+body[data-lum-wing="trailblazers"] .lum-panel {
+  --wing-accent: var(--lum-amber);
+  --wing-link-ink: var(--lum-ink);
+  background: linear-gradient(145deg, rgba(240, 165, 38, 0.35), #191729 420px);
+}
 
 .lum-panel__intro {
   display: flex;
@@ -581,6 +600,44 @@ body[data-lum-wing="trailblazers"] .lum-panel { background: linear-gradient(145d
 }
 
 .lum-result-status.is-error { color: var(--lum-red); }
+
+.lum-search-recovery {
+  margin: 0 0 22px;
+  padding: 16px 18px;
+  border: 1px solid color-mix(in srgb, var(--wing-accent) 68%, white);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--wing-accent) 13%, var(--lum-ink));
+}
+
+.lum-search-recovery__intro {
+  margin: 0 0 10px;
+  color: var(--lum-white);
+  font-weight: 700;
+}
+
+.lum-search-recovery__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.lum-search-recovery__link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: var(--wing-accent);
+  color: var(--wing-link-ink) !important;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.lum-search-recovery__link:hover,
+.lum-search-recovery__link:focus-visible {
+  outline: 3px solid var(--lum-white);
+  outline-offset: 2px;
+}
 
 .lum-retry-state {
   flex: 1 0 100%;

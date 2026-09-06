@@ -34,12 +34,12 @@ The active portraits use one wing-specific background family, waist-up editorial
 
 ## Content and signed admission
 
-- Profile data: `content/luminairy-profiles.json`, SHA-256 `d59e809ee52599578061e3ce2a9a1aba83b20ec86d6dcc224717138f8eeb2676`.
-- Exact review text: `operations/product-stewards/luminairy/complete-profile-review-text-2026-09-05.md`, SHA-256 `9197070219e6bce3022e4af5c170f66b60eefa581e5d5927d9305c25c7a3c8e7`.
+- Profile data: `content/luminairy-profiles.json`, SHA-256 `2c986ea3a3dc3b0e2b7a4c3058b4edfc3f005ca0db8cd10e74b04922483eed62`.
+- Exact review text: `operations/product-stewards/luminairy/complete-profile-review-text-2026-09-05.md`, SHA-256 `2b01f3c0e8f6058604ee054759ce4f523a1d0cf758eac771b1f2ef3e8f39a803`.
 - Producer self-review: `operations/product-stewards/luminairy/complete-profile-producer-self-review-2026-09-05.json`.
 - Independent semantic admission: `operations/product-stewards/luminairy/complete-profile-independent-semantic-admission-2026-09-05.json`.
-- Signed claims: `content/luminairy-claims.json`, SHA-256 `0e0ef661e74879b1a4aefbbd46f7018c1629112446a087f2aba91fc11d379772`.
-- Signed receipts: `content/luminairy-editorial-receipts.json`, SHA-256 `63cbfeb1c5a97a9815ea820200624ec10f11382cf41fcbd8d9aa9f224773e40a`.
+- Signed claims: `content/luminairy-claims.json`, SHA-256 `cfa27c6ffc7833a3d0328d3433eb3f0b9048dab2295953135c0926158455ae8e`.
+- Signed receipts: `content/luminairy-editorial-receipts.json`, SHA-256 `4c974f60dec3c86155406cc8e51b625cc69debf2702bc30830c174910fba31b8`.
 - Signing key ID: `luminairy-editorial-offline-r6-20260905`.
 
 The receipts prove integrity and authenticated admission of the exact profile bytes. They do not substitute for the separately recorded prose, source, likeness or rendered-page reviews.
@@ -54,7 +54,9 @@ Passed:
 - `scripts/validate-luminairy-claims.mjs` — all 43 profiles, exact assets, sources, songs and P-256 receipts pass.
 - `scripts/check-content-producer-contract.mjs` — exact content contract integrity passes.
 - `scripts/check-prose-quality-admission.mjs` — producer review and independent semantic admission both pass, and the ordered cross-model review chain matches.
-- `scripts/test-luminairy-browser.cjs` against `http://127.0.0.1:4173` — all 43 cover/profile journeys, every one of the 108 destinations, all images, 12-song playlist, Carrie deferral, search, keyboard focus, audio/storage/fetch failures, signed admission with and without Web Crypto, local/account restoration into My Closet, desktop/390/320 overflow.
+- `scripts/test-luminairy-browser.cjs` against `http://127.0.0.1:4173` — all 43 cover/profile journeys, cross-wing search recovery, every one of the 108 destinations, all images, 12-song playlist, Carrie deferral, keyboard focus, audio/storage/fetch failures, signed admission with and without Web Crypto, local/account restoration into My Closet, desktop/390/320 overflow and a non-overlapping mobile return control.
+
+The complete-page independent audit also passed the rewritten hero proposition, exact light-text contrast at desktop/390/320, removal of evidence-pipeline language and the Ada-from-Saints cross-wing recovery journey.
 
 The objective gates were calibrated with known-bad mutations before being trusted.
 
