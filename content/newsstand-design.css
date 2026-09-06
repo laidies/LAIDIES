@@ -577,3 +577,45 @@
     grid-row: auto;
   }
 }
+
+/* Big Picture: the masthead's existing pop-art palette frames the analysis. */
+.ns-redesign .ns-front-desk--big-picture {
+  position: relative; isolation: isolate; overflow: hidden;
+  padding: 26px; gap: 12px 28px; border: 2px solid #11183b;
+  border-bottom: 6px solid #15bce0;
+  background: linear-gradient(112deg,#f254a9 0%,#ff7366 55%,#ff9b3d 100%) !important;
+  box-shadow: 6px 6px 0 #11183b;
+  color: #11183b;
+}
+.ns-redesign .ns-front-desk--big-picture::before {
+  content: ""; display: block; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: url('../assets/newsstand/design-20260830/masthead-pop-art-20260831.png') right top / auto 100% no-repeat;
+  mix-blend-mode: multiply; opacity: .16;
+}
+.ns-redesign .ns-front-desk--big-picture .ns-front-desk__label {
+  color: #11183b; font: 900 clamp(30px,4vw,50px)/1 Jost,sans-serif;
+  letter-spacing: -.04em; text-transform: none; margin: 0 0 10px;
+  text-shadow: 3px 3px 0 #7de2c2;
+}
+.ns-redesign .ns-front-desk--big-picture .ns-front-status,
+.ns-redesign .ns-front-desk--big-picture .ns-front-contents { color: #11183b; }
+.ns-redesign .ns-front-desk--big-picture .ns-front-contents {
+  padding: 18px; background: #fff0f6; border: 1px solid #11183b;
+}
+.ns-redesign .ns-front-desk--big-picture .ns-front-action {
+  justify-self: start; padding: 10px 14px; background: #7de2c2;
+  color: #11183b; border: 2px solid #11183b; font-weight: 800;
+  box-shadow: 3px 3px 0 #11183b;
+}
+.ns-redesign .ns-big-picture-more { display: block; margin-top: 20px; border-bottom: 2px solid #6430b7; padding-bottom: 16px; }
+.ns-redesign .ns-big-picture-more summary { cursor: pointer; min-height: 44px; color: #6430b7; font: 800 18px/1.5 Jost,sans-serif; }
+.ns-redesign .ns-big-picture-more summary:focus-visible { outline: 3px solid #6430b7; outline-offset: 3px; }
+.ns-redesign .ns-big-picture-index { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 24px; }
+.ns-redesign .ns-big-picture-index a { padding: 14px 0; border-top: 1px solid #b8afc0; }
+.ns-redesign .ns-big-picture-index small { display: block; margin-top: 6px; font: 500 14px/1.5 Jost,sans-serif; }
+@media(max-width:600px) {
+  .ns-redesign .ns-front-desk--big-picture { padding: 18px 14px; gap: 14px; box-shadow: 4px 4px 0 #11183b; }
+  .ns-redesign .ns-front-desk--big-picture .ns-front-contents { padding: 14px; }
+  .ns-redesign .ns-front-desk--big-picture .ns-front-status { margin: 0; }
+  .ns-redesign .ns-big-picture-index { grid-template-columns: 1fr; }
+}

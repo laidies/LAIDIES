@@ -15944,3 +15944,10 @@ remain unreconciled; cross-chat completeness is not certified.
 - Prevention: Inspect the visitor's actual tab; test missing/hidden as well as ready layout. CSS now collapses remaining town cards across the full grid when Mme is absent.
 - Calibration: Old CSS leaves left592px blank at1200; new CSS left2px and full1180 width.650px checked too; ready geometry unchanged. Reviewer initially misread breakpoint; root corrected to601 and verified actual browser.
 - Behind the Build: A fresh test page and the page a reader already has open can behave differently; show general lesson without internal configuration.
+
+## BTB-507 — Big Picture needs visible editorial hierarchy
+- Date: 2026-09-06
+- Finding: White framing made Big Picture disappear among ordinary website sections. Existing more-list stopped at three older stories.
+- Prevention: Use the existing masthead visual language with a calm text surface; collection derives all permitted stories and shows at2+, retaining access checks.
+- Verification: Actual desktop390/320 and native expanded five-item fixture; old generic pseudo-element display:none initially suppressed the texture and was repaired before independent review.
+- Behind the Build: Editorial importance must be visible in the layout, not only in a section label.

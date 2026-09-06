@@ -1,3 +1,10 @@
+<!-- Big Picture emphasis: verified candidate / release pending -->
+Masthead palette and texture applied to Big Picture; paper text panel/mint action.
+Conditional full Big Picture index appears at2 accessible published stories.
+Real1200/390/320 checks and native disclosure fixture passed; independent scoped
+review ACCEPT. Artifact /private/tmp/laidies-newsstand-big-picture-pop-20260906.
+Duplicate Latest artwork and lower-paper redesign remain open alongside Hannah.
+
 <!-- Blank town column repair: VERIFIED PUBLICLY -->
 Actual user IAB tab refreshed from old version; reading restored. CSS successor
 collapses absent/hidden Mme column; real1200/650 ready/missing checks verified.

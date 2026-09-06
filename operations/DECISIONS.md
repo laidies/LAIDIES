@@ -20,6 +20,11 @@ proper domain source before building from it.
 
 ## Core routes
 
+September 6, Ali requested that Big Picture stand out using the masthead's
+fun pop-art direction rather than its white background. Provide a Read all
+Big Picture control once at least two articles are published and accessible.
+Do not count private drafts or limit the collection to three older articles.
+
 NewsStand town layout must collapse reserved columns when their feature is
 hidden or absent; a failed data load must not leave an empty half-page. Inspect
 the exact visitor tab before treating an old open document as a failed deploy.

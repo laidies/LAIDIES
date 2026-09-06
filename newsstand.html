@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260901-homepage-header-1">
     <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
-    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260906-town-fallback-1">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260906-big-picture-pop-1">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -1643,17 +1643,18 @@
           var morePicture = document.querySelector(".ns-big-picture-more");
           var pictureLead = document.querySelector('[data-open-edition="big-picture"]');
           if (morePicture) {
-            var pictureSlug = pictureLead && pictureLead.getAttribute("data-lead-slug");
-            var earlierPictures = stories.filter(function (story) {
-              return story.edition === "big-picture" && story.slug !== pictureSlug &&
+            var allPictures = stories.filter(function (story) {
+              return story.edition === "big-picture" &&
                 contract.accessDecision(data, story, { scope: "search" }, now).canExpose;
-            }).sort(function (a,b) { return (b.publishedAt || "").localeCompare(a.publishedAt || ""); }).slice(0,3);
-            morePicture.hidden = earlierPictures.length === 0;
-            morePicture.innerHTML = earlierPictures.map(function (story) {
-              return '<a href="#' + escapeAttribute(story.slug) + '">' +
-                (story.heroVisual ? '<img src="' + escapeAttribute(story.heroVisual.src.replace(/^\//, "./")) + '" alt="' + escapeAttribute(story.heroVisual.alt || "") + '" loading="lazy">' : '') +
-                escapeHTML(story.headline) + '</a>';
-            }).join('');
+            }).sort(function (a,b) { return (b.publishedAt || "").localeCompare(a.publishedAt || ""); });
+            morePicture.hidden = allPictures.length < 2;
+            morePicture.innerHTML = allPictures.length < 2 ? "" :
+              '<details><summary>Read all Big Picture →</summary><div class="ns-big-picture-index">' +
+              allPictures.map(function (story) {
+                return '<a href="#' + escapeAttribute(story.slug) + '">' +
+                  '<span>' + escapeHTML(story.headline) + '</span>' +
+                  '<small>' + escapeHTML(formatDate(story.publishedAt)) + '</small></a>';
+              }).join('') + '</div></details>';
           }
           renderTopicButtons();
           var newsroomDate = document.getElementById("ns-newsroom-date");
