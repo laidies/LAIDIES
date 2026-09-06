@@ -400,3 +400,12 @@ Ali suggests the Episode7 study pack as the immediate home for detailed practica
 
 ## D-2026-09-06-GORGEOUS-BEAUTIFUL — LOCKED
 Ali dislikes “gorgeous” and “beautiful” except when describing someone’s appearance. Apply in conversation and writing; use specific descriptions or no adjective elsewhere. Authority: Ali direct instruction; operations/voice/laidies-writing-lock.md.
+
+## D-2026-09-06-EPISODES-01-04-PACKS-BINDER — ACTIVE
+Ali prioritizes Episodes1–4 over the trailer: update written editions/narration, study packs and quizzes together. Study packs must provide genuinely useful lesson summaries and a concise one-page-style cheat sheet of critical information, with useful practice and interactivity. Episode-related material belongs in a binder in My Closet: study packs, completed exercises and quizzes must be saved and recoverable. Inspect and extend existing storage rather than introducing competing save systems. Preserve actual user work across content revisions. Separate Library-concept, News/article and other binders are CAPTURED for later, outside this implementation scope. Trailer is DEFERRED until this episode work is handled.
+
+## D-2026-09-06-INTERACTIVE-EPISODE-BINDER — LOCKED DIRECTION
+Ali explicitly rejects a generic CSS/worksheet treatment and a print/manual-first workflow. One-page cheat sheet describes concise useful information, not required paper output. Episode study packs must use a cool90s design consistent with the existing site and approved references, with usable typed input and save interactions. Account holders must have their episode material, exercise entries and quiz results saved so they can leave and return; device-only persistence is insufficient for this requested signed-in outcome. Use the existing Resident account system and explicit save behaviour; preserve prior data and distinguish visitor states truthfully. Printing is optional, not the primary path. This direction supersedes the earlier local-only implementation boundary for this scoped episode-binder build; it does not authorize indiscriminate syncing of unrelated private activity.
+
+### Clarification — cheat sheet may be static
+Ali clarifies that the cheat sheet itself does not need interactive controls. It can be a concise, designed on-screen lesson reference saved in the episode binder. Typed input belongs where useful in exercises/notes; quizzes retain their interactions and saved results. Preserve the90s design and account save/return requirements; do not force interactivity into reference material.

@@ -45,3 +45,8 @@ Ali broadened Episode7 to useful work across capable approved AI, limited workpl
 Latest refinement: personal-life practice first, optional permitted work adaptation. No workplace AI access is required to benefit. Keep the existing workplace story payoff; detailed access scenarios remain a captured Dear Miss Jeeves companion. See D-2026-09-06-PERSONAL-FIRST-PRACTICE and the final section of season-map.md.
 
 Latest destination: put the practical detail and optional work adaptations in Episode7’s study pack first. Dear Miss Jeeves is a possible later expansion, not a required parallel feature.
+
+## Current governing priority supersedes trailer next action
+Episodes1–4 first: update written/narrated meaning, useful concise lesson-reference material, interactive exercises and quizzes, with a90s site-cohesive episode binder in My Closet. Ali rejects print/manual-first worksheets and generic CSS presentation. Account holders must save and return to their work. Episode1 is the representative complete journey before scaling. Other binder categories and trailer are deferred. Existing source review remains input; nothing yet claims the requested revised prose, interactive pack or account persistence is built.
+
+Cheat-sheet clarification: the reference itself may be static; exercises/notes and quizzes provide the useful interaction. Saving/reopening the sheet in the binder remains required.

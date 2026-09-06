@@ -1278,3 +1278,9 @@ DECIDED direction: useful work within actual AI access, from limited workplace t
 Latest refinement: personal-life practice first, optional permitted work adaptation. No workplace AI access is required to benefit. Keep the existing workplace story payoff; detailed access scenarios remain a captured Dear Miss Jeeves companion. See D-2026-09-06-PERSONAL-FIRST-PRACTICE and the final section of season-map.md.
 
 Latest destination: put the practical detail and optional work adaptations in Episode7’s study pack first. Dear Miss Jeeves is a possible later expansion, not a required parallel feature.
+
+## 2026-09-06 — Episodes1–4 complete learning journey takes priority
+BUILDING: Ali directs updated written/narrated editions, useful summary/cheat-sheet study packs, exercises and quizzes, with recoverable episode binder in My Closet. First inspect current source, owner and save dependencies; prove one complete Episode1 path before scaling to2–4. Trailer deferred; other binder categories captured only. Existing paired correction review remains input, not finished prose. Scope includes actual functionality and saved return journey, not merely a planning packet.
+
+### Interactive design correction — Ali, same task
+The required result is a site-cohesive90s interactive pack/binder with typed entries and account-backed save/return. A plain worksheet, generic CSS mockup or print/manual-first pack fails the brief. Concision is the purpose of the cheat-sheet analogy. Verify existing account integration and approved design references before the representative Episode1 build. No candidate has been produced or shown.
