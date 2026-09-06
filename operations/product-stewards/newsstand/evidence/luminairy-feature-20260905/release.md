@@ -1,6 +1,7 @@
 # NewsStand LUMINAiRY discovery and dynamic related-song controls
 
-Status: INDEPENDENTLY ACCEPTED LOCAL CANDIDATE — NOT YET DEPLOYED.
+Status: VERIFIED PUBLICLY — source 5aa37168589ba26fab4e0c2b17f03f9abc54ec71,
+production ac5d6108-3e31-428c-a938-e9718f8218cc.
 
 The new section reuses the exact current public LUMINAiRY role, biography,
 lesson, checked-date wording, image and resource links. Each Wednesday in
@@ -60,3 +61,25 @@ in the same existing heartbeat by exact saved-prompt read-back; schedule,
 ACTIVE status, target and unmuted meaningful notifications remain. Actual
 future scheduled results, renewed-service publication, deeper profiles,
 Big Picture versions and textbook correction remain open.
+
+## Public result
+
+The committed/pushed source5aa37168 was deployed as ac5d6108-3e31-428c-a938-e9718f8218cc.
+Both https://laidies.ai/newsstand and the immutable ac5d6108 origin pass all
+28 exact changed/protected response comparisons; three actual profile-view
+and named-card journeys each at1280/390/320; and the full focused native
+shared-song suite. Four further actual Sister Mary feature-button journeys
+(custom/immutable1280/390) verify advancing native audio, correct track, no
+autoplay/new-tab/navigation, Stop and keyboard-focus return. Public-head and
+configuration read-back match the intended source and unchanged bindings.
+
+A default Python HTTP request received403 during the predecessor check; the
+normal curl path then retrieved all six exact predecessor resources. No
+authentication or server setting changed. The local feature test also required
+waiting for lazy images to decode and using the actual newer public profile
+bytes. Those maker corrections were completed before independent review.
+
+Existing54 reader and9 native-zoom suites ran on the complete local artifact;
+public checks exercised the changed feature/player journeys. Deeper Saint and
+biographical articles, issued renewed services, the new Weekly, Big Picture
+versions, textbook corrections and founder-safe Behind the Build remain open.
