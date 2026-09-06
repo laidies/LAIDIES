@@ -8,6 +8,10 @@ on:
       - 'operations/page-design-bar.md'
       - 'operations/resident-card-design-decisions.md'
       - 'scripts/*current-reference*'
+      - 'operations/tools/*visual_reference*'
+      - 'operations/tools/build-art-batch.py'
+      - 'operations/art-requirements.md'
+      - '.claude/hooks/enforce-art-prompt.py'
       - 'scripts/lib/active-asset-admission.mjs'
       - 'assets/**'
       - '.github/workflows/current-reference-check.yml'
@@ -20,6 +24,10 @@ on:
       - 'operations/page-design-bar.md'
       - 'operations/resident-card-design-decisions.md'
       - 'scripts/*current-reference*'
+      - 'operations/tools/*visual_reference*'
+      - 'operations/tools/build-art-batch.py'
+      - 'operations/art-requirements.md'
+      - '.claude/hooks/enforce-art-prompt.py'
       - 'scripts/lib/active-asset-admission.mjs'
       - 'assets/**'
       - '.github/workflows/current-reference-check.yml'
@@ -33,6 +41,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: python3 operations/tools/test_visual_reference_binding.py
       - run: node scripts/test-active-asset-admission.mjs
       - run: node scripts/test-current-reference-index.mjs
       - run: node scripts/build-current-reference-index.mjs --check
