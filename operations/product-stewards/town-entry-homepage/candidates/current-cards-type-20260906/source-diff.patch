@@ -1,0 +1,40 @@
+diff --git a/index.html b/index.html
+index 2dd6d1bd..07a5ae5c 100644
+--- a/index.html
++++ b/index.html
+@@ -1134,6 +1134,17 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
+ #reference :is(a,button,input,summary):focus-visible{outline:3px solid var(--hp-ink);outline-offset:4px}
+ /* Match the chosen directory heading: Jost Bold, retaining compact banner sizes. */
+ .dyk-slim h2,.dyk-slim .dyk-copy :is(h3,.dyk-title,.dyk-cta),.dyk-slim .dyk-controls button{font-family:Jost,sans-serif;font-weight:700;font-style:normal}
++
++/* Current Girl Talk cards, and the plain Jost Bold heading treatment Ali selected. */
++.dyk-slim .dyk-media-cards{position:relative;background:var(--hp-coral)}
++.dyk-slim .dyk-media-cards img{position:absolute;width:46%;height:auto;max-width:none;min-height:0;object-fit:contain;border-radius:3px;top:50%;transform:translateY(-50%)}
++.dyk-slim .dyk-media-cards img:first-child{left:3%}
++.dyk-slim .dyk-media-cards img:last-child{right:3%}
++.intent>div:first-child>h2,.dyk-slim .dyk-copy{-webkit-text-stroke:0;text-shadow:none;font-family:Jost,sans-serif;font-weight:700}
++.dyk-slim{background:linear-gradient(135deg,color-mix(in srgb,var(--hp-purple) 60%,var(--hp-ink)),color-mix(in srgb,var(--hp-cobalt) 50%,var(--hp-ink)))}
++.intent>div:first-child>h2{color:#1b30bd}
++
++.dyk-slim .dyk-media img[src$="fairy-writing-desk.png"]{object-position:left center}
+ </style>
+   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+   <script defer src="/content/site/sv-global-header.js?v=20260906-shared-radio"></script>
+@@ -1199,7 +1210,7 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
+         <h2 id="dyk-title">Did you know?</h2>
+         <div class="dyk-stage">
+           <a class="dyk-slide is-active" data-dyk-slide href="/fun-connect.html">
+-            <div class="dyk-media"><img src="/assets/girl-talk-board.webp" alt="" decoding="async"></div>
++            <div class="dyk-media dyk-media-cards"><img src="/assets/games/girl-talk/truth-card-face.webp" alt="" decoding="async"><img src="/assets/games/girl-talk/dare-card-face.webp" alt="" decoding="async"></div>
+             <div class="dyk-copy"><h3>We have a ton of fun games inspired by the Rewind Era—Dream Phone, Girl Talk and even a paper fortune teller.</h3><span class="dyk-cta">Check out all our games</span></div>
+           </a>
+           <a class="dyk-slide" data-dyk-slide href="#reference" hidden>
+@@ -1223,7 +1234,7 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
+             <div class="dyk-copy"><h3>SUNNYVAiLE’s NewsStand breaks down AI headlines and explains what they really mean. Our Big Picture section takes a closer look at the major topics behind them.</h3><span class="dyk-cta">Visit the NewsStand</span></div>
+           </a>
+           <a class="dyk-slide" data-dyk-slide href="/games/fairy-godmother.html" hidden>
+-            <div class="dyk-media"><img src="/assets/sunnyvaile-buildings/y2k-v3/11-fairy-godmother-house.webp" alt="" decoding="async" loading="lazy"></div>
++            <div class="dyk-media"><img src="/assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="" decoding="async" loading="lazy"></div>
+             <div class="dyk-copy"><h3>FAiRY Godmother can help with your career questions—and show you how to use your own AI tools to think them through next time.</h3><span class="dyk-cta">Ask FAiRY Godmother</span></div>
+           </a>
+           <a class="dyk-slide" data-dyk-slide href="/mall.html" hidden>

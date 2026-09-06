@@ -1,5 +1,13 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Girl Talk uses current Truth and Dare cards; board and old FAiRY house retired
+
+Ali rejects the replacement board/spinner image as old and retired. This supersedes the prior thumbnail selection and invalidates its visual-admission verdict. Do not use assets/girl-talk-board.png or .webp for Girl Talk. Use the current lavender/pink flip-phone Truth/Dare cards already represented on the homepage; exact faces are assets/games/girl-talk/truth-card-face.png and dare-card-face.png. Historical social plans and tracked-file existence are not current approval. Preserve the cards and make their compact presentation clear.
+
+Ali also identifies assets/sunnyvaile-buildings/y2k-v3/11-fairy-godmother-house.webp as old and retired. Remove it from Did you know. Reuse assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png, the current artwork already used in the homepage FAiRY feature and shortcut. Current FAiRY game has no released hero image; held exterior/parlour concepts are not replacement authority.
+
+Ali also flags the lettering in Did you know and “What brought you to town today?” as different from her selected “Everything you can do in LAiDIES.” reference. Keep Jost Bold700 and remove the outlined treatment that makes the font appear different. Keep the chosen blue heading and warm banner lettering readable; use the minimum supporting background adjustment required. This is a correction to the same preview, not a new homepage design.
+
 ## 2026-09-06 — Correct the grainy Girl Talk banner thumbnail
 
 Ali reports that the Truth or Dare image in Did you know still looks pixelated. Correct the actual small rendered thumbnail, preserving compact banner geometry, current artwork elsewhere, colours, Jost700 typography, all eight messages and destinations, and controls. Reuse a sharper existing Girl Talk asset after checking it at desktop and phone sizes. Preview only.

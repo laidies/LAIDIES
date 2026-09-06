@@ -21,6 +21,11 @@ if (item.design_admission.burst) cases.push(['different burst', v => { v.design_
 if (item.design_admission.wallpaper) cases.push(['different wallpaper', v => { v.design_admission.wallpaper.sha256 = '0'.repeat(64); }, 'wallpaper bytes differ']);
 if (item.design_admission.cover) cases.push(['different cover', v => { v.design_admission.cover.sha256 = '0'.repeat(64); }, 'cover bytes differ']);
 if (item.design_admission.thumbnail) cases.push(['different thumbnail', v => { v.design_admission.thumbnail.sha256 = '0'.repeat(64); }, 'thumbnail bytes differ']);
+if (item.design_admission.fairyImage) cases.push(['wrong Fairy image',v=>{v.design_admission.fairyImage.sha256='0'.repeat(64);},'current Fairy image bytes differ']);
+if (item.design_admission.cards) {
+  cases.push(['wrong card asset', v => {v.design_admission.cards[0].sha256='0'.repeat(64);}, 'current card bytes differ']);
+  cases.push(['retired board direction', v => {v.design_admission.owner_feedback_successor='GIRL_TALK_THUMBNAIL';}, 'retired board direction rejected by owner']);
+}
 for (const [name, mutate, reason] of cases) {
   const candidate = structuredClone(item);
   mutate(candidate);
