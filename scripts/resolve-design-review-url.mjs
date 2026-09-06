@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { spawnSync } from 'node:child_process';
+import { homepageCorrectionId, homepageCorrectionPacket } from './lib/homepage-correction-admission.mjs';
 
 const root = process.cwd();
 const fixtureMode = process.argv.includes('--fixture');
@@ -43,7 +44,10 @@ if (!fixtureMode && fs.existsSync(programManifestPath)) {
   }
 }
 
-const checkArgs = [checker, ...(fixtureMode ? ['--fixture'] : [])];
+const relative = path.relative(root, candidatePath);
+const queue = JSON.parse(fs.readFileSync(queuePath, 'utf8'));
+const exception = (queue.review_now || []).find(item => item.design_admission?.candidate?.path === relative && item.design_admission?.owner_exception === homepageCorrectionId);
+const checkArgs = [checker, ...(fixtureMode ? ['--fixture'] : []), ...(exception ? ['--candidate', relative] : [])];
 const checked = spawnSync(process.execPath, checkArgs, {
   cwd: root,
   encoding: 'utf8',
@@ -51,8 +55,6 @@ const checked = spawnSync(process.execPath, checkArgs, {
 });
 if (checked.status !== 0) fail('full design-review admission is not passing');
 
-const queue = JSON.parse(fs.readFileSync(queuePath, 'utf8'));
-const relative = path.relative(root, candidatePath);
 const digest = crypto.createHash('sha256').update(fs.readFileSync(candidatePath)).digest('hex');
 const admitted = (queue.review_now || []).find(item =>
   ['building_page_visual', 'building_page_visual_concept'].includes(item.review_type) &&
@@ -62,5 +64,17 @@ const admitted = (queue.review_now || []).find(item =>
 );
 if (!admitted) fail('exact candidate path and SHA-256 are not admitted in review_now');
 
+if (exception) {
+  const hostedPath = path.join(root, homepageCorrectionPacket, 'hosted-preview.json');
+  if (!fs.existsSync(hostedPath)) fail('exact hosted preview verification is missing');
+  const hosted = JSON.parse(fs.readFileSync(hostedPath, 'utf8'));
+  if (hosted.status !== 'VERIFIED_PREVIEW' || hosted.sourceSha256 !== digest ||
+      hosted.runtimeSha256 !== exception.design_admission.runtime.sha256 ||
+      !/^https:\/\/[a-f0-9]{8}\.laidies-sunnyvaile\.pages\.dev\/$/.test(hosted.url) ||
+      hosted.productionChanged !== false) fail('exact hosted preview verification is missing');
+  console.log(`DESIGN PRESENTATION ADMITTED ${admitted.id}`);
+  console.log(hosted.url);
+  process.exit(0);
+}
 console.log(`DESIGN PRESENTATION ADMITTED ${admitted.id}`);
 console.log(pathToFileURL(candidatePath).href);

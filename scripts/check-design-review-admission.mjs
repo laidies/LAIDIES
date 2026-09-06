@@ -2,9 +2,12 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { homepageCorrectionId, inspectHomepageCorrection } from './lib/homepage-correction-admission.mjs';
 
 const root = process.cwd();
 const fixtureMode = process.argv.includes('--fixture');
+const candidateFlag = process.argv.indexOf('--candidate');
+const scopedCandidate = candidateFlag >= 0 ? process.argv[candidateFlag + 1] : null;
 const queuePath = fixtureMode && process.env.LAIDIES_QUEUE_PATH
   ? process.env.LAIDIES_QUEUE_PATH
   : 'operations/control-room/owner-review-queue.json';
@@ -80,7 +83,7 @@ function verifyCandidateBoundText(label, binding, candidateSha) {
 const designGateCandidates = [
   ...(queue.review_now || []),
   ...(queue.being_built || []).filter(item => item.design_admission)
-];
+].filter(item => !scopedCandidate || item.design_admission?.candidate?.path === scopedCandidate);
 for (const item of designGateCandidates) {
   for (const [index, artifact] of (item.review_artifacts || []).entries()) verifyBinding(`${item.id}.review_artifacts[${index}]`, artifact);
   if (item.evidence_path || item.evidence_sha256) verifyBinding(`${item.id}.evidence`, { path: item.evidence_path, sha256: item.evidence_sha256 });
@@ -104,6 +107,10 @@ for (const item of designGateCandidates) {
   const admission = item.design_admission;
   if (!admission) {
     errors.push(`${item.id}: building-page visual is missing design_admission`);
+    continue;
+  }
+  if (admission.owner_exception === homepageCorrectionId) {
+    errors.push(...inspectHomepageCorrection(item, root).map(error => `${item.id}: ${error}`));
     continue;
   }
   if (htmlArtifacts.length && !['building_page_visual','building_page_visual_concept'].includes(item.review_type)) errors.push(`${item.id}: HTML design candidate must declare a building-page visual review type`);
