@@ -33,4 +33,3 @@ Disco, Memphis, all earlier thin-border designs and all stretched/pastel revisio
 ![Purple brushwork](06-neon-brushwork.png)
 
 [Open original](06-neon-brushwork.png)
-
