@@ -58,3 +58,13 @@ The authors propose more frequent imaging for higher-risk people and standard in
 
 **Recommendation: HOLD for ordinary-news drafting.** The paper is a meaningful, primary, newly published technical result and could later support a carefully bounded science explainer or a Big Picture input. It is not ready for an ordinary NewsStand health story until an appropriately qualified medical review resolves external generalisability, clinical workflow, and whether any independent evidence supports acting on the model. Do not describe it as AI improving chemotherapy, selecting immunotherapy, or improving patient outcomes.
 
+
+## September 5 completed-draft disposition
+
+The initial HOLD above is preserved as the research-stage recommendation. The
+subsequent bounded article is now independently reviewed and assembled for ordinary
+issue admission; it does not advise clinical use. Original trial verification,
+independent IMDRF context and the exact limits are recorded in
+`publication-readiness.md`. Generalisability and patient benefit remain unresolved
+scientific questions in the article, not gaps silently converted into positive
+claims. No specialist medical assessment or public release is claimed.

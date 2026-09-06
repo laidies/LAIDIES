@@ -8,6 +8,7 @@ import {sha,paragraphs,storyParagraphs,requestFor,normalize} from './protocol.mj
 import {inspectPreparedDraft} from '../../../../scripts/prepare-newsstand-draft.mjs';
 import {inspectProseQualityReview} from '../../../../scripts/check-prose-quality-admission.mjs';
 import {validateStoryTypeCoverage} from '../../../../scripts/validate-newsstand-story-type-coverage.mjs';
+import {resolveNewsstandEditorialPacket} from '../../../../scripts/compact-newsstand-editorial-input.mjs';
 const root=process.cwd();
 const option=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv[i+1]};
 const privateDirectory=p=>{const resolved=path.resolve(root,p);assert.ok(resolved.startsWith(path.resolve(root,'operations/product-stewards')+path.sep),'Review files must remain private');return path.relative(root,resolved)+'/'};
@@ -50,6 +51,7 @@ async function claude(request){
 async function run(name,kind,packet){
  const requestPath=out+name+'-request.json',packetPath=out+name+'-packet.json',rawPath=out+name+'-provider.raw.json',checkedPath=out+name+'-checked.json';
  const existing=fs.existsSync(requestPath);
+ if(kind==='editorial'||kind==='facts')packet=resolveNewsstandEditorialPacket(packet,existing?json(packetPath):undefined);
  if(existing){assert.ok(resume,'Use --resume to replay a preserved attempt');assert.ok(fs.existsSync(rawPath),'Attempt has no raw result; do not silently repeat an uncertain provider call');assert.deepEqual(json(packetPath),packet,'Saved packet differs; use a separately versioned attempt')}
  const request=existing?json(requestPath):requestFor(kind,packet);
  if(!existing){write(requestPath,request);write(packetPath,packet)}

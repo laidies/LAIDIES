@@ -12,9 +12,9 @@ historical secondary label is no longer required. Actual current article defects
 and unknowns still block admission. This policy does not change other surfaces.
 
 Current reusable qualification:
-`calibration/qualified-news-source-normalization-20260905/calibration-result.json`.
-It reuses real judgments after verifying unchanged actual requests; no additional
-calibration model call was made for the source-ID normalizer correction.
+`calibration/qualified-news-metrics-policy-20260905/calibration-result.json`.
+It retains actual qualified judgments under the approved ordinary-news count policy.
+Mechanical request packaging does not change this qualification or its rubric.
 
 ```sh
 node scripts/prepare-newsstand-draft.mjs <producer-contract> <private-writer-input> <story-type-frame> <primary-evidence>
@@ -27,6 +27,14 @@ The candidate directory supplies `story.json`, `review-text.json`,
 all clauses, including named examples, comparisons and supplementary evidence.
 Facts can cite any real supplied source, even when its research-intake label was
 associated with another claim. Source IDs are references, not answer keys.
+
+The runtime automatically compacts new editorial/factual requests: each supplied
+source appears once, with claim source-ID references. Complete article, paragraphs,
+reader job and every source passage stay intact. Existing saved full or compact
+requests replay exactly; changed prose, sources or locators reject. The assembler
+resolves the same representation, so an old passing review never needs to be
+repeated merely to reduce request size. The standalone compactor remains a preview
+tool, not a step the producer must remember.
 
 `--reuse-reader-from <prior-output>` is for evidence-only repairs: it validates
 unchanged complete article, passage references, communication authority and actual

@@ -1,0 +1,84 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "gastric-cancer-prediction-2026-09-05",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "94eb8f857baacf00cb55a900e3de9b0b868c9f30d8052225352ff930489f19ae",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can a model that accurately predicts which patients will later have liver spread still fail to help patients, causally speaking?",
+      "response": "The model learned statistical associations between past patients' scans, tissue images and clinical details and their known later outcomes, then had those associations checked on separate patient groups. That establishes only that the score sorts risk in similar records. Helping patients requires a further causal step: someone must change a decision — surveillance frequency, added therapy — because of the score, and that changed decision must itself cause better outcomes. If clinicians act on a false alarm, the intervention's harms arrive without the predicted event; if a missed warning breeds reassurance, care may be withheld from someone who needed it. Neither effect is measurable from the prediction study, because no care was assigned using the score.",
+      "expectedEvidence": "A correct answer must distinguish learning from labelled historical outcomes (P003, P012) from an interventional test of score-guided care, note that the reused trial assigned chemotherapy, not the AI (P005), and cite the false-alarm/missed-warning consequence chain (P008) and the explicit absence of an outcome test (P010).",
+      "assessment": "The article fully supports this causal answer: every link — labelled training, separate-group checking, trial reuse, error consequences, and the missing outcome trial — is stated in the artifact in ordinary language."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, what is wrong with the councillor's reasoning, and what evidence would justify confidence that the AI is protecting residents?",
+      "response": "The AI has only demonstrated the first of two separate questions: it identifies risk from labelled past examples. Nothing yet shows that acting on its flags — reinspections, retrofits, tenant warnings — actually reduces fires, nor which actions work. A false alarm could force costly evacuations or retrofits on safe buildings; a missed flag could leave a dangerous block with reduced prevention coverage precisely because the budget was cut. Justified confidence requires evidence about the intervention: a comparison in which flagged buildings receiving AI-guided prevention are measured for actual fire outcomes against comparable buildings under standard practice, with testing representative of the real building stock and of how inspectors use the scores in their workflow.",
+      "expectedEvidence": "Application of the P004 two-question split, the P008 false-alarm/missed-warning error consequences, and the P007 human-AI-team-in-real-setting evaluation standard to a domain absent from the article.",
+      "assessment": "The transfer succeeds: the article's mechanism resolves the scenario completely without extra concepts, confirming the explanation teaches a portable model rather than a story about one paper."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The paper, its cohort of 1,878 people, the multimodal inputs and the train-then-check-on-separate-groups sequence are all understandable in order.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A September 4 paper in <em>Nature Communications</em> reports an AI system that predicts later liver spread after stomach-cancer surgery. It studied 1,878 people with cancer that had spread into nearby tissue or lymph nodes, called <strong>locally advanced</strong> cancer. In these records, combining image patterns and clinical information outperformed clinical information alone at distinguishing those who later had liver spread from those who did not.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A <strong>model</strong> is a learned system that turns information into a prediction. This one combines pre-surgery <strong>CT</strong> scans—detailed internal images—with microscope images of tissue removed during surgery and clinical details. The team used some patients’ records and known later outcomes to learn which combinations went with later liver spread, then checked the prediction on separate patient groups.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Locally advanced, model, CT and supervised learning each get a plain-language gloss at first meaningful use rather than a glossary dump.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A September 4 paper in <em>Nature Communications</em> reports an AI system that predicts later liver spread after stomach-cancer surgery. It studied 1,878 people with cancer that had spread into nearby tissue or lymph nodes, called <strong>locally advanced</strong> cancer. In these records, combining image patterns and clinical information outperformed clinical information alone at distinguishing those who later had liver spread from those who did not.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A <strong>model</strong> is a learned system that turns information into a prediction. This one combines pre-surgery <strong>CT</strong> scans—detailed internal images—with microscope images of tissue removed during surgery and clinical details. The team used some patients’ records and known later outcomes to learn which combinations went with later liver spread, then checked the prediction on separate patient groups.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "Learning from examples paired with known answers is called <strong>supervised learning</strong>. Explore that idea in the opening of <a href=\\\"/library.html#ai-fundamentals-101::%40ch-3-3-4-supervised-unsupervised-and-the-spectrum-between\\\">AI Fundamentals 101, section 3.4</a>. It explains why knowing what happened in past examples can help train a prediction; medical usefulness still needs its own evidence.",
+          "locator": "P012"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are grounded in a specific patient situation: false alarm leading to unnecessary intervention, missed warning giving false reassurance, and what to ask a care team.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For a patient, a false alarm could lead to unnecessary intervention; a missed warning could give false reassurance. A useful evaluation therefore asks what decisions people make with a prediction and what those decisions do. <strong>Risk means a chance, not a certainty.</strong> A higher score should not be read as a personal verdict.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>When a health headline says AI “helps”, try asking: <strong>Did it predict more accurately, or did using it improve what happened to patients?</strong> If a tool is being considered for your care, another useful question is how well it was tested with women and people in your situation. Those questions help you join the conversation with your care team.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or process details leak into the prose; advice is limited to sourced evaluation questions, and treatment change is explicitly disclaimed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a health headline says AI “helps”, try asking: <strong>Did it predict more accurately, or did using it improve what happened to patients?</strong> If a tool is being considered for your care, another useful question is how well it was tested with women and people in your situation. Those questions help you join the conversation with your care team.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>The study did not test whether using its score to guide care improved patient outcomes. We have not verified a patient-ready service. It is research to understand, not a reason to change treatment.</p>",
+          "locator": "P010"
+        }
+      ]
+    }
+  }
+}

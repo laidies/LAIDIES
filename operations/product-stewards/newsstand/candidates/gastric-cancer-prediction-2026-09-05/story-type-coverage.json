@@ -1,0 +1,76 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "primaryType": "health-science",
+  "overlays": [
+    "research-benchmark"
+  ],
+  "universalAnswers": {
+    "whatHappened": "A September 4 Nature Communications paper reports a combined-image and clinical model predicting later liver spread after surgery for locally advanced stomach cancer.",
+    "plainLanguageIdentity": "A model is a learned system that turns information into a prediction. This one combines pre-surgery CT scans—detailed internal images—with microscope images of tissue removed during surgery and clinical details. The team used some patients’ records and known later outcomes to learn which combinations went with later liver spread, then checked the prediction on separate patient groups.",
+    "evidenceBasis": "Study methods/results and original trial registration support the report; IMDRF provides independent evaluation principles and NCI the disease-stage meaning.",
+    "evidenceLimits": "Separate prediction testing is not an intervention trial; no independently replicated result or patient-ready service is verified, and patient benefit was not tested.",
+    "readerRelevance": "A reader can distinguish a promising risk prediction from evidence of improved care when reading headlines or discussing a proposed tool with her care team.",
+    "affectedPeople": "The patients studied had locally advanced stomach cancer, mostly in Chinese hospitals; readers should ask whether evidence represents women and the intended setting.",
+    "changesNow": "The new contribution is published prediction research, not a verified service or a reason to change personal treatment.",
+    "uncertainty": "International applicability, clinical implementation, independent replication and the effects of AI-guided care need further evidence; performance varied by treatment group.",
+    "readerAction": "Ask whether a health claim measured prediction or actual patient outcomes, and whether testing included women and people in the relevant situation.",
+    "betterQuestion": "What happened to patients when people used the prediction to make care decisions?"
+  },
+  "typeAnswers": {
+    "health-science": {
+      "aiRole": "The model combines clinical information with CT and tissue-image patterns to predict later liver spread; it does not choose treatment or perform surgery.",
+      "professionalRole": "The original registered trial compared chemotherapy approaches; care was not assigned by the new AI, and reader questions belong in conversation with a care team.",
+      "evidenceLevel": "A published observational prediction-model study, including retrospective use of a selected cohort from an earlier registered treatment trial.",
+      "benefitClaim": "The measured result is better distinction between later liver-spread outcomes than clinical information alone, without evidence that AI-guided care improved patient outcomes.",
+      "risksAndFalseResults": "If a tool informs care, false alarms could prompt unnecessary intervention and missed warnings could falsely reassure; these are potential consequences, not measured harms in this study.",
+      "availability": "The authors describe implementation challenges and we have not verified a patient-ready service; no access instructions or regulatory approval claim is made.",
+      "readerBoundary": "This research explanation is not a reason to change treatment; discuss a tool proposed for personal care with qualified care professionals."
+    },
+    "research-benchmark": {
+      "researchQuestion": "Can combined clinical and imaging information better predict later liver spread after stomach-cancer surgery?",
+      "method": "Records from 1,878 people with locally advanced cancer; known examples develop a prediction which is checked on separate patient groups, including a reused trial subset.",
+      "result": "The paper reports improved predictive distinction compared with clinical information alone; performance differs by treatment group and is not patient-outcome improvement.",
+      "sponsorAndInterests": "Funding includes public programmes and Hengrui research cooperation; authors declare no competing interests. This does not itself validate or invalidate results.",
+      "independentReplication": "The article explicitly says LAiDIES has not verified an independent replication; regulatory principles provide general context, not a study replication.",
+      "realWorldTransfer": "The authors request broader international testing and describe implementation challenges; IMDRF calls for representative populations and human-AI workflow evaluation.",
+      "limitations": "Mostly Chinese hospital data, different treatment-group performance, retrospective design and untested effects of care guided by the score remain visible."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "A September 4 paper in Nature Communications reports an AI system that predicts later liver spread after stomach-cancer surgery. It studied 1,878 people with cancer that had spread into nearby tissue or lymph nodes, called locally advanced cancer. In these records, combining image patterns and clinical information outperformed clinical information alone at distinguishing those who later had liver spread from those who did not.",
+    "actualMeaningExact": "The study did not test whether using its score to guide care improved patient outcomes. We have not verified a patient-ready service. It is research to understand, not a reason to change treatment.",
+    "mechanismExact": "A model is a learned system that turns information into a prediction. This one combines pre-surgery CT scans—detailed internal images—with microscope images of tissue removed during surgery and clinical details. The team used some patients’ records and known later outcomes to learn which combinations went with later liver spread, then checked the prediction on separate patient groups.",
+    "familiarExampleExact": "Think of a weather forecast warning that rain is coming. Getting the forecast right does not tell you whether a particular roof repair will keep your room dry. You need evidence about the repair too. In health AI, those are likewise two different questions: can we identify a risk, and does acting on that information help?",
+    "jargon": [
+      {
+        "term": "model",
+        "plainMeaning": "A model is a learned system that turns information into a prediction. This one combines pre-surgery CT scans—detailed internal images—with microscope images of tissue removed during surgery and clinical details. The team used some patients’ records and known later outcomes to learn which combinations went with later liver spread, then checked the prediction on separate patient groups."
+      },
+      {
+        "term": "CT",
+        "plainMeaning": "A model is a learned system that turns information into a prediction. This one combines pre-surgery CT scans—detailed internal images—with microscope images of tissue removed during surgery and clinical details. The team used some patients’ records and known later outcomes to learn which combinations went with later liver spread, then checked the prediction on separate patient groups."
+      },
+      {
+        "term": "locally advanced",
+        "plainMeaning": "A September 4 paper in Nature Communications reports an AI system that predicts later liver spread after stomach-cancer surgery. It studied 1,878 people with cancer that had spread into nearby tissue or lymph nodes, called locally advanced cancer. In these records, combining image patterns and clinical information outperformed clinical information alone at distinguishing those who later had liver spread from those who did not."
+      },
+      {
+        "term": "risk",
+        "plainMeaning": "For a patient, a false alarm could lead to unnecessary intervention; a missed warning could give false reassurance. A useful evaluation therefore asks what decisions people make with a prediction and what those decisions do. Risk means a chance, not a certainty. A higher score should not be read as a personal verdict."
+      },
+      {
+        "term": "supervised learning",
+        "plainMeaning": "Learning from examples paired with known answers is called supervised learning. Explore that idea in the opening of AI Fundamentals 101, section 3.4. It explains why knowing what happened in past examples can help train a prediction; medical usefulness still needs its own evidence."
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "Learning from examples with known answers",
+        "learningPayoff": "Understand how past examples with known outcomes can train a prediction, separately from medical usefulness.",
+        "disposition": "link",
+        "destination": "/library.html#ai-fundamentals-101::%40ch-3-3-4-supervised-unsupervised-and-the-spectrum-between"
+      }
+    ]
+  }
+}

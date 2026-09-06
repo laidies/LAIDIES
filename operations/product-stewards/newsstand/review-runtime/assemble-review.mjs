@@ -9,6 +9,7 @@ import assert from "node:assert/strict";
 import { normalize, requestFor } from "./protocol.mjs";
 import { inspectProseReviewChain } from "../../../../scripts/check-prose-quality-admission.mjs";
 import { validateOrdinaryStoryCandidate } from "../../../../scripts/validate-newsstand-ordinary-story-candidate.mjs";
+import { resolveNewsstandEditorialPacket } from "../../../../scripts/compact-newsstand-editorial-input.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../../..");
 const sha256 = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
@@ -124,7 +125,7 @@ function main() {
   }
   if (reader.verdict !== "PASS" || facts.verdict !== "PASS") throw Error(`ASSEMBLY HOLD: derived independent verdict reader=${reader.verdict} facts=${facts.verdict}`);
   assert.equal(readBytes(reviewTextPath).toString("utf8"), candidateReviewText(story), "Current article bytes differ");
-  assert.deepEqual(json(inputPath), factsPacket, "Evidence packet changed after review");
+  assert.deepEqual(resolveNewsstandEditorialPacket(json(inputPath), factsPacket), factsPacket, "Evidence packet changed after review");
   const metrics = json(metricsPath);
   if (!Number.isInteger(metrics?.proseReview?.reviewIssues) || !Number.isInteger(metrics?.proseReview?.reviewCycles) || !Number.isInteger(metrics?.evidencePacket?.rounds) || !Number.isInteger(metrics?.evidencePacket?.gaps) || !metrics?.ratchet) throw Error("ASSEMBLY HOLD: metrics must explicitly distinguish prose review from evidence-packet rounds/gaps and supply the admission ratchet");
   const input = json(inputPath), byId = new Map((input.sources || []).map(source => [source.id, source]));

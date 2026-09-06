@@ -1,0 +1,674 @@
+https://www.nature.com/articles/s41467-026-76382-x
+
+> Publisher metadata:
+> <meta name="dc.date" content="2026-09-04"/>
+> 
+> PDF text lines 7-66:
+> Yueping Liu 4,X i a oH a n 5, Songpu Li6,7,J i a x i a n gW u1,2,3,L iY a n g8,
+> Haotian Wu1,2,3,N i n gM e n g9, Xiaolong Li10,R e n j u nG u11,12,Y u a nT i a n1,2,3,
+> Lilong Zhang13, Zhenjiang Guo14,L eL u 15,S e nY a n g 15 ,
+> Lingjiao Meng 16 & Qun Zhao 1,2,3
+> In locally advanced gastric cancer, a substantial number of patients relapse with
+> liver metastasis months after an apparently curative operation, and standard
+> tumor staging offers little warning of who is at risk. Here, we develop the
+> Radiopathomics-Clinical Stratiﬁcation Assessment (RCSA), an interpretable
+> model that integrates three complementary sources of information: radiomic
+> features from preoperative computed tomography, pathomic features from
+> routine hematoxylin and eosin tumor slides, and conventional clinical features.
+> Trained on patients from one hospital and then tested on separate internal,
+> external, public, and prospective trial groups (NCT02555358), RCSA con-
+> sistently separates high- and low-riskpatients, with area under the curves
+> between 0.862 and 0.909. Tumors it labels low-risk carry a notably more active
+> immune environment, indicating that these patients are the ones most likely to
+> gain from added immunotherapy. RCSA therefore turns existing hospital data
+> into individualized guidance for postoperative follow-up and treatment.
+> Gastric cancer (GC) remains one of the leading causes of cancer-
+> related deaths worldwide, particularly in East Asian countries, includ-
+> ing China, Japan, and South Korea1,2. Despite improvements in surgical
+> techniques, chemotherapy regimens, and targeted therapies, the
+> prognosis for patients with locally advanced gastric cancer (LAGC)
+> remains suboptimal due to the high rate of distant metastases, parti-
+> cularly metachronous liver metastasis (MLM) occurring after curative
+> resection3,4. MLM has been consistently associated with poor clinical
+> Received: 29 April 2025
+> Accepted: 27 July 2026
+> Check for updates
+> 1The Third Department of Surgery, the Fourth Hospital of Hebei Medical University, Shijiazhuang, Hebei, China.2Hebei Key Laboratory of Precision Diagnosis
+> and Comprehensive Treatment of Gastric Cancer, the Fourth Hospital of Hebei Medical University, Shijiazhuang, Hebei, China.3Hebei Provincial Engineering
+> Research Center for Big Data Analysis and Mining Application for Precise Diagnosis and Treatment of Gastric Cancer, the Fourth Hospital of Hebei Medical
+> University, Shijiazhuang, Hebei, China.4Department of Pathology, The Fourth Hospital of Hebei Medical University, Shijiazhuang, Hebei, China.5College of
+> Biomedical Engineering, Sichuan University, Chengdu, Sichuan, China.6Intelligent Information Technology Research Center, Jingchu University of Techol-
+> ogy, Jingmen, China. 7Jingmen Cryptometry Application Techology Research Center, Jingmen, China.8The Department of CT/MRI, The Fourth Hospital of
+> Hebei Medical University, Shijiazhuang, Hebei, China.9Department of General Surgery, Shijiazhuang People’s Hospital, Shijiazhuang, Hebei, China.
+> 10Department of General Surgery, Baoding Central Hospital, Baoding, Hebei, China.11School of Chinese Medicine & School of Integrated Chinese and Western
+> Medicine, Nanjing University of Chinese Medicine, Nanjing, Jiangsu, China.12Department of Gastroenterology and Hepatology, Jinling Hospital, Medical
+> School of Nanjing University, Nanjing, Jiangsu, China.13Department of General Surgery, Renmin Hospital of Wuhan University, Wuhan, Hubei, China.
+> 14Department of General Surgery, Hengshui People’s Hospital, Hengshui, Hebei, China.15Ant Healthcare (AFU), Ant Group, Hangzhou, Zhejiang, China.
+> 16Research Center and Tumor Research Institute of the Fourth Hospital of Hebei Medical University, Shijiazhuang, Hebei, China.17These authors contributed
+> equally: Ping’an Ding, Jiaxuan Yang. e-mail: ding_ping_an@hebmu.edu.cn; sen.yang.scu@gmail.com; ljmeng@hebmu.edu.cn; zhaoqun@hebmu.edu.cn
+> Nature Communications Article in Press
+> 1234567890():,;
+> 1234567890():,;
+> 
+> --- Page 2 ---
+> outcomes and signi ﬁcantly compromises long-term survival, high-
+> lighting the urgent need for reliable predictive biomarkers and risk
+> stratiﬁcation tools to guide postoperative management and indivi-
+> dualized treatment strategies for these patients
+> 5–7.
+> Previous efforts to predict postoperative recurrence and metas-
+> tasis in GC have primarily relied on clinical and pathological char-
+> acteristics, including tumor-node-metastasis (TNM) stage, tumor
+> differentiation, Lauren classiﬁcation, and serum tumor markers
+> 8–10.
+> However, such clinical prognostic models often demonstrate limited
+> accuracy and reproducibility due to the inherent biological and clinical
+> heterogeneity of GC. Recently, radiomics, a quantitative imaging
+> 
+> PDF text lines 117-170:
+> A total of 1878 eligible patients with LAGC were included for model
+> development and multi-level validation (Fig. 1). The overall cohort
+> structure comprised a Training Cohort (N = 770), an Internal Validation
+> Cohort (N = 362), an External Validation Cohort (N = 489, including two
+> regional clinical cohorts and one public database cohort from TCIA),
+> and a Prospective Validation Cohort (NCT02555358, N =2 5 7 ) . T h e
+> clinicopathological characteristics were well balanced across the six
+> participating medical centers, with a clear male predominance (65.6%
+> male versus 34.4% female), consistent with the recognized sex dis-
+> tribution of gastric cancer (Supplementary Table 4).
+> The training cohort ( n = 770) had a median follow-up of 69
+> months (95% CI, 67.5 –71.0), during which 128 MLM events were
+> observed (16.6%). The internal validation cohort (n =3 6 2 )w a ss t r a t iﬁed
+> by treatment period into an earlier cohort (cohort I;n =1 9 4 )a n dal a t e r
+> cohort (cohort II; n = 168). Median follow-up was 62 months (95% CI:
+> 58.5–64.5) in cohort I, with 28 MLM events (14.4%), and 54 months (95%
+> CI: 50.0–57.5) in cohort II, with 27 MLM events (16.1%).
+> The external validation cohort was subdivided by geographic
+> region. The External Validation I ( n = 257) had a median follow-up of
+> 53.5 months (95% CI, 51.0–56.0), with 45 MLM events (17.5%), whereas
+> the External Validation II ( n = 191) had a median follow-up of
+> 58.7 months (95% CI: 55.0 –62.0), with 32 MLM events (16.8%). The
+> External Validation III (TCIA cohort; n = 41) consisted of patients
+> retrieved from a public database; in this cohort, 6 MLM events (14.6%)
+> were identiﬁed. Due to the nature of the public dataset, long-term
+> survival follow-up was not available for this speci ﬁcg r o u p .T h ep r o -
+> spective validation cohort ( n = 257) had a median follow-up of
+> 63 months (95% CI, 60.5–65.5), with 38 MLM events observed (14.8%).
+> Development and validation of the RCSA model for predicting
+> postoperative MLM
+> Multivariate logistic regression analysis identi ﬁed pathological type
+> (OR = 2.125, 95% CI: 1.226–3.685, P = 0.007), postoperative pTNM stage
+> (OR = 3.688, 95% CI: 1.124 –12.099, P = 0.031), Lauren classi ﬁcation
+> (OR = 2.708, 95% CI: 1.571 –4.669, P = 0.001), radiomic features
+> (OR = 7.873, 95% CI: 4.651 –13.328, P < 0.001), and pathomic features
+> (OR = 13.474, 95% CI: 8.037 –22.590, P < 0.001) as independent pre-
+> dictors of MLM in LAGC patients (Supplementary Table 5). Based on
+> these variables, a comprehensive nomogram was constructed to
+> develop the Radiopathomics-Clinical Stratiﬁcation Assessment (RCSA)
+> model (Fig. 2A), which demonstrated strong predictive performance
+> (AUC = 0.909, 95% CI: 0.881–0.937; Fig. 2B–E).
+> Model comparison showed superior predictive performance of
+> the RCSA model over models using clinical, radiomic, or pathomic
+> features alone (Supplementary Table 6). We compared the perfor-
+> mance of the RCSA model with a state-of-the-art transformer-based
+> multimodal deep learning architecture. RCSA exceeded the perfor-
+> mance of the transformer-based model, achieving AUC values ranging
+> from 0.865 to 0.908 across the internal, external, and prospective
+> validation cohorts, compared with 0.708–0.869 for the transformer-
+> based model (Supplementary Fig. 3 and Supplementary Table 7).
+> Compared with the clinical model, the RCSA model achieved sig-
+> niﬁcant improvements in prediction accuracy, with a NRI of 0.658 (95%
+> CI: 0.467–0.850, P < 0.001) and an IDI of 0.376 (95% CI: 0.326 –0.426,
+> P < 0.001). DeLong’st e s tf u r t h e rc o nﬁrmed that the RCSA model sig-
+> 
+> PDF text lines 1203-1278:
+> Methods
+> Ethics approval and consent to participate
+> This study was conducted in accordance with the Declaration of Hel-
+> sinki and all applicable ethical regulations. This study was approved by
+> the Institutional Review Board of the Fourth Hospital of Hebei Medical
+> University (approval no. 2025KT150). The requirement for written
+> informed consent was waived because the study involved the retro-
+> spective analysis of previously collected clinical, imaging and patho-
+> logical data that were anonymized before analysis, involved no
+> additional patient contact or inte rvention, and posed no more than
+> minimal risk to participants. Participants contributing tumor tissue to
+> the prospective transcriptomic cohort each provided written informed
+> consent before sample collection. Patients in the retrospective cohorts
+> received no compensation, and those in the prospective sequencing
+> cohort received no ﬁnancial compensation beyond their routine clin-
+> ical care. Participant sex was obtained from the medical records as self-
+> reported; both male and female patients with locally advanced gastric
+> cancer were included, and no analyses were restricted to a single sex or
+> gender. This prediction-model study is reported in accordance with
+> the TRIPOD + AI reporting guideline
+> 37, and the underlying multicenter
+> observational cohort is additionally reported following the STROBE
+> statement
+> 38.
+> Study cohort
+> We retrospectively analyzed data from patients with LAGC treated
+> between January 2012 and December 2019 at four medical centers in
+> Hebei Province: the Fourth Hospital of Hebei Medical University
+> (FHHMU), Shijiazhuang People ’s Hospital (SJZPH), Baoding Central
+> Hospital (BDCH), and Hengshui People’sH o s p i t a l( H S P H ) .D a t af r o m
+> two additional centers in southern China, Renmin Hospital of Wuhan
+> University (WHRH) and Nanjing Jinling Hospital (NJJLH), were also
+> included for external validation (Fig.1).
+> A total of 1878 LAGC patients from six centers and The Cancer
+> Imaging Archive (TCIA) public database were enrolled according to
+> strict inclusion and exclusion criteria (Supplementary Methods). The
+> cohort was divided into three datasets: a training cohort of 770
+> patients from the FHHMU (Center 1, 2014–2017); an internal validation
+> cohort of 362 patients, further split by diagnosis time into Internal
+> Validation I (2012–2013, N = 194) and Internal Validation II (2018–2019,
+> N = 168); and an external validation cohort of 489 patients from ﬁve
+> centers and a public dataset. The external cohort was subdivided
+> based on geographic region: External Validation I (Northern China:
+> Centers 2 –4, N = 257) and External Validation II (Southern China:
+> Centers 5–6, N = 191). To further evaluate the model’s generalizability
+> across diverse clinical settings, an additional independent validation
+> was conducted using a public dataset from The Cancer Imaging
+> Archive (TCIA). By applying the same inclusion and exclusion criteria
+> as the primary cohorts, a total of 41 LAGC patients were enrolled from
+> the TCIA database for analysis.
+> To assess clinical applicability, we retrospectively analyzed a
+> separately selected cohort from a registered multicenter randomized
+> controlled trial (ClinicalTrials.gov, NCT02555358;ﬁrst posted 21 Sep-
+> tember 2015; https://clinicaltrials.gov/study/NCT02555358), indepen-
+> dent of the retrospective training and validation datasets. The trial
+> compared neoadjuvant chemotherapy regimens (docetaxel, oxalipla-
+> tin plus capecitabine [DOX] versus oxaliplatin plus capecitabine
+> [XELOX]) with surgery alone, using pathological complete response as
+> the prespeciﬁed primary endpoint. The present evaluation of meta-
+> chronous liver metastasis prediction represents a post-hoc, explora-
+> tory secondary use of this trial cohort and was not part of the
+> registered protocol or analysis plan;n oh y p o t h e s i sr e g a r d i n gt h eR C S A
+> model was prespeci ﬁed for this population, and it is reported here
+> solely to assess the generalizability of the RCSA model in an inde-
+> pendently enrolled cohort. This cohort included 257 LAGC patients, of
+> whom 93 underwent primary surgery and 164 received neoadjuvant
+> chemotherapy (NACT). Although the training and retrospective
+> cohorts strictly excluded NACT patients, all patients in this cohort
+> were screened using consistent inclusion/exclusion criteria appro-
+> priate for this study population. Inclusion of the NACT subgroup
+> enabled evaluation of model performance across different initial
+> treatment strategies.
+> To explore the biological relevance of the model, we pro-
+> spectively collected fresh tumor tissues from 82 LAGC patients for
+> transcriptomic sequencing and functional enrichment analysis. These
+> samples were fully consumed and destroyed during sequencing, with
+> 
+> PDF text lines 1320-1377:
+> --- Page 12 ---
+> guidelines. MLM was deﬁned as metachronous liver metastasis arising
+> more than six months after curative surgery for LAGC, with liver
+> recurrence conﬁrmed by clinical symptoms, reoperation, or imaging
+> (abdominal CT, MRI, ultrasound, or PET/CT). The primary endpoint
+> was postoperative MLM and the secondary endpoint was OS, deﬁned
+> as the interval from surgery to death from any cause.
+> Image acquisition, segmentation, and radiomics feature
+> selection
+> All patients underwent contrast-enhanced abdominal CT, and portal
+> venous phase images were retrieved through the Picture Archiving and
+> Communication System. A total of 200 CT scans were used to train and
+> test an automatic 3D tumor segmentation model based on the nnU-Net
+> Article https://doi.org/10.1038/s41467-026-76382-x
+> Nature Communications Article in Press
+> 
+> --- Page 13 ---
+> framework. From the resulting three-dimensional regions of interest
+> (3D-ROIs), 1130 radiomics features were extracted and standardized;
+> full details of CT image acquisition, the automated segmentation
+> pipeline, and feature extraction are provided in the Supplementary
+> Methods. To identify the most discriminative variables, univariate
+> analysis was followed by two feature-selection strategies, LASSO
+> regression and Random Forest, which yielded 14 and 10 candidate
+> features, respectively (Supplementary Fig. 1A, B). These feature sets
+> were then combined with nine machine learning algorithms to assess
+> different modeling conﬁgurations. Among the 18 conﬁgurations eval-
+> uated, a stepwise logistic regression model built on the LASSO-
+> selected features was the top-performing classi ﬁer (Training:
+> AUC = 0.820, 95%CI: 0.779 –0.861; Validation: AUC = 0.800, 95%CI:
+> 0.691–0.909; Supplementary Fig. 1C, D; and Supplementary Table 1, 2).
+> Pathological feature extraction and selection based on the
+> UNI model
+> Formalin-ﬁxed, paraf ﬁn-embedded (FFPE) hematoxylin and eosin
+> (H&E)-stained slides were prepared for all patients and digitized into
+> whole-slide images (WSI). From each slide, 1024 pathomic features
+> were extracted using the UNI
+> 41 tissue-speciﬁc encoder (based on the
+> DINOv2 self-supervised algorithm) and aggregated to the slide level;
+> full details of WSI preprocessing, feature extraction, aggregation, and
+> quality control are provided in the Supplementary Methods. Dis-
+> criminative pathological features were then ﬁltered using univariate
+> screening followed by two selection methods (LASSO and Random
+> Forest), yielding 18 and 10 features, respectively (Supplementary
+> Fig. 2A, B). To determine the optimal predictive framework, the two
+> feature sets were paired with nine machine learning architectures, and
+> the resulting 18 classi ﬁcation models were compared. The ﬁnal
+> pathology-based signature (Supplementary Table 2) was built using a
+> stepwise logistic regression model derived from the LASSO feature set,
+> which achieved the best performance among all tested models
+> (Training AUC = 0.832, 95%CI: 0.796 –0.868; Validation AUC = 0.811,
+> 95%CI: 0.699–0.923; Supplementary Fig. 2C –D and Supplementary
+> Table 3).
+> Development and evaluation of a multimodal model for pre-
+> dicting MLM in LAGC patients
+> To predict postoperative MLM in patients with LAGC, univariate
+> logistic regression was used to screen clinical variables, and signiﬁcant
+> variables were entered into a multivariate logistic regression model to
+> 
+> PDF text lines 580-608:
+> etaxel + oxaliplatin + capecitabine). Clinical characteristics are sum-
+> marized in Supplementary Table 18, with clinical outcomes previously
+> detailed in our published work
+> 27.
+> In the surgery cohort, the RCSA model outperformed clinical,
+> radiomic, and pathomic models in predicting postoperative MLM, with
+> an AUC of 0.898 (95% CI: 0.816 –0.980; Figs. 5A, B, D; Supplementary
+> Fig. 13A, B and Supplementary Table 19). Compared with the clinical
+> model, the RCSA model achieved signi ﬁcant improvements in NRI
+> (0.630) and IDI (0.284), with similar advantages observed when com-
+> pared to radiomic and pathomic models (Supplementary Table 8).
+> Concentric circle plots showed that the RCSA model identi ﬁed more
+> high-risk MLM patients than the clinical model (10.8% vs. 8.6%; Fig.5F).
+> Decision curve analysis and clinical impact curves further conﬁrmed its
+> superior clinical utility in the primary surgery cohort (Fig. 5C; and
+> Supplementary Fig. 13C). Further survival analysis found that the 5-year
+> OS of patients in the low-risk group of the RCSA model was sig-
+> niﬁcantly better than that of patients in the high-risk group (57.7% vs.
+> 31.8%; P = 0.009; Fig. 5K). In the prospective direct surgery cohort,
+> RCSA achieved a concordance index of 0.632 (95% CI: 0.553–0.711) for
+> survival prediction (Supplementary Table 11).
+> A similar analysis in the neoadjuvant chemotherapy cohorts
+> demonstrated consistently strong predictive performance of the RCSA
+> model (AUC = 0.786, 95% CI: 0.680–0.893; Figs. 5E, G–J; Supplemen-
+> tary Fig. 13D, 13F, G; and Supplementary Table 8, 19), with predictions
+> correlating signi ﬁcantly with treatment response (Supplementary
+> Fig. 13E). In the prospective neoadjuvant chemotherapy cohort, RCSA
+> stratiﬁed patients into groups with different 5-year OS (low-risk 55.1%
+> versus high-risk 43.9%,P = 0.044; Fig.5L), with a concordance index of
+> 
+> PDF text lines 931-971:
+> operative CT scans, and deep learning-based pathomic features from
+> histopathological slides. The model demonstrated strong predictive
+> performance across multiple cohorts, including internal, external, and
+> prospective validation datasets, signi ﬁcantly outperforming models
+> that rely solely on clinical, radiomic, or pathological features. Notably,
+> the RCSA model achieved consistent robustness and accuracy across
+> distinct geographical regions and treatment strategies, reinforcing its
+> potential clinical applicability. Furthermore, transcriptomic analysis
+> revealed substantial differences in molecular pathways and immune
+> inﬁltration between high-risk and low-risk patient groups, highlighting
+> the biological relevance of the RCSA-based strati ﬁcation and sug-
+> gesting potential therapeutic implications, particularly concerning
+> immunotherapy responsiveness.
+> The predictive capacity of the RCSA model exceeds previously
+> reported clinical and unimodal prediction models. Prior studies pri-
+> marily used either clinical or radiomic factors separately to predict
+> gastric cancer prognosis. For example, Cao et al. constructed a
+> radiomics model based on preoperative CT images, which accurately
+> predicted recurrence and survival in gastric cancer patients
+> 28.T h e i r
+> model achieved a respectable predictive value (AUC ~0.80–0.85), but
+> its generalizability remained uncertain due to lack of external valida-
+> tion across diverse cohorts. In contrast, the RCSA model presented
+> herein demonstrated signiﬁcantly improved predictive power (AUC >
+> 0.89 consistently), validated through multiple external cohorts across
+> different regional contexts. This enhanced generalizability is likely
+> attributed to the integration of pathological features, adding crucial
+> information that radiomics or clinical data alone might overlook, such
+> as microscopic tumor heterogeneity and TME complexity. Chen et al.
+> also developed pathology-based predictive models utilizing machine
+> learning approaches, yet they encountered notable accuracy reduc-
+> tions upon external validation
+> 29. This phenomenon underscores the
+> importance of multimodal integration, as observed in our RCSA
+> model, which leverages complementary information across radiomics
+> and pathomics, thereby maintaining high predictive accuracy even in
+> external validation scenarios.
+> The RCSA model ’s robustness was also demonstrated by its
+> effectiveness in patients undergoing neoadjuvant chemotherapy, a
+> clinically relevant subgroup. Cui et al. previously reported that
+> neoadjuvant chemotherapy signi ﬁcantly alters radiomic character-
+> 
+> PDF text lines 1031-1077:
+> for standard surveillance intervals.
+> Despite these notable strengths, several limitations of this study
+> should be recognized. First, the retrospective nature of the primary
+> dataset poses potential selection biases, though mitigated by pro-
+> spective validation and rigorous multicenter analyses. Additionally,
+> despite extensive validation, further large-scale, prospective trials
+> across international centers are warranted to solidify the model ’s
+> global applicability. Second, the complexity inherent in multimodal
+> data integration, especially deep learning-based pathological analysis,
+> poses signi ﬁcant challenges for practical clinical implementation.
+> Developing streamlined, user-friendly computational tools and
+> Fig. 4 | Multi-center external validation of the RCSA model across diverse
+> geographical cohorts. AROC curves in External Validation Set I.B Precision-recall
+> curves in External Validation Set I. C Calibration curve for External Validation Set I
+> (Brier score = 0.071). D ROC curves in External Validation Set II. E Precision-recall
+> curves in External Validation Set II.F Calibration curve for External Validation Set II
+> (Brier score = 0.082).G Confusion matrices for Set I.H Confusion matrices for Set II.
+> I Concentric circle plots for Set I.J Concentric circle plots for Set II.K Kaplan–Meier
+> curves for overall survival in External Validation Set I, stratiﬁed by the RCSA-deﬁned
+> low- and high-risk groups using the cutoff derived from the training cohort. Solid
+> lines indicate the estimated survival probabilities, and shaded bands represent the
+> 95% conﬁdence intervals. The low-risk and high-risk groups includedn = 189 and
+> n = 68 independent patients, respectively. Survival differences were evaluated
+> using a two-sided log-rank test (exact P = 0.002072).L Kaplan–Meier curves for
+> overall survival in External Validation Set II, stratiﬁed by the same RCSA cutoff. Solid
+> lines indicate the estimated survival probabilities, and shaded bands represent the
+> 95% conﬁdence intervals. The low-risk and high-risk groups includedn = 133 and
+> n = 58 independent patients, respectively. Survival differences were evaluated
+> using a two-sided log-rank test (exact P = 0.012295). AUC area under the receiver
+> operating characteristic curve; PRC precision–recall curve; RCSA radiopathomics-
+> clinical stratiﬁcation assessment. Source data are provided as a Source Data ﬁle.
+> Article https://doi.org/10.1038/s41467-026-76382-x
+> Nature Communications Article in Press
+> 
+> --- Page 10 ---
+> automated workﬂows will be essential for real-world adoption of the
+> RCSA model. To address this, we propose a multi-layered integration
+> strategy centered on developing a browser-based interface compatible
+> with existing hospital picture archiving and communication systems
+> and laboratory information systems, aiming to enable automated data
+> acquisition, standardized feature extraction, and seamless reporting to
+> the EHR system. Finally, although comprehensive, the current model
+> lacks genomic characterization. F uture studies integrating genomic
+> proﬁling could further enhance predictive accuracy and personalize
+> therapeutic strategies by providing deeper insights into underlying
+> genetic determinants of MLM risk.
+> 0.0 0.2 0.4 0.6 0.8 1.0
+> 
+> PDF text lines 1997-2027:
+> S.Y.; Final approval of manuscript: all authors.
+> Funding
+> Q.Z. is in part supported by the National Natural Science Foundation of
+> China (No. 82573273), the Hebei Natural Science Foundation (No.
+> H2026206726), the S&T Program of Hebei (23297701Z and 25290101D),
+> the Hebei Province Medical Applicable Technology Tracking Project
+> (GZ20250046), the Hengrui-Hebei Innovative Development Medical
+> Cooperation Program Project (HR202501001), and the Hebei Province
+> Medical Research-Enterprise Joint Innovation Special Project
+> (LH20250005). P.A.D. is in part supported by the National Natural Sci-
+> ence Foundation of China (No. 82503478), the Hebei Natural Science
+> Foundation (No. H2025206841), the Hebei Province Medical Research-
+> Enterprise Joint Innovation Special Project (LH20250134), the Hebei
+> Provincial Medical Science Research Project Plan (20260519), and the
+> Hebei Provincial Government Funding Program for Outstanding Clinical
+> Medical Talents (ZF2025180). L.J.M. is in part supported by the Hebei
+> Province Medical Research-Enterprise Joint Innovation Special Project
+> (LH20250167), the Hebei Provincial Medical Science Research Project
+> Plan (20270514), and the Hebei Provincial Government Funding Program
+> for Outstanding Clinical Medical Talents (ZF2025194). H.H.G. is sup-
+> ported by the Hebei Provincial Government Funding Program for Out-
+> standing Clinical Medical Talents(ZF2026215), and the Hebei Natural
+> Science Foundation (No. H2026206682). X.H. is supported by the Fun-
+> damental Research Funds for the Central Universities (1082204112M91).
+> Competing interests
+> The authors declare no competing interests.
+> Additional information
+> Supplementary informationThe online version contains
+> supplementary material available at
+> https://doi.org/10.1038/s41467-026-76382-x
+> .
+
+Limit: Primary authors report their own study; no independent replication verified. Selected exact methods, results, funding and discussion read by foreground, full 17-page PDF previously read by research lane. Supplement, reporting summary images and peer-review file not read. The discussion says AUC >0.89 consistently despite lower specific subgroup results; rely on the specific results, not that wording. A later HTML refresh was blocked after earlier successful publisher access.
+
+https://clinicaltrials.gov/study/NCT02555358
+
+> {
+>   "identificationModule": {
+>     "nctId": "NCT02555358",
+>     "orgStudyIdInfo": {
+>       "id": "Alien Craft 0004"
+>     },
+>     "organization": {
+>       "fullName": "Hebei Medical University",
+>       "class": "OTHER"
+>     },
+>     "briefTitle": "Three Drugs in Advanced Gastric Cancer Neoadjuvant Chemotherapy for Stage Ⅲ Clinical Study",
+>     "officialTitle": "Three Drugs in Advanced Gastric Cancer Neoadjuvant Chemotherapy for Stage Ⅲ Multicenter, Open, Randomized, Controlled Clinical Study"
+>   },
+>   "statusModule": {
+>     "statusVerifiedDate": "2023-10",
+>     "overallStatus": "COMPLETED",
+>     "expandedAccessInfo": {
+>       "hasExpandedAccess": false
+>     },
+>     "startDateStruct": {
+>       "date": "2014-11"
+>     },
+>     "primaryCompletionDateStruct": {
+>       "date": "2021-12",
+>       "type": "ACTUAL"
+>     },
+>     "completionDateStruct": {
+>       "date": "2022-06",
+>       "type": "ACTUAL"
+>     },
+>     "studyFirstSubmitDate": "2015-07-22",
+>     "studyFirstSubmitQcDate": "2015-09-18",
+>     "studyFirstPostDateStruct": {
+>       "date": "2015-09-21",
+>       "type": "ESTIMATED"
+>     },
+>     "lastUpdateSubmitDate": "2023-10-17",
+>     "lastUpdatePostDateStruct": {
+>       "date": "2023-10-19",
+>       "type": "ACTUAL"
+>     }
+>   },
+>   "sponsorCollaboratorsModule": {
+>     "responsibleParty": {
+>       "type": "SPONSOR_INVESTIGATOR",
+>       "investigatorFullName": "Qun Zhao",
+>       "investigatorTitle": "Surgical director",
+>       "investigatorAffiliation": "Hebei Medical University"
+>     },
+>     "leadSponsor": {
+>       "name": "Qun Zhao",
+>       "class": "OTHER"
+>     },
+>     "collaborators": [
+>       {
+>         "name": "Jiangsu HengRui Medicine Co., Ltd.",
+>         "class": "INDUSTRY"
+>       }
+>     ]
+>   },
+>   "designModule": {
+>     "studyType": "INTERVENTIONAL",
+>     "phases": [
+>       "PHASE2"
+>     ],
+>     "designInfo": {
+>       "allocation": "RANDOMIZED",
+>       "interventionModel": "FACTORIAL",
+>       "primaryPurpose": "TREATMENT",
+>       "maskingInfo": {
+>         "masking": "NONE"
+>       }
+>     },
+>     "enrollmentInfo": {
+>       "count": 300,
+>       "type": "ACTUAL"
+>     }
+>   },
+>   "armsInterventionsModule": {
+>     "armGroups": [
+>       {
+>         "label": "A（DOX）",
+>         "type": "EXPERIMENTAL",
+>         "description": "Interventions：This arm wil receive four cycles of DOX (docetaxel 60mg/m2 on day 1,oxaliplatin 130mg/m2 on day 1 and capecitabine 1,000 mg/m2 per day on days 1 to 14, repeated every 3 weeks) as neoadjuvant therapy and four cycles of Xelox (capecitabine 1,000 mg/m2 per day on days 1 to 14 and oxaliplatin 130mg/m2 on day 1, repeated every 3 weeks) as adjuvant therapy",
+>         "interventionNames": [
+>           "Drug: docetaxel,0xaliplatin,capecitabine"
+>         ]
+>       },
+>       {
+>         "label": "B（Xelox）",
+>         "type": "ACTIVE_COMPARATOR",
+>         "description": "Interventions：This arm wil receive four cycles of Xelox (capecitabine 1,000 mg/m2 per day on days 1 to 14 and oxaliplatin 130mg/m2 on day 1, repeated every 3 weeks) as neoadjuvant therapy and four cycles of Xelox as adjuvant therapy",
+>         "interventionNames": [
+>           "Drug: oxaliplatin,capecitabine"
+>         ]
+>       },
+>       {
+>         "label": "C（Xelox）",
+>         "type": "ACTIVE_COMPARATOR",
+>         "description": "Interventions：This arm wil receive eight cycles of Xelox (capecitabine 1,000 mg/m2 per day on days 1 to 14 and oxaliplatin 130mg/m2 on day 1, repeated every 3 weeks) as adjuvant therapy.",
+>         "interventionNames": [
+>           "Drug: oxaliplatin,capecitabine"
+>         ]
+>       }
+>     ],
+>     "interventions": [
+>       {
+>         "type": "DRUG",
+>         "name": "docetaxel,0xaliplatin,capecitabine",
+>         "description": "docetaxel 60mg/m2， ivgtt，2h，d1;capecitabine 1000mg/m2 po bid d1-14; oxaliplatin 130mg/m2， ivgtt，2h，d1;q21d",
+>         "armGroupLabels": [
+>           "A（DOX）"
+>         ],
+>         "otherNames": [
+>           "AISU,AIHENG,AIBIN"
+>         ]
+>       },
+>       {
+>         "type": "DRUG",
+>         "name": "oxaliplatin,capecitabine",
+>         "description": "oxaliplatin 130mg/m2， ivgtt，2h，d1;capecitabine 1000mg/m2 po bid d1-14;q21d",
+>         "armGroupLabels": [
+>           "B（Xelox）",
+>           "C（Xelox）"
+>         ],
+>         "otherNames": [
+>           "AIHENG,AIBIN"
+>         ]
+>       }
+>     ]
+>   },
+>   "outcomesModule": {
+>     "primaryOutcomes": [
+>       {
+>         "measure": "The pathological complete response rate",
+>         "timeFrame": "24 weeks"
+>       }
+>     ],
+>     "secondaryOutcomes": [
+>       {
+>         "measure": "Overall survival(OS)",
+>         "timeFrame": "3 years"
+>       },
+>       {
+>         "measure": "Progression-free survival(PFS)",
+>         "timeFrame": "3 years"
+>       },
+>       {
+>         "measure": "Disease-free survival(DFS)",
+>         "timeFrame": "3 years"
+>       },
+>       {
+>         "measure": "Adverse events",
+>         "description": "Investigators graded all adverse events and toxic effects according to the National Cancer Institute's Common Toxicity Criteria, version 2.0. The number of Participants with adverse events will be recorded at each treatment visit.",
+>         "timeFrame": "3 years"
+>       }
+>     ]
+>   }
+> }
+
+Limit: Actual public registry API retrieved September 5 Vancouver. Registration is supplied by study sponsor, not independent replication. Parent treatment trial enrolled 300; paper reuses a selected 257-person subset. Do not describe its direct-surgery arm as no chemotherapy: registry has postoperative chemotherapy.
+
+https://www.imdrf.org/sites/default/files/2025-02/IMDRF_AIML%20WG_GMLP_N88%20Final.pdf
+
+> L123@P6: 3. Clinical evaluation includes the use of datasets that are representative of the
+> L124@P6: intended patient population: Data collection protocols aim to ensure that the
+> L125@P6: relevant characteristics of the intended patient population (for example, in terms of
+> L126@P6: age, gender, sex, race, ethnicity, geographical location, medical condition) 9 ,
+> L127@P6: intended use environment, and measurement inputs are sufficiently represented
+> L128@P6: in a sample of adequate size in the datasets for training, testing, and monitoring
+> L129@P6: so that results can be reasonably generalized to the intended population of interest.
+> L130@P6: These are fundamental for clinical evaluations 10 and important to manage any
+> L131@P6: unintended bias3 or dataset drift, promote appropriate and generalizable
+> L132@P6: performance across the intended patient population, assess usability, and identify
+> L133@P6: circumstances and subgroups where the model may underperform including over
+> L134@P6: time.
+> L135@P6: 4. Training datasets are independent of test sets: Training and test datasets3 are
+> L136@P6: selected and maintained to be appropriately independent of one another. All
+> L137@P6: potential sources of dependence, including factors related to patients, sites, and
+> L138@P6: data acquisition, are considered and addressed to assure independence. The
+> L139@P6: extent of external validation is proportionate to risk.
+> L150@P6: 6. Model choice and design are tailored to the available data and the intended
+> L151@P6: use/ intended purpose of the device: Model choice and design are evaluated
+> L152@P6: and shown to be suited to the available data and support the active mitigation of
+> L153@P6: known risks, like overfitting, performance degradation, and security risks. The
+> L154@P6: clinical benefits and risks related to the product are well understood, used to derive
+> L155@P6: clinically meaningful performance goals for testing, and support the product’s
+> L156@P6: safety and effectiveness in achieving its intended use/ intended purpose1.
+> L157@P6: Considerations include the impact on both the overall intended patient population
+> L158@P6: and its subgroups as well as uncertainty and variability in the device inputs, outputs,
+> L159@P6: and clinical use conditions.
+> L160@P6: 7. The device is assessed with a focus on human-AI interactions in the
+> L161@P6: intended use environment, including the performance of the human-AI team,
+> L162@P6: rather than just the device in isolation. The performance of the device is
+> L163@P6: assessed in the context of the intended use environment and clinical workflow,
+> L164@P6: considering interactions with health care providers, patients, and caregivers where
+> L165@P6: applicable. Human factors considerations are addressed, including for example,
+> L166@P6: user skills, user expertise, user understanding of the model outputs and limitations,
+> L167@P6: 9 IMDRF/MC/N79 DRAFT: 2023 Guiding Principles to Support Medical Device Health Equity
+> L168@P6: 10 IMDRF/SaMD WG/N41 FINAL:2017 Software as a Medical Device (SaMD): Clinical
+> L169@P6-7: EvaluationIMDRF/AIML WG/N88 FINAL: 2025
+> L170@P7: 8
+> L171@P7: potential for overreliance, level of device autonomy, and user error, for normal use
+> L172@P7: and reasonably foreseeable misuse.
+> L173@P7: 8. Testing demonstrates device performance during clinically relevant
+> L174@P7: conditions: Methodologically and statistically sound test plans are developed and
+> L175@P7: executed to generate clinically relevant device performance10 information
+> L176@P7: independently of the training dataset. Considerations include the intended patient
+> L177@P7: population, relevant subgroups, clinical environment and use by the human-AI
+> L178@P7: team, measurement inputs, and potential confounding factors.
+> L179@P7: 9. Users are provided clear, essential information: The intended audience (such
+> L180@P7: as health care professionals or patients) are provided clear, contextually relevant
+> L181@P7: information appropriate to their needs. This includes the product’s intended use/
+> L182@P7: intended purpose1 and indications for use, benefits and risks, performance of the
+> L183@P7: model for appropriate subgroups, the study methodology, characteristics of the
+> L184@P7: data used to train and test the model, acceptable inputs, known limitations, user
+> L185@P7: interface interpretation, clinical workflow integration of the model, and to the extent
+> L186@P7: possible the basis for model output. Users are also made aware of the scope and
+> L187@P7: timing of device modifications and updates. They are provided a means to
+> L188@P7: communicate product concerns to the manufacturer.
+
+Limit: Independent regulatory-methods context, final guiding principles currently linked by FDA. Does not evaluate, authorize or independently reproduce RCSA. Web-tool PDF text read; direct PDF download failed HTTP2 and is not claimed.
+
+https://laidies.ai/library.html#ai-fundamentals-101::%40ch-3-3-4-supervised-unsupervised-and-the-spectrum-between
+
+> # Labelled examples — exact learning route
+> 
+> URL: https://laidies.ai/library.html#ai-fundamentals-101::%40ch-3-3-4-supervised-unsupervised-and-the-spectrum-between
+> 
+> Source: content/library-books/sources/ai-fundamentals-101.source.json
+> SHA256: edf5f65bf0a239db67dd043bb815d8403717096556ccd91a60f4dfcf100aa49f
+> 
+> <h3 id="ch-3-3-4-supervised-unsupervised-and-the-spectrum-between">3.4 — Supervised, Unsupervised, and the Spectrum Between</h3>
+> <p>The training we've described so far — showing the system labelled examples and letting it learn the pattern — is called <strong>supervised learning.</strong> Supervised because a human provided the "right answers" (the labels).</p>
+> <ul><li>Spam filter: supervised. Humans labelled emails as spam/not spam.</li><li>Face grouping: supervised. Humans labelled photos as same face/different face.</li><li>Customer churn prediction: supervised. The historical data showed which customers did and didn't cancel — those are the labels.</li></ul>
+> 
+> 
+> Scope: opening labelled-example explanation only. Terra/Medium source lane opened this exact public route in Chrome on September 5 Vancouver; heading was focused and visible with supervised and unsupervised content, no page errors. This is not medical validation. The later classification of self-supervised learning is not inherited here; terminology/overgeneralisation merits Learning-owner review, not a change to this news story.
+
+Limit: Opening labelled-examples teaching only, exact public section verified by read-only Terra lane. Not a medical evaluation lesson; do not inherit later LLM training generalisations. Indexed .html alias also actually verified in Chrome: exact heading focused, no page errors.
+
+https://www.cancer.gov/publications/dictionaries/cancer-terms/def/locally-advanced-cancer
+
+> # NCI Dictionary — locally advanced cancer
+> 
+> URL: https://www.cancer.gov/publications/dictionaries/cancer-terms/def/locally-advanced-cancer
+> Checked September 5 Vancouver through the actual NCI search result.
+> 
+> > Cancer that has spread from where it started to nearby tissue or lymph nodes.
+> 
+> Scope: definition only; not staging, prognosis or treatment advice.
+
+Limit: Definition only; no medical advice or claim this authority evaluated the study.

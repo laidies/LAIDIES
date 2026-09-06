@@ -540,7 +540,11 @@ The September 5 20:00 preparation run was observed; the paired September 6
 one passing full independent editorial review and a complete private candidate
 at `candidates/nvidia-hugging-face-acquisition-2026-09-05/admission/ordinary-candidate.json`
 under this NewsStand directory. Its `publication-readiness.md` is the exact
-continuation. It remains unpublished; no morning check has been invented.
+continuation. The gastric-cancer prediction story also has one complete passing
+independent review and an assembled private candidate at
+`candidates/gastric-cancer-prediction-2026-09-05/admission/ordinary-candidate.json`.
+Its own `publication-readiness.md` preserves the medical-source limits and exact
+next-day checks. Both remain unpublished; no morning check has been invented.
 
 Use `scripts/prepare-newsstand-overnight-candidate.mjs` only after an actual
 next-day source and development check. The private
@@ -1151,12 +1155,14 @@ September 5 issue or new public article was admitted by those tests.
    historical labels. `reconcile-calibration` can verify saved actual requests and
    judgments offline after a mechanical normalizer repair. It cannot coach a
    reviewer, change judgments or qualify a changed rubric.
-3. Supply each primary passage once in the source collection and give claims
-   `sourceIds` pointing to it. For older duplicated packets, run
-   `node scripts/compact-newsstand-editorial-input.mjs <private-input> <new-private-output>`
-   before binding producer review and requesting editorial review. It preserves
-   full article/source text and rejects unmatched excerpts or locations. Retain
-   the original; never overwrite an already reviewed packet.
+3. Supply exact primary passages in the source collection. The runtime now
+   automatically compacts new editorial/factual requests into one copy per source
+   and claim `sourceIds`; it preserves the complete article and every source byte
+   and rejects unmatched excerpts or locations. No manual compaction step is
+   required. The standalone compactor is available for an optional size preview.
+   Saved full and compact packets both replay exactly, and assembly binds the
+   actual saved form. Never overwrite a reviewed packet or repeat a passing review
+   merely to reduce duplicated input.
    Run `review-runtime/run-pilot.mjs article claude` with `--candidate-dir`,
    `--calibration` and a fresh private `--output`. Native structured output supplies
    one complete-artifact reader/facts assessment. The reviewer supplies judgments;

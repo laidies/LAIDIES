@@ -6,7 +6,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { compactNewsstandEditorialInput } from './compact-newsstand-editorial-input.mjs';
+import { compactNewsstandEditorialInput, resolveNewsstandEditorialPacket } from './compact-newsstand-editorial-input.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const inputPath = path.join(ROOT, 'operations/product-stewards/newsstand/candidates/us-doj-openai-copyright-2026-09-05/editorial-input-before-compaction.json');
@@ -33,10 +33,18 @@ for (let index = 0; index < original.claims.length; index += 1) {
   assert.equal(compactedClaim.scopeAndFreshness, originalClaim.scopeAndFreshness);
 }
 assert.deepEqual(compactNewsstandEditorialInput(compacted), compacted);
+assert.deepEqual(resolveNewsstandEditorialPacket(original), compacted, 'new requests compact automatically');
+assert.deepEqual(resolveNewsstandEditorialPacket(original, original), original, 'old actual requests replay unchanged');
+assert.deepEqual(resolveNewsstandEditorialPacket(original, compacted), compacted, 'new actual requests replay unchanged');
+const changedProse = structuredClone(original);
+changedProse.completeArtifact += ' changed';
+assert.throws(() => resolveNewsstandEditorialPacket(changedProse, original), /Saved editorial packet differs/);
+assert.throws(() => resolveNewsstandEditorialPacket(changedProse, compacted), /Saved editorial packet differs/);
 
 const alteredExcerpt = structuredClone(original);
 alteredExcerpt.claims[0].sourceEvidence[0].excerpt += ' changed';
 assert.throws(() => compactNewsstandEditorialInput(alteredExcerpt), /Unmatched source evidence/);
+assert.throws(() => resolveNewsstandEditorialPacket(alteredExcerpt, compacted), /Unmatched source evidence/);
 
 const missingSource = structuredClone(original);
 missingSource.sources = missingSource.sources.filter((source) => source.id !== 'DOJ-FILING');

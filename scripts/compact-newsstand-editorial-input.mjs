@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isDeepStrictEqual } from 'node:util';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PRIVATE_ROOT = path.join(ROOT, 'operations', 'product-stewards');
@@ -115,6 +116,17 @@ export function compactNewsstandEditorialInput(packet) {
     return compacted;
   });
   return result;
+}
+
+// New requests carry each source passage once. Replays retain the exact packet
+// actually reviewed, including older full packets; changed evidence cannot reuse it.
+export function resolveNewsstandEditorialPacket(authored, preserved) {
+  if (preserved !== undefined && isDeepStrictEqual(authored, preserved)) return clone(preserved);
+  const prepared = compactNewsstandEditorialInput(authored);
+  if (preserved !== undefined && !isDeepStrictEqual(prepared, preserved)) {
+    throw new Error('Saved editorial packet differs from current article or source evidence.');
+  }
+  return preserved === undefined ? prepared : clone(preserved);
 }
 
 function privatePath(value, label) {

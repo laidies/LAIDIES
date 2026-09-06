@@ -31,3 +31,13 @@
 
 The canonical public dataset already contains Fable/Mythos and Astra coverage. This record found no supported basis to revive an old story, claim all sources were semantically read, or call the day quiet. No source in the table independently verifies another source’s substantive claim; provider releases remain provider claims until a candidate binds the necessary primary and independent evidence.
 
+
+## Later September 5 disposition — preserve the initial sweep above
+
+DOJ coverage is now publicly verified; its candidate is no longer a drafting hold.
+The gastric-cancer story has passed one actual complete independent editorial review
+and full ordinary-candidate assembly. It reports prediction and limits, not improved
+patient care. It remains private pending actual next-day freshness, dated issue
+admission and release. Use the candidate's `publication-readiness.md`; do not repeat
+settled research or review because this earlier intake still records its initial HOLD.
+EPA and other uncompleted source leads keep their earlier evidence limits.
