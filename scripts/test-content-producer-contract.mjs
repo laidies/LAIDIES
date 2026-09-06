@@ -6,6 +6,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { inspectContentProducerContract } from "./check-content-producer-contract.mjs";
+import { loadOwnerAdmission, applyAdmission } from "./admit-content-quality-learning.mjs";
 
 const root = fs.mkdtempSync(path.join(os.tmpdir(), "laidies-producer-contract-"));
 const write = (relative, value) => { const target = path.join(root, relative); fs.mkdirSync(path.dirname(target), { recursive: true }); fs.writeFileSync(target, value); return target; };
@@ -80,6 +81,70 @@ try {
   const inspect = candidate => inspectContentProducerContract(candidate, { root }).errors;
   assert.deepEqual(inspect(contract), [], "complete prevention-first contract must match");
 
+  // An owner-admitted learning must reach the real producer preflight API.
+  const registryBeforeLearning = fs.readFileSync(registry, "utf8");
+  const newArtifactPath = "evidence/new-defect.txt";
+  const newArtifact = write(newArtifactPath, "A fluent answer does not support the promise.\n");
+  const family = "unsupportedPromise";
+  const repair = "Require evidence for the exact promise before drafting.";
+  const observedAt = "2026-09-06T20:00:00Z";
+  const pendingPath = "evidence/pending-learning.json";
+  const pending = write(pendingPath, JSON.stringify({
+    schemaVersion: "laidies-content-quality-learning-record.v1", incidentId: "fixture-new-incident",
+    candidateId: "fixture-rejected", artifactSha256: hash(newArtifact), failureFamilies: [family],
+    requiredProducerRepair: repair, status: "PENDING_OWNER_ADMISSION",
+    reviewReceipt: { candidateId: "fixture-rejected", artifactSha256: hash(newArtifact),
+      reviewerPrincipalId: "fixture-rejection-judge", reviewedAt: observedAt, stage: "INDEPENDENT_REJECTION" }
+  }));
+  const reviewPath = "evidence/bounded-rejection.json";
+  const rejection = write(reviewPath, JSON.stringify({
+    schemaVersion: "laidies-content-quality-rejection.v1", candidateId: "fixture-rejected", maker: "fixture-maker",
+    reviewer: { principalId: "fixture-rejection-judge", role: "independent-reviewer", artifactFirst: true },
+    reviewedAt: observedAt, artifact: { path: newArtifactPath, sha256: hash(newArtifact) },
+    failures: [{ family, excerpt: "A fluent answer does not support the promise.", explanation: "Synthetic decisive defect for the adapter integration test." }],
+    limitations: ["Synthetic test; no semantic or reader observation claim."], verdict: "REJECT",
+    pendingBinding: { path: pendingPath, sha256: hash(pending) }
+  }));
+  const admission = write("evidence/owner-admission.json", JSON.stringify({
+    schemaVersion: "laidies-content-quality-owner-admission.v1", decision: "ADMIT_REUSABLE_DEFECT",
+    owner: { principalId: "fixture-learning-owner", role: "learning-system-concepts-director" },
+    admittedAt: observedAt, rationale: "Synthetic fixture demonstrates producer propagation.",
+    registryBeforeSha256: hash(registry), pendingBinding: { path: pendingPath, sha256: hash(pending) },
+    reviewBinding: { path: reviewPath, sha256: hash(rejection) }, exemplarId: "NEW-DEFECT", appliesTo: ["EXPLANATION"]
+  }));
+  const applied = applyAdmission(loadOwnerAdmission(admission, { root }), { root, dryRun: false });
+  assert.deepEqual(applied.errors, []);
+  assert.equal(applied.status, "applied");
+  assert.match(inspect(contract).join("\n"), /registrySha256 is stale/);
+  const updatedMaker = structuredClone(contract);
+  updatedMaker.knownFailurePreflight.registrySha256 = hash(registry);
+  assert.match(inspect(updatedMaker).join("\n"), /every registered negative exemplar/);
+  updatedMaker.knownFailurePreflight.negativeExemplarIds.push("NEW-DEFECT");
+  assert.match(inspect(updatedMaker).join("\n"), /unsupportedPromise is not CLEAR/);
+  updatedMaker.knownFailurePreflight.dispositions[family] = {
+    status: "CLEAR", producerGuard: repair, preventionEvidence: "The synthetic draft plan checks the specific promise against its source."
+  };
+  assert.match(inspect(updatedMaker).join("\n"), /requires exactly one producer-plan application/);
+  updatedMaker.draftArchitecture.usefulAction = "Before sending the promise, find the exact policy evidence for its consequential detail.";
+  updatedMaker.knownFailurePreflight.learnedRepairApplications = [{
+    exemplarId: "NEW-DEFECT", admissionSha256: applied.entry.learningAdmission.sha256,
+    planPointer: "/draftArchitecture/usefulAction"
+  }];
+  const invalidPlan = structuredClone(updatedMaker);
+  invalidPlan.knownFailurePreflight.learnedRepairApplications[0].planPointer = "/knownFailurePreflight/dispositions/unsupportedPromise/producerGuard";
+  assert.match(inspect(invalidPlan).join("\n"), /generation or proof-plan field/);
+  const staleApplication = structuredClone(updatedMaker);
+  staleApplication.knownFailurePreflight.learnedRepairApplications[0].admissionSha256 = "0".repeat(64);
+  assert.match(inspect(staleApplication).join("\n"), /admission binding is stale/);
+  const consumed = inspectContentProducerContract(updatedMaker, { root });
+  assert.deepEqual(consumed.errors, []);
+  assert.deepEqual(consumed.requiredProducerRepairs, [{ exemplarId: "NEW-DEFECT", instruction: repair, implementation: { planPointer: "/draftArchitecture/usefulAction", value: updatedMaker.draftArchitecture.usefulAction } }]);
+  const pendingBytes = fs.readFileSync(pending);
+  fs.appendFileSync(pending, " ");
+  assert.match(inspect(updatedMaker).join("\n"), /learning:.*SHA-256 mismatch/);
+  fs.writeFileSync(pending, pendingBytes);
+  fs.writeFileSync(registry, registryBeforeLearning);
+
   // Evidence backing an admitted example is part of its exact identity.
   const originalRegistry = fs.readFileSync(registry, "utf8");
   const evidenceRegistry = JSON.parse(originalRegistry);
@@ -125,7 +190,7 @@ try {
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=13 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1");
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=20 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

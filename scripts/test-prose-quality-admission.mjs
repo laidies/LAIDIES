@@ -87,6 +87,15 @@ try {
   assert.match(inspect(withEvidence).join("\n"), /supporting evidence.*required/);
   fs.writeFileSync(registry, originalRegistry);
 
+  const proportionalLibraryReview = structuredClone(receipt);
+  for (const name of ["explainBack", "unseenTransfer"]) {
+    proportionalLibraryReview.outcomes[name].observedReaderEvidence.participants =
+      proportionalLibraryReview.outcomes[name].observedReaderEvidence.participants.slice(0, 1);
+  }
+  assert.deepEqual(inspect(proportionalLibraryReview), [], "no universal three-person Library prerequisite");
+  const noObservedReader = structuredClone(proportionalLibraryReview);
+  noObservedReader.outcomes.explainBack.observedReaderEvidence.participants = [];
+  assert.match(inspect(noObservedReader).join("\n"), /requires at least 1 participant/);
   const blind = structuredClone(receipt); blind.outcomes.plainClarity.artifactEvidence[0].excerpt = "words that are not in the prose";
   assert.match(inspect(blind).join("\n"), /does not occur/);
   const missing = structuredClone(receipt); delete missing.outcomes.unseenTransfer;
@@ -160,7 +169,7 @@ try {
   assert.deepEqual(inspect(news), [], "material NEWS must include explain-back and unseen transfer evidence");
   const proseOnlyNews = structuredClone(news); delete proseOnlyNews.outcomes.unseenTransfer;
   assert.match(inspect(proseOnlyNews).join("\n"), /unseenTransfer is missing/);
-  console.log("PROSE QUALITY CALIBRATION PASS valid=2 hold=1 rejected=23 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1");
+  console.log("PROSE QUALITY CALIBRATION PASS valid=3 hold=1 rejected=24 exact_known_bad=1 artifact_identity=1 registry_fresh=1 observation_bound=1 reviewer_bound=1 claim_map=1 strict_ratchet=1 successor_comparable=1 news_transfer=1 learning_disposition=1 communication_benchmark=1 explanation_arc=1 no_pastiche=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

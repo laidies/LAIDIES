@@ -4,6 +4,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { inspectRegisteredLearning } from "./admit-content-quality-learning.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
@@ -114,6 +115,8 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
     const calibration = suppliedNegatives.get(id);
     require(Boolean(calibration), `registered negative calibration ${id} is required`);
     const negativeBody = loadBinding(root, { path: negative.path, sha256: negative.sha256 }, `calibration.negatives.${id}`, errors);
+    const learning = inspectRegisteredLearning(negative, { root });
+    errors.push(...learning.errors.map(error => `calibration.negatives.${id} learning: ${error}`));
     require(calibration?.verdict === "REJECT", `known-bad calibration ${id} must be rejected`);
     for (const family of negative?.failureFamilies || []) require(calibration?.identifiedFailureFamilies?.includes(family), `known-bad calibration ${id} missed ${family}`);
     evidenceAppears(negativeBody, calibration?.evidence, `calibration.negatives.${id}.evidence`, errors);
@@ -154,7 +157,9 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
         require(observed?.evidenceType === "OBSERVED_HUMAN", `${outcomeName}.observedReaderEvidence must declare OBSERVED_HUMAN`);
         require(text(observed?.administratorPrincipalId), `${outcomeName}.observedReaderEvidence.administratorPrincipalId is required`);
         require(Array.isArray(observed?.participants), `${outcomeName}.observedReaderEvidence.participants is required`);
-        const minimum = receipt?.surface === "LIBRAIRY" && receipt?.verdict === "PASS" ? 3 : 1;
+        // DECISIONS: no universal fixed-size Library study. Required observed
+        // outcomes still need actual evidence; further sampling follows risk.
+        const minimum = 1;
         require((observed?.participants || []).length >= minimum, `${outcomeName}.observedReaderEvidence requires at least ${minimum} participant(s)`);
         const ids = new Set();
         const bindings = new Set();

@@ -4,6 +4,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { inspectRegisteredLearning } from "./admit-content-quality-learning.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
@@ -34,6 +35,17 @@ function boundFile(root, binding, label, errors) {
   }
   const actual = sha256(fs.readFileSync(absolute));
   if (actual !== binding.sha256) errors.push(`${label}: SHA-256 mismatch expected=${binding.sha256} actual=${actual}`);
+}
+
+function producerPlanValue(contract, pointer) {
+  // Only actual generation/proof inputs qualify, not another CLEAR declaration.
+  if (typeof pointer !== "string" || !/^\/(draftArchitecture|readerContract|representativeProofPlan|communicationDesign)\//.test(pointer) || /~(?![01])/.test(pointer)) return null;
+  let value = contract;
+  for (const segment of pointer.slice(1).split("/").map(key => key.replace(/~1/g, "/").replace(/~0/g, "~"))) {
+    if (!value || typeof value !== "object" || !Object.hasOwn(value, segment)) return null;
+    value = value[segment];
+  }
+  return text(value) ? value : null;
 }
 
 export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
@@ -81,6 +93,7 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
   }
 
   const negatives = registry.negativeExemplars || [];
+  const requiredProducerRepairs = [];
   const negativeIds = negatives.map(item => item.id);
   require(contract?.knownFailurePreflight?.registryVersion === registry.schemaVersion, "knownFailurePreflight registryVersion is stale");
   require(contract?.knownFailurePreflight?.registrySha256 === sha256(registryBytes), "knownFailurePreflight registrySha256 is stale");
@@ -90,6 +103,19 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
   require(Array.isArray(contract?.knownFailurePreflight?.knownDefectsRemaining), "knownDefectsRemaining must be an array");
   const dispositions = contract?.knownFailurePreflight?.dispositions || {};
   for (const negative of negatives) {
+    const learning = inspectRegisteredLearning(negative, { root });
+    errors.push(...learning.errors.map(error => `negative exemplar ${negative.id} learning: ${error}`));
+    if (learning.requiredProducerRepair && !learning.errors.length) {
+      const applications = contract?.knownFailurePreflight?.learnedRepairApplications;
+      const matches = (Array.isArray(applications) ? applications : []).filter(item => item?.exemplarId === negative.id);
+      require(matches.length === 1, `learned repair ${negative.id} requires exactly one producer-plan application`);
+      const application = matches[0];
+      require(application?.admissionSha256 === negative.learningAdmission.sha256, `learned repair ${negative.id} admission binding is stale`);
+      const planValue = producerPlanValue(contract, application?.planPointer);
+      require(Boolean(planValue), `learned repair ${negative.id} must point to a nonempty generation or proof-plan field`);
+      requiredProducerRepairs.push({ exemplarId: negative.id, instruction: learning.requiredProducerRepair,
+        implementation: { planPointer: application?.planPointer || null, value: planValue } });
+    }
     require(text(negative?.incidentId), `negative exemplar ${negative?.id || "unknown"} lacks incidentId`);
     require(array(negative?.appliesTo), `negative exemplar ${negative?.id || "unknown"} lacks appliesTo`);
     boundFile(root, { path: negative.path, sha256: negative.sha256 }, `negative exemplar ${negative.id}`, errors);
@@ -167,7 +193,7 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
   require(metrics?.objectiveDefectsFirstFoundAtReview === 0, "ratchet target objectiveDefectsFirstFoundAtReview must be 0");
   require(contract?.ratchet?.rule === "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW", "ratchet must stop and repair the producer on repeated known defects");
 
-  return { errors, status: contract?.status || null };
+  return { errors, status: contract?.status || null, requiredProducerRepairs };
 }
 
 function main() {
@@ -177,6 +203,10 @@ function main() {
   try { contract = JSON.parse(fs.readFileSync(path.resolve(file), "utf8")); }
   catch (error) { console.error(`CONTENT PRODUCER CONTRACT FAIL\n- ${error.message}`); process.exit(1); }
   const result = inspectContentProducerContract(contract);
+  for (const repair of result.requiredProducerRepairs || []) {
+    console.log(`REQUIRED PRODUCER REPAIR ${repair.exemplarId}: ${repair.instruction}`);
+    console.log(`PRODUCER PLAN ${repair.implementation.planPointer || "UNBOUND"}: ${repair.implementation.value || "MISSING"}`);
+  }
   if (result.errors.length) {
     console.error("CONTENT PRODUCER CONTRACT FAIL");
     for (const error of result.errors) console.error(`- ${error}`);

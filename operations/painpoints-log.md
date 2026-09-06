@@ -293,3 +293,31 @@ Prevention: distribute a check with its exact consumed inputs and test an actual
 held queue plus the declared supporting evidence, not only temporary fixtures.
 Behind the Build: a quality checklist can be present in instructions while its
 working parts never reach the place where the work runs.
+PR108 merged after both remote checks passed. A fresh uncoached expert returned
+REPAIR on the actual rejected chapter and recognized missing synthesis/glossary
+structure, but did not identify every registered defect. Keep that partial
+observation distinct from fixture pass counts and full calibration.
+
+
+## 2026-09-06 — Rejection must not require completed admission; lessons need a receiver
+
+The recovered prose review required complete reader/factual/admission evidence
+even to reject decisively, and no actual pending learning records were found in
+the bounded source search. A separate bounded rejection and immutable owner
+admission now complete the existing registry edge. The pending record cannot
+hash a final review that already hashes it; the owner record binds both instead.
+Foreground review caught missing pending linkage, stale in-memory decision
+provenance, path escapes and malformed-input handling before integration.
+Both consumers now verify admitted evidence; producer tests reject stale,
+omitted and unresolved learning, and the command supplies the actual repair. Independent integration review
+also caught an unbound producer-plan gap: each lesson now maps to a real
+generation/proof input, with stale or self-referential mappings rejected.
+The old universal three-reader Library prerequisite was also inconsistent with
+DECISIONS and is removed without removing required observed outcomes.
+Actual fresh expert trials rejected the known-bad prose and visual detour, but
+no new real lesson or successor is claimed. Preserve that outcome distinction.
+Prevention: allow an early evidence-bound rejection, retain owner judgment,
+and test the next producer consuming the correction; do not use a saved review
+or a principal label as proof that learning happened.
+Behind the Build: why a system can demand feedback yet make it too expensive to
+record—and why recording feedback is only the start of learning.

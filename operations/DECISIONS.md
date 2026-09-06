@@ -1,5 +1,21 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Existing learning-owner rule now has an executable receiver
+
+Implementation under the authorized operating audit: a decisive exact-prose
+rejection may stop downstream admission work and create an immutable pending
+learning. The Learning System & Concepts Director still decides reuse. The
+adapter `scripts/admit-content-quality-learning.mjs` previews or applies that
+owner decision to the existing registry; it neither authenticates identities
+nor approves content. Producers must bind each admitted repair to a concrete
+field in their generation/proof plan, not only declare CLEAR. Real successor
+judgment remains necessary. Current schema/commands/boundaries and observed
+trials: `product-stewards/learning-content-ecosystem/RECOVERY.md`.
+The old universal three-reader Library constant was inconsistent with the
+existing proportional-admission ruling below and is removed. This does not
+remove required actual reader evidence or relax public-release authority.
+
+
 ## 2026-09-06 — Native Goal activation and exact learning-package recovery
 
 Ali explicitly said “yes activate” for native Goal mode on the full operating

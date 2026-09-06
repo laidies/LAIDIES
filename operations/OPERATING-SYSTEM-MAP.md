@@ -786,3 +786,32 @@ product sources. Supporting evidence now participates in both positive-example
 checks. Fixture negatives pass; a real queue readiness requirement fails with
 zero ready items and 17 held. Owner admission, an uncoached evaluator trial and
 successor use remain open. Scope: `product-stewards/learning-content-ecosystem/RECOVERY.md`.
+
+
+### Executable learning-owner edge — September 6
+
+```mermaid
+flowchart TD
+  A[Actual prose and governed purpose] --> B[Role-distinct reviewer finds decisive defect]
+  B --> C[Immutable bounded rejection and pending learning]
+  C --> D{Learning owner judges reuse}
+  D -->|Candidate only or already known| E[Repair with existing rule]
+  D -->|New reusable defect| F[Owner decision binds exact inputs]
+  F --> G[Agent previews then applies existing registry update]
+  G --> H[Old producer contract fails as stale]
+  H --> I[Producer receives repair and changes method]
+  I --> J[Representative successor and full applicable review]
+  J --> K[Destination admission and separately authorized release]
+```
+
+The adapter/producer boundary is locally tested, including stale/omitted/open
+learning and changed evidence. A real new admission and successor remain open.
+Owner/reviewer judgment is an agent-role responsibility; a script cannot
+authenticate it from a principal label. Ali retains new product/taste/policy
+and public-release decisions. No new registry or service was created.
+
+Actual blind expert trials returned REPAIR for both the previously rejected
+chapter and the field-trip candidate, with the scoped limitations recorded in
+`product-stewards/learning-content-ecosystem/RECOVERY.md`. The visual trial used
+the current corrected purpose, not a reconstructed historical brief. It does
+not run through the exact-prose adapter or claim a corrected product exists.
