@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Compact book-to-women transition and full-width book link
+
+Ali flags excess gap above the women-behind-AI feature and the dull partial-width navy/white Fundamentals CTA. Reduce adjoining vertical padding; span the existing content width with brighter tangerine/lime text and the current book cover at right. Preserve wording, exact book/chapter route, section backgrounds and new Rewind wallpaper. Preview only.
+
 ## 2026-09-06 — Retain lilac wallpaper; vary the motifs
 
 Ali loves the original wallpaper and says its purple may be fine alongside the sections. Preserve the current purple, palette and rendered illustration style. Replace some repeated cassette motifs with shoes and lips, as in the supplied examples; retain retro-tech objects and the existing skate. This is refinement of the approved direction, not a new palette exploration.

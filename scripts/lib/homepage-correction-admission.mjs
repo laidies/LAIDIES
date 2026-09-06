@@ -22,6 +22,28 @@ export function inspectHomepageCorrection(item, root) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if (a.owner_feedback_successor === 'BOOK_LINK_SPACING') {
+      const p='operations/product-stewards/town-entry-homepage/candidates/book-link-spacing-20260906/';
+      assert(item.id===homepageCorrectionId && item.review_type==='building_page_visual','wrong scoped candidate');
+      for(const [name,b] of [['homepage',a.candidate],['runtime',a.runtime],['worker',a.worker],['graphic',a.graphic],['Mall image',a.mallImage],['burst',a.burst],['wallpaper',a.wallpaper],['cover',a.cover]]) assert(b && digest(b.path)===b.sha256,name+' bytes differ');
+      const change=JSON.parse(bytes(p+'changes.json')),parent=bytes(p+'parent.html').toString();
+      assert(digest(p+'parent.html')==='1328ec6bc680cfa94c39d4033f957fcb1ec442f80123dd9247016f0cef9f3d90','wrong book-link parent');
+      assert(bytes('index.html').toString()===parent.replace(change.oldMarkup,change.newMarkup).replace('</style>',change.addedCss+'</style>'),'unrelated homepage change');
+      for(const b of a.evidence||[]) assert(digest(b.path)===b.sha256,'stale evidence: '+b.path);
+      for(const f of ['scope.md','changes.json','parent.html','source-diff.patch','checks.json','producer-self-review.md','independent-review.md','claude-review-result.json','visuals.json','browser-test.mjs','production-preservation.json']) assert(a.evidence?.some(b=>b.path===p+f),'missing bound evidence: '+(f.startsWith('claude')?'claude':f));
+      const checks=JSON.parse(bytes(p+'checks.json'));
+      assert(checks.status==='PASS' && checks.sourceSha256===a.candidate.sha256 && checks.coverSha256===a.cover.sha256 && checks.oldSpacingAndColourRejected,'book-link source or checks differ');
+      for(const width of [1440,390]) {
+        const row=checks.rows.find(r=>r.width===width && r.kind==='candidate'),old=checks.rows.find(r=>r.width===width && r.kind==='parent');
+        assert(row && old && !row.overflow && row.gap===(width===390?32:40) && row.gap<old.gap && Math.abs(row.linkWidth-row.contentWidth)<1 && row.alignment==='left' && row.justification==='space-between' && row.colour==='rgb(255, 155, 61)' && row.bookTitleColour==='rgb(183, 228, 43)' && row.coverDecoded && row.cover==='/'+a.cover.path && ['bodyBackground','content','links','images','otherPanels','whyBackground','href','linkText'].every(k=>JSON.stringify(row[k])===JSON.stringify(old[k])),'book-link fit or preservation differs');
+      }
+      const independent=bytes(p+'independent-review.md').toString(),claude=JSON.parse(bytes(p+'claude-review-result.json'));
+      assert(independent.includes('ADMIT_FOR_OWNER_REVIEW') && independent.includes(a.candidate.sha256),'independent book-link review differs');
+      assert(!claude.is_error && claude.modelUsage?.['claude-opus-5'] && claude.result?.includes('ADMIT_FOR_OWNER_REVIEW') && claude.result.includes(a.candidate.sha256),'actual Claude book-link review differs');
+      for(const v of JSON.parse(bytes(p+'visuals.json'))) assert(digest(v.path)===v.sha256,'stale visual');
+      assert(a.production_release_approved===false,'owner presentation does not authorize production');
+      return errors;
+    }
     if (a.owner_feedback_successor === 'PAGE_RETRO_BACKGROUND') {
       const p = 'operations/product-stewards/town-entry-homepage/candidates/retro-page-background-20260906/';
       assert(item.id === homepageCorrectionId && item.review_type === 'building_page_visual', 'wrong scoped candidate');

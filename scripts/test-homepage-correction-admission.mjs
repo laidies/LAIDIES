@@ -19,6 +19,7 @@ if (item.design_admission.graphic) cases.push(['different graphic', v => { v.des
 if (item.design_admission.mallImage) cases.push(['different Mall image', v => { v.design_admission.mallImage.sha256 = '0'.repeat(64); }, 'Mall image bytes differ']);
 if (item.design_admission.burst) cases.push(['different burst', v => { v.design_admission.burst.sha256 = '0'.repeat(64); }, 'burst bytes differ']);
 if (item.design_admission.wallpaper) cases.push(['different wallpaper', v => { v.design_admission.wallpaper.sha256 = '0'.repeat(64); }, 'wallpaper bytes differ']);
+if (item.design_admission.cover) cases.push(['different cover', v => { v.design_admission.cover.sha256 = '0'.repeat(64); }, 'cover bytes differ']);
 for (const [name, mutate, reason] of cases) {
   const candidate = structuredClone(item);
   mutate(candidate);
