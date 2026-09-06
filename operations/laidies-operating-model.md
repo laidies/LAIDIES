@@ -304,5 +304,6 @@ Continuation source repair `bc95574d` is rebased onto the reference package as
 `36ccb875` in PR107. The outer config was updated only after byte-matching its
 previous committed source; the actual configured command now rejects ending
 this unfinished task. Native trust/loading remains unverified, and the existing
-recursion bound is preserved. PR107 depends on the reference owner's PR106;
-remote checks/integration are separate from this local result.
+recursion bound is preserved. PR106 is now merged as a38d5068e67582e089e1e7b9ef983fa60882f7c4 with
+all three checks passing. PR107 is rebased onto that mainline result; its own
+remote checks/integration remain separate from the local routing test.
