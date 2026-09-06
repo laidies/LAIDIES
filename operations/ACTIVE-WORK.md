@@ -1,8 +1,11 @@
-<!-- Big Picture emphasis: verified candidate / release pending -->
+<!-- Big Picture emphasis: VERIFIED PUBLICLY -->
 Masthead palette and texture applied to Big Picture; paper text panel/mint action.
 Conditional full Big Picture index appears at2 accessible published stories.
 Real1200/390/320 checks and native disclosure fixture passed; independent scoped
-review ACCEPT. Artifact /private/tmp/laidies-newsstand-big-picture-pop-20260906.
+review ACCEPT. Source5122aae4 deployed148f456e; eight custom/immutable hashes
+match. Actual user IAB shows gradient/texture/no overflow and one-story index
+hidden. Clicking Big Picture opened the correct data-centre article. User tab
+returned to current paper. Artifact /private/tmp/laidies-newsstand-big-picture-pop-20260906.
 Duplicate Latest artwork and lower-paper redesign remain open alongside Hannah.
 
 <!-- Blank town column repair: VERIFIED PUBLICLY -->

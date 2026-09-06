@@ -7,3 +7,5 @@ Root inspected actual desktop,390,320 candidate. No horizontal overflow. Explici
 Index tests execute actual renderer: zero/one hidden; all five including lead rendered; private and wrong-edition excluded; malicious text escaped. Native details clicked open in320px browser fixture shows five links without overflow. Actual current dataset has one article, therefore no read-all control yet. No synthetic content enters publication artifact.
 
 General sparse git hooks skipped in favor of focused checks. Duplicate Latest artwork, broader lower-page newspaper redesign and Hannah signed-profile improvement remain separate open work.
+
+Public verification: source5122aae4 deployment148f456e; all8 exact public response comparisons match. Actual user IAB current CSS gradient and texture visible; no horizontal overflow; index hidden with1story. Actual button opened #big-picture-data-centre-deal-2026-08-24 with correct headline and body. Tab returned to the paper.
