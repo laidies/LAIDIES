@@ -1,0 +1,7 @@
+# Slider labels and time
+
+Local preview only. Visible labels: Volume and Track progress. Progress heading includes elapsed/total time, e.g.1:24 /4:04. Unknown duration displays a dash; hour-long tracks use h:mm:ss. Volume range announces percent; progress announces elapsed of total without live-announcing every update.
+
+Actual desktop1280, phone390 and narrow320 checked. Volume keyboard adjustment changed75 to70 percent. Time moved from0:41 to1:24 of4:04 while playing; both controls remained functional. The narrow heading boxes were aligned after the time line wrapped. No horizontal overflow. Time formatter checks covered0,84,244.7,3600,NaN,Infinity and negative values. Syntax, whitespace and existing Up next regression tests pass. No deployment or newly repeated pop-out check.
+
+Suggestions, NOT APPROVED or implemented: use the current homepage /assets/homepage/rewind-wallpaper-20260906.webp as inspiration for a narrow illustrated casing, with clear panels beneath labels/controls; give the song title stronger hierarchy and keep the full title readable; shrink the phone footprint with expandable secondary controls. The actual source image was inspected in /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905/assets/homepage/rewind-wallpaper-20260906.webp and its current body background mount verified in index.html. It is a reference, not new shared-player asset approval. No CSS-drawn decorative objects or replacement icons proposed. Existing CD rejection remains open.

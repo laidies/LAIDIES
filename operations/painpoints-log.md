@@ -15863,3 +15863,7 @@ A technically readable CSS gradient-disc passed internal review but Ali rejected
 
 ## 2026-09-06 — Up-next promises must use playback’s own selection
 The player previously selected shuffled songs only at ended time, so a separately generated preview would name the wrong track. One next-item resolver now supplies preview, preload and automatic advancement; random choices are reserved once. Routine status remains available to assistive technology while errors/blocked actions remain visible. Prevention: a future-item label must consume the exact execution choice and be forwarded by the actual audio owner, not guessed by a follower tab. Real browser transition and an intentionally wrong-selection test calibrated this. Behind the Build: UI promises are a contract with the next action.
+
+
+## 2026-09-06 — Player sliders had no visible purpose
+Accessible names alone did not tell sighted listeners which bare slider was volume versus progress. Added visible semantic labels and elapsed/total time. The progress heading wraps on phones, so both heading areas reserve the same height to keep slider rails aligned. Prevention: show purpose without hover and check both fields together at320px. Behind the Build: a control can be accessible to a screen reader and still unclear to everybody looking at it.

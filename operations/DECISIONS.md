@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Player sliders are labelled and timed
+
+Ali approves visible “Volume” and “Track progress” labels, with elapsed/total time beside progress. Labels remain visible on phones, time follows playback/seeking and connected-owner updates, unknown duration uses a dash rather than an invented total. The time text is not an announcement every second; range controls expose meaningful accessible values.
+
 ## 2026-09-06 — Player shows the actual upcoming song or ad
 
 Ali requests “Up next:” followed by the next song or ad, replacing routine saved-position chatter in the bottom player. Derive it from the exact next queued item/segment; do not invent advertising or programme entries. Preview, preload and automatic advance share one next-item choice, including shuffle/repeat. Playback errors remain visible.

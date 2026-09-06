@@ -329,6 +329,12 @@
     + '.ksvl-now-playing :is(button,a,input):focus-visible { outline: 2px solid #492878; outline-offset: 3px; }'
     + '.ksvl-np-ico { display: inline-flex; align-items: center; justify-content: center; width: 33px; height: 33px; border-radius: 50%; background: rgba(255,253,251,0.35); border: 1.5px solid #492878; font-size: 13px; line-height: 1; transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease; text-shadow: none; }'
     + '.ksvl-np-btn:hover .ksvl-np-ico, .ksvl-np-btn:focus-visible .ksvl-np-ico { background: rgba(255,253,251,0.28); border-color: #492878; transform: translateY(-1px); }'
+    + '.ksvl-np-sound { align-items: flex-end; }'
+    + '.ksvl-np-slider-field { display: flex; flex-direction: column; min-width: 0; color: #202020; }'
+    + '.ksvl-np-field-heading { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2px 8px; font: 700 11px/1.3 "Jost", sans-serif; }'
+    + '.ksvl-np-time { font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }'
+    + '.ksvl-np-slider-field:has(.ksvl-np-volume) { width: 92px; } .ksvl-np-slider-field:has(.ksvl-np-seek) { width: min(190px,24vw); }'
+    + '@media (max-width:620px) { .ksvl-np-slider-field:has(.ksvl-np-seek) { width:132px; } .ksvl-np-field-heading { min-height:31px; align-content:flex-start; } }'
     + '.ksvl-np-volume, .ksvl-np-seek { min-height: 44px; accent-color: #492878; }'
     + '.ksvl-np-volume { width: 92px; } .ksvl-np-seek { width: min(190px, 24vw); }'
     + '.ksvl-np-lbl { font-size: 7.5px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; opacity: 0.72; white-space: nowrap; }'
@@ -428,7 +434,7 @@
 
 
   var np, npMini, npMix, npTrack, npPosition, npStatus, npUpNext, npRetry, npPlayBtn,
-    npShuffleBtn, npRepeatBtn, npMuteBtn, npVolume, npSeek, npStorageLimit;
+    npShuffleBtn, npRepeatBtn, npMuteBtn, npVolume, npSeek, npTime, npStorageLimit;
   var storageLimit = '';
   function reportStorageLimit() {
     storageLimit = 'Browser storage is unavailable. Music can play here, but may not follow you to another page or keep your position.';
@@ -530,7 +536,7 @@
     deck.appendChild(next);
     deck.appendChild(npRepeatBtn);
     controls.appendChild(deck);
-    var sound = el('div', {class: 'ksvl-np-group'});
+    var sound = el('div', {class: 'ksvl-np-group ksvl-np-sound'});
     npMuteBtn = npButton('', '🔊', 'Mute', {'aria-label': 'Mute', title: 'Mute', onclick: toggleMute});
     npVolume = el('input', {
       class: 'ksvl-np-volume',
@@ -549,13 +555,22 @@
       max: '1000',
       step: '1',
       value: '0',
-      'aria-label': 'Seek in current track',
+      'aria-label': 'Track progress',
       disabled: 'disabled'
     });
     npSeek.addEventListener('change', seekFromControl);
     sound.appendChild(npMuteBtn);
-    sound.appendChild(npVolume);
-    sound.appendChild(npSeek);
+    var volumeField = el('label', {class: 'ksvl-np-slider-field'}, [
+      el('span', {class: 'ksvl-np-field-heading', text: 'Volume'}), npVolume
+    ]);
+    npTime = el('span', {class: 'ksvl-np-time', text: '0:00 / —:—', 'aria-hidden': 'true'});
+    var progressField = el('label', {class: 'ksvl-np-slider-field'}, [
+      el('span', {class: 'ksvl-np-field-heading'}, [
+        el('span', {text: 'Track progress'}), npTime
+      ]), npSeek
+    ]);
+    sound.appendChild(volumeField);
+    sound.appendChild(progressField);
     controls.appendChild(sound);
     // Group 2 — station: pop out · KSVL · stop
     var station = el('div', {class: 'ksvl-np-group'});
@@ -627,6 +642,15 @@
     if (!remoteOwner) saveState();
   }
 
+  function formatTrackTime(value) {
+    if (!Number.isFinite(value) || value < 0) return '—:—';
+    var total = Math.floor(value);
+    var hours = Math.floor(total / 3600);
+    var minutes = Math.floor((total % 3600) / 60);
+    var seconds = String(total % 60).padStart(2, '0');
+    return hours ? hours + ':' + String(minutes).padStart(2, '0') + ':' + seconds : minutes + ':' + seconds;
+  }
+
   function syncSoundControls() {
     var sound = remoteOwner ? {
       muted: state.muted, volume: state.volume,
@@ -638,10 +662,17 @@
       setBtnLabel(npMuteBtn, sound.muted ? 'Unmute' : 'Mute');
       npMuteBtn.setAttribute('aria-label', sound.muted ? 'Unmute' : 'Mute');
     }
-    if (npVolume) npVolume.value = String(sound.volume);
+    if (npVolume) {
+      npVolume.value = String(sound.volume);
+      npVolume.setAttribute('aria-valuetext', Math.round(sound.volume * 100) + ' percent');
+    }
     if (npSeek) {
       var duration = Number(sound.duration);
       npSeek.disabled = !Number.isFinite(duration) || duration <= 0;
+      var elapsed = formatTrackTime(Math.max(0, Number(sound.currentTime) || 0));
+      var total = npSeek.disabled ? '—:—' : formatTrackTime(duration);
+      if (npTime) npTime.textContent = elapsed + ' / ' + total;
+      npSeek.setAttribute('aria-valuetext', npSeek.disabled ? 'Track duration unavailable' : elapsed + ' of ' + total);
       npSeek.value = npSeek.disabled ? '0' :
         String(Math.round((sound.currentTime / duration) * 1000));
     }

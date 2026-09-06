@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Slider clarity: VERIFIED LOCAL.** Visible Volume and Track progress labels plus elapsed/total time implemented. Actual1280/390/320px checked, narrow sliders align and no overflow; keyboard volume changed75% to70%, progress/time updated from0:41 to1:24 of4:04. Time format boundaries and existing Up next tests pass. Not published; CD remains rejected. Suggested next direction (not built/approved): illustrated casing inspired by current homepage Rewind wallpaper, larger song hierarchy, compact expandable phone controls.
+
 > **2026-09-06 — Up next: VERIFIED LOCAL.** Player displays the actual next queued song/segment instead of routine saved-position/playing chatter. Shared resolver binds preview/preload/automatic advance; shuffle reserves one choice; owner heartbeat shares the actual title with follower pages. Browser verified the announced Businesswomen’s Special became the next song after seek-to-end, both tabs agreed, and390px had no overflow. Extracted-source tests pass for multipart intros/spots, repeat, shuffle and end-of-queue; deliberately wrong selector fails. Ads are supported when actually queued, not added by this task. CD remains rejected; no deployment.
 
 > **2026-09-06 — Player restoration copy: VERIFIED LOCAL.** Actual reopened preview displays “Pick up where you left off. Press Resume to keep listening.” with Resume visible; source syntax checked. Only visitor wording changes; no playback behavior changed. CD remains rejected pending icon decision. Not published.
