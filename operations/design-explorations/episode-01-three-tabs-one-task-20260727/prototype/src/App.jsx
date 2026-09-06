@@ -148,13 +148,21 @@ const steps = [
   ["task", "Task"],
   ["answers", "Answers"],
   ["compare", "Compare"],
-  ["pick", "Pick + edit"],
+  ["pick", "Pick + review"],
   ["receipt", "Receipt"],
 ];
 
 function modelLabel(run) {
   if (run.model === "Other") return run.customModel.trim() || "Other";
   return run.model;
+}
+
+function ratingLabel(value) {
+  return value ? `${value}/5` : "Not rated";
+}
+
+function ratingStatus(run) {
+  return Object.values(run.ratings).every(Boolean) ? "Rated" : "Not rated";
 }
 
 function copyFallback(text) {
@@ -378,10 +386,11 @@ function ProviderTabs({ activeProvider, setActiveProvider, runs }) {
             activeProvider === provider.id ? "is-active" : ""
           }`}
           onClick={() => setActiveProvider(provider.id)}
-        >
-          <strong>{provider.name}</strong>
-          <span>{modelLabel(runs[provider.id])}</span>
-        </button>
+          >
+            <strong>{provider.name}</strong>
+            <span>{modelLabel(runs[provider.id])}</span>
+            <span>{ratingStatus(runs[provider.id])}</span>
+          </button>
       ))}
     </div>
   );
@@ -689,7 +698,6 @@ function CompareStage({
   const completedProviders = availableProviders.filter((item) =>
     Object.values(runs[item.id].ratings).every(Boolean),
   ).length;
-  const allRated = availableProviders.length > 0 && completedProviders === availableProviders.length;
 
   return (
     <section className="stage compare-stage">
@@ -698,8 +706,7 @@ function CompareStage({
           <p className="stage-number">Step 3</p>
           <h2>Compare what actually came back</h2>
           <p>
-            Rate usefulness for this task. Describe the answer’s style. Neither
-            end of a style slider is “better.”
+            Compare what it understood, what you could use and what needs checking. Ratings and style sliders are optional.
           </p>
         </div>
         <div className="counter">{completedProviders} of {availableProviders.length} rated</div>
@@ -733,6 +740,7 @@ function CompareStage({
               <span>{modelLabel(run)}</span>
             </div>
             <span>{journeyMode === "guided" ? `Saved example · ${provider.observed}` : "Your answer"}</span>
+            <span>{ratingStatus(run)}</span>
           </div>
           <pre>{run.answer}</pre>
         </div>
@@ -754,16 +762,15 @@ function CompareStage({
         <div>
           <p className="preview-label">Next: My First-Pass Receipt</p>
           <p>
-            Choose a draft · make one human change · keep a verification flag ·
-            copy or print what you made
+            Choose a draft · record what you checked or changed · save the version you would use
           </p>
         </div>
         <AppButton
           onClick={next}
-          disabled={!allRated}
+          disabled={availableProviders.length === 0}
           icon={<ArrowRight weight="bold" />}
         >
-          Continue: choose + edit
+          Continue: choose + review
         </AppButton>
       </div>
     </section>
@@ -781,8 +788,7 @@ function PickStage({
   next,
 }) {
   const chosen = providers.find((provider) => provider.id === chosenProvider);
-  const original = runs[chosenProvider].answer;
-  const hasEdited = editedDraft.trim() && editedDraft.trim() !== original.trim();
+  const hasDraft = editedDraft.trim();
 
   const choose = (id) => {
     setChosenProvider(id);
@@ -821,34 +827,33 @@ function PickStage({
       </div>
       <div className="edit-grid">
         <label className="large-field">
-          <span>Edit your chosen draft</span>
+          <span>Your version</span>
           <textarea
             value={editedDraft}
             onChange={(event) => setEditedDraft(event.target.value)}
           />
         </label>
         <label className="large-field human-change">
-          <span>What one human change did you make—and why?</span>
+          <span>What did you check, keep or change—and why?</span>
           <textarea
             value={humanChange}
             onChange={(event) => setHumanChange(event.target.value)}
-            placeholder="For example: I shortened the opening because this colleague prefers direct emails."
+            placeholder="For example: I checked the deadline and tone. I would keep this draft as written."
           />
           <small>
-            Your judgment is the point. Make at least one real edit before
-            continuing.
+            Keep wording that works. Change what does not. Your note records the judgment behind that choice.
           </small>
         </label>
       </div>
       <div className="stage-actions">
-        <p className={`completion-note ${hasEdited ? "is-ready" : ""}`}>
-          {hasEdited
-            ? `Your ${chosen.name} draft now includes your judgment.`
-            : "Change the draft itself—not only the note—to continue."}
+        <p className={`completion-note ${hasDraft && humanChange.trim() ? "is-ready" : ""}`}>
+          {hasDraft && humanChange.trim()
+            ? "Your draft and judgment note are ready."
+            : "Keep or edit the draft, then record what you checked."}
         </p>
         <AppButton
           onClick={next}
-          disabled={!hasEdited || !humanChange.trim()}
+          disabled={!hasDraft || !humanChange.trim()}
           icon={<ArrowRight weight="bold" />}
         >
           Make my receipt
@@ -881,7 +886,7 @@ function ReceiptStage({
       .map((provider) => {
         const run = runs[provider.id];
         const ratingText = receiptRatingLabels
-          .map(([key, label]) => `${label}: ${run.ratings[key]}/5`)
+          .map(([key, label]) => `${label}: ${ratingLabel(run.ratings[key])}`)
           .join("; ");
         return `${provider.name} — ${modelLabel(run)} — ${ratingText}`;
       })
@@ -898,7 +903,7 @@ ${toolLines}
 MY PICK FOR THIS TASK
 ${chosen.name} — ${modelLabel(chosenRun)}
 
-MY HUMAN CHANGE
+MY JUDGMENT
 ${humanChange}
 
 FACTS TO VERIFY
@@ -937,8 +942,8 @@ This is a task-specific observation, not a permanent tool ranking.`;
             <p className="stage-number">Step 5 · Complete</p>
             <h2>My First-Pass Receipt</h2>
             <p>
-              One useful draft. One human change. A dated note about what worked
-              for this task.
+              One useful draft. One judgment about what you checked or changed.
+              A dated note about what worked for this task.
             </p>
           </div>
           <CheckCircle size={54} weight="fill" aria-hidden="true" />
@@ -979,7 +984,7 @@ This is a task-specific observation, not a permanent tool ranking.`;
                 <div className="mini-ratings">
                   {receiptRatingLabels.map(([key, label]) => (
                     <span key={key}>
-                      {label}: <strong>{run.ratings[key]}/5</strong>
+                      {label}: <strong>{ratingLabel(run.ratings[key])}</strong>
                     </span>
                   ))}
                 </div>
@@ -988,7 +993,7 @@ This is a task-specific observation, not a permanent tool ranking.`;
           })}
         </div>
         <div className="receipt-section">
-          <h3>One human change</h3>
+          <h3>My judgment</h3>
           <p>{humanChange}</p>
         </div>
         <div className="receipt-section draft-receipt">

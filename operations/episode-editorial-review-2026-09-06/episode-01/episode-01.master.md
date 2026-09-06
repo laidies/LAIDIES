@@ -253,7 +253,7 @@ Patron Saint: Dolly Parton — Common Sense. Her bridge encouragement leads into
   <p class="tv-meta">SEASON 1 · EPISODE 01 · READING EDITION</p>
   <h1 class="tv-title">ON WEDNESDAYS WE <em>DO Ai</em></h1>
   <p class="tv-logline">The one where she stops waiting for a free weekend, tells AI the truth about one dreaded email, and finds out the gap was never confidence — it was physics.</p>
-  <div class="tv-tags"><span>LESSON · <b>What AI is + why start</b></span><span>STARS · <b>Cher, Dolly &amp; the icons</b></span><span><b>~10 MIN READ</b></span></div>
+  <div class="tv-tags"><span>LESSON · <b>What AI is + why start</b></span><span>PATRON SAINT · <b>Dolly · Common Sense</b></span><span><b>~10 MIN READ</b></span></div>
 </header>
 
 <div class="spine"><div class="spine-inner">READING EDITION <span class="dot">·</span> S1 E01 <span class="dot">·</span> ~10 MIN <span class="end">KEEP YOUR PLACE</span></div></div>
@@ -300,7 +300,7 @@ Patron Saint: Dolly Parton — Common Sense. Her bridge encouragement leads into
     <div class="row"><span class="num">47.8% : 39.3%</span><span class="txt">Estimated generative-AI adoption among men and women in the sources that reported use by gender — a 22% relative gap. The paper reports that the gap narrowed over time but stabilized near 16% from early 2025.</span></div>
     <span class="src">Cranney, Delecourt &amp; Koning, HBS Working Paper 25-023, May 2026 · 76 sources · 100+ countries · 318,924 respondents in the gender-use-rate sample. Working-paper estimates vary by source, place, occupation and time.</span>
   </div>
-  <p>Lean In's 2026 survey gets into the uncomfortable specifics: men are about <strong>23%</strong> more likely to be encouraged by managers to use AI, about <strong>27%</strong> more likely to be praised for it — and women are about <strong>32%</strong> more likely to worry that using AI looks like cutting corners. That last one hit like Samantha Jones delivering a hard truth over brunch. <strong>It's not imposter syndrome. It's pattern recognition.</strong> (Ironic, given what AI actually is — but we'll get there.)</p>
+  <p>Lean In's 2026 survey of US adults gets into the uncomfortable specifics: men are about <strong>23%</strong> more likely to be encouraged by managers to use AI. Among people who have used AI at work, men are about <strong>27%</strong> more likely to be praised for it. And women are about <strong>32%</strong> more likely to worry that using AI looks like cutting corners. That last one hit like Samantha Jones delivering a hard truth over brunch. <strong>It's not imposter syndrome. It's pattern recognition.</strong> (Ironic, given what AI actually is — but we'll get there.)</p>
   <p>And here's the cruel part: the tool that could give you time back requires time you don't have to learn. So you don't start. The gap compounds week over week. And a year from now the distance between you and the colleague who started six months ago isn't a gap. It's a canyon.</p>
 
   <div class="mark"><div class="k">Build your own bridge</div><h2>Dolly Was Right</h2></div>
@@ -309,7 +309,7 @@ Patron Saint: Dolly Parton — Common Sense. Her bridge encouragement leads into
     <figcaption class="film-cap">Nobody's coming to build it for you. So — honey — build it.</figcaption>
   </figure>
   <blockquote class="pull"><p>"You'd better get to {{EP:dolly_bridge}}, honey — because ain't nobody building it for you."</p><div class="who">Dolly Parton energy</div></blockquote>
-  <p>This isn't about becoming technical. It's about not leaving a genuinely useful tool sitting unopened on your desk while everyone else figures out what it can do. The bridge is yours to build — and the good news is you can start with one plank.</p>
+  <p>This isn't about becoming technical. It's about not leaving a genuinely useful tool sitting unopened on your desk while everyone else figures out what it can do. The bridge is yours to build — and the good news is you can start with one plank: a task small enough to try, familiar enough that you can judge whether the result actually helps.</p>
 
   <div class="mark"><div class="k">The stakes</div><h2>A Future Built by Half the Population</h2></div>
   <figure class="film" aria-label="Fei-Fei Li and the need for women to shape AI's future">
@@ -364,12 +364,12 @@ Patron Saint: Dolly Parton — Common Sense. Her bridge encouragement leads into
   <p>Limit two: AI can be confidently, spectacularly wrong. A generated answer can sound polished and plausible while containing unsupported or invented information. It's the Burn Book from <em>Mean Girls:</em> a false allegation can arrive with total confidence. "Made out with a hot dog" lands with the certainty of a fact. <strong>Regina George energy, but make it software.</strong></p>
   <blockquote class="pull"><p>Your job is knowing which parts to trust and which to push back on. You've been doing that with other people's work your entire career. <em>This is no different.</em></p></blockquote>
 
-  <div class="mark"><div class="k">The takeaway</div><h2>Don't Pull a Cher</h2></div>
-  <figure class="film" aria-label="Cher confidently misremembering the Statue of Liberty inscription">
+  <div class="mark"><div class="k">The takeaway</div><h2>Cher Had a Point</h2></div>
+  <figure class="film" aria-label="Cher’s classroom speech from Clueless">
     <div class="frames" data-frames="ep01-scene-11-dont-pull-a-cher.png"><img src="../assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-rsvp-cher-comic-textfix.png" alt="" loading="lazy"></div>
     <figcaption class="film-cap">Confident is not the same as correct. Keep your judgment on the output.</figcaption>
   </figure>
-  <p>The thing to avoid is pulling a Cher — confidently, wrongly insisting it says "R.S.V.P." on the Statue of Liberty. Confidence is not correctness, in a group chat or in a chatbot. So use AI for its superhuman range and speed, hand it your real context, and keep your own judgment on the 20% only you can see. You don't need a technical background. You need someone to explain it clearly and a group of women to figure it out with. That's this. One Wednesday at a time.</p>
+  <p>Cher was right: it doesn’t say "R.S.V.P." on the Statue of Liberty. But confident delivery isn’t what makes a claim correct, in a group chat or in a chatbot. Use AI to get a draft moving, give it relevant context you are permitted to share, and check the whole result against what you know—not just the bits that sound uncertain. You don't need a technical background. You need someone to explain it clearly and a group of women to figure it out with. That's this. One Wednesday at a time.</p>
 
   <!-- COCKTAIL -->
   <div class="cocktail">
@@ -435,12 +435,13 @@ Patron Saint: Dolly Parton — Common Sense. Her bridge encouragement leads into
 <!-- CAST -->
 <section class="cast"><div class="cast-in">
   <span class="eyebrow">The cast of this episode</span>
-  <h2>The Patron SA<span class="ai">i</span>NTS in "{{EP:title}}"</h2>
+  <h2>Dolly &amp; the cast of "{{EP:title}}"</h2>
+  <p>Dolly is this episode’s Patron Saint of Common Sense: start with a task you know, then use your judgment to decide what earns a place in your life.</p>
   <div class="cast-grid">
     <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Cher Horowitz</b><span>The closet computer · context is yours</span></a>
-    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Dolly Parton</b><span>Build your own bridge</span></a>
-    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Fei-Fei Li</b><span>A future built by half the population</span></a>
-    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Regina George</b><span>Cautionary red · confidence ≠ correctness</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Dolly Parton</b><span>Patron Saint · Common Sense</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Fei-Fei Li</b><span>MAiVEN · Who gets to shape AI?</span></a>
+    <a class="cast-card" href="/luminairy.html"><span class="cast-portrait-held" aria-hidden="true">Portrait held</span><b>Regina George</b><span>Anti-Saint · Dangerous Confidence</span></a>
   </div>
 </div></section>
 
@@ -501,7 +502,7 @@ Then one night — eleven p.m., everyone else asleep, glass of wine — I went l
 
 [measured] I found the latest Harvard review. It pulls together seventy-six sources from more than one hundred countries. In the studies that reported women’s and men’s use, forty-seven point eight percent of men were using generative AI, compared with thirty-nine point three percent of women. That is a relative gap of twenty-two percent. The gap had been narrowing. Then, from early twenty twenty-five, it stalled at around sixteen percent. [pointed] That is not a talent gap. It is a participation gap. And participation is how you get practice, influence, and a say in what gets built.
 
-And the deeper I read, the worse it got. Men are twenty-three percent more likely to be encouraged by their managers to use AI. Twenty-seven percent more likely to be praised when they do. Steve got called a visionary, remember. And women? [pointed] We're thirty-two percent more likely to worry that using AI looks like cutting corners.
+And the deeper I read, the worse it got. In Lean In's twenty twenty-six survey of US adults, men were about twenty-three percent more likely to be encouraged by their managers to use AI. Among people who had used it at work, men were about twenty-seven percent more likely to be praised. Steve got called a visionary, remember. And women? [pointed] We were about thirty-two percent more likely to worry that using AI looks like cutting corners.
 
 [knowing] That one hit me like Samantha Jones delivering an uncomfortable truth over brunch. Because of course we worry about that. We've spent entire careers building credibility through preparation, thoroughness, visible effort. And now there's a tool that makes hard things look easy — and some part of our brain calculates, correctly, based on historical data, that "easy" might get held against us. [dry, pointed] That's not imposter syndrome. That's pattern recognition. Which is ironic, given what AI actually is — but we'll get there.
 
@@ -509,13 +510,15 @@ You know how there's always one person who preps the deck before the meeting, re
 
 [warm, folksy, smiling, Tennessee accent] You'd better get to {{EP:dolly_bridge}}, honey — because ain't nobody building it for you.
 
+[thoughtful] One plank. A task small enough to try, familiar enough that I could judge whether it actually helped. Dolly is our patron saint of common sense for a reason.
+
 One more thing I found that night: Fei-Fei Li, the Stanford computer scientist, co-founded AI for All to widen participation in AI education. And that made my question bigger. Who gets to help shape this technology? People who use the tools can notice whose needs they miss, challenge poor results and ask for something better. Using a chatbot does not automatically retrain its model. But being able to question it matters—in the meeting where it is bought, the task where it is used, and the decision to stop when it gets something wrong.
 
 So here's what finally got me to start. It wasn't inspiration. [dry] It was spite. Fine — it was mostly spite, plus a Sunday morning at the Blend and Snap — my corner table, an oat latte going cold, the radio on low — fifteen quiet minutes, and nothing to lose.
 
 There was an email I'd been avoiding for four days. You know the kind — the delicate one, to the stakeholder who reads tone into line breaks. I opened one of the AI tools, and instead of asking it something grand, I described the situation without pasting the correspondence or naming anyone: what the message needed to achieve, the tone I wanted and what it must not promise. For work, the tool and the information have to be allowed by your employer. A personal subscription does not settle that. It gave me a draft in nine seconds. [thoughtful] And it was... eighty percent right. The other twenty percent was wrong in ways only I could see — which, it turns out, is the good news. I fixed it with my own judgment. I hit send. And then I looked at the clock. Four days of dread. Eleven minutes of work. And that's when it landed: oh. I can do this. Because the thing stopping me was never ability. It was that nobody had explained it in a way that made me want to start.
 
-Now — I want to be clear. I am no AI slayer. [wry] There's no Watcher guiding me through some prophecy, no training montage that happened off-screen. I'm still learning, still getting things wrong, still googling things mid-conversation. But here's my favourite stat I've found so far, and it's the one that keeps me going. In BCG's twenty twenty-four survey of tech-company employees, senior women in technical functions reported using generative AI more than men in those same roles—by fourteen percentage points. [pointed] So the overall gap is not the whole story. In that group, women were already ahead on using the tools. And what they bring to it is the one thing AI cannot replicate: her knowledge of her own work. The instinct that something is off in a document before you can even articulate why. That twenty percent of my email only I could see? [smile] That's your critical thinking.
+Now — I want to be clear. I am no AI slayer. [wry] There's no Watcher guiding me through some prophecy, no training montage that happened off-screen. I'm still learning, still getting things wrong, still googling things mid-conversation. But here's my favourite stat I've found so far, and it's the one that keeps me going. In BCG's twenty twenty-four survey of tech-company employees, senior women in technical functions reported using generative AI more than men in those same roles—by fourteen percentage points. [pointed] So the overall gap is not the whole story. In that group, women were already ahead on using the tools. And what you bring to it is knowledge of your own work: the details this draft may not have. The instinct that something is off in a document before you can even articulate why. That twenty percent of my email only I could see? [smile] That's your critical thinking.
 
 Which brings me to my favourite part of every episode. We call it the cocktail party explanation, and it was born at the Bronze Age — that's our bar in Sunnyvale — during businesswomen's special happy hour. I was three sips into telling my girlfriends about the email thing when one of them put down her drink and said, "okay, but what IS it? Actually?" [dry] The table went quiet. Everybody wanted to know. Nobody wanted to be the one to ask. So now, every week, this segment hands you the answer you'll give the next time somebody at a dinner table — or a happy hour — says "AI" like they know what they're talking about. This week's question is the big one: what is this thing, actually? And I'll give you exactly what I gave the girls.
 
@@ -527,7 +530,7 @@ Limit one: it may be missing context that matters. Think of Cher's closet comput
 
 Limit two: the answer can look finished and still contain something false or unsupported. That is a hallucination. It does not have to be a whole fantasy; one invented citation, wrong date, or made-up detail is enough. Think of the Burn Book from Mean Girls: a false allegation can arrive with total confidence. [incredulous, almost laughing] "Made out with a hot dog"? It lands like a documented fact. [smirk, deadpan] Regina George energy. But make it AI. Polished is a style. Evidence is a standard.
 
-Three words before you go, so you do not pull a Cher, [chuckles] confidently arguing it does not say R-S-V-P on the Statue of Liberty.
+Three words before you go. Cher was right: it does not say R-S-V-P on the Statue of Liberty. [chuckles] But confident delivery is not a fact-check. Here is what these words actually mean.
 
 Generative AI: AI that can turn your request and the material you give it into content — an email, image, summary, slide, song, video, or piece of code. It can make the draft. It cannot make it true.
 
