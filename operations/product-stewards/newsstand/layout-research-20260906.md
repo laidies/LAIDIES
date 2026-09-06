@@ -52,3 +52,6 @@ Ali rejects the unrelated serif fonts, near-black recurring column headings, lon
 
 ## Latest Ali ruling — palette correction pending reference
 Ali rejects blanket purple and the invented pale-pink (#f8c9e6) paper ground; they are not accepted LAiDIES colour authority. This supersedes the previous violet-heading recommendation. Apply a consistent hierarchy across all NewsStand sections, including Latest and Front PAiGE, from a verified existing LAiDIES reference. Do not substitute another guessed ground or add arbitrary coloured rectangles. Requested one reference-page choice while auditing current palette sources; no further public colour change yet.
+
+## Palette authority resolved without another founder decision
+Ali says use known LAiDIES colours; reference-page request was unnecessary. Verified live homepage current tokens: midnight070f2b, ink11183b, cyan15bce0, cobalt2457e6, sky78c7ff, coralff7366, mint7de2c2; its headings also use003b9e. Apply mint newspaper ground, cobalt navigation/labels, navy article ink, differentiated dates; midnight catch-up with coral headings and mint copy. Preserve masthead/art; no invented pale pink or blanket purple.

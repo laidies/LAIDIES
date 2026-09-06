@@ -16016,3 +16016,9 @@ remain unreconciled; cross-chat completeness is not certified.
 - Failure: Adding a separate serif family disconnected NewsStand from live LAiDIES typography; decorative panels did not repair reading flow.
 - Prevention: Bind actual live heading/body type before changing typography; compact content structure before adding colour blocks.
 - Behind the Build: Borrow a format’s hierarchy, not every visual convention.
+
+## BTB-518 — Known brand authority is not a founder question
+- Date:2026-09-06
+- Failure: Unnecessary reference-page question and promises without action delayed an authorised palette correction.
+- Prevention: Read effective live brand tokens and apply the hierarchy across every section; continue through public verification. Preserve concurrent releases beforedeploy.
+- Behind the Build: A brand system earns its value through consistent application, not repeated subjective guesses.

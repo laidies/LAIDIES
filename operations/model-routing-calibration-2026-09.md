@@ -129,3 +129,5 @@ and the next review date only if continued measurement can change a decision.
 | 40 | 2026-09-06 | Section markers and duplicate rules | Astra foreground; Terra Medium independent review | <15m / usage unavailable | Root candidate clear | Incorporated second screenshot into same fix | Terra adequate |1200/390/320; duplicate-rule negativecase |
 
 | 41 | 2026-09-06 | Typography and catch-up index | Astra foreground; Terra Medium independent review | <15m / usage unavailable | Exact scope accepted | User steered away from more colourpanels; live Jost verified | Terra adequate | Fresh/returning1200/320, preservedart, readerfixtures |
+
+| 42 | 2026-09-06 | Whole-paper established palette | Astra foreground; Terra Medium independent review | <15m / usage unavailable | Candidate accepted | Concurrentplayerrelease preserved | Terra adequate |1200/390/320allsections,sixlinks,exactscope |
