@@ -16,6 +16,7 @@ const cases = [
   ['production promotion', v => { v.design_admission.production_release_approved = true; }, 'does not authorize production'],
 ];
 if (item.design_admission.graphic) cases.push(['different graphic', v => { v.design_admission.graphic.sha256 = '0'.repeat(64); }, 'graphic bytes differ']);
+if (item.design_admission.mallImage) cases.push(['different Mall image', v => { v.design_admission.mallImage.sha256 = '0'.repeat(64); }, 'Mall image bytes differ']);
 for (const [name, mutate, reason] of cases) {
   const candidate = structuredClone(item);
   mutate(candidate);

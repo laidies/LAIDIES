@@ -22,6 +22,29 @@ export function inspectHomepageCorrection(item, root) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if (a.owner_feedback_successor === 'MALL_BANNER_IMAGE') {
+      const p = 'operations/product-stewards/town-entry-homepage/candidates/mall-thumbnail-20260906/';
+      assert(item.id === homepageCorrectionId && item.review_type === 'building_page_visual', 'wrong scoped candidate');
+      for (const [name,binding] of [['homepage',a.candidate],['runtime',a.runtime],['worker',a.worker],['graphic',a.graphic],['Mall image',a.mallImage]]) assert(binding && digest(binding.path) === binding.sha256, name + ' bytes differ');
+      assert(a.candidate.sha256 === 'b69c4de429163a8f36baff861bbb03fa1f8044f18319c3c4dc8821bdfd67e921' && digest(p+'parent.html') === '0f044cf3411edd909653e220da382ba665b22a8621c013648ca82139f8b347a8', 'wrong Mall candidate or parent');
+      assert(a.runtime.sha256 === '79b1180ad64c4256e4bc70fb1f2eb78e2e69731b1d33b0a7bf5d2fbedfa1b227' && a.worker.sha256 === '9ddfba4179ce757019a2bacf75dbc814a222410628821b17c5feaba09337e764', 'unrelated runtime changed');
+      for (const binding of a.evidence || []) assert(digest(binding.path) === binding.sha256, 'stale evidence: ' + binding.path);
+      for (const file of ['scope.md','parent.html','checks.json','producer-self-review.md','source-diff.patch','independent-review.md','claude-review-result.json','visuals.json','source-image.json']) assert(a.evidence?.some(b => b.path === p+file), 'missing bound evidence: ' + (file.startsWith('claude') ? 'claude' : file));
+      const checks=JSON.parse(bytes(p+'checks.json'));
+      assert(checks.status === 'PASS' && checks.sourceSha256 === a.candidate.sha256 && checks.oldDirectoryRejected, 'Mall checks differ');
+      for (const width of [1440,390]) {
+        const row=checks.rows.find(r=>r.width===width && r.kind==='candidate'),old=checks.rows.find(r=>r.width===width && r.kind==='parent');
+        assert(row && old && !row.overflow && row.imageDecoded && row.image==='/assets/sunnyvaile-streets/main-street-dusk.webp' && Math.abs(row.cropOrigin[0]-925)<1 && Math.abs(row.cropOrigin[1]-100)<1 && Math.abs(row.sourceCrop[0]-300)<1 && ['text','href','height','media','allDestinations','headingColour'].every(k=>JSON.stringify(row[k])===JSON.stringify(old[k])), 'Mall fit or preservation differs');
+      }
+      assert(JSON.parse(bytes(p+'source-image.json')).sha256 === a.mallImage.sha256, 'source Mall image differs');
+      const independent=bytes(p+'independent-review.md').toString(),claude=JSON.parse(bytes(p+'claude-review-result.json'));
+      assert(independent.includes('ADMIT_FOR_OWNER_REVIEW') && independent.includes(a.candidate.sha256), 'independent Mall review differs');
+      const claudeBinding=JSON.parse(bytes(p+'claude-binding-result.json'));
+      assert(a.evidence?.some(b=>b.path===p+'claude-binding-result.json') && !claude.is_error && claude.modelUsage?.['claude-opus-5'] && claude.result?.includes('ADMIT_FOR_OWNER_REVIEW') && !claudeBinding.is_error && claudeBinding.session_id===claude.session_id && claudeBinding.result?.includes(a.candidate.sha256), 'actual Claude Mall review differs');
+      for (const visual of JSON.parse(bytes(p+'visuals.json'))) assert(digest(visual.path)===visual.sha256,'stale visual');
+      assert(a.production_release_approved === false, 'owner presentation does not authorize production');
+      return errors;
+    }
     if (a.owner_feedback_successor === 'BANNER_BRIGHT_QUESTION_MARK') {
       const p = 'operations/product-stewards/town-entry-homepage/candidates/banner-graphic-20260906/';
       assert(item.id === homepageCorrectionId && item.review_type === 'building_page_visual', 'wrong scoped candidate');

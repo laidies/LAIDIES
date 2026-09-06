@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Replace the Mall banner image
+
+Ali rejects the Mall thumbnail in Did you know. Use an existing Mall exterior or interior that clearly reads as the Rewind Era Mall at thumbnail size, replacing the unrelated small directory-card crop. Preserve bright banner text, illustrated question mark, compact layout, Mall copy/destination and all other features. Preview only.
+
 ## 2026-09-06 — Bright banner text and colourful question mark
 
 Ali requests a fun colourful 90s-style question mark behind Did you know, then explicitly rejects the purple text: “we need bright text that purple looks bad.” Replace purple across the banner with bright text; preserve readable contrast and compact dimensions. Add one decorative illustrated question mark behind the heading, with no change to copy, feature images, destinations, controls, needs heading or radio. Preview only. This supersedes the preceding purple-text choice.
