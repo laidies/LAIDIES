@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Needs heading: bright blue text only
+
+Ali clarified “just the text” for “What brought you to town today?”. Use existing bright cobalt blue for that heading; preserve the warm section background, mint-to-cyan banner, cards, copy and layout. A fine navy letter edge maintains readability against the warm gradient. Preview correction only.
+
 ## 2026-09-06 — Did you know banner contrasts with the section below
 
 Ali requests a different banner colour because it repeats the section immediately below. Reuse the existing homepage mint-to-cyan gradient with dark text; preserve the current compact shape, artwork, all eight invitations, carousel and bottom-radio action. Colour-only preview correction; no production promotion.
