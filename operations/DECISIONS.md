@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Radio listening opens the shared bottom player
+
+Ali explicitly corrects the radio banner: activate the existing bottom-fixed KSVL deck so controls remain available while browsing town pages. This supersedes the separate-tab radio choice recorded for the eight highlights. Direct listening invitations use the existing button[data-ksvl-start-live] action. Ordinary station-directory links may navigate to the station. Reuse the current player and its same-device track/position restoration; full-document reloads are not gapless audio. Shared header loads missing deck; four full pages without it get direct includes. Source 28b64ed2; hosted evidence f06663b7; https://fd4bf243.laidies-sunnyvaile.pages.dev/ . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Existing in-app tab8 updated, player visible and paused. Preview only; no production promotion.
+
 ## 2026-09-06 — Eight owner-supplied Did you know highlights
 
 Ali supplied eight invitations for the slim rotating banner: Rewind Era games (Dream Phone, Girl Talk, paper fortune teller); Miss Jeeves; KSVL while browsing; women computing history; LIBRAiRY textbooks; NewsStand headlines and Big Picture; FAiRY career advice plus own-AI guidance; Mall references. Preserve her examples and welcoming direct voice, correcting spelling/canon and unsupported facts only. Since the1800s replaces unestablished over200years based on Ada1843. Radio explicitly opens another tab for listening while browsing. Preview a3e89267 implements these eight; six needs shortcuts and compact expandable directory remain. No production approval.
