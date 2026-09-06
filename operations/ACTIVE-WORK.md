@@ -1,7 +1,10 @@
-<!-- Blank town column repair: tested / publication pending -->
+<!-- Blank town column repair: VERIFIED PUBLICLY -->
 Actual user IAB tab refreshed from old version; reading restored. CSS successor
 collapses absent/hidden Mme column; real1200/650 ready/missing checks verified.
 Exact two-file overlay /private/tmp/laidies-newsstand-town-fallback-20260906.
+Source ce88a184 deployed e97d7c51; eight exact custom/immutable checks match.
+User IAB tab refreshed and verified current CSS, visible reading, 1024px image
+and no overflow. Independent exact CSS review accepted min601 rule.
 
 <!-- Hannah Fry spotlight substance: RESEARCHED / production open -->
 Ali rejected the title-only Hannah Fry profile. Verified Cambridge, Penguin and
