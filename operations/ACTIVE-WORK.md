@@ -1,3 +1,11 @@
+<!-- Compact newspaper features: VERIFIED LOCALLY / release in progress -->
+Ali rejected full-width pale profile sprawl; compact spotlight preserves all copy,
+portrait, takeaway, song and card actions. Catch-up, archive and back-issue results
+share newspaper typography and vibrant framing. Paper ground replaces pale pink.
+Candidate /private/tmp/laidies-newsstand-paper-features-20260906, base1cf867f1.
+Three public paths only; desktop independent review and root390/320 checks.
+Hannah substance and duplicate Latest artwork remain open; no new art/prose.
+
 <!-- Newspaper spacing and compact Big Picture date: VERIFIED PUBLICLY -->
 Two public paths only: newsstand.html and content/newsstand-design.css.
 Balanced Big Picture columns; date beside reading action below image. Smaller

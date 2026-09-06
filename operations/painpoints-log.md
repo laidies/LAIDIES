@@ -15958,3 +15958,10 @@ remain unreconciled; cross-chat completeness is not certified.
 - Prevention: Place date with reading action; inspect actual relative heights and whitespace at desktop and narrow widths. No-overflow alone is not a visual-quality verdict. Preserve original art proportions and complete summaries.
 - Verification: Independent desktop accepted; root1200/390/320 and reading action passed. Original images and prose unchanged.
 - Behind the Build: Small metadata placement can change the balance of a whole page. Explain the general design lesson without exposing private operations.
+
+## BTB-509 — A newspaper design must continue through the whole reading path
+- Date: 2026-09-06
+- Finding: Earlier acceptance covered selected sections while the spotlight and utility panels still used sprawling pale webpage framing. Browsing the archive also exposed oversized uppercase result cards.
+- Prevention: Inspect connected lower sections and opened results against the user's publication format; use a compact feature with constrained columns, original copy and working actions. Reproduce rejected incumbent before judging successor.
+- Evidence: Terra rejected incumbent sprawl; successor desktop reviewed. Root phone, song controls and30 archive results checked. No artwork/prose changed.
+- Behind the Build: A consistent design must survive a click, not just the landing view. Share that lesson without revealing internal operations.

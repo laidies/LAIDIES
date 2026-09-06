@@ -20,6 +20,12 @@ proper domain source before building from it.
 
 ## Core routes
 
+September 6, Ali rejected the sprawling pale LUMINAiRY spotlight and webpage-like
+lower sections. The whole NewsStand must read as a newspaper: compact editorial
+features, ruled columns, strong LAiDIES pink/cyan/yellow/navy accents and paper
+reading surfaces. Retain complete messages, roster rotation, song and card links.
+
+
 September 6, Ali rejected wasted space beneath the Big Picture image and the
 oversized muted advice cards. Balance the Big Picture image/text columns, use
 compact newspaper illustrations and stronger pink/cyan/yellow/purple section

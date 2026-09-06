@@ -46,16 +46,19 @@
     portrait.width = 144;
     portrait.height = 176;
     card.appendChild(portrait);
-    card.appendChild(text('h3', '', profile.name));
-    card.appendChild(text('p', 'ns-luminairy__role', profile.role));
+    var story = document.createElement('div');
+    story.className = 'ns-luminairy__story';
+    card.appendChild(story);
+    story.appendChild(text('h3', '', profile.name));
+    story.appendChild(text('p', 'ns-luminairy__role', profile.role));
     if (profile.id === 'sister-mary-clarence') {
       // Ali's September 6 editorial direction: teaching through sisterhood.
       [
         'Sister Mary Clarence is about teaching, uplifting those around you and the importance of sisterhood. Help other women learn. Share your knowledge, work together and support one another.',
         'We do not need to compete against one another. A chorus is louder than a single voice. When one of us rises, we should be rising together.',
         'This is central to women shaping AI: understanding it gives us something useful to share, and community helps more of us take part. That is the idea behind the LAiDIES community: learning together and supporting one another.'
-      ].forEach(function (paragraph) { card.appendChild(text('p', 'ns-luminairy__about', paragraph)); });
-    } else card.appendChild(text('p', 'ns-luminairy__about', profile.about));
+      ].forEach(function (paragraph) { story.appendChild(text('p', 'ns-luminairy__about', paragraph)); });
+    } else story.appendChild(text('p', 'ns-luminairy__about', profile.about));
     var lesson = document.createElement('div');
     lesson.className = 'ns-luminairy__lesson';
     lesson.appendChild(text('h4', '', 'Take this with you'));
