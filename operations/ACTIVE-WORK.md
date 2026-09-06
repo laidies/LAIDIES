@@ -1,3 +1,6 @@
+<!-- Selective-colour paper + headline divider: BUILDING -->
+Ali endorses selectivecolour/quiettexturedpaper rather than solidfill. Finalcandidate uses existingpaper token, retains vividfeatures and removesWeekly/Frontheadlinehairline. Rootdesktop/phonesclear; independentreviewpending. Evidence operations/product-stewards/newsstand/evidence/print-ground-20260906/.
+
 <!-- Whole-paper brand palette: VERIFIED PUBLICLY -->
 No reference-page decision required. Verified established live tokens applied acrossallNewsStand; independent1200/390/320review accepted. Source282111a4 deployed9c608a3c atop playerdeae5f69, preserving757files excepttwoNewsStandpaths. Fresh live1200/390/320 clear; exactHTML/CSS/player match both origins. Evidence: operations/product-stewards/newsstand/evidence/brand-palette-20260906/review.md.
 

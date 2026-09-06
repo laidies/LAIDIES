@@ -16022,3 +16022,9 @@ remain unreconciled; cross-chat completeness is not certified.
 - Failure: Unnecessary reference-page question and promises without action delayed an authorised palette correction.
 - Prevention: Read effective live brand tokens and apply the hierarchy across every section; continue through public verification. Preserve concurrent releases beforedeploy.
 - Behind the Build: A brand system earns its value through consistent application, not repeated subjective guesses.
+
+## BTB-519 — A solid-fill complaint is not another colour request
+- Date:2026-09-06
+- Failure: Replacingpinkwithmint retained the continuouswash Ali disliked; inheritedborder survived a paddingreset.
+- Prevention: Distinguish colourchoice from distribution/texture. Check inheritedborders when resettingpadding; use quietpaper and selectivefeaturecolour when requested.
+- Behind the Build: Sometimes the problem is how much colour a design uses, not which colour.

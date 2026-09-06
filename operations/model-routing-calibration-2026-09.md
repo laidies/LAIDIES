@@ -131,3 +131,5 @@ and the next review date only if continued measurement can change a decision.
 | 41 | 2026-09-06 | Typography and catch-up index | Astra foreground; Terra Medium independent review | <15m / usage unavailable | Exact scope accepted | User steered away from more colourpanels; live Jost verified | Terra adequate | Fresh/returning1200/320, preservedart, readerfixtures |
 
 | 42 | 2026-09-06 | Whole-paper established palette | Astra foreground; Terra Medium independent review | <15m / usage unavailable | Candidate accepted | Concurrentplayerrelease preserved | Terra adequate |1200/390/320allsections,sixlinks,exactscope |
+
+| 43 | 2026-09-06 | Selectivecolour and headlinehairline | Astraforeground; TerraMedium independentreview | <15m / usageunavailable | Rootclear | Userclarifieddistributionoverhue; privategradientdiscarded | Terraadequate |1200/390/320preservedgeometry |

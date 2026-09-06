@@ -55,3 +55,9 @@ Ali rejects blanket purple and the invented pale-pink (#f8c9e6) paper ground; th
 
 ## Palette authority resolved without another founder decision
 Ali says use known LAiDIES colours; reference-page request was unnecessary. Verified live homepage current tokens: midnight070f2b, ink11183b, cyan15bce0, cobalt2457e6, sky78c7ff, coralff7366, mint7de2c2; its headings also use003b9e. Apply mint newspaper ground, cobalt navigation/labels, navy article ink, differentiated dates; midnight catch-up with coral headings and mint copy. Preserve masthead/art; no invented pale pink or blanket purple.
+
+Ali flags the hairline touching the Weekly headline: remove the inherited contents border from Weekly and FrontPAiGE; section rules already separate them. Ali is unsure about solidmint; background design remains unresolved, and another flat full-page recolour is not an accepted remedy.
+
+Clarification: Ali dislikes the solid fill itself. Use gentle continuous colour movement and restrained print texture, keeping textareas calm; do not treat this as a request for another flatcolour.
+
+Ali also endorses balanced composition with colour used selectively rather than a continuouswash. Finaldirection: existingpaperfffdfb with restrainedprintgrain behindarticles, concentratedcolour in masthead/art/BigPicture/Mme/catchup; not the privateall-overgradientcandidate. Dividerfix retained.

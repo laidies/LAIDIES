@@ -1022,3 +1022,16 @@
 .ns-redesign .ns-catchup-item:nth-child(n),.ns-redesign .ns-catchup__timeline { border-color: #336476; }
 .ns-redesign .ns-archive__input-row input,.ns-redesign .ns-archive__filters :is(input,select) { background: #7de2c2; }
 @media(max-width:650px) { .ns-redesign .ns-catchup { padding: 18px 14px; } }
+
+/* Section rules already separate these stories; no hairline against the headline. */
+.ns-redesign .ns-front-desk--lead .ns-publication__contents,
+.ns-redesign .ns-front-desk--weekly .ns-front-contents { border-top: 0; }
+
+.ns-redesign :is(.ns-room,.ns-counter-surface,.ns-one-paper,.ns-town-strip) { background: transparent; }
+.ns-redesign .ns-catchup { background: linear-gradient(120deg,#070f2b,#11183b 65%,#12395a); }
+
+/* Selective colour: quiet textured paper supports the vivid editorial features. */
+.ns-redesign { --ns-newsprint: #fffdfb; background: #fffdfb; }
+.ns-redesign .ns-page { background-color: #fffdfb; background-image: radial-gradient(rgba(17,24,59,.055) .55px,transparent .8px); background-size: 4px 4px; }
+.ns-redesign .ns-page::before { display: none; }
+.ns-redesign .ns-archive__search { background: #fffdfb; }
