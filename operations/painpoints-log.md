@@ -224,3 +224,18 @@ routed proportional rule and omitted latest-direct-ruling priority. Both
 summaries now follow current authority; production gates remain unchanged.
 Behind the Build: changing the master instructions does not update every copy
 that workers actually read. Test distribution, not just the writing tool.
+
+### 2026-09-06 — An existing repair is not a running repair
+Observed: main still scheduled the retired HotGoss rewrite/direct-push job,
+which failed at branch protection on September6; the manual-only retirement was
+already on the NewsStand branch. Main also lacks the mandatory prose producer,
+review and learning registry package present in the shared checkout. All17 shared
+content work orders are held despite green integrity calibration. Prevention:
+reconcile exact receiving-branch behavior before claiming a repair, integrate
+bounded existing packages rather than the mixed branch, and distinguish integrity
+from readiness. The recovered legacy workflow has negative schedule/write/push
+calibration. Maker-learning completion remains open until owner admission changes
+the next maker and unaided evaluation proves the change. Do not invent a second
+worktree manifest: reuse the existing recovery plan and work index.
+Behind the Build: the same project can contain a fixed version and still run the
+broken one; test the copy that actually executes.

@@ -1,141 +1,229 @@
-# The LAiDIES Operating Model
-*How agents run and keep running LAiDIES — the source of truth, the review that blocks, and where Ali plugs in.*
-**v1 · 2026-07-10**
+# LAiDIES operating audit and implementation plan
 
----
+Date: September 6, 2026. Owner: operating-system review task
+`01a077d0-0775-7af2-b631-c311573f0e0e`.
+Status: **AUDIT / PROPOSED OPERATING DESIGN; IMPLEMENTATION IN PROGRESS**.
+This replaces the July 10 v1 at this path. The prior version remains in Git
+history (37fe77ae); its operator/watchdog descriptions were not proof of running
+services. Product decisions and current product owners remain authoritative.
 
-## Why this exists (the root cause it fixes)
+## Verdict
 
-The old way had **no enforced source of truth** and **no content-correctness gate**. Work got written from memory, "reviewed" by vibes, and audited only for broken links. So shallow teaching, wrong facts, and canon bugs (the Mall's "No. 4," "AI = her") shipped straight through — and **Ali became the QA of last resort.** That doesn't scale and it burns her out.
+LAiDIES has useful running services, substantial production work and many
+careful controls. The central failure is that **a local repair, a successful
+check and an accepted operating change are not reliably connected**. New rules
+and code accumulate on branches; old jobs and summaries keep running elsewhere;
+review findings do not consistently reach the next maker. More instructions or
+another project-management subscription would reproduce that problem.
 
-**The whole model is one law:** *Everything is produced FROM a verified source of truth → GATED by adversarial, source-checking review → only then ships. Ali sets direction and approves at a few high-leverage gates; she is never the bug-catcher of last resort.*
+The recommended solution is to finish the existing delivery and learning loops,
+use one current source per job, separate machine checks from quality judgments,
+and operate a small hybrid of cloud checks and subscription-funded building.
+No new purchase is recommended as a prerequisite. This is not a certification
+that every visitor feature or all unpublished artifacts were inspected.
 
-Three sub-rules that flow from it:
-1. **Source-of-truth or silence.** An agent may not assert anything not traceable to the Records. Not in the Records → flagged **"not verified,"** never guessed.
-2. **Facts first, prose second.** No script/page is written until its sourced fact-sheet is locked. The fact-sheet is the *input* to writing.
-3. **Gated, not trusted.** A rule you're "supposed to follow" is what failed. Every rule becomes a step that *blocks*.
+## What was checked
 
----
+- Re-read the September 5 whole-operation audit in the preserved episode-delivery
+  checkout, current shared canon/router/agreement and current owner records.
+- Inspected all 58 registered worktrees at metadata level; inspected bounded
+  dirty-state/ancestry and current task-owner candidates. This is not a byte-level
+  reconciliation of every worktree or a declaration that any folder is expendable.
+- Compared current main with shared producer/review/learning scripts, registry,
+  source bindings and tests; inspected one actual owner-rejected carousel.
+- Checked current main CI, a failing active NewsStand branch, scheduled source
+  intake, the obsolete publisher, local schedule definitions and the existing
+  private Cloud maintenance result. Did not repeat settled phone pairing.
+- Checked current official OpenAI Cloud/subscription/scheduling documentation
+  and GitHub/Cloudflare billing documentation. Exact existing invoices, complete
+  account entitlements and task-specific costs were not available.
 
-## Layer 1 — Town Records (the source of truth)
+## Ranked findings
 
-A small set of canonical, version-controlled files everything reads and nothing contradicts:
+| Priority | Verified finding | Effect | Correction / owner |
+|---|---|---|---|
+| P0 | Main referenced mandatory prose producer/review tools that it does not contain. The shared checkout contains them, their tests and the exemplar registry. | A new cloud checkout cannot follow the same process as the local maker. | Integration owner ports one complete dependency package from exact reviewed source; do not merge the mixed shared branch. |
+| P0 | The legacy Hot Goss workflow still scheduled a rewrite and direct main push; September 6 run failed at branch protection. Its retirement already existed on the NewsStand branch. | Repeated failure, possible unnecessary provider calls, and a second obsolete editorial path. | Integrate the existing manual-only, read-only-permission, artifact-only workflow. No branch-protection bypass or scheduled call; a deliberate manual run can still consume existing API/runner resources. |
+| P1 | Shared quality calibrations pass, but all 17 real content work orders are held. Bare release checking permits a green integrity result with zero ready content; strict candidate selection rejects held work. | Green CI is being overinterpreted as delivery/quality. | Preserve integrity CI; require exact candidate ID for admission/release. Report ready/held counts separately. |
+| P1 | The shared Straight Answers positive exemplar expects SHA8cd3d008… but current file is1c50762d…. Pending reusable lessons require PENDING_OWNER_ADMISSION, with no verified executable admission transition into the registry. | The maker either cannot pass its input contract or relies on manual knowledge transfer. | Learning owner recovers exact admitted exemplar or reviews a replacement; integration owner connects explicit owner admission to next-maker invalidation. Never replace the hash just to clear the check. |
+| P1 | Ali rejected the carousel after AI admissions: the invented pension/marketing exercise displaced the intended LUMINAiRY discovery journey. | Correct arithmetic/export tests missed the actual product purpose. | Test maker and judge on the exact known-bad artifact without supplying the expected defect; then test a new example. A checklist alone cannot establish semantic learning. |
+| P1 | Current working tasks and old central records disagree; the dispatcher is intentionally paused and work events remain an opt-in pilot. | Work can have a task, files and a handoff without accountable continuation. | Bind one existing real job through owner acceptance, execution, outcome, next owner and closure; extend only after it works. |
+| P1 | Main CI passed after PR103; the current NewsStand branch has repeated minimum-session-context failures. | Integration failures are mixed with product progress. | Reconcile that branch's standing-card/source bindings before integration; do not disable the guard or restart the editorial work. |
+| P2 | 58 registered worktrees: one clean ancestor of main, two ancestors with local state, 55 not proven integrated by ancestry/unknown. No prunable registrations at this snapshot. | Folder age cannot safely identify obsolete work. Non-ancestry also includes cherry-picked equivalent work. | Reuse the existing clean-worktree recovery plan and work index; classify exact owned packages and recovery links before archive. |
+| P2 | Local schedules still own editorial/freshness work; a Cloud maintenance result exists but independent trigger/phone/Mac-off evidence is incomplete. | Laptop availability remains a hidden dependency; notification delivery is not demonstrated for the proposed whole loop. | Prove one existing Cloud maintenance result -> actionable decision -> reply -> resumed job. Do not buy a notification system before testing this route. |
 
-| Record | What it is | Lives at |
+Evidence anchors: `scripts/check-content-producer-contract.mjs`,
+`check-prose-quality-admission.mjs`, `check-content-release-readiness.mjs` and
+`operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json`
+are **shared-checkout sources absent from main at audit**, not working main paths.
+Shared `state.json` explicitly records local build and surface-adoption holds.
+Shared carousel evidence: `operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/v3/ALI-REJECTION.md`.
+[Failing legacy scheduled run](https://github.com/laidies/LAIDIES/actions/runs/34039375615).
+[Successful main intake, schedule event](https://github.com/laidies/LAIDIES/actions/runs/34051864764).
+[Main CI after PR103](https://github.com/laidies/LAIDIES/actions/runs/34050169026).
+[NewsStand branch failure](https://github.com/laidies/LAIDIES/actions/runs/34054701646).
+The historical issue82-versus78 mismatch was rechecked and **not substantiated**;
+it is not a current finding.
+
+## Recommended cloud, API and laptop split
+
+| Job | Execution home | Charging route | Required result |
+|---|---|---|---|
+| Link/endpoint checks, schema/source parity, artifact integrity, scheduled source polling, stale/failed-run detection | Existing GitHub Actions; existing Cloudflare runtime only where persistent service state is needed | No model call. Runner/storage/platform limits still apply. | Machine-readable finding, run ID, owner and next action; quiet unchanged result. |
+| Bounded source research, triage and operating summaries | Existing ChatGPT Work Cloud where its supported tools suffice | Shared ChatGPT/Codex allowance; not an API-key bill | Exact sources, change/no-change judgment, bounded output and saved continuation. |
+| Programmatic work that cannot fit the subscription Cloud route; visitor-triggered production AI | Existing appropriate API/Worker services, each with a specific job | Separately metered API/platform usage | Explicit per-job limits, deduplication, measured usage, failure state and approved budget. |
+| New features, debugging, substantial writing/design iteration, visual/media production and interactive acceptance | Laptop Codex and existing subscribed applications | Existing subscriptions/allowances; tool-specific generation credits can still apply | Committed candidate, real maker inspection, applicable independent review and owner decision. |
+| Authorized release of an exact accepted candidate | Existing serialized release path | Existing hosting/runner route | Target source identity, preserved unrelated production bytes, rollback and live journey proof. |
+| Backup of files that exist only on the laptop | Existing local backup process | Existing backup/storage arrangements | Verified backup and recovery; cloud checks cannot back up unavailable local bytes. |
+
+Cloud does not require an API key in every case. Official documentation says
+Work Cloud can continue with the computer off, and Work/Codex share allowance.
+Local scheduled tasks still require the computer/app and local project.
+A subscription is not unlimited: large cloud runs compete with interactive
+building for the same allowance. Use deterministic checks first, send only
+meaningful deltas to a model, and reserve large tasks for the most suitable route.
+[Work local/cloud](https://learn.chatgpt.com/docs/get-started-with-work),
+[pricing and allowance](https://learn.chatgpt.com/docs/pricing),
+[scheduled tasks](https://learn.chatgpt.com/docs/automations).
+
+## Communication and decisions
+
+Use the **existing private Cloud maintenance conversation** as the initial
+operating communication channel. Keep product tasks for product collaboration;
+Ali should not transport context between them. A finding notification must say:
+what changed, consequence, what is already fixed, the one decision (if any),
+exact candidate/evidence, recommended choice, and the next action after reply.
+A failed check without a decision is an owned repair, not homework for Ali.
+Unchanged checks stay quiet. Urgent failures notify promptly; routine decisions
+are bundled into one short review window. These are proposed operating rules,
+not a claim that the notification/resumption path is implemented.
+
+The run record must link the job, exact source/candidate, result, accountable
+owner, wait reason and next trigger. A reply must be captured against that job
+before resumption; a general 'yes' cannot approve a changed artifact. Native
+phone pairing is settled; test actual new-job delivery and resumption only.
+Scheduled task findings appear in Scheduled according to official docs, but
+phone push delivery for this proposed loop still needs observation. No extra
+messaging app is required unless the existing route fails the real acceptance
+journey or an alert urgency requirement exceeds it.
+
+The GitHub repository is PUBLIC. Technical issues/PRs and source-source signals
+are not a private founder inbox. Keep personal decisions, credentials, sensitive
+source material and unpublished private feedback out of public issues. The
+existing private decision/inbox pilot remains parked; do not activate it merely
+to solve an unproven notification gap.
+
+## Organization and context
+
+Use the existing `operations/control-room/CLEAN-WORKTREE-RECOVERY-PLAN.md` and
+work index; do not add another portfolio database. Each active work package needs
+one confirmed owner/task, source branch/path, exact next action, finish condition,
+and receiving integration/release owner. Give old packages one disposition:
+continue, integrate selected work, superseded with successor, parked with trigger,
+or unknown/preserve. A task is not finished because its branch is old or clean.
+
+Keep sustained work in bounded non-iCloud checkouts. Preserve the shared tree:
+its inventory had642 tracked and3264 untracked status entries (entries, not a
+validated file total). One episode-delivery checkout had9729 tracked differences;
+that does not mean9729 obsolete files. No deletion or archival decision follows
+from these counts. The one clean merged worktree was already in LAIDIES-ARCHIVE.
+
+New jobs load a small current entry packet and retrieve their exact relevant
+rules, examples and defects. Historical documents remain searchable, but leave
+the default packet. Retired/superseded status must be visible before the body.
+Do not delete useful detail simply to reduce prompt size; route it. Stop adding
+universal rules for one product's exception. A generated summary must be tested
+against current authority, not trusted because it regenerates successfully.
+
+## A learning loop that changes the next attempt
+
+1. Maker receives the reader/user outcome, exact accepted references and relevant
+   admitted failure examples before producing a small representative artifact.
+2. Mechanical checks reject objective breakage. Their verdict is integrity only.
+3. A distinct reviewer sees the real artifact and original purpose before maker
+   receipts; rejects visible/semantic failures and states limits of evidence.
+4. A rejection invalidates that artifact's admission. The learning owner decides
+   whether it is candidate-only, missing evidence, or a reusable defect.
+5. Reusable defects become a small admitted rule/example or executable test.
+   Update the responsible maker input and expire old bound contracts. Merely
+   writing a pending lesson or appending a painpoint does not finish this step.
+6. Test the repaired maker/reviewer on the known-bad artifact without coaching,
+   then on a new case. Only observed improved performance closes the learning.
+
+Do not claim model-weight training from this process. Its durable mechanism is
+better source selection, maker instructions/examples, executable guards and
+verified use by the next run. Do not turn every minor rejection into a universal
+instruction. Track repeated defects and review burden; prune redundant active
+rules once a reliable narrow guard owns them. The current strict-decrease ratchet
+also needs a floor policy so zero defects does not make a subsequent zero-defect
+candidate impossible; audit that rule before changing its approved semantics.
+
+## Implementation sequence and acceptance
+
+| Order | Package and accountable lane | Finished only when |
 |---|---|---|
-| **Canon** | World rules: writing-lock, street layout, saint roster, season bible | `operations/voice/laidies-writing-lock.md`, `operations/voice/…canon-index`, street/saint memories |
-| **Fact base** | Verified, cited facts — one per episode + the landscape | `operations/reference/ai-landscape-factsheet.md`, `operations/reference/episode-NN.factsheet.md` |
-| **Site registry** | Every page: status (live/draft/stub), owner, last-verified date | `content/site/site-index.json` |
-| **Launch punch-list** | What each week needs + status | `operations/launch-*.md`, memory `launch-punch-list-*` |
-| **Analytics snapshot** | Real usage from Plausible: top pages, drop-off, dead ends | `operations/reference/plausible-latest.json` *(to wire)* |
+| 1 | Operating integration: obsolete job and instruction distribution | Exact repair merged; native/default source verified; no automatic legacy model rewrite/push remains; independent scheduling limits explicit. PR103 already merged; legacy job retirement is this audit's bounded repair. |
+| 2 | Operating integration with learning owner: one complete quality dependency package | Main contains the required tools and exact valid exemplars; one actual held candidate is explained truthfully; bare integrity cannot be used as candidate admission; no public content imported blindly. |
+| 3 | Learning owner plus integration: close one real rejection loop | Exact rejection -> owner-admitted lesson -> changed maker input -> unaided known-bad rejection -> improved new artifact. Preserve Ali's original purpose, not just more fields. |
+| 4 | Operating owner: one cloud decision/resumption loop | Scheduled/cloud run, meaningful finding, phone-accessible result, exact decision capture, resumed same job, final result and no duplicate effect; laptop-independent execution distinguished from local stages. |
+| 5 | Integration owner with existing product owners: finish selected stranded packages | Each accepted package reaches its intended receiving branch/release, while superseded/parked/unknown packages are explicit. Reconcile active owners first; no mass merge or cleanup. |
+| 6 | NewsStand, reference and Episode owners: extend the proven pattern | Each selected end-to-end product journey meets its own content/visual/functional and release conditions; no 'weekly operation' claim from a timer alone. |
+| 7 | Operating owner: sustainable upkeep | Two measured weeks of due-job coverage, no silent missing owner, bounded decision waiting, actual cost and repeat-defect reporting before retiring predecessor status systems. |
 
-**Rule:** if a claim, number, or address isn't in a Record, it doesn't ship — it gets verified into a Record first, or flagged.
+These are dependency-ordered packages, not calendar promises. Start with one
+representative job per mechanism; expand after evidence. Do not halt current
+Homepage/NewsStand/media owners while central integration catches up.
 
----
+## Costs and third-party tools
 
-## Layer 2 — The Operator (Ali's chief of staff)
+Recommended starting increment: **no new subscription and no new API job**.
+This excludes already-paid services and their existing usage; it is not a zero
+operating-cost claim. Confirm current invoices/allowances before any cancellation
+or plan change. Additional-budget preference was requested; absent an answer,
+use existing subscriptions and justify every proposed increment.
 
-One persistent orchestrator that:
-- Holds the roadmap and the weekly cadence.
-- Knows the state of everything (reads the registry + punch-list).
-- Dispatches the specialist agents and **enforces the gates** — nothing ships ungated.
-- **Surfaces only the decisions that need Ali** — batched, with receipts.
-- Writes every decision back to the Records, so nothing is re-derived or lost ("I already told you" never happens again).
+- GitHub Actions is already running. LAIDIES is public; standard hosted runner
+  usage is free, but artifact/cache storage and larger runners have separate
+  allowances/prices. Do not move private operations into public Git just to save
+  runner costs. [GitHub billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions).
+- Work Cloud uses the same allowance as Codex. Choose bounded cadence/deltas so
+  monitoring does not consume the building budget. API-key use is separate.
+  [OpenAI pricing](https://learn.chatgpt.com/docs/pricing).
+- Cloudflare Workers is an existing architectural option, not a required new
+  purchase. Its paid plan starts atUS$5/month plus applicable usage; verify the
+  existing account plan before adding anything.
+  [Workers pricing](https://developers.cloudflare.com/workers/platform/pricing/).
+- Do not add Zapier/Make/n8n, a VPS/Mac mini, Slack/Trello/Asana, another database,
+  or another AI subscription now. None closes the demonstrated authority,
+  integration or learning failures by itself. Reconsider a connector/alerting
+  service only against a proven missing capability and measured operating cost.
 
-*Implemented as:* a saved orchestration + the registry as its memory. Runs the weekly pipeline (below).
+For any later API job: estimate runs/month × measured input/output/tool use,
+include retries and storage, set an enforceable job ceiling, alert before the
+ceiling and stop safely at it. Provider alerts alone are not a spend cap. Do not
+repurpose the separate Miss Jeeves budget or infer cost from account-wide usage.
 
----
+## Going forward
 
-## Layer 3 — Production agents (build the content)
+The operating owner maintains one prioritized integration queue and one concise
+status view; product owners retain their products. Review active work and overdue
+handoffs weekly, schedules and cost monthly, and archive only after exact
+recovery/successor proof. Measure complete jobs, missing/failed runs, waiting
+for owner/decision, repeat defects, Ali review rounds and actual per-job usage.
+Unmeasured values stay unknown. The next work is package2, not another audit
+report: integrate one complete existing quality package after resolving its
+source bindings, then demonstrate package3 on a real rejection.
 
-Each is fed by the Records and produces one required artifact:
-- **Fact Researcher** — builds/refreshes fact-sheets from live web sources, every claim cited. *(Proven 2026-07-10.)*
-- **Episode Writer** — writes the script/article *from* the fact-sheet + canon + exemplars. Cannot invent claims.
-- **Image Briefer** — Codex prompts from canon + approved-asset refs (never lets Codex pick its own refs).
-- **Page / UX Builder** — builds/updates pages to the design system, hub-and-reveal law, a11y.
-- **Content-Sync agent** — when canon changes, cascades across all ~13 episode surfaces. *(Drift across surfaces is the #1 bug source.)*
-- **Song / Quiz / Cards** — the rest of the weekly artifact set.
+## Limits and changes in this audit
 
----
-
-## Layer 4 — The Gate battery (adversarial review that BLOCKS)
-
-**This is what replaces the "audit."** A link-checker is blind to a wrong street number or a shallow paragraph; these gates are not. Each returns **PASS / FAIL** with line-cited reasons and has the *right tool*. Full definitions + the runnable version: `operations/workflows/review-content.mjs`.
-
-| Gate | Mandate | Catches |
-|---|---|---|
-| **Fact-check** (web) | Every claim → real current source or cut. Cross-checks the fact base. | guessing, overclaims ("only a handful build their own"), stale model facts |
-| **Substance** | "Name what a smart woman *learns* she didn't know." Rewards a worked example + real mental model. | shallow skims, assertion-without-explanation |
-| **Canon / consistency** | writing-lock, street numbers, saint roles, AI-is-"it," no tells, no "the whole [x]," MUST-MATCH | the Mall No. 4, "AI = her," self-hyping tells |
-| **Design / UX** | hub-and-reveal, a11y, palette/type, no dead-end CTAs; Plausible-weighted | endless scroll, dead ends, off-style pages |
-| **Cold-reader** | Reads it as a first-time external user: does it make sense, teach, land? | confusion, "so what?", unfunny |
-
-Nothing advances to Ali until every gate passes.
-
----
-
-## Layer 5 — Continuous watchdogs (stay fresh, always)
-
-Scheduled agents that keep the town fresh without Ali asking:
-- **Freshness Watchdog** — re-verifies the AI fact base on a schedule (models change monthly); flags stale names/versions, overdue "still in development."
-- **Auditor v2** — broken links *and* content-correctness *and* Plausible drop-off.
-- **Pipeline Filler** — always pulling the next 2–3 weeks' episodes/pages/images through the pipeline, so there's a buffer, never a Tuesday scramble.
-- **Analytics Interpreter** — reads Plausible weekly → a prioritized "build/fix" list for the Operator.
-
----
-
-## The weekly launch, on rails
-
-```
-Facts → Draft → Gate battery → ALI approves → Produce → Cascade → Ship-check → Deploy → Analytics → (feeds next week)
-```
-1. **Facts** — Researcher builds the episode fact-sheet (cited).
-2. **Draft** — Writer builds from the fact-sheet + canon + exemplars.
-3. **Gates** — the battery runs; all must pass.
-4. **Ali gate** — she approves substance + taste at ONE checkpoint, with receipts (claims register, the "what she learns" line, the cold-reader verdict). Spot-check any line in one click.
-5. **Produce** — audio, quiz, cards, song, page.
-6. **Cascade** — Content-Sync across all surfaces.
-7. **Ship-check** — registry + gates green → deploy.
-8. **Analytics** — Plausible watch feeds next week's priorities.
-
----
-
-## Where Ali plugs in — 3 touchpoints, not 300
-
-- **Set the angle** for the week (or approve the Operator's proposal).
-- **Approve the episode** at the substance gate — with receipts, so a bug the system should have caught never surprises her.
-- **Final sign-off** before deploy.
-
-Everything else runs and self-checks.
-
----
-
-## How it maps to the actual tools (buildable today)
-
-- **Operator / pipeline** → a saved Workflow + the registry as state.
-- **Production + gate agents** → the Agent tool / saved agent definitions (`.claude/agents/*.md`).
-- **The gate battery** → `operations/workflows/review-content.mjs` (deterministic PASS/FAIL).
-- **Watchdogs** → scheduled agents (cron).
-- **Ship-check** → the existing `episode-shipcheck.sh` hook (structural linter — the gates do the content).
-- **Records** → canon + `site-index.json` + fact-sheets + Plausible export.
-
----
-
-## Failure → fix map (this session's failures, all closed)
-
-| What broke | Fixed by |
-|---|---|
-| Shallow / wrong content shipped | Substance + Fact gates block it |
-| Facts guessed from memory | Facts-first from cited Records; Fact gate with web |
-| Audit missed content bugs | Auditor v2 + Gate battery (content-correctness, not just links) |
-| Lost lists, re-derivation, "I already told you" | Records + persistent Operator hold state |
-| Ali as QA-of-last-resort | Gates catch it first; she approves with receipts |
-| Vibes-council | Adversarial, tool-equipped, PASS/FAIL gates |
-
----
-
-## Build order & status
-1. ✅ **Fact base** — landscape fact-sheet live (`operations/reference/ai-landscape-factsheet.md`).
-2. 🟡 **Review Gate** — `operations/workflows/review-content.mjs` written; ready to run.
-3. ⬜ **Registry + Operator cadence** — formalize `site-index.json` fields + the weekly pipeline runner.
-4. ⬜ **Watchdogs** — freshness + Plausible wiring (needs a Plausible export path).
+The worktree classification is metadata-level. I did not audit every page,
+review all media, reconcile every dirty file, verify all bills, observe Mac-off
+phone delivery, change private account state, or activate the parked inbox.
+No proposed broad solution is labelled deployed. Earlier PR103 repairs are
+merged. No provider call was made by this audit. A manual legacy dispatch may call
+Anthropic and may retain the old feed when no new stories arrive; its artifact
+is inspection material, not an admitted or necessarily fresh candidate. The
+workflow guard checks current YAML structure, not every possible indirect write
+route or editorial quality. The exact legacy publisher retirement is implemented
+locally with negative workflow tests; its remote merge/run state is recorded in the PR and
+`OPERATING-RECOVERY-NEXT.md`. All uncertain source/owner gaps above stay open.

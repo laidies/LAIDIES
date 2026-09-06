@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Whole-operation consultant audit / BUILDING.** Same operating owner and objective; now includes full organization/unfinished-work review, real maker-learning loop, cloud/subscription split, communication, costs and ongoing management. Branch `ops/learning-context-repair-20260906`; bounded checkout `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`. First repairs merged in PR103/37fe77ae. Research and reconcile current evidence before recommending new services or large integration. No spending or cleanup authorization inferred.
+
 > **2026-09-06 — Operating-system review / BUILDING.** Fresh owner task
 > `01a077d0-0775-7af2-b631-c311573f0e0e`, bounded checkout
 > `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`, branch

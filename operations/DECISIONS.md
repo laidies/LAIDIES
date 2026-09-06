@@ -51,6 +51,31 @@ written down somewhere nobody read.
 
 ---
 
+## 2026-09-06 — Whole-operation external-consultant audit and practical operating design
+
+Ali requested a full audit of LAiDIES organization, worktrees, old/unused sources,
+conflicting instructions, ineffective reviews, maker learning, context load and
+unfinished implementation. Deliver a complete prioritized remediation and
+operating plan, including justified subscription/tool recommendations and costs.
+Design a reasonable split: laptop-independent cloud checks and bounded API work,
+clear communication/decision resumption with Ali, and interactive laptop builds
+using existing subscriptions to avoid unnecessary API spending. Existing product
+owners remain accountable. Research first; interview only where an answer changes
+the design. Additional monthly budget is a pending planning preference, not spend
+authorization. No new service purchase, account change or automatic publication
+is implied. Continue the original operating objective; do not substitute an inbox.
+
+## Current operating-system audit route
+
+The September6 whole-operation audit and dependency-ordered implementation plan
+live at `operations/laidies-operating-model.md`; it supersedes that file's July10
+v1 implemented-operator claims. Proposed architecture is labelled proposed;
+actual releases and product decisions retain their own authority. Retire the
+obsolete HotGoss scheduled/direct-push path using the existing owner's manual
+review-artifact workflow; it is not the current NewsStand publication engine.
+Guard: `node scripts/test-legacy-news-workflow.mjs`. Main CI green is integrity,
+not evidence that any content candidate is ready or that maker learning occurred.
+
 ## 1. Authority order
 
 Apply in this order. Higher wins.

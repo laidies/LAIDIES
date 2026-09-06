@@ -4,14 +4,37 @@ Updated September 5, 2026. This is the compact entry for one workstream, not
 universal agent context or a second portfolio database. Current product owners
 and their exact artifacts outrank historical snapshots below.
 
-## Current repair and ranked sequence — 2026-09-06
+## Current continuation — full consultant audit, September 6
+
+Ali broadened this same operating review into a complete practical audit and
+remediation plan. Scope: organization/source authority, unfinished work,
+quality/learning feedback, context, cloud versus subscription execution, cost,
+communication and ongoing management. Existing first repairs are merged through
+PR103; this continuation works on ops/learning-context-repair-20260906 in the same
+bounded checkout. No product takeover, deletion or additional spending.
+
+Current consultant audit and full plan: `operations/laidies-operating-model.md`.
+Legacy publisher repair uses the existing owner branch's exact bounded workflow,
+with a calibrated no-schedule/no-push/read-only-permission check. No API invocation,
+new subscription, new schedule, broad worktree cleanup or product takeover.
+Next integration package is the existing prose/learning dependency chain, after
+its stale exemplar and owner-admission transition are resolved. Broader plan is
+not an implemented end-to-end service.
+
+Current findings awaiting reconciliation: live worktree inventory; prose guards
+and exemplar registry absent from main despite mandatory instructions; shared
+Straight Answers positive exemplar hash is stale; pending-learning owner
+admission has no located executable completion path. Do not integrate the entire
+shared branch or change an approved exemplar merely to make a check pass.
+
+## Prior repair and ranked sequence — 2026-09-06
 
 Owner: fresh task `01a077d0-0775-7af2-b631-c311573f0e0e`.
 Original whole-operation audit (September 5) was re-read and compared with the
 current event projector, run queue, current app owners, config and GitHub checks.
 The parent handoff remains immutable as this task's bound brief.
 
-1. **Instruction distribution — committed/pushed; integrate PR103 after CI.** Apply
+1. **Instruction distribution — MERGED as 37fe77ae through PR103.** Apply
    the approved Astra/Medium default and safeguards from 532386f9/683db5ad,
    retaining D-141/D-143 and cheaper task-fit roles. Both tracked configs now
    match; generated instructions and config parity are CI requirements. The
