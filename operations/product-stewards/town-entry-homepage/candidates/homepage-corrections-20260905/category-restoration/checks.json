@@ -1,0 +1,24 @@
+{
+  "kind": "BOUNDED_VISIBLE_CATEGORY_RESTORATION_VERIFICATION",
+  "status": "PASS",
+  "sourceSha256": "abbd5ec8403fe2eeee7d8a6d60592ea8ab89b73fa9a151751aac5c3d53dd619a",
+  "checks": {
+    "visibleCategories": "PASS — all four exact headings are rendered without a disclosure element: Learn and understand.; Watch and listen.; Use and have fun.; Belong and explore.",
+    "parentContent": "PASS — all 26 directory links retain their parent label, href and description from 0ccc44dc.",
+    "headerAndTreatment": "PASS — the original feature-directory header and four-card treatment match incumbent e3664990; only the parent’s later disclosure wrapper is removed.",
+    "responsiveLayout": "PASS — at 1440px, 390px and 320px the visible directory has no horizontal overflow or overlapping links.",
+    "targetsAndKeyboard": "PASS — all 26 targets are at least 77px high and retain native tab focus; focused link outline rendered at each tested width.",
+    "ksvlDirectoryArt": "PASS — after scrolling into view and waiting for lazy decode, the KSVL art rendered from /assets/building-interiors/ksvl-sticker-banner.jpg with natural dimensions 1600×800 at 1440px, 390px and 320px. The earlier blank capture was a timing artifact and was replaced.",
+    "mastheadPreserved": "PASS — the hero retains exactly Why women must shape AI → #why and How LAiDIES works → #method."
+  },
+  "screenshots": [
+    "/tmp/laidies-homepage-correction-20260905/categories-1440.png",
+    "/tmp/laidies-homepage-correction-20260905/categories-390.png",
+    "/tmp/laidies-homepage-correction-20260905/categories-320.png"
+  ],
+  "limits": [
+    "This is a bounded owner restoration check, not a new full-page design or copy review.",
+    "The local browser run intercepted only the homepage document from the supplied preview origin; it is not hosted release verification.",
+    "The hosted gate records receiving-route outcomes when run against the new preview."
+  ]
+}
