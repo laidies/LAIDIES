@@ -1,3 +1,11 @@
+<!-- Actual colour/artwork correction: VERIFIED LOCALLY / release in progress -->
+Threeexistingpublicfiles plus sixnewartassets. Restoredserviceartsize; recoloured
+actualfourillustrations. Distinctmedical/legalart, duplicate-suppressionguard.
+Masthead194px withPaigeatbottom; inheritedpurpletextcorrected. Independent1200
+art/visualACCEPT; root390checked. Candidate/tmp/laidies-newsstand-masthead-language-20260906.
+Weekly visiblecoveredperiod nowAug19–26; actualcurrent-week replacement isstill
+BUILDING in candidates/weekly-correction-20260906. Do notclaimnewWeeklypublished.
+
 <!-- Compact newspaper features: VERIFIED PUBLICLY -->
 Ali rejected full-width pale profile sprawl; compact spotlight preserves all copy,
 portrait, takeaway, song and card actions. Catch-up, archive and back-issue results

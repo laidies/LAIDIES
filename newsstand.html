@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260901-homepage-header-1">
     <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
-    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260906-paper-features-1">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260906-masthead-language-1">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -155,12 +155,12 @@
                 </section>
               </div>
               <button class="ns-front-desk ns-front-desk--weekly ns-front-open" type="button" data-open-edition="weekly">
-                <span class="ns-front-desk__label">Biggest Stories of the Week</span>
+                <span class="ns-front-desk__label">Weekly roundup</span>
                 <span class="ns-weekly-image">
                   <img src="./assets/newsstand/design-20260830/weekly-roundup-20260901.png" alt="A stack of newspapers gathered with a binder clip beside a weekly desk calendar and highlighter." loading="lazy">
                 </span>
                 <strong class="ns-front-column-promise">Wednesday to Wednesday</strong>
-                <span class="ns-front-status" data-status-for="weekly" aria-hidden="true">Checking…</span>
+                <span class="ns-front-status" data-status-for="weekly">Checking…</span>
                 <span class="ns-front-contents" data-contents-for="weekly" aria-live="polite"></span>
                 <span class="ns-front-action">Open the roundup →</span>
               </button>
@@ -893,12 +893,22 @@
           ].join("");
         }
 
+        function storyIllustration(story) {
+          // Presentation assets are versioned independently of immutable reporting.
+          var illustrations = {
+            "gastric-cancer-prediction-2026-09-05": {src: "/assets/newsstand/design-20260906/cancer-vibrant.png", alt: "Editorial illustration: pathology slides, a microscope and a branching prediction on a computer screen.", credit: "LAiDIES editorial illustration; not a clinical image or a depiction of the study's system."},
+            "us-doj-openai-copyright-2026-09-05": {src: "/assets/newsstand/design-20260906/copyright-vibrant.png", alt: "Editorial illustration: books and a computer chip balanced on scales beside a gavel and laptop.", credit: "LAiDIES editorial illustration; not a depiction of the lawsuit or its outcome."}
+          };
+          return illustrations[story.id] || story.heroVisual;
+        }
+
         function renderArticleHero(story) {
-          if (!story.heroVisual || !story.heroVisual.src) return "";
+          var visual = storyIllustration(story);
+          if (!visual || !visual.src) return "";
           return [
             '<figure class="ns-article__hero">',
-              '<img src="' + escapeAttribute(story.heroVisual.src.replace(/^\//, "./")) + '" alt="' + escapeAttribute(story.heroVisual.alt || "") + '">',
-              story.heroVisual.credit ? '<figcaption>' + escapeHTML(story.heroVisual.credit) + '</figcaption>' : "",
+              '<img src="' + escapeAttribute(visual.src.replace(/^\//, "./")) + '" alt="' + escapeAttribute(visual.alt || "") + '">',
+              visual.credit ? '<figcaption>' + escapeHTML(visual.credit) + '</figcaption>' : "",
             '</figure>'
           ].join("");
         }
@@ -1380,6 +1390,11 @@
         }
 
         function statusCopy(state, publication) {
+          if (publication && publication.edition === "weekly" && publication.editionDate && (state === "current" || state === "archive" || state === "stale")) {
+            var end = new Date(publication.editionDate + "T12:00:00Z");
+            var start = publication.correctivePublication ? new Date(publication.correctivePublication.period.startDate + "T12:00:00Z") : new Date(end.getTime() - 7 * 86400000);
+            return "Latest published roundup · Covers " + formatDate(start.toISOString()) + " – " + formatDate(end.toISOString());
+          }
           if (state === "current") return "Published " + formatDate(publication.editionDate || publication.publishedAt);
           if (state === "archive") return "From the archive · " + formatDate(publication.editionDate || publication.publishedAt);
           if (state === "quiet") return "No update";
@@ -1625,9 +1640,12 @@
               return;
             }
 
+            var seenIllustrations = new Set();
             node.innerHTML = eligible.slice(0, 3).map(function (story) {
               var localIllustration = { "eu-ai-act-transparency-starts": "latest-labels.png", "label-is-not-a-truth-detector": "latest-checking.png" }[story.id];
-              var thumbnail = story.heroVisual || (localIllustration ? { src: "/assets/newsstand/design-20260830/" + localIllustration, alt: "Illustration about AI labelling and verification" } : null);
+              var thumbnail = storyIllustration(story) || (localIllustration ? { src: "/assets/newsstand/design-20260830/" + localIllustration, alt: "Illustration about AI labelling and verification" } : null);
+              if (thumbnail && seenIllustrations.has(thumbnail.src)) thumbnail = null;
+              if (thumbnail) seenIllustrations.add(thumbnail.src);
               return [
                 '<article><a class="ns-front-story" href="#', escapeAttribute(story.slug), '">',
                 thumbnail && thumbnail.src ? '<img class="ns-latest-image" src="' + escapeAttribute(thumbnail.src.replace(/^\//, "./")) + '" alt="' + escapeAttribute(thumbnail.alt || "") + '" loading="lazy">' : '',
@@ -1893,8 +1911,8 @@
     <script defer src="./content/site/ksvl-player.js?v=20260830-continuity-1"></script>
     <script defer src="./content/site/ksvl-theme-buttons.js?v=20260905-dynamic-1"></script>
     <script defer src="./content/site/luminairy-claim-gate.js?v=20260902-1"></script>
-    <script defer src="./content/site/newsstand-luminairy.js?v=20260906-paper-features-1"></script>
-    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260906-full-deck-1"></script>
+    <script defer src="./content/site/newsstand-luminairy.js?v=20260906-masthead-language-1"></script>
+    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260906-masthead-language-1"></script>
     <script defer src="./content/site/resident-continuation-bootstrap-v1.js?v=20260830-ksvl-service-1"></script>
     <script defer src="./content/site/ai-accent-autowrap.js?v=20260830-native-controls-1"></script>
     <script defer src="./content/site/sunnyvaile-directory.js?v=20260713-1"></script>

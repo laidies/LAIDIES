@@ -300,11 +300,9 @@ assert.match(designCss, /\.ns-redesign \.ns-feature-desk__grid--useful\s*\{[^}]*
   "the useful desk must draw dividers from the visible grid rather than hidden DOM positions");
 assert.match(designCss, /\.ns-redesign \.ns-feature-desk__grid--useful > li\s*\{[^}]*border:\s*0;/,
   "useful cards must not retain position-dependent borders that can disappear after reordering");
-assert.match(designCss, /\.ns-redesign \.ns-feature-desk__head--useful\s*\{[^}]*background:\s*#ff8a64;[^}]*box-shadow:\s*6px 6px 0 #b7ef65;/,
-  "the useful desk header must balance the feature art with warm coral and lime rather than another yellow-and-blue block");
-for (const illustration of ["jeeves-phone-warm-v2.png", "corner-planner-green-v2.png", "paige-cassette-coral-v2.png", "concept-notebook-mint-v2.png"]) {
+for (const illustration of ["jeeves-vibrant.png", "corner-vibrant.png", "paige-vibrant.png", "concept-vibrant.png"]) {
   assert.match(catchup, new RegExp(illustration.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")), `${illustration}: the balanced feature illustration must remain wired to the desk`);
-  assert.equal(fs.existsSync(path.join(ROOT, "assets", "newsstand", "design-20260830", illustration)), true, `${illustration}: the balanced feature illustration must resolve`);
+  assert.equal(fs.existsSync(path.join(ROOT, "assets", "newsstand", "design-20260906", illustration)), true, `${illustration}: the balanced feature illustration must resolve`);
 }
 const counterMarkup = html.match(/<div class="ns-one-paper"[\s\S]*?<\/div>\s*<\/div>/)?.[0] || "";
 for (const story of base.stories) {

@@ -739,3 +739,49 @@
 .ns-redesign .ns-unfolded-paper[data-paper="archive"] .ns-front-story h3 { font: 800 24px/1.15 var(--ns-news-serif); text-transform: none; letter-spacing: -.02em; margin: 8px 0; }
 .ns-redesign .ns-unfolded-paper[data-paper="archive"] .ns-front-story p { font: 400 15px/1.5 var(--ns-body); }
 @media(max-width:760px) { .ns-redesign .ns-unfolded-paper[data-paper="archive"] #ns-rack { grid-template-columns: 1fr; } }
+
+/* Ali's September 6 correction: masthead pop-art, not flat bars or cream cards. */
+.ns-redesign { --ns-newsprint: #f8c9e6; --ns-ink: #11183b; }
+.ns-redesign .ns-page :is(h2,h3,h4,p,small,strong,label,time),
+.ns-redesign .ns-page :is(.ns-kicker,.ns-luminairy__wing,.ns-luminairy__role,.ns-front-status,.ns-front-story__edition,.ns-front-story__date) { color: #11183b !important; }
+.ns-redesign .ns-page :is(a,button) { color: #11183b; }
+.ns-redesign .ns-catchup a, .ns-redesign .ns-archive a { color: #11183b !important; }
+.ns-redesign :is(.ns-feature-desk__head,.ns-luminairy__head,.ns-catchup__intro,.ns-archive__label) {
+ position: relative; isolation: isolate; overflow: hidden;
+ background: linear-gradient(112deg,#f254a9 0%,#ff7366 55%,#ff9b3d 100%);
+ border-color: #11183b; border-bottom: 5px solid #15bce0;
+}
+.ns-redesign :is(.ns-feature-desk__head,.ns-luminairy__head,.ns-catchup__intro,.ns-archive__label)::before {
+ content: ''; display: block; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+ background: url('../assets/newsstand/design-20260830/masthead-pop-art-20260831.png') right center / cover no-repeat;
+ mix-blend-mode: multiply; opacity: .25;
+}
+.ns-redesign :is(.ns-feature-desk__head,.ns-luminairy__head,.ns-catchup__intro,.ns-archive__label) h2 {
+ color: #11183b !important; font-family: Jost,sans-serif; font-weight: 900;
+ text-shadow: 2px 2px 0 #7de2c2; letter-spacing: -.035em;
+}
+.ns-redesign .ns-feature-desk__grid > li { background: #eddbfc; }
+.ns-redesign .ns-feature-desk__grid > li:nth-child(even) { background: #bef0ec; }
+.ns-redesign .ns-feature-desk__grid--town > li { background: #f8c9e6; }
+.ns-redesign .ns-feature-desk__grid--town > li:nth-child(even) { background: #ffdda9; }
+.ns-redesign .ns-luminairy { background: linear-gradient(110deg,#edc6f3,#ffc9d1 60%,#ffdaac); }
+.ns-redesign .ns-luminairy__lesson { background: #7de2c2; border-top-color: #11183b; box-shadow: 3px 3px 0 #11183b; }
+.ns-redesign .ns-luminairy button { background: #7de2c2; }
+.ns-redesign .ns-catchup, .ns-redesign .ns-archive { background: #eddbfc; }
+.ns-redesign .ns-catchup__account { background: #bef0ec; border-left-color: #11183b; }
+.ns-redesign .ns-catchup-group { background: transparent; }
+.ns-redesign .ns-catchup-item:nth-child(even) { background: #d2efed; padding-left: 12px; padding-right: 12px; }
+.ns-redesign .ns-unfolded-paper[data-paper="archive"] { background: #eddbfc; }
+.ns-redesign .ns-front-desk--big-picture .ns-front-contents { background: #f8c9e6; }
+
+/* Preserve the original masthead height: playback must not add a grid row. */
+@media(min-width:901px) {
+ .ns-redesign .ns-v11-brandbar { min-height: 190px; }
+ .ns-redesign .ns-theme-control { position: absolute; right: 24px; bottom: 12px; margin: 0; max-width: 290px; }
+ .ns-redesign .ns-theme-button { font-size: 13px; padding: 8px 12px; }
+}
+/* Colour correction does not substitute tiny thumbnails for the original art. */
+.ns-redesign .ns-feature-desk__grid--useful .ns-desk-image { float: none; width: 100%; margin: 0 0 12px; }
+.ns-redesign .ns-front-desk--weekly { grid-template-areas: 'label label label' 'status status status' 'image contents action'; }
+.ns-redesign .ns-front-desk--weekly .ns-front-status { grid-area: status; display: block; font-size: 13px; font-weight: 700; margin: 0 0 8px; padding: 7px 10px; background: #7de2c2; border-left: 4px solid #11183b; }
+.ns-redesign .ns-page :is(span,em,b,a,button,li) { color: #11183b !important; }

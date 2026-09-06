@@ -20,6 +20,12 @@ proper domain source before building from it.
 
 ## Core routes
 
+September 6, Ali rejected flat single-colour headers, purple text and cream/white
+backgrounds across NewsStand. Supersede the prior paper-ground treatment: reuse
+the masthead gradient, pop-art texture and navy/mint lettering; coloured reading
+panels must remain readable. Apply the correction across recurring sections.
+
+
 September 6, Ali rejected the sprawling pale LUMINAiRY spotlight and webpage-like
 lower sections. The whole NewsStand must read as a newspaper: compact editorial
 features, ruled columns, strong LAiDIES pink/cyan/yellow/navy accents and paper

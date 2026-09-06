@@ -15965,3 +15965,10 @@ remain unreconciled; cross-chat completeness is not certified.
 - Prevention: Inspect connected lower sections and opened results against the user's publication format; use a compact feature with constrained columns, original copy and working actions. Reproduce rejected incumbent before judging successor.
 - Evidence: Terra rejected incumbent sprawl; successor desktop reviewed. Root phone, song controls and30 archive results checked. No artwork/prose changed.
 - Behind the Build: A consistent design must survive a click, not just the landing view. Share that lesson without revealing internal operations.
+
+## BTB-510 — Resizing was not recolouring, and date checking was not a new edition
+- Date: 2026-09-06
+- Failure: Prior review accepted a layout change while Ali's actual colour request remained unmet; duplicate art remained open; a theme button's row lifted Paige from banner edge. Old Weekly age was hidden.
+- Prevention: Compare requested property in exact artwork/pixels, not adjacent layout improvements. Guard duplicate thumbnail sources, preserve masthead194px, inspect computed text colours and visible edition coverage. Weekly freshness repair remains distinct from visual publication.
+- Evidence: Fouractualrecolours, siximagesindependentlyreviewed, knownbadduplicatetest, desktop/phone and explicitAug19–26period.
+- Behind the Build: Changing something near a problem is not solving the problem. Keep the public lesson general.

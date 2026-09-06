@@ -25,9 +25,9 @@
   var columnsLoaded = false;
   var readingCards = null;
   var deskIllustrations = {
-    dear_miss_jeeves: "jeeves-phone-warm-v2.png", career_life: "corner-planner-green-v2.png",
-    paige_tip: "paige-cassette-coral-v2.png", concept_week: "concept-notebook-mint-v2.png",
-    whats_new_sunnyvaile: "town-street.png", did_you_know: "did-you-know-question-20260831.png"
+    dear_miss_jeeves: "/assets/newsstand/design-20260906/jeeves-vibrant.png", career_life: "/assets/newsstand/design-20260906/corner-vibrant.png",
+    paige_tip: "/assets/newsstand/design-20260906/paige-vibrant.png", concept_week: "/assets/newsstand/design-20260906/concept-vibrant.png",
+    whats_new_sunnyvaile: "/assets/newsstand/design-20260830/town-street.png", did_you_know: "/assets/newsstand/design-20260830/did-you-know-question-20260831.png"
   };
   var previousPublicationView = latestPublicationView(readState());
   var catchupAccountState = "checking";
@@ -679,7 +679,7 @@
       var label = '<small>' + escapeHTML(labels[type]) + '</small>';
       if (ready) {
         admittedCount += 1;
-        var illustrationPath = deskIllustrations[type] ? '/assets/newsstand/design-20260830/' + deskIllustrations[type] : '';
+        var illustrationPath = deskIllustrations[type] ? deskIllustrations[type] : '';
         var illustration = illustrationPath ? '<img class="ns-desk-image" src="' + illustrationPath + '" alt="" loading="lazy" width="1448" height="1086">' : '';
         var content = illustration + label + '<strong>' + escapeHTML(desk.headline) + '</strong>' +
           (desk.publishedEditionDate < editorialToday() ? '<span class="ns-service-date">Published ' + escapeHTML(formatDate(admittedColumn.editionDate)) + '</span>' : '') +
