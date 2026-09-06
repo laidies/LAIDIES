@@ -25,6 +25,22 @@ const COMMON_QUESTION_TARGETS = new Map([
   ['how do i check an ai answer', 'book-section-working-with-ai-101-11-3-a-practical-evaluation-framework'],
   ['what can ai help me do at work', 'book-section-working-with-ai-101-8-2-what-ai-is-genuinely-good-at']
 ]);
+const TEACHING_ANCHOR_RULES = [
+  {
+    pattern: /\b(hugging\s*face|breach|hack|hacked|cyber|sandbox|agentic)\b/i,
+    ids: [
+      'book-section-ai-fundamentals-101-ch-2-2-4-agentic-ai-the-layer-that-acts',
+      'book-section-ai-fundamentals-101-ch-13-13-1-why-sandboxing-matters-now',
+      'book-section-ai-fundamentals-101-ch-13-13-2-what-a-sandbox-actually-is'
+    ]
+  },
+  {
+    pattern: /\b(hugging\s*face|open[ -]source|open[ -]weight|open model|open models)\b/i,
+    ids: [
+      'book-section-ai-fundamentals-101-ch-2-2-5-variations-within-the-family-size-openness-and-thinking'
+    ]
+  }
+];
 const SAFE_EVENT_ID = /^[a-z0-9][a-z0-9._:-]{0,159}$/i;
 const PRIVATE_CONTENT_PATTERNS = [
   /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i,
@@ -56,6 +72,65 @@ function tokens(value) {
 
 function containsPrivateContent(value) {
   return PRIVATE_CONTENT_PATTERNS.some(pattern => pattern.test(String(value || '')));
+}
+
+function currentGuidancePayload(data) {
+  if (!data || data.status !== 'ok' || !Array.isArray(data.output)) return null;
+  const parts = [];
+  const citations = [];
+  const seen = new Set();
+  for (const item of data.output) {
+    for (const content of Array.isArray(item?.content) ? item.content : []) {
+      if (content?.type !== 'output_text' || typeof content.text !== 'string') continue;
+      parts.push(content.text.trim());
+      for (const annotation of Array.isArray(content.annotations) ? content.annotations : []) {
+        if (annotation?.type !== 'url_citation' || typeof annotation.url !== 'string') continue;
+        let url;
+        try { url = new URL(annotation.url); } catch { continue; }
+        if (url.protocol !== 'https:' || seen.has(url.href)) continue;
+        seen.add(url.href);
+        citations.push({ url: url.href, title: String(annotation.title || url.hostname).trim().slice(0, 180) });
+      }
+    }
+  }
+  const answer = parts.filter(Boolean).join('\n\n')
+    .replace(/\*\*/g, '')
+    .replace(/\s*\(\[[^\]]+\]\(https:\/\/[^)]+\)\)/g, '')
+    .replace(/\[([^\]]+)\]\(https:\/\/[^)]+\)/g, '$1');
+  return answer && citations.length ? {
+    answer, citations, model: String(data.model || ''), sourcePolicyVersion: String(data.source_policy_version || ''),
+    guestToken: typeof data.guestToken === 'string' ? data.guestToken : '',
+    allowance: data.allowance && typeof data.allowance === 'object' ? data.allowance : null
+  } : null;
+}
+
+async function askCurrentMissJeeves(request, env, query, matches) {
+  if (!env.FAIRY_AI || typeof env.FAIRY_AI.fetch !== 'function') return null;
+  const networkKey = await sha256Text([
+    request.headers.get('cf-connecting-ip') || 'unknown',
+    request.headers.get('user-agent') || 'unknown'
+  ].join('|'));
+  const related = matches.slice(0, 4).map(({ entry }) => ({
+    title: entry.title,
+    summary: entry.summary,
+    section: entry.section || ''
+  }));
+  const headers = {
+    'content-type': 'application/json',
+    'x-laidies-rate-key': networkKey
+  };
+  const authorization = request.headers.get('authorization');
+  const guestToken = request.headers.get('x-laidies-guest-token');
+  if (authorization) headers.authorization = authorization;
+  if (guestToken) headers['x-laidies-guest-token'] = guestToken;
+  const response = await env.FAIRY_AI.fetch(new Request('https://miss-jeeves.internal/guidance', {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({ query, related_laidies_material: related, guestToken })
+  }));
+  const data = await response.json().catch(() => null);
+  if (!response.ok) return { error: data?.error || 'service_unavailable', status: response.status, guestToken: data?.guestToken || '', allowance: data?.allowance || null };
+  return currentGuidancePayload(data);
 }
 
 function classifyTopic(query, matches = []) {
@@ -111,6 +186,18 @@ function retrieve(query, entries) {
     if (selected.length >= 12) break;
   }
   return selected;
+}
+
+function addTeachingAnchors(query, entries, matches) {
+  const anchors = TEACHING_ANCHOR_RULES
+    .filter(rule => rule.pattern.test(query))
+    .flatMap(rule => rule.ids)
+    .map(id => entries.find(entry => entry.id === id && safeEntry(entry)))
+    .filter(Boolean);
+  const seen = new Set();
+  return [...anchors.map(entry => ({ entry, score: 50 })), ...matches]
+    .filter(({ entry }) => entry && !seen.has(entry.id) && seen.add(entry.id))
+    .slice(0, 12);
 }
 
 function hasExactCatalogueMatch(query, matches) {
@@ -321,10 +408,12 @@ async function missJeeves(request, env) {
   }
   let query = '';
   let placement = 'library';
+  let siteSearch = false;
   try {
     const body = await request.json();
     query = String(body?.query || '').trim();
     placement = body?.placement === 'homepage' ? 'homepage' : 'library';
+    siteSearch = body?.intent === 'search';
   } catch {
     return json({ status: 'error', error: 'invalid_json' }, 400);
   }
@@ -341,12 +430,69 @@ async function missJeeves(request, env) {
     return json({ status: 'unavailable', answer: 'Miss Jeeves cannot check the catalogue right now. Your question is still here.', results: [] }, 503);
   }
   let reasoned = null;
+  const retrieved = addTeachingAnchors(query, entries, retrieve(query, entries));
+  // Explicit free search exits before either paid guidance or model reasoning.
+  // Legacy Library callers retain their current contract until its separate release.
+  if (siteSearch) {
+    const relevant = [...retrieved].sort((a, b) => b.score - a.score);
+    const bestScore = relevant[0]?.score || 0;
+    const matches = relevant.filter(item => item.score >= Math.max(2, bestScore * 0.3));
+    writeQuestionSignal(env, { placement, outcome: retrieved.length ? 'related_coverage' : 'not_covered', topicId: classifyTopic(query), matches: retrieved });
+    return json({ status: 'search_results', mode: 'site-search', coverage: retrieved.length ? 'related' : 'none', topic_id: classifyTopic(query), answer: retrieved.length ? 'Here is what I found in LAiDIES. These references may answer part of your question.' : 'I could not find a close match in LAiDIES.', results: matches.map(publicResult), research_available: false });
+  }
+
+  let currentGuidance = null;
+  try {
+    currentGuidance = await askCurrentMissJeeves(request, env, query, retrieved);
+  } catch {
+    currentGuidance = null;
+  }
+  if (currentGuidance?.error) {
+    const gated = currentGuidance.error === 'guest_limit_reached' || currentGuidance.error === 'resident_daily_limit_reached';
+    return json({
+      status: gated ? 'limit_reached' : 'unavailable',
+      error: currentGuidance.error,
+      answer: currentGuidance.error === 'guest_limit_reached'
+        ? 'Keep asking Miss Jeeves. You have used your three guest questions. Make your free Resident Card to continue and keep your answers in your Closet.'
+        : currentGuidance.error === 'resident_daily_limit_reached'
+          ? 'You have used today’s five Miss Jeeves answers. Come back tomorrow; the current shelves are still open.'
+          : currentGuidance.error === 'service_budget_reached'
+            ? 'Miss Jeeves has reached today’s service limit. The current Library shelves are still open.'
+            : 'Miss Jeeves cannot check current sources right now. Your question is still here.',
+      guestToken: currentGuidance.guestToken,
+      allowance: currentGuidance.allowance,
+      results: retrieved.map(publicResult)
+    }, currentGuidance.status || (gated ? 429 : 503));
+  }
+  if (currentGuidance) {
+    const topicId = classifyTopic(query, retrieved);
+    const answerId = await sha256Text(`miss-jeeves-answer:v1:${currentGuidance.answer}`);
+    writeQuestionSignal(env, { placement, outcome: 'answered', topicId, matches: retrieved });
+    return json({
+      status: 'ok',
+      coverage: retrieved.length ? 'exact' : 'current',
+      topic_id: topicId,
+      mode: 'current-guidance',
+      answer: currentGuidance.answer,
+      answer_id: answerId,
+      citations: currentGuidance.citations,
+      current_guidance_status: 'checked',
+      current_guidance: {
+        model: currentGuidance.model,
+        source_policy_version: currentGuidance.sourcePolicyVersion,
+        checked_at: new Date().toISOString()
+      },
+      guestToken: currentGuidance.guestToken,
+      allowance: currentGuidance.allowance,
+      results: retrieved.map(publicResult)
+    });
+  }
   try {
     reasoned = await reasonAcrossCatalogue(query, entries, env);
   } catch {
     reasoned = null;
   }
-  const matches = reasoned ? reasoned.matches : retrieve(query, entries);
+  const matches = reasoned ? reasoned.matches : retrieved;
   if (!matches.length) {
     writeQuestionSignal(env, { placement, outcome: 'not_covered', topicId: reasoned?.topicId || classifyTopic(query) });
     return json({
@@ -371,6 +517,27 @@ async function missJeeves(request, env) {
     matches
   });
   return json({ status: coverage === 'exact' ? 'ok' : 'related', coverage, topic_id: reasoned?.topicId || classifyTopic(query, matches), ...generated, results: matches.map(publicResult) });
+}
+
+async function missJeevesFeedback(request, env) {
+  if (request.method !== 'POST') return json({ status: 'error', error: 'method_not_allowed' }, 405);
+  let body;
+  try { body = await request.json(); } catch { return json({ status: 'error', error: 'invalid_json' }, 400); }
+  const answerId = String(body?.answer_id || '');
+  const rating = String(body?.rating || '');
+  const allowedReasons = ['did_not_answer','confusing_or_too_technical','inaccurate_or_outdated','missed_context','weak_missing_or_broken_sources','seemed_like_ai_slop','too_long','too_brief'];
+  const reasons = Array.isArray(body?.reasons) ? [...new Set(body.reasons.map(reason => String(reason)))].filter(reason => allowedReasons.includes(reason)) : [];
+  const placement = body?.placement === 'homepage' ? 'homepage' : 'library';
+  const validFeedback = rating === 'helpful' ? reasons.length === 0 : rating === 'not_helpful' && reasons.length > 0 && reasons.length <= allowedReasons.length;
+  if (!/^[a-f0-9]{64}$/.test(answerId) || !validFeedback) {
+    return json({ status: 'error', error: 'invalid_feedback' }, 400);
+  }
+  try {
+    env.MISS_JEEVES_SIGNALS?.writeDataPoint({
+      blobs: ['miss_jeeves_answer_feedback', 'v2', placement, rating, answerId, ...reasons], doubles: [1]
+    });
+  } catch {}
+  return json({ status: 'accepted' }, 202);
 }
 
 function missJeevesDb(env) {
@@ -598,6 +765,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname === '/api/miss-jeeves') return missJeeves(request, env);
+    if (url.pathname === '/api/miss-jeeves/feedback') return missJeevesFeedback(request, env);
     if (url.pathname === '/api/miss-jeeves/topic-request' || url.pathname === '/api/miss-jeeves/topic-request/status') return missJeevesTopicRequest(request, env);
     if (url.pathname === '/api/miss-jeeves/result-open') return missJeevesResultOpen(request, env);
     if (url.pathname === '/api/miss-jeeves/health') return missJeevesHealth(request, env);

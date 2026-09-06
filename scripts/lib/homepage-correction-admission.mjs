@@ -22,6 +22,41 @@ export function inspectHomepageCorrection(item, root) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if (a.owner_feedback_successor === 'HOMEPAGE_INFORMATION_AND_INTERACTION') {
+      const p = 'operations/product-stewards/town-entry-homepage/candidates/homepage-feedback-20260905/';
+      const read = file => JSON.parse(bytes(p + file));
+      assert(item.id === homepageCorrectionId && item.review_type === 'building_page_visual', 'wrong scoped candidate');
+      for (const [name, binding] of [['homepage', a.candidate], ['runtime', a.runtime], ['worker', a.worker]]) {
+        assert(binding && digest(binding.path) === binding.sha256, name + ' bytes differ');
+      }
+      for (const b of a.evidence || []) assert(digest(b.path) === b.sha256, 'stale evidence: ' + b.path);
+      for (const file of ['producer-contract.json','producer-self-review.json','content-manifest.json','independent-review.md','claude-review-result.json','browser-checks.json','visuals.json','scope.md','source-facts.txt']) {
+        assert(a.evidence?.some(b => b.path === p + file), 'missing bound evidence: ' + (file.startsWith('claude') ? 'claude' : file));
+      }
+      const manifest = read('content-manifest.json');
+      assert(manifest.rendered.sha256 === a.candidate.sha256 && manifest.runtime.sha256 === a.runtime.sha256 && manifest.worker.sha256 === a.worker.sha256, 'reviewed manifest differs');
+      const maker = read('producer-self-review.json');
+      assert(maker.verdict === 'PASS' && maker.artifact.rendered.sha256 === a.candidate.sha256 && maker.artifact.manifest.sha256 === digest(p + 'content-manifest.json'), 'maker review stale');
+      const independent = bytes(p + 'independent-review.md').toString();
+      const claude = read('claude-review-result.json');
+      assert(independent.includes('ADMIT_FOR_OWNER_REVIEW'), 'independent review not admitted');
+      assert(!claude.is_error && claude.modelUsage?.['claude-opus-5'] && claude.result?.includes('ADMIT_FOR_OWNER_REVIEW'), 'actual Claude review not admitted');
+      for (const hash of [a.candidate.sha256, a.runtime.sha256, a.worker.sha256]) {
+        assert(independent.includes(hash) && claude.result?.includes(hash), 'independent review source identity differs');
+      }
+      const checks = read('browser-checks.json').checks;
+      for (const width of [1440,390,320,768]) assert(checks.some(c => c.width === width && c.overflow <= width && !c.errors.length && c.episodeRollover && c.exampleDoesNotSubmit && c.retry), 'missing receiving checks: ' + width);
+      const visuals = read('visuals.json');
+      for (const v of visuals) assert(digest(v.path) === v.sha256, 'stale visual: ' + v.path);
+      assert(visuals.some(v => v.path.includes('before-jeeves-1440')) && visuals.some(v => v.path.includes('after-jeeves-390')), 'missing incumbent/candidate comparison');
+      const html = bytes('index.html').toString();
+      assert(!html.includes('class="intent-grid intent-grid-5"') && html.includes('data-feature-directory'), 'narrow discovery regression');
+      assert((html.match(/type="button" data-jeeves-example/g) || []).length === 3 && html.includes('id="homepage-jeeves-answer"'), 'inline question regression');
+      assert(html.includes('something way better than “Have a great summer!” (brutal)') && html.includes('Ghostbuster') && html.includes('Romy and Michele') && html.includes('resident-benefits'), 'owner copy regression');
+      assert(bytes('operations/DECISIONS.md').toString().includes('Owner rejects homepage information and interaction regressions'), 'owner scope missing');
+      assert(a.production_release_approved === false, 'owner presentation does not authorize production');
+      return errors;
+    }
     if (a.owner_restoration === 'ORIGINAL_MASTHEAD_BUTTONS') {
       // Owner-directed reuse is checked as an exact delta. Historical reviewers
       // are not falsely recorded as having reviewed the successor HTML.

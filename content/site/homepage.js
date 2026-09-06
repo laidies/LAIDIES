@@ -14,11 +14,6 @@
 (function () {
   'use strict';
 
-  var WEEKLY_SONG = {
-    ep: 4,
-    title: 'It Was Women All Along',
-    src: '/content/music/dj-jaidy-week-04-it-was-women-all-along.mp3'
-  };
 
   /* ---------- approved first-visit dial-up arrival ---------- */
   (function () {
@@ -95,6 +90,8 @@
       var published = (data.episodes || []).filter(function (episode) {
         return episode.status === 'published' &&
           Number.isFinite(Number(episode.number)) &&
+          Number(episode.number) > 0 && Number.isInteger(Number(episode.number)) &&
+          typeof episode.title === 'string' && episode.title.trim() &&
           typeof episode.issueUrl === 'string' &&
           /^issues\/issue-[a-z0-9-]+\.html$/i.test(episode.issueUrl);
       }).sort(function (a, b) {
@@ -102,10 +99,35 @@
       });
       if (!published.length) return;
       var latest = published[published.length - 1];
+      var number = String(latest.number).padStart(2, '0');
+      var label = 'Episode ' + number + ': ' + latest.title;
       links.forEach(function (link) {
         link.href = '/' + latest.issueUrl;
-        link.setAttribute('aria-label', 'Latest Episode: ' + latest.title);
+        link.setAttribute('aria-label', 'Latest ' + label);
       });
+      document.querySelectorAll('[data-latest-episode-title]').forEach(function (node) { node.textContent = label; });
+      var heading = document.querySelector('.fc-default h3');
+      if (heading) heading.textContent = label;
+      var read = document.querySelector('.fc-default .fc-btn-teal');
+      var listen = document.querySelector('.fc-default .fc-btn-coral');
+      if (read) { read.href = '/' + latest.issueUrl; read.textContent = 'Read Episode ' + number; }
+      if (listen) { listen.href = '/watch.html?ep=' + number; listen.textContent = 'Listen to Episode ' + number; }
+      var track = document.querySelector('.season-track');
+      if (track) {
+        track.querySelectorAll('li:not(:first-child)').forEach(function (item) { item.remove(); });
+        published.forEach(function (episode) {
+          var item = document.createElement('li');
+          if (episode === latest) item.className = 'st-current';
+          var link = document.createElement('a');
+          link.href = '/' + episode.issueUrl;
+          var badge = document.createElement('i');
+          badge.textContent = String(episode.number).padStart(2, '0');
+          link.append(badge, document.createTextNode(episode.title));
+          item.appendChild(link); track.appendChild(item);
+        });
+      }
+      window.laidiesHomepagePublishedEpisodes = published;
+      window.dispatchEvent(new Event('laidies:homepage-episodes-ready'));
     }).catch(function () {
       /* Keep the last known published route already present in the HTML. */
     });
@@ -159,19 +181,73 @@
     });
   });
 
-  /* lookup form → the LIBRAiRY reference desk (Miss Jeeves) */
-  var refForm = document.querySelector('.reference form');
+  /* Explicit site search returns in place and cannot initiate paid research. */
+  var refForm = document.getElementById('homepage-jeeves-form');
   if (refForm) {
     var refInput = refForm.querySelector('#lookup');
-    refForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!refInput) return;
+    var answer = document.getElementById('homepage-jeeves-answer');
+    var submit = refForm.querySelector('[type="submit"]');
+    var requestNumber = 0;
+    function paragraph(text, container) {
+      var p = document.createElement('p'); p.textContent = text; container.appendChild(p); return p;
+    }
+    function sourceText(value) {
+      var template = document.createElement('template'); template.innerHTML = value;
+      template.content.querySelectorAll('script,style,iframe,object').forEach(function (node) { node.remove(); });
+      return template.content.textContent.replace(/\s+/g, ' ').trim();
+    }
+    function safeSource(value) {
+      if (typeof value !== 'string' || !value.startsWith('/') || value.startsWith('//') || /[\\\u0000-\u001f\u007f]/.test(value)) return null;
+      try { var url = new URL(value, location.origin); return url.origin === location.origin ? url.pathname + url.search + url.hash : null; } catch (_) { return null; }
+    }
+    function showError(message) {
+      answer.replaceChildren(); paragraph(message, answer);
+      var retry = document.createElement('button'); retry.type = 'button'; retry.textContent = 'Try again';
+      retry.addEventListener('click', function () { refForm.requestSubmit(); }); answer.appendChild(retry);
+    }
+    document.querySelectorAll('[data-jeeves-example]').forEach(function (button) {
+      button.addEventListener('click', function () { refInput.value = button.textContent.trim(); refInput.focus(); });
+    });
+    refForm.addEventListener('submit', async function (event) {
+      event.preventDefault();
       var query = refInput.value.trim();
-      if (!query) {
-        refInput.focus();
-        return;
+      if (!query) { refInput.focus(); return; }
+      var id = ++requestNumber;
+      answer.hidden = false; answer.replaceChildren(); paragraph('Miss Jeeves is looking through LAiDIES…', answer);
+      answer.setAttribute('aria-busy', 'true'); submit.disabled = true;
+      var controller = new AbortController();
+      var timeout = window.setTimeout(function () { controller.abort(); }, 15000);
+      try {
+        var response = await fetch('/api/miss-jeeves', { method: 'POST', credentials: 'same-origin', redirect: 'error', cache: 'no-store', headers: {'content-type': 'application/json', accept: 'application/json'}, body: JSON.stringify({query: query, placement: 'homepage', intent: 'search'}), signal: controller.signal });
+        var payload = await response.json();
+        if (id !== requestNumber) return;
+        if (response.status === 400 && payload.error === 'private_content_prohibited') {
+          answer.replaceChildren(); paragraph('Please remove private, confidential or account information from your question.', answer); return;
+        }
+        if (!response.ok || payload.status !== 'search_results' || payload.mode !== 'site-search' || !Array.isArray(payload.results)) throw new Error('Search unavailable');
+        answer.replaceChildren();
+        var results = payload.results.filter(function (item) { return item && typeof item.title === 'string' && typeof item.summary === 'string' && safeSource(item.url); });
+        var heading = document.createElement('h3'); heading.textContent = results.length ? 'From the LAiDIES collection' : 'I couldn’t find a close match.'; answer.appendChild(heading);
+        paragraph(results.length ? 'Here’s what LAiDIES has on the subject. These excerpts may answer part of your question; open a source for the full explanation.' : 'Try a more specific question or a different phrase. I won’t make up an answer to fill the gap.', answer);
+        var list = document.createElement('ul');
+        results.slice(0, 3).forEach(function (item) {
+          var li = document.createElement('li'); var link = document.createElement('a');
+          link.href = safeSource(item.url); link.textContent = item.title;
+          li.appendChild(link); paragraph(sourceText(item.summary), li); list.appendChild(li);
+        });
+        answer.appendChild(list);
+        if (results.length > 3) {
+          var more = document.createElement('details'); var summary = document.createElement('summary');
+          summary.textContent = 'More LAiDIES sources (' + (results.length - 3) + ')'; more.appendChild(summary);
+          results.slice(3).forEach(function (item) { var p = document.createElement('p'); var a = document.createElement('a'); a.href = safeSource(item.url); a.textContent = item.title; p.appendChild(a); more.appendChild(p); });
+          answer.appendChild(more);
+        }
+      } catch (_) {
+        if (id === requestNumber) showError('Miss Jeeves couldn’t reach the LAiDIES collection just now. Your question is still here.');
+      } finally {
+        window.clearTimeout(timeout);
+        if (id === requestNumber) { answer.setAttribute('aria-busy', 'false'); submit.disabled = false; }
       }
-      window.location.href = '/library.html#miss-jeeves?q=' + encodeURIComponent(query.slice(0, 240)) + '&from=homepage';
     });
   }
 
@@ -302,21 +378,6 @@
     document.addEventListener('sv:tour-checkin', paint);
   })();
 
-  /* ---------- season panel: fixed published fallback ---------- */
-  (function () {
-    var track = document.querySelector('.season-track');
-    var heading = document.querySelector('.fc-default h3');
-    if (!track || !heading) return;
-    heading.textContent = 'Episode 04 · The Founding Mothers';
-    track.querySelectorAll('.st-current em').forEach(function (label) {
-      label.textContent = 'Previously published';
-    });
-    var readBtn = document.querySelector('.fc-default .fc-btn-teal');
-    var listenBtn = document.querySelector('.fc-default .fc-btn-coral');
-    if (readBtn) { readBtn.href = '/issues/issue-04.html'; readBtn.textContent = 'Read Episode 04'; }
-    if (listenBtn) { listenBtn.href = '/watch.html?ep=04'; listenBtn.textContent = 'Listen to Episode 04'; }
-  })();
-
   /* ---------- signed-in Resident continuation ---------- */
   window.svShowResume = function (epTitle, href) {
     var d = document.querySelector('.fc-default'), r = document.querySelector('.fc-resume');
@@ -349,6 +410,7 @@
     };
     var tried = false;
     function newestReleasedEpisode(document) {
+      (window.laidiesHomepagePublishedEpisodes || []).forEach(function (episode) { TITLES[String(episode.number).padStart(2, '0')] = 'Episode ' + String(episode.number).padStart(2, '0') + ' · ' + episode.title; });
       var episodes = document && document.episodes || {};
       return Object.keys(TITLES).map(function (key) {
         return { key: key, entry: episodes[key] };
@@ -378,6 +440,7 @@
         /* The released Episode 04 panel remains the honest public fallback. */
       }
     }
+    window.addEventListener('laidies:homepage-episodes-ready', function () { tried = false; restore(); }, { once: true });
     window.addEventListener('laidies:continuation-ready', restore, { once: true });
     if (window.LAIDIESResidentContinuationV1) restore();
   })();

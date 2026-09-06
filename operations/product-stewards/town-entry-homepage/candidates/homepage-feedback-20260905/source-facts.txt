@@ -1,0 +1,80 @@
+Production e58b23d6 / source98bcb60; resident-card.html:223-233; file SHA256 425b706860e3eb20b4834ce27f1e046d81c948b99a88f41ae7ccd4aaf8bf554c
+
+    <section class="rc-local-facts" aria-labelledby="rcFactsTitle">
+      <h2 id="rcFactsTitle">What belongs to what</h2>
+      <ul>
+        <li>The Resident Card keeps its selected card details locally and, when you explicitly claim it, in your private account.</li>
+        <li>Signed-in continuation currently synchronizes episode position, tour completion and the supported charms, trading-card and Puffy collections.</li>
+        <li>Private prompts, messages, drafts, Girl Talk choices and other free-form activity content stay out of continuation sync.</li>
+        <li>A local handle is a draft label only. It is not reserved and cannot sign posts, unlock rooms, publish a Card or authorize account data.</li>
+        <li>A verified account may keep and restore the private Card and supported continuation state. Public member Cards and public reward ownership remain separate features.</li>
+      </ul>
+    </section>
+
+Production e58b23d6 / source98bcb60; content/site/fairy-godmother-v2.js:50-71; file SHA256 fdc769b7919719d1a1e8520ff0d733071eafef0cf1afdbb2a062704544199112
+      image: "../assets/saints/buffy-summers.png"
+    }
+  ];
+
+  async function setArrivalState() {
+    if (!arrivalStatus || !arrivalNote) return;
+    arrivalStatus.textContent = "Guest beta: one case today.";
+    arrivalNote.textContent = "Signed-in Residents receive three cases each UTC day. Every completed case includes up to three fittings.";
+    try {
+      var runtime = window.LAIDIESResidentAccountRuntime
+        ? await window.LAIDIESResidentAccountRuntime.get()
+        : null;
+      var result = runtime ? await runtime.client.auth.getSession() : null;
+      if (result && !result.error && result.data && result.data.session) {
+        arrivalStatus.textContent = "Resident beta: three cases today.";
+        arrivalNote.textContent = "Every completed case includes up to three fittings. Failed or safely declined requests do not use a case.";
+      }
+    } catch (error) {
+      // The Worker verifies identity again. Keep the truthful guest state when
+      // the browser cannot inspect a session.
+    }
+  }
+
+Production e58b23d6 / source98bcb60; games/businesswomens-special.html:107-115; file SHA256 b6977e154ffa60439e85cab6d73048764bde6aa7ef98d752ce85d54792fca9c4
+      <!-- THE GAME -->
+      <section aria-label="The fortune teller">
+        <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">1 · Pick your lane</p>
+        <div id="bwsLanes" style="display: flex; gap: 12px; margin: 0 0 20px;">
+          <button type="button" class="bws-lane is-selected" data-lane="cocktail" aria-pressed="true" disabled><strong>Summon Spirits</strong><span>Cocktails</span></button>
+          <button type="button" class="bws-lane" data-lane="spiritFree" aria-pressed="false" disabled><strong>Ghostbusters</strong><span>Spirit-Free</span></button>
+        </div>
+
+        <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">2 · Pinch open a mood</p>
+
+Production e58b23d6 / source98bcb60; games/businesswomens-special.html:173-179; file SHA256 b6977e154ffa60439e85cab6d73048764bde6aa7ef98d752ce85d54792fca9c4
+
+    </div>
+
+    <p style="font-size: 14px; font-style: italic; color: var(--plum-soft); margin: 0 0 36px;">Named for the booth scene in <em>Romy and Michele's High School Reunion</em>. Some patrons get stained glass at The LUMINAiRY; Romy and Michele get a cocktail game.</p>
+
+    <div class="sv-ctas">
+      <a class="sv-cta sv-cta--primary" href="/bronze-aige.html">
+
+Production e58b23d6 / source98bcb60; games/dream-phone.html:840-850; file SHA256 25ec56ca482697b8b00ca35c75e8a1e578d60bf53f87a0f6088415fe2b74559c
+    <!-- Scripts -->
+    <script src="../content/site/supabase-config.js"></script>
+    <script src="../content/site/site-data.js?v=quizzes-complete-20260712"></script>
+    <script src="../script.js?v=20260830-native-controls-1"></script>
+    <!-- Just Call uses only the prewritten voice bundles. The separate patron-saint deduction
+         engine remains parked source and is deliberately not loaded on this public route. -->
+    <script src="../games/dream-phone-bundles.js?v=dp-bundles-1"></script>
+    <script>
+      // Weekly-bag return link (preserved from the parked page).
+      (function() {
+        var params = new URLSearchParams(window.location.search || "");
+
+Candidate _worker.js explicit siteSearch early return (reuses already-built site-search contract; current legacy Library path retained):
+
+    const relevant = [...retrieved].sort((a, b) => b.score - a.score);
+    const bestScore = relevant[0]?.score || 0;
+    const matches = relevant.filter(item => item.score >= Math.max(2, bestScore * 0.3));
+    writeQuestionSignal(env, { placement, outcome: retrieved.length ? 'related_coverage' : 'not_covered', topicId: classifyTopic(query), matches: retrieved });
+    return json({ status: 'search_results', mode: 'site-search', coverage: retrieved.length ? 'related' : 'none', topic_id: classifyTopic(query), answer: retrieved.length ? 'Here is what I found in LAiDIES. These references may answer part of your question.' : 'I could not find a close match in LAiDIES.', results: matches.map(publicResult), research_available: false });
+  }
+
+  
