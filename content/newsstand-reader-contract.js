@@ -1,9 +1,10 @@
 (function (root, factory) {
   "use strict";
-  var api = factory();
+  var api = factory(typeof module === "object" && module.exports && typeof require === "function"
+    ? require("./newsstand-big-picture-versions.js") : root && root.NewsstandBigPictureVersions);
   if (typeof module === "object" && module.exports) module.exports = api;
   if (root) root.NewsstandContract = api;
-})(typeof window !== "undefined" ? window : null, function () {
+})(typeof window !== "undefined" ? window : null, function (versions) {
   "use strict";
 
   var EDITIONS = ["breaking", "daily", "weekly", "big-picture"];
@@ -116,6 +117,24 @@
           errors.push(label + " Big Picture history is incomplete");
         }
         if (story && story.edition === "big-picture" && story.bigPicture) {
+          (story.bigPicture.changeLog || []).forEach(function (change) {
+            if (!change || !validDate(change.changedAt) || typeof change.summary !== "string" ||
+                /Ali[’']s|Ali’s|Claude-edited|rejected draft|hidden remnant|returned draft|approved.*illustration/i.test(change.summary)) {
+              errors.push(label + " Big Picture update history contains invalid or known private production notes");
+            }
+          });
+          var snapshots = story.bigPicture.previousVersions || [];
+          if (snapshots.length) {
+            if (!versions) errors.push(label + " Big Picture snapshot validation is unavailable");
+            else errors.push.apply(errors, versions.validateSnapshots(snapshots));
+            snapshots.forEach(function (version) {
+              if (!version || !version.article || version.article.id !== story.id || version.article.slug !== story.slug ||
+                  version.originallyPublishedAt !== story.bigPicture.originallyPublishedAt ||
+                  String(version.replacedAt).slice(0, 10) > String(story.bigPicture.lastMeaningfullyUpdatedAt).slice(0, 10)) {
+                errors.push(label + " Big Picture retained version does not belong to this article and update");
+              }
+            });
+          }
           var versionIds = new Set();
           var previousVersionTime = null;
           (story.bigPicture.previousVersions || []).forEach(function (version) {

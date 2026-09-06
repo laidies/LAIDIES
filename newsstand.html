@@ -275,7 +275,8 @@
       © LAiDIES · Filed from SUNNYVAiLE · The NewsStand at MAiN Street No. 2
     </footer>
 
-    <script src="./content/newsstand-reader-contract.js?v=20260905-producer-image-1"></script>
+    <script src="./content/newsstand-big-picture-versions.js?v=20260905-1"></script>
+    <script src="./content/newsstand-reader-contract.js?v=20260905-versions-1"></script>
     <script src="./content/newsstand-stories.js?v=20260905-doj-1"></script>
     <script src="./content/newsstand-big-picture-tracking.js?v=20260824-1"></script>
     <script>
@@ -818,6 +819,11 @@
           var changes = (history.changeLog || []).map(function (change) {
             return "<li><strong>" + escapeHTML(formatDate(change.changedAt)) + "</strong> · " + escapeHTML(change.summary) + "</li>";
           }).join("");
+          var versions = (history.previousVersions || []).map(function (version) {
+            return '<li><a href="#' + escapeAttribute(story.slug) + '?version=' + encodeURIComponent(version.versionId) +
+              '">Read the version from ' + escapeHTML(formatDate(version.lastMeaningfullyUpdatedAt)) + '</a><p>' +
+              escapeHTML(version.summary) + '</p></li>';
+          }).join("");
           return [
             '<details class="ns-big-picture-history">',
               "<summary>Update history</summary>",
@@ -825,6 +831,7 @@
                 " · Last meaningfully updated " + escapeHTML(formatDate(history.lastMeaningfullyUpdatedAt)) +
                 " · Sources checked " + escapeHTML(formatDate(history.sourcesLastCheckedAt)) + "</p>",
               changes ? "<ol>" + changes + "</ol>" : "",
+              versions ? '<h3>Earlier versions</h3><ol>' + versions + '</ol>' : "",
             "</details>"
           ].join("");
         }
@@ -896,10 +903,12 @@
           ].join("");
         }
 
-        function renderArticle(story) {
+        function renderArticle(story, validatedRetainedVersion) {
           var edition = story.edition;
           var isBigPicture = edition === "big-picture";
-          var state = contract.storyState(story);
+          // Retained prose is admitted through its current parent plus validated
+          // snapshot identity; private source-approval metadata is not copied.
+          var state = validatedRetainedVersion ? "published" : contract.storyState(story);
           if (state === "hold") {
             var previouslyPublished = Number.isFinite(Date.parse(story.publishedAt));
             return '<div class="ns-story-notice ns-story-notice--hold"><strong>' + (previouslyPublished ? 'Currently withheld' : 'Not published yet') + '</strong><p>' + (previouslyPublished ? 'This report was previously published and is being checked. Related reporting appears below when available.' : 'Paige is still checking this story. It will stay off the rack until it is ready to read.') + '</p></div>' + renderStoryLineage(story);
@@ -1226,7 +1235,9 @@
         }
 
         function renderHash(scroll, invoker) {
-          var slug = (location.hash || "").replace(/^#/, "").trim();
+          var route = (location.hash || "").replace(/^#/, "").trim().split("?");
+          var slug = route[0];
+          var versionId = new URLSearchParams(route.slice(1).join("?")).get("version");
           if (!slug) return false;
           var story = stories.filter(function (item) { return item.slug === slug; })[0];
           if (!story) {
@@ -1248,6 +1259,23 @@
             return true;
           }
           var decision = contract.accessDecision(data, story, { edition: story.edition, scope: "hash" }, now);
+          var displayStory = story;
+          var versionNotice = "";
+          if (versionId !== null && decision.canExpose) {
+            var retained = story.edition === "big-picture" && window.NewsstandBigPictureVersions
+              ? window.NewsstandBigPictureVersions.resolveSnapshot(story.bigPicture.previousVersions || [], versionId)
+              : { state: "unavailable" };
+            if (retained.state === "available") {
+              displayStory = retained.story;
+              versionNotice = '<aside class="ns-story-notice" data-retained-version="' + escapeAttribute(versionId) +
+                '"><strong>Earlier version · ' + escapeHTML(formatDate(retained.snapshot.lastMeaningfullyUpdatedAt)) +
+                '</strong><p>This is how this article read before its update on ' + escapeHTML(formatDate(retained.snapshot.replacedAt)) +
+                '. <a href="#' + escapeAttribute(story.slug) + '">Read the current article →</a></p></aside>';
+            } else {
+              decision = { canExpose: false, state: "unavailable", reason: "That earlier version is unavailable. The current article is available at its original link." };
+              versionNotice = '<p><a href="#' + escapeAttribute(story.slug) + '">Read the current article →</a></p>';
+            }
+          }
           var heldLineage = decision.edition === story.edition && ["hold", "retracted"].includes(contract.storyState(story)) ? renderStoryLineage(story) : "";
           var previousView = pendingStoryView ||
             (history.state && history.state.nsPreviousView) ||
@@ -1261,12 +1289,12 @@
           showReader({
             mode: story.edition,
             list: [story],
-            html: decision.canExpose || heldLineage ? renderArticle(story) : renderAccessNotice(decision),
+            html: decision.canExpose || heldLineage ? versionNotice + renderArticle(displayStory, displayStory !== story) : renderAccessNotice(decision) + versionNotice,
             scroll: scroll !== false,
             invoker: invoker,
             story: decision.canExpose
           });
-          if (decision.canExpose) {
+          if (decision.canExpose && versionId === null) {
             var publicationView = {
               key: "story:" + story.slug,
               publicationAt: story.updatedAt || story.publishedAt

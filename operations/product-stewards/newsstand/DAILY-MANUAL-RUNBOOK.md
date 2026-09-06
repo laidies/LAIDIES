@@ -378,12 +378,39 @@ summary of the changed evidence or argument. Keep internal editing notes private
 Consider each material update for newspaper/Weekly surfacing. Exact-version Ali
 approval still applies; ordinary-news autonomy does not authorize this update.
 
-September 5 live/code check: the data-centre article's 15-entry update log opens
-on desktop/mobile, but `previousVersions` is empty and its renderer never links
-versions. The seven-question tracking file is an August 24 static fallback,
-not evidence of current monitoring. The log also exposes internal drafting notes.
-Repair these existing paths before claiming complete version retention or an
-operating research-to-update cycle; the workflow audit records the boundaries.
+The September 5 retention repair uses the existing `previousVersions` array.
+Before a meaningful approved update, run
+`scripts/prepare-newsstand-big-picture-version.mjs` with the current verified
+full artifact manifest, exact predecessor dataset (`--predecessor-data` when the
+working dataset already contains the successor), custom and immutable origins,
+version id, actual proposed replacement timestamp, and a reader-facing summary.
+Its output must stay private under operations. Both fetched dataset files and
+the exact predecessor must match the manifest; the result is preparation, never
+quality admission or permission to publish. Copy only its `snapshotCandidate`
+into the successor after the existing exact-version approval. Preserve every
+previous snapshot and the original publication date; advance the meaningful
+update date and keep source-check dates distinct.
+
+The existing release scope check now reads the actual before/after artifact
+bytes and rejects changed public Big Picture content without its exact retained
+predecessor. Missing manifests/directories, changed or removed snapshots,
+private snapshot metadata and unearned historical versions reject. A source
+check or reader-facing log cleanup alone does not create a new article version.
+Holds and retractions preserve old prose/history and remain unavailable through
+the current parent article's access controls.
+
+The reader links earlier versions from Update history using
+`#<article-slug>?version=<version-id>`. Each retained view states its old date,
+returns to the current article, survives back/reload and does not mark a new
+update as read. Unknown or invalid versions show unavailable; they never
+silently display current prose. The current data-centre article still has no
+retained editions: no earlier public edition was invented or seeded. The first
+snapshot will be created with its next actual admitted meaningful update.
+Current article prose/images/dates are unchanged; private production notes
+were removed from its public log and archive derivative, with their original
+bytes retained in Git history. The August24 static tracking questions still do
+not prove current monitoring. Exact evidence and release state are in
+`evidence/big-picture-versions-20260905/release.md`.
 
 ### Research reuse: site freshness and internal practice
 

@@ -367,60 +367,8 @@ window.NEWSSTAND_DATA = {
             "summary": "Initial analysis of the public bargain around data-centre development."
           },
           {
-            "changedAt": "2026-08-25",
-            "summary": "Replaced the rejected draft. The new article tests the claims driving the backlash, adds the corrected 1,000-fold water example, removes unsupported language about water and proximity, and distinguishes local facts from national fears and political interpretation."
-          },
-          {
-            "changedAt": "2026-08-25",
-            "summary": "Replaced the generic final line with Ali’s approved Star Trek–Skynet contrast, explicitly framed as a possibility rather than a forecast and ordered so the social explanation belongs unmistakably to Star Trek."
-          },
-          {
-            "changedAt": "2026-08-25",
-            "summary": "Added Ali’s requested case for AI-enabled scientific and medical discovery, with an explicit boundary against promising a cure or breakthrough."
-          },
-          {
-            "changedAt": "2026-08-25",
-            "summary": "Replaced the fragment opening the generative-AI section with a complete transition that distinguishes the building’s continuing purpose from the changes in equipment, power density and scale."
-          },
-          {
-            "changedAt": "2026-08-25",
-            "summary": "Connected the cloud-walls image directly to protest graffiti and removed the explanatory sentence that interrupted and misread the joke."
-          },
-          {
-            "changedAt": "2026-08-25",
-            "summary": "Replaced the opaque corporate-promise comparison with a project-by-project decision test that includes both local burdens and enforceable community benefits."
-          },
-          {
-            "changedAt": "2026-08-25",
-            "summary": "Restored the five-part structure of Ali’s returned draft: a dedicated data-centre explanation, trust, distortion of environmental and economic claims, the consequences of saying no, and paths forward."
-          },
-          {
-            "changedAt": "2026-08-25",
-            "summary": "Retitled the article, added reader-facing subheadings throughout, made NDAs and transparency a central argument, rebuilt the forward path, and simplified the AIDB attribution to an article-inspiration credit."
-          },
-          {
-            "changedAt": "2026-08-25",
-            "summary": "Corrected the causal account of the backlash using named AI-industry warnings, added the missing benefits-communication problem, separated observed job effects from layoff claims, and restored labour’s jobs-and-conditions argument."
-          },
-          {
-            "changedAt": "2026-08-25",
-            "summary": "Added the approved adult graphic-novel illustration to the article and corrected the graffiti placement so it remains visible at desktop and mobile sizes."
-          },
-          {
-            "changedAt": "2026-08-25",
-            "summary": "Rebuilt the graffiti edit from the clean original to remove the hidden remnant, restore the complete GET LOST lettering and isolate the larger spray-painted mark on the left wall."
-          },
-          {
-            "changedAt": "2026-08-25",
-            "summary": "Revised the protest crowd to represent the backlash as racially, generationally and socially broad rather than assigning it to one demographic or subculture."
-          },
-          {
             "changedAt": "2026-08-29",
-            "summary": "Rebuilt the analysis from Ali’s Claude-edited manuscript, preserving its stronger thesis, short version, fact-check sequence and better-bargain conclusion while removing or narrowing claims that outran the reviewed evidence."
-          },
-          {
-            "changedAt": "2026-08-29",
-            "summary": "Moved the short version behind a collapsed ‘The Article in 30 Seconds’ disclosure so the article opens with its argument, and restored Ali’s exact graffiti sentence."
+            "summary": "Expanded the analysis of local costs, environmental claims, transparency and enforceable community benefits."
           }
         ],
         "previousVersions": []

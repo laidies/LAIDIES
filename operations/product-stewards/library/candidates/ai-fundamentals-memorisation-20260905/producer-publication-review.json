@@ -1,0 +1,481 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "ai-fundamentals-memorisation-20260905",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "EXPLANATION",
+  "surface": "LIBRAIRY",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact full-prose self-review",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-06T03:19:57.502589+00:00",
+  "verdict": "PASS",
+  "limitations": [
+    "Producer self-review of the exact four replacement paragraphs only; not independent admission or observed human comprehension.",
+    "Both affected sections inspected. Existing copied-weights same-results sentence and time-sensitive model-size table are separate unresolved context claims; this is not whole-book freshness approval.",
+    "Historical GPT-2 evidence inspected at the original publisher and versioned arXiv abstracts; no claim of reading the full paper or establishing current product vulnerabilities.",
+    "No rendered book or public manuscript has been changed."
+  ],
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/library/candidates/ai-fundamentals-memorisation-20260905/publication-manifest.json",
+      "sha256": "2f74de9dd769d6fe9fcfb6f3c377a072779443851cf1da48be59e3bb4f429341"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/library/candidates/ai-fundamentals-memorisation-20260905/review-text.md",
+      "sha256": "04e3ce4c8110c878d782fe5b4dfeaef5ff03bfdc7580a66395f439647b983c24"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-05T22:51:01.267Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Plain terms gain meaning in the event explanation.",
+        "A familiar comparison reconnects to the mechanism and a concrete reader check."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "The LAiDIES Read in private NEWS002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "If a model learns patterns, can it still repeat something from its training data?",
+    "promisedPayoff": "Understand that generalisation and memorisation can coexist, without mistaking a language model for a searchable source archive.",
+    "priorKnowledge": "The reader has just met models and weights in section5.1; token/training-data basics precede this chapter. No computer-science knowledge assumed.",
+    "centralMentalModel": "Adjusting numerical weights can capture general relationships and particular sequences; a generated passage does not authenticate its own origin.",
+    "dailyLifeConnection": "Checking a quotation or attributed passage before using it in a work document.",
+    "surfaceJob": "Correct the repeated absolute claims about memorisation in sections 5.1 and 5.4, preserving surrounding text. This is a narrow explanatory correction, not full-book freshness admission.",
+    "desiredFeeling": "I understand why learning patterns does not rule out repeating a source.",
+    "desiredReaderFeeling": "I understand why learning patterns does not rule out repeating a source."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Word-for-word reproduction is described before memorisation is named; the two repeated absolutes are removed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those learned settings can capture general patterns, such as how sentences are structured. A model can also reproduce particular passages from its training data word for word. Learning patterns and memorising text can happen in the same model. So “it learns patterns” does not mean “it cannot repeat a source.”",
+          "locator": "replacement paragraph 1"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The reader can distinguish learning patterns from a guarantee that no training text can recur.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those learned settings can capture general patterns, such as how sentences are structured. A model can also reproduce particular passages from its training data word for word. Learning patterns and memorising text can happen in the same model. So “it learns patterns” does not mean “it cannot repeat a source.”",
+          "locator": "replacement paragraph 1"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Direct conversational phrasing treats the reader as an adult; the compact correction does not add decorative era references.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those learned settings can capture general patterns, such as how sentences are structured. A model can also reproduce particular passages from its training data word for word. Learning patterns and memorising text can happen in the same model. So “it learns patterns” does not mean “it cannot repeat a source.”",
+          "locator": "replacement paragraph 1"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The apparent contradiction between learning and repetition supplies the useful surprise; the final sentence gives it a work use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those learned settings can capture general patterns, such as how sentences are structured. A model can also reproduce particular passages from its training data word for word. Learning patterns and memorising text can happen in the same model. So “it learns patterns” does not mean “it cannot repeat a source.”",
+          "locator": "replacement paragraph 1"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The specific result is scoped to the 2021 GPT-2 study and does not generalise its frequency or extraction method to current tools.",
+      "artifactEvidence": [
+        {
+          "excerpt": "In a [2021 study](https://www.usenix.org/conference/usenixsecurity21/presentation/carlini-extracting), researchers queried GPT-2 and recovered hundreds of word-for-word sequences from its training data. That is evidence of **memorisation** in that model, not proof that every model remembers every article. It also does not turn a model into a dependable archive where you can look up any document it encountered.",
+          "locator": "replacement paragraph 2"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The dated primary research is linked at the exact claim; current-product extrapolation is explicitly excluded.",
+      "artifactEvidence": [
+        {
+          "excerpt": "In a [2021 study](https://www.usenix.org/conference/usenixsecurity21/presentation/carlini-extracting), researchers queried GPT-2 and recovered hundreds of word-for-word sequences from its training data. That is evidence of **memorisation** in that model, not proof that every model remembers every article. It also does not turn a model into a dependable archive where you can look up any document it encountered.",
+          "locator": "replacement paragraph 2"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Four paragraphs replace the repeated false boundary in two existing chapter locations without a new lesson wrapper.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those weights are numbers, not a searchable collection of articles. But, as we saw in Section 5.1, a model can still reproduce some training passages word for word. Learning patterns and memorising examples are both possible; the fact that the result is a file of numbers does not rule either one out.",
+          "locator": "replacement paragraph 4"
+        }
+      ]
+    },
+    "connectedSystemUnderstanding": {
+      "verdict": "PASS",
+      "observation": "Numerical weights and possible memorisation are compatible; numbers are not a searchable collection of documents.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those weights are numbers, not a searchable collection of articles. But, as we saw in Section 5.1, a model can still reproduce some training passages word for word. Learning patterns and memorising examples are both possible; the fact that the result is a file of numbers does not rule either one out.",
+          "locator": "replacement paragraph 4"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The learner can check a quotation in an ordinary work document.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The useful distinction: an answer that sounds like a quotation is not proof of its source. If you need someone's exact words for a work document, open the original and compare the passage before you attribute it.",
+          "locator": "replacement paragraph 3"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "A familiar work question anchors an invisible distinction; evidence earns the counterintuitive click and limitations stay visible.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The useful distinction: an answer that sounds like a quotation is not proof of its source. If you need someone's exact words for a work document, open the original and compare the passage before you attribute it.",
+          "locator": "replacement paragraph 3"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Producer simulation can articulate that general patterns and remembered examples can coexist, without turning the model into an archive.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those learned settings can capture general patterns, such as how sentences are structured. A model can also reproduce particular passages from its training data word for word. Learning patterns and memorising text can happen in the same model. So “it learns patterns” does not mean “it cannot repeat a source.”",
+          "locator": "replacement paragraph 1"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Does learning general patterns guarantee that a model cannot repeat a training passage? Explain.",
+        "probeResponse": "No. A model can learn general patterns and also reproduce some passages. The GPT-2 study demonstrates that possibility, not that all documents are retrievable.",
+        "expectedEvidence": "Coexistence, limited research claim, no searchable-archive assumption."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Producer simulation checks an unfamiliar attribution scenario; repetition alone does not establish a generated passage's source.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The useful distinction: an answer that sounds like a quotation is not proof of its source. If you need someone's exact words for a work document, open the original and compare the passage before you attribute it.",
+          "locator": "replacement paragraph 3"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "An AI draft includes a familiar sentence and names a famous author. Can you quote it in a team briefing with that attribution?",
+        "probeResponse": "The generated attribution is insufficient. Open the original work and compare the passage before quoting it as that author's words.",
+        "expectedEvidence": "A new work use applies source checking without inferring provenance from fluent output."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Open the original, compare the exact passage and only then attribute it: a specific observable step.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The useful distinction: an answer that sounds like a quotation is not proof of its source. If you need someone's exact words for a work document, open the original and compare the passage before you attribute it.",
+          "locator": "replacement paragraph 3"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The misleading globe analogy is removed from the replacement. No new analogy claims to explain weight storage beyond the available evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those weights are numbers, not a searchable collection of articles. But, as we saw in Section 5.1, a model can still reproduce some training passages word for word. Learning patterns and memorising examples are both possible; the fact that the result is a file of numbers does not rule either one out.",
+          "locator": "replacement paragraph 4"
+        }
+      ]
+    },
+    "explanationArc": {
+      "verdict": "PASS",
+      "observation": "The surrounding section already introduces models and weights. The correction moves from the apparent either-or, through a bounded empirical counterexample, to a small quotation-checking action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "In a [2021 study](https://www.usenix.org/conference/usenixsecurity21/presentation/carlini-extracting), researchers queried GPT-2 and recovered hundreds of word-for-word sequences from its training data. That is evidence of **memorisation** in that model, not proof that every model remembers every article. It also does not turn a model into a dependable archive where you can look up any document it encountered.",
+          "locator": "replacement paragraph 2"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Only memorisation is newly named, directly after its meaning.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Two tailored local repairs, not repeating a section template.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The globe analogy is removed; no replacement analogy is introduced.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No decorative cultural references added.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Weights/patterns connect to the bounded observed result; no invented mechanism for locating a passage in one weight.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Exact source, passage comparison and attribution supply the action.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Word-for-word repetition precedes the technical label.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Generated prose is separated from an authenticated source or searchable archive.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The key counterexample is a named dated primary study; universality is explicitly rejected.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The research is historical and linked; no claim about the newest products.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Every sentence explains the distinction or its consequence.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The surprising coexistence is useful and conversational, with no heavy security detour.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No public benchmark name; the explanation uses the mechanics itself.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The initial apparent contradiction is resolved with evidence and a practical action.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The work quotation consequence reconnects to output not proving source.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No borrowed persona, phrasing or authorial identity.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No entertainment delays the correction.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The correction is direct; the chapter's existing weights explanation supplies context.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The evidence follows the distinction before the practical inference.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The landing is one quotation check, not a sweeping AI promise.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "A local correction does not reframe the whole book around an attack or legal dispute.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The direct reader distinction leads; no added technical lecture.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The single historical finding occupies one paragraph.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Plain sentences and a work use carry the bounded explanation.",
+      "artifactLocator": "review-text.md paragraphs 1–4; surrounding sections inspected separately"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/library/candidates/ai-fundamentals-memorisation-20260905/source-evidence.json",
+        "sha256": "2c97490d4d5dd5ce26a5acb813b8b3c6314eed4b5c6c96dd96c86bd68c1b49c7"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/openai-wiki-message-board-2026-09-05/producer-repair/source-model-training.md",
+        "sha256": "fd897783bb68f7336b3078cf05b2872e80e2f411fda58bc45e1bb40c5ea97f44"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "patterns",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Those learned settings can capture general patterns, such as how sentences are structured. A model can also reproduce particular passages from its training data word for word. Learning patterns and memorising text can happen in the same model. So “it learns patterns” does not mean “it cannot repeat a source.”",
+            "locator": "replacement paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/openai-wiki-message-board-2026-09-05/producer-repair/source-model-training.md",
+          "sha256": "fd897783bb68f7336b3078cf05b2872e80e2f411fda58bc45e1bb40c5ea97f44"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "as a model learns, the values of its parameters are adjusted slightly to reflect patterns it has identified.",
+            "locator": "source excerpt"
+          }
+        ],
+        "scopeAndFreshness": "Historical study plus existing training description; interpretation is possibility, not universal retention, extraction frequency, legal status or current-product vulnerability."
+      },
+      {
+        "claimId": "historical-result",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "In a [2021 study](https://www.usenix.org/conference/usenixsecurity21/presentation/carlini-extracting), researchers queried GPT-2 and recovered hundreds of word-for-word sequences from its training data. That is evidence of **memorisation** in that model, not proof that every model remembers every article. It also does not turn a model into a dependable archive where you can look up any document it encountered.",
+            "locator": "replacement paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/candidates/ai-fundamentals-memorisation-20260905/source-evidence.json",
+          "sha256": "2c97490d4d5dd5ce26a5acb813b8b3c6314eed4b5c6c96dd96c86bd68c1b49c7"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "We demonstrate our attack on GPT-2, a language model trained on scrapes of the public Internet, and are able to extract hundreds of verbatim text sequences from the model's training data.",
+            "locator": "source excerpt"
+          }
+        ],
+        "scopeAndFreshness": "Historical study plus existing training description; interpretation is possibility, not universal retention, extraction frequency, legal status or current-product vulnerability."
+      },
+      {
+        "claimId": "numbers-compatible-with-repetition",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Those weights are numbers, not a searchable collection of articles. But, as we saw in Section 5.1, a model can still reproduce some training passages word for word. Learning patterns and memorising examples are both possible; the fact that the result is a file of numbers does not rule either one out.",
+            "locator": "replacement paragraph 4"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/candidates/ai-fundamentals-memorisation-20260905/source-evidence.json",
+          "sha256": "2c97490d4d5dd5ce26a5acb813b8b3c6314eed4b5c6c96dd96c86bd68c1b49c7"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "We demonstrate our attack on GPT-2, a language model trained on scrapes of the public Internet, and are able to extract hundreds of verbatim text sequences from the model's training data.",
+            "locator": "source excerpt"
+          }
+        ],
+        "scopeAndFreshness": "Historical study plus existing training description; interpretation is possibility, not universal retention, extraction frequency, legal status or current-product vulnerability."
+      }
+    ],
+    "reviewedThrough": "2026-09-05",
+    "nextTrigger": "Before public release, or if the source interpretation or exact correction changes. Current-product details require separate evidence.",
+    "correctionOwner": "Learning System / Library"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal producer review of this narrow correction; initial private drafting and cross-occurrence inspection were repaired before this review."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The completed narrow replacement has no new reusable defect. The repeat in section5.4 was repaired during production; separate older context claims remain explicitly outside this replacement."
+  }
+}

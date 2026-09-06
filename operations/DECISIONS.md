@@ -152,6 +152,13 @@ analysis” section in the same editorial promise governs. Internal drafting not
 stay private; meaningful changes need renewed surfacing consideration. Existing
 exact-version Ali approval remains. The audit separates the working public
 update log from absent prior-version retrieval and unproven ongoing refresh.
+September5 implementation continues this ruling: the existing previousVersions
+array now carries a strict public-prose snapshot; reader links and the existing
+release-scope check consume it. Meaningful updates must retain the exact prior
+public artifact, while source checks/log cleanup cannot invent history. The
+current article has no seeded earlier edition. Internal editing notes are
+removed from public data, preserved privately in Git, and explicitly rejected
+where the known leak recurs. This changes no exact-version editorial authority.
 
 NewsStand/LIBRAiRY section links must be verified at the actual focused reader
 heading. Exact anchors win; historical numeric section anchors may resolve to

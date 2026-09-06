@@ -2,6 +2,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { checkBigPictureRetention } from './lib/newsstand-big-picture-update.mjs';
 
 const [baseManifestPath, candidateManifestPath, scopePath, receiptPath] = process.argv.slice(2);
 if (!baseManifestPath || !candidateManifestPath || !scopePath) {
@@ -80,6 +81,9 @@ const structural = changes.filter(change => change.kind === 'REMOVED' || (change
 if (structural.length) {
   throw new Error(`NewsStand release may modify files and add explicitly declared assets, but may not remove or add undeclared public files: ${structural.map(change => change.path).join(', ')}`);
 }
+
+const storiesChanged = changes.some(change => change.path === 'content/newsstand-stories.js');
+if (storiesChanged) checkBigPictureRetention(base, candidate);
 
 for (const verificationPath of scope.verificationPaths || []) {
   const artifactPath = normalized(verificationPath);

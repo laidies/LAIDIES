@@ -13,11 +13,23 @@ const registeredScopePath = path.join(root, 'operations/release-control/newsstan
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'laidies-newsstand-release-scope-'));
 const digest = value => crypto.createHash('sha256').update(value).digest('hex');
 const record = (filePath, value) => ({ path: filePath, bytes: Buffer.byteLength(value), sha256: digest(value) });
-const manifest = files => ({
-  schema: 'laidies-release-artifact-manifest/v1',
-  identitySha256: digest(JSON.stringify(files)),
-  files,
-});
+const storiesRaw = fs.readFileSync(path.join(root, 'content/newsstand-stories.js'), 'utf8');
+let artifactNumber = 0;
+const manifest = files => {
+  const artifactDirectory = path.join(temp, `artifact-${artifactNumber++}`);
+  const stories = files.find(file => file.path === 'content/newsstand-stories.js');
+  if (stories) {
+    assert.equal(stories.sha256, digest(storiesRaw), 'scope fixtures must bind actual NewsStand dataset bytes');
+    fs.mkdirSync(path.join(artifactDirectory, 'content'), { recursive: true });
+    fs.writeFileSync(path.join(artifactDirectory, 'content/newsstand-stories.js'), storiesRaw);
+  }
+  return {
+    schema: 'laidies-release-artifact-manifest/v1',
+    artifactDirectory,
+    identitySha256: digest(JSON.stringify(files)),
+    files,
+  };
+};
 const write = (name, value) => {
   const target = path.join(temp, name);
   fs.writeFileSync(target, `${JSON.stringify(value, null, 2)}\n`);
@@ -34,12 +46,12 @@ const scope = write('scope.json', {
 const base = write('base.json', manifest([
   record('index.html', 'home-v1'),
   record('newsstand.html', 'paper-v1'),
-  record('content/newsstand-stories.js', 'stories-v1'),
+  record('content/newsstand-stories.js', storiesRaw),
 ]));
 const valid = write('valid.json', manifest([
   record('index.html', 'home-v1'),
   record('newsstand.html', 'paper-v2'),
-  record('content/newsstand-stories.js', 'stories-v2'),
+  record('content/newsstand-stories.js', storiesRaw),
 ]));
 
 let result = run(base, valid, scope);
@@ -49,7 +61,7 @@ assert.match(result.stdout, /NEWSSTAND RELEASE SCOPE: PASS/);
 const unrelated = write('unrelated.json', manifest([
   record('index.html', 'home-v2'),
   record('newsstand.html', 'paper-v2'),
-  record('content/newsstand-stories.js', 'stories-v2'),
+  record('content/newsstand-stories.js', storiesRaw),
 ]));
 result = run(base, unrelated, scope);
 assert.notEqual(result.status, 0);
@@ -58,7 +70,7 @@ assert.match(result.stderr, /outside NewsStand scope: index\.html/);
 const added = write('added.json', manifest([
   record('index.html', 'home-v1'),
   record('newsstand.html', 'paper-v2'),
-  record('content/newsstand-stories.js', 'stories-v2'),
+  record('content/newsstand-stories.js', storiesRaw),
   record('new-public-file.html', 'unexpected'),
 ]));
 const permissiveScope = write('permissive-scope.json', {
@@ -94,7 +106,7 @@ assert.ok(registeredScope.verificationPaths.includes('build-report.json'));
 assert.ok(registeredScope.verificationPaths.includes('content/newsstand-daily-issues.json'));
 assert.ok(registeredScope.verificationPaths.includes('content/daily-edition-columns.json'));
 
-const registeredBaseFiles = registeredScope.verificationPaths.map((filePath) => record(filePath, `${filePath}:v1`));
+const registeredBaseFiles = registeredScope.verificationPaths.map((filePath) => record(filePath, filePath === 'content/newsstand-stories.js' ? storiesRaw : `${filePath}:v1`));
 const registeredCandidateFiles = registeredBaseFiles.map((file) => {
   if (file.path === 'build-report.json' || file.path === 'content/newsstand-daily-issues.json' || file.path === 'content/daily-edition-columns.json') {
     return record(file.path, `${file.path}:v2`);

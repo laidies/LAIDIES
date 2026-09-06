@@ -38,6 +38,9 @@
 - **Evidence:** Current code and live 1280/390px article inspected; independent Terra/Low review agreed. The reader-contract suite was unavailable due to an absent existing fixture, not reported as passing.
 - **Possible public angle:** How to tell whether an explainer has meaningfully changed, using a separate generic example under the disclosure boundary.
 - **Status:** VERIFIED GAP / RULE RECORDED / PUBLIC REPAIRS OUTSTANDING. No public log or article changed in this audit.
+- **Implementation continuation:** Existing previousVersions now carries validated public-only article snapshots, retained/current reader links and catch-up protection. Public production notes are removed from the candidate log and archive; exact originals remain in Git. The existing release scope guard binds actual predecessor/candidate artifact bytes, rejects lost/changed/unearned/private snapshots and requires an advancing meaningful update. Missing artifact directories always reject, including both omitted; disposable tests now use actual artifact files rather than a production exemption. Corrected predecessors retain public notices and strip private owner metadata.
+- **Current verification:** Actual two-origin predecessor capture, existing54 reader checks, three desktop/phone synthetic retained-reader journeys and calibrated negative tests pass. Independent artifact-first technical/privacy review accepted the exact candidate and final helper delta. No historical edition was invented; public release/verification remains pending at this checkpoint.
+
 
 ## BTB-502 — A story-link schema is not a working follow-up feature
 

@@ -1,0 +1,37 @@
+{
+  "candidateId": "ai-fundamentals-memorisation-20260905",
+  "status": "PRIVATE_CORRECTION_PRODUCER_CHECKED_ADMISSION_HOLD",
+  "target": "content/library-books/sources/ai-fundamentals-101.manuscript.md",
+  "unchangedContextPreserved": true,
+  "source": "source-evidence.json",
+  "excludedClaims": [
+    "Whole-book currentness",
+    "Current product vulnerability",
+    "Legal conclusion",
+    "Real human comprehension observation"
+  ],
+  "releaseAuthority": "Not admitted or published; current book source and rendered bytes untouched",
+  "sections": [
+    "5.1",
+    "5.4"
+  ],
+  "changes": [
+    {
+      "section": "5.1",
+      "oldText": "Because that's literally what it is: a model of the patterns in its training data. Not a copy of the data — a compressed, generalised representation of the patterns within it. The way a globe is a model of the Earth — it captures the structure without containing every tree and building.\n\nA trained model doesn't store articles or remember specific web pages. It stores *patterns* — statistical relationships between tokens — learned from billions of examples. When it produces a correct answer, it's because it learned a pattern during training that, applied to your input, generates the right output.",
+      "newText": "Those learned settings can capture general patterns, such as how sentences are structured. A model can also reproduce particular passages from its training data word for word. Learning patterns and memorising text can happen in the same model. So “it learns patterns” does not mean “it cannot repeat a source.”\n\nIn a [2021 study](https://www.usenix.org/conference/usenixsecurity21/presentation/carlini-extracting), researchers queried GPT-2 and recovered hundreds of word-for-word sequences from its training data. That is evidence of **memorisation** in that model, not proof that every model remembers every article. It also does not turn a model into a dependable archive where you can look up any document it encountered.\n\nThe useful distinction: an answer that sounds like a quotation is not proof of its source. If you need someone's exact words for a work document, open the original and compare the passage before you attribute it."
+    },
+    {
+      "section": "5.4",
+      "oldText": "That's it. A trained model isn't a database of facts. It isn't storing articles or remembering conversations. It's a file of numbers — weights — that encode patterns extracted from training data. When the system produces a correct answer, it's because those patterns, applied to your input tokens, happen to generate the right output.",
+      "newText": "Those weights are numbers, not a searchable collection of articles. But, as we saw in Section 5.1, a model can still reproduce some training passages word for word. Learning patterns and memorising examples are both possible; the fact that the result is a file of numbers does not rule either one out."
+    }
+  ],
+  "remainingContextConcerns": [
+    "Untouched section5.1 copied-weights same-results sentence omits architecture/inference settings.",
+    "Untouched section5.4 model-size table contains vendor estimates and time-sensitive product labels; no freshness claim for those rows.",
+    "Separate Chapter8 app-memory/context absolutes remain in the existing freshness signal."
+  ],
+  "independentAssessment": "Independent Claude assessment found no defects in the four replacement paragraphs, but it accepted registered negative Text B. This is not an admitted independent review; preserve the raw result. No observed-human evidence exists, and the current LIBRAIRY admission checker requires three participants for PASS.",
+  "nextAction": "Prepare exact rendered correction and resolve Library correction admission using the existing Library authority. Do not repeat prose generation solely to match historical failure-family labels."
+}
