@@ -14671,3 +14671,9 @@ HTML and local custom properties.
 - Review-source failure: a judge read stale sparse iCloud files rather than the explicitly named current deployment artifact. Live checks resolved the apparent FAiRY contradiction. Bind receiving source identity before judging current product promises.
 - Evidence failure: a screenshot helper overwrote functional browser results with an empty array. Separate capture and functional outputs; rerun the four actual widths before admission. Preserve the first HOLD and its reconciliation rather than hiding the repair.
 - Release preservation: another lane deployed newer NewsStand date fixes during review. Refreshed the complete release base, preserving746 unrelated files; only the three homepage/public-search files changed. Mac lock makes the corrected preview opening queued, not delivered visibly. Behind the Build extension: a passing review cannot compensate for ignored owner corrections or the wrong source.
+
+## BTB-FRESHNESS-RECEIVING-20260906 — Producer signals must reach the maintained bank
+
+- Five committed NewsStand signals were still absent from the canonical inbox. Read each actual dated source, preserve original dispositions, then append by stable ID with source checkout/commit/hash and owned next action. The old Blend signal remains intact. Prevention: recurring review reads both producer and receiving records, never infers delivery from a producer label.
+- The live Quiz harness initially clicked a covered radio input. Use the actual visible option label; eight whole journeys then passed. Keep harness failures separate from visitor failures and distinguish duplicate selection actions from unique questions.
+- The due HBS estimate could be reviewed and left unchanged; unresolved audio/cue consumers still remain open. Behind the Build angle: a current source and a finished correction across all published versions are different outcomes.
