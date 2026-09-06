@@ -15857,3 +15857,27 @@ remain unreconciled; cross-chat completeness is not certified.
   fail as a textbook diagram—and the test that finally caught it.
 - **Publication status:** BUILT LOCALLY / NOT PUBLISHED / ALI REVIEW AND
   FULL-BOOK ADMISSION PENDING.
+
+## BTB-499 — An evidence hold needs a recheck trigger, not a permanent label
+
+- **Date:** 2026-09-05
+- **Area:** NewsStand research intake and ordinary-story recovery.
+- **Failure risk:** A report can be correctly held because no original source
+  confirms it, then remain buried after the factual condition changes. The
+  label stays honest about the old check while the newspaper misses the new
+  confirmation.
+- **Root cause:** The August 30 NVIDIA/Hugging Face acquisition hold preserved
+  the missing-confirmation reason, but no event-specific trigger promoted it
+  for recheck when NVIDIA later published an agreement and AP independently
+  reported it.
+- **Prevention rule:** Every evidence hold names the exact missing source class,
+  a due date or event trigger, and the command/owner that will recheck it. A
+  material new original must change the disposition explicitly; it must not be
+  hidden under the old hold or mistaken for a same-day discovery.
+- **Durable correction:** The September 5 evening record links the original
+  hold to NVIDIA's September 3 announcement and AP report, promotes the item to
+  a private candidate, and binds the remaining closing/regulatory gaps for the
+  morning cycle.
+- **Possible Behind the Build angle:** The difference between “we could not
+  verify this” and “this was false”—and why every hold needs a wake-up call.
+- **Publication status:** PRIVATE RESEARCH ONLY / NO PUBLIC COPY OR DEPLOYMENT.
