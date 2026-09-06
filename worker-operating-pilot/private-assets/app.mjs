@@ -17,13 +17,26 @@ const tokenNote = document.querySelector('#token-note');
 const refreshButton = document.querySelector('#refresh-button');
 const inboxStatus = document.querySelector('#inbox-status');
 const feedbackList = document.querySelector('#feedback-list');
+const inboxCount = document.querySelector('#inbox-count');
+const attentionCount = document.querySelector('#attention-count');
+const closedCount = document.querySelector('#closed-count');
+const filters = {
+  all: document.querySelector('#filter-all'),
+  attention: document.querySelector('#filter-attention'),
+  closed: document.querySelector('#filter-closed')
+};
+const receiptDetails = document.querySelector('#receipt-details');
+const receiptValue = document.querySelector('#receipt-value');
 
 let inboxBusy = false;
 let frozenInput = null;
+let latestRows = [];
+let activeFilter = 'all';
 
 function setPrivateControls(enabled) {
   fields.disabled = !enabled;
   refreshButton.disabled = !enabled;
+  for (const button of Object.values(filters)) button.disabled = !enabled;
   if (!enabled) {
     type.disabled = true;
     subject.disabled = true;
@@ -61,14 +74,31 @@ const client = createFeedbackClient({
   fetcher: authorizedFetch
 });
 
-function setIntakeMessage(message) {
+function setIntakeMessage(message, state = 'info') {
+  intakeStatus.dataset.state = state;
   intakeStatus.textContent = message;
 }
 
-function makeReviewButton(row, status) {
+function statusLabel(status) {
+  return ({ filed: 'New', triaged: 'Reviewed', addressed: 'Addressed', ignored: 'No action', 'deb-flected': 'Referred' })[status] || 'Unknown';
+}
+
+function humanDate(value) {
+  const date = new Date(value);
+  if (!value || Number.isNaN(date.getTime())) return 'Date unavailable';
+  return new Intl.DateTimeFormat(undefined, { dateStyle: 'medium', timeStyle: 'short' }).format(date);
+}
+
+function newestFirst(left, right) {
+  const leftTime = Date.parse(left.submitted_at) || 0;
+  const rightTime = Date.parse(right.submitted_at) || 0;
+  return rightTime - leftTime;
+}
+
+function makeReviewButton(row, status, label) {
   const button = document.createElement('button');
   button.type = 'button';
-  button.textContent = status.replace('_', ' ');
+  button.textContent = label;
   button.addEventListener('click', async () => {
     button.disabled = true;
     inboxStatus.textContent = 'Updating feedback…';
@@ -89,28 +119,68 @@ function makeReviewButton(row, status) {
   return button;
 }
 
-function renderInbox(rows) {
+function visibleRows() {
+  if (activeFilter === 'attention') return latestRows.filter(row => row.status === 'filed' || row.status === 'triaged');
+  if (activeFilter === 'closed') return latestRows.filter(row => row.status !== 'filed' && row.status !== 'triaged');
+  return latestRows;
+}
+
+function updateCounts() {
+  const attention = latestRows.filter(row => row.status === 'filed' || row.status === 'triaged').length;
+  inboxCount.textContent = String(latestRows.length);
+  attentionCount.textContent = String(attention);
+  closedCount.textContent = String(latestRows.length - attention);
+}
+
+function renderInbox() {
   feedbackList.replaceChildren();
-  for (const row of rows) {
+  const visible = visibleRows();
+  if (!visible.length) {
+    const empty = document.createElement('p');
+    empty.className = 'empty-state';
+    empty.textContent = activeFilter === 'attention' ? 'Nothing needs attention.' : activeFilter === 'closed' ? 'No closed notes yet.' : 'Your inbox is ready for its first test note.';
+    feedbackList.append(empty);
+  }
+  for (const row of visible) {
     const article = document.createElement('article');
-    const heading = document.createElement('h3');
-    heading.textContent = `${row.submission_type} — ${row.status}`;
-    const when = document.createElement('p');
-    when.textContent = `Received: ${row.submitted_at || 'time unavailable'}`;
-    const subjectLine = document.createElement('p');
-    subjectLine.textContent = row.subject || '(No subject)';
+    article.className = 'message-card';
+    const top = document.createElement('div');
+    top.className = 'card-top';
+    const typeBadge = document.createElement('span');
+    typeBadge.className = 'type-badge';
+    typeBadge.textContent = row.submission_type || 'feedback';
+    const statusBadge = document.createElement('span');
+    statusBadge.className = 'status-badge';
+    statusBadge.dataset.status = row.status || '';
+    statusBadge.textContent = statusLabel(row.status);
+    top.append(typeBadge, statusBadge);
+    const title = document.createElement('h3');
+    title.className = 'card-title';
+    title.textContent = row.subject || 'Untitled note';
+    const date = document.createElement('time');
+    date.className = 'card-date';
+    if (row.submitted_at) date.dateTime = row.submitted_at;
+    date.textContent = humanDate(row.submitted_at);
     const message = document.createElement('p');
+    message.className = 'card-body';
     message.textContent = row.body || '';
-    article.append(heading, when, subjectLine, message);
-    const next = row.status === 'filed' ? ['triaged'] : row.status === 'triaged' ? ['addressed', 'no_action', 'referred'] : [];
-    if (next.length) {
-      const actions = document.createElement('p');
-      actions.textContent = 'Set status: ';
-      for (const status of next) actions.append(makeReviewButton(row, status));
-      article.append(actions);
-    }
+    const actions = document.createElement('div');
+    actions.className = 'card-actions';
+    const next = row.status === 'filed'
+      ? [['triaged', 'Mark reviewed']]
+      : row.status === 'triaged'
+        ? [['addressed', 'Mark addressed'], ['no_action', 'No action needed'], ['referred', 'Refer']]
+        : [];
+    for (const [status, label] of next) actions.append(makeReviewButton(row, status, label));
+    article.append(top, title, date, message, actions);
     feedbackList.append(article);
   }
+}
+
+function setFilter(filter) {
+  activeFilter = filter;
+  for (const [name, button] of Object.entries(filters)) button.setAttribute('aria-pressed', String(name === activeFilter));
+  renderInbox();
 }
 
 async function refreshInbox() {
@@ -128,8 +198,11 @@ async function refreshInbox() {
     if (!response.ok) throw new Error('inbox rejected');
     const rows = await response.json();
     if (!Array.isArray(rows)) throw new Error('invalid inbox response');
-    renderInbox(rows);
-    inboxStatus.textContent = rows.length ? `${rows.length} feedback item(s).` : 'No active feedback.';
+    latestRows = [...rows].sort(newestFirst);
+    updateCounts();
+    renderInbox();
+    inboxStatus.textContent = latestRows.length ? 'Inbox updated.' : 'No active feedback.';
+    tokenNote.textContent = 'Private access';
   } catch {
     inboxStatus.textContent = 'Inbox could not be refreshed. Try again.';
   } finally {
@@ -153,7 +226,9 @@ form.addEventListener('submit', async event => {
     frozenInput = null;
     setDraftFrozen(false);
     form.reset();
-    setIntakeMessage(`Accepted. Receipt ${receipt.receipt_id}, ${receipt.accepted_at}.`);
+    setIntakeMessage('Your note is in the inbox.', 'success');
+    receiptValue.textContent = `${receipt.receipt_id} · ${humanDate(receipt.accepted_at)}`;
+    receiptDetails.hidden = false;
     await refreshInbox();
   } catch (error) {
     if (error instanceof FeedbackClientError && error.message === 'uncertain') {
@@ -170,7 +245,7 @@ form.addEventListener('submit', async event => {
         : frozenInput
           ? 'Acceptance was not confirmed. This note is locked in this tab; retry it unchanged.'
           : 'The note was not accepted. You can correct it and try again.';
-    setIntakeMessage(message);
+    setIntakeMessage(message, 'error');
   } finally {
     fields.disabled = false;
     setDraftFrozen(Boolean(frozenInput));
@@ -178,14 +253,16 @@ form.addEventListener('submit', async event => {
 });
 
 refreshButton.addEventListener('click', refreshInbox);
+for (const [filter, button] of Object.entries(filters)) button.addEventListener('click', () => setFilter(filter));
+updateCounts();
+setFilter('all');
 
 if (!ownerToken) {
   setPrivateControls(false);
-  tokenNote.textContent = 'This private inbox link is missing its access token. Use the complete private link.';
+  tokenNote.textContent = 'This private link is incomplete. Open the complete private link.';
   setIntakeMessage('Private inbox unavailable.');
   inboxStatus.textContent = 'Private inbox unavailable.';
 } else {
-  tokenNote.textContent = 'Private access link accepted for this browser session.';
   setPrivateControls(true);
   void refreshInbox();
 }

@@ -608,3 +608,12 @@ context must not occupy the injectable transport argument; native workerd
 rejects redirect:error despite Node accepting it. Regression tests reject the
 old entrypoint and bind manual redirects with 302 rejection. The latter fix
 also covers the existing feedback and prepared founder server adapters.
+
+### Owner visual rejection — repair active
+
+Ali rejected the first private inbox's appearance: “yeah but it looks like shit.”
+The observed submit/review result remains functional evidence only; it is not
+visual acceptance. Repair the private screen in place: inbox-first layout,
+readable message cards, human dates and status/action labels, and coherent
+LAiDIES plum/rose/cream styling. Preserve the proven authentication and retry
+flow. Inspect the actual desktop/mobile appearance before presenting it again.

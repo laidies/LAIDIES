@@ -176,3 +176,14 @@ mode and reject redirects; browser-only fetch keeps its valid error mode.
 Provider tests bind manual mode and a 302 rejection; temporary native diagnostic
 text was removed. Do not infer platform support from Node or a documentation
 type declaration when the real runtime is available.
+
+Ali then rejected the first hosted screen's appearance. The functional verdict
+did not establish visual quality: the initial screen exposed raw timestamps,
+status codes and a large form ahead of the inbox. The repair uses an inbox-first
+layout, human labels/dates, local filters, message cards and a coherent palette.
+Desktop and 390px phone renders were inspected before redeployment; the phone
+heading was tightened and a misleading external-link arrow removed. A review
+claim that filter buttons were checkboxes was checked against the real DOM and
+Playwright: they are native buttons with aria-pressed; the AX wrapper's platform
+label was not an authoring defect. Prevention: internal tools still need a maker
+visual inspection; a working endpoint is not permission to deliver bare UI.
