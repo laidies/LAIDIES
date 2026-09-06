@@ -14,6 +14,20 @@ export function installBinderPreflight() {
     if(!requestOwner)return {error:new Error('authentication-required')};
     if(args?.p_expected_owner!==requestOwner)return {error:new Error('account-changed-reload-binder')};
     const data=store();
+    if(name==='get_my_quiz_first_reward_v1'||name==='submit_quiz_first_reward_v1') {
+      data.quizAwards ||= {};
+      const rewardKey=`${requestOwner}:${args.p_episode}`,prior=data.quizAwards[rewardKey];
+      if(prior)return {data:{...prior,state:name.startsWith('submit')?'existing':'claimed'}};
+      if(name.startsWith('get_'))return {data:{state:'unclaimed',episode:args.p_episode}};
+      const filename=args.p_quiz_version==='2026-09-06-v1'?'quiz-2026-09-06-v1.json':'quiz.json';
+      const quiz=await fetch(`/learn/${filename}`).then(response=>response.json());
+      if(quiz.version!==args.p_quiz_version)return {error:new Error('unsupported-quiz-version')};
+      const core=quiz.questions.filter(q=>!q.bonus),score=core.filter(q=>args.p_answers[q.id]===q.answer).length;
+      const award={state:'claimed',episode:args.p_episode,quiz_version:quiz.version,attempt_id:args.p_attempt_id,score,max_score:core.length,clips:Math.max(score,1),completed_at:new Date().toISOString()};
+      data.quizAwards[rewardKey]=award;localStorage.setItem(storageKey,JSON.stringify(data));
+      if(dropNext){dropNext=false;return {error:new Error('synthetic-lost-confirmation')};}
+      return {data:award};
+    }
     if(name==='get_my_resident_episode_binder_v1') {
       const response={data:data.binders[requestOwner]?{state:'saved',binder:data.binders[requestOwner]}:{state:'empty',binder:null}};
       if(pauseNextRead){pauseNextRead=false;await new Promise(resolve=>{releaseRead=resolve;});}

@@ -22,11 +22,13 @@
           <p class="eyebrow" id="quizEdition">Episode 01 candidate</p>
           <h3>Check what each answer means</h3>
         </div>
+        <p id="quizRewardStatus" role="status">Your first submitted account attempt earns Butterfly Clips. Retakes are practice only: they do not add clips or raise your original award. Guest practice earns no clips.</p>
+        <button class="button secondary" id="quizRewardRetry" type="button" hidden>Retry this submission</button>
         <p class="quiz-result" id="quizStatus" aria-live="polite">Loading the private candidate…</p>
         <form id="quizForm" class="quiz-form" hidden>
           <div id="quizQuestions" class="quiz-questions" aria-live="polite"></div>
           <div class="quiz-actions">
-            <button class="button primary" type="submit">Check my answers</button>
+            <button class="button primary" type="submit">Submit my answers</button>
             <button class="button secondary" id="quizResetButton" type="button">Start a new attempt</button>
             <button class="button secondary" id="quizSaveButton" type="button" disabled>Save this attempt to my binder</button>
             <button class="button ghost" id="quizRetryButton" type="button" hidden>Retry this save</button>

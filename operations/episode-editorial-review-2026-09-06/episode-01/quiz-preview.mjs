@@ -1,3 +1,4 @@
+import { createQuizFirstRewardClient } from "../../../content/site/quiz-first-reward-client.mjs";
 import { buildEpisodeQuizAttempt } from "../../../content/site/episode-quiz-attempt.mjs";
 
 const LOCAL_HOSTS = new Set(["localhost", "127.0.0.1"]);
@@ -19,6 +20,8 @@ if (!LOCAL_HOSTS.has(location.hostname)) {
 let quiz;
 let runtime;
 let binder;
+let rewards;
+let pendingReward = null;
 let owner = "";
 let epoch = 0;
 let pendingAttempt = null;
@@ -47,14 +50,16 @@ function clearFeedback() {
 }
 
 function updateControls() {
-  const locked = busy || retryLocked;
+  const locked = busy || retryLocked || !!pendingReward;
   form.querySelectorAll("input, button").forEach((control) => { control.disabled = locked; });
+  $("#quizRewardRetry").hidden = !pendingReward;
+  $("#quizRewardRetry").disabled = busy;
   retryButton.disabled = busy;
   abandonButton.disabled = busy;
   retryButton.hidden = !retryLocked;
   abandonButton.hidden = !retryLocked;
-  openSavedButton.disabled = busy || retryLocked;
-  saveButton.disabled = busy || retryLocked || !pendingAttempt;
+  openSavedButton.disabled = busy || retryLocked || !!pendingReward;
+  saveButton.disabled = busy || retryLocked || !!pendingReward || !pendingAttempt;
 }
 
 function setBusy(value) {
@@ -68,6 +73,9 @@ function resetCandidate(note) {
   owner = "";
   binder?.invalidate();
   pendingAttempt = null;
+  pendingReward = null;
+  rewards?.invalidate();
+  $("#quizRewardStatus").textContent = "Your first submitted account attempt earns clips. Later attempts are practice only.";
   savedAttempt = null;
   retryLocked = false;
   form?.reset();
@@ -257,10 +265,12 @@ function reopenSaved() {
 async function mountAccount() {
   subscription?.unsubscribe();
   binder?.dispose();
+  rewards?.dispose();
   subscription = null;
   binder = null;
   runtime = await window.LAIDIESResidentAccountRuntime.get();
   binder = window.LAIDIESResidentEpisodeBinderV1.create(runtime);
+  rewards = createQuizFirstRewardClient(runtime);
   subscription = runtime.client.auth.onAuthStateChange((_event, session) => {
     if (owner && owner !== String(session?.user?.id || "")) accountChanged();
   }).data.subscription;
@@ -288,8 +298,36 @@ async function start() {
   });
 }
 
+async function submitRewardAttempt() {
+  if (busy || !pendingReward) return;
+  const snapshot = pendingReward, started = epoch;
+  setBusy(true);
+  try {
+    const observed = await sessionOwner();
+    if (started !== epoch) return;
+    if (owner && owner !== observed) { accountChanged(); return; }
+    if (!observed) {
+      pendingReward = null; showAttempt(snapshot, "Practice checked:");
+      $("#quizRewardStatus").textContent = "Guest practice earns no Butterfly Clips."; return;
+    }
+    owner = observed;
+    const award = await rewards.submit({episode: EPISODE, version: quiz.version, attemptId: snapshot.binderPayload.attempt_id, answers: snapshot.binderPayload.answers}, owner);
+    if (started !== epoch) return;
+    pendingReward = null; showAttempt(snapshot, "Checked:");
+    $("#quizRewardStatus").textContent = award.attempt_id === snapshot.binderPayload.attempt_id
+      ? `Your first attempt earned ${award.clips} Butterfly Clips. Later attempts are practice only.`
+      : `Practice attempt: no new clips. Your first recorded award stays at ${award.clips} Butterfly Clips.`;
+  } catch (error) {
+    if (started !== epoch) return;
+    if (isAccountChange(error)) { accountChanged(); return; }
+    message("Your submission could not be confirmed. Retry this same submission before viewing the answers; your choices are kept.");
+  } finally { if (started === epoch) setBusy(false); }
+}
+$("#quizRewardRetry").addEventListener("click", submitRewardAttempt);
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  if (busy || retryLocked || pendingReward) return;
   try {
     const result = buildEpisodeQuizAttempt({
       quizId: QUIZ_ID,
@@ -298,7 +336,8 @@ form.addEventListener("submit", (event) => {
       attemptId: crypto.randomUUID(),
       completedAt: new Date().toISOString()
     });
-    showAttempt(result, "Checked:");
+    pendingReward = result;
+    submitRewardAttempt();
   } catch (error) {
     if (String(error?.message || "").startsWith("Answer every scored question")) {
       const answers = collectedAnswers();
@@ -332,7 +371,7 @@ abandonButton.addEventListener("click", () => {
 });
 openSavedButton.addEventListener("click", reopenSaved);
 questionsHost.addEventListener("change", () => {
-  if (busy || retryLocked) return;
+  if (busy || retryLocked || pendingReward) return;
   pendingAttempt = null;
   clearFeedback();
   updateControls();
