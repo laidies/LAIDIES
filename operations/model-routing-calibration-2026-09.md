@@ -125,3 +125,5 @@ and the next review date only if continued measurement can change a decision.
 | 38 | 2026-09-06 | Whole-paper composition | Astra foreground; Terra Medium independent visual review | 15–60m / usage unavailable | Accepted after root layout fixes | CUA screenshot stalls; isolated Chrome used. Reviewer lazy-image false alarm withdrawn | Terra adequate for bounded CSS implementation | Desktop1200/390/320, exact six column journeys, protected194pxmasthead |
 
 | 39 | 2026-09-06 | Mme reading prominence correction | Astra foreground; Terra Medium independent review | <15m / usage unavailable | Candidate accepted | Previous whole-paper review missed feature prominence; narrowed scope | Terra adequate | Real1200/390/320, same card dimensions, complete text |
+
+| 40 | 2026-09-06 | Section markers and duplicate rules | Astra foreground; Terra Medium independent review | <15m / usage unavailable | Root candidate clear | Incorporated second screenshot into same fix | Terra adequate |1200/390/320; duplicate-rule negativecase |

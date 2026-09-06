@@ -941,3 +941,28 @@
  .ns-redesign .ns-feature-desk__grid--town .ns-reading-card > img { width: 100%; height: 330px; }
  .ns-redesign .ns-reading-card h3 { font-size: 31px; }
 }
+
+/* Coloured desk markers make changes of subject visible while scanning. */
+.ns-redesign .ns-feature-desk__head--useful { --desk-accent: #00d4e9; }
+.ns-redesign .ns-feature-desk__head--town { --desk-accent: #ff2ea6; }
+.ns-redesign .ns-feature-desk__head { border-top: 6px solid var(--desk-accent); border-bottom: 2px solid var(--desk-accent); padding-top: 0; }
+.ns-redesign .ns-page .ns-feature-desk__head .ns-kicker {
+ display: inline-block; max-width: 100%; box-sizing: border-box; padding: 7px 11px; margin: 0 0 10px;
+ background: var(--desk-accent); color: #11183b !important; font-size: 11px; line-height: 1.35; letter-spacing: .12em;
+}
+.ns-redesign .ns-feature-desk > .ns-luminairy { border-left-color: #7031dd; }
+.ns-redesign .ns-luminairy__head { border-top: 6px solid #7031dd; padding-top: 0; }
+.ns-redesign .ns-page .ns-luminairy__head .ns-kicker,
+.ns-redesign .ns-page .ns-catchup__intro > .ns-kicker {
+ display: inline-block; max-width: 100%; box-sizing: border-box; padding: 7px 11px; margin: 0 0 10px;
+ background: #7031dd; color: #fff !important; font-size: 11px; line-height: 1.35; letter-spacing: .12em;
+}
+.ns-redesign .ns-catchup { border-top: 6px solid #7031dd; }
+.ns-redesign .ns-catchup__intro { padding-top: 0; }
+.ns-redesign .ns-front-desk--weekly { border-top: 6px solid #00d4e9; }
+.ns-redesign .ns-front-desk--weekly .ns-front-desk__label { background: #00d4e9; color: #11183b; padding: 7px 11px; width: fit-content; max-width: 100%; box-sizing: border-box; border: 0; font-size: 15px; }
+
+/* A shared story boundary gets one rule, never two neighbouring rules. */
+.ns-redesign .ns-front-secondary article { border: 0; margin: 0; padding: 0; }
+.ns-redesign .ns-front-secondary article + article { border-top: 2px solid #11183b; margin-top: 18px; padding-top: 18px; }
+.ns-redesign .ns-feature-desk__head { border-bottom: 0; }

@@ -16004,3 +16004,9 @@ remain unreconciled; cross-chat completeness is not certified.
 - Failure: A correctly aligned full-width Mme strip still blended into the paper and wasted right space; previous composition review missed it.
 - Prevention: Inspect each recurring feature for immediate visual identity and content-fitted width as well as page rhythm. Preserve large art; narrow the copy footprint instead.
 - Behind the Build: Consistency should help recognition without making every feature disappear into the same background.
+
+## BTB-516 — Give dividers one job
+- Date:2026-09-06
+- Failure: Adjacent article bottom/top rules doubled visual noise; navy section eyebrows disappeared into navy article text.
+- Prevention: One border owner per story boundary, calibrated with deliberate duplication; section-level colour markers distinct from article typography.
+- Behind the Build: More lines do not necessarily make a page easier to scan.
