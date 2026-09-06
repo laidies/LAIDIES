@@ -16,3 +16,22 @@ These are design principles and practitioner precedents, not tests of LAiDIES re
 4. Colour has a stable job: vivid pink/coral/orange pop-art section heads, cyan accents and controls, navy readable text. Avoid random full-panel colour alternation; no butter-yellow, cream replacement or purple body text. Preserve existing approved artwork and masthead geometry.
 
 Next: make one representative two-section pilot with actual current content; inspect desktop390/320 and longer reading variants before independent review and scoped release. Source selection and article changes are outside this layout correction.
+
+## Clarification: research the whole online newspaper, not section boxes
+Ali clarified that the actual target is a distinctive online newspaper composition. The earlier two-section recommendation is insufficient as the whole-page solution. Do not publish the private CSS pilot as satisfying this brief.
+
+References opened September 6: https://www.ft.com/ , https://www.theguardian.com/international , https://www.lemonde.fr/en/ . Public document structures show lead/report/brief/opinion/feature distinctions and varied image prominence. Browser pixel inspection was limited by cookie/subscription overlays; no full unobstructed visual audit is claimed. Use editorial composition principles, not their colours or reproduction of their pages.
+
+Whole-page recommendation: a continuous newspaper canvas with a consistent column grid, varied article spans, a dominant Front PAiGE, narrow Latest briefs, prominent Big Picture spread, recognisable advice columns, portrait-led LUMINAiRY/Mme features and small house notices/puzzles among the editorial material. Avoid repeating full-width coloured headers plus equal-height boxed grids. Establish hierarchy through headline scale, image scale, placement, rules and spacing. Pop art belongs in masthead, illustrations and deliberately chosen feature treatments, not a random background per container. Mobile preserves story priority and coherent image/text groups rather than tiny desktop columns.
+
+Recovered ideas (repository evidence, not automatic public status):
+- Crossword/puzzles: specified; renderer slot exists, current playable puzzle not evidenced.
+- House advertisements and town notices: captured, not evidenced as published; clear fiction and real working destination.
+- Behind the Build: private candidate and active logging; no visible NewsStand feature established. Preserve operating/IP details privately.
+- Overheard in SUNNYVAiLE: memory-hook/recall specification, public showcase not established.
+- Deeper Saints/MAiVENS/Trailblazers: rotating teaser exists; richer commissioned editorial features remain incomplete.
+- Promptoscope/Song of the Day: older brief concepts, current independent public availability not established; reconcile Mme and shared player instead of duplicating.
+- Resident classifieds/community contributions: future, not a current feature.
+Evidence: docs/growth/ali-idea-backlog.md; operations/product-stewards/newsstand/DAILY-NEWSPAPER-EXPERIENCE-BRIEF.md; NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md; current renderer and archive index.
+
+Next deliverable should be one cohesive full-paper composition with actual content and labelled future-feature spaces only in private planning. Do not add all ideas as giant new public sections or invent readiness. No visual option is admitted yet.

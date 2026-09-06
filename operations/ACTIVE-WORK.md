@@ -1,3 +1,6 @@
+<!-- Latest correction: whole-paper composition research -->
+Ali means a distinctive online newspaper, not rearranged webpage sections/boxes. Whole-paper layout and recovered ideas are recorded in operations/product-stewards/newsstand/layout-research-20260906.md. No new layout deployed; private CSS pilot0bd20895 is HOLD, not release-ready. Next: cohesive whole-paper composition using actual content and approved visual language.
+
 <!-- Town/catch-up layout: RESEARCHED, private pilot HOLD -->
 Ali requested research before another published revision. Recommendation: dedicated fixed-image/text Mme reading, two large illustrated town columns beneath, chronological catch-up list with consistent background. Private three-column pilot is preserved but not admitted/deployed. Exact resume: operations/product-stewards/newsstand/layout-research-20260906.md. Live remains65a7ff3e.
 
