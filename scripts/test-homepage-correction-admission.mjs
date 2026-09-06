@@ -15,6 +15,7 @@ const cases = [
   ['future candidate', v => { v.id = 'other-page'; }, 'wrong scoped candidate'],
   ['production promotion', v => { v.design_admission.production_release_approved = true; }, 'does not authorize production'],
 ];
+if (item.design_admission.graphic) cases.push(['different graphic', v => { v.design_admission.graphic.sha256 = '0'.repeat(64); }, 'graphic bytes differ']);
 for (const [name, mutate, reason] of cases) {
   const candidate = structuredClone(item);
   mutate(candidate);

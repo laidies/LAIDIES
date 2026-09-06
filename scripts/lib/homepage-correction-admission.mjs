@@ -22,6 +22,29 @@ export function inspectHomepageCorrection(item, root) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if (a.owner_feedback_successor === 'BANNER_BRIGHT_QUESTION_MARK') {
+      const p = 'operations/product-stewards/town-entry-homepage/candidates/banner-graphic-20260906/';
+      assert(item.id === homepageCorrectionId && item.review_type === 'building_page_visual', 'wrong scoped candidate');
+      for (const [name,binding] of [['homepage',a.candidate],['runtime',a.runtime],['worker',a.worker],['graphic',a.graphic]]) assert(binding && digest(binding.path) === binding.sha256, name + ' bytes differ');
+      assert(a.candidate.sha256 === '0f044cf3411edd909653e220da382ba665b22a8621c013648ca82139f8b347a8', 'unrelated homepage change');
+      assert(digest(p+'parent.html') === 'b621c8714bfe347d1424f8355e0fcdeafeb846bb747fb25052d16667e6266ca5', 'wrong banner parent');
+      assert(a.runtime.sha256 === '79b1180ad64c4256e4bc70fb1f2eb78e2e69731b1d33b0a7bf5d2fbedfa1b227' && a.worker.sha256 === '9ddfba4179ce757019a2bacf75dbc814a222410628821b17c5feaba09337e764', 'unrelated runtime changed');
+      for (const binding of a.evidence || []) assert(digest(binding.path) === binding.sha256, 'stale evidence: ' + binding.path);
+      for (const file of ['scope.md','parent.html','checks.json','producer-self-review.md','source-diff.patch','independent-review.md','claude-review-result.json','visuals.json','graphic-brief.json','asset-integrity.json','prompt.txt']) assert(a.evidence?.some(b => b.path === p+file), 'missing bound evidence: ' + (file.startsWith('claude') ? 'claude' : file));
+      const checks=JSON.parse(bytes(p+'checks.json'));
+      assert(checks.status === 'PASS' && checks.sourceSha256 === a.candidate.sha256 && checks.assetSha256 === a.graphic.sha256 && checks.rejectedPurpleDetected, 'banner source or graphic checks differ');
+      for (const width of [1440,390]) {
+        const rows=checks.rows.filter(r=>r.width===width && r.kind==='candidate');
+        const old=checks.rows.filter(r=>r.width===width && r.kind==='parent');
+        assert(rows.length===8 && old.length===8 && rows.every((r,i)=>!r.overflow && r.colour==='rgb(255, 253, 251)' && r.ctaColour==='rgb(183, 228, 43)' && r.stroke==='2px rgb(17, 24, 59)' && r.graphic.includes('did-you-know-question-mark-20260906.webp') && r.graphicPointerEvents==='none' && ['text','href','radio','image','height'].every(k=>r[k]===old[i][k])), 'bright banner or preservation differs');
+      }
+      const independent=bytes(p+'independent-review.md').toString(),claude=JSON.parse(bytes(p+'claude-review-result.json'));
+      assert(independent.includes('ADMIT_FOR_OWNER_REVIEW') && independent.includes(a.candidate.sha256), 'independent graphic review differs');
+      assert(!claude.is_error && claude.modelUsage?.['claude-opus-5'] && claude.result?.includes('ADMIT_FOR_OWNER_REVIEW') && claude.result.includes(a.candidate.sha256), 'actual Claude graphic review differs');
+      for (const visual of JSON.parse(bytes(p+'visuals.json'))) assert(digest(visual.path)===visual.sha256,'stale visual');
+      assert(a.production_release_approved === false, 'owner presentation does not authorize production');
+      return errors;
+    }
     if (['BANNER_COLOUR_ONLY','HEADING_BLUE_TEXT_ONLY','BANNER_ALIGNMENT_PORTRAITS'].includes(a.owner_feedback_successor)) {
       const headingOnly = a.owner_feedback_successor === 'HEADING_BLUE_TEXT_ONLY';
       const bannerPolish = a.owner_feedback_successor === 'BANNER_ALIGNMENT_PORTRAITS';

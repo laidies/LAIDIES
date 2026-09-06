@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Bright banner text and colourful question mark
+
+Ali requests a fun colourful 90s-style question mark behind Did you know, then explicitly rejects the purple text: “we need bright text that purple looks bad.” Replace purple across the banner with bright text; preserve readable contrast and compact dimensions. Add one decorative illustrated question mark behind the heading, with no change to copy, feature images, destinations, controls, needs heading or radio. Preview only. This supersedes the preceding purple-text choice.
+
 ## 2026-09-06 — Banner text alignment and updated portraits
 
 Ali requests the Did you know text be vertically centred and use a different colour; Miss Jeeves needs a contrasting image background, and Ada should use the updated artwork and background. Reuse existing palette and approved assets. Preserve the approved needs heading, eight invitations and destinations, compact banner and shared bottom-radio action. Preview correction only.
