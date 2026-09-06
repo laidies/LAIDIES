@@ -1,5 +1,14 @@
 # LAiDIES build learning ledger
 
+## Homepage Ai arrival — completed-state control regression
+
+- **Date:** 2026-09-06
+- **Observed:** The first Replay control overlaid a hero CTA on narrow screens. Initial motion-only inspection missed the completed state.
+- **Repair/prevention:** Put Replay in reserved document flow; inspect every control in playing and completed states at narrow widths, measure zero overlap, and exercise real Replay/Skip clicks after browser scrolling settles. The overlap guard rejects a deliberately intersecting control. Preserve focus without unwanted scroll.
+- **Review learning:** An independent reviewer mistook the existing static masthead fallback and hardware sprite outlines for defects. Reconcile against exact markup and pixels; do not redesign to satisfy a mistaken premise. Raw and corrected reviews are retained.
+- **Possible public angle:** Test what happens after an animation finishes, using a generic example rather than exposing internal operations.
+- **Status:** Local repair verified; owner presentation remains held by exact-candidate admission.
+
 
 ## BTB-505 — A valid destination can still leave the reader at the book cover
 

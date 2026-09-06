@@ -1,5 +1,12 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Putting the Ai in LAiDIES: arrival preview
+
+Ali authorizes a professional motion preview whose meaning is “Putting the Ai in LAiDIES”: fictional dial-up to SUNNYVAiLE; a brief VHS tracking sweep; full LAiDIES; continuous camera move centring the Ai already inside that name; original Rewind Era symbols at the i-dot; pullback to full LAiDIES; a final tracking sweep into the existing masthead. Her current explicit bookend request supersedes the older ban on literal VHS effects for this bounded homepage preview only; no persistent grain/jitter is added.
+
+The supplied local IMG_5306 2.mov is a private Crave motion reference: use its controlled luminous rhythm, not its footage, logo or audio. Reuse current Jost800 web lettering and the admitted six-symbol/background artwork. The pilot is deterministic browser motion, not generated character/scenery animation. No production release or final visual approval is granted. Packet: operations/product-stewards/town-entry-homepage/candidates/ai-reveal-20260906/. New exact candidate still needs its presentation admission; the old byte-specific homepage exception is not silently extended.
+
+
 ## 2026-09-06 — Bright border around discovery images
 
 Ali requests a small bright border around the banner thumbnails. Use a thin2px outline in existing --hp-lime #b7e42b, matching the burst/links. Apply to all8 small images; preserve their size/crop, existing backgrounds, text, layout and controls. Preview only.
