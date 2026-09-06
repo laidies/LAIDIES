@@ -45,7 +45,9 @@ export function prepareDraft(contract,{root=ROOT,reportingFrame=null,sourcePacke
  for(const c of contract.canonicalTruth)add(c.source,'verified-source');
  if(sourcePacket)add(sourcePacket,'additional-primary-evidence');
  const exemplars=contract.positiveExemplars.map(use=>{
-  const ref=registry.positiveExemplars.find(e=>e.id===use.id);const raw=bound(root,ref);let artifact=raw;
+  const registered=registry.positiveExemplars.find(e=>e.id===use.id);
+  const ref=use.preservedArtifact?{...registered,path:use.preservedArtifact.path}:registered;
+  const raw=bound(root,ref);let artifact=raw;
   if(ref.locator&&ref.path.endsWith('.js')){const context={window:{}};vm.runInNewContext(raw,context,{timeout:1000});artifact=context.window.NEWSSTAND_DATA?.stories?.find(s=>s.id===ref.locator);if(!artifact)throw Error('Positive reference locator is missing');}
   return {strengths:use.strengthsToUse,doNotCopy:use.patternsNotToCopy,limits:ref.limits,artifact};
  });

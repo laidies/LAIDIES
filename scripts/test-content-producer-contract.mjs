@@ -80,6 +80,19 @@ try {
   const inspect = candidate => inspectContentProducerContract(candidate, { root }).errors;
   assert.deepEqual(inspect(contract), [], "complete prevention-first contract must match");
 
+  const approvedBytes=fs.readFileSync(good);
+  const frozenPath="evidence/approved-good-frozen.txt";write(frozenPath,approvedBytes);
+  const frozen=structuredClone(contract);
+  frozen.positiveExemplars[0].preservedArtifact={path:frozenPath,sha256:hash(good)};
+  fs.writeFileSync(good,"Later edited source, not the approved exemplar.\n");
+  assert.match(inspect(contract).join("\n"),/SHA-256 mismatch/,'a changed mutable exemplar must still fail');
+  assert.deepEqual(inspect(frozen),[],'exact registered approved bytes can be read from their preserved copy');
+  const substituted=structuredClone(frozen);substituted.positiveExemplars[0].preservedArtifact={path:goodPath,sha256:hash(good)};
+  assert.match(inspect(substituted).join("\n"),/registered SHA-256/,'a different exemplar cannot replace approved identity');
+  const tampered=structuredClone(frozen);fs.writeFileSync(path.join(root,frozenPath),'Altered preserved copy.');
+  assert.match(inspect(tampered).join("\n"),/SHA-256 mismatch/,'preserved-file tampering must reject');
+  fs.writeFileSync(good,approvedBytes);write(frozenPath,approvedBytes);
+
   const noExemplar = structuredClone(contract); noExemplar.positiveExemplars = [];
   assert.match(inspect(noExemplar).join("\n"), /positive exemplar/);
   const repeated = structuredClone(contract); repeated.knownFailurePreflight.dispositions.decorativeAnalogy.status = "OPEN";
@@ -105,7 +118,7 @@ try {
   fs.writeFileSync(registry, JSON.stringify(laterRegistry));
   const omittedLaterFailure = structuredClone(contract); omittedLaterFailure.knownFailurePreflight.registrySha256 = hash(registry);
   assert.match(inspect(omittedLaterFailure).join("\n"), /every registered negative exemplar/);
-  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=11 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1");
+  console.log("CONTENT PRODUCER CONTRACT CALIBRATION PASS valid=1 rejected=11 all_negatives=1 stale_registry=1 communication_design=1 explanation_arc=1 no_pastiche=1 preserved_approved_identity=1 substituted_identity_rejected=1 tampered_copy_rejected=1");
 } finally {
   fs.rmSync(root, { recursive: true, force: true });
 }

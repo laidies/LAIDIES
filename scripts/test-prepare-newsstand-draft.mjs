@@ -26,6 +26,15 @@ const fixtureContract = JSON.parse(fs.readFileSync(path.join(root, contractPath)
 const story = JSON.parse(fs.readFileSync(path.join(root, storyPath), "utf8"));
 const observations = JSON.parse(fs.readFileSync(path.join(root, observationsPath), "utf8"));
 const packet = prepareDraft(fixtureContract, { root, reportingFrame: { fixture: true } });
+const preservedContract=structuredClone(fixtureContract);
+const positive=registry.positiveExemplars.find(item=>item.id===preservedContract.positiveExemplars[0].id);
+const savedPositive=fs.readFileSync(path.join(root,positive.path));
+const preservedPath='operations/product-stewards/newsstand/candidates/approved-positive-frozen'+path.extname(positive.path);
+fs.writeFileSync(path.join(root,preservedPath),savedPositive);
+preservedContract.positiveExemplars[0].preservedArtifact={path:preservedPath,sha256:positive.sha256};
+fs.writeFileSync(path.join(root,positive.path),'Changed mutable source.');
+assert.deepEqual(prepareDraft(preservedContract,{root,reportingFrame:{fixture:true}}).packet.positiveExamples,packet.packet.positiveExamples,'writer must actually consume exact preserved approved bytes');
+fs.writeFileSync(path.join(root,positive.path),savedPositive);
 assert.equal(packet.packet.qualityVerdict, undefined, "writer packet cannot manufacture a quality verdict");
 assert.equal(packet.packet.outputBoundary, "PRIVATE_PRODUCER_ARTIFACT_REQUIRES_SELF_REVIEW_AND_INDEPENDENT_ADMISSION");
 assert.equal(inspectPreparedDraft(story, packet, observations).qualityVerdict, null, "draft inspection is presence/identity only");

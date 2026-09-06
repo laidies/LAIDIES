@@ -48,6 +48,8 @@
 
 - **Same-task editorial-date continuation:** Formatter-only repair initially missed source-to-key UTC slicing. Real browser archive filters exposed that September5 stories were filed on September6; catch-up and derivative keys now use Vancouver, preserving exact story timestamps/prose. A reviewer found impossible literal dates; regression first failed and the builder now rejects them. Tests cover actual displayed dates AND membership across time zones. Browser-test selectors must come from the actual DOM and screenshot the result, not only the controls. Public-byte fetching uses normal public URLs with redirects; a urllib403 was diagnosed without changing the public site. A held site notice also promised a nonexistent catch-up date picker: verify the actual advertised feature before drafting, not just its destination URL. Portable Behind the Build angle: checking a label is different from checking what the filter actually finds; no internal architecture needs disclosure.
 
+- **Same-task exemplar recovery:** The only registered reference-writing example pointed at a living book whose bytes had changed, blocking a short site notice before drafting. Git retained the exact approved blob. It is now preserved unchanged with provenance; the producer can bind that copy only under the existing registered hash and class permission. Deliberately changed mutable source, substituted identity and tampered preserved copy reject; the actual writer reads the accepted preserved bytes. No registry hash, living book or public content was changed and no new review was required for settled identical prose.
+
 ## BTB-502 — A story-link schema is not a working follow-up feature
 
 - **Date:** 2026-09-05

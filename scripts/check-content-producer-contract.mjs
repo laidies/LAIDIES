@@ -71,7 +71,11 @@ export function inspectContentProducerContract(contract, { root = ROOT } = {}) {
     require(Boolean(exemplar), `positiveExemplars[${index}] is not registered`);
     if (exemplar) {
       require(exemplar.useFor.includes(contract.contentClass), `positive exemplar ${use.id} is not approved for ${contract.contentClass}`);
-      boundFile(root, { path: exemplar.path, sha256: exemplar.sha256 }, `positive exemplar ${use.id}`, errors);
+      // A mutable source may advance after approval. A preserved copy may change
+      // location only: its identity must remain the registry's approved bytes.
+      const preserved = use.preservedArtifact;
+      if (preserved !== undefined) require(preserved?.sha256 === exemplar.sha256, `positive exemplar ${use.id} preservedArtifact must retain the registered SHA-256`);
+      boundFile(root, { path: preserved !== undefined ? preserved?.path : exemplar.path, sha256: exemplar.sha256 }, `positive exemplar ${use.id}`, errors);
     }
     require(array(use?.strengthsToUse), `positiveExemplars[${index}].strengthsToUse is required`);
     require(array(use?.patternsNotToCopy), `positiveExemplars[${index}].patternsNotToCopy is required`);
