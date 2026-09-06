@@ -1,0 +1,9 @@
+# Eight banner highlights — verified preview
+
+Source afff8ad2509eecfe3c0c339a4978e3b9a64aa939, branch fix/homepage-corrections-20260905. Preview https://a3e89267.laidies-sunnyvaile.pages.dev/ . Existing in-app tab8 replaced, visually inspected at its natural1074px width and retained; banner fully visible below masthead. Production homepage unchanged.
+
+Owner's eight highlights now rotate in order: games, Miss Jeeves, radio, women computing history, textbooks, NewsStand/Big Picture, FAiRY advice and own-AI guidance, Mall. History uses computing since1800s based on Ada1843. Radio opens a separate tab explicitly. Existing artwork/type/palette reused. Only banner markup and its text-fit CSS changed; all other homepage HTML and runtime remain identical to preview40010f23.
+
+Verified: all8source text/hrefs/image decoding at1440/390; no horizontal overflow, no page errors, stable banner height across rotation; next/previous wrap, reduced-motion pause; actual timed advance/persistentpause; existing6needs/4categories/26links with keyboard/no-JS disclosure and real learning/help navigation. Hostedsource/runtime and current3NewsStandfiles match exact stage. Both actual Sol/Medium and Claude Opus5/Medium admit this bounded owner preview with0materialfindings. Admission accepts current and rejects6bad inputs. Maker repaired legacy21ch heading constraint before review. Patch whitespace warning was blank diff context; final evidence uses unified0 without changing source.
+
+Release base updated to latest production3cccc225/sourceb84ee694 by preserving its three scoped NewsStand files, verified against actualhostedbytes, alongside the previous complete749-file previewartifact. No unrelated site changes were discarded. No paidAPIcall, auth/billing recheck, new asset generation or productionhomepagepromotion occurred. Broader assistant release and page-by-page recommendations remain pending under operations/homepage-corrections-2026-09-05.md.
