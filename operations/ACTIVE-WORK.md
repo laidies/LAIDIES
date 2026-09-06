@@ -1,3 +1,6 @@
+<!-- Tangerine printed paper: BUILDING -->
+Ali suggests tangerineorbrightpink; tangerineff9b3d applied to texturedpaper. Candidate root1200/390/320clear; scopeonly2files from127b578d. Evidence operations/product-stewards/newsstand/evidence/tangerine-20260906/.
+
 <!-- Selective-colour paper + headline divider: VERIFIED PUBLICLY -->
 Ali endorses selectivecolour/quiettexturedpaper rather than solidfill. Finalcandidate uses existingpaper token, retains vividfeatures and removesWeekly/Frontheadlinehairline. Independentreviewaccepted. Sourcefc54ec5e deployed127b578d; live1200/390/320clear, exactfilesbothorigins. Evidence operations/product-stewards/newsstand/evidence/print-ground-20260906/.
 

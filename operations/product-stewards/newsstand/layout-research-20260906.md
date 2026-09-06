@@ -61,3 +61,7 @@ Ali flags the hairline touching the Weekly headline: remove the inherited conten
 Clarification: Ali dislikes the solid fill itself. Use gentle continuous colour movement and restrained print texture, keeping textareas calm; do not treat this as a request for another flatcolour.
 
 Ali also endorses balanced composition with colour used selectively rather than a continuouswash. Finaldirection: existingpaperfffdfb with restrainedprintgrain behindarticles, concentratedcolour in masthead/art/BigPicture/Mme/catchup; not the privateall-overgradientcandidate. Dividerfix retained.
+
+Ali finds off-whiteprintground too subtle and requests an actualpalettecolour. Use establishedsky78c7ff behindarticles with slightlymorevisibleprintgrain. Preservefeaturecolours/layout.
+
+Lateststeering suggests tangerine orbrightpink. Use establishedtangerineff9b3d forpaper, preservingbrightpinkmasthead/art; supersedes privateskycandidate beforepublication.

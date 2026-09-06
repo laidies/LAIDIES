@@ -1,0 +1,1 @@
+Ali requested actualpalettecolour and suggestedtangerineorbrightpink. Selectedestablishedtangerineff9b3d; .10inkgrain5pxgrid. Skyproposalremainedprivate. Root1200/390/320 nooverflow/brokenart; originalmasthead194desktop. Onlyground/cacheversionchanges.
