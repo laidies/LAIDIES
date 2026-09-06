@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Radio listening opens the shared bottom player
+
+Ali clarified that radio should open the existing fixed-bottom player so visitors retain controls across the pages they browse. This supersedes the separate-tab banner implementation. Wire direct homepage listening controls to the existing KSVL player and fill its shared loading gaps; retain ordinary building-navigation links. Preserve the current player design, one-audio ownership and existing saved playback/Resume behavior. Preview only.
+
 ## 2026-09-06 — Owner supplies eight Did you know highlights
 
 Use Ali's eight supplied banner invitations: Rewind Era games, Miss Jeeves, KSVL radio while browsing, women in computing, LIBRAiRY textbooks, NewsStand headlines and Big Picture, FAiRY career advice and learning to use one's own AI, and Mall references. Preserve her examples and direct, welcoming language, with spelling/canon and source-supported factual corrections. “Over 200 years” is not established by the 1843 Ada Lovelace source; use computing since the 1800s. Keep the rotating banner slim below the masthead, with direct links and existing art, alongside the restored needs shortcuts and compact expandable full directory. Update the preview only.

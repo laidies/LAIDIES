@@ -1,0 +1,166 @@
+diff --git a/content/site/homepage.js b/content/site/homepage.js
+index cb0035d2..f68ebc56 100644
+--- a/content/site/homepage.js
++++ b/content/site/homepage.js
+@@ -606,7 +606,7 @@
+   if (pause) pause.textContent = paused ? 'Play' : 'Pause';
+ 
+   function labelFor(slide) {
+-    var heading = slide.querySelector('h3');
++    var heading = slide.querySelector('h3, .dyk-title');
+     return heading ? heading.textContent.trim() : 'feature';
+   }
+ 
+diff --git a/content/site/sv-global-header.js b/content/site/sv-global-header.js
+index 63cb2aba..c20672bb 100644
+--- a/content/site/sv-global-header.js
++++ b/content/site/sv-global-header.js
+@@ -311,6 +311,17 @@
+     })();
+   }
+ 
++  function mountKSVL() {
++    // Every town page shares one deck, including pages without a music section.
++    if (window.__KSVL_CANONICAL_PLAYER__ || [].some.call(document.scripts, function (script) {
++      return script.src && new URL(script.src, location.href).pathname === '/content/site/ksvl-player.js';
++    })) return;
++    var script = document.createElement('script');
++    script.src = '/content/site/ksvl-player.js?v=20260830-continuity-1';
++    script.async = true;
++    document.head.appendChild(script);
++  }
++
+   function mountContinuation() {
+     if (window.LAIDIESResidentContinuationBootstrapV1 ||
+         document.querySelector('script[data-laidies-continuation-bootstrap]')) return;
+@@ -325,9 +336,11 @@
+     document.addEventListener('DOMContentLoaded', function () {
+       mount();
+       mountContinuation();
++      mountKSVL();
+     });
+   } else {
+     mount();
+     mountContinuation();
++    mountKSVL();
+   }
+ })();
+diff --git a/fun-connect.html b/fun-connect.html
+index b89a4c21..70c9d268 100644
+--- a/fun-connect.html
++++ b/fun-connect.html
+@@ -82,5 +82,6 @@
+   <script>
+     (function(){var menu=document.querySelector('.menu'),panel=document.getElementById('mobile-nav');if(menu&&panel){menu.addEventListener('click',function(){var open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));panel.hidden=open;});panel.addEventListener('click',function(e){if(e.target.closest('a')){panel.hidden=true;menu.setAttribute('aria-expanded','false');}});}if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){var dot=document.querySelector('.topbar .logo-tit'),colors=['#7137d6','#ff7366','#b7e42b','#15bce0','#ff9b3d','#7de2c2'],i=0;if(dot){setInterval(function(){i=(i+1)%colors.length;dot.style.color=colors[i];},850);}}}());
+   </script>
++<script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
+ </body>
+ </html>
+diff --git a/grimoire/verification-rulebook.html b/grimoire/verification-rulebook.html
+index cb070659..bbb3e6d1 100644
+--- a/grimoire/verification-rulebook.html
++++ b/grimoire/verification-rulebook.html
+@@ -901,5 +901,6 @@
+   })();
+   </script>
+   <script defer src="/content/site/sv-back-nav.js?v=svbn-2026-08-29-v3-f3347a06b810"></script>
++<script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
+ </body>
+ </html>
+diff --git a/index.html b/index.html
+index 6cd0ea5e..c0e98f66 100644
+--- a/index.html
++++ b/index.html
+@@ -994,7 +994,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
+ .dyk-media img{display:block;width:100%;height:100%;min-height:300px;object-fit:cover;object-position:center}
+ .dyk-copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-width:0;padding:clamp(24px,3.3vw,48px)}
+ .dyk-kicker{margin:0 0 10px;color:var(--dyk-accent);font:800 clamp(.78rem,1vw,.95rem)/1.2 Jost,sans-serif;letter-spacing:.13em;text-transform:uppercase}
+-.dyk-copy h3{max-width:21ch;margin:0 0 12px;color:var(--hp-paper);font-size:clamp(1.7rem,3vw,2.8rem);line-height:1.05}
++.dyk-copy :is(h3,.dyk-title){max-width:21ch;margin:0 0 12px;color:var(--hp-paper);font-size:clamp(1.7rem,3vw,2.8rem);line-height:1.05}
+ .dyk-copy p{max-width:54ch;margin:0 0 20px;color:var(--hp-mint);font-size:clamp(1.05rem,1.4vw,1.25rem);line-height:1.5}
+ .dyk-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:9px 22px;border:2px solid var(--hp-paper);border-radius:999px;background:var(--dyk-accent);color:var(--hp-ink);font:800 1rem/1.2 Jost,sans-serif}
+ .dyk-slide:hover .dyk-cta{background:var(--hp-paper)}
+@@ -1007,7 +1007,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
+ .dyk-dot[aria-pressed="true"]{background:var(--hp-orange);transform:scale(1.2)}
+ .dyk-arrow:focus-visible,.dyk-dot:focus-visible{outline:3px solid var(--hp-lime);outline-offset:3px}
+ .dyk-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+-@media(max-width:760px){.did-you-know{padding:28px 18px 32px}.dyk-heading{align-items:start}.dyk-slide{grid-template-columns:1fr;min-height:0}.dyk-media{min-height:0;aspect-ratio:16/8}.dyk-media img{min-height:0}.dyk-copy{padding:22px}.dyk-copy h3{font-size:clamp(1.65rem,8vw,2.2rem)}.dyk-copy p{font-size:1.05rem}.dyk-cta{width:100%;box-sizing:border-box;text-align:center}}
++@media(max-width:760px){.did-you-know{padding:28px 18px 32px}.dyk-heading{align-items:start}.dyk-slide{grid-template-columns:1fr;min-height:0}.dyk-media{min-height:0;aspect-ratio:16/8}.dyk-media img{min-height:0}.dyk-copy{padding:22px}.dyk-copy :is(h3,.dyk-title){font-size:clamp(1.65rem,8vw,2.2rem)}.dyk-copy p{font-size:1.05rem}.dyk-cta{width:100%;box-sizing:border-box;text-align:center}}
+ /* Fresh editorial preview: the Homepage shows useful NewsStand content without
+    pretending that an expired feed is current. */
+ .sunny-now{position:relative;overflow:hidden;padding:clamp(46px,6vw,82px) clamp(24px,7vw,112px);background:linear-gradient(125deg,var(--hp-coral),var(--hp-pink));color:var(--hp-ink)}
+@@ -1091,13 +1091,14 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
+   .directory-disclosure>summary{display:flex;align-items:center;justify-content:center;gap:14px;box-sizing:border-box;width:100%;min-height:60px;padding:16px 24px;list-style:none;border:3px solid var(--hp-ink);border-radius:999px;background:var(--hp-lime);color:var(--hp-ink);font:800 clamp(1.05rem,1.5vw,1.4rem)/1.25 Jost,sans-serif;text-align:center;cursor:pointer;box-shadow:5px 5px 0 var(--hp-ink)}
+ .directory-disclosure>summary::-webkit-details-marker{display:none}.directory-disclosure>summary:hover{background:var(--hp-mint)}.directory-disclosure>summary:focus-visible{outline:4px solid var(--hp-paper);outline-offset:5px}.directory-disclosure[open]>summary{margin-bottom:28px}.directory-disclosure .directory-close,.directory-disclosure[open] .directory-show{display:none}.directory-disclosure[open] .directory-close{display:inline}.directory-disclosure .directory-symbol{font-size:1.5em;line-height:1}
+ .dyk-slim{margin:18px clamp(20px,5vw,72px);padding:14px 22px;border:3px solid var(--hp-ink);border-radius:24px;background:var(--hp-ground-warm);color:var(--hp-ink)}
+-.dyk-slim .dyk-inner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:22px;max-width:none}.dyk-slim h2{margin:0;color:var(--hp-ink);font:800 clamp(1.15rem,1.8vw,1.55rem)/1.1 Jost,sans-serif}.dyk-slim .dyk-stage{min-width:0;min-height:80px}.dyk-slim .dyk-slide{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;align-items:center;min-height:80px;padding:0;border:0;border-radius:0;box-shadow:none;background:transparent;color:var(--hp-ink)}.dyk-slim .dyk-slide[hidden]{display:none}.dyk-slim .dyk-media{width:72px;height:72px;min-height:0;border-radius:12px;overflow:hidden}.dyk-slim .dyk-media img{display:block;width:72px;height:72px;min-height:0;object-fit:cover}.dyk-slim .dyk-copy{padding:0;min-width:0}.dyk-slim .dyk-copy h3{margin:0 0 6px;color:var(--hp-ink);font:600 clamp(1rem,1.25vw,1.2rem)/1.3 Jost,sans-serif}.dyk-slim .dyk-cta{display:inline;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--hp-ink);font-size:1rem;font-weight:800;text-decoration:underline;text-underline-offset:4px}.dyk-slim .dyk-controls{display:flex;gap:6px;margin:0;justify-content:flex-end}.dyk-slim .dyk-arrow,.dyk-slim .dyk-pause{min-width:44px;height:44px;padding:0 10px;border:2px solid var(--hp-ink);border-radius:999px;background:var(--hp-midnight);color:var(--hp-mint);font:800 .9rem/1 Jost,sans-serif;cursor:pointer}.dyk-slim .dyk-arrow{font-size:1.6rem}.dyk-slim :is(a,button):focus-visible{outline:3px solid var(--hp-ink);outline-offset:4px}.dyk-slim .dyk-controls[hidden]{display:none}
+-@media(max-width:700px){.dyk-slim{margin:16px;padding:14px}.dyk-slim .dyk-inner{grid-template-columns:minmax(0,1fr) auto;gap:12px}.dyk-slim .dyk-stage{grid-column:1/-1;grid-row:2;min-height:96px}.dyk-slim .dyk-slide{min-height:96px}.dyk-slim .dyk-controls{grid-column:2;grid-row:1}.dyk-slim .dyk-copy h3{font-size:1.04rem}.dyk-slim h2{font-size:1.1rem}}
+-.dyk-slim .dyk-copy h3{max-width:none}.dyk-slim .dyk-stage{display:grid}.dyk-slim .dyk-slide{grid-area:1/1}.dyk-slim .dyk-slide[hidden]{display:grid;visibility:hidden;pointer-events:none}
+-@media(max-width:700px){.dyk-slim .dyk-slide,.dyk-slim .dyk-slide[hidden]{display:block}.dyk-slim .dyk-media{float:left;width:56px;height:56px;margin:0 12px 6px 0}.dyk-slim .dyk-media img{width:56px;height:56px}.dyk-slim .dyk-copy{display:contents}.dyk-slim .dyk-copy h3{font-size:1rem;line-height:1.35}.dyk-slim .dyk-cta{font-size:.95rem}}
++.dyk-slim .dyk-inner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:22px;max-width:none}.dyk-slim h2{margin:0;color:var(--hp-ink);font:800 clamp(1.15rem,1.8vw,1.55rem)/1.1 Jost,sans-serif}.dyk-slim .dyk-stage{min-width:0;min-height:80px}.dyk-slim .dyk-slide{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;align-items:center;min-height:80px;padding:0;border:0;border-radius:0;box-shadow:none;background:transparent;color:var(--hp-ink)}.dyk-slim .dyk-slide[hidden]{display:none}.dyk-slim .dyk-media{width:72px;height:72px;min-height:0;border-radius:12px;overflow:hidden}.dyk-slim .dyk-media img{display:block;width:72px;height:72px;min-height:0;object-fit:cover}.dyk-slim .dyk-copy{padding:0;min-width:0}.dyk-slim .dyk-copy :is(h3,.dyk-title){margin:0 0 6px;color:var(--hp-ink);font:600 clamp(1rem,1.25vw,1.2rem)/1.3 Jost,sans-serif}.dyk-slim .dyk-cta{display:inline;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--hp-ink);font-size:1rem;font-weight:800;text-decoration:underline;text-underline-offset:4px}.dyk-slim .dyk-controls{display:flex;gap:6px;margin:0;justify-content:flex-end}.dyk-slim .dyk-arrow,.dyk-slim .dyk-pause{min-width:44px;height:44px;padding:0 10px;border:2px solid var(--hp-ink);border-radius:999px;background:var(--hp-midnight);color:var(--hp-mint);font:800 .9rem/1 Jost,sans-serif;cursor:pointer}.dyk-slim .dyk-arrow{font-size:1.6rem}.dyk-slim :is(a,button):focus-visible{outline:3px solid var(--hp-ink);outline-offset:4px}.dyk-slim .dyk-controls[hidden]{display:none}
++@media(max-width:700px){.dyk-slim{margin:16px;padding:14px}.dyk-slim .dyk-inner{grid-template-columns:minmax(0,1fr) auto;gap:12px}.dyk-slim .dyk-stage{grid-column:1/-1;grid-row:2;min-height:96px}.dyk-slim .dyk-slide{min-height:96px}.dyk-slim .dyk-controls{grid-column:2;grid-row:1}.dyk-slim .dyk-copy :is(h3,.dyk-title){font-size:1.04rem}.dyk-slim h2{font-size:1.1rem}}
++.dyk-slim .dyk-copy :is(h3,.dyk-title){max-width:none}.dyk-slim .dyk-stage{display:grid}.dyk-slim .dyk-slide{grid-area:1/1}.dyk-slim .dyk-slide[hidden]{display:grid;visibility:hidden;pointer-events:none}
++@media(max-width:700px){.dyk-slim .dyk-slide,.dyk-slim .dyk-slide[hidden]{display:block}.dyk-slim .dyk-media{float:left;width:56px;height:56px;margin:0 12px 6px 0}.dyk-slim .dyk-media img{width:56px;height:56px}.dyk-slim .dyk-copy{display:contents}.dyk-slim .dyk-copy :is(h3,.dyk-title){font-size:1rem;line-height:1.35}.dyk-slim .dyk-cta{font-size:.95rem}}
++button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-title{display:block}.homepage-radio-pill{text-align:left;cursor:pointer}
+ </style>
+   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+-  <script defer src="/content/site/sv-global-header.js?v=20260823-resident-truth-4f8af546d716"></script>
++  <script defer src="/content/site/sv-global-header.js?v=20260906-shared-radio"></script>
+   <script defer src="/content/site/sv-nav-auth.js?v=20260823-resident-truth-a6e7832439e1"></script>
+   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
+   <!-- Privacy-friendly analytics by Plausible -->
+@@ -1167,10 +1168,10 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
+             <div class="dyk-media"><img src="/assets/homepage/characters/miss-jeeves-question-desk-cutout-v2.png" alt="" decoding="async" loading="lazy"></div>
+             <div class="dyk-copy"><h3>You can bring your AI questions to our town librarian, Miss Jeeves. She’ll help you find the answer.</h3><span class="dyk-cta">Ask Miss Jeeves</span></div>
+           </a>
+-          <a class="dyk-slide" data-dyk-slide href="/radio.html" target="_blank" rel="noopener" hidden>
+-            <div class="dyk-media"><img src="/assets/building-interiors/ksvl-sticker-banner.jpg" alt="" decoding="async" loading="lazy"></div>
+-            <div class="dyk-copy"><h3>SUNNYVAiLE has its very own radio station. Put on KSVL 99.9 in another tab and listen while you browse the town.</h3><span class="dyk-cta">Listen to KSVL 99.9 ↗</span></div>
+-          </a>
++          <button class="dyk-slide" type="button" data-dyk-slide data-ksvl-start-live hidden>
++            <span class="dyk-media"><img src="/assets/building-interiors/ksvl-sticker-banner.jpg" alt="" decoding="async" loading="lazy"></span>
++            <span class="dyk-copy"><span class="dyk-title">SUNNYVAiLE has its very own radio station. Put on KSVL 99.9 and keep the controls at the bottom of your screen as you explore.</span><span class="dyk-cta">Listen to KSVL 99.9</span></span>
++          </button>
+           <a class="dyk-slide" data-dyk-slide href="/luminairy.html" hidden>
+             <div class="dyk-media"><img src="/assets/mavens/y2k-stained-glass-v4-dark-sapphire/ada-lovelace-y2k-stained-glass.png" alt="" decoding="async" loading="lazy"></div>
+             <div class="dyk-copy"><h3>Women have been shaping computing since the 1800s. Meet the MAiVENS and TRAiLBLAZERS behind the ideas that helped make today’s AI possible.</h3><span class="dyk-cta">Meet them at the LUMINAiRY</span></div>
+@@ -1231,7 +1232,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
+           <li><a href="#town"><span class="feature-link-copy"><strong>Explore SUNNYVAiLE</strong><small>Open the map and visit every town building.</small></span></a></li><li><a href="/sorority-house.html"><span class="feature-link-copy"><strong>Delta LAi Nu</strong><small>Visit the community home, its rooms and Girl Talk.</small></span></a></li><li><a href="/games/girl-talk.html"><span class="feature-link-copy"><strong>Girl Talk</strong><small>Choose a truth or dare and play on your own terms.</small></span></a></li><li><a href="/maikeover.html"><span class="feature-link-copy"><strong>Make a Resident Card</strong><small>Create your town ID and begin your Resident experience.</small></span></a></li><li><a href="/laidies-card.html"><span class="feature-link-copy"><strong>Open your Closet</strong><small>See your Card, supported saves and keepsakes.</small></span></a></li><li><a href="/post-office.html"><span class="feature-link-copy"><strong>Post Office</strong><small>Request the weekly Postcard and discover town mail.</small></span></a></li><li><a href="/town-hall.html"><span class="feature-link-copy"><strong>Town Hall</strong><small>Meet Mayor Deb, read notices and share feedback.</small></span></a></li>
+         </ul></article>
+       </div>
+-      <a class="homepage-radio-pill" href="/radio.html"><span class="radio-pill-name">KSVL 99.9 <span aria-hidden="true">↗</span></span><span><strong>SUNNYVAiLE’s radio station.</strong> Original LAiDIES songs turn the AI lessons into hooks you can sing back. Put it on while you explore.</span><b>Listen now →</b></a>
++      <button class="homepage-radio-pill" type="button" data-ksvl-start-live><span class="radio-pill-name">KSVL 99.9 <span aria-hidden="true">▶</span></span><span><strong>SUNNYVAiLE’s radio station.</strong> Original LAiDIES songs turn the AI lessons into hooks you can sing back. Put it on while you explore.</span><b>Listen now</b></button>
+       </details>
+     </section>
+ 
+@@ -1487,7 +1488,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
+   <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
+   <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+   <script defer src="/content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
+-  <script src="/content/site/homepage.js?v=20260906-navigation"></script>
++  <script src="/content/site/homepage.js?v=20260906-radio-controls"></script>
+   <script>
+   /* Size corresponding card slots to the largest current label, never clip text.
+      Recalculate after fonts, resizing and filters; do not fix the card height. */
+diff --git a/learn.html b/learn.html
+index cb627bea..5ad33797 100644
+--- a/learn.html
++++ b/learn.html
+@@ -100,5 +100,6 @@
+       if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){var dot=document.querySelector('.topbar .logo-tit');var colors=['#7137d6','#ff7366','#b7e42b','#15bce0','#ff9b3d','#7de2c2'],i=0;if(dot){setInterval(function(){i=(i+1)%colors.length;dot.style.color=colors[i];},850);}}
+     }());
+   </script>
++<script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
+ </body>
+ </html>
+diff --git a/resident-referrals.html b/resident-referrals.html
+index 0e29947f..b9025086 100644
+--- a/resident-referrals.html
++++ b/resident-referrals.html
+@@ -52,5 +52,6 @@
+     <p>After accepting, <a href="/maikeover.html">make your Card</a> and <a href="/resident-card.html#rcAccountTitle">save it with your account</a>. Return here to confirm your necklace, then <a href="/laidies-card.html">open your Closet</a>.</p>
+   </section>
+ </main>
++<script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
+ </body>
+ </html>

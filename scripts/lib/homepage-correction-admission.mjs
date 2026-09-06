@@ -22,6 +22,35 @@ export function inspectHomepageCorrection(item, root) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if (a.owner_feedback_successor === 'EXISTING_BOTTOM_RADIO_PLAYER') {
+      const p = 'operations/product-stewards/town-entry-homepage/candidates/radio-bottom-player-20260906/';
+      const read = file => JSON.parse(bytes(p + file));
+      assert(item.id === homepageCorrectionId && item.review_type === 'building_page_visual', 'wrong scoped candidate');
+      for (const [name, binding] of [['homepage', a.candidate], ['runtime', a.runtime], ['worker', a.worker]]) assert(binding && digest(binding.path) === binding.sha256, name + ' bytes differ');
+      for (const binding of a.evidence || []) assert(digest(binding.path) === binding.sha256, 'stale evidence: ' + binding.path);
+      for (const name of ['scope.md','manifest.json','producer-contract.json','producer-self-review.md','source-diff.patch','browser-checks.json','browser-test.mjs','calibration.json','independent-review.md','claude-review-result.json','visuals.json']) assert(a.evidence?.some(b => b.path === p + name), 'missing bound evidence: ' + (name.startsWith('claude') ? 'claude' : name));
+      const manifest = read('manifest.json');
+      for (const source of manifest.source) assert(digest(source.path) === source.sha256, 'manifest source differs: ' + source.path);
+      assert(digest(p + 'parent.html') === '81b4f6619755e2c637fab8cc8e684026d3599ed5d03aa0522b2ee57f8d8f7edb', 'wrong radio parent');
+      assert(a.worker.sha256 === '9ddfba4179ce757019a2bacf75dbc814a222410628821b17c5feaba09337e764', 'unrelated Worker changed');
+      const independent = bytes(p + 'independent-review.md').toString();
+      const claude = read('claude-review-result.json');
+      assert(independent.includes('ADMIT_FOR_OWNER_REVIEW'), 'independent review not admitted');
+      assert(!claude.is_error && claude.modelUsage?.['claude-opus-5'] && claude.result?.includes('ADMIT_FOR_OWNER_REVIEW'), 'actual Claude review not admitted');
+      for (const hash of [a.candidate.sha256,a.runtime.sha256,manifest.source.find(s => s.path === 'content/site/sv-global-header.js')?.sha256]) assert(hash && independent.includes(hash) && claude.result?.includes(hash), 'review source differs');
+      const checks = read('browser-checks.json');
+      assert(checks.status === 'PASS' && checks.freshVisitorSilent && JSON.stringify(checks.source) === JSON.stringify(manifest.source), 'browser source or fresh visitor state differs');
+      for (const width of [1440,390]) assert(checks.rows.some(c => c.width === width && c.noNewTab && c.fixedControls && c.singlePlayer && c.pauseResumeNextPrevious && c.learnPositionRetained && c.libraryControls && c.stopped && !c.errors.length), 'radio journey missing: ' + width);
+      for (const route of ['/newsstand','/fun-connect','/games/dream-phone','/games/fairy-godmother','/resident-referrals','/grimoire/verification-rulebook']) assert(checks.rows.some(c => c.route === route && c.savedTrack && c.pausedRestore && c.singleFixedPlayer), 'radio receiving route missing: ' + route);
+      for (const visual of read('visuals.json')) assert(digest(visual.path) === visual.sha256, 'stale visual');
+      assert(read('calibration.json').incumbentRejected, 'old outgoing radio not rejected');
+      const html = bytes('index.html').toString();
+      assert(html.includes('<button class="dyk-slide" type="button" data-dyk-slide data-ksvl-start-live') && html.includes('<button class="homepage-radio-pill" type="button" data-ksvl-start-live'), 'radio action is not in-page player');
+      assert((html.match(/data-dyk-slide/g)||[]).length === 8 && html.includes('class="intent" id="today"') && html.includes('href="/learn.html#help-now"') && html.includes('class="directory-disclosure"'), 'existing discovery changed');
+      assert(bytes('operations/DECISIONS.md').toString().includes('Radio listening opens the shared bottom player'), 'owner radio scope missing');
+      assert(a.production_release_approved === false, 'owner presentation does not authorize production');
+      return errors;
+    }
     if (['SHORTCUTS_DIRECTORY_AND_SLIM_BANNER','OWNER_EIGHT_BANNER_HIGHLIGHTS'].includes(a.owner_feedback_successor)) {
       const bannerOnly = a.owner_feedback_successor === 'OWNER_EIGHT_BANNER_HIGHLIGHTS';
       const p = 'operations/product-stewards/town-entry-homepage/candidates/' + (bannerOnly ? 'banner-highlights-20260906/' : 'shortcut-restoration-20260906/');

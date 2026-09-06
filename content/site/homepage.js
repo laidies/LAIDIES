@@ -606,7 +606,7 @@
   if (pause) pause.textContent = paused ? 'Play' : 'Pause';
 
   function labelFor(slide) {
-    var heading = slide.querySelector('h3');
+    var heading = slide.querySelector('h3, .dyk-title');
     return heading ? heading.textContent.trim() : 'feature';
   }
 

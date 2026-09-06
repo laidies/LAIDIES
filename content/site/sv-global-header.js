@@ -311,6 +311,17 @@
     })();
   }
 
+  function mountKSVL() {
+    // Every town page shares one deck, including pages without a music section.
+    if (window.__KSVL_CANONICAL_PLAYER__ || [].some.call(document.scripts, function (script) {
+      return script.src && new URL(script.src, location.href).pathname === '/content/site/ksvl-player.js';
+    })) return;
+    var script = document.createElement('script');
+    script.src = '/content/site/ksvl-player.js?v=20260830-continuity-1';
+    script.async = true;
+    document.head.appendChild(script);
+  }
+
   function mountContinuation() {
     if (window.LAIDIESResidentContinuationBootstrapV1 ||
         document.querySelector('script[data-laidies-continuation-bootstrap]')) return;
@@ -325,9 +336,11 @@
     document.addEventListener('DOMContentLoaded', function () {
       mount();
       mountContinuation();
+      mountKSVL();
     });
   } else {
     mount();
     mountContinuation();
+    mountKSVL();
   }
 })();
