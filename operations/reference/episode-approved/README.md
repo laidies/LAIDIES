@@ -19,4 +19,3 @@ role-distinct admission, then receive a new manifest entry and checksum.
 Every production cue binds manifest IDs plus the exact selected file checksum.
 Directory location, filename language such as `approved`, and file existence do
 not establish admission.
-

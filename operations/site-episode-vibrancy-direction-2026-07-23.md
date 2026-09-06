@@ -3,8 +3,8 @@
 **Status:** direction clarified by Ali — the first proposed swatches and two
 homepage mockups were rejected in visual context; do not implement them. A new
 source-grounded swatch comparison still requires Ali's approval before any
-production sweep.  
-**Requested by Ali:** 2026-07-23  
+production sweep.<br>
+**Requested by Ali:** 2026-07-23<br>
 **Scope:** entire site design, building pages, episode visuals, transitions,
 comic lettering, and recurring series idents.
 

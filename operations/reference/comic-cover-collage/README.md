@@ -1,6 +1,6 @@
 # Comic-cover collage and pop-pattern references
 
-**Saved from Ali:** 2026-07-23  
+**Saved from Ali:** 2026-07-23<br>
 **Role:** composition, crop, icon, pattern, colour-energy, and lettering inspiration
 for LAiDIES covers, recurring episode idents, transitions, and full-page graphic
 moments.

@@ -1,7 +1,7 @@
 # Comic Ident Background Reference Library
 
-**Status:** REFERENCE ONLY  
-**Date added:** 2026-07-25  
+**Status:** REFERENCE ONLY<br>
+**Date added:** 2026-07-25<br>
 **Source:** Images supplied by Ali during development of the animated LAiDIES
 brand/episode ident.
 
@@ -60,4 +60,3 @@ The intended synthesis is:
     blue/purple depth with a spacious centre.
 13. `comic-ident-bg-13-blue-purple-comic-radial-quiet-zone.png` — blue centre,
     purple perimeter, halftone, lightning and small sparkle punctuation.
-

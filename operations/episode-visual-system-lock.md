@@ -1,7 +1,7 @@
 # LAiDIES Episode Visual System — LOCKED
 
-**Status:** production canon  
-**Locked by Ali:** 2026-07-23  
+**Status:** production canon<br>
+**Locked by Ali:** 2026-07-23<br>
 **Scope:** every episode and trailer still, recurring ident, transition, comic spread,
 speech/caption treatment, emphasis frame, trading-card insert, landscape, and background.
 
