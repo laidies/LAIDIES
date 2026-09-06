@@ -10,6 +10,7 @@ export function installBinderPreflight() {
   const client={auth:{getSession:async()=>({data:{session:session()},error:null}),onAuthStateChange:callback=>{listeners.add(callback);return {data:{subscription:{unsubscribe:()=>listeners.delete(callback)}}};}},rpc:async(name,args)=>{
     const requestOwner=owner;
     if(!requestOwner)return {error:new Error('authentication-required')};
+    if(args?.p_expected_owner!==requestOwner)return {error:new Error('account-changed-reload-binder')};
     const data=store();
     if(name==='get_my_resident_episode_binder_v1') {
       const response={data:data.binders[requestOwner]?{state:'saved',binder:data.binders[requestOwner]}:{state:'empty',binder:null}};

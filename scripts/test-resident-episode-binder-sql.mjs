@@ -44,11 +44,11 @@ try {
     ['null placements',{version:1,episodes:{'01':{...entry,packs:{'ep01@v1':{...pack,placements:null}}}}}]
   ]) { if(await validate(doc)!==false) errors.push('accepted invalid '+name); }
   await db.exec('set role anon');
-  await assert.rejects(()=>db.query('select public.get_my_resident_episode_binder_v1()'),/permission denied/);
+  await assert.rejects(()=>db.query('select public.get_my_resident_episode_binder_v1($1::uuid)',[a]),/permission denied/);
   await db.exec('reset role; set role authenticated');
   await db.query("select set_config('request.jwt.claim.sub',$1,false)",[a]);
   await assert.rejects(()=>db.query('select * from public.resident_episode_binders'),/permission denied/);
-  const put=async(doc,key,rev=null)=>(await db.query('select public.put_my_resident_episode_binder_v1($1::jsonb,$2::uuid,$3::uuid) as result',[JSON.stringify(doc),key,rev])).rows[0].result;
+  const put=async(doc,key,rev=null)=>(await db.query('select public.put_my_resident_episode_binder_v1($1::uuid,$2::jsonb,$3::uuid,$4::uuid) as result',[a,JSON.stringify(doc),key,rev])).rows[0].result;
   const key='11111111-1111-4111-8111-111111111111';
   const saved=await put(valid,key);
   assert.equal(saved.state,'saved');
@@ -66,7 +66,12 @@ try {
   }
   await db.exec('set role authenticated');
   await db.query("select set_config('request.jwt.claim.sub',$1,false)",[b]);
-  const other=(await db.query('select public.get_my_resident_episode_binder_v1() as result')).rows[0].result;
+  await assert.rejects(()=>db.query('select public.get_my_resident_episode_binder_v1($1::uuid)',[a]),/account-changed-reload-binder/);
+  await assert.rejects(()=>put(valid,'66666666-6666-4666-8666-666666666666'),/account-changed-reload-binder/);
+  await assert.rejects(()=>db.query('select public.get_my_resident_episode_binder_v1(null::uuid)'),/account-changed-reload-binder/);
+  await assert.rejects(()=>db.query('select public.put_my_resident_episode_binder_v1(null::uuid,$1::jsonb,$2::uuid,null::uuid)',[JSON.stringify(valid),'77777777-7777-4777-8777-777777777777']),/account-changed-reload-binder/);
+  await assert.rejects(()=>db.query('select public.put_my_resident_episode_binder_v1_legacy($1::jsonb,$2::uuid,null::uuid)',[JSON.stringify(valid),'88888888-8888-4888-8888-888888888888']),/permission denied/);
+  const other=(await db.query('select public.get_my_resident_episode_binder_v1($1::uuid) as result',[b])).rows[0].result;
   assert.equal(other.state,'empty','account B cannot read A binder');
   if(errors.length) throw new Error(errors.join('; '));
   // Use the actual browser client against actual PostgreSQL. Named RPC calls
@@ -79,7 +84,7 @@ try {
     rpc:async(name,args)=>{
       try {
         let result;
-        if(name==='get_my_resident_episode_binder_v1') result=(await db.query('select public.get_my_resident_episode_binder_v1() as result')).rows[0].result;
+        if(name==='get_my_resident_episode_binder_v1') result=(await db.query('select public.get_my_resident_episode_binder_v1(p_expected_owner := $1::uuid) as result',[args.p_expected_owner])).rows[0].result;
         else {
           assert.equal(name,'put_my_resident_episode_binder_v1');
           const entries=Object.entries(args);

@@ -60,15 +60,15 @@
     function reserve(key){if(!pending[key]&&Object.keys(pending).length>=MAX_PENDING)throw new RangeError("This account already has 32 Episode Binder saves waiting for confirmation. Retry or reload those saves before starting another.");}
     async function session(){var s=await runtime.controller.getSession();if(!s||!s.user||!s.user.id)throw new Error("authentication-required");clear(String(s.user.id));return {owner:owner,gen:gen};}
     function current(t){if(t.owner!==owner||t.gen!==gen)throw new Error("account-changed-reload-binder");}
-    async function load(boundToken){var observed=await session(),t=boundToken||observed;if(boundToken)current(boundToken);var x=await runtime.client.rpc("get_my_resident_episode_binder_v1");if(x.error)throw x.error;current(t);var b=x.data&&x.data.binder;if(!b){cache=empty();revision=null;return {state:"empty",document:clone(cache),revision:null};}cache=valid(b.document);if(!cache||!b.revision)throw new Error("invalid-resident-episode-binder-v1");revision=b.revision;return {state:"saved",document:clone(cache),revision:revision};}
+    async function load(boundToken){var observed=await session(),t=boundToken||observed;if(boundToken)current(boundToken);var x=await runtime.client.rpc("get_my_resident_episode_binder_v1",{p_expected_owner:t.owner});if(x.error)throw x.error;current(t);var b=x.data&&x.data.binder;if(!b){cache=empty();revision=null;return {state:"empty",document:clone(cache),revision:null};}cache=valid(b.document);if(!cache||!b.revision)throw new Error("invalid-resident-episode-binder-v1");revision=b.revision;return {state:"saved",document:clone(cache),revision:revision};}
     async function saveDocument(d,keyValue,expectedValue,boundToken){
       var key=mutationKey(keyValue),observed=await session(),t=boundToken||observed;if(boundToken)current(boundToken);reserve(key);var saved=pending[key];
       if(!cache&&!saved)await load(t);current(t);
       if(!saved){var checked=valid(d),expected=expectedValue===undefined?revision:expectedValue;if(!checked)throw new TypeError(size(d)>MAX?"This save is too large for your Episode Binder. Shorten a pasted response or remove a saved version, then try again.":"This Episode Binder save has an unsupported field or value.");pending[key]={document:clone(checked),expected:expected};saved=pending[key];}
       current(t);
-      var x=await runtime.client.rpc("put_my_resident_episode_binder_v1",{p_document:saved.document,p_idempotency_key:key,p_expected_revision:saved.expected});
+      var x=await runtime.client.rpc("put_my_resident_episode_binder_v1",{p_expected_owner:t.owner,p_document:saved.document,p_idempotency_key:key,p_expected_revision:saved.expected});
       if(x.error){if(String(x.error.message||"").indexOf("revision-conflict")>=0)return {state:"conflict",action:"reload-and-review",idempotencyKey:key};throw x.error;}
-      current(t);var check=await runtime.client.rpc("get_my_resident_episode_binder_v1");if(check.error)throw check.error;current(t);var b=check.data&&check.data.binder,remote=b&&valid(b.document);
+      current(t);var check=await runtime.client.rpc("get_my_resident_episode_binder_v1",{p_expected_owner:t.owner});if(check.error)throw check.error;current(t);var b=check.data&&check.data.binder,remote=b&&valid(b.document);
       if(!b||b.revision!==x.data.revision||!remote||!same(remote,saved.document))throw new Error("episode-binder-remote-read-after-write-failed");
       cache=remote;revision=b.revision;delete pending[key];return {state:"saved",document:clone(cache),revision:revision,idempotencyKey:key};
     }
