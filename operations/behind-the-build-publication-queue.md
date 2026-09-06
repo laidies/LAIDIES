@@ -35,6 +35,26 @@ already-public learning page. Do not show an internal dashboard or make the
 real operating record downloadable. Independent review covers the exact
 successor and attachments; no new public prose was written by this assessment.
 
+### Draft 001 successor prepared September 5
+
+“What did ‘done’ actually do?” is complete private copy at
+`operations/product-stewards/newsstand/candidates/behind-the-build-clue-not-proof-20260905/field-note.md`.
+The producer contract passed before drafting; full-prose producer integrity and
+an independent Terra reading found no factual, teaching or disclosure defect.
+The generic handout-sharing example is explicitly fictional, the VHS comparison
+teaches the evidence distinction, and the exact Working with AI 101 section12.3
+link was opened successfully on the public phone reader. The historical draft
+and its disclosure hold are preserved below and in the candidate.
+
+Status: READY FOR ALI VOICE/TASTE; NOT ADMITTED OR PUBLISHED. The independent
+assessment binds the exact prose and records its limits. No ordinary-news or
+recurring-service sampling exception has been extended to this new entry, and
+no human comprehension has been claimed. Do not commission another qualitative
+review to rediscover already-cleared disclosure. Resolve the remaining actual
+voice/admission boundary, then publish through the existing optional feature
+path and verify reader/feed/archive delivery. No index, screenshot, download or
+new operating-system disclosure is needed for this first useful note.
+
 | Candidate | Ledger source | State | Best first format | Internal improvement already made | Next editorial action |
 |---|---|---|---|---|---|
 | A draft file is not a launch party | BTB-039 | HOLD — DISCLOSURE REFRAMING AND CURRENT ADMISSION DUE | Short Field Note + carousel | Release state now separates authored, approved, deployed and publicly verified | NewsStand editorial lane: use a safe generic example, verify its mechanism and complete exact producer/independent disclosure review; then present finished copy for Ali voice/taste judgment |
