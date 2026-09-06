@@ -1,12 +1,12 @@
 @font-face {
   font-family: "Jost";
-  src: url("/episode-01-cards/fonts/Jost-ExtraBold.ttf") format("truetype");
+  src: url("/fonts/Jost-ExtraBold.ttf") format("truetype");
   font-weight: 800;
 }
 
 @font-face {
   font-family: "Jost";
-  src: url("/episode-01-cards/fonts/Jost-Regular.ttf") format("truetype");
+  src: url("/fonts/Jost-Regular.ttf") format("truetype");
   font-weight: 400;
 }
 
@@ -689,3 +689,10 @@ button.card-front {
     break-inside: avoid;
   }
 }
+
+.brand-wordmark {position:relative;display:inline-block;justify-self:center;color:#251226!important;font:800 clamp(1.85rem,3.2vw,2.65rem)/1 Jost,sans-serif!important;letter-spacing:.035em!important;text-decoration:none!important;white-space:nowrap;}
+.brand-ai {color:#257c91}.brand-i-wrap{position:relative}.brand-i-dot{position:absolute;left:46%;bottom:.905em;width:.17em;height:.17em;border-radius:.045em;background:#e982ab;transform:translateX(-50%)}
+.card-binder-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:18px clamp(18px,4vw,58px);border-bottom:3px solid var(--ink);background:var(--yellow)}
+.card-binder-actions p{flex-basis:100%;margin:0}.card-binder-actions button,.card-binder-actions a{border:2px solid var(--ink);padding:10px 14px;background:#fff;color:var(--ink);font-weight:800;font-size:.8rem;box-shadow:3px 3px 0 var(--ink)}
+.card-binder-actions button:disabled{opacity:.65;cursor:wait}.recall-question{font-weight:800;font-size:1.05rem;min-height:2.8em;margin:14px 0 6px}
+@media print{.card-binder-actions,.recall-question{display:none}}

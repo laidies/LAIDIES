@@ -27,7 +27,13 @@
           const card=element('article',undefined,'episode-binder-item');card.append(element('h4','Study Pack'),element('p',`Saved ${formatDate(pack.saved_at)}`,'episode-binder-date'));
           card.append(element('p','Your saved edition is kept. Opening this pack is being connected.'));inside.append(card);
         }
-        if(Object.keys(episode.cards).length){const card=element('article',undefined,'episode-binder-item');card.append(element('h4','Trading cards'),element('p',`${Object.keys(episode.cards).length} saved cards`),element('p','Your saved cards are kept. Opening this deck is being connected.'));inside.append(card);}
+        if(Object.keys(episode.cards).length){
+          const card=element('article',undefined,'episode-binder-item');card.append(element('h4','Trading cards'),element('p',`${Object.keys(episode.cards).length} saved cards`));
+          const currentDeck=number==='01'&&Object.keys(episode.cards).some(key=>['generative-ai','model','hallucination','participation-gap'].some(id=>key===`${id}@2026-09-06-v1`));
+          if(currentDeck){const link=element('a','Open my trading cards','episode-binder-open');link.href='/episode-01-cards/?version=2026-09-06-v1';card.append(link);}
+          const older=Object.keys(episode.cards).filter(key=>!currentDeck||!['generative-ai','model','hallucination','participation-gap'].some(id=>key===`${id}@2026-09-06-v1`)).length;
+          if(older)card.append(element('p',`${older} earlier cards are kept. Their reading pages are not available here yet.`));inside.append(card);
+        }
         for(const quiz of Object.values(episode.quizzes))for(const attempt of quiz.attempts){const card=element('article',undefined,'episode-binder-item');card.append(element('h4','Pop Quiz'),element('p',`${attempt.score} / ${attempt.max_score}`),element('p',`Completed ${formatDate(attempt.completed_at)}`,'episode-binder-date'));inside.append(card);}
       }
       page.append(inside);host.append(page);

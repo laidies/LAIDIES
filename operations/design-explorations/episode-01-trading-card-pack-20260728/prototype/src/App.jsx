@@ -1,85 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import deck from "../../../../episode-editorial-review-2026-09-06/episode-01/flashcards.json";
+import { useCardBinder } from "./useCardBinder.js";
 
 const asset = (path) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
-const cards = [
-  {
-    title: "Generative AI",
-    image: "assets/cards/generative-ai-episode-art-v2.png",
-    definition:
-      "AI that produces content from your request and the material you give it—an email, image, summary, slide, song, video or piece of code.",
-    picture:
-      "Carrie Bradshaw with a brief. Give her the subject, audience, receipts and format; she can write the column. She cannot make the receipts true.",
-    remember: "It can make the draft. It cannot make it true.",
-    source: "Concepts 101",
-    learnMore:
-      "/library.html#concepts-101::1.%20Generative%20AI%20%E2%80%94%20makes",
-    learnLabel: "OPEN IN CONCEPTS 101",
-  },
-  {
-    title: "Model",
-    image: "assets/cards/model-episode-art-v3.png",
-    definition:
-      "The trained component that turns an input into an output. It may produce words or images, interpret material, make a prediction or choose a next action.",
-    picture:
-      "A model can sit inside an app, API or coding tool. The product around it may add instructions, memory, search, files and other models.",
-    remember: "A model is part of the experience—not the whole thing.",
-    source: "Concepts 101",
-    learnMore: "/library.html#concepts-101::Model%20%2F%20LLM",
-    learnLabel: "OPEN IN CONCEPTS 101",
-  },
-  {
-    title: "Hallucination",
-    image: "assets/cards/hallucination-episode-art-v2.png",
-    definition:
-      "False or unsupported content delivered as part of an answer. It can be one invented citation or wrong date inside otherwise useful work.",
-    picture:
-      "The Burn Book: every entry was invented, every entry arrived with Regina George confidence—and the tone supplied no warning label.",
-    remember: "Polished is a style. Evidence is a standard.",
-    source: "Concepts 101 + Episode 03",
-    learnMore:
-      "/library.html#concepts-101::Why%20hallucinations%20happen",
-    learnLabel: "OPEN IN CONCEPTS 101",
-  },
-  {
-    title: "Participation Gap",
-    image: "assets/cards/ai-adoption-gap-episode-art-v2.png",
-    definition:
-      "A difference in how often groups use a technology. Women currently use generative AI less often on average. That is a participation gap—not an ability gap.",
-    picture:
-      "People using AI help decide what gets built, rewarded and normalized. Fewer women using it means fewer women shaping those choices.",
-    remember: "Women should not wait while AI is being shaped.",
-    source: "HBS Working Paper 25-023 · May 2026",
-    learnMore:
-      "https://www.hbs.edu/ris/Publication%20Files/25-023_be8fb517-3dd5-40aa-97f9-4e42e1c8e6ff.pdf",
-    learnLabel: "READ THE RECEIPT",
-  },
-];
-
-const stickers = [
-  { name: "Holo star", image: "assets/puffies/puffy-star-holo.png" },
-  { name: "Lightning bolt", image: "assets/puffies/puffy-lightning-bolt-holo.png" },
-  { name: "Holo heart", image: "assets/puffies/puffy-heart-holo.png" },
-  { name: "Big ideas", image: "assets/puffies/puffy-word-big-ideas.png" },
-  { name: "As if", image: "assets/puffies/puffy-word-as-if.png" },
-];
-
-const stickerPositions = [
-  { left: "3%", top: "8%", rotate: "-11deg" },
-  { left: "72%", top: "10%", rotate: "9deg" },
-  { left: "4%", top: "70%", rotate: "7deg" },
-  { left: "69%", top: "69%", rotate: "-8deg" },
-  { left: "38%", top: "3%", rotate: "4deg" },
-];
+const art = ['generative-ai-episode-art-v2.png','model-episode-art-v3.png','hallucination-episode-art-v2.png','ai-adoption-gap-episode-art-v2.png'];
+const cards = deck.cards.map((card,index)=>({...card,title:card.front,image:`assets/cards/${art[index]}`,definition:card.back,picture:card.example,remember:card.recallPrompt}));
 
 function Wordmark() {
-  return (
-    <img
-      className="wordmark"
-      src={asset("assets/brand/laidies-wordmark-final-b-light.svg")}
-      alt="LAiDIES"
-    />
-  );
+  return <a className="brand-wordmark" data-brand-wordmark="current-live-jost" href="/blend-snap.html#episode-01-pack" aria-label="LAiDIES Study Packs">L<span className="brand-ai">A</span><span className="brand-i-wrap"><span className="brand-ai">ı</span><span className="brand-i-dot" aria-hidden="true" /></span>DIES</a>;
 }
 
 function CardBack({ card, index }) {
@@ -106,7 +35,7 @@ function CardBack({ card, index }) {
           <p>{card.picture}</p>
         </div>
         <div className="remember">
-          <span>KEEP THIS</span>
+          <span>TEST YOUR RECALL</span>
           <strong>{card.remember}</strong>
         </div>
     </div>
@@ -119,9 +48,7 @@ function CollectionCard({
   index,
   isFlipped,
   isCurrent,
-  placed,
   onFlip,
-  onRemoveSticker,
 }) {
   return (
     <article
@@ -136,46 +63,25 @@ function CollectionCard({
         <div className="card-flipper">
           <button
             className="card-face card-front"
+            aria-hidden={isFlipped}
+            tabIndex={isFlipped ? -1 : 0}
             type="button"
             onClick={onFlip}
             aria-label={`Flip ${card.title} card to the back`}
           >
             <img src={asset(card.image)} alt={`${card.title} card front`} />
           </button>
-          <div className="card-face card-reverse">
+          <div className="card-face card-reverse" aria-hidden={!isFlipped}>
             <CardBack card={card} index={index} />
           </div>
         </div>
 
-        <div className="sticker-layer" aria-label={`Puffies placed on ${card.title}`}>
-          {placed.map((item) => (
-            <button
-              key={item.id}
-              className="placed-sticker"
-              type="button"
-              style={{ left: item.left, top: item.top, rotate: item.rotate }}
-              onClick={() => onRemoveSticker(item.id)}
-              aria-label={`Remove ${item.name} sticker`}
-            >
-              <img src={asset(item.image)} alt="" />
-            </button>
-          ))}
-        </div>
       </div>
 
+      <p className="recall-question">{card.recallPrompt}</p>
       <button className="card-action" type="button" onClick={onFlip}>
         {isFlipped ? "SHOW THE FRONT" : "FLIP THIS CARD"}
       </button>
-      {isFlipped && (
-        <a
-          className="card-learn-link"
-          href={card.learnMore}
-          target="_blank"
-          rel="noreferrer"
-        >
-          {card.learnLabel} <b aria-hidden="true">→</b>
-        </a>
-      )}
     </article>
   );
 }
@@ -183,7 +89,7 @@ function CollectionCard({
 function PackHeader() {
   return (
     <header className="pack-header">
-      <a href="/?review=episode-01-pack">BACK TO EPISODE 01 PACK</a>
+      <a href="/blend-snap.html#episode-01-pack">BACK TO EPISODE 01 PACK</a>
       <Wordmark />
       <button type="button" onClick={() => window.print()}>
         PRINT CARDS
@@ -232,72 +138,25 @@ function OpeningExperience({ onFinish }) {
 }
 
 export function App() {
-  const [opened, setOpened] = useState(false);
+  const [opened, setOpened] = useState(new URLSearchParams(location.search).get("version") === deck.version);
   const [current, setCurrent] = useState(0);
   const [flippedCard, setFlippedCard] = useState(null);
-  const [trayOpen, setTrayOpen] = useState(false);
-  const [selectedSticker, setSelectedSticker] = useState(0);
-  const [placements, setPlacements] = useState({});
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => {
-    const stored = window.localStorage.getItem("laidies-ep01-card-pack-v2");
-    if (stored) {
-      try {
-        const data = JSON.parse(stored);
-        const savedIndex = Number.isInteger(data.current) ? data.current : 0;
-        setCurrent(Math.min(Math.max(savedIndex, 0), cards.length - 1));
-        setPlacements(data.placements || {});
-      } catch {
-        // A damaged local save must never stop the pack opening.
-      }
-    }
-    setHydrated(true);
-  }, []);
-
-  useEffect(() => {
-    if (!hydrated) return;
-    window.localStorage.setItem(
-      "laidies-ep01-card-pack-v2",
-      JSON.stringify({ current, placements }),
-    );
-  }, [current, hydrated, placements]);
-
+  const binder = useCardBinder(cards, deck.version);
   const flipCard = (index) => {
     setCurrent(index);
     setFlippedCard((value) => (value === index ? null : index));
   };
 
-  const placeSticker = () => {
-    const key = `${current}-${flippedCard === current ? "back" : "front"}`;
-    setPlacements((value) => {
-      const existing = value[key] || [];
-      if (existing.length >= stickerPositions.length) return value;
-      return {
-        ...value,
-        [key]: [
-          ...existing,
-          {
-            ...stickers[selectedSticker],
-            ...stickerPositions[existing.length],
-            id: `${Date.now()}-${existing.length}`,
-          },
-        ],
-      };
-    });
-  };
-
-  const removeSticker = (id, index, side) => {
-    const key = `${index}-${side}`;
-    setPlacements((value) => ({
-      ...value,
-      [key]: (value[key] || []).filter((item) => item.id !== id),
-    }));
-  };
-
   return (
-    <main className="pack" data-episode="01">
+    <main className="pack" data-episode="01" data-clarity-mask="True">
       <PackHeader />
+      <section className="card-binder-actions" aria-label="Save trading cards">
+        <p role="status">{binder.message}</p>
+        <button type="button" onClick={binder.save} disabled={binder.busy}>{binder.retry ? 'RETRY CARD SAVE' : 'SAVE ALL FOUR TO MY BINDER'}</button>
+        <button type="button" onClick={binder.refresh} disabled={binder.busy}>CHECK SAVED CARDS</button>
+        {binder.guest && <a href="/laidies-card.html" target="_blank" rel="noreferrer">SIGN IN AT MY CLOSET</a>}
+        <a href="/laidies-card.html#episodeBinderVessel">OPEN MY EPISODE BINDER</a>
+      </section>
 
       {!opened ? (
         <OpeningExperience onFinish={() => setOpened(true)} />
@@ -308,12 +167,11 @@ export function App() {
               <p>EPISODE 01 · ON WEDNESDAYS WE DO AI</p>
               <h1>The full pack.</h1>
             </div>
-            <span>All four fronts are here. Select any card to turn it over and return to the episode or its supporting receipt.</span>
+            <span>Read the question beneath a card and try an answer before you flip it. Then check the explanation.</span>
           </section>
 
           <section className="card-gallery" aria-label="Episode 01 trading-card collection">
             {cards.map((card, index) => {
-              const side = flippedCard === index ? "back" : "front";
               return (
                 <CollectionCard
                   key={card.title}
@@ -321,51 +179,11 @@ export function App() {
                   index={index}
                   isFlipped={flippedCard === index}
                   isCurrent={current === index}
-                  placed={placements[`${index}-${side}`] || []}
                   onFlip={() => flipCard(index)}
-                  onRemoveSticker={(id) => removeSticker(id, index, side)}
+
                 />
               );
             })}
-          </section>
-
-          <section className="collection-tools">
-            <div className="puffy-heading">
-              <div>
-                <p>SELECTED CARD</p>
-                <h2>{current + 1} · {cards[current].title}</h2>
-              </div>
-              <div className="utility-actions">
-                <span>Changes save automatically in this preview.</span>
-                <button type="button" onClick={() => setTrayOpen((value) => !value)}>
-                  {trayOpen ? "CLOSE PUFFIES" : "ADD A PUFFY"}
-                </button>
-              </div>
-            </div>
-            {trayOpen && (
-              <aside className="sticker-tray" aria-label="Puffy sticker drawer">
-                <div>
-                  <p>YOUR PUFFY DRAWER</p>
-                  <span>Choose one and place it on this side. Tap a placed Puffy to remove it.</span>
-                </div>
-                <div className="sticker-options">
-                  {stickers.map((sticker, index) => (
-                    <button
-                      key={sticker.name}
-                      type="button"
-                      className={selectedSticker === index ? "selected" : ""}
-                      onClick={() => setSelectedSticker(index)}
-                      aria-label={`Choose ${sticker.name}`}
-                    >
-                      <img src={asset(sticker.image)} alt="" />
-                    </button>
-                  ))}
-                </div>
-                <button type="button" onClick={placeSticker}>
-                  PLACE {stickers[selectedSticker].name.toUpperCase()}
-                </button>
-              </aside>
-            )}
           </section>
 
           <section className="print-backs" aria-hidden="true">
