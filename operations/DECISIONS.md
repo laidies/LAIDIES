@@ -1,5 +1,13 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Directory heading is the typography reference
+
+Ali selects the existing “Everything you can do in LAiDIES.” heading as her preferred style for headings and bold text. She specifically flags the Did you know banner as looking different. Match the actual selected typeface/weight, retaining the sizes needed by each component and regular-weight body text. Preserve the compact banner, warm/cool palette decisions, artwork and behavior. Check actual computed fonts rather than inferring a font from its appearance.
+
+## 2026-09-06 — Warm, brighter Miss Jeeves question panel
+
+Ali rejects the dark blue panel and blue/green-heavy controls; Miss Jeeves disappears blue-on-blue. Use the current pink/coral/tangerine palette and existing subtle printed texture for the main question panel, with dark readable text and warmer field/example/button colours. Preserve her existing portrait, all wording/layout, examples, free-search behavior and answer/empty/error states. No plain-white panel. Retain the completed women-footer spacing correction. Preview only.
+
 ## 2026-09-06 — Balance the women feature footer
 
 Ali flags the empty lower-left space beside the stacked LUMINAiRY/Episode04 links. Move those existing links beneath both columns, use an equal-width desktop row and full-width phone stack, and tighten the footer padding. Preserve artwork, copy, destinations, colours and the preceding book-link correction. Preview only.
