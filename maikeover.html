@@ -8,7 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <link rel="stylesheet" href="content/maikeover-v2.css?v=20260905-onboarding-1">
-  <script src="/content/site/resident-card-contract-v1.js?v=20260904-portrait-restore-1"></script>
+  <link rel="stylesheet" href="/content/resident-card-getting-ready.css?v=20260906-1">
+  <script src="/content/site/resident-card-contract-v1.js?v=20260906-getting-ready-1"></script>
   <script src="/content/site/supabase-config.js?v=20260702-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
@@ -494,10 +495,11 @@
       peach:    'linear-gradient(160deg,#fde7d8 0%,#f8d9e0 100%)',
       mint:     'linear-gradient(160deg,#dbeee7 0%,#cfe6f4 100%)',
       lavender: 'linear-gradient(160deg,#ece4f6 0%,#f6dfe9 100%)',
-      holo:     'linear-gradient(120deg,#fbe0ee 0%,#e2ddf6 45%,#d5eef0 100%)'
+      holo:     'linear-gradient(120deg,#fbe0ee 0%,#e2ddf6 45%,#d5eef0 100%)',
+      gettingready: 'url("/assets/resident-card/backgrounds/getting-ready-v2.png") center / cover'
     };
-    var BG_ORDER = ['classic','pinklilac','peach','mint','lavender','holo'];
-    var BG_LABEL = {classic:'Classic',pinklilac:'Pink + lilac',peach:'Peach',mint:'Mint',lavender:'Lavender',holo:'Holo'};
+    var BG_ORDER = ['classic','pinklilac','peach','mint','lavender','holo','gettingready'];
+    var BG_LABEL = {classic:'Classic',pinklilac:'Pink + lilac',peach:'Peach',mint:'Mint',lavender:'Lavender',holo:'Holo',gettingready:'Getting Ready'};
     var SONG_LABEL = {
       'wednesday-in-sunnyvaile':'Wednesday in SUNNYVAiLE','down-at-the-blend-and-snap':'Down at the Blend & Snap',
       'the-library':'The LIBRAiRY','on-wednesday-we-do-ai':'On Wednesday We Do AI',
@@ -571,8 +573,8 @@
         var c = document.createElement('button');
         c.type = 'button';
         c.className = 'mo-bg';
-        c.title = key;
-        c.setAttribute('aria-label', key + ' card background');
+        c.title = BG_LABEL[key];
+        c.setAttribute('aria-label', BG_LABEL[key] + ' card background');
         c.setAttribute('aria-pressed', 'false');
         c.style.background = CARD_BG[key];
         var label = document.createElement('span');

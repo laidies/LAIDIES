@@ -45,6 +45,11 @@ function parse(value) {
 const validAsset = "/assets/brand/laidies-logo-square-pearl-512-v1.png";
 const raster = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a6X8AAAAASUVORK5CYII=";
 check(Boolean(contract), "shared contract installs");
+for (const cardBg of ['classic', 'pinklilac', 'peach', 'mint', 'lavender', 'holo', 'gettingready']) {
+  const envelope = parse({version: 1, fields: {displayName: 'Test Resident', cardBg}});
+  check(envelope?.fields.cardBg === cardBg, `background ${cardBg} is retained by validation`);
+  check(parse(JSON.stringify(envelope))?.fields.cardBg === cardBg, `background ${cardBg} survives serialization and restoration`);
+}
 check(contract.isSafeRasterPortrait(raster), "real bounded PNG portrait passes");
 check(Boolean(parse({ version: 1, fields: { cardAvatarUrl: raster } })),
   "bounded PNG portrait survives the full Card envelope");

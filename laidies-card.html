@@ -937,6 +937,7 @@
     .public-mode-banner strong { color: var(--rose); }
   </style>
   <link rel="stylesheet" href="/content/closet-v2.css?v=20260724-1" />
+  <link rel="stylesheet" href="/content/resident-card-getting-ready.css?v=20260906-1" />
   <!-- Microsoft Clarity (heatmaps + session recordings) -->
   <script type="text/javascript">
     if (!window.__LAIDIES_CONTROLLED_PREFLIGHT__) (function(c,l,a,r,i,t,y){
@@ -1740,7 +1741,7 @@
 <footer>© LAiDIES · Filed from SUNNYVAiLE · Your Closet</footer>
 
 <script src="content/site/supabase-config.js"></script>
-<script src="/content/site/resident-card-contract-v1.js?v=20260904-portrait-restore-1"></script>
+<script src="/content/site/resident-card-contract-v1.js?v=20260906-getting-ready-1"></script>
 <script src="/content/site/identity-client-v1.js?v=20260727-account-1"></script>
 <script src="/content/site/resident-account-runtime-v1.js?v=20260829-provider-health-1"></script>
 <script>
@@ -2205,12 +2206,18 @@
     peach:    'linear-gradient(160deg,#fde7d8 0%,#f8d9e0 100%)',
     mint:     'linear-gradient(160deg,#dbeee7 0%,#cfe6f4 100%)',
     lavender: 'linear-gradient(160deg,#ece4f6 0%,#f6dfe9 100%)',
-    holo:     'linear-gradient(120deg,#fbe0ee 0%,#e2ddf6 45%,#d5eef0 100%)'
+    holo:     'linear-gradient(120deg,#fbe0ee 0%,#e2ddf6 45%,#d5eef0 100%)',
+    gettingready: 'url("/assets/resident-card/backgrounds/getting-ready-v2.png") center / cover'
   };
   function applyCardBg(p) {
-    var bg = CARD_BG[(p && p.card_bg) || 'classic'] || CARD_BG.classic;
+    var finish = (p && p.card_bg) || 'classic';
+    if (!Object.prototype.hasOwnProperty.call(CARD_BG, finish)) finish = 'classic';
+    var bg = CARD_BG[finish];
     var faces = document.querySelectorAll('.card-face--front, .card-face--back');
-    for (var i = 0; i < faces.length; i++) faces[i].style.background = bg;
+    for (var i = 0; i < faces.length; i++) {
+      faces[i].dataset.finish = finish;
+      faces[i].style.background = bg;
+    }
   }
 
   function renderProfile(p) {

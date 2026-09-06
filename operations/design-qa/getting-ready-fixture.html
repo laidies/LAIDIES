@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Local synthetic Card test</title>
+<h1>Isolated synthetic Card fixture</h1><p>No account connection. Run only on localhost.</p>
+<button id="seed">Load synthetic Getting Ready Card</button>
+<script>
+document.getElementById('seed').onclick = function () {
+  if (!['127.0.0.1','localhost'].includes(location.hostname)) throw new Error('Local only');
+  localStorage.setItem('laidies_resident_card_v1', JSON.stringify({version:1,fields:{
+    displayName:'Test Resident',cardBg:'gettingready',movie:'Clueless',tvshow:'The Golden Girls',
+    song:'the-library',saint:'elle-woods',carry:'A notebook',archetype:'bestie',
+    cardAvatarUrl:'/assets/avatars/residence-card-stock/avatar-10-bestie-f.png'
+  }}));
+  location.href='/maikeover.html#mo-maker';
+};
+</script></html>

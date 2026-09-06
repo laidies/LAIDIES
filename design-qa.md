@@ -1,3 +1,31 @@
+# Getting Ready integration QA
+
+final result: blocked
+
+Approved reference is the exact Getting Ready v2 1681x936 raster. Source SHA and
+release/test evidence are in `operations/design-qa/getting-ready-release.md`.
+The image-to-code skill was used to preserve that raster and inspect editable
+content above it rather than regenerate it.
+
+Maker inspection found and repaired text overlapping the patterned perimeter,
+tiny phone preview and a Closet flip control overlapping the header. Header
+remains pink and distinct; new background is opaque, portrait is bounded, text
+has a quiet cyan reading area. Original six finish styles are unchanged.
+The phone maker uses a full-width card at the source artwork's aspect ratio.
+Closet retains its existing responsive content layout and contains the image
+without stretching. The existing tall mobile Closet is not redesigned here.
+
+Local selection/save/Closet/return works on the isolated current-production-base
+candidate. Public acceptance is blocked by missing authenticated Supabase access
+and thus unexecuted server migration/account roundtrip. No visual or deployment
+completion is claimed while that release boundary remains open. Independent
+visual review found no new desktop blocker: distinct readable header, protected
+portrait/text areas, recognizable proportional artwork, all six originals retained.
+The independent reviewer could not access phone emulation; only the maker's
+390px inspection exists. Independent phone evidence remains required at admission.
+
+---
+
 # Front PAiGE supplied image — August 30 follow-up
 
 Replaced the MAiVENS-hall visual with Ali's attached image, copied unchanged to `assets/newsstand/design-20260830/front-paige-women-computing.png`. Attachment and project SHA-256 match: `0742816929be694e0e9fcfa11c3ae047173814e6112419176a71a994273828a5`. No generation or image editing. The canonical story hero metadata, accessible description and credit now use this image; article text and all non-visual story data compare unchanged. The full article now renders the same hero as its front-page card. Front card preserves the source's complete 3:2 composition.

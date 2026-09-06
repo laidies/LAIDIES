@@ -43,7 +43,7 @@
     tvshow: "laidies_favorite_tvshow"
   });
   var CARD_BACKGROUNDS = Object.freeze([
-    "classic", "pinklilac", "peach", "mint", "lavender", "holo"
+    "classic", "pinklilac", "peach", "mint", "lavender", "holo", "gettingready"
   ]);
   var UNSAFE_TEXT = /[<>\u0000-\u001f\u007f\u200e\u200f\u202a-\u202e\u2066-\u2069]/;
 

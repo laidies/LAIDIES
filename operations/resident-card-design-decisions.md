@@ -1,5 +1,23 @@
 # Resident Card construction — 2026-07-24
 
+## Approved Getting Ready background — 2026-09-06
+
+Ali approved the exact Getting Ready v2 artwork in task
+`01a0785e-1438-7161-b041-0be213b06e9b` and requested installation and release.
+Canonical installed asset: `assets/resident-card/backgrounds/getting-ready-v2.png`,
+SHA256 `06085887508984a498c5de4146d00e07eadeb599314f1c9db2dcb65a57f19295`.
+Source artwork/approval commits: `fa4c715f` / `e31a23a3` on
+`art/resident-card-backgrounds-20260906`. Keep the exact raster, not a generated substitute.
+
+Append persisted finish `gettingready`; preserve classic, pinklilac, peach,
+mint, lavender and holo. MAiKEOVER, Closet and every shared-contract consumer
+must accept it. Header stays distinct from the art; live name, fields and portrait
+remain editable and are not burned into the background. Account allowlist update
+is required before publishing this option. This does not release unfinished OTP
+onboarding or supersede existing account/Closet scope.
+
+Implementation/release checkpoint: `operations/design-qa/getting-ready-release.md`.
+
 ## MAiKEOVER account onboarding — 2026-09-05
 
 Ali authorizes one continuous account-to-Card journey in MAiKEOVER. New
