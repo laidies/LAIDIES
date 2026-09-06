@@ -1,5 +1,13 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Existing needs routes plus compact full directory and slim banner
+
+Ali confirmed the original “I want to learn” shortcut led to /learn.html and requested its restoration. Restore the six needs shortcuts; the broad AI-question route uses /learn.html#help-now so it exposes the existing help choices. Do not substitute Library-only or MissJeeves-only destinations for these broad needs.
+
+Ali explicitly approved the Everything you can do in LAiDIES section being minimized to its current heading/intro, with a pill across the full bottom width to reveal every category and direct link. The needs cards remain visible above it. The September5 removal and always-expanded-directory instruction is superseded by this direct ruling.
+
+Ali requested a SMALL rotating Did you know banner under the masthead, about the header width. Final order: masthead; slim feature banner; visible needs cards; compact full directory. Reuse current artwork/type/colours and existing feature highlights; provide pause/previous/next and reduced-motion/focus behavior. Preview40010f23 implements these directions; this is not production approval.
+
 ## 2026-09-05 — Homepage feedback supersedes 3d473188
 
 Ali rejected the six narrow intent destinations because they concealed the breadth of each need. The primary discovery section must expose the full four categories and all26 direct links; remove the duplicate six-card detour. Preserve the original masthead actions; an additional Find what I need button is permitted. KSVL99.9 needs a full-width pill explaining it is SUNNYVAiLE's radio station.
