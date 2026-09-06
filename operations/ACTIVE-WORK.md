@@ -1255,3 +1255,7 @@ objective; every open lane keeps its own checkpoint.
 - **Correction:** embedded `Ai` letters in SUNNYVAiLE and SAiNTS inherit their surrounding phrase colour instead of switching to the older shared burgundy. The full LUMINAiRY title is the one raspberry accent and uses the current page token `#f357a0`.
 - **Verified result:** desktop, 390 × 844 and 320 × 760 preserve title visibility, Matron's approved crop and zero horizontal overflow.
 - **Truth boundary:** local integration only; no push, deployment or public verification.
+
+
+## 2026-09-06 — Episode editorial review resumed (isolated branch)
+REVIEW IN PROGRESS: Ali restored trailer/Episodes 1–4 written-and-narration review, then Season 1 mapping. First-pass findings and next action: operations/episode-review-resume-2026-09-06.md. No rewritten episodes, generated narration, approved future map or deployment. This entry preserves this lane; existing owners and work remain active.

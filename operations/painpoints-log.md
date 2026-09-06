@@ -14677,3 +14677,7 @@ HTML and local custom properties.
 - Five committed NewsStand signals were still absent from the canonical inbox. Read each actual dated source, preserve original dispositions, then append by stable ID with source checkout/commit/hash and owned next action. The old Blend signal remains intact. Prevention: recurring review reads both producer and receiving records, never infers delivery from a producer label.
 - The live Quiz harness initially clicked a covered radio input. Use the actual visible option label; eight whole journeys then passed. Keep harness failures separate from visitor failures and distinguish duplicate selection actions from unique questions.
 - The due HBS estimate could be reviewed and left unchanged; unresolved audio/cue consumers still remain open. Behind the Build angle: a current source and a finished correction across all published versions are different outcomes.
+
+
+## 2026-09-06 — Preserve the episode review objective
+Failure recovered: the earlier curriculum task expanded into hosted operations and lost the original editorial work. Prevention: one compact episode review record, paired written/spoken changes, and trailer -> 1–4 -> season map order; infrastructure remains with its existing owner. Behind the Build angle: a shared meaning source helps only when its spoken and written editions actually carry the same corrections.
