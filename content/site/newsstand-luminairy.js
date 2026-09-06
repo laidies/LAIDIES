@@ -18,6 +18,15 @@
     var day = new Intl.DateTimeFormat('en-CA', {timeZone: 'America/Vancouver', year: 'numeric', month: '2-digit', day: '2-digit'}).format(new Date());
     return Math.max(0, Math.floor((Date.parse(day + 'T12:00:00Z') - Date.parse('2026-09-02T12:00:00Z')) / (7 * 86400000)));
   }
+  function spotlightForWeek(profiles, week) {
+    var wings = Object.keys(first);
+    var wing = wings[week % wings.length];
+    var roster = profiles[wing].filter(function (profile) { return !profile.antiSaint; });
+    var start = roster.findIndex(function (profile) { return profile.id === first[wing]; });
+    if (!roster.length) throw new Error('Featured roster unavailable');
+    if (start < 0) start = 0;
+    return {wing: wing, profile: roster[(start + Math.floor(week / wings.length)) % roster.length]};
+  }
   function safeLink(link) {
     if (!link || !link.label) return null;
     try {
@@ -39,11 +48,18 @@
     card.appendChild(portrait);
     card.appendChild(text('h3', '', profile.name));
     card.appendChild(text('p', 'ns-luminairy__role', profile.role));
-    card.appendChild(text('p', 'ns-luminairy__about', profile.about));
+    if (profile.id === 'sister-mary-clarence') {
+      // Ali's September 6 editorial direction: teaching through sisterhood.
+      [
+        'Sister Mary Clarence is about teaching, uplifting those around you and the importance of sisterhood. Help other women learn. Share your knowledge, work together and support one another.',
+        'We do not need to compete against one another. A chorus is louder than a single voice. When one of us rises, we should be rising together.',
+        'This is central to women shaping AI: understanding it gives us something useful to share, and community helps more of us take part. That is the idea behind the LAiDIES community: learning together and supporting one another.'
+      ].forEach(function (paragraph) { card.appendChild(text('p', 'ns-luminairy__about', paragraph)); });
+    } else card.appendChild(text('p', 'ns-luminairy__about', profile.about));
     var lesson = document.createElement('div');
     lesson.className = 'ns-luminairy__lesson';
     lesson.appendChild(text('h4', '', 'Take this with you'));
-    lesson.appendChild(text('p', '', profile.lesson));
+    lesson.appendChild(text('p', '', profile.id === 'sister-mary-clarence' ? 'Teach someone what you have learned, help her build confidence, and make room for her voice.' : profile.lesson));
     card.appendChild(lesson);
     var links = document.createElement('div');
     links.className = 'ns-luminairy__links';
@@ -85,12 +101,8 @@
       var profiles = await window.LAIDIES_LUMINAIRY_CLAIM_GATE.admit(await response.json());
       var week = weekIndex();
       var fragment = document.createDocumentFragment();
-      Object.keys(first).forEach(function (wing) {
-        var roster = profiles[wing].filter(function (profile) { return !profile.antiSaint; });
-        var start = roster.findIndex(function (profile) { return profile.id === first[wing]; });
-        if (!roster.length || start < 0) throw new Error('Featured roster unavailable');
-        fragment.appendChild(makeCard(wing, roster[(start + week) % roster.length]));
-      });
+      var spotlight = spotlightForWeek(profiles, week);
+      fragment.appendChild(makeCard(spotlight.wing, spotlight.profile));
       grid.replaceChildren(fragment);
       grid.hidden = false;
       status.hidden = true;
@@ -99,7 +111,7 @@
       grid.replaceChildren();
       grid.hidden = true;
       status.hidden = false;
-      status.textContent = 'We couldn’t open this week’s profiles. You can try the LUMINAiRY below.';
+      status.textContent = 'We couldn’t open this week’s spotlight. You can try the LUMINAiRY below.';
       section.dataset.state = 'unavailable';
     }
   }

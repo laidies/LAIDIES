@@ -608,11 +608,36 @@
     return null;
   }
 
+  function validatedReadingCards(deck) {
+    if (!deck || deck.schema_version !== 1 || deck.deck_id !== "mme-claio-reflection-deck" ||
+        !Array.isArray(deck.cards) || deck.cards.length !== 100) return null;
+    var ids = new Set();
+    var slugs = new Set();
+    var valid = deck.cards.every(function (card) {
+      if (!card || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(card.id || "") ||
+          !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(card.art_slug || "") ||
+          ids.has(card.id) || slugs.has(card.art_slug) ||
+          ["card", "read", "message", "move"].some(function (key) { return typeof card[key] !== "string" || !card[key].trim(); })) return false;
+      ids.add(card.id); slugs.add(card.art_slug); return true;
+    });
+    return valid ? deck.cards : null;
+  }
+
+  function weeklyReadingCard(cards, date) {
+    if (!cards || !cards.length || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return null;
+    var day = Date.parse(date + "T00:00:00Z");
+    if (!Number.isFinite(day) || new Date(day).toISOString().slice(0, 10) !== date) return null;
+    // Wednesday is the established NewsStand weekly cadence. Use the Vancouver
+    // date already computed by editorialToday, not elapsed local DST hours.
+    var week = Math.floor((day - Date.UTC(2026, 8, 2)) / (7 * DAY_MS));
+    return cards[((week % cards.length) + cards.length) % cards.length];
+  }
+
   function renderFrontDesks() {
     var section = document.querySelector(".ns-feature-desk");
     if (!section) return;
     section.hidden = true;
-    if (!columnsLoaded || !columns || global.NEWSSTAND_LOCAL_PREVIEW) return;
+    if (global.NEWSSTAND_LOCAL_PREVIEW) return;
     var labels = {
       paige_tip: "Paige’s AI & Productivity Tip",
       career_life: "The Corner Office",
@@ -629,6 +654,20 @@
     Object.keys(labels).forEach(function (type) {
       var node = document.querySelector('[data-desk="' + type + '"]');
       if (!node) return;
+      if (type === "mme_claio") {
+        var card = weeklyReadingCard(readingCards, editorialToday());
+        node.hidden = !card;
+        node.setAttribute("data-desk-state", card ? "ready" : "empty");
+        if (!card) { node.innerHTML = ""; return; }
+        admittedCount += 1;
+        var art = "/assets/mme-claio/reading-cards/" + card.art_slug + ".webp?v=20260906-pop-art-1";
+        // Preserve the canonical game's existing text-only cards until their
+        // replacement artwork is admitted; never request a missing image.
+        var textOnly = ["beanie-baby-tag", "hair-wrap-thread", "milky-pen", "temporary-tattoo"].indexOf(card.art_slug) !== -1;
+        var cardImage = textOnly ? "" : '<img src="' + art + '" alt="' + escapeHTML(card.card) + ' reading card" loading="lazy">';
+        node.innerHTML = '<article class="ns-reading-card" data-reading-card="' + card.id + '">' + cardImage + '<div><small>' + escapeHTML(labels[type]) + '</small><p class="ns-reading-label">Reading of the Week</p><h3>' + escapeHTML(card.card) + '</h3><p>' + escapeHTML(card.read) + '</p><p>' + escapeHTML(card.message) + '</p><p>' + escapeHTML(card.move) + '</p><p>An authored reflection, not a prediction.</p><a href="/games/madame-claio.html">Visit Mme CLAi-O →</a></div></article>';
+        return;
+      }
       // The counter is a collection of published columns, not a mirror of one
       // Daily issue. Retain a still-current published column when a later issue
       // has no replacement; never surface an unissued bank row or expired copy.
@@ -642,14 +681,6 @@
         admittedCount += 1;
         var illustrationPath = deskIllustrations[type] ? '/assets/newsstand/design-20260830/' + deskIllustrations[type] : '';
         var illustration = illustrationPath ? '<img class="ns-desk-image" src="' + illustrationPath + '" alt="" loading="lazy" width="1448" height="1086">' : '';
-        if (type === "mme_claio" && readingCards) {
-          var card = readingCards.find(function (item) { return item.id === admittedColumn.sourceId; });
-          if (card) {
-            var art = card.id === "mini-backpack" ? "/assets/newsstand/design-20260830/mini-backpack-v4.png" : "/assets/mme-claio/reading-cards/" + encodeURIComponent(card.art_slug) + ".webp";
-            node.innerHTML = '<article class="ns-reading-card"><img src="' + art + '" alt="' + escapeHTML(card.card) + ' reading card" loading="lazy"><div>' + label + '<p class="ns-reading-label">Reading of the Week</p><h3>' + escapeHTML(card.card) + '</h3><p>' + escapeHTML(card.read) + '</p><p>' + escapeHTML(card.message) + '</p><p>' + escapeHTML(card.move) + '</p></div></article>';
-            return;
-          }
-        }
         var content = illustration + label + '<strong>' + escapeHTML(desk.headline) + '</strong>' +
           (desk.publishedEditionDate < editorialToday() ? '<span class="ns-service-date">Published ' + escapeHTML(formatDate(admittedColumn.editionDate)) + '</span>' : '') +
           '<span>' + escapeHTML(desk.summary) + '</span>';
@@ -1146,8 +1177,17 @@
     }
     fetch("/content/data/mme-claio-deck.json", { credentials: "same-origin" })
       .then(function (response) { if (!response.ok) throw new Error("reading-deck-unavailable"); return response.json(); })
-      .then(function (deck) { readingCards = Array.isArray(deck.cards) ? deck.cards : null; renderFrontDesks(); })
-      .catch(function () { readingCards = null; });
+      .then(function (deck) { readingCards = validatedReadingCards(deck); renderFrontDesks(); })
+      .catch(function () { readingCards = null; renderFrontDesks(); });
+    var readingDate = editorialToday();
+    function refreshReadingWeek() {
+      var today = editorialToday();
+      if (today !== readingDate) { readingDate = today; renderFrontDesks(); }
+    }
+    global.setInterval(refreshReadingWeek, 60000);
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden) refreshReadingWeek();
+    });
     fetch("/content/daily-learning-derivatives.json", { credentials: "same-origin" })
       .then(function (response) { if (!response.ok) throw new Error("daily-derivatives-unavailable"); return response.json(); })
       .then(function (value) { derivatives = value; })

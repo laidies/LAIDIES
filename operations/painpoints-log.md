@@ -15923,3 +15923,10 @@ remain unreconciled; cross-chat completeness is not certified.
 - **Behind the Build:** Safe public lesson: testing isolated pieces does not prove the experience is complete. Keep operational implementation details private.
 - **Public result:** Three-file repair verified on laidies.ai and immutable deployment 3cccc225; 14 exact byte comparisons, desktop and 390 px, actual player operation.
 - **Remaining:** Mme CLAi-O renewal and Catch Me Up independent admission; no claim that all editorial work is finished.
+
+## BTB-504 — Shared artwork needs a shared cache update
+- Date: 2026-09-06
+- Finding: Published card assets cache for four hours; replacing bytes alone can leave returning readers on old art.
+- Prevention: Version both game artwork constructors and NewsStand together; preserve the actual public predecessor, whose header/player fixes differ from git HEAD.
+- Verification: Independent comparison accepts exactly two game URL changes and identical shared card/deck data; full rotation rejects malformed decks. Four canonical text-only cards remain text-only.
+- Behind the Build: A safe general lesson about checking the experience of returning visitors; do not expose private operational details.

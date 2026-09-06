@@ -530,7 +530,7 @@
 .ns-redesign .ns-luminairy__head { padding: 24px 0 20px; }
 .ns-redesign .ns-luminairy__head h2 { margin: 5px 0 10px; font: 800 clamp(30px, 3.5vw, 46px)/1.1 var(--ns-news-serif); }
 .ns-redesign .ns-luminairy__head > p:last-child { margin: 0; font: 400 17px/1.5 var(--ns-body); }
-.ns-redesign .ns-luminairy__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #b8afc0; }
+.ns-redesign .ns-luminairy__grid { display: grid; grid-template-columns: minmax(0, 1fr); border-top: 1px solid #b8afc0; }
 .ns-redesign .ns-luminairy__grid[hidden] { display: none; }
 .ns-redesign .ns-luminairy__profile { min-width: 0; padding: 24px; border-right: 1px solid #b8afc0; }
 .ns-redesign .ns-luminairy__profile:first-child { padding-left: 0; }
@@ -560,4 +560,12 @@
   .ns-redesign .ns-luminairy__profile:last-child { border-bottom: 0; }
   .ns-redesign .ns-luminairy__profile > img { float: right; width: 105px; height: 130px; margin: 0 0 14px 18px; }
   .ns-redesign .ns-luminairy__lesson { clear: both; }
+}
+
+/* One weekly LUMINAiRY spotlight has room for the message and its useful move. */
+.ns-redesign .ns-luminairy__profile { max-width: 960px; width: 100%; box-sizing: border-box; margin: 0 auto; }
+.ns-redesign .ns-luminairy__profile > img { float: right; width: 180px; height: 220px; margin: 0 0 20px 30px; }
+.ns-redesign .ns-luminairy__profile::after { content: ""; display: block; clear: both; }
+@media (max-width: 600px) {
+  .ns-redesign .ns-luminairy__profile > img { width: 105px; height: 130px; margin: 0 0 14px 18px; }
 }

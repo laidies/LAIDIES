@@ -20,6 +20,30 @@ proper domain source before building from it.
 
 ## Core routes
 
+September 6, Ali requested that the approved new Mini Backpack artwork replace
+the old Mme CLAi-O version too. NewsStand and the game use the same canonical
+card assets. Replace Mini Backpack and the current Jelly Sandal with the new
+pop-art illustrations, using versioned image URLs for returning visitors. This
+bounded replacement does not mean all 100 illustrations have been replaced.
+
+September 6, Ali clarified the NewsStand LUMINAiRY feature: show one person at a
+time, rotating through Patron SAiNTS, MAiVENS and TRAiLBLAZERS instead of showing
+all three simultaneously. Sister Mary Clarence's message is teaching, uplifting
+those around you and sisterhood: share knowledge, support one another and rise
+together. This expands the earlier method-sharing emphasis; retain the song and
+LUMINAiRY card links. Use Ali's supplied message for this feature, not a new AI
+lesson or a rewritten biography. Continue the Wednesday weekly cadence, advancing
+each wing's own roster when it next takes its turn.
+
+September 6, Ali explicitly clarified that Mme CLAi-O's NewsStand feature rotates
+through all existing cards. Reuse the canonical 100-card authored deck and its
+original artwork, not a three-item service bank or individually renewed copies.
+Keep the existing Reading of the Week cadence, Wednesday in America/Vancouver;
+cycle in canonical deck order, one shared selection per week. The standalone
+front-counter feature is independent of Daily issue selection and expiry. Do not
+rewrite historical Daily issues or the source cards; the game's random draw is
+unchanged.
+
 September 6 NewsStand regression repair: the front counter retains the latest
 still-eligible column of each type from validated published issue history, with
 its original date, until replaced. A new Daily issue with an empty desk does not

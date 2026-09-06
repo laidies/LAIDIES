@@ -1,3 +1,11 @@
+<!-- September 6 shared art / rotation: BUILDING, publication pending -->
+Candidate /private/tmp/laidies-newsstand-full-rotation-56bo37_7 reuses all 100 Mme
+CLAi-O cards, one weekly LUMINAiRY spotlight and Ali's teaching/sisterhood message.
+Backpack and Jelly shared art replaced in candidate, versioned in game/history
+and newspaper. Independent Terra reviews accepted; exact scoped release pending.
+Mme individual renewal superseded. Catch Me Up actual review stopped on a source
+packet evidence mismatch; it remains private HOLD, not published.
+
 <!-- NewsStand September 6 display repair: VERIFIED PUBLICLY; editorial renewal BUILDING -->
 NewsStand display repair is deployed at https://3cccc225.laidies-sunnyvaile.pages.dev
 and verified at https://laidies.ai/newsstand, source b84ee694. All 14 custom/immutable
