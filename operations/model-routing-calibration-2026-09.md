@@ -84,3 +84,5 @@ and the next review date only if continued measurement can change a decision.
 | 2026-09-06 | Compact shared KSVL controls | Astra foreground, Terra Low review | Responsive UI and iterative owner steering | Medium | Unavailable | Final independent review no blockers | Owner redirected metadata width and visible volume; incorporated | Terra likely sufficient for implementation |
 
 | 2026-09-06 | Selected-song full catalogue and finish/replay | Astra foreground; Terra Low tests/review | Queue, persistence and browser integration | Medium | Unavailable | Both suites and representative browser journeys pass | Bolding omission corrected alongside playback | Terra implementation likely sufficient with same integration checks |
+
+| 2026-09-06 | Approved shared player publication | Astra foreground; Terra Low artifact review | Current production preservation and live browser integration | Medium | Unavailable | Exact release scope and live journeys pass | Stale release record replaced by provider/manifest evidence; old paused owner cleared via UI | Terra could prepare artifact; integration judgment useful |

@@ -346,3 +346,5 @@ Ali also requested a small rotating “Did you know?” banner directly under th
 2026-09-06 — Slider colour: Ali rejects purple against green and requests bright pink for progress and volume. Both native range accents now #e62a92.
 
 2026-09-06 — OWNER APPROVED shared KSVL player. Ali: “ok this is approved,” reviewing local NewsStand preview with player source at9d5e8e08. Approved current appearance: Rewind wallpaper, mint song panel/lime controls, bright pink sliders, compact responsive layout, all desktop controls exposed, phone Expand far right with transport/mute/volume visible, aligned circles and slider labels, bold song/title and controls with regular band text. Current playback behavior is selected-first full admitted catalogue with Finished/Play again. This records owner approval of the reviewed local result; no production deployment occurred.
+
+2026-09-06 — Shared player publication authorized and executed. Ali: “publish”. Current approved player is live in deploymentdeae5f69-fb07-4e75-bf77-8ff55b554503; exact833c5a33 site retained outside3public paths. Release record: operations/ksvl-player-colours-20260906/PUBLISH.md.

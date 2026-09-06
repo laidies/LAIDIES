@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Shared KSVL player: PUBLISHED / VERIFIED LIVE.** Owner-approved source9d5e8e08 shipped in productiondeae5f69-fb07-4e75-bf77-8ff55b554503, release sourcee33595b1. Exact833c5a33 predecessor retained outside player and two image additions. Both-origin18resource parity, NewsStand start/advance/finish/replay, phone390layout/volume and navigation to Radio passed. Worker health unchanged. Evidence `operations/ksvl-player-colours-20260906/PUBLISH.md`.
+
 > **2026-09-06 — Shared KSVL player: OWNER APPROVED / NOT PUBLISHED.** Ali approved the current local preview, player source9d5e8e08. Visual and behavior decisions recorded in DECISIONS.md; worktree `/Users/alisoneakin/Projects/laidies-ksvl-player-colours-20260906`. Next release step is bounded integration with current production, preserving live changes and checking shared-player/asset compatibility. This task has not deployed or claimed a public result.
 
 > **2026-09-06 — Pink sliders: VERIFIED LOCAL.** Progress and volume changed to bright pink #e62a92; actual rendered desktop and computed colours checked. Shared styling applies on phone too. Not published.
