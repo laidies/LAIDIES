@@ -15878,3 +15878,8 @@ remain unreconciled; cross-chat completeness is not certified.
 - Failure: keeping icon extraction active until video.ended placed the source closing whole i above the retained stem. Settled CD/full-name screenshots missed it.
 - Repair: exact decoded last-icon boundary3.55s selects native I. Checked every closing frame213–279 against native-I pixels; old renderer rejected by the same check.
 - Prevention: when reusing a source animation inside another composition, distinguish its content phases from file duration; inspect boundary frames plus all closing frames when identity changes. Possible Behind the Build angle: a correct video can become wrong when a letter is mistaken for an icon. No public content produced.
+
+## 2026-09-06 — Make a transition perform the reveal
+- Finding: decorative VHS sweep followed by unrelated fade weakened the user's intended handoff; local light energy from the inspiration was missing.
+- Repair: tracking position and clip boundary share one progress value; real masthead appears above while intro remains below. Calibrated boundary hit-test rejects unclipped old behavior.42 measured positions aligned under1px, monotonic downward, opacity stays1; completed through masthead. Echo uses light blending, and dot glow follows source-frame changes.67 closing-i frames still pass.
+- Prevention: test what changes on either side of a transition boundary, not merely that an effect plays. Possible Behind the Build angle: making the transition explain what happens next. Private only.

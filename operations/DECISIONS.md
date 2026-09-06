@@ -316,3 +316,6 @@ Ali also requested a small rotating “Did you know?” banner directly under th
 
 ### 2026-09-06 — Source closing i is not a seventh icon
 Ali reported “an extra i at the end” / “like an icon of an i.” In the layered homepage ident, stop dot-slot video extraction by source frame214 (3.5667s); restore the native brush I at frame213 (3.55s). A returning whole letter must never be treated as another icon above a retained stem. Closing-frame pixel checks must cover the entire return interval, not only settled poses.
+
+### 2026-09-06 — VHS tracking reveals the masthead
+Ali: “the vhs line should load the masthead as it goes down”; retain original brush/comic visual direction while drawing more electric energy from supplied Crave inspiration. The exit reveals the already-rendered masthead above a descending tracking edge, retaining intro below; no separate whole-overlay fade. Add only local letter light echoes and dot impact glow, preserve the single-i boundary and stationary background. Private preview; taste remains Ali-owned.

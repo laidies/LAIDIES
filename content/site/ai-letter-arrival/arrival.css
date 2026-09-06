@@ -18,3 +18,6 @@
 .original-arrival__screen{box-shadow:none;overflow:visible}.original-arrival__canvas{display:block;width:100%;height:100%}.original-arrival__video{position:absolute;inset:0;opacity:0!important;pointer-events:none}
 
 @media(max-width:560px){.original-arrival{background-image:url('../ai-original-arrival/background.png?v=base-1')}}
+
+/* The tracking edge erases the intro; the already-rendered masthead is exposed above it. */
+.original-arrival[data-revealing] .original-arrival__tracking{inset:auto 0;top:calc(var(--reveal)*1%);height:19px;mix-blend-mode:screen;background:linear-gradient(0deg,transparent 0%,#22d5ed66 35%,#fff 64%,#fff 76%,#ff3cbddd 83%,transparent 100%),repeating-linear-gradient(0deg,transparent 0 2px,#fff9 2px 3px,transparent 3px 5px);filter:drop-shadow(0 0 5px #55e9ff)}

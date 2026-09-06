@@ -31,7 +31,7 @@ export const letterArrivalId='ai-letter-repair-20260906-two-reviewer';
 export function inspectLetterArrival(item,root){
  const errors=[],sha=b=>crypto.createHash('sha256').update(b).digest('hex');
  try{
-  const raw=fs.readFileSync(path.join(root,'operations/product-stewards/town-entry-homepage/candidates/ai-letter-layer-repair-20260906/admission.json'));if(sha(raw)!=='6f75ccfbaa800765619fef0d36efdcf814c5412cb2c66d38cc512d167d521f13')throw Error('changed letter-repair manifest');const a=JSON.parse(raw);
+  const raw=fs.readFileSync(path.join(root,'operations/product-stewards/town-entry-homepage/candidates/ai-letter-layer-repair-20260906/admission.json'));if(sha(raw)!=='46b84c8396f5361464468c9fd7de3a350c05521a71c6ab4d4f13828b3f6c4d89')throw Error('changed letter-repair manifest');const a=JSON.parse(raw);
   if(item.id!==letterArrivalId||item.design_admission.owner_exception!==letterArrivalId||item.design_admission.candidate.path!=='index.html'||item.design_admission.candidate.sha256!==a.bindings[0].sha256)throw Error('wrong exact letter-repair candidate');
   for(const b of a.bindings)if(sha(fs.readFileSync(path.join(root,b.path)))!==b.sha256)errors.push('changed bound file: '+b.path);
   if(!fs.readFileSync(path.join(root,'operations/DECISIONS.md'),'utf8').includes('routine preview autonomy'))errors.push('missing owner ruling');

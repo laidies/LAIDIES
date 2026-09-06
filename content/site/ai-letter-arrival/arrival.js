@@ -12,9 +12,13 @@ function draw(t){
  // Only original letter layers move; the background and camera stay fixed.
  const separate=ease((t-1.8)/.55)*(1-ease((t-6.32)/.55));
  canvas.style.opacity=ease((t-1.1)/.18);render(separate,t<2.35||video.ended);
- const book=t<1.28?(t-1)/.28:(t-7.25)/.36;
- tracking.style.opacity=book>=0&&book<=1?Math.sin(book*Math.PI)*.8:0;tracking.style.transform=`translateY(${(book-.5)*70}%)`;
- root.style.opacity=1-ease((t-7.41)/.2);
+ const revealing=t>=7.25,wipe=clamp((t-7.25)/.85);
+ root.toggleAttribute('data-revealing',revealing);
+ root.style.setProperty('--reveal',String(wipe*100));
+ root.style.clipPath=revealing?`inset(${wipe*100}% 0 0 0)`:'none';
+ root.style.opacity=1;
+ if(revealing){tracking.style.opacity=1;tracking.style.transform='none';}
+ else{const book=(t-1)/.28;tracking.style.opacity=book>=0&&book<=1?Math.sin(book*Math.PI)*.8:0;tracking.style.transform=`translateY(${(book-.5)*70}%)`;}
  root.dataset.phase=t<1.1?'dial':t<1.8?'original-name':t<2.35?'approach':t<6.32?'original-icons':t<6.87?'return':t<7.25?'original-name':'tracking';
 }
 function tick(now){if(!playing)return;const dt=(now-previous)/1000;previous=now;phaseClock+=dt;
@@ -22,7 +26,7 @@ function tick(now){if(!playing)return;const dt=(now-previous)/1000;previous=now;
  else if(phase==='intro'){elapsed=1.1+video.currentTime;if(video.currentTime>=.7){video.pause();video.currentTime=.7;phase='approach';phaseClock=0;}}
  else if(phase==='approach'){elapsed=1.8+phaseClock;if(phaseClock>=.55){phase='run';phaseClock=0;video.play().catch(finish);}}
  else if(phase==='run'){elapsed=1.65+video.currentTime;if(video.ended){phase='exit';phaseClock=0;}}
- else{elapsed=6.32+phaseClock;if(phaseClock>=1.29)return finish();}
+ else{elapsed=6.32+phaseClock;if(phaseClock>=1.78)return finish();}
  draw(elapsed);raf=requestAnimationFrame(tick);}
 async function start(){cancelAnimationFrame(raf);if(reduced.matches)return finish();root.hidden=false;root.style.opacity=1;replay.hidden=true;elapsed=0;phase='dial';phaseClock=0;playing=false;video.pause();video.currentTime=0;measure();draw(0);if(video.readyState<2)await Promise.race([new Promise(r=>video.addEventListener('canplay',r,{once:true})),new Promise(r=>setTimeout(r,2000))]);if(root.hidden)return;playing=true;pause.textContent='Pause arrival';previous=performance.now();raf=requestAnimationFrame(tick);}
 pause.addEventListener('click',()=>{playing=!playing;if(playing){if(phase==='intro'||phase==='run')video.play().catch(finish);previous=performance.now();raf=requestAnimationFrame(tick);}else{cancelAnimationFrame(raf);video.pause();}pause.textContent=playing?'Pause arrival':'Resume arrival';});skip.addEventListener('click',finish);replay.addEventListener('click',()=>{window.scrollTo({top:0,behavior:'instant'});start().then(()=>{if(!root.hidden)pause.focus({preventScroll:true});});});
