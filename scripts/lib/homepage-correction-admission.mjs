@@ -22,21 +22,29 @@ export function inspectHomepageCorrection(item, root) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
-    if (['BANNER_COLOUR_ONLY','HEADING_BLUE_TEXT_ONLY'].includes(a.owner_feedback_successor)) {
+    if (['BANNER_COLOUR_ONLY','HEADING_BLUE_TEXT_ONLY','BANNER_ALIGNMENT_PORTRAITS'].includes(a.owner_feedback_successor)) {
       const headingOnly = a.owner_feedback_successor === 'HEADING_BLUE_TEXT_ONLY';
-      const p = 'operations/product-stewards/town-entry-homepage/candidates/' + (headingOnly ? 'heading-blue-20260906/' : 'banner-colour-20260906/');
+      const bannerPolish = a.owner_feedback_successor === 'BANNER_ALIGNMENT_PORTRAITS';
+      const p = 'operations/product-stewards/town-entry-homepage/candidates/' + (bannerPolish ? 'banner-polish-20260906/' : headingOnly ? 'heading-blue-20260906/' : 'banner-colour-20260906/');
       assert(item.id === homepageCorrectionId && item.review_type === 'building_page_visual', 'wrong scoped candidate');
       for (const [name,binding] of [['homepage',a.candidate],['runtime',a.runtime],['worker',a.worker]]) assert(binding && digest(binding.path) === binding.sha256, name + ' bytes differ');
       for (const binding of a.evidence || []) assert(digest(binding.path) === binding.sha256, 'stale evidence: ' + binding.path);
       for (const file of ['scope.md','parent.html','checks.json','producer-self-review.md','source-diff.patch','independent-review.md','claude-review-result.json','visuals.json']) assert(a.evidence?.some(b => b.path === p + file), 'missing bound evidence: ' + (file.startsWith('claude') ? 'claude' : file));
       const parent = bytes(p + 'parent.html').toString();
-      assert(digest(p + 'parent.html') === (headingOnly ? 'bd3531f100706c53c76d43b23e5c56568a7a80f4ab43e311a5befedf64780eb1' : '587b91d36a458f4f5d493b32ad13e20a94da610f35e4147a96c82a5f29c69b72'), 'wrong admitted colour parent');
+      assert(digest(p + 'parent.html') === (bannerPolish ? '3c727e337b636a72171e5a9d73edce18c03e3393fb9a1c77e44cdfc363c54281' : headingOnly ? 'bd3531f100706c53c76d43b23e5c56568a7a80f4ab43e311a5befedf64780eb1' : '587b91d36a458f4f5d493b32ad13e20a94da610f35e4147a96c82a5f29c69b72'), 'wrong admitted colour parent');
       const original = headingOnly ? '.intent>div:first-child>h2{color:#003b9e}' : '.dyk-slim{margin:18px clamp(20px,5vw,72px);padding:14px 22px;border:3px solid var(--hp-ink);border-radius:24px;background:var(--hp-ground-warm);color:var(--hp-ink)}';
-      assert(bytes('index.html').toString() === parent.replace(original,headingOnly ? '.intent>div:first-child>h2{color:var(--hp-cobalt);-webkit-text-stroke:2px var(--hp-ink);paint-order:stroke fill}' : original.replace('background:var(--hp-ground-warm)','background:linear-gradient(135deg,var(--hp-mint),var(--hp-cyan))')), 'unrelated homepage change');
+      assert(bannerPolish ? digest('index.html') === 'b621c8714bfe347d1424f8355e0fcdeafeb846bb747fb25052d16667e6266ca5' : bytes('index.html').toString() === parent.replace(original,headingOnly ? '.intent>div:first-child>h2{color:var(--hp-cobalt);-webkit-text-stroke:2px var(--hp-ink);paint-order:stroke fill}' : original.replace('background:var(--hp-ground-warm)','background:linear-gradient(135deg,var(--hp-mint),var(--hp-cyan))')), 'unrelated homepage change');
       assert(a.runtime.sha256 === '79b1180ad64c4256e4bc70fb1f2eb78e2e69731b1d33b0a7bf5d2fbedfa1b227' && a.worker.sha256 === '9ddfba4179ce757019a2bacf75dbc814a222410628821b17c5feaba09337e764', 'unrelated runtime changed');
       const checks = JSON.parse(bytes(p+'checks.json'));
       assert(checks.status === 'PASS' && checks.sourceSha256 === a.candidate.sha256, 'colour source differs');
-      if (headingOnly) {
+      if (bannerPolish) {
+        assert(checks.knownRaisedTextRejected && checks.minimumContrast >= 4.5, 'raised copy or contrast not proved');
+        for (const width of [1440,390]) {
+          const rows = checks.rows.filter(r => r.width === width && r.kind === 'candidate');
+          assert(rows.length === 8 && rows.every(r => !r.overflow && r.imageDecoded && r.ctaMinHeight === '0px' && r.colour === 'rgb(59, 20, 95)' && (width === 390 || Math.abs(r.centreOffset) < 1)), 'banner fit differs');
+          assert(rows[1]?.mediaBackground === 'rgb(255, 253, 251)' && rows[3]?.image === '/assets/homepage/original-restoration-20260829/ada-lovelace.png', 'updated portrait differs');
+        }
+      } else if (headingOnly) {
         assert(checks.knownDarkHeadingRejected, 'old heading colour not rejected');
         for (const width of [1440,390]) {
           const row = checks.rows.find(r => r.viewport === width && r.kind === 'candidate');

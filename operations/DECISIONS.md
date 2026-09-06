@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Banner text alignment and updated portraits
+
+Ali requests the Did you know text be vertically centred and use a different colour; Miss Jeeves needs a contrasting image background, and Ada should use the updated artwork and background. Reuse existing palette and approved assets. Preserve the approved needs heading, eight invitations and destinations, compact banner and shared bottom-radio action. Preview correction only.
+
 ## 2026-09-06 — Needs heading: bright blue text only
 
 Ali clarified “just the text” for “What brought you to town today?”. Use existing bright cobalt blue for that heading; preserve the warm section background, mint-to-cyan banner, cards, copy and layout. A fine navy letter edge maintains readability against the warm gradient. Preview correction only.
