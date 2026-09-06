@@ -230,7 +230,7 @@ July 2026 first-hand account. Product enforcement differs by surface.
 constraints or definition of done.
 
 **Do this:** keep a short, accurate `AGENTS.md`; add a rule after a repeated
-observed mistake, then test whether the rule changes behaviour. Move specialised
+observed mistake, then test whether the rule changes behaviour. Move specialized
 material to a referenced file or Skill.
 
 ```markdown
@@ -362,7 +362,7 @@ context fills. More material can make the important material harder to use.
 possible edge case, or several Skills whose descriptions overlap.
 
 **Free route:** one short Project instruction and only the relevant files.
-**Paid/agentic extension:** route specialised context on demand and isolate
+**Paid/agentic extension:** route specialized context on demand and isolate
 large investigations.
 
 **Evidence:** Anthropic context-engineering and Claude Code extension guidance,
@@ -434,7 +434,7 @@ pay-as-you-go credits from the first request. Anthropic says the current default
 is Medium in Claude.ai and Cowork but High in Claude Code; the API default is
 also High. These are surface defaults, not a reason to select High for every
 task. Fable 5.1 is also a Covered Model with a 30-day retention requirement
-unless Anthropic expressly authorizes an eligible organisational arrangement.
+unless Anthropic expressly authorizes an eligible organizational arrangement.
 
 **Fable 5.1-specific control:** ask explicitly for search when current facts
 matter at Low; name exclusions and the exact finish line; request brief progress

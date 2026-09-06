@@ -1,5 +1,10 @@
 # Chapter 1: Your first useful ChatGPT job
 
+> **SUPERSEDED — DO NOT USE IN THE BOOK.** Ali rejected the constructed reunion
+> and fake-website workflow on 6 September 2026 because it is not a job readers
+> would realistically use. The replacement manuscript uses a leadership-ready
+> proposal built from rough notes, an approved brief and a spreadsheet.
+
 *How to choose the right place, model and effort — then catch the mistake before anyone else does*
 
 **Product facts checked: 2 September 2026**
@@ -90,7 +95,7 @@ For a one-off question, a normal chat is fine. For the reunion, a Project would
 be sensible if the invitation, website, photo captions and follow-up messages
 will evolve over several weeks.
 
-Before adding real files, check your organisation's rules and your Data
+Before adding real files, check your organization's rules and your Data
 Controls. Remove information the job does not need. Our exercise deliberately
 keeps the private RSVP list out of the source pack.
 

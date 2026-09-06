@@ -44,7 +44,8 @@ change a product control.
 OpenAI documents several Astra behaviours that affect a practical brief. It is
 sensitive to long instruction stacks, can ask a focused question and stop, may
 under-delegate, and may test a small task more thoroughly than it needs. For a
-long agentic job, name the authority order, say whether reversible work should
+long job that can take several steps or use tools on your behalf, name the
+authority order, say whether reversible work should
 continue without another question, make delegation explicit where useful and
 define the test boundary. These controls reduce wasted work; they do not promise
 correctness.
@@ -67,13 +68,15 @@ must be labelled as API prices rather than ChatGPT subscription prices.
 [ChatGPT pricing](https://learn.chatgpt.com/docs/pricing),
 [Enterprise availability](https://learn.chatgpt.com/docs/enterprise/workspace-model-availability).
 
-## Editorial application to the reunion case
+## Editorial application to the leadership-proposal case
 
-The reunion case remains a Terra/Medium-sized job: three short sources, a clear
-authority order and an obvious occurrence check. Astra is introduced through a
-counterexample—a genuinely larger job spanning many contradictory records,
-several connected outputs and tools—so the chapter does not recommend Astra
-merely because it is newest.
+The leadership-proposal case remains a Terra/Medium-sized job: three bounded
+sources, a clear authority order and four outputs whose facts can be checked
+against one another. Astra is introduced through a counterexample—a genuinely
+larger job spanning many departments, contradictory records, connected outputs
+and approved tools—so the chapter does not recommend Astra merely because it is
+newest. Codex is not forced into this example; it belongs in a separate workflow
+for a reader who actually has a website, app or repository.
 
 Keep the line “High effort is a setting, not a tiara.” Follow it with the
 mechanism: higher effort is useful when deeper synthesis or a lower setting's

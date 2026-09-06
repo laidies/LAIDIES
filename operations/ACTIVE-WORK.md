@@ -6,9 +6,9 @@
 
 ### 2026-09-06 — four-guide Astra and Fable 5.1 live refresh
 
-- **Status:** CURRENT PRIMARY-SOURCE REFRESH COMPLETE / CHATGPT CHAPTER ASTRA
-  SUCCESSOR EXACT-PROSE INDEPENDENTLY ADMITTED / FULL MANUSCRIPTS, READER TESTS,
-  DESIGN AND PUBLICATION HOLD.
+- **Status:** CURRENT PRIMARY-SOURCE REFRESH COMPLETE / CHATGPT AND CLAUDE FULL
+  MANUSCRIPT DRAFTS COMPLETE / EXACT-PROSE REVIEW, READER TESTS, DESIGN AND
+  PUBLICATION HOLD.
 - **Scope:** *Who's Who in AI*, *ChatGPT Guide*, *Claude Guide* and *Tool &
   Application Selection Guide*.
 - **Verified current change:** OpenAI now places GPT-6 Astra above the retained
@@ -18,25 +18,29 @@
   fallback and prompting differences are recorded in
   `operations/product-stewards/library/FOUR-GUIDE-LIVE-REFRESH-REPORT-SOURCE-2026-09-06.md`.
 - **Produced:** refreshed shared practical guidance; corrected Claude research;
-  an Astra-specific chapter source card and producer contract; and a 4,200-word
-  ChatGPT chapter successor that explains when Astra earns its cost and gives
-  an exact authority/autonomy/delegation/testing control block. The chapter
-  retains a complete no-picker route and does not inflate the small reunion case
-  into an Astra task.
+  full manuscript producer contracts; a 10,865-word ChatGPT manuscript and a
+  14,501-word Claude manuscript. Both centre a realistic leadership-proposal
+  workflow built from rough notes, an approved brief and a spreadsheet; both
+  separate Free and paid routes; and both reserve Codex or Claude Code for a
+  separate real repository job. The rejected reunion, catering and fake-website
+  examples do not appear in either current manuscript.
 - **Review:** the first independent read held on the unexplained word
   `agentic`. The current exact chapter replaces it with “a long job that can
   take several steps or use tools on your behalf.” Producer and independent
-  exact-prose receipts now validate PASS against SHA-256
+  exact-prose receipts historically validated PASS against SHA-256
   `bc496216cfed9ce262cd549658de7e2ed32c87c67d3789f3b82d98fda72b8d01`.
+  Ali's later rejection invalidates that version as current book authority.
 - **Public truth:** `https://laidies.ai/library` currently marks *Who's Who in
   AI* HOLD and ChatGPT/Claude as previews; it does not contain the commissioned
   complete guides. The current HTML contains no catalogue entry for the new
   Tool & Application Selection Guide.
-- **Not done:** no representative current account comparison, unfamiliar-human
-  comprehension observation, complete manuscript, designed reader derivative,
-  catalogue admission, release deployment or public verification of a new book.
-- **Next:** draft the remaining ChatGPT manuscript and the Claude manuscript
-  from the refreshed source ledger before building or advertising a release.
+- **Not done:** no representative current account comparison, full producer
+  self-review, independent exact-prose review, unfamiliar-human comprehension
+  observation, designed reader derivative, catalogue admission, release
+  deployment or public verification of a new book.
+- **Next:** run producer review and independent factual/prose review on both
+  exact manuscripts, repair them, then test comprehension with unfamiliar
+  readers before design or release.
 
 ### 2026-09-02 — ChatGPT guide complete chapter proof
 
@@ -62,10 +66,8 @@
   laid out or rendered as a book, tested with unfamiliar human readers, added to
   the catalogue, deployed or publicly verified. No cross-plan account test was
   performed and account-specific controls remain qualified.
-- **Next:** Ali decides whether this chapter's voice, teaching depth and worked
-  example form should govern the rest of the ChatGPT guide. If retained, draft
-  the remaining chapters from the current source cards and recheck volatile
-  product facts before each admission cycle.
+- **Next:** This historical chapter is superseded. Use the 2026-09-06
+  leadership-proposal manuscript instead; do not restore its worked example.
 
 ### 2026-09-01 — current practical guidance spine
 

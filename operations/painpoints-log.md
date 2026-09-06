@@ -14879,6 +14879,10 @@ while remaining falsely unfinished in the launch record.
   The first Astra chapter revision also called a multi-step tool task
   “agentic” before explaining it; independent review held the chapter until the
   mechanism replaced the label.
+  The first worked example also survived internal review despite being a
+  contrived reunion-and-website job that a reader would not realistically do,
+  and the draft used British `-ise` forms even though Ali's Canadian house
+  style uses `-ize`, `-ization` and `-yze`.
 - **Prevention:** On every model release, re-open the current official model,
   effort, plan, retention/safety and prompting sources. Compare each affected
   manuscript claim, preserve the no-picker/Free route, and add model-specific
@@ -14887,6 +14891,9 @@ while remaining falsely unfinished in the launch record.
   tested product behaviour. In beginner prose, explain the steps, tools and
   consequences before using a category label—or omit the label when it adds no
   value.
+  Treat example plausibility and house spelling as producer checks, not polish:
+  use a real recurring job, keep technical surfaces out unless that job needs
+  them, and scan exact prose for the house `z` forms before review.
 - **Evidence:**
   `operations/product-stewards/library/FOUR-GUIDE-LIVE-REFRESH-REPORT-SOURCE-2026-09-06.md`,
   the refreshed practical-guidance spine and the ChatGPT chapter Astra source

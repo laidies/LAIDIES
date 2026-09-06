@@ -15,6 +15,12 @@ Episode 1 is the voice benchmark.
 
 Match that level of warmth, specificity, humour, pacing, clarity, usefulness, reference quality, and confidence. Use Canadian English.
 
+For verbs and their related nouns, LAiDIES uses the Canadian `z` forms:
+`organize`, `organization`, `recognize`, `analyze`, `authorize`, `summarize`
+and their inflections. Use `-ize`, `-ization` and `-yze`; do not use British
+`-ise`, `-isation` or `analyse` forms. Keep other Canadian spellings such as
+`colour`, `centre`, `licence` (noun) and `practice` (noun).
+
 If a draft does not feel like it belongs beside Episode 1, it is not done.
 
 Core Voice

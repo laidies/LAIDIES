@@ -82,7 +82,7 @@ Luna, web search, data analysis, uploads, image generation, existing GPT use and
 500 MB Library storage. It describes everyday text chats as unlimited subject
 to safeguards, while tools have separate limits. Think is mobile-available and
 rolling out on web. New GPT creation/publishing is unavailable on personal
-Free/Go/Plus/Pro accounts; organisational creation depends on permissions. These
+Free/Go/Plus/Pro accounts; organizational creation depends on permissions. These
 are documented entitlements, not account-tested observations. Exact numeric
 tool quotas are not supplied; use the in-product limit/reset notice. [O13]
 
