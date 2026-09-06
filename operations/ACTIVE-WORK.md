@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Small current visual references: VERIFIED LOCAL / DISTRIBUTION IN PROGRESS.** Owner: background-reference task `01a0785e-1438-7161-b041-0be213b06e9b`; isolated branch `ops/current-visual-references-20260906`. Build the small two-job entry and scoped selections, preserve exact originals and reconcile later rejections; system engineering task owns prompt-consumer reconciliation on a separate branch. No all-artwork migration or production art changes. Acceptance: exact usable references and reuse scope, honest unavailable entries, routed instructions, calibrated selection checks and repository distribution. Local index and 13 prompt-consumer checks pass; later Matron/Miss Jeeves identities and destination palettes are reconciled. Current source commits 222a10ae, 3afe85a6, 21b55575 and coordinated consumer 1b1fcf6e. Remote verification and receiving entry remain before completion. Other product work continues.
+
 > **2026-09-06 — Current operating owner: map before redesign / BUILDING.**
 > Same task and bounded checkout; branch `ops/end-to-end-system-map-20260906`.
 > PR104 merged as `4a4726e3`; old PR103/104 integration instructions below are

@@ -1,5 +1,10 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Small current visual reference collection
+
+Ali approved one small curated entry at `operations/reference/README.md`, with scoped colours, art styles, background inspiration, current character references and current building references. Its two jobs are (1) supplying the minimum approved references to create matching new artwork and (2) finding the exact approved existing image for reuse. It is not an archive of all artwork or a new approval registry. Link exact originals and their approval sources; distinguish identity, rendering, composition and destination. Extra views need a specific purpose. Newest filenames and old ACTIVE labels cannot override later rejection. Use the existing reference manifest for reference scope and the existing active-asset registry for direct publication; unresolved approval stays explicit. Reconcile instruction consumers and distribute the selected authority with the entry, rather than adding a disconnected folder. No new visual identity, palette or public placement is approved by this organisational change.
+
+
 > **2026-09-06 — Map before redesign or quality-tool integration.** Ali requires
 > the full end-to-end operating map for each agent, flow and operation, including
 > inputs, outputs, dependencies, failure/recovery, completion and human/manual

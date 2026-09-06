@@ -1,0 +1,482 @@
+{
+  "schema": "laidies.episode-approved-reference-manifest.v1",
+  "status": "LOCKED_POINTERS_ONLY_NO_COPIED_ASSETS",
+  "rule": "Pointers, exact hashes and usage boundaries only. Current collection metadata selects a small view; it grants no approval. Character/style reference eligibility never implies direct page reuse. Later rejection wins, including over a former reference ID.",
+  "authority_order": [
+    "character identity reference",
+    "master people-rendering style",
+    "category grammar",
+    "location authority",
+    "scene brief and narration",
+    "motion class"
+  ],
+  "references": [
+    {
+      "id": "PEOPLE_STYLE_MASTER",
+      "role": "master_people_rendering_style_and_heroine_identity",
+      "scope": "Episode/trailer rendering; identity authority for The Heroine only. This does not select one rendering style for every building page.",
+      "path": "assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png",
+      "sha256": "c9653ce7fa6160494e7b40440ef7d47aa9d53fcdc31037bf280c4a3177756422",
+      "approval": "LOCKED",
+      "display_name": "The Heroine / episode and trailer people style",
+      "collection_kind": "character",
+      "allowed_destinations": [
+        "episode",
+        "trailer"
+      ],
+      "authority": "operations/episode-visual-system-lock.md#3-current-ensemble--identity-references",
+      "authority_sha256": "7d55e94586273cbb78a0747a928c9c8dbe71f019a3e2b0c7136d3633d019c1dc"
+    },
+    {
+      "id": "IDENTITY_PENNY",
+      "role": "character_identity",
+      "scope": "identity only; intro lettering must be exactly PENNY and POST OFFICE",
+      "intro_label_name": "PENNY",
+      "intro_label_role": "POST OFFICE",
+      "path": "assets/town-characters/scenes/penny-scene.png",
+      "sha256": "20a0770f779075c2e9cb7f38cd133ce16587405a4e5c824ecd6bb0b92bac0ce8",
+      "approval": "IDENTITY_REFERENCE_ONLY",
+      "display_name": "Penny",
+      "collection_kind": "character",
+      "allowed_destinations": [
+        "episode"
+      ],
+      "authority": "operations/episode-visual-system-lock.md#3-current-ensemble--identity-references",
+      "authority_sha256": "7d55e94586273cbb78a0747a928c9c8dbe71f019a3e2b0c7136d3633d019c1dc"
+    },
+    {
+      "id": "IDENTITY_PAIGE",
+      "role": "character_identity",
+      "scope": "identity only",
+      "intro_label_name": "PAIGE",
+      "intro_label_role": "NEWSSTAND",
+      "path": "assets/town-characters/comic/paige-comic-v1.png",
+      "sha256": "f7ad3bc9fcb65777a05648bbea5f118f382ead0e466fb1286387a5ad87c689e6",
+      "approval": "IDENTITY_REFERENCE_ONLY",
+      "display_name": "Paige",
+      "collection_kind": "character",
+      "allowed_destinations": [
+        "episode"
+      ],
+      "authority": "operations/episode-visual-system-lock.md#3-current-ensemble--identity-references",
+      "authority_sha256": "7d55e94586273cbb78a0747a928c9c8dbe71f019a3e2b0c7136d3633d019c1dc"
+    },
+    {
+      "id": "IDENTITY_DJ_SUNNYV",
+      "role": "character_identity",
+      "scope": "identity only",
+      "intro_label_name": "DJ SUNNYV",
+      "intro_label_role": "KSVL 99.9 FM",
+      "path": "assets/episodes/trailer/comic/trailer-b46-ksvl-dj-sunnyv-booth-comic-v1-1920.png",
+      "sha256": "abea1e80183268068fff43dea0cc6f860616d3451f306d7f2aec3ff9919d2f18",
+      "approval": "IDENTITY_REFERENCE_ONLY",
+      "display_name": "DJ SunnyV",
+      "collection_kind": "character",
+      "allowed_destinations": [
+        "episode"
+      ],
+      "authority": "operations/episode-visual-system-lock.md#3-current-ensemble--identity-references",
+      "authority_sha256": "7d55e94586273cbb78a0747a928c9c8dbe71f019a3e2b0c7136d3633d019c1dc"
+    },
+    {
+      "id": "IDENTITY_JOJO",
+      "role": "character_identity",
+      "scope": "identity only",
+      "intro_label_name": "JOJO",
+      "intro_label_role": "BLEND & SNAP",
+      "path": "assets/town-characters/comic/jojo-comic-v1.png",
+      "sha256": "c1ecb6ddcd79637ef9d16d374bf241b4af742e594b55b4894ab3d68eeb5f18ff",
+      "approval": "IDENTITY_REFERENCE_ONLY",
+      "display_name": "JoJo",
+      "collection_kind": "character",
+      "allowed_destinations": [
+        "episode"
+      ],
+      "authority": "operations/episode-visual-system-lock.md#3-current-ensemble--identity-references",
+      "authority_sha256": "7d55e94586273cbb78a0747a928c9c8dbe71f019a3e2b0c7136d3633d019c1dc"
+    },
+    {
+      "id": "IDENTITY_COSMO",
+      "role": "character_identity",
+      "scope": "identity only",
+      "intro_label_name": "COSMO",
+      "intro_label_role": "BRONZE AiGE",
+      "path": "assets/town-characters/scenes/cosmo-scene.png",
+      "sha256": "54d818f75f7318f0cad0ea46fc8c5624b0250932f586df824f69ccd08aadfe3a",
+      "approval": "IDENTITY_REFERENCE_ONLY",
+      "display_name": "Cosmo",
+      "collection_kind": "character",
+      "allowed_destinations": [
+        "episode"
+      ],
+      "authority": "operations/episode-visual-system-lock.md#3-current-ensemble--identity-references",
+      "authority_sha256": "7d55e94586273cbb78a0747a928c9c8dbe71f019a3e2b0c7136d3633d019c1dc"
+    },
+    {
+      "id": "IDENTITY_PAULETTE",
+      "role": "character_identity",
+      "scope": "identity only; receives the full solo feature formerly assigned to June",
+      "intro_label_name": "PAULETTE",
+      "intro_label_role": "MAiKEOVER",
+      "path": "assets/town-characters/comic/paulette-comic-v1.png",
+      "sha256": "7952c7df972cbb8de23e734e8d1a221dc9073b87bf3c1db1cfe9a2b705990902",
+      "approval": "IDENTITY_REFERENCE_ONLY",
+      "display_name": "Paulette",
+      "collection_kind": "character",
+      "allowed_destinations": [
+        "episode"
+      ],
+      "authority": "operations/episode-visual-system-lock.md#3-current-ensemble--identity-references",
+      "authority_sha256": "7d55e94586273cbb78a0747a928c9c8dbe71f019a3e2b0c7136d3633d019c1dc"
+    },
+    {
+      "id": "IDENTITY_MAYOR_DEB",
+      "role": "character_identity",
+      "scope": "identity only",
+      "intro_label_name": "MAYOR DEB",
+      "intro_label_role": "TOWN HALL",
+      "path": "assets/town-characters/scenes/mayor-deb-scene.png",
+      "sha256": "08c53644f91b5f00673e00205817d266d9fbdca98b27b300a989dd1317ba3edd",
+      "approval": "IDENTITY_REFERENCE_ONLY",
+      "display_name": "Mayor Deb",
+      "collection_kind": "character",
+      "allowed_destinations": [
+        "episode"
+      ],
+      "authority": "operations/episode-visual-system-lock.md#3-current-ensemble--identity-references",
+      "authority_sha256": "7d55e94586273cbb78a0747a928c9c8dbe71f019a3e2b0c7136d3633d019c1dc"
+    },
+    {
+      "id": "IDENTITY_MME_CLAIO",
+      "role": "character_identity",
+      "scope": "identity only",
+      "intro_label_name": "MME CLAi-O",
+      "intro_label_role": "NO. 6 MAIN",
+      "path": "assets/video/delivery-20260714-opening-v6/shots/opening-03-mme-claio-clean-face.png",
+      "sha256": "31dddad67d3592d5c46246299ea323efff0234480211655b989b80b12b99da51",
+      "approval": "IDENTITY_REFERENCE_ONLY",
+      "display_name": "Mme CLAi-O",
+      "collection_kind": "character",
+      "allowed_destinations": [
+        "episode"
+      ],
+      "authority": "operations/episode-visual-system-lock.md#3-current-ensemble--identity-references",
+      "authority_sha256": "7d55e94586273cbb78a0747a928c9c8dbe71f019a3e2b0c7136d3633d019c1dc"
+    },
+    {
+      "id": "IDENTITY_FAIRY_GODMOTHER",
+      "role": "character_identity",
+      "scope": "identity only",
+      "intro_label_name": "FAiRY GODMOTHER",
+      "intro_label_role": "WILLOW LANE",
+      "path": "assets/video/delivery-20260714-opening-v6/shots/opening-08-fairy-godmother-clean-lit-group-face-v3.png",
+      "sha256": "eafe13b24fc655a036c80be5edaad1df1e25a03527c38b9bfe1508b790f14053",
+      "approval": "IDENTITY_REFERENCE_ONLY",
+      "display_name": "FAiRY Godmother",
+      "collection_kind": "character",
+      "allowed_destinations": [
+        "episode"
+      ],
+      "authority": "operations/episode-visual-system-lock.md#3-current-ensemble--identity-references",
+      "authority_sha256": "7d55e94586273cbb78a0747a928c9c8dbe71f019a3e2b0c7136d3633d019c1dc"
+    },
+    {
+      "id": "GRAMMAR_COMIC_STORYTELLING",
+      "role": "category_grammar",
+      "scope": "sequential comic storytelling",
+      "path": "operations/reference/comic-storytelling/README.md",
+      "sha256": "782eb1a59d78ac7d861e0f1d73cc91bc126420d9f2fbd50235add6943651abbe",
+      "approval": "GOVERNING_README",
+      "authority": "operations/reference/comic-storytelling/README.md",
+      "authority_sha256": "782eb1a59d78ac7d861e0f1d73cc91bc126420d9f2fbd50235add6943651abbe"
+    },
+    {
+      "id": "GRAMMAR_COMIC_SPLIT_LAYOUT",
+      "role": "category_grammar",
+      "scope": "irregular diagonal inset and staggered comic panels; never a boring straight horizontal split",
+      "path": "operations/reference/comic-strip-layout/README.md",
+      "sha256": "66a5db76c1197a3c5886d7bbfeda44a0dd3d51e29db07889241da009365c34f4",
+      "approval": "GOVERNING_README",
+      "authority": "operations/reference/comic-strip-layout/README.md",
+      "authority_sha256": "66a5db76c1197a3c5886d7bbfeda44a0dd3d51e29db07889241da009365c34f4"
+    },
+    {
+      "id": "GRAMMAR_COMIC_TEXT_EMPHASIS",
+      "role": "category_grammar",
+      "scope": "comic text emphasis",
+      "path": "operations/reference/comic-text-emphasis/README.md",
+      "sha256": "c2f22bdf03563f520e353c433d2c8d4fa215b4956efc504fd57e775c036546c8",
+      "approval": "GOVERNING_README",
+      "authority": "operations/reference/comic-text-emphasis/README.md",
+      "authority_sha256": "c2f22bdf03563f520e353c433d2c8d4fa215b4956efc504fd57e775c036546c8"
+    },
+    {
+      "id": "GRAMMAR_FONT_TEXT_EMPHASIS",
+      "role": "category_grammar",
+      "scope": "deterministic lettering and emphasis",
+      "path": "operations/reference/font-and-text-emphasis/README.md",
+      "sha256": "de6bf6fb5827ba417aa19340e6a61e1e9611f29d0504bcdfd236aedcbd4c67b0",
+      "approval": "GOVERNING_README",
+      "authority": "operations/reference/font-and-text-emphasis/README.md",
+      "authority_sha256": "de6bf6fb5827ba417aa19340e6a61e1e9611f29d0504bcdfd236aedcbd4c67b0"
+    },
+    {
+      "id": "GRAMMAR_COMIC_PAGE",
+      "role": "category_grammar",
+      "scope": "comic-book page style",
+      "path": "operations/reference/comic-book-page-style/README.md",
+      "sha256": "254c2a517868e9c4f658580bcad6be49fa61213a0fb0295fa536aed86755218a",
+      "approval": "GOVERNING_README",
+      "authority": "operations/reference/comic-book-page-style/README.md",
+      "authority_sha256": "254c2a517868e9c4f658580bcad6be49fa61213a0fb0295fa536aed86755218a"
+    },
+    {
+      "id": "GRAMMAR_COVER_COLLAGE",
+      "role": "category_grammar",
+      "scope": "comic-cover collage",
+      "path": "operations/reference/comic-cover-collage/README.md",
+      "sha256": "321ab867cc3ed1ac95fd62a3e6e2a5f21db623319bbb0080958f5fd7c8a011f0",
+      "approval": "GOVERNING_README",
+      "authority": "operations/reference/comic-cover-collage/README.md",
+      "authority_sha256": "321ab867cc3ed1ac95fd62a3e6e2a5f21db623319bbb0080958f5fd7c8a011f0"
+    },
+    {
+      "id": "GRAMMAR_IDENT_BACKGROUND",
+      "role": "category_grammar",
+      "scope": "recurring comic ident backgrounds",
+      "path": "operations/reference/comic-ident-background/README.md",
+      "sha256": "4178ab555a008f3630c1a01d897bb0053296027e111c1345354f20e4a6506f9c",
+      "approval": "GOVERNING_README",
+      "authority": "operations/reference/comic-ident-background/README.md",
+      "authority_sha256": "4178ab555a008f3630c1a01d897bb0053296027e111c1345354f20e4a6506f9c"
+    },
+    {
+      "id": "GRAMMAR_TRADING_CARDS",
+      "role": "category_grammar",
+      "scope": "trading-card inserts only",
+      "path": "operations/reference/trading-cards/README.md",
+      "sha256": "a1d2301c2c8a2933b6aed4536b9d19609ccd9b2242796fddd2fb233a9ae10ae7",
+      "approval": "GOVERNING_README",
+      "authority": "operations/reference/trading-cards/README.md",
+      "authority_sha256": "a1d2301c2c8a2933b6aed4536b9d19609ccd9b2242796fddd2fb233a9ae10ae7"
+    },
+    {
+      "id": "GRAMMAR_EPISODE_POPART",
+      "role": "category_grammar",
+      "scope": "episode-specific pop-art grammar",
+      "path": "operations/reference/episode-style-popart/README.md",
+      "sha256": "3a64ed1c9a05fdd07a5995574bd13dcd91f9f0acab22ece1186089752562488f",
+      "approval": "GOVERNING_README",
+      "authority": "operations/reference/episode-style-popart/README.md",
+      "authority_sha256": "3a64ed1c9a05fdd07a5995574bd13dcd91f9f0acab22ece1186089752562488f"
+    },
+    {
+      "id": "GRAMMAR_STYLE_ONLY",
+      "role": "category_grammar",
+      "scope": "style-only references; never identity",
+      "path": "operations/reference/style-only-refs/README.md",
+      "sha256": "9bfbcf5a47ecaabb0ae29b86d05e8d46beb641bcdd9a071ffddef0b663e00527",
+      "approval": "GOVERNING_README",
+      "authority": "operations/reference/style-only-refs/README.md",
+      "authority_sha256": "9bfbcf5a47ecaabb0ae29b86d05e8d46beb641bcdd9a071ffddef0b663e00527"
+    },
+    {
+      "id": "GRAMMAR_HEROINE_WARDROBE",
+      "role": "wardrobe_grammar",
+      "scope": "heroine wardrobe only; never face or body identity",
+      "path": "operations/reference/heroine-wardrobe/README.md",
+      "sha256": "a260963413ff17a3ed580bfa83e729fad352c5c50ede1fb50d29ebbfed9d5a96",
+      "approval": "GOVERNING_README",
+      "authority": "operations/reference/heroine-wardrobe/README.md",
+      "authority_sha256": "a260963413ff17a3ed580bfa83e729fad352c5c50ede1fb50d29ebbfed9d5a96"
+    },
+    {
+      "id": "EPISODE_INTRO_SONG",
+      "role": "audio_master",
+      "scope": "shared 29.232-second intro song; never regenerate or replace",
+      "path": "content/music/sunnyvaile-episode-intro.mp3",
+      "sha256": "7dc3ac7776ee592f0d96a3ee5b71c0ff85a45e87614929a3aecf944493b144b5",
+      "approval": "LOCKED_EXISTING_MASTER"
+    },
+    {
+      "id": "EPISODE_OUTRO_SONG",
+      "role": "audio_master",
+      "scope": "shared 25.272-second outro song; never regenerate or replace",
+      "path": "content/music/sunnyvaile-episode-outro.mp3",
+      "sha256": "d4c5b8dac4fc9af9481b4f6f6fadad6455dfbd9ea0bd3c5d57fa2f9a43538599",
+      "approval": "LOCKED_EXISTING_MASTER"
+    },
+    {
+      "id": "EPISODE_IDENT_FAMILY_MANIFEST",
+      "role": "episode_specific_ident_router",
+      "scope": "exact file-to-episode mapping; never substitute the evergreen or another episode's ident",
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/canonical-logo-animation-family-20260730.json",
+      "sha256": "12476e08190e2cbd410127f693cca53e9f274f0f807befa0d55c7f528640dbf8",
+      "approval": "DECIDED_EXACT_FILE_TO_JOB_MAPPING"
+    },
+    {
+      "id": "EP01_LAIDIES_IDENT",
+      "role": "episode_specific_intro_end_ident",
+      "scope": "Episode 01 only; preserve exact 4.15-second bytes",
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-01-on-wednesdays-we-do-ai-clean-electric-v2.mp4",
+      "sha256": "fe67ced8a2ba78c011e0306afd4171defcc38026d6758c171cbb4bce1181490a",
+      "approval": "APPROVED_CLEAN_ELECTRIC_V2"
+    },
+    {
+      "id": "EP02_LAIDIES_IDENT",
+      "role": "episode_specific_intro_end_ident",
+      "scope": "Episode 02 only; preserve exact 4.15-second bytes",
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-02-tell-me-what-you-want-clean-electric-v2.mp4",
+      "sha256": "9d048b84e2207dd1ccf2f4c58b9e8b824f39f4c6d122006cf0238d94da120edd",
+      "approval": "APPROVED_CLEAN_ELECTRIC_V2"
+    },
+    {
+      "id": "EP03_LAIDIES_IDENT",
+      "role": "episode_specific_intro_end_ident",
+      "scope": "Episode 03 only; preserve exact 4.15-second bytes",
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-03-the-burn-book-problem-clean-electric-v2.mp4",
+      "sha256": "436410d4ffbb6c178740ebdd17c4bb2b35a20f694720e2ea5ba74ab9daed7947",
+      "approval": "APPROVED_CLEAN_ELECTRIC_V2"
+    },
+    {
+      "id": "EP04_LAIDIES_IDENT",
+      "role": "episode_specific_intro_end_ident",
+      "scope": "Episode 04 only; preserve exact 4.15-second bytes",
+      "path": "operations/design-explorations/laidies-motion-ident-20260725/continuous-i-episode-04-founding-mothers-clean-electric-v2.mp4",
+      "sha256": "40053fe3a2af5166b736ebad1496f7c57906e55d0f9552482565a48b70734b99",
+      "approval": "APPROVED_CLEAN_ELECTRIC_V2"
+    },
+    {
+      "id": "IDENTITY_MATRON_LUMEN",
+      "display_name": "Matron Lumen",
+      "collection_kind": "character",
+      "role": "character_identity",
+      "approval": "APPROVED_IDENTITY_REFERENCE",
+      "allowed_destinations": [
+        "luminairy"
+      ],
+      "path": "assets/town-characters/candidates-20260901/matron-lumen-sunnyvaile-identity-pilot-v1.png",
+      "sha256": "eda5ad20cbad72f60de9036238caddf244c07f7786b85123c157b133f6ed9f85",
+      "scope": "Identity for the approved LUMINAiRY adaptation: silver-streaked curls, raspberry glasses, period wardrobe and practical candle tending. Other episode/card/shared placements require separate approval; do not reuse old fantasy-clergy identity.",
+      "authority": "operations/reference/source-decisions.md#matron-lumen-identity-and-luminairy-placement",
+      "authority_sha256": "b3ecc18f27af38efeb720c677a1745c6b0cf65644e5075bc5b3f1daf1549502c"
+    },
+    {
+      "id": "IDENTITY_MISS_JEEVES",
+      "display_name": "Miss Jeeves",
+      "collection_kind": "character",
+      "role": "character_identity",
+      "approval": "APPROVED_IDENTITY_REFERENCE",
+      "allowed_destinations": [
+        "library"
+      ],
+      "path": "assets/library/candidates-20260901/miss-jeeves-geist-identity-selected-pencil-removed.png",
+      "sha256": "89c44d4be49d16d3fe69648f90da31fb3a4e505f439e019e2d20daef93dbb13f",
+      "scope": "Exact pencil-free teal identity for a Library masthead candidate. Preserve full face, dark curls, round gold glasses, pearl studs, teal cardigan and white collar. No approved replacement masthead, Homepage reuse or deployment follows from this identity selection.",
+      "authority": "operations/reference/source-decisions.md#miss-jeeves-identity-and-library-room",
+      "authority_sha256": "b3ecc18f27af38efeb720c677a1745c6b0cf65644e5075bc5b3f1daf1549502c"
+    },
+    {
+      "id": "LUMINAIRY_PAGE_HERO",
+      "display_name": "LUMINAiRY — approved page hero",
+      "collection_kind": "building",
+      "role": "page_placement_reference",
+      "approval": "APPROVED_PAGE_PLACEMENT_NOT_RELEASED",
+      "allowed_destinations": [
+        "luminairy"
+      ],
+      "path": "assets/building-interiors/delivery-20260905-luminairy-matron-lumen-plant-free-successor-v3/luminairy-nave-matron-lumen-site-palette-plant-free-v3.png",
+      "sha256": "0d7cc3a48e0baeadc0e16269f64df59b8e92b596030b6b7814298de630420964",
+      "scope": "Exact plant-free v3 LUMINAiRY hero. Keep object-position: 92% center at the 760px breakpoint. Visual approval for this placement only; not public release or generic building/character/episode use.",
+      "authority": "operations/reference/source-decisions.md#matron-lumen-identity-and-luminairy-placement",
+      "authority_sha256": "b3ecc18f27af38efeb720c677a1745c6b0cf65644e5075bc5b3f1daf1549502c"
+    },
+    {
+      "id": "EDITORIAL_STYLE_AUG30",
+      "display_name": "Adult editorial illustration",
+      "collection_kind": "style",
+      "role": "editorial_style_reference",
+      "approval": "APPROVED_STYLE_REFERENCE",
+      "allowed_destinations": [
+        "editorial"
+      ],
+      "path": "assets/homepage/approved-references/women-ai-pop-art-approved-20260830.png",
+      "sha256": "0742816929be694e0e9fcfa11c3ae047173814e6112419176a71a994273828a5",
+      "scope": "Style and integrated background storytelling only. Adult editorial/comic detail, meaningful action, print texture and electric accents. Not a likeness/historical truth reference, reusable whole scene, or full-page approval.",
+      "authority": "operations/reference/source-decisions.md#editorial-illustration-style",
+      "authority_sha256": "b3ecc18f27af38efeb720c677a1745c6b0cf65644e5075bc5b3f1daf1549502c"
+    },
+    {
+      "id": "IDENTITY_JUNE",
+      "display_name": "June",
+      "collection_kind": "character",
+      "role": "character_identity",
+      "approval": "IDENTITY_REFERENCE_ONLY",
+      "allowed_destinations": [
+        "episode"
+      ],
+      "path": "assets/town-characters/scenes/june-scene.png",
+      "sha256": "a16fd32085484718a9f67053d120c3153023c2de4dcb302940f43cebf44b881f",
+      "scope": "Episode ensemble identity only, from the existing people lock. Does not restore a June solo intro slot assigned to Paulette.",
+      "authority": "operations/episode-visual-system-lock.md#3-current-ensemble--identity-references",
+      "authority_sha256": "7d55e94586273cbb78a0747a928c9c8dbe71f019a3e2b0c7136d3633d019c1dc"
+    }
+  ],
+  "unavailable_required_references": [
+    {
+      "id": "SUNNYVAILE_CURRENT_DAY_PALETTE",
+      "role": "location_and_daytime_palette",
+      "status": "MISSING_APPROVED_CURRENT_SOURCE",
+      "reason": "The former colour-setter is rejected: obsolete teal/gold/plum scheme, glamour-cartoon person and random cars. Do not infer a replacement palette from another historical town image."
+    },
+    {
+      "id": "SUNNYVAILE_WELCOME_SIGN_V3",
+      "role": "location_composition_and_sign_authority",
+      "status": "MISSING_APPROVED_V3",
+      "reason": "v1 and v2 are rejected as Bridgerton-enamel. One source-bound v3 candidate exists but has no user approval and cannot enter a cue or animation.",
+      "candidate_path": "assets/episodes/shared/intro-v1/candidates/sunnyvaile-welcome-sign-v3-lettered-candidate-v1.png",
+      "candidate_sha256": "156da9913c921a29b87774a8f9b8a97c5a5668e6ab264e407c566d8384c85ad3",
+      "candidate_approval": "AWAITING_USER_VISUAL_VERDICT_NOT_PRODUCTION_AUTHORITY"
+    }
+  ],
+  "rejected_references": [
+    {
+      "former_id": "SUNNYVAILE_DAY_COLORSETTER",
+      "path": "assets/episodes/ep-04/pixel/ep04-daytime-colorsetter-sunnyvaile-main-street-v1.png",
+      "sha256": "f50e9f86898106ccab2e2a2debf420ecc206e14dc3d8b60b7fd7c3e224d6b24e",
+      "status": "USER_REJECTED_NOT_FOR_EPISODE_PRODUCTION"
+    },
+    {
+      "former_id": "SUNNYVAILE_WELCOME_STREET",
+      "path": "assets/episodes/ep-04/pixel/ep04-open-08-sunnyvaile-welcome-comic-v5-from-user-street-clean-1920.png",
+      "sha256": "672abd2571aa772d45af4cf395adf79f532e9c9de6af48bfbfc6e030eed871af",
+      "status": "USER_REJECTED_NOT_FOR_EPISODE_PRODUCTION"
+    },
+    {
+      "former_id": "IDENTITY_MATRON_LUMEN",
+      "path": "assets/town-characters/scenes/matron-lumen-scene.png",
+      "sha256": "85788ae6992b79f8c905d9d82365dccef26e87961ba7baa59cdb3f0c95545342",
+      "status": "USER_REJECTED_IDENTITY_AND_DERIVATIVES",
+      "authority": "operations/reference/source-decisions.md#matron-lumen-identity-and-luminairy-placement"
+    }
+  ],
+  "required_cue_bindings": [
+    "one or more manifest reference IDs",
+    "character-specific identity references where people appear",
+    "location authority where a place appears",
+    "exact accompanying narration or text job",
+    "motion class and loop or transition rule"
+  ],
+  "prohibited_shortcuts": [
+    "glamour cartoon",
+    "generic comic style",
+    "painterly environment substitution",
+    "historical SUNNYVAiLE sign, masthead or postcard used as current palette authority",
+    "random people or cars",
+    "wet-looking pavement or sidewalks",
+    "master style used as character identity",
+    "generated text where deterministic editable lettering is possible",
+    "copied approved-assets folder that forks authority"
+  ],
+  "updated": "2026-09-06"
+}
