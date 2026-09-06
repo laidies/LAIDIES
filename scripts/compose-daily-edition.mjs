@@ -12,6 +12,7 @@ import { loadOrdinaryStoryCandidate, vancouverDay } from "./validate-newsstand-o
 import { loadServicePredecessor, carryIdentity, serviceEligible, validateServiceSelection } from "./newsstand-service-continuity.mjs";
 import { selectAidbEdition } from "./select-aidb-edition.mjs";
 import { validateNewsstandSourceRoutes } from "./check-practitioner-signal-pilot.mjs";
+import { selectNextRecovery } from "./advance-newsstand-story-recovery.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const PRIVATE_ROOT = path.join(ROOT, "operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private");
@@ -28,6 +29,8 @@ const canonicalJson = (value) => {
 };
 const reject = (message) => { throw new Error(`DAILY_EDITION_COMPOSER_REJECT: ${message}`); };
 const QUIET_COVERAGE_START = "2026-09-05";
+const QUIET_RECOVERY_START = "2026-09-05";
+const RECOVERY_QUEUE_PATH = "operations/product-stewards/newsstand/story-recovery-queue.json";
 const HASH = /^[a-f0-9]{64}$/;
 
 function parseStories(raw) {
@@ -119,6 +122,27 @@ export function validateDailyQuietCoverage({ date, radarRaw, root = ROOT, now = 
     cursorPath: coverage.aidb.cursor.path,
     cursorSha256: coverage.aidb.cursor.sha256,
     aidbStatus: "QUIET_NO_NEW_COMPLETE_AIDB_EDITION"
+  };
+}
+
+// Quiet after the recovery policy took effect must bind the same existing
+// queue that says no repairable story is waiting. This is a queue receipt,
+// not an additional queue or an editorial ranking.
+export function validateDailyQuietRecovery({ root = ROOT, now = new Date().toISOString() }) {
+  const absolute = path.join(root, RECOVERY_QUEUE_PATH);
+  if (!fs.existsSync(absolute)) reject("quiet recovery queue is missing");
+  const raw = fs.readFileSync(absolute, "utf8");
+  let queue;
+  try { queue = JSON.parse(raw); } catch { reject("quiet recovery queue is not valid JSON"); }
+  let selection;
+  try { selection = selectNextRecovery(queue, { now }); } catch (error) { reject(`quiet recovery selection failed: ${error.message}`); }
+  if (selection.status !== "NO_ACTIVE_RECOVERY" || selection.quietAllowed !== true || selection.candidate !== null || selection.activeCount !== 0) {
+    reject(`quiet recovery queue has active work: ${selection.status}`);
+  }
+  return {
+    path: RECOVERY_QUEUE_PATH,
+    sha256: sha256(raw),
+    selection: { status: selection.status, quietAllowed: selection.quietAllowed, activeCount: selection.activeCount }
   };
 }
 
@@ -222,6 +246,7 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
   });
   const quietIssue = quiet && !exactStories.length && !eligible.length;
   const dailyCoverage = quietIssue && date >= QUIET_COVERAGE_START ? validateDailyQuietCoverage({ date, radarRaw, root, now }) : null;
+  const dailyRecovery = quietIssue && date >= QUIET_RECOVERY_START ? validateDailyQuietRecovery({ root, now }) : null;
   const envelope = {
     schemaVersion: "daily-private-issue-v1",
     mode: "PRIVATE_DRAFT_ONLY",
@@ -237,7 +262,7 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
     sourceIdentity: {
       radarPath: path.relative(root, radarPath), radarSha256: sha256(radarRaw),
       storiesPath: "content/newsstand-stories.js", storiesSha256: sha256(storiesRaw),
-      columnsPath: "content/daily-edition-columns.json", columnsSha256: sha256(columnsRaw), ...(dailyCoverage ? { dailyCoverage } : {}), ...(candidateIdentity ? { ordinaryCandidate: candidateIdentity } : {}),
+      columnsPath: "content/daily-edition-columns.json", columnsSha256: sha256(columnsRaw), ...(dailyCoverage ? { dailyCoverage } : {}), ...(dailyRecovery ? { dailyRecovery } : {}), ...(candidateIdentity ? { ordinaryCandidate: candidateIdentity } : {}),
       ...(servicePredecessor ? { servicePredecessor } : {})
     },
     canonicalWrite: false,

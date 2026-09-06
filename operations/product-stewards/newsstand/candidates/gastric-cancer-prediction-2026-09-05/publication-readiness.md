@@ -59,3 +59,9 @@ Historical requests stay exact and still assemble without a new provider call.
 Metrics retain zero editorial prose issues, one review cycle, and the producer's
 pre-review bookkeeping repairs; reduced bytes are not claimed as measured token
 or cost savings.
+
+The unfilled `morning-2026-09-06/freshness-template.json` now supplies all original
+source and review bindings automatically. Every check result, time and new
+evidence field remains NOT_CHECKED/null; the actual publication preparer rejects
+it. Preserve that template and save actual checks separately. If rebasing onto
+new canonical bytes, regenerate the template from the reassembled candidate.

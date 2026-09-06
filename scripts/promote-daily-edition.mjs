@@ -10,7 +10,7 @@ import { fileURLToPath } from "node:url";
 import { projectDailySourceRaw } from "./publish-daily-edition.mjs";
 import { loadOrdinaryStoryCandidate, publishCandidateStory, vancouverDay } from "./validate-newsstand-ordinary-story-candidate.mjs";
 import { loadServicePredecessor, validateServiceSelection } from "./newsstand-service-continuity.mjs";
-import { validateDailyQuietCoverage } from "./compose-daily-edition.mjs";
+import { validateDailyQuietCoverage, validateDailyQuietRecovery } from "./compose-daily-edition.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const STORE_PATH = path.join(ROOT, "content/newsstand-daily-issues.json");
@@ -100,7 +100,7 @@ function validatePublishedBase(binding, currentStoriesRaw) {
   if (expectedOrigins.size) reject("service revision publishedBase must include custom and immutable origin observations");
 }
 
-function validateEnvelope(value, root = ROOT, store = null, now = new Date().toISOString()) {
+function validateEnvelope(value, root = ROOT, store = null, now = new Date().toISOString(), { recheckQuietRecovery = true } = {}) {
   const hasFrontPaige = value && Object.prototype.hasOwnProperty.call(value, "frontPaigeStoryId");
   const hasWeekly = value && Object.prototype.hasOwnProperty.call(value, "weeklyStoryId");
   exactKeys(value, ["schemaVersion", "mode", "editionDate", "editorialTimeZone", "disposition", "status", "storyIds", "storySnapshots", "desks", "sourceIdentity", "canonicalWrite", "deployActionTaken", ...(hasFrontPaige ? ["frontPaigeStoryId"] : []), ...(hasWeekly ? ["weeklyStoryId"] : [])], "envelope");
@@ -122,8 +122,9 @@ function validateEnvelope(value, root = ROOT, store = null, now = new Date().toI
   const candidateBinding = value.sourceIdentity?.ordinaryCandidate;
   const correctionBinding = value.sourceIdentity?.storyCorrection;
   const dailyCoverage = value.sourceIdentity?.dailyCoverage;
+  const dailyRecovery = value.sourceIdentity?.dailyRecovery;
   if (candidateBinding && correctionBinding) reject("ordinary candidate and story correction cannot share one issue envelope");
-  exactKeys(value.sourceIdentity, ["radarPath", "radarSha256", "storiesPath", "storiesSha256", "columnsPath", "columnsSha256", ...(dailyCoverage ? ["dailyCoverage"] : []), ...(candidateBinding ? ["ordinaryCandidate"] : []), ...(correctionBinding ? ["storyCorrection"] : []), ...(value.sourceIdentity.servicePredecessor ? ["servicePredecessor"] : [])], "sourceIdentity");
+  exactKeys(value.sourceIdentity, ["radarPath", "radarSha256", "storiesPath", "storiesSha256", "columnsPath", "columnsSha256", ...(dailyCoverage ? ["dailyCoverage"] : []), ...(dailyRecovery ? ["dailyRecovery"] : []), ...(candidateBinding ? ["ordinaryCandidate"] : []), ...(correctionBinding ? ["storyCorrection"] : []), ...(value.sourceIdentity.servicePredecessor ? ["servicePredecessor"] : [])], "sourceIdentity");
   const candidate = candidateBinding ? loadOrdinaryStoryCandidate(candidateBinding, { root, date: value.editionDate, now }).story : null;
   if (correctionBinding) {
     exactKeys(correctionBinding, ["storyId", "predecessorStorySha256", "successorStorySha256", "evidence"], "story correction");
@@ -159,7 +160,22 @@ function validateEnvelope(value, root = ROOT, store = null, now = new Date().toI
     try { actualCoverage = validateDailyQuietCoverage({ date: value.editionDate, radarRaw, root, now }); }
     catch (error) { reject(error.message); }
     if (canonicalJson(actualCoverage) !== canonicalJson(dailyCoverage)) reject("quiet source-coverage binding differs from the dated receipt");
-  } else if (dailyCoverage) reject("non-quiet issue cannot claim a quiet source-coverage binding");
+    if (!dailyRecovery && recheckQuietRecovery) reject("quiet issue lacks recovery-queue binding");
+    if (dailyRecovery) {
+      exactKeys(dailyRecovery, ["path", "sha256", "selection"], "quiet recovery queue");
+      exactKeys(dailyRecovery.selection, ["status", "quietAllowed", "activeCount"], "quiet recovery selection");
+      if (dailyRecovery.path !== "operations/product-stewards/newsstand/story-recovery-queue.json" || !HASH.test(dailyRecovery.sha256 || "") ||
+          dailyRecovery.selection.status !== "NO_ACTIVE_RECOVERY" || dailyRecovery.selection.quietAllowed !== true || dailyRecovery.selection.activeCount !== 0) {
+        reject("quiet recovery-queue binding is invalid");
+      }
+    }
+    if (recheckQuietRecovery && dailyRecovery) {
+      let actualRecovery;
+      try { actualRecovery = validateDailyQuietRecovery({ root, now }); }
+      catch (error) { reject(error.message); }
+      if (canonicalJson(actualRecovery) !== canonicalJson(dailyRecovery)) reject("quiet recovery-queue binding differs from the current queue");
+    }
+  } else if (dailyCoverage || dailyRecovery) reject("non-quiet issue cannot claim a quiet source-coverage binding");
   const types = typesForDate(value.editionDate);
   if (!Array.isArray(value.desks) || value.desks.length !== types.length) reject("Daily issue contents are incomplete");
   const deskTypes = new Set();
@@ -237,7 +253,8 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
   try { parsedEnvelope = JSON.parse(envelopeRaw); } catch { reject("envelope raw bytes are not valid JSON"); }
   if (canonicalJson(parsedEnvelope) !== canonicalJson(envelope)) reject("envelope raw/object mismatch");
   envelope = parsedEnvelope;
-  validateEnvelope(envelope, root, store, now);
+  const exactReplay = store.issues.some((issue) => issue && issue.editionDate === envelope.editionDate && issue.envelopeSha256 === sha256(envelopeRaw));
+  validateEnvelope(envelope, root, store, now, { recheckQuietRecovery: !exactReplay });
   if (envelope.sourceIdentity.servicePredecessor) loadServicePredecessor(envelope.sourceIdentity.servicePredecessor, {
     root, date: envelope.editionDate, columns: JSON.parse(fs.readFileSync(path.join(root, envelope.sourceIdentity.columnsPath), 'utf8')), reviewedAt: decision.reviewedAt
   });

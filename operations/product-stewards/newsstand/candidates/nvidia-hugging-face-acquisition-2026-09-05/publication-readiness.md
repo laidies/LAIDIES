@@ -50,3 +50,9 @@ Review metrics preserve zero prose issues/one review cycle and one source-packet
 round. A duplicate-answer defect in private coverage was found at assembly and
 repaired after review without changing prose. Early quoted-source checks and
 reporting preflight now prevent that class of avoidable review handoff failure.
+
+The unfilled `morning-2026-09-06/freshness-template.json` now supplies all original
+source and review bindings automatically. Every check result, time and new
+evidence field remains NOT_CHECKED/null; the actual publication preparer rejects
+it. Preserve that template and save actual checks separately. If rebasing onto
+new canonical bytes, regenerate the template from the reassembled candidate.

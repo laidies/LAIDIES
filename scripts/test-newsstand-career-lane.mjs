@@ -11,7 +11,7 @@ const bad = columns.records.find(r => r.id === 'DAILY-2026-08-30-CAREER-DELEGATI
 assert.ok(bad);
 const args = { date: '2026-08-31', root,
   radarPath: path.join(root, 'operations/agents/aidb-intelligence-desk/daily/2026-08-31.md'),
-  radarRaw: '2026-08-31\n- **NewsStand:** NO NEW HANDOFF. Quiet cycle.',
+  radarRaw: '2026-08-31\n- **NewsStand:** REVIEW SERVICE. Synthetic career-service composition only.',
   storiesRaw: fs.readFileSync(path.join(root, 'content/newsstand-stories.js'), 'utf8') };
 function compose(record) {
   return composeDailyEnvelope({ ...args, columnsRaw: JSON.stringify({ ...columns, records: [{ ...record, editionDate: args.date }] }) });

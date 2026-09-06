@@ -20,6 +20,13 @@ proper domain source before building from it.
 
 ## Core routes
 
+A new final QUIET issue must bind the existing recovery queue's no-active-work
+selection. Composition and first promotion both reject active work or changed
+queue bytes. Exact stored/admitted historical replay still validates its envelope,
+sources and decision while skipping only today's dynamic queue check. This does
+not block ordinary news or SERVICE_READY issues. No new registry or historical
+re-review is required.
+
 A successfully assembled ordinary NewsStand candidate must enter the existing
 recovery queue before reporting ready. Its exact prose/source/review bindings
 remain private, and registration confers no freshness, issue or release approval.

@@ -536,6 +536,11 @@ earlier event date accurately in the article and judge whether the development
 is still useful and relevant at publication time. Prioritize useful unreported
 developments, merge duplicate events and record the reason for rejection/hold.
 A blocked review must be reported as a blocked review, not converted to QUIET.
+New QUIET envelopes additionally bind the existing recovery queue's exact
+NO_ACTIVE_RECOVERY selection. First promotion rechecks that queue; a passed source
+sweep cannot override a still-active story. Stored exact historical issue replay
+preserves its original admission and skips only this current-queue check. Ordinary
+news and SERVICE_READY paths remain independent.
 An existing same-day issue with no admitted delta stays unchanged; do not
 overwrite it with a freshly dated quiet envelope.
 
@@ -552,7 +557,16 @@ independent review and an assembled private candidate at
 Its own `publication-readiness.md` preserves the medical-source limits and exact
 next-day checks. Both remain unpublished; no morning check has been invented.
 
-Use `scripts/prepare-newsstand-overnight-candidate.mjs` only after an actual
+For evening preparation, the same command can create the exact unfilled checklist:
+`node scripts/prepare-newsstand-overnight-candidate.mjs --template-from <original-reviewed-candidate.json> --output <new-private-freshness-template.json>`.
+It validates the original, copies every source/review identity and sets all check
+results, times and evidence to NOT_CHECKED/null. Its output cannot pass admission.
+Both current ready candidates have this checklist in
+`morning-2026-09-06/freshness-template.json`. Keep it unchanged and save actual
+morning findings as a separate completed record; if the publication base changed,
+regenerate from the new mechanically reassembled candidate.
+
+Use `scripts/prepare-newsstand-overnight-candidate.mjs --freshness` only after an actual
 next-day source and development check. The private
 `laidies-newsstand-overnight-freshness.v1` record must bind the exact reviewed
 candidate, story hash, independent review and claim map; name the checker,
