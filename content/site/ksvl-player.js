@@ -403,7 +403,7 @@
 
   STYLE += '.ksvl-now-playing, .ksvl-now-playing * { font-weight:400!important; } .ksvl-now-playing .ksvl-np-track, .ksvl-now-playing .ksvl-np-title-text { font-weight:700!important; }';
 
-  STYLE += '.ksvl-now-playing .ksvl-np-position strong, .ksvl-now-playing .ksvl-np-controls, .ksvl-now-playing .ksvl-np-controls * { font-weight:700!important; }';
+  STYLE += '.ksvl-now-playing .ksvl-np-controls, .ksvl-now-playing .ksvl-np-controls * { font-weight:700!important; }';
 
   STYLE += '.ksvl-now-playing.is-finished .ksvl-np-up-next { display:block!important; }';
 
@@ -719,7 +719,7 @@
     }
     requestAnimationFrame(updateTitleOverflow);
     npPosition.textContent = '';
-    npPosition.appendChild(el('strong', {text: (track.parts && part && part.artist === 'DJ SunnyV') ? 'Host: ' : 'Band: '}));
+    npPosition.appendChild(el('span', {text: (track.parts && part && part.artist === 'DJ SunnyV') ? 'Host: ' : 'Band: '}));
     npPosition.appendChild(document.createTextNode(displayArtist));
     setBtnIcon(npPlayBtn, state.paused ? '▶' : '⏸');
     setBtnLabel(npPlayBtn, state.finished ? 'Play again' : state.paused ? 'Resume' : 'Pause');

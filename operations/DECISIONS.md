@@ -340,3 +340,5 @@ Ali also requested a small rotating “Did you know?” banner directly under th
 2026-09-06 — Page song starts ALL available songs. Ali approves selecting a song as the start of one full catalogue pass: selected track, following catalogue tracks, then preceding tracks, each once. Default repeat off and shuffle off. Repeat one loops the current song; explicit Stop & close still ends listening. Natural completion retains player with Finished and Play again; replay resets the same selected-first sequence. Persist original start-track anchor across page/popup state. Do not include held files or unadmitted programme inserts.
 
 2026-09-06 — Typography clarification applied: Song and its title bold; Band label bold but band name regular; Up next regular; control-panel labels bold. Supersedes the earlier whole-player regular-weight interpretation.
+
+2026-09-06 — Band label refinement: Ali rejects bold Band. Band label and band name both regular; Song/title and controls remain bold. Supersedes the bold Band label clarification.
