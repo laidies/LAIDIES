@@ -63,12 +63,18 @@ function storyFeedItem(story, currentIds) {
 }
 
 function storyArchiveItem(story) {
+  const source = String(story.publishedAt || "");
+  const instant = new Date(source);
+  if (!Number.isFinite(instant.getTime()) || (/^\d{4}-\d{2}-\d{2}$/.test(source) && instant.toISOString().slice(0, 10) !== source)) reject(`story ${story.id} has an invalid publication date`);
+  const editionDate = /^\d{4}-\d{2}-\d{2}$/.test(source) ? source : new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Vancouver", year: "numeric", month: "2-digit", day: "2-digit"
+  }).format(instant);
   return {
     id: `story:${story.id}`,
     kind: "story",
     edition: story.edition,
     desk: null,
-    editionDate: String(story.publishedAt).slice(0, 10),
+    editionDate,
     publishedAt: story.publishedAt,
     headline: story.headline,
     summary: story.status === "retracted" ? "This story has been withdrawn." : sentence(story.front_summary || story.laidies_read || story.the_story),

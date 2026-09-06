@@ -20,6 +20,8 @@ proper domain source before building from it.
 
 ## Core routes
 
+NewsStand publication instants must resolve to the America/Vancouver editorial day in article labels, catch-up grouping, archive keys/filters and masthead/town date details. A valid literal edition date stays literal; display repair must never rewrite story timestamps or prose. Impossible calendar literals stop derivative generation. The date regression test and actual whole-page archive/catch-up journey enforce this rule; a formatter-only test is insufficient.
+
 Ali approved on September 5 that ordinary NewsStand review counts are production
 improvement metrics, not publication blockers. Preserve actual issues, cycles and
 repaired defects; do not require a corrected story to beat its predecessor’s

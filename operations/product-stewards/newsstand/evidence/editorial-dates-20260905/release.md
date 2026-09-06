@@ -1,0 +1,13 @@
+# NewsStand editorial dates — bounded release
+
+Status: PREPARED / independent Terra artifact-first review ACCEPT / not deployed.
+
+The real incumbent grouped two September 5 Vancouver stories under September 6 in Catch Me Up and archive filters; readers outside Vancouver also saw the wrong article date. The candidate uses Vancouver for instants and preserves valid literal edition dates. The masthead and date-derived town details use the same day. Impossible calendar literals are rejected by the derivative builder and do not silently turn into a different displayed day.
+
+Full artifact: 749 files; exactly three public changes (`newsstand.html`, `content/site/newsstand-catchup-v1.js`, `content/newsstand-archive-index.json`); 746 files preserved. Identity: 70299ed6aee5c87b7c1dd1273dd88acd7a13287378eb56c518c613eba61ca7ab. Story prose, publishedAt/updatedAt, sources and issue admission bytes are unchanged. Three derived archive keys change (wiki and DOJ September 6→5; ads September 1→August 31).
+
+Maker verification: actual incumbent/candidate whole-page journeys in UTC at1280px, Vancouver at390px and Tokyo at320px. Each opens the wiki story from catch-up, checks article/masthead dates and searches archive September 5 then6. The incumbent fails the intended day; candidate includes both September5 stories only on September5. No overflow or page errors. The fixed clock 2026-09-06T05:30Z is a synthetic post-admission test instant, not a claim of actual publication or current sourcing. Root inspected actual desktop/phone catch-up, article and before/after archive pixels. Final existing54 reader suite, calibrated date and derivative tests, and derivative --check pass.
+
+Producer corrections: formatter-only tests initially missed UTC slicing before display; actual-browser investigation found and repaired catch-up/grouping and derivative keys. Independent preparation also exposed an impossible calendar-date edge case, now covered by a test that first failed. These are retained failures, not first-pass acceptance. Test harness selectors and screenshot timing were corrected against the actual DOM, rather than changing product behavior for tests. Python urllib returned403 for a public-byte check; normal existing public URLs fetched with curl --location returned all32 exact predecessor matches.
+
+Scope: date semantics and navigation regression only; not editorial re-review, human research, comprehensive browser coverage, cross-device account continuity or proof all sourcing is current. The sparse checkout cannot run unrelated repository-wide hooks; use scoped verified tests and an intentional exact-path commit. No iCloud writes.

@@ -115,12 +115,17 @@
   }
 
   function dateOnly(value) {
-    return String(value || "").slice(0, 10);
+    return editorialDateOnly(value);
   }
 
   function editorialDateOnly(value) {
+    var source = String(value || "");
+    if (/^\d{4}-\d{2}-\d{2}$/.test(source)) {
+      var literal = new Date(source + "T00:00:00Z");
+      return Number.isFinite(literal.getTime()) && literal.toISOString().slice(0, 10) === source ? source : "";
+    }
     var parsed = value instanceof Date ? value : new Date(value);
-    if (!Number.isFinite(parsed.getTime())) return dateOnly(value);
+    if (!Number.isFinite(parsed.getTime())) return source;
     var parts = new Intl.DateTimeFormat("en-CA", {
       timeZone: "America/Vancouver", year: "numeric", month: "2-digit", day: "2-digit"
     }).formatToParts(parsed).reduce(function (result, part) {
@@ -187,25 +192,23 @@
 
   function formatDate(value) {
     var source = String(value || "");
-    var parsed = /^\d{4}-\d{2}-\d{2}$/.test(source)
-      ? new Date(source + "T00:00:00Z")
-      : new Date(source);
-    return Number.isFinite(parsed.getTime()) ? parsed.toLocaleDateString("en-CA", {
+    var dateOnlyValue = /^\d{4}-\d{2}-\d{2}$/.test(source);
+    var parsed = dateOnlyValue ? new Date(source + "T00:00:00Z") : new Date(source);
+    return Number.isFinite(parsed.getTime()) && (!dateOnlyValue || parsed.toISOString().slice(0, 10) === source) ? parsed.toLocaleDateString("en-CA", {
       year: "numeric", month: "long", day: "numeric",
-      timeZone: /^\d{4}-\d{2}-\d{2}$/.test(source) ? "UTC" : undefined
+      timeZone: dateOnlyValue ? "UTC" : "America/Vancouver"
     }) : value;
   }
 
   function formatCompactDate(value) {
     var source = String(value || "");
-    var parsed = /^\d{4}-\d{2}-\d{2}$/.test(source)
-      ? new Date(source + "T00:00:00Z")
-      : new Date(source);
-    if (!Number.isFinite(parsed.getTime())) return value;
     var dateOnlyValue = /^\d{4}-\d{2}-\d{2}$/.test(source);
+    var parsed = dateOnlyValue ? new Date(source + "T00:00:00Z") : new Date(source);
+    if (!Number.isFinite(parsed.getTime()) || (dateOnlyValue && parsed.toISOString().slice(0, 10) !== source)) return value;
+    var timeZone = dateOnlyValue ? "UTC" : "America/Vancouver";
     return parsed.toLocaleDateString("en-CA", {
-      month: "short", day: "numeric", timeZone: dateOnlyValue ? "UTC" : undefined
-    }) + " ’" + (dateOnlyValue ? source.slice(2, 4) : String(parsed.getFullYear()).slice(-2));
+      month: "short", day: "numeric", timeZone: timeZone
+    }) + " ’" + parsed.toLocaleDateString("en-CA", { year: "2-digit", timeZone: timeZone });
   }
 
   function currentDailyDate() {
