@@ -49,3 +49,6 @@ Ali also rejects the many thin Latest rules. Remove the paired bottom/top border
 
 ## Ali correction — type and random panels
 Ali rejects the unrelated serif fonts, near-black recurring column headings, long pink stretches and random coloured rectangles. Use verified live homepage Jost headings/body, deliberate violet recurring-column titles and a compact editorial catch-up index. Remove the status rectangle; improve hierarchy and density rather than adding another coloured panel.
+
+## Latest Ali ruling — palette correction pending reference
+Ali rejects blanket purple and the invented pale-pink (#f8c9e6) paper ground; they are not accepted LAiDIES colour authority. This supersedes the previous violet-heading recommendation. Apply a consistent hierarchy across all NewsStand sections, including Latest and Front PAiGE, from a verified existing LAiDIES reference. Do not substitute another guessed ground or add arbitrary coloured rectangles. Requested one reference-page choice while auditing current palette sources; no further public colour change yet.

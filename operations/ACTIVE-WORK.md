@@ -1,3 +1,6 @@
+<!-- NewsStand palette correction: BUILDING, reference pending -->
+Ali rejects blanketpurple and inventedpalepink. Previous colour acceptance is superseded; Latest/FrontPAiGE must follow the same complete hierarchy. Asked which existing LAiDIES page should govern background/colourbalance. No public palette revision yet. Resume: inspect chosen live reference, apply one coherent full-page palette, verify desktop/mobile then publish.
+
 <!-- NewsStand type/index correction: VERIFIED PUBLICLY -->
 Use verified live-homepage Jost, violet recurring titles and compact catch-up index without filled accountrectangle. Independent review accepted exact scope; broader pink palette is not declared resolved. Evidence: operations/product-stewards/newsstand/evidence/type-index-20260906/review.md. Source2f56dadf deployed833c5a33; both changed files match both origins, live1200/390/320 no overflow/brokenimages. Broad pink-background concern remains open.
 
