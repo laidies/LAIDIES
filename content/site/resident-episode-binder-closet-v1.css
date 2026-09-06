@@ -1,0 +1,22 @@
+/* Internal integration candidate: not admitted for public release. */
+#episodeBinderVessel[hidden]{display:none}
+.episode-binder{scroll-margin-top:100px;margin:32px 0;padding:28px;border:2px solid #5a255c;border-left:20px solid #7c4385;border-radius:12px;background:#faf5ed;box-shadow:5px 6px 0 #b99cbe;color:#302137}
+.episode-binder h3{font-family:Anton,'Jost',sans-serif;font-size:clamp(28px,4vw,42px);font-weight:400;margin:0 0 8px;text-transform:uppercase;letter-spacing:.03em}
+.episode-binder-actions{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 24px}
+.episode-binder-actions button,.episode-binder-actions a,.episode-binder-open{display:inline-flex;align-items:center;min-height:44px;padding:10px 18px;border:2px solid #5a255c;border-radius:6px;background:#fff8ec;color:#302137;font:600 16px 'Jost',sans-serif;text-decoration:none;cursor:pointer}
+.episode-binder-actions a[hidden]{display:none}
+.episode-binder button:focus-visible,.episode-binder a:focus-visible,.episode-binder summary:focus-visible{outline:3px solid #007f91;outline-offset:4px}
+.episode-binder-page{border:1px solid #c6b4c7;margin:12px 0;background:#fffdf7}
+.episode-binder-page summary{display:flex;align-items:center;gap:16px;min-height:64px;cursor:pointer;padding:8px 16px;font:700 18px 'Jost',sans-serif;list-style:none}
+.episode-binder-page summary:after{content:'+';margin-left:auto;font-size:26px}
+.episode-binder-page[open] summary:after{content:'−'}
+.episode-binder-tab{white-space:nowrap;background:#aee2df;border:1px solid #547677;padding:8px 12px;transform:rotate(-2deg);font-size:14px}
+.episode-binder-page:nth-child(2) .episode-binder-tab{background:#e5b2ca}
+.episode-binder-page:nth-child(3) .episode-binder-tab{background:#d4bee8}
+.episode-binder-page:nth-child(4) .episode-binder-tab{background:#f4dda5}
+.episode-binder-pocket{padding:16px;border-top:1px solid #d7cbd8}
+.episode-binder-item{border:1px solid #c6b4c7;padding:18px;margin:0 0 14px;background:#fff;box-shadow:2px 3px 0 #e5dbe8;overflow-wrap:anywhere}
+.episode-binder-item h4{font:700 18px 'Jost',sans-serif;margin:0 0 8px}
+.episode-binder-item p{white-space:pre-wrap;margin:8px 0;line-height:1.5}
+.episode-binder-date{font-size:14px;color:#615267}
+@media(max-width:520px){.episode-binder{padding:16px;border-left-width:10px;box-shadow:3px 4px 0 #b99cbe}.episode-binder-page summary{gap:10px;padding:10px;font-size:16px}.episode-binder-tab{padding:8px}.episode-binder-pocket{padding:10px}}

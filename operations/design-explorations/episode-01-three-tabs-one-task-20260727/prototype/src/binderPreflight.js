@@ -3,11 +3,13 @@ export function installBinderPreflight() {
   if(!import.meta.env.DEV||!['localhost','127.0.0.1'].includes(location.hostname)) throw new Error('Synthetic fixture is local development only.');
   const storageKey='laidies_test_episode_binder_v1';
   const owners=['aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa','bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb'];
-  let owner=owners[0],dropNext=false,pauseNextRead=false,releaseRead=null;
+  let owner=owners[0],dropNext=false,pauseNextRead=false,releaseRead=null,silentSwitchCountdown=0;
   const listeners=new Set();
+  let rpcCount=0,rpcStatus;
   const store=()=>JSON.parse(localStorage.getItem(storageKey)||'{"binders":{},"receipts":{}}');
   const session=()=>owner?{user:{id:owner}}:null;
-  const client={auth:{getSession:async()=>({data:{session:session()},error:null}),onAuthStateChange:callback=>{listeners.add(callback);return {data:{subscription:{unsubscribe:()=>listeners.delete(callback)}}};}},rpc:async(name,args)=>{
+  const client={auth:{getSession:async()=>{if(silentSwitchCountdown&&--silentSwitchCountdown===0){owner=owners[1];label.textContent='LOCAL SYNTHETIC TEST · silently switched to account B';}return {data:{session:session()},error:null};},onAuthStateChange:callback=>{listeners.add(callback);return {data:{subscription:{unsubscribe:()=>listeners.delete(callback)}}};}},rpc:async(name,args)=>{
+    rpcCount++;if(rpcStatus)rpcStatus.textContent=` Synthetic account requests: ${rpcCount}`;
     const requestOwner=owner;
     if(!requestOwner)return {error:new Error('authentication-required')};
     if(args?.p_expected_owner!==requestOwner)return {error:new Error('account-changed-reload-binder')};
@@ -36,12 +38,21 @@ export function installBinderPreflight() {
   bar.style.cssText='padding:12px;background:#fff3ab;color:#171018;border:2px solid #171018;font:16px sans-serif';
   const label=document.createElement('strong');label.textContent='LOCAL SYNTHETIC TEST · Account A · no cloud saving';bar.append(label);
   for(const [title,action] of [
+    ['Create synthetic exercise',async()=>{
+      const registry=await fetch('/content/episodes/episode-01.exercise-fields.json').then(r=>r.json());
+      const fields=Object.fromEntries(Object.entries(registry.fields).map(([key,spec])=>[key,spec.type==='boolean'?false:spec.type==='number'?0:(spec.choices?.[0]||'')]));
+      fields.task='Synthetic example: invite friends to choose Friday or Sunday; reply by Wednesday.';
+      const runtime=await window.LAIDIESResidentAccountRuntime.get();const binder=window.LAIDIESResidentEpisodeBinderV1.create(runtime);
+      try{await binder.saveExercise(1,{exercise_id:registry.exerciseId,exercise_version:registry.exerciseVersion,input_state:{fields},placements:[]},crypto.randomUUID(),owner);label.textContent='LOCAL SYNTHETIC TEST · example saved; refresh the binder';}finally{binder.dispose();}
+    }],
     ['Use synthetic account A',()=>{owner=owners[0];label.textContent='LOCAL SYNTHETIC TEST · Account A · no cloud saving';listeners.forEach(fn=>fn('SIGNED_IN',session()));}],
     ['Use synthetic account B',()=>{owner=owners[1];label.textContent='LOCAL SYNTHETIC TEST · Account B · no cloud saving';listeners.forEach(fn=>fn('SIGNED_IN',session()));}],
     ['Expire session without event',()=>{owner=null;label.textContent='LOCAL SYNTHETIC TEST · session expired without an auth event';}],
+    ['Switch silently before core session',()=>{silentSwitchCountdown=2;label.textContent='LOCAL SYNTHETIC TEST · second session check will switch to B';}],
     ['Pause next binder read',()=>{pauseNextRead=true;label.textContent='LOCAL SYNTHETIC TEST · next binder read will pause';}],
     ['Release paused read',()=>{const release=releaseRead;releaseRead=null;release?.();}],
     ['Lose next save confirmation',()=>{dropNext=true;label.textContent='LOCAL SYNTHETIC TEST · next save confirmation will be lost';}]
-  ]) {const button=document.createElement('button');button.type='button';button.textContent=title;button.style.cssText='margin-left:10px;padding:8px';button.addEventListener('click',action);bar.append(button);}
-  document.body.prepend(bar);
+  ]) {if(title==='Create synthetic exercise'&&!location.pathname.startsWith('/laidies-card'))continue;const button=document.createElement('button');button.type='button';button.textContent=title;button.style.cssText='margin-left:10px;padding:8px';button.addEventListener('click',()=>Promise.resolve().then(action).catch(error=>{label.textContent='LOCAL SYNTHETIC TEST · '+error.message;}));bar.append(button);}
+  rpcStatus=document.createElement('span');rpcStatus.textContent=' Synthetic account requests: 0';bar.append(rpcStatus);
+  if(document.body)document.body.prepend(bar);else window.addEventListener('DOMContentLoaded',()=>document.body.prepend(bar),{once:true});
 }

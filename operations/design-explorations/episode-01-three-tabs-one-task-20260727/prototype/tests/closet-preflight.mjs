@@ -1,0 +1,12 @@
+if(!import.meta.env.DEV||!['localhost','127.0.0.1'].includes(location.hostname))throw Error('Local development fixture only');
+const {installBinderPreflight}=await import('../src/binderPreflight.js');
+installBinderPreflight();
+await import('../../../../../content/site/supabase-config.js');
+await import('../../../../../content/site/resident-card-contract-v1.js');
+await import('../../../../../content/site/identity-client-v1.js');
+await import('../../../../../content/site/resident-account-runtime-v1.js');
+await import('../../../../../content/site/resident-episode-binder-v1.js');
+await import('../../../../../content/site/resident-episode-binder-closet-v1.css');
+await import('../../../../../content/site/resident-episode-binder-closet-v1.js');
+const returnStatus=document.createElement('p');returnStatus.textContent='Local return test: fresh page';document.body.append(returnStatus);
+window.addEventListener('pageshow',event=>{returnStatus.textContent=event.persisted?'Local return test: restored from browser cache':'Local return test: fresh page';});

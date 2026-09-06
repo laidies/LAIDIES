@@ -21,6 +21,7 @@ export function useEpisodeBinder(snapshot,restore,reset) {
   if(initialFingerprint.current===null&&fingerprint)initialFingerprint.current=fingerprint;
 
   const isCurrent=(token)=>token.epoch===refs.current.epoch&&token.owner===refs.current.owner;
+  const isAccountChange=(error)=>String(error?.message||error).includes('account-changed-reload-binder');
   const clearOwner=(resetWork=true)=>{
     const r=refs.current;
     r.epoch+=1;
@@ -52,8 +53,12 @@ export function useEpisodeBinder(snapshot,restore,reset) {
     r.owner=session.user.id;
     const token={epoch:r.epoch,owner:r.owner};
     let result;
-    try {result=await r.binder.load();}
-    catch(error){if(!isCurrent(token))return {authenticated:false,stale:true};throw error;}
+    try {result=await r.binder.load(token.owner);}
+    catch(error){
+      if(!isCurrent(token))return {authenticated:false,stale:true};
+      if(isAccountChange(error)){clearOwner(true);setPhase('guest');setMessage('The account changed. Previous account work has been closed.');return {authenticated:false,accountChanged:true};}
+      throw error;
+    }
     if(!isCurrent(token))return {authenticated:false,stale:true};
     r.saved=result.document.episodes['01']?.exercises[recordKey]||null;
     if(autoRestore&&r.saved&&!latest.current.snapshot.task.trim()) applySaved(r.saved);
@@ -98,13 +103,14 @@ export function useEpisodeBinder(snapshot,restore,reset) {
       const input=encodeEpisode01(latest.current.snapshot,schema);
       r.pendingKey ||= crypto.randomUUID();
       setPhase('saving');setMessage('Saving your exercise…');
-      const result=await r.binder.saveExercise(1,{exercise_id:schema.exerciseId,exercise_version:schema.exerciseVersion,input_state:input,placements:r.saved?.placements||[]},r.pendingKey);
+      const result=await r.binder.saveExercise(1,{exercise_id:schema.exerciseId,exercise_version:schema.exerciseVersion,input_state:input,placements:r.saved?.placements||[]},r.pendingKey,token.owner);
       if(!isCurrent(token))return;
       if(result.state==='conflict') {r.pendingKey=null;setPhase('conflict');setMessage('Your binder changed elsewhere. Your current work is still here; reopen the saved copy before choosing what to keep.');return;}
       r.pendingKey=null;r.saved=result.document.episodes['01'].exercises[recordKey];
       setSavedFingerprint(fingerprintOf(r.saved.input_state));setPhase('ready');setMessage('Saved to your episode binder in My Closet.');
     } catch(error) {
       if(token&&!isCurrent(token))return;
+      if(isAccountChange(error)){clearOwner(true);setPhase('guest');setMessage('The account changed. Previous account work has been closed.');return;}
       setPhase('error');
       setMessage(error instanceof TypeError||error instanceof RangeError?error.message:'The save could not be confirmed. Your work is still here. Retry to check the same save.');
     }

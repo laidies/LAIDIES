@@ -935,6 +935,7 @@
     .public-mode-banner strong { color: var(--rose); }
   </style>
   <link rel="stylesheet" href="/content/closet-v2.css?v=20260724-1" />
+  <link rel="stylesheet" href="/content/site/resident-episode-binder-closet-v1.css" />
   <!-- Microsoft Clarity (heatmaps + session recordings) -->
   <script type="text/javascript">
     if (!window.__LAIDIES_CONTROLLED_PREFLIGHT__) (function(c,l,a,r,i,t,y){
@@ -1503,6 +1504,18 @@
       <p class="vessel-note">On this device, this is a playful summary of your best Pop Quiz score for each episode plus completed Express tours. It is not a Butterfly Clip balance, reward, purchase record, or synced account history. <a href="/sunnyvaile-high.html#report-card">Your local Report Card →</a> · <a href="/sunnyvaile-high.html">Take this week's quiz →</a></p>
     </div>
 
+    <!-- Episode binder: private account material; never shown on public cards. -->
+    <section class="episode-binder" id="episodeBinderVessel" aria-labelledby="episodeBinderTitle" data-clarity-mask="True" hidden>
+      <h3 id="episodeBinderTitle">My Episode Binder</h3>
+      <p>Study Packs, exercises, trading cards and quiz results you chose to keep.</p>
+      <p data-episode-binder-status role="status">Opening your episode binder…</p>
+      <div class="episode-binder-actions">
+        <a href="/resident-card.html#rcAccountTitle" data-episode-binder-sign-in hidden>Sign in to open my binder</a>
+        <button type="button" data-episode-binder-refresh>Refresh my binder</button>
+      </div>
+      <div data-episode-binder-pages></div>
+    </section>
+
     <!-- Trading Card Binder -->
     <div class="vessel vessel--card-binder">
       <div class="vessel-header">
@@ -1719,6 +1732,8 @@
 <script src="/content/site/resident-card-contract-v1.js?v=20260726-repair-1"></script>
 <script src="/content/site/identity-client-v1.js?v=20260727-account-1"></script>
 <script src="/content/site/resident-account-runtime-v1.js?v=20260727-account-1"></script>
+<script src="/content/site/resident-episode-binder-v1.js"></script>
+<script src="/content/site/resident-episode-binder-closet-v1.js"></script>
 <script>
 (function() {
   'use strict';
