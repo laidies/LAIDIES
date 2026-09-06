@@ -1119,3 +1119,15 @@ private inbox, proven against the existing hosted services with synthetic input.
 Source and negative access checks are ready; persistent activation and actual
 browser submit/review remain open. Public Town Hall intake remains closed.
 The paid preview proposal is withdrawn. Details: `operations/OPERATING-RECOVERY-NEXT.md`.
+
+### 2026-09-05 private inbox usable outcome
+
+HOSTED PRIVATE PILOT VERIFIED: actual browser submit, receipt, inbox row and
+filed→triaged→addressed observed against the existing hosted services. Source
+`37bbb46f9524571d398f0e1e2e2d450b6d499dbd`; Worker version
+`5253e07f-a7d6-4cdf-a537-ce0ed76a89c9`. The private inbox is open in this task.
+See the current verified section in `operations/OPERATING-RECOVERY-NEXT.md`.
+Public Town Hall is independently verified closed; automatic deletion and
+public retention/triage decisions are unresolved. No new service, subscription
+or schedule was created. This closes the private usable-inbox acceptance
+condition, not the overall operating roadmap or public feedback launch.

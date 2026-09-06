@@ -570,3 +570,41 @@ This is a private synthetic pilot. Real visitor intake stays closed pending the
 retention/deletion and triage decisions. Automatic deletion is not enabled; the
 UI states that limitation and requests test messages only. No new database,
 subscription or recurring schedule is part of this continuation.
+
+### Hosted private inbox verified — 2026-09-06 00:38 UTC
+
+Deployed source: `37bbb46f9524571d398f0e1e2e2d450b6d499dbd`. Cloudflare version:
+`5253e07f-a7d6-4cdf-a537-ce0ed76a89c9`, existing Worker
+`laidies-operating-handoff-pilot`. The private shell lives at
+https://laidies-operating-handoff-pilot.wednesday-laidies.workers.dev/private-feedback/ ;
+access requires the separate private capability. No access capability appears
+in this repository. A reusable owner access link is saved outside Git at
+`/Users/alisoneakin/.codex/private/LAiDIES-private-inbox.md`.
+
+Both exact feedback migrations are persistently installed and recorded in
+Supabase migration history. Anonymous direct table access is denied; only the
+capability bridge permits the private actions. The founder package remains
+uninstalled. Hosted REST tests rejected a wrong capability and direct table
+access. Deployed tests matched all four asset files, rejected a wrong Worker
+owner token, returned 404 for public submission, replayed the same receipt for
+one synthetic record, and reviewed that record to addressed.
+
+Actual in-app browser journey: “Browser journey check” was submitted, receipt
+`d2b14412-6e5c-468f-9e33-f5a75845dabb` appeared, and the visible row moved from
+filed to triaged to addressed. The access fragment was removed from the visible
+URL. Three synthetic rows currently remain (direct diagnostic, retry test,
+browser test); no real visitor input was submitted or read. The inbox remains
+open in the task's browser panel.
+
+The public https://laidies.ai/town-hall Comments station was independently
+opened after deployment: its closed-inbox notice and disabled inputs/button
+remain present. This is HOSTED PRIVATE PILOT VERIFIED, not a public intake
+release. Automatic deletion is not enabled, retention/triage policy is still
+an owner decision, no new schedule or subscription was created, and no
+Mac-off/first scheduled-trigger proof is claimed.
+
+Two adapter faults were repaired before this verdict: the platform execution
+context must not occupy the injectable transport argument; native workerd
+rejects redirect:error despite Node accepting it. Regression tests reject the
+old entrypoint and bind manual redirects with 302 rejection. The latter fix
+also covers the existing feedback and prepared founder server adapters.
