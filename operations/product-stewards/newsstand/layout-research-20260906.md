@@ -35,3 +35,6 @@ Recovered ideas (repository evidence, not automatic public status):
 Evidence: docs/growth/ali-idea-backlog.md; operations/product-stewards/newsstand/DAILY-NEWSPAPER-EXPERIENCE-BRIEF.md; NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md; current renderer and archive index.
 
 Next deliverable should be one cohesive full-paper composition with actual content and labelled future-feature spaces only in private planning. Do not add all ideas as giant new public sections or invent readiness. No visual option is admitted yet.
+
+## Implemented composition
+Continuous pink newspaper canvas and navy rules; varied lead, brief, weekly and feature hierarchy. Useful columns pair with a narrow LUMINAiRY sidebar; Mme uses a dedicated image/text row, followed by two large illustrated town columns. Colour-block catch-up becomes a chronological ruled list. Original desktop masthead194px preserved. Additional feature ideas remain backlog.

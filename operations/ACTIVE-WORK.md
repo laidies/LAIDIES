@@ -1,3 +1,6 @@
+<!-- Whole-paper composition: REVIEWED, publication pending -->
+Current candidate replaces repeated section boxes with continuous ruled newspaper composition, large illustrations, useful columns plus LUM sidebar and fixed Mme reading. Independent visual review accepted. Exact evidence: operations/product-stewards/newsstand/evidence/whole-paper-20260906/review.md. Next: two-file scoped release and live verification. Earlier private pilot HOLD superseded by this reviewed candidate.
+
 <!-- Latest correction: whole-paper composition research -->
 Ali means a distinctive online newspaper, not rearranged webpage sections/boxes. Whole-paper layout and recovered ideas are recorded in operations/product-stewards/newsstand/layout-research-20260906.md. No new layout deployed; private CSS pilot0bd20895 is HOLD, not release-ready. Next: cohesive whole-paper composition using actual content and approved visual language.
 

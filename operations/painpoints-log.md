@@ -15992,3 +15992,9 @@ remain unreconciled; cross-chat completeness is not certified.
 - Failure: Float wrapping orphaned a line beneath Mme art; a column spanning two neighbours created emptiness. Alternating catch-up colours implied false grouping.
 - Prevention: Give portrait readings a fixed image/text composition; keep town images prominent and group content through consistent spacing/rules. Research precedents before another style patch; private equal-column pilot remains unapproved.
 - Behind the Build: A design can contain all the right pieces but still tell readers the wrong reading order.
+
+## BTB-514 — Judge the complete paper, not isolated boxes
+- Date: 2026-09-06
+- Failure: Local section treatments kept repeating the generic website structure Ali rejected.
+- Prevention: Review continuous desktop/mobile reading order with actual loaded artwork; preserve image prominence and use different editorial scales. Trigger lazy assets before judging blank screenshots.
+- Behind the Build: A page needs a reading rhythm, not just individually tidy pieces; share the general lesson without operating details.
