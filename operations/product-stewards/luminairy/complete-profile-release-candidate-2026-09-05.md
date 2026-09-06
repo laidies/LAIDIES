@@ -26,6 +26,7 @@ Every complete profile contains a reason for inclusion, two-part contribution, d
 - MAiVENS: `assets/mavens/y2k-stained-glass-v6-luminous-comic/` — luminous sapphire stained glass.
 - TRAiLBLAZERS: `assets/trailblazers/y2k-stained-glass-v1-luminous-comic/` — luminous golden-amber stained glass.
 - Cher + Dionne retain the exact approved V12 pixels at SHA-256 `c675af16c8584950f897433debd0c9136d6aa8a89971f241444dfa33d7c5440e` in the current Patron path.
+- Mayor Deb replaces the rejected generic blue-cardigan portrait with exact SHA-256 `8ead4e383486f664df849e2cc25f13da707d3486fc490ef9bae2e3bda1ba3cc6`; the identity is bound to the curated Mayor Deb town-character scene and the clean Episode 04 comic test, while the existing Patron background is preserved.
 - The deny-by-default artwork boundary finds `43` approved-family mappings and `0` LUMINAiRY mappings to temporary retired artwork.
 
 The active portraits use one wing-specific background family, waist-up editorial-comic rendering and person-specific likeness evidence. Ada Lovelace, Lynn Conway, Mira Murati and Allie K. Miller received new reference-bound likeness repairs; Hedy Lamarr and Amanda Askell received edge cleanup. The independent visual re-review returned PASS for the four held likenesses after repair.

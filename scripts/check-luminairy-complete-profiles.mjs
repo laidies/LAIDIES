@@ -83,6 +83,8 @@ const cher = profiles.saints?.find((profile) => profile.id === "cher-dionne");
 if (!cher || sha256(localPath(cher.image)) !== "c675af16c8584950f897433debd0c9136d6aa8a89971f241444dfa33d7c5440e") errors.push("Cher and Dionne must use the exact approved V12 image bytes");
 const regina = profiles.saints?.find((profile) => profile.id === "regina-george");
 if (!regina?.antiSaint || sha256(localPath(regina.image)) !== "d6b419f23588f77e182f5719a3cffc89e7c6c4546ecf611d68881bad23c6bb47") errors.push("Regina must remain the exact red anti-saint image");
+const deb = profiles.saints?.find((profile) => profile.id === "deb");
+if (!deb || sha256(localPath(deb.image)) !== "8ead4e383486f664df849e2cc25f13da707d3486fc490ef9bae2e3bda1ba3cc6") errors.push("Deb must use the exact reference-bound Mayor Deb image bytes");
 
 if (errors.length) {
   console.error("LUMINAiRY COMPLETE PROFILE CHECK FAIL");

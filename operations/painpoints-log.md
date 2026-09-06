@@ -14671,3 +14671,15 @@ HTML and local custom properties.
 - **Calibration:** the new checker was given a deliberately restored retired directory and rejected it before the directory was removed; it then passed the real archive state.
 - **Public angle:** “Why an archive folder is not housekeeping: it stops an AI collaborator from confidently selecting yesterday’s rejected picture.”
 - **Completion correction:** after the 43 current portraits were mapped and signed, the first archive guard still expected all profiles to use temporary old families. That stale assertion correctly failed the new release but described the opposite of the intended state. The guard now requires all 43 mappings to live in their wing's active approved family and rejects any LUMINAiRY mapping into a temporary dependency. It reports `43` approved-profile images and `0` temporary-profile images.
+
+## BTB-505 — A consistent card family can still depict the wrong character
+
+- **Date:** 2026-09-05
+- **Area:** LUMINAiRY / Patron Saint portraits.
+- **Failure:** Deb's card matched the new electric-pink family but depicted a generic younger woman in a blue cardigan instead of canonical Mayor Deb.
+- **Root cause:** the broad 43-image review checked wing colour, crop and overall treatment without binding every fictional LAiDIES character to her exact identity authority.
+- **Prevention rule:** every named canonical character portrait must cite its exact approved identity source, survive a side-by-side likeness review and receive a checksum lock before it enters an active family. Family consistency cannot compensate for identity failure.
+- **Durable correction:** Deb is now bound to `assets/town-characters/scenes/mayor-deb-scene.png` and the clean Episode 04 comic rendering evidence; the active image hash is enforced by `scripts/check-luminairy-complete-profiles.mjs` and the deny-by-default artwork authority.
+- **Calibration:** replacing Deb temporarily with Bette Midler's valid 1024×1536 Patron image made the completeness gate fail specifically on Deb's reference-bound hash; restoring the corrected bytes returned the gate to PASS.
+- **Possible Behind the Build angle:** “It matched the collection and still was not her”—why a design-system pass is not an identity check.
+- **Publication status:** BUILT AND VERIFIED LOCALLY / NOT PUSHED / NOT DEPLOYED.
