@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import deck from "../../../../episode-editorial-review-2026-09-06/episode-01/flashcards.json";
 import { useCardBinder } from "./useCardBinder.js";
 
@@ -50,6 +50,8 @@ function CollectionCard({
   isCurrent,
   onFlip,
 }) {
+  const actionRef=useRef(null);
+  useEffect(()=>{if(isFlipped)actionRef.current?.focus({preventScroll:true});},[isFlipped]);
   return (
     <article
       className={`collection-card ${isFlipped ? "is-flipped" : ""} ${isCurrent ? "is-current" : ""}`}
@@ -79,7 +81,7 @@ function CollectionCard({
       </div>
 
       <p className="recall-question">{card.recallPrompt}</p>
-      <button className="card-action" type="button" onClick={onFlip}>
+      <button ref={actionRef} className="card-action" type="button" onClick={onFlip}>
         {isFlipped ? "SHOW THE FRONT" : "FLIP THIS CARD"}
       </button>
     </article>
