@@ -15851,3 +15851,7 @@ remain unreconciled; cross-chat completeness is not certified.
   fail as a textbook diagram—and the test that finally caught it.
 - **Publication status:** BUILT LOCALLY / NOT PUBLISHED / ALI REVIEW AND
   FULL-BOOK ADMISSION PENDING.
+
+
+## 2026-09-06 — Shared player colour assumption rejected
+The first navy/pink recolour matched a broad electric palette rule but missed Ali’s intended bright page backgrounds. It was not published. Prevention: use the actual dominant reference backgrounds when matching an existing surface; a familiar dark UI with colourful controls does not satisfy a bright-background brief. The rejected navy/pink screenshots in operations/ksvl-player-colours-20260906 are historical evidence only. Behind the Build angle: colour matching includes how much of the interface each colour occupies, not just the hex values.

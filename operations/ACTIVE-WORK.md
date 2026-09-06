@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Shared music player appearance: LOCAL PREVIEW / OWNER REVIEW PENDING.** Ali rejects navy/pink and requires the bright fun colours and backgrounds throughout the site. Candidate in `/Users/alisoneakin/Projects/laidies-ksvl-player-colours-20260906`: turquoise-to-lime background, tangerine primary control, purple accents, dark text. Exact current live player a8bff04b preserved before CSS-only change. Desktop/390px pixels checked; playback/pause/next, keyboard seek/volume tested. Production unchanged. Next: owner colour verdict, then integrate only player appearance into current release. Continue existing homepage work independently.
+
 ## 2026-09-05 NewsStand source-to-reader continuation
 
 - **Status:** BUILDING. Ali approved ordinary-news counts as improvement metrics; policy and gate are implemented and negative tests pass. Actual wiki prose/facts PASS is retained with all two evidence gaps and three factual rounds. The complete actual candidate is READY; its September 5 issue now has independent admission and canonical data projection. The complete candidate passes 53 reader checks; not yet public.

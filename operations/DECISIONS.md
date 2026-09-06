@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Persistent player must be bright, not navy and pink
+
+Ali rejects the navy/pink player candidate: it does not match the bright, fun colours throughout the site. The main player surface itself must be bright; Ali explicitly includes the site’s bright backgrounds as the reference, not just control accents. The navy/pink candidate is rejected and must not be deployed. Turquoise/lime with tangerine and purple is the next proposed implementation, not yet owner-approved. Preserve the current live playback fixes from a8bff04b.
+
 ## 2026-09-06 — Lime burst behind the question mark
 
 Ali requests a green burst behind the Did you know question mark matching the Take me to the Mall link. Bind the existing --hp-lime #b7e42b. Keep the existing question mark, tangerine text, coral/pink Miss Jeeves backdrop, compact geometry and all content/actions. Reuse suitable existing art where available; no flat generic substitute. Preview only.
