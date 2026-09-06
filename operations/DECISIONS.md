@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Ai arrival preview exception approved; routine preview autonomy
+
+Ali answered yes to applying the two-reviewer exception to this exact animation, then instructed: “no need to ask me for persmission on these things” and “just do your thing”. Apply routine private-preview review exceptions without asking again; do the actual review, preserve exact evidence and present the result. This does not authorize public release or infer approval of visual taste. This candidate is bound by the six source hashes and actual Sol/Claude reviews in its admission manifest.
+
 ## 2026-09-06 — Putting the Ai in LAiDIES: arrival preview
 
 Ali authorizes a professional motion preview whose meaning is “Putting the Ai in LAiDIES”: fictional dial-up to SUNNYVAiLE; a brief VHS tracking sweep; full LAiDIES; continuous camera move centring the Ai already inside that name; original Rewind Era symbols at the i-dot; pullback to full LAiDIES; a final tracking sweep into the existing masthead. Her current explicit bookend request supersedes the older ban on literal VHS effects for this bounded homepage preview only; no persistent grain/jitter is added.

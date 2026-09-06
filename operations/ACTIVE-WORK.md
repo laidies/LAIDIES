@@ -2,10 +2,10 @@
 
 ## 2026-09-06 Homepage Ai arrival — private candidate
 
-- **Status:** IMPLEMENTED AND LOCALLY VERIFIED; presentation HOLD. Isolated branch `codex/homepage-ai-reveal-20260906`, parent b5999d7b. Other active lanes below are preserved.
+- **Status:** IMPLEMENTED AND LOCALLY VERIFIED; owner-authorized private presentation ADMITTED. Isolated branch `codex/homepage-ai-reveal-20260906`, parent b5999d7b. Other active lanes below are preserved.
 - **Result:** 6.2-second dial-up / VHS / LAiDIES / centred Ai with original six i-dot icons / LAiDIES / VHS / masthead. Existing session behavior, static fallback and manual controls retained.
 - **Evidence:** `operations/product-stewards/town-entry-homepage/candidates/ai-reveal-20260906/`. Real browser checks at 1440/390/320, negative-calibrated geometry/control guard, actual Sol and Claude Opus5 pixel reviews admit owner preview. Review found mobile Replay overlap; repaired and successor accepted. Final replay focus/scroll repair has real-click evidence.
-- **Open:** Existing byte-specific two-reviewer exception does not admit this successor. No owner presentation, hosted candidate deployment or public release performed. Next action: obtain exact-candidate presentation exception, bind admission, then show and inspect private preview. Fine temporal smoothness is not established by the sampled recording.
+- **Presentation:** Ali approved this exact two-reviewer exception and routine preview autonomy. The real admission gate passes; wrong candidate SHA is rejected. Show local browser preview; no hosted candidate deployment or public release. Fine temporal smoothness is not established by the sampled recording.
 
 ## 2026-09-05 NewsStand source-to-reader continuation
 

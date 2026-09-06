@@ -11,3 +11,7 @@ Browser checks cover 1440/390/320, centred Ai, contained full word, six icon slo
 browser-motion.mp4 is a sampled browser screencast, not a production video or proof of fine easing smoothness. Continuous DOM observations establish timing/state; pixel sheets establish visible coarse sequence. This limitation remains explicit for owner preview.
 
 Resume: resolve exact-candidate presentation admission, then show the private browser animation. Do not infer visual approval or public deployment authority from permission to preview.
+
+## Owner-authorized presentation — 2026-09-06
+
+Ali approved the exact two-reviewer exception and directed routine preview autonomy. The exact source/review manifest now passes the real repository admission command; an intentionally incorrect candidate SHA is rejected. Prior HOLD reports above are preserved history. Private presentation authorized; public release remains unperformed.
