@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Bright banner copy and illustrated question mark
+
+Ali requests a colourful90s question mark behind Did you know, then rejects purple text in favour of bright text. White copy/lime links with navy keyline replace purple; one reference-bound dimensional question mark sits behind the live heading. This supersedes the purple choice. Sourceb8bd3442; hosted evidence4bf4412d; https://ac3cab66.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 visibly updated; worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preserve compact dimensions, portraits,8copy/destinations and radio; preview only.
+
 ## 2026-09-06 — Banner text alignment and restored portraits
 
 Ali requests vertically centred Did you know copy, different text colour, a contrasting background behind Miss Jeeves and the updated Ada artwork/background. Reuse existing deep purple#3b145f, paper tile and recovered homepage Ada artwork with top crop. Source1f07e68f; hosted evidence16ecd377; https://f26fd99e.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 visibly updated; worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only; approved needs heading, eight copy strings/destinations and shared player action preserved.
