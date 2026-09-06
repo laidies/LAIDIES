@@ -1,5 +1,13 @@
 # Active work
 
+> **2026-09-06 — Transfer to LAiDIES system engineering review.**
+> Ali requested a fresh session for the whole-system review and repair.
+> The successor owns implementation; the hosted-operations parent stops writes
+> after this handoff. Original operating objective remains incomplete.
+> Current brief: `OPERATING-SYSTEM-REVIEW-HANDOFF-20260906.md`. First correction:
+> reconcile and integrate the already-approved Astra instruction/config rollout.
+> The inbox remains parked; existing product owners retain their work.
+
 > **2026-09-06 — Operating continuity repair; original roadmap remains BUILDING.**
 > Owner: LAiDIES — hosted operations execution, `01a0739d-47b1-7330-93f2-c20f8d984ffe`.
 > Current authority: `OPERATING-RECOVERY-NEXT.md`, Current priority section.
