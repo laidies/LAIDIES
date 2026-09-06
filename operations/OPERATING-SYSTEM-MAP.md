@@ -644,3 +644,93 @@ This is a proposed common vocabulary for the existing work index, product regist
 Do not load this whole catalogue into every agent. Product entry uses one goal, its owner/dossier, applicable dependency edges and relevant learned failures. This map is for system diagnosis. Update the existing authoritative source when an operation changes; refresh the derived catalogue only for a material mapping review. Labels must retain source date and evidence level. A current run record, configuration and public outcome must remain distinct.
 
 Not done: no new orchestrator, learning engine, model training, graph database, subscription, schedule, provider integration, public deployment, permission change or worktree deletion. We did not interview participants, access private visitor submissions, certify all current pages, or measure actual API bills. Unknown loops remain unknown; this map is not a claim that those loops work.
+
+## Bounded follow-up — small current visual reference collection, September 6
+
+Ali's added requirement, coordinated with task `01a0785e-1438-7161-b041-0be213b06e9b`:
+a SMALL CURATED CURRENT REFERENCE COLLECTION, not all artwork, historical
+variants, production scenes or an artwork migration. Two jobs: supply the minimal
+approved character/building references needed to make matching new art, and point
+to the correct existing image when reusing it. Include scoped colour/rendering
+and background inspiration; add extra views only when necessary. This is a
+requirement and bounded verification, not approval of new art or a new registry.
+
+Verdict: REVISE the index proposal to include source/consumer reconciliation.
+Candidate entry remains `operations/reference/README.md`, reached through the
+existing decisions/visual entry route, with a small browsable pointer view of
+existing originals. Reuse `reference/episode-approved/manifest.json` for identity,
+style, unavailable and rejected distinctions, and `assets/active-asset-registry.json`
+for actual public-use admission. Generation-reference eligibility and permission
+to reuse exact pixels at a page placement must remain separate. No newest-file
+selection or approval by folder name; explicitly show NO CURRENT APPROVED SOURCE
+when that is the truth. No new implementation performed.
+
+Read-only receiving-branch evidence: GitHub main `c8f1d289` contains the asset
+registry and release admission code, but not the episode pointer manifest,
+reference entry README, August30 editorial reference decision/image, or the new
+11-background collection. The old architecture checkout retains the exact
+August30 style reference SHA256 `0742816929be694e0e9fcfa11c3ae047173814e6112419176a71a994273828a5`;
+it is not proof of current distribution to agents. Recover the bounded approved
+section/reference with the current Homepage owner; do not import the whole mixed
+historical decision file or promote an entire page/style family.
+
+A concrete stale-selection conflict exists: shared `homepage.reference.miss-jeeves`
+is ACTIVE, while main marks it REJECTED. Shared `scripts/lib/active-asset-admission.mjs`
+checks the blocked set only when no active entry exists; main checks revocation
+first. No actual active/retired overlap was found in these registry snapshots;
+this is a code-path discrepancy, not a newly reproduced production exploit.
+Existing main correction should be reused by the receiving owner, preserving
+unrelated dirty files. The generic helper validates status/path/hash; its source
+alone does not prove all placement-scope restrictions are enforced by consumers.
+
+`operations/art-requirements.md` claims global 1920x1080/no-halftone authority,
+but the later episode lock and trading-card/comic-page references explicitly
+permit scoped print/Ben-Day treatment while retaining the people master.
+`operations/tools/build-art-batch.py` hardcodes the old rules instead of reading
+one automatically propagating block. The outer `.claude/hooks/enforce-art-prompt.py`
+uses sentinel checks including dimensions/generation language; its presence is
+not proof of native hook loading. Scope reconciliation must include those actual
+prompt producers/consumers, not only a README. Colours remain destination-scoped;
+Card pink/lilac does not authorize mauve rooms, and sitewide provisional style
+remains unsettled.
+
+Ownership: the background-reference task owns the 11-image intake and proposed
+small entry; current Homepage/character/building owners resolve exact admitted
+sources; operating review owns authority/distribution and existing selection/
+release-path reconciliation. No task is reassigned, no identities/palettes are
+changed, and no synthetic review gate or parallel asset system is proposed.
+
+
+### 2026-09-06 — Approved small-reference consumer pilot: local tested handoff
+
+Ali approved the small collection through task `01a0785e-1438-7161-b041-0be213b06e9b`.
+That task owns the entry, current views, selected sources and reconciled manifest;
+this operating lane owns the existing episode batch consumer, shared resolver,
+scoped art requirements and tracked legacy prompt hook. No artwork, visual
+identity, palette, public registry or installed hook was changed by this lane.
+
+The batch now selects exact manifest IDs and dimensions, rejects revoked paths
+and hashes, checks destination limits and bound source bytes, and no longer
+promotes wired/locked filenames to approval. Existing main public revocation
+precedence is reused. Real-person source, declared scene/continuity and covered
+cut-time holds remain explicit. Thirteen positive/negative tests pass; existing
+active-asset admission tests pass. The receiving collection's actual people
+master resolves, while Library/LUMINAiRY-only references fail episode selection.
+
+Independent review caught a draft regression: reference-integrity checks alone
+had weakened likeness/continuity prevention. Repaired before handoff, with
+negative tests for those omissions. These tests validate declared inputs, not
+whether the finished pixels depict the correct identity or scene.
+
+**Human/automatic boundary:** the agent resolves eligible sources and handles
+routine holds; Ali/current product authority supplies genuinely missing visual
+approvals. Declaring a reference does not approve new art or publication. Native
+hook activation, production rendering, reviewer learning on finished artwork and
+public release remain unverified. The legacy exact-film assembler's embedded
+comic-v1 text remains with its episode owner; episode `qc-frames.py` keeps its
+valid 1920x1080 output check. No archive sweep or extra tool subscription.
+
+Delivery is a commit for the reference task to cherry-pick into its receiving
+branch; no independent merge. After integration, continue the operating audit's
+representative feature, editorial, rejection-to-maker, and cloud-to-Ali-to-resume
+traces. This bounded pilot does not complete the whole-system audit.
