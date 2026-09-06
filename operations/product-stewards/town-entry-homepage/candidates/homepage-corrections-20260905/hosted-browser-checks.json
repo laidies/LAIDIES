@@ -1,92 +1,127 @@
 {
-  "url": "https://ee897a4e.laidies-sunnyvaile.pages.dev",
-  "checkedAt": "2026-09-06T03:16:37.349Z",
+  "url": "https://05b773cb.laidies-sunnyvaile.pages.dev",
   "status": "PASS",
   "responseBodies": {
     "homepage": {
-      "status": 200,
-      "receivedSha256": "5629cada90e5ccd3b58c71c897bff0dacf4c48c60c88f74c35932b4c11f21303",
-      "expectedSha256": "5629cada90e5ccd3b58c71c897bff0dacf4c48c60c88f74c35932b4c11f21303",
-      "matchesCandidate": true
+      "receivedSha256": "eedeb4b4e8308e6d21a5a428db73c97079589f484461dc01e9348e2571819b47"
     },
     "homepageJs": {
-      "status": 200,
-      "receivedSha256": "05232f254fd17c4e031b068f62e9cf839312d6fcff1c9b714932181798c4bf47",
-      "expectedSha256": "05232f254fd17c4e031b068f62e9cf839312d6fcff1c9b714932181798c4bf47",
-      "matchesCandidate": true
+      "receivedSha256": "05232f254fd17c4e031b068f62e9cf839312d6fcff1c9b714932181798c4bf47"
     }
   },
   "viewports": [
     {
       "width": 1440,
-      "height": 1000,
-      "firstAction": {
-        "text": "Start with Episode 1 →",
-        "box": {
-          "x": 100.796875,
-          "y": 598.671875,
-          "width": 354,
-          "height": 44
+      "pass": true,
+      "buttons": [
+        {
+          "label": "Why women must shape AI",
+          "href": "#why",
+          "count": 1,
+          "rect": {
+            "x": 100.796875,
+            "y": 843.921875,
+            "width": 354,
+            "height": 44,
+            "right": 454.796875,
+            "bottom": 887.921875
+          },
+          "afterLede": true
         },
-        "withinViewport": true
-      },
-      "sixChoices": 6,
-      "collapsedInitially": true,
-      "directoryFairyVisible": true,
-      "horizontalOverflow": false,
-      "brokenViewportImages": [],
-      "dialogOpened": true,
-      "pageErrors": [],
-      "pass": true
+        {
+          "label": "How LAiDIES works",
+          "href": "#method",
+          "count": 1,
+          "rect": {
+            "x": 466.796875,
+            "y": 843.921875,
+            "width": 354,
+            "height": 44,
+            "right": 820.796875,
+            "bottom": 887.921875
+          },
+          "afterLede": true
+        }
+      ],
+      "noOverlap": true,
+      "noOverflow": true,
+      "anchorJourneys": [
+        {
+          "href": "#why",
+          "hash": "#why",
+          "targetId": "why",
+          "targetTop": 96,
+          "pass": true
+        },
+        {
+          "href": "#method",
+          "hash": "#method",
+          "targetId": "method",
+          "targetTop": 96,
+          "pass": true
+        }
+      ]
     },
     {
       "width": 390,
-      "height": 844,
-      "firstAction": {
-        "text": "Start with Episode 1 →",
-        "box": {
-          "x": 22,
-          "y": 525.375,
-          "width": 346,
-          "height": 44
+      "pass": true,
+      "buttons": [
+        {
+          "label": "Why women must shape AI",
+          "href": "#why",
+          "count": 1,
+          "rect": {
+            "x": 22,
+            "y": 829.953125,
+            "width": 346,
+            "height": 44,
+            "right": 368,
+            "bottom": 873.953125
+          },
+          "afterLede": true
         },
-        "withinViewport": true
-      },
-      "sixChoices": 6,
-      "collapsedInitially": true,
-      "directoryFairyVisible": true,
-      "horizontalOverflow": false,
-      "brokenViewportImages": [],
-      "dialogOpened": true,
-      "pageErrors": [],
-      "menuLinkVisible": true,
-      "expandedAfterEscape": "false",
-      "pass": true
+        {
+          "label": "How LAiDIES works",
+          "href": "#method",
+          "count": 1,
+          "rect": {
+            "x": 22,
+            "y": 883.953125,
+            "width": 346,
+            "height": 44,
+            "right": 368,
+            "bottom": 927.953125
+          },
+          "afterLede": true
+        }
+      ],
+      "noOverlap": true,
+      "noOverflow": true,
+      "anchorJourneys": [
+        {
+          "href": "#why",
+          "hash": "#why",
+          "targetId": "why",
+          "targetTop": 96,
+          "pass": true
+        },
+        {
+          "href": "#method",
+          "hash": "#method",
+          "targetId": "method",
+          "targetTop": 153,
+          "pass": true
+        }
+      ]
     }
   ],
   "journeys": {
-    "episode1": {
-      "url": "https://ee897a4e.laidies-sunnyvaile.pages.dev/issues/issue-01",
-      "readable": true,
-      "excerpt": "Skip to content LAı DIES Latest Episode Look it up Explore SUNNYVAiLE KSVL 99.9 Sign in Join the town MENU Read Full written episode Listen Narration + captions Watch Not available",
-      "pass": true
-    },
-    "missJeeves": {
-      "url": "https://ee897a4e.laidies-sunnyvaile.pages.dev/library#miss-jeeves",
-      "inputValue": "Can I find AI basics & beginner’s guides?",
-      "apiIntercepted": {
-        "method": "POST",
-        "postData": {
-          "query": "Can I find AI basics & beginner’s guides?",
-          "placement": "homepage",
-          "guestToken": ""
-        }
-      },
+    "mastheadAnchors": {
       "pass": true
     }
   },
   "limits": [
-    "Technical hosted-browser verification only; no visual-quality verdict.",
-    "Miss Jeeves API was intercepted with 503 before any external answer call; no answer quality, account, or paid-service behavior was tested."
+    "Mechanical hosted-browser check only; it does not perform a visual-design or full-page copy review.",
+    "The URL must be a deployed preview; this script does not intercept responses."
   ]
 }
