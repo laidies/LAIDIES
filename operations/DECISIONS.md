@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-06 — Remove inflated activity-card spacing
+
+Ali flags oversized blank space in the homepage activity cards, recalling an earlier correction. Scope all six activity cards: remove cross-card paragraph minimum heights and equal heights across separate grid rows. Keep current images, palette, fonts, descriptions, button destinations and filters. Align tags and titles only within each visible row; paragraphs and cards keep their natural height, with each button immediately after its text. Single-column cards require no slot equalisation. Verify resizing and filters as well as the default grid. Preview only.
+
 ## 2026-09-06 — Girl Talk uses current Truth and Dare cards; board and old FAiRY house retired
 
 Ali rejects the replacement board/spinner image as old and retired. This supersedes the prior thumbnail selection and invalidates its visual-admission verdict. Do not use assets/girl-talk-board.png or .webp for Girl Talk. Use the current lavender/pink flip-phone Truth/Dare cards already represented on the homepage; exact faces are assets/games/girl-talk/truth-card-face.png and dare-card-face.png. Historical social plans and tracked-file existence are not current approval. Preserve the cards and make their compact presentation clear.

@@ -872,7 +872,7 @@ main .explainer a.tune-in:not(.inline-link){background:var(--hp-midnight);color:
 main .explainer a.tune-in:not(.inline-link):hover{background:var(--hp-ink);color:var(--hp-mint)}
 main .explainer a.tune-in:not(.inline-link):focus-visible{outline-color:var(--hp-ink);outline-offset:4px}
 /* One media frame and aligned content slots for every activity card. */
-.activity-grid{grid-auto-rows:auto;align-items:start}
+.activity-grid{grid-auto-rows:1fr}
 .activity-grid>article{min-width:0}
 .activity-grid>article>img,.activity-grid>article>.card-duo{
   height:auto;min-height:0;box-sizing:border-box;
@@ -1539,8 +1539,8 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
   <script defer src="/content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
   <script src="/content/site/homepage.js?v=20260906-radio-controls"></script>
   <script>
-  /* Align labels within each visible row; cards and paragraphs keep their natural height.
-     Recalculate after fonts, resizing and filters; rows never borrow height from other rows. */
+  /* Size corresponding card slots to the largest current label, never clip text.
+     Recalculate after fonts, resizing and filters; do not fix the card height. */
   (function(){
     var grid=document.querySelector('.activity-grid');
     if(!grid) return;
@@ -1548,22 +1548,12 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
     function alignSlots(){
       pending=false;
       var cards=Array.from(grid.querySelectorAll('article')).filter(function(card){return !card.hidden;});
-      cards.forEach(function(card){
-        card.querySelectorAll('.tag,h3,p,button').forEach(function(slot){slot.style.minHeight='';});
-      });
-      if(getComputedStyle(grid).gridTemplateColumns.trim().split(/\s+/).length===1) return;
-      var rows=new Map();
-      cards.forEach(function(card){
-        var top=card.offsetTop;
-        if(!rows.has(top)) rows.set(top,[]);
-        rows.get(top).push(card);
-      });
-      rows.forEach(function(row){
-        ['.tag','h3'].forEach(function(selector){
-          var slots=row.map(function(card){return card.querySelector(selector);}).filter(Boolean);
-          var height=Math.ceil(Math.max(0,...slots.map(function(slot){return slot.getBoundingClientRect().height;})));
-          slots.forEach(function(slot){slot.style.minHeight=height+'px';});
-        });
+      ['.tag','h3','p','button'].forEach(function(selector){
+        var slots=cards.map(function(card){return card.querySelector(selector);}).filter(Boolean);
+        slots.forEach(function(slot){slot.style.minHeight='';});
+        if(getComputedStyle(grid).gridTemplateColumns.trim().split(/\s+/).length===1) return;
+        var height=Math.ceil(Math.max(0,...slots.map(function(slot){return slot.getBoundingClientRect().height;})));
+        slots.forEach(function(slot){slot.style.minHeight=height+'px';});
       });
     }
     function schedule(){if(!pending){pending=true;requestAnimationFrame(alignSlots);}}

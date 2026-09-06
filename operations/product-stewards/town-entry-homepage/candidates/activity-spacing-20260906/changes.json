@@ -1,0 +1,17 @@
+{
+  "parentSha256": "9b0ef7598f05dd9626c928ff7492ee63ea5e2ea672f4676504037142aa12f8d7",
+  "replacements": [
+    {
+      "old": ".activity-grid{grid-auto-rows:1fr}",
+      "new": ".activity-grid{grid-auto-rows:auto;align-items:start}"
+    },
+    {
+      "old": "  /* Size corresponding card slots to the largest current label, never clip text.\n     Recalculate after fonts, resizing and filters; do not fix the card height. */",
+      "new": "  /* Align labels within each visible row; cards and paragraphs keep their natural height.\n     Recalculate after fonts, resizing and filters; rows never borrow height from other rows. */"
+    },
+    {
+      "old": "      ['.tag','h3','p','button'].forEach(function(selector){\n        var slots=cards.map(function(card){return card.querySelector(selector);}).filter(Boolean);\n        slots.forEach(function(slot){slot.style.minHeight='';});\n        if(getComputedStyle(grid).gridTemplateColumns.trim().split(/\\s+/).length===1) return;\n        var height=Math.ceil(Math.max(0,...slots.map(function(slot){return slot.getBoundingClientRect().height;})));\n        slots.forEach(function(slot){slot.style.minHeight=height+'px';});\n      });",
+      "new": "      cards.forEach(function(card){\n        card.querySelectorAll('.tag,h3,p,button').forEach(function(slot){slot.style.minHeight='';});\n      });\n      if(getComputedStyle(grid).gridTemplateColumns.trim().split(/\\s+/).length===1) return;\n      var rows=new Map();\n      cards.forEach(function(card){\n        var top=card.offsetTop;\n        if(!rows.has(top)) rows.set(top,[]);\n        rows.get(top).push(card);\n      });\n      rows.forEach(function(row){\n        ['.tag','h3'].forEach(function(selector){\n          var slots=row.map(function(card){return card.querySelector(selector);}).filter(Boolean);\n          var height=Math.ceil(Math.max(0,...slots.map(function(slot){return slot.getBoundingClientRect().height;})));\n          slots.forEach(function(slot){slot.style.minHeight=height+'px';});\n        });\n      });"
+    }
+  ]
+}
