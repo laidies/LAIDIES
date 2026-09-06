@@ -1,0 +1,5 @@
+# Catch Me Up notice renewal
+
+Status: private producer-complete copy / HOLD at strict service count rule. The exact pre-draft producer contract passes; root has read the full resulting notice, the actual public observations and the explicit successor lineage. The producer receipt preserves HOLD and actual0issues/1cycle against the earlier0/1 record. Independent-judge preparation passes, but no provider has been invoked because producer admission is blocked. Ali has been asked whether clean service updates may retain the zero-issue/one-cycle floor. No answer is recorded yet; elapsed time does not authorize a rule change.
+
+After an explicit answer allowing that route: implement the narrow service rule with calibrated tests, preserve all current quality/factual requirements and lineage, recheck this exact producer receipt, run one independent Claude review, import the unchanged raw judgment, and admit only this item if every required outcome passes. Then create a new dated proposal through the existing path. Never run the old whole-bank Aug30 admission script for a one-item renewal. No bank, public column, issued record or current article changed.

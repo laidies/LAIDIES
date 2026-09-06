@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "laidies-newsstand-source-evidence.v1",
+  "candidateId": "town-03-catchup",
+  "completeArtifact": "Private source packet for the exact replacement notice.",
+  "sources": [
+    {
+      "source": {
+        "url": "local://content/site/newsstand-catchup-v1.js",
+        "path": "content/site/newsstand-catchup-v1.js",
+        "sha256": "08c1eaf416c3770e054eb70c5cee6aea492dd276f07ece5500f016667b5f07fb",
+        "passage": "There is no saved visit on this device yet, so we started with the last seven days.",
+        "additionalPassage": "Stories, explainers and recurring columns published since "
+      }
+    },
+    {
+      "source": {
+        "url": "local://newsstand.html#newsstand-archive",
+        "path": "newsstand.html",
+        "sha256": "07d8056fcea5320815a72891bb93597ef53300dd417b0b6453b0f6c22c516f21",
+        "passage": "Search every published NewsStand item by date, theme or concept. Results open in the same reading space above.",
+        "additionalPassage": "<input id=\"ns-archive-from\" type=\"date\">"
+      }
+    },
+    {
+      "source": {
+        "url": "private://town-03-catchup-live-observation",
+        "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/catchup/town-03-catchup-live-observation.json",
+        "sha256": "c5c2b1a9dc9469c4ce48de0450cf63491a5a421e820bb4916b198d6d7a83ffeb",
+        "passage": "This device remembered your last NewsStand visit.",
+        "additionalPassage": "\"catchupDateInputs\": 0"
+      }
+    }
+  ],
+  "limitations": [
+    "Browser observation tested a new device and a seeded local saved visit.",
+    "No account sign-in or cross-device synchronization was tested or claimed."
+  ]
+}

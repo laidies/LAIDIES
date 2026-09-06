@@ -273,7 +273,7 @@ marked unapproved. Its synthetic eligibility must never enter a release.
 
 The 07:00 Vancouver run must not ask only whether an AIDB edition has today's
 date. After the official-provider sweep, compare the website/edition index with
-the publisher-linked podcast release listing or RSS feed. A website masthead
+the publisher-linked podcast release listing or RSS feed and the publisher newsletter at https://aidailybrief.beehiiv.com/. A website masthead
 is not an episode timestamp. Inventory every observed release in the rolling
 seven-day window plus unresolved older releases, including episodes whose full
 contents have not yet been reviewed. Then run `scripts/select-aidb-edition.mjs` against
@@ -288,14 +288,16 @@ the complete ledger passes. `No edition dated today` is never a quiet-news
 finding by itself.
 
 New inventories use `schema: "aidb-edition-inventory.v2"`, `editions: [...]`
-and `channelChecks: [...]`. Record one check for each `channel: "website"` and
-`channel: "podcast"`, its exact `url`, actual timezone-bearing `checkedAt`,
+and `channelChecks: [...]`. Record one check for each `channel: "website"`,
+`channel: "podcast"` and `channel: "newsletter"`, its exact `url`, actual timezone-bearing `checkedAt`,
 `status: "CHECKED"` only after enumeration, and `releaseUrls` containing every
 observed release URL. Use `PARTIAL` or `UNAVAILABLE` honestly when applicable.
 The checks must fall on the research date in Vancouver. The helper rejects a
 quiet result when a required channel was not checked or an observed URL has no
 inventory entry. This is validation of the recorded work, not proof that the
 source was fetched or its contents understood; the researcher must inspect it.
+
+The September5 continuation recovered publisher notes missing from the main index. Current evidence is `operations/agents/aidb-intelligence-desk/daily/2026-09-05-newsletter-reconciliation/inventory.json`; the original inventories stay frozen. The adjacent23-block notes disposition is a lead inventory, not a full podcast item count or verified primary reporting. Never use a newsletter's summary as a transcript identity or mark its associated episode complete. Keep unreconciled URLs visible and pursue useful primary research while the exact episode/transcript check remains held.
 
 An episode has one stable inventory/cursor `url`. Keep `editionDate`, actual
 `publishedAt`, discovery channel and discovery/check time distinct from the

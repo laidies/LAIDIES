@@ -1,0 +1,31 @@
+{
+  "entries": {
+    "town-03-catchup": {
+      "ratchet": {
+        "repeatedKnownDefects": 0,
+        "objectiveDefectsFirstFoundAtReview": 0,
+        "reviewIssues": 0,
+        "reviewCycles": 1,
+        "priorComparable": {
+          "candidateId": "town-03-catchup",
+          "reviewIssues": 0,
+          "reviewCycles": 1,
+          "reviewedAt": "2026-08-30T20:22:17.010Z"
+        },
+        "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+      },
+      "lineage": {
+        "kind": "SUCCESSOR",
+        "predecessorCandidateId": "town-03-catchup",
+        "predecessorReview": {
+          "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/producer-receipts/town-03-catchup.json",
+          "sha256": "1d0955a9764e89a7c31b00976d072eea1c6fcb319c36b01b3bfd6eee4e91718d"
+        }
+      },
+      "learningDisposition": {
+        "disposition": "EVIDENCE_GAP",
+        "rationale": "The false date-picker claim was repaired, but current successor ratchet rules cannot PASS against the recorded zero-issue, one-cycle predecessor; independent review and owner disposition remain required."
+      }
+    }
+  }
+}

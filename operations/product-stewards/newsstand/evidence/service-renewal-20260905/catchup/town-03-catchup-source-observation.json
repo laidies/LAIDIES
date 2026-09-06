@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "laidies-newsstand-local-source-observation.v1",
+  "candidateId": "town-03-catchup",
+  "sourcePath": "content/site/newsstand-catchup-v1.js",
+  "sourceSha256": "08c1eaf416c3770e054eb70c5cee6aea492dd276f07ece5500f016667b5f07fb",
+  "observedAt": "2026-09-05T23:55:00.000Z",
+  "observationScope": "Local implementation observation only. It records source code behaviour for private renewal preparation and does not claim a deployed/public feature check.",
+  "observations": [
+    {
+      "claim": "A new device has no saved visit and Catch Me Up falls back to the last seven days.",
+      "excerpts": [
+        "var fallback = editorialDateOnly(new Date(Date.now() - 7 * DAY_MS));",
+        "There is no saved visit on this device yet, so we started with the last seven days."
+      ]
+    },
+    {
+      "claim": "A saved prior visit is used as the catch-up starting point.",
+      "excerpts": [
+        "var since = previousPublicationView ? editorialDateOnly(previousPublicationView) : fallback;",
+        "This device remembered your last NewsStand visit."
+      ]
+    },
+    {
+      "claim": "Catch Me Up renders available stories and daily service columns.",
+      "excerpts": [
+        "<h3 id=\"ns-catchup-news-title\">New at the NewsStand</h3>",
+        "New books, episodes, games and website features published while you were away."
+      ]
+    }
+  ],
+  "limitations": [
+    "No deployed/browser verification is claimed here.",
+    "No cross-device account continuity claim is made."
+  ]
+}

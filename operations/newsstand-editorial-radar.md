@@ -7,6 +7,16 @@
 them, then turn only the qualified ones into evidence-backed editorial
 candidates.
 
+## September5 continuation — research leads, not approved stories
+
+The recovered September4 publisher newsletter is dispositioned in `operations/agents/aidb-intelligence-desk/daily/2026-09-05-newsletter-reconciliation/notes-dispositions.json`. It does not certify the full podcast or any underlying claim. Current follow-through:
+
+- **Big Picture candidate — Who controls which AI you can use?** Investigate the distinction between choosing a model and choosing the product that grants access to it. Verify every claimed restriction using the original provider/platform notices; explore practical switching/data-control consequences without recommending unverified products.
+- **Existing data-centre explainer — update assessment.** Check material policy/polling developments against its exact current sources before choosing UPDATE, NO_CHANGE or HOLD. Do not lift a commentator's percentage as a poll, or silently rewrite dated news.
+- **Work and cost themes — existing learning route.** Extend the current model-guidance-currency signal and loop-practice intake rather than inventing duplicate lessons. Primary verification and receiving-owner disposition precede book changes. Internal task-fit model routing is already applied; newsletter repetition is not a new internal success.
+
+These leads remain private and do not displace the ready NVIDIA article, the morning source check or current service work.
+
 ## The promise
 
 Ali should not have to monitor the AI news cycle or recognize that a story

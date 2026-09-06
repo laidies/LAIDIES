@@ -17,11 +17,11 @@ const vancouverDay = value => {
 // This checks the recorded discovery work, not the truth or completeness of a feed.
 // A channel failure must remain visible even if another channel yields useful work.
 function coverageGaps(inventory, editions, asOf) {
-  if (Array.isArray(inventory)) return ["Legacy inventory has no website/podcast reconciliation"];
+  if (Array.isArray(inventory)) return ["Legacy inventory has no website/podcast/newsletter reconciliation"];
   if (inventory.schema !== "aidb-edition-inventory.v2" || !Array.isArray(inventory.channelChecks)) throw new Error("inventory requires aidb-edition-inventory.v2 and channelChecks");
   const gaps = [];
   const knownUrls = new Set(editions.flatMap(item => [item.url, ...(item.alsoPublishedAt || [])]));
-  for (const channel of ["website", "podcast"]) {
+  for (const channel of ["website", "podcast", "newsletter"]) {
     const checks = inventory.channelChecks.filter(check => check?.channel === channel);
     if (checks.length !== 1) { gaps.push(`${channel}: exactly one channel check is required`); continue; }
     const check = checks[0];

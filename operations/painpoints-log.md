@@ -50,6 +50,8 @@
 
 - **Same-task exemplar recovery:** The only registered reference-writing example pointed at a living book whose bytes had changed, blocking a short site notice before drafting. Git retained the exact approved blob. It is now preserved unchanged with provenance; the producer can bind that copy only under the existing registered hash and class permission. Deliberately changed mutable source, substituted identity and tampered preserved copy reject; the actual writer reads the accepted preserved bytes. No registry hash, living book or public content was changed and no new review was required for settled identical prose.
 
+- **Same-task source recovery:** The main AIDB index stoppedSeptember3 while the publisher newsletter carried September4 detailed notes. A website+podcast-only check could still miss that source. Newsletter enumeration is now required beforeQUIET; tests reject absent/stale/duplicate/unrecorded newsletter checks while preserving new complete transcript work. The23 publisher-note blocks are separate research leads, not fabricated transcript completion or primary verification. Preserve exact URL/format distinctions and verify equivalence through publisher links; similar titles and dates are insufficient. Root also corrected a metadata inspection that accidentally enumerated a string's character keys: inspect type before asking for object keys and bound all diagnostic output.
+
 ## BTB-502 — A story-link schema is not a working follow-up feature
 
 - **Date:** 2026-09-05

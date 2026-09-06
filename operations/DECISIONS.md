@@ -20,6 +20,8 @@ proper domain source before building from it.
 
 ## Core routes
 
+AIDB discovery must enumerate its publisher newsletter as well as the main edition index and publisher-linked podcast feed. One unavailable/stale/unreconciled channel blocks a quiet claim, not useful already complete work. Publisher notes may yield research leads but never substitute for a transcript or prove cross-channel identity from a similar title. The existing v2 selector enforces the three channel checks.
+
 A producer may bind a preserved copy of a registered positive exemplar using `positiveExemplars[].preservedArtifact`, but the registered approved SHA-256 and content-class permission remain mandatory. This relocates identical approved bytes only; it grants no new approval, factual currency or exception to current negative knowledge. Preserve provenance and read that exact copy. The contract validator and NewsStand writer-input builder enforce this, avoiding edits to a living book or invalidation of unrelated approvals merely to recover an old example.
 
 NewsStand publication instants must resolve to the America/Vancouver editorial day in article labels, catch-up grouping, archive keys/filters and masthead/town date details. A valid literal edition date stays literal; display repair must never rewrite story timestamps or prose. Impossible calendar literals stop derivative generation. The date regression test and actual whole-page archive/catch-up journey enforce this rule; a formatter-only test is insufficient.

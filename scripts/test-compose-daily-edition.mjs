@@ -73,7 +73,8 @@ const inventoryRelative = `operations/agents/aidb-intelligence-desk/daily/${cove
 const cursorRelative = "operations/agents/aidb-intelligence-desk/edition-cursor.json";
 const inventory = { schema: "aidb-edition-inventory.v2", editions: [], channelChecks: [
   { channel: "website", url: "https://aidailybrief.ai/", checkedAt: `${coverageDate}T18:00:00Z`, status: "CHECKED", releaseUrls: [] },
-  { channel: "podcast", url: "https://podcasts.apple.com/us/podcast/the-ai-daily-brief/id1680633614", checkedAt: `${coverageDate}T18:00:00Z`, status: "CHECKED", releaseUrls: [] }
+  { channel: "podcast", url: "https://podcasts.apple.com/us/podcast/the-ai-daily-brief/id1680633614", checkedAt: `${coverageDate}T18:00:00Z`, status: "CHECKED", releaseUrls: [] },
+  { channel: "newsletter", url: "https://aidailybrief.beehiiv.com/", checkedAt: `${coverageDate}T18:00:00Z`, status: "CHECKED", releaseUrls: [] }
 ] };
 const cursor = { schemaVersion: "aidb-edition-cursor-v1", processedEditions: [] };
 const coverage = () => ({ schemaVersion: "newsstand-daily-coverage-v1", asOf: coverageDate,

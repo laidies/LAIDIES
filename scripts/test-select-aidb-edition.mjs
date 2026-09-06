@@ -6,11 +6,12 @@ const sha = n => String(n).padStart(64, "a").slice(-64);
 const item = (editionDate, n, extra = {}) => ({ editionDate, url: `https://aidailybrief.ai/e/${editionDate}`, transcriptSha256: sha(n), itemCount: n, complete: true, ...extra });
 const cursor = (...items) => ({ processedEditions: items.map(({ editionDate, url, transcriptSha256, itemCount }) => ({ editionDate, url, transcriptSha256, itemCount, processedAt: "2026-09-04T14:00:00Z" })) });
 
-const inventory = (editions, asOf = "2026-09-04") => ({
+const inventory = (editions, asOf = "2026-09-04", releaseUrls = {}) => ({
   schema: "aidb-edition-inventory.v2", editions,
   channelChecks: [
-    { channel: "website", url: "https://www.aidailybrief.ai/", checkedAt: `${asOf}T14:00:00Z`, status: "CHECKED", releaseUrls: editions.map(row => row.url) },
-    { channel: "podcast", url: "https://podcasts.apple.com/us/podcast/the-ai-daily-brief/id1680633614", checkedAt: `${asOf}T14:00:00Z`, status: "CHECKED", releaseUrls: editions.map(row => row.url) }
+    { channel: "website", url: "https://www.aidailybrief.ai/", checkedAt: `${asOf}T14:00:00Z`, status: "CHECKED", releaseUrls: releaseUrls.website ?? editions.map(row => row.url) },
+    { channel: "podcast", url: "https://podcasts.apple.com/us/podcast/the-ai-daily-brief/id1680633614", checkedAt: `${asOf}T14:00:00Z`, status: "CHECKED", releaseUrls: releaseUrls.podcast ?? [] },
+    { channel: "newsletter", url: "https://aidailybrief.beehiiv.com/", checkedAt: `${asOf}T14:00:00Z`, status: "CHECKED", releaseUrls: releaseUrls.newsletter ?? [] }
   ]
 });
 const select = (data, reviewed = cursor(), date = "2026-09-04") => selectAidbEdition(data, reviewed, date);
@@ -25,7 +26,7 @@ check("late previous day and weekend/backfill remain actionable", () => {
 check("changed transcript or item count reopens reviewed edition", () => {
   for (const changed of [item("2026-09-03", 4), item("2026-09-03", 3, { itemCount: 4 })]) assert.equal(select(inventory([changed]), cursor(item("2026-09-03", 3))).status, "RECHECK_CHANGED_TRANSCRIPT");
 });
-check("unchanged duplicate is quiet after both channel checks", () => {
+check("unchanged duplicate is quiet after website, podcast and newsletter checks", () => {
   const result = select(inventory([item("2026-09-03", 3)]), cursor(item("2026-09-03", 3)));
   assert.equal(result.status, "QUIET_NO_NEW_COMPLETE_AIDB_EDITION");
   assert.equal(result.quietAllowed, true);
@@ -75,8 +76,27 @@ check("observed podcast release missing from inventory is a coverage gap", () =>
   assert.equal(result.status, "HOLD_AIDB_SOURCE_COVERAGE");
   assert.ok(result.coverageGaps.some(gap => gap.includes(podcastRelease.url)));
 });
-check("missing/unavailable channel cannot certify quiet or suppress useful work", () => {
-  for (const change of [data => data.channelChecks.pop(), data => { data.channelChecks[1].status = "UNAVAILABLE"; }]) {
+check("a formerly valid two-channel fixture would have been quiet but newsletter now blocks quiet", () => {
+  const data = inventory([item("2026-09-03", 3)]);
+  data.channelChecks.pop();
+  const reviewed = cursor(item("2026-09-03", 3));
+  // Exact predecessor condition: v2 reconciled only these two independent channels.
+  const incumbentV2Quiet = data.channelChecks.length === 2
+    && ["website", "podcast"].every((channel, index) => data.channelChecks[index].channel === channel
+      && data.channelChecks[index].status === "CHECKED"
+      && data.channelChecks[index].releaseUrls.every(url => data.editions.some(edition => edition.url === url)))
+    && data.editions.every(edition => reviewed.processedEditions.some(done => done.editionDate === edition.editionDate && done.url === edition.url && done.transcriptSha256 === edition.transcriptSha256 && done.itemCount === edition.itemCount));
+  assert.equal(incumbentV2Quiet, true, "the unchanged v2 rule would return QUIET for this two-channel fixture");
+  const result = select(data, reviewed);
+  assert.equal(result.status, "HOLD_AIDB_SOURCE_COVERAGE");
+  assert.ok(result.coverageGaps.some(gap => gap.startsWith("newsletter:")));
+});
+check("missing, unavailable or stale newsletter cannot certify quiet or suppress useful work", () => {
+  for (const change of [
+    data => data.channelChecks.splice(2, 1),
+    data => { data.channelChecks[2].status = "UNAVAILABLE"; },
+    data => { data.channelChecks[2].checkedAt = "2026-09-03T14:00:00Z"; }
+  ]) {
     const data = inventory([item("2026-09-03", 3)]); change(data);
     assert.equal(select(data, cursor(item("2026-09-03", 3))).status, "HOLD_AIDB_SOURCE_COVERAGE");
     const result = select(data);
@@ -90,6 +110,29 @@ check("Vancouver date handles UTC boundary and rejects stale checks", () => {
   assert.equal(select(data).quietAllowed, true);
   for (const row of data.channelChecks) row.checkedAt = "2026-09-04T03:00:00Z";
   assert.equal(select(data).status, "HOLD_AIDB_SOURCE_COVERAGE");
+});
+check("unrecorded newsletter release blocks quiet without pretending newsletter text is a transcript", () => {
+  const data = inventory([item("2026-09-03", 3)]);
+  const newsletterUrl = "https://aidailybrief.beehiiv.com/p/september-4-2026";
+  data.channelChecks[2].releaseUrls = [newsletterUrl];
+  const result = select(data, cursor(item("2026-09-03", 3)));
+  assert.equal(result.status, "HOLD_AIDB_SOURCE_COVERAGE");
+  assert.ok(result.coverageGaps.includes(`newsletter: observed release missing from inventory: ${newsletterUrl}`));
+});
+check("duplicate newsletter observations cannot certify quiet", () => {
+  const data = inventory([item("2026-09-03", 3)]);
+  data.channelChecks.push(structuredClone(data.channelChecks[2]));
+  const result = select(data, cursor(item("2026-09-03", 3)));
+  assert.equal(result.status, "HOLD_AIDB_SOURCE_COVERAGE");
+  assert.ok(result.coverageGaps.includes("newsletter: exactly one channel check is required"));
+});
+check("new complete website transcript stays actionable when newsletter coverage is unavailable", () => {
+  const data = inventory([item("2026-09-04", 4)]);
+  data.channelChecks[2].status = "UNAVAILABLE";
+  const result = select(data);
+  assert.equal(result.status, "PROCESS_NEW_COMPLETE_EDITION");
+  assert.equal(result.edition.url, "https://aidailybrief.ai/e/2026-09-04");
+  assert.ok(result.coverageGaps.some(gap => gap.startsWith("newsletter: UNAVAILABLE")));
 });
 check("cross-channel aliases require identity evidence and one episode record", () => {
   const edition = item("2026-09-03", 3, { alsoPublishedAt: ["https://example.test/podcast/loops"], identityEvidenceUrl: "https://aidailybrief.ai/e/2026-09-03" });

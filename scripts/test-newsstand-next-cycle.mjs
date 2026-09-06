@@ -39,7 +39,8 @@ function quietCoverage(date) {
   const cursorPath = 'operations/agents/aidb-intelligence-desk/edition-cursor.json';
   const inventory = { schema: 'aidb-edition-inventory.v2', editions: [], channelChecks: [
     { channel: 'website', url: 'https://fixture.invalid/website', checkedAt: `${date}T18:00:00Z`, status: 'CHECKED', releaseUrls: [] },
-    { channel: 'podcast', url: 'https://fixture.invalid/podcast', checkedAt: `${date}T18:00:00Z`, status: 'CHECKED', releaseUrls: [] }
+    { channel: 'podcast', url: 'https://fixture.invalid/podcast', checkedAt: `${date}T18:00:00Z`, status: 'CHECKED', releaseUrls: [] },
+    { channel: 'newsletter', url: 'https://aidailybrief.beehiiv.com/', checkedAt: `${date}T18:00:00Z`, status: 'CHECKED', releaseUrls: [] }
   ] };
   const cursor = { schemaVersion: 'aidb-edition-cursor-v1', processedEditions: [] };
   put(inventoryPath, JSON.stringify(inventory)); put(cursorPath, JSON.stringify(cursor));
