@@ -1,3 +1,12 @@
+<!-- Hannah Fry spotlight substance: RESEARCHED / production open -->
+Ali rejected the title-only Hannah Fry profile. Verified Cambridge, Penguin and
+DeepMind evidence is in candidates/hannah-fry-why-maiven-20260906/research-brief.md
+under operations/product-stewards/newsstand. Correct the shared admitted profile,
+not an unreviewed NewsStand override. Producer/independent admission and live
+publication remain open; current public copy has not changed. The existing
+offline profile-signing route is not available in this checkout; do not replace
+the trusted key or bypass profile admission.
+
 <!-- September 6 shared art / rotation: VERIFIED PUBLICLY -->
 Published source 1a9474fd at https://00e6bc4c.laidies-sunnyvaile.pages.dev and
 https://laidies.ai/newsstand. Seven changed public paths; 742 predecessor files

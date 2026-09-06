@@ -20,6 +20,11 @@ proper domain source before building from it.
 
 ## Core routes
 
+September 6 spotlight substance correction: Ali rejected Hannah Fry's title-only
+treatment. Every spotlight must earn why LAiDIES celebrates its subject through
+a distinctive contribution, concrete example, reader consequence and useful
+entry point. See the NewsStand editorial promise, Spotlight substance section.
+
 September 6, Ali requested that the approved new Mini Backpack artwork replace
 the old Mme CLAi-O version too. NewsStand and the game use the same canonical
 card assets. Replace Mini Backpack and the current Jelly Sandal with the new

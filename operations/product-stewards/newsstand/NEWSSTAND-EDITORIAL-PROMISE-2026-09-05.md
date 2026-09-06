@@ -173,3 +173,17 @@ not certify migration of every existing related-song button across the site.
 Ali retains the mission, audience, voice and taste direction, meaningful editorial positions, changes to publication authority and exact-version Big Picture approval. Existing ordinary-news autonomy remains: independent AI factual/editorial assessment is required, but routine news does not require Ali's daily copy approval. Existing specialist evidence, correction, artifact, accessibility and release controls still apply. This record changes no public content and grants no new release authority.
 
 Operational recommendations, implementation order, calibrated audit findings and proposed measurements are in `WORKFLOW-AUDIT-2026-09-05.md`. They remain PROPOSED until implemented and verified through the appropriate scope.
+
+## Spotlight substance — September 6 correction
+
+Ali rejected the Hannah Fry treatment because it does not explain why she is
+exceptional or belongs among the MAiVENS. A job title plus generic lesson is not
+a finished spotlight, even when every fact is verified. Before a spotlight is
+admitted, its producer must state the distinctive contribution, demonstrate it
+with a specific work/example, explain the reader consequence, and connect that
+contribution to why LAiDIES celebrates her. Add an earned watch/read/listen entry
+point with its purpose; fame, credentials and a list of links cannot substitute.
+Apply this across the rotating roster, while preserving each woman's actual
+contribution and avoiding invented claims that she built a product or helped
+women specifically. The existing short shared profiles remain publicly unchanged
+until their exact successor has passed editorial admission.

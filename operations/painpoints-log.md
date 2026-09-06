@@ -15930,3 +15930,10 @@ remain unreconciled; cross-chat completeness is not certified.
 - Prevention: Version both game artwork constructors and NewsStand together; preserve the actual public predecessor, whose header/player fixes differ from git HEAD.
 - Verification: Independent comparison accepts exactly two game URL changes and identical shared card/deck data; full rotation rejects malformed decks. Four canonical text-only cards remain text-only.
 - Behind the Build: A safe general lesson about checking the experience of returning visitors; do not expose private operational details.
+
+## BTB-505 — A verified title is not a useful spotlight
+- Date: 2026-09-06
+- Failure: The Hannah Fry profile passed source/identity checks while omitting why her contribution matters. Ali identified the gap.
+- Prevention: Profile production must bind distinctive contribution, specific example, reader consequence and the reason for inclusion before drafting; identity and source integrity alone cannot admit editorial usefulness. Apply across the roster.
+- Evidence: Current Hannah about is one Cambridge-title sentence. Verified Cambridge prize, Penguin book and official podcast provide concrete substance. Successor research is preserved; signed editorial admission remains open.
+- Behind the Build: Checking whether a statement is true and whether it answers the reader's question are different jobs. Keep the site's private workflow out of public treatment.
