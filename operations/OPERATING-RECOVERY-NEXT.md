@@ -630,3 +630,15 @@ before the first successful fetch. Final deployed source is
 `6e32324a823418f248c813759213dd9640b60704`, Worker version
 `0ed12473-317d-4456-b43f-da8b31500637`; all four hosted asset bytes were
 rechecked against that source after deployment.
+
+### 2026-09-05 — Wrong palette rejected; current colours restored
+
+Ali rejected the plum/cream inbox colours. The previous private styling was
+contrary to DECISIONS §3b: cream/plum and soft candy UI were retired August 5.
+Use `page-design-bar.md` exact electric accents (#ef4d9c, #19d3d1, #744fc0,
+#6c7cd1, #ff6b61), with Town Hall's #080b22 navy and #11142d ink. This bounded
+repair changes colours only; layout, markup, typography, client and API stay
+intact. Desktop/390px renders and actual computed styles were inspected; ten
+text/background pairs meet 4.5:1 contrast. The palette check rejects the previous
+committed theme and runs in CI; it is not a claim of owner visual approval.
+Source/deployment outcome is bound in the correction PR and task handoff.

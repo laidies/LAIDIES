@@ -1136,3 +1136,9 @@ Private inbox appearance correction: Ali rejected the initial bare screen.
 The revised inbox-first layout, human labels/dates and filters are hosted and
 passed an actual new submission/review journey plus desktop/390px inspection.
 This is maker-verified repair, not an owner visual-approval claim.
+
+Private inbox colour repair: Ali rejected the retired plum/cream palette.
+The current electric colour values and Town Hall navy are applied on
+`ops/private-inbox-current-colours-20260905`; colour/contrast and desktop/390px
+inspection completed. This supersedes the earlier palette claim. Public intake
+remains closed; this repair does not change message handling.
