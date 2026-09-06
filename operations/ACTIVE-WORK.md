@@ -8,6 +8,7 @@
 > and Trailblazers and reading their stories. Social sharing is an optional takeaway.
 > Ali restored the original foreground: homepage review/correction, then page by page.
 > Current step: reconcile original recommendations with committed/deployed/live evidence.
+> Status reconciled: [original recommendations and completion plan](homepage-corrections-2026-09-05.md).
 > Field-trip resume brief: operations/product-stewards/blend-snap/candidates/tryon-ep04-2026-09-05/successor-brief.md.
 > The feature remains unfinished; retain the two-reviewer authorization and keep the
 > freshness mismatch open. Miss Jeeves and other recommendations retain their resume points.
