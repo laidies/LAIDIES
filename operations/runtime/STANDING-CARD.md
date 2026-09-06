@@ -12,7 +12,7 @@ LAiDIES is a cohesive, useful learning town for professional women from the Rewi
 
 ## Truth and authority
 
-- Durable repository authority outranks chat summaries. Read the Canon Index, then DECISIONS, then the exact product dossier before making a product choice.
+- Ali's latest direct ruling wins. Otherwise, durable routed repository authority outranks chat summaries. Read the Canon Index, then DECISIONS, then the exact product dossier before making a product choice.
 - Planned, local, rendered, reviewed, admitted, released, deployed and publicly verified are different states. Never promote one into another.
 - Ali owns public voice, material product choices, deployment/publication and spend. A local pass does not use that authority.
 - One writer owns an exact file lane at a time. Preserve dirty work and active locks. Capture a new idea, then continue the active build unless Ali explicitly switches it.
@@ -21,7 +21,7 @@ LAiDIES is a cohesive, useful learning town for professional women from the Rewi
 
 - Solve the visitor outcome, not the checklist. Tier 1 work must fail inside production before it reaches Ali.
 - Public teaching prose follows: valid producer contract → exact-prose producer self-review → role-distinct semantic judge on the same bytes → claim/source binding → observed unfamiliar-reader evidence where required → owner admission.
-- A simulated reader probe is producer evidence only. It is never an observed human. A substantial Library book needs three distinct unfamiliar-human explain-back and unseen-transfer observations.
+- A simulated reader probe is producer evidence only, never an observed human. LIBRAiRY admission follows the proportional book standard routed by DECISIONS: current source/artifact binding, an honest correction route, independent newcomer-comprehension review and the real reader/save/reopen journey. There is no universal fixed-size study prerequisite; additional observation follows the specific reader promise or risk.
 - The independent semantic judge must use a different model family and stripped context: exact artifact, writing lock and Episode 1 only. Use scripts/run-independent-content-judge.mjs for OpenAI-made prose.
 - New rejection families come from the shared exemplar registry automatically. Repeated known defects stop production and repair the producer/checker before another review.
 - Review URLs are issued only through the Review Door. Maker receipts, hashes, route loads and self-authored PASS labels have integrity authority only.

@@ -33,12 +33,12 @@ The parent handoff remains immutable as this task's bound brief.
    turn and exposes no scheduler run metadata; retain it as a reported scheduled
    result, not independently observed trigger proof. Mac-off and direct phone
    observations remain separate. No duplicate schedule or manual rerun.
-4. **Canonical context conflicts and correction propagation — next engineering
-   review.** The generated standing card still contains fixed three-human
-   Library review wording while DECISIONS routes a proportional admission rule.
-   Inspect the current exact Library authority before repairing that summary;
-   do not turn the card into a competing rule or take over Library production.
-   Then test one source-change -> existing owner -> affected consumer result.
+4. **Canonical context conflicts — two summary defects repaired.** The standing
+   card now honors Ali's latest direct ruling and routes LIBRAiRY review to the
+   existing proportional standard rather than imposing a universal three-person
+   study. Exact DECISIONS and current LEARNING-CONTENT-STANDARD passages were
+   checked independently and by the foreground; no admission gate was loosened.
+   Next test one source-change -> existing owner -> affected consumer result.
 5. **Full production loops — owner work, not implemented here.** Homepage and
    NewsStand were active in native task status; animation and podcast were
    notLoaded, which is not proof of completion or abandonment. Keep baseline,
