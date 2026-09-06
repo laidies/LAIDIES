@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260901-homepage-header-1">
     <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
-    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260905-luminairy-1">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260906-theme-position-1">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -73,13 +73,14 @@
               <p class="ns-v11-location">The SUNNYVA<span class="ns-brand-i">i</span>LE</p>
               <h1>NewsStand</h1>
               <p class="ns-v11-tagline">AI news, explained for your work and life.</p>
+
+            </div>
               <div class="ns-theme-control">
                 <button class="ns-theme-button" type="button" data-ksvl-track="the-newsstand" aria-describedby="ns-theme-status" disabled>
                   <span aria-hidden="true">▶</span> Play the NewsStand theme
                 </button>
-                <span id="ns-theme-status" class="ns-theme-status" role="status">The theme player is unavailable.</span>
+                <span id="ns-theme-status" class="ns-theme-status" role="status">Checking song availability…</span>
               </div>
-            </div>
           </header>
           <section class="ns-town-strip" aria-label="SUNNYVAiLE weather and traffic — town humour">
             <p><b>Weather</b> <span id="ns-town-weather">Sunny with scattered pop-ups.</span></p>
@@ -1627,7 +1628,7 @@
               var thumbnail = story.heroVisual || (localIllustration ? { src: "/assets/newsstand/design-20260830/" + localIllustration, alt: "Illustration about AI labelling and verification" } : null);
               return [
                 '<article><a class="ns-front-story" href="#', escapeAttribute(story.slug), '">',
-                thumbnail && thumbnail.src ? '<img class="ns-latest-image" src="' + escapeAttribute(thumbnail.src) + '" alt="' + escapeAttribute(thumbnail.alt || "") + '" loading="lazy">' : '',
+                thumbnail && thumbnail.src ? '<img class="ns-latest-image" src="' + escapeAttribute(thumbnail.src.replace(/^\//, "./")) + '" alt="' + escapeAttribute(thumbnail.alt || "") + '" loading="lazy">' : '',
                 '<strong>', escapeHTML(story.headline), '</strong>',
                 '<span>', escapeHTML(formatDate(story.publishedAt)), '</span>',
                 '<em>Read the story →</em></a></article>'
@@ -1650,7 +1651,7 @@
             morePicture.hidden = earlierPictures.length === 0;
             morePicture.innerHTML = earlierPictures.map(function (story) {
               return '<a href="#' + escapeAttribute(story.slug) + '">' +
-                (story.heroVisual ? '<img src="' + escapeAttribute(story.heroVisual.src) + '" alt="' + escapeAttribute(story.heroVisual.alt || "") + '" loading="lazy">' : '') +
+                (story.heroVisual ? '<img src="' + escapeAttribute(story.heroVisual.src.replace(/^\//, "./")) + '" alt="' + escapeAttribute(story.heroVisual.alt || "") + '" loading="lazy">' : '') +
                 escapeHTML(story.headline) + '</a>';
             }).join('');
           }
@@ -1886,11 +1887,11 @@
     </script>
     <script src="./content/site/brand-polish.js?v=20260830-native-controls-1" defer></script>
     <script defer src="./content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
-    <script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
-    <script defer src="/content/site/ksvl-theme-buttons.js?v=20260905-dynamic-1"></script>
-    <script defer src="/content/site/luminairy-claim-gate.js?v=20260902-1"></script>
-    <script defer src="/content/site/newsstand-luminairy.js?v=20260905-1"></script>
-    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260905-editorial-dates-1"></script>
+    <script defer src="./content/site/ksvl-player.js?v=20260830-continuity-1"></script>
+    <script defer src="./content/site/ksvl-theme-buttons.js?v=20260905-dynamic-1"></script>
+    <script defer src="./content/site/luminairy-claim-gate.js?v=20260902-1"></script>
+    <script defer src="./content/site/newsstand-luminairy.js?v=20260905-1"></script>
+    <script defer src="./content/site/newsstand-catchup-v1.js?v=20260906-published-desks-1"></script>
     <script defer src="./content/site/resident-continuation-bootstrap-v1.js?v=20260830-ksvl-service-1"></script>
     <script defer src="./content/site/ai-accent-autowrap.js?v=20260830-native-controls-1"></script>
     <script defer src="./content/site/sunnyvaile-directory.js?v=20260713-1"></script>

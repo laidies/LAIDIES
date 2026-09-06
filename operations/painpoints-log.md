@@ -15913,3 +15913,12 @@ remain unreconciled; cross-chat completeness is not certified.
 - **Durable correction:** The three affected date-bound suites now advance from the current editorial date; the calibrated column checker ignores irrelevant historical expiry in release mode but rejects an expired current row; the reader regression rejects “updated before published”. Composer, promoter, publisher, derivative, continuity and reader suites pass on the actual September 6 issue.
 - **Possible Behind the Build angle:** Why checking every old newspaper clipping with today’s deadline can stop today’s paper from printing.
 - **Publication status:** VERIFIED PUBLICLY in deployment `2d4735ee-d9ea-4ed6-b672-d5a4ba448ee7`.
+
+## BTB-503 — A partial preview concealed the newspaper
+
+- **Date:** 2026-09-06
+- **Failure:** Ali found broken Latest images, missing columns and an unavailable theme player in a raw-file sparse checkout; the white left-positioned theme button also missed her intended placement. Separately, a new complete Daily issue hid still-valid published columns.
+- **Prevention:** Review the complete publication artifact over HTTP, including its catalogue, audio, images and real service data. Check the actual page at desktop and phone width. Front-counter columns follow validated published history independently of today's empty desks; preserve original dates and reject withdrawn/expired latest items. New composition must explicitly bind still-eligible predecessor services.
+- **Verification:** Browser song reached the playing state and an advancing seek position; no broken loaded images; mint bottom-right control and no horizontal overflow at 390 px. Regression fixtures reject unissued, future, changed, expired and withdrawn-latest service selections. Existing composer/continuity and prose-quality suites pass, including deliberately bad inputs.
+- **Behind the Build:** Safe public lesson: testing isolated pieces does not prove the experience is complete. Keep operational implementation details private.
+- **Remaining:** Mme CLAi-O renewal and Catch Me Up independent admission; no claim that all editorial work is finished.

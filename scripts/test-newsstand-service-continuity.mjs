@@ -27,6 +27,7 @@ base.stories = base.stories.filter(story => !story.publishedAt || story.publishe
 const bank = JSON.parse(read('content/daily-edition-columns.json'));
 bank.records=bank.records.filter(r=>r.editionDate<='2026-08-30');
 const history={schemaVersion:'daily-issues-v1',owner:'newsstand-daily',issues:[prior]};
+put('content/newsstand-daily-issues.json',history);
 base.publications.daily.editionDate=prior.editionDate;
 base.publications.daily.issue={status:'complete',disposition:prior.disposition,storyIds:prior.storyIds,serviceRecordIds:prior.serviceRecordIds,frontPaigeStoryId:prior.frontPaigeStoryId,weeklyStoryId:prior.weeklyStoryId};
 const originalBank = JSON.stringify(bank);
@@ -48,7 +49,7 @@ function compose(date, servicePredecessor, data=base, columns=bank, news=false) 
   const radarPath=`operations/agents/aidb-intelligence-desk/daily/${date}.md`;
   const radarRaw=`${date}\n- **NewsStand:** ${news?'REVIEW CANDIDATE. Synthetic dated news.':'NO NEW HANDOFF. Quiet research fixture.'}\n`;
   put(radarPath,radarRaw);put('content/newsstand-stories.js',encode(data));put('content/daily-edition-columns.json',columns);
-  return composeDailyEnvelope({root,date,radarPath:path.join(root,radarPath),radarRaw,storiesRaw:encode(data),columnsRaw:JSON.stringify(columns),servicePredecessor});
+  return composeDailyEnvelope({root,date,radarPath:path.join(root,radarPath),radarRaw,storiesRaw:encode(data),columnsRaw:JSON.stringify(columns),servicePredecessor,enforceServicePredecessor:true});
 }
 function cycle(date, binding, data=base, columns=bank, store=history, news=false) {
   const composed=compose(date,binding,data,columns,news);
@@ -57,6 +58,7 @@ function cycle(date, binding, data=base, columns=bank, store=history, news=false
   const args={root,store,envelope:composed.envelope,envelopeRaw:composed.canonical,decision,maker:'synthetic-maker',now:date+'T15:00:00Z'};
   const result=promoteDailyIssue(args);
   assert.equal(promoteDailyIssue({...args,store:result.store}).changed,false);
+  put('content/newsstand-daily-issues.json',result.store);
   verifyProjectionAdmission({root,issue:result.issue,envelopeRaw:composed.canonical,decision});
   const raw=projectDailySourceRaw({root,raw:encode(data),issue:result.issue,columns});
   assert.equal(projectDailySourceRaw({root,raw,issue:result.issue,columns}),raw);
@@ -69,7 +71,10 @@ function cycle(date, binding, data=base, columns=bank, store=history, news=false
   return {...result,composed,raw,derived};
 }
 const date='2026-09-03', binding=proof(date);
-assert.equal(compose(date,null).envelope.desks.filter(d=>d.state==='ready').length,0,'no general old-bank fallback');
+assert.throws(()=>compose(date,null),/eligible carried service requires the exact verified predecessor/,'a new issue cannot silently drop an eligible predecessor desk');
+const expiredPrior=structuredClone(bank);
+for (const id of prior.serviceRecordIds) expiredPrior.records.find(record=>record.id===id).freshness.expiresAt='2026-08-30';
+assert.doesNotThrow(()=>compose(date,null,base,expiredPrior),'expired predecessor desks do not require carry');
 const retainedOlder=structuredClone(base);
 const olderStory=retainedOlder.stories.find(story=>story.edition==='daily'&&!/^front-paige-/.test(story.id)&&story.status==='published'&&story.sourceApproval?.status==='approved'&&story.publishedAt&&story.publishedAt.slice(0,10)<prior.editionDate&&!retainedOlder.publications.daily.issue.storyIds.includes(story.id));
 assert.ok(olderStory,'fixture includes an older approved Latest story');
@@ -81,6 +86,7 @@ const quiet=cycle(date,binding);
 assert.deepEqual(quiet.issue.serviceRecordIds,prior.desks.filter(d=>d.state==='ready'&&d.type!=='career_life').map(d=>d.recordId));
 assert.ok(quiet.issue.desks.filter(d=>d.state==='ready').every(d=>d.carriedFrom.originalEditionDate==='2026-08-30'));
 assert.equal(JSON.stringify(bank),originalBank,'no redating or review receipt mutation');
+assert.doesNotThrow(()=>compose(date,null,parse(quiet.raw),bank),'exact stored historical replay remains valid without recreating its predecessor binding');
 const nextDate='2026-09-04', nextBase=parse(quiet.raw);
 const next=cycle(nextDate,proof(nextDate,nextBase,quiet.store),nextBase,bank,quiet.store);
 const expectedNextIds=quiet.issue.serviceRecordIds.filter(id=>{
@@ -111,7 +117,7 @@ const concept=bank.records.find(r=>r.type==='concept_week'&&prior.serviceRecordI
 const wed='2026-09-09';
 const newConcept={...concept,id:'SYNTHETIC-CONCEPT',editionDate:date};
 assert.throws(()=>compose(date,freshBinding,base,{...bank,records:[...bank.records,newConcept]}),/Wednesday/);
-assert.throws(()=>compose(date,null,base,{...bank,records:[...bank.records,newConcept]}),/Wednesday/,'omitting proof cannot bypass Concept cadence');
+assert.throws(()=>compose(date,null,base,{...bank,records:[...bank.records,newConcept]}),/(Wednesday|eligible carried service)/,'omitting proof cannot bypass service continuity or Concept cadence');
 const expiredConceptBank=structuredClone(bank);expiredConceptBank.records.find(r=>r.id===concept.id).freshness.expiresAt='2026-08-30';
 assert.throws(()=>compose(date,proof(date,base,history,expiredConceptBank),base,{...expiredConceptBank,records:[...expiredConceptBank.records,newConcept]}),/Wednesday/,'expiry cannot bypass Concept cadence');
 assert.ok(cycle(wed,proof(wed),base,bank).issue.serviceRecordIds.includes(concept.id),'Wednesday not expiry');

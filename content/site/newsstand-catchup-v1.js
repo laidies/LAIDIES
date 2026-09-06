@@ -592,15 +592,27 @@
     return null; // A bank row is not authority when the dated issue failed to load.
   }
 
+  function latestPublishedDesk(type) {
+    if (!dailyIssues || !Array.isArray(dailyIssues.issues)) return null;
+    var published = dailyIssues.issues.filter(function (issue) {
+      return issue.status === "complete" && issue.editionDate <= editorialToday();
+    }).sort(function (a, b) { return b.editionDate.localeCompare(a.editionDate); });
+    for (var i = 0; i < published.length; i += 1) {
+      var desk = published[i].desks.find(function (item) { return item.type === type && item.state === "ready"; });
+      if (!desk) continue;
+      var record = columnById(desk.recordId);
+      if (!record || record.type !== type || record.headline !== desk.headline || record.summary !== desk.summary ||
+          (record.destination || null) !== (desk.destination || null)) return null;
+      return Object.assign({}, desk, { publishedEditionDate: record.editionDate });
+    }
+    return null;
+  }
+
   function renderFrontDesks() {
     var section = document.querySelector(".ns-feature-desk");
     if (!section) return;
     section.hidden = true;
     if (!columnsLoaded || !columns || global.NEWSSTAND_LOCAL_PREVIEW) return;
-    // Keep the latest admitted service desks on the counter until a newer
-    // complete edition replaces them. Their dated issue remains the authority;
-    // an empty calendar day must not erase the newest published NewsStand.
-    var issue = storedDailyIssue(editorialToday()) || latestStoredDailyIssue();
     var labels = {
       paige_tip: "Paige’s AI & Productivity Tip",
       career_life: "The Corner Office",
@@ -617,19 +629,10 @@
     Object.keys(labels).forEach(function (type) {
       var node = document.querySelector('[data-desk="' + type + '"]');
       if (!node) return;
-      var desk = issue && issue.desks.find(function (item) { return item.type === type; });
-      if (!issue) {
-        var fallbackColumn = eligibleColumns().filter(function (record) { return record.type === type; })
-          .sort(function (a, b) { return b.editionDate.localeCompare(a.editionDate); })[0];
-        desk = fallbackColumn ? {
-          type: type,
-          state: "ready",
-          recordId: fallbackColumn.id,
-          headline: fallbackColumn.headline,
-          summary: fallbackColumn.summary,
-          destination: fallbackColumn.destination || null
-        } : null;
-      }
+      // The counter is a collection of published columns, not a mirror of one
+      // Daily issue. Retain a still-current published column when a later issue
+      // has no replacement; never surface an unissued bank row or expired copy.
+      var desk = latestPublishedDesk(type);
       var admittedColumn = desk && columnById(desk.recordId);
       var ready = desk && desk.state === "ready" && admittedColumn && admittedColumn.id === desk.recordId;
       node.setAttribute("data-desk-state", ready ? "ready" : "empty");
@@ -648,7 +651,7 @@
           }
         }
         var content = illustration + label + '<strong>' + escapeHTML(desk.headline) + '</strong>' +
-          (desk.carriedFrom ? '<span class="ns-service-date">Published ' + escapeHTML(formatDate(admittedColumn.editionDate)) + '</span>' : '') +
+          (desk.publishedEditionDate < editorialToday() ? '<span class="ns-service-date">Published ' + escapeHTML(formatDate(admittedColumn.editionDate)) + '</span>' : '') +
           '<span>' + escapeHTML(desk.summary) + '</span>';
         if (type === "crossword" && serviceLink(desk.destination)) {
           node.innerHTML = '<a href="' + escapeHTML(desk.destination) + '">' + content + '<span class="ns-service-action">Play the crossword →</span></a>';

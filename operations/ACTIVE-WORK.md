@@ -1,3 +1,13 @@
+<!-- NewsStand September 6 display repair: BUILDING -->
+NewsStand display recovery is active: images and player now verified in the full
+HTTP candidate; mint theme control at bottom-right at desktop and 390 px. Front
+counter restores still-current issued Concept and town notices without changing
+Daily history. Mme CLAi-O remains expired and requires renewal. Three public-file
+overlay of deployment 2d4735ee prepared; not yet deployed. The approved recurring
+service 0/1 floor and prevention of omitted service carry are implemented and
+calibrated. Catch Me Up independent admission still pending. Continue existing
+NewsStand editorial work after closing this visitor-reported regression.
+
 # Active work
 
 ## 2026-09-05 NewsStand source-to-reader continuation

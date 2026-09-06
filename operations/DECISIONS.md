@@ -20,6 +20,24 @@ proper domain source before building from it.
 
 ## Core routes
 
+September 6 NewsStand regression repair: the front counter retains the latest
+still-eligible column of each type from validated published issue history, with
+its original date, until replaced. A new Daily issue with an empty desk does not
+withdraw that published column. An expired, withdrawn or changed latest record
+must not revive an older version; unissued bank rows never appear. Dated issues
+remain immutable. Ali also directed the NewsStand theme control to the masthead's
+bottom-right, with a coloured background. Use a complete HTTP-served publication
+artifact for review; a sparse checkout opened with file:// is not a working site.
+
+Ali approved on September 6 that a clean recurring NewsStand service update may
+retain zero review issues and one review cycle when its predecessor was already
+at that floor. All current accuracy, source, producer and independent editorial
+checks must still pass. Preserve truthful counts and successor lineage; this
+permits equality only at the clean 0/1 floor, not unresolved defects or inflated
+counts. Implement with a new explicit bounded policy binding so existing approved
+service receipts remain unchanged. This does not authorize a Library, Big Picture
+or explanation-feature exception.
+
 A new final QUIET issue must bind the existing recovery queue's no-active-work
 selection. Composition and first promotion both reject active work or changed
 queue bytes. Exact stored/admitted historical replay still validates its envelope,

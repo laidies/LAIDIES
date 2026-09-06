@@ -101,6 +101,7 @@ function receiptFor({ report, reportBinding, artifact, candidate, context, polic
     outcomes: clone(candidate.outcomes),
     failureFamilies: clone(candidate.failureFamilies),
     factualReview: clone(candidate.factualReview),
+    ...(metadata.value.reviewFloorPolicy ? {reviewFloorPolicy: clone(metadata.value.reviewFloorPolicy)} : {}),
     ratchet: clone(metadata.value.ratchet),
     lineage: clone(metadata.value.lineage),
     learningDisposition: clone(metadata.value.learningDisposition),

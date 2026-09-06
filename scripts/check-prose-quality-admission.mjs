@@ -8,6 +8,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
 const NEWSSTAND_SAMPLING_POLICY = "operations/product-stewards/newsstand/recurring-service-sampling-policy.json";
+const SERVICE_REVIEW_FLOOR_POLICY = "operations/product-stewards/newsstand/recurring-service-review-floor-policy.json";
 const NEWS_EDITORIAL_POLICY = "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json";
 const HASH = /^[a-f0-9]{64}$/;
 const CORE = ["plainClarity", "readerValue", "laidiesVoice", "engagingEnjoyable", "factualIntegrity", "freshnessReviewability", "surfaceFit"];
@@ -124,6 +125,30 @@ function samplingOverrideFor(receipt, root, errors) {
   return policy;
 }
 
+function serviceReviewFloorPolicyFor(receipt, root, errors) {
+  const binding = receipt?.reviewFloorPolicy;
+  if (!binding) return null;
+  const require = (condition, message) => { if (!condition) errors.push(`reviewFloorPolicy: ${message}`); };
+  require(binding && typeof binding === "object" && !Array.isArray(binding) && Object.keys(binding).sort().join("\n") === ["path", "policyId", "sha256"].join("\n"), "binding must contain only path, policyId, and sha256");
+  require(["PRODUCER_SELF_REVIEW", "INDEPENDENT_SEMANTIC_ADMISSION"].includes(receipt.stage), "stage is not authorized");
+  require(receipt.surface === "NEWSSTAND_RECURRING_SERVICE_COLUMNS", "limited to NEWSSTAND_RECURRING_SERVICE_COLUMNS");
+  require(binding.path === SERVICE_REVIEW_FLOOR_POLICY, "canonical policy path required");
+  const body = loadBinding(root, binding, "reviewFloorPolicy", errors);
+  if (!body) return null;
+  let policy;
+  try { policy = JSON.parse(body); }
+  catch { errors.push("reviewFloorPolicy: invalid policy JSON"); return null; }
+  require(policy.schemaVersion === "laidies-newsstand-recurring-service-review-floor-policy.v1", "schemaVersion mismatch");
+  require(policy.policyId === binding.policyId, "policyId mismatch");
+  require(policy.status === "ACTIVE", "policy status is not ACTIVE");
+  require(policy.surface === receipt.surface, "surface mismatch");
+  require(Array.isArray(policy.allowedContentClasses) && policy.allowedContentClasses.includes(receipt.contentClass), "contentClass is not authorized");
+  require(Array.isArray(policy.allowedStages) && policy.allowedStages.includes(receipt.stage), "stage is not authorized by policy");
+  require(policy.mode === "ALLOW_EQUAL_ZERO_ISSUES_ONE_CYCLE_SUCCESSOR_V1", "mode mismatch");
+  require(text(policy.reviewedNotBefore) && !Number.isNaN(Date.parse(policy.reviewedNotBefore)) && Date.parse(receipt.reviewedAt) >= Date.parse(policy.reviewedNotBefore), "review predates this approval");
+  return policy;
+}
+
 function newsEditorialAnalysisFor(receipt, root, errors) {
   const profile = receipt?.newsEditorialReview;
   if (!profile) return null;
@@ -172,6 +197,7 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   require(Array.isArray(receipt?.limitations), "limitations must be an array");
   const samplingPolicy = samplingOverrideFor(receipt, root, errors);
   const newsAnalysis = newsEditorialAnalysisFor(receipt, root, errors);
+  const serviceReviewFloorPolicy = serviceReviewFloorPolicyFor(receipt, root, errors);
 
   const artifactBody = loadBinding(root, receipt?.artifact?.reviewText, "artifact.reviewText", errors);
   if (newsAnalysis) {
@@ -364,7 +390,14 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   } else {
     require(text(receipt?.lineage?.noComparableReason), "first candidate requires a noComparableReason");
   }
-  if (receipt?.ratchet?.priorComparable && !newsImprovementMetrics) {
+  if (serviceReviewFloorPolicy) {
+    require(receipt?.verdict === "PASS", "only a clean PASS may use the zero-floor policy");
+    require(receipt?.lineage?.kind === "SUCCESSOR" && receipt?.ratchet?.priorComparable?.candidateId === receipt?.lineage?.predecessorCandidateId, "must bind the exact predecessor as priorComparable");
+    require(receipt?.ratchet?.repeatedKnownDefects === 0 && receipt?.ratchet?.objectiveDefectsFirstFoundAtReview === 0, "current known or objective defects cannot use the zero-floor policy");
+    require(receipt?.ratchet?.reviewIssues === 0 && receipt?.ratchet?.reviewCycles === 1, "current review counts must be zero issues and one cycle");
+    require(receipt?.ratchet?.priorComparable?.reviewIssues === 0 && receipt?.ratchet?.priorComparable?.reviewCycles === 1, "prior comparable counts must be zero issues and one cycle");
+  }
+  if (receipt?.ratchet?.priorComparable && !newsImprovementMetrics && !serviceReviewFloorPolicy) {
     require(receipt.ratchet.reviewIssues < receipt.ratchet.priorComparable.reviewIssues, "review issues did not decrease against the comparable candidate");
     require(receipt.ratchet.reviewCycles < receipt.ratchet.priorComparable.reviewCycles, "review cycles did not decrease against the comparable candidate");
   }
