@@ -19,7 +19,7 @@ export function createPrivateBridge(env, fetcher = fetch) {
       body: JSON.stringify({ p_capability: env.PRIVATE_FEEDBACK_DB_CAPABILITY, p_action: action, p_payload: payload })
     });
     const result = await boundedJson(response, action === 'list' ? 600000 : 4096, signal);
-    if (!response.ok) throw new Error(Object.hasOwn(codes, result?.message) ? result.message : 'feedback_unavailable');
+    if (!response.ok) { const error = new Error(Object.hasOwn(codes, result?.message) ? result.message : 'feedback_unavailable'); error.providerStatus = response.status; throw error; }
     if (action === 'list' && (!Array.isArray(result) || result.length > 50)) throw new Error('feedback_unavailable');
     return result;
   };
@@ -55,5 +55,5 @@ export async function privateFeedbackFetch(request, env, fetcher = fetch) {
     const signal = AbortSignal.timeout(5000);
     const payload = await boundedJson(request, 1024, signal);
     return json(200, await bridge(action, payload, signal));
-  } catch (error) { return json(codes[error?.message] || 503, { error: Object.hasOwn(codes, error?.message) ? error.message : 'feedback_unavailable' }); }
+  } catch (error) { return json(codes[error?.message] || 503, { error: Object.hasOwn(codes, error?.message) ? error.message : 'feedback_unavailable', failure_kind: ['TypeError', 'TimeoutError', 'AbortError'].includes(error?.name) ? error.name : 'Error', ...(Number.isInteger(error?.providerStatus) ? { provider_status: error.providerStatus } : {}) }); }
 }
