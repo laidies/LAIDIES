@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Sharper Girl Talk thumbnail in Did you know
+
+Ali reports the Truth or Dare thumbnail still looks pixelated. At72px/56px the prior landscape grunge becomes noise despite its1536px source. Replace only the first DYK image with existing assets/girl-talk-board.webp (980x653); preserve current size, lime border, typography, colours,8invitations, links and controls. Larger landscape uses remain unchanged; this does not retire their artwork. Source f922d52a; hosted evidence 6e95b196; https://1e77d547.laidies-sunnyvaile.pages.dev/#dyk-title . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
+
 ## 2026-09-06 — Women footer, warm Miss Jeeves and selected heading style
 
 Ali flags lower-left empty space beside stacked LUMINAiRY/Episode04 links. Put the existing links beneath both columns in an equal-width desktop row/full-width phone stack; tighten row/paragraph/footer spacing. She also rejects navy-on-navy Miss Jeeves and blue/green dominance: use current pink/coral/tangerine with existing subtle print texture, dark readable copy and warm controls; no plain-white panel. Finally she selects “Everything you can do in LAiDIES.” as typography reference for headings/bold text and specifically flags DYK. Actual typeface is Jost in both; match DYK heading/messages/links/controls to reference Bold700 while retaining compact sizes, line heights, colours and outline. Regular body text and intentional quote/radio treatments preserved. Source b7f41fed; hosted evidence d80249b5 (supersedes early captures6a137a9e); https://9201610d.laidies-sunnyvaile.pages.dev/#dyk-title . Existing preview tab8 visibly updated. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
