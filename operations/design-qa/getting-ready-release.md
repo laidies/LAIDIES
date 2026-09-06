@@ -1,4 +1,37 @@
-# Getting Ready installation: prepared, not released
+# Getting Ready installation: release-ready, account UI roundtrip pending
+
+## September 6 resumed verification
+
+Supabase migration executed manually through the authenticated SQL editor in
+project swqnkxzebxdbgyrzpdne (laidies-member-pass, main PRODUCTION). The existing
+live function was inspected; its raster-portrait and security validation were
+preserved. Transaction completed with Success. No rows returned. A separate
+read-only query returned true for all original six finishes and gettingready,
+false for unknown-finish. The first readback omitted the required fields envelope
+and correctly returned false for every malformed input; the corrected query used
+the exact envelope in the migration. No resident account rows were changed.
+
+Current release input: `/private/tmp/laidies-getting-ready-tangerine-successor-20260906`.
+Manifest: same path plus `.manifest.json`.
+Identity: `823e53a85375a232e66e623ca50272a71799ece94c9d6895419b312902bbbab7`.
+759 files, 813567723 bytes. Base: 17c48db8-5112-4026-a966-bdb2171e57ef,
+source a5dcf15; `/private/tmp/laidies-newsstand-tangerine-dots.manifest.json`,
+identity d91fc0e8afb920c1dd07c48983921cd01d7bd813f48382bf3b0a38a6d6d40224.
+Full source directory inventory matched that base before overlay. Successor
+comparison requires exactly the seven changes and two additions listed below,
+zero removals, every unrelated hash retained. NewsStand owner confirmed no
+imminent competing release; its unapproved sparse-dot preview was excluded.
+
+Independent desktop and 390x844 review passed for this narrow integration;
+the reviewed Card bytes are identical in the new successor. One authorized
+sign-in email was requested for wednesday.laidies@gmail.com. Live UI accepted it;
+the correct connected Gmail profile was verified, but the single narrowly scoped
+search found no message. No repeated request or broad mailbox search. Account UI
+save/restore and cross-device proof remain pending; no lifecycle completion claim.
+The governing approved-background decision requires the now-applied server
+allowlist, not admission of the separate unfinished account-onboarding changes.
+
+The earlier HOLD and stale candidate below are retained as historical evidence.
 
 ## Owned implementation
 

@@ -2,12 +2,12 @@
 
 ## 2026-09-06 Getting Ready Resident Card background
 
-- **Status:** HOLD for Supabase authentication and live account-save verification; local implementation and isolated candidate prepared. No deployment.
+- **Status:** Release-ready for approved Getting Ready art/enum addition. Server allowlist and independent phone review complete; account UI roundtrip remains pending. No deployment yet.
 - **Working source:** `/Users/alisoneakin/Projects/laidies-getting-ready-20260906`, branch `art-integration/getting-ready-20260906`; the commit containing this entry binds owned changes.
 - **Completed:** Exact approved artwork installed as seventh option; maker/Closet finish rendering; shared validator; cache versions on all six consumers; bounded SQL migration and fail-closed release overlay. Original six IDs and unrelated OTP work preserved.
 - **Verified:** 54/54 source shared-contract checks, 33/33 cross-surface contract checks. Browser selected Getting Ready, saved Test Resident on isolated port 4187, opened Closet and returned to maker with gettingready restored. Desktop populated-portrait and 390px phone inspections performed.
 - **Release preparation:** Candidate `05c679ae7324946171603a21466819f5dd90d31552e810df3afe7651b44e966d`, 759 files, 813567720 bytes. Compared with current NewsStand print-ground manifest: seven intended changes/two additions/no removals/all unrelated hashes identical. Fresh provider check required at resume because another release task is active.
-- **Blocker:** Supabase dashboard redirects to login; normal GitHub SSO also requires login. No existing authorized SQL client/connector located. Never deploy the selectable option before server acceptance.
+- **Resumed:** Supabase authenticated; exact migration executed and separate readback accepted all seven valid finishes/rejected unknown. No account rows changed. Fresh successor identity 823e53a85375a232e66e623ca50272a71799ece94c9d6895419b312902bbbab7 preserves full 17c48db8 inventory outside the exact delta. Single authorized sign-in request accepted; email not found, account UI roundtrip not claimed. See release record for current candidate and independent review.
 - **Exact resume:** `operations/design-qa/getting-ready-release.md`. No account data, credentials, production Pages or email-code source changed in this task.
 
 ## 2026-09-05 MAiKEOVER integrated account onboarding

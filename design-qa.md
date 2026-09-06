@@ -1,6 +1,6 @@
 # Getting Ready integration QA
 
-final result: blocked
+final result: passed for the bounded Getting Ready integration; account lifecycle verification remains pending
 
 Approved reference is the exact Getting Ready v2 1681x936 raster. Source SHA and
 release/test evidence are in `operations/design-qa/getting-ready-release.md`.
@@ -15,14 +15,21 @@ The phone maker uses a full-width card at the source artwork's aspect ratio.
 Closet retains its existing responsive content layout and contains the image
 without stretching. The existing tall mobile Closet is not redesigned here.
 
-Local selection/save/Closet/return works on the isolated current-production-base
-candidate. Public acceptance is blocked by missing authenticated Supabase access
-and thus unexecuted server migration/account roundtrip. No visual or deployment
-completion is claimed while that release boundary remains open. Independent
-visual review found no new desktop blocker: distinct readable header, protected
-portrait/text areas, recognizable proportional artwork, all six originals retained.
-The independent reviewer could not access phone emulation; only the maker's
-390px inspection exists. Independent phone evidence remains required at admission.
+Local selection/save/Closet/return works on the isolated production-base candidate.
+Supabase migration executed in project swqnkxzebxdbgyrzpdne; a separate readback
+accepted all seven correctly enveloped finishes and rejected unknown-finish.
+Independent artifact-first desktop and 390x844 inspection found no new integration
+defect: readable distinct header, protected portrait/text, proportional art and
+all six incumbent choices retained. Phone viewport reset after inspection.
+The successor artifact identity is
+823e53a85375a232e66e623ca50272a71799ece94c9d6895419b312902bbbab7.
+The only changes from the reviewed candidate are the two preserved NewsStand
+files from current production. Card bytes are unchanged. This admits the approved
+art/enum addition, not the separately held account-onboarding implementation.
+One authorized resident sign-in request was accepted; its email was not found in
+the connected correct mailbox. Account save and cross-device restoration remain
+unverified. The approved-background decision requires the server allowlist before
+publication, now satisfied; it does not reopen or claim the full auth lifecycle.
 
 ---
 
