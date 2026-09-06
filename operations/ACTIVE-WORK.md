@@ -1,5 +1,5 @@
-<!-- Mme reading prominence correction: REVIEWED, release pending -->
-Ali rejected the full-width pink reading strip. Compact vivid illustrated insert independently accepted at1200/390/320, preserving card size and canonical text/rotation. Evidence: operations/product-stewards/newsstand/evidence/reading-insert-20260906/review.md. Next: two-file scoped release from8ec6a1db and live checks.
+<!-- Mme reading prominence correction: VERIFIED PUBLICLY -->
+Ali rejected the full-width pink reading strip. Compact vivid illustrated insert independently accepted at1200/390/320, preserving card size and canonical text/rotation. Evidence: operations/product-stewards/newsstand/evidence/reading-insert-20260906/review.md. Sourcec176e590 deployed2c3c016f; exact public bytes at both origins and fresh live1200/390/320 render verified. No broken images/overflow.
 
 <!-- Whole-paper composition: VERIFIED PUBLICLY -->
 Current candidate replaces repeated section boxes with continuous ruled newspaper composition, large illustrations, useful columns plus LUM sidebar and fixed Mme reading. Independent visual review accepted. Exact evidence: operations/product-stewards/newsstand/evidence/whole-paper-20260906/review.md. Source875c07d5 published at8ec6a1db. Both public origins match both changed files. Live1200/390/320: no broken images/overflow;194pxdesktopmasthead; all six column bodies open correctly. Earlier private pilot HOLD superseded by this reviewed candidate.
