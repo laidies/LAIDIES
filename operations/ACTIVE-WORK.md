@@ -1,5 +1,5 @@
-<!-- Section marker/rule correction: BUILDING -->
-Contrasting compact eyebrow tabs and matching section rules; paired Latest borders removed. Root1200/390/320 checks clear. Evidence: operations/product-stewards/newsstand/evidence/desk-markers-20260906/review.md. Next: independent review, scoped publication and live check.
+<!-- Section marker/rule correction: VERIFIED PUBLICLY -->
+Contrasting compact eyebrow tabs and matching section rules; paired Latest borders removed. Root1200/390/320 checks clear. Evidence: operations/product-stewards/newsstand/evidence/desk-markers-20260906/review.md. Independent Terra review accepted. Source27ce80b0 deployed7f8acf61; two files match both public origins. Live1200/390/320 no overflow/broken art; single-boundary negative guard passed.
 
 <!-- Mme reading prominence correction: VERIFIED PUBLICLY -->
 Ali rejected the full-width pink reading strip. Compact vivid illustrated insert independently accepted at1200/390/320, preserving card size and canonical text/rotation. Evidence: operations/product-stewards/newsstand/evidence/reading-insert-20260906/review.md. Sourcec176e590 deployed2c3c016f; exact public bytes at both origins and fresh live1200/390/320 render verified. No broken images/overflow.
