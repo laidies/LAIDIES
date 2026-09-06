@@ -13,7 +13,19 @@
   function k(id0,v){fail(id(id0)&&id(v),"A canonical ID and version are required.");return id0+"@"+v;}
   function size(x){try{return JSON.stringify(x).length;}catch(_){return Infinity;}}
   function placements(x){return Array.isArray(x)&&x.length<=30&&!x.some(function(p){return !keys(p,["sticker_id","x","y","scale","rotation","z"])||!id(p.sticker_id)||![p.x,p.y,p.scale,p.rotation,p.z].every(Number.isFinite)||p.x<0||p.x>1||p.y<0||p.y>1||p.scale<.25||p.scale>4||p.rotation<-360||p.rotation>360||!Number.isInteger(p.z)||p.z<0||p.z>99;});}
+  function fieldState(x){
+    if(!keys(x,["fields"])||!obj(x.fields)||Object.keys(x.fields).length>64)return false;
+    return !Object.keys(x.fields).some(function(name){
+      var value=x.fields[name],type=typeof value;
+      if(name==="__proto__"||name==="constructor"||name==="prototype"||!id(name))return true;
+      if(type==="string")return value.length>TEXT;
+      if(type==="boolean")return false;
+      if(type==="number")return !Number.isFinite(value)||value < -1000000||value > 1000000;
+      return true;
+    });
+  }
   function state(x){
+    if(fieldState(x))return true;
     if(!keys(x,["task","responses","ratings","comparison_notes","chosen_result","final_edit","current_step"])||!keys(x.responses,["chatgpt","claude","gemini"])||!obj(x.ratings)||Object.keys(x.ratings).length>12)return false;
     var a=[x.task,x.responses.chatgpt,x.responses.claude,x.responses.gemini,x.comparison_notes,x.chosen_result,x.final_edit];
     return a.every(function(t){return typeof t==="string"&&t.length<=TEXT;})&&typeof x.current_step==="string"&&x.current_step.length<=120&&!Object.keys(x.ratings).some(function(n){return !/^[A-Za-z0-9._:-]{1,80}$/.test(n)||!Number.isFinite(x.ratings[n])||x.ratings[n]<0||x.ratings[n]>10;});
@@ -48,18 +60,19 @@
     function reserve(key){if(!pending[key]&&Object.keys(pending).length>=MAX_PENDING)throw new RangeError("This account already has 32 Episode Binder saves waiting for confirmation. Retry or reload those saves before starting another.");}
     async function session(){var s=await runtime.controller.getSession();if(!s||!s.user||!s.user.id)throw new Error("authentication-required");clear(String(s.user.id));return {owner:owner,gen:gen};}
     function current(t){if(t.owner!==owner||t.gen!==gen)throw new Error("account-changed-reload-binder");}
-    async function load(){var t=await session(),x=await runtime.client.rpc("get_my_resident_episode_binder_v1");if(x.error)throw x.error;current(t);var b=x.data&&x.data.binder;if(!b){cache=empty();revision=null;return {state:"empty",document:clone(cache),revision:null};}cache=valid(b.document);if(!cache||!b.revision)throw new Error("invalid-resident-episode-binder-v1");revision=b.revision;return {state:"saved",document:clone(cache),revision:revision};}
-    async function saveDocument(d,keyValue,expectedValue){
-      var key=mutationKey(keyValue),t=await session();reserve(key);var saved=pending[key];
-      if(!cache&&!saved)await load();t={owner:owner,gen:gen};
+    async function load(boundToken){var observed=await session(),t=boundToken||observed;if(boundToken)current(boundToken);var x=await runtime.client.rpc("get_my_resident_episode_binder_v1");if(x.error)throw x.error;current(t);var b=x.data&&x.data.binder;if(!b){cache=empty();revision=null;return {state:"empty",document:clone(cache),revision:null};}cache=valid(b.document);if(!cache||!b.revision)throw new Error("invalid-resident-episode-binder-v1");revision=b.revision;return {state:"saved",document:clone(cache),revision:revision};}
+    async function saveDocument(d,keyValue,expectedValue,boundToken){
+      var key=mutationKey(keyValue),observed=await session(),t=boundToken||observed;if(boundToken)current(boundToken);reserve(key);var saved=pending[key];
+      if(!cache&&!saved)await load(t);current(t);
       if(!saved){var checked=valid(d),expected=expectedValue===undefined?revision:expectedValue;if(!checked)throw new TypeError(size(d)>MAX?"This save is too large for your Episode Binder. Shorten a pasted response or remove a saved version, then try again.":"This Episode Binder save has an unsupported field or value.");pending[key]={document:clone(checked),expected:expected};saved=pending[key];}
+      current(t);
       var x=await runtime.client.rpc("put_my_resident_episode_binder_v1",{p_document:saved.document,p_idempotency_key:key,p_expected_revision:saved.expected});
       if(x.error){if(String(x.error.message||"").indexOf("revision-conflict")>=0)return {state:"conflict",action:"reload-and-review",idempotencyKey:key};throw x.error;}
       current(t);var check=await runtime.client.rpc("get_my_resident_episode_binder_v1");if(check.error)throw check.error;current(t);var b=check.data&&check.data.binder,remote=b&&valid(b.document);
       if(!b||b.revision!==x.data.revision||!remote||!same(remote,saved.document))throw new Error("episode-binder-remote-read-after-write-failed");
       cache=remote;revision=b.revision;delete pending[key];return {state:"saved",document:clone(cache),revision:revision,idempotencyKey:key};
     }
-    async function mutate(number,fn,keyValue){var key=mutationKey(keyValue);await session();reserve(key);if(pending[key])return saveDocument(null,key);await load();var ekey=String(number).padStart(2,"0");fail(EPS.indexOf(ekey)>=0,"Episode must be 01 through 04.");var d=clone(cache),e=d.episodes[ekey]||ep();d.episodes[ekey]=fn(e)||e;return saveDocument(d,key);}
+    async function mutate(number,fn,keyValue){var key=mutationKey(keyValue),t=await session();reserve(key);if(pending[key])return saveDocument(null,key,undefined,t);await load(t);current(t);var ekey=String(number).padStart(2,"0");fail(EPS.indexOf(ekey)>=0,"Episode must be 01 through 04.");var d=clone(cache),e=d.episodes[ekey]||ep();d.episodes[ekey]=fn(e)||e;current(t);return saveDocument(d,key,undefined,t);}
     return Object.freeze({
       load:load,saveDocument:saveDocument,
       savePack:function(n,p,keyValue){var key=mutationKey(keyValue);fail(p&&id(p.content_id)&&id(p.content_version)&&placements(p.placements||[]),"A pack ID, version, and valid Puffy placements are required.");return mutate(n,function(e){var q=k(p.content_id,p.content_version);if(Object.keys(e.packs).length>=16&&!e.packs[q])throw new RangeError("This Episode Binder has reached its 16 saved pack-version limit for this episode. Delete a saved pack version before adding another.");e.packs[q]={content_id:p.content_id,content_version:p.content_version,saved_at:p.saved_at||now(),placements:clone(p.placements||[])};return e;},key);},

@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {encodeEpisode01,decodeEpisode01} from '../content/site/episode-01-exercise-state.mjs';
+const schema=JSON.parse(fs.readFileSync(new URL('../content/episodes/episode-01.exercise-fields.json',import.meta.url),'utf8'));
+const state={step:'compare',journeyMode:'live',task:'Synthetic invitation',activeProvider:'claude',chosenProvider:'claude',editedDraft:'My own edit',humanChange:'Kept the date',completedSteps:['task','answers'],runs:{}};
+for(const provider of ['chatgpt','claude','gemini'])state.runs[provider]={model:'Other',customModel:`${provider} test label`,answer:`${provider} test response`,liked:`${provider} kept the date`,disliked:'Too formal',change:'Shorten it',verify:'unsure',ratings:{gotMeaning:4,useful:3,tone:2,easy:5},styles:{detail:21,tone:42,scope:63,structure:84}};
+const encoded=encodeEpisode01(state,schema);
+const record=input_state=>({exercise_id:schema.exerciseId,exercise_version:schema.exerciseVersion,input_state});
+assert.equal(Object.keys(encoded.fields).length,57);
+assert.deepEqual(decodeEpisode01(record(JSON.parse(JSON.stringify(encoded))),schema),state,'every field and current step survives a JSON round trip');
+for(const patch of [{step:'missing-step'},{task:null},{'claude.style.tone':101},{'completed.task':'true'},{task:'x'.repeat(16385)}])assert.throws(()=>decodeEpisode01(record({fields:{...encoded.fields,...patch}}),schema));
+const extra={fields:{...encoded.fields,unexpected:'do not silently discard'}};
+assert.throws(()=>decodeEpisode01(record(extra),schema));
+assert.equal(extra.fields.unexpected,'do not silently discard');
+for(const patch of [{exercise_id:'other'},{exercise_version:'older'},{exercise_version:undefined}])assert.throws(()=>decodeEpisode01({...record(encoded),...patch},schema));
+for(const patch of [{schemaVersion:'other'},{exerciseId:'other'},{exerciseVersion:undefined}])assert.throws(()=>encodeEpisode01(state,{...schema,...patch}));
+console.log('Episode01 exercise state: all 57 fields round-trip; invalid, missing-version-shape and oversized values fail without rewriting saved data.');

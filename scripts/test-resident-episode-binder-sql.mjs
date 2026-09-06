@@ -22,8 +22,18 @@ try {
   const pack={content_id:'ep01',content_version:'v1',saved_at:'2026-09-06T12:00:00.123Z',placements:[]};
   const entry={packs:{'ep01@v1':pack},exercises:{},cards:{},quizzes:{}};
   const valid={version:1,episodes:{'01':entry}};
+  const fieldSchema=JSON.parse(fs.readFileSync(new URL('../content/episodes/episode-01.exercise-fields.json',import.meta.url),'utf8'));
+  const fields=Object.fromEntries(Object.entries(fieldSchema.fields).map(([key,rule])=>[key,rule.choices?rule.choices[0]:rule.type==='text'?`${key}: synthetic note`:rule.type==='boolean'?true:3]));
+  const exercise={exercise_version:fieldSchema.exerciseVersion,input_state:{fields},placements:[],updated_at:'2026-09-06T12:00:00.123Z'};
+  const exerciseDoc={version:1,episodes:{'01':{...entry,exercises:{[`${fieldSchema.exerciseId}@${fieldSchema.exerciseVersion}`]:exercise}}}};
   const validate=async doc => (await db.query('select public.resident_episode_binder_v1_is_valid($1::jsonb) as valid',[JSON.stringify(doc)])).rows[0].valid;
   assert.equal(await validate(valid),true,'normal pack accepted');
+  assert.equal(await validate(exerciseDoc),true,'all 57 exact prototype fields accepted by SQL');
+  for(const patch of [{bad:null},{bad:[]},{bad:{}},{constructor:'bad'},{bad:'x'.repeat(16385)}]) {
+    const bad=structuredClone(exerciseDoc);
+    Object.assign(Object.values(bad.episodes['01'].exercises)[0].input_state.fields,patch);
+    assert.equal(await validate(bad),false,'invalid scalar field rejected by SQL');
+  }
   let errors=[];
   for(const [name,doc] of [
     ['extra key',{...empty,private_messages:[]}],
@@ -92,6 +102,9 @@ try {
   assert.equal((await client.saveQuizResult(1,quiz,retryKey)).state,'saved');
   const restored=await client.load();
   assert.equal(restored.document.episodes['01'].quizzes['ep01@v1'].attempts.length,1,'lost confirmation retry keeps one attempt');
+  await client.saveExercise(1,{exercise_id:fieldSchema.exerciseId,...exercise},'66666666-6666-4666-8666-666666666666');
+  const full=(await client.load()).document.episodes['01'].exercises[`${fieldSchema.exerciseId}@${fieldSchema.exerciseVersion}`];
+  assert.deepEqual(JSON.parse(JSON.stringify(full.input_state)),exercise.input_state,'all 57 fields survive browser client and actual SQL round trip');
   client.dispose();
   console.log('Episode binder SQL: migration executes; owner/role isolation, retries, stale revision and invalid data checks pass in isolated PostgreSQL. Live Supabase remains unverified.');
 } catch(error) {

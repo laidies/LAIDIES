@@ -6,6 +6,7 @@ import { randomUUID } from "node:crypto";
 const root=new URL("../",import.meta.url);
 const sql=fs.readFileSync(new URL("supabase/migrations/20260906020000_resident_episode_binder_v1.sql",root),"utf8");
 const source=fs.readFileSync(new URL("content/site/resident-episode-binder-v1.js",root),"utf8");
+const exerciseFields=JSON.parse(fs.readFileSync(new URL("content/episodes/episode-01.exercise-fields.json",root),"utf8"));
 for(const s of ["request_sha256","result_revision","interval '30 days'","pg_column_size(d)>2097152","pg_catalog.sha256","array['packs','exercises','cards','quizzes']"])assert.match(sql,new RegExp(s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")));
 assert.doesNotMatch(sql,/request jsonb|response jsonb/);
 assert.doesNotMatch(source,/localStorage|setInterval|\.slice\(-/);
@@ -105,6 +106,81 @@ saved=await binder.load();
 assert.ok(saved.document.episodes["03"].packs["account-b@v1"],"account switch clears the former account's pending snapshots");
 assert.equal(saved.document.episodes["03"].packs["pending1@v1"],undefined);
 
+assert.equal(Object.keys(exerciseFields.fields).length,57,"the current Episode 1 prototype registry has 57 fields");
+const fullFields=Object.fromEntries(Object.entries(exerciseFields.fields).map(([name,spec])=>[
+  name,
+  spec.type==="boolean" ? name.length%2===0 : spec.type==="number" ? Math.min(spec.max,Math.max(spec.min,name.length)) : `${name} value`
+]));
+await binder.saveExercise("01",{
+  exercise_id:exerciseFields.exerciseId,
+  exercise_version:exerciseFields.exerciseVersion,
+  input_state:{fields:fullFields},
+  placements:p
+},uuid());
+saved=await binder.load();
+const restoredFields=saved.document.episodes["01"].exercises[`${exerciseFields.exerciseId}@${exerciseFields.exerciseVersion}`].input_state.fields;
+assert.equal(JSON.stringify(restoredFields),JSON.stringify(fullFields),"all 57 current exercise fields round-trip without filtering or remapping");
+
+const invalidFieldStates=[
+  {name:"nested object",value:{fields:{task:{nested:"no"}}}},
+  {name:"array",value:{fields:{task:["no"]}}},
+  {name:"null",value:{fields:{task:null}}},
+  {name:"non-finite number",value:{fields:{score:Infinity}}},
+  {name:"out-of-range number",value:{fields:{score:1000001}}},
+  {name:"extra envelope key",value:{fields:{task:"ok"},extra:true}},
+  {name:"oversized string",value:{fields:{task:"x".repeat(16385)}}},
+  {name:"too many fields",value:{fields:Object.fromEntries(Array.from({length:65},(_,i)=>[`field${i}`,i]))}},
+  {name:"reserved constructor key",value:{fields:{constructor:"no"}}},
+  {name:"reserved prototype key",value:{fields:{prototype:"no"}}},
+  {name:"reserved proto key",value:JSON.parse('{"fields":{"__proto__":"no"}}')}
+];
+for(const sample of invalidFieldStates){
+  const callsBefore=rpcCalls;
+  await assert.rejects(async()=>binder.saveExercise("01",{exercise_id:"invalid",exercise_version:"v1",input_state:sample.value,placements:[]},uuid()),/typed input state/);
+  assert.equal(rpcCalls,callsBefore,`${sample.name} must fail before RPC`);
+}
+
+async function accountSwitchRace(invoke,label,switchOnCall=2){
+  let sessionCalls=0,releaseSecond,secondRequested;
+  const requested=new Promise(resolve=>{secondRequested=resolve;});
+  const writes=[];
+  const raceClient={
+    auth:{onAuthStateChange(){return {data:{subscription:{unsubscribe(){}}}};}},
+    async rpc(name,args){
+      if(name==="get_my_resident_episode_binder_v1")return {data:{binder:null},error:null};
+      writes.push(args);
+      return {data:{state:"saved",revision:"race-revision"},error:null};
+    }
+  };
+  const raceController={async getSession(){
+    sessionCalls++;
+    if(sessionCalls<switchOnCall)return {user:{id:"race-owner-a"}};
+    if(sessionCalls===switchOnCall){secondRequested();return new Promise(resolve=>{releaseSecond=resolve;});}
+    return {user:{id:"race-owner-b"}};
+  }};
+  const raceBinder=window.LAIDIESResidentEpisodeBinderV1.create({client:raceClient,controller:raceController});
+  const operation=invoke(raceBinder);
+  await requested;
+  releaseSecond({user:{id:"race-owner-b"}});
+  await assert.rejects(operation,/account-changed-reload-binder/,`${label} must reject after its owner changes at an awaited boundary`);
+  assert.equal(writes.length,0,`${label} must not retarget account A input into account B`);
+  raceBinder.dispose();
+}
+
+await accountSwitchRace(
+  raceBinder=>raceBinder.savePack("01",{content_id:"owner-a-pack",content_version:"v1",placements:[]},uuid()),
+  "helper mutation load"
+);
+await accountSwitchRace(
+  raceBinder=>raceBinder.savePack("01",{content_id:"owner-a-pack",content_version:"v1",placements:[]},uuid()),
+  "helper mutation final save",
+  3
+);
+await accountSwitchRace(
+  raceBinder=>raceBinder.saveDocument(window.LAIDIESResidentEpisodeBinderV1.emptyDocument(),uuid()),
+  "direct document save"
+);
+
 let large=window.LAIDIESResidentEpisodeBinderV1.emptyDocument();
 for(let e=1;e<=4;e++){
   let x={packs:{},exercises:{},cards:{},quizzes:{}};
@@ -114,4 +190,4 @@ for(let e=1;e<=4;e++){
 assert.ok(window.LAIDIESResidentEpisodeBinderV1.validateDocument(large),"four episodes and 16 saved exercise versions fit the 2 MiB quota");
 large.episodes["01"].exercises["try0@v0"].input_state.task=null;
 assert.equal(window.LAIDIESResidentEpisodeBinderV1.validateDocument(large),null,"calibration: null required text fails");
-console.log("RESIDENT EPISODE BINDER V1 PASS receipts=private quota=2MiB keys=required-zero-rpc pending=32-no-eviction account-switch=cleared retry=exact-one-attempt conflict=1 null-calibration=1");
+console.log("RESIDENT EPISODE BINDER V1 PASS receipts=private quota=2MiB keys=required-zero-rpc pending=32-no-eviction account-switch=cleared account-switch-await-boundaries=reject-zero-write retry=exact-one-attempt exercise-fields=57-lossless invalid-fields=fail-closed legacy-shape=compatible conflict=1 null-calibration=1");

@@ -1,4 +1,5 @@
 import { useMemo, useRef, useState } from "react";
+import {useEpisodeBinder} from './useEpisodeBinder';
 import {
   ArrowCounterClockwise,
   ArrowRight,
@@ -24,11 +25,10 @@ const providers = [
     presentation: "Email writing block",
     observed: "28 Jul 2026",
     modelOptions: [
-      "ChatGPT Free · GPT-5.5",
       "Model label not displayed",
       "Other",
     ],
-    initialModel: "ChatGPT Free · GPT-5.5",
+    initialModel: "Model label not displayed",
     guidedAnswer: `Here’s a concise, warm email you can send.
 
 Subject: Updated Deadline
@@ -49,8 +49,8 @@ Best,
     officialUrl: "https://claude.ai/new",
     presentation: "Email composer",
     observed: "27 Jul 2026",
-    modelOptions: ["Sonnet 5 · Medium", "Model label not displayed", "Other"],
-    initialModel: "Sonnet 5 · Medium",
+    modelOptions: ["Model label not displayed", "Other"],
+    initialModel: "Model label not displayed",
     guidedAnswer: `Subject: Quick update on the deadline
 
 Hi [Name],
@@ -69,8 +69,8 @@ Thanks for your understanding,
     officialUrl: "https://gemini.google.com/app",
     presentation: "Answer + quick tip",
     observed: "27 Jul 2026",
-    modelOptions: ["Flash", "Model label not displayed", "Other"],
-    initialModel: "Flash",
+    modelOptions: ["Model label not displayed", "Other"],
+    initialModel: "Model label not displayed",
     guidedAnswer: `Subject: Quick update regarding the deadline
 
 Hi [Name],
@@ -231,8 +231,7 @@ function Header({ task, journeyMode }) {
       </div>
       <div className="headline-block">
         <h1>
-          One thing you’ve been avoiding.{" "}
-          <strong>Three first passes.</strong> One place to begin.
+          Same task.{" "}<strong>Different drafts.</strong>
         </h1>
         {task.trim() && (
           <p className="task-summary" aria-live="polite">
@@ -245,7 +244,7 @@ function Header({ task, journeyMode }) {
       </div>
       <figure className="episode-art">
         <img
-          src="/assets/episode-01-title-card.png"
+          src={`${import.meta.env.BASE_URL}assets/episode-01-title-card.png`}
           alt="Episode One: On Wednesdays We Do AI"
         />
       </figure>
@@ -325,10 +324,7 @@ function ProviderScreen({
         />
         {!compact && (
           <>
-            <div className="answer-meta">
-              <span>{provider.presentation}</span>
-              <span>Example checked {provider.observed}</span>
-            </div>
+            <p className="answer-meta">Paste the answer to your task.</p>
             <textarea
               className="answer-input"
               aria-label={`${provider.name} answer or excerpt`}
@@ -346,13 +342,6 @@ function ProviderScreen({
                 Open {provider.name}
                 <ArrowSquareOut aria-hidden="true" />
               </a>
-              <button
-                className="text-button"
-                type="button"
-                onClick={() => updateRun({ answer: provider.guidedAnswer })}
-              >
-                Use LAiDIES example answer
-              </button>
               {run.answer && (
                 <button
                   className="text-button"
@@ -369,7 +358,7 @@ function ProviderScreen({
       </div>
       <footer className="monitor-footer">
         <span>{modelLabel(run)}</span>
-        <span>{provider.presentation}</span>
+        <span>Your answer</span>
       </footer>
     </section>
   );
@@ -378,7 +367,7 @@ function ProviderScreen({
 function ProviderTabs({ activeProvider, setActiveProvider, runs }) {
   return (
     <div className="provider-tabs" role="tablist" aria-label="AI tools">
-      {providers.map((provider) => (
+      {providers.filter((provider) => runs[provider.id].answer.trim()).map((provider) => (
         <button
           key={provider.id}
           type="button"
@@ -525,7 +514,7 @@ function TaskStage({ task, setTask, startGuided, startLive }) {
         <h2>Choose how you want to try it</h2>
         <p>
           Use the ready-made example without leaving LAiDIES, or compare one of
-          your own small tasks in the three tools.
+          your own small tasks in the tools you have available.
         </p>
       </div>
       <div className="route-choice guided-route">
@@ -556,8 +545,8 @@ function TaskStage({ task, setTask, startGuided, startLive }) {
           <h3>Compare my own task</h3>
           <p>
             Choose the exact words below. Next, you will open ChatGPT, Claude
-            and Gemini, paste this task into each one, then bring the three
-            answers back here.
+            and Gemini, paste this task into each one you can use, then bring the
+            answers back here. One tool is enough to start; add another later.
           </p>
         </div>
         <label className="large-field">
@@ -569,7 +558,7 @@ function TaskStage({ task, setTask, startGuided, startLive }) {
           />
         </label>
         <p className="privacy-reminder">
-          Use a small task without private details.
+          Use your own non-sensitive material or invented details. For work, both the tool and the information must be allowed by your employer.
         </p>
         <p className="starter-label">
           Need an idea? Choose a starter task—you can edit it.
@@ -607,7 +596,7 @@ function TaskStage({ task, setTask, startGuided, startLive }) {
 }
 
 function AnswersStage({ task, runs, setRuns, next, notify }) {
-  const allReady = providers.every((provider) =>
+  const allReady = providers.some((provider) =>
     runs[provider.id].answer.trim(),
   );
   const updateRun = (id, patch) =>
@@ -621,10 +610,10 @@ function AnswersStage({ task, runs, setRuns, next, notify }) {
       <div className="stage-heading">
         <div>
           <p className="stage-number">Step 2</p>
-          <h2>Now run this task in each tool</h2>
+          <h2>Try the task in a tool you can use</h2>
           <p>
-            Do these three actions for ChatGPT, Claude and Gemini. Keep the task
-            wording exactly the same.
+            Start with one tool. If you try another, use exactly the same task
+            wording so you can compare the answers fairly.
           </p>
         </div>
         <AppButton
@@ -664,8 +653,8 @@ function AnswersStage({ task, runs, setRuns, next, notify }) {
       <div className="stage-actions">
         <p className="completion-note">
           {allReady
-            ? "All three answers are ready to compare."
-            : "Add an answer or guided example for all three tools."}
+            ? "Your answer is ready to review. You can add more later."
+            : "Paste at least one answer to continue."}
         </p>
         <AppButton
           onClick={next}
@@ -695,10 +684,11 @@ function CompareStage({
       ...current,
       [activeProvider]: { ...current[activeProvider], ...patch },
     }));
-  const completedProviders = providers.filter((item) =>
+  const availableProviders = providers.filter((item) => runs[item.id].answer.trim());
+  const completedProviders = availableProviders.filter((item) =>
     Object.values(runs[item.id].ratings).every(Boolean),
   ).length;
-  const allRated = completedProviders === providers.length;
+  const allRated = availableProviders.length > 0 && completedProviders === availableProviders.length;
 
   return (
     <section className="stage compare-stage">
@@ -711,22 +701,22 @@ function CompareStage({
             end of a style slider is “better.”
           </p>
         </div>
-        <div className="counter">{completedProviders} of 3 rated</div>
+        <div className="counter">{completedProviders} of {availableProviders.length} rated</div>
       </div>
       <div className={`comparison-mode ${journeyMode || "live"}`}>
         <strong>
           {journeyMode === "guided"
             ? "You’re comparing the ready-made example"
-            : "You’re comparing answers from your own three tabs"}
+            : "You’re reviewing the answers you brought back"}
         </strong>
         <span>
           {journeyMode === "guided"
             ? "LAiDIES has already supplied the same dated email task and three example answers. Nothing was sent from this page."
-            : "These are the answers you brought back from ChatGPT, Claude and Gemini."}
+            : "These are the answers you brought back from the products you tried."}
         </span>
       </div>
       <div className="comparison-task">
-        <span>ChatGPT, Claude and Gemini were all asked exactly this:</span>
+        <span>The request you used:</span>
         <strong>{task}</strong>
       </div>
       <ProviderTabs
@@ -741,7 +731,7 @@ function CompareStage({
               <p>{provider.name}</p>
               <span>{modelLabel(run)}</span>
             </div>
-            <span>{provider.presentation}</span>
+            <span>{journeyMode === "guided" ? `Saved example · ${provider.observed}` : "Your answer"}</span>
           </div>
           <pre>{run.answer}</pre>
         </div>
@@ -810,7 +800,7 @@ function PickStage({
         </p>
       </div>
       <div className="choice-grid">
-        {providers.map((provider) => (
+        {providers.filter((provider) => runs[provider.id].answer.trim()).map((provider) => (
           <button
             key={provider.id}
             type="button"
@@ -883,6 +873,7 @@ function ReceiptStage({
     journeyMode === "guided" ? guidedRatingLabels : ratingLabels;
   const receiptText = useMemo(() => {
     const toolLines = providers
+      .filter((provider) => runs[provider.id].answer.trim())
       .map((provider) => {
         const run = runs[provider.id];
         const ratingText = receiptRatingLabels
@@ -966,7 +957,7 @@ This is a task-specific observation, not a permanent tool ranking.`;
                 ? "Verify before using"
                 : chosenRun.verify === "no"
                   ? "No factual check noted"
-                  : "Not applicable"}
+                  : chosenRun.verify === "na" ? "Not applicable" : "Not answered"}
             </dd>
           </div>
         </dl>
@@ -975,7 +966,7 @@ This is a task-specific observation, not a permanent tool ranking.`;
           <p>{task}</p>
         </div>
         <div className="receipt-tools">
-          {providers.map((provider) => {
+          {providers.filter((provider) => runs[provider.id].answer.trim()).map((provider) => {
             const run = runs[provider.id];
             return (
               <article key={provider.id} className={provider.className}>
@@ -1084,9 +1075,30 @@ export function App() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const binder=useEpisodeBinder({step,completedSteps,task,journeyMode,runs,activeProvider,chosenProvider,editedDraft,humanChange},(saved)=>{
+    setStep(saved.step);setCompletedSteps(saved.completedSteps);setTask(saved.task);
+    setJourneyMode(saved.journeyMode);setRuns(saved.runs);setActiveProvider(saved.activeProvider);
+    setChosenProvider(saved.chosenProvider);setEditedDraft(saved.editedDraft);setHumanChange(saved.humanChange);
+  },restart);
+
   return (
     <div className="app-shell">
       <Header task={task} journeyMode={journeyMode} />
+      <aside className="binder-save-bar" aria-label="Your episode binder">
+        <div>
+          <strong>Your episode binder · My Closet</strong>
+          <p>Save your task, pasted drafts, ratings, notes, edits and progress privately to your account.</p>
+          <p role="status">{binder.message}{binder.phase==='ready'&&binder.dirty?' Current changes are not saved yet.':''}</p>
+        </div>
+        <div className="binder-save-actions">
+          {binder.phase==='guest'?<>
+            <a className="button button-primary" href="https://laidies.ai/resident-card.html#rcAccountTitle" target="_blank" rel="noreferrer">Sign in to save</a>
+            <button className="button button-secondary" type="button" onClick={binder.checkSignIn}>Check sign-in</button>
+          </>:<button className="button button-primary" type="button" onClick={binder.save} disabled={!task.trim()||['loading','saving','unavailable','conflict'].includes(binder.phase)}>{binder.phase==='saving'?'Saving…':binder.phase==='error'?'Retry save':'Save to My Closet'}</button>}
+          {binder.hasSaved&&<button className="button button-secondary" type="button" onClick={binder.reopen} disabled={binder.phase==='saving'}>Open saved copy</button>}
+          {binder.canUndo&&<button className="button button-secondary" type="button" onClick={binder.undoRestore}>Return to my previous draft</button>}
+        </div>
+      </aside>
       <ProgressRail
         step={step}
         setStep={setStep}
@@ -1123,7 +1135,10 @@ export function App() {
           task={task}
           runs={runs}
           setRuns={setRuns}
-          next={() => goTo("compare")}
+          next={() => {
+            setActiveProvider(providers.find((provider) => runs[provider.id].answer.trim()).id);
+            goTo("compare");
+          }}
           notify={() => notify("Task copied. Paste the exact same words in each tool.")}
         />
       )}

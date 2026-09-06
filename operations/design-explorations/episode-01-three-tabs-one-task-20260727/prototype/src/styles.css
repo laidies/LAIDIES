@@ -115,8 +115,9 @@ h3 {
 
 .brand-block {
   display: flex;
-  align-items: center;
-  gap: 18px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .brand-wordmark {
@@ -1837,10 +1838,9 @@ body::before,
 
 .episode-art img {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
-  object-fit: cover;
-  object-position: 68% center;
+  object-fit: contain;
 }
 
 .headline-block h1 strong {
@@ -2831,3 +2831,19 @@ input::placeholder {
     box-shadow: none;
   }
 }
+
+.binder-save-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem clamp(20px, 4vw, 64px);
+  background: #f1f4f8;
+  border-bottom: 2px solid #6d1eb5;
+  color: #171018;
+}
+.binder-save-bar p { margin: .35rem 0 0; max-width: 65ch; font-size: 1rem; }
+.binder-save-actions { display: flex; flex-wrap: wrap; gap: .6rem; }
+.binder-save-actions .button { min-height: 44px; }
+@media print { .binder-save-bar { display: none; } }

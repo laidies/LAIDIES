@@ -1,0 +1,298 @@
+{
+  "schemaVersion": "laidies-exercise-fields.v1",
+  "exerciseId": "ep01-same-task-different-drafts",
+  "exerciseVersion": "2026-09-06-v1",
+  "status": "INTEGRATION_IN_PROGRESS",
+  "fields": {
+    "step": {
+      "type": "text",
+      "maxLength": 120,
+      "choices": [
+        "task",
+        "answers",
+        "compare",
+        "pick",
+        "receipt"
+      ]
+    },
+    "journey_mode": {
+      "type": "text",
+      "maxLength": 120,
+      "choices": [
+        "",
+        "guided",
+        "live"
+      ]
+    },
+    "task": {
+      "type": "text",
+      "maxLength": 16384
+    },
+    "active_provider": {
+      "type": "text",
+      "maxLength": 120,
+      "choices": [
+        "chatgpt",
+        "claude",
+        "gemini"
+      ]
+    },
+    "chosen_provider": {
+      "type": "text",
+      "maxLength": 120,
+      "choices": [
+        "chatgpt",
+        "claude",
+        "gemini"
+      ]
+    },
+    "edited_draft": {
+      "type": "text",
+      "maxLength": 16384
+    },
+    "human_change": {
+      "type": "text",
+      "maxLength": 16384
+    },
+    "completed.task": {
+      "type": "boolean"
+    },
+    "completed.answers": {
+      "type": "boolean"
+    },
+    "completed.compare": {
+      "type": "boolean"
+    },
+    "completed.pick": {
+      "type": "boolean"
+    },
+    "completed.receipt": {
+      "type": "boolean"
+    },
+    "chatgpt.model": {
+      "type": "text",
+      "maxLength": 120
+    },
+    "chatgpt.custom_model": {
+      "type": "text",
+      "maxLength": 120
+    },
+    "chatgpt.answer": {
+      "type": "text",
+      "maxLength": 16384
+    },
+    "chatgpt.liked": {
+      "type": "text",
+      "maxLength": 16384
+    },
+    "chatgpt.disliked": {
+      "type": "text",
+      "maxLength": 16384
+    },
+    "chatgpt.change": {
+      "type": "text",
+      "maxLength": 16384
+    },
+    "chatgpt.verify": {
+      "type": "text",
+      "maxLength": 120,
+      "choices": [
+        "",
+        "yes",
+        "no",
+        "unsure",
+        "na"
+      ]
+    },
+    "chatgpt.rating.gotMeaning": {
+      "type": "number",
+      "min": 0,
+      "max": 5
+    },
+    "chatgpt.rating.useful": {
+      "type": "number",
+      "min": 0,
+      "max": 5
+    },
+    "chatgpt.rating.tone": {
+      "type": "number",
+      "min": 0,
+      "max": 5
+    },
+    "chatgpt.rating.easy": {
+      "type": "number",
+      "min": 0,
+      "max": 5
+    },
+    "chatgpt.style.detail": {
+      "type": "number",
+      "min": 0,
+      "max": 100
+    },
+    "chatgpt.style.tone": {
+      "type": "number",
+      "min": 0,
+      "max": 100
+    },
+    "chatgpt.style.scope": {
+      "type": "number",
+      "min": 0,
+      "max": 100
+    },
+    "chatgpt.style.structure": {
+      "type": "number",
+      "min": 0,
+      "max": 100
+    },
+    "claude.model": {
+      "type": "text",
+      "maxLength": 120
+    },
+    "claude.custom_model": {
+      "type": "text",
+      "maxLength": 120
+    },
+    "claude.answer": {
+      "type": "text",
+      "maxLength": 16384
+    },
+    "claude.liked": {
+      "type": "text",
+      "maxLength": 16384
+    },
+    "claude.disliked": {
+      "type": "text",
+      "maxLength": 16384
+    },
+    "claude.change": {
+      "type": "text",
+      "maxLength": 16384
+    },
+    "claude.verify": {
+      "type": "text",
+      "maxLength": 120,
+      "choices": [
+        "",
+        "yes",
+        "no",
+        "unsure",
+        "na"
+      ]
+    },
+    "claude.rating.gotMeaning": {
+      "type": "number",
+      "min": 0,
+      "max": 5
+    },
+    "claude.rating.useful": {
+      "type": "number",
+      "min": 0,
+      "max": 5
+    },
+    "claude.rating.tone": {
+      "type": "number",
+      "min": 0,
+      "max": 5
+    },
+    "claude.rating.easy": {
+      "type": "number",
+      "min": 0,
+      "max": 5
+    },
+    "claude.style.detail": {
+      "type": "number",
+      "min": 0,
+      "max": 100
+    },
+    "claude.style.tone": {
+      "type": "number",
+      "min": 0,
+      "max": 100
+    },
+    "claude.style.scope": {
+      "type": "number",
+      "min": 0,
+      "max": 100
+    },
+    "claude.style.structure": {
+      "type": "number",
+      "min": 0,
+      "max": 100
+    },
+    "gemini.model": {
+      "type": "text",
+      "maxLength": 120
+    },
+    "gemini.custom_model": {
+      "type": "text",
+      "maxLength": 120
+    },
+    "gemini.answer": {
+      "type": "text",
+      "maxLength": 16384
+    },
+    "gemini.liked": {
+      "type": "text",
+      "maxLength": 16384
+    },
+    "gemini.disliked": {
+      "type": "text",
+      "maxLength": 16384
+    },
+    "gemini.change": {
+      "type": "text",
+      "maxLength": 16384
+    },
+    "gemini.verify": {
+      "type": "text",
+      "maxLength": 120,
+      "choices": [
+        "",
+        "yes",
+        "no",
+        "unsure",
+        "na"
+      ]
+    },
+    "gemini.rating.gotMeaning": {
+      "type": "number",
+      "min": 0,
+      "max": 5
+    },
+    "gemini.rating.useful": {
+      "type": "number",
+      "min": 0,
+      "max": 5
+    },
+    "gemini.rating.tone": {
+      "type": "number",
+      "min": 0,
+      "max": 5
+    },
+    "gemini.rating.easy": {
+      "type": "number",
+      "min": 0,
+      "max": 5
+    },
+    "gemini.style.detail": {
+      "type": "number",
+      "min": 0,
+      "max": 100
+    },
+    "gemini.style.tone": {
+      "type": "number",
+      "min": 0,
+      "max": 100
+    },
+    "gemini.style.scope": {
+      "type": "number",
+      "min": 0,
+      "max": 100
+    },
+    "gemini.style.structure": {
+      "type": "number",
+      "min": 0,
+      "max": 100
+    }
+  }
+}
