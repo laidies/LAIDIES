@@ -6,3 +6,5 @@ New playerrelease deae5f69 arrived duringwork; successor clones its exact757-fil
 
 - newsstand.html: `f048157d3347a385e4e2bffaea2209c66d587ee20d8ee5da913151316079f360`
 - content/newsstand-design.css: `cbecc04bc458b24196699e5252fd0ea0f982bde46facb2603d366a48e1ad0fd9`
+
+Published source282111a4 at https://9c608a3c.laidies-sunnyvaile.pages.dev and https://laidies.ai/newsstand. Fresh1200/390/320 nooverflow/brokenart, desktop194pxmasthead. Bothchangedfiles and preservednewplayer exact atbothorigins. Root inspected live service palette. General sparse hooks skipped; focused render, link, bordernegative and scopechecks performed.

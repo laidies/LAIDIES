@@ -1,5 +1,5 @@
-<!-- Whole-paper brand palette: REVIEWED -->
-No reference-page decision required. Verified established live tokens applied acrossallNewsStand; independent1200/390/320review accepted. Source pendingcommit; deploy atop playerdeae5f69, preserving757files excepttwoNewsStandpaths. Evidence: operations/product-stewards/newsstand/evidence/brand-palette-20260906/review.md.
+<!-- Whole-paper brand palette: VERIFIED PUBLICLY -->
+No reference-page decision required. Verified established live tokens applied acrossallNewsStand; independent1200/390/320review accepted. Source282111a4 deployed9c608a3c atop playerdeae5f69, preserving757files excepttwoNewsStandpaths. Fresh live1200/390/320 clear; exactHTML/CSS/player match both origins. Evidence: operations/product-stewards/newsstand/evidence/brand-palette-20260906/review.md.
 
 <!-- NewsStand palette correction: BUILDING, reference pending -->
 Ali rejects blanketpurple and inventedpalepink. Previous colour acceptance is superseded; Latest/FrontPAiGE must follow the same complete hierarchy. Asked which existing LAiDIES page should govern background/colourbalance. No public palette revision yet. Resume: inspect chosen live reference, apply one coherent full-page palette, verify desktop/mobile then publish.
