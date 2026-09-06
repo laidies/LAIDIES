@@ -4,7 +4,15 @@ Updated September 5, 2026. This is the compact entry for one workstream, not
 universal agent context or a second portfolio database. Current product owners
 and their exact artifacts outrank historical snapshots below.
 
-## Current priority — 2026-09-06: operating continuity repair
+## Fresh-session transfer — 2026-09-06
+
+Ali authorized a whole-system review and repairs, with an interview where needed,
+and explicitly requested a fresh session. The successor owns implementation.
+Read `OPERATING-SYSTEM-REVIEW-HANDOFF-20260906.md` for the current mandate and
+first action: finish the already-approved Astra instruction/config rollout.
+The original operating objective remains; this transfer is not completion.
+
+## Previous checkpoint — 2026-09-06: operating continuity repair
 
 This section supersedes all historical “next” instructions below. The inbox is
 PARKED; it is a synthetic pilot, not an accepted design or Ali's working tool.
