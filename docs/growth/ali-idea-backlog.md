@@ -29,7 +29,7 @@ NewsStand repair continues; no unrelated project is silently restarted.
 
 | Priority | Existing idea and reader value | Verified state / limit | Smallest useful next step |
 |---|---|---|---|
-| 1 | Behind the Build: real mistakes, why they happened and how to correct them | Logging is active; old queue and draft exist; 32 omitted historical log IDs recovered locally. Optional service-bank support repaired. No current public admission or visible NewsStand item | Reframe the existing draft under the September 5 operating-know-how boundary, complete exact evidence/prose/disclosure review, then give Ali finished founder-voice copy to judge |
+| 1 | Behind the Build: real mistakes, why they happened and how to correct them | Logging is active; 32 omitted historical IDs recovered. Founder-safe Draft001 successor is now complete private copy with a passed producer contract, producer read and independent teaching/disclosure assessment. Exact public lesson link works. No public admission or visible NewsStand item | Give Ali the complete exact founder-voice copy after current review; resolve the actual remaining admission/evidence boundary, then use the existing optional feature delivery path. Candidate: operations/product-stewards/newsstand/candidates/behind-the-build-clue-not-proof-20260905/field-note.md |
 | 2 | Masterclass Lesson 4, From Chatting to Working: make everyday AI use more effective | A full local script candidate exists at `operations/classes/masterclass-lesson-04-from-chatting-to-working.script.md`; the older “no lesson is scripted” status was false. Current interface, instructional and learner acceptance remain due; no filmed/public result verified | Recheck dated product details and prove one fictional sandbox lesson with its existing brief; keep it within SUNNYVAiLE High/classes |
 | 3 | Overheard in SUNNYVAiLE: memorable lines lead back to the concept, scene or original song | `docs/product/quotables-and-memory-hooks-system.md` already specifies source/anchor, memory job and destinations; a functioning public showcase was not established | Prepare one small set of existing approved, rights-cleared hooks with their actual concept links; test whether the explanation helps recall before a sitewide registry rollout |
 | 4 | Tour Guide companion: help readers find the useful thing already on site | Existing spec at `docs/product/tour-guide-companion.md`; current Visitor's Centre implementation was not fully audited here | Reconcile with the current Welcome Tour/Visitor/navigation owner first; if a gap remains, pilot one helpful destination rather than add another chat assistant |
@@ -60,6 +60,36 @@ App configuration and current task status outrank old backlog labels:
 This audit did not exhaust every historic idea or inspect every public route.
 The priority order reflects direct learning value, existing usable material and
 low duplication risk. It is a recommendation, not five new BUILDING projects.
+
+### NewsStand ideas retained from Ali’s current brief
+
+These remain CAPTURED or partially prepared, not claims of new public features.
+The next useful creative addition should follow dependable editorial delivery.
+
+- **Funny house advertisements / SUNNYVAiLE town notices (CAPTURED):** Ali
+  proposed fake ads for world-building and discovering useful site features.
+  Start with one playful house ad for an actually working destination, clearly
+  identified as a LAiDIES town notice. Fictional business or product copy must
+  be unmistakably fictional; do not imply an outside sponsor, testimonial or
+  real offer. A house ad that points to a real site service should describe its
+  real availability accurately. There is no need to turn every decorative ad
+  into a quiz, but it should earn its space through discovery or learning.
+- **Overheard recall/transfer pilot (SPECIFIED, not built):** Use the existing
+  memory-hook specification for one approved hook with one precise concept
+  link. Invite the reader to explain the mechanism before revealing a short
+  answer, then try a different work/life case. Recognition of a film line alone
+  is not evidence that the AI concept stuck. Three speculative modules or a
+  sitewide registry are unnecessary before one useful example works.
+- **Deeper LUMINAiRY features (PARTIAL):** The rotating three-lane discovery
+  section is publicly verified. A Saint’s message/song/community connection
+  and a real woman’s concrete impact/current engagement still need complete
+  feature prose; do not describe existing profile teasers as those deeper
+  commissioned pieces. Reuse exact admitted cards and their current links.
+
+The actual Weekly successor and one completed research-to-learning correction
+have higher immediate value than another decorative section. Keep the
+independently recovered opportunities attached to existing owners and sources;
+no new background project was started by this shortlist.
 
 ## July 24 idea clusters moved into specifications
 

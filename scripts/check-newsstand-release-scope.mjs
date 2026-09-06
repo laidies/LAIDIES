@@ -2,7 +2,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { checkBigPictureRetention } from './lib/newsstand-big-picture-update.mjs';
+import { checkBigPictureRetention, checkNewStoryPublicationDay } from './lib/newsstand-big-picture-update.mjs';
 
 const [baseManifestPath, candidateManifestPath, scopePath, receiptPath] = process.argv.slice(2);
 if (!baseManifestPath || !candidateManifestPath || !scopePath) {
@@ -83,7 +83,10 @@ if (structural.length) {
 }
 
 const storiesChanged = changes.some(change => change.path === 'content/newsstand-stories.js');
-if (storiesChanged) checkBigPictureRetention(base, candidate);
+if (storiesChanged) {
+  checkBigPictureRetention(base, candidate);
+  checkNewStoryPublicationDay(base, candidate);
+}
 
 for (const verificationPath of scope.verificationPaths || []) {
   const artifactPath = normalized(verificationPath);

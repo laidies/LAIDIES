@@ -577,7 +577,14 @@ Vancouver calendar day; fresh preparation/composition/admission must occur on
 that day. Pass its exact file/hash to the existing composer and promoter.
 Issue admission must follow the morning check; both promotion and publication
 reject an earlier timestamp. The article receives the admitted publication
-time. Exact historical reproduction remains possible without pretending to
+time. First projection must also happen on the admitted Vancouver day: a held
+issue cannot first publish days later using its old date. Exact already-projected
+bytes remain replayable later; an old frozen base alone is not proof of prior
+publication. Rerun the full-artifact scope check immediately before upload: a
+new Daily story first added to the public predecessor must carry the actual
+Vancouver publication day and no future timestamp. If release crosses midnight,
+stop and resolve the new date/freshness/admission; do not upload the stale dated
+candidate. Exact historical reproduction remains possible without pretending to
 perform a new check. This is evidence integrity/completeness, not an automatic
 judgment of the truth of the source or the checker’s conclusion.
 

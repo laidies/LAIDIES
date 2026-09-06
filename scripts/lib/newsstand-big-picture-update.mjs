@@ -116,3 +116,46 @@ export function checkBigPictureRetention(baseManifest, candidateManifest) {
   for (const story of publicBefore) checkPair(story, after.get(story.id));
   return { checked: publicBefore.map(story => story.id) };
 }
+
+
+const vancouverDay = value => {
+  const instant = Date.parse(value);
+  if (!Number.isFinite(instant)) return null;
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Vancouver",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date(instant));
+};
+
+// This protects the first public addition only. It is not an editorial admission
+// and deliberately leaves pre-existing stories and held/retracted transitions to
+// their own admission checks.
+export function checkNewStoryPublicationDay(baseManifest, candidateManifest, { now = new Date().toISOString() } = {}) {
+  const reject = message => { throw new Error(`NEWSSTAND_PUBLICATION_DAY_REJECT: ${message}`); };
+  const releaseInstant = Date.parse(now);
+  const releaseDay = vancouverDay(now);
+  if (!Number.isFinite(releaseInstant) || !releaseDay) reject("release time is invalid");
+
+  const base = sourceRecord(baseManifest, "base");
+  const candidate = sourceRecord(candidateManifest, "candidate");
+  const before = storiesById(base.raw, "base");
+  const after = storiesById(candidate.raw, "candidate");
+  const checked = [];
+
+  for (const story of after.values()) {
+    if (before.has(story.id) || story.edition !== "daily" || !["published", "corrected"].includes(story.status)) continue;
+    const publishedInstant = Date.parse(story.publishedAt);
+    const publishedDay = vancouverDay(story.publishedAt);
+    if (!Number.isFinite(publishedInstant) || !publishedDay) {
+      reject(`new Daily story ${story.id} has an invalid publishedAt timestamp`);
+    }
+    if (publishedInstant > releaseInstant) reject(`new Daily story ${story.id} publishedAt is in the future`);
+    if (publishedDay !== releaseDay) {
+      reject(`new Daily story ${story.id} publishedAt is not on the release day in Vancouver`);
+    }
+    checked.push(story.id);
+  }
+  return { checked };
+}

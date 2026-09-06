@@ -144,7 +144,7 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
   return next;
 }
 
-export function projectDailySourceRaw({ raw, issue, columns, root = ROOT }) {
+export function projectDailySourceRaw({ raw, issue, columns, root = ROOT, now = new Date().toISOString() }) {
   const ordinary = issue.sourceIdentity?.ordinaryCandidate ? loadOrdinaryStoryCandidate(issue.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate, admittedHistoricalBase: true }) : null;
   const predecessor = issue.sourceIdentity?.servicePredecessor ? loadServicePredecessor(issue.sourceIdentity.servicePredecessor, { root, date: issue.editionDate, columns, reviewedAt: issue.admission.reviewedAt }) : null;
   const baseRaw = ordinary ? ordinary.publicationBaseRaw : issue.sourceIdentity?.storyCorrection ? raw : predecessor ? predecessor.storiesRaw : raw;
@@ -156,6 +156,9 @@ export function projectDailySourceRaw({ raw, issue, columns, root = ROOT }) {
   const end = baseRaw.indexOf("\n};", start);
   if (start < 0 || end < 0) reject("canonical dataset assignment boundary is missing");
   const nextRaw = baseRaw.slice(0, start) + `window.NEWSSTAND_DATA = ${JSON.stringify(next, null, 2)};` + baseRaw.slice(end + 3);
+  // A preserved approval can reproduce exact already-published bytes later;
+  // it cannot first publish stale overnight prose under the old issue date.
+  if (ordinary?.overnightFreshness && raw !== nextRaw && vancouverDay(now) !== issue.editionDate) reject("first overnight publication must occur on its admitted Vancouver issue date");
   if ((ordinary || (predecessor && !issue.sourceIdentity?.storyCorrection)) && raw !== baseRaw && raw !== nextRaw) reject("publication base changed after review; retry is not exact projected output");
   return nextRaw;
 }
