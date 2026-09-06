@@ -1,0 +1,92 @@
+{
+  "url": "https://ee897a4e.laidies-sunnyvaile.pages.dev",
+  "checkedAt": "2026-09-06T03:16:37.349Z",
+  "status": "PASS",
+  "responseBodies": {
+    "homepage": {
+      "status": 200,
+      "receivedSha256": "5629cada90e5ccd3b58c71c897bff0dacf4c48c60c88f74c35932b4c11f21303",
+      "expectedSha256": "5629cada90e5ccd3b58c71c897bff0dacf4c48c60c88f74c35932b4c11f21303",
+      "matchesCandidate": true
+    },
+    "homepageJs": {
+      "status": 200,
+      "receivedSha256": "05232f254fd17c4e031b068f62e9cf839312d6fcff1c9b714932181798c4bf47",
+      "expectedSha256": "05232f254fd17c4e031b068f62e9cf839312d6fcff1c9b714932181798c4bf47",
+      "matchesCandidate": true
+    }
+  },
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 1000,
+      "firstAction": {
+        "text": "Start with Episode 1 →",
+        "box": {
+          "x": 100.796875,
+          "y": 598.671875,
+          "width": 354,
+          "height": 44
+        },
+        "withinViewport": true
+      },
+      "sixChoices": 6,
+      "collapsedInitially": true,
+      "directoryFairyVisible": true,
+      "horizontalOverflow": false,
+      "brokenViewportImages": [],
+      "dialogOpened": true,
+      "pageErrors": [],
+      "pass": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "firstAction": {
+        "text": "Start with Episode 1 →",
+        "box": {
+          "x": 22,
+          "y": 525.375,
+          "width": 346,
+          "height": 44
+        },
+        "withinViewport": true
+      },
+      "sixChoices": 6,
+      "collapsedInitially": true,
+      "directoryFairyVisible": true,
+      "horizontalOverflow": false,
+      "brokenViewportImages": [],
+      "dialogOpened": true,
+      "pageErrors": [],
+      "menuLinkVisible": true,
+      "expandedAfterEscape": "false",
+      "pass": true
+    }
+  ],
+  "journeys": {
+    "episode1": {
+      "url": "https://ee897a4e.laidies-sunnyvaile.pages.dev/issues/issue-01",
+      "readable": true,
+      "excerpt": "Skip to content LAı DIES Latest Episode Look it up Explore SUNNYVAiLE KSVL 99.9 Sign in Join the town MENU Read Full written episode Listen Narration + captions Watch Not available",
+      "pass": true
+    },
+    "missJeeves": {
+      "url": "https://ee897a4e.laidies-sunnyvaile.pages.dev/library#miss-jeeves",
+      "inputValue": "Can I find AI basics & beginner’s guides?",
+      "apiIntercepted": {
+        "method": "POST",
+        "postData": {
+          "query": "Can I find AI basics & beginner’s guides?",
+          "placement": "homepage",
+          "guestToken": ""
+        }
+      },
+      "pass": true
+    }
+  },
+  "limits": [
+    "Technical hosted-browser verification only; no visual-quality verdict.",
+    "Miss Jeeves API was intercepted with 503 before any external answer call; no answer quality, account, or paid-service behavior was tested."
+  ]
+}

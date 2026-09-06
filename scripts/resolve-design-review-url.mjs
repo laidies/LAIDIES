@@ -72,6 +72,15 @@ if (exception) {
       hosted.runtimeSha256 !== exception.design_admission.runtime.sha256 ||
       !/^https:\/\/[a-f0-9]{8}\.laidies-sunnyvaile\.pages\.dev\/$/.test(hosted.url) ||
       hosted.productionChanged !== false) fail('exact hosted preview verification is missing');
+  const verificationPath = homepageCorrectionPacket + 'hosted-browser-checks.json';
+  const verificationBytes = fs.readFileSync(path.join(root, verificationPath));
+  if (hosted.verification?.path !== verificationPath || hosted.verification.sha256 !== crypto.createHash('sha256').update(verificationBytes).digest('hex')) fail('hosted browser evidence is stale');
+  const verification = JSON.parse(verificationBytes);
+  if (verification.status !== 'PASS' || verification.url + '/' !== hosted.url ||
+      verification.responseBodies?.homepage?.receivedSha256 !== digest ||
+      verification.responseBodies?.homepageJs?.receivedSha256 !== hosted.runtimeSha256 ||
+      ![1440, 390].every(width => verification.viewports?.some(v => v.width === width && v.pass)) ||
+      !verification.journeys?.episode1?.pass || !verification.journeys?.missJeeves?.pass) fail('hosted visitor paths were not verified');
   console.log(`DESIGN PRESENTATION ADMITTED ${admitted.id}`);
   console.log(hosted.url);
   process.exit(0);
