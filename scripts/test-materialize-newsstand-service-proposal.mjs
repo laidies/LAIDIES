@@ -86,7 +86,8 @@ assert.throws(() => materialize({ proposal: changedReviewProposal, activeBank: d
 const invented = clone(entry);
 invented.record.id = 'DAILY-2026-09-05-PAIGE-TIP-INVENTED';
 assert.throws(() => materialize({ proposal: proposalFor({ records: [entry, invented] }) }), /do not match the bound bank selection/, 'invented rows reject');
-assert.throws(() => materialize({ proposal: proposalFor({ editionDate: '2026-09-06' }), at: now }), /future-effective/, 'future-effective proposals reject');
+const futureEditionDate = new Date(new Date(now).getTime() + 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+assert.throws(() => materialize({ proposal: proposalFor({ editionDate: futureEditionDate }), at: now }), /future-effective/, 'future-effective proposals reject');
 const noReady = clone(entry);
 noReady.proposalState = 'CANDIDATE_NOT_READY';
 noReady.record.status = 'CANDIDATE';
@@ -106,7 +107,8 @@ const calibration = childProcess.execFileSync(process.execPath, ['scripts/check-
 assert.match(calibration, /DAILY EDITION COLUMN CALIBRATION PASS/, 'the validator retains its executable calibration CLI');
 const cliFixture = fs.mkdtempSync(path.join(process.cwd(), 'scripts', '.materialize-fixture-'));
 try {
-  fs.writeFileSync(path.join(cliFixture, 'proposal.json'), '{"editionDate":"2026-09-06"}\n');
+  const cliFutureEditionDate = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  fs.writeFileSync(path.join(cliFixture, 'proposal.json'), JSON.stringify({ editionDate: cliFutureEditionDate })+'\n');
   for (const name of ['bank.json', 'columns.json']) fs.writeFileSync(path.join(cliFixture, name), '{}\n');
   const cli = childProcess.spawnSync(process.execPath, ['scripts/materialize-newsstand-service-proposal.mjs', '--proposal', path.relative(process.cwd(), path.join(cliFixture, 'proposal.json')), '--bank', path.relative(process.cwd(), path.join(cliFixture, 'bank.json')), '--columns', path.relative(process.cwd(), path.join(cliFixture, 'columns.json')), '--check'], { encoding: 'utf8' });
   assert.equal(cli.status, 1, 'a future proposal fails through the full CLI');

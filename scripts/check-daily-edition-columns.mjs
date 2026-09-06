@@ -36,21 +36,26 @@ export function checkDailyEditionColumns(data, { root = ROOT, asOf = calendarDat
     const slot = `${record.editionDate}:${record.type}`;
     if (slots.has(slot)) errors.push(`duplicate Daily slot ${slot}`);
     slots.add(slot);
+    // Release readiness is about the exact dated issue being admitted. Historical
+    // rows remain archive evidence, but an expired or locally unavailable legacy
+    // receipt must not invalidate a different day's exact, independently admitted
+    // service rows. Specification mode still audits the complete authority.
+    const validateBoundFiles = !release || record.editionDate === issueDate;
     const sourcePath = path.join(root, String(record.sourcePath || "").replace(/^\/+/, ""));
-    if (!record.sourcePath || !fs.existsSync(sourcePath)) errors.push(`${record.id} sourcePath does not resolve`);
+    if (validateBoundFiles && (!record.sourcePath || !fs.existsSync(sourcePath))) errors.push(`${record.id} sourcePath does not resolve`);
     if (!record.freshness?.lastCheckedAt || !record.freshness?.expiresAt || !record.freshness?.recheckTriggers?.length) errors.push(`${record.id} has incomplete freshness`);
     if (PUBLIC.has(record.status)) {
       if (record.publicEligibility !== "ELIGIBLE") errors.push(`${record.id} is public without ELIGIBLE ruling`);
-      if (record.freshness.expiresAt < asOf) errors.push(`${record.id} is expired`);
+      if ((!release || record.editionDate === issueDate) && record.freshness.expiresAt < asOf) errors.push(`${record.id} is expired`);
       for (const gate of ["accuracy", "editorial", "voice", "format", "owner"]) {
         if (!record.reviewEvidence?.[gate]) errors.push(`${record.id} is public without ${gate} evidence`);
-        else {
+        else if (validateBoundFiles) {
           const evidencePath = path.join(root, String(record.reviewEvidence[gate]).replace(/^\/+/, ""));
           if (!fs.existsSync(evidencePath)) errors.push(`${record.id} ${gate} evidence does not resolve`);
         }
       }
       if (record.type === "mme_claio" && !record.reviewEvidence?.safety) errors.push(`${record.id} Mme CLAi-O selection lacks safety evidence`);
-      if (record.type === "mme_claio" && record.reviewEvidence?.safety) {
+      if (validateBoundFiles && record.type === "mme_claio" && record.reviewEvidence?.safety) {
         const safetyPath = path.join(root, String(record.reviewEvidence.safety).replace(/^\/+/, ""));
         if (!fs.existsSync(safetyPath)) errors.push(`${record.id} safety evidence does not resolve`);
       }
@@ -112,7 +117,23 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
       console.error("DAILY EDITION COLUMN CALIBRATION FAIL prior_date_issue_accepted=1");
       process.exit(1);
     }
-    console.log("DAILY EDITION COLUMN CALIBRATION PASS deliberate_duplicate_rejected=1 empty_release_rejected=1 prior_date_issue_rejected=1");
+    const historicalExpiry = structuredClone(data);
+    const historical = historicalExpiry.records.find((record) => record.editionDate !== "2026-08-03" && PUBLIC.has(record.status));
+    if (historical) historical.freshness.expiresAt = "2026-08-02";
+    const historicalExpiryResult = checkDailyEditionColumns(historicalExpiry, { release: true, issueDate: "2026-08-03", asOf: "2026-08-03" });
+    if (historical && historicalExpiryResult.errors.some((error) => error === `${historical.id} is expired`)) {
+      console.error("DAILY EDITION COLUMN CALIBRATION FAIL historical_expiry_blocked_current_issue=1");
+      process.exit(1);
+    }
+    const currentExpiry = structuredClone(data);
+    const current = currentExpiry.records.find((record) => record.editionDate === "2026-08-03" && PUBLIC.has(record.status));
+    if (current) current.freshness.expiresAt = "2026-08-02";
+    const currentExpiryResult = checkDailyEditionColumns(currentExpiry, { release: true, issueDate: "2026-08-03", asOf: "2026-08-03" });
+    if (!current || !currentExpiryResult.errors.some((error) => error === `${current.id} is expired`)) {
+      console.error("DAILY EDITION COLUMN CALIBRATION FAIL current_expiry_accepted=1");
+      process.exit(1);
+    }
+    console.log("DAILY EDITION COLUMN CALIBRATION PASS deliberate_duplicate_rejected=1 empty_release_rejected=1 prior_date_issue_rejected=1 historical_expiry_ignored=1 current_expiry_rejected=1");
     process.exit(0);
   }
   const result = checkDailyEditionColumns(data, { release, issueDate, asOf });

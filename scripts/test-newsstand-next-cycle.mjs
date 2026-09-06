@@ -27,11 +27,15 @@ const {buildDerivatives} = await import(pathToFileURL(path.join(fixture, 'script
 const context = {window:{}};
 vm.runInNewContext(fs.readFileSync(path.join(ROOT,'content/newsstand-stories.js'),'utf8'), context);
 const base = JSON.parse(JSON.stringify(context.window.NEWSSTAND_DATA));
-const bank = JSON.parse(fs.readFileSync(path.join(ROOT,'content/daily-edition-columns.json'),'utf8'));
+const allBank = JSON.parse(fs.readFileSync(path.join(ROOT,'content/daily-edition-columns.json'),'utf8'));
 const contractContext = {module:{exports:{}}};
 vm.runInNewContext(fs.readFileSync(path.join(ROOT,'content/newsstand-reader-contract.js'),'utf8'), contractContext);
 const contract = contractContext.module.exports;
 const tomorrow = new Date(Date.parse(base.publications.daily.editionDate+'T12:00:00Z')+86400000).toISOString().slice(0,10);
+// Real same-date rows may already exist by the time this regression runs. The
+// quiet fixture deliberately removes them so it continues to test that older
+// rows cannot turn into a new issue without an exact dated admission.
+const bank = {...allBank,records:(allBank.records||[]).filter(record=>record.editionDate!==tomorrow)};
 const encode = data => `window.NEWSSTAND_DATA = ${JSON.stringify(data,null,2)};\n`;
 const store = {schemaVersion:'daily-issues-v1',owner:'newsstand-daily',issues:[]};
 const sourceRoster = JSON.parse(fs.readFileSync(path.join(ROOT, 'operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json'), 'utf8'));

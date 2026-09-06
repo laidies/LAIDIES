@@ -10,8 +10,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-06T01:30:43Z",
-  "lastCheckedAt": "2026-09-06T01:30:43Z",
+  "generatedAt": "2026-09-06T14:13:55Z",
+  "lastCheckedAt": "2026-09-06T14:13:55Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -25,7 +25,7 @@ window.NEWSSTAND_DATA = {
     },
     "daily": {
       "edition": "daily",
-      "editionDate": "2026-09-05",
+      "editionDate": "2026-09-06",
       "editorialTimeZone": "America/Vancouver",
       "issue": {
         "status": "complete",
@@ -33,25 +33,21 @@ window.NEWSSTAND_DATA = {
         "frontPaigeStoryId": "front-paige-accountable-systems-2026-08-24",
         "weeklyStoryId": "weekly-accountable-systems-2026-08-24",
         "storyIds": [
-          "openai-wiki-message-board-2026-09-05",
-          "us-doj-openai-copyright-2026-09-05"
+          "gastric-cancer-prediction-2026-09-05"
         ],
         "serviceRecordIds": [
-          "DAILY-2026-08-30-PAIGE-TIP-PAIGE-01-FOLLOW-UP",
-          "DAILY-2026-09-02-CAREER-LIFE-CORNER-02-PRIORITIES",
-          "DAILY-2026-08-30-CONCEPT-WEEK-CONCEPT-01-CONTEXT",
-          "DAILY-2026-08-30-DEAR-MISS-JEEVES-JEEVES-01-TIME",
-          "DAILY-2026-08-30-WHATS-NEW-SUNNYVAILE-TOWN-02-DATA-CENTRES",
-          "DAILY-2026-08-30-DID-YOU-KNOW-TOWN-01-LIBRARY"
+          "DAILY-2026-09-06-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
+          "DAILY-2026-09-06-CAREER-LIFE-CORNER-03-RECONNECT",
+          "DAILY-2026-09-06-DEAR-MISS-JEEVES-JEEVES-02-CITATION"
         ]
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-06T01:30:43Z",
-      "updatedAt": "2026-09-06T01:30:43Z",
-      "lastCheckedAt": "2026-09-06T01:30:43Z",
+      "publishedAt": "2026-09-06T14:13:55Z",
+      "updatedAt": "2026-09-06T14:13:55Z",
+      "lastCheckedAt": "2026-09-06T14:13:55Z",
       "maxAgeHours": 36,
-      "note": "The Daily for 2026-09-05."
+      "note": "The Daily for 2026-09-06."
     },
     "weekly": {
       "edition": "weekly",
@@ -1993,6 +1989,100 @@ window.NEWSSTAND_DATA = {
         "OpenAI",
         "copyright",
         "United States"
+      ],
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "gastric-cancer-prediction-2026-09-05",
+      "slug": "gastric-cancer-prediction-2026-09-05",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-06T14:13:55Z",
+      "updatedAt": "2026-09-05T22:58:40-07:00",
+      "lastCheckedAt": "2026-09-05T22:58:40-07:00",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:gastric-cancer-prediction-2026-09-05"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "AI predicts later cancer spread. Better care is the next test.",
+      "heroVisual": {
+        "src": "/assets/newsstand/design-20260830/latest-checking.png",
+        "alt": "Illustration: a magnifying glass examines an AI headline in a newspaper.",
+        "credit": "LAiDIES illustration about examining evidence; not a medical image."
+      },
+      "the_story": "<p>A September 4 paper in <em>Nature Communications</em> reports an AI system that predicts later liver spread after stomach-cancer surgery. It studied 1,878 people with cancer that had spread into nearby tissue or lymph nodes, called <strong>locally advanced</strong> cancer. In these records, combining image patterns and clinical information outperformed clinical information alone at distinguishing those who later had liver spread from those who did not.</p><p>A <strong>model</strong> is a learned system that turns information into a prediction. This one combines pre-surgery <strong>CT</strong> scans—detailed internal images—with microscope images of tissue removed during surgery and clinical details. The team used some patients’ records and known later outcomes to learn which combinations went with later liver spread, then checked the prediction on separate patient groups.</p>",
+      "laidies_read": "<p>Think of a weather forecast warning that rain is coming. Getting the forecast right does not tell you whether a particular roof repair will keep your room dry. You need evidence about the repair too. In health AI, those are likewise two different questions: can we identify a risk, and does acting on that information help?</p><p>Some records came from a registered treatment trial. That trial compared chemotherapy approaches; it did not assign care using this AI. The new paper looked back at a selected group from it. A trial in the source material is not automatically a trial of the new tool.</p><p>Most records came from Chinese hospitals, and performance varied by treatment group. The authors call for wider international testing and report practical implementation challenges. Funding includes public programmes and a Hengrui pharmaceutical research partnership; the authors declare no competing interests. We have not verified an independent replication.</p><p>There is an independent yardstick for the next step. The International Medical Device Regulators Forum’s guiding principles call for testing that represents the intended patients—including sex and gender—and evaluates how people and AI work together in the actual care setting. That is broader than asking whether a computer’s score looks impressive.</p>",
+      "what_this_means": "<p>For a patient, a false alarm could lead to unnecessary intervention; a missed warning could give false reassurance. A useful evaluation therefore asks what decisions people make with a prediction and what those decisions do. <strong>Risk means a chance, not a certainty.</strong> A higher score should not be read as a personal verdict.</p><p>When a health headline says AI “helps”, try asking: <strong>Did it predict more accurately, or did using it improve what happened to patients?</strong> If a tool is being considered for your care, another useful question is how well it was tested with women and people in your situation. Those questions help you join the conversation with your care team.</p><p>The study did not test whether using its score to guide care improved patient outcomes. We have not verified a patient-ready service. It is research to understand, not a reason to change treatment.</p>",
+      "cocktail_party": "“The advance is a better prediction of later cancer spread. The next test is whether using that prediction helps patients. A good forecast does not repair the roof.”",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "Learning from examples paired with known answers is called <strong>supervised learning</strong>. Explore that idea in the opening of <a href=\"/library.html#ai-fundamentals-101::%40ch-3-3-4-supervised-unsupervised-and-the-spectrum-between\">AI Fundamentals 101, section 3.4</a>. It explains why knowing what happened in past examples can help train a prediction; medical usefulness still needs its own evidence.",
+      "sources": [
+        {
+          "id": "study",
+          "url": "https://www.nature.com/articles/s41467-026-76382-x",
+          "label": "Nature Communications — prediction study and methods",
+          "publisherType": "primary-document",
+          "accessedAt": "2026-09-05",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "trial",
+          "url": "https://clinicaltrials.gov/study/NCT02555358",
+          "label": "ClinicalTrials.gov — original treatment-trial registration",
+          "publisherType": "primary-document",
+          "accessedAt": "2026-09-05",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "gmlp",
+          "url": "https://www.imdrf.org/sites/default/files/2025-02/IMDRF_AIML%20WG_GMLP_N88%20Final.pdf",
+          "label": "IMDRF — medical AI development and evaluation principles",
+          "publisherType": "primary-document",
+          "accessedAt": "2026-09-05",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "library",
+          "url": "https://laidies.ai/library.html#ai-fundamentals-101::%40ch-3-3-4-supervised-unsupervised-and-the-spectrum-between",
+          "label": "LAiDIES — learning from labelled examples",
+          "publisherType": "laidies",
+          "accessedAt": "2026-09-05",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "nci",
+          "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/locally-advanced-cancer",
+          "label": "National Cancer Institute — locally advanced cancer",
+          "publisherType": "primary-document",
+          "accessedAt": "2026-09-05",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "health",
+        "research"
+      ],
+      "concepts": [
+        "prediction",
+        "evaluation"
+      ],
+      "tags": [
+        "medical research",
+        "stomach cancer",
+        "risk prediction"
       ],
       "saint_lane": null,
       "badge": "THE LATEST"

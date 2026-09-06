@@ -396,7 +396,8 @@ assert.doesNotMatch(catchup, /item\.editionDate <= localToday\(\)/, "a released 
 assert.match(catchup, /Date\.parse\(item\.admission\.reviewedAt\) <= Date\.now\(\)/, "Daily availability must follow the admitted release instant");
 assert.doesNotMatch(catchup, /localToday|localDateOnly/, "reader eligibility and continuity cannot depend on the visitor's calendar");
 assert.match(catchup, /timeZone: "America\/Vancouver"/, "stored visit instants need one stable editorial date projection");
-assert.match(catchup, /timeZone: \/\^\\d\{4\}-\\d\{2\}-\\d\{2\}\$\/\.test\(source\) \? "UTC" : undefined/, "edition labels must preserve the literal date in every visitor time zone");
+assert.match(catchup, /var timeZone = dateOnlyValue \? "UTC" : "America\/Vancouver";/, "edition labels must choose UTC for literal dates and Vancouver for instants");
+assert.match(catchup, /timeZone: timeZone/, "edition labels must apply the chosen stable time zone");
 assert.doesNotMatch(html, /class="ns-paper-index"/, "the retired four-paper mobile chooser must not return");
 assert.match(css, /\.ns-topic-browser > p\s*\{[\s\S]*?color:\s*#fff9fc;/, "the dark archive panel needs a readable topic heading");
 assert.match(css, /\.ns-topic-button\s*\{[\s\S]*?border-bottom:\s*3px solid var\(--ns-cyan\);[\s\S]*?color:\s*#fff9fc;/, "topic controls need readable text and a visible control edge");
