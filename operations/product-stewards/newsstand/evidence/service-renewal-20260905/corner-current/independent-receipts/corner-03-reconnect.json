@@ -1,0 +1,495 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "corner-03-reconnect",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-corner-renewal-20260905",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/corner-current/independent-claude-bound.json",
+      "sha256": "aef354dca81e9ff5c491404fc7e8acab0a68f09e12e985925f1525c92ed2bd68"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-06T02:10:16.113Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/service-bank-20260830/corner-03-reconnect.md",
+      "sha256": "f2dcdb0fbe0c9102baf2264e91e7b3e1b306474ceb06f9025e8a0ce417a39a8a"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/corner-current/corner-03-reconnect.manifest.json",
+      "sha256": "8622f7f7bec6adb7bacda855fc0c7097afafb9d66b2d997fcd7849efafe89cf6"
+    }
+  },
+  "calibration": {
+    "mode": "RECURRING_SERVICE_ARTIFACT_REJECTION_V1",
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "claude-fable-corner-renewal-20260905",
+    "reviewedAt": "2026-09-06T02:10:16.113Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "technicalExplainerVoice",
+          "joylessInstruction",
+          "decorativeAnalogy",
+          "mechanismBeforeMotivation",
+          "jargonBeforeMeaning"
+        ],
+        "evidence": [
+          {
+            "excerpt": "An AI system receives input and produces an output such as content, a prediction, a recommendation or a decision.",
+            "locator": "CQX-BAD-001 'AI system' block — definition-first, no reader motivation, textbook register"
+          },
+          {
+            "excerpt": "Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "CQX-BAD-001 'AI system' block — the 'Where it stops / In real life' scaffold repeats identically across every term, the banned symmetrical-template pattern"
+          },
+          {
+            "excerpt": "A toolbox contains different tools for different jobs.",
+            "locator": "CQX-BAD-001 'Model types' block — decorative analogy that adds no mechanism"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman: essential to what happens, but not the cassette you chose",
+            "locator": "CQX-BAD-001 'Model' block — familiar example without technical return; the chapter is a term-by-term glossary parade rather than a taught journey"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office.",
+            "locator": "CQX-BAD-002 Chapter 1 — a single job-offer worked example carries the entire chapter, swallowing the book's broader purpose"
+          },
+          {
+            "excerpt": "The information available to the system for this run is its **context**.",
+            "locator": "CQX-BAD-002 'What the product actually received' — accurate but pure explainer voice; no warmth, wit or LAiDIES specificity anywhere in the piece"
+          },
+          {
+            "excerpt": "Before you rely on the result, ask four questions:",
+            "locator": "CQX-BAD-002 'The output is not the decision' — competent training-module cadence; the reader is processed through a checklist, never delighted"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "plain mechanic leads and the analogy is garnish, never the carrier",
+        "warm, specific workplace truth over generic empowerment",
+        "honest limits taught memorably (context and hallucination) without fearmongering",
+        "stats carry scope, source and year rather than borrowed confidence"
+      ],
+      "evidence": [
+        {
+          "excerpt": "It's not a confidence problem. It's a physics problem.",
+          "locator": "CQX-GOOD-EPISODE-001 lesson one-liner — sharp reframe, plain words first"
+        },
+        {
+          "excerpt": "the most talented new hire you'll ever manage",
+          "locator": "CQX-GOOD-EPISODE-001 cocktail_party — analogy that carries the teaching and stays honest about limits"
+        },
+        {
+          "excerpt": "Four days of dread, eleven minutes of work.",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9 — specificity and warmth doing practical work"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "I let a good work relationship lapse for six months — how do I reach out without it being weird or transparently transactional?",
+    "promisedPayoff": "A ready-to-adapt message that reconnects through something specific about the other person's work, with no favour attached.",
+    "centralMentalModel": "Reconnect around genuine interest in their work before any need exists; if a request ever comes, make it explicit and easy to refuse.",
+    "dailyLifeConnection": "The universal lapsed-colleague situation and the guilt of only reaching out when you want something.",
+    "surfaceJob": "Recurring short practice corner: one sample message, one principle, one boundary, one source link.",
+    "desiredReaderFeeling": "Relieved — permission that a warm, specific check-in needs no elaborate pretext."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The core move is one plain sentence, immediately contrasted with the failure mode it replaces.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Reconnect with something specific, not a mystery invitation to",
+          "locator": "corner-03 standfirst"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "A complete, adaptable message the reader can send today, plus a rule for when the link belongs and how a real ask should be made.",
+      "artifactEvidence": [
+        {
+          "excerpt": "I was reminded of our conversation about onboarding when I saw this example.",
+          "locator": "corner-03 para 3"
+        },
+        {
+          "excerpt": "If you do need help, say what you are asking for and make it easy to decline.",
+          "locator": "corner-03 para 4"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "'Mystery invitation to pick your brain' and 'then six months disappeared' are specific, lightly wry, and read like a smart friend, not a networking module; no deficit framing or empowerment filler.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You liked working with someone, then six months disappeared.",
+          "locator": "corner-03 para 2"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Engagement comes from naming the exact social awkwardness the reader feels; the 'pick your brain' jab lands a small earned laugh that serves the lesson.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You do not need an elaborate reason to get back in touch.",
+          "locator": "corner-03 para 2"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The Clark claim matches the bound source verbatim in substance, the script is original application per the boundary, and the anti-disguise framing mirrors the source's non-transactional principle without quoting it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Dorie Clark recommends building relationships before an immediate need arises.",
+          "locator": "corner-03 para 4"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "No dated, priced or product-behaviour claims; evergreen relationship advice bound to a hash-captured source fetched 2026-09-06.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The point is to stay interested in the person’s work, not to disguise a request.",
+          "locator": "corner-03 para 4 — durable, undated"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Correct scale and shape for a recurring practice corner: scenario, sample message, boundary rule, single source link.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Only send the link if it is genuinely relevant; a warm check-in can stand on its own.",
+          "locator": "corner-03 para 3"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "The sample message is directly rehearsable and adaptable; the specific-memory-plus-open-question structure is the retrievable pattern.",
+      "artifactEvidence": [
+        {
+          "excerpt": "How did the new process work out?",
+          "locator": "corner-03 para 3 — the reusable open-question move"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "The closing open question produces an observable response, and the decline-friendly framing tells the reader what a healthy outcome looks like even when the answer is no.",
+      "artifactEvidence": [
+        {
+          "excerpt": "make it easy to decline",
+          "locator": "corner-03 para 4"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Proportional adaptation: shared starting point (the lapsed contact), the mechanism (specific interest beats a vague pretext), and a small landing (the send/don't-send link rule). Direct answer first suits the surface; no name-dropping or manufactured reveal.",
+      "artifactEvidence": [
+        {
+          "excerpt": "a warm check-in can stand on its own",
+          "locator": "corner-03 para 3 — the landing"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The pattern (specific shared memory + genuine question about their work + no hidden agenda) transfers to any lapsed professional relationship, not just the onboarding example.",
+      "artifactEvidence": [
+        {
+          "excerpt": "stay interested in the person’s work",
+          "locator": "corner-03 para 4"
+        }
+      ]
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "Covers both off-ramps: if the link isn't genuinely relevant, drop it; if you actually do need help, switch to an explicit, refusable ask rather than a disguised one.",
+      "artifactEvidence": [
+        {
+          "excerpt": "say what you are asking for and make it easy to decline",
+          "locator": "corner-03 para 4"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Clark is cited for a checkable recommendation, not as decoration.",
+      "artifactLocator": "corner-03 para 4"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitation of another communicator.",
+      "artifactLocator": "corner-03 whole"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No filler or vague enthusiasm.",
+      "artifactLocator": "corner-03 whole"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline promise is fulfilled immediately with the sample message.",
+      "artifactLocator": "corner-03 title/para 3"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogies used; none required.",
+      "artifactLocator": "corner-03 whole"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The Clark reference is integrated into the script's rationale.",
+      "artifactLocator": "corner-03 para 4"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The wit serves the lesson and never precedes it.",
+      "artifactLocator": "corner-03 standfirst"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "No outcome guarantees; guidance is framed as an approach.",
+      "artifactLocator": "corner-03 para 4"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The onboarding example is the working template, not decoration.",
+      "artifactLocator": "corner-03 para 3"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The action is a verbatim, adaptable message, not 'stay in touch' vagueness.",
+      "artifactLocator": "corner-03 para 3"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No term definitions.",
+      "artifactLocator": "corner-03 whole"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on a practical boundary rule, not a grand moral.",
+      "artifactLocator": "corner-03 para 4"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Plain language throughout.",
+      "artifactLocator": "corner-03 whole"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Warm and lightly wry; not module-like.",
+      "artifactLocator": "corner-03 para 2"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Opens from the reader's felt situation (lapsed contact) before the move.",
+      "artifactLocator": "corner-03 para 2"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The sample message is the centre of the piece.",
+      "artifactLocator": "corner-03 para 3"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Why it works is stated: specificity signals genuine interest and removes the disguised-request smell.",
+      "artifactLocator": "corner-03 para 4"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Direct-answer-first is correct for this surface.",
+      "artifactLocator": "corner-03 whole"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The pattern generalizes beyond the onboarding example.",
+      "artifactLocator": "corner-03 para 4"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Single load-bearing reference.",
+      "artifactLocator": "corner-03 para 4"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "No perishable claims; source captured with hash.",
+      "artifactLocator": "corner-03 para 4 link"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Conversational second person throughout.",
+      "artifactLocator": "corner-03 whole"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "No repeating scaffold; structure differs naturally from corner-02.",
+      "artifactLocator": "corner-03 whole"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The example is proportionate to the corner's job.",
+      "artifactLocator": "corner-03 para 3"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/corner-current/corner-03-reconnect.source.json",
+        "sha256": "2266543f691ff008a7209fd167e21410daa6f87f71549eb24ea2ba50828656a7"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "corner03-clark-before-need",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Dorie Clark recommends building relationships before an immediate need arises.",
+            "locator": "corner-03 para 4"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/corner-current/corner-03-reconnect.source.json",
+          "sha256": "2266543f691ff008a7209fd167e21410daa6f87f71549eb24ea2ba50828656a7"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Networking works best when it begins long before you need something.",
+            "locator": "source articleText, 'Build relationships before you need them'"
+          },
+          {
+            "excerpt": "Reaching out without an immediate agenda builds trust that pays off later.",
+            "locator": "source articleText, same section"
+          }
+        ],
+        "scopeAndFreshness": "Attribution rests on the publisher's visible byline ('By Dorie Clark'); HTML metadata author 'Jon' discrepancy retained per source boundary. Captured 2026-09-06, HTTP 200; evergreen editorial content."
+      },
+      {
+        "claimId": "corner03-original-application",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Try: “I was reminded of our conversation about onboarding",
+            "locator": "corner-03 para 3 — script presented as LAiDIES suggestion, not a Clark quotation"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/evidence/service-renewal-20260905/corner-current/corner-03-reconnect.source.json",
+          "sha256": "2266543f691ff008a7209fd167e21410daa6f87f71549eb24ea2ba50828656a7"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The LAiDIES workplace dialogue is an original application, not a quotation or an empirically guaranteed result.",
+            "locator": "source applicationBoundary"
+          }
+        ],
+        "scopeAndFreshness": "The sample message is framed as a suggestion ('Try:'), never attributed to Clark, and no guaranteed outcome is claimed."
+      }
+    ],
+    "reviewedThrough": "2026-09-05",
+    "nextTrigger": "Re-fetch https://dorieclark.com/blog/system-future-opportunities/ at the next service renewal cycle or on any link/redirect change; re-review if the published byline or article content changes.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First current-registry source/freshness renewal of unchanged Corner Office prose. Original reviews and current raw assessment remain preserved; this is not a reset of historical drafting."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Actual independent complete-source/prose assessment found no current substantive defect. Mechanical source hashes are attached from exact declared packet sources without changing claims, quotes or verdicts."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Sampled reader testing is authorized but pending; likely explain-back and transfer are assessed from prose only.",
+    "Attribution follows the publisher's visible byline (Dorie Clark); the source capture's HTML metadata author is 'Jon'. Discrepancy retained; personal authorship not independently authenticated.",
+    "The sample message's social effectiveness is a plausible original application, not an empirically demonstrated result — and the candidate does not claim otherwise.",
+    "Rendered page and visual presentation are tested separately and were not reviewed here.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/recurring-service-sampling-policy.json",
+      "sha256": "ec109c70a9bca639f7d04882c6dc245a9f7353eac11aaa56ed5d5b8f5a07664c"
+    },
+    "policyId": "newsstand-recurring-service-sampled-comprehension-2026-08-30",
+    "serviceType": "career_life",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-aef354dca81e",
+    "sampleQueue": [
+      "mme-jelly-sandal",
+      "mme-mini-backpack",
+      "mme-caboodle",
+      "paige-01-follow-up",
+      "paige-02-fix-one-thing",
+      "paige-03-save-good-example",
+      "corner-01-credit",
+      "corner-02-priorities",
+      "corner-03-reconnect",
+      "concept-01-context",
+      "concept-02-token",
+      "concept-03-hallucination",
+      "jeeves-01-time",
+      "jeeves-02-citation",
+      "jeeves-03-style",
+      "town-01-library",
+      "town-03-catchup",
+      "fact-01-dictionary",
+      "fact-02-mme",
+      "fact-03-reading"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

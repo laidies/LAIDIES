@@ -1168,3 +1168,19 @@ The actual September 6 proposal selects Paige-02 and Jeeves-02. A read-only
 next-day check with the real bank and reviews appended those two rows, preserved
 26 predecessors and passed exact replay. Concept-02 is eligible for September 9.
 Those checks do not assert that either future issue has been published.
+
+The Corner Office continuation renewed Corner-02 and Corner-03 without rewriting
+their prose. Both original publisher pages visibly credit Dorie Clark; conflicting
+Jon metadata remains in private evidence and does not establish a false byline.
+Source identity is attached mechanically only when the exact declared path and
+every quoted passage match the preserved request source. Original provider
+responses, discrepancies and verdicts remain intact. Unknown paths and invented
+quotes reject; no factual judgment is silently repaired. The actual two-column
+review required no repeat call. The September 6 r2 proposal selects Paige-02,
+Jeeves-02 and the unused Corner-03; it supersedes the stale private proposal for
+selection without overwriting it.
+
+Service handoff adoption was updated and read back in the existing heartbeat
+after source 07936d61 was committed/pushed. Both 20:00 and 07:00 hours, ACTIVE
+status, target task and notification behavior remain. This proves configured
+adoption, not a successfully observed scheduled publication.

@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {preflightServiceBankJudge,serviceBankJudgmentEnvelope} from './run-service-bank-judge.mjs';
+import {preflightServiceBankJudge,serviceBankJudgmentEnvelope,bindServiceJudgmentSources} from './run-service-bank-judge.mjs';
 
 const root=fs.mkdtempSync(path.join(os.tmpdir(),'laidies-service-judge-preflight-'));
 const hash=value=>crypto.createHash('sha256').update(value).digest('hex');
@@ -30,6 +30,16 @@ try {
   assert.deepEqual(envelope.artifactBindings[0].reviewText,{path:prose.path,sha256:prose.sha256});
   assert.deepEqual(envelope.artifactBindings[0].manifest,{path:manifest.path,sha256:manifest.sha256});
   assert.equal(Object.hasOwn(envelope.artifactBindings[0].reviewText,'text'),false);
+  const judgment={calibration:{verdict:'REJECT'},entries:[{candidateId:'test',verdict:'HOLD',factualReview:{sourceBindings:[source],claimMap:[{claimId:'claim',sourceBinding:{path:source.path,sha256:'truncated'},sourceEvidence:[{excerpt:'A source supports a scoped edit'}]}]}}]};
+  const repaired=bindServiceJudgmentSources(judgment,plan.sources);
+  assert.equal(repaired.bindingRepairs.length,1);
+  assert.equal(repaired.judgment.entries[0].factualReview.claimMap[0].sourceBinding.sha256,source.sha256);
+  assert.equal(repaired.judgment.entries[0].verdict,'HOLD','mechanical identity binding never changes a verdict');
+  assert.equal(judgment.entries[0].factualReview.claimMap[0].sourceBinding.sha256,'truncated','provider judgment stays intact');
+  const invented=structuredClone(judgment);invented.entries[0].factualReview.claimMap[0].sourceEvidence[0].excerpt='An invented supporting quote';
+  assert.throws(()=>bindServiceJudgmentSources(invented,plan.sources),/evidence does not occur/);
+  const unknown=structuredClone(judgment);unknown.entries[0].factualReview.claimMap[0].sourceBinding.path='another-source';
+  assert.throws(()=>bindServiceJudgmentSources(unknown,plan.sources),/exact declared/);
   const invalidId=[...args];invalidId[invalidId.indexOf('--ids')+1]='unknown';
   assert.throws(()=>preflightServiceBankJudge({args:invalidId,root}),/Unknown ID unknown/);
   const invalidDate=[...args];invalidDate[invalidDate.indexOf('--reviewed-through')+1]='2026-02-30';

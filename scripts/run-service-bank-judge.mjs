@@ -86,11 +86,26 @@ export function preflightServiceBankJudge({args=process.argv.slice(2),root=ROOT}
   return {root,indexPath,outputPath,reviewedThrough,entries,sources:bound.sources,registry,negativeArtifacts,required};
 }
 function withoutText(binding){return {path:binding.path,sha256:binding.sha256}}
+export function bindServiceJudgmentSources(judgment, sources){
+  const result=structuredClone(judgment), repairs=[], known=new Map(sources.map(source=>[source.path,source]));
+  if(known.size!==sources.length) fail('source paths must be unique for mechanical binding');
+  for(const entry of result.entries||[]){
+    const review=entry.factualReview, declared=new Set((review?.sourceBindings||[]).map(binding=>binding.path));
+    for(const claim of review?.claimMap||[]){
+      const binding=claim.sourceBinding, source=known.get(binding?.path);
+      if(!source||!declared.has(binding.path)) fail('claim source is not an exact declared packet source');
+      if(!claim.sourceEvidence?.length||claim.sourceEvidence.some(evidence=>!evidence.excerpt||!source.text.includes(evidence.excerpt))) fail('claim evidence does not occur in its exact packet source');
+      if(binding.sha256!==source.sha256){repairs.push({candidateId:entry.candidateId,claimId:claim.claimId,path:binding.path,providerSha256:binding.sha256,boundSha256:source.sha256,reason:'Exact declared source path and every unchanged excerpt match the preserved request source; bind computed identity without changing judgment.'});binding.sha256=source.sha256;}
+    }
+  }
+  return {judgment:result,bindingRepairs:repairs};
+}
 export function serviceBankJudgmentEnvelope({plan,response,requestSha256,startedAt,judgedAt}){
+  const bound=bindServiceJudgmentSources(response.structured_output,plan.sources);
   return {schemaVersion:'laidies-service-bank-independent-judgment.v1',modelFamily:'claude',model:'fable',actualModels:Object.keys(response.modelUsage||{}),startedAt,judgedAt,promptSha256:requestSha256,
     artifactBindings:plan.entries.map(({reviewText,manifest,...entry})=>({...entry,reviewText:withoutText(reviewText),manifest:withoutText(manifest)})),
     sourceBindings:plan.sources.map(({text,...source})=>source),
-    excludedContext:['producer brief','producer self-review','maker receipts','prior reviews','validator output'],judgment:response.structured_output};
+    excludedContext:['producer brief','producer self-review','maker receipts','prior reviews','validator output'],...bound};
 }
 function promptFor(plan){
   const {root,entries,sources,registry,negativeArtifacts,required,reviewedThrough}=plan;
