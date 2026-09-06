@@ -143,7 +143,7 @@ function renderFeedback(result) {
     explain.append(
       element("strong", item.selected_option === null ? "Bonus not answered." : item.correct ? "Correct." : "Not quite."),
       element("span", `Correct answer: ${quiz.questions.find((question) => question.id === item.question_id).options[item.correct_option]}`, "quiz-correct-answer"),
-      element("p", `What it means: ${item.explain}`)
+      element("p", item.selected_explain || item.explain)
     );
     fieldset.append(explain);
   });
@@ -268,14 +268,16 @@ async function mountAccount() {
 }
 
 async function start() {
-  const response = await fetch(new URL("./quiz.json", import.meta.url), { cache: "no-store" });
+  const requestedVersion = new URLSearchParams(location.search).get("version");
+  const source = requestedVersion === "2026-09-06-v1" ? "./quiz-2026-09-06-v1.json" : "./quiz.json";
+  const response = await fetch(new URL(source, import.meta.url), { cache: "no-store" });
   if (!response.ok) throw new Error("candidate-quiz-unavailable");
   quiz = await response.json();
-  const requestedVersion = new URLSearchParams(location.search).get('version');
   if (requestedVersion !== null && requestedVersion !== quiz.version) {
     message('This saved edition cannot be opened here. Your saved attempts have not been changed.');
     const link = document.createElement('a');link.href='/laidies-card.html#episodeBinderVessel';link.textContent='Return to my Episode Binder';status.after(link);return;
   }
+  $("#quizEdition").textContent = `Episode 01 candidate · version ${quiz.version}`;
   openSavedButton.textContent = requestedAttempt ? 'Open this saved attempt' : 'Open latest saved attempt';
   renderQuestions();
   form.hidden = false;

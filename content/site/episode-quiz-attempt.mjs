@@ -17,6 +17,11 @@ function requireQuestion(question) {
     || question.options.some(option => typeof option !== "string")
     || !Number.isInteger(question.answer) || question.answer < 0 || question.answer >= question.options.length
     || typeof question.explain !== "string") throw new TypeError("Quiz contains an unsupported question.");
+  if (Object.hasOwn(question, "optionFeedback")
+    && (!Array.isArray(question.optionFeedback)
+      || question.optionFeedback.length !== question.options.length
+      || question.optionFeedback.some(feedback => typeof feedback !== "string" || !feedback.trim())))
+    throw new TypeError("Quiz contains unsupported option feedback.");
 }
 
 function quizQuestions(quiz) {
@@ -68,7 +73,8 @@ export function buildEpisodeQuizAttempt({ quizId, quiz, answers, attemptId, comp
       correct_option: question.answer,
       correct: selected === question.answer,
       bonus: Boolean(question.bonus),
-      explain: question.explain
+      explain: question.explain,
+      selected_explain: selected === null ? null : question.optionFeedback?.[selected] ?? null
     };
   });
   const scored = review.filter(item => !item.bonus);

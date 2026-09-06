@@ -18,6 +18,7 @@
 > Private Episode Binder counts now clear on account changes and remain absent from public profiles; synthetic browser checks verified account-specific totals.
 > Live Supabase dashboard is signed out; normal login route question is pending with Ali. No live migration applied.
 > Internal Puffy sleeve placement is built; local interrupted-save/return/reload and expiry checks passed with synthetic accounts.
+> Quizv2 now gives selected-answer feedback; exact earlier edition preserved. Local6/10 saved/reopened answers and phone layout checked.
 > Complete design/content admission, real account/pouch restoration, live saving and new audio remain open.
 > Continue in `/Users/alisoneakin/Projects/laidies-episode-review-20260906`; detailed resume: `operations/episode-review-resume-2026-09-06.md`.
 > Trailer, other binders and later-season mapping are deferred. Shared iCloud working files are preserved.

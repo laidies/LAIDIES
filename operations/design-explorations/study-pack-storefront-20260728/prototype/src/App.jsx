@@ -250,7 +250,7 @@ export function App() {
             <h2>Ready to see what stuck?</h2>
             <span>Check your understanding, see why each answer fits and keep your attempt in the Episode Binder.</span>
           </div>
-          <a href={`/learn/quiz.html?issue=${selected.number}${selected.number===1?"&version=2026-09-06-v1":""}#quiz-start`}>GO TO THE POP QUIZ</a>
+          <a href={`/learn/quiz.html?issue=${selected.number}${selected.number===1?"&version=2026-09-06-v2":""}#quiz-start`}>GO TO THE POP QUIZ</a>
         </section>
       </main>
     );
