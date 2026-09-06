@@ -259,10 +259,8 @@
     + '.ksvl-cd:focus .ksvl-cd-jewel { box-shadow: 0 0 0 3px var(--rose, #9b3f5f), 0 8px 20px rgba(75,33,72,0.28); }'
     + '.ksvl-cd-jewel { position: relative; aspect-ratio: 1 / 1; background: linear-gradient(135deg, rgba(255,253,251,0.98) 0%, rgba(250,242,246,0.98) 100%); border: 1px solid rgba(75,33,72,0.08); border-radius: 6px; box-shadow: 0 2px 6px rgba(75,33,72,0.08), 0 10px 24px rgba(75,33,72,0.14); overflow: hidden; padding: 14px; transition: box-shadow 0.24s ease, transform 0.24s ease; }'
     + '.ksvl-cd:hover .ksvl-cd-jewel { box-shadow: 0 4px 12px rgba(75,33,72,0.14), 0 16px 36px rgba(75,33,72,0.22); }'
-    + '.ksvl-cd-jewel::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(115deg, transparent 0 20px, rgba(255,255,255,0.35) 20px 22px); pointer-events: none; opacity: 0.4; z-index: 2; }'
     + '.ksvl-cd-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 8px; box-sizing: border-box; }'
-    + '.ksvl-cd-disc { position: absolute; inset: 0; margin: auto; width: 88%; height: 88%; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #f8eef2, #d8bfd0 45%, #a8779a 75%, #6b3a66); box-shadow: inset 0 0 6px rgba(0,0,0,0.15); }'
-    + '.ksvl-cd-disc::after { content: ""; position: absolute; inset: 0; margin: auto; width: 22%; height: 22%; border-radius: 50%; background: var(--cream, #fffdfb); box-shadow: inset 0 0 3px rgba(75,33,72,0.4); border: 2px solid rgba(75,33,72,0.15); }'
+    + '.ksvl-cd-disc { position: absolute; inset: 0; margin: auto; width: 88%; height: 88%; object-fit: contain; }'
     + '.ksvl-cd-sharpie { position: absolute; top: 18px; left: 18px; right: 18px; font-family: "Marker Felt", "Comic Sans MS", cursive; font-size: 18px; font-weight: 700; color: #221; transform: rotate(-4deg); text-shadow: 0 1px 0 rgba(255,255,255,0.5); line-height: 1.05; z-index: 2; }'
     + '.ksvl-cd-sharpie--track-count { font-family: "Jost", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #442244; margin-top: 8px; transform: rotate(2deg); opacity: 0.7; }'
     + '.ksvl-cd-caption { padding: 14px 4px 0; display: flex; flex-direction: column; gap: 8px; }'
@@ -309,9 +307,7 @@
        button is ever a mystery. */
     + '.ksvl-now-playing { position: fixed; left: 0; right: 0; bottom: 0; background: linear-gradient(110deg, #15bce0 0%, #7de2c2 58%, #b7e42b 100%); border-top: 3px solid #7137d6; color: #202020; padding: 9px 20px 8px; display: none; align-items: center; gap: 16px; z-index: 9997; box-shadow: 0 -10px 30px rgba(7,15,43,0.4); font-family: "Jost", sans-serif; }'
     + '.ksvl-now-playing.is-visible { display: flex; }'
-    + '.ksvl-np-cd-mini { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; border: 2px solid #15bce0; background: conic-gradient(from 35deg, #7de2c2, #78c7ff, #7137d6, #ff9b3d, #78c7ff, #7de2c2); box-shadow: inset 0 0 4px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.3); animation: ksvl-spin 5s linear infinite; position: relative; }'
-    + '.ksvl-np-cd-mini::after { content: ""; position: absolute; inset: 0; margin: auto; width: 30%; height: 30%; border-radius: 50%; background: #fffdfb; }'
-    + '.ksvl-np-cd-mini.is-paused { animation-play-state: paused; }'
+    + '.ksvl-np-cd-mini { flex-shrink: 0; width: 44px; height: 44px; object-fit: contain; display: block; }'
     + '.ksvl-np-info { flex: 1; min-width: 0; }'
     + '.ksvl-np-mix { display: flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #492878; margin-bottom: 2px; }'
     + '.ksvl-now-playing.is-live .ksvl-np-mix::before { content: ""; flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: #ff4f4f; box-shadow: 0 0 6px rgba(255,79,79,0.9); animation: ksvl-np-onair 1.4s ease-in-out infinite; }'
@@ -451,7 +447,7 @@
   function ensureNowPlaying() {
     if (np) return np;
     np = el('div', {class: 'ksvl-now-playing'});
-    npMini = el('div', {class: 'ksvl-np-cd-mini'});
+    npMini = el('img', {class: 'ksvl-np-cd-mini', src: '/assets/ksvl/player-cd-silver-v1.png', alt: '', width: '44', height: '44'});
     var info = el('div', {class: 'ksvl-np-info'});
     npMix = el('span', {class: 'ksvl-np-mix'});
     npTrack = el('span', {class: 'ksvl-np-track'});
@@ -1311,7 +1307,7 @@
     if (mix.image) {
       jewel.appendChild(el('img', {class: 'ksvl-cd-image', src: mix.image, alt: '', loading: 'lazy'}));
     } else {
-      jewel.appendChild(el('div', {class: 'ksvl-cd-disc'}));
+      jewel.appendChild(el('img', {class: 'ksvl-cd-disc', src: '/assets/ksvl/player-cd-silver-v1.png', alt: '', loading: 'lazy'}));
     }
     var sharpie = el('div', {class: 'ksvl-cd-sharpie', text: mix.title});
     var tc = el('div', {class: 'ksvl-cd-sharpie ksvl-cd-sharpie--track-count', text: trackCount + ' Tracks'});

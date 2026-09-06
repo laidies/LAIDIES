@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Player CD replacement: LOCAL PREVIEW / OWNER REVIEW PENDING.** Ali rejects CSS decorative drawings sitewide. Real transparent silver-CD PNG now replaces the shared deck disc and Mix-CD fallback; fake disc pseudo-elements and faux jewel reflection removed. Desktop/390px real-image load and playback/pause checked. Guard accepts new implementation and rejects original six ways. Full-site decorative-art audit remains open. No deployment; image is a full-resolution preview source and should receive an optimized web export before release. Worktree `/Users/alisoneakin/Projects/laidies-ksvl-player-colours-20260906`.
+
 > **2026-09-06 — Shared music player appearance: LOCAL PREVIEW / OWNER REVIEW PENDING.** Ali rejects navy/pink and requires the bright fun colours and backgrounds throughout the site. Candidate in `/Users/alisoneakin/Projects/laidies-ksvl-player-colours-20260906`: turquoise-to-lime background, tangerine primary control, purple accents, dark text. Exact current live player a8bff04b preserved before CSS-only change. Desktop/390px pixels checked; playback/pause/next, keyboard seek/volume tested. Production unchanged. Next: owner colour verdict, then integrate only player appearance into current release. Continue existing homepage work independently.
 
 ## 2026-09-05 NewsStand source-to-reader continuation

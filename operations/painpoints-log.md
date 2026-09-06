@@ -15855,3 +15855,7 @@ remain unreconciled; cross-chat completeness is not certified.
 
 ## 2026-09-06 — Shared player colour assumption rejected
 The first navy/pink recolour matched a broad electric palette rule but missed Ali’s intended bright page backgrounds. It was not published. Prevention: use the actual dominant reference backgrounds when matching an existing surface; a familiar dark UI with colourful controls does not satisfy a bright-background brief. The rejected navy/pink screenshots in operations/ksvl-player-colours-20260906 are historical evidence only. Behind the Build angle: colour matching includes how much of the interface each colour occupies, not just the hex values.
+
+
+## 2026-09-06 — Player disc artwork failed owner taste
+A technically readable CSS gradient-disc passed internal review but Ali rejected its appearance, then explicitly rejected bad CSS artwork sitewide. The first attempted remedy repeated the same method with a more detailed CSS disc and was discarded before review. Prevention: when actual artwork is required, use suitable image assets; do not refine a rejected procedural-art approach. `scripts/check-ksvl-disc-assets.mjs` rejects CSS-drawn discs in both shared music placements and was calibrated on the original implementation (six failures). The successful real-image candidate remains owner-review pending. Behind the Build: a valid circle is not a convincing object; evaluate the real 44px graphic, not the code’s descriptive name. Full-site cleanup is not claimed.

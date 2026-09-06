@@ -1,5 +1,13 @@
 # LAiDIES decision router
 
+## 2026-09-06 — No bad CSS graphics anywhere on the site
+
+Ali explicitly rejects bad CSS graphics sitewide. Decorative artwork must use suitable quality image assets rather than makeshift CSS drawings. This does not prohibit CSS layout, readable text, controls or the bright background styling requested in the same task. Both rainbow-orb and proposed CSS silver-disc mini-player treatments are rejected. Replace the player CD with a proper image asset; inventory remaining decorative CSS instances without claiming a sitewide cleanup from this one correction.
+
+## 2026-09-06 — Bottom-player CD graphic rejected
+
+Ali rejects the small rainbow CD graphic in the bright-player preview as awful looking. The bright bar remains the current candidate; replace the disc treatment, preserving all playback controls. A crisp silver CD with a real centre hole is the next proposed implementation, not owner-approved. Prior bright-player admission is invalid for the disc’s visual quality.
+
 ## 2026-09-06 — Persistent player must be bright, not navy and pink
 
 Ali rejects the navy/pink player candidate: it does not match the bright, fun colours throughout the site. The main player surface itself must be bright; Ali explicitly includes the site’s bright backgrounds as the reference, not just control accents. The navy/pink candidate is rejected and must not be deployed. Turquoise/lime with tangerine and purple is the next proposed implementation, not yet owner-approved. Preserve the current live playback fixes from a8bff04b.
