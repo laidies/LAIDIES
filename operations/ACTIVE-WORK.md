@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Miss Jeeves colour backdrop: VERIFIED PREVIEW / OWNER REVIEW PENDING.** Source c6a248ae; hosted evidence1ae751fc; https://e82c0b5a.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 visibly updated and paused on Miss Jeeves. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Hosted desktop/mobile checks and actual pixels verified. Tangerine text and all previous corrections preserved. Production unchanged; continue consolidated homepage review.
+
 > **2026-09-06 — Tangerine banner text: VERIFIED PREVIEW / OWNER REVIEW PENDING.** Source ebe7c330; hosted evidence563533d9; https://51a924f9.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 visibly updated. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Hosted all8slides at1440/390 and current pixels verified. Latest Mall image and all prior corrections preserved. Production unchanged; continue consolidated homepage review.
 
 > **2026-09-06 — Mall discovery image: VERIFIED PREVIEW / OWNER REVIEW PENDING.** Source 2d421e8d; hosted evidence 3b1a2e17; https://22aa181e.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 updated and paused on the Mall. Worktree: /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Hosted desktop/mobile image crop and no overflow verified; actual in-app pixels inspected. No generation or extra image download. Latest NewsStand production7614029e changes preserved in complete artifact. Production unchanged; continue consolidated homepage review.

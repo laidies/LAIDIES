@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — No plain white backdrop behind Miss Jeeves
+
+Ali rejects the white portrait backdrop and states that plain white backgrounds are not the LAiDIES visual style. Use existing coral-to-pink for the banner tile, preserving portrait contrast. Carry the no-plain-white preference forward; do not substitute plain white as a generic contrast fix. Source c6a248ae; hosted evidence1ae751fc; https://e82c0b5a.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 visibly updated and paused on Miss Jeeves. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
+
 ## 2026-09-06 — Tangerine replaces rejected white banner text
 
 Ali rejects white and permits coral or tangerine. Existing tangerine #ff9b3d replaces white heading/body in Did you know, with existing navy letter edge and lime links. Source ebe7c330; hosted evidence563533d9; https://51a924f9.laidies-sunnyvaile.pages.dev/#dyk-title . Existing tab8 visibly updated. Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. No copy, image, layout or action changes. Preview only; supersedes white text ruling.
