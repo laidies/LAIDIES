@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Activity cards use natural content height
+
+Ali flags the repeated oversized blank panels in the six homepage activity cards. Remove global equal-row sizing and paragraph min-height alignment; each card ends after its own content and button. Tags/titles may align within a visible row, but body copy and card heights must never be stretched to match a longer card. Current art, crops, palette, fonts, descriptions and routes are retained. Verify all filters and mobile resizing. Source fce065a4; hosted evidence 2f7e3e74; https://e5794abf.laidies-sunnyvaile.pages.dev/#activities . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
+
 ## 2026-09-06 — Current cards and FAiRY artwork; supersede retired thumbnail selection
 
 Ali explicitly retires assets/girl-talk-board.png/.webp and assets/sunnyvaile-buildings/y2k-v3/11-fairy-godmother-house.webp. Prior board-selection and visual-admission records are superseded; they were wrong. Current Girl Talk uses lavender/pink flip-phone Truth/Dare card faces already represented elsewhere on the homepage; exact compact assets are assets/games/girl-talk/truth-card-face.webp and dare-card-face.webp, shown separately without rotation or clipped wordmarks. Current FAiRY thumbnail reuses assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png, anchored left to show laptop/wand. Historical social plans and file existence do not prove current artwork authority. Ali selects plain Jost Bold700, matching the directory heading; remove outlines from DYK message/CTA and needs heading. Tangerine/lime lettering remains; deeper purple/cobalt banner ground is a supporting contrast adjustment, not an owner-approved new palette. Source 402559f8; hosted evidence d124d44f; https://5ae26b3c.laidies-sunnyvaile.pages.dev/#dyk-title . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only.
