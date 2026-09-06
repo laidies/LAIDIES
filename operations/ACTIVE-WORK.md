@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-06 — Shared KSVL player: OWNER APPROVED / NOT PUBLISHED.** Ali approved the current local preview, player source9d5e8e08. Visual and behavior decisions recorded in DECISIONS.md; worktree `/Users/alisoneakin/Projects/laidies-ksvl-player-colours-20260906`. Next release step is bounded integration with current production, preserving live changes and checking shared-player/asset compatibility. This task has not deployed or claimed a public result.
+
 > **2026-09-06 — Pink sliders: VERIFIED LOCAL.** Progress and volume changed to bright pink #e62a92; actual rendered desktop and computed colours checked. Shared styling applies on phone too. Not published.
 
 > **2026-09-06 — Band label regular: VERIFIED LOCAL.** Browser confirms Band label/name400 and Song/controls700. Preview refreshed; not published.
