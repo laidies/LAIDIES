@@ -338,3 +338,18 @@ The existing generated work index was also stale and its builder consumes fixed
 source records rather than discovering actual execution. A fresh generation time
 cannot prove source freshness. Reconcile its authoritative inputs before using
 it to choose an adoption, cleanup or owner action.
+
+
+## 2026-09-06 — Same PR head does not mean the same CI checkout
+
+An independent cost audit initially called push and pull-request checks duplicate
+because their run metadata named the same head. Foreground inspected execution
+logs: the push tested45179313; the PR tested synthetic merge48fd2d31. Keep both
+coverage paths. The actual avoidable work was superseded versions continuing
+without workflow concurrency; the bounded change groups only the same workflow,
+event and ref, with independent manual runs. Main protection was verified as
+strict with required work-truth from GitHub Actions app15368; it is unchanged.
+Prevention: inspect actual execution inputs before deleting a seemingly duplicate
+check. Concurrency is scheduling efficiency, not evidence of content quality.
+Behind the Build: two green checks can look redundant while testing different
+questions—and an older version can keep wasting work after its replacement exists.
