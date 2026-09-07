@@ -1,3 +1,5 @@
+import { lookupReviewedAnswer } from './scripts/lib/miss-jeeves-answer-bank.mjs';
+import { checkReviewedSources } from './scripts/lib/miss-jeeves-source-check.mjs';
 const MAX_QUERY_LENGTH = 240;
 const MAX_TOPIC_REQUEST_LENGTH = 500;
 const REQUIRED_ANSWER_MODEL = 'gpt-5.6-sol';
@@ -86,6 +88,12 @@ function intendedAnswerModel(value) {
   return typeof value === 'string' && /^gpt-5\.6-sol(?:-\d{4}-\d{2}-\d{2})?$/.test(value);
 }
 
+function answerDisplayText(text) {
+  return text.replace(/\*\*/g, '')
+    .replace(/\s*\(\[[^\]]+\]\(https:\/\/[^)]+\)\)/g, '')
+    .replace(/\[([^\]]+)\]\(https:\/\/[^)]+\)/g, '$1');
+}
+
 function currentGuidancePayload(data) {
   if (data?.status === 'clarification_required' && intendedAnswerModel(data.model) && typeof data.question === 'string' && data.question.length <= 320) return {question:data.question,model:data.model,guestToken:typeof data.guestToken === 'string' ? data.guestToken : '',allowance:data.allowance && typeof data.allowance === 'object' ? data.allowance : null};
   if (!data || data.status !== 'ok' || !Array.isArray(data.output) || !intendedAnswerModel(data.model)) return null;
@@ -111,10 +119,7 @@ function currentGuidancePayload(data) {
       }
     }
   }
-  const answer = parts.filter(Boolean).join('\n\n')
-    .replace(/\*\*/g, '')
-    .replace(/\s*\(\[[^\]]+\]\(https:\/\/[^)]+\)\)/g, '')
-    .replace(/\[([^\]]+)\]\(https:\/\/[^)]+\)/g, '$1');
+  const answer = answerDisplayText(parts.filter(Boolean).join('\n\n'));
   return answer && citations.length ? {
     answer, citations, model: String(data.model || ''), sourcePolicyVersion: String(data.source_policy_version || ''),
     guestToken: typeof data.guestToken === 'string' ? data.guestToken : '',
@@ -378,6 +383,23 @@ async function missJeeves(request, env) {
     return json({ status: 'unavailable', answer: 'Miss Jeeves cannot check the catalogue right now. Your question is still here.', results: [] }, 503);
   }
   const retrieved = addTeachingAnchors(query, entries, retrieve(query, entries));
+  // Reviewed public-safe answers are free: check before identity/allowance/provider work.
+  // Search wording is never saved, and an unmatched or stale answer never triggers paid research.
+  if (env.MISS_JEEVES_ANSWER_BANK_ENABLED === 'true' && env.MISS_JEEVES_DB) {
+    const saved = await lookupReviewedAnswer(env.MISS_JEEVES_DB, query, {
+      sourcePolicyVersion: env.MISS_JEEVES_ANSWER_BANK_SOURCE_POLICY_VERSION,
+      checkSources: checkReviewedSources
+    });
+    if (saved.status === 'hit') return json({
+      status: 'ok', mode: 'reviewed-answer', coverage: 'current',
+      answer: answerDisplayText(saved.answer), answer_id: await sha256Text(`miss-jeeves-answer:v1:${saved.answer}`),
+      answer_key: saved.answerKey, answer_version_id: saved.answerVersionId,
+      citations: saved.sources.map(({url,title})=>({url,title})),
+      current_guidance: {checked_at:saved.checkedAt,source_policy_version:env.MISS_JEEVES_ANSWER_BANK_SOURCE_POLICY_VERSION},
+      freshness_checked_at: new Date().toISOString(),
+      results:retrieved.filter(({entry})=>saved.relatedLaidiesConcepts.includes(entry.id)).map(publicResult)
+    });
+  }
   if (intent === 'search') {
     writeQuestionSignal(env, { placement, outcome: retrieved.length ? 'related_coverage' : 'not_covered', topicId: classifyTopic(query), matches: retrieved });
     return json({ status: 'search_results', mode: 'site-search', coverage: retrieved.length ? 'related' : 'none', topic_id: classifyTopic(query), answer: retrieved.length ? 'Here is what I found in LAiDIES. These references may answer part of your question.' : 'I could not find a close match in LAiDIES.', results: retrieved.map(publicResult), research_available: true });

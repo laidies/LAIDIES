@@ -1000,7 +1000,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
     <p class="jv-privacy">Do not include private, confidential or account information. Miss Jeeves does not save ordinary search wording. <a href="/privacy.html#miss-jeeves">Privacy details</a>.</p>
     <div class="jv-chips" aria-label="Common questions for Miss Jeeves">
       <b>Common questions:</b>
-      <button class="jv-chip" type="button">Which AI should I use?</button>
+      <button class="jv-chip" type="button">How do I ask AI a question so it gives me a useful answer?</button>
       <button class="jv-chip" type="button">Can I upload a work document?</button>
       <button class="jv-chip" type="button">How do I check an AI answer?</button>
       <button class="jv-chip" type="button">What can AI help me do at work?</button>
@@ -1414,13 +1414,13 @@ function renderJeevesService(payload,query){
   box.dataset.topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
   if(payload.guestToken)rememberJeevesGuestToken(payload.guestToken);
   const checked=payload.current_guidance?.checked_at?new Date(payload.current_guidance.checked_at):null;
-  const checkedLabel=checked&&!Number.isNaN(checked.valueOf())?`Checked live · ${checked.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})}`:'LAiDIES reference';
+  const checkedLabel=checked&&!Number.isNaN(checked.valueOf())?`${payload.mode==='reviewed-answer'?'LAiDIES reviewed':'Checked live'} · ${checked.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})}`:'LAiDIES reference';
   const allowance=''; // Adaptive capacity is checked per request; a fixed answer count would mislead.
   const paragraphs=escapeJeevesText(payload.answer).split(/\n\s*\n/).filter(Boolean).map(text=>`<p>${text}</p>`).join('');
   const answerId=payload.answer_id&&/^[a-f0-9]{64}$/.test(payload.answer_id)?payload.answer_id:'';
   box.innerHTML=`<article class="jv-answer">
     <span class="jv-answer-kicker">Miss Jeeves says</span>
-    <h3>${payload.status==='related'?'Related material—not an exact answer.':'Your researched answer'}</h3>
+    <h3>${payload.mode==='reviewed-answer'?'Your reviewed answer':payload.status==='related'?'Related material—not an exact answer.':'Your researched answer'}</h3>
     <div class="jv-answer-meta"><span>${checkedLabel}</span></div>
     <div class="jv-answer-copy">${paragraphs}</div>
     ${allowance}

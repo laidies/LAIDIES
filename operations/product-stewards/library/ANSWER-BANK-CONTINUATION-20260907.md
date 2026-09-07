@@ -1,0 +1,13 @@
+# Miss Jeeves answer reuse — 7 September 2026
+
+Status: BUILDING. Private bank seeded; local integration verified. No production activation or public prose admission.
+
+Ali authorized a dedicated Miss Jeeves OpenAI project, US$100 monthly enforced project budget and real pilot, plus saving good answers and reusing them after a freshness check. Setup and six real requests are recorded in the sibling laidies-jeeves-sol-backend-20260905 worktree, operations/product-stewards/library/pilot-20260907/. Provider dashboard reported US$0.26 for six requests.
+
+One internally reviewed answer, MJQ-005, is saved in existing remote D1. Canonical question: How do I ask AI a question so it gives me a useful answer? Reviewed equivalents: How do I write a better prompt? / How can I get a more useful answer from AI? Matching normalizes case and spacing; it does not guess semantic equivalence. Additional conditions miss. The exact reviewed source article is fetched and checked before reuse; expiry, altered source, blocked fetch, invalid review, policy mismatch or unavailable storage prevent reuse. A miss falls back to free search, never an automatic paid request. No ordinary user question wording is saved.
+
+Verification: bank and source-check suites each passed seven negative cases; real-source integration passed canonical question, two aliases, two changed contexts and all 50 existing bank routing cases with zero paid calls. Browser checks passed at 390 and 1280 pixels with the real-source reviewed example and existing free search, research consent, clarification identity and editorial consent flows. First full-asset check timed out reading iCloud; rerun against the existing non-iCloud preview artifact passed. Maker inspected refreshed screenshots. Fifty routing cases are not fifty reviewed answers.
+
+Release dependencies: retain the new worker imports and both scripts/lib modules in the actual deployment bundle. Bind MISS_JEEVES_DB; configure MISS_JEEVES_ANSWER_BANK_SOURCE_POLICY_VERSION to the reviewed record value; MISS_JEEVES_ANSWER_BANK_ENABLED defaults off unless explicitly set true. Install dedicated MISS_JEEVES_OPENAI_API_KEY only on the backend and retain its project ID. Complete public content admission and hosted integration before activation; no production secret or flag was changed here. The first source checker supports only the reviewed Claude prompting article; other source families require their own reliable checks.
+
+Preserve homepage successor 39d4b9d5 and its reviewed preview 4219da04; the homepage task owns that positioning change. Do not restart its audit or overwrite its successor.

@@ -26,6 +26,16 @@ const env={ASSETS:{fetch:asset},AI:{run(){aiCalls++;throw Error('legacy AI invok
  if(fixture==='capacity')return Response.json({status:'error',error:'research_capacity_reached',guestToken:'capacity-fixture',allowance:{kind:'guest',policy:'adaptive.v1',state:'paused',retryAt:'2026-09-06T00:00:00.000Z'}},{status:429});
  return Response.json({status:'ok',model:'gpt-5.6-sol',source_policy_version:'fixture',citation_policy:'all-approved-https.v1',guestToken:'research-fixture',allowance:{kind:'guest',policy:'adaptive.v1',state:'available',remaining:7},output:[{content:[{type:'output_text',text:'Check whether your employer permits this account to receive the document before uploading. If you do not know, ask first.',annotations:[{type:'url_citation',url:'https://help.openai.com/',title:'Fixture source'}]}]}]});
 }}};
+let reviewedRecord=null;
+if(process.env.JEEVES_REVIEWED_RECORD){
+ const {DatabaseSync}=await import('node:sqlite');
+ const {importReviewedAnswer}=await import('./lib/miss-jeeves-answer-bank.mjs');
+ reviewedRecord=JSON.parse(fs.readFileSync(process.env.JEEVES_REVIEWED_RECORD,'utf8'));
+ const sqlite=new DatabaseSync(':memory:');sqlite.exec(fs.readFileSync(path.join(root,'migrations/library-corrections/0004_miss_jeeves_answer_bank.sql'),'utf8'));
+ const db={prepare(sql){const stmt=sqlite.prepare(sql);return{bind(...args){return{run:async()=>stmt.run(...args),all:async()=>stmt.all(...args)};}};},async batch(statements){for(const stmt of statements)await stmt.run();}};
+ assert.equal((await importReviewedAnswer(db,reviewedRecord)).status,'imported');
+ Object.assign(env,{MISS_JEEVES_DB:db,MISS_JEEVES_ANSWER_BANK_ENABLED:'true',MISS_JEEVES_ANSWER_BANK_SOURCE_POLICY_VERSION:reviewedRecord.sourcePolicyVersion});
+}
 const server=http.createServer(async(req,res)=>{
  try{
  const chunks=[];for await(const chunk of req)chunks.push(chunk);
@@ -102,6 +112,17 @@ try{
  await page.unroute('**/api/miss-jeeves');
  await page.locator('#jv-q').fill('zzxxyyqqww');await page.locator('.jv-form button[type=submit]').click();
  await page.locator('#jv-topic-request').waitFor();assert.equal(await page.locator('#jv-request-consent').isChecked(),false);
+ if(reviewedRecord){
+  const beforeReuse=researchCalls;
+  await page.getByRole('button',{name:reviewedRecord.canonicalQuestion,exact:true}).click();
+  await page.getByRole('heading',{name:'Your reviewed answer',exact:true}).waitFor();
+  assert.match(await page.locator('.jv-answer-meta').innerText(),/LAiDIES reviewed/);
+  assert.doesNotMatch(await page.locator('.jv-answer-copy').innerText(),/\]\(https:/);
+  assert.equal(researchCalls,beforeReuse,'example click must reuse without spending');
+  assert.equal(requests.at(-1).intent,'search');
+  if(process.env.JEEVES_SCREENSHOT_DIR)await page.screenshot({path:path.join(process.env.JEEVES_SCREENSHOT_DIR,`reviewed-answer-${width}.png`),fullPage:true});
+  console.log(`PASS ${width}px: real-source reviewed example click, truthful review label, zero paid calls.`);
+ }
  assert.deepEqual(errors,[],'page must not throw runtime errors');
  await context.close();
  console.log(`PASS ${width}px: free search, research consent, complete conditions, clarification identity, editorial consent.`);
