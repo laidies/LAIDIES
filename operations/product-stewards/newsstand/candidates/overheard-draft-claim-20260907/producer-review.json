@@ -1,0 +1,412 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "overheard-draft-claim-20260907",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "INTERACTIVE",
+  "surface": "NEWSSTAND_OVERHEARD",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer full-prose review",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-07T22:05:14.306747+00:00",
+  "verdict": "PASS",
+  "limitations": [
+    "Producer full-copy review only; no independent or human-learning observation claimed.",
+    "Browser keyboard/reveal/source route passed320/390/768/1280; native screen-reader not exercised."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/overheard-draft-claim-20260907/review-text.md",
+      "sha256": "eba6f77a9713ca7c164709dca4afa9237fa15803312c0626c33f541a4083756d"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/overheard-draft-claim-20260907/publication-manifest.json",
+      "sha256": "584fc24edca68e4fb21e3b7f6952c304149d79d246a7cfdb01971ede1d0f8db7"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-07T18:10:36.741Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "A familiar situation supplies the question before technical naming.",
+        "Specific limitations and useful actions remain after humour."
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud \u2014 then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Which part of an AI-written personal message needs checking before I send it?",
+    "promisedPayoff": "Spot a factual addition inside polished wording and know what source could support it.",
+    "centralMentalModel": "Drafting wording does not establish the truth of the claims inside it.",
+    "dailyLifeConnection": "A message arranging dinner and a note about a delivery.",
+    "surfaceJob": "One original episode quote, one small think-and-reveal challenge and a source link.",
+    "desiredReaderFeeling": "Amused, alert and able to check a concrete detail."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "An ordinary booking message precedes the draft/claim distinction; no technical vocabulary needed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Check the time against the restaurant\u2019s confirmation.",
+          "locator": "feature.html"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Reader has an exact check before sending rather than a generic caution.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Check the time against the restaurant\u2019s confirmation.",
+          "locator": "feature.html"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Original episode wit is retained, and the reveal uses restrained mock formality.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Let us inspect the alibi",
+          "locator": "feature.html"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "One short quote and a visible question invite participation without a score or timer.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A draft is an outfit. A claim is an alibi. Dress accordingly.",
+          "locator": "feature.html"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The example is expressly imagined; no real booking or AI product outcome is asserted.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Imagine asking AI to tidy a message about your restaurant booking.",
+          "locator": "feature.html"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Stable source quote and bounded distinction, with the live source episode confirmed by independent inventory.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A draft is an outfit. A claim is an alibi. Dress accordingly.",
+          "locator": "feature.html"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "A compact quote and one optional reveal fit the paper; broader registry or save features are not promised.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Before you send it, what needs checking?",
+          "locator": "feature.html"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Dinner and delivery illustrate personal uses rather than workplace-only examples.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Same question, different message: AI writes \u201cYour parcel has shipped.\u201d",
+          "locator": "feature.html"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The unsupplied time makes the hidden inference visible; answer separates generated wording from evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You never supplied the time.",
+          "locator": "feature.html"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Correct or remove added details against their source.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep the phrasing if you like it, but correct or remove the unsupported detail.",
+          "locator": "feature.html"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "Reveal identifies the precise claim and a useful external check; second example transfers it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Check the time against the restaurant\u2019s confirmation.",
+          "locator": "feature.html"
+        }
+      ]
+    },
+    "honestLimits": {
+      "verdict": "PASS",
+      "observation": "Drafts and claims are not mutually exclusive; generated wording alone does not establish truth.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A draft can contain claims. That is where the checking comes in.",
+          "locator": "feature.html"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Checked benchmarkNameDrop: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Checked communicationPastiche: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Checked corporateSludge: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Checked curiosityWithoutPayoff: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Checked decorativeAnalogy: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Checked disconnectedSystem: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Checked entertainmentBeforeUnderstanding: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Checked factlessConfidence: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Checked familiarExampleWithoutTechnicalReturn: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Checked genericAction: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Checked glossaryAccumulation: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Checked inflatedTakeawayEnding: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Checked jargonBeforeMeaning: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Checked joylessInstruction: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Checked mechanismBeforeMotivation: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Checked mechanismCompressedBehindHook: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Checked missingMechanism: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Checked prematureClickBeforeMechanism: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Checked purposeTooNarrow: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Checked referenceConfetti: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Checked staleUnreviewableClaims: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Checked technicalExplainerVoice: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Checked templateRepetition: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Checked workedExampleOvertakesBookPurpose: one source-owned joke and one evidence distinction; explicit imagined scenario, concrete confirmation, no provider guarantees, account feature claims, or decorative reference pile.",
+      "artifactLocator": "Complete quote/challenge/reveal"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "content/episodes/episode-03.canon.md",
+        "sha256": "578ead817c50cdb615caeaccb076825e3092f04a17aaac835ced6ce799b0da6e"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "original-quote",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A draft is an outfit. A claim is an alibi. Dress accordingly.",
+            "locator": "blockquote"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/episodes/episode-03.canon.md",
+          "sha256": "578ead817c50cdb615caeaccb076825e3092f04a17aaac835ced6ce799b0da6e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A draft is an outfit. A claim is an alibi. Dress accordingly.",
+            "locator": "narrative9"
+          }
+        ],
+        "scopeAndFreshness": "Original LAiDIES canon line, same live Episode3 source. Recheck upon source edit."
+      },
+      {
+        "claimId": "draft-claim",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "AI has produced wording; that alone does not establish what you booked.",
+            "locator": "reveal"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/episodes/episode-03.canon.md",
+          "sha256": "578ead817c50cdb615caeaccb076825e3092f04a17aaac835ced6ce799b0da6e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "which parts are **claims that need receipts**",
+            "locator": "narrative6"
+          }
+        ],
+        "scopeAndFreshness": "Authored hypothetical illustrates stable verification distinction; no measured output or blanket tool claim."
+      }
+    ],
+    "reviewedThrough": "2026-09-07",
+    "nextTrigger": "Source quote, concept or destination changes.",
+    "correctionOwner": "newsstand"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First bounded Overheard quote-and-reveal pilot; prior crossword is a different interaction and not a comparable revision."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No new reusable defect in this initial full short-copy review."
+  }
+}

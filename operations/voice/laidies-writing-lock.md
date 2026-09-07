@@ -737,3 +737,17 @@ Before any episode, article, study pack, or quiz ships, run the
 
 If a claim's truth depends on the month, it does not belong in an
 episode. It belongs at the NewsStand.
+
+## September 7, 2026 — Ali’s dry-wit benchmark
+
+Ali explicitly identifies her style as very dry wit: understated delivery, mock formality and a raised eyebrow at an absurd claim, followed promptly by the facts. Do not explain the joke or bolt a joke onto every paragraph.
+
+Approved examples from Ali and the variants she endorsed:
+- “Let us tarry a while in the slowly dwindling world of facts.”
+- “Before this gets any more popular, a brief encounter with the facts.”
+- “The facts have made themselves inconvenient again.”
+- “A compelling story. Regrettably, that is not what happened.”
+- “Let us briefly consult reality. It has had very little airtime.”
+- “And now, as Eminem instructs us, let us snap back to reality.”
+
+The final Eminem wording is deliberate: **instructs**, not teaches; **let us**, not let’s. Its formal phrasing beside the familiar reference is the joke. This is Ali’s framing around a brief lyric reference, not a claim that Eminem said the whole sentence. Follow external-reference attribution/length rules at publication. These examples establish voice; they do not assert that any particular story or reader is misinformed. Use them selectively where a specific factual correction earns them.

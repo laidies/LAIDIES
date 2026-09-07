@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "overheard-draft-claim-20260907",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "INTERACTIVE",
+  "surface": "NEWSSTAND_OVERHEARD",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root/callout_check",
+    "principalId": "/root/callout_check",
+    "role": "Independent AI editorial reviewer",
+    "modelFamily": "openai-gpt-5.6-terra",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-07T23:00:00.000Z",
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial review, not human-reader observation.",
+    "This reviews the exact candidate prose and its source binding; it does not test final browser placement or interaction behaviour."
+  ],
+  "artifact": {
+    "reviewText": {"path": "operations/product-stewards/newsstand/candidates/overheard-draft-claim-20260907/review-text.md", "sha256": "eba6f77a9713ca7c164709dca4afa9237fa15803312c0626c33f541a4083756d"},
+    "manifest": {"path": "operations/product-stewards/newsstand/candidates/overheard-draft-claim-20260907/publication-manifest.json", "sha256": "584fc24edca68e4fb21e3b7f6952c304149d79d246a7cfdb01971ede1d0f8db7"}
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/callout_check",
+    "reviewedAt": "2026-09-07T22:50:00.000Z",
+    "negatives": [
+      {"exemplarId": "CQX-BAD-001", "verdict": "REJECT", "identifiedFailureFamilies": ["glossaryAccumulation", "templateRepetition", "decorativeAnalogy", "referenceConfetti", "missingMechanism", "genericAction", "jargonBeforeMeaning", "disconnectedSystem", "joylessInstruction"], "evidence": [{"excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts.", "locator": "quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt opening"}]},
+      {"exemplarId": "CQX-BAD-002", "verdict": "REJECT", "identifiedFailureFamilies": ["purposeTooNarrow", "mechanismBeforeMotivation", "workedExampleOvertakesBookPurpose", "technicalExplainerVoice"], "evidence": [{"excerpt": "Before one polished paragraph influences the next two years of your life, you need to know what happened between your question and that answer.", "locator": "quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md introduction"}]}
+    ],
+    "positive": {"exemplarId": "CQX-GOOD-EPISODE-001", "verdict": "PASS", "strengthsRetained": ["Begins with an ordinary situation before naming the checking distinction.", "Leaves the reader with a bounded action and retains their judgment."], "evidence": [{"excerpt": "open the tab and hand AI the truth about one real task — who it's for, what you need from them, what you can't say out loud — then keep your judgment on the output.", "locator": "content/episodes/episode-01.canon.md comparison"}]}
+  },
+  "reverseBrief": {
+    "humanQuestion": "What must I check before sending an AI-polished personal message?",
+    "promisedPayoff": "Identify an added factual detail and find the record that can support or correct it.",
+    "centralMentalModel": "Fluent AI wording is a draft; any factual assertion inside it still needs evidence.",
+    "dailyLifeConnection": "A restaurant booking message and a parcel update.",
+    "surfaceJob": "A compact source-owned quote, question, reveal and one unseen transfer case.",
+    "desiredReaderFeeling": "Amused, alert and able to make one specific check."
+  },
+  "outcomes": {
+    "plainClarity": {"verdict": "PASS", "observation": "The missing booking time makes the problem visible without technical vocabulary.", "artifactEvidence": [{"excerpt": "You never supplied the time.", "locator": "restaurant scenario"}]},
+    "readerValue": {"verdict": "PASS", "observation": "The reveal names both the detail to test and the record to use.", "artifactEvidence": [{"excerpt": "Check the time against the restaurant’s confirmation.", "locator": "reveal"}]},
+    "laidiesVoice": {"verdict": "PASS", "observation": "The source-owned line supplies dry humour; the new copy uses the joke to frame evidence checking.", "artifactEvidence": [{"excerpt": "Let us inspect the alibi", "locator": "reveal control"}]},
+    "engagingEnjoyable": {"verdict": "PASS", "observation": "A direct question precedes an optional reveal, creating a small genuine pause without obscuring the lesson.", "artifactEvidence": [{"excerpt": "Before you send it, what needs checking?", "locator": "challenge question"}]},
+    "factualIntegrity": {"verdict": "PASS", "observation": "The booking is explicitly imagined and the principle is bounded to whether a claim has supporting evidence.", "artifactEvidence": [{"excerpt": "Imagine asking AI to tidy a message about your restaurant booking.", "locator": "restaurant scenario"}]},
+    "freshnessReviewability": {"verdict": "PASS", "observation": "The quoted line and the draft/claim distinction bind to the canonical Episode 3 source, with no current provider or product claim.", "artifactEvidence": [{"excerpt": "From Episode 3 · The Burn Book Problem", "locator": "source line"}]},
+    "surfaceFit": {"verdict": "PASS", "observation": "The pilot is short enough for an Overheard module and does not pretend to teach a full verification workflow.", "artifactEvidence": [{"excerpt": "A draft can contain claims. That is where the checking comes in.", "locator": "reveal ending"}]},
+    "dailyLifeConnection": {"verdict": "PASS", "observation": "Dinner arrangements and delivery news are personal, plausible contexts for passing along an AI-written message.", "artifactEvidence": [{"excerpt": "Same question, different message: AI writes “Your parcel has shipped.”", "locator": "unseen parcel case"}]},
+    "communicationBenchmark": {"verdict": "PASS", "observation": "The concealed move is concrete: AI added a time the person did not provide; the reveal reconnects the familiar situation to evidence.", "artifactEvidence": [{"excerpt": "AI has produced wording; that alone does not establish what you booked.", "locator": "reveal"}]},
+    "usefulAction": {"verdict": "PASS", "observation": "The reader can retain useful wording while correcting or deleting the unsupported factual addition.", "artifactEvidence": [{"excerpt": "Keep the phrasing if you like it, but correct or remove the unsupported detail.", "locator": "reveal"}]},
+    "practiceFeedback": {"verdict": "PASS", "observation": "The reveal gives the expected answer to the dinner case and the parcel case tests the same rule in a new situation.", "artifactEvidence": [{"excerpt": "The actual dispatch confirmation or tracking record—not another confident sentence.", "locator": "unseen parcel case"}]},
+    "honestLimits": {"verdict": "PASS", "observation": "It does not claim all drafts are false or that all claims are bad; it says wording alone cannot establish a booking fact.", "artifactEvidence": [{"excerpt": "A draft can contain claims. That is where the checking comes in.", "locator": "reveal ending"}]}
+  },
+  "independentChecks": {
+    "dinnerCase": "Check the claimed time against the restaurant confirmation because the time was not supplied to AI.",
+    "unseenParcelCase": "Check an actual dispatch confirmation or tracking record before repeating that the parcel shipped.",
+    "evidenceType": "AI_EDITORIAL_ANALYSIS"
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {"present": false, "observation": "No benchmark or authority name appears in the candidate prose.", "artifactLocator": "complete review text"},
+    "communicationPastiche": {"present": false, "observation": "The short scenario uses its own direct language and returns to the checking mechanism.", "artifactLocator": "restaurant scenario and reveal"},
+    "corporateSludge": {"present": false, "observation": "The language is concrete and personal rather than managerial abstraction.", "artifactLocator": "complete review text"},
+    "curiosityWithoutPayoff": {"present": false, "observation": "The question receives a precise source-checking answer in the reveal.", "artifactLocator": "challenge question and reveal"},
+    "decorativeAnalogy": {"present": false, "observation": "The outfit/alibi line is the canonical memory aid and the reveal states its operational meaning.", "artifactLocator": "quote through reveal"},
+    "disconnectedSystem": {"present": false, "observation": "Draft, claim and receipt connect in one action: check an added assertion against its record.", "artifactLocator": "reveal"},
+    "entertainmentBeforeUnderstanding": {"present": false, "observation": "The humour sets up the question and is followed immediately by the evidence distinction.", "artifactLocator": "quote and challenge"},
+    "factlessConfidence": {"present": false, "observation": "The prose explicitly rejects a confident sentence as evidence.", "artifactLocator": "parcel case"},
+    "familiarExampleWithoutTechnicalReturn": {"present": false, "observation": "The booking example returns to the exact mechanism: generated wording does not establish a fact.", "artifactLocator": "restaurant reveal"},
+    "genericAction": {"present": false, "observation": "It names the restaurant confirmation and dispatch confirmation or tracking record.", "artifactLocator": "reveal and parcel case"},
+    "glossaryAccumulation": {"present": false, "observation": "Only draft, claim and receipt are used, in context and without a glossary list.", "artifactLocator": "complete review text"},
+    "inflatedTakeawayEnding": {"present": false, "observation": "The ending stays with the bounded parcel check.", "artifactLocator": "parcel case"},
+    "jargonBeforeMeaning": {"present": false, "observation": "The everyday booking situation arrives before the draft/claim framing.", "artifactLocator": "restaurant scenario"},
+    "joylessInstruction": {"present": false, "observation": "The quote and reveal have a restrained comic lift while retaining a useful instruction.", "artifactLocator": "quote and reveal control"},
+    "mechanismBeforeMotivation": {"present": false, "observation": "The risk of sending an invented time establishes why checking matters before the rule is stated.", "artifactLocator": "restaurant scenario"},
+    "mechanismCompressedBehindHook": {"present": false, "observation": "The reveal gives a complete compact mechanism: wording is not proof; inspect the underlying record.", "artifactLocator": "reveal"},
+    "missingMechanism": {"present": false, "observation": "The candidate explicitly distinguishes generated wording from evidence supporting a claim.", "artifactLocator": "reveal"},
+    "prematureClickBeforeMechanism": {"present": false, "observation": "The reader sees the unprovided time before receiving the general conclusion.", "artifactLocator": "restaurant scenario and reveal"},
+    "purposeTooNarrow": {"present": false, "observation": "The parcel case shows the rule travels beyond the dinner example.", "artifactLocator": "unseen parcel case"},
+    "referenceConfetti": {"present": false, "observation": "One canonical episode source is named; no unrelated authority pile appears.", "artifactLocator": "source line"},
+    "staleUnreviewableClaims": {"present": false, "observation": "No time-sensitive product, price, policy or factual claim is made.", "artifactLocator": "complete review text"},
+    "technicalExplainerVoice": {"present": false, "observation": "It speaks through a personal message and a small sending decision, not a systems lecture.", "artifactLocator": "complete review text"},
+    "templateRepetition": {"present": false, "observation": "The module has one question, a tailored reveal and a distinct transfer case.", "artifactLocator": "complete review text"},
+    "workedExampleOvertakesBookPurpose": {"present": false, "observation": "The booking remains a short demonstration in a small pilot, not a long foundational detour.", "artifactLocator": "restaurant scenario"}
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [{"path": "content/episodes/episode-03.canon.md", "sha256": "578ead817c50cdb615caeaccb076825e3092f04a17aaac835ced6ce799b0da6e"}],
+    "claimMap": [
+      {"claimId": "episode-quote", "status": "VERIFIED", "candidateEvidence": [{"excerpt": "A draft is an outfit. A claim is an alibi. Dress accordingly.", "locator": "blockquote"}], "sourceBinding": {"path": "content/episodes/episode-03.canon.md", "sha256": "578ead817c50cdb615caeaccb076825e3092f04a17aaac835ced6ce799b0da6e"}, "sourceEvidence": [{"excerpt": "A draft is an outfit. A claim is an alibi. Dress accordingly.", "locator": "Episode 3 narrative 9 and quotables"}], "scopeAndFreshness": "Exact canonical LAiDIES quote; re-review if the canon source changes."},
+      {"claimId": "draft-versus-claim", "status": "QUALIFIED", "candidateEvidence": [{"excerpt": "AI has produced wording; that alone does not establish what you booked.", "locator": "restaurant reveal"}], "sourceBinding": {"path": "content/episodes/episode-03.canon.md", "sha256": "578ead817c50cdb615caeaccb076825e3092f04a17aaac835ced6ce799b0da6e"}, "sourceEvidence": [{"excerpt": "names, dates, numbers, quotes, sources, legal/HR/privacy/security/finance", "locator": "Episode 3 narrative 9"}], "scopeAndFreshness": "Bounded hypothetical about an unsupported added detail; no claim about a current AI product."}
+    ],
+    "reviewedThrough": "2026-09-07",
+    "nextTrigger": "Any edit to the pilot prose, Episode 3 canonical quote or destination link.",
+    "correctionOwner": "newsstand"
+  },
+  "ratchet": {"repeatedKnownDefects": 0, "objectiveDefectsFirstFoundAtReview": 0, "reviewIssues": 0, "reviewCycles": 1, "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"},
+  "lineage": {"kind": "FIRST", "noComparableReason": "First Overheard quote-and-reveal pilot; no prior version of this format exists."},
+  "learningDisposition": {"disposition": "NO_NEW_DEFECT", "rationale": "The exact prose contains no new reusable editorial defect in this AI-only independent review."}
+}

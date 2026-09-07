@@ -1201,3 +1201,17 @@
   }
   .ns-redesign .ns-front-secondary article:nth-child(n+2) :is(strong, span, em) { display: block; }
 }
+
+/* Overheard: one source-linked quote and optional recall, beside the paper's puzzles. */
+.ns-overheard { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:28px; margin:32px 6px 32px 0; border:3px solid #11183b; box-shadow:6px 6px 0 #0053a6; background:#fffdfb; }
+.ns-overheard__quote { padding:26px; background:linear-gradient(125deg,#00d4e9,#7de2c2); }
+.ns-overheard__challenge { padding:26px 26px 26px 0; min-width:0; }
+.ns-redesign .ns-overheard h2 { margin:10px 0 22px; color:#11183b; font:900 clamp(25px,2.8vw,38px)/1.1 Jost,sans-serif; text-shadow:2px 2px 0 #fffdfb; }
+.ns-overheard blockquote { margin:0 0 18px; color:#11183b; font:800 clamp(23px,2.5vw,33px)/1.22 Jost,sans-serif; }
+.ns-redesign .ns-overheard h3 { margin:0 0 14px; font:800 23px/1.2 Jost,sans-serif; color:#0053a6; }
+.ns-overheard p { font:500 17px/1.5 Jost,sans-serif; margin:12px 0; }
+.ns-overheard .ns-kicker,.ns-overheard .ns-overheard__source { font-size:13px; }
+.ns-overheard summary { cursor:pointer; padding:12px 15px; border:2px solid #11183b; background:#7de2c2; color:#0053a6; font:800 17px/1.3 Jost,sans-serif; box-shadow:3px 3px 0 #11183b; }
+.ns-overheard summary:focus-visible { outline:3px solid #0053a6; outline-offset:5px; }
+.ns-overheard details[open] summary { margin-bottom:18px; }
+@media(max-width:720px){.ns-overheard{grid-template-columns:minmax(0,1fr);gap:0}.ns-overheard__quote,.ns-overheard__challenge{padding:20px}.ns-overheard p{font-size:16px}}
