@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — NewsStand homepage description must explain reader value
+
+Ali rejected the format-only NewsStand invitation as severely lacking. Describe understanding headlines, relevance to work and life, deeper Big Picture analysis and traceable sources. Do not substitute a list of publication formats for the reason to visit. Current summary: “Understand the AI headlines—and what they could mean for your work and life. Check the sources, or explore the bigger issues in The Big Picture.” Fuller Read more copy names PAiGE, weekly catch-up and What This Means For You. Source9f69e643; hosted evidence33bc62f1 and ccf0ec89; https://246a1fad.laidies-sunnyvaile.pages.dev/#activities . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only; qualitative owner acceptance pending.
+
 ## 2026-09-06 — Equal compact cards; explain Girl Talk AI practice
 
 Ali rejects different-size activity cards, superseding natural desktop card height. Use equal compact desktop cards and aligned primary actions, with useful visible excerpts and native Read more dialogs preserving complete original descriptions. Single-column phone cards remain natural. Ali also flags Girl Talk copy omitting AI: describe actual fixed prompts about checking AI output and briefing made-up tasks, not an invented model-call capability. Source8533cc55; hosted evidence43da37dd; https://838a6dc4.laidies-sunnyvaile.pages.dev/#activities . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only; owner visual acceptance remains pending.
