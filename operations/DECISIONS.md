@@ -1,5 +1,29 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Recover accepted AI Fundamentals source identity
+
+The August 16 decision in original commit
+`5a4b520847709f709215718fc5706b748795549d` accepts the exact twenty-chapter
+Amazon Quick manuscript as the new AI Fundamentals 101 source base, with Ali's
+accuracy vetting of those supplied bytes. That later source decision supersedes
+the six-chapter predecessor as the starting manuscript; neither source
+acceptance nor later visual-method approval admits a finished book.
+
+Recover only the three immutable imported files under
+`content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/`.
+Their exact identities and LCWO-002 placement are recorded in
+`product-stewards/learning-content-ecosystem/RECOVERY.md`. Preserve source bytes;
+do not restart a general accuracy rewrite or restore rejected Concepts 101.
+Current corrections/extensions must be separately bound and reviewed. LCWO-002
+belongs at Chapter 2, section 2.5; the accepted text's open-weight/closed
+subsection does not complete its requested open/source-available distinctions.
+Current primary-source research is still required for those additions.
+
+This recovery restores internal inputs, not the book builder, derived source,
+rendered page, visuals, admission, queue eligibility or an execution service.
+Library owns the eventual revision and rendering route; Learning/accuracy owns
+the current concept packet. Existing human/public-release boundaries remain.
+
 ## 2026-09-06 — Bounded inactive Learning execution adapter
 
 Control Room accepts reversible implementation under Ali's whole-operation

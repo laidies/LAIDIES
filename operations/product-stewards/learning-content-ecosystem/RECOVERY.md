@@ -1,71 +1,62 @@
 # Existing prose-quality package recovery
 
-## Current LCWO-002 producer-preflight reconciliation — September 6, 20:24 PDT
+## Current LCWO-002 source reconciliation — September 6
 
-**Status: HOLD — SOURCE AUTHORITY UNRESOLVED / NO PRODUCER CONTRACT.** The
-durable need to distinguish open, open-weight, source-available and closed AI
-still belongs inside AI Fundamentals 101. The recorded instruction to draft a
-`Concepts 101` cluster immediately is not current authority.
+**SOURCE IDENTITY RESOLVED / INTERNAL RECOVERY / DRAFTING STILL HOLD.**
+The older seven-path work order points to missing and superseded records.
+Its historical investigation is preserved in PR122/Git history. It cannot
+supply the current manuscript or an immediate-build instruction.
 
-The current dependency projection correctly quarantines `LCWO-002`: all seven
-declared paths are absent from current `main`. The two target paths are planned
-outputs, not available source authority:
+The newer immutable source is the twenty-chapter Amazon Quick bundle accepted
+by Ali on August 16. Original import and acceptance decision:
+`5a4b520847709f709215718fc5706b748795549d`. It also survives in release branch
+commit `9dd8da6d4c67dfbb8192ebefe8c96ca0be0f56f6`. Root recovered only the
+three original Git blobs into current source control, with identical hashes.
+Source acceptance is not finished-book admission, fresh validation of every
+volatile claim, or public release.
 
-- `content/library-books/sources/ai-fundamentals-101.source.json`
-- `content/library-books/rendered/ai-fundamentals-101.html`
+Base directory: `content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/`.
 
-The five declared evidence inputs are recoverable only from non-ancestor
-historical commits `c80291686d522192c097beb5d5eebeab1764f942` and
-`1cf7342df80a76a7b6765f448d00b384abb405bf`. They remain provenance, not current
-producer inputs:
-
-| Declared input | Current preflight disposition |
+| File | SHA-256 |
 | --- | --- |
-| `NEWSSTAND-INTAKE-openai-hugging-face-agent-security-2026-07-28.md` | Retains the durable concept distinction and the no-duplicate-surface ruling. Reject its `CONCEPTS 101 LOCAL SUCCESSOR BUILT` status and its immediate-build instruction as obsolete. |
-| `stage-4-learning-system-concepts-gemini-flash-and-kimi-k3-2026-07-29.md` | Retains only the distinction between dated product examples and an evergreen concept home. Kimi/model/access claims require a new current primary-source packet before use. |
-| `stage-4-learning-system-concepts-openai-hugging-face-breaking-final-2026-07-29.md` | Retains only routing provenance. Its incident compound, local Concepts treatment and reader-link conclusions cannot establish current book truth. |
-| `stage-4-learning-system-concepts-cross-lab-cyber-evaluation-openai-freshness-repaired-2026-08-01.md` | Retains the rule that access labels are not a safety score and must stay separate from dated incident claims. Its bound news artifact is not a current book source. |
-| `stage-4-learning-system-concepts-cross-lab-cyber-evaluation-contrast-focus-repaired-2026-08-02.md` | Retains the no-duplicate concept disposition only. Its exact news review identity is historical and supplies no current Fundamentals manuscript authority. |
+| `front-matter.md` | `288a736ed80cedab1e45f4d96cea60ec11edaf226d19226476b890178a051c37` |
+| `full-book.md` | `721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9` |
+| `quick-production-playbook.md` | `43596af4f16bf97c0c1df70e16dbdcb8195542dbd717158dea7edb1e45455074` |
 
-Current decisions D-2026-08-06-097 and D-2026-08-06-098 supersede the old
-product identity: AI Fundamentals 101 owns the connected durable system map and
-its internal reader-facing **Key Definitions** section; Ali explicitly rejected
-`Concept Index` as the displayed label. The rejected Concepts artifact cannot
-be reused as a successor structure. Current prose rules additionally require motivation
-before mechanisms, plain connected explanation, practical consequences,
-misconception resistance, exact current evidence and an earned analogy or no
-analogy. The five historical records do not satisfy that producer-preflight
-package.
+**Exact placement:** `full-book.md`, Chapter 2, section 2.5, “Variations Within
+the Family: Size, Openness, and Thinking,” lines 437–455. Extend the existing
+open-weight/closed subsection; do not create a competing concept home. The
+accepted source does not separately define all four labels requested by
+LCWO-002. Learning/accuracy must prepare current definitions, boundaries and
+source evidence for the missing distinctions before new prose can be produced.
 
-A preservation-sensitive checkout contains staged, unadmitted copies at the
-two target paths, and historical AI Fundamentals branches contain partial or
-dirty candidates. None has a current Library-owner source declaration or an
-exact checksum-bound book admission. The mandatory current concept map and the
-AI Fundamentals learning-content intake cited by current decisions are also
-absent from this branch, so a producer contract could not truthfully bind the
-required whole-book sequence even if the two target files were restored. The
-candidates were preserved and were not copied,
-edited, reset, stashed or treated as a fallback.
+Archived task `01a0113b-571d-7680-b9ae-e8de07b8f030`, “Restart AI Fundamentals
+visuals,” provides a later visual-work route, not new manuscript admission.
+Ali approved a Chapter 1 visual method; `1f95f92c` and `5cc4193` preserve
+subsequent visual work. Those assets, generated readers, unfinished Chapter 14
+outputs and dirty worktrees were not copied, edited or discarded.
 
-**Exact next trigger:** the LIBRAiRY owner identifies and checkpoints one exact
-current AI Fundamentals source as the canonical successor, names where this
-concept cluster belongs in the whole-book sequence, and supplies its intended
-deterministic render target. The Learning owner then reissues the five missing
-inputs as one current, renamed source packet: durable definitions and boundaries
-from current primary/authoritative sources; dated examples separately marked and
-freshness-triggered; current concept-map placement; practical and misconception
-tests; and explicit cross-surface boundaries. Only then may `LCWO-002` receive a
-real producer contract. No prose, render, review or queue-state change is
-authorized before that trigger.
+**Existing extension mechanism identified:** the Library pilot already uses
+`rewind-amendments.json`, schema `laidies-library-rewind-amendments.v1`, bound
+to the immutable manuscript SHA. Its `clarifications` entries carry an ID,
+chapter, mode, exact insertion anchor and added copy. The existing
+`build-book.mjs` requires exactly one anchor match before applying each entry.
+No existing Chapter 2 clarification supplies the missing open/source-available
+distinctions. This establishes a reusable mechanism, not an admitted addition
+or a recovered current builder. The overlay and builder remain in the Library
+worktree; do not import its 110 entries wholesale to satisfy this one order.
 
-Evidence at `2026-09-06T20:24:34-07:00`: queue SHA-256
-`5e47e31f9e49ec1f8ac86fb8b49a8398265a54e9a9f70646ac7e89e6fcfcfe86`;
-`node scripts/project-learning-dependencies.mjs --order LCWO-002` returns the
-required non-zero `QUARANTINED / RECONCILE_INVALID_INPUTS`; both target paths
-are absent; neither historical source commit is an ancestor of current `main`.
-All 17 work orders remain release-held, the executor remains `DISABLED_UNBOUND`,
-and the queue bytes are unchanged. No integration lock, deploy, publication,
-spend or Ali/public authority was used.
+**Next operation:** Learning prepares the current four-label evidence packet
+for this exact section. Library binds a versioned clarification in that
+existing overlay, preserving the immutable source and exposing the exact
+added prose for review; it does not create a second amendment system. Library still owns the
+versioned extension and deterministic render target. A real producer contract
+requires those inputs and a current work-order binding. The original queue
+SHA remains `5e47e31f9e49ec1f8ac86fb8b49a8398265a54e9a9f70646ac7e89e6fcfcfe86`;
+no queue mutation, drafting, rendering, review, activation or publication occurs
+in this source recovery. The old queue's dependency projection therefore still
+returns `QUARANTINED`; fourteen preparation eligibilities are not drafting
+permission. No old README build command or generated manifest was revived.
 
 September 6, 2026. PR108 merged as `9a372e701742dcc2cb9820e49bb39c3e82b5d9df`
 after both Operating baseline CI jobs passed on exact source `a83b9fb0`.
