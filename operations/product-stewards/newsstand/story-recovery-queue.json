@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-07T02:34:04.151Z",
+  "updatedAt": "2026-09-07T02:51:32.531Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -91,8 +91,8 @@
       "producerPrincipal": "/root",
       "sourceIdentitySha256": "812db2ae3f249e6441fc595458957a0178b65bb772bc6d498ce3e81a780f7539",
       "artifactSha256": "438dee3af18e16695b9cac0e9ac407b87f32d8c43192601338f6fbd513f0b82c",
-      "status": "REPAIR_REQUIRED",
-      "active": true,
+      "status": "TERMINAL_REJECTED",
+      "active": false,
       "consequencePriority": 0,
       "firstSeenAt": "2026-09-05T20:57:59-07:00",
       "lastReviewedAt": "2026-09-06T04:04:48.985Z",
@@ -120,8 +120,8 @@
           "repairability": "REPAIRABLE"
         }
       ],
-      "nextAction": "REDRAFT_ONLY_THE_EXACT_FAILED_REQUIREMENTS",
-      "terminalDisposition": null,
+      "nextAction": "RETAIN_TERMINAL_RECORD",
+      "terminalDisposition": "DUPLICATE_OF_NAMED_STORY",
       "freshnessInvalidation": {
         "recordedAt": "2026-09-06T07:26:18-07:00",
         "evidence": "operations/product-stewards/newsstand/candidates/nvidia-hugging-face-acquisition-2026-09-05/morning-2026-09-06/material-change-hold.md",
@@ -144,7 +144,11 @@
           "sha256": "fead9d8430da845174d5e5580d6fb044e818bf19c6bd8a968043c8e2c7fac0b1"
         }
       },
-      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval."
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "terminalReason": "Private predecessor retained with its failed reviews. Its repaired, freshly sourced successor is publicly verified as nvidia-hugging-face-acquisition-sec-8k-2026-09-06; continuing this old draft would duplicate the published story.",
+      "supersededBy": "nvidia-hugging-face-acquisition-sec-8k-2026-09-06",
+      "resolvedAt": "2026-09-07T02:51:32.531Z",
+      "publicationVerification": "operations/product-stewards/newsstand/evidence/nvidia-publication-20260906/publication-verification.json"
     },
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -213,8 +217,8 @@
       "producerPrincipal": "/root",
       "sourceIdentitySha256": "02553c29814e9245eb3eada577376138aa0dc91d2078ee32091ac65405f62433",
       "artifactSha256": "e706ccf6b6af31d998bb87f61f6995316fa404261f2c22b6607700cd83ce2083",
-      "status": "READY_FOR_ADMISSION",
-      "active": true,
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
       "consequencePriority": 0,
       "firstSeenAt": "2026-09-06T19:00:00Z",
       "lastReviewedAt": "2026-09-07T02:28:02.890Z",
@@ -236,7 +240,7 @@
         }
       ],
       "unresolvedDefects": [],
-      "nextAction": "COMPOSE_AND_ADMIT_EXACT_ARTIFACT",
+      "nextAction": "MONITOR_CORRECTIONS",
       "terminalDisposition": null,
       "assembledCandidate": {
         "path": "operations/product-stewards/newsstand/candidates/nvidia-hugging-face-acquisition-2026-09-05-sec-8k-repair-20260906/admission-current-base-20260906/ordinary-candidate.json",
@@ -255,7 +259,31 @@
           "sha256": "aba0458ecaecfbd3f06603623d9e9b86fade014fd173ff5c88f7d17aa3dd65dc"
         }
       },
-      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval."
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "908c7cf9-79ea-42e2-b7cd-0b6dd9ee0d02",
+        "immutableUrl": "https://908c7cf9.laidies-sunnyvaile.pages.dev",
+        "customUrl": "https://laidies.ai/newsstand#nvidia-hugging-face-acquisition-sec-8k-2026-09-06",
+        "artifactIdentitySha256": "23a39c5fb46390b2f0b1927aa728321cf5672911cf85bfc81d7dab77a4953290",
+        "sourceCommit": "9ffc334c",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-07T02:51:32.531Z",
+        "evidence": [
+          "reader-live.json",
+          "reader-immutable.json",
+          "public-bytes.json",
+          "scope-receipt.json"
+        ],
+        "preserved": {
+          "baseDeploymentId": "25dc65ff-13d6-4b93-87c7-859237351e21",
+          "fileCount": 770,
+          "changedPaths": 4,
+          "designFilesUnchanged": true,
+          "originalServiceDatesUnchanged": true
+        }
+      }
     }
   ]
 }

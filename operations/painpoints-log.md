@@ -16028,3 +16028,11 @@ remain unreconciled; cross-chat completeness is not certified.
 - Failure: Replacingpinkwithmint retained the continuouswash Ali disliked; inheritedborder survived a paddingreset.
 - Prevention: Distinguish colourchoice from distribution/texture. Check inheritedborders when resettingpadding; use quietpaper and selectivefeaturecolour when requested.
 - Behind the Build: Sometimes the problem is how much colour a design uses, not which colour.
+
+
+## BTB-520 — New reporting must not make old advice look new
+- Date: 2026-09-06
+- Failure: A separately updated Weekly blocked the next same-day Daily append; replacing the issue admission also changed unchanged columns' archive publication times. The Weekly's feed/archive derivatives were stale.
+- Prevention: A news append carries only the current admitted Weekly, retains original service publication time across first and later revisions, and rebuilds deterministic derivatives. The real append fixture checks all three downstream outcomes. A valid source roster is not a completed source sweep; each selected Weekly development needs its exact source observation and reuse disposition.
+- Verification: Focused positive/negative tests and real production908c7cf9 at desktop/phone; exact four-file update preserves all other artifact bytes. Legacy repo-wide asset/control-room failures remain separate; hooks were bypassed only after scoped checks. Python URL retrieval returned403, while browser and curl verified the actual public bytes successfully.
+- Behind the Build: Explain how changing one thing can accidentally make unchanged information appear fresh, and why comparing the reader's before/after experience matters. Share the lesson, not private prompts, source recipes or operating infrastructure.

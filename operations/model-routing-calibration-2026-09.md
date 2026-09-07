@@ -133,3 +133,5 @@ and the next review date only if continued measurement can change a decision.
 | 42 | 2026-09-06 | Whole-paper established palette | Astra foreground; Terra Medium independent review | <15m / usage unavailable | Candidate accepted | Concurrentplayerrelease preserved | Terra adequate |1200/390/320allsections,sixlinks,exactscope |
 
 | 43 | 2026-09-06 | Selectivecolour and headlinehairline | Astraforeground; TerraMedium independentreview | <15m / usageunavailable | Rootclear | Userclarifieddistributionoverhue; privategradientdiscarded | Terraadequate |1200/390/320preservedgeometry |
+
+| 44 | 2026-09-06 | NewsStand source coverage, research reuse and admitted story recovery | Astra foreground; Terra Medium bounded reading/implementation/envelope review; existing Claude Medium editorial review | >60m / task usage unavailable | Two integration defects repaired before release | Same-day Weekly continuity and archive timestamp regression; stale test expected hidden phone control | Terra adequate for mechanical lanes; cross-surface reconciliation needed foreground judgment | Public908c7cf9 both origins,1280/390/320; pending source/downstream work explicit |
