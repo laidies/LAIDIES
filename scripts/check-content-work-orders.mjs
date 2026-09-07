@@ -11,6 +11,12 @@ const GATES = [
   "usefulnessDepth", "formatFit", "searchIndexing", "relationshipLinking",
   "canonConsistency", "songOpportunity", "derivativeFeeds"
 ];
+// Current-main schema 1.1 has no checked-in schema or executor. Validate only the
+// vocabulary present in the preserved queue; later execution states remain a
+// separately missing integration dependency rather than being invented here.
+const QUEUE_STATUSES = new Set(["ACTIVE"]);
+const ORDER_STATUSES = new Set(["SPECIFIED", "BUILT_LOCALLY", "QUEUED_WITH_TRIGGER"]);
+const DISPATCH_STATES = new Set(["READY_TO_DISPATCH", "NOT_READY"]);
 const BOUND_STATUSES = new Set(["EDITORIAL_REVIEW", "CONTENT_VERIFIED", "EXPERIENCE_VERIFIED", "APPROVED", "DEPLOYED", "VERIFIED_PUBLICLY"]);
 
 function walk(directory, predicate) {
@@ -28,11 +34,26 @@ export function checkContentWorkOrders({ root = process.cwd() } = {}) {
   const queuePath = path.join(root, "operations/product-stewards/learning-content-ecosystem/content-work-orders.json");
   let queue;
   try { queue = JSON.parse(fs.readFileSync(queuePath, "utf8")); } catch (error) { return { errors: [`content work orders invalid: ${error.message}`] }; }
+  if (!queue || typeof queue !== "object" || Array.isArray(queue)) return { errors: ["content work orders must be an object"] };
   if (queue.schemaVersion !== "1.1.0") errors.push("content work orders schemaVersion must be 1.1.0");
+  if (queue.owner !== "learning-content-ecosystem") errors.push("content work orders owner must be learning-content-ecosystem");
+  if (!QUEUE_STATUSES.has(queue.status)) errors.push(`content work orders has invalid status ${queue.status || "MISSING"}`);
+  if (!Array.isArray(queue.intakeCoverage)) errors.push("content work orders intakeCoverage must be an array");
+  if (!Array.isArray(queue.workOrders)) {
+    errors.push("content work orders workOrders must be an array");
+    return { errors, workOrders: 0, coveredRecords: 0, readyForProducerPreflight: [], readyToDraft: [], producerContractBlocked: [], queuedWithTrigger: [] };
+  }
   const orders = new Map();
-  for (const order of queue.workOrders || []) {
+  for (const order of queue.workOrders) {
+    if (!order || typeof order !== "object" || Array.isArray(order)) {
+      errors.push("content work order must be an object");
+      continue;
+    }
+    if (!/^LCWO-[0-9]{3}$/.test(order.id || "")) errors.push(`content work order has invalid id ${order.id || "MISSING"}`);
     if (orders.has(order.id)) errors.push(`duplicate content work order ${order.id}`);
     orders.set(order.id, order);
+    if (!ORDER_STATUSES.has(order.status)) errors.push(`${order.id || "MISSING"} has invalid status ${order.status || "MISSING"}`);
+    if (!DISPATCH_STATES.has(order.dispatchState)) errors.push(`${order.id || "MISSING"} has invalid dispatchState ${order.dispatchState || "MISSING"}`);
     if (!order.ownerProductId) errors.push(`${order.id} missing ownerProductId`);
     for (const field of ["title", "nextAction", "nextTrigger"]) if (!order[field]) errors.push(`${order.id} missing ${field}`);
     for (const field of ["sourceRefs", "targetPaths", "acceptanceEvidence", "reviewChain"]) {
@@ -108,7 +129,8 @@ export function checkContentWorkOrders({ root = process.cwd() } = {}) {
     errors,
     workOrders: orders.size,
     coveredRecords: coverage.size,
-    readyToDispatch: [...orders.values()].filter((order) => order.dispatchState === "READY_TO_DISPATCH" && !producerContractBlocked.some((item) => item.startsWith(`${order.id}:`))).map((order) => order.id),
+    readyForProducerPreflight: [...orders.values()].filter((order) => order.dispatchState === "READY_TO_DISPATCH").map((order) => order.id),
+    readyToDraft: [...orders.values()].filter((order) => order.dispatchState === "READY_TO_DISPATCH" && !producerContractBlocked.some((item) => item.startsWith(`${order.id}:`))).map((order) => order.id),
     producerContractBlocked,
     queuedWithTrigger: [...orders.values()].filter((order) => order.status === "QUEUED_WITH_TRIGGER").map((order) => order.id)
   };
@@ -125,7 +147,8 @@ if (direct) {
   console.log("CONTENT WORK ORDER CHECK PASS");
   console.log(`work_orders=${result.workOrders}`);
   console.log(`covered_records=${result.coveredRecords}`);
-  console.log(`ready_to_dispatch=${result.readyToDispatch.join(",") || "none"}`);
+  console.log(`ready_for_producer_preflight=${result.readyForProducerPreflight.join(",") || "none"}`);
+  console.log(`ready_to_draft=${result.readyToDraft.join(",") || "none"}`);
   console.log(`producer_contract_blocked=${result.producerContractBlocked.join(" | ") || "none"}`);
   console.log(`queued_with_trigger=${result.queuedWithTrigger.join(",") || "none"}`);
 }

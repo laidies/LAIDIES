@@ -26,6 +26,7 @@ function workflowErrors(scripts) {
   const buildSteps = (scripts['ci:build'] || '').split(' && ');
   const buildRequired = [
     'npm run test:content-prose-quality',
+    'npm run test:content-work-orders',
     'node scripts/check-content-work-orders.mjs',
     'node scripts/check-content-release-readiness.mjs'
   ];
@@ -40,6 +41,7 @@ for (const missing of [
   'node scripts/test-content-quality-learning.mjs',
   'node scripts/test-content-producer-contract.mjs',
   'node scripts/test-prose-quality-admission.mjs',
+  'npm run test:content-work-orders',
   'node scripts/check-content-work-orders.mjs',
   'node scripts/check-content-release-readiness.mjs'
 ]) {
@@ -101,4 +103,4 @@ if (queue.workOrders.every(order => order.artifactBinding?.status === 'UNBOUND')
 }
 console.log(`REAL CONTENT QUEUE INTEGRITY MATCH orders=${queue.workOrders.length} ready=${release.ready.length} held=${release.held.length}; not release authorization`);
 console.log(`CONTENT QUALITY PACKAGE INTEGRITY MATCH exemplars=${entries.length}; changed/missing bytes rejected; semantic quality NOT EVALUATED`);
-console.log('CONTENT QUALITY WORKFLOW WIRING PASS actual=1 rejected_omissions=5 rejected_order=1');
+console.log('CONTENT QUALITY WORKFLOW WIRING PASS actual=1 rejected_omissions=6 rejected_order=1');
