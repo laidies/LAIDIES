@@ -1,5 +1,11 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-07 — Keep green in the Did you know burst
+
+Ali clarifies that she still wants green and specifically asks to put it behind the question mark again. Restore the existing burst to --hp-lime (#b7e42b). This is one colour-value correction: preserve the hot-pink title, blue background, coral description, sky-blue links and pink borders. It does not authorize changing shortcut artwork or the Miss Jeeves runtime.
+
+Implemented in source 4ec1ef87; https://aad40107.laidies-sunnyvaile.pages.dev/#dyk-title. Exact hosted HTML and desktop/phone pixels verified. Preview only; production unchanged.
+
 ## 2026-09-07 — Restore the discovery banner’s hot-pink title and recover needs artwork
 
 Ali says Did you know used to be hot pink and rejects the current orange, green and dark-purple combination as Halloween-like. Restore the title to hot pink and correct the banner palette as a whole using the established LAiDIES colours; preserve its compact layout, eight invitations, current feature thumbnails, direct destinations and shared radio behavior. This supersedes the blanket orange title/description treatment and the dark-purple backdrop. Ali also recalls purpose-made artwork for the I want to learn and other needs shortcuts, rather than site-building images. Locate the actual earlier artwork and its use/approval evidence before changing those images; do not invent replacements or collapse the broad intent routes back into single buildings.
