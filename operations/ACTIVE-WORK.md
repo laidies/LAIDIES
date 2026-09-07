@@ -14,19 +14,24 @@
 > public release, new service, spend, worktree deletion or automatic-continuation claim.
 
 
-> **2026-09-06 — Learning-quality receiver / COMMITTED: scoped adoption passes; full build and real-candidate proof held.**
+> **2026-09-06 — Learning-quality receiver / MERGED AND CURRENT-MAIN VERIFIED: scoped adoption passes; executor and real-candidate proof held.**
 > Owner task `019f9f7f-9e4c-72d2-8882-447bcbe01691`; isolated checkout
 > `/Users/alisoneakin/Projects/laidies-learning-quality-adoption-20260906`, branch
-> `task/learning-quality-adoption-20260906`. Current `main` already contains PR108,
-> PR109, PR112 and the bounded PR113 trial. Corrected receiving commit `b9c1b7ff` wires package
+> `task/learning-quality-adoption-20260906`. Corrected PR114 merged as `39428d15`;
+> this receiver was then fast-forwarded through PR115/current `main` `35711798`.
+> Corrected implementation commit `b9c1b7ff` wires package
 > integrity and learning admission before producer, exact-prose reviewer and release
 > checks and a calibrated work-order consumer. All 14 `READY_TO_DISPATCH` orders remain
 > eligible for producer preflight; zero may draft without a valid contract. Three orders
 > remain trigger-queued. The scoped chain passes; strict `LCWO-002` release admission fails as required and all
-> 17 orders remain held. The full `ci:build` stops before this chain because current
-> `main` lacks `operations/engine/gate.sh`. `LCWO-001` also cannot supply real-candidate
+> 17 orders remain held. The full `ci:build` now passes the recovered gate calibration and
+> four Episode 02 checks, then holds on five absent, unadmitted Episode 02 images. It does
+> not reach later stages, and current `main` still lacks
+> `scripts/test-episode-cue-scope.mjs` and
+> `scripts/test-episode-04-banned-cut-assets.mjs`. `LCWO-001` also cannot supply real-candidate
 > proof in this checkout because both recorded target paths are absent. Current `main`
-> also lacks the recorded v1.2 learning executor/state/controller, so this is queue and
+> also lacks the recorded v1.2 queue schema, learning executor/state/checker/test and the
+> Learning dossier's `state.json` and `backlog.md`, so this is queue and
 > admission wiring rather than restored autonomous execution. No content,
 > service, schedule, deploy, publication, spend or Ali/public authority changed.
 
@@ -1171,3 +1176,11 @@ The current electric colour values and Town Hall navy are applied on
 `ops/private-inbox-current-colours-20260905`; colour/contrast and desktop/390px
 inspection completed. This supersedes the earlier palette claim. Public intake
 remains closed; this repair does not change message handling.
+
+### Operating recovery entry consolidation — September 6
+
+PR115 merged as `357117980d7d701a64b8540f0beddfde979924fa` after both cloud checks. The current recovery entry now replaces accumulated, contradictory historical next steps with the verified delivered repairs, five open edges and narrow resume sources. Original checkpoints remain in Git history. Full build, real owner successor, cloud delivery proof and the governing audit remain incomplete. No public release or cleanup occurred.
+
+### Learning receiver status integration — September 6
+
+PR117 records the receiving owner's actual PR115 adoption with full-build and executor holds retained. Integration review found one obsolete gate-absent statement in DECISIONS; replaced that runtime snapshot with the existing Learning recovery route and regenerated the standing card. This changes no policy or release permission. The existing Learning owner is continuing bounded executor/state reconciliation; no schedule or real-content drafting is authorized by this status correction.

@@ -396,8 +396,9 @@ target paths as if they had to exist in this clean receiver. The first receiving
 made a second mistake: it required the producer contract before the dispatch whose job was
 to create that contract. Corrected the consumer to distinguish producer-preflight eligibility
 from permission to draft. Added negative calibration for workflow omission/order, eleven
-queue shape/state defects and an invalid contract. Scoped adoption passes; the full build remains honestly held on
-an earlier missing episode gate, and `LCWO-001` cannot prove real use while its exact target
+queue shape/state defects and an invalid contract. Scoped adoption passes; after the gate
+package merged, the full build advanced to five absent, unadmitted Episode 02 images rather
+than hiding that dependency, and `LCWO-001` cannot prove real use while its exact target
 files are absent. Prevention: adoption tests must start from the actual receiving branch,
 run the destination command and one exact real order, and distinguish source distribution,
 workflow wiring, candidate availability and release. Behind the Build: a safety system can
@@ -424,3 +425,7 @@ all. Test both a legitimate next step and a realistic way the gate could be fool
 The same recovered checkers now reject zero-cue/zero-page inputs. Real child-check
 fixtures, not only gate stubs, exercise both valid and invalid inputs; shared
 commits c0068195/359e3e37 apply the bounded fixes without a shared branch push.
+
+Continuation of the operating receiver/gate repair: the recovery entry itself retained obsolete permission-pending and first-action instructions alongside completed outcomes. Replaced the accumulated narrative with one current checkpoint and narrow source links; history remains in Git. Prevention: update the current entry by replacement, not by appending another competing current state. Behind the Build angle: long memory can increase mistakes when historical instructions look current.
+
+Learning receiver status integration continuation: a policy row duplicated a volatile missing-gate result after the gate was restored. Route current dependency status to the existing recovery record and keep the policy row about permission boundaries; regenerate its standing card binding. This avoids one more contradictory startup source without creating a new status registry.
