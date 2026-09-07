@@ -16074,3 +16074,5 @@ Ali rejected a headline doubting women’s future role and advice implying women
 
 ## September 7 — Overheard source-linked pilot
 Reuse an original canonical quote with a working public episode route. The old #article fragment had no matching live anchor, so link to the actual episode page rather than promise a precise jump. A draft can contain factual claims: the optional reveal names the concrete confirmation needed instead of teaching an exclusive draft/claim split. Prevent future quote cards becoming disconnected jokes by requiring a source and one memory job. Possible Behind the Build angle: a working URL is not proof that its fragment lands where intended; not commissioned or published.
+
+Overheard task recovery: iCloud Git reads failed with timeout/no-space and then stopped identifying the worktree. Preserve its staged bytes; use a filtered non-iCloud clone of the exact pushed predecessor and copy only owned files. Do not retry a prolonged cloud hydration loop after explicit provider errors. The committed release now belongs to laidies-newsstand-overheard-20260907; the old duplicate remains unreconciled, not discarded.
