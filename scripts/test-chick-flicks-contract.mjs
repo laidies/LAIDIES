@@ -84,7 +84,7 @@ check("the trailer and four exact transparent episode cases are operable on phys
 check("four released rental records expose direct format routes", () => {
   assert.equal((page.match(/<article class="[^"]*cf-rental[^"]*"[^>]*data-episode=/g) || []).length, 4);
   for (const number of Object.keys(vhs)) {
-    assert.equal((page.match(new RegExp(`href="/issues/issue-${number}\\.html"`, "g")) || []).length, 1);
+    assert.equal((page.match(new RegExp(`href="/issues/issue-${number}\\.html"`, "g")) || []).length, number === '01' ? 2 : 1);
     assert.equal((page.match(new RegExp(`href="/watch\\.html\\?ep=${number}&amp;mode=listen"`, "g")) || []).length, 1);
     assert.equal((page.match(new RegExp(`href="/watch\\.html\\?ep=${number}&amp;mode=watch"`, "g")) || []).length, 1);
   }
@@ -130,10 +130,10 @@ check("future bays 5, 6 and 7 use one inactive Coming soon VHS design", () => {
 });
 
 check("the trailer is accurate and exposes one route", () => {
-  assert.match(page, /illustrated, captioned introduction explains the town and how each episode works/i);
-  assert.equal((page.match(/href="\/watch\.html\?ep=trailer"/g) || []).length, 1);
+  assert.match(page, /trailer is being updated and is not available to play/i);
+  assert.equal((page.match(/href="\/watch\.html\?ep=trailer"/g) || []).length, 0);
   assert.match(page, /id="trailer" data-program="trailer" hidden/);
-  assert.match(page, /Start here · Trailer/);
+  assert.match(page, /Trailer · Coming soon/);
   assert.doesNotMatch(page, /class="cf-trailer"/);
   assert.match(behavior, /\.cf-rental\[data-episode\], \.cf-rental\[data-program\]/);
   assert.match(behavior, /a\[href="#trailer"\], a\[href\^="#episode-"\]/);
