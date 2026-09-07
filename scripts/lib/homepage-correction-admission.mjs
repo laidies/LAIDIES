@@ -23,21 +23,22 @@ export function inspectHomepageCorrection(item, root) {
   try {
     const a = item.design_admission;
     if(a.owner_feedback_successor==='GIRL_TALK_THUMBNAIL') return ['retired board direction rejected by owner'];
-    if(a.owner_feedback_successor==='NEWSSTAND_DESCRIPTION') {
-      const p='operations/product-stewards/town-entry-homepage/candidates/newsstand-description-20260906/';
+    if(['NEWSSTAND_DESCRIPTION','GHOSTBUSTER_WORDING'].includes(a.owner_feedback_successor)) {
+      const ghost=a.owner_feedback_successor==='GHOSTBUSTER_WORDING';
+      const p='operations/product-stewards/town-entry-homepage/candidates/'+(ghost?'ghostbuster-wording-20260906/':'newsstand-description-20260906/');
       assert(item.id===homepageCorrectionId && item.review_type==='building_page_visual','wrong scoped candidate');
       for(const [name,b] of [['homepage',a.candidate],['runtime',a.runtime],['worker',a.worker],['graphic',a.graphic],['Mall image',a.mallImage],['burst',a.burst],['wallpaper',a.wallpaper],['cover',a.cover],['current Fairy image',a.fairyImage]]) assert(b&&digest(b.path)===b.sha256,name+' bytes differ');
       assert(a.cards?.length===2&&a.cards.every(b=>digest(b.path)===b.sha256),'current card bytes differ');
-      assert(digest(p+'parent.html')==='075e95a692e89a2fa591041fc1b7f2f13d68d371b61267377463342f5aa5a8d2','wrong NewsStand copy parent');
+      assert(digest(p+'parent.html')===(ghost?'d0d8f738f355c99fc1dfa9eaa33aa7713c8bab5b2ca5e632473dcf1e511fb2b0':'075e95a692e89a2fa591041fc1b7f2f13d68d371b61267377463342f5aa5a8d2'),'wrong NewsStand copy parent');
       const changes=JSON.parse(bytes(p+'changes.json'));
-      assert(changes.replacements.length===2&&changes.replacements.every(c=>c.old.includes('Catch breaking news'))&&changes.replacements.reduce((s,c)=>s.replace(c.old,c.new),bytes(p+'parent.html').toString())===bytes('index.html').toString(),'unrelated homepage change');
+      assert(changes.replacements.length===(ghost?1:2)&&changes.replacements.every(c=>c.old.includes(ghost?'a Ghostbuster, our spirit-free version':'Catch breaking news')&&bytes(p+'parent.html').toString().split(c.old).length-1===(ghost?2:1))&&changes.replacements.reduce((s,c)=>s.split(c.old).join(c.new),bytes(p+'parent.html').toString())===bytes('index.html').toString(),'unrelated homepage change');
       for(const b of a.evidence||[])assert(digest(b.path)===b.sha256,'stale evidence: '+b.path);
       for(const f of ['scope.md','changes.json','parent.html','source-diff.patch','checks.json','copy.md','source-facts.txt','producer-contract.json','producer-self-review.json','content-manifest.json','producer-self-review.md','independent-review.md','claude-review-result.json','visuals.json','browser-test.mjs'])assert(a.evidence?.some(b=>b.path===p+f),'missing bound evidence: '+(f.startsWith('claude')?'claude':f));
       const checks=JSON.parse(bytes(p+'checks.json'));
       assert(checks.status==='PASS'&&checks.sourceSha===a.candidate.sha256,'NewsStand copy checks differ');
       for(const width of[1440,1074,390]){
         const row=checks.rows.find(r=>r.width===width);
-        assert(row&&!row.overflow&&row.cards.length===6&&row.cards.every(c=>c.decoded)&&row.escapeAndFocus&&row.route==='/newsstand.html'&&row.full.includes('What This Means For You')&&row.cards[5].summary.includes('work and life'),'NewsStand copy or interaction differs');
+        assert(row&&!row.overflow&&row.cards.length===6&&row.cards.every(c=>c.decoded)&&row.escapeAndFocus&&row.route===(ghost?'/games/businesswomens-special.html':'/newsstand.html')&&row.full.includes(ghost?'Romy and Michele':'What This Means For You')&&row.cards[ghost?2:5].summary.includes(ghost?'Ghostbuster (spirit-free) options are available if you prefer.':'work and life'),'NewsStand copy or interaction differs');
         if(width>560)assert(row.cards.every(c=>Math.abs(c.height-row.cards[0].height)<1&&Math.abs(c.buttonY-row.cards[0].buttonY)<1),'unequal cards or actions');
       }
       const independent=bytes(p+'independent-review.md').toString(),claude=JSON.parse(bytes(p+'claude-review-result.json'));

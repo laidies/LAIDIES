@@ -1,0 +1,1 @@
+Ali finds the Ghostbuster aside awkward and asks for a spirit-free option for those who prefer. Change only the Businesswomen’s Special short/full description; retain Romy and Michele, Business credentials optional, normal text weight, current artwork, equal compact cards, direct route and full-copy dialog. No change to the game or alcohol advice.
