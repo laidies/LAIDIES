@@ -23,6 +23,23 @@ export function inspectHomepageCorrection(item, root, preservedBytes = {}) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if(a.intent_gradient) {
+      const m=a.intent_gradient,p='operations/product-stewards/town-entry-homepage/candidates/intent-gradient-20260907/';
+      const before='.intent{background:var(--hp-ground-warm);color:var(--hp-midnight)}';
+      const after='.intent{background:linear-gradient(125deg,var(--hp-pink) 0%,var(--hp-coral) 54%,var(--hp-orange) 118%);color:var(--hp-midnight)}';
+      const current=bytes('index.html').toString();assert(current.split(after).length===2,'intent gradient differs');
+      const parent=current.replace(after,before),parentSha=crypto.createHash('sha256').update(parent).digest('hex');
+      assert(m.parentSha256===parentSha&&parentSha==='fdef5285ff355a5c87122c77758433a07b609a79dbb01c4e56e1dd7b9df1aa5d','wrong gradient predecessor');
+      assert(digest('index.html')===a.candidate.sha256,'homepage bytes differ');
+      const retained=structuredClone(item);delete retained.design_admission.intent_gradient;retained.design_admission.candidate.sha256=parentSha;
+      errors.push(...inspectHomepageCorrection(retained,root,{...preservedBytes,'index.html':Buffer.from(parent)}));
+      for(const e of m.evidence||[])assert(digest(e.path)===e.sha256,'stale gradient evidence');
+      for(const f of ['change.json','checks.json','review.md',...['parent','candidate'].flatMap(k=>[390,1440].flatMap(w=>[k+'-'+w+'.png',k+'-transition-'+w+'.png']))])assert(m.evidence?.some(e=>e.path===p+f),'missing gradient evidence');
+      const c=JSON.parse(bytes(p+'checks.json'));assert(c.sourceSha256===a.candidate.sha256&&c.oldGradientRejected,'gradient checks differ');
+      for(const w of[390,1440]){const n=c.rows.find(r=>r.kind==='candidate'&&r.width===w),o=c.rows.find(r=>r.kind==='parent'&&r.width===w);assert(n&&o&&!n.overflow&&n.background.startsWith('linear-gradient(125deg, rgb(242, 84, 169) 0%')&&n.background!==o.background,'pink-first gradient not verified');for(const k of['headingColour','geometry','items','banner'])assert(JSON.stringify(n?.[k])===JSON.stringify(o?.[k]),'gradient changed '+k);}
+      const review=bytes(p+'review.md').toString();assert(review.includes('ADMIT_FOR_OWNER_REVIEW')&&review.includes(a.candidate.sha256),'gradient review differs');
+      return errors;
+    }
     if(a.owner_feedback_successor==='DISCOVERY_PALETTE') {
       const p='operations/product-stewards/town-entry-homepage/candidates/discovery-restoration-20260907/';
       const parent=JSON.parse(bytes(p+'parent-admission.json'));

@@ -41,6 +41,9 @@ if(item.design_admission.narrow_heading_anchor) {
   cases.push(['wrong heading predecessor',v=>{v.design_admission.narrow_heading_anchor.parentSha256='0'.repeat(64);},'wrong heading predecessor']);
   cases.push(['missing heading pixel review',v=>{v.design_admission.narrow_heading_anchor.evidence=v.design_admission.narrow_heading_anchor.evidence.filter(e=>!e.path.endsWith('/review.md'));},'missing heading evidence']);
 }
+if(item.design_admission.intent_gradient) {
+  cases.push(['missing gradient review',v=>{v.design_admission.intent_gradient.evidence=v.design_admission.intent_gradient.evidence.filter(e=>!e.path.endsWith('/review.md'));},'missing gradient evidence']);
+}
 for (const [name, mutate, reason] of cases) {
   const candidate = structuredClone(item);
   mutate(candidate);
