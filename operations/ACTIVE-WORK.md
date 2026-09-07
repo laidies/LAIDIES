@@ -1171,3 +1171,7 @@ The current electric colour values and Town Hall navy are applied on
 `ops/private-inbox-current-colours-20260905`; colour/contrast and desktop/390px
 inspection completed. This supersedes the earlier palette claim. Public intake
 remains closed; this repair does not change message handling.
+
+### Operating recovery entry consolidation — September 6
+
+PR115 merged as `357117980d7d701a64b8540f0beddfde979924fa` after both cloud checks. The current recovery entry now replaces accumulated, contradictory historical next steps with the verified delivered repairs, five open edges and narrow resume sources. Original checkpoints remain in Git history. Full build, real owner successor, cloud delivery proof and the governing audit remain incomplete. No public release or cleanup occurred.
