@@ -8,30 +8,39 @@ import { chromium } from "/Applications/ChatGPT.app/Contents/Resources/cua_node/
 const ROOT = "/Users/alisoneakin/Projects/laidies-newsstand-recurring-20260905";
 const OUT = path.join(ROOT, "operations/product-stewards/newsstand/candidates/nvidia-reader-context-20260907/browser-review");
 const ID = "nvidia-hugging-face-acquisition-sec-8k-2026-09-06";
-const ORIGIN = process.env.NEWSSTAND_TEST_ORIGIN || "http://127.0.0.1:8765";
+// Set LIVE_ORIGIN only after deployment. Live mode deliberately installs no routes
+// and writes separate live-* artifacts so it cannot be confused with the private preview.
+const LIVE_ORIGIN = process.env.LIVE_ORIGIN?.trim();
+const LIVE_MODE = Boolean(LIVE_ORIGIN);
+const ORIGIN = LIVE_ORIGIN || process.env.NEWSSTAND_TEST_ORIGIN || "http://127.0.0.1:8765";
+const artifact = name => path.join(OUT, `${LIVE_MODE ? "live-" : ""}${name}`);
 fs.mkdirSync(OUT, { recursive: true });
 
-const canonicalRaw = fs.readFileSync(path.join(ROOT, "content/newsstand-stories.js"), "utf8");
-const sandbox = { window: {} };
-vm.runInNewContext(canonicalRaw, sandbox, { filename: "newsstand-stories.js" });
-const data = structuredClone(sandbox.window.NEWSSTAND_DATA);
-const privateStory = JSON.parse(fs.readFileSync(path.join(ROOT, "operations/product-stewards/newsstand/candidates/nvidia-reader-context-20260907/story.json"), "utf8"));
-const canonical = data.stories.find((story) => story.id === ID);
-assert.ok(canonical, "canonical NVIDIA story missing");
-// Preserve the published identity fields required by the reader contract while substituting only private candidate content.
-const renderedStory = { ...canonical, ...privateStory, status: canonical.status, publishedAt: canonical.publishedAt, updatedAt: canonical.updatedAt, lastCheckedAt: canonical.lastCheckedAt, sourceApproval: canonical.sourceApproval };
-data.stories[data.stories.findIndex((story) => story.id === ID)] = renderedStory;
-const storiesBody = `window.NEWSSTAND_DATA = ${JSON.stringify(data)}; window.NEWSSTAND_STORIES = window.NEWSSTAND_DATA.stories;`;
-
-const issueStore = JSON.parse(fs.readFileSync(path.join(ROOT, "content/newsstand-daily-issues.json"), "utf8"));
 let snapshotCount = 0;
-for (const issue of issueStore.issues || []) {
-  for (let i = 0; i < (issue.stories || []).length; i += 1) {
-    if (issue.stories[i].id === ID) { issue.stories[i] = structuredClone(renderedStory); snapshotCount += 1; }
+let renderedStory;
+let storiesBody;
+let issueBody;
+if (!LIVE_MODE) {
+  const canonicalRaw = fs.readFileSync(path.join(ROOT, "content/newsstand-stories.js"), "utf8");
+  const sandbox = { window: {} };
+  vm.runInNewContext(canonicalRaw, sandbox, { filename: "newsstand-stories.js" });
+  const data = structuredClone(sandbox.window.NEWSSTAND_DATA);
+  const privateStory = JSON.parse(fs.readFileSync(path.join(ROOT, "operations/product-stewards/newsstand/candidates/nvidia-reader-context-20260907/story.json"), "utf8"));
+  const canonical = data.stories.find((story) => story.id === ID);
+  assert.ok(canonical, "canonical NVIDIA story missing");
+  // Preserve the published identity fields required by the reader contract while substituting only private candidate content.
+  renderedStory = { ...canonical, ...privateStory, status: canonical.status, publishedAt: canonical.publishedAt, updatedAt: canonical.updatedAt, lastCheckedAt: canonical.lastCheckedAt, sourceApproval: canonical.sourceApproval };
+  data.stories[data.stories.findIndex((story) => story.id === ID)] = renderedStory;
+  storiesBody = `window.NEWSSTAND_DATA = ${JSON.stringify(data)}; window.NEWSSTAND_STORIES = window.NEWSSTAND_DATA.stories;`;
+  const issueStore = JSON.parse(fs.readFileSync(path.join(ROOT, "content/newsstand-daily-issues.json"), "utf8"));
+  for (const issue of issueStore.issues || []) {
+    for (let i = 0; i < (issue.stories || []).length; i += 1) {
+      if (issue.stories[i].id === ID) { issue.stories[i] = structuredClone(renderedStory); snapshotCount += 1; }
+    }
   }
+  assert.ok(snapshotCount > 0, "NVIDIA story missing from daily snapshot store");
+  issueBody = JSON.stringify(issueStore);
 }
-assert.ok(snapshotCount > 0, "NVIDIA story missing from daily snapshot store");
-const issueBody = JSON.stringify(issueStore);
 
 function rgb(value) {
   const match = String(value).match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
@@ -49,7 +58,7 @@ function contrast(a, b) {
 }
 
 const browser = await chromium.launch({ channel: "chrome", headless: true });
-const results = { origin: ORIGIN, storyId: ID, snapshotOverrides: snapshotCount, widths: [], console: [], requestFailures: [] };
+const results = { mode: LIVE_MODE ? "live-unintercepted" : "private-intercepted", origin: ORIGIN, storyId: ID, snapshotOverrides: snapshotCount, widths: [], console: [], requestFailures: [] };
 try {
   for (const width of [1280, 390, 320]) {
     const page = await browser.newPage({ viewport: { width, height: 900 }, deviceScaleFactor: 1 });
@@ -57,8 +66,10 @@ try {
       if (["error", "warning"].includes(message.type())) results.console.push({ width, type: message.type(), text: message.text() });
     });
     page.on("requestfailed", (request) => results.requestFailures.push({ width, url: request.url(), failure: request.failure()?.errorText || "unknown" }));
-    await page.route("**/content/newsstand-stories.js**", (route) => route.fulfill({ contentType: "application/javascript", body: storiesBody }));
-    await page.route("**/content/newsstand-daily-issues.json**", (route) => route.fulfill({ contentType: "application/json", body: issueBody }));
+    if (!LIVE_MODE) {
+      await page.route("**/content/newsstand-stories.js**", (route) => route.fulfill({ contentType: "application/javascript", body: storiesBody }));
+      await page.route("**/content/newsstand-daily-issues.json**", (route) => route.fulfill({ contentType: "application/json", body: issueBody }));
+    }
     // Start on the rack and use the visitor-facing control. A hash navigation can
     // create the article DOM without proving that its sections are visibly opened.
     await page.goto(`${ORIGIN}/newsstand.html`, { waitUntil: "networkidle" });
@@ -84,14 +95,14 @@ try {
       const rail = document.querySelector(".ns-reader--story .ns-reader__rail")?.getBoundingClientRect();
       return box.top >= (rail?.bottom || 0) && box.top < innerHeight && box.bottom > 0;
     });
-    await page.screenshot({ path: path.join(OUT, `reader-visible-what-this-means-${width}.png`) });
+    await page.screenshot({ path: artifact(`reader-visible-what-this-means-${width}.png`) });
     await reveal(callout);
     const calloutVisible = await callout.evaluate((node) => {
       const box = node.getBoundingClientRect();
       const rail = document.querySelector(".ns-reader--story .ns-reader__rail")?.getBoundingClientRect();
       return box.top >= (rail?.bottom || 0) && box.top < innerHeight && box.bottom > 0;
     });
-    await page.screenshot({ path: path.join(OUT, `reader-visible-cocktail-${width}.png`) });
+    await page.screenshot({ path: artifact(`reader-visible-cocktail-${width}.png`) });
     const observed = await page.evaluate(({ id, expectedHero }) => {
       const story = window.NEWSSTAND_DATA.stories.find((item) => item.id === id);
       const article = document.querySelector(".ns-article");
@@ -115,10 +126,10 @@ try {
         expectedHero,
         visibleAfterScroll: { whatThisMeans: window.__browserReviewWhatVisible, cocktail: window.__browserReviewCalloutVisible }
       };
-    }, { id: ID, expectedHero: renderedStory.heroVisual.src });
+    }, { id: ID, expectedHero: renderedStory?.heroVisual?.src || "/assets/newsstand/design-20260907/hugging-face-emoji.png" });
     observed.visibleAfterScroll = { whatThisMeans: whatVisible, cocktail: calloutVisible };
     const errors = [];
-    if (observed.runtimeHero !== renderedStory.heroVisual.src) errors.push("runtime did not use private heroVisual");
+    if (observed.runtimeHero !== observed.expectedHero) errors.push("runtime did not use the Hugging Face emoji heroVisual");
     if (!observed.expandedViaRackControl) errors.push("rack control did not open the full article reader");
     if (!observed.candidateTextPresent) errors.push("runtime did not show private What This Means text");
     if (!observed.visibleAfterScroll.whatThisMeans) errors.push("What This Means section did not become visible after scrollIntoView");
@@ -134,16 +145,16 @@ try {
     }
     if (observed.bookLinks.length !== 3) errors.push(`book links expected 3, observed ${observed.bookLinks.length}`);
     if (!observed.similarStories.length) errors.push("See similar stories is missing or empty");
-    await page.locator(".ns-article").screenshot({ path: path.join(OUT, `reader-${width}.png`) });
-    await whatSection.screenshot({ path: path.join(OUT, `reader-what-this-means-${width}.png`) });
-    await callout.screenshot({ path: path.join(OUT, `reader-cocktail-${width}.png`) });
+    await page.locator(".ns-article").screenshot({ path: artifact(`reader-${width}.png`) });
+    await whatSection.screenshot({ path: artifact(`reader-what-this-means-${width}.png`) });
+    await callout.screenshot({ path: artifact(`reader-cocktail-${width}.png`) });
     results.widths.push({ width, pass: errors.length === 0, errors, observed });
     await page.close();
   }
 } finally {
   await browser.close();
 }
-results.sha256 = Object.fromEntries(fs.readdirSync(OUT).filter((name) => name.endsWith(".png")).map((name) => [name, crypto.createHash("sha256").update(fs.readFileSync(path.join(OUT, name))).digest("hex")]));
+results.sha256 = Object.fromEntries(fs.readdirSync(OUT).filter((name) => name.endsWith(".png") && (LIVE_MODE ? name.startsWith("live-") : name.startsWith("reader-"))).map((name) => [name, crypto.createHash("sha256").update(fs.readFileSync(path.join(OUT, name))).digest("hex")]));
 results.overallPass = results.widths.every((entry) => entry.pass) && results.console.length === 0 && results.requestFailures.length === 0;
-fs.writeFileSync(path.join(OUT, "results.json"), `${JSON.stringify(results, null, 2)}\n`);
+fs.writeFileSync(artifact("results.json"), `${JSON.stringify(results, null, 2)}\n`);
 console.log(JSON.stringify({ overallPass: results.overallPass, widths: results.widths.map(({ width, pass, errors }) => ({ width, pass, errors })), console: results.console, requestFailures: results.requestFailures }, null, 2));
