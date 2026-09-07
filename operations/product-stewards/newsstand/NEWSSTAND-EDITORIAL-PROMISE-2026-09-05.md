@@ -193,3 +193,7 @@ until their exact successor has passed editorial admission.
 Ali found the video-maker/video-store analogy useful and memorable. Preserve the mechanism and humour that earned that response. “What This Means For You” still assumes too much technical involvement: begin with the reader using everyday AI tools, distinguish direct platform users from people affected through the tools they use, and do not presume the reader uses Hugging Face or chooses infrastructure. Continue refining through normal editorial production; this repair does not rewrite the admitted report.
 
 Link the NVIDIA story to exact published book sections about NVIDIA, chips and open-weight models. Article callouts must remain readable under the final sitewide palette rules; inspect computed foreground/background contrast and rendered text, not container presence alone.
+
+### Personal life as well as work — September 7 clarification
+
+Readers use AI for themselves as well as for work. Do not default to workplace scenarios, employers, suppliers or organizational decisions when explaining relevance. Choose personal-life, work or shared examples according to the actual story: learning something, planning a trip, making something, comparing purchases or handling everyday tasks may be more relevant than choosing a workplace tool. Do not force both settings into every article. “What This Means For You” must address the reader as a person and explain the consequence in the setting where she is likely to encounter it. This clarifies the audience across NewsStand, not only the NVIDIA report.
