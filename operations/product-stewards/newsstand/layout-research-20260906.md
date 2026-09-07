@@ -79,3 +79,9 @@ Big Picture title correction: article headline spans the whole spread beneath th
 Ali prefers boxed actions over unboxed reading links. Standardize principal NewsStand reading/column/card calls to action to the Big Picture mint fill, navy border and offset shadow. Preserve inline article links as text.
 
 Ali requests changes visible live. Add approved eyebrow THE QUESTIONS BEHIND THE HEADLINES above Big Picture and release accumulated preview corrections after preserving the latest coordinated production base.
+
+Ali: Big Picture publication date goes beneath the article title, aligned left; reading CTA directly beneath excerpt, not beneath artwork. Group excerpt and CTA so differing image heights cannot separate the reading action.
+
+Ali rejects dark background as out of place with last preferred newspaper direction. Remove dark catch-up gradient; use whitish paper, navy reading ink, cobalt links and navy/mint heading. Preserve boxed CTAs and catch-up functionality.
+
+Ali rejects tangerine dots: they resemble swipe/carousel controls and convey no useful meaning. Remove decorative section dot clusters entirely. Keep typography, artwork and existing section rules.

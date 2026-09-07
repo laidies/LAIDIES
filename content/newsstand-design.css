@@ -1036,13 +1036,6 @@
 .ns-redesign .ns-page::before { display: none; }
 .ns-redesign .ns-archive__search { background: #fffdfb; }
 
-/* Halftone punctuation lives above section headings, never behind reading copy. */
-.ns-redesign :is(.ns-feature-desk__head,.ns-luminairy__head) { position: relative; }
-.ns-redesign :is(.ns-feature-desk__head,.ns-luminairy__head)::after { content: ""; display: block; position: absolute; pointer-events: none; right: 0; top: 2px; width: min(25%,144px); height: 24px; background: radial-gradient(circle,#ff9b3d 4px,transparent 4.5px) 0 0 / 24px 24px; }
-@media(max-width:650px) {
- .ns-redesign :is(.ns-feature-desk__head,.ns-luminairy__head)::after { width: 48px; }
-}
-
 /* The Big Picture's two-colour lettering identifies newspaper sections. */
 .ns-redesign .ns-page :is(.ns-feature-desk__head h2,.ns-luminairy__head h2,.ns-archive__label h2,.ns-front-desk__label,.ns-feature-desk__grid small,.ns-reading-card small) {
  color: #11183b !important;
@@ -1080,3 +1073,18 @@
 .ns-redesign .ns-front-desk--big-picture { grid-template-areas: 'eyebrow eyebrow' 'label label' 'headline headline' 'image contents' 'footer contents'; }
 .ns-redesign .ns-big-picture-eyebrow { grid-area: eyebrow; display: block; margin: 0 0 10px; color: #11183b; font: 800 12px/1.4 Jost,sans-serif; letter-spacing: .12em; text-transform: uppercase; }
 @media(max-width:600px) { .ns-redesign .ns-front-desk--big-picture { grid-template-areas: 'eyebrow' 'label' 'headline' 'image' 'contents' 'footer'; } }
+
+/* Date belongs to the title; the reading action belongs to the excerpt. */
+.ns-redesign .ns-front-desk--big-picture { grid-template-areas: 'eyebrow eyebrow' 'label label' 'headline headline' 'status status' 'image reading'; grid-template-rows: auto auto auto auto auto; }
+.ns-redesign .ns-big-picture-headline { margin-bottom: 8px; }
+.ns-redesign .ns-front-desk--big-picture > .ns-front-status { grid-area: status; justify-self: start; align-self: start; margin: 0 0 20px; font: 500 13px/1.4 Jost,sans-serif; }
+.ns-redesign .ns-big-picture-reading { grid-area: reading; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.ns-redesign .ns-big-picture-reading .ns-front-contents { width: 100%; box-sizing: border-box; }
+@media(max-width:600px) { .ns-redesign .ns-front-desk--big-picture { grid-template-areas: 'eyebrow' 'label' 'headline' 'status' 'image' 'reading'; } }
+
+/* Catch-up is part of the same light newspaper, not a separate dark panel. */
+.ns-redesign .ns-catchup { background: #fffdfb; }
+.ns-redesign .ns-page .ns-catchup :is(h2,h3,h4,p,span,strong,time,a) { color: #11183b !important; }
+.ns-redesign .ns-page .ns-catchup :is(.ns-kicker,a,.ns-catchup-item__kind,time) { color: #003b9e !important; }
+.ns-redesign .ns-page .ns-catchup .ns-catchup__intro h2 { color: #11183b !important; text-shadow: 2px 2px 0 #7de2c2; }
+.ns-redesign .ns-catchup-item:nth-child(n),.ns-redesign .ns-catchup__timeline { border-color: #15bce0; }
