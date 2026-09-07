@@ -21,3 +21,5 @@ clearly instead of silently treating archived entries as current authority.
 
 
 2026-09-07 — Owner ruling “yes stop asking just do” admits exact Miss Jeeves four-answer preview under completed Claude/Terra reviews. Scoped admission calibrated; actual in-app tab3 verified. Never re-request this permission.
+
+2026-09-07 — Miss Jeeves responsive/context repair source fab2ca80, preview f5d48971 verified390/820/1280 and opened. Rejected broad answer withdrawn; forced weekly-update suggestion removed. General answer quality remains open.

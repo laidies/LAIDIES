@@ -14942,3 +14942,8 @@ Behind the Build: a reusable answer is an explanation plus its conditions, evide
 
 
 2026-09-07 — Miss Jeeves presentation closure: retain the explicit owner exception with exact candidate/review bindings. Repeatedly asking about an already granted scoped approval is a process failure; the recorded ruling and calibrated checker now carry it forward. Behind the Build: remember the decision, recheck only changed evidence.
+
+
+## 2026-09-07 — Miss Jeeves relevance and responsive repair
+
+Failure: a broad-question repair became a guided detour into an available weekly-update answer; repeated explanations displaced delivery. Ali also exposed the intermediate-width two-column failure despite phone/desktop overflow tests. Prevention: choose sources and reusable answers only after visitor context; never select the question to fit inventory. Verify intermediate widths and full question readability, not just absence of overflow. Full service value/current freeform quality remain open. Behind the Build: why a saved answer must not decide what a visitor meant.

@@ -1,0 +1,49 @@
+{
+  "principalId": "independent-rendered-reviewer",
+  "modelFamily": "Claude Opus 5",
+  "artifactFirst": true,
+  "hashVerification": "not-independently-computed (no shell available); digests echoed as supplied",
+  "inspected": [
+    {
+      "path": "operations/product-stewards/library/answer-bank-interaction-repair-20260907/screens/clarification-initial-390.png",
+      "sha256": "63bb3a674a5cc7299a7a19245407a06d228a8160bd37781501e7054921f7f7a2",
+      "observations": "Single-column desk at 390. Search textarea full width, question wraps across two lines, no clipping. Four example question cards stack full width, each wrapping fully. Desk card shows 'Your question' with the complete question text in two wrapped lines. Neutral follow-up 'What would you like AI to help you do?' with helper line 'Choose a starting point, or describe something you want to get done.' Six task-category chips stacked, none preselected, no weekly-update option present. Free-text box plus Continue below the chips. Beta notice collapsed to a single disclosure row at the bottom. No overflow, no horizontal scroll."
+    },
+    {
+      "path": ".../clarification-writing-390.png",
+      "sha256": "32f43b6b518f5c32fdb5c86918007c04a9469e309112de2278b627e42debe51c",
+      "observations": "After first reply, desk preserves 'Your question' verbatim plus the inline transcript 'Miss Jeeves asked: What would you like AI to help you do?' / 'Your reply: Write an email or document'. Second follow-up 'What are you writing, and who will read it?' is neutral and assumes no failure; helper text advises leaving out confidential information. Free-text box only, no forced chips. Continue button visible. Collapsed beta persists. No clipping."
+    },
+    {
+      "path": ".../clarification-followup-390.png",
+      "sha256": "084e9bac4567784fa21212b29c689443c50db22a4577e34eea41a9970879489d",
+      "observations": "Full transcript retained: original question plus both asked/reply pairs, with the user-typed weekly-update reply shown in full and wrapping. Answer rendered under 'Your reviewed answer' with 'LAiDIES reviewed \u00b7 Sep 7, 2026' badge. Body paragraphs wrap cleanly at 390. Two sources listed and stacked. Feedback row: Helpful plus seven wrapping reason chips and Send feedback. Collapsed beta at bottom. No clipping or overflow at any point in the column."
+    },
+    {
+      "path": ".../clarification-initial-820.png",
+      "sha256": "f7c1fe5fff64106131fed010c0ebefa15e9d7b95807ece5d9d52486888d1c62e",
+      "observations": "Desk card is single-column at 820; only the page-header search row (textarea + Search LAiDIES button) is side by side, and the example cards form a 2-up grid. The clarification desk itself is one readable column. Question shown in full on one line. Same neutral follow-up and six unselected chips, wrapping 2\u20133 per row. Free-text field and Continue present. Beta collapsed. No clipping."
+    },
+    {
+      "path": ".../clarification-writing-820.png",
+      "sha256": "b8ee154482dd23f116e239b10197ce2a5f95e311d0e0e42804fadf459443c552",
+      "observations": "Matches the 390 writing state at desktop width: full original question, inline asked/reply pair, neutral second question, helper text, free-text field, Continue. Single-column desk maintained. No clipping, no overlap with background art."
+    },
+    {
+      "path": ".../clarification-followup-820.png",
+      "sha256": "1fb0380babc98dd0fc15a456bff63c1aa08764ac7009995480a688b0915600ba",
+      "observations": "Complete transcript (question + two asked/reply pairs) sits directly above the answer within one column. Answer paragraphs, quoted prompt, caution about pseudonymization, and verification paragraph all render fully. Sources block: label sits inline with the first link while the second link wraps to the next line starting at the left margin. Feedback chips wrap across three rows. Collapsed beta. No clipping or overflow."
+    }
+  ],
+  "materialDefects": [],
+  "nonBlockingLimitations": [
+    "The free-text box on the first follow-up (both widths) has no placeholder or visible label; it relies entirely on the helper sentence above the chip group to convey that typing is an alternative to choosing a category.",
+    "In the 820 followup, the 'SOURCES CHECKED' label is inline with the first source link while the second link begins at the left margin, producing a slightly ragged label/list relationship. Cosmetic only; both links are fully legible.",
+    "Only 390 and 820 were supplied. Intermediate widths between them, wider desktop, and browser zoom states named in the brief are not evidenced here and remain unverified.",
+    "The followup screens use a user-typed weekly-update reply as explicit context; they demonstrate transcript retention and reuse-after-context only, and are not evidence about the broad question's own answer.",
+    "Overall service value and freeform research/answer quality are outside this visual scope and remain OPEN \u2014 not addressed, not solved by this verdict."
+  ],
+  "visualVerdict": "PASS",
+  "verdictScope": "Bounded visible repair only: single-column desk, wrapping question and input, full question plus exact replies retained beside the response, collapsed beta, neutral follow-up with optional and unselected task categories, no preselected weekly-update suggestion. No clipping, overflow, or material visual regression observed at 390 or 820.",
+  "productionAuthority": "none"
+}

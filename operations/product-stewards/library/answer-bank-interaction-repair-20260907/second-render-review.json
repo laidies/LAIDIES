@@ -1,0 +1,48 @@
+{
+  "principalId": "/root/current_guidance",
+  "modelRouting": {
+    "requested": "GPT-5.6 Terra Medium",
+    "selfReported": "GPT-6 Astra; runtime identity not independently verified"
+  },
+  "independentOfMaker": true,
+  "verdict": "PASS",
+  "scope": "Responsive context repair only",
+  "screens": [
+    {
+      "path": "operations/product-stewards/library/answer-bank-interaction-repair-20260907/screens/clarification-initial-390.png",
+      "sha256": "63bb3a674a5cc7299a7a19245407a06d228a8160bd37781501e7054921f7f7a2"
+    },
+    {
+      "path": "operations/product-stewards/library/answer-bank-interaction-repair-20260907/screens/clarification-writing-390.png",
+      "sha256": "32f43b6b518f5c32fdb5c86918007c04a9469e309112de2278b627e42debe51c"
+    },
+    {
+      "path": "operations/product-stewards/library/answer-bank-interaction-repair-20260907/screens/clarification-followup-390.png",
+      "sha256": "084e9bac4567784fa21212b29c689443c50db22a4577e34eea41a9970879489d"
+    },
+    {
+      "path": "operations/product-stewards/library/answer-bank-interaction-repair-20260907/screens/clarification-initial-820.png",
+      "sha256": "f7c1fe5fff64106131fed010c0ebefa15e9d7b95807ece5d9d52486888d1c62e"
+    },
+    {
+      "path": "operations/product-stewards/library/answer-bank-interaction-repair-20260907/screens/clarification-writing-820.png",
+      "sha256": "b8ee154482dd23f116e239b10197ce2a5f95e311d0e0e42804fadf459443c552"
+    },
+    {
+      "path": "operations/product-stewards/library/answer-bank-interaction-repair-20260907/screens/clarification-followup-820.png",
+      "sha256": "1fb0380babc98dd0fc15a456bff63c1aa08764ac7009995480a688b0915600ba"
+    }
+  ],
+  "observations": [
+    "All original questions and followup/replies wrap fully at390/820.",
+    "No clipped input or visible horizontal overflow.",
+    "Neutral goal and relevant writing followup; no assumed failure.",
+    "Beta detail compact and collapsed.",
+    "No forced weekly update suggestion; existing separate example remains explicit."
+  ],
+  "correction": "Prior HOLD confused visible admitted old v1 answer with held new successor; reviewer reread exact files and screenshots, retracted HOLD. Existing v1 appears only after explicit typed matching question.",
+  "limitations": [
+    "New weekly answer remains held internal.",
+    "No overall service-value or freeform-answer quality completion judgment."
+  ]
+}

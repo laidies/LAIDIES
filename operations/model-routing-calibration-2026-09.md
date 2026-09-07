@@ -65,3 +65,5 @@ and the next review date only if continued measurement can change a decision.
 
 
 | 2026-09-07 | Miss Jeeves owner-approved presentation closure | GPT-6 foreground effort unavailable; Terra/Medium bounded hosted verification | <15m; usage unavailable | YES | Exact scope recorded, four negative admission cases, current hosted/visible tab verified | Terra appropriate for bounded reads; no new review cycle | answer-bank-preview-20260907/presentation-admission.json |
+
+|2026-09-07|Miss Jeeves guided/responsive repair|Foreground GPT-6; requested Terra Medium research lane, separate Claude Opus5 Low review|Cross-surface owner rejection|Over 30min|Unavailable|Material corrections: saved-answer steering rejected; intermediate-width layout fixed|Cheaper bounded UI lane likely; repeated product reframing wasted time|
