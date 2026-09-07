@@ -15883,3 +15883,7 @@ Earlier visual review missed the governing cross-page cost: a large, readable pl
 Closing a player at the natural end discards context users need to replay. Treat natural finish as a retained state and reserve queue clearing for explicit Stop & close. A selected-first full catalogue needs a persisted origin anchor; restoring from the current track alone changes the queue. Tested actual end/navigation/replay plus invalid-anchor and unique-order cases. Behind the Build: a playlist is also a remembered listening intention. Typography clarification was discussed without implementation; confirmed later with actual computed text weights.
 
 2026-09-06 player release: stale RELEASE-STATE did not describe current production. Provider deployment list plus exact retained manifest located the real755file NewsStand predecessor; only3public paths changed. Old paused audio-owner tabs can answer new-page controls with old behavior; clear the prior session through Stop & close for fresh-release verification, and do not claim old-tab migration. Behind the Build: publishing a component means preserving the rest of the current site.
+
+
+### 2026-09-06 — Player scroll publication
+Final provider check caught a concurrent NewsStand release after player artifact preparation. Rebuilt from the latest retained manifest and changed only player JS. Prevention: compare provider immediately before release, then verify live rendered behavior as well as bytes; normal reload may reuse cached JS. Behind the Build: why a successful upload is not the end of checking a website fix.
