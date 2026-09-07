@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-07 — Miss Jeeves rests on the homepage panel edge
+
+Ali asks to lower the existing Miss Jeeves cutout so her hands sit on the bottom edge, following PAiGE in the NewsStand masthead. Preserve the portrait asset, size, copy, colours, form and search behavior. Use a small desktop/tablet positional offset accounting for transparent image padding, with slight hand overlap at the edge. Keep the compact phone heading portrait. This is a bounded homepage preview correction; the separate Miss Jeeves service continuation stays active.
+
 ## 2026-09-07 — Automatic continuation sessions
 
 Ali authorizes Codex to start a fresh continuation session when context becomes unwieldy, without asking again. Before starting one successor, commit a concise handoff with the governing objective, accepted decisions and assets, exact owned paths and commits, verified results, unresolved work and next action. Verify the successor starts, then stop overlapping foreground writes. Keep the original page-by-page programme and existing work; do not restart an audit, create a session for every small fix, or let scheduled maintenance replace the foreground task. This does not approve publication by itself. Current transfer: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/product-stewards/town-entry-homepage/CONTINUATION-20260907.md
