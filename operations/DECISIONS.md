@@ -398,3 +398,9 @@ Status words: **LOCKED** (settled, don't relitigate) · **ACTIVE** (in force,
 may evolve) · **PROPOSED** (not decided — not binding) · **SUPERSEDED** (kept
 for history; mark `SUPERSEDED →` and point at the replacement, never delete —
 half of repeat questions are about things decided and then reversed).
+
+## 2026-09-06 — Learning-quality receiver adoption
+
+| Status | Decision | Source |
+| --- | --- | --- |
+| ACTIVE | **PR108/109/112 are adopted into the existing Learning owner workflow at corrected receiving commit `b9c1b7ff`, with bounded status.** `READY_TO_DISPATCH` authorizes owner assignment to producer preflight; it does not require the contract that preflight must create. A valid current producer contract is required before prose drafting, and exact-prose review plus release checks remain later gates. The present v1.1 queue has 14 preflight-eligible orders, zero draft-ready orders and three trigger-queued orders; malformed queue states fail. Current `main` lacks the separately recorded v1.2 executor/state/controller and cannot complete `ci:build` because its episode gate script is absent. No autonomous-execution, full-build, real-candidate, learner, deploy or public result is inferred. | Ali adoption instruction and integration correction 2026-09-06; `operations/product-stewards/learning-content-ecosystem/RECOVERY.md` |

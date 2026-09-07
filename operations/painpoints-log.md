@@ -386,3 +386,19 @@ separate tests. Preparation burden remains: 24 declared files per maker is not
 proof of an efficient entry, and raw source size is not measured token use.
 Behind the Build angle: an AI saying it passed its checks does not establish
 which rules it used, whether its work helps, or whether another task uses the fix.
+
+## 2026-09-06 — A recovered check still depended on a registry that current main removed
+
+The quality package was present on current `main`, but its normal build omitted the
+package and learning tests and called a missing work-order checker. The preserved old
+checker then looked for a retired standalone product registry and treated historical
+target paths as if they had to exist in this clean receiver. The first receiving repair then
+made a second mistake: it required the producer contract before the dispatch whose job was
+to create that contract. Corrected the consumer to distinguish producer-preflight eligibility
+from permission to draft. Added negative calibration for workflow omission/order, eleven
+queue shape/state defects and an invalid contract. Scoped adoption passes; the full build remains honestly held on
+an earlier missing episode gate, and `LCWO-001` cannot prove real use while its exact target
+files are absent. Prevention: adoption tests must start from the actual receiving branch,
+run the destination command and one exact real order, and distinguish source distribution,
+workflow wiring, candidate availability and release. Behind the Build: a safety system can
+be installed but skipped by the routine that actually makes the work.

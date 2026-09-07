@@ -52,7 +52,10 @@ checks existence without real-target containment. Operating integration owns
 assessment/correction before claiming end-to-end path-integrity protection.
 The repaired producer helper does not certify those separate consumers.
 
-## Destination adoption — verified gap, September 6
+## Destination adoption — pre-adoption finding, September 6
+
+This section preserves the gap that triggered the receiving work. Its
+`not adopted` status is superseded by the receiving result below.
 
 PR108 (`9a372e701742dcc2cb9820e49bb39c3e82b5d9df`) and PR109
 (`53b7d83384e71f83d679ff2bf005fbcd4af9e2b3`) are on main and the isolated
@@ -72,7 +75,7 @@ current-source bindings, and the saved failed-trial regression. Include those
 dependencies: the changed-path lists in PR108/109/112 identify that closure; their central audit
 status files are not product changes to merge blindly.
 
-Prepared receiving-owner action (not dispatched): the Learning System & Concepts
+Prepared receiving-owner action (completed by the receiving result below): the Learning System & Concepts
 Director selects a clean receiving integration branch with the affected product
 owner. Start from current main where possible; otherwise reconcile the selected
 PR108, PR109 and PR112 dependency paths against destination changes. Preserve the real
@@ -85,12 +88,48 @@ checking for its exact work-order ID; held orders remain held. Report receiving
 commit, actual command and result, real candidate state, and owner/next trigger.
 No release, schedule or new product commission follows from adoption.
 
-Current receiving roles: learning owner task
+### Receiving result — September 6, 18:09 PDT
+
+Ali authorized the bounded adoption. A clean `origin/main` receiving branch at
+`/Users/alisoneakin/Projects/laidies-learning-quality-adoption-20260906` now has
+corrected implementation commit `b9c1b7ff`. The content workflow runs package-integrity and
+learning-admission tests before producer, exact-prose review and release tests. A
+restored work-order consumer uses those same producer/reviewer checks and has eleven
+calibrated queue shape/state rejections plus an invalid-contract rejection. It deliberately does not resurrect the retired standalone
+product registry; owner IDs stay with the preserved queue and their product owners.
+
+Observed scoped results:
+
+- `npm run test:content-prose-quality`: PASS; six exact exemplars, current instruction
+  bindings, learned-repair propagation, semantic-review negatives and release fixtures.
+- `node scripts/test-content-work-orders.mjs`: PASS; one contract-free order reaches
+  producer preflight; malformed shape/state `11` and invalid contract `1` are rejected;
+  real queue `17`, preflight-eligible `14`, draft-ready `0`, trigger-queued `3`.
+- `node scripts/check-content-work-orders.mjs`: PASS with the same real-queue state.
+- `node scripts/check-content-release-readiness.mjs --require-id LCWO-002`: expected FAIL;
+  the order lacks its producer contract, both reviews, gate receipts and artifact binding.
+
+The destination-wide `npm run ci:build` is HOLD: it stops at its first unrelated command
+because `operations/engine/gate.sh` is absent from current `main`. It therefore cannot be
+reported as a full-build pass. The actual `LCWO-001` target files are also absent from this
+receiving checkout, so no real prose candidate has yet exercised the adopted chain. All 17
+orders remain release-held. The next real producer-preflight candidate is `LCWO-002`: its
+LIBRAiRY owner creates and passes the current producer contract before drafting its specified
+concept cluster. `LCWO-001` separately remains a recovery hold until its exact source and
+rendered artifact are reconciled. Current `main` has no checked-in v1.2 queue schema,
+learning executor, executor state or controller despite the historical ACTIVE-WORK record;
+this adoption does not reconstruct or claim that autonomous mechanism. Legacy path-integrity debt at
+`loadBinding` and `existingEvidence` remains separately open.
+
+Worktree truth at this checkpoint: corrected implementation `COMMITTED` as `b9c1b7ff`; push is recorded only after
+remote confirmation. No product prose or surface artifact changed. No release, deployment,
+publication, service, schedule, spend or Ali/public authority was used.
+
+Pre-adoption receiving roles: learning owner task
 `019f9f7f-9e4c-72d2-8882-447bcbe01691` (“LEARNING SYSTEM — Concepts & Curriculum”)
-was notLoaded; this is not abandonment. NewsStand task
+was notLoaded; this did not mean abandonment. NewsStand task
 `01a071e7-db55-7a22-8c99-04eba5060355` (“Audit NewsStand agentic workflow”)
-was active after PR109. Do not interrupt, restart or duplicate either lane.
-The operating task has prepared this handoff but has not sent a new assignment.
+was active after PR109. The bounded adoption did not interrupt, restart or duplicate it.
 
 ## What is recovered
 
