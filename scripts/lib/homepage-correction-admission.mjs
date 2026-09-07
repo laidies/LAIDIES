@@ -10,10 +10,11 @@ export const homepageCorrectionPacket = 'operations/product-stewards/town-entry-
 const htmlSha = '5629cada90e5ccd3b58c71c897bff0dacf4c48c60c88f74c35932b4c11f21303';
 const jsSha = '05232f254fd17c4e031b068f62e9cf839312d6fcff1c9b714932181798c4bf47';
 
-export function inspectHomepageCorrection(item, root) {
+export function inspectHomepageCorrection(item, root, preservedBytes = {}) {
   const errors = [];
   const assert = (value, message) => { if (!value) errors.push(message); };
   const bytes = p => {
+    if (Object.hasOwn(preservedBytes, p)) return preservedBytes[p];
     const target = path.resolve(root, p);
     if (!target.startsWith(path.resolve(root) + path.sep)) throw new Error('evidence outside repository');
     return fs.readFileSync(target);
@@ -22,11 +23,41 @@ export function inspectHomepageCorrection(item, root) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if(a.owner_feedback_successor==='MISS_JEEVES_PANEL_EDGE') {
+      const p='operations/product-stewards/town-entry-homepage/candidates/miss-jeeves-bottom-edge-20260907/';
+      const parent=JSON.parse(bytes(p+'parent-admission.json'));
+      assert(parent.design_admission.owner_feedback_successor==='HOMEPAGE_CLOSEOUT','wrong portrait predecessor');
+      errors.push(...inspectHomepageCorrection(parent,root,{...preservedBytes,'index.html':bytes(p+'parent.html')}));
+      assert(item.id===homepageCorrectionId&&item.review_type==='building_page_visual','wrong scoped candidate');
+      for(const [key,b] of Object.entries(a)) if(b?.path&&b?.sha256) {
+        const label={candidate:'homepage',index:'catalogue',indexBuilder:'index builder',mallImage:'Mall image',fairyImage:'current Fairy image'}[key]||key;
+        assert(digest(b.path)===b.sha256,label+' bytes differ');
+        if(!['candidate','portrait'].includes(key))assert(JSON.stringify(b)===JSON.stringify(parent.design_admission[key]),label+' changed from predecessor');
+      }
+      assert(a.cards?.length===2&&a.cards.every(b=>digest(b.path)===b.sha256)&&JSON.stringify(a.cards)===JSON.stringify(parent.design_admission.cards),'current card bytes differ');
+      const changes=JSON.parse(bytes(p+'changes.json')),old=bytes(p+'parent.html').toString();
+      assert(digest(p+'parent.html')===parent.design_admission.candidate.sha256,'portrait parent bytes differ');
+      assert(changes.replacements.length===1&&changes.replacements[0].old===changes.anchor&&changes.replacements[0].new===changes.anchor+changes.css&&old.split(changes.anchor).length===2&&old.replace(changes.anchor,changes.anchor+changes.css)===bytes('index.html').toString(),'unrelated homepage change');
+      for(const b of a.evidence||[])assert(digest(b.path)===b.sha256,'stale evidence: '+b.path);
+      for(const f of ['scope.md','parent-admission.json','parent.html','changes.json','source-diff.patch','checks.json','browser-test.mjs','independent-review.md','visuals.json','stage-preservation.json'])assert(a.evidence?.some(b=>b.path===p+f),'missing bound evidence: '+f);
+      const c=JSON.parse(bytes(p+'checks.json'));
+      assert(c.status==='PASS'&&c.sourceSha===a.candidate.sha256&&c.oldGapRejected,'portrait position checks differ');
+      for(const width of [1440,1074,390]) {
+        const r=c.rows.find(r=>r.kind==='candidate'&&r.width===width),o=c.rows.find(r=>r.kind==='parent'&&r.width===width);
+        assert(r&&o&&!r.overflow&&r.decoded&&['copy','links','form','asset','colour'].every(k=>JSON.stringify(r[k])===JSON.stringify(o[k]))&&Math.abs(r.section.height-o.section.height)<1,'portrait preservation checks differ');
+        assert(width>600?r.handOverlap>=7&&r.handOverlap<=15:JSON.stringify(r.image)===JSON.stringify(o.image),'portrait edge or phone layout differs');
+      }
+      const review=bytes(p+'independent-review.md').toString();assert(review.includes('ADMIT_FOR_OWNER_REVIEW')&&review.includes(a.candidate.sha256),'independent portrait review differs');
+      for(const v of JSON.parse(bytes(p+'visuals.json')))assert(digest(v.path)===v.sha256,'stale visual');
+      const stage=JSON.parse(bytes(p+'stage-preservation.json'));assert(stage.changed.length===1&&stage.changed[0]==='index.html'&&stage.unchanged===759,'preview stage changed beyond homepage');
+      assert(a.production_release_approved===false,'owner presentation does not authorize production');
+      return errors;
+    }
     if(a.owner_feedback_successor==='HOMEPAGE_CLOSEOUT') {
       const p='operations/product-stewards/town-entry-homepage/candidates/homepage-closeout-20260906/';
       const parent=JSON.parse(bytes(p+'parent-admission.json'));
       assert(parent.design_admission.owner_feedback_successor==='GHOSTBUSTER_WORDING','wrong closeout predecessor');
-      errors.push(...inspectHomepageCorrection(parent,root));
+      errors.push(...inspectHomepageCorrection(parent,root,preservedBytes));
       assert(item.id===homepageCorrectionId&&item.review_type==='building_page_visual','wrong scoped candidate');
       for(const [name,key] of [['homepage','candidate'],['runtime','runtime'],['worker','worker'],['catalogue','index'],['index builder','indexBuilder'],['graphic','graphic'],['Mall image','mallImage'],['burst','burst'],['wallpaper','wallpaper'],['cover','cover'],['current Fairy image','fairyImage']]) {
         const b=a[key]; assert(b&&digest(b.path)===b.sha256,name+' bytes differ');

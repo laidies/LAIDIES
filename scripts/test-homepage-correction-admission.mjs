@@ -10,7 +10,9 @@ assert.deepEqual(inspectHomepageCorrection(item, root), []);
 const cases = [
   ['different homepage', v => { v.design_admission.candidate.sha256 = '0'.repeat(64); }, 'homepage bytes differ'],
   ['different runtime', v => { v.design_admission.runtime.sha256 = '0'.repeat(64); }, 'runtime bytes differ'],
-  ['missing Claude binding', v => { v.design_admission.evidence = v.design_admission.evidence.filter(b => !b.path.endsWith('/claude-review-result.json')); }, 'missing bound evidence: claude'],
+  item.design_admission.owner_feedback_successor==='MISS_JEEVES_PANEL_EDGE'
+    ? ['missing portrait review', v => { v.design_admission.evidence = v.design_admission.evidence.filter(b => !b.path.endsWith('/independent-review.md')); }, 'missing bound evidence: independent-review.md']
+    : ['missing Claude binding', v => { v.design_admission.evidence = v.design_admission.evidence.filter(b => !b.path.endsWith('/claude-review-result.json')); }, 'missing bound evidence: claude'],
   ['stale review', v => { v.design_admission.evidence[0].sha256 = '0'.repeat(64); }, 'stale evidence'],
   ['future candidate', v => { v.id = 'other-page'; }, 'wrong scoped candidate'],
   ['production promotion', v => { v.design_admission.production_release_approved = true; }, 'does not authorize production'],

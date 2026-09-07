@@ -1,0 +1,16 @@
+diff --git a/index.html b/index.html
+index 19763449..0b0a855e 100644
+--- a/index.html
++++ b/index.html
+@@ -1132,6 +1132,11 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
+ #reference .jeeves-answer li{border-color:var(--hp-ink)}
+ #reference .jeeves-answer button{background:var(--hp-ink);color:var(--hp-orange)}
+ #reference :is(a,button,input,summary):focus-visible{outline:3px solid var(--hp-ink);outline-offset:4px}
++/* Offset the cutout's transparent foot so her hands rest over the panel edge. */
++@media(min-width:601px){
++  .reference.reference-inline{overflow:visible}
++  .reference.reference-inline>.jeeves-corner-cutout{margin-bottom:calc(-1 * clamp(24px,3.4vw,48px));transform:translateY(10%)}
++}
+ /* Match the chosen directory heading: Jost Bold, retaining compact banner sizes. */
+ .dyk-slim h2,.dyk-slim .dyk-copy :is(h3,.dyk-title,.dyk-cta),.dyk-slim .dyk-controls button{font-family:Jost,sans-serif;font-weight:700;font-style:normal}
+ 
