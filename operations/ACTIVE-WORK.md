@@ -1,6 +1,6 @@
 # Active work
 
-> **2026-09-07 — Reader-tip intelligence surfacing: LOCAL VERIFIED / INTEGRATION PENDING.**
+> **2026-09-07 — Reader-tip intelligence surfacing: MERGED / AUTOMATION DELIVERY VERIFIED.**
 > Owner: Learning System task `019f9f7f-9e4c-72d2-8882-447bcbe01691` with the
 > AIDB Intelligence Desk as scan owner. Isolated worktree
 > `/Users/alisoneakin/Projects/laidies-reader-tip-surfacing-20260907`, branch
@@ -9,9 +9,13 @@
 > checksum-bound outbox entries for material findings and source-access failures,
 > rejects stale scan writes, renders a mandatory decision card while any entry lacks
 > an append-only exact-owner receipt, and preserves no-production/no-publication
-> authority. Calibrated negative and transition tests pass. No content, public site,
-> deployment, spending or social account changed. Integration and the live automation
-> prompt update remain required before the repair is operational.
+> authority. Calibrated negative and transition tests pass. PR126 merged as
+> `924f5befa739757b6e447903a4fbaae6324401b8`. The active Monday 09:00 heartbeat now
+> targets dedicated task `01a07d7e-611f-7883-ad3f-de2bc08dfab8`; a read-only proof
+> returned four visible pending cards after the former Corner Office destination again
+> returned an empty response. No content, public site, deployment, spending or social
+> account changed. Next trigger: the named owners disposition the four pending entries,
+> or the next scheduled scan creates a new finding/access result.
 
 
 > **2026-09-06 — Operating integration / BUILDING: read-only Learning map pilot.**
