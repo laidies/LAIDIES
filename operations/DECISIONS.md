@@ -98,7 +98,14 @@ Ali approved one small curated entry at `operations/reference/README.md`, with s
 > to identify simplification, shared capabilities and justified task-specific
 > paths before choosing checks, tools or an agent architecture. This supersedes
 > the proposed immediate quality-tool integration sequence, not the governing
-> whole-operation objective. Route: `OPERATING-SYSTEM-MAP.md`.
+> whole-operation objective. The research packet recommends adopting the
+> relationship and workflow-design discipline, but not choosing a framework or
+> creating a new authority; this remains pending Ali and named-owner decision.
+> The proposed first proof is a read-only, regenerated Learning
+> provenance/hold projection with fail-capable comparison against the current
+> work-order and release checks. Implementation remains unapproved. Routes:
+> `OPERATING-SYSTEM-MAP.md` and
+> `product-stewards/learning-content-ecosystem/GRAPH-ENGINEERING-RESEARCH-AND-ROUTE-2026-09-06.md`.
 
 > **2026-09-06 — Repair operating continuity; park the private inbox.**
 > The governing objective remains the LAiDIES agentic operating system, not

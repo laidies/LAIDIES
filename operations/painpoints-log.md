@@ -441,6 +441,16 @@ receipt draft or heartbeat writer is never owner acceptance or performed work. B
 Build: an AI operating system needs verbs that mean what actually happened, not what the
 surrounding contract hoped would happen.
 
+Graph-engineering research exposed a terminology trap: workflow graphs,
+knowledge graphs, GraphRAG, trace graphs and agent organizations were being
+discussed as if one new architecture would solve every consistency problem.
+Prevention: name the exact relationship problem first; keep current authority in
+its existing source; generate any graph as a disposable projection; separate
+execution flow from context flow and semantic judgment; benchmark one bounded
+pilot against the current process before selecting a framework. Behind the Build:
+why adding more connections can make an AI operating system less reliable when
+the lines do not say what evidence, authority or information crosses them.
+
 Independent preparation review then found the adapter could accept a queue contradiction
 after a caller recomputed its hash, and could place a draft receipt before its proposal in
 time. The adapter now consumes the canonical work-order validator, rechecks eligibility for

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "asOf": "2026-08-11",
+  "asOf": "2026-09-06",
   "owner": "learning-content-ecosystem",
   "status": "ACTIVE_CANONICAL_SOURCE_ROUTER",
   "rule": "A source is never a content commission or publication authority. Inspect the exact item, recover the strongest available evidence, bind the claim and date, then route it to one or more earned outputs, each with a distinct reader job.",
@@ -479,15 +479,36 @@
     },
     {
       "id": "SRC-ALLIE-K-MILLER", "name": "Allie K. Miller", "publisher": "Allie K. Miller",
-      "authorityTier": "SECONDARY_SCOUT", "status": "PILOT_MONITOR", "cadence": "MONTHLY",
+      "authorityTier": "SECONDARY_SCOUT", "status": "PILOT_MONITOR", "cadence": "TWICE_WEEKLY",
       "intakeMode": "HEALTH_ONLY_HTML",
-      "urls": ["https://www.alliekmiller.com/resources"],
-      "destinations": ["paige_ai_tip", "career_work_life_tip", "library", "classes", "external_learning"],
-      "bestUse": "Practical home and career AI jobs, examples and format inspiration with explicit AI application.",
-      "limits": "Current role, disclosures, product claims, commercial interests and access must be checked.",
-      "verifyBeforeUse": "Capture exact item, disclosures and date; independently verify product and outcome claims.",
-      "checkedAt": "2026-08-07", "recheckTrigger": "Role, disclosure, access or content model changes.",
+      "urls": ["https://www.alliekmiller.com/", "https://linktr.ee/alliekmiller", "https://www.linkedin.com/in/alliekmiller"],
+      "channelCoverage": [
+        {"url": "https://www.alliekmiller.com/", "status": "ACTIVE_HEALTH_MONITOR", "boundary": "Official site and linked first-party resources; health monitoring is not item-level intake."},
+        {"url": "https://linktr.ee/alliekmiller", "status": "IDENTITY_AND_CHANNEL_ROUTER", "boundary": "Use to resolve her current official channels; it is not claim evidence."},
+        {"url": "https://www.linkedin.com/in/alliekmiller", "status": "ON_TRIGGER_MANUAL_EVIDENCE_ONLY", "boundary": "No automated collection or login use."}
+      ],
+      "destinations": ["news_daily", "straight_answers", "paige_ai_tip", "career_work_life_tip", "promptoscope", "library", "classes", "external_learning", "operations"],
+      "bestUse": "Practical AI workflows, business and career applications, tools, examples and teaching-format inspiration for nontechnical professionals.",
+      "limits": "Practitioner and commercial scout. Current role, disclosures, sponsorships, product claims, prices, access and demonstrated outcomes must be checked; popularity is not authority.",
+      "verifyBeforeUse": "Capture the exact item, URL, date, wording and disclosures; return technical and product claims to current primary sources and test consequential tips before recommending them.",
+      "checkedAt": "2026-09-06", "recheckTrigger": "Role, official channels, disclosure, access or content model changes.",
       "legacyIds": ["SRC-ALLIE-K-MILLER"]
+    },
+    {
+      "id": "SRC-ASK-CATGPT-CAT-LABS", "name": "Ask CatGPT / Cat Labs", "publisher": "Cat Goetze / Cat Labs",
+      "authorityTier": "SECONDARY_SCOUT", "status": "PILOT_MONITOR", "cadence": "TWICE_WEEKLY",
+      "intakeMode": "HEALTH_ONLY_HTML",
+      "urls": ["https://catlabs.studio/", "https://askcatgpt.com/"],
+      "channelCoverage": [
+        {"url": "https://catlabs.studio/", "status": "ACTIVE_HEALTH_MONITOR", "boundary": "Official studio site and channel router; health monitoring is not item-level intake."},
+        {"url": "https://askcatgpt.com/", "status": "ACTIVE_HEALTH_MONITOR", "boundary": "Official Ask CatGPT site; inspect and bind the exact tip, workflow or linked post before use."}
+      ],
+      "destinations": ["news_daily", "straight_answers", "paige_ai_tip", "career_work_life_tip", "promptoscope", "library", "classes", "external_learning", "operations"],
+      "bestUse": "Practical AI workflows, tool demonstrations, prompt and context techniques, creator experiments and approachable teaching-format inspiration.",
+      "limits": "Creator and commercial scout. Demonstrations may be product-specific, edited, sponsored, anecdotal or stale and do not establish general capability or outcome claims.",
+      "verifyBeforeUse": "Capture the exact item, creator, URL, date, demonstrated setup and disclosures; reproduce consequential workflows and return provider, technical and performance claims to current primary sources.",
+      "checkedAt": "2026-09-06", "recheckTrigger": "Identity, official channels, disclosure, access or content model changes.",
+      "legacyIds": []
     },
     {
       "id": "SRC-DEEPLEARNING-AI", "name": "DeepLearning.AI", "publisher": "DeepLearning.AI",

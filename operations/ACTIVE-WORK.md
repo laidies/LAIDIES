@@ -1,5 +1,14 @@
 # Active work
 
+> **2026-09-06 — Graph-engineering research / DECISION READY, IMPLEMENTATION HELD.**
+> Ali requested a current, whole-system investigation after identifying recurring
+> inconsistency in LAiDIES agent output. The research distinguishes dependency,
+> workflow, agent, knowledge, retrieval and trace graphs and recommends one
+> smallest proof: a read-only regenerated Learning provenance/hold map over the
+> existing 17 work orders. No graph framework, database, executor, schedule or
+> learning artifact is authorized or implemented. Decision packet:
+> `operations/product-stewards/learning-content-ecosystem/GRAPH-ENGINEERING-RESEARCH-AND-ROUTE-2026-09-06.md`.
+
 > **2026-09-06 — Operating integration / BUILDING: receiver merged; gate package recovered.**
 > Owner `01a077d0-0775-7af2-b631-c311573f0e0e`, isolated
 > `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`, branch

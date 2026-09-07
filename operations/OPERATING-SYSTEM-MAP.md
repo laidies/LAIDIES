@@ -620,6 +620,14 @@ Atomic claim admission; Device-local guide selection; KSVL anthem playback; Corr
 
 Research checked September 6, 2026. These labels describe emerging research/practice, not settled certification standards or proof that a new framework is needed.
 
+The deeper research and LAiDIES-specific application decision are recorded in
+`product-stewards/learning-content-ecosystem/GRAPH-ENGINEERING-RESEARCH-AND-ROUTE-2026-09-06.md`.
+Its recommendation is deliberately bounded: test one read-only, regenerated
+Learning dependency/provenance projection before choosing a graph framework or
+database. Keep workflow graphs for recurring operations whose branches, recovery
+or handoffs actually require them; do not create a second source of truth or a
+permanent peer-agent organization.
+
 **Loop engineering:** explicitly design the trigger, objective, verification, stopping rule and retained state around repeated agent work. The June 2026 paper distinguishes this external specification from the internal act/observe cycle a harness already provides. For LAiDIES the useful question is whether a task can recover, make measurable progress and stop truthfully without Ali supplying the next prompt. [Macedo, Stop Hand-Holding Your Coding Agent](https://arxiv.org/abs/2607.00038).
 
 **Graph engineering:** represent tasks, agent responsibilities and runtime state as explicit relationships. The August 2026 survey organizes the subject around task organization, agent coordination and state management. For LAiDIES, the practical application is traceability: which task depends on which artifact, who owns that dependency, what changed, which consumers need repair, and where a handoff stopped. This does not require a graph database or a permanently staffed multi-agent hierarchy. [Feng et al., Graph Engineering in the Era of LLM Agents, v2](https://arxiv.org/abs/2608.21156v2).
