@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260901-homepage-header-1">
     <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
-    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260907-puzzle-desk">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260907-callout-links">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -968,6 +968,18 @@
           ].join("");
         }
 
+        function renderBookLinks(story) {
+          if (story.id !== "nvidia-hugging-face-acquisition-sec-8k-2026-09-06") return "";
+          var links = [
+            ["/library.html#ai-fundamentals-101::%40ch-16-16-3-nvidias-dominance-and-why-it-persists", "NVIDIA’s role in AI"],
+            ["/library.html#ai-fundamentals-101::%40chapter-16", "Chips, computing and why AI is expensive"],
+            ["/library.html#ai-fundamentals-101::%40ch-2-2-5-variations-within-the-family-size-openness-and-thinking", "Open-weight models: what “open” means"]
+          ];
+          return '<nav class="ns-article__book-links" aria-label="Related book sections"><h3>Explore this in AI Fundamentals</h3><ul>' + links.map(function (link) {
+            return '<li><a href="' + escapeAttribute(link[0]) + '">' + escapeHTML(link[1]) + ' →</a></li>';
+          }).join("") + '</ul></nav>';
+        }
+
         function renderRelatedPeople(story) {
           var people = story.relatedPeople || [];
           if (!people.length) return "";
@@ -1071,6 +1083,7 @@
               story.closing_note ? '<p class="ns-article__closing">' + story.closing_note + "</p>" : "",
               story.class_notes ? '<section class="ns-article__notes"><h3>Class Notes</h3><p>' + story.class_notes + "</p></section>" : "",
               renderRelatedPeople(story),
+              renderBookLinks(story),
               renderConceptsAndThemes(story),
               '<footer class="ns-article__sources">',
                 sources ? "<p><strong>Sources</strong> " + sources + "</p>" : "",

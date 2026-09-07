@@ -187,3 +187,9 @@ Apply this across the rotating roster, while preserving each woman's actual
 contribution and avoiding invented claims that she built a product or helped
 women specifically. The existing short shared profiles remain publicly unchanged
 until their exact successor has passed editorial admission.
+
+## September 7 reader feedback — NVIDIA report
+
+Ali found the video-maker/video-store analogy useful and memorable. Preserve the mechanism and humour that earned that response. “What This Means For You” still assumes too much technical involvement: begin with the reader using everyday AI tools, distinguish direct platform users from people affected through the tools they use, and do not presume the reader uses Hugging Face or chooses infrastructure. Continue refining through normal editorial production; this repair does not rewrite the admitted report.
+
+Link the NVIDIA story to exact published book sections about NVIDIA, chips and open-weight models. Article callouts must remain readable under the final sitewide palette rules; inspect computed foreground/background contrast and rendered text, not container presence alone.

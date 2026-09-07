@@ -20,6 +20,8 @@ proper domain source before building from it.
 
 ## Core routes
 
+September 7 NVIDIA reader feedback, beginner-facing implications and exact book-link requirements are recorded in `operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md`, September 7 reader feedback. Preserve readable article callouts under the final sitewide palette cascade.
+
 September 6 NewsStand recovery implements routine Weekly reporting with the same
 independent AI editorial mechanism as Daily reporting. The exact Weekly policy is
 `operations/product-stewards/newsstand/weekly-news-editorial-policy.json`. It retains

@@ -1166,3 +1166,14 @@
 @media(max-width:720px){.ns-play-desk{grid-template-columns:minmax(0,1fr);margin-right:6px}.ns-play-desk__puzzle,.ns-house-ad{padding:20px}.ns-play-desk p{font-size:16px}}
 
 .ns-house-ad a { display:inline-block; padding:8px 12px; border:2px solid #11183b; background:#fffdfb; box-shadow:3px 3px 0 #11183b; text-decoration:none; }
+
+/* Article callouts must contrast with the final navy text cascade. */
+.ns-redesign .ns-article__cocktail {
+  background: #7de2c2; color: #11183b; margin: 28px 0;
+  padding: clamp(20px, 3vw, 32px); border-left: 6px solid #15bce0;
+  box-shadow: 5px 5px 0 #f254a9;
+}
+.ns-redesign .ns-article__cocktail p { font-size: clamp(18px, 1.7vw, 23px); font-style: normal; }
+.ns-article__book-links { margin: 24px 0; padding: 20px 0; border-top: 3px solid #15bce0; }
+.ns-article__book-links ul { padding-left: 22px; }
+.ns-article__book-links li { margin: 12px 0; }
