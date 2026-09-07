@@ -16,4 +16,11 @@ assert.match(html, /cw-storage-status/, "storage availability must be reported t
 assert.match(html, /cannot save crossword progress/, "unavailable storage copy must be explicit");
 assert.match(html, /KEY="laidies_newsstand_crossword_2026-08-23_v1"/, "existing user progress key must remain stable");
 assert.match(html, /arrow keys to move between cells/i, "existing keyboard guidance must remain");
+assert.match(html, /id="cw-mode-linear"/, "a clue-list mode control must exist");
+assert.match(html, /id="cw-linear"/, "a clue-list container must exist");
+const words = [...html.matchAll(/\{id:"([^"]+)",answer:"([^"]+)",[\s\S]*?clue:"([^"]+)"\}/g)];
+assert.equal(words.length, 10, "Puzzle 01 has the exact ten existing answers and clues");
+assert.equal(new Set(words.map(([, id]) => id)).size, words.length, "Puzzle 01 answer ids are unique");
+assert.match(html, /function renderLinear\(\)\{[\s\S]*?words\.forEach/, "clue-list mode must be generated from the exact crossword words array");
+assert.match(html, /function syncGridFromLinear\(word\)/, "clue-list answers must share the existing grid state");
 console.log("NEWSSTAND CROSSWORD ACCESSIBILITY TEST PASS labels=1 invalid_state=1 storage_truth=1 puzzle_identity=1 progress_key_preserved=1 keyboard_guidance_preserved=1");
