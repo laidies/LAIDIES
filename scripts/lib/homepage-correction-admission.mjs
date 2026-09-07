@@ -39,16 +39,26 @@ export function inspectHomepageCorrection(item, root, preservedBytes = {}) {
       let old=bytes(p+'parent.html').toString();const edits=JSON.parse(bytes(p+'changes.json')).replacements;
       assert(edits.length===1&&edits[0].old==='</style>','discovery edit scope differs');
       for(const e of edits){assert(old.split(e.old).length===2,'discovery replacement not unique');old=old.replace(e.old,e.new)}
-      assert(old===bytes('index.html').toString(),'unrelated homepage change');
+      const reviewedSha=crypto.createHash('sha256').update(old).digest('hex');
+      if(a.mechanical_green_burst) {
+        const m=a.mechanical_green_burst,q='operations/product-stewards/town-entry-homepage/candidates/green-burst-restoration-20260907/';
+        const from='.dyk-slim h2::after{background:var(--hp-sky)}',to='.dyk-slim h2::after{background:var(--hp-lime)}';
+        assert(m.parentSha256===reviewedSha&&old.split(from).length===2&&old.replace(from,to)===bytes('index.html').toString(),'unrelated green burst change');
+        for(const e of m.evidence||[])assert(digest(e.path)===e.sha256,'stale green burst evidence');
+        for(const f of ['change.json','checks.json','review.md','candidate-1440.png','candidate-390.png'])assert(m.evidence?.some(e=>e.path===q+f),'missing green burst evidence');
+        const green=JSON.parse(bytes(q+'checks.json'));
+        assert(green.sourceSha256===a.candidate.sha256&&[1440,390].every(w=>green.rows.some(r=>r.width===w&&r.burst==='rgb(183, 228, 43)'&&r.title==='rgb(242, 84, 169)'&&r.border==='rgb(242, 84, 169)'&&!r.overflow)),'green burst restoration differs');
+        const greenReview=bytes(q+'review.md').toString();assert(greenReview.includes('ADMIT_FOR_OWNER_REVIEW')&&greenReview.includes(a.candidate.sha256),'green burst review differs');
+      } else assert(old===bytes('index.html').toString(),'unrelated homepage change');
       for(const b of a.evidence||[])assert(digest(b.path)===b.sha256,'stale evidence: '+b.path);
       for(const f of ['scope.md','parent-admission.json','parent.html','changes.json','checks.json','browser-test.mjs','independent-review.md','visuals.json','stage-preservation.json'])assert(a.evidence?.some(b=>b.path===p+f),'missing bound evidence: '+f);
-      const c=JSON.parse(bytes(p+'checks.json'));assert(c.status==='PASS'&&c.sourceSha===a.candidate.sha256&&c.parentOrangeRejected,'discovery checks differ');
+      const c=JSON.parse(bytes(p+'checks.json'));assert(c.status==='PASS'&&c.sourceSha===reviewedSha&&c.parentOrangeRejected,'discovery checks differ');
       for(const width of [1440,390]) {
         const n=c.rows.find(r=>r.kind==='candidate'&&r.width===width),o=c.rows.find(r=>r.kind==='parent'&&r.width===width);
         assert(n&&o&&!n.overflow&&JSON.stringify(n.banner.rect)===JSON.stringify(o.banner.rect)&&JSON.stringify(n.shortcuts)===JSON.stringify(o.shortcuts),'discovery preservation differs');
         assert(n?.banner.title.colour==='rgb(242, 84, 169)'&&n.banner.slides.length===8&&n.banner.slides.every((s,i)=>s.copy.colour==='rgb(255, 115, 102)'&&s.link.colour==='rgb(120, 199, 255)'&&['text','href','radio','images'].every(k=>JSON.stringify(s[k])===JSON.stringify(o.banner.slides[i][k]))),'discovery palette or eight invitations differ');
       }
-      const review=bytes(p+'independent-review.md').toString();assert(review.includes('ADMIT_FOR_OWNER_REVIEW')&&review.includes(a.candidate.sha256),'independent discovery review differs');
+      const review=bytes(p+'independent-review.md').toString();assert(review.includes('ADMIT_FOR_OWNER_REVIEW')&&review.includes(reviewedSha),'independent discovery review differs');
       for(const v of JSON.parse(bytes(p+'visuals.json')))assert(digest(v.path)===v.sha256,'stale visual');
       const stage=JSON.parse(bytes(p+'stage-preservation.json'));assert(stage.changed.length===1&&stage.changed[0]==='index.html'&&stage.unchanged===759,'preview stage changed beyond homepage');
       assert(a.production_release_approved===false,'owner presentation does not authorize production');
