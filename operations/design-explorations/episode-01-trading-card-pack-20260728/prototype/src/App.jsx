@@ -9,7 +9,7 @@ const art = ['generative-ai-episode-art-v2.png','model-episode-art-v3.png','hall
 const cards = deck.cards.map((card,index)=>({...card,title:card.front,image:`assets/cards/${art[index]}`,definition:card.back,picture:card.example,remember:card.recallPrompt}));
 
 function Wordmark() {
-  return <a className="brand-wordmark" data-brand-wordmark="current-live-jost" href="/blend-snap.html#episode-01-pack" aria-label="LAiDIES Study Packs">L<span className="brand-ai">A</span><span className="brand-i-wrap"><span className="brand-ai">ı</span><span className="brand-i-dot" aria-hidden="true" /></span>DIES</a>;
+  return <a className="brand-wordmark" data-brand-wordmark="current-live-jost" href="/blend-snap.html?packVersion=2026-09-06-v1#episode-01-pack" aria-label="LAiDIES Study Packs">L<span className="brand-ai">A</span><span className="brand-i-wrap"><span className="brand-ai">ı</span><span className="brand-i-dot" aria-hidden="true" /></span>DIES</a>;
 }
 
 function CardBack({ card, index }) {
@@ -94,7 +94,7 @@ function CollectionCard({
 function PackHeader({canPrint=true}) {
   return (
     <header className="pack-header">
-      <a href="/blend-snap.html#episode-01-pack">BACK TO EPISODE 01 PACK</a>
+      <a href="/blend-snap.html?packVersion=2026-09-06-v1#episode-01-pack">BACK TO EPISODE 01 PACK</a>
       <Wordmark />
       {canPrint && <button type="button" onClick={() => window.print()}>
         PRINT CARDS

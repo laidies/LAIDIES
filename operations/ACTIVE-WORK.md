@@ -1,6 +1,7 @@
 # Active work
 
 > **2026-09-06 — Episodes 01–04 refresh: BUILDING.**
+> LIVE BACKEND: Episode Binder20000 installed with exact migration history; rollback-only live save/reopen/retry/owner/malformed/stale checks passed, test accounts removed. Resident browser/JWT end-to-end remains unverified. Quiz reward/Clip ledger NOT installed. Pilot routes connected; first-award rule shared in Read/narration. New audio awaits ElevenLabs sign-in.
 > Account Clip Jar candidate now shares a server earning projection across Closet and Book Fair; synthetic first6→both6 and account clearing verified. Earning-only ledger and owner/race/legacy/account-deletion tests passed locally. No live migration, spend fulfilment, new audio or completed episode release.
 > Ali's active goal includes revised written editions and narration/audio, useful concise Cheat Sheets,
 > interactive exercises, four-concept Episode01 trading cards, quizzes and account-backed episode binders.

@@ -223,7 +223,7 @@ function Header({ task, journeyMode }) {
         <a
           className="brand-wordmark"
           data-brand-wordmark="current-live-jost"
-          href="/blend-snap.html#episode-01-pack"
+          href="/blend-snap.html?packVersion=2026-09-06-v1#episode-01-pack"
           aria-label="Return to Episode 01 Study Pack"
         >
           L<span className="brand-ai">A</span>

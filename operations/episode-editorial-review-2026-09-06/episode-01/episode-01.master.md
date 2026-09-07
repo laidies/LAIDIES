@@ -13,7 +13,8 @@ Patron Saint: Dolly Parton — Common Sense. Her bridge encouragement leads into
   "status": "PRODUCER_REPAIR",
   "shared": {
     "title": "On Wednesdays We Do AI",
-    "dolly_bridge": "building your own bridge"
+    "dolly_bridge": "building your own bridge",
+    "quiz_reward_rule": "Your first completed quiz while signed in earns Butterfly Clips. Retakes are practice; they do not add clips."
   }
 }
 ```
@@ -397,7 +398,7 @@ Patron Saint: Dolly Parton — Common Sense. Her bridge encouragement leads into
     <p class="eyebrow">Try it now</p>
     <h3>Get in, loser. We're learning AI.</h3>
     <p>Give ChatGPT, Claude and Gemini the same small request using information you are comfortable and permitted to share. A personal-life task works: ask for a short invitation to a book-club evening, using invented names and details. Compare what each understood, what you could use and what you would change. If you have access to only one product today, try it there and keep your result; you can add the comparison later. These are current product experiences, not a permanent model ranking. Your Try-On holds the request, your observations and the version you decide to keep.</p>
-    <a class="btn" href="/blend-snap.html#the-study-pack">Open the Study Pack →</a>
+    <a class="btn" href="/blend-snap.html?packVersion=2026-09-06-v1#episode-01-pack">Open the Study Pack →</a>
   </div>
 
   <!-- THE VOCAB — key terms + definitions (written-only; each term will link to its full entry in the LIBRAiRY Reference shelf once the glossary is built) -->
@@ -447,13 +448,14 @@ Patron Saint: Dolly Parton — Common Sense. Her bridge encouragement leads into
 <!-- RAIL -->
 <div class="rail">
   <span class="eyebrow">Everything in this episode</span>
+  <p>{{EP:quiz_reward_rule}}</p>
   <div class="rail-row">
-    <a class="rail-btn rb1" href="/watch.html?ep=01">Listen<small>Narration</small></a>
-    <a class="rail-btn rb2" href="/blend-snap.html#the-study-pack">Study Pack<small>Availability checked at the café</small></a>
+    <a class="rail-btn rb1" href="/watch.html?ep=01&amp;mode=listen">Listen<small>Narration</small></a>
+    <a class="rail-btn rb2" href="/blend-snap.html?packVersion=2026-09-06-v1#episode-01-pack">Study Pack<small>Availability checked at the café</small></a>
     <a class="rail-btn rb4" href="/radio.html">The Song<small>This week's track</small></a>
     <a class="rail-btn rb6" href="/bronze-aige.html#answers">Cocktail<small>So… what IS AI?</small></a>
     <a class="rail-btn rb3" href="/sorority-house.html">Rooms<small>See the discussion rooms at Delta LAi Nu</small></a>
-    <a class="rail-btn rb5" href="/learn/quiz.html">Quiz<small>Check what you learned</small></a>
+    <a class="rail-btn rb5" href="/learn/quiz.html?issue=1&amp;version=2026-09-06-v2">Quiz<small>Check what you learned</small></a>
   </div>
 </div>
 
@@ -543,7 +545,7 @@ And hallucination: a false or unsupported detail dressed like part of the answer
 
 [warm] And... that's the episode. Now — your try-on. Not homework; this isn't school. Ten minutes, and everything you need lives at ladies dot A I. That's "ladies" spelled with an i in the middle: L, A, i, D, I, E, S. And if you'd rather read than listen, the whole episode's written up there too — every stat and study laid out where you can find it again.
 
-Inside is the try-on, and this week, you are holding auditions. Give Chat G-P-T, Claude and Gemini the same small request using information you are comfortable and permitted to share. A personal-life task works: ask for a short invitation to a book-club evening, using invented names and details. Compare what each understood, what you could use and what you would change. If you have access to only one product today, try it there and keep your result; you can add the comparison later. These are current product experiences, not a permanent model ranking. Your try-on holds the request, your observations and the version you decide to keep. Then, if you're feeling it: take the pop quiz at Sunnyvale High — ten questions on today's episode, plus 2 bonus questions [smirk] your score banks butterfly clips, and yes, that will make sense when you get there. Turn on K-S-V-L, ninety-nine point nine, for this week's anthem — don't just learn from books, learn from hooks. And if you've got time to wander, the town is full of extras: get your cards read at Madame Cleo's, call nineteen ninety-nine from the Dream Phone, ask the Fairy Godmother anything — and somewhere around town there's hidden charms. Find one, and it's yours. And if this is your first Wednesday with us, make it official: stop by Makeover on Main and get your residence card. Two minutes, free, and everything you collect starts counting.
+Inside is the try-on, and this week, you are holding auditions. Give Chat G-P-T, Claude and Gemini the same small request using information you are comfortable and permitted to share. A personal-life task works: ask for a short invitation to a book-club evening, using invented names and details. Compare what each understood, what you could use and what you would change. If you have access to only one product today, try it there and keep your result; you can add the comparison later. These are current product experiences, not a permanent model ranking. Your try-on holds the request, your observations and the version you decide to keep. Then, if you're feeling it: take the pop quiz at Sunnyvale High — ten questions on today's episode, plus 2 bonus questions [smirk] {{EP:quiz_reward_rule}} And yes, the butterfly clips will make sense when you get there. Turn on K-S-V-L, ninety-nine point nine, for this week's anthem — don't just learn from books, learn from hooks. And if you've got time to wander, the town is full of extras: get your cards read at Madame Cleo's, call nineteen ninety-nine from the Dream Phone, ask the Fairy Godmother anything — and somewhere around town there's hidden charms. Find one, and it's yours. And if this is your first Wednesday with us, make it official: stop by Makeover on Main and get your residence card. Two minutes, free, and everything you collect starts counting.
 
 [warm] So remember, ladies: you'll need more than a cup of ambition to keep up in the male-dominated world of AI. Lucky for you... this series comes in small sips.
 

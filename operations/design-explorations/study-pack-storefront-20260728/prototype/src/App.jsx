@@ -207,6 +207,7 @@ export function App() {
             ← ALL STUDY PACKS
           </button>
           <span>EPISODE {String(selected.number).padStart(2, "0")} · STUDY PACK</span>
+          <a className="back-button" href={`/issues/issue-${String(selected.number).padStart(2, "0")}.html`}>READ THE EPISODE</a>
         </nav>
 
         <section className="pack-hero">
