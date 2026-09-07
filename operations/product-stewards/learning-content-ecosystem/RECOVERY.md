@@ -92,32 +92,36 @@ No release, schedule or new product commission follows from adoption.
 
 Ali authorized the bounded adoption. A clean `origin/main` receiving branch at
 `/Users/alisoneakin/Projects/laidies-learning-quality-adoption-20260906` now has
-implementation commit `a7678df4`. The content workflow runs package-integrity and
+corrected implementation commit `b9c1b7ff`. The content workflow runs package-integrity and
 learning-admission tests before producer, exact-prose review and release tests. A
-restored work-order consumer uses those same producer/reviewer checks and has five
-calibrated rejection cases. It deliberately does not resurrect the retired standalone
+restored work-order consumer uses those same producer/reviewer checks and has eleven
+calibrated queue shape/state rejections plus an invalid-contract rejection. It deliberately does not resurrect the retired standalone
 product registry; owner IDs stay with the preserved queue and their product owners.
 
 Observed scoped results:
 
 - `npm run test:content-prose-quality`: PASS; six exact exemplars, current instruction
   bindings, learned-repair propagation, semantic-review negatives and release fixtures.
-- `node scripts/test-content-work-orders.mjs`: PASS; valid `1`, rejected `5`; real queue
-  `17`, ready `0`, producer-contract blocked `14`, trigger-queued `3`.
+- `node scripts/test-content-work-orders.mjs`: PASS; one contract-free order reaches
+  producer preflight; malformed shape/state `11` and invalid contract `1` are rejected;
+  real queue `17`, preflight-eligible `14`, draft-ready `0`, trigger-queued `3`.
 - `node scripts/check-content-work-orders.mjs`: PASS with the same real-queue state.
-- `node scripts/check-content-release-readiness.mjs --require-id LCWO-001`: expected FAIL;
+- `node scripts/check-content-release-readiness.mjs --require-id LCWO-002`: expected FAIL;
   the order lacks its producer contract, both reviews, gate receipts and artifact binding.
 
 The destination-wide `npm run ci:build` is HOLD: it stops at its first unrelated command
 because `operations/engine/gate.sh` is absent from current `main`. It therefore cannot be
 reported as a full-build pass. The actual `LCWO-001` target files are also absent from this
 receiving checkout, so no real prose candidate has yet exercised the adopted chain. All 17
-orders remain release-held. The next real candidate is `LCWO-001` only after the LIBRAiRY
-owner reconciles its exact source and rendered artifact into a clean candidate lane and
-creates the current producer contract before any review. Legacy path-integrity debt at
+orders remain release-held. The next real producer-preflight candidate is `LCWO-002`: its
+LIBRAiRY owner creates and passes the current producer contract before drafting its specified
+concept cluster. `LCWO-001` separately remains a recovery hold until its exact source and
+rendered artifact are reconciled. Current `main` has no checked-in v1.2 queue schema,
+learning executor, executor state or controller despite the historical ACTIVE-WORK record;
+this adoption does not reconstruct or claim that autonomous mechanism. Legacy path-integrity debt at
 `loadBinding` and `existingEvidence` remains separately open.
 
-Worktree truth at this checkpoint: `COMMITTED` as `a7678df4`; push is recorded only after
+Worktree truth at this checkpoint: corrected implementation `COMMITTED` as `b9c1b7ff`; push is recorded only after
 remote confirmation. No product prose or surface artifact changed. No release, deployment,
 publication, service, schedule, spend or Ali/public authority was used.
 

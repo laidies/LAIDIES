@@ -392,10 +392,11 @@ which rules it used, whether its work helps, or whether another task uses the fi
 The quality package was present on current `main`, but its normal build omitted the
 package and learning tests and called a missing work-order checker. The preserved old
 checker then looked for a retired standalone product registry and treated historical
-target paths as if they had to exist in this clean receiver. Reconciled the consumer to
-the current queue job: structural truth, evidence-bearing gate claims and current producer
-contracts before dispatch. Added negative calibration for both workflow omission/order and
-five work-order defects. Scoped adoption passes; the full build remains honestly held on
+target paths as if they had to exist in this clean receiver. The first receiving repair then
+made a second mistake: it required the producer contract before the dispatch whose job was
+to create that contract. Corrected the consumer to distinguish producer-preflight eligibility
+from permission to draft. Added negative calibration for workflow omission/order, eleven
+queue shape/state defects and an invalid contract. Scoped adoption passes; the full build remains honestly held on
 an earlier missing episode gate, and `LCWO-001` cannot prove real use while its exact target
 files are absent. Prevention: adoption tests must start from the actual receiving branch,
 run the destination command and one exact real order, and distinguish source distribution,

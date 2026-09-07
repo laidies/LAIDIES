@@ -4,14 +4,16 @@
 > Owner task `019f9f7f-9e4c-72d2-8882-447bcbe01691`; isolated checkout
 > `/Users/alisoneakin/Projects/laidies-learning-quality-adoption-20260906`, branch
 > `task/learning-quality-adoption-20260906`. Current `main` already contains PR108,
-> PR109, PR112 and the bounded PR113 trial. Receiving commit `a7678df4` wires package
+> PR109, PR112 and the bounded PR113 trial. Corrected receiving commit `b9c1b7ff` wires package
 > integrity and learning admission before producer, exact-prose reviewer and release
-> checks; restores a calibrated work-order consumer; and blocks all 14 nominally
-> dispatchable orders without valid producer contracts. Three orders remain trigger-queued.
-> The scoped chain passes; strict `LCWO-001` release admission fails as required and all
+> checks and a calibrated work-order consumer. All 14 `READY_TO_DISPATCH` orders remain
+> eligible for producer preflight; zero may draft without a valid contract. Three orders
+> remain trigger-queued. The scoped chain passes; strict `LCWO-002` release admission fails as required and all
 > 17 orders remain held. The full `ci:build` stops before this chain because current
 > `main` lacks `operations/engine/gate.sh`. `LCWO-001` also cannot supply real-candidate
-> proof in this checkout because both recorded target paths are absent. No content,
+> proof in this checkout because both recorded target paths are absent. Current `main`
+> also lacks the recorded v1.2 learning executor/state/controller, so this is queue and
+> admission wiring rather than restored autonomous execution. No content,
 > service, schedule, deploy, publication, spend or Ali/public authority changed.
 
 > **2026-09-06 — Small current visual references: REPOSITORY-DISTRIBUTED / PR106 MERGED.** Owner: background-reference task `01a0785e-1438-7161-b041-0be213b06e9b`; isolated branch `ops/current-visual-references-20260906`. Build the small two-job entry and scoped selections, preserve exact originals and reconcile later rejections; system engineering task owns prompt-consumer reconciliation on a separate branch. No all-artwork migration or production art changes. Acceptance: exact usable references and reuse scope, honest unavailable entries, routed instructions, calibrated selection checks and repository distribution. Local index and 13 prompt-consumer checks pass; later Matron/Miss Jeeves identities and destination palettes are reconciled. Current source commits 222a10ae, 3afe85a6, 21b55575 and coordinated consumer 1b1fcf6e. PR106 merged as a38d5068e67582e089e1e7b9ef983fa60882f7c4 after targeted reference CI and both baseline jobs passed; shared entry pointer committed e0812106. Source/consumer delivery is complete; no new artwork, public deployment or native hook activation is claimed. Other product work continues.
