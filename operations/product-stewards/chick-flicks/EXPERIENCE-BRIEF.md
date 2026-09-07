@@ -1,5 +1,15 @@
 # Chick Flicks building experience brief
 
+## Arrival correction — Ali, September 7, 2026
+
+Replace the oversized opening with a compact character-and-title masthead,
+following the current live NewsStand relationship. The keeper is Becky. Create
+her masthead artwork from the existing Becky identity in the current inked
+character style; do not reuse the old painterly room as a character cutout.
+Retain the approved physical VHS shelves and immediate episode dialogs.
+Production brief and verification: `operations/becky-masthead-20260907.md`.
+This is a build decision, not approval of unseen art or a public release.
+
 **Status:** INTENT RECOVERED — DIRECTOR REVIEW AND CONTROL ROOM BUILD LOCK
 PENDING
 **Building owner:** Chick Flicks product champion
