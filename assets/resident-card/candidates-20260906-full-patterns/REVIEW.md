@@ -1,6 +1,12 @@
 # Resident Card backgrounds — current review
 
-**Three you like:** Skates, Boombox and Computer. Those image files are unchanged.
+**APPROVED: Skates, Boombox and Computer.** Ali previously said these were good and confirmed their approval with “what about the other approved ones” on 2026-09-06 in task `01a0785e-1438-7161-b041-0be213b06e9b`. Install the exact unchanged files below alongside Getting Ready. No further art approval is needed.
+
+| Approved original | SHA-256 |
+|---|---|
+| `02-roller-rink-v2.png` | `dc6990e75c34514c3a8b6c2b134607599dd8ac1244c54ffee40d91ab221b7a12` |
+| `04-radio-night-v3.png` | `6e4702af260a7ab08f43e10190d51cb405549d42f16c4e34265489c94372070a` |
+| `03-retro-desktop.png` | `8772513a58087da6d0cb49621562c804eef861b24dbd08076c4df5ac2445a0d0` |
 
 **Existing options described as okay, not great:** Diagonal Print, Pocket Tech and CD Player.
 
@@ -8,21 +14,21 @@
 
 **Girls’ Night Out withdrawn:** Ali rejected the heels-and-bag image, leopard print, and its colour combination with dark blue. Do not reuse this treatment in successor Resident Card options. This does not retire dark blue across the brand or reject all possible heels/bag illustrations.
 
-Only the seven displayed images belong to this review. Purple Brushwork was withdrawn because Ali found it too similar to Diagonal Print. Girls’ Night Out, Disco, Memphis and all older stretched/pastel/thin-border drafts are excluded. These are artwork choices; page fit, readable text and installation remain separate work. Nothing is installed.
+Only the seven displayed images belong to this review. Purple Brushwork was withdrawn because Ali found it too similar to Diagonal Print. Girls’ Night Out, Disco, Memphis and all older stretched/pastel/thin-border drafts are excluded. Getting Ready is deployed in release `90720fd2-d7ff-40dd-9ea4-202b16bc9c5b` and live local save/Closet/return was verified. Skates, Boombox and Computer installation is now in progress in the Resident Card task. Account/cross-device verification remains separate and unproven.
 
-## 1. Skates — You said this is good.
+## 1. Skates — APPROVED.
 
 ![Skates](02-roller-rink-v2.png)
 
 [Open original](02-roller-rink-v2.png)
 
-## 2. Boombox — You said this is good.
+## 2. Boombox — APPROVED.
 
 ![Boombox](04-radio-night-v3.png)
 
 [Open original](04-radio-night-v3.png)
 
-## 3. Computer — You said this is good.
+## 3. Computer — APPROVED.
 
 ![Computer](03-retro-desktop.png)
 
