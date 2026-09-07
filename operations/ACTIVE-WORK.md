@@ -2,13 +2,13 @@
 
 ## 2026-09-06 Homepage Ai arrival — independent letter repair
 
-- **Status:** BUILT LOCALLY; exact private preview admission passed, including wrong-SHA rejection calibration. Ali taste acceptance pending. Branch `codex/homepage-ai-reveal-20260906`.
+- **Status:** PUBLICLY VERIFIED at https://laidies.ai/ and immutable f5535c59; owner-approved animation source6c203ec92a10eefb21032ab800488e819baabfac pushed and deployed. Branch `codex/homepage-ai-reveal-20260906`.
 - **Owner rejection:** Both native-text rewrite and whole-frame zoom are rejected; earlier admission verdicts invalidated. Preserve original brush/background/icon character; no slogan; Ai itself must take centre.
 - **Repair:** Source brush pixels split into original A, i and outer letters. L/DIES move aside while Ai centres; permanent i stem remains under original six icon transformations. All source frames finish before full-name reassembly, visual dial-up/VHS bookends lead to masthead. Fixed stationary background; phone undistorted original comic base.
 - **Evidence:** `operations/product-stewards/town-entry-homepage/candidates/ai-letter-layer-repair-20260906/`. Actual Sol and Claude pixel admissions after fragment/stem repairs; continuous 7.7-second browser completion; canvas/video pause, Skip focus, reduced-motion and narrow-phone checks. Stills do not prove smooth motion. Dial-up audio not added.
 - **Single-i correction:** Owner caught source closing i being rendered as a miniature icon. Renderer now restores native I from3.55s; all67 closing source frames match native-I pixels, and the old renderer fails the same test. Focused desktop/390 inspection; prior ending assurance invalidated.
 - **VHS reveal:** User requested the line reveal the masthead. Exit now clips intro top-to-bottom along the tracking line, with no global fade. Original Ai gains brief luminous echoes during separation/return and source-change-driven dot glow. Local full playback8.3s;42 measured wipe positions descend monotonically and align within1px; old unclipped behavior fails boundary test.67 closing source frames retain single i.
-- **Release:** Ali explicitly approved publication. Exact current-production successor prepared with only index intro plus7 assets;758 other files preserved. Release packet ai-arrival-live-20260906. Publication and public verification underway; preserve rejected versions in quarantine.
+- **Release:** Production f5535c59-c287-40ca-b75e-bf613776eef1. Exact artifact /private/tmp/laidies-home-ai-arrival-20260906, identity9f7f66d409c658e3ed6071270883b2733f713bcb954beaf3f5dc6fb24888b3d5. Only index intro plus7 assets;758 other files preserved.28 custom/immutable response hashes matched, provider config unchanged, actual desktop/phone playback and masthead reveal verified. Current packet ai-arrival-live-20260906; rollback90720fd2.
 
 ## 2026-09-05 NewsStand source-to-reader continuation
 

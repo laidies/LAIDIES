@@ -15883,3 +15883,8 @@ remain unreconciled; cross-chat completeness is not certified.
 - Finding: decorative VHS sweep followed by unrelated fade weakened the user's intended handoff; local light energy from the inspiration was missing.
 - Repair: tracking position and clip boundary share one progress value; real masthead appears above while intro remains below. Calibrated boundary hit-test rejects unclipped old behavior.42 measured positions aligned under1px, monotonic downward, opacity stays1; completed through masthead. Echo uses light blending, and dot glow follows source-frame changes.67 closing-i frames still pass.
 - Prevention: test what changes on either side of a transition boundary, not merely that an effect plays. Possible Behind the Build angle: making the transition explain what happens next. Private only.
+
+## 2026-09-06 — Publish an approved animation without rolling back the homepage
+- Current production had moved beyond the preview branch. Recovered the exact provider-bound759-file artifact, injected only approved intro markup/resources, and preserved758 other files. Guard rejects changed base bytes and existing output; independent full-tree comparison confirms exact delta.
+- Published source6c203ec9 asf5535c59;28 exact custom/immutable file responses and actual desktop/phone animation verified; provider config preserved. Superseded August release-state labels now explicitly historical in this release checkout. Notify the next active release lane with exact input and manifest.
+- Possible Behind the Build angle: approving one feature does not mean republishing yesterday's whole website. No public article produced.

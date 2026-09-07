@@ -1,3 +1,25 @@
+# Current LAiDIES production release
+
+**Updated:** 2026-09-06
+**Release owner:** approved homepage intro release, coordinated with MAiKEOVER lane.
+
+PUBLICLY VERIFIED: the original brush Ai arrival and descending VHS masthead reveal are live at https://laidies.ai/. Exact intro-only delta from90720fd2;758 other production files preserved. This is a bounded release, not whole-town completion.
+
+| Field | Evidence | Current value |
+|---|---|---|
+| Source branch | pushed branch | `codex/homepage-ai-reveal-20260906` |
+| Source commit | pushed before deploy | `6c203ec92a10eefb21032ab800488e819baabfac` |
+| Artifact manifest digest |766 files| `9f7f66d409c658e3ed6071270883b2733f713bcb954beaf3f5dc6fb24888b3d5` |
+| Cloudflare deployment ID | provider confirmed | `f5535c59-c287-40ca-b75e-bf613776eef1` |
+| Immutable deployment URL | publicly verified | `https://f5535c59.laidies-sunnyvaile.pages.dev` |
+| Custom-domain verification |28 exact file responses plus actual desktop/phone animation| Homepage SHA-256 `607fb08e726b4f3b9a4df65fa69bbade7caef6584ea505229d2945fbfadc0629`; watch-page SHA-256 `39cc57ca9931c366555634a718b981c742b45f8f1bb2d5ba49557fe59ab9ebf6` |
+| Rollback target | prior production | `90720fd2-d7ff-40dd-9ea4-202b16bc9c5b` |
+
+Artifact `/private/tmp/laidies-home-ai-arrival-20260906`; manifest and exact scope in `operations/product-stewards/town-entry-homepage/candidates/ai-arrival-live-20260906/`. Provider configuration preserved. Recheck provider head before any next release; coordinate ongoing Card work. ICloud dirty work is not this release source.
+
+## Superseded historical record
+The following older record is preserved for history only; its current-state labels do not override the September6 release above.
+
 # LAiDIES release state
 
 **Updated:** 2026-08-30 UTC
