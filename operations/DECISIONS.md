@@ -1,5 +1,11 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-07 — Preserve PAiGE and The Chick Flicks; align sticker colours
+
+Ali confirms that the existing PAiGE and The Chick Flicks shortcut images can stay and requests that some sticker colours match the website palette more closely. Preserve both shortcut images. The foreground is treating the KSVL radio sticker collage as the intended image based on the shortcut context; that identification is an implementation assumption, not a separately confirmed owner decision. Preserve sticker arrangement, lettering and dimensional print texture; recolour only using existing site tokens. No production release.
+
+Implemented KSVL collage preview in source 14b124cc; https://f0dea92b.laidies-sunnyvaile.pages.dev/#today. Selected cream/burgundy fields now use cyan, cobalt, lime, pink and navy. Sticker arrangement, visible lettering, print texture and dimensions retained. All four homepage uses and unchanged PAiGE/Chick Flicks checked at desktop/phone sizes; exact hosted image bytes verified. HTML and runtime unchanged; no production deployment.
+
 ## 2026-09-07 — Keep green in the Did you know burst
 
 Ali clarifies that she still wants green and specifically asks to put it behind the question mark again. Restore the existing burst to --hp-lime (#b7e42b). This is one colour-value correction: preserve the hot-pink title, blue background, coral description, sky-blue links and pink borders. It does not authorize changing shortcut artwork or the Miss Jeeves runtime.
