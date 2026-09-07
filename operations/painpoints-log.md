@@ -14708,3 +14708,14 @@ HTML and local custom properties.
 - **Durable correction:** A 30-profile teaching-chain evidence ledger is now signed with each real-person profile; Hedy tests robust handoffs, Wahba tests unseen cases, Goldwasser tests a demonstrable privacy property, Elle tests inference and Emily separates observation from generated wording. The surname-check formula is absent and the exact 43-profile re-review passes.
 - **Possible Behind the Build angle:** “We added more depth and accidentally made fifteen women sound like the same template”—why a content schema cannot substitute for person-specific thinking.
 - **Publication status:** VERIFIED LOCALLY / CARRIE SONG BLOCKED / NOT DEPLOYED.
+
+## BTB-508 — A complete building can still look like it belongs to another website
+
+- **Date:** 2026-09-07
+- **Area:** LUMINAiRY / cross-building visual consistency.
+- **Failure:** the LUMINAiRY used the shared navigation and approved stained-glass assets, but its full-page navy canvas, dark wing panels, soft museum shadows and dark selection section made it visibly separate from the bright comic reading rhythm of current LAiDIES building pages.
+- **Root cause:** component and profile review treated the LUMINAiRY's internal consistency as sufficient; it did not compare the complete page beside another current building at the same viewport before handoff.
+- **Prevention rule:** every building-page review includes a same-run, same-viewport comparison with one current LAiDIES building. Location-specific art may differ, but the shared shell, brightness rhythm, typography, borders, spacing and transition from hero to reading surface must visibly belong to the same town.
+- **Durable correction:** preserve the approved stained-glass identity inside a shorter illustrated hero and wing-specific cards, then return the archive floor, panels, selection area and footer to light LAiDIES surfaces with deep-plum/navy ink and crisp comic shadows.
+- **Possible Behind the Build angle:** “Every card was right, but the building had moved out of town”—why design consistency must be judged at page level.
+- **Publication status:** VISUAL SUCCESSOR BUILT LOCALLY / RESPONSIVE REGRESSION AND OWNER REVIEW OPEN / NOT DEPLOYED.
