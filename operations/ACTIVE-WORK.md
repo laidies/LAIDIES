@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-07 — Responsive discovery heading: VERIFIED PREVIEW.** Source 0294cb9c; https://e7893ab4.laidies-sunnyvaile.pages.dev/#dyk-title. Question mark and green burst stay behind Did you know at narrow widths. Seven widths checked from 320–1440px. One scoped HTML style override; runtime and 759 other public files retained, including KSVL sticker colours, PAiGE and Chick Flicks. Separate LIBRAiRY/Miss Jeeves continuation owns its service/runtime. Production unchanged.
+
 > **2026-09-07 — KSVL sticker palette: VERIFIED PREVIEW.** Source 14b124cc; https://f0dea92b.laidies-sunnyvaile.pages.dev/#today. Selected radio sticker colours now follow the homepage palette. PAiGE and The Chick Flicks explicitly retained per Ali. Exact JPEG and desktop/phone placements reviewed; all four uses updated together. Homepage HTML, runtime and 759 other public files preserved, including green question-mark burst. Original learning/help shortcut artwork still unidentified; separate LIBRAiRY/Miss Jeeves continuation owns its service/runtime. Production unchanged.
 
 > **2026-09-07 — Green question-mark burst: VERIFIED PREVIEW.** Source 4ec1ef87; https://aad40107.laidies-sunnyvaile.pages.dev/#dyk-title. Ali asks to retain green behind the question mark. Exactly one CSS colour value restored to lime; hot-pink title, blue background, coral copy, sky links and pink borders retained. Exact HTML and desktop/phone pixels verified. Shortcut-art recovery remains open; runtime is separately owned by the LIBRAiRY/Miss Jeeves continuation. Production unchanged.

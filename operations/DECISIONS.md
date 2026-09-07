@@ -1,5 +1,11 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-07 — Anchor the narrow discovery graphic to its heading
+
+Ali flags the narrow Did you know layout: the question mark drifts to the right while the heading stays left, unlike the wider version where the mark is behind the words. Keep the heading sized to its text within the grid so the existing mark and green burst remain behind it. Preserve current colours, images, controls, wording and wide layout; verify the breakpoint and the narrowest supported width. Preview only.
+
+Implemented in source 0294cb9c; https://e7893ab4.laidies-sunnyvaile.pages.dev/#dyk-title. Pink title, lime burst, updated KSVL artwork and other assets retained. Old 700px drift reproduced; heading alignment verified at 320, 390, 600, 700, 701, 1024 and 1440px on the exact hosted preview. Wider layout and control geometry retained. Preview only.
+
 ## 2026-09-07 — Preserve PAiGE and The Chick Flicks; align sticker colours
 
 Ali confirms that the existing PAiGE and The Chick Flicks shortcut images can stay and requests that some sticker colours match the website palette more closely. Preserve both shortcut images. The foreground is treating the KSVL radio sticker collage as the intended image based on the shortcut context; that identification is an implementation assumption, not a separately confirmed owner decision. Preserve sticker arrangement, lettering and dimensional print texture; recolour only using existing site tokens. No production release.
