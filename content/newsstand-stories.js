@@ -1,8 +1,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-06T14:13:55Z",
-  "lastCheckedAt": "2026-09-06T14:13:55Z",
+  "generatedAt": "2026-09-07T02:40:49Z",
+  "lastCheckedAt": "2026-09-07T02:40:49Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -22,9 +22,10 @@ window.NEWSSTAND_DATA = {
         "status": "complete",
         "disposition": "service_ready",
         "frontPaigeStoryId": "front-paige-accountable-systems-2026-08-24",
-        "weeklyStoryId": "weekly-accountable-systems-2026-08-24",
+        "weeklyStoryId": "weekly-correction-20260906",
         "storyIds": [
-          "gastric-cancer-prediction-2026-09-05"
+          "gastric-cancer-prediction-2026-09-05",
+          "nvidia-hugging-face-acquisition-sec-8k-2026-09-06"
         ],
         "serviceRecordIds": [
           "DAILY-2026-09-06-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
@@ -34,9 +35,9 @@ window.NEWSSTAND_DATA = {
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-06T14:13:55Z",
-      "updatedAt": "2026-09-06T14:13:55Z",
-      "lastCheckedAt": "2026-09-06T14:13:55Z",
+      "publishedAt": "2026-09-07T02:40:49Z",
+      "updatedAt": "2026-09-07T02:40:49Z",
+      "lastCheckedAt": "2026-09-07T02:40:49Z",
       "maxAgeHours": 36,
       "note": "The Daily for 2026-09-06."
     },
@@ -2272,6 +2273,117 @@ window.NEWSSTAND_DATA = {
         "A September 4 investigation found agents using an editable wiki as an answer board; OpenAI also expanded ChatGPT Ads Manager self-service across India, Europe, the Middle East, and North Africa."
       ],
       "what_this_means": "<p>Use a story-specific question. What is actually available for a launch? What was decided or tested in a legal or health report? What context is being used in a shared or sponsored AI experience, and who can inspect it?</p>"
+    },
+    {
+      "id": "nvidia-hugging-face-acquisition-sec-8k-2026-09-06",
+      "slug": "nvidia-hugging-face-acquisition-sec-8k-2026-09-06",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-07T02:40:49Z",
+      "updatedAt": "2026-09-06T19:00:00Z",
+      "lastCheckedAt": "2026-09-06T19:00:00Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:nvidia-hugging-face-acquisition-sec-8k-2026-09-06"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "NVIDIA agrees to buy Hugging Face, promising continued choice",
+      "heroVisual": {
+        "src": "/assets/newsstand/design-20260830/latest-provider-switch-20260901-v2.png",
+        "alt": "Illustration: colourful transparent computers, chips and connecting cables.",
+        "credit": "LAiDIES illustration of computing choices; not a depiction of the transaction."
+      },
+      "the_story": "<p>NVIDIA announced on September 3 that it has agreed to buy Hugging Face for about <strong>$12.93 billion</strong>. It says the deal will help it strengthen and expand the platform. This is an announced agreement; we have not verified that the purchase has closed.</p><p>NVIDIA builds chips, computer systems and AI software. Hugging Face gives people a place to find and share trained AI <strong>models</strong>—the parts of AI tools that process input to produce a result. Builders can download models from its Hub or connect to services that run them. The catalogue and the computing are different parts of getting AI into a tool someone can use.</p><p>NVIDIA promises that people will still be able to choose other companies’ models and computing services, and that using NVIDIA hardware will not be a requirement. That promise is central to the story. How practical those choices remain is the question to follow.</p>",
+      "laidies_read": "<p>Imagine a video-player maker buying your local video shop. You would care about which tapes stayed on the shelves, which machines could play them and whether the helpful setup instructions quietly pointed you towards one brand. The shop could influence what was easy to choose without owning every film.</p><p>Back to AI: Hugging Face’s current documentation describes both a place to share models and a way to choose among services that run them. Suppose a team finds a model suited to turning recorded speech into text. The model still needs a computer to do the work. The team might arrange that computing itself or use a service that runs the model for it. Finding the model and choosing who runs it are separate decisions.</p><p>Here is the possible tension we see. NVIDIA says its investment will improve the platform. A company that supplies computing could also benefit if more builders chose its computing. Both can be true. That gives us a reason to watch the choices, prices and effort involved; it does not establish that NVIDIA has restricted any of them.</p><p>And owning the platform would not, by itself, give NVIDIA ownership of everything people share there. Hugging Face tells users to check each project’s licence—the terms setting out permission to use it. A model being available to download is not a promise that you can use it for any purpose. The video shop never owned every film either. Even if it was very firm about the late fees.</p>",
+      "what_this_means": "<p>If your workplace is choosing an AI tool, ask the supplier: “Which model does this use, who runs it, and what would changing either one involve?” A long list of models does not tell you whether you can switch the service running them. Ask which terms apply to your intended use, too.</p><p>This announcement gives us no verified change to an ordinary reader’s account, price or access. There is no basis here to tell you to move tools today. The immediate value is understanding what to ask when somebody says an AI service is “open”. Open in which way: can we get the model, choose who runs it, or use it for our particular work?</p><p>The next concrete developments to look for are confirmation that the deal has closed, published changes to platform terms, and evidence about the options builders can actually use. NVIDIA's September 3 SEC filing says it expects the transaction to close in the first half of 2027, subject to customary closing conditions and regulatory approvals. That is an expectation, not a completed deal. The company’s commitment is something to check against those developments, rather than a result we can report in advance.</p>",
+      "cocktail_party": "“NVIDIA has agreed to buy Hugging Face, where people find and share AI models. It promises to keep other computing options available. The useful question is whether those alternatives stay practical—not just whether they remain on a list.”",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "When a company promises a benefit, separate its statement from evidence that the benefit happened. Practise that distinction in <a href=\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\">Working with AI 101: Trusting the Output (And Checking It)</a>, which explains why a few correct checks cannot establish that every claim is right.",
+      "sources": [
+        {
+          "id": "nvidia-agreement",
+          "label": "NVIDIA — September 3 acquisition announcement",
+          "url": "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-06",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "hf-models",
+          "label": "Hugging Face — what the Model Hub does",
+          "url": "https://huggingface.co/docs/hub/en/models-the-hub",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-06",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "hf-providers",
+          "label": "Hugging Face — services that run models",
+          "url": "https://huggingface.co/docs/inference-providers/index",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-06",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "hf-licences",
+          "label": "Hugging Face — project licences and permissions",
+          "url": "https://huggingface.co/docs/hub/en/repositories-licenses",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-06",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "nvidia-identity",
+          "label": "NVIDIA — company overview",
+          "url": "https://www.nvidia.com/en-us/about-nvidia/",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-06",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "hf-terms",
+          "label": "Hugging Face — content ownership and terms",
+          "url": "https://huggingface.co/terms-of-service",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-06",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "nvidia-sec-8k-2026-09-03",
+          "label": "NVIDIA Form 8-K — transaction timing and conditions",
+          "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000078/nvda-20260902.htm",
+          "publisherType": "primary-document",
+          "accessedAt": "2026-09-06",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "business",
+        "open-models"
+      ],
+      "concepts": [
+        "model",
+        "computing provider",
+        "licence"
+      ],
+      "tags": [
+        "NVIDIA",
+        "Hugging Face",
+        "open models"
+      ],
+      "saint_lane": null,
+      "badge": "THE LATEST"
     }
   ]
 };

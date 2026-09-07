@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-06T14:26:18.000Z",
+  "updatedAt": "2026-09-07T02:34:04.151Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -203,6 +203,56 @@
         "independentRawReport": {
           "path": "operations/product-stewards/newsstand/candidates/gastric-cancer-prediction-2026-09-05/admission/independent-raw-report.json",
           "sha256": "8f728c87a8cab83771d22f1c4dbe8102a167d59a5ad9f70fdb9a897c68acd5c0"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval."
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "nvidia-hugging-face-acquisition-sec-8k-2026-09-06",
+      "producerPrincipal": "/root",
+      "sourceIdentitySha256": "02553c29814e9245eb3eada577376138aa0dc91d2078ee32091ac65405f62433",
+      "artifactSha256": "e706ccf6b6af31d998bb87f61f6995316fa404261f2c22b6607700cd83ce2083",
+      "status": "READY_FOR_ADMISSION",
+      "active": true,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-06T19:00:00Z",
+      "lastReviewedAt": "2026-09-07T02:28:02.890Z",
+      "attempts": [
+        {
+          "artifactSha256": "e706ccf6b6af31d998bb87f61f6995316fa404261f2c22b6607700cd83ce2083",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-07T02:28:02.890Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/nvidia-hugging-face-acquisition-2026-09-05-sec-8k-repair-20260906/admission-current-base-20260906/independent-review.json",
+            "sha256": "ad93a5d5c5f1403d315be675cd5165f0b1cebed2ae6200c0926b9ae05ebd62d6"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/nvidia-hugging-face-acquisition-2026-09-05-sec-8k-repair-20260906/admission-current-base-20260906/independent-raw-report.json",
+            "sha256": "aba0458ecaecfbd3f06603623d9e9b86fade014fd173ff5c88f7d17aa3dd65dc"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "COMPOSE_AND_ADMIT_EXACT_ARTIFACT",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/nvidia-hugging-face-acquisition-2026-09-05-sec-8k-repair-20260906/admission-current-base-20260906/ordinary-candidate.json",
+        "sha256": "ea0e86abb9f0cf3e94bbfc96562e441472d8487996a7701a3af943d2d176cfd3"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "02553c29814e9245eb3eada577376138aa0dc91d2078ee32091ac65405f62433",
+        "artifactSha256": "e706ccf6b6af31d998bb87f61f6995316fa404261f2c22b6607700cd83ce2083",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/nvidia-hugging-face-acquisition-2026-09-05-sec-8k-repair-20260906/admission-current-base-20260906/independent-review.json",
+          "sha256": "ad93a5d5c5f1403d315be675cd5165f0b1cebed2ae6200c0926b9ae05ebd62d6"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/nvidia-hugging-face-acquisition-2026-09-05-sec-8k-repair-20260906/admission-current-base-20260906/independent-raw-report.json",
+          "sha256": "aba0458ecaecfbd3f06603623d9e9b86fade014fd173ff5c88f7d17aa3dd65dc"
         }
       },
       "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval."
