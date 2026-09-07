@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-07 — Automatic continuation sessions
+
+Ali authorizes Codex to start a fresh continuation session when context becomes unwieldy, without asking again. Before starting one successor, commit a concise handoff with the governing objective, accepted decisions and assets, exact owned paths and commits, verified results, unresolved work and next action. Verify the successor starts, then stop overlapping foreground writes. Keep the original page-by-page programme and existing work; do not restart an audit, create a session for every small fix, or let scheduled maintenance replace the foreground task. This does not approve publication by itself. Current transfer: /Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/product-stewards/town-entry-homepage/CONTINUATION-20260907.md
+
 ## 2026-09-06 — Homepage closeout and Library search derivatives
 
 Source cb0a78ef (pushed); verified preview https://ca2efb36.laidies-sunnyvaile.pages.dev/#reference . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905; packet operations/product-stewards/town-entry-homepage/candidates/homepage-closeout-20260906/.
