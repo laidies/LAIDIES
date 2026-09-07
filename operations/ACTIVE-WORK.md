@@ -14,9 +14,11 @@
 > LCWO-002 source identity is now resolved to the exact twenty-chapter Quick
 > bundle accepted August16, recovered from original commit `5a4b5208` without
 > altering source bytes. Its access-label placement is Chapter2, section2.5.
-> Current four-label evidence and Library's versioned extension/render route
-> remain prerequisites; no producer contract or drafting is claimed. Exact
-> hashes, authority and next operation:
+> The current four-label evidence is now durable at
+> `product-stewards/learning-content-ecosystem/LCWO-002-ACCESS-LABELS-SOURCE-PACKET.md`.
+> Library's producer preflight is next; its later versioned extension/render
+> remains held. No producer contract or drafting is claimed. Exact hashes,
+> authority and next operation:
 > `product-stewards/learning-content-ecosystem/RECOVERY.md`. Queue bytes remain
 > unchanged, so the original missing-input quarantine remains visible.
 > Whole-operation acceptance and remaining build/cloud/product/backup work remain

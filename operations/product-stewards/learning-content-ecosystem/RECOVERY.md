@@ -27,8 +27,10 @@ Base directory: `content/library-books/pilots/ai-fundamentals-101-quick-manuscri
 the Family: Size, Openness, and Thinking,” lines 437–455. Extend the existing
 open-weight/closed subsection; do not create a competing concept home. The
 accepted source does not separately define all four labels requested by
-LCWO-002. Learning/accuracy must prepare current definitions, boundaries and
-source evidence for the missing distinctions before new prose can be produced.
+LCWO-002. Learning/accuracy's current definitions, boundaries, evidence and
+freshness contract are now durable at
+`LCWO-002-ACCESS-LABELS-SOURCE-PACKET.md`. That packet is internal research
+input only; it does not supply or admit reader-facing prose.
 
 Archived task `01a0113b-571d-7680-b9ae-e8de07b8f030`, “Restart AI Fundamentals
 visuals,” provides a later visual-work route, not new manuscript admission.
@@ -46,12 +48,15 @@ distinctions. This establishes a reusable mechanism, not an admitted addition
 or a recovered current builder. The overlay and builder remain in the Library
 worktree; do not import its 110 entries wholesale to satisfy this one order.
 
-**Next operation:** Learning prepares the current four-label evidence packet
-for this exact section. Library binds a versioned clarification in that
-existing overlay, preserving the immutable source and exposing the exact
-added prose for review; it does not create a second amendment system. Library still owns the
-versioned extension and deterministic render target. A real producer contract
-requires those inputs and a current work-order binding. The original queue
+**Next operation:** Library runs producer preflight, binding the current source
+packet, current quality registry, work order and existing amendment mechanism.
+No clarification entry or added prose is created until that contract passes.
+Library then owns the versioned clarification and deterministic render target,
+preserving the immutable source without creating a second amendment system.
+`READY_TO_DISPATCH` remains the canonical label for
+producer-preflight assignment; it is not drafting authority. The work order's
+old immediate-build prose and missing historical input paths are stale. The
+original queue
 SHA remains `5e47e31f9e49ec1f8ac86fb8b49a8398265a54e9a9f70646ac7e89e6fcfcfe86`;
 no queue mutation, drafting, rendering, review, activation or publication occurs
 in this source recovery. The old queue's dependency projection therefore still
