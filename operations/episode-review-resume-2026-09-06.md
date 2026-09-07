@@ -1,5 +1,8 @@
 # Episode review resume — 2026-09-06
 
+2026-09-06 narration formatting checkpoint: Episodes01–04 now group continuous speakers into3/5/3/13 recording blocks respectively (Episode04 retains its non-recorded header). Exact HEAD-versus-candidate non-whitespace token comparisons preserve all words, markers and cues; Read sources unchanged. Existing masters remain the source. Ali reports ElevenLabs signed in as wednesday.laidies@gmail.com; browser automation timed out on repeated attempts, so session/project/voice settings remain unverified and no generation started. Current content/art/account-browser acceptance remains open.
+
+
 Status: BUILDING — Episodes 01–04. Ali subsequently authorized full written/narration updates, useful study packs, interactive exercises, trading-card flashcards, quizzes and account-backed Closet saving. The initial review below is historical context, not a restriction on that authorization. No revised public release or new audio is claimed.
 
 ## Current implementation checkpoint (supersedes historical next actions below)

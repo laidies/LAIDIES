@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Continuous narration uses minimal paragraphs
+
+LOCKED — Ali requested editing the existing scripts and using as few paragraphs as possible while one person is speaking, because paragraph breaks can change the generated voice. Preserve every spoken word and performance cue when grouping existing narration; split at actual speaker changes or necessary production boundaries, not ordinary reading paragraphs. Written editions retain their readable paragraph structure. Apply this in the paired masters before export and before ElevenLabs generation; verify whitespace-normalized narration is unchanged for a formatting-only pass. Existing Jessica/v3 voice lock remains in force.
+
 ## 2026-09-06 — Episode review and proposed season route
 
 PROPOSED, NOT LOCKED: `episode-editorial-review-2026-09-06/season-map.md` contains the reconciled discussion proposal for Episodes7–24; neither older map is superseded until Ali rules. `episode-editorial-review-2026-09-06/review.md` owns the paired written/narration correction inventory. New `content/episodes/episode-00.canon.md` is an internal preserved trailer baseline plus the approved outline direction, not an admitted rewritten trailer. Automatic generation remains the later version of the existing master-source specification. D-2026-09-05-139 continues to protect Hedy's authored dialogue; no unsolicited historical-quotation disclaimer is required.

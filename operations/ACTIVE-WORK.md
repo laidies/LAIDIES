@@ -1,5 +1,8 @@
 # Active work
 
+2026-09-06 narration formatting checkpoint: Episodes01–04 now group continuous speakers into3/5/3/13 recording blocks respectively (Episode04 retains its non-recorded header). Exact HEAD-versus-candidate non-whitespace token comparisons preserve all words, markers and cues; Read sources unchanged. Existing masters remain the source. Ali reports ElevenLabs signed in as wednesday.laidies@gmail.com; browser automation timed out on repeated attempts, so session/project/voice settings remain unverified and no generation started. Current content/art/account-browser acceptance remains open.
+
+
 > **2026-09-06 — Episodes 01–04 refresh: BUILDING.**
 > LIVE BACKEND: Episode Binder20000 installed with exact migration history; rollback-only live save/reopen/retry/owner/malformed/stale checks passed, test accounts removed. Resident browser/JWT end-to-end remains unverified. Quiz reward/Clip ledger NOT installed. Pilot routes connected; first-award rule shared in Read/narration. New audio awaits ElevenLabs sign-in.
 > Account Clip Jar candidate now shares a server earning projection across Closet and Book Fair; synthetic first6→both6 and account clearing verified. Earning-only ledger and owner/race/legacy/account-deletion tests passed locally. No live migration, spend fulfilment, new audio or completed episode release.
