@@ -1,0 +1,1 @@
+Scoped preview: Terra Low independently inspected actual desktop/mobile renders and admitted CTA consistency. Mint fill/navy border/offset shadow matches Big Picture; no overlap with art/body, readable labels, no horizontal overflow at1200/390/320. Maker responsive check also reports zero broken images. Not a production release.

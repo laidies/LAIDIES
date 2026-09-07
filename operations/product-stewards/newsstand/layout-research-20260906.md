@@ -75,3 +75,5 @@ Maker/reviewer correction: continuous dotted edge rails were still noisy, especi
 Ali approves the direction of the sparse-dot preview and requests the Big Picture double-colour heading treatment elsewhere. Apply navy faces and mint offset lettering to main section and named-column headings; keep story headlines/body unchanged, with a legible coral/mint variant on the dark catch-up surface.
 
 Big Picture title correction: article headline spans the whole spread beneath the section name and above both image and summary; not confined to the summary panel. Mobile reading order is section, title, art, summary, footer.
+
+Ali prefers boxed actions over unboxed reading links. Standardize principal NewsStand reading/column/card calls to action to the Big Picture mint fill, navy border and offset shadow. Preserve inline article links as text.
