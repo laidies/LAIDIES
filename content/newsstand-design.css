@@ -1076,3 +1076,7 @@
 .ns-redesign .ns-page :is(.ns-reading-card a,.ns-luminairy__all,.ns-luminairy__links a,.ns-catchup-item__body > a):focus-visible { outline: 3px solid #003b9e; outline-offset: 5px; }
 
 .ns-redesign .ns-page .ns-catchup .ns-catchup-item__body > a { color: #003b9e !important; }
+
+.ns-redesign .ns-front-desk--big-picture { grid-template-areas: 'eyebrow eyebrow' 'label label' 'headline headline' 'image contents' 'footer contents'; }
+.ns-redesign .ns-big-picture-eyebrow { grid-area: eyebrow; display: block; margin: 0 0 10px; color: #11183b; font: 800 12px/1.4 Jost,sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+@media(max-width:600px) { .ns-redesign .ns-front-desk--big-picture { grid-template-areas: 'eyebrow' 'label' 'headline' 'image' 'contents' 'footer'; } }

@@ -1,3 +1,4 @@
+<!-- NewsStand READY_FOR_RELEASE: accumulated preview + Big Picture eyebrow checked at1200/390/320. Waiting for imminent MAiKEOVER production successor before two-file overlay, per release coordination. -->
 <!-- NewsStand LOCAL_PREVIEW: principal reading CTAs standardized to mint boxes/navy border/offset shadow, including Weekly. 1200/390/320 no overflow/broken images; not deployed. -->
 <!-- NewsStand LOCAL_PREVIEW: two-colour section/column headings and Big Picture article title spanning image and summary. Desktop1200/mobile390/320 checked; not deployed. -->
 <!-- NewsStand halftone preview: LOCAL_PREVIEW. Ali requested larger spaced tangerine dots at edges and section breaks. Desktop/mobile render checked; not deployed. -->
