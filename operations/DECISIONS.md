@@ -1,5 +1,11 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-07 — Responsive gaps and women-feature subheadings
+
+Ali identifies unused space below the women-feature text at wide widths and explicitly likes the smaller layout. Preserve that smaller arrangement and fix only measured wide-screen imbalance; do not add filler or undo the equal activity cards. Add her exact heading IT WAS WOMEN ALL ALONG above Women have shaped computing; style it like INSIDE THE LUMINAiRY and make both subheadings a brighter contrasting colour. Other artwork, wording, fonts and recent homepage corrections remain protected. The candidate may reposition the existing quote at wide widths after actual responsive comparison; its rendered result remains for Ali to judge.
+
+Implemented preview: retain the quote beneath the image at every width. Only at 1200px and wider, cap the women feature at 1380px and set its body text to 1.2rem; smaller artwork sizing and body type stay unchanged. Both subheadings use existing brand tangerine. Source 3f57e04f; https://5e9a67fd.laidies-sunnyvaile.pages.dev/#why-laidies-title. Five-width hosted comparison verified; owner visual verdict pending; production unchanged.
+
 ## 2026-09-07 — Make homepage before-and-after quotes distinct
 
 Ali asks for the From/To transitions in all three Why LAiDIES cards to stand out, suggesting labels in a different colour from the quotes. Preserve her exact wording and the existing heading/bold font, card artwork and other homepage corrections. The bounded preview uses separate From/To rows with coral/lime upright labels and retained pink italic quotes. This records the requested emphasis and candidate treatment, not owner approval of the rendered result.

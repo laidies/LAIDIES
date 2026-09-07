@@ -14731,3 +14731,7 @@ HTML and local custom properties.
 **Prevention:** Before changing a candidate for a disputed visual defect, reopen the exact artifact at intended/original resolution. Keep mechanical text presence separate from visual legibility, and test occupied content boundaries when evaluating obstruction. Preserve the initial observation and correction.
 
 **Possible Behind the Build angle:** A confident review can be wrong; verify the visible evidence before spending another production cycle. Raw learning only, not public copy.
+
+### 2026-09-07 — Responsive image growth can create column gaps
+
+An uncapped image continued growing while adjacent copy had a fixed reading measure, producing a 260px gap at 1920 and 459px at 2560. Moving the quote merely shifted the gap at other widths. Prevention: compare the approved smaller view and multiple wide views before accepting a layout change; constrain the shared content width when image growth exceeds useful reading width. The scoped cap/type adjustment keeps the quote below the image and reduces wide gaps to 34–62px. Behind the Build angle: why a page can look balanced in one window and empty in another. Evidence: women-wide-spacing-20260907; source 3f57e04f.

@@ -191,3 +191,5 @@ or episode source.
 - 2026-09-07 | HOMEPAGE-JEEVES-PANEL-EDGE | VERIFIED_PREVIEW | Ali requested lower portrait like PAiGE. Source39d4b9d5, admissionc6723f06, https://4219da04.laidies-sunnyvaile.pages.dev/#reference. Hosted desktop/tablet overlap and unchanged phone placement verified; search readable. Preview only; separate service continuation remains BUILDING.
 
 - 2026-09-07 | HOMEPAGE-FROM-TO | VERIFIED_PREVIEW | Ali requested stronger before/after emphasis in all three Why LAiDIES cards. Coral FROM and lime TO labels, pink quotes, two rows; full wording and font retained. Source 4223942d; https://bd93f9fb.laidies-sunnyvaile.pages.dev/#why. Preview only; owner visual verdict pending.
+
+- 2026-09-07 | HOMEPAGE-WOMEN-SPACING | VERIFIED_PREVIEW | Source 3f57e04f; https://5e9a67fd.laidies-sunnyvaile.pages.dev/#why-laidies-title. Scoped wide-screen correction and requested tangerine subheadings. Smaller layout retained. Exact hosted bytes and five widths checked; production unchanged; owner review pending.
