@@ -48,5 +48,11 @@ Escape/focus return, direct hash, no overflow or script errors. Measured masthea
 194px desktop / 158px phone. Top viewport renders inspected by maker at
 `/private/tmp/becky-masthead-{1440,390,320}.png`.
 
-Status: BUILT LOCALLY. Independent pixel review pending. Full design admission
+Independent Sol/Medium pixel review found no blocking defect: recognizable
+Becky, adult inked/faceted style, coherent anatomy, clean composited silhouette,
+and no portrait/title clipping at 1440/390/320. Slightly more polished than the
+master; 320px is the practical minimum before title/navigation expansion needs
+another check. This is a bounded asset/current-render review only.
+
+Status: BUILT LOCALLY, independently checked. Full design admission
 and production release not performed; current live page remains unchanged.
