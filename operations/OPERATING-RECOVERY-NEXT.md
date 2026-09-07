@@ -1,7 +1,7 @@
 # LAiDIES operating recovery: current entry
 
 Updated September 6, 2026 (Vancouver). Current integration baseline:
-`357117980d7d701a64b8540f0beddfde979924fa` (PR115 merged).
+`50c0cc836bd6bbf9b1c3c3bee2514cd1f50727c7` (PR120 merged).
 This is the compact continuation for one operating workstream. Historical
 checkpoints remain in Git history; they are not additional current instructions.
 
@@ -44,8 +44,8 @@ Do not import an entire historical branch to recover selected dependencies.
 - PR114: actual Learning-owner adoption merged as `39428d15`. Review caught and
   removed a circular dispatch prerequisite. Fourteen of seventeen orders may
   enter producer preflight; zero may draft; all seventeen remain release-held.
-  Unknown states fail. The current v1.1 queue is preserved; v1.2 executor/state/
-  controller recovery is not implemented. Ali authorized this owner handoff and
+  Unknown states fail. The current v1.1 queue is preserved. PR119 adds an inactive preparation
+  adapter only; live execution is unavailable. Ali authorized this owner handoff and
   its corrections; do not ask her to authorize that same adoption again.
 - PR115: recovered the existing seven-file episode gate package. An unchanged
   gate really returned PASS 0/0 for an invalid scope. The repaired gate rejects
@@ -58,6 +58,36 @@ Shared branch `homepage-redesign` received only the exact clean tracked checker
 fixes in commits `c00681953eac5908dbbdec1e2cedad35dfb1f5eb` and
 `359e3e371d47c515d7f92434b5c6c508926ba552`. Those shared commits were not pushed;
 unrelated dirty/staged work was preserved.
+
+## Learning dependency pilot
+
+The read-only `scripts/project-learning-dependencies.mjs` uses the existing
+work-order, release and executor checkers rather than creating readiness rules.
+Run it with `--format markdown` for the full view, `--order LCWO-002` for a
+current task packet, or `--impact <repository-relative-path>` for declared input
+consumers. Output goes to stdout only. Its current saved view is
+`product-stewards/learning-content-ecosystem/LEARNING-DEPENDENCY-MAP.md`;
+regenerate before relying on it. CLI exit 1 means quarantined inputs, not a
+crashed report; exit 2 means invalid usage/unreadable root. The report retains
+observed canonical counts even when its dependency inputs are invalid.
+
+The actual current queue retains seventeen release holds, fourteen preparation
+eligibilities and zero draft eligibilities. Many declared intake sources and
+planned targets are absent in this checkout. Required missing sources invalidate
+the dependency view; absent planned outputs remain build holds. Planned targets
+and ambiguous evidence references do not enter consumed-input impact results.
+Universal preflight rules are separate from actual candidate bindings. Unknown
+or undeclared consumers remain `IMPACT_UNKNOWN`; no guessed prose relationships.
+Human permission is not inferred from an owner name or recorded next-action text.
+
+Calibration covers five real held orders plus missing input, changed binding,
+orphan review, contradictory state, succession/reference cycles, supersession,
+false execution, unsafe path, directory evidence and bad CLI arguments. An
+independent review reproduced two defects in the first candidate; corrected
+fixtures now reject both. A synthetic positive case supplies missing inputs
+without supplying planned outputs. No measured context/time saving, semantic
+quality improvement, complete human-boundary map or actual producer outcome is
+claimed. The next real operation is owner reconciliation of LCWO-002 inputs.
 
 ## Actual open breaks, in dependency order
 

@@ -863,3 +863,13 @@ The instruction-source edge now requires explicit current bindings; software
 checks reject the same unchanged contract. No semantic or production-success
 edge is inferred. See the existing learning trial RESULT.md for the exact source
 and preserved partial-artifact boundaries. No new graph, registry or schedule.
+
+### Read-only Learning dependency pilot — September 6
+
+The current generated view is [Learning dependency map](product-stewards/learning-content-ecosystem/LEARNING-DEPENDENCY-MAP.md).
+It exposes missing declared inputs, exact release holds, owners and bounded
+reverse impact; it has no authority to change a queue or invoke an agent.
+Current actual dependency inputs are quarantined, while canonical checks still
+report 14 preparation eligibilities and zero drafting eligibilities. Regenerate
+with `node scripts/project-learning-dependencies.mjs --format markdown` before
+using the snapshot. Usage and remaining acceptance: `OPERATING-RECOVERY-NEXT.md`.

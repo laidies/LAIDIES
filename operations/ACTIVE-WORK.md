@@ -1,51 +1,20 @@
 # Active work
 
-> **2026-09-06 — Graph-engineering research / SPECIFIED, INTEGRATION OWNED.**
-> Ali requested a current, whole-system investigation after identifying recurring
-> inconsistency in LAiDIES agent output. The research distinguishes dependency,
-> workflow, agent, knowledge, retrieval and trace graphs and recommends one
-> smallest proof: a read-only regenerated Learning provenance/hold map over the
-> existing 17 work orders. Existing whole-operation authority covers the
-> reversible internal pilot; Operating System integration owns implementation.
-> No graph framework, database, executor activation, schedule or learning
-> artifact is included or implemented. LCWO-002 remains separately checkpointed
-> and its real producer preflight is not complete. Specification packet:
-> `operations/product-stewards/learning-content-ecosystem/GRAPH-ENGINEERING-RESEARCH-AND-ROUTE-2026-09-06.md`.
-
-> **2026-09-06 — Operating integration / BUILDING: receiver merged; gate package recovered.**
-> Owner `01a077d0-0775-7af2-b631-c311573f0e0e`, isolated
-> `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`, branch
-> `ops/episode-gate-recovery-20260906`. Corrected PR114 merged `39428d15` after
-> a real review caught its circular preflight prerequisite and state-validation gap.
-> The missing existing gate package is restored with calibrated argument/child-exit
-> rejection and cue-root selection. Actual build now reaches the gate and holds on
-> five missing main Episode02 images, all present but not admission-verified in shared.
-> Shared gate/checker fixes are committed `c0068195` and `359e3e37`; no shared branch push.
-> Full build, actual candidate, absent v1.2 executor and cloud/user/resume proof remain
-> open. Details and next action: `OPERATING-RECOVERY-NEXT.md`. No product art restored,
-> public release, new service, spend, worktree deletion or automatic-continuation claim.
-
-
-> **2026-09-06 — Learning-quality receiver / MERGED AND CURRENT-MAIN VERIFIED: scoped adoption passes; executor and real-candidate proof held.**
-> Owner task `019f9f7f-9e4c-72d2-8882-447bcbe01691`; isolated checkout
-> `/Users/alisoneakin/Projects/laidies-learning-quality-adoption-20260906`, branch
-> `task/learning-quality-adoption-20260906`. Corrected PR114 merged as `39428d15`;
-> this receiver was then fast-forwarded through PR115/current `main` `35711798`.
-> Corrected implementation commit `b9c1b7ff` wires package
-> integrity and learning admission before producer, exact-prose reviewer and release
-> checks and a calibrated work-order consumer. All 14 `READY_TO_DISPATCH` orders remain
-> eligible for producer preflight; zero may draft without a valid contract. Three orders
-> remain trigger-queued. The scoped chain passes; strict `LCWO-002` release admission fails as required and all
-> 17 orders remain held. The full `ci:build` now passes the recovered gate calibration and
-> four Episode 02 checks, then holds on five absent, unadmitted Episode 02 images. It does
-> not reach later stages, and current `main` still lacks
-> `scripts/test-episode-cue-scope.mjs` and
-> `scripts/test-episode-04-banned-cut-assets.mjs`. `LCWO-001` also cannot supply real-candidate
-> proof in this checkout because both recorded target paths are absent. Current `main`
-> also lacks the recorded v1.2 queue schema, learning executor/state/checker/test and the
-> Learning dossier's `state.json` and `backlog.md`, so this is queue and
-> admission wiring rather than restored autonomous execution. No content,
-> service, schedule, deploy, publication, spend or Ali/public authority changed.
+> **2026-09-06 — Operating integration / BUILDING: read-only Learning map pilot.**
+> Owner `01a077d0-0775-7af2-b631-c311573f0e0e`; isolated
+> `/Users/alisoneakin/Projects/laidies-learning-map-20260906`, branch
+> `ops/learning-provenance-pilot-20260906`. PR120 research and item-level source
+> monitoring merged `50c0cc83`. The projection consumes existing queue, release
+> and inactive-executor checkers; no new runtime or source of authority.
+> Current counts remain 17 orders, 14 preflight-eligible, zero draft-eligible,
+> three trigger-queued and 17 release-held. Missing declared sources quarantine
+> the projection; missing planned outputs remain visible build holds. Independent
+> review caught and corrected missing-input success and output-as-input impact.
+> Current view: `product-stewards/learning-content-ecosystem/LEARNING-DEPENDENCY-MAP.md`.
+> LCWO-002 real producer preflight remains checkpointed with its Learning owner.
+> Whole-operation acceptance and remaining build/cloud/product/backup work remain
+> in `OPERATING-RECOVERY-NEXT.md`. No execution activation, publication, spend,
+> deletion or automatic-continuation claim.
 
 > **2026-09-06 — Small current visual references: REPOSITORY-DISTRIBUTED / PR106 MERGED.** Owner: background-reference task `01a0785e-1438-7161-b041-0be213b06e9b`; isolated branch `ops/current-visual-references-20260906`. Build the small two-job entry and scoped selections, preserve exact originals and reconcile later rejections; system engineering task owns prompt-consumer reconciliation on a separate branch. No all-artwork migration or production art changes. Acceptance: exact usable references and reuse scope, honest unavailable entries, routed instructions, calibrated selection checks and repository distribution. Local index and 13 prompt-consumer checks pass; later Matron/Miss Jeeves identities and destination palettes are reconciled. Current source commits 222a10ae, 3afe85a6, 21b55575 and coordinated consumer 1b1fcf6e. PR106 merged as a38d5068e67582e089e1e7b9ef983fa60882f7c4 after targeted reference CI and both baseline jobs passed; shared entry pointer committed e0812106. Source/consumer delivery is complete; no new artwork, public deployment or native hook activation is claimed. Other product work continues.
 

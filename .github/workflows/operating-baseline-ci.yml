@@ -37,6 +37,8 @@ jobs:
           node scripts/test-content-producer-contract.mjs
           node scripts/test-prose-quality-admission.mjs
           node scripts/test-content-release-readiness.mjs
+      - name: Read-only Learning dependency calibration
+        run: npm run test:learning-dependencies
       - name: Inactive Learning execution adapter calibration
         run: npm run test:content-execution
       - name: Episode gate package and argument calibration
