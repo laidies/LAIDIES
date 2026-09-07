@@ -127,6 +127,8 @@ for (const filename of cueFiles) {
     }
   }
 
+  if (cueCount === 0) failures.push(`${filename}: contains no cues to validate`);
+
   const byHash = new Map();
   for (const record of sourceRecords) {
     if (!byHash.has(record.hash)) byHash.set(record.hash, []);

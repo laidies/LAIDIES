@@ -39,6 +39,8 @@ function walk(dir) {
 
 walk(ROOT);
 
+if (pages.length === 0) failures.push('no live-facing HTML pages found to parse');
+
 for (const page of pages) {
   const html = fs.readFileSync(page, 'utf8');
   const relative = path.relative(ROOT, page);

@@ -105,6 +105,8 @@ for (const page of walk(ROOT)) {
   }
 }
 
+if (pageCount === 0) failures.push('no live-facing HTML pages found to validate');
+
 if (failures.length) {
   console.error(`\n✗ LOCAL LINKS: ${failures.length} missing target(s) across ${pageCount} pages:\n`);
   failures.forEach((failure) => console.error(`  · ${failure}`));

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # gate.sh <EP> [--scope episode|site|all]
 #
-# ONE command that runs every check that exists for an episode and prints ONE
-# verdict. Exits non-zero if any BLOCKING check failed.
+# Run the episode/site checks named below and print one mechanical verdict.
+# Exit non-zero if any blocking check fails.
 #
 #   bash operations/engine/gate.sh 5
 #
@@ -165,9 +165,8 @@ if [ "${#BLOCKERS[@]}" -eq 0 ]; then
     echo "  advisory: ${WARNS[*]}"
   fi
   echo
-  echo "  ${bold}These checks are mechanical.${off} They prove nothing is BROKEN."
-  echo "  They cannot tell you the teaching is any good — that is still the"
-  echo "  quality battery (operations/workflows/review-content.mjs) and then Ali."
+  echo "  ${bold}Named mechanical checks passed for scope ${SCOPE}.${off}"
+  echo "  Teaching/visual review and release approval remain separate."
   echo
   exit 0
 fi
