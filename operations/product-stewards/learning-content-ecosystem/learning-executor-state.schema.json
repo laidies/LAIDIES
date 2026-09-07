@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://laidies.ai/schemas/learning-executor-state.schema.json",
+  "title": "LAiDIES inactive Learning executor state",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "ownerTaskId", "status", "queueBinding", "automation", "maxOpenAgeMinutes", "authority"],
+  "properties": {
+    "schemaVersion": { "const": "laidies-learning-executor-state.v2" },
+    "ownerTaskId": { "const": "019f9f7f-9e4c-72d2-8882-447bcbe01691" },
+    "status": { "const": "DISABLED_UNBOUND" },
+    "queueBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "schemaVersion", "sha256"],
+      "properties": {
+        "path": { "const": "operations/product-stewards/learning-content-ecosystem/content-work-orders.json" },
+        "schemaVersion": { "const": "1.1.0" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "automation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "id", "laneId", "targetThreadId"],
+      "properties": {
+        "status": { "const": "UNBOUND" },
+        "id": { "type": "null" },
+        "laneId": { "type": "null" },
+        "targetThreadId": { "type": "null" }
+      }
+    },
+    "maxOpenAgeMinutes": { "type": "integer", "minimum": 1 },
+    "authority": { "type": "string", "minLength": 1 }
+  }
+}

@@ -429,3 +429,21 @@ commits c0068195/359e3e37 apply the bounded fixes without a shared branch push.
 Continuation of the operating receiver/gate repair: the recovery entry itself retained obsolete permission-pending and first-action instructions alongside completed outcomes. Replaced the accumulated narrative with one current checkpoint and narrow source links; history remains in Git. Prevention: update the current entry by replacement, not by appending another competing current state. Behind the Build angle: long memory can increase mistakes when historical instructions look current.
 
 Learning receiver status integration continuation: a policy row duplicated a volatile missing-gate result after the gate was restored. Route current dependency status to the existing recovery record and keep the policy row about permission boundaries; regenerate its standing card binding. This avoids one more contradictory startup source without creating a new status registry.
+
+The preserved Learning executor exposed a second false-equivalence: its contract described
+a scheduled worker that reconciled, selected, dispatched and executed work, while the local
+runner only refreshed heartbeat metadata around an already-active queue item. Recovering
+either file alone would turn intent into apparent runtime proof. The inactive successor
+keeps the canonical queue immutable, separates proposed selection and draft receipt, and
+rejects every acknowledgement, dispatch, terminal or enabled state until a real authority
+source is separately implemented. Prevention: runtime state must prove the transition it claims; a local
+receipt draft or heartbeat writer is never owner acceptance or performed work. Behind the
+Build: an AI operating system needs verbs that mean what actually happened, not what the
+surrounding contract hoped would happen.
+
+Independent preparation review then found the adapter could accept a queue contradiction
+after a caller recomputed its hash, and could place a draft receipt before its proposal in
+time. The adapter now consumes the canonical work-order validator, rechecks eligibility for
+both preparation states and requires nondecreasing event timestamps. Prevention: integrity
+binding proves which bytes were read, not that those bytes are internally valid or that a
+sequence happened in causal order.
