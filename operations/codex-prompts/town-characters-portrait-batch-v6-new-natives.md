@@ -57,11 +57,13 @@ Character Spritz**; the corner where everyone's known.
 reading the room with an easy knowing warmth — bottles/taps/glassware, warm stage glow behind. Charismatic,
 relaxed, a real bartender's presence. **Teaches:** the confidant — reads the room, knows your usual.
 
-### 4 · BECKY — the Chick Flicks clerk → `assets/town-characters/scenes/becky-scene.png`
+### 4 · BECKY — the Chick Flicks clerk — identity locked, do not regenerate master
+**Identity only:** `assets/town-characters/approved/becky/becky-character-approved-20260907.png`.
 **Env ref:** `assets/building-interiors/chick-flicks-store.jpg` (the video store — match its shelves/light).
 **Who:** the video-store clerk who recommends the tape — "be kind, rewind." Classic-90s name, friendly and
-opinionated about movies. **Look = *Empire Records* energy** — a 90s alt / record-store-clerk vibe (band tee,
-slouchy layers, that Gen-X slacker-cool confidence), opinionated and effortlessly cool.
+opinionated about movies. **Look:** early-twenties college-age clerk, exact approved
+mint/pink polo, Becky badge, high-waisted jeans and pink Baby-G watch. No band tee
+or slouchy layers. Preserve the approved face and hair; version any scene output.
 **Scene:** Becky at the Chick Flicks counter mid-recommendation, holding out a VHS tape (a rental sleeve),
 wall of tapes behind, "be kind, rewind" energy — leaning in like she's telling you exactly what to watch.
 **Teaches:** curation / recommendations (what's worth the watch).

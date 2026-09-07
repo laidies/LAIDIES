@@ -14992,3 +14992,13 @@ Maker rejected it before integration; a background-extraction successor had
 actual RGBA alpha and was inspected over the destination field. Prevention:
 verify alpha metadata and rendered compositing, not the prompt or checkerboard
 appearance. Behind the Build angle: a picture of transparency is not a cutout.
+# 2026-09-07 — Becky identity lock requires consumer migration
+
+Ali's exact V2 approval overrides earlier review uncertainty about perceived
+age/style. Keep the approved master unchanged; a cropped/generated cutout is
+only a presentation derivative. A calibrated guard caught two older character
+reference pages in addition to production prompts. Migrated active references;
+historical evidence retained. Prevention: identity approval must bind exact
+bytes, retire old references and run a source-consumer guard, not just update
+one image tag. Behind the Build: preventing a character from changing outfits
+and faces every time a different agent draws her.

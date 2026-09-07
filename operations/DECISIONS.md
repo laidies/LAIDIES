@@ -44,6 +44,7 @@ proper domain source before building from it.
 | Prose admission | `operations/product-stewards/learning-content-ecosystem/CONTENT-QUALITY-ADMISSION-GATE.md` |
 | Episode canon | `operations/episode-canonical-source-spec.md` |
 | Episode/trailer visuals | `operations/episode-visual-system-lock.md` |
+| Becky character identity | `assets/town-characters/approved/becky/README.md`; exact master in `operations/assets/active-asset-registry.json`; enforced by `scripts/check-becky-character-lock.mjs` |
 | Episode asset admission and retired paths | `operations/assets/active-asset-registry.json` |
 | Repository-wide rejected/retired bytes and rejected consumer SHAs | `operations/quarantine/repository-wide-denylist-20260820.json`; `scripts/check-repository-hygiene.mjs` |
 | Episode video specialist packet | `operations/specialist-agents/episode-video-producer.json` |

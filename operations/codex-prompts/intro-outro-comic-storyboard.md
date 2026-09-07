@@ -44,7 +44,7 @@ Source table (each character's locked comic portrait feeds her slot):
 | I-04 | NewsStand | **Paige** | reporter at her desk | `paige-scene.png` |
 | I-05 | MAiKEOVER | **Paulette** | salon chair, styling | `paulette-scene.png` |
 | I-06 | Bronze AiGE | **Cosmo** | bartender, shaking a drink | `cosmo-scene.png` |
-| I-07 | Chick Flicks | **Becky** | video-store counter | `becky-scene.png` |
+| I-07 | Chick Flicks | **Becky** | video-store counter | `assets/town-characters/approved/becky/becky-character-approved-20260907.png` |
 | I-08 | Delta LAi Nu | **June** | Cool-Mom lounge | `june-scene.png` |
 | I-09 | LUMINAiRY | **Matron Lumen** | lantern hall | `matron-lumen-scene.png` |
 | I-10 | Post Office | **Penny** | sorting counter, bell | `penny-scene.png` |

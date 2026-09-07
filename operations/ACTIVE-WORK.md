@@ -1,5 +1,16 @@
 # Active work
 
+## 2026-09-07 Becky identity lock — VERIFIED LOCALLY, integration pending
+
+Ali approved the exact clerk V2 as the sole Becky identity and requested a
+waist-up masthead. Master/derivative and retirement rules are in
+`assets/town-characters/approved/becky/README.md`. Registry, episode identity
+table, active prompts and character reference pages now route to the master;
+three earlier sources are retired, preserved for history. Calibrated guard
+checks 423 active consumers/prompts and is called by repository hygiene.
+Local masthead uses transparent waist-up derivative. Other working branches
+and production have not been updated; integration is the remaining boundary.
+
 ## 2026-09-07 Becky compact Chick Flicks masthead — BUILT LOCALLY
 
 Created Becky character successor and integrated compact keeper/title arrival in

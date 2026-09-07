@@ -137,7 +137,7 @@ collectibles across town. **Name:** classic 90s "Penny," warm and friendly.
 
 # 3 — BECKY · Chick Flicks
 
-**Face ref (curation-correct 2026-07-22):** `assets/town-characters/scenes/becky-scene.png` — match
+**Face ref (Ali locked 2026-09-07):** `assets/town-characters/approved/becky/becky-character-approved-20260907.png` — match
 her face/hair/outfit (likeness ref; render in pop-art). **Role:** video-store clerk; recommends the tape, "be kind, rewind." **Teaching tie:**
 curation / recommendations — what's worth the watch.
 
@@ -146,8 +146,8 @@ curation / recommendations — what's worth the watch.
 > `jojo-card-front-v1.png`: bold outlines, Ben-Day halftone, flat **LAiDIES candy** color (pink
 > #e982ab, teal #57b6c0, coral #ec7a78, periwinkle #b3abe7) over black ink, comic-burst frame.
 >
-> SUBJECT: **Becky**, the video-store clerk at **Chick Flicks**, SUNNYVAiLE, 1999. No approved
-> portrait yet — render her from canon and match the live Chick Flicks page: a friendly clerk in a
+> SUBJECT: **Becky**, the video-store clerk at **Chick Flicks**, SUNNYVAiLE, 1999. Use the exact
+> approved identity above, mint/pink polo and pink Baby-G watch: a friendly clerk in a
 > 90s video rental store. She is mid-action: holding up one VHS tape over the counter like it's THE
 > pick, wall of rental tapes and a "BE KIND, REWIND" shelf-tag behind her. Face fills top ~40%,
 > reads at thumbnail.

@@ -1,5 +1,18 @@
 # Becky masthead — BUILDING
 
+## Exact approval and lock
+
+Ali approved the V2 clerk image and explicitly requested its identity lock,
+retirement of older Becky versions, and a waist-up masthead crop. The approved
+bytes are preserved unchanged in `assets/town-characters/approved/becky/`.
+That directory's README is the current identity authority; earlier notes below
+are history. The extracted waist-up derivative is not a replacement identity.
+The first crop still had opaque checkerboard; second extraction has RGBA alpha.
+Active production prompts now use the exact master, older outfit instructions
+are corrected, and a calibrated source guard is invoked by repository hygiene.
+Historical evidence remains unchanged. Local Chick Flicks uses the derivative.
+Cross-checkout integration and deployment remain separate, not completed here.
+
 ## Ali's successor direction — September 7
 
 V2 generated with built-in image editing and saved at

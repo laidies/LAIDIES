@@ -36,7 +36,7 @@ unblock immediately) or whether new ones are needed.
 | 1 | `jojo` | JoJo | Blend & Snap · No.4 MAiN | `assets/town-characters/scenes/jojo-scene.png` |
 | 2 | `paige` | Paige | NewsStand · No.2 MAiN | `assets/town-characters/scenes/paige-scene.png` |
 | 3 | `penny` | Penny | Post Office · Civic Square | `assets/town-characters/scenes/penny-scene.png` |
-| 4 | `becky` | Becky | Chick Flicks · No.3 MAiN | `assets/town-characters/scenes/becky-scene.png` |
+| 4 | `becky` | Becky | Chick Flicks · No.3 MAiN | `assets/town-characters/approved/becky/becky-character-approved-20260907.png` |
 | 5 | `june` | June | Delta LAi Nu · Wisteria Ln | `assets/town-characters/scenes/june-scene.png` |
 | 6 | `cosmo` | Cosmo | BRONZE AiGE · No.7 MAiN | `assets/town-characters/scenes/cosmo-scene.png` |
 | 7 | `matron-lumen` | Matron Lumen | The LUMINAiRY · Lantern Hill | `assets/town-characters/scenes/matron-lumen-scene.png` |
@@ -168,7 +168,7 @@ Example: **PENNY** / *POSTMISTRESS*. Check the accented i's — they are canon.
 ### 4 · Becky — Chick Flicks
 > Character trading card, portrait 1200 × 1680, style `comic-v1-locked`.
 > **Becky**, the video-store clerk at Chick Flicks, No.3 MAiN, 1999. Match her face, hair and outfit
-> to `assets/town-characters/scenes/becky-scene.png`.
+> to `assets/town-characters/approved/becky/becky-character-approved-20260907.png`.
 > Mid-activity: holding out a VHS tape in a clamshell case — recommending it, not shelving it.
 > Walls of rental tapes, a cleanly rendered BE KIND REWIND sign.
 > Bottom ink bar reads **BECKY**, with *VIDEO CLERK* beneath.

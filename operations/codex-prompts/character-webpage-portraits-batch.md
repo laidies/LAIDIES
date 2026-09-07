@@ -30,7 +30,7 @@ Ali picked this as the target (2026-07-20). Match its register EXACTLY:
 | 2 | **Paige** (POC) | NewsStand | `assets/town-characters/scenes/paige-scene.png` |
 | 3 | **Paulette** | MAiKEOVER salon | `assets/town-characters/scenes/paulette-scene.png` |
 | 4 | **Cosmo** (gay, POC) | Bronze AiGE bar | `assets/town-characters/scenes/cosmo-scene.png` |
-| 5 | **Becky** | Chick Flicks video store | `assets/town-characters/scenes/becky-scene.png` |
+| 5 | **Becky** | Chick Flicks video store | `assets/town-characters/approved/becky/becky-character-approved-20260907.png` |
 | 6 | **June** (Cool Mom) | Delta LAi Nu lounge | `assets/town-characters/scenes/june-scene.png` |
 | 7 | **Matron Lumen** (Asian) | LUMINAiRY lantern hall | `assets/town-characters/scenes/matron-lumen-scene.png` |
 | 8 | **Penny** (young, ½ necklace) | Post Office | `assets/town-characters/scenes/penny-scene.png` |

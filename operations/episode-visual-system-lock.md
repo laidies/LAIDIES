@@ -68,6 +68,7 @@ The current twelve-character ensemble is:
 | Character | Identity reference |
 | --- | --- |
 | JoJo | `assets/town-characters/comic/jojo-comic-v1.png` |
+| Becky | `assets/town-characters/approved/becky/becky-character-approved-20260907.png` — Ali's September 7 exact identity lock; see adjacent README. Older Becky scene/card/denim-jacket art is history only. |
 | Penny | `assets/town-characters/scenes/penny-scene.png` |
 | Paige | `assets/town-characters/comic/paige-comic-v1.png` |
 | Mayor Deb | `assets/town-characters/scenes/mayor-deb-scene.png` |

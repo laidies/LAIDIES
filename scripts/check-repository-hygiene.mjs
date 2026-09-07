@@ -3,6 +3,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import './check-becky-character-lock.mjs';
 
 const rootIndex = process.argv.indexOf('--root');
 const root = rootIndex >= 0 ? path.resolve(process.argv[rootIndex + 1]) : path.resolve(import.meta.dirname, '..');

@@ -111,8 +111,8 @@ Likeness ref: `assets/town-characters/scenes/cosmo-scene.png`. Comic portrait: C
 drink, rainbow bandana, jewel-tone vest, moody club light. Keep **POC identity + rainbow** from the ref.
 
 ### 5 · Becky — Chick Flicks clerk
-Likeness ref: `assets/town-characters/scenes/becky-scene.png`. Comic portrait: Becky at the video-store
-counter, Empire-Records look, VHS shelves + checkerboard floor behind. Keep her exact face.
+Likeness ref: `assets/town-characters/approved/becky/becky-character-approved-20260907.png`. Comic portrait: Becky at the video-store
+counter, approved mint/pink polo, Becky badge, jeans and pink Baby-G, VHS shelves behind. Keep her exact approved face and hair.
 
 ### 6 · June — Delta LAi Nu "Cool Mom"
 Likeness ref: `assets/town-characters/scenes/june-scene.png`. Comic portrait: June in the sorority-house
