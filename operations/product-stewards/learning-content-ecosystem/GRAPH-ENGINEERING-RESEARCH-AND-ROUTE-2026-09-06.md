@@ -1,9 +1,9 @@
 # Graph engineering for LAiDIES
 
-**Status:** RESEARCHED / BOUNDED PILOT RECOMMENDED / NOT IMPLEMENTED
+**Status:** RESEARCHED / BOUNDED PILOT AUTHORIZED / INTEGRATION OWNED / NOT YET IMPLEMENTED
 **Evidence date:** 2026-09-06
 **Audience:** Ali, the Operating System owner, Learning System & Concepts and affected product owners
-**Decision this packet supports:** whether LAiDIES should test graph-engineering practices, what problem the test should solve and what must remain outside it
+**Purpose:** specify the authorized reversible graph-engineering pilot, its evidence boundary and what remains outside it
 
 ## Direct answer
 
@@ -316,8 +316,9 @@ JSON because the value being tested is the relationship model, not a vendor.
 
 ### Pilot governance
 
-- **Implementation owner if authorized:** Operating System integration owner,
-  using one isolated branch and no active product-owner lane.
+- **Implementation owner:** Operating System integration owner under the existing
+  whole-operation authorization, using one isolated branch and no active
+  product-owner lane.
 - **Queue and hold-meaning owner:** Learning System & Concepts. The projection
   may not reinterpret a work-order state.
 - **Integration acceptance:** Control Room verifies agreement with the current
@@ -380,8 +381,8 @@ opening the lesson or drawing any diagram.
 
 - It does not establish that a graph database, GraphRAG or any named framework
   will improve LAiDIES.
-- It does not authorize an executor, permanent agent team, schedule, service,
-  provider connection, publication or spend.
+- It does not implement or activate an executor, permanent agent team, schedule,
+  service, provider connection, publication or spend.
 - It does not replace LAiDIES prose, visual, accuracy, freshness or human-learning
   review.
 - It does not claim the 90.2% Anthropic result generalizes beyond its internal

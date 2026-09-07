@@ -73,6 +73,16 @@ monitor silently treats it as approved.
   by the GitHub intake. Reliable X post intake requires a separate X developer
   app, bearer token and pay-per-use budget; until those receive authority, an
   absence from the newsletter feed cannot be called `MOLLICK_QUIET` across X.
+- Allie K. Miller and Ask CatGPT/Cat Labs are currently item-monitored through
+  the official public YouTube Atom feeds resolved from their own channel
+  routers. Their public newsletter archives remain valuable exact-item sources,
+  but no publicly fetchable RSS or Atom endpoint supported by the current runner
+  was verified on 2026-09-06. Those archives, LinkedIn, Instagram and TikTok are
+  manual evidence routes, not silently monitored channels.
+- The current runner consumes exactly one `recurringUrl`, or otherwise the first
+  URL, per source. Any `channelCoverage` entry labelled active must match that
+  consumed URL. Listing another homepage, archive or social channel does not
+  create monitoring.
 - Course and communication sources inform method or continuation only. They do
   not replace the LAiDIES curriculum, voice or product owner.
 
@@ -92,7 +102,8 @@ node scripts/test-source-registry.mjs
 The check validates identity, URLs, authority/status/cadence vocabulary,
 required fields, destination coverage, practitioner-roster reconciliation,
 the Big Question and Dear Miss Jeeves contracts, the Career/Work-Life
-transformation and the NewsStand evidence/AIDB contract.
+transformation, the NewsStand evidence/AIDB contract and that declared active
+channel coverage matches the one URL the current intake runner actually consumes.
 It does not prove that every URL is reachable today or that any item is
 correct; those remain exact-item checks.
 
@@ -121,3 +132,7 @@ correct; those remain exact-item checks.
   official API is pay-per-use and requires an approved developer app plus a
   bearer token. No X spend, credential or provider connection has been
   authorized by this registry.
+- The AI with ALLIE and Cat Labs Beehiiv archives are publicly readable and
+  contain dated posts, but no supported public feed was verified for the current
+  runner. Their newsletter and social items therefore require manual exact-item
+  recovery; YouTube coverage must not be reported as complete creator coverage.

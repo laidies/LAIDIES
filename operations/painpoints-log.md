@@ -450,7 +450,10 @@ execution flow from context flow and semantic judgment; benchmark one bounded
 pilot against the current process before selecting a framework. A change to the
 decisions router also regenerates and current-byte checks the existing standing
 card in the same change; omitting that derivative is an incomplete integration,
-not an unrelated failure. Behind the Build:
+not an unrelated failure. Source coverage is similarly execution-bound: an
+extra URL or `ACTIVE` label does not count unless the current intake runner
+actually consumes that channel and emits dated items; the registry gate now
+rejects mismatched and health-only item-monitor claims. Behind the Build:
 why adding more connections can make an AI operating system less reliable when
 the lines do not say what evidence, authority or information crosses them.
 

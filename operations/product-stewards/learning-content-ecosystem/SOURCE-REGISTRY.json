@@ -480,10 +480,14 @@
     {
       "id": "SRC-ALLIE-K-MILLER", "name": "Allie K. Miller", "publisher": "Allie K. Miller",
       "authorityTier": "SECONDARY_SCOUT", "status": "PILOT_MONITOR", "cadence": "TWICE_WEEKLY",
-      "intakeMode": "HEALTH_ONLY_HTML",
-      "urls": ["https://www.alliekmiller.com/", "https://linktr.ee/alliekmiller", "https://www.linkedin.com/in/alliekmiller"],
+      "intakeMode": "RSS_ATOM",
+      "urls": ["https://www.youtube.com/feeds/videos.xml?channel_id=UCTVXt1spq1Vm4K-SyhS5KAQ", "https://www.youtube.com/channel/UCTVXt1spq1Vm4K-SyhS5KAQ", "https://www.aiwithallie.com/", "https://www.alliekmiller.com/", "https://linktr.ee/alliekmiller", "https://www.linkedin.com/in/alliekmiller"],
+      "recurringUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UCTVXt1spq1Vm4K-SyhS5KAQ",
       "channelCoverage": [
-        {"url": "https://www.alliekmiller.com/", "status": "ACTIVE_HEALTH_MONITOR", "boundary": "Official site and linked first-party resources; health monitoring is not item-level intake."},
+        {"url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCTVXt1spq1Vm4K-SyhS5KAQ", "status": "ACTIVE_MACHINE_MONITOR", "boundary": "Official public YouTube Atom feed resolved from the channel linked by Allie's official Linktree; emits dated video items."},
+        {"url": "https://www.youtube.com/channel/UCTVXt1spq1Vm4K-SyhS5KAQ", "status": "OFFICIAL_CHANNEL_REFERENCE", "boundary": "Human-readable channel corresponding to the monitored Atom feed."},
+        {"url": "https://www.aiwithallie.com/", "status": "ON_TRIGGER_PUBLIC_ARCHIVE_NO_SUPPORTED_FEED", "boundary": "Official public Beehiiv archive contains dated newsletter posts, but no publicly fetchable RSS or Atom endpoint was verified for the current intake runner on 2026-09-06; manual exact-item evidence only."},
+        {"url": "https://www.alliekmiller.com/", "status": "ON_TRIGGER_MANUAL_EVIDENCE_ONLY", "boundary": "Official site and linked first-party resources; not consumed by the recurring item runner."},
         {"url": "https://linktr.ee/alliekmiller", "status": "IDENTITY_AND_CHANNEL_ROUTER", "boundary": "Use to resolve her current official channels; it is not claim evidence."},
         {"url": "https://www.linkedin.com/in/alliekmiller", "status": "ON_TRIGGER_MANUAL_EVIDENCE_ONLY", "boundary": "No automated collection or login use."}
       ],
@@ -497,11 +501,17 @@
     {
       "id": "SRC-ASK-CATGPT-CAT-LABS", "name": "Ask CatGPT / Cat Labs", "publisher": "Cat Goetze / Cat Labs",
       "authorityTier": "SECONDARY_SCOUT", "status": "PILOT_MONITOR", "cadence": "TWICE_WEEKLY",
-      "intakeMode": "HEALTH_ONLY_HTML",
-      "urls": ["https://catlabs.studio/", "https://askcatgpt.com/"],
+      "intakeMode": "RSS_ATOM",
+      "urls": ["https://www.youtube.com/feeds/videos.xml?channel_id=UChDq5Gdfcg5Ulf4ZjSnR5eQ", "https://www.youtube.com/channel/UChDq5Gdfcg5Ulf4ZjSnR5eQ", "https://catgptnewsletter.beehiiv.com/", "https://catlabs.studio/", "https://askcatgpt.com/", "https://www.instagram.com/askcatgpt", "https://www.tiktok.com/@askcatgpt"],
+      "recurringUrl": "https://www.youtube.com/feeds/videos.xml?channel_id=UChDq5Gdfcg5Ulf4ZjSnR5eQ",
       "channelCoverage": [
-        {"url": "https://catlabs.studio/", "status": "ACTIVE_HEALTH_MONITOR", "boundary": "Official studio site and channel router; health monitoring is not item-level intake."},
-        {"url": "https://askcatgpt.com/", "status": "ACTIVE_HEALTH_MONITOR", "boundary": "Official Ask CatGPT site; inspect and bind the exact tip, workflow or linked post before use."}
+        {"url": "https://www.youtube.com/feeds/videos.xml?channel_id=UChDq5Gdfcg5Ulf4ZjSnR5eQ", "status": "ACTIVE_MACHINE_MONITOR", "boundary": "Official public YouTube Atom feed resolved from the @askcatgpt channel linked by the official Ask CatGPT site; emits dated video items."},
+        {"url": "https://www.youtube.com/channel/UChDq5Gdfcg5Ulf4ZjSnR5eQ", "status": "OFFICIAL_CHANNEL_REFERENCE", "boundary": "Human-readable channel corresponding to the monitored Atom feed."},
+        {"url": "https://catgptnewsletter.beehiiv.com/", "status": "ON_TRIGGER_PUBLIC_ARCHIVE_NO_SUPPORTED_FEED", "boundary": "Official public Beehiiv archive contains dated Cat Labs posts, but no publicly fetchable RSS or Atom endpoint was verified for the current intake runner on 2026-09-06; manual exact-item evidence only."},
+        {"url": "https://catlabs.studio/", "status": "ON_TRIGGER_MANUAL_EVIDENCE_ONLY", "boundary": "Official studio site; not consumed by the recurring item runner."},
+        {"url": "https://askcatgpt.com/", "status": "IDENTITY_AND_CHANNEL_ROUTER", "boundary": "Official Ask CatGPT site used to resolve the newsletter and public channels; not itself recurring item intake."},
+        {"url": "https://www.instagram.com/askcatgpt", "status": "ON_TRIGGER_MANUAL_EVIDENCE_ONLY", "boundary": "No automated collection or login use."},
+        {"url": "https://www.tiktok.com/@askcatgpt", "status": "ON_TRIGGER_MANUAL_EVIDENCE_ONLY", "boundary": "No automated collection or login use."}
       ],
       "destinations": ["news_daily", "straight_answers", "paige_ai_tip", "career_work_life_tip", "promptoscope", "library", "classes", "external_learning", "operations"],
       "bestUse": "Practical AI workflows, tool demonstrations, prompt and context techniques, creator experiments and approachable teaching-format inspiration.",

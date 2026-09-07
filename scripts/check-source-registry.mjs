@@ -73,6 +73,19 @@ export function validateSourceRegistry(registry, practitionerRoster) {
       if (!/^https:\/\//.test(url) || /…|\.\.\./.test(url)) errors.push(`${at}: invalid or placeholder URL ${url}`);
     }
     if (source.recurringUrl && !(source.urls || []).includes(source.recurringUrl)) errors.push(`${at}: recurringUrl must be one of urls`);
+    const consumedUrl = source.recurringUrl || source.urls?.[0];
+    const channelCoverage = source.channelCoverage || [];
+    for (const channel of channelCoverage) {
+      if (!(source.urls || []).includes(channel.url)) errors.push(`${at}: channelCoverage URL must be one of urls`);
+    }
+    const activeChannels = channelCoverage.filter(channel => /^ACTIVE_/.test(channel.status || ""));
+    if (activeChannels.length > 1) errors.push(`${at}: current intake runner consumes one recurring channel, but multiple channels are labelled active`);
+    if (activeChannels.length === 1 && activeChannels[0].url !== consumedUrl) {
+      errors.push(`${at}: active channel must match the URL consumed by the current intake runner`);
+    }
+    if (activeChannels.some(channel => channel.status === "ACTIVE_MACHINE_MONITOR") && source.intakeMode === "HEALTH_ONLY_HTML") {
+      errors.push(`${at}: HEALTH_ONLY_HTML cannot claim item-level ACTIVE_MACHINE_MONITOR coverage`);
+    }
     if (!Array.isArray(source.destinations) || !source.destinations.length) errors.push(`${at}: destinations must be non-empty`);
     for (const destination of source.destinations || []) {
       if (!requiredDestinations.includes(destination)) errors.push(`${at}: unknown destination ${destination}`);
