@@ -14939,3 +14939,6 @@ Failures retained: live Sol regression outputs still had generic prose and unnec
 Prevention: test every response consumer and changed-context near match; require fetched article/PDF content rather than HTTP200 as freshness proof; validate score thresholds separately from labels; derive each qualitative observation from the current text. Preserve raw review quotations, but bind only exact matching excerpts; an imprecise quotation is not evidence. Screenshot capture must start at document origin to prevent sticky headers being stitched across the answer.
 
 Behind the Build: a reusable answer is an explanation plus its conditions, evidence, review and expiry. Fast reuse needs a safe way to decline as well as a safe way to answer. Public freeform research is not ready merely because four edited examples are good.
+
+
+2026-09-07 — Miss Jeeves presentation closure: retain the explicit owner exception with exact candidate/review bindings. Repeatedly asking about an already granted scoped approval is a process failure; the recorded ruling and calibrated checker now carry it forward. Behind the Build: remember the decision, recheck only changed evidence.

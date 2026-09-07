@@ -1,3 +1,7 @@
+# ADMITTED AND OPEN — owner approval applied
+
+Ali answered “yes stop asking just do”. The two completed independent reviews now admit this exact preview. The prior presentation hold below is historical and resolved. Run `node scripts/check-miss-jeeves-preview-admission.mjs`; it binds the owner decision, exact reviewed texts, rendered evidence and hosted result, and rejects four deliberately bad cases. Codex in-app tab3 now shows the admitted hosted LIBRAiRY with all four question buttons. Source/runtime and production remain unchanged. Do not ask again for this scoped approval.
+
 # Miss Jeeves reviewed-answer preview — 7 September 2026
 
 Status: HOSTED FUNCTION VERIFIED / PRESENTATION HOLD. Source8c9892e54a765595b14e33bb7b19dd8bb01d0ce4 is committed and pushed. Backend74a8bbd2 records preventive guidance and two held live regression answers; pushed, not deployed. Homepage source06efecdc1e8e853718606649f9848d2ebf5aa97d is retained exactly (SHA5443c854...).

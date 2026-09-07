@@ -1,5 +1,10 @@
 # LAiDIES decision router
 
+## 2026-09-07 — Miss Jeeves preview: completed two-reviewer route approved
+
+Ali answered “yes stop asking just do” to using the two completed independent reviews to admit the four-answer Miss Jeeves preview. This explicitly extends the presentation exception to this bounded Library/runtime candidate and its already-reviewed question-input repair. Do not ask for this approval again or commission eleven additional roles. Bind the actual Claude Opus5 and Terra successor reviews, exact answer/alias/source records, source8c9892e5, preserved homepage06efecdc and hosted7db5daeb verification. This approves opening the working preview, not production promotion or general paid research enablement.
+
+
 > **2026-09-05 — Ali rejects the social successor953b8d2e; both admissions invalid.**
 > The graphic looks poor and does not explain the concept. “More weight” is
 > undefined; the example restates the claim without showing the causal effect.
