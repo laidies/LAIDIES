@@ -1,5 +1,10 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-07 — Study binder colour and material correction
+
+Ali said the physical binder is “better” but the colours feel childish, yellow is not used on the site, and the finish still resembles bad flat CSS. Retain the object direction provisionally; remove yellow UI and improve material depth. Verify the updated Episode1 cover on the current Chick Flicks page and use that exact current cover rather than assuming the earlier title image remains current. This is correction guidance, not final design approval.
+
+
 ## 2026-09-06 — Study Pack must be a recognisable 90s object
 
 REJECTED — Ali rejected the successor shown after the local presentation exception: “very boring white background no colour, no 90s graphics” and “study pack should look like a study pack … this looks like a boring webpage.” The cream editorial spread and conventional webpage hero do not meet the brief even with coloured framing. Replace the page metaphor with recognisable study materials and a colourful 90s pack/binder composition; preserve useful content and interactive saves. No approval of the rejected composition or automatic approval of a replacement is implied.

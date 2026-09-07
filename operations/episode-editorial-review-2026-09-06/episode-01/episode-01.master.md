@@ -273,7 +273,7 @@ Patron Saint: Dolly Parton — Common Sense. Her bridge encouragement leads into
 
   <div class="mark"><div class="k">I couldn't help but wonder…</div></div>
   <figure class="film" aria-label="Steve receives a standing ovation while her better draft remains unfinished">
-    <div class="frames" data-frames="ep01-scene-01-steve-ovation.png"><img src="../assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png" alt="" loading="lazy"></div>
+    <div class="frames" data-frames="ep01-scene-01-steve-ovation.png"><img src="/assets/media/opening-day-covers-v1/01/01-site.jpg" alt="" loading="lazy"></div>
     <figcaption class="film-cap">4:52 on a Tuesday. Steve gets the standing ovation. Her better, footnoted version is still in drafts.</figcaption>
   </figure>
   <p class="lead">…why every AI resource I found was either written by men in fleece vests (say no more), or so surface-level it basically amounted to "AI is transformative!" AI is transformative? <em>Groundbreaking.</em></p>

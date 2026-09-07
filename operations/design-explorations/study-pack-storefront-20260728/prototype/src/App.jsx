@@ -9,7 +9,7 @@ const episodes = [
     number: 1,
     title: "On Wednesdays We Do AI",
     short: "Open the Tab",
-    image: "/assets/episodes/episode-01.png",
+    image: "/assets/episodes/episode-01-chick-flicks.jpg",
     theme: "episode-one",
     description:
       "The one where opening the tab becomes a first safe, useful step—not another thing you were supposed to know already.",
@@ -176,7 +176,7 @@ function CurrentCheatSheet({onBack,version}) {
       <div className="pdf-actions">{binder.guest?<a href="/laidies-card.html" target="_blank" rel="noreferrer">SIGN IN TO SAVE</a>:<button type="button" disabled={binder.busy} onClick={binder.save}>{binder.retry?'RETRY SAVE':'SAVE TO MY BINDER'}</button>}<a href="/laidies-card.html#episodeBinderVessel">OPEN MY BINDER</a></div>
     </section>
     <article className="cheat-sheet cheat-sheet-detail-source current-summary">
-      <header className="cheat-hero"><img src="/assets/episodes/episode-01.png" alt="On Wednesdays We Do AI episode artwork"/><div className="cheat-hero-copy"><p>EPISODE 01 · CHEAT SHEET</p><h1>On Wednesdays We Do AI</h1></div></header>
+      <header className="cheat-hero"><img src="/assets/episodes/episode-01-chick-flicks.jpg" alt="On Wednesdays We Do AI episode artwork"/><div className="cheat-hero-copy"><p>EPISODE 01 · CHEAT SHEET</p><h1>On Wednesdays We Do AI</h1></div></header>
       <div className="summary-sections">{sections.map(({title,blocks},index)=><section className={`summary-section summary-section-${index}`} key={title}><h2>{title}</h2>{blocks.map((block,i)=>block.startsWith('- ')?<ul key={i}>{block.split('\n').map((line,j)=><li key={j}><Inline text={line.slice(2)}/></li>)}</ul>:<p key={i}><Inline text={block}/></p>)}</section>)}</div>
       <figure className="learning-visual takeaway-learning-visual"><img src="/assets/episode-01-canon/10-three-step-path-v2.png" alt="Choose one small task, provide the person, goal and facts, then check and edit the draft."/></figure>
     </article>
@@ -189,7 +189,7 @@ function EpisodeOnePack({onOpen}) {
     <div className="study-binder">
       <div className="binder-rings" aria-hidden="true"><i/><i/><i/></div>
       <section className="binder-leaf binder-left" aria-label="Episode cover and Cheat Sheet">
-        <div className="binder-cover"><img src="/assets/episodes/episode-01.png" alt="On Wednesdays We Do AI. Episode One. A 90s desk with a translucent computer, pager, CD and notebook."/></div>
+        <div className="binder-cover"><img src="/assets/episodes/episode-01-chick-flicks.jpg" alt="Episode 01: On Wednesdays We Do AI. The current pink, purple and electric-blue Chick Flicks cover."/></div>
         <button className="pack-summary-sheet" onClick={()=>onOpen('cheat-sheet')}>
           <span className="sheet-corner" aria-hidden="true"/><span className="pack-object-label">01 / THE CHEAT SHEET</span>
           <strong>The lesson.<br/>All the useful bits.</strong>

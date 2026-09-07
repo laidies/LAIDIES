@@ -1,3 +1,9 @@
+## Latest feedback correction: Chick Flicks cover and restrained binder materials
+
+Ali called the binder better but rejected childish yellow and flat CSS finish, and pointed to current Chick Flicks for the updated cover. LIVE https://laidies.ai/chick-flicks renders /assets/media/opening-day-covers-v1/01/01-site.jpg; HTTP200 image bytes match local candidate SHA2564336aa009cbc031ffba0583f7eb44200e2dc447fc162867d0104f584e545cff6. Local iCloud chick-flicks.html still binds obsolete VHS art and MUST NOT be treated as live authority. Root reconciled the discrepancy against actual rendered live HTML.
+
+Binder/storefront/sheet source uses episode-01-chick-flicks.jpg, copied exactly from the verified current asset; Read's embedded cover is also updated in the paired master. Story hero retained. Yellow UI paper, tabs, underline, quiz slip and sheet highlights replaced; original baked artwork is not recoloured. Finer borders, material shading, layered paper edges and translucent pocket replace heavy flat-block styling. Terra independently inspected1440/390 and found no material visible regression; judgement is bounded, not Ali approval. User feedback is the ongoing authorised local design review; no new publication or account-save claim.
+
 ## Current successor: physical study binder, owner design review pending
 
 Ali rejected the cream webpage candidate; it is preserved as REJECTED at commit77448e7c. New Episode1 pack uses a colourful ring binder, canonical full episode title art, ruled yellow summary sheet, spiral Try-On notebook, current real card fronts in a transparent pocket, functional divider tabs and separate quiz slip. This is a local design successor under the ongoing owner feedback loop, not public or final episode completion. Study sheet now uses coloured ruled paper and heading highlights. No new generated art, preplaced learner Puffies, or teaching content changes.

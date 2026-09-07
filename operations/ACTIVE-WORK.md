@@ -1,3 +1,5 @@
+> Latest Episode01 binder correction: user accepts direction provisionally, rejects yellow/childish finish. Current live Chick Flicks cover verified and reused; materials refined; owner review pending.
+
 > Episode01 latest: cream webpage REJECTED; physical ring-binder successor built locally with actual title/card art and functional object navigation. Owner design review pending; audio and real-account completion still open.
 
 # Active work
