@@ -12,6 +12,7 @@ const decode = value => String(value || '')
 const text = html => decode(String(html || '')
   .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
   .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+  .replace(/<p\b[^>]*class="[^"]*\bgo-deeper\b[^"]*"[^>]*>[\s\S]*?<\/p>/gi, ' ')
   .replace(/<[^>]+>/g, ' ')
   .replace(/\s+/g, ' ')).trim();
 const sentence = (value, maximum = 440) => {
@@ -128,10 +129,13 @@ for (const book of available) {
 }
 
 const commonQuestionRoutes = new Map([
+  ['book-section-ai-fundamentals-101-ch-11-11-6-hallucination-why-it-makes-things-up', ['Why does AI make things up?']],
+  ['book-section-working-with-ai-101-chapter-2-giving-it-what-it-needs-without-drowning-it-2-3-the-brief-not-the-prompt', ['How do I write a better prompt?']],
+  ['book-section-ai-dictionary-term-context-window', ['What is a context window?']],
   ['book-section-working-with-ai-101-chapter-7', ['Which AI should I use?']],
-  ['book-section-working-with-ai-101-4-4-upload-paste-or-describe', ['Can I upload a work document?']],
-  ['book-section-working-with-ai-101-11-3-a-practical-evaluation-framework', ['How do I check an AI answer?']],
-  ['book-section-working-with-ai-101-8-2-what-ai-is-genuinely-good-at', ['What can AI help me do at work?']]
+  ['book-section-working-with-ai-101-chapter-2-giving-it-what-it-needs-without-drowning-it-2-4-upload-paste-or-describe', ['Can I upload a work document?']],
+  ['book-section-working-with-ai-101-chapter-11-is-this-output-actually-good-11-3-a-practical-evaluation-framework', ['How do I check an AI answer?']],
+  ['book-section-working-with-ai-101-chapter-8-what-ai-is-great-at-and-what-it-isnt-8-2-what-ai-is-genuinely-good-at', ['What can AI help me do at work?']]
 ]);
 for (const [recordId, aliases] of commonQuestionRoutes) {
   const record = bookEntries.find(entry => entry.id === recordId);
@@ -172,5 +176,10 @@ const output = {
   },
   entries
 };
-fs.writeFileSync(path.join(root, 'content/site/miss-jeeves-index.json'), `${JSON.stringify(output, null, 2)}\n`);
-console.log(`MISS JEEVES INDEX BUILT books=${available.length} records=${entries.length}`);
+const serialized = `${JSON.stringify(output, null, 2)}\n`;
+if (process.argv.includes('--check')) {
+  if (readText('content/site/miss-jeeves-index.json') !== serialized) throw new Error('Miss Jeeves index is stale; rebuild it from the admitted books before release');
+} else {
+  fs.writeFileSync(path.join(root, 'content/site/miss-jeeves-index.json'), serialized);
+}
+console.log(`MISS JEEVES INDEX ${process.argv.includes('--check') ? 'CURRENT' : 'BUILT'} books=${available.length} records=${entries.length}`);

@@ -20,13 +20,10 @@ const TOPIC_RULES = [
 ];
 const TOPIC_IDS = new Set([...TOPIC_RULES.map(([id]) => id), 'other']);
 const COMMON_QUESTION_TARGETS = new Map([
-  ['why does ai make things up', 'book-section-ai-fundamentals-101-ch-11-11-6-hallucination-why-it-makes-things-up'],
-  ['how do i write a better prompt', 'book-section-working-with-ai-101-chapter-2-giving-it-what-it-needs-without-drowning-it-2-3-the-brief-not-the-prompt'],
-  ['what is a context window', 'book-section-ai-dictionary-term-context-window'],
   ['which ai should i use', 'book-section-working-with-ai-101-chapter-7'],
-  ['can i upload a work document', 'book-section-working-with-ai-101-chapter-2-giving-it-what-it-needs-without-drowning-it-2-4-upload-paste-or-describe'],
-  ['how do i check an ai answer', 'book-section-working-with-ai-101-chapter-11-is-this-output-actually-good-11-3-a-practical-evaluation-framework'],
-  ['what can ai help me do at work', 'book-section-working-with-ai-101-chapter-8-what-ai-is-great-at-and-what-it-isnt-8-2-what-ai-is-genuinely-good-at']
+  ['can i upload a work document', 'book-section-working-with-ai-101-4-4-upload-paste-or-describe'],
+  ['how do i check an ai answer', 'book-section-working-with-ai-101-11-3-a-practical-evaluation-framework'],
+  ['what can ai help me do at work', 'book-section-working-with-ai-101-8-2-what-ai-is-genuinely-good-at']
 ]);
 const TEACHING_ANCHOR_RULES = [
   {
@@ -191,51 +188,6 @@ function retrieve(query, entries) {
   return selected;
 }
 
-// Free catalogue search needs a close match, not one result from every learner job.
-// Weight distinctive words and require coverage of the question before ranking.
-function searchTokens(value) {
-  return [...new Set(tokens(value).map(token => token.length > 4 && /s$/.test(token) && !/ss$/.test(token) ? token.slice(0, -1) : token))];
-}
-
-function searchCatalogue(query, entries) {
-  const terms = searchTokens(query);
-  const key = terms.join(' ');
-  const targetId = COMMON_QUESTION_TARGETS.get(normalize(query)) || (key && [...COMMON_QUESTION_TARGETS].find(([question]) => searchTokens(question).join(' ') === key)?.[1]);
-  if (!terms.length) {
-    const entry = entries.find(entry => entry.id === targetId && safeEntry(entry));
-    return entry ? [{ entry, score: 1 }] : [];
-  }
-  const catalogue = entries.filter(safeEntry).map(entry => ({
-    entry,
-    title: new Set(searchTokens([entry.title, ...entry.aliases].join(' '))),
-    topics: new Set(searchTokens(entry.topics.join(' '))),
-    all: new Set(searchTokens([entry.title, entry.summary, ...entry.aliases, ...entry.topics].join(' ')))
-  }));
-  const weights = new Map(terms.map(term => [term, 1 + Math.log((catalogue.length + 1) / (1 + catalogue.filter(item => item.all.has(term)).length))]));
-  const totalWeight = [...weights.values()].reduce((sum, weight) => sum + weight, 0);
-  const ranked = catalogue.map(item => {
-    let score = 0, matchedWeight = 0;
-    for (const term of terms) {
-      if (!item.all.has(term)) continue;
-      const weight = weights.get(term);
-      matchedWeight += weight;
-      score += weight * (item.title.has(term) ? 4 : item.topics.has(term) ? 2 : 1);
-    }
-    const exact = [item.entry.title, ...item.entry.aliases].some(value => searchTokens(value).join(' ') === key);
-    const phrase = terms.length > 1 && [item.entry.title, ...item.entry.aliases].some(value => searchTokens(value).join(' ').includes(key));
-    return { entry: item.entry, score: score + (exact ? totalWeight * 4 : phrase ? totalWeight * 2 : 0), coverage: matchedWeight / totalWeight, preferred: item.entry.id === targetId };
-  }).filter(item => item.preferred || item.coverage >= 0.6)
-    .sort((a, b) => Number(b.preferred) - Number(a.preferred) || b.score - a.score || a.entry.title.localeCompare(b.entry.title));
-  const bestScore = ranked[0]?.score || 0;
-  return ranked.filter(item => item.preferred || item.score >= bestScore * 0.3).slice(0, 12);
-}
-
-function catalogueExcerpt(summary) {
-  // These labels lose their links in the generated plain-text dictionary index.
-  // Omit only that terminal navigation, retaining the original definition.
-  return summary.replace(/\s+Read the full explanation\s*\.(?:\s+Put it into practice\s*\.)?\s*$/, (navigation, offset) => /[.!?…]$/.test(summary.slice(0, offset)) ? '' : '.');
-}
-
 function addTeachingAnchors(query, entries, matches) {
   const anchors = TEACHING_ANCHOR_RULES
     .filter(rule => rule.pattern.test(query))
@@ -347,7 +299,7 @@ function publicResult(result) {
     url: entry.url,
     type: entry.type,
     section: entry.section,
-    summary: catalogueExcerpt(entry.summary),
+    summary: entry.summary,
     learnerJob: entry.learnerJob,
     ...(entry.wholeUrl ? { wholeUrl: entry.wholeUrl } : {}),
     topics: entry.topics.slice(0, 8),
@@ -478,15 +430,16 @@ async function missJeeves(request, env) {
     return json({ status: 'unavailable', answer: 'Miss Jeeves cannot check the catalogue right now. Your question is still here.', results: [] }, 503);
   }
   let reasoned = null;
+  const retrieved = addTeachingAnchors(query, entries, retrieve(query, entries));
   // Explicit free search exits before either paid guidance or model reasoning.
   // Legacy Library callers retain their current contract until its separate release.
   if (siteSearch) {
-    const matches = searchCatalogue(query, entries);
-    writeQuestionSignal(env, { placement, outcome: matches.length ? 'related_coverage' : 'not_covered', topicId: classifyTopic(query), matches });
-    return json({ status: 'search_results', mode: 'site-search', coverage: matches.length ? 'related' : 'none', topic_id: classifyTopic(query), answer: matches.length ? 'Here is what I found in LAiDIES. These references may answer part of your question.' : 'I could not find a close match in LAiDIES.', results: matches.map(publicResult), research_available: false });
+    const relevant = [...retrieved].sort((a, b) => b.score - a.score);
+    const bestScore = relevant[0]?.score || 0;
+    const matches = relevant.filter(item => item.score >= Math.max(2, bestScore * 0.3));
+    writeQuestionSignal(env, { placement, outcome: retrieved.length ? 'related_coverage' : 'not_covered', topicId: classifyTopic(query), matches: retrieved });
+    return json({ status: 'search_results', mode: 'site-search', coverage: retrieved.length ? 'related' : 'none', topic_id: classifyTopic(query), answer: retrieved.length ? 'Here is what I found in LAiDIES. These references may answer part of your question.' : 'I could not find a close match in LAiDIES.', results: matches.map(publicResult), research_available: false });
   }
-
-  const retrieved = addTeachingAnchors(query, entries, retrieve(query, entries));
 
   let currentGuidance = null;
   try {

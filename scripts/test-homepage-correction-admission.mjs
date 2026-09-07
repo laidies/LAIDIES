@@ -26,6 +26,11 @@ if (item.design_admission.cards) {
   cases.push(['wrong card asset', v => {v.design_admission.cards[0].sha256='0'.repeat(64);}, 'current card bytes differ']);
   cases.push(['retired board direction', v => {v.design_admission.owner_feedback_successor='GIRL_TALK_THUMBNAIL';}, 'retired board direction rejected by owner']);
 }
+if(item.design_admission.owner_feedback_successor==='HOMEPAGE_CLOSEOUT') {
+  for(const [key,label] of [['worker','worker'],['index','catalogue'],['indexBuilder','index builder']]) {
+    cases.push(['changed '+label,v=>{v.design_admission[key].sha256='0'.repeat(64);},label+' bytes differ']);
+  }
+}
 for (const [name, mutate, reason] of cases) {
   const candidate = structuredClone(item);
   mutate(candidate);

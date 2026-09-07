@@ -1,0 +1,105 @@
+diff --git a/_worker.js b/_worker.js
+index db7aedaa..4985d734 100644
+--- a/_worker.js
++++ b/_worker.js
+@@ -22,0 +23,3 @@ const COMMON_QUESTION_TARGETS = new Map([
++  ['why does ai make things up', 'book-section-ai-fundamentals-101-ch-11-11-6-hallucination-why-it-makes-things-up'],
++  ['how do i write a better prompt', 'book-section-working-with-ai-101-chapter-2-giving-it-what-it-needs-without-drowning-it-2-3-the-brief-not-the-prompt'],
++  ['what is a context window', 'book-section-ai-dictionary-term-context-window'],
+@@ -24,3 +27,3 @@ const COMMON_QUESTION_TARGETS = new Map([
+-  ['can i upload a work document', 'book-section-working-with-ai-101-4-4-upload-paste-or-describe'],
+-  ['how do i check an ai answer', 'book-section-working-with-ai-101-11-3-a-practical-evaluation-framework'],
+-  ['what can ai help me do at work', 'book-section-working-with-ai-101-8-2-what-ai-is-genuinely-good-at']
++  ['can i upload a work document', 'book-section-working-with-ai-101-chapter-2-giving-it-what-it-needs-without-drowning-it-2-4-upload-paste-or-describe'],
++  ['how do i check an ai answer', 'book-section-working-with-ai-101-chapter-11-is-this-output-actually-good-11-3-a-practical-evaluation-framework'],
++  ['what can ai help me do at work', 'book-section-working-with-ai-101-chapter-8-what-ai-is-great-at-and-what-it-isnt-8-2-what-ai-is-genuinely-good-at']
+@@ -190,0 +194,45 @@ function retrieve(query, entries) {
++// Free catalogue search needs a close match, not one result from every learner job.
++// Weight distinctive words and require coverage of the question before ranking.
++function searchTokens(value) {
++  return [...new Set(tokens(value).map(token => token.length > 4 && /s$/.test(token) && !/ss$/.test(token) ? token.slice(0, -1) : token))];
++}
++
++function searchCatalogue(query, entries) {
++  const terms = searchTokens(query);
++  const key = terms.join(' ');
++  const targetId = COMMON_QUESTION_TARGETS.get(normalize(query)) || (key && [...COMMON_QUESTION_TARGETS].find(([question]) => searchTokens(question).join(' ') === key)?.[1]);
++  if (!terms.length) {
++    const entry = entries.find(entry => entry.id === targetId && safeEntry(entry));
++    return entry ? [{ entry, score: 1 }] : [];
++  }
++  const catalogue = entries.filter(safeEntry).map(entry => ({
++    entry,
++    title: new Set(searchTokens([entry.title, ...entry.aliases].join(' '))),
++    topics: new Set(searchTokens(entry.topics.join(' '))),
++    all: new Set(searchTokens([entry.title, entry.summary, ...entry.aliases, ...entry.topics].join(' ')))
++  }));
++  const weights = new Map(terms.map(term => [term, 1 + Math.log((catalogue.length + 1) / (1 + catalogue.filter(item => item.all.has(term)).length))]));
++  const totalWeight = [...weights.values()].reduce((sum, weight) => sum + weight, 0);
++  const ranked = catalogue.map(item => {
++    let score = 0, matchedWeight = 0;
++    for (const term of terms) {
++      if (!item.all.has(term)) continue;
++      const weight = weights.get(term);
++      matchedWeight += weight;
++      score += weight * (item.title.has(term) ? 4 : item.topics.has(term) ? 2 : 1);
++    }
++    const exact = [item.entry.title, ...item.entry.aliases].some(value => searchTokens(value).join(' ') === key);
++    const phrase = terms.length > 1 && [item.entry.title, ...item.entry.aliases].some(value => searchTokens(value).join(' ').includes(key));
++    return { entry: item.entry, score: score + (exact ? totalWeight * 4 : phrase ? totalWeight * 2 : 0), coverage: matchedWeight / totalWeight, preferred: item.entry.id === targetId };
++  }).filter(item => item.preferred || item.coverage >= 0.6)
++    .sort((a, b) => Number(b.preferred) - Number(a.preferred) || b.score - a.score || a.entry.title.localeCompare(b.entry.title));
++  const bestScore = ranked[0]?.score || 0;
++  return ranked.filter(item => item.preferred || item.score >= bestScore * 0.3).slice(0, 12);
++}
++
++function catalogueExcerpt(summary) {
++  // These labels lose their links in the generated plain-text dictionary index.
++  // Omit only that terminal navigation, retaining the original definition.
++  return summary.replace(/\s+Read the full explanation\s*\.(?:\s+Put it into practice\s*\.)?\s*$/, (navigation, offset) => /[.!?…]$/.test(summary.slice(0, offset)) ? '' : '.');
++}
++
+@@ -302 +350 @@ function publicResult(result) {
+-    summary: entry.summary,
++    summary: catalogueExcerpt(entry.summary),
+@@ -433 +480,0 @@ async function missJeeves(request, env) {
+-  const retrieved = addTeachingAnchors(query, entries, retrieve(query, entries));
+@@ -437,5 +484,3 @@ async function missJeeves(request, env) {
+-    const relevant = [...retrieved].sort((a, b) => b.score - a.score);
+-    const bestScore = relevant[0]?.score || 0;
+-    const matches = relevant.filter(item => item.score >= Math.max(2, bestScore * 0.3));
+-    writeQuestionSignal(env, { placement, outcome: retrieved.length ? 'related_coverage' : 'not_covered', topicId: classifyTopic(query), matches: retrieved });
+-    return json({ status: 'search_results', mode: 'site-search', coverage: retrieved.length ? 'related' : 'none', topic_id: classifyTopic(query), answer: retrieved.length ? 'Here is what I found in LAiDIES. These references may answer part of your question.' : 'I could not find a close match in LAiDIES.', results: matches.map(publicResult), research_available: false });
++    const matches = searchCatalogue(query, entries);
++    writeQuestionSignal(env, { placement, outcome: matches.length ? 'related_coverage' : 'not_covered', topicId: classifyTopic(query), matches });
++    return json({ status: 'search_results', mode: 'site-search', coverage: matches.length ? 'related' : 'none', topic_id: classifyTopic(query), answer: matches.length ? 'Here is what I found in LAiDIES. These references may answer part of your question.' : 'I could not find a close match in LAiDIES.', results: matches.map(publicResult), research_available: false });
+@@ -443,0 +489,2 @@ async function missJeeves(request, env) {
++  const retrieved = addTeachingAnchors(query, entries, retrieve(query, entries));
++
+diff --git a/scripts/build-miss-jeeves-index.mjs b/scripts/build-miss-jeeves-index.mjs
+index eb8bc87e..830d39b1 100644
+--- a/scripts/build-miss-jeeves-index.mjs
++++ b/scripts/build-miss-jeeves-index.mjs
+@@ -14,0 +15 @@ const text = html => decode(String(html || '')
++  .replace(/<p\b[^>]*class="[^"]*\bgo-deeper\b[^"]*"[^>]*>[\s\S]*?<\/p>/gi, ' ')
+@@ -130,0 +132,3 @@ const commonQuestionRoutes = new Map([
++  ['book-section-ai-fundamentals-101-ch-11-11-6-hallucination-why-it-makes-things-up', ['Why does AI make things up?']],
++  ['book-section-working-with-ai-101-chapter-2-giving-it-what-it-needs-without-drowning-it-2-3-the-brief-not-the-prompt', ['How do I write a better prompt?']],
++  ['book-section-ai-dictionary-term-context-window', ['What is a context window?']],
+@@ -132,3 +136,3 @@ const commonQuestionRoutes = new Map([
+-  ['book-section-working-with-ai-101-4-4-upload-paste-or-describe', ['Can I upload a work document?']],
+-  ['book-section-working-with-ai-101-11-3-a-practical-evaluation-framework', ['How do I check an AI answer?']],
+-  ['book-section-working-with-ai-101-8-2-what-ai-is-genuinely-good-at', ['What can AI help me do at work?']]
++  ['book-section-working-with-ai-101-chapter-2-giving-it-what-it-needs-without-drowning-it-2-4-upload-paste-or-describe', ['Can I upload a work document?']],
++  ['book-section-working-with-ai-101-chapter-11-is-this-output-actually-good-11-3-a-practical-evaluation-framework', ['How do I check an AI answer?']],
++  ['book-section-working-with-ai-101-chapter-8-what-ai-is-great-at-and-what-it-isnt-8-2-what-ai-is-genuinely-good-at', ['What can AI help me do at work?']]
+@@ -175,2 +179,7 @@ const output = {
+-fs.writeFileSync(path.join(root, 'content/site/miss-jeeves-index.json'), `${JSON.stringify(output, null, 2)}\n`);
+-console.log(`MISS JEEVES INDEX BUILT books=${available.length} records=${entries.length}`);
++const serialized = `${JSON.stringify(output, null, 2)}\n`;
++if (process.argv.includes('--check')) {
++  if (readText('content/site/miss-jeeves-index.json') !== serialized) throw new Error('Miss Jeeves index is stale; rebuild it from the admitted books before release');
++} else {
++  fs.writeFileSync(path.join(root, 'content/site/miss-jeeves-index.json'), serialized);
++}
++console.log(`MISS JEEVES INDEX ${process.argv.includes('--check') ? 'CURRENT' : 'BUILT'} books=${available.length} records=${entries.length}`);

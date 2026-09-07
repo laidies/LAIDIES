@@ -22,6 +22,39 @@ export function inspectHomepageCorrection(item, root) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if(a.owner_feedback_successor==='HOMEPAGE_CLOSEOUT') {
+      const p='operations/product-stewards/town-entry-homepage/candidates/homepage-closeout-20260906/';
+      const parent=JSON.parse(bytes(p+'parent-admission.json'));
+      assert(parent.design_admission.owner_feedback_successor==='GHOSTBUSTER_WORDING','wrong closeout predecessor');
+      errors.push(...inspectHomepageCorrection(parent,root));
+      assert(item.id===homepageCorrectionId&&item.review_type==='building_page_visual','wrong scoped candidate');
+      for(const [name,key] of [['homepage','candidate'],['runtime','runtime'],['worker','worker'],['catalogue','index'],['index builder','indexBuilder'],['graphic','graphic'],['Mall image','mallImage'],['burst','burst'],['wallpaper','wallpaper'],['cover','cover'],['current Fairy image','fairyImage']]) {
+        const b=a[key]; assert(b&&digest(b.path)===b.sha256,name+' bytes differ');
+        if(!['worker','index','indexBuilder'].includes(key)) assert(JSON.stringify(b)===JSON.stringify(parent.design_admission[key]),name+' differs from preserved homepage');
+      }
+      assert(a.cards?.length===2&&a.cards.every(b=>digest(b.path)===b.sha256)&&JSON.stringify(a.cards)===JSON.stringify(parent.design_admission.cards),'current card bytes differ');
+      for(const b of a.evidence||[])assert(digest(b.path)===b.sha256,'stale evidence: '+b.path);
+      for(const f of ['scope.md','parent-admission.json','parent-worker.js','parent-index.json','source-diff.patch','search-checks.json','catalogue-checks.json','index-calibration.json','browser-checks.json','source-links.json','fairy-live-result.txt','independent-review.md','claude-review-result.json','visuals.json','search-test.mjs','browser-test.mjs','stage-preservation.json'])assert(a.evidence?.some(b=>b.path===p+f),'missing bound evidence: '+(f.startsWith('claude')?'claude':f));
+      const checks=JSON.parse(bytes(p+'search-checks.json')),candidate=checks.find(c=>c.kind==='candidate'),old=checks.find(c=>c.kind==='parent');
+      assert(candidate?.rows.length>=13&&candidate.rows.every(r=>!r.issues.length)&&candidate.paidCalls===0&&candidate.privacyBlocked,'search checks failed');
+      assert(old?.rows.some(r=>r.issues.length),'known bad search not rejected');
+      const catalogue=JSON.parse(bytes(p+'catalogue-checks.json'));
+      assert(catalogue.books.length===4&&catalogue.books.every(b=>b.sections>0&&!b.missing.length)&&catalogue.orphanNavigation===0,'catalogue links failed');
+      for(const b of catalogue.books)assert(digest('content/library-books/rendered/'+b.book+'.html')===b.artifactSha256,'source book changed');
+      const calibration=JSON.parse(bytes(p+'index-calibration.json'));
+      assert(calibration.current.exit===0&&calibration.oldIndexRejected.exit!==0&&calibration.nonBookEntriesPreserved,'stale catalogue not rejected');
+      const browser=JSON.parse(bytes(p+'browser-checks.json'));
+      assert(browser.paidCalls===0&&[1440,390].every(width=>browser.rows.some(r=>r.width===width&&!r.errors.length&&r.answers.length===4)),'browser evidence incomplete');
+      assert(JSON.parse(bytes(p+'source-links.json')).length===3,'source journeys incomplete');
+      const independent=bytes(p+'independent-review.md').toString(),claude=JSON.parse(bytes(p+'claude-review-result.json'));
+      for(const sha of [a.worker.sha256,a.index.sha256]) {
+        assert(independent.includes('ADMIT_FOR_OWNER_REVIEW')&&independent.includes(sha),'independent closeout review differs');
+        assert(!claude.is_error&&claude.modelUsage?.['claude-opus-5']&&claude.result?.includes('ADMIT_FOR_OWNER_REVIEW')&&claude.result.includes(sha),'actual Claude closeout review differs');
+      }
+      for(const v of JSON.parse(bytes(p+'visuals.json')))assert(digest(v.path)===v.sha256,'stale visual');
+      assert(a.production_release_approved===false,'owner presentation does not authorize production');
+      return errors;
+    }
     if(a.owner_feedback_successor==='GIRL_TALK_THUMBNAIL') return ['retired board direction rejected by owner'];
     if(['NEWSSTAND_DESCRIPTION','GHOSTBUSTER_WORDING'].includes(a.owner_feedback_successor)) {
       const ghost=a.owner_feedback_successor==='GHOSTBUSTER_WORDING';
