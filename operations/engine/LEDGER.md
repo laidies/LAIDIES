@@ -16,3 +16,5 @@ clearly instead of silently treating archived entries as current authority.
 
 
 2026-09-07 — Miss Jeeves reviewed FAQ bank: four exact reviewed versions now saved in existing D1; MJQ-005v1 preserved. Real-source preview interaction verified locally at four widths. BUILDING: hosted preview/presentation admission still pending; production and paid freeform research held. Authoritative packet operations/product-stewards/library/answer-bank-preview-20260907/.
+
+2026-09-07 — source8c9892e5 pushed; hosted7db5daeb allfour/10wordings+phone/desktop continuation verified. Two rendered reviews pass after input-scroll repair. Presentation remains held pending exact Library review-route authority; owner homepage exception is not inherited.

@@ -1,0 +1,67 @@
+{
+  "principalId": "claude-opus-5-rendered-experience-reviewer",
+  "modelFamily": "Claude Opus 5",
+  "artifactFirst": true,
+  "inspected": [
+    {
+      "path": ".../screens-v2/MJQ-005-390.png",
+      "sha256": "5ca791693c6d58c72dc447bd6f29a8500f9b55a263809926ed6effa8b6e46571",
+      "observations": "Input reads 'How do I ask AI a q\u2026' \u2014 text anchored at start, no end-scroll. REFERENCE DESK badge, 'Ask Miss Jeeves', beta notice, privacy line, four question chips all legible. Answer card: 'MISS JEEVES SAYS / Your reviewed answer', pill 'LAiDIES reviewed \u00b7 Sep 7, 2026', eight complete paragraphs dark-on-white, no clipping. SOURCES CHECKED with two underlined links (Claude, Privacy Commissioner of Canada). Feedback chips wrap cleanly; no overflow."
+    },
+    {
+      "path": ".../screens-v2/work-ai-help-390.png",
+      "sha256": "fc099972af00b7d38046566edb7c3c11cbb40138828ea67a3660e0e984a8fc4f",
+      "observations": "Input shows 'How can AI help m\u2026' from the start. Answer renders complete blank-structure guidance including the 'Client A is not a guarantee of anonymity' passage and the verify-dates closing. Two sources (Canadian Centre for Cyber Security, Privacy Commissioner). No truncation or layout break."
+    },
+    {
+      "path": ".../screens-v2/MJQ-006-390.png",
+      "sha256": "5155badd99a4310e4e08550eb777d9287fc4b658addf011c37bdbea5a17b4ce7",
+      "observations": "Input 'Why can AI sound' start-anchored. Five paragraphs render fully, hallucination defined in plain words, OpenAI example hedged ('does not mean every error has the same cause'). Single source link. Date pill present, legible."
+    },
+    {
+      "path": ".../screens-v2/MJQ-008-390.png",
+      "sha256": "186ff0928b34b04ea0a4fd544d0f83541c3a1fbe3582a74916b5313f92828ff4",
+      "observations": "Input 'What should I avoi' start-anchored. Six paragraphs complete, conservative framing visible ('Privacy settings do not grant someone else's permission'). Two sources. Wide answer card sits over the existing patterned background with no bleed."
+    },
+    {
+      "path": ".../screens-v2/homepage-reviewed-390.png",
+      "sha256": "8d82ff8327714543488cc6ec795dd135469e1e61a4b5389d9ef9945a74ca7a8f",
+      "observations": "Existing orange/pink homepage identity intact: portrait, 'Ask Miss Jeeves.', 'Try a question:' chips, FAiRY Godmother link. Input shows full 'How do I write a better prompt?' from the start. 'Your reviewed answer' + 'LAiDIES reviewed \u00b7 Sep 7, 2026' plain line, full answer body dark-on-warm, then two underlined source links and 'Continue with Miss Jeeves in the LIBRAiRY'. No artwork change."
+    },
+    {
+      "path": ".../screens-v2/MJQ-005-1280.png",
+      "sha256": "280c4aa0bda009b02cfc1fc3a275e985f882b6fb99c4870b204b34ffde157d85",
+      "observations": "Full question fits the field unscrolled. Two-column header, four chips, answer card at comfortable measure. SOURCES CHECKED label sits inline with both links on one row. Feedback row intact; no horizontal overflow."
+    },
+    {
+      "path": ".../screens-v2/work-ai-help-1280.png",
+      "sha256": "90438438d13afe05f5185545603f984a3037e8fd7e6376b9742a5ac2f79bc1b0",
+      "observations": "Input shows 'How can AI help me structure a weekly project update without s' \u2014 clipped at the END, confirming the start-anchored fix at desktop width. Answer complete; sources wrap to a second line under the label, still clearly grouped."
+    },
+    {
+      "path": ".../screens-v2/MJQ-006-1280.png",
+      "sha256": "2e2976bd5b6c321e1ab0b53fd708d5a3c5630aa06c4f794c082a10a4fabc4931",
+      "observations": "Full question visible in field. Five paragraphs, one source link inline with label. Selected chip 'Why can AI sound confident and still be wrong?' has visible active outline in the chip row."
+    },
+    {
+      "path": ".../screens-v2/MJQ-008-1280.png",
+      "sha256": "8c64c9989d5aec47b1c2417659bd469953b30fbd9d5a11b064e04b7cf3b28cd8",
+      "observations": "Full question visible. Six paragraphs render; sources wrap to second line. Card, rules and feedback controls consistent with the other three \u2014 no per-answer visual drift."
+    },
+    {
+      "path": ".../screens-v2/homepage-reviewed-1280.png",
+      "sha256": "4fc1b9140552ce380a47df10d453d5df26e166c6468080d740de69ff8992c02d",
+      "observations": "Caret visible at the LEFT edge of the filled input ('|How do I write a better prompt?'), field focused with dark outline \u2014 the reported end-scroll defect is resolved. Portrait, chips, banner palette and 'Ask Miss Jeeves' button unchanged. Answer, two sources and the LIBRAiRY continuation stack below a rule; portrait slightly overlaps the divider, as in the existing design."
+    }
+  ],
+  "materialDefects": [],
+  "nonBlockingLimitations": [
+    "Homepage lacks the Library's 'SOURCES CHECKED' label; the two external sources and the internal 'Continue with Miss Jeeves in the LIBRAiRY' link share identical underlined styling and identical divider rules, so an adult beginner must read the wording to tell an outbound source from in-site continuation. Wording carries it, but the visual grouping does not.",
+    "Homepage answer body is dark purple on a saturated orange-to-pink gradient; readable at both widths but lower contrast headroom than the Library card's dark-on-white. Existing identity, not introduced here.",
+    "Homepage source links show no external-destination cue (domain or out-icon); Library links carry the same limitation but are at least grouped under an explicit label.",
+    "At 1280 the portrait's hands cross the horizontal rule above 'Your reviewed answer'; cosmetic, pre-existing composition.",
+    "Only 390 and 1280 captures were supplied; 320/390/1280/1440 coverage claimed by the browser test is not visually verifiable from this evidence set."
+  ],
+  "visualVerdict": "PASS",
+  "scope": "Rendered-pixel review of 10 supplied screenshots only (four Library answers + homepage prompt example, at 390 and 1280). Judged independently of the prior PASS: the specific regression that caused it \u2014 submitted inputs scrolled to their ends \u2014 is confirmed fixed in both consumers, with text start-anchored and, on homepage 1280, the caret visibly at the start. No production authorization is given. This single review does not satisfy the eleven-role repository presentation gate. Text quality, source accuracy, reuse-matching behavior, JS/console state and paid-call accounting were out of scope and not re-verified; no shell run and no unrelated files inspected."
+}
