@@ -1,5 +1,17 @@
 # Active work
 
+> **2026-09-07 — Artwork-rule routing / LOCAL VERIFIED, INTEGRATION PENDING.** Control Room owns
+> isolated `laidies-artwork-rule-routing-20260907`. Imports only the guard from
+> source `4272e2def3896401a054427d2849446c6c0cd5b2` and its bounded admission
+> changes; preserves unrelated shared edits. Implemented pages require declared
+> source bindings; image-only concepts retain existing review. Known-signature
+> calibration is not full artwork enforcement. Chick Flicks graphics repair and
+> public release remain with their owner; LCWO-002 and the wider operating audit
+> remain open. Scoped signature/binding/CLI/admission wiring tests pass. The older
+> full admission suite cannot start because current main lacks
+> `operations/control-room/review-inbox.html`; no full-suite pass is claimed.
+> Next: commit and existing cloud integration checks.
+
 > **2026-09-07 — Reader-tip intelligence surfacing: MERGED / AUTOMATION DELIVERY VERIFIED.**
 > Owner: Learning System task `019f9f7f-9e4c-72d2-8882-447bcbe01691` with the
 > AIDB Intelligence Desk as scan owner. Isolated worktree

@@ -1,5 +1,15 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-07 — Cross-chat decorative artwork enforcement
+
+Read `operations/design-artwork-rule.md` before building or reviewing page visuals.
+Preserve functional CSS and exact approved artwork. Implemented page admission
+requires current implementation-source bindings; image-only concepts retain pixel
+review without invented code bindings. The scanner rejects known Chick Flicks
+signatures only. It cannot establish complete source coverage or artwork quality;
+independent review must inspect the real page and Ali’s applicable decisions.
+
+
 ## 2026-09-07 — Material intelligence findings require deterministic surfacing and owner receipt
 
 Ali observed that the reader-tip monitor appeared to produce nothing. The 7 September

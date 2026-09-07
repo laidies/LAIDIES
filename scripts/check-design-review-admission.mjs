@@ -2,8 +2,17 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import {checkArtworkSources} from './check-decorative-artwork-rule.mjs';
 
 const root = process.cwd();
+if (process.argv.includes('--artwork-preflight')) {
+  const paths=process.argv.slice(process.argv.indexOf('--artwork-preflight')+1);
+  const bindings=paths.map(file=>({path:file,sha256:crypto.createHash('sha256').update(fs.readFileSync(path.resolve(root,file))).digest('hex')}));
+  const failures=checkArtworkSources(bindings,root);
+  console.log(JSON.stringify({scope:'artwork-source-preflight-only',bindings,result:failures.length?'REJECT':'NO_KNOWN_SIGNATURE',failures},null,2));
+  process.exit(failures.length?1:0);
+}
+
 const fixtureMode = process.argv.includes('--fixture');
 const queuePath = fixtureMode && process.env.LAIDIES_QUEUE_PATH
   ? process.env.LAIDIES_QUEUE_PATH
@@ -217,6 +226,8 @@ for (const item of designGateCandidates) {
   }
   bindGateEvidence('feature_and_building_placement', placement);
   const decoration = admission.gates?.decorative_discipline;
+  // Image-only concepts have no implementation sources; their pixel review still applies.
+  if (!isConcept) errors.push(...checkArtworkSources(decoration?.artwork_sources, root).map(error=>`${item.id}: ${error}`));
   const fillerCount = Number(decoration?.unjustified_filler_count);
   if (decoration?.result !== 'PASS' || !Number.isFinite(fillerCount) || fillerCount !== 0) {
     errors.push(`${item.id}: unexplained decorative filler must be removed before presentation`);

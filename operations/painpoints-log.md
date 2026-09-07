@@ -535,3 +535,8 @@ checksum-bound outbox entry; silence is permitted only when the renderer proves 
 outbox clear; and an append-only receipt from the exact receiving owner/task closes
 the delivery edge without granting content or release authority. Behind the Build:
 why an AI monitor that found something useful could still look as though it did nothing.
+
+
+## 2026-09-07 — Artwork guard routing must preserve legitimate boundaries
+
+Receiving review of source `4272e2def3896401a054427d2849446c6c0cd5b2` retained its narrow Chick Flicks signatures and removed the image-only concept implementation requirement during integration. Earlier broad rotation/polygon matching and unsupported exception wording were repaired by the owner. Prevention: test ordinary CSS, missing/stale source bindings, the actual admission invocation and image-only concepts; never label a declared-source scanner as complete dependency or aesthetic review. Current-main full admission suite cannot start without `operations/control-room/review-inbox.html`; scoped fixture checks are not a full-suite pass. Shared source edits remain preserved. Possible Behind the Build angle: a guard must reject the known failure without banning legitimate tools or pretending to judge visual quality.
