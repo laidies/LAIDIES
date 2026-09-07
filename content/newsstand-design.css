@@ -1146,3 +1146,23 @@
     align-self: start;
   }
 }
+
+/* Puzzle pilot and explicitly labelled town house ads. */
+.ns-play-desk { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:28px; margin:30px 0; border-top:5px solid #00d4e9; padding-top:24px; }
+.ns-play-desk__puzzle { padding:28px; border:3px solid #11183b; background:linear-gradient(125deg,#f449a5,#ff9b3d); box-shadow:6px 6px 0 #11183b; align-self:start; }
+.ns-redesign .ns-play-desk h2 { margin:10px 0 18px; color:#11183b; font:900 clamp(28px,3.2vw,44px)/1.08 Jost,sans-serif; text-shadow:3px 3px 0 #7de2c2; }
+.ns-play-desk p { font:500 17px/1.5 Jost,sans-serif; }
+.ns-play-desk .ns-kicker { font:800 12px/1.4 Jost,sans-serif; letter-spacing:.09em; text-transform:uppercase; color:#11183b; }
+.ns-play-action { display:inline-block; padding:14px 20px; margin:10px 0; background:#7de2c2; border:3px solid #11183b; box-shadow:4px 4px 0 #11183b; color:#0053a6; font:800 18px/1.2 Jost,sans-serif; text-decoration:none; }
+.ns-play-desk .ns-play-small { font-size:14px; margin-bottom:0; }
+.ns-house-ads { display:grid; gap:22px; }
+.ns-house-ad { padding:20px 24px; border:3px solid #11183b; }
+.ns-house-ad--library { background:linear-gradient(120deg,#00d4e9,#7de2c2); box-shadow:5px 5px 0 #0053a6; }
+.ns-house-ad--claio { background:linear-gradient(115deg,#ff9b3d,#f449a5); box-shadow:5px 5px 0 #11183b; }
+.ns-redesign .ns-house-ad h3 { margin:10px 0; color:#11183b; font:900 clamp(23px,2.4vw,32px)/1.1 Jost,sans-serif; text-shadow:2px 2px 0 #fffdfb; }
+.ns-house-ad p { margin:8px 0; }
+.ns-house-ad a { color:#11183b; font:800 16px/1.4 Jost,sans-serif; text-decoration:underline; text-underline-offset:4px; }
+.ns-play-desk a:focus-visible { outline:3px solid #0053a6; outline-offset:5px; }
+@media(max-width:720px){.ns-play-desk{grid-template-columns:minmax(0,1fr);margin-right:6px}.ns-play-desk__puzzle,.ns-house-ad{padding:20px}.ns-play-desk p{font-size:16px}}
+
+.ns-house-ad a { display:inline-block; padding:8px 12px; border:2px solid #11183b; background:#fffdfb; box-shadow:3px 3px 0 #11183b; text-decoration:none; }

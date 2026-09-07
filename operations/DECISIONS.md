@@ -391,3 +391,6 @@ Ali rejects alternating catch-up colour blocks, butter-yellow town panels, reduc
 
 ## 2026-09-07 — Town-column expiry must not leave empty layout tracks
 A retired town announcement remains retired; do not extend its date to fill space. The town row counts visible eligible columns after selection. One remaining illustrated column spans the row with image beside copy on desktop and stacked on mobile, preserving large artwork. Test the day after an explicit retirement as well as a full edition. Editorial replacement admission remains separate from layout continuity.
+
+## 2026-09-07 — Crossword pilot and two house ads
+Ali approved completing one 8–10 clue untimed crossword using the existing grid, saved progress, optional hints and lesson links, short answer explanations and purposeful Rewind Era references; then two clearly labelled SUNNYVAiLE house ads linking to working site features. Verify first before publication; recurring puzzle production is not yet promised. Behind the Build is parked and its fictional draft rejected.

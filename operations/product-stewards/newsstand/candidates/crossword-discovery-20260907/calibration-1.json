@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "laidies-independent-judge-invocation.v1",
+  "modelFamily": "claude",
+  "model": "fable",
+  "artifact": {
+    "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt",
+    "sha256": "c3af0bae62222b53499ee1645428c9171b3bb2104ac445ba8c2a3032847a32dc"
+  },
+  "voice": {
+    "path": "operations/voice/laidies-writing-lock.md",
+    "sha256": "c3d7bceeb98a4a47ea6bfde02d52718db4ef72d0af98651578fc44924a74d2cb"
+  },
+  "exemplar": {
+    "path": "content/episodes/episode-01.canon.md",
+    "sha256": "adb06272c394bb8c502699ea10e67a2ecd1e7c822dfa2d8a9502973f28e21929"
+  },
+  "excludedContext": [
+    "producer brief",
+    "producer self-review",
+    "maker receipts",
+    "manifest",
+    "validator output",
+    "prior reviewer comments",
+    "repository instructions"
+  ],
+  "promptSha256": "c4ac00a52cfbef4f35c3a14236db5e5a59edf7c6d4d305592a4c1bec0d732828",
+  "judgedAt": "2026-09-07T17:59:13.428Z",
+  "judgment": {
+    "verdict": "REJECT",
+    "summary": "The artifact is a ten-term glossary formatted as a chapter. Every section runs the identical five-slot template (definition → analogy → \"Where it stops:\" → \"In real life.\" → caveat), which is the banned perfectly-symmetrical generated-scaffolding pattern. Headings are bare noun labels. Analogies are one-line and decorative, each immediately undercut by its own disclaimer. Voice is a corporate learning module with no humour, warmth, or workplace truth — unrecognizable beside Episode 1. Technical content is accurate and current on its face, and the handover-email running example is a genuine but insufficient connective thread. The structural defect requires a rewrite, not line edits.",
+    "objectiveDefects": [
+      {
+        "locator": "All ten sections (AI system through Tool)",
+        "problem": "Identical repeated template — definition, analogy, 'Where it stops:', 'In real life.', closing caveat — matching the writing lock's banned 'repetitive blocks for every section' and 'perfectly symmetrical sections that feel generated' patterns; scaffolding is fully exposed.",
+        "repair": "Rewrite as connected prose that moves from part to part through the handover-email story; keep caveats and examples where they earn a place, vary the shape, hide the scaffolding."
+      },
+      {
+        "locator": "Section headings: 'Provider', 'Product / app', 'Model', 'Model types', 'Tool', etc.",
+        "problem": "Bare noun labels violate the Heading Standard (headings must name a destination, make a promise, or land a line); this is glossary labeling, not LAiDIES headings.",
+        "repair": "Replace with headings that make a promise or land the lesson, e.g. the fix-the-right-layer idea the opening paragraph already establishes."
+      },
+      {
+        "locator": "Tool section — 'Miss Jeeves can answer from what is on her desk…'",
+        "problem": "Non-canon character (absent from the brand spelling list and saint roster) who personifies the tool-using AI system as a woman with she/her, brushing against the AI Pronoun Rule's ban on the default-female-assistant trope; the 'not a responsible librarian' hedge concedes the leak.",
+        "repair": "Cut or replace with a canon-consistent, non-gendered analogy for tool access (or a real human saint doing a task with real tools, with the AI explicitly 'it')."
+      },
+      {
+        "locator": "Product / app section — Cher's wardrobe computer analogy",
+        "problem": "Canon assigns Cher's closet computer to the context lesson (Episode 1 beat 12: it doesn't know the meeting is hostile unless told); repurposing it as a generic product-anatomy analogy blurs canon and violates the Canon Consistency Rule.",
+        "repair": "Either restore the closet computer to its canonical context lesson or choose a different, precise analogy for product-vs-model."
+      },
+      {
+        "locator": "Model / Model types / Generative AI sections — Walkman, toolbox, collage analogies",
+        "problem": "One-sentence decorative analogies that fail the Analogy Depth Rule ('the analogy should carry the teaching'); each is instantly walked back by its own 'Where it stops' disclaimer, so it adds branding without carrying meaning.",
+        "repair": "Develop one or two analogies with enough concrete detail to actually teach the mechanism, and cut the rest in favour of plain sentences."
+      }
+    ],
+    "qualityFindings": [
+      {
+        "dimension": "Connectedness",
+        "locator": "Whole artifact",
+        "finding": "Structurally a glossary: ten free-standing definition cards. The handover-draft running example is the only thread linking them, and it appears as a footnote inside each card rather than as a narrative spine. No mechanism showing how the parts interact as a system beyond the one-line closers."
+      },
+      {
+        "dimension": "Voice",
+        "locator": "Whole artifact vs Episode 1 exemplar",
+        "finding": "No jokes, no workplace truth, no warmth, no 'smart girlfriend at work' register. Reads as the corporate learning module / vendor-neutral brochure the lock explicitly prohibits. Nothing here would sit beside 'It read everything. It's lived nothing.'"
+      },
+      {
+        "dimension": "Accuracy",
+        "locator": "Definitions throughout",
+        "finding": "Technically sound on its face: correct app/model/provider separation consistent with Episode 1's 'Under the hood' beat; explicitly disarms the 'simple autocomplete' framing; hedged claims age well under the Currency Rule. This is the artifact's one strength."
+      },
+      {
+        "dimension": "Clarity / usefulness",
+        "locator": "Opening paragraph",
+        "finding": "The strongest passage — 'stop calling the whole thing the AI… it tells you what to fix' gives the reader a real, practical payoff. The rest of the chapter never builds on that promise; it defines parts without ever returning to what to fix."
+      },
+      {
+        "dimension": "Enjoyment",
+        "locator": "Whole artifact",
+        "finding": "Flat and effortful to read; the identical rhythm of every section induces skimming by the third term. A non-technical reader would retain the app-vs-model distinction and little else."
+      }
+    ],
+    "readerChange": "Modest and real: a reader could leave saying \"the app, the model, the provider, and the tools are different parts, so blame or fix the right one.\" But the chapter never operationalizes that promise (no worked example of diagnosing which layer failed), and there is no observed unfamiliar-reader explain-back or transfer evidence — which a model judgment cannot substitute for, so even a repaired draft would need that before PASS.",
+    "voiceComparison": "Episode 1 teaches through a character's story, lands stats with attitude, and uses references that carry the lesson (the Burn Book IS hallucination; the closet computer IS the context limit). This artifact inverts every one of those choices: definitions first, story reduced to a recurring one-line footnote, analogies decorative and self-cancelled, zero humour, zero point of view, no Canadian-magazine warmth. It fails the lock's Final AI Smell Test on at least three counts (corporate explainer, training module, personality-free draft) and is not recognizably from the same publication as Episode 1."
+  }
+}

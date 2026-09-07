@@ -1,0 +1,592 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "crossword-discovery-20260907",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "INTERACTIVE",
+  "surface": "NEWSSTAND_PUZZLE_AND_HOUSE_ADS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer full-prose review",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-07T18:08:42.925Z",
+  "verdict": "HOLD",
+  "limitations": [
+    "Producer review only, not independent admission or observed human comprehension.",
+    "Browser behaviour tested on desktop and two phone widths; no screen-reader session claimed."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/crossword-discovery-20260907/review-text.md",
+      "sha256": "2fc1218f0a83a6282e3ca5585bd99a462fd29135bd0c0481848cda20ae08a95f"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/crossword-discovery-20260907/publication-manifest.json",
+      "sha256": "c9a406ff3edfde361f077cba38b728f664458efcc95dd77a09110210667ac27a"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-07T18:08:42.925Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "A familiar situation supplies the question before technical naming.",
+        "Specific limitations and useful actions remain after humour."
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud \u2014 then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Can I enjoy a quick crossword and discover useful things around SUNNYVAiLE?",
+    "promisedPayoff": "Solve with optional help; retain a useful distinction and a route to learn more.",
+    "centralMentalModel": "A correct word is a starting point; its explanation shows what the concept means and where it stops.",
+    "dailyLifeConnection": "Editing a draft, organising work and recalling familiar Rewind Era references.",
+    "surfaceJob": "One puzzle with optional learning feedback and two clearly labelled house ads.",
+    "desiredReaderFeeling": "I can try this without already knowing the jargon."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The calculator clue gives a familiar example before the TOOLS term; definitions are revealed as feedback.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A calculator is a TOOL. An AI can write out a sum, or call a calculator to work it out: those are different routes to an answer. When the number matters, ask which route it used and check the result.",
+          "locator": "plainClarity"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Looking up a chapter is part of solving, with a usable distinction retained after answering.",
+      "artifactEvidence": [
+        {
+          "excerpt": "CONTEXT is the information available for the current answer. A document elsewhere in your account may not be included. If an important detail is missing, provide it or check that the relevant file is available.",
+          "locator": "readerValue"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Mixtape clue and ordinary know-how introduce the bounded software meaning, without imitating an episode.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Making a mixtape took these. In AI software, the word can also mean reusable task instructions.",
+          "locator": "laidiesVoice"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Mulder and Scully provide a second route to the answer without requiring prior AI vocabulary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Mulder and Scully were FBI ones. AI ones can work through steps towards a goal.",
+          "locator": "engagingEnjoyable"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Product variability is explicit; no universal memory, project or permission guarantee.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A PROJECT can keep related chats, files and instructions together in products that offer this feature. Useful when one piece of work has sprawled across six conversations. Before asking for the final draft, check that the current brief is available to the AI\u2014not merely filed somewhere in the project.",
+          "locator": "factualIntegrity"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "No plan-specific feature promises; exact linked chapters and town destinations independently opened live this turn.",
+      "artifactEvidence": [
+        {
+          "excerpt": "MEMORY is information saved for later use. It can save you repeating a preference, but you may not want an old detail following you into a new task. Look at what your product has saved and how to change or remove it. Saved information is not necessarily included in every answer.",
+          "locator": "freshnessReviewability"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Ten clues, hints and short answer explanations fit a small optional puzzle rather than a lesson masquerading as news.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Search, inspect the result, adjust the search, repeat. That repeating sequence is a LOOP; it is one way an AGENT can work through a task. Groundhog Day would make a terrible project plan, so give the task a stopping point: a time limit, a budget or a question it must bring back to you.",
+          "locator": "surfaceFit"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The missing draft is a recognisable editing problem that makes context concrete.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You tell the AI \u201cmake it shorter\u201d. The earlier draft it can actually see is part of its ___.",
+          "locator": "dailyLifeConnection"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The desk and filing cabinet hint makes available information visible; the answer returns to the actual AI limitation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "CONTEXT is the information available for the current answer. A document elsewhere in your account may not be included. If an important detail is missing, provide it or check that the relevant file is available.",
+          "locator": "communicationBenchmark"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The memory feedback asks the reader to check what can be saved, changed or removed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "MEMORY is information saved for later use. It can save you repeating a preference, but you may not want an old detail following you into a new task. Look at what your product has saved and how to change or remove it. Saved information is not necessarily included in every answer.",
+          "locator": "usefulAction"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "Correct answers and Reveal expose explanations; browser checks verified one correct word exposes exactly one explanation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A calculator is a TOOL. An AI can write out a sum, or call a calculator to work it out: those are different routes to an answer. When the number matters, ask which route it used and check the result.",
+          "locator": "practiceFeedback"
+        }
+      ]
+    },
+    "honestLimits": {
+      "verdict": "PASS",
+      "observation": "The skills label promises neither universal functionality nor successful performance.",
+      "artifactEvidence": [
+        {
+          "excerpt": "In some AI systems, a SKILL is a reusable set of task instructions and resources. For recurring meeting notes, it might specify the format and checks each time. Before using one, read what it tells the system to do; the name on the package is not the instructions inside.",
+          "locator": "honestLimits"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Full puzzle read for benchmarkNameDrop: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Full puzzle read for communicationPastiche: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Full puzzle read for corporateSludge: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Full puzzle read for curiosityWithoutPayoff: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Full puzzle read for decorativeAnalogy: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Full puzzle read for disconnectedSystem: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Full puzzle read for entertainmentBeforeUnderstanding: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Full puzzle read for factlessConfidence: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Full puzzle read for familiarExampleWithoutTechnicalReturn: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Full puzzle read for genericAction: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Full puzzle read for glossaryAccumulation: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Full puzzle read for inflatedTakeawayEnding: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Full puzzle read for jargonBeforeMeaning: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Full puzzle read for joylessInstruction: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Full puzzle read for mechanismBeforeMotivation: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Full puzzle read for mechanismCompressedBehindHook: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Full puzzle read for missingMechanism: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Full puzzle read for prematureClickBeforeMechanism: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Full puzzle read for purposeTooNarrow: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Full puzzle read for referenceConfetti: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Full puzzle read for staleUnreviewableClaims: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Full puzzle read for technicalExplainerVoice: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Full puzzle read for templateRepetition: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Full puzzle read for workedExampleOvertakesBookPurpose: clues use familiar situations, answer feedback qualifies product meanings, references assist solving rather than prove claims, and house ads promise only real destinations.",
+      "artifactLocator": "All ten clue/hint/answer sets and both house ads"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "content/library-books/rendered/ai-fundamentals-101.html",
+        "sha256": "77ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e"
+      },
+      {
+        "path": "content/library-books/rendered/working-with-ai-101.html",
+        "sha256": "2ac1f222ceea8e555577f8970c1cd7b8f0f8f94332912f6b8a3db12070886c8c"
+      },
+      {
+        "path": "content/data/mme-claio-deck.json",
+        "sha256": "c5df582745bea20584e8a593498cbb9f286bee3a1703a77ec282b1017f319bd1"
+      },
+      {
+        "path": "newsstand.html",
+        "sha256": "51285beb29b019fa53f92e556c58c36784b1148a175808cfc61837d06f7cee29"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "tools",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A calculator is a TOOL. An AI can write out a sum, or call a calculator to work it out: those are different routes to an answer. When the number matters, ask which route it used and check the result.",
+            "locator": "tools"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/library-books/rendered/ai-fundamentals-101.html",
+          "sha256": "77ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "id=\"chapter-14\" data-source-block=\"chapter-14\">Chapter 14: Agents \u2014 AI That Acts</h2><h3 id=\"ch-14-14-1-what-makes-an-agent-different-from-a-chatbot\">14.1 \u2014 What Makes an Agent Different From a Chatbot</h3>\n<p>A chatbot answers questions. You ask, it responds. One exchange. Done.</p>\n<p>An <strong>agent</strong> does work. It takes a goal, breaks it into steps, uses tools, evaluates its own progress, and keeps going until the job is done \u2014 or until it gets stuck and asks for help.</p>\n<p><strong>The three things that make something an agent rather than a chatbot:</strong></p>\n<ol><li><strong>Tools.</strong> The system can do things beyond generating text \u2014 search the web, read files, send messages, execute code, interact with other software.</li><li><strong>A loop.</strong> Instead of one-shot (question \u2192 answer), the system runs in a cycle: think about what to do \u2192 do it \u2192 observe the result \u2192 decide what to do next \u2192 repeat. It can take multiple actions in sequence without waiting for you to tell it each step.</li><li><strong>State and memory.</strong> The system maintains awareness of what it's already done, what it's tried, what worked, and what didn't \u2014 within a task and (sometimes) across tasks.</li></ol>\n<p>A chatbot generates text. An agent generates text <em>and</em> takes actions <em>and</em> evaluates its own work <em>and</em> iterates until a goal is reached.</p>\n<aside class=\"callout callout-objective\"><p><strong>By the end of this chapter, you will be able to:</strong></p>\n<ul><li>Explain what makes an agent different from a chatbot (tools + memory + a planning loop)</li><li>Describe the agent loop: perceive \u2192 reason \u2192 act \u2192 observe \u2192 repeat</li><li>Understand how \"tool calling\" works \u2014 how a model triggers real actions</li><li>Explain what MCP (Model Context Protocol) is and why it standardises how agents connect to tools</li><li>Describe the difference between single agents and multi-agent systems</li><li>Understand where agents are now (2026) \u2014 what they can reliably do, and where they still struggle</li></ul></aside>\n<h3 id=\"ch-14-key-terms-introduced-in-this-chapter\">Key Terms Introduced in This Chapter</h3>\n<div class=\"table-scroll\"><table><thead><tr><th scope=\"col\">Term</th><th scope=\"col\">Plain English</th></tr></thead><tbody><tr><td><strong>Agent</strong></td><td>An AI system that doesn't just generate text \u2014 it takes actions, uses tools, maintains state, and works toward goals over multiple steps</td></tr><tr><td><strong>Tool calling</strong></td><td>When a model generates structured output that triggers a real action (search the web, send an email, run code)</td></tr><tr><td><strong>Agent loop</strong></td><td>The repeating cycle: perceive \u2192 reason \u2192 plan \u2192 act \u2192 observe \u2192 decide whether to continue or stop</td></tr><tr><td><strong>Planning</strong></td><td>Breaking a complex goal into smaller steps the agent can execute one at a time</td></tr><tr><td><strong>Multi-agent system</strong></td><td>Multiple agents working together \u2014 collaborating, specialising, or handing tasks between each other</td></tr><tr><td><strong>MCP (Model Context Protocol)</strong></td><td>An open standard (Anthropic, 2024) that standardises how agents discover and use tools \u2014 the \"USB-C for AI tools\"</td></tr><tr><td><strong>A2A (Agent-to-Agent)</strong></td><td>A protocol for agents communicating with other agents (distinct from MCP, which connects agents to tools)</td></tr></tbody></table></div>\n<h3 id=\"ch-14-14-2-the-agent-loop\">14.2 \u2014 The Agent Loop</h3>\n<p>Every agent, regardless of how it's built, follows the same fundamental loop.</p>\n<p>Why a loop? Because the model can only do one thing per turn: generate text. It can't simultaneously search the web AND check a calendar AND compose an email. It does one thing, sees what came back, then decides what to do next. It's not iterating because it's uncertain (like a person) \u2014 it's iterating because that's mechanically how text generation works: one output at a time, each infor",
+            "locator": "content/library-books/rendered/ai-fundamentals-101.html id=\"chapter-14\""
+          }
+        ],
+        "scopeAndFreshness": "Stable concept or bounded LAiDIES role. Examples are authored illustrations, not measured outcomes. Chapter targets opened live 2026-09-07; recheck on lesson or product change."
+      },
+      {
+        "claimId": "claio",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Mme CLAi-O offers a reflection and a suggested move, not a prediction. You decide whether the message is useful for your situation.",
+            "locator": "claio"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/data/mme-claio-deck.json",
+          "sha256": "c5df582745bea20584e8a593498cbb9f286bee3a1703a77ec282b1017f319bd1"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "reflection-deck\",\n  \"cards\": [\n    {\n      \"id\": \"jelly-sandal\",\n      \"card\": \"The Jelly Sandal\",\n      \"read\": \"This looks fun, but there may be a blister by 3 p.m.\",\n      \"message\": \"A shiny opportunity still needs a friction check.\",\n      \"move\": \"Ask what support, scope, and authority come with the yes.\",\n      \"art_slug\": \"jelly-sandal\"\n    },\n    {\n      \"id\": \"mini-backpack\",\n      \"card\": \"The Mini Backpack\",\n      \"read\": \"You are carrying too much in a bag designed for lip gloss and vibes from 2001.\",\n      \"message\": \"Capacity matters. Stop calling overload a time management issue.\",\n      \"move\": \"Remove one commitment before adding another shiny thing.\",\n      \"art_slug\": \"mini-backpack\"\n    },\n    {\n      \"id\": \"platform-sandal\",\n      \"card\": \"The Platform Sandal\",\n      \"read\": \"You are ready for a bigger step, but you keep pretending this is about comfort.\",\n      \"message\": \"It is allowed to feel awkward and still be correct. Growth rarely arrives in sensible flats.\",\n      \"move\": \"Make the ask. The wobble is not evidence against you.\",\n      \"art_slug\": \"platform-sandal\"\n    },\n    {\n      \"id\": \"butterfly-clip\",\n      \"card\": \"The Butterfly Clip\",\n      \"read\": \"You are overthinking something that only needs one cute, decisive move.\",\n      \"message\": \"The room does not need a ten-point thesis. It needs you to say the thing clearly.\",\n      \"move\": \"Send the shorter version before your brain adds a subplot.\",\n      \"art_slug\": \"butterfly-clip\"\n    },\n    {\n      \"id\": \"away-message\",\n      \"card\": \"The Away Message\",\n      \"read\": \"You are technically available, spiritually buffering.\",\n      \"message\": \"Your calendar is not a personality. Protect one hour like it is your AIM password.\",\n      \"move\": \"Block the time, name the task, and stop apologizing to the air.\",\n      \"art_slug\": \"away-message\"\n    },\n    {\n      \"id\": \"mall-directory\",\n      \"card\": \"The Mall Directory\",\n      \"read\": \"You are standing next to the map pretending you do not need it.\",\n      \"message\": \"Asking for directions is not weakness. Mystery is not a management style.\",\n      \"move\": \"Ask one specific person one specific question before noon.\",\n      \"art_slug\": \"mall-directory\"\n    },\n    {\n      \"id\": \"pink-razr\",\n      \"card\": \"The Pink Razr\",\n      \"read\": \"You want to be reachable, but not available to every tiny emergency wearing lip gloss.\",\n      \"message\": \"Access to you is not the same thing as ownership of your attention.\",\n      \"move\": \"Set one boundary in writing before the day gets louder.\",\n      \"art_slug\": \"pink-razr\"\n    },\n    {\n      \"id\": \"claw-clip\",\n      \"card\": \"The Claw Clip\",\n      \"read\": \"You are holding the whole thing together with one plastic hinge and prayer.\",\n      \"message\": \"This is not sustainable just because it has technically worked before.\",\n      \"move\": \"Pick one task to delegate, delete, or turn into a template.\",\n      \"art_slug\": \"claw-clip\"\n    },\n    {\n      \"id\": \"low-rise-jeans\",\n      \"card\": \"The Low-Rise Jeans\",\n      \"read\": \"The current plan is technically on, but nobody should have to live like this.\",\n      \"message\": \"If the process only works when everyone holds their breath, it does not fit.\",\n      \"move\": \"Fix the waistband: scope, timeline, owner, or expectation.\",\n      \"art_slug\": \"low-rise-jeans\"\n    },\n    {\n      \"id\": \"clear-hotline-phone\",\n      \"card\": \"The Clear Hotline Phone\",\n      \"read\": \"The answer is ringing loudly on a transparent phone and you are letting it go to voicemail.\",\n      \"message\": \"You already know the decision. Your brain just keeps calling it research.\",\n      \"move\": \"Name the decision, set the deadline, and tell the person who needs to hear it.\",\n      \"art_slug\": \"clear-hotline-phone\"\n    },\n    {\n      \"id\": \"caboodle\",\n      \"card\": \"The Caboodle\",\n      \"read\": \"Your tools are everywhere and your patience is under a butterfly clip somewhere.\",\n      \"message\": \"The problem is not that you have no resources. The problem is t",
+            "locator": "content/data/mme-claio-deck.json reflection"
+          }
+        ],
+        "scopeAndFreshness": "Stable concept or bounded LAiDIES role. Examples are authored illustrations, not measured outcomes. Chapter targets opened live 2026-09-07; recheck on lesson or product change."
+      },
+      {
+        "claimId": "memory",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "MEMORY is information saved for later use. It can save you repeating a preference, but you may not want an old detail following you into a new task. Look at what your product has saved and how to change or remove it. Saved information is not necessarily included in every answer.",
+            "locator": "memory"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/library-books/rendered/ai-fundamentals-101.html",
+          "sha256": "77ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "id=\"chapter-8\" data-source-block=\"chapter-8\">Chapter 8: Context, Memory, and What the Model Can See</h2><h3 id=\"ch-8-8-1-the-model-remembers-nothing\">8.1 \u2014 The Model Remembers Nothing</h3>\n<p>Let's start with something that surprises most people: <strong>the model has no memory.</strong></p>\n<p>When you have a conversation with ChatGPT or Claude, it <em>feels</em> like the system remembers what you said earlier. You mention your name at the start, and it uses your name later. You describe a problem in message 1, and it references it in message 10. It seems like it's remembering.</p>\n<p>It isn't. What's actually happening:</p>\n<p>Every time you send a new message, the product assembles a new context for that request. It may include your new message, system instructions and some earlier conversation, but it can drop, summarise or omit older material. The model works from whatever the product supplies on that turn; it is not privately recalling the whole transcript from its own memory.</p>\n<p>This is why, in Chapter 5, we said the model is stateless \u2014 it's a recipe that runs fresh every time. You pour your ingredients in (the tokens), the recipe runs (the weights do their work), output comes out. Then the kitchen is wiped clean. Nothing lingers between requests. The \"memory\" you experience is the application layer (ChatGPT's interface, Claude's interface) saving your conversation transcript and feeding the whole thing back in as input each time you send a new message.</p>\n<aside class=\"callout callout-practice\"><p>\ud83d\udd0d <strong>Concept in Practice: Why starting a new conversation \"resets\" the AI</strong> When you open a new chat, the AI doesn't know who you are, what you were working on, or what you discussed yesterday. That's because the previous conversation's transcript isn't in the new context window. The model hasn't forgotten \u2014 it never knew in the first place. New chat, new context: \"We were on a break!\" Each conversation is a completely isolated context window. What was in the old window doesn't carry over unless something explicitly moves it.</p></aside>\n<aside class=\"callout callout-objective\"><p><strong>By the end of this chapter, you will be able to:</strong></p>\n<ul><li>Explain why AI has no memory by default \u2014 and what \"memory\" actually means when companies claim to offer it</li><li>Describe the difference between knowledge (frozen in weights) and context (provided live each time)</li><li>Explain what embeddings are and how they let machines measure \"similarity\"</li><li>Understand how RAG (Retrieval-Augmented Generation) gives a model access to information it wasn't trained on</li><li>Describe why \"the model knows things\" is misleading \u2014 and what's actually happening</li></ul></aside>\n<h3 id=\"ch-8-key-terms-introduced-in-this-chapter\">Key Terms Introduced in This Chapter</h3>\n<div class=\"table-scroll\"><table><thead><tr><th scope=\"col\">Term</th><th scope=\"col\">Plain English</th></tr></thead><tbody><tr><td><strong>Context</strong></td><td>Everything the model can \"see\" right now \u2014 your message, the conversation history, system instructions, retrieved documents. All in one window.</td></tr><tr><td><strong>Memory (in AI)</strong></td><td>Not actual memory \u2014 information stored externally and re-injected into the context window each time. The model itself remembers nothing.</td></tr><tr><td><strong>Embedding</strong></td><td>A list of numbers that represents the <em>meaning</em> of a piece of text \u2014 arranged so that similar meanings sit near each other</td></tr><tr><td><strong>Vector</strong></td><td>A list of numbers. An embedding is a specific type of vector that encodes meaning.</td></tr><tr><td><strong>Vector database</strong></td><td>A specialised database that stores embeddings and lets you search by similarity \u2014 \"find me things similar to this\"</td></tr><tr><td><strong>RAG (Retrieval-Augmented Generation)</strong></td><td>A system that retrieves relevant documents, injects them into the context window, and lets the mo",
+            "locator": "content/library-books/rendered/ai-fundamentals-101.html id=\"chapter-8\""
+          }
+        ],
+        "scopeAndFreshness": "Stable concept or bounded LAiDIES role. Examples are authored illustrations, not measured outcomes. Chapter targets opened live 2026-09-07; recheck on lesson or product change."
+      },
+      {
+        "claimId": "agents",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "An AGENT can work through steps towards a goal: search, inspect the results, then decide what to try next. It may use TOOLS along the way. A goal is not a blank cheque\u2014decide which actions need your approval before it starts.",
+            "locator": "agents"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/library-books/rendered/ai-fundamentals-101.html",
+          "sha256": "77ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "id=\"chapter-14\" data-source-block=\"chapter-14\">Chapter 14: Agents \u2014 AI That Acts</h2><h3 id=\"ch-14-14-1-what-makes-an-agent-different-from-a-chatbot\">14.1 \u2014 What Makes an Agent Different From a Chatbot</h3>\n<p>A chatbot answers questions. You ask, it responds. One exchange. Done.</p>\n<p>An <strong>agent</strong> does work. It takes a goal, breaks it into steps, uses tools, evaluates its own progress, and keeps going until the job is done \u2014 or until it gets stuck and asks for help.</p>\n<p><strong>The three things that make something an agent rather than a chatbot:</strong></p>\n<ol><li><strong>Tools.</strong> The system can do things beyond generating text \u2014 search the web, read files, send messages, execute code, interact with other software.</li><li><strong>A loop.</strong> Instead of one-shot (question \u2192 answer), the system runs in a cycle: think about what to do \u2192 do it \u2192 observe the result \u2192 decide what to do next \u2192 repeat. It can take multiple actions in sequence without waiting for you to tell it each step.</li><li><strong>State and memory.</strong> The system maintains awareness of what it's already done, what it's tried, what worked, and what didn't \u2014 within a task and (sometimes) across tasks.</li></ol>\n<p>A chatbot generates text. An agent generates text <em>and</em> takes actions <em>and</em> evaluates its own work <em>and</em> iterates until a goal is reached.</p>\n<aside class=\"callout callout-objective\"><p><strong>By the end of this chapter, you will be able to:</strong></p>\n<ul><li>Explain what makes an agent different from a chatbot (tools + memory + a planning loop)</li><li>Describe the agent loop: perceive \u2192 reason \u2192 act \u2192 observe \u2192 repeat</li><li>Understand how \"tool calling\" works \u2014 how a model triggers real actions</li><li>Explain what MCP (Model Context Protocol) is and why it standardises how agents connect to tools</li><li>Describe the difference between single agents and multi-agent systems</li><li>Understand where agents are now (2026) \u2014 what they can reliably do, and where they still struggle</li></ul></aside>\n<h3 id=\"ch-14-key-terms-introduced-in-this-chapter\">Key Terms Introduced in This Chapter</h3>\n<div class=\"table-scroll\"><table><thead><tr><th scope=\"col\">Term</th><th scope=\"col\">Plain English</th></tr></thead><tbody><tr><td><strong>Agent</strong></td><td>An AI system that doesn't just generate text \u2014 it takes actions, uses tools, maintains state, and works toward goals over multiple steps</td></tr><tr><td><strong>Tool calling</strong></td><td>When a model generates structured output that triggers a real action (search the web, send an email, run code)</td></tr><tr><td><strong>Agent loop</strong></td><td>The repeating cycle: perceive \u2192 reason \u2192 plan \u2192 act \u2192 observe \u2192 decide whether to continue or stop</td></tr><tr><td><strong>Planning</strong></td><td>Breaking a complex goal into smaller steps the agent can execute one at a time</td></tr><tr><td><strong>Multi-agent system</strong></td><td>Multiple agents working together \u2014 collaborating, specialising, or handing tasks between each other</td></tr><tr><td><strong>MCP (Model Context Protocol)</strong></td><td>An open standard (Anthropic, 2024) that standardises how agents discover and use tools \u2014 the \"USB-C for AI tools\"</td></tr><tr><td><strong>A2A (Agent-to-Agent)</strong></td><td>A protocol for agents communicating with other agents (distinct from MCP, which connects agents to tools)</td></tr></tbody></table></div>\n<h3 id=\"ch-14-14-2-the-agent-loop\">14.2 \u2014 The Agent Loop</h3>\n<p>Every agent, regardless of how it's built, follows the same fundamental loop.</p>\n<p>Why a loop? Because the model can only do one thing per turn: generate text. It can't simultaneously search the web AND check a calendar AND compose an email. It does one thing, sees what came back, then decides what to do next. It's not iterating because it's uncertain (like a person) \u2014 it's iterating because that's mechanically how text generation works: one output at a time, each infor",
+            "locator": "content/library-books/rendered/ai-fundamentals-101.html id=\"chapter-14\""
+          }
+        ],
+        "scopeAndFreshness": "Stable concept or bounded LAiDIES role. Examples are authored illustrations, not measured outcomes. Chapter targets opened live 2026-09-07; recheck on lesson or product change."
+      },
+      {
+        "claimId": "projects",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A PROJECT can keep related chats, files and instructions together in products that offer this feature. Useful when one piece of work has sprawled across six conversations. Before asking for the final draft, check that the current brief is available to the AI\u2014not merely filed somewhere in the project.",
+            "locator": "projects"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/library-books/rendered/working-with-ai-101.html",
+          "sha256": "2ac1f222ceea8e555577f8970c1cd7b8f0f8f94332912f6b8a3db12070886c8c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "id=\"chapter-6\" data-source-block=\"chapter-6\">Chapter 6: Your AI Doesn't Know You (Yet)</h2><p><em>Persistent instructions, memory, and how to stop starting from zero.</em></p>\n<hr>\n<section class=\"working-panel working-objectives\"><h3 id=\"chapter-6-your-ai-doesnt-know-you-yet-learning-objectives\">Learning Objectives</h3>\n<p>By the end of this chapter, you will be able to:</p>\n<ul>\n<li>Explain the difference between persistent instructions and memory</li>\n<li>Build your AI profile using examples of your actual work (the fastest, most accurate method)</li>\n<li>Understand how modern memory systems work (including self-updating features)</li>\n<li>Set up projects/workspaces for different areas of your life</li>\n<li>Keep your setup current without constant manual maintenance</li>\n</ul>\n<hr>\n</section><section class=\"working-panel working-key-terms\"><h3 id=\"chapter-6-your-ai-doesnt-know-you-yet-key-terms\">Key Terms</h3>\n<table>\n<thead>\n<tr>\n<th>Term</th>\n<th>What it means</th>\n<th>Different tools call it...</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><strong>Persistent instructions</strong></td>\n<td>Rules you write once that load into every conversation automatically. They tell the AI who you are and how you want it to behave.</td>\n<td>Custom Instructions (ChatGPT), Project Instructions (Claude), Personalisation (Gemini), System Prompt (general)</td>\n</tr>\n<tr>\n<td><strong>Memory</strong></td>\n<td>Facts the AI accumulates from your conversations and remembers across sessions. Some tools do this automatically; others need you to ask.</td>\n<td>Memory (ChatGPT, Claude), Saved Info (Gemini)</td>\n</tr>\n<tr>\n<td><strong>Project / Workspace</strong></td>\n<td>A persistent space where instructions + files + conversations live together. Everything inside inherits the same context.</td>\n<td>Projects (ChatGPT, Claude), Gems (Gemini)</td>\n</tr>\n<tr>\n<td><strong>Voice profile</strong></td>\n<td>A document that captures how you write: tone, sentence patterns, vocabulary, what you never say. Built from examples of your actual writing.</td>\n<td>No standard term across tools.</td>\n</tr>\n</tbody></table>\n<hr>\n</section><h3 id=\"chapter-6-your-ai-doesnt-know-you-yet-6-1-the-problem\">6.1 The Problem</h3>\n<p>Every new conversation starts empty (Chapter 5). That&#39;s good for context quality. It&#39;s terrible for everything else.</p>\n<p>It means every time you open a new chat, the AI has no idea who you are. Not what you do, not where you live, not how you prefer to be spoken to, not what you&#39;ve told it a hundred times before. So you either repeat yourself constantly, or you accept generic output calibrated for no one in particular.</p>\n<p>Re-establishing the same context across tools is real work, even though this draft&#39;s original Salesforce-attributed time estimate could not be tied to a reviewable primary study. Treat the cost as something to measure in your own week, not a universal number.</p>\n<p>The fix: tell it once, in a way that persists.</p>\n<hr>\n<h3 id=\"chapter-6-your-ai-doesnt-know-you-yet-6-2-two-things-that-persist\">6.2 Two Things That Persist</h3>\n<p><strong>Persistent instructions</strong> are rules you write. You decide what goes in. You control when it changes. The AI reads them at the start of every conversation. Think of it like a standing brief you give a new colleague on their first day.</p>\n<p><strong>Memory</strong> is information a product carries across conversations, either because you asked it to remember something or because its memory system inferred that the information could be useful later. OpenAI introduced the first version of ChatGPT&#39;s <strong>Dreaming</strong> method in April 2025, then launched a more capable Dreaming-based memory architecture on June 4, 2026. OpenAI says it synthesises relevant information across chats, updates memories over time and gives users a reviewable memory summary. Availability still depends on account, region and rollout.</p>\n<p>Claude also offers cross-conversation memory and gives user",
+            "locator": "content/library-books/rendered/working-with-ai-101.html id=\"chapter-6\""
+          }
+        ],
+        "scopeAndFreshness": "Stable concept or bounded LAiDIES role. Examples are authored illustrations, not measured outcomes. Chapter targets opened live 2026-09-07; recheck on lesson or product change."
+      },
+      {
+        "claimId": "paige",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "PAIGE brings the practical AI and productivity tip to the NewsStand. Find the column in Useful this week: an idea to take back to the work on your desk.",
+            "locator": "paige"
+          }
+        ],
+        "sourceBinding": {
+          "path": "newsstand.html",
+          "sha256": "51285beb29b019fa53f92e556c58c36784b1148a175808cfc61837d06f7cee29"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Paige&rsquo;s AI &amp; Productivity Tip</strong><span>Loading today&rsquo;s tip\u2026</span></li>\n                <li data-desk=\"career_life\"><strong>The Corner Office</strong><span>Loading today&rsquo;s column\u2026</span></li>\n                <li data-desk=\"concept_week\"><strong>Concept of the Week</strong><span>Loading this week&rsquo;s concept\u2026</span></li>\n                <li data-desk=\"dear_miss_jeeves\"><strong>Dear Miss Jeeves</strong><span>Loading the advice column\u2026</span></li>\n              </ul>\n          <section class=\"ns-luminairy\" id=\"ns-luminairy\" aria-labelledby=\"ns-luminairy-title\" data-state=\"loading\">\n            <div class=\"ns-luminairy__head\">\n              <p class=\"ns-kicker\">In the spotlight</p>\n              <h2 id=\"ns-luminairy-title\">From the LUMINA<span class=\"ns-brand-i\">i</span>RY</h2>\n              <p>One woman, one story to take with you. Every Wednesday, the spotlight moves between our Patron SAiNTS, MAiVENS and TRAiLBLAZERS.</p>\n            </div>\n            <p class=\"ns-luminairy__status\" role=\"status\">Opening this week&rsquo;s spotlight\u2026</p>\n            <div class=\"ns-luminairy__grid\" hidden></div>\n            <a class=\"ns-luminairy__all\" href=\"/luminairy\">Explore the LUMINAiRY \u2192</a>\n          </section>\n              <div class=\"ns-feature-desk__head ns-feature-desk__head--town\">\n                <p class=\"ns-kicker\">Also in the paper</p>\n                <h2>Around SUNNYVA<span class=\"ns-brand-i\">i</span>LE</h2>\n              </div>\n              <ul class=\"ns-feature-desk__grid ns-feature-desk__grid--town\">\n                <li data-desk=\"mme_claio\"><strong>Mme CLA<span class=\"ns-brand-i\">i</span>-O</strong><span>Loading today&rsquo;s reading\u2026</span></li>\n                <li data-desk=\"whats_new_sunnyvaile\"><strong>What&rsquo;s New in SUNNYVA<span class=\"ns-brand-i\">i</span>LE</strong><span>Loading the latest opening\u2026</span></li>\n                <li data-desk=\"did_you_know\"><strong>Did You Know?</strong><span>Loading today&rsquo;s fact\u2026</span></li>\n                <li data-desk=\"crossword\"><strong>Crossword</strong><span>Loading the puzzle\u2026</span></li>\n              </ul>\n            </section>\n          </div>\n          <section class=\"ns-play-desk\" aria-labelledby=\"ns-play-title\">\n            <div class=\"ns-play-desk__puzzle\">\n              <p class=\"ns-kicker\">Pencils out \u00b7 Puzzle 01</p>\n              <h2 id=\"ns-play-title\">A little crossword. A trip around town.</h2>\n              <p>Ten clues, some Rewind Era company, and no timer. Follow a hint into SUNNYVAiLE, then come back and keep solving.</p>\n              <a class=\"ns-play-action\" href=\"/newsstand-crossword.html\">Try the crossword \u2192</a>\n              <p class=\"ns-play-small\">Hints welcome. Looking things up counts.</p>\n            </div>\n            <div class=\"ns-house-ads\" aria-label=\"LAiDIES house advertisements\">\n              <aside class=\"ns-house-ad ns-house-ad--library\">\n                <p class=\"ns-kicker\">LAiDIES house ad \u00b7 The LIBRAiRY</p>\n                <h3>Be kind. Rewind.<br>Look it up.</h3>\n                <p>Forgot what \u201ccontext\u201d means? There\u2019s a chapter for that.</p>\n                <a href=\"/library.html#working-with-ai-101::%40chapter-5\">Find your next explanation \u2192</a>\n              </aside>\n              <aside class=\"ns-house-ad ns-house-ad--claio\">\n                <p class=\"ns-kicker\">LAiDIES house ad \u00b7 Mme CLAi-O</p>\n                <h3>Your future called.<br>We let it go to voicemail.</h3>\n                <p>A reflection and a move to consider. You decide what fits.</p>\n                <a href=\"/games/madame-claio.html\">Visit Mme CLAi-O \u2192</a>\n              </aside>\n            </div>\n          </section>\n          <p class=\"ns-counter-note\">Older reporting, previous roundups and Big Picture articles remain in the full archive below.</p>\n        </div>\n      </section>\n\n      <section class=\"ns-reader\" id=\"paper-counter\" aria-labelledby=\"ns-reader-title\" hidden>\n        <div class=\"ns-reader__rail\">\n          <p cl",
+            "locator": "newsstand.html Paige&rsquo;s AI"
+          }
+        ],
+        "scopeAndFreshness": "Stable concept or bounded LAiDIES role. Examples are authored illustrations, not measured outcomes. Chapter targets opened live 2026-09-07; recheck on lesson or product change."
+      },
+      {
+        "claimId": "context",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "CONTEXT is the information available for the current answer. A document elsewhere in your account may not be included. If an important detail is missing, provide it or check that the relevant file is available.",
+            "locator": "context"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/library-books/rendered/working-with-ai-101.html",
+          "sha256": "2ac1f222ceea8e555577f8970c1cd7b8f0f8f94332912f6b8a3db12070886c8c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "id=\"chapter-5\" data-source-block=\"chapter-5\">Chapter 5: What the AI Actually Sees</h2><p><em>Your message is one piece. Here&#39;s everything else in the room.</em></p>\n<hr>\n<section class=\"working-panel working-objectives\"><h3 id=\"chapter-5-what-the-ai-actually-sees-learning-objectives\">Learning Objectives</h3>\n<p>By the end of this chapter, you will be able to:</p>\n<ul>\n<li>Describe the five layers of information the AI is reading when you press send</li>\n<li>Explain why long conversations produce worse results (and why it&#39;s not your fault)</li>\n<li>Recognise the signals that a conversation has degraded</li>\n<li>Use practical techniques to manage context without abandoning your work</li>\n<li>Prepare an effective handover when it&#39;s time for a fresh session</li>\n</ul>\n<hr>\n</section><section class=\"working-panel working-key-terms\"><h3 id=\"chapter-5-what-the-ai-actually-sees-key-terms\">Key Terms</h3>\n<table>\n<thead>\n<tr>\n<th>Term</th>\n<th>Plain-English Definition</th>\n</tr>\n</thead>\n<tbody><tr>\n<td><strong>Context</strong></td>\n<td>Everything the AI can see when it responds: your message, the conversation history, attached files, and hidden instructions. All of it, not just your latest message.</td>\n</tr>\n<tr>\n<td><strong>Token</strong></td>\n<td>The unit AI systems actually count in. Text gets chopped into chunks that are usually a bit smaller than a word \u2014 roughly four characters, so about 750 words per 1,000 tokens. Every limit you&#39;ll hit and every bill you&#39;ll pay is measured in these, not in words. (Fundamentals Chapter 4 explains why the chopping happens.)</td>\n</tr>\n<tr>\n<td><strong>Context window</strong></td>\n<td>The working space, with a hard size limit, holding everything the AI can see for one response. <em>Fundamentals</em> Chapter 4 covers what it is and why the limit exists; the part that matters here is the gap between the two halves of it \u2014 &quot;can receive&quot; and &quot;can use well&quot; are not the same thing, and the difference is where most of this chapter lives.</td>\n</tr>\n<tr>\n<td><strong>Context rot</strong></td>\n<td>The measurable decline in AI output quality as a conversation gets longer. The model starts forgetting instructions, drifting, and contradicting itself. Not a bug. Not your fault. A documented property of how these systems work.</td>\n</tr>\n<tr>\n<td><strong>Context compaction</strong></td>\n<td>What happens when the AI&#39;s working memory fills up: the tool silently compresses older messages into a shorter summary to make room. Details get lost without warning. You&#39;ll notice it as the AI &quot;forgetting&quot; things you told it earlier.</td>\n</tr>\n<tr>\n<td><strong>System prompt</strong></td>\n<td>Instructions the platform gives the AI before you ever type anything. You didn&#39;t write them. You can&#39;t see them. They shape every response.</td>\n</tr>\n<tr>\n<td><strong>Lost in the middle</strong></td>\n<td>A documented property of AI models: they pay the most attention to the beginning and end of what they can see, and less attention to everything in between.</td>\n</tr>\n</tbody></table>\n<hr>\n</section><h3 id=\"chapter-5-what-the-ai-actually-sees-5-1-your-message-is-not-what-the-ai-is-reading\">5.1 Your Message Is Not What the AI Is Reading</h3>\n<p>When you type a question and press send, it feels like a direct exchange. You said something, it responded.</p>\n<p>But what&#39;s actually happening is more like handing a stack of papers to someone and asking them to write a response based on the whole stack. Your message is only the last page. Everything else was already there before you typed a word.</p>\n<p>The AI doesn&#39;t just read your message. It reads <em>everything in the conversation so far</em>. Every message you&#39;ve sent. Every response it gave you. Every file you&#39;ve attached. Plus a set of instructions from the platform that you never wrote and probably don&#39;t know exist.</p>\n<p>All of that, taken together, is what determines what comes back.</p>\n<p>This i",
+            "locator": "content/library-books/rendered/working-with-ai-101.html id=\"chapter-5\""
+          }
+        ],
+        "scopeAndFreshness": "Stable concept or bounded LAiDIES role. Examples are authored illustrations, not measured outcomes. Chapter targets opened live 2026-09-07; recheck on lesson or product change."
+      },
+      {
+        "claimId": "skills",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "In some AI systems, a SKILL is a reusable set of task instructions and resources. For recurring meeting notes, it might specify the format and checks each time. Before using one, read what it tells the system to do; the name on the package is not the instructions inside.",
+            "locator": "skills"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/library-books/rendered/ai-fundamentals-101.html",
+          "sha256": "77ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "id=\"chapter-15\" data-source-block=\"chapter-15\">Chapter 15: From Prompting to Graph Engineering \u2014 How the Craft Evolved</h2><h3 id=\"ch-15-15-1-the-same-job-got-renamed-four-times\">15.1 \u2014 The Same Job Got Renamed Four Times</h3>\n<p>In 2023, someone got hired as a \"prompt engineer.\" Their job: write really good instructions for AI systems. They got good at it. They learned all the tricks \u2014 chain-of-thought, few-shot examples, structured formatting.</p>\n<p>By 2025, their LinkedIn title changed to \"context engineer\" \u2014 same person, same desk, same company. By mid-2026, they were calling themselves an \"AI systems engineer.\" Their scope had expanded three times in three years, not because they'd changed careers but because the <em>field</em> kept zooming out.</p>\n<p>If you've been paying attention to AI since 2023, you've noticed this: the terminology keeps changing. It looks like hype churn. It isn't. Each term represents a genuine expansion of <em>what the job actually involves.</em> The craft got bigger, and each new name reflects a wider scope of responsibility.</p>\n<p>Here's the progression:</p>\n<details class=\"map-text-equivalent\"><summary>Open the text version of this diagram</summary><pre><code>2023:  PROMPT ENGINEERING         \u2192 How you ask\n                   \u2193 (zoom out)\n2025:  CONTEXT ENGINEERING        \u2192 Everything it can see\n                   \u2193 (zoom out)\n2026:  LOOP ENGINEERING           \u2192 The cycle it runs in\n                   \u2193 (zoom out)\n2026:  GRAPH ENGINEERING          \u2192 The multi-agent system\n</code></pre></details>\n<p>Each level includes everything below it. A graph engineer still writes prompts. They just also design loops, context systems, and multi-agent orchestrations. Let's look at each one.</p>\n<aside class=\"callout callout-question\"><p>\u23f8\ufe0f <strong>\"But why did it keep expanding? Why wasn't prompt engineering enough?\"</strong></p>\n<p>Because each level hit a ceiling that only the next level could break through:</p>\n<ol><li><strong>Prompt engineering hit a wall</strong> when people realised: no matter how perfectly you phrase the question, if the model doesn't have the right information in its context window, the answer will be incomplete or hallucinated. You can't prompt your way to knowledge the model doesn't have access to. \u2192 Solution: control what the model <em>sees</em>, not just what you <em>say</em>. That's context engineering.</li></ol>\n<ol><li><strong>Context engineering hit a wall</strong> when agents started doing multi-step tasks. You could assemble a perfect context window for one call \u2014 but an agent making 15 tool calls in sequence needs different information at each step. The context has to <em>evolve</em> as the task progresses. \u2192 Solution: design the <em>cycle</em> the agent runs in, including how context changes across iterations. That's loop engineering.</li></ol>\n<ol><li><strong>Loop engineering hit a wall</strong> when tasks got too complex for one agent. A single agent trying to do research, check calendars, verify budgets, AND book a restaurant burns through its context window and loses coherence. \u2192 Solution: split into specialised agents that each handle one piece and hand off to each other. That's graph engineering.</li></ol>\n<p>Each wall was real. Each zoom-out solved a problem the previous level couldn't.</p></aside>\n<aside class=\"callout callout-objective\"><p><strong>By the end of this chapter, you will be able to:</strong></p>\n<ul><li>Trace the evolution of AI engineering: prompt \u2192 context \u2192 loop \u2192 graph (2023\u20132026)</li><li>Explain what each discipline actually means and what practitioners do day-to-day</li><li>Understand why each is a \"zoom-out\" from the last</li><li>Evaluate AI products more critically \u2014 when one works better than another, these layers are usually why</li><li>Read AI articles from any period (2023\u20132026) without getting confused by shifting terminology</li><li>Know where the field is today and what's likely next</li></ul></aside>\n<h3 id=\"ch-15-key-terms-introduc",
+            "locator": "content/library-books/rendered/ai-fundamentals-101.html id=\"chapter-15\""
+          }
+        ],
+        "scopeAndFreshness": "Stable concept or bounded LAiDIES role. Examples are authored illustrations, not measured outcomes. Chapter targets opened live 2026-09-07; recheck on lesson or product change."
+      },
+      {
+        "claimId": "graph",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A GRAPH shows things and their connections. In an AI workflow, those things might be tasks: draft an email, check it, send it. Follow the connections before running the workflow. Does the route include your approval before sending, or go straight from the AI\u2019s draft to somebody\u2019s inbox?",
+            "locator": "graph"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/library-books/rendered/ai-fundamentals-101.html",
+          "sha256": "77ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "id=\"chapter-15\" data-source-block=\"chapter-15\">Chapter 15: From Prompting to Graph Engineering \u2014 How the Craft Evolved</h2><h3 id=\"ch-15-15-1-the-same-job-got-renamed-four-times\">15.1 \u2014 The Same Job Got Renamed Four Times</h3>\n<p>In 2023, someone got hired as a \"prompt engineer.\" Their job: write really good instructions for AI systems. They got good at it. They learned all the tricks \u2014 chain-of-thought, few-shot examples, structured formatting.</p>\n<p>By 2025, their LinkedIn title changed to \"context engineer\" \u2014 same person, same desk, same company. By mid-2026, they were calling themselves an \"AI systems engineer.\" Their scope had expanded three times in three years, not because they'd changed careers but because the <em>field</em> kept zooming out.</p>\n<p>If you've been paying attention to AI since 2023, you've noticed this: the terminology keeps changing. It looks like hype churn. It isn't. Each term represents a genuine expansion of <em>what the job actually involves.</em> The craft got bigger, and each new name reflects a wider scope of responsibility.</p>\n<p>Here's the progression:</p>\n<details class=\"map-text-equivalent\"><summary>Open the text version of this diagram</summary><pre><code>2023:  PROMPT ENGINEERING         \u2192 How you ask\n                   \u2193 (zoom out)\n2025:  CONTEXT ENGINEERING        \u2192 Everything it can see\n                   \u2193 (zoom out)\n2026:  LOOP ENGINEERING           \u2192 The cycle it runs in\n                   \u2193 (zoom out)\n2026:  GRAPH ENGINEERING          \u2192 The multi-agent system\n</code></pre></details>\n<p>Each level includes everything below it. A graph engineer still writes prompts. They just also design loops, context systems, and multi-agent orchestrations. Let's look at each one.</p>\n<aside class=\"callout callout-question\"><p>\u23f8\ufe0f <strong>\"But why did it keep expanding? Why wasn't prompt engineering enough?\"</strong></p>\n<p>Because each level hit a ceiling that only the next level could break through:</p>\n<ol><li><strong>Prompt engineering hit a wall</strong> when people realised: no matter how perfectly you phrase the question, if the model doesn't have the right information in its context window, the answer will be incomplete or hallucinated. You can't prompt your way to knowledge the model doesn't have access to. \u2192 Solution: control what the model <em>sees</em>, not just what you <em>say</em>. That's context engineering.</li></ol>\n<ol><li><strong>Context engineering hit a wall</strong> when agents started doing multi-step tasks. You could assemble a perfect context window for one call \u2014 but an agent making 15 tool calls in sequence needs different information at each step. The context has to <em>evolve</em> as the task progresses. \u2192 Solution: design the <em>cycle</em> the agent runs in, including how context changes across iterations. That's loop engineering.</li></ol>\n<ol><li><strong>Loop engineering hit a wall</strong> when tasks got too complex for one agent. A single agent trying to do research, check calendars, verify budgets, AND book a restaurant burns through its context window and loses coherence. \u2192 Solution: split into specialised agents that each handle one piece and hand off to each other. That's graph engineering.</li></ol>\n<p>Each wall was real. Each zoom-out solved a problem the previous level couldn't.</p></aside>\n<aside class=\"callout callout-objective\"><p><strong>By the end of this chapter, you will be able to:</strong></p>\n<ul><li>Trace the evolution of AI engineering: prompt \u2192 context \u2192 loop \u2192 graph (2023\u20132026)</li><li>Explain what each discipline actually means and what practitioners do day-to-day</li><li>Understand why each is a \"zoom-out\" from the last</li><li>Evaluate AI products more critically \u2014 when one works better than another, these layers are usually why</li><li>Read AI articles from any period (2023\u20132026) without getting confused by shifting terminology</li><li>Know where the field is today and what's likely next</li></ul></aside>\n<h3 id=\"ch-15-key-terms-introduc",
+            "locator": "content/library-books/rendered/ai-fundamentals-101.html id=\"chapter-15\""
+          }
+        ],
+        "scopeAndFreshness": "Stable concept or bounded LAiDIES role. Examples are authored illustrations, not measured outcomes. Chapter targets opened live 2026-09-07; recheck on lesson or product change."
+      },
+      {
+        "claimId": "loops",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Search, inspect the result, adjust the search, repeat. That repeating sequence is a LOOP; it is one way an AGENT can work through a task. Groundhog Day would make a terrible project plan, so give the task a stopping point: a time limit, a budget or a question it must bring back to you.",
+            "locator": "loops"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/library-books/rendered/ai-fundamentals-101.html",
+          "sha256": "77ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "id=\"chapter-14\" data-source-block=\"chapter-14\">Chapter 14: Agents \u2014 AI That Acts</h2><h3 id=\"ch-14-14-1-what-makes-an-agent-different-from-a-chatbot\">14.1 \u2014 What Makes an Agent Different From a Chatbot</h3>\n<p>A chatbot answers questions. You ask, it responds. One exchange. Done.</p>\n<p>An <strong>agent</strong> does work. It takes a goal, breaks it into steps, uses tools, evaluates its own progress, and keeps going until the job is done \u2014 or until it gets stuck and asks for help.</p>\n<p><strong>The three things that make something an agent rather than a chatbot:</strong></p>\n<ol><li><strong>Tools.</strong> The system can do things beyond generating text \u2014 search the web, read files, send messages, execute code, interact with other software.</li><li><strong>A loop.</strong> Instead of one-shot (question \u2192 answer), the system runs in a cycle: think about what to do \u2192 do it \u2192 observe the result \u2192 decide what to do next \u2192 repeat. It can take multiple actions in sequence without waiting for you to tell it each step.</li><li><strong>State and memory.</strong> The system maintains awareness of what it's already done, what it's tried, what worked, and what didn't \u2014 within a task and (sometimes) across tasks.</li></ol>\n<p>A chatbot generates text. An agent generates text <em>and</em> takes actions <em>and</em> evaluates its own work <em>and</em> iterates until a goal is reached.</p>\n<aside class=\"callout callout-objective\"><p><strong>By the end of this chapter, you will be able to:</strong></p>\n<ul><li>Explain what makes an agent different from a chatbot (tools + memory + a planning loop)</li><li>Describe the agent loop: perceive \u2192 reason \u2192 act \u2192 observe \u2192 repeat</li><li>Understand how \"tool calling\" works \u2014 how a model triggers real actions</li><li>Explain what MCP (Model Context Protocol) is and why it standardises how agents connect to tools</li><li>Describe the difference between single agents and multi-agent systems</li><li>Understand where agents are now (2026) \u2014 what they can reliably do, and where they still struggle</li></ul></aside>\n<h3 id=\"ch-14-key-terms-introduced-in-this-chapter\">Key Terms Introduced in This Chapter</h3>\n<div class=\"table-scroll\"><table><thead><tr><th scope=\"col\">Term</th><th scope=\"col\">Plain English</th></tr></thead><tbody><tr><td><strong>Agent</strong></td><td>An AI system that doesn't just generate text \u2014 it takes actions, uses tools, maintains state, and works toward goals over multiple steps</td></tr><tr><td><strong>Tool calling</strong></td><td>When a model generates structured output that triggers a real action (search the web, send an email, run code)</td></tr><tr><td><strong>Agent loop</strong></td><td>The repeating cycle: perceive \u2192 reason \u2192 plan \u2192 act \u2192 observe \u2192 decide whether to continue or stop</td></tr><tr><td><strong>Planning</strong></td><td>Breaking a complex goal into smaller steps the agent can execute one at a time</td></tr><tr><td><strong>Multi-agent system</strong></td><td>Multiple agents working together \u2014 collaborating, specialising, or handing tasks between each other</td></tr><tr><td><strong>MCP (Model Context Protocol)</strong></td><td>An open standard (Anthropic, 2024) that standardises how agents discover and use tools \u2014 the \"USB-C for AI tools\"</td></tr><tr><td><strong>A2A (Agent-to-Agent)</strong></td><td>A protocol for agents communicating with other agents (distinct from MCP, which connects agents to tools)</td></tr></tbody></table></div>\n<h3 id=\"ch-14-14-2-the-agent-loop\">14.2 \u2014 The Agent Loop</h3>\n<p>Every agent, regardless of how it's built, follows the same fundamental loop.</p>\n<p>Why a loop? Because the model can only do one thing per turn: generate text. It can't simultaneously search the web AND check a calendar AND compose an email. It does one thing, sees what came back, then decides what to do next. It's not iterating because it's uncertain (like a person) \u2014 it's iterating because that's mechanically how text generation works: one output at a time, each infor",
+            "locator": "content/library-books/rendered/ai-fundamentals-101.html id=\"chapter-14\""
+          }
+        ],
+        "scopeAndFreshness": "Stable concept or bounded LAiDIES role. Examples are authored illustrations, not measured outcomes. Chapter targets opened live 2026-09-07; recheck on lesson or product change."
+      }
+    ],
+    "reviewedThrough": "2026-09-07",
+    "nextTrigger": "A linked chapter, town role, puzzle behaviour or product distinction changes.",
+    "correctionOwner": "newsstand"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 5,
+    "reviewIssues": 13,
+    "reviewCycles": 4,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this new clue, hint, answer-feedback and house-ad pilot. Original grid preserved, not claimed as newly authored."
+  },
+  "learningDisposition": {
+    "disposition": "CANDIDATE_REPAIR_ONLY",
+    "rationale": "Three independent prose rounds exposed Canadian spelling, action-label clarity, an internal date sentence, repetitive answer notes, graph application and an answer-spoiling hint label; link/canon uncertainty required verification. All findings and source versions retained. This candidate is superseded, not admitted."
+  }
+}

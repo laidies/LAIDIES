@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "laidies-independent-judge-invocation.v1",
+  "modelFamily": "claude",
+  "model": "fable",
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/crossword-discovery-20260907/review-text.md",
+    "sha256": "e76e98519ca34fe23d6bc0a2f9107e037d82bb4e0eee9859d860b298e4007bac"
+  },
+  "voice": {
+    "path": "operations/voice/laidies-writing-lock.md",
+    "sha256": "c3d7bceeb98a4a47ea6bfde02d52718db4ef72d0af98651578fc44924a74d2cb"
+  },
+  "exemplar": {
+    "path": "content/episodes/episode-01.canon.md",
+    "sha256": "adb06272c394bb8c502699ea10e67a2ecd1e7c822dfa2d8a9502973f28e21929"
+  },
+  "excludedContext": [
+    "producer brief",
+    "producer self-review",
+    "maker receipts",
+    "manifest",
+    "validator output",
+    "prior reviewer comments",
+    "repository instructions"
+  ],
+  "promptSha256": "b6e03a2dcec0a95ea3bce91602bcd633b440727963e74b35749211b62d9a4933",
+  "judgedAt": "2026-09-07T18:03:53.468Z",
+  "judgment": {
+    "objectiveDefects": [
+      {
+        "locator": "Every entry's after-solving link, e.g. '## TOOLS' through '## LOOPS'",
+        "problem": "All ten post-solve links use the identical generic label 'Explore this in SUNNYVAiLE' even though eight go to named LIBRAiRY chapters, one to the NewsStand feature desk, and one to Mme CLAi-O. The writing lock bans generic Explore/Learn-more labels when the destination has a name, and the tenfold identical repetition is the banned symmetrical-template pattern.",
+        "repair": "Name each real destination in the label (e.g. 'Look it up at the LIBRAiRY: chapter 14', 'Find Paige in Useful this week', 'Visit Mme CLAi-O'), varying naturally rather than repeating one string."
+      },
+      {
+        "locator": "ns-play-desk section: 'Follow a hint into SUNNYVAiLE, then return to your saved answers.'",
+        "problem": "'Your saved answers' asserts saved progress. The accuracy rules forbid implying saved state, memory, or progress features work unless they actually work; the artifact provides no bounding or evidence.",
+        "repair": "Verify answer persistence is actually built; if not, rewrite to what is true (e.g. 'then come back and keep solving') or add an honest status."
+      },
+      {
+        "locator": "CLAIO entry ('visit her', 'Her name') and PAIGE entry ('Her AI and productivity tip', 'Her column')",
+        "problem": "The locked AI Pronoun Rule requires 'it' for any AI, model, or app persona; only real humans get she/her. Mme CLAi-O is an AI experience and PAIGE's status (human columnist vs. AI persona) is not established by the artifact, so these she/her uses are unverifiable against a hard lock.",
+        "repair": "Confirm canon status of both characters. If either is an AI persona, rewrite to avoid gendered pronouns; if they are canon-personified human-style characters, document that exception explicitly."
+      },
+      {
+        "locator": "GRAPH entry, reveal text",
+        "problem": "The AI connection is one vague sentence ('AI systems can use graphs to organize relationships too') with no mechanism, and the reader action ('start with the labels') has no concrete situation a non-technical reader would recognize. This is the disconnected, glossary-like pattern the standard flags.",
+        "repair": "Either tie GRAPH to a concrete AI use the reader will meet (e.g. how a product maps her documents or contacts as connected items and what to check) or replace the entry with a term that earns its place."
+      }
+    ],
+    "qualityFindings": [
+      {
+        "dimension": "usefulness / reader change",
+        "locator": "TOOLS, MEMORY, AGENTS, CONTEXT, SKILLS, LOOPS reveals",
+        "finding": "Strong. Each reveal states a plain mechanism and one concrete verification habit ('ask which route it used', 'look at what your product has saved', 'decide which actions need your approval', 'give the task a stopping point'). These are connected — AGENTS references TOOLS, LOOPS references AGENTS — not glossary entries."
+      },
+      {
+        "dimension": "reference quality",
+        "locator": "MEMORY hint (Spice Girls), AGENTS clue (Mulder and Scully), LOOPS (Groundhog Day), house ads ('Be kind. Rewind.', 'Your future called. We let it go to voicemail.')",
+        "finding": "References do two jobs — familiar and teaching — and each entry still makes sense without the reference, satisfying the Reader Recognition Rule. Groundhog Day is directly tied to the stopping-condition lesson rather than decoration."
+      },
+      {
+        "dimension": "accuracy / currency",
+        "locator": "All reveals",
+        "finding": "No banned stale claims ('just autocomplete', 'no memory', etc.); MEMORY and CONTEXT reveals are hedged correctly ('may be brought back', 'may not be included'), SKILLS is bounded ('In some AI systems'), and the closing 'Good to know' honestly bounds product variation. Accurate on its face."
+      },
+      {
+        "dimension": "structure / AI-pattern smell",
+        "locator": "Per-entry Clue/Hint/reveal/link scaffolding",
+        "finding": "The rigid identical block per entry is partly inherent to a crossword data file, but combined with the ten identical link labels it tips into the banned perfectly-symmetrical generated feel. Varying the link labels would largely resolve it."
+      },
+      {
+        "dimension": "brand spelling",
+        "locator": "'## CLAIO' heading vs. locked form 'Mme CLAi-O'",
+        "finding": "The grid answer necessarily drops the hyphen and Ai treatment; the reveal correctly writes 'Mme CLAi-O'. Acceptable as a mechanical constraint, worth a conscious sign-off."
+      },
+      {
+        "dimension": "evidence gap",
+        "locator": "Whole artifact",
+        "finding": "No observed unfamiliar-human explain-back or transfer evidence accompanies the artifact; per the judging standard this alone blocks PASS regardless of prose quality."
+      }
+    ],
+    "readerChange": "A non-technical reader who solves and reads the reveals leaves with recognizable checks she did not have before: ask whether a number came from the model or a called tool; inspect and edit what her product has saved as memory; supply missing context rather than assume the AI can see her files; approve an agent's action scope before it starts; read a skill's actual instructions rather than its name; give any looping task a stopping point. That is a genuine, transferable behaviour change — though it is asserted by inspection, not demonstrated by observed explain-back.",
+    "summary": "A genuinely good teaching crossword held short of PASS by fixable defects: ten identical generic 'Explore this in SUNNYVAiLE' link labels (banned pattern, unnamed destinations), one glossary-like GRAPH entry with no real AI connection or usable reader action, an unverified 'saved answers' feature claim, unresolved she/her pronoun use for Mme CLAi-O and PAIGE against the locked AI-pronoun rule, and the absence of any observed unfamiliar-human explain-back evidence, which the judging standard requires for PASS. The remaining nine entries are accurate, current, connected, and pair plain mechanisms with concrete reader actions in a voice that credibly sits near Episode 1.",
+    "verdict": "HOLD",
+    "voiceComparison": "Beside Episode 1 the crossword reads as the same world at lower intensity: the humour comes from specific truths (Spice Girls lyrics as involuntary memory, Groundhog Day as a bad project plan, 'a goal is not a blank cheque') rather than sprinkled decoration, and the teaching leads plainly with the reference as garnish, matching the Plain-Teaching Rule. It lacks Episode 1's emotional arc, workplace bite, and receipts, which the format partly excuses. The failures of voice are localized: the ten identical post-solve labels and the GRAPH reveal are the only passages that would read as generated rather than as Ali writing LAiDIES; the house ads ('Be kind. Rewind. Look it up.', 'Your future called. We let it go to voicemail.') are the strongest Episode-1-adjacent moments."
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "laidies-independent-judge-invocation.v1",
+  "modelFamily": "claude",
+  "model": "fable",
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/crossword-discovery-20260907/review-text.md",
+    "sha256": "5bbc77092961c1208121f76d00bbad8f1de06b857d66760f4ee851cd894248e0"
+  },
+  "voice": {
+    "path": "operations/voice/laidies-writing-lock.md",
+    "sha256": "c3d7bceeb98a4a47ea6bfde02d52718db4ef72d0af98651578fc44924a74d2cb"
+  },
+  "exemplar": {
+    "path": "content/episodes/episode-01.canon.md",
+    "sha256": "adb06272c394bb8c502699ea10e67a2ecd1e7c822dfa2d8a9502973f28e21929"
+  },
+  "excludedContext": [
+    "producer brief",
+    "producer self-review",
+    "maker receipts",
+    "manifest",
+    "validator output",
+    "prior reviewer comments",
+    "repository instructions"
+  ],
+  "promptSha256": "162d1eb63964be1b3edc2b6e25f793460c7330eca80c6e55fc7c178129241d10",
+  "judgedAt": "2026-09-07T18:01:07.904Z",
+  "judgment": {
+    "objectiveDefects": [
+      {
+        "locator": "ns-play-desk section, link text \"Play the crossword →\"",
+        "problem": "The writing lock bans the visible words Play/plays/played/playing across the site, explicitly including visible copy, labels, and accessible names. This is visitor-visible link text; only the CSS classes are exempt.",
+        "repair": "Rename to the real action, e.g. \"Try the crossword →\", \"Open the crossword →\", or \"Start Puzzle 01 →\"."
+      },
+      {
+        "locator": "Good to know line (\"recognise\"); PROJECTS after-reveal (\"Organisation\"); AGENTS hint (\"judgement\")",
+        "problem": "British spellings violate the lock's \"Use Canadian English\" requirement; Canadian standard (and Episode 1's own usage — \"judgment\", \"favourites\") is -ize with -our retained.",
+        "repair": "Change to recognize, Organization, judgment throughout."
+      },
+      {
+        "locator": "PAIGE after-reveal, final sentence",
+        "problem": "\"the published date belongs to that particular column\" is not parseable by a first-time reader; it reads like a compressed internal note that leaked into visitor copy.",
+        "repair": "Say plainly what she should understand, e.g. \"Each tip is dated — a column from March is advice from March,\" or cut the sentence."
+      },
+      {
+        "locator": "All eight \"[Find a hint in the LIBRAiRY]\" links placed under the \"After a correct answer or reveal\" text",
+        "problem": "The action label misnames its outcome: after a correct answer or reveal, the destination is the lesson, not a hint. The lock requires buttons/links to say what will actually happen.",
+        "repair": "Use a post-reveal label such as \"Read the full chapter in the LIBRAiRY →\" or \"Look it up at the LIBRAiRY →\"; reserve the hint wording for the pre-answer state."
+      }
+    ],
+    "qualityFindings": [
+      {
+        "dimension": "Banned AI pattern / generated symmetry",
+        "locator": "After-reveal notes for TOOLS, MEMORY, AGENTS, PROJECTS, CONTEXT, SKILLS, GRAPH, LOOPS",
+        "finding": "Eight of ten notes follow an identical definition-then-hedged-caveat rhythm (\"Check what your product saves\", \"Check what the product actually includes\", \"The label alone does not tell you\", \"Repetition alone does not improve\", \"it does not make the information correct\"). Each caveat is individually accurate, but in sequence it is the perfectly symmetrical, generated-feeling scaffolding the lock bans."
+      },
+      {
+        "dimension": "Voice (Episode 1 benchmark)",
+        "locator": "All ten after-reveal teaching sentences",
+        "finding": "The humour lives only in clues and hints (Spice Girls, Mulder and Scully, Groundhog Day, mixtape — all good, precise references). The teach lines themselves are uniformly flat and careful, closer to a well-edited compliance glossary than \"smart girlfriend at work.\" Episode 1 shows plain and warm coexisting (\"It read everything. It's lived nothing.\"); no teach line here attempts that register."
+      },
+      {
+        "dimension": "Connectedness",
+        "locator": "TOOLS, AGENTS, LOOPS entries (all linking chapter 14)",
+        "finding": "These three describe overlapping mechanics of one system (agents call tools inside loops with a stopping point), but only AGENTS gestures at another entry. The set reads as ten sealed definitions rather than a connected picture, which is the glossary-like failure mode the review standard names."
+      },
+      {
+        "dimension": "Mechanism / reader move",
+        "locator": "GRAPH and SKILLS after-reveal notes",
+        "finding": "Both define the word and immediately caveat it without saying why the reader would encounter the term or what she should do next; \"The label alone does not tell you what the system can do\" is a warning with no accompanying move, unlike CONTEXT and MEMORY which give a concrete check."
+      },
+      {
+        "dimension": "Strengths (retain in revision)",
+        "locator": "Intro copy, both house ads, CONTEXT and MEMORY entries",
+        "finding": "\"Looking things up is part of the fun\" is honest and on-voice; \"Your future called. We let it go to voicemail.\" is a real joke that also teaches what Mme CLAi-O does; definitions are accurate, currency-safe, and make no overclaimed feature promises; CONTEXT and MEMORY deliver genuine behavioural checks."
+      }
+    ],
+    "readerChange": "Partial. CONTEXT and MEMORY give a non-technical reader a real behavioural change: check what the AI can actually see right now, and check what the product saves and lets you remove. PROJECTS adds a useful correction (organizing files does not guarantee they reach every answer). But GRAPH, SKILLS, and LOOPS end in warnings with no accompanying move, and the ten entries never connect into a picture of how a system's parts fit together, so the residual change is a handful of good checks plus vocabulary recognition rather than transferable understanding. No observed explain-back or transfer evidence exists to confirm even the partial change; this model judgment cannot substitute for it.",
+    "summary": "HOLD. The crossword's bones are strong — accurate, currency-safe definitions, honest framing, precise 90s references in the clues, and two genuinely funny on-brand house ads — but the artifact violates the binding lock on its face and its teaching layer doesn't yet belong beside Episode 1. Objectively: \\\"Play the crossword →\\\" uses a word the lock bans in all visible copy; \\\"recognise,\\\" \\\"Organisation,\\\" and \\\"judgement\\\" break the Canadian English requirement; one PAIGE sentence is unintelligible to a visitor; and post-reveal links are mislabelled as hints. Qualitatively: eight of ten after-reveal notes share an identical definition-plus-hedged-caveat rhythm that reads as generated scaffolding, the humour is quarantined in clues while every teach line goes flat, and the entries sit as ten sealed definitions rather than a connected picture. All fixable in one targeted pass; none warrants REJECT.",
+    "verdict": "HOLD",
+    "voiceComparison": "The clues and hints are recognizably LAiDIES: the Spice Girls memory line, Mulder and Scully for AGENTS, Groundhog Day for LOOPS, and the mixtape for SKILLS are precise, teach the concept, and survive half-remembering — they pass the lock's two-jobs reference test. The house ads (\\\"Be kind. Rewind. Look it up.\\\"; \\\"Your future called. We let it go to voicemail.\\\") are the closest thing here to Episode 1's register: funny lines that carry the actual lesson. But Episode 1's signature is that its plainest teaching sentences still sound like Ali (\\\"It read everything. It's lived nothing. And it never says 'I don't know.'\\\"), whereas this artifact's teaching sentences sound like a careful glossary editor: \\\"Saving something does not guarantee it will be used in every answer.\\\" Accurate, clear, and beige — and repeated in the same cadence eight times. Set beside Episode 1, the piece reads as LAiDIES packaging around non-LAiDIES teaching prose; the voice is present at the edges and absent at the centre, which is where the lock says it must live."
+  }
+}

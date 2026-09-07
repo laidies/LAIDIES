@@ -1,0 +1,25 @@
+{
+  "modelFamily": "claude",
+  "model": "fable",
+  "reviewedAt": "2026-09-07T18:07:29.312Z",
+  "artifactSha256": "27646ededdcbadac2d0ef6e4c0d901f739793c47bc745340b3f615d6554572e9",
+  "judgment": {
+    "verdict": "HOLD",
+    "summary": "A strong, on-voice teaching crossword with honest, well-scoped adult-beginner explanations and Rewind Era references that genuinely clarify concepts, plus two house ads that land jokes in service of real product truths. Held for one objective defect — the PAIGE pre-solve hint link prints the answer in its label, spoiling that entry — plus two small link/naming details worth checking. All fixes are minor; once the PAIGE label is corrected this passes.",
+    "objectiveDefects": [
+      "PAIGE entry: the pre-solve optional hint link is labelled \"Find Paige in Useful this week\", printing the answer PAIGE before the reader solves the clue. Every other entry keeps the answer out of its pre-solve label. This breaks the puzzle mechanic for that entry; a reworded label (e.g. \"Find a hint at the NewsStand\") fixes it.",
+      "PAIGE link href is \"/newsstand#ns-feature-desk-title\" while all other internal links use a .html path (/library.html, /games/madame-claio.html, /newsstand-crossword.html). This inconsistency may be a broken or non-canonical path; verify against the real route rather than assume it fails.",
+      "Mme CLAi-O pre-solve hint link URL (/games/madame-claio.html) visibly contains the answer in the path — a milder self-spoiler inherent to linking the destination; acceptable if the label stays answer-free, but worth noting."
+    ],
+    "qualityFindings": [
+      "Every answer explanation leads with the plain mechanic and adds a correct, scoped caveat: MEMORY \"is not necessarily included in every answer\"; PROJECTS grouped \"in products that offer this feature\"; CONTEXT distinguishes what the AI can see from what is filed elsewhere; SKILLS warns \"the name on the package is not the instructions inside\"; AGENTS' goal is \"not a blank cheque.\" This satisfies the Plain-Teaching Rule and honest-limits standard.",
+      "Rewind Era references pass the two-jobs test: Mulder and Scully make \"agent as role, not judgment\" concrete; Groundhog Day motivates loop stopping conditions; the Spice Girls line makes human vs product memory memorable; mixtape/school-project framings anchor SKILLS and PROJECTS. None over-explained, none decorative.",
+      "Both house ads are on-voice and teach: \"Be kind. Rewind. Look it up.\" ties the video-store line to the LIBRAiRY's purpose; \"Your future called. We let it go to voicemail.\" carries the reflection-not-prediction truth of Mme CLAi-O. Action labels name real destinations; \"Play\" is correctly avoided (\"Try the crossword\").",
+      "Branded spellings (LAiDIES, SUNNYVAiLE, LIBRAiRY, Mme CLAi-O, NewsStand) are exact; Canadian spelling holds (\"cheque\"; \"-ize\" forms are standard Canadian). Nothing trips the Currency Rule; no banned AI-writing patterns, no availability overclaims, no gendered AI pronouns.",
+      "Uncertainty, not assumed failure: \"Useful this week\" is not one of the four canonical NewsStand publication names (The Breaking, The Daily, The Weekly, The Tribune); it reads as a column name, which canon does not rule on. PAIGE as a character is not in the names canon, though that file is not claimed exhaustive. SKILLS and GRAPH both link ai-fundamentals-101 chapter 15 under different labels, plausible if the chapter covers both, unverifiable here. Verify these against routed sources.",
+      "The closing \"Good to know\" note (\"ideas to recognize, not a test of which AI subscriptions you own\") is a well-judged honest-limits line that keeps the piece from implying feature availability."
+    ],
+    "readerChange": "With the PAIGE hint label reworded, the reader gets a ten-entry puzzle where every hint helps without handing over the answer, and every reveal teaches one usable behaviour: check which route the AI took to a number, audit what a product has saved, confirm the brief is actually visible before asking for the final draft, put an approval step before anything is sent, and give agent loops a stopping point. As shipped now, one entry's hint spoils itself and one link may dead-end, which chips at the puzzle's credibility as a careful, look-it-up-friendly experience.",
+    "voiceComparison": "This sits comfortably beside Episode 1. It has the same warm, specific, lightly irreverent register (\\\"although yours may still contain every word of a Spice Girls song\\\", \\\"Groundhog Day would make a terrible project plan\\\"), the same useful-before-clever priority, and the same honesty about limits that Episode 1 models with \\\"it never says 'I don't know'\\\". References are precise and load-bearing rather than decorative, matching the Episode 1 reference bar. The repeated clue/hint/explanation structure is the crossword form doing its job, not banned template scaffolding — the writing inside each slot varies naturally. It reads like Ali writing LAiDIES, not an explainer with jokes sprinkled on."
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "laidies-independent-judge-invocation.v1",
+  "modelFamily": "claude",
+  "model": "fable",
+  "artifact": {
+    "path": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md",
+    "sha256": "1cc8aa5f9653105924f69f708601836454cce8b49cbc0655e7f621a7e5d159e7"
+  },
+  "voice": {
+    "path": "operations/voice/laidies-writing-lock.md",
+    "sha256": "c3d7bceeb98a4a47ea6bfde02d52718db4ef72d0af98651578fc44924a74d2cb"
+  },
+  "exemplar": {
+    "path": "content/episodes/episode-01.canon.md",
+    "sha256": "adb06272c394bb8c502699ea10e67a2ecd1e7c822dfa2d8a9502973f28e21929"
+  },
+  "excludedContext": [
+    "producer brief",
+    "producer self-review",
+    "maker receipts",
+    "manifest",
+    "validator output",
+    "prior reviewer comments",
+    "repository instructions"
+  ],
+  "promptSha256": "834fb271b1c1e9f040d24eaffbc691a9b8652fef23f910192acf400c3e0247cc",
+  "judgedAt": "2026-09-07T18:02:24.236Z",
+  "judgment": {
+    "verdict": "REJECT",
+    "summary": "The chapter is clear, accurate on its face, and genuinely connected — one job-offer decision carries every concept, and the closing four-question check gives the reader a real behavioural change. But it categorically fails the binding voice standard. It contains zero humour, zero cultural references, zero LAiDIES canon, no warmth, and no point of view; it is precisely the 'generic AI explainer / corporate learning module / polished but personality-free draft' the writing lock's Final AI Smell Test orders rewritten. It does not sit recognisably beside Episode 1 — it sits beside a competent O'Reilly-style primer. Because conformance would require a full rewrite rather than targeted repair, and because no observed explain-back or transfer evidence accompanies the artifact, the verdict is REJECT rather than HOLD.",
+    "objectiveDefects": [
+      {
+        "locator": "Title 'AI Fundamentals 101' and framing 'This book will help you…' / 'Read the chapters in order'",
+        "problem": "Generic, off-canon framing. The lock names the SLAiYER Handbook as the canonical guide and demands headings that are short, specific and memorable in LAiDIES voice; '101' plus 'this book' positions the piece as a standalone corporate learning module, which the lock explicitly bans ('What LAiDIES Is Not').",
+        "repair": "Reframe within LAiDIES canon (episode/Handbook structure) with a heading that names a destination or makes a promise in the house voice."
+      },
+      {
+        "locator": "Entire artifact — reference and humour layer",
+        "problem": "The lock requires references 'frequent enough that the piece feels unmistakably LAiDIES' and humour from workplace truth, 90s/Y2K precision, or canon. The artifact contains not one reference, saint, joke, or canon element across roughly 2,000 words. This is an objective conformance failure against a binding standard, not a taste call.",
+        "repair": "Rewrite in the LAiDIES voice from scratch; the teaching skeleton (job-offer scenario, failure-location method, four questions) can be retained as raw material."
+      },
+      {
+        "locator": "'The model could organise…', 'It could organise the salary…' (organise, ×2)",
+        "problem": "Lock mandates Canadian English, which uses -ize spellings (organize); 'organise' is the British form.",
+        "repair": "Change to 'organize' and audit for other -ise forms."
+      },
+      {
+        "locator": "Section 'The output is not the decision' — numbered four-question block with bolded lead sentences",
+        "problem": "Perfectly symmetrical bolded question-plus-gloss scaffolding of the kind the lock bans as an obvious AI-drafted pattern ('use structure, but hide the scaffolding').",
+        "repair": "Keep the four checks but deliver them in prose with voice, varying rhythm, or fold them into the narrative."
+      },
+      {
+        "locator": "Inline bolded term definitions (**AI system**, **context**, **inference**, **tools**) plus 'Use the separate Concept Index'",
+        "problem": "Textbook-style term-bolding and index cross-references read as a training module; the lock bans making the reader 'feel like she is in training.' (The definitions themselves are accurate and connected, so this is a presentation defect, not a substance one.)",
+        "repair": "Introduce terms conversationally as Episode 1 does ('Three terms so you don't pull a Cher'), keeping the connected-example structure."
+      }
+    ],
+    "qualityFindings": [
+      {
+        "dimension": "clarity",
+        "locator": "whole artifact",
+        "finding": "Genuinely clear. Terms are defined at first use in plain words, and each definition is immediately exercised by the running scenario. Passes the Plain-Teaching Rule's mechanics, though in a voice-free register."
+      },
+      {
+        "dimension": "connectedness",
+        "locator": "Chapter 1, all sections",
+        "finding": "Strong. One decision (Northstar vs Juniper) threads through context, inference, tools, and verification; nothing floats as a loose definition. This is the artifact's best quality and worth preserving in any rewrite."
+      },
+      {
+        "dimension": "accuracy",
+        "locator": "'What the model did' / 'What changes when the system can fetch something'",
+        "finding": "Accurate on its face and currency-compliant: correct system-vs-model distinction, correct training-vs-inference framing, correct 'tool result is new input, not automatic truth,' no banned stale-era claims, appropriate hedges ('varies from product to product,' 'may run automatically or wait for confirmation')."
+      },
+      {
+        "dimension": "usefulness / reader change",
+        "locator": "'Repair the missing part, not the confidence' and the four closing questions",
+        "finding": "Real mechanism, not vibes: locate the weak system part instead of blaming 'AI,' with a concrete diagnostic. A non-technical reader could apply this tomorrow."
+      },
+      {
+        "dimension": "enjoyability",
+        "locator": "whole artifact",
+        "finding": "Fails. Competent but flavourless; no line a reader would quote, no moment of being seen. Episode 1 is built on quotable, funny, specific lines; this has none."
+      },
+      {
+        "dimension": "voice conformance",
+        "locator": "whole artifact vs Episode 1 exemplar",
+        "finding": "Total mismatch — see voiceComparison. This single dimension is disqualifying under the lock ('If a draft does not feel like it belongs beside Episode 1, it is not done')."
+      },
+      {
+        "dimension": "evidence of comprehension",
+        "locator": "submission as a whole",
+        "finding": "No observed unfamiliar-human explain-back or transfer evidence was provided with the artifact; my judgment cannot substitute for it, so PASS would be blocked on this ground even absent the voice failure."
+      }
+    ],
+    "readerChange": "Genuine and specific: after reading, a non-technical reader would (1) stop treating an AI answer as coming from one indivisible oracle and instead ask which part of the system — goal, context, model, tool, permission — produced the weakness; (2) repair the weak part (attach the missing document, state the real priorities, demand shown evidence) rather than asking the AI to sound more certain; (3) run the four closing checks before acting on a consequential answer; (4) keep value judgments and accountability with themselves. This is a real, transferable mechanism — the strongest argument the piece has — but it is delivered in a voice the standard forbids.",
+    "voiceComparison": "Episode 1 opens on Steve getting a standing ovation at 4:52 on a Tuesday and lands 'It's not a confidence problem. It's a physics problem.' It teaches hallucination via the Burn Book, context via Cher's closet computer, and closes with Dolly. Every concept arrives with warmth, a workplace truth, and a line the reader would repeat at happy hour. The artifact opens with 'You ask an AI product to compare two job offers' and proceeds in even, careful, affectless prose: no jokes, no references, no reader-recognition moments, no Rewind Era energy, no quotable line anywhere. Its register is textbook-neutral ('This is the first lesson of the whole book'), its headings are functional rather than memorable, and its scaffolding (bolded terms, numbered checklists, Concept Index pointers) is visible — the lock says to hide it. The two texts do not read as the same publication, the same author, or the same brand. Under the lock's own test — 'if a draft does not feel like it belongs beside Episode 1, it is not done' — this draft is not done, and the distance is a rewrite, not an edit."
+  }
+}
