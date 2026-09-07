@@ -441,6 +441,22 @@ receipt draft or heartbeat writer is never owner acceptance or performed work. B
 Build: an AI operating system needs verbs that mean what actually happened, not what the
 surrounding contract hoped would happen.
 
+Graph-engineering research exposed a terminology trap: workflow graphs,
+knowledge graphs, GraphRAG, trace graphs and agent organizations were being
+discussed as if one new architecture would solve every consistency problem.
+Prevention: name the exact relationship problem first; keep current authority in
+its existing source; generate any graph as a disposable projection; separate
+execution flow from context flow and semantic judgment; benchmark one bounded
+pilot against the current process before selecting a framework. A change to the
+decisions router also regenerates and current-byte checks the existing standing
+card in the same change; omitting that derivative is an incomplete integration,
+not an unrelated failure. Source coverage is similarly execution-bound: an
+extra URL or `ACTIVE` label does not count unless the current intake runner
+actually consumes that channel and emits dated items; the registry gate now
+rejects mismatched and health-only item-monitor claims. Behind the Build:
+why adding more connections can make an AI operating system less reliable when
+the lines do not say what evidence, authority or information crosses them.
+
 Independent preparation review then found the adapter could accept a queue contradiction
 after a caller recomputed its hash, and could place a draft receipt before its proposal in
 time. The adapter now consumes the canonical work-order validator, rechecks eligibility for

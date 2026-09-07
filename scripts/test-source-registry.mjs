@@ -78,6 +78,16 @@ const unboundRecurringUrl = clone(registry);
 unboundRecurringUrl.sources.find(source => source.id === "SRC-ETHAN-MOLLICK").recurringUrl = "https://example.org/not-registered";
 expectFail("unbound recurring URL", unboundRecurringUrl, practitioner, /recurringUrl must be one of urls/);
 
+const falseSecondaryChannelCoverage = clone(registry);
+falseSecondaryChannelCoverage.sources.find(source => source.id === "SRC-ASK-CATGPT-CAT-LABS").channelCoverage
+  .find(channel => channel.url === "https://catgptnewsletter.beehiiv.com/").status = "ACTIVE_MACHINE_MONITOR";
+expectFail("false secondary channel coverage", falseSecondaryChannelCoverage, practitioner, /multiple channels are labelled active|active channel must match/);
+
+const healthOnlyClaimsItems = clone(registry);
+const healthOnly = healthOnlyClaimsItems.sources.find(source => source.id === "SRC-ASK-CATGPT-CAT-LABS");
+healthOnly.intakeMode = "HEALTH_ONLY_HTML";
+expectFail("health-only claims item intake", healthOnlyClaimsItems, practitioner, /HEALTH_ONLY_HTML cannot claim item-level/);
+
 const missingIntakeMode = clone(registry);
 delete missingIntakeMode.sources.find(source => source.id === "SRC-AP-AI").intakeMode;
 expectFail("missing recurring intake mode", missingIntakeMode, practitioner, /supported intakeMode/);
@@ -91,4 +101,4 @@ genericApPage.sources.find(source => source.id === "SRC-AP-AI").intakeMode = "HE
 expectFail("generic AP page monitor", genericApPage, practitioner, /scoped item-level AP topic parser/);
 
 console.log("SOURCE REGISTRY TEST PASS");
-console.log("calibration=duplicate-id,placeholder-url,missing-career-transformation,missing-big-question,missing-dear-miss-jeeves,automatic-visitor-intake,reputation-as-authority,missing-aidb-publication-check,missing-destination,missing-practitioner,false-mollick-x-coverage,unbound-recurring-url,missing-intake-mode,generic-openai-page,generic-ap-page rejected; non-AI-career-source accepted");
+console.log("calibration=duplicate-id,placeholder-url,missing-career-transformation,missing-big-question,missing-dear-miss-jeeves,automatic-visitor-intake,reputation-as-authority,missing-aidb-publication-check,missing-destination,missing-practitioner,false-mollick-x-coverage,unbound-recurring-url,false-secondary-channel,health-only-item-claim,missing-intake-mode,generic-openai-page,generic-ap-page rejected; non-AI-career-source accepted");

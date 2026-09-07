@@ -1,5 +1,17 @@
 # Active work
 
+> **2026-09-06 — Graph-engineering research / SPECIFIED, INTEGRATION OWNED.**
+> Ali requested a current, whole-system investigation after identifying recurring
+> inconsistency in LAiDIES agent output. The research distinguishes dependency,
+> workflow, agent, knowledge, retrieval and trace graphs and recommends one
+> smallest proof: a read-only regenerated Learning provenance/hold map over the
+> existing 17 work orders. Existing whole-operation authority covers the
+> reversible internal pilot; Operating System integration owns implementation.
+> No graph framework, database, executor activation, schedule or learning
+> artifact is included or implemented. LCWO-002 remains separately checkpointed
+> and its real producer preflight is not complete. Specification packet:
+> `operations/product-stewards/learning-content-ecosystem/GRAPH-ENGINEERING-RESEARCH-AND-ROUTE-2026-09-06.md`.
+
 > **2026-09-06 — Operating integration / BUILDING: receiver merged; gate package recovered.**
 > Owner `01a077d0-0775-7af2-b631-c311573f0e0e`, isolated
 > `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`, branch

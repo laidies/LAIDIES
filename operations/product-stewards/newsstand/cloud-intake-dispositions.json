@@ -1,7 +1,7 @@
 {
   "schemaVersion": "newsstand-cloud-intake-dispositions.v1",
   "owner": "learning-content-ecosystem",
-  "updatedAt": "2026-08-13T14:34:21-07:00",
+  "updatedAt": "2026-09-06T19:54:07-07:00",
   "issue": {
     "repository": "laidies/LAIDIES",
     "number": 78,
@@ -68,16 +68,23 @@
       "title": "What the Heck is Graph Engineering?",
       "sourceUrl": "https://aidailybrief.ai/e/2026-08-10/transcript.md",
       "publishedAt": "2026-08-10T12:00:00.000Z",
-      "decidedAt": "2026-08-13T01:46:50-07:00",
-      "disposition": "NO_BUILD",
+      "decidedAt": "2026-09-06T19:54:07-07:00",
+      "disposition": "QUEUED_WITH_TRIGGER",
       "ownerProductId": "learning-content-ecosystem",
-      "reason": "The edition presents a practitioner buzzword and commentary, not a stable primary-source term or a distinct newcomer decision. LAiDIES already teaches the underlying agent-loop relationships; adding another label would create vocabulary without improving understanding.",
+      "reason": "Reopened by Ali on 2026-09-06 after current research found a distinct systems-design question beyond one agent loop, converging graph implementations across Google ADK, Microsoft AutoGen and LangGraph, adjacent OpenAI orchestration controls, and a new academic taxonomy. The AI Daily Brief remains the discovery and practitioner-framing source, not technical authority. Existing whole-operation authority covers the bounded read-only provenance-graph pilot, which is owned by Operating System integration. No prose or reader-facing artifact is commissioned by this disposition.",
       "evidenceRefs": [
-        "https://aidailybrief.ai/e/2026-08-10/transcript.md"
+        "https://aidailybrief.ai/e/2026-08-10/transcript.md",
+        "https://arxiv.org/abs/2608.21156",
+        "https://adk.dev/agents/workflow-agents/",
+        "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/graph-flow.html",
+        "operations/product-stewards/learning-content-ecosystem/GRAPH-ENGINEERING-RESEARCH-AND-ROUTE-2026-09-06.md"
       ],
-      "relatedRecords": [],
-      "nextTrigger": "Reopen only if a stable official product, standard or broadly adopted technical source defines the term and it creates a concrete reader-facing distinction that existing agent-loop teaching does not cover.",
-      "reviewBy": null
+      "relatedRecords": [
+        "operations/product-stewards/learning-content-ecosystem/GRAPH-ENGINEERING-RESEARCH-AND-ROUTE-2026-09-06.md",
+        "operations/OPERATING-SYSTEM-MAP.md"
+      ],
+      "nextTrigger": "Operating System integration implements and compares the bounded read-only Learning provenance/hold pilot without changing canonical queue state. Any reader-facing item separately completes current Learning intake and receives its destination owner's acceptance before drafting.",
+      "reviewBy": "2026-10-06"
     },
     {
       "signalId": "NSCI-7751d49657deb9e6d589",
