@@ -252,9 +252,13 @@ export function composeDailyEnvelope({ date, radarRaw, radarPath, storiesRaw, co
     const currentIssue = storiesData.publications.daily.issue;
     if (currentIssue?.status !== "complete" || canonicalJson(currentIssue.serviceRecordIds || []) !== canonicalJson(existingSameDateIssue.serviceRecordIds || []) ||
         canonicalJson(currentIssue.storyIds || []) !== canonicalJson(existingSameDateIssue.storyIds || []) ||
-        existingSameDateIssue.frontPaigeStoryId !== (frontPaigeStory?.id || null) || existingSameDateIssue.weeklyStoryId !== (weeklyStory?.id || null)) {
+        existingSameDateIssue.frontPaigeStoryId !== (frontPaigeStory?.id || null) ||
+        (currentIssue.weeklyStoryId || null) !== (existingSameDateIssue.weeklyStoryId || null)) {
       reject("same-date news revision does not match the exact current issue");
     }
+    // A separately admitted Weekly may advance after this Daily was stored.
+    // The revision must carry the current canonical Weekly pointer, already
+    // validated above, rather than restoring the Daily's historical pointer.
   }
   const desks = existingSameDateIssue ? types.map((type) => {
     const priorDesk = existingSameDateIssue.desks.find(desk => desk.type === type);

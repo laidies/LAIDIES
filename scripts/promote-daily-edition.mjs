@@ -375,8 +375,19 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
     }
     if (newsRevisionDecision) {
       if (existing.envelopeSha256 !== decision.predecessorEnvelopeSha256) reject("news revision predecessor has changed");
-      for (const field of ["editionDate", "editorialTimeZone", "status", "frontPaigeStoryId", "weeklyStoryId", "serviceRecordIds", "desks"]) {
+      for (const field of ["editionDate", "editorialTimeZone", "status", "frontPaigeStoryId", "serviceRecordIds", "desks"]) {
         if (canonicalJson(existing[field] ?? null) !== canonicalJson(issue[field] ?? null)) reject(`news revision changes protected ${field}`);
+      }
+      if (canonicalJson(existing.weeklyStoryId ?? null) !== canonicalJson(issue.weeklyStoryId ?? null)) {
+        const context = { window: {} };
+        vm.runInNewContext(fs.readFileSync(path.join(root, "content/newsstand-stories.js"), "utf8"), context, { timeout: 1000 });
+        const data = context.window.NEWSSTAND_DATA;
+        const currentWeekly = data?.publications?.weekly;
+        const admitted = (id) => data?.stories?.some(story => story.id === id && story.edition === "weekly" &&
+          ["published", "corrected"].includes(story.status) && story.sourceApproval?.status === "approved");
+        if (currentWeekly?.status !== "current" || currentWeekly.storyId !== issue.weeklyStoryId || !admitted(existing.weeklyStoryId) || !admitted(issue.weeklyStoryId)) {
+          reject("news revision may only advance an admitted Weekly to the current canonical pointer");
+        }
       }
       const additions = issue.storyIds.filter(id => !existing.storyIds.includes(id));
       if (canonicalJson(additions) !== canonicalJson(decision.addedStoryIds) || additions[0] !== ordinary.story.id || issue.storyIds.length !== existing.storyIds.length + 1) reject("news revision additions do not match exact independent decision");

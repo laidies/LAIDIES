@@ -24,8 +24,14 @@ const date = '2026-08-30';
 const prefix = 'operations/product-stewards/newsstand/candidates/fixture';
 const put = (name, data) => { const p = path.join(root, name); fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, typeof data === 'string' ? data : JSON.stringify(data)); return { path: name, sha256: sha256(fs.readFileSync(p)) }; };
 const parse = raw => { const c = { window: {} }; vm.runInNewContext(raw, c); return JSON.parse(JSON.stringify(c.window.NEWSSTAND_DATA)); };
-const base = fs.readFileSync(path.join(SOURCE, 'content/newsstand-stories.js'), 'utf8');
+const sourceBase = fs.readFileSync(path.join(SOURCE, 'content/newsstand-stories.js'), 'utf8');
+let base = sourceBase;
 const dataset = parse(base);
+const fixtureWeekly = dataset.stories.find(story => story.edition === 'weekly' && ['published', 'corrected'].includes(story.status) && story.sourceApproval?.status === 'approved' && story.publishedAt.slice(0, 10) <= date);
+assert.ok(fixtureWeekly, 'fixture needs an admitted non-future Weekly');
+dataset.publications.weekly = { ...dataset.publications.weekly, storyId: fixtureWeekly.id, editionDate: '2026-08-26', publishedAt: fixtureWeekly.publishedAt, updatedAt: fixtureWeekly.updatedAt, lastCheckedAt: fixtureWeekly.lastCheckedAt, status: 'current' };
+delete dataset.publications.weekly.correctivePublication;
+base = `window.NEWSSTAND_DATA = ${JSON.stringify(dataset, null, 2)};\n`;
 const columnsRaw = fs.readFileSync(path.join(SOURCE, 'content/daily-edition-columns.json'), 'utf8');
 const columns = JSON.parse(columnsRaw);
 const originalStore = JSON.parse(fs.readFileSync(path.join(SOURCE, 'content/newsstand-daily-issues.json'), 'utf8'));
@@ -106,6 +112,31 @@ assert.throws(() => promote({ ...decision, predecessorEnvelopeSha256: '0'.repeat
 assert.throws(() => promote({ ...decision, addedStoryIds: ['wrong-id'] }), /additions/);
 assert.throws(() => promote({ ...decision, reviewedAt: '2026-08-30T02:00:00Z' }), /cannot precede|Vancouver issue date/);
 assert.throws(() => promote({ ...decision, reviewedAt: '2026-08-30T20:01:00Z' }), /cannot precede/);
+// A Weekly can be admitted after the Daily issue. A same-date news append must
+// carry that current admitted pointer, while a stale or unadmitted pointer is
+// still rejected.
+const advancedWeekly = structuredClone(dataset);
+const oldWeeklyId = advancedWeekly.publications.weekly.storyId;
+const oldWeekly = advancedWeekly.stories.find(item => item.id === oldWeeklyId);
+const newWeeklyId = 'fixture-current-weekly';
+advancedWeekly.stories.push({ ...structuredClone(oldWeekly), id: newWeeklyId, slug: newWeeklyId, headline: 'Synthetic current Weekly', publishedAt: `${date}T21:30:00Z`, updatedAt: `${date}T21:30:00Z`, lastCheckedAt: `${date}T21:30:00Z` });
+advancedWeekly.publications.weekly = { ...advancedWeekly.publications.weekly, storyId: newWeeklyId, editionDate: date, publishedAt: `${date}T21:30:00Z`, updatedAt: `${date}T21:30:00Z`, lastCheckedAt: `${date}T21:30:00Z`, status: 'current', correctivePublication: { mode: 'MISSED_WEDNESDAY_CURRENT_WEEK', publicationDate: date, period: { startDate: '2026-08-24', endDate: date } } };
+const advancedBase = `window.NEWSSTAND_DATA = ${JSON.stringify(advancedWeekly, null, 2)};\n`;
+put('content/newsstand-stories.js', advancedBase);
+const advancedCandidate = { ...candidate, publicationBase: put(`${prefix}/advanced-base.js`, advancedBase) };
+const advancedCandidateBinding = put(`${prefix}/advanced-candidate.json`, advancedCandidate);
+const advancedEnvelope = composeDailyEnvelope({ root, date, radarPath: path.join(root, radarPath), radarRaw, storiesRaw: advancedBase, columnsRaw, candidateBinding: advancedCandidateBinding });
+assert.equal(advancedEnvelope.envelope.weeklyStoryId, newWeeklyId, 'same-day append carries the independently admitted current Weekly');
+const advancedDecision = { ...decision, envelopeSha256: advancedEnvelope.sha256, predecessorEnvelopeSha256: original.envelopeSha256 };
+const advancedResult = promoteDailyIssue({ root, store: originalStore, envelope: advancedEnvelope.envelope, envelopeRaw: advancedEnvelope.canonical, decision: advancedDecision, maker: 'fixture-maker', now: `${date}T23:00:00Z` });
+assert.equal(advancedResult.issue.weeklyStoryId, newWeeklyId, 'promotion advances only the Weekly pointer');
+const staleWeeklyEnvelope = structuredClone(advancedEnvelope.envelope); staleWeeklyEnvelope.weeklyStoryId = oldWeeklyId;
+const staleWeeklyRaw = `${JSON.stringify(staleWeeklyEnvelope)}\n`;
+assert.throws(() => promoteDailyIssue({ root, store: originalStore, envelope: staleWeeklyEnvelope, envelopeRaw: staleWeeklyRaw, decision: { ...advancedDecision, envelopeSha256: sha256(staleWeeklyRaw) }, maker: 'fixture-maker', now: `${date}T23:00:00Z` }), /Weekly continuity must match/);
+const unadmittedWeeklyEnvelope = structuredClone(advancedEnvelope.envelope); unadmittedWeeklyEnvelope.weeklyStoryId = 'unadmitted-weekly';
+const unadmittedWeeklyRaw = `${JSON.stringify(unadmittedWeeklyEnvelope)}\n`;
+assert.throws(() => promoteDailyIssue({ root, store: originalStore, envelope: unadmittedWeeklyEnvelope, envelopeRaw: unadmittedWeeklyRaw, decision: { ...advancedDecision, envelopeSha256: sha256(unadmittedWeeklyRaw) }, maker: 'fixture-maker', now: `${date}T23:00:00Z` }), /Weekly continuity (must match|story is not admitted)/);
+put('content/newsstand-stories.js', base);
 const eveningDecision = { ...decision, reviewedAt: '2026-08-31T01:00:00Z' };
 const evening = promoteDailyIssue({ root, store: originalStore, envelope: composed.envelope, envelopeRaw: composed.canonical, decision: eveningDecision, maker: 'fixture-maker', now: '2026-08-31T02:00:00Z' });
 assert.ok(parse(projectDailySourceRaw({ root, raw: base, issue: evening.issue, columns })).publications.daily.issue.storyIds.includes(story.id), 'Vancouver evening still belongs to Aug30');
@@ -225,7 +256,7 @@ assert.match(cli('publish-daily-edition', projectArgs), /WRITE PASS/);
 assert.equal(fs.readFileSync(path.join(root, 'content/newsstand-stories.js'), 'utf8'), output);
 assert.match(cli('build-newsstand-derivatives', []), /PASS/);
 assert.match(cli('build-newsstand-derivatives', ['--check']), /PASS/);
-assert.equal(fs.readFileSync(path.join(SOURCE, 'content/newsstand-stories.js'), 'utf8'), base, 'real canonical data must never change during tests');
+assert.equal(fs.readFileSync(path.join(SOURCE, 'content/newsstand-stories.js'), 'utf8'), sourceBase, 'real canonical data must never change during tests');
 // Exercise the real client snapshot gate, not just story access eligibility.
 class FixtureDate extends Date { constructor(...a){super(...(a.length?a:[`${date}T23:00:00Z`]));}static now(){return Date.parse(`${date}T23:00:00Z`);} }
 const sandbox={window:{crypto:webcrypto,NEWSSTAND_DATA:publicData,localStorage:{getItem:()=>null}},document:{readyState:'loading',addEventListener(){}},Date:FixtureDate,TextEncoder,URL,Intl,Set};
