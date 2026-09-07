@@ -227,7 +227,8 @@ for (const item of designGateCandidates) {
   bindGateEvidence('feature_and_building_placement', placement);
   const decoration = admission.gates?.decorative_discipline;
   // Image-only concepts have no implementation sources; their pixel review still applies.
-  if (!isConcept) errors.push(...checkArtworkSources(decoration?.artwork_sources, root).map(error=>`${item.id}: ${error}`));
+  const hasImplementation = [admission.candidate, ...(item.review_artifacts || [])].some(source => /\.(?:html?|css|[cm]?js|tsx?|jsx|svg)(?:[?#]|$)/i.test(source?.path || ''));
+  if (!isConcept || hasImplementation) errors.push(...checkArtworkSources(decoration?.artwork_sources, root).map(error=>`${item.id}: ${error}`));
   const fillerCount = Number(decoration?.unjustified_filler_count);
   if (decoration?.result !== 'PASS' || !Number.isFinite(fillerCount) || fillerCount !== 0) {
     errors.push(`${item.id}: unexplained decorative filler must be removed before presentation`);

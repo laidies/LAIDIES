@@ -20,7 +20,7 @@ Enforcement: `scripts/check-design-review-admission.mjs` now requires
 `gates.decorative_discipline.artwork_sources` with exact file paths and SHA-256
 for declared changed HTML/CSS/JS/SVG implementation sources on implemented
 page candidates. Missing lists or stale declared sources fail admission. Image-only
-concepts do not require implementation bindings; their existing pixel review applies.
+concepts without declared implementation files do not require implementation bindings; their existing pixel review applies. Code-backed concepts still require source bindings.
 The scanner cannot discover omitted dependencies: the reviewer must reconcile
 the declarations against the actual change before admission. The linked scanner rejects known CSS imitation patterns.
 There is no maker-supplied waiver or approval flag. The automated signatures

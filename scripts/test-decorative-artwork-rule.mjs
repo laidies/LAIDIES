@@ -29,8 +29,8 @@ try {
  const clean=spawnSync(process.execPath,[checker,'--artwork-preflight','good.css'],{cwd:temp,encoding:'utf8'});
  assert.equal(clean.status,0);assert.equal(JSON.parse(clean.stdout).result,'NO_KNOWN_SIGNATURE');
  write('rejections.json',JSON.stringify({rejections:[]}));
- function admission(type,sources){
-  write('queue.json',JSON.stringify({review_now:[{id:'boundary',review_type:type,design_admission:{gates:{decorative_discipline:{artwork_sources:sources}}}}]}));
+ function admission(type,sources,artifacts=[]){
+  write('queue.json',JSON.stringify({review_now:[{id:'boundary',review_type:type,review_artifacts:artifacts,design_admission:{gates:{decorative_discipline:{artwork_sources:sources}}}}]}));
   const result=spawnSync(process.execPath,[checker,'--fixture'],{cwd:temp,encoding:'utf8',env:{...process.env,LAIDIES_QUEUE_PATH:'queue.json',LAIDIES_REJECTIONS_PATH:'rejections.json'}});
   assert.equal(result.status,1,'incomplete admission must remain held');
   assert.doesNotMatch(result.stderr,/TypeError|ReferenceError/);
@@ -40,5 +40,7 @@ try {
  assert.match(admission('building_page_visual',undefined),/artwork implementation source bindings are required/);
  assert.doesNotMatch(admission('building_page_visual',[good]),/rejected Chick Flicks implementation signature|artwork implementation source bindings are required/);
  assert.doesNotMatch(admission('building_page_visual_concept',undefined),/artwork implementation source bindings are required/);
+ const prototype=write('prototype.html','<h2>prototype</h2>');
+ assert.match(admission('building_page_visual_concept',undefined,[prototype]),/artwork implementation source bindings are required/);
  console.log('PASS: exact/stale bindings, CLI rejection, admission wiring and image-only boundary; incomplete admission remains held');
 } finally {fs.rmSync(temp,{recursive:true,force:true});}
