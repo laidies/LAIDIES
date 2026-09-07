@@ -476,3 +476,16 @@ a cosmetic pass. Positive and negative fixtures run in the existing cloud
 baseline. Prevention: preserve relation meaning and fail on missing required
 inputs before claiming a trustworthy view; report undeclared reach as unknown.
 Behind the Build angle: a diagram can mislead even when it has no write access.
+
+### 2026-09-06 — A valid work order still carried an obsolete product identity and trigger
+
+`LCWO-002` was structurally eligible to begin producer preflight while every
+declared input was absent and its recorded action still said to draft the
+superseded Concepts 101 successor immediately. Historical receipts preserved a
+real durable concept decision, but also claimed a local successor that Ali later
+rejected; recovering those files wholesale would have made stale status look
+current. Prevention: reconcile each declared input by authority and date before
+creating a producer contract; preserve durable rulings separately from obsolete
+artifact/status claims; and require the destination owner to bind one exact
+current canonical source before drafting. Behind the Build angle: why a work
+order can be internally valid yet still point confidently at yesterday's book.

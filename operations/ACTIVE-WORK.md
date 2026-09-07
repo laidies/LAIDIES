@@ -11,7 +11,15 @@
 > the projection; missing planned outputs remain visible build holds. Independent
 > review caught and corrected missing-input success and output-as-input impact.
 > Current view: `product-stewards/learning-content-ecosystem/LEARNING-DEPENDENCY-MAP.md`.
-> LCWO-002 real producer preflight remains checkpointed with its Learning owner.
+> LCWO-002 real producer preflight is now **HOLD — SOURCE AUTHORITY
+> UNRESOLVED**. All seven declared paths are absent from current `main`; the
+> recoverable evidence refers to the superseded/rejected Concepts 101 successor,
+> and no current Library-owned AI Fundamentals source identity exists in this
+> branch. The durable access-label concept assignment survives, but the recorded
+> immediate-build trigger does not. Exact reconciliation and next trigger:
+> `product-stewards/learning-content-ecosystem/RECOVERY.md`. Queue bytes remain
+> unchanged; no producer contract, draft, render, review or execution activation
+> was created.
 > Whole-operation acceptance and remaining build/cloud/product/backup work remain
 > in `OPERATING-RECOVERY-NEXT.md`. No execution activation, publication, spend,
 > deletion or automatic-continuation claim.
