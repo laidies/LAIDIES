@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-07 — Make homepage before-and-after quotes distinct
+
+Ali asks for the From/To transitions in all three Why LAiDIES cards to stand out, suggesting labels in a different colour from the quotes. Preserve her exact wording and the existing heading/bold font, card artwork and other homepage corrections. The bounded preview uses separate From/To rows with coral/lime upright labels and retained pink italic quotes. This records the requested emphasis and candidate treatment, not owner approval of the rendered result.
+
 ## 2026-09-07 — Miss Jeeves rests on the homepage panel edge
 
 Ali asks to lower the existing Miss Jeeves cutout so her hands sit on the bottom edge, following PAiGE in the NewsStand masthead. Preserve the portrait asset, size, copy, colours, form and search behavior. Use a small desktop/tablet positional offset accounting for transparent image padding, with slight hand overlap at the edge. Keep the compact phone heading portrait. This is a bounded homepage preview correction; the separate Miss Jeeves service continuation stays active.
