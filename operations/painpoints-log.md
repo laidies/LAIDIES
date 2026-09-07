@@ -425,3 +425,5 @@ all. Test both a legitimate next step and a realistic way the gate could be fool
 The same recovered checkers now reject zero-cue/zero-page inputs. Real child-check
 fixtures, not only gate stubs, exercise both valid and invalid inputs; shared
 commits c0068195/359e3e37 apply the bounded fixes without a shared branch push.
+
+Continuation of the operating receiver/gate repair: the recovery entry itself retained obsolete permission-pending and first-action instructions alongside completed outcomes. Replaced the accumulated narrative with one current checkpoint and narrow source links; history remains in Git. Prevention: update the current entry by replacement, not by appending another competing current state. Behind the Build angle: long memory can increase mistakes when historical instructions look current.
