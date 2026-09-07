@@ -1,3 +1,4 @@
+<!-- NewsStand VERIFIED PUBLICLY5d730057/source5da8cde2: CTA directly beneath excerpt; date under title; dark catchup and decorative dots removed. Live1200/390/320 checked, exact2filesbothorigins, preserved48e279f9770-filebase. -->
 <!-- NewsStand VERIFIED PUBLICLY bf06ac26 source7e68ca76: sparse accents, two-colour headings, full-width Big Picture title+eyebrow, boxed reading actions. Exact two files verified both origins; live1200/390/320 no overflow/brokenimages. Preserved81ac8fdc770-file base. -->
 <!-- NewsStand READY_FOR_RELEASE: accumulated preview + Big Picture eyebrow checked at1200/390/320. Waiting for imminent MAiKEOVER production successor before two-file overlay, per release coordination. -->
 <!-- NewsStand LOCAL_PREVIEW: principal reading CTAs standardized to mint boxes/navy border/offset shadow, including Weekly. 1200/390/320 no overflow/broken images; not deployed. -->
