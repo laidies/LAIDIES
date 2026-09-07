@@ -32,9 +32,9 @@ function request(query = 'What is AI?', attempt = ATTEMPT, rateKey = RATE_KEY) {
 function providerAnswer() {
   const answer = 'AI is software that finds patterns in examples and uses them to make a useful prediction or draft.';
   return Response.json({
-    model: 'gpt-5.6-sol',
+    status: 'completed', model: 'gpt-5.6-sol',
     usage: { input_tokens: 1000, output_tokens: 100 },
-    output: [{ type: 'message', content: [{
+    output: [{ type: 'message', status: 'completed', content: [{
       type: 'output_text', text: answer,
       annotations: [{ type: 'url_citation', start_index: 0, end_index: answer.length, url: 'https://help.openai.com/en/articles/6825453-chatgpt-release-notes', title: 'OpenAI help' }]
     }] }]
@@ -150,4 +150,33 @@ test('missing provider configuration is marked pre-provider and refunds the rese
   assert.equal(state.reservedMicroUsd, 0);
   assert.equal(Object.values(state.researchActors)[0].reservedMicroUsd, 0);
   assert.equal(Object.values(state.attempts)[0].released, true);
+});
+
+test('incomplete billable answer settles once, stays charged and cannot retry', async () => {
+  const f=fixture();
+  const original=globalThis.fetch;
+  let calls=0;
+  globalThis.fetch=async()=>{
+    calls++;
+    const data=await providerAnswer().json();
+    data.status='incomplete';
+    data.incomplete_details={reason:'max_output_tokens'};
+    return Response.json(data);
+  };
+  try {
+    const response=await missJeevesGuidance(request(),f.env);
+    const body=await response.json();
+    assert.equal(response.status,502);
+    assert.equal(body.error,'provider_answer_incomplete');
+    assert.equal(body.output,undefined);
+    assert.equal(f.calls.filter(c=>c.action==='settleResearch').length,1);
+    const state=[...f.states.values()][0];
+    assert.equal(state.reservedMicroUsd,29250);
+    const attempt=Object.values(state.attempts)[0];
+    assert.equal(attempt.settled,true);
+    assert.notEqual(attempt.released,true);
+    assert.equal(f.calls.find(c=>c.action==='finishResearch').used,false);
+    assert.equal((await missJeevesGuidance(request(),f.env)).status,409);
+    assert.equal(calls,1);
+  } finally {globalThis.fetch=original;}
 });

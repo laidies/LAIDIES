@@ -5,6 +5,11 @@ import test from "node:test";
 import { handleMissJeevesGuidance } from "../src/miss-jeeves-guidance.js";
 import { MISS_JEEVES_EXCLUDED_ROSTER_SOURCES, MISS_JEEVES_SOURCE_POLICY, citationDomainIsAllowed, currentMissJeevesSourcePolicy } from "../src/miss-jeeves-trusted-sources.js";
 
+// Normal Responses fixtures include the provider's completion envelope.
+function completedProvider(data) {
+  return Response.json({status:'completed', ...data, output:(data.output || []).map(item => ({type:'message',status:'completed',...item}))});
+}
+
 const rateKey = "a".repeat(64);
 const request = (body, headers = {}) => new Request("https://miss-jeeves.internal/guidance", {
   method: "POST",
@@ -17,7 +22,7 @@ test("uses the existing OpenAI secret with Responses web search and no storage",
   const provider = async (url, options) => {
     providerRequest = { url, options, body: JSON.parse(options.body) };
     const answer = "Nvidia is discussed because its chips are widely used for AI systems.";
-    return Response.json({
+    return completedProvider({
       model: "gpt-5.6-sol",
       output: [{ type: "message", content: [{
         type: "output_text",
@@ -70,7 +75,7 @@ test("adds the official OpenAI, Hugging Face and NVIDIA checks to Hugging Face q
   const provider = async (_url, options) => {
     providerRequest = JSON.parse(options.body);
     const answer = "OpenAI reported an incident involving Hugging Face, and NVIDIA announced an acquisition agreement.";
-    return Response.json({
+    return completedProvider({
       model: "gpt-5.6-sol",
       output: [{ type: "message", content: [{
         type: "output_text", text: answer,
@@ -121,7 +126,7 @@ test("rejects public-shaped calls without the internal binding rate key", async 
 });
 
 test("fails closed when OpenAI returns no usable citations", async () => {
-  const response = await handleMissJeevesGuidance(request({ query: "What changed today?" }), { OPENAI_API_KEY: "test-secret" }, async () => Response.json({
+  const response = await handleMissJeevesGuidance(request({ query: "What changed today?" }), { OPENAI_API_KEY: "test-secret" }, async () => completedProvider({
     model: "gpt-5.6-sol",
     output: [{ type: "message", content: [{ type: "output_text", text: "Something changed.", annotations: [] }] }]
   }));
@@ -130,7 +135,7 @@ test("fails closed when OpenAI returns no usable citations", async () => {
 });
 
 test("fails closed when a citation is outside the approved bank and standing authorities", async () => {
-  const response = await handleMissJeevesGuidance(request({ query: "What changed today?" }), { OPENAI_API_KEY: "test-secret" }, async () => Response.json({
+  const response = await handleMissJeevesGuidance(request({ query: "What changed today?" }), { OPENAI_API_KEY: "test-secret" }, async () => completedProvider({
     model: "gpt-5.6-sol",
     output: [{ type: "message", content: [{
       type: "output_text", text: "A claim.",
@@ -151,12 +156,12 @@ test("rejects private content before any provider call", async () => {
 test("preserves complete admitted source conditions beyond the display excerpt",async()=>{
   let input;
   const sourceText='Before uploading, confirm your employer permits this account. '+ 'Source context. '.repeat(100)+'If permission is unknown, stop. Do not upload.';
-  await handleMissJeevesGuidance(request({query:'Can I upload a work document?',related_laidies_material:[{title:'Upload, paste or describe',summary:'Brief excerpt.',section:'Working with AI',sourceText,sourceAnchor:'upload',artifactSha256:'a'.repeat(64)}]}),{OPENAI_API_KEY:'test'},async(_url,options)=>{input=JSON.parse(JSON.parse(options.body).input);return Response.json({model:'gpt-5.6-sol',output:[]});});
+  await handleMissJeevesGuidance(request({query:'Can I upload a work document?',related_laidies_material:[{title:'Upload, paste or describe',summary:'Brief excerpt.',section:'Working with AI',sourceText,sourceAnchor:'upload',artifactSha256:'a'.repeat(64)}]}),{OPENAI_API_KEY:'test'},async(_url,options)=>{input=JSON.parse(JSON.parse(options.body).input);return completedProvider({model:'gpt-5.6-sol',output:[]});});
   assert.equal(input.related_laidies_material[0].sourceText,sourceText);
   assert.match(input.related_laidies_material[0].sourceText,/If permission is unknown, stop/);
 });
 test("asks a bounded clarification without treating it as a sourced answer",async()=>{
-  const response=await handleMissJeevesGuidance(request({query:'Why did it ignore me?'}),{OPENAI_API_KEY:'test'},async()=>Response.json({model:'gpt-5.6-sol',usage:{input_tokens:1000,output_tokens:50},output:[{content:[{type:'output_text',text:'CLARIFY: Which AI tool were you using, and what harmless instruction did it miss?',annotations:[]}]}]}));
+  const response=await handleMissJeevesGuidance(request({query:'Why did it ignore me?'}),{OPENAI_API_KEY:'test'},async()=>completedProvider({model:'gpt-5.6-sol',usage:{input_tokens:1000,output_tokens:50},output:[{content:[{type:'output_text',text:'CLARIFY: Which AI tool were you using, and what harmless instruction did it miss?',annotations:[]}]}]}));
   const body=await response.json();
   assert.equal(body.status,'clarification_required');
   assert.ok(body.research_charge_micro_usd>0,'a clarification still incurred a provider call');
@@ -179,7 +184,7 @@ test('rejects mixed citation provenance across the whole answer', async t => {
     ['unsupported annotation',{type:'file_citation',file_id:'invented'}]
   ]) await t.test(label,async()=>{
     const content=annotations=>({type:'output_text',text:'An answer with source references.',annotations});
-    const response=await handleMissJeevesGuidance(request({query:'What changed today?'}),{OPENAI_API_KEY:'test'},async()=>Response.json({model:'gpt-5.6-sol',usage:{input_tokens:100,output_tokens:25},output:[{type:'message',content:[content([approved])]},{type:'message',content:[content([bad])]}]}));
+    const response=await handleMissJeevesGuidance(request({query:'What changed today?'}),{OPENAI_API_KEY:'test'},async()=>completedProvider({model:'gpt-5.6-sol',usage:{input_tokens:100,output_tokens:25},output:[{type:'message',content:[content([approved])]},{type:'message',content:[content([bad])]}]}));
     const data=await response.json();
     assert.equal(response.status,502,`${label} must reject the entire answer`);
     assert.equal(data.error,'trusted_citations_required');

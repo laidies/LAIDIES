@@ -150,6 +150,8 @@ export async function handleMissJeevesGuidance(request, env, fetchImpl = fetch) 
       signal: controller.signal,
       body: JSON.stringify({
         model,
+        service_tier: "default",
+        safety_identifier: rateKey,
         instructions: [
           `You are Miss Jeeves, the plain-spoken AI reference guide for LAiDIES. Today is ${today}.`,
           "Search the web before answering factual questions. Write for an intelligent reader who may know nothing about AI, software or the technology industry. Give a direct, useful answer in up to 220 words, complete the final sentence, and use plain text rather than Markdown formatting. Keep sentences short and readable.",
@@ -199,7 +201,14 @@ export async function handleMissJeevesGuidance(request, env, fetchImpl = fetch) 
     const data = await boundedJson(response, controller.signal);
     const researchCharge = researchChargeMicroUsd(data);
     if (!/^gpt-5\.6-sol(?:-\d{4}-\d{2}-\d{2})?$/.test(data?.model || "")) return json({status:"unavailable",error:"research_model_mismatch",research_charge_micro_usd:researchCharge},502);
+    // A citation cannot admit a partial answer; keep its usage for settlement.
+    const messages = Array.isArray(data?.output) ? data.output.filter(item => item?.type === "message") : [];
+    if (data?.status !== "completed" || data?.error || data?.incomplete_details || !messages.length ||
+        messages.some(item => item.status !== "completed")) {
+      return json({status:"unavailable",error:"provider_answer_incomplete",research_charge_micro_usd:researchCharge},502);
+    }
     const answerText = (data.output || []).flatMap(item => item.content || []).filter(item=>item.type === "output_text").map(item=>item.text || "").join("\n").trim();
+    if (!answerText) return json({status:"unavailable",error:"provider_answer_incomplete",research_charge_micro_usd:researchCharge},502);
     if (/^CLARIFY:/.test(answerText)) {
       const question = answerText.slice(8).trim();
       if (question.length > 0 && question.length <= 320 && question.endsWith("?") && (question.match(/\?/g)||[]).length === 1) return json({status:"clarification_required",question,model:data.model,research_charge_micro_usd:researchCharge});
