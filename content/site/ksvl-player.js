@@ -382,10 +382,11 @@
     + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:0 1 220px; margin-right:0; }'
     + '@media(max-width:620px) { .ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:0 1 150px; } }';
 
-  STYLE += '.ksvl-np-title-text { display:inline-block; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-track { overflow:hidden; text-overflow:clip; }'
-    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-track.has-overflow .ksvl-np-title-text { animation:ksvl-title-scroll 14s linear infinite alternate; }'
-    + '@keyframes ksvl-title-scroll { 0%,20% { transform:translateX(0); } 80%,100% { transform:translateX(var(--title-travel,0px)); } }'
-    + '@media(prefers-reduced-motion:reduce) { .ksvl-np-title-text { animation:none!important; } }'
+  STYLE += '.ksvl-np-title-text { display:inline-block; position:relative; } .ksvl-np-title-copy { display:none; position:absolute; left:calc(100% + 32px); top:0; white-space:nowrap; width:max-content; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-track { overflow:hidden; text-overflow:clip; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-track.has-overflow .ksvl-np-title-text { animation:ksvl-title-scroll var(--title-duration,14s) linear infinite; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-track.has-overflow .ksvl-np-title-copy { display:block; }'
+    + '@keyframes ksvl-title-scroll { from { transform:translateX(0); } to { transform:translateX(var(--title-travel,0px)); } }'
+    + '@media(prefers-reduced-motion:reduce) { .ksvl-np-title-text { animation:none!important; } .ksvl-np-title-copy { display:none!important; } }'
     + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-sound .ksvl-np-slider-field { width:80px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-volume { width:100%; }'
     + '@media(max-width:620px) { .ksvl-now-playing:not(.is-expanded) { flex-wrap:wrap; gap:0; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:1 1 100%; display:flex; align-items:center; gap:10px; padding:2px 6px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-track { flex:1; min-width:0; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-position { max-width:40%; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { flex:1 1 100%; justify-content:center; gap:4px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-sound > .ksvl-np-btn { display:flex; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-sound .ksvl-np-slider-field { width:65px; } .ksvl-now-playing.is-expanded .ksvl-np-sound { grid-column:1 / -1; justify-content:center; } }';
 
@@ -401,7 +402,7 @@
 
   STYLE += '.ksvl-now-playing:not(.is-expanded) .ksvl-np-sound { display:contents; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-ico { width:32px; height:32px; }';
 
-  STYLE += '.ksvl-now-playing, .ksvl-now-playing * { font-weight:400!important; } .ksvl-now-playing .ksvl-np-track, .ksvl-now-playing .ksvl-np-title-text { font-weight:700!important; }';
+  STYLE += '.ksvl-now-playing, .ksvl-now-playing * { font-weight:400!important; } .ksvl-now-playing .ksvl-np-track, .ksvl-now-playing .ksvl-np-title-text, .ksvl-now-playing .ksvl-np-title-text * { font-weight:700!important; }';
 
   STYLE += '.ksvl-now-playing .ksvl-np-controls, .ksvl-now-playing .ksvl-np-controls * { font-weight:700!important; }';
 
@@ -409,9 +410,11 @@
 
   function updateTitleOverflow() {
     if (!npTrack || !npTrack.firstElementChild) return;
-    var overflow = npTrack.firstElementChild.scrollWidth - npTrack.clientWidth;
+    var width = npTrack.firstElementChild.firstElementChild.getBoundingClientRect().width;
+    var overflow = width - npTrack.clientWidth;
     npTrack.classList.toggle('has-overflow', overflow > 2);
-    npTrack.style.setProperty('--title-travel', -Math.max(0, overflow) + 'px');
+    npTrack.style.setProperty('--title-travel', -(width + 32) + 'px');
+    npTrack.style.setProperty('--title-duration', Math.max(8, (width + 32) / 30) + 's');
   }
 
   function injectStyle() {
@@ -713,9 +716,12 @@
     npTrack.title = displayTitle;
     npPosition.title = displayArtist;
     var titleText = ((track.parts && part && part.artist === 'DJ SunnyV') ? 'Now: ' : 'Song: ') + displayTitle;
-    if (!npTrack.firstElementChild || npTrack.firstElementChild.textContent !== titleText) {
+    if (!npTrack.firstElementChild || npTrack.firstElementChild.dataset.title !== titleText) {
       npTrack.textContent = '';
-      npTrack.appendChild(el('span', {class:'ksvl-np-title-text', text:titleText}));
+      npTrack.appendChild(el('span', {class:'ksvl-np-title-text', 'data-title':titleText}, [
+        el('span', {class:'ksvl-np-title-original', text:titleText}),
+        el('span', {class:'ksvl-np-title-copy', text:titleText, 'aria-hidden':'true'})
+      ]));
     }
     requestAnimationFrame(updateTitleOverflow);
     npPosition.textContent = '';
