@@ -1,5 +1,22 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-07 — Material intelligence findings require deterministic surfacing and owner receipt
+
+Ali observed that the reader-tip monitor appeared to produce nothing. The 7 September
+run had actually recorded a material `HOLD` and partial source access, but its completed
+heartbeat contained no visible message and no receiving-owner receipt. A notification
+instruction in an automation prompt is therefore not evidence of delivery.
+
+Every material practitioner/source finding now creates a checksum-bound outbox entry
+with its evidence, accountable owner and real task or lane. `HOLD`, `MERGE` and `CREATE`
+cannot validate without that route; `PARTIAL` and `INACCESSIBLE` checks create operational
+alerts. A deterministic renderer returns exit `2` while any entry lacks an append-only,
+checksum-bound owner receipt, and that output must be the heartbeat's visible final
+message. Only exit `0` permits silence. Owner acceptance is intake only and cannot
+authorize drafting, production, publication, retirement, spending or a shared-truth
+change. `DISCARD` and ordinary `DUPLICATE` remain quiet tombstones.
+
+
 ## 2026-09-06 — Recover accepted AI Fundamentals source identity
 
 The August 16 decision in original commit
