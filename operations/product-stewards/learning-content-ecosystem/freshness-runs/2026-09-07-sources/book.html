@@ -1,0 +1,2061 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SUNNYVAiLE LIBRAiRY</title>
+<meta name="description" content="Read the plain-English AI books, ask Miss Jeeves a practical question, and save useful books or sections to your Closet at the SUNNYVAiLE LIBRAiRY.">
+<link rel="canonical" href="https://laidies.ai/library" />
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<script defer src="/content/site/sv-global-header.js?v=20260830-ksvl-service-1"></script>
+<script defer src="/content/site/sv-nav-auth.js?v=20260830-portrait-1"></script>
+<style>
+:root{--midnight:#070f2b;--ink:#11183b;--pink:#f254a9;--purple:#7137d6;--cyan:#15bce0;--cobalt:#2457e6;--sky:#78c7ff;--coral:#ff7366;--orange:#ff9b3d;--lime:#b7e42b;--mint:#7de2c2;--yellow:#ffd34d;--cream:#fffdfb}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Jost',system-ui,sans-serif;color:var(--ink);background:
+  radial-gradient(circle at 8% 16%,rgba(240,86,166,.34),transparent 28%),
+  radial-gradient(circle at 91% 32%,rgba(24,198,216,.3),transparent 30%),
+  linear-gradient(145deg,#07142f 0%,#17275f 48%,#2d1768 100%);background-attachment:fixed}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
+
+.wrap{max-width:none;margin:0;padding:0}
+.library-hero{display:grid;grid-template-columns:minmax(340px,.72fr) minmax(0,1.28fr);min-height:clamp(470px,48vw,650px);
+  background:linear-gradient(135deg,#111f53 0%,#39207d 58%,#0d7282 100%);border-bottom:8px solid #07142f}
+.library-world{position:relative;overflow:hidden;background:#f8f5ff;color:var(--midnight)}
+.arrival-visual{position:relative;width:100%;height:100%;min-height:470px;overflow:hidden;background:#d8e8ee}
+.arrival-visual>img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
+.arrival-brand{position:absolute;z-index:5;left:5.6%;top:5.4%;width:min(470px,36%);padding:0;
+  color:#fff;background:transparent;border:0;box-shadow:none;
+  filter:drop-shadow(0 3px 7px rgba(7,20,47,.88))}
+.arrival-brand .eyebrow{font-size:clamp(8px,.7vw,10px);font-weight:800;letter-spacing:.3em;text-transform:uppercase;color:#9ceaf2}
+.arrival-brand h1{font-family:'Jost',system-ui,sans-serif;font-weight:800;letter-spacing:.035em;line-height:.92;margin:7px 0 0;
+  text-shadow:0 2px 0 rgba(7,20,47,.75),0 5px 13px rgba(7,20,47,.75)}
+.arrival-brand h1 .place{display:block;font-size:clamp(14px,1.35vw,22px);letter-spacing:.19em;margin-bottom:7px}
+.arrival-brand h1 .room{display:block;font-size:clamp(31px,3.8vw,58px)}
+.arrival-brand .ai{color:#58d9e8}
+.arrival-brand p{display:none}
+.arrival-brand p strong{color:#fff}
+.arrival-brand .mobile-instruction{display:none}
+.library-intro{position:relative;display:flex;flex-direction:column;justify-content:center;gap:20px;align-items:flex-start;
+  margin:0;padding:clamp(46px,6vw,88px) clamp(30px,5vw,76px);overflow:hidden;border-radius:0;background:transparent;
+  color:#fff;box-shadow:none}
+.library-intro::before,.library-intro::after{content:none}
+.library-intro>*{position:relative;z-index:1}
+.titleblock{margin:0;padding:0;text-align:left}
+.titleblock .eyebrow{font-size:13px;font-weight:800;letter-spacing:.23em;text-transform:uppercase;color:#8cecf4;margin-bottom:12px}
+.titleblock h1{font-family:'Jost',system-ui,sans-serif;font-size:clamp(48px,6vw,82px);font-weight:800;color:#fff;line-height:.9;
+  text-shadow:4px 4px 0 rgba(240,86,166,.62)}
+.titleblock .ai{color:#63e0ec}
+.lede{max-width:560px;margin:0;padding:0;text-align:left;border:0;
+  font-family:'Jost',system-ui,sans-serif;font-size:clamp(20px,2vw,27px);font-weight:750;line-height:1.32;color:#fff}
+.lede small{display:block;margin-top:13px;font-family:'Jost';font-size:16px;line-height:1.55;color:#dce7ff;font-weight:600}
+
+/* ── Ask Miss Jeeves — the reference desk ── */
+.jv{position:relative;z-index:10;display:grid;grid-template-columns:minmax(260px,.58fr) minmax(420px,1.42fr);
+  column-gap:clamp(28px,5vw,72px);row-gap:12px;align-items:end;width:auto;margin:0;
+  background:linear-gradient(105deg,#f056a6 0 10px,#171f55 10px,#302071 58%,#076f80 100%);color:#fff;
+  padding:clamp(38px,5vw,64px) clamp(24px,7vw,108px);border:0;border-radius:0;box-shadow:none;overflow:visible}
+.jv::before{content:none}
+.jv::after{content:none}
+.jv>*{position:relative;z-index:1}
+.jv-head{grid-column:1;grid-row:1/5;display:flex;align-items:flex-start;flex-direction:column;gap:10px;margin:0}
+.jv-kicker{flex:0 0 auto;display:inline-flex;align-items:center;border:2px solid #65e3ee;border-radius:999px;
+  color:#07142f;background:#65e3ee;padding:8px 12px;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.jv-head .h{font-family:'Jost',system-ui,sans-serif;font-size:clamp(42px,4vw,58px);font-weight:800;color:#fff;line-height:1.02}
+.jv-head .h small{display:block;font-family:'Jost';font-size:16px;font-weight:600;color:#dce7ff;letter-spacing:.01em;margin-top:9px;line-height:1.45}
+.jv-beta{grid-column:2;grid-row:1;margin:0;padding:11px 14px;border:2px solid #65e3ee;border-radius:10px;background:rgba(7,20,47,.58);color:#fff;font-size:14px;line-height:1.48}
+.jv-beta strong{color:#65e3ee}
+.jv-form{grid-column:2;grid-row:2;display:flex;gap:9px}
+.jv-form input{flex:1;min-width:0;padding:13px 16px;border:1.5px solid #7792c8;border-radius:10px;
+  font:inherit;font-size:17px;background:#fff;color:var(--midnight)}
+.jv-form input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(24,198,216,.24)}
+.jv-form button{padding:0 22px;border:0;border-radius:10px;background:var(--pink);color:#260d2b;
+  min-height:44px;font:inherit;font-weight:800;font-size:14px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.jv-form button:hover{filter:brightness(1.05)}
+.jv-privacy{grid-column:2;grid-row:3;margin:0;color:#dce7ff;font-size:12px;line-height:1.45}
+.jv-privacy a{color:#fff;text-underline-offset:3px}
+.jv-chips{grid-column:2;grid-row:4;display:flex;flex-wrap:wrap;gap:7px;margin:0}
+.jv-chips b{font-size:13px;letter-spacing:.04em;color:#fff;align-self:center;margin-right:2px;font-weight:800}
+.jv-chip{border:1.5px solid #9f94ff;background:rgba(7,20,47,.58);color:#fff;border-radius:20px;padding:7px 13px;font:inherit;font-size:14px;font-weight:650;cursor:pointer}
+.jv-chip{min-height:44px}
+.jv-chip:nth-of-type(2){border-color:#8c7cf2}.jv-chip:nth-of-type(3){border-color:#f47f7b}.jv-chip:nth-of-type(4){border-color:#18c6d8}
+.jv-chip:hover{background:#fff;color:#07142f;border-color:#f056a6}
+.jv-results{grid-column:1/-1;margin-top:4px;display:grid;gap:9px}
+.jv-answer{position:relative;overflow:hidden;background:#fff;border:1px solid #d8dff4;border-left:6px solid var(--cyan);
+  border-radius:11px;padding:18px 20px 16px;color:var(--ink)}
+.jv-answer::after{content:"MISS JEEVES";position:absolute;right:14px;top:8px;color:#d7e2f6;font-size:9px;
+  font-weight:800;letter-spacing:.22em}
+.jv-answer-kicker{display:block;margin-bottom:5px;color:#2f8f8b;font-size:11px;font-weight:800;
+  letter-spacing:.15em;text-transform:uppercase}
+.jv-answer h3{font-size:20px;line-height:1.18;color:var(--ink)}
+.jv-answer p{max-width:850px;margin:7px 0 12px;color:#5f4358;font-size:14px;line-height:1.55;white-space:pre-line}
+.jv-answer p strong{color:var(--ink)}
+.jv-answer-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;border-top:1px solid #d8dff4;padding-top:11px}
+.jv-answer-links b{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#52617f}
+.jv-answer-links a,.jv-answer-links button{appearance:none;border:0;background:none;padding:0;color:#8f2e67;font:inherit;
+  font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.jv-answer-links a:hover,.jv-answer-links button:hover{color:#c02d84}
+.jv-answer-links .jv-held{border:1px dashed #947893;background:#fff7fb;color:#70425f;border-radius:8px;padding:8px 11px;font:700 14px/1.35 Jost,sans-serif}
+.jv-sources{display:flex;flex-wrap:wrap;align-items:center;gap:7px 14px;margin:12px 0 0;padding-top:11px;border-top:1px solid #d8dff4}
+.jv-sources b{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#52617f}
+.jv-sources a{color:#8f2e67;font-weight:750;text-underline-offset:3px}
+.jv-answer-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 4px;color:#31566f;font-size:12px;font-weight:800}
+.jv-answer-meta span{border:1px solid #9ed8d1;border-radius:999px;background:#eafff8;padding:6px 10px}
+.jv-answer-copy{max-width:900px}
+.jv-answer-copy p{font-size:16px;line-height:1.6;margin:9px 0;color:#3e3043;white-space:normal}
+.jv-allowance{margin:12px 0 0!important;color:#31566f!important;font-size:13px!important;font-weight:750}
+.jv-limit{background:#fff7fb;border:2px solid var(--pink);border-radius:11px;padding:18px 20px;color:var(--ink)}
+.jv-limit p{margin:0 0 12px;font-size:16px;line-height:1.55}
+.jv-limit a{display:inline-flex;min-height:44px;align-items:center;border-radius:999px;background:var(--pink);color:#260d2b;padding:10px 17px;font-weight:800;text-decoration:none}
+.jv-feedback{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:13px;padding-top:11px;border-top:1px solid #d8dff4}
+.jv-feedback b{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#52617f}
+.jv-feedback button{min-height:40px;border:1.5px solid #8aa7bf;border-radius:999px;background:#f4fbff;color:#132c4e;padding:7px 12px;font:750 13px/1 Jost,sans-serif;cursor:pointer}
+.jv-feedback button[aria-pressed="true"]{background:#7de2c2;border-color:#31566f}
+.jv-feedback-prompt{flex:1 0 100%;color:#52617f;font-size:13px;font-weight:700}
+.jv-feedback-submit{background:#f056a6!important;border-color:#8f2e67!important;color:#260d2b!important}
+.library-status{max-width:1320px;margin:18px auto 0;padding:0;color:#07142f;font:750 14px/1.5 Jost,sans-serif}
+.library-status:empty{display:none}
+.shelf-guide .library-status{grid-column:1/-1;max-width:none;width:100%;margin:0;color:#dce7ff}
+.reader-error{margin:18px 0;padding:18px;border:2px solid #9b4d68;background:#fff6f8;color:#421b2c}
+.reader-error h3{margin:0 0 8px;font:800 20px/1.2 Jost,sans-serif}.reader-error p{margin:0 0 12px}
+.reader-error button{border:2px solid #07142f;background:#fff;color:#07142f;padding:9px 13px;font:800 11px/1 Jost,sans-serif;cursor:pointer}
+.reader-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:10px}
+.correction-desk{padding:0 clamp(18px,4vw,54px);background:#f2edff;color:var(--midnight);border-bottom:3px solid #8c7cf2}
+.correction-desk[hidden]{display:none}.correction-desk form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 20px;max-width:1040px;margin:0 auto;padding:24px 0}
+.correction-desk h3,.correction-desk .correction-intro,.correction-desk .correction-finding,.correction-desk .correction-privacy,.correction-desk .correction-controls,.correction-desk .correction-status{grid-column:1/-1}
+.correction-desk h3{font:800 clamp(24px,3vw,34px)/1.1 Jost,sans-serif}.correction-desk p{margin:0;line-height:1.5}
+.correction-field{display:grid;gap:6px;font-size:13px;font-weight:800}.correction-field span{letter-spacing:.06em;text-transform:uppercase}
+.correction-field select,.correction-field textarea,.correction-field input{width:100%;border:2px solid #7c6bd5;border-radius:7px;background:#fff;color:var(--midnight);padding:11px 12px;font:600 16px/1.4 Jost,sans-serif}
+.correction-field textarea{min-height:116px;resize:vertical}.correction-privacy{font-size:13px;color:#514a6d}
+.correction-controls{display:flex;flex-wrap:wrap;gap:10px}.correction-controls button{min-height:44px;border:2px solid #07142f;background:#07142f;color:#fff;padding:10px 16px;font:800 13px/1 Jost,sans-serif;cursor:pointer}.correction-controls button[type="button"]{background:#fff;color:#07142f}
+.correction-status{min-height:24px;font-weight:700}.correction-status[data-state="error"]{color:#8f2e67}.correction-status[data-state="accepted"]{color:#0b6c65}
+.jv-card{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:1px 12px;
+  text-decoration:none;background:#fff;border:1px solid #d8dff4;border-radius:11px;padding:12px 15px;
+  transition:transform .12s,box-shadow .12s,border-color .12s}
+button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
+.jv-card:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(7,20,47,.18);border-color:var(--pink)}
+.jv-type{grid-row:1/3;align-self:center;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  color:#fff;background:var(--teal);border-radius:6px;padding:5px 8px;white-space:nowrap;text-align:center}
+.jv-episode{background:#d92f7f}.jv-101{background:#2467c8}.jv-concept{background:#008b9e;color:#07142f}.jv-tool{background:#6d1eb5}
+.jv-reference{background:#007ea8}.jv-activity{background:#a32fbd}.jv-building{background:#5650c7}
+.jv-t{font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);align-self:end}
+.jv-s{font-size:13px;color:#6b4b60;line-height:1.4}
+.jv-none{display:block;margin:0;padding:12px 14px;background:#fff;color:var(--midnight);font-size:14px;font-weight:700;line-height:1.5;border-left:5px solid var(--cyan)}
+.jv-request{display:grid;gap:10px;margin-top:10px;padding:14px 16px;background:#eefbfc;color:#07142f;border:2px solid #18c6d8;border-radius:10px}
+.jv-request p{margin:0;line-height:1.5}.jv-request-consent{display:flex;align-items:flex-start;gap:9px;font-size:13px;line-height:1.45}.jv-request-consent input{width:18px;height:18px;margin-top:1px;flex:0 0 auto}
+.jv-request-controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px}.jv-request button{min-height:44px;border:2px solid #07142f;background:#07142f;color:#fff;padding:10px 14px;font:800 13px/1 Jost,sans-serif;cursor:pointer}.jv-request button:disabled{opacity:.55;cursor:not-allowed}.jv-request-status{font-weight:700;font-size:13px}.jv-request-status[data-state="error"]{color:#8f2e67}.jv-request-status[data-state="accepted"]{color:#0b6c65}
+.jv-error{padding:14px;border:2px solid #9b4d68;background:#fff6f8;color:#421b2c}
+.jv-error p{margin:0 0 10px}.jv-error button{border:2px solid #07142f;background:#fff;color:#07142f;padding:9px 13px;font:800 11px/1 Jost,sans-serif;cursor:pointer}
+.mobile-catalogue{display:none}
+
+/* One real Library room, one integrated three-collection case. These exact
+   assets are locked in operations/library-decisions.md. More inventory adds
+   another physical room/case below; it never adds pagination or shrinks books. */
+.libroom{position:relative;width:100%;height:auto;overflow:visible;background:#07142f}
+.unit{position:relative;z-index:1;display:grid;gap:0}
+/* LIBRARY_CASE_ANCHOR_CONTRACT: the admitted wall case remains registered to the
+   room image at these percentage anchors; new inventory adds a case, not pages. */
+.library-room-unit{position:relative;isolation:isolate;min-height:0;aspect-ratio:1672/940;padding:0;
+  overflow:hidden;background:url('assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png') center/cover no-repeat}
+.collection-copy{display:none}
+.shelf-unit{position:absolute;left:15.5%;right:16.6%;top:13.8%;bottom:24.4%;width:auto;aspect-ratio:auto;margin:0;
+  background:url('assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png') center/100% 100% no-repeat;
+  filter:drop-shadow(0 10px 14px rgba(60,30,55,.28))}
+.libroom.has-multiple-units .unit{display:grid;gap:0}
+.shelf-unit--1,.shelf-unit--2{background-size:100% 100%;background-position:center}
+.department{position:absolute;top:0;bottom:0;width:33.333%}
+.department:nth-child(1){left:0}.department:nth-child(2){left:33.333%}.department:nth-child(3){left:66.666%}
+.shelf-unit[data-department-count="1"] .department{left:33.333%}
+.shelf-unit[data-department-count="2"] .department:nth-child(1){left:16.666%}.shelf-unit[data-department-count="2"] .department:nth-child(2){left:50%}
+.bay{position:absolute;inset:0}
+.mobile-shelf-caption{display:none}
+.ledge{position:absolute;left:9%;right:9%;top:2.2%;height:8.5%;display:flex;align-items:center;justify-content:center;z-index:6}
+.ledge img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 7px rgba(7,20,47,.38))}
+.brow{position:absolute;left:8%;right:8%;height:25%;display:flex;align-items:flex-end;justify-content:center;gap:6%;z-index:2}
+.brow--1{bottom:64.5%}.brow--2{bottom:38.5%}.brow--3{bottom:12.5%}.brow--4{display:none}
+.bk{position:relative;height:100%;display:flex;align-items:flex-end;justify-content:center;min-width:0;cursor:pointer;
+  border:0;background:none;padding:0;transform-origin:bottom center;
+  transition:transform .16s cubic-bezier(.2,.8,.3,1),filter .16s;filter:drop-shadow(0 5px 6px rgba(0,0,0,.42))}
+/* BOOK_VISIBLE_SIZE_CONTRACT: each normalized transparent cover exposes at least
+   one 120 CSS-pixel dimension at admitted viewports and sits on a shelf rail. */
+.bk img{max-height:100%;max-width:100%;width:auto;height:auto;display:block}
+.bk:hover,.bk:focus-visible{transform:translateY(-13%) rotate(-2deg);filter:drop-shadow(0 12px 13px rgba(0,0,0,.5));outline:none;z-index:20}
+.bk.soon{cursor:default}
+.bk.soon img{opacity:.82;filter:grayscale(.2)}
+.bk.soon:hover{transform:none}.bk.soon .tip{border-color:#d9c8df}
+.shelf-guide{display:grid;grid-template-columns:minmax(280px,.7fr) minmax(0,1.3fr);gap:clamp(24px,5vw,72px);align-items:start;
+  width:100%;padding:clamp(44px,5vw,70px) clamp(24px,7vw,108px);background:linear-gradient(120deg,#07142f 0%,#242069 60%,#075f72 100%);color:#fff}
+.shelf-guide .eyebrow{font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#65e3ee}
+.shelf-guide h2{margin-top:7px;font-family:'Jost',system-ui,sans-serif;font-size:clamp(52px,5vw,72px);font-weight:800;line-height:.95;color:#fff}
+.shelf-captions{display:none}
+.shelf-caption{text-align:left;color:#fff;font-size:15px;line-height:1.52}
+.shelf-caption b{display:block;margin-bottom:6px;font-family:'Jost',system-ui,sans-serif;font-size:16px;font-weight:800;letter-spacing:.08em;color:#fff}
+.shelf-instruction{grid-column:2;margin:7px 0 0;color:#dce7ff;font-size:18px;font-weight:650;line-height:1.5}
+.catalogue-controls{grid-column:1/-1;display:grid;grid-template-columns:1fr;gap:14px;align-items:end;margin-top:18px}
+.catalogue-control{display:grid;gap:6px;color:#fff;font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.catalogue-control input,.catalogue-control select{width:100%;min-height:50px;border:2px solid #65e3ee;border-radius:8px;background:#f7f5ff;color:var(--midnight);padding:11px 13px;font:700 16px/1.3 Jost,sans-serif}
+.catalogue-control input::placeholder{color:#5c5370}.catalogue-control input:focus,.catalogue-control select:focus{outline:3px solid #72e5ee;outline-offset:2px}
+.catalogue-result{grid-column:1/-1;margin:2px 0 0;color:#dce7ff;font-size:15px;font-weight:650;line-height:1.4}
+.topic-links{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;padding-top:4px}
+.topic-links b{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.topic-link{appearance:none;min-width:44px;min-height:44px;border:0;border-bottom:2px solid transparent;background:none;color:#fff;padding:9px 6px;font:750 15px/1.3 Jost,sans-serif;cursor:pointer}
+.topic-link:hover,.topic-link[aria-pressed="true"]{color:#65e3ee;border-color:#f056a6}
+.visitor-state{grid-column:1/-1;margin:0;padding:2px 0 0;color:#dce7ff;font-size:13px;font-weight:650;line-height:1.5}
+.visitor-state:empty{display:none}
+.saved-route{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:8px;padding-top:22px;border-top:1px solid rgba(101,227,238,.46)}
+.saved-route p{margin:0;color:#dce7ff;font-size:14px;line-height:1.5}.saved-route strong{display:block;color:#fff;font-size:17px}
+.saved-route a{flex:0 0 auto;color:#07142f;background:#65e3ee;padding:12px 16px;font-weight:800;text-decoration:none}
+.saved-route a:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.empty-bay{position:absolute;left:10%;right:10%;top:42%;z-index:4;margin:0;text-align:center;color:#fff;font-size:14px;font-weight:800;text-shadow:0 2px 5px rgba(7,20,47,.8)}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.checkout-preview{display:grid;grid-template-columns:180px minmax(0,1fr) auto;gap:30px;align-items:center;
+  width:100%;margin:0;padding:28px clamp(24px,7vw,108px) 34px;
+  border-top:6px solid #18c6d8;background:linear-gradient(110deg,#eef2ff,#fff 64%);
+  box-shadow:0 -12px 34px rgba(7,20,47,.2);color:var(--midnight)}
+.checkout-preview.is-empty{display:none}
+.checkout-cover{height:230px;display:flex;align-items:center;justify-content:center}
+.checkout-cover img{max-width:100%;max-height:100%;filter:drop-shadow(0 8px 8px rgba(33,19,47,.28))}
+.checkout-kicker{color:#8f2e67;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.checkout-copy h2{margin:5px 0 7px;font-family:'Jost',system-ui,sans-serif;font-size:clamp(25px,3vw,38px);font-weight:800;line-height:1.05}
+.checkout-copy h2:focus{outline:none}
+.checkout-copy p{max-width:680px;margin:0;color:#563f5f;font-size:15px;line-height:1.5}
+.checkout-copy .checkout-inside{margin-top:10px;color:#332141}
+.checkout-inside b{color:var(--midnight)}
+.checkout-meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:12px;color:#574561;font-size:14px}
+.checkout-meta b{color:var(--midnight)}
+.checkout-action{display:grid;gap:8px;width:170px}
+.checkout-action button{min-height:44px;border:2px solid var(--midnight);background:var(--pink);color:#260d2b;padding:13px 16px;
+  font:800 12px/1.1 Jost,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;box-shadow:4px 4px 0 var(--midnight)}
+.checkout-action .checkout-back{background:#fff;color:var(--midnight)}
+.checkout-action .checkout-back:hover,.checkout-action .checkout-back:focus-visible{background:var(--cyan);outline:3px solid var(--yellow);outline-offset:2px}
+.checkout-action button[hidden]{display:none}
+.checkout-action small{color:#70425f;font-size:13px;line-height:1.4;text-align:center}
+
+/* ── the open book — a designed 90s magazine / textbook spread, themed per book ── */
+#reader{--accent:#7c2f4f;position:fixed!important;inset:0!important;width:100dvw;height:100dvh;max-width:none!important;
+  margin:0!important;transform:none!important;z-index:9999;display:none;overflow:hidden;
+  background:rgba(28,14,26,.52);backdrop-filter:blur(3px) saturate(.85)}
+#reader.on{display:grid;place-items:center;padding:26px}
+.reader-open{overflow:hidden}
+.book{--accent-ink:color-mix(in srgb,var(--accent) 58%,#1c0d18);width:min(960px,100%);max-height:90vh;display:flex;flex-direction:column;border-radius:14px;overflow:hidden;
+ background:#f8f6ff;color:#3a3155;box-shadow:0 44px 100px rgba(20,8,20,.6);border:1px solid rgba(255,255,255,.35)}
+/* masthead */
+.book .band{position:relative;padding:26px 30px 22px;color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;
+ background:linear-gradient(122deg,var(--accent) 0%,color-mix(in srgb,var(--accent) 60%,#160a14) 100%)}
+.book .band::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;
+ background:repeating-linear-gradient(90deg,#e982ab 0 22px,#8c7cf2 22px 44px,#63c6c9 44px 66px)}
+.book .band::after{content:"SUNNYVAiLE LIBRAiRY";position:absolute;right:30px;top:14px;font-size:8px;letter-spacing:.28em;opacity:.58}
+.book .band .t{font-family:'Playfair Display',Georgia,serif;font-weight:800;font-size:clamp(24px,3.4vw,36px);line-height:1.04;text-shadow:0 1px 0 rgba(0,0,0,.14)}
+.book .band .m{font-size:10px;letter-spacing:.26em;text-transform:uppercase;opacity:.9;margin-bottom:7px;font-weight:600}
+.book .band button:not(.puffy-btn){background:rgba(0,0,0,.22);color:#fff;border:1px solid rgba(255,255,255,.55);border-radius:20px;
+ padding:8px 15px;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap;transition:background .15s}
+.book .band button:not(.puffy-btn):hover{background:rgba(0,0,0,.4)}
+/* contents page */
+.book .body{display:grid;grid-template-columns:224px 1fr;min-height:0}
+.book .toc{border-right:1px solid #d7dff5;padding:22px 15px;overflow:auto;background:#e9edff;counter-reset:toc}
+.book .toc::before{content:"In this book";display:block;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#a58a6e;margin:0 9px 12px}
+.book .toc a{counter-increment:toc;display:flex;gap:9px;align-items:baseline;padding:8px 9px;border-radius:7px;color:#5c3350;text-decoration:none;font-size:13px;line-height:1.32}
+.book .toc a::before{content:counter(toc,decimal-leading-zero);font-size:10.5px;font-weight:700;color:var(--accent);opacity:.75;min-width:17px}
+.book .toc a:hover{background:#dfe6ff;color:var(--accent-ink)}
+.book .toc::after{content:none;display:none}
+/* reading column */
+.book .txt{padding:34px 66px 46px 46px;overflow:auto;line-height:1.72;font-size:16px;color:#3a2338;counter-reset:sec}
+.book .txt>*:first-child{margin-top:0}
+.book .txt h2{position:relative;font-family:'Playfair Display',serif;font-weight:800;font-size:26px;line-height:1.12;margin:42px 0 14px;color:var(--accent-ink);padding-top:22px}
+.book .txt h2::before{counter-increment:sec;content:counter(sec,decimal-leading-zero);position:absolute;top:16px;left:0;font-size:12.5px;font-weight:800;letter-spacing:.12em;color:var(--accent);opacity:.62}
+.book .txt h2::after{content:"";display:block;width:56px;height:4px;border-radius:3px;background:var(--accent);margin-top:12px}
+.book .txt h3{font-family:'Playfair Display',serif;font-weight:700;font-size:19px;margin:26px 0 6px;color:var(--accent)}
+.book .txt [aria-current="location"]:focus{outline:0;background:color-mix(in srgb,var(--accent) 9%,#f7f5ff);border-left:6px solid var(--accent);padding:7px 10px}
+.book .txt h4{font-family:'Playfair Display',serif;font-size:17px;margin:20px 0 5px;color:var(--accent-ink)}
+.book .txt p{margin:0 0 14px}
+.book .txt pre{max-width:100%;overflow-x:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+.book .txt code{overflow-wrap:anywhere}
+.book .txt ul,.book .txt ol{margin:0 0 16px;padding-left:20px}
+.book .txt li{margin:6px 0;padding-left:4px}
+.book .txt ul li::marker{color:var(--accent)}
+.book .txt strong,.book .txt b{color:var(--accent-ink);font-weight:700}
+.book .txt em{font-style:italic}
+.book .txt a{color:var(--accent);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1.5px}
+/* opening lede + drop cap */
+.book .txt .lede{font-size:18.5px;line-height:1.6;color:#4a2c46;margin-bottom:26px}
+.book .txt .lede::first-letter{font-family:'Playfair Display',serif;font-weight:800;font-size:3.4em;line-height:.72;float:left;margin:8px 12px -2px 0;color:var(--accent)}
+/* candy-dot divider */
+.book .txt hr{border:0;height:9px;width:118px;margin:32px auto;opacity:.55;
+ background:radial-gradient(circle,var(--accent) 0 2.5px,transparent 3px);background-size:16px 9px;background-repeat:repeat-x;background-position:center}
+/* glossary term cards */
+.book .txt .term{background:#fff;border:1px solid #d8dff4;border-left:5px solid var(--accent);border-radius:10px;
+ padding:14px 18px;margin:0 0 14px;box-shadow:0 2px 6px rgba(90,50,70,.06)}
+.book .txt .term h3{margin:0 0 6px;color:var(--accent-ink);font-size:18px}
+.book .txt .term p{margin:4px 0;font-size:14.5px;line-height:1.55}
+.book .txt .term p strong{color:var(--accent)}
+/* inline term reference (a word tagged mid-sentence) — NOT a card */
+.book .txt span.term{display:inline;background:none;border:0;box-shadow:none;padding:0;margin:0;border-radius:0;color:var(--accent);font-weight:700}
+/* callout box */
+.book .txt .callout{background:linear-gradient(180deg,#f7e5f1,#e7e1f6);border:1.5px solid #d7a9d0;border-radius:12px;padding:20px 20px 16px;margin:22px 0;box-shadow:0 3px 10px rgba(86,46,100,.08)}
+.book .txt .callout>b:first-child{display:inline-block;font-family:'Jost',sans-serif;font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#fff;background:var(--accent);padding:4px 11px;border-radius:20px;margin-bottom:10px}
+/* before / after cards */
+.book .txt .example{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
+.book .txt .ex-bad,.book .txt .ex-good{border-radius:12px;padding:15px 16px;font-size:14.5px;line-height:1.5}
+.book .txt .ex-bad{background:#fdeef1;border:1.5px solid #f2ccd5}
+.book .txt .ex-good{background:#edf7ee;border:1.5px solid #c9e7cf}
+.book .txt .ex-bad>b:first-child,.book .txt .ex-good>b:first-child{display:inline-block;text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:800;padding:3px 10px;border-radius:20px;margin-bottom:9px;color:#fff}
+.book .txt .ex-bad>b:first-child{background:#c0506c}
+.book .txt .ex-good>b:first-child{background:#4d8a58}
+/* receipts / sources — filed card */
+.book .txt .receipts{background:#eef2ff;border:1px dashed #aab9dc;border-radius:10px;padding:14px 16px;margin:18px 0;font-size:13px}
+.book .txt .receipts h3{margin:0 0 8px;padding:0;font-family:'Jost',sans-serif;font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:#a2855e}
+.book .txt .receipts h3::before,.book .txt .receipts h3::after{content:none}
+.book .txt .receipts ul{list-style:none;padding-left:0;margin:0}
+.book .txt .receipts li{margin:6px 0;padding-left:14px;position:relative;color:#7c6547}
+.book .txt .receipts li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+/* confidence badges */
+.book .txt .badge{display:inline-block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:20px;font-weight:800;vertical-align:middle}
+.book .txt .badge-solid{background:#d8f0da;color:#2c6b39}
+.book .txt .badge-contested{background:#fbe1cf;color:#ad5a26}
+.book .txt .badge-unknown{background:#e8e4ea;color:#665a70}
+/* verified stamp line */
+.book .txt .meta{display:inline-block;font-size:11px;color:#8a7359;background:#f2e7d5;border:1px solid #e2d0b4;border-radius:6px;padding:3px 9px;margin:2px 0 16px;letter-spacing:.01em}
+/* tables */
+.book .txt table{width:100%;border-collapse:separate;border-spacing:0;margin:18px 0;font-size:14px;border:1px solid #e6d5bd;border-radius:10px;overflow:hidden}
+.book .txt th,.book .txt td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid #ecddc6}
+.book .txt th{background:var(--accent);color:#fff;font-family:'Jost',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase}
+.book .txt tbody tr:nth-child(even){background:#f8efe0}
+.book .txt tbody tr:last-child td{border-bottom:0}
+/* pull quote */
+.book .txt blockquote{margin:22px 0;padding:6px 0 6px 24px;border-left:4px solid var(--accent);font-family:'Playfair Display',serif;font-size:19px;font-style:italic;line-height:1.4;color:var(--accent-ink)}
+.book .txt .teaching-visual{margin:26px 0 34px;padding:12px;background:#fff;border:2px solid color-mix(in srgb,var(--accent) 55%,#c9d6f1);box-shadow:8px 8px 0 color-mix(in srgb,var(--accent) 24%,#dbe4ff)}
+.book .txt .teaching-visual picture,.book .txt .teaching-visual img{display:block;width:100%;height:auto}
+.book .txt .teaching-visual figcaption{padding:11px 5px 2px;color:#34476d;font-size:13px;font-weight:700;line-height:1.48}
+/* Open book — a useful SUNNYVAiLE reference edition, not a web page in a
+   rounded modal. The paper, index and entries behave like one editorial
+   object; colour belongs to the book rather than to a generic card system. */
+#reader{--accent:#245ed1;background:rgba(6,15,37,.72);backdrop-filter:blur(5px) saturate(.88)}
+.book{--accent-ink:color-mix(in srgb,var(--accent) 72%,#07142f);width:min(1160px,calc(100dvw - 52px));max-height:calc(100dvh - 52px);
+  border:1px solid rgba(255,255,255,.62);border-radius:7px;background:#f4f6ff;color:#25283b;
+  box-shadow:0 42px 110px rgba(2,8,28,.66)}
+.book .band{min-height:142px;padding:34px 28px 28px;background:
+  linear-gradient(118deg,color-mix(in srgb,var(--accent) 86%,#07142f) 0 62%,#07142f 62% 100%);
+  border-bottom:6px solid #18c6d8;align-items:center}
+.book .band::before{content:"";height:7px;background:var(--accent)}
+.book .band::after{content:"SUNNYVAiLE LIBRAiRY · REFERENCE COPY";right:27px;top:15px;color:#d8f8ff;opacity:.78;letter-spacing:.22em}
+.book .band>div:first-child{min-width:0;align-self:stretch;display:flex;flex-direction:column;justify-content:center}
+.book .band .t{font-size:clamp(28px,3.5vw,42px);line-height:1.08;letter-spacing:-.02em}
+.book .band .m{max-width:700px;color:#fff;font-size:10px;line-height:1.42;font-weight:800;letter-spacing:.18em;opacity:.9}
+.book .band .t>.puffy-btn{color:#fff}
+.book .band .puffy-save-row{justify-content:flex-start;margin:10px 0 9px}
+.book .band button:not(.puffy-btn){align-self:center;background:#f7f1ff;color:#07142f;border:2px solid #07142f;border-radius:4px;
+  min-width:44px;min-height:44px;padding:10px 14px;font-weight:800;font-size:14px;line-height:1.2;box-shadow:4px 4px 0 #18c6d8;transition:transform .15s,box-shadow .15s}
+.book .band button:not(.puffy-btn):hover{background:#fff;transform:translate(-1px,-1px);box-shadow:6px 6px 0 #18c6d8}
+.book .band button:not(.puffy-btn):focus-visible{outline:3px solid #fff;outline-offset:3px}
+.book .body{grid-template-columns:214px 1fr;background:#f4f6ff}
+.book .toc{padding:26px 14px 34px;background:
+  linear-gradient(180deg,color-mix(in srgb,var(--accent) 10%,#eef2ff),#e9effc);
+  border-right:2px solid color-mix(in srgb,var(--accent) 32%,#c8d5ee);counter-reset:none}
+.book .toc::before{content:"CONTENTS · QUICK INDEX";color:#34476d;font-size:9px;font-weight:800;margin-bottom:16px}
+.book .toc .reader-toc-group{border-top:1px solid #cbd6ec;padding:5px 0}.book .toc .reader-toc-group:first-child{border-top:0}
+.book .toc a{counter-increment:none;padding:7px 8px;border-radius:3px;color:#263654;font-size:11.5px;line-height:1.25}
+.book .toc a::before{content:none}
+.toc-primary{display:flex;gap:8px;align-items:flex-start;font-weight:800}.toc-key{flex:0 0 22px;color:var(--accent);font-size:10px;font-weight:900;letter-spacing:.04em}.toc-title{min-width:0}
+.book .toc .toc-subsections{display:grid;padding:0 0 5px 25px}.book .toc .toc-subsections a{display:block;padding:5px 7px;color:#56637f;font-size:10.5px;font-weight:650}
+.book .toc a:hover,.book .toc a:focus-visible{background:#fff;color:#07142f;outline:2px solid var(--accent);outline-offset:-2px}
+.book .toc::after{content:none;display:none}
+.reader-jumpbar{position:relative;z-index:8;display:flex;align-items:stretch;flex:0 0 auto;min-height:48px;background:#fff;border-bottom:3px solid #18c6d8;color:#07142f}
+.reader-contents{position:relative;flex:1;min-width:0}
+.reader-contents>summary{display:flex;align-items:center;gap:11px;min-height:45px;padding:8px 17px;cursor:pointer;list-style:none;font:800 11px/1.25 'Jost',system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#07142f}
+.reader-contents>summary::-webkit-details-marker{display:none}
+.reader-contents>summary::before{content:"CONTENTS";flex:0 0 auto;padding:5px 8px;background:var(--accent);color:#fff;border-radius:3px;font-size:10px}
+.reader-contents>summary::after{content:"\25BE";margin-left:auto;color:var(--accent);font-size:15px;transition:transform .15s}
+.reader-contents[open]>summary::after{transform:rotate(180deg)}
+.reader-current-section{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:0;text-transform:none;color:#34476d;font-size:12px;font-weight:700}
+.reader-contents>summary:focus-visible,.reader-top:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.reader-contents nav{position:absolute;left:0;top:100%;z-index:12;display:block;width:min(620px,calc(100dvw - 100px));max-height:min(62vh,560px);overflow:auto;padding:10px 12px 14px;background:#fff;border:2px solid var(--accent);box-shadow:8px 8px 0 rgba(7,20,47,.22)}
+.reader-contents:not([open]) nav{display:none}
+.reader-contents nav a{display:flex;gap:9px;padding:9px;color:#263654;text-decoration:none;font-size:12.5px;line-height:1.3}
+.reader-toc-group{margin:0;border-top:1px solid #dce5fb}.reader-toc-group:first-child{border-top:0}
+.reader-toc-group>summary{display:flex;align-items:flex-start;gap:9px;min-height:44px;padding:10px 9px;cursor:pointer;list-style:none;color:#263654;font-size:12.5px;font-weight:800;line-height:1.3}
+.reader-toc-group>summary{list-style:disclosure-closed}.reader-toc-group[open]>summary{list-style:disclosure-open}
+.reader-toc-group>summary::-webkit-details-marker{display:inline;color:var(--accent)}.reader-toc-group>summary::after{content:none}
+.reader-toc-children{display:grid;padding:0 0 8px 29px}.reader-toc-children a{border-left:2px solid #dce5fb;color:#4d5875;font-size:12px}.reader-toc-children .reader-toc-start{color:#263654;font-weight:900}
+.reader-contents nav a:hover,.reader-contents nav a:focus-visible,.reader-contents nav a[aria-current="location"]{background:#eef3ff;color:#07142f;outline:2px solid var(--accent);outline-offset:-2px}
+.reader-top{flex:0 0 auto;min-width:78px;border:0;border-left:1px solid #d7dff5;background:#fff;color:#07142f;padding:8px 14px;font:900 11px/1 'Jost',system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.reader-top:hover{background:#eef3ff}
+.reader-save-book{flex:0 0 auto;min-width:72px;border:0;border-left:1px solid #d7dff5;background:#fff;color:#07142f;padding:7px 11px;font:900 10px/1.1 'Jost',system-ui,sans-serif;letter-spacing:.055em;text-transform:uppercase;cursor:pointer}
+.reader-save-book img{display:block;width:20px;height:20px;margin:0 auto 2px;object-fit:contain}.reader-save-book:hover,.reader-save-book:focus-visible{background:#eef3ff;outline:2px solid var(--accent);outline-offset:-2px}
+.book .txt{padding:38px 54px 58px;color:#2c2738;background:
+  linear-gradient(90deg,rgba(255,255,255,.86),rgba(249,248,255,.96)),
+  radial-gradient(circle at 10% 10%,color-mix(in srgb,var(--accent) 8%,transparent),transparent 45%);
+  line-height:1.62;font-size:15px}
+.book .txt .lede{position:relative;max-width:760px;margin:0 0 35px;padding:22px 24px 22px 28px;color:#17213b;
+  background:color-mix(in srgb,var(--accent) 9%,#f7f4ff);border-left:8px solid var(--accent);
+  font-family:'Playfair Display',Georgia,serif;font-size:19px;line-height:1.48}
+.book .txt .lede::before{content:"WHAT THIS BOOK WILL HELP YOU UNDERSTAND";display:block;margin-bottom:9px;color:var(--accent);
+  font-family:'Jost',sans-serif;font-size:9px;font-weight:900;letter-spacing:.2em}
+.book .txt .lede::first-letter{float:none;margin:0;font:inherit;color:inherit}
+.book .txt h2{margin:46px 0 8px;padding:0 0 10px;color:#17213b;background:transparent;border-bottom:4px solid #18c6d8;
+  font-family:'Jost',sans-serif;font-size:20px;line-height:1.1;text-transform:uppercase;letter-spacing:.055em}
+.book .txt h2::before{position:static;display:inline;margin-right:12px;color:var(--accent);font-size:10px;opacity:.78}
+.book .txt h2::after{content:none}
+.book .txt h2[data-source-block^="chapter-"]{margin:48px -18px 18px;padding:15px 18px 14px;color:#fff;background:#07142f;border-bottom:6px solid #18c6d8}
+.book .txt h2[data-source-block^="part-"]{margin:52px -18px 12px;padding:14px 18px;color:#07142f;background:#dff7fa;border:0;border-left:8px solid #18c6d8}
+.book .txt h2[data-source-block^="chapter-"] *,.book .txt h2[data-source-block^="part-"] *{color:inherit}
+.book .txt .term{display:grid;grid-template-columns:minmax(175px,210px) 1fr;column-gap:28px;row-gap:0;
+  margin:0;padding:22px 4px 23px;background:transparent;border:0;border-top:2px solid color-mix(in srgb,var(--accent) 25%,#d5dced);
+  border-radius:0;box-shadow:none}
+.book .txt .term h3{grid-column:1;grid-row:1 / span 8;align-self:start;margin:1px 0 0;padding:0 12px 0 0;
+  color:var(--accent-ink);font-size:20px;line-height:1.15}
+.book .txt .term h3>.puffy-btn{display:flex;margin:12px 0 0;color:#354461}
+.book .txt .term p{grid-column:2;margin:0 0 9px;font-size:14px;line-height:1.56}
+.book .txt .term p:last-child{margin-bottom:0}
+.book .txt .term p strong{color:var(--accent-ink)}
+.book .txt .term-feature{margin:12px -14px;padding:24px 18px;background:color-mix(in srgb,var(--accent) 8%,#f8f6ff);
+  border-top:3px solid var(--accent);border-bottom:1px solid color-mix(in srgb,var(--accent) 25%,#d5dced)}
+.book .txt .go-deeper{margin-top:5px;padding-top:9px;border-top:1px solid color-mix(in srgb,var(--accent) 22%,#d5dced)}
+.book .txt .callout{--panel-bg:#e8f1ff;--panel-line:#18c6d8;margin:32px 0 20px;padding:20px 22px;background:var(--panel-bg);color:#17213b;border:3px solid #101842;border-left:10px solid var(--panel-line);
+  border-radius:7px;box-shadow:none}
+.book .txt .callout-objective{--panel-bg:#e5f8ff;--panel-line:#00aeca}
+.book .txt .callout-question{--panel-bg:#ffe1f1;--panel-line:#ed238c}
+.book .txt .callout-practice{--panel-bg:#fff0e8;--panel-line:#e65e2e}
+.book .txt .callout-insight{--panel-bg:#e7fff3;--panel-line:#18a76d}
+.book .txt .callout-note{--panel-bg:#e8f1ff;--panel-line:#00aeca}
+.book .txt .callout-key{--panel-bg:#f0e8ff;--panel-line:#6b2cff}
+.book .txt .callout-big-picture{--panel-bg:#e7e5ff;--panel-line:#332c9e}
+.book .txt .callout-landmark{--panel-bg:#e9eeff;--panel-line:#4558e8}
+.book .txt .callout>b:first-child{background:var(--panel-line);color:#fff;border-radius:2px}
+.book .txt .callout p{margin:8px 0 0}
+.book .txt .key-terms-reference{margin:30px 0;padding:21px 22px;background:#eef4ff;border:3px solid #101842;border-top:10px solid #6b2cff}
+.book .txt .key-terms-reference>h3{margin-top:0;color:#101842}
+.book .txt .key-terms-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.book .txt .key-term-card{padding:13px 14px;background:#fff;border:2px solid #b7c2df;border-left:8px solid #00aeca;border-radius:7px}
+.book .txt .key-term-card dt{font-weight:900;color:#17213b}.book .txt .key-term-card dd{margin:5px 0 0}
+.book .txt .working-panel{--panel-bg:#e8f1ff;--panel-line:#00aeca;margin:30px 0;padding:20px 22px;background:var(--panel-bg);color:#17213b;border:3px solid #101842;border-left:10px solid var(--panel-line);border-radius:7px}
+.book .txt .working-panel>h2,.book .txt .working-panel>h3{margin:0 0 12px;padding:0 0 8px;color:#17213b;background:transparent;border:0;border-bottom:2px solid var(--panel-line)}
+.book .txt .working-objectives{--panel-bg:#e5f8ff;--panel-line:#00aeca}
+.book .txt .working-key-terms{--panel-bg:#eef4ff;--panel-line:#6b2cff}
+.book .txt .working-practice{--panel-bg:#fff0e8;--panel-line:#e65e2e}
+.book .txt .working-kit{--panel-bg:#e7fff3;--panel-line:#18a76d}
+.book .txt .working-next{--panel-bg:#f0e8ff;--panel-line:#6b2cff}
+.book .txt .working-principle{margin:24px 0;padding:17px 20px;background:#ffe1f1;color:#17213b;border:3px solid #101842;border-left:10px solid #ed238c;border-radius:7px}
+.book .txt .working-prompt-card{margin:22px 0;padding:18px 20px;white-space:pre-wrap;overflow-wrap:anywhere;background:#101d40;color:#fff;border-left:8px solid #18c6d8}
+.book .txt .working-prompt-card *,.book .txt .vr-prompt *{color:inherit}
+.book .txt .receipts{margin:22px 0 0;padding:18px 20px;background:#eaf0ff;border:1px solid #b8c9ee;border-radius:3px;font-size:12px}
+.book .txt .receipts h3{color:#34476d}
+.book .txt .receipts li{color:#425477}
+.book .txt .badge-solid{background:#d8f5ed;color:#176154}
+.book .txt .badge-contested{background:#efe5ff;color:#6737aa}
+.book .txt .badge-unknown{background:#e4f5ff;color:#235f91}
+.book .txt .meta{color:#53688f;background:#f0f4ff;border-color:#d6e0f7}
+.book .txt hr{display:none}
+.book .txt .vr-hero{margin:-8px -18px 34px;padding:27px 28px;background:#ecf1ff;border-left:8px solid var(--accent)}
+.book .txt .vr-hero h1{margin:0 0 12px;color:#07142f;font:800 clamp(28px,4vw,46px)/1.02 'Playfair Display',Georgia,serif}
+.book .txt .vr-eyebrow,.book .txt .vr-kicker{margin:0 0 8px;color:var(--accent);font:900 10px/1.4 'Jost',sans-serif;letter-spacing:.15em;text-transform:uppercase}
+.book .txt .vr-promise{max-width:760px;color:#17213b;font:700 19px/1.48 'Playfair Display',Georgia,serif}
+.book .txt .vr-scenario{max-width:760px;padding:15px 18px;background:#fff;border-left:6px solid #18c6d8}
+.book .txt .vr-chapter{padding-bottom:16px}
+.book .txt .vr-subsection{max-width:780px}
+.book .txt .vr-definitions{display:grid;gap:8px;margin:16px 0}
+.book .txt .vr-definitions>div{display:grid;grid-template-columns:minmax(150px,190px) 1fr;gap:18px;padding:13px 15px;background:#fff;border:1px solid #c9d6f1}
+.book .txt .vr-definitions dt{font-weight:900;color:var(--accent-ink)}.book .txt .vr-definitions dd{margin:0}
+.book .txt .vr-table-wrap{width:100%;max-width:100%;overflow:auto;border:1px solid #c9d6f1}
+.book .txt .vr-check,.book .txt .vr-transfer{max-width:780px;margin:25px 0;padding:19px 20px;background:#edf2ff;border:2px solid color-mix(in srgb,var(--accent) 48%,#b9c8ec)}
+.book .txt .vr-check fieldset{min-width:0;margin:0;padding:0;border:0}.book .txt .vr-check legend{margin-bottom:10px;font-weight:900;color:#17213b}
+.book .txt .vr-check label{display:flex;align-items:flex-start;gap:9px;margin:7px 0;padding:10px 11px;background:#fff;border:1px solid #c9d6f1}
+.book .txt .vr-check input{flex:0 0 auto;width:20px;height:20px}.book .txt .vr-check select,.book .txt .vr-check textarea{width:100%;margin:6px 0 12px;padding:10px;border:2px solid #9aabd2;background:#fff;color:#17213b;font:inherit}
+.book .txt .vr-check textarea{min-height:110px;resize:vertical}.book .txt .vr-check button,.book .txt .vr-copy{min-height:44px;padding:9px 14px;border:2px solid #07142f;background:var(--accent);color:#fff;font:900 11px/1.2 'Jost',sans-serif;letter-spacing:.055em;text-transform:uppercase;cursor:pointer;box-shadow:4px 4px 0 #18c6d8}
+.book .txt .vr-check button:focus-visible,.book .txt .vr-copy:focus-visible{outline:3px solid #07142f;outline-offset:3px}
+.book .txt .vr-feedback{min-height:24px;margin:11px 0 0;color:#17213b;font-weight:800}.book .txt .vr-item-feedback,.book .txt .vr-self-check{padding:11px;background:#fff;border-left:5px solid #18c6d8}
+.book .txt .vr-loop{display:flex;flex-wrap:wrap;gap:7px;padding:0;list-style:none}.book .txt .vr-loop li{margin:0;padding:7px 10px;background:#07142f;color:#fff;font-weight:800}
+.book .txt .vr-prompt{margin:30px -18px;padding:25px 28px;background:#101d40;color:#fff}.book .txt .vr-prompt h2,.book .txt .vr-prompt p,.book .txt .vr-prompt label{color:#fff}.book .txt .vr-prompt textarea{width:100%;min-height:190px;padding:13px;color:#17213b;background:#fff;font:14px/1.5 ui-monospace,SFMono-Regular,monospace}
+.book .txt .vr-metadata,.book .txt .vr-sources,.book .txt .vr-next{margin-top:34px;padding:20px;background:#eaf0ff;border-top:3px solid #18c6d8}
+.book .txt .vr-meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:9px}.book .txt .vr-meta-grid>div{padding:11px;background:#fff;border:1px solid #c9d6f1}.book .txt .vr-meta-grid dt{font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.book .txt .vr-meta-grid dd{margin:5px 0 0}
+.book .txt details{margin:12px 0;padding:12px;background:#fff;border:1px solid #c9d6f1}.book .txt summary{cursor:pointer;font-weight:900}
+.book .txt .vr-source-list,.book .txt .vr-handoffs,.book .txt .vr-ledger-list{padding:0;list-style:none}.book .txt .vr-source-list li,.book .txt .vr-handoffs li,.book .txt .vr-ledger-list>li{padding:12px 0;border-bottom:1px solid #c9d6f1}
+.book .txt .vr-claim{margin:13px 0;padding:12px;background:#fff;border-left:5px solid var(--accent)}
+.book .band .puffy-save-row .puffy-btn{min-width:44px;min-height:44px;padding:7px 12px 7px 9px;background:#f7f1ff;color:#07142f;border:2px solid #07142f;border-radius:4px;box-shadow:4px 4px 0 #18c6d8;font-size:13px;line-height:1.2;letter-spacing:.035em}
+.book .band .puffy-save-row .puffy-btn:hover,.book .band .puffy-save-row .puffy-btn:focus-visible{background:#fff;transform:translate(-1px,-1px);box-shadow:6px 6px 0 #18c6d8}
+.book .puffy-button-art{display:none}
+.reader-save-heading{position:relative;display:block!important;box-sizing:border-box;padding-right:56px!important;min-height:44px;overflow-wrap:anywhere}
+.reader-save-heading-text{display:block;min-width:0;max-width:100%;overflow-wrap:anywhere}
+.reader-inline-save{position:absolute;top:0;right:0;float:none;display:inline-grid;place-items:center;width:44px;height:44px;margin:0;border:0;background:transparent;color:#07142f;cursor:pointer;transform:none}
+.reader-inline-save img{display:block;width:28px;height:28px;padding:3px;object-fit:contain;border:1px solid color-mix(in srgb,var(--accent) 55%,#07142f);border-radius:3px;background:#fff;box-shadow:2px 2px 0 #18c6d8}
+.reader-inline-save:hover img,.reader-inline-save:focus-visible img{background:#eef3ff;outline:2px solid #18c6d8;outline-offset:2px}
+.book .txt h2[data-source-block^="chapter-"]>.reader-inline-save{margin-top:0}
+.book .band #reader-report{min-width:0;background:transparent;color:#fff;border-color:transparent;border-radius:0;padding:10px 5px;box-shadow:none;text-decoration:underline;text-underline-offset:4px;font-size:12px}
+.book .band #reader-report:hover,.book .band #reader-report:focus-visible{background:rgba(255,255,255,.12);box-shadow:none;transform:none}
+.book .txt .puffy-save-row{margin:2px 0 10px;justify-content:flex-end}
+.book .txt .puffy-save-row .puffy-btn{min-width:44px;min-height:40px;padding:5px 8px;border-color:transparent;background:transparent;color:#5a6680;font-size:11px;line-height:1.2;letter-spacing:.025em;opacity:.7}
+.book .txt .puffy-save-row .puffy-btn:hover,.book .txt .puffy-save-row .puffy-btn:focus-visible{background:#eef3ff;color:#263654;opacity:1}
+.book .txt table{border-color:#c9d6f1;border-radius:3px}
+.book .txt th,.book .txt td{border-bottom-color:#dbe4ff}
+.book .txt tbody tr:nth-child(even){background:#f0f4ff}
+.book .txt::after{content:"SUNNYVAiLE LIBRAiRY · RETURN TO THE SHELF WHEN YOU ARE DONE";height:auto;margin:42px 0 0;padding-top:13px;
+  color:#68789a;border-top:1px solid #cbd6ec;background:none;font-size:8px;font-weight:800;letter-spacing:.18em;text-align:center}
+
+/* Ali-selected pop-zine reader: long-form paper first, approved Puffy motifs
+   in the frame, and one compact overlay Contents control at every width. */
+#reader.on{padding:14px}
+.book{position:relative;width:min(1420px,calc(100dvw - 28px));max-height:calc(100dvh - 28px);padding-left:116px;
+  border:2px solid #6b42bf;border-radius:4px;background:#eee8ff;box-shadow:0 34px 90px rgba(2,8,28,.62)}
+.reader-pop-frame{position:absolute;inset:0 auto 0 0;z-index:0;width:116px;overflow:hidden;background:#e8e0fa;border-right:2px solid #6b42bf;pointer-events:none}
+.reader-pop-frame::before{content:"";position:absolute;inset:0;opacity:.08}
+.reader-motif{position:absolute;z-index:1;display:block;width:auto;height:auto;object-fit:contain;filter:drop-shadow(2px 4px 0 rgba(59,36,114,.2))}
+.reader-motif-cursor{top:18px;left:15px;width:70px}.reader-motif-lightning{top:142px;left:19px;width:61px}
+.reader-motif-cassette{top:286px;left:-8px;width:126px}.reader-motif-computer{bottom:18px;left:2px;width:108px}.reader-motif-star{right:9px;bottom:168px;width:36px}
+.book>.band,.book>.correction-desk,.book>.body{position:relative;z-index:2}
+.book>.band{z-index:20}
+.book .band{min-height:134px;padding:27px 30px 25px;background:#fff;color:#101842;border-bottom:4px solid #18c6d8;align-items:center;gap:30px}
+.book .band::before,.book .band::after{content:none}
+.book .band>div:first-child{min-width:280px;flex:1 1 430px;align-self:auto}
+.book .band .m{order:2;margin:7px 0 0;color:#6b42bf;font-size:9px;line-height:1.4;font-weight:900;letter-spacing:.19em;opacity:1}
+.book .band .t{display:inline-block;width:max-content;max-width:100%;padding:0 4px 7px 0;border-bottom:5px solid #ed4a9e;color:#101842;
+  font-family:'Playfair Display',Georgia,serif;font-size:clamp(34px,4vw,58px);font-weight:800;line-height:.98;letter-spacing:-.035em;text-shadow:none}
+.reader-actions{flex:0 1 650px;gap:7px;align-items:center;justify-content:flex-end}
+.reader-contents{position:relative;flex:0 0 auto;min-width:0}
+.reader-contents>summary{min-height:44px;padding:10px 14px;gap:8px;border:2px solid #6b42bf;border-radius:6px;background:#f4efff;color:#352269;
+  font-size:12px;letter-spacing:.02em;text-transform:none}
+.reader-contents>summary::before,.reader-contents>summary::after{content:none}
+.reader-contents[open]>summary{background:#fff}
+.reader-contents-label{font-weight:900}.reader-contents nav{left:auto;right:0;top:calc(100% + 9px);width:min(470px,calc(100dvw - 54px));max-height:min(68vh,640px);
+  padding:12px;background:#fff;border:3px solid #6b42bf;border-radius:4px;box-shadow:9px 9px 0 rgba(16,24,66,.24)}
+.reader-save-book,.reader-top,.book .band button:not(.puffy-btn){align-self:auto;min-width:44px;min-height:44px;margin:0;padding:8px 11px;border:0;border-radius:0;
+  background:#fff;color:#101842;box-shadow:none;font:900 11px/1.1 'Jost',system-ui,sans-serif;letter-spacing:.02em;text-transform:none}
+.reader-save-book{display:inline-flex;align-items:center;gap:6px}.reader-save-book img{width:34px;height:34px;margin:0;filter:drop-shadow(1px 2px 0 rgba(23,42,72,.18))}
+.reader-save-book span{font-size:11px}.reader-top{border-left:1px solid #d9d4e8;border-right:1px solid #d9d4e8;text-transform:uppercase;letter-spacing:.06em}
+.book .band #reader-close{padding:10px 14px;border:2px solid #18c6d8;border-radius:6px;background:#fff;white-space:nowrap}
+.book .band #reader-report{min-width:0;margin:0;padding:10px 7px;border:0;border-radius:0;background:transparent;color:#354461;box-shadow:none;text-decoration:none;font-size:11px;white-space:nowrap}
+.book .band button:not(.puffy-btn):hover,.book .band button:not(.puffy-btn):focus-visible,.reader-contents>summary:hover,.reader-contents>summary:focus-visible{
+  background:#f2edff;color:#101842;transform:none;box-shadow:none;outline:3px solid #18c6d8;outline-offset:2px}
+.book .body{display:grid;grid-template-columns:1fr;min-height:0;background:#fff}
+.book .toc{display:none!important}
+.book .txt{padding:38px max(34px,calc((100% - 790px)/2)) 62px;background:#fff;color:#17213b;font-size:16.5px;line-height:1.72}
+.book .txt>.eyebrow:first-child,.book .txt>h1:nth-child(2),.book .txt>.lede:nth-child(3){display:none}
+.book .txt .lede{max-width:790px;margin:0 auto 38px;padding:19px 22px 20px;background:#f0eaff;border:3px solid #101842;border-left:10px solid #6b2cff;border-radius:4px;
+  color:#17213b;font-size:18px;line-height:1.5;box-shadow:none}
+.book .txt .lede::before{color:#6b2cff}
+.book .txt h2{margin:48px 0 12px;padding:0 0 12px;border-bottom:4px solid #18c6d8;color:#101842;font-size:25px;line-height:1.13;letter-spacing:.04em}
+.book .txt h2[data-source-block^="chapter-"]{margin:54px -18px 20px;padding:18px 18px 16px;background:#101842;border-bottom:7px solid #18c6d8;color:#fff}
+.book .txt h3{color:#5b2eb7}.book .txt a{color:#6035ba}
+.book .txt .callout,.book .txt .key-terms-reference,.book .txt .working-panel{border-radius:4px}
+.book .txt .callout>b:first-child{border-radius:2px}
+
+@media(max-width:900px){
+  .library-hero{grid-template-columns:1fr;min-height:0}
+  .arrival-visual{min-height:390px}
+  .book .txt{padding:30px 30px 46px}
+  .book .txt .lede{font-size:17px;text-align:left}
+  .book .txt .term,.book .txt .term-feature{display:block;margin:0;padding:20px 3px 21px}
+  .book .txt .term-feature{margin:10px -8px;padding:21px 11px}
+  .book .txt .term h3{margin:0 0 10px;padding:0}
+  .book .txt .term h3>.puffy-btn{display:inline-flex;margin:0 0 0 7px}
+}
+
+@media(max-width:560px){.book .body{grid-template-columns:1fr}.book .toc{display:none}
+  .reader-contents nav{width:calc(100dvw - 102px);max-height:54vh}
+  .reader-contents>summary{padding:7px 10px;gap:8px}.reader-contents>summary::before{content:"CONTENTS";padding:5px 7px}
+  .reader-top{min-width:76px;padding:8px 10px}.reader-current-section{font-size:11px}
+  .book .txt{padding:24px 18px 34px;font-size:15.5px}.book .txt h2{margin:38px 0 7px;padding:0 0 10px;font-size:17px}.book .txt h2[data-source-block^="chapter-"],.book .txt h2[data-source-block^="part-"]{margin-left:-8px;margin-right:-8px;padding:12px 10px}.book .txt .lede{padding:18px;font-size:16px}
+  .book .txt .key-terms-grid{grid-template-columns:1fr}.book .txt .working-panel{padding:17px 16px}
+  .book .txt table{width:100%;table-layout:fixed}.book .txt th,.book .txt td{overflow-wrap:anywhere;word-break:normal;padding:8px 6px}
+  #reader.on{padding:12px}.book{max-height:calc(100vh - 24px)}
+  .book .band{min-height:0;flex:0 0 auto;padding:20px 18px 17px;align-items:flex-start;flex-direction:column}
+  .book .band::after{content:none}.book .band .m{max-width:100%;font-size:8px;line-height:1.45}
+  .book .band .t{font-size:27px}.reader-actions{width:100%;justify-content:flex-start}.book .band button:not(.puffy-btn){align-self:flex-start;margin-top:11px}
+  .correction-desk form{grid-template-columns:1fr;padding:20px 0}.correction-desk .correction-field{grid-column:1}.correction-controls{display:grid}.correction-controls button{width:100%}
+  .book .txt .term,.book .txt .term-feature{display:block;margin:0;padding:18px 2px 19px}
+  .book .txt .term-feature{margin:10px -6px;padding:19px 10px}
+  .book .txt .term h3{margin:0 0 10px;padding:0;font-size:19px}
+  .book .txt .term h3>.puffy-btn{display:inline-flex;margin:0 0 0 6px}
+  .book .txt .term p{font-size:14px}
+  .book .txt .vr-hero{margin:-5px -4px 28px;padding:20px 17px}.book .txt .vr-definitions>div{grid-template-columns:1fr;gap:5px}
+  .book .txt .vr-check,.book .txt .vr-transfer{padding:15px 13px}.book .txt .vr-prompt{margin:26px -8px;padding:21px 16px}
+  .jv-form{flex-wrap:wrap}.jv-form input{flex:1 1 100%}.jv-form button{flex:1 1 100%;padding:13px}
+  .entry{height:40vh;min-height:230px}
+  .library-hero{grid-template-columns:1fr;min-height:0}
+  .library-intro{margin:0;padding:34px 20px 30px;gap:14px;border-radius:0}
+  .library-intro::after{width:68%}.titleblock{min-width:0;margin:0}.titleblock .eyebrow{font-size:10px;letter-spacing:.15em}.titleblock h1{font-size:clamp(34px,11vw,42px);line-height:.98;overflow-wrap:anywhere}.lede{font-size:16px;margin:0}.lede small{font-size:14px}
+  /* Phone: every matching cover stays visibly on the page. Each pair occupies
+     a real metal shelf row; there is no hidden horizontal reel or pagination. */
+  .libroom{aspect-ratio:auto;height:auto;overflow:hidden;padding:0;background:#f8f5ff}
+  .unit{position:relative;inset:auto;display:grid;gap:0;padding:0}
+  .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;inset:auto;aspect-ratio:auto;padding:28px 8px 60px;overflow:hidden;background-image:linear-gradient(var(--room-tint),var(--room-tint)),url('assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png'),url('assets/building-interiors/library-shelf/room/floor-geometric-v1.png');background-position:center top,center top,center bottom;background-size:100% calc(100% - 60px),100% calc(100% - 60px),auto 60px;background-repeat:no-repeat,no-repeat,repeat-x}
+  .shelf-unit,.libroom.has-multiple-units .shelf-unit{position:relative;inset:auto;width:100%;margin:0;justify-self:stretch;aspect-ratio:auto;background:none;filter:none;display:grid;gap:14px}
+  .department,.department:nth-child(1),.department:nth-child(2),.department:nth-child(3){position:relative;inset:auto;width:100%;max-width:460px;margin:0 auto}
+  .bay{position:relative;inset:auto;width:100%;height:auto;aspect-ratio:8/9;overflow:visible;background:url('assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png') center/100% 100% no-repeat;filter:drop-shadow(0 7px 11px rgba(60,30,55,.24))}
+  .ledge{display:none}
+  .brow,.brow--1,.brow--2,.brow--3,.brow--4{position:absolute;left:9%;right:9%;height:35%;display:flex;align-items:flex-end;justify-content:center;gap:12%;overflow:visible;padding:0;background:none;filter:none}
+  .brow--1{bottom:64.5%}.brow--2{bottom:32.25%}.brow--3{bottom:0}.brow--4{display:none}
+  .brow:empty{display:none}
+  .bk{flex:0 1 148px;width:clamp(122px,36vw,148px);max-width:148px;height:100%}
+  .bk img{width:auto;max-width:100%;max-height:100%}
+  .collection-copy,.library-room-unit:nth-child(1) .collection-copy,.library-room-unit:nth-child(2) .collection-copy,.library-room-unit:nth-child(3) .collection-copy{display:none}
+  .mobile-shelf-caption{display:block;margin:2px 18px 8px;padding:0;text-align:left;color:var(--midnight);font-size:14px;line-height:1.42}
+  .mobile-shelf-caption b{display:block;margin-bottom:2px;font-family:'Jost',system-ui,sans-serif;font-size:19px;font-weight:800;letter-spacing:.07em;color:var(--midnight)}
+  .mobile-shelf-caption .reel-cue{display:block;margin-top:4px;color:#713475;font-size:12px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+  .shelf-guide{display:block;padding:24px 20px 22px}.shelf-guide h2{font-size:32px}.shelf-captions{display:none}.shelf-instruction{margin-top:9px;font-size:14px}
+  .catalogue-controls{display:grid;grid-template-columns:1fr;margin-top:20px}.catalogue-result{font-size:13px}
+  .saved-route{align-items:flex-start;flex-direction:column}.saved-route a{width:100%;text-align:center}
+  .checkout-preview{grid-template-columns:90px minmax(0,1fr);gap:14px;width:100%;margin:0;padding:24px 18px;box-shadow:none}
+  .checkout-cover{height:150px}.checkout-copy h2{font-family:'Jost',system-ui,sans-serif;font-size:23px;font-weight:800}.checkout-copy p{font-size:15px}
+  .checkout-action{grid-column:1/-1;width:100%}.checkout-action button{width:100%}
+  .jv{display:block;margin:0;padding:30px 20px 32px;border-radius:0}.jv::before{content:none}.jv-head{display:flex;margin:0 0 15px;align-items:flex-start;flex-direction:column}.jv-head .h{font-size:34px}.jv-head .h small{font-size:15px;line-height:1.45}.jv-chips{margin-top:12px}.jv-results{margin-top:16px}
+  .book .txt .example{grid-template-columns:1fr}
+  .arrival-visual{height:300px;min-height:300px}
+  .arrival-visual>img{object-position:72% center}
+  .arrival-brand{left:5%;top:5%;width:54%;padding:0;box-shadow:none}
+  .arrival-brand .eyebrow{font-size:7px;letter-spacing:.18em}
+  .arrival-brand h1{margin:4px 0 6px}.arrival-brand h1 .place{font-size:10px;margin-bottom:5px}
+  .arrival-brand h1 .room{font-size:clamp(27px,9vw,38px)}
+  .arrival-brand p{display:none}
+  .arrival-brand .desktop-instruction{display:none}.arrival-brand .mobile-instruction{display:inline}
+  .mobile-catalogue{display:none}
+  .mobile-department{min-width:0}
+  .mobile-department-head{padding:0 18px 9px}
+  .mobile-department-head h2{font-family:'Jost',system-ui,sans-serif;color:var(--midnight);font-size:20px;letter-spacing:.08em}
+  .mobile-department-head p{margin:4px 0 0;color:#665674;font-size:14px;line-height:1.5}
+  .mobile-shelf{display:flex;gap:10px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;padding:4px 18px 16px}
+  .mobile-book{flex:0 0 126px;min-height:214px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;
+    scroll-snap-align:start;border:1px solid #c8d9ef;border-radius:12px;background:#fff;padding:10px;color:var(--midnight);
+    text-align:center;box-shadow:0 7px 18px rgba(49,34,78,.14)}
+  .mobile-book img{max-width:100%;height:150px;object-fit:contain;display:block;margin:auto}
+  .mobile-book b{font-size:12px;line-height:1.2}.mobile-book small{margin-top:4px;color:#8d2d68;font-size:10px;font-weight:700}
+  .mobile-book:not(.soon):focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+  .mobile-book.soon{opacity:.78}
+}
+@media(min-width:561px) and (max-width:900px){
+  .arrival-brand{left:5%;top:5%;width:34%;padding:0;box-shadow:none}
+  .arrival-brand .eyebrow{font-size:7px;letter-spacing:.18em}
+  .arrival-brand h1{margin:4px 0 5px}
+  .arrival-brand h1 .place{font-size:10px;margin-bottom:4px;letter-spacing:.14em}
+  .arrival-brand h1 .room{font-size:clamp(27px,4.6vw,37px)}
+  .arrival-brand p{display:none}
+}
+
+/* Library catalogue rebuild: one readable physical room. The actual shelf rail
+   is its own row, so hardware can never cross a title or description. */
+.library-hero{display:grid;grid-template-columns:1fr;min-height:0;border-bottom:8px solid var(--ink);
+  background:linear-gradient(145deg,#ef4d9c 0%,#b75cc4 58%,#6c7cd1 100%)}
+.library-intro{display:grid;grid-template-columns:minmax(320px,.8fr) minmax(420px,1.2fr);gap:clamp(28px,6vw,96px);align-items:center;
+  padding:clamp(34px,4vw,60px) clamp(24px,6vw,92px);background:transparent;color:var(--ink)}
+.titleblock .eyebrow{color:var(--ink)}
+.titleblock h1{font-size:clamp(58px,6vw,88px);color:var(--cream);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;text-shadow:8px 8px 0 var(--cyan)}
+.titleblock .ai{color:var(--yellow)}
+.library-intro .lede{max-width:760px;font-size:clamp(21px,2vw,29px)}
+.library-intro .lede small{color:var(--ink)}
+.arrival-visual{height:clamp(480px,55vw,760px);min-height:0;border-top:8px solid var(--ink);background:var(--midnight)}
+.arrival-visual>img{object-position:center center}
+.library-world{background:linear-gradient(120deg,#f2c6e5 0%,#c7d7f5 100%);color:var(--ink)}
+.jv{grid-template-columns:minmax(250px,.62fr) minmax(380px,1.38fr);align-items:center;
+  background:linear-gradient(120deg,rgba(239,77,156,.96) 0%,rgba(113,55,214,.94) 54%,rgba(101,209,227,.96) 100%);padding:clamp(34px,4.4vw,60px) clamp(24px,6vw,92px);
+  border-top:8px solid var(--ink);border-bottom:8px solid var(--ink);box-shadow:inset 0 -10px 0 #ef4d9c}
+.jv-kicker{border:3px solid var(--ink);background:var(--yellow);color:var(--ink);box-shadow:5px 5px 0 var(--pink)}
+.jv-head .h{color:var(--cream);text-shadow:5px 5px 0 var(--ink)}
+.jv-head .h small{color:var(--cream);text-shadow:2px 2px 0 rgba(7,20,47,.72)}.shelf-guide .library-status{color:var(--ink);text-shadow:none}
+.jv-chips>b{color:var(--cream);text-shadow:2px 2px 0 rgba(7,20,47,.72)}
+.jv-form input{border-color:var(--sky);background:var(--cream);color:var(--ink)}
+.jv-form input:focus{border-color:var(--cyan);box-shadow:0 0 0 4px rgba(21,188,224,.35)}
+.jv-form button{border-color:var(--ink);background:var(--pink);color:var(--ink);box-shadow:6px 6px 0 var(--yellow)}
+.jv-chip{border-color:var(--ink);background:var(--cream);color:var(--ink);box-shadow:3px 3px 0 var(--cobalt)}
+.jv-chip:nth-of-type(2){border-color:var(--purple)}.jv-chip:nth-of-type(3){border-color:var(--coral)}.jv-chip:nth-of-type(4){border-color:var(--cyan)}
+.jv-chip:hover,.jv-chip:focus-visible{background:var(--cyan);color:var(--ink);border-color:var(--yellow)}
+
+.shelf-guide{grid-template-columns:1fr;gap:clamp(22px,3vw,36px);
+  padding:clamp(32px,4vw,52px) clamp(24px,6vw,92px);background:linear-gradient(90deg,rgba(21,188,224,.98) 0%,rgba(21,188,224,.94) 42%,rgba(101,209,227,.9) 100%);color:var(--ink);
+  border-top:8px solid var(--ink);border-bottom:8px solid var(--ink);box-shadow:inset 0 -10px 0 var(--purple)}
+.shelf-guide-heading{display:grid;grid-template-columns:minmax(230px,.55fr) minmax(360px,1.45fr);gap:clamp(18px,4vw,56px);align-items:end}
+.shelf-guide .eyebrow{grid-column:1;justify-self:start;display:inline-flex;align-items:center;width:max-content;padding:9px 16px;border:3px solid var(--ink);border-radius:999px;background:var(--yellow);color:var(--midnight);box-shadow:5px 5px 0 var(--pink)}
+.shelf-guide h2{grid-column:1;font-family:'Jost',system-ui,sans-serif;font-size:clamp(44px,5vw,72px);font-weight:800;line-height:.92;color:var(--cream);-webkit-text-stroke:2px var(--ink);paint-order:stroke fill;text-shadow:7px 7px 0 var(--pink)}
+.shelf-guide-heading>p{grid-column:2;grid-row:1/3;max-width:760px;margin:0;padding:16px 20px;border:3px solid var(--ink);border-radius:20px;background:var(--yellow);box-shadow:7px 7px 0 var(--cobalt);font-size:clamp(17px,1.55vw,22px);font-weight:800;line-height:1.4}
+.shelf-captions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px)}
+.shelf-caption{display:grid;grid-template-rows:auto 1fr;margin:0;overflow:hidden;border:4px solid var(--ink);border-radius:24px;background:var(--cream);box-shadow:8px 8px 0 var(--panel-accent,var(--pink));color:var(--ink);text-decoration:none;transition:transform .16s ease,box-shadow .16s ease}
+.shelf-caption:hover,.shelf-caption:focus-visible{transform:translateY(-5px);box-shadow:11px 13px 0 var(--panel-accent,var(--pink));outline:4px solid var(--cream);outline-offset:4px}
+.shelf-caption:nth-child(1){--panel-accent:var(--pink)}.shelf-caption:nth-child(2){--panel-accent:var(--yellow)}.shelf-caption:nth-child(3){--panel-accent:var(--purple)}
+.shelf-caption-art{display:none}
+.shelf-caption-copy{padding:17px 18px 19px;font-size:15px;line-height:1.48}
+.shelf-caption-copy b{display:block;margin-bottom:5px;font-family:'Jost',system-ui,sans-serif;font-size:22px;font-weight:800;letter-spacing:.06em;color:var(--ink)}
+.shelf-caption-jump{display:block;margin-top:12px;font-weight:900;color:var(--cobalt)}
+.catalogue-controls{grid-template-columns:minmax(260px,1fr) minmax(240px,320px);gap:18px 22px;margin:0;padding:clamp(18px,2vw,26px);border:4px solid var(--ink);border-radius:24px;background:var(--cream);box-shadow:8px 8px 0 var(--pink)}
+/* CATALOGUE_ROUNDED_GRAMMAR_CONTRACT: the working catalogue follows Miss Jeeves' pill and rounded-panel language. */
+.shelf-guide input{border-radius:16px}.shelf-guide button,.shelf-guide .catalogue-closet{border-radius:999px}
+.catalogue-control{grid-column:1;color:var(--ink)}.catalogue-control input{border-color:var(--ink);background:#fff;color:var(--ink);box-shadow:5px 5px 0 var(--cyan)}
+.topic-links{grid-column:1/-1;gap:6px 14px;padding:14px 0 0;border:0;border-top:3px solid var(--ink);background:none;box-shadow:none}.topic-links b,.topic-link{color:var(--ink)}
+.topic-link:hover,.topic-link:focus-visible,.topic-link[aria-pressed="true"]{color:var(--ink);border-color:var(--yellow);background:var(--cyan)}
+.catalogue-closet{grid-column:2;grid-row:1;align-self:stretch;display:flex;flex-direction:column;justify-content:center;gap:4px;max-width:320px;min-height:76px;padding:13px 18px;
+  border:2px solid var(--ink);background:var(--cobalt);color:var(--cream);text-decoration:none;box-shadow:5px 5px 0 var(--yellow)}
+.catalogue-closet strong{display:block;font-size:16px;line-height:1.15}.catalogue-closet span{display:block;font-size:13px;line-height:1.35}
+.catalogue-closet[hidden]{display:none}
+.catalogue-closet:hover,.catalogue-closet:focus-visible{background:var(--cyan);color:var(--ink);outline:3px solid var(--yellow);outline-offset:2px}
+.catalogue-result{grid-column:1/-1;margin:0;padding:12px 0 0;border-top:3px solid var(--ink);color:var(--ink)}.catalogue-result:empty{display:none}.library-status{color:var(--ink)}
+
+.libroom{background:var(--midnight)}
+.library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;isolation:isolate;min-height:0;aspect-ratio:1672/940;padding:0;overflow:hidden;
+  /* LIBRARY_WALL_CROP_CONTRACT: colour belongs to the wall only. Every room keeps the same unfiltered carpet. */
+  border-bottom:8px solid var(--ink);background-image:linear-gradient(var(--room-tint),var(--room-tint)),url('assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png'),url('assets/building-interiors/library-shelf/room/floor-geometric-v1.png');background-position:center top,center top,center bottom;background-size:100% 100%,100% 100%,auto 6%;background-repeat:no-repeat,no-repeat,repeat-x;background-blend-mode:normal,normal,normal}
+.library-room-unit[data-collection-room="0"]{--room-tint:rgba(240,86,166,.42)}
+.library-room-unit[data-collection-room="1"]{--room-tint:rgba(21,188,224,.42)}
+.library-room-unit[data-collection-room="2"]{--room-tint:rgba(112,56,201,.38)}
+.library-room-unit.is-compact-room{aspect-ratio:2.1/1}
+.shelf-unit,.libroom.has-multiple-units .shelf-unit{position:absolute;left:4%;right:4%;top:3%;bottom:.8%;width:auto;margin:0;background:none;
+  filter:drop-shadow(0 12px 16px rgba(49,20,54,.3))}
+.shelf-unit::after{content:"";position:absolute;inset:0;z-index:5;pointer-events:none;background:url('assets/building-interiors/library-shelf/delivery-20260722-3bay-wall-case-v2-even-spacing/library-wall-case-3bay-v1.png') center/100% 100% no-repeat}
+.shelf-unit.is-compact,.libroom.has-multiple-units .shelf-unit.is-compact{left:2%;right:2%;top:2%;bottom:0}
+.shelf-unit.is-compact::after{background-image:url('assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png');background-size:100% 100%;background-position:center bottom}
+@media(min-width:701px){.shelf-unit:not(.is-compact),.libroom.has-multiple-units .shelf-unit:not(.is-compact){bottom:-5%}}
+.department,.department:nth-child(1),.department:nth-child(2),.department:nth-child(3){position:absolute;inset:0;width:100%;margin:0}
+.bay{position:absolute;inset:0}
+.ledge{position:absolute;z-index:6;left:50%;top:3.9%;width:min(320px,29%);height:7.2%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center}
+.ledge img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 7px 7px rgba(58,24,56,.28))}
+.mobile-shelf-caption{position:absolute;z-index:3;left:6%;right:6%;top:12%;margin:0;text-align:center;color:var(--ink);font-weight:800;font-size:clamp(13px,1.25vw,17px)}
+.mobile-shelf-caption b{display:none}.reel-cue{display:none}
+.brow{position:absolute;left:1.5%;right:1.5%;height:24%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end;justify-items:center;gap:0;z-index:3}
+/* LIBRARY_SHELF_DEPTH_CONTRACT: each row stays inside one opening; the real frame is layered above it. */
+.shelf-unit.is-compact .brow{height:25%;grid-template-columns:repeat(2,minmax(0,1fr))}.shelf-unit.is-compact .brow[data-book-count="1"]>.bk{grid-column:1/-1}.shelf-unit.is-compact .brow[data-book-count="2"]>.bk:first-child{grid-column:1}.shelf-unit.is-compact .brow[data-book-count="2"]>.bk:last-child{grid-column:2}
+.shelf-unit:not(.is-compact) .brow[data-book-count="1"]>.bk{grid-column:2}.shelf-unit:not(.is-compact) .brow[data-book-count="2"]>.bk:first-child{grid-column:1}.shelf-unit:not(.is-compact) .brow[data-book-count="2"]>.bk:last-child{grid-column:3}
+.brow--1{bottom:65.3%}.brow--2{bottom:38.7%}.brow--3{bottom:12.2%}.brow--4{display:none}
+.shelf-unit.is-compact .brow--1{bottom:51.2%}.shelf-unit.is-compact .brow--2{bottom:13.7%}.shelf-unit.is-compact .brow--3{display:none}
+.bk{position:relative;flex:0 1 clamp(145px,15vw,220px);width:clamp(145px,15vw,220px);height:100%;max-height:100%;display:flex;align-items:flex-end;justify-content:center;min-width:0;min-height:0;cursor:pointer;border:0;background:transparent;padding:0;filter:drop-shadow(0 10px 7px rgba(58,24,56,.35));transition:transform .16s ease}
+.bk img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;min-height:0;object-fit:contain;transform:translateY(-3%)}
+.bk:hover,.bk:focus-visible{transform:translateY(-7px) scale(1.04);outline:4px solid var(--yellow);outline-offset:4px}
+.bk.soon{opacity:1}.bk.soon:hover{transform:translateY(-4px)}
+.empty-bay{position:absolute;left:18%;right:18%;top:45%;z-index:4;margin:0;padding:16px;background:var(--cream);color:var(--ink);border:3px solid var(--ink);text-align:center;font-weight:900;box-shadow:7px 7px 0 var(--pink);text-shadow:none}
+
+/* MASTHEAD_FULL_FRAME_CONTRACT */
+/* COMPACT_LIBRARY_INTRO_CONTRACT */
+/* OWNER_CORRECTED_LIBRARY_SURFACE: Ali's supplied wide crop and brighter wall
+   treatment shorten the masthead; four standalone covers replace the rejected case. */
+.library-intro{padding:28px clamp(24px,4vw,64px);gap:clamp(24px,4vw,56px)}
+.arrival-visual{height:auto;min-height:0;aspect-ratio:1746/901;background:var(--cyan)}
+.arrival-visual>img{object-fit:contain;object-position:center center}
+.jv{background-image:linear-gradient(120deg,rgba(239,77,156,.88) 0%,rgba(113,55,214,.86) 54%,rgba(101,209,227,.9) 100%),url('assets/library/episode-01-pop-comic-bg-v1.png');background-position:center;background-size:cover}
+.jv-kicker{background:var(--mint);box-shadow:5px 5px 0 var(--pink)}
+.jv-form button{box-shadow:6px 6px 0 var(--cyan)}
+.jv-chip:hover,.jv-chip:focus-visible{border-color:var(--pink)}
+.shelf-guide{background-image:linear-gradient(90deg,rgba(21,188,224,.84) 0%,rgba(21,188,224,.8) 42%,rgba(101,209,227,.8) 100%),url('assets/library/episode-01-pop-comic-bg-v1.png');background-position:center 47%;background-size:cover}
+.shelf-captions{display:none!important}
+.shelf-guide .eyebrow{background:var(--mint);box-shadow:5px 5px 0 var(--pink)}
+.shelf-guide-heading>p{background:var(--cream);box-shadow:7px 7px 0 var(--pink)}
+.shelf-guide .libroom{grid-column:1/-1;width:100%;overflow:visible;background:transparent}
+.shelf-guide .unit{display:block}
+.book-cover-grid{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:clamp(20px,3vw,42px);align-items:end;width:100%;padding:clamp(14px,2vw,24px) 0}
+.book-cover-grid .bk{position:relative;width:100%;max-width:260px;height:clamp(240px,26vw,360px);justify-self:center;display:flex;align-items:flex-end;justify-content:center;padding:0;border:0;border-radius:0;background:transparent;filter:drop-shadow(0 14px 10px rgba(49,20,54,.32))}
+.book-cover-grid .bk img{width:100%;height:100%;object-fit:contain;transform:none}
+.book-cover-grid .bk:hover,.book-cover-grid .bk:focus-visible{transform:translateY(-7px) scale(1.025);outline:4px solid var(--cream);outline-offset:5px}
+.book-cover-grid .empty-bay{position:static;grid-column:1/-1}
+.shelf-guide .checkout-preview{grid-column:1/-1;width:100%;margin:0}
+.shelf-guide .checkout-copy h2{font-family:'Jost',system-ui,sans-serif;font-size:clamp(28px,3vw,42px);font-weight:800;line-height:1.05;color:var(--ink);-webkit-text-stroke:0;text-shadow:none}
+.topic-link:hover,.topic-link:focus-visible,.topic-link[aria-pressed="true"]{border-color:var(--cyan);background:var(--pink)}
+.catalogue-closet{box-shadow:5px 5px 0 var(--pink)}
+.catalogue-closet:hover,.catalogue-closet:focus-visible{outline-color:var(--cyan)}
+.checkout-action .checkout-back:hover,.checkout-action .checkout-back:focus-visible{outline-color:var(--cyan)}
+
+@media(max-width:700px){
+  .jv{display:block}.jv-head{margin-bottom:18px}.jv-head .h{font-size:38px}.jv-form{display:grid;grid-template-columns:1fr auto}
+  .shelf-guide{display:block}.shelf-guide-heading{display:block}.shelf-guide-heading>p{margin-top:18px}.shelf-captions{grid-template-columns:1fr;margin-top:24px}.shelf-caption-art{min-height:190px}.catalogue-controls{display:grid;grid-template-columns:1fr;margin-top:24px}
+  .catalogue-control,.catalogue-closet,.topic-links,.catalogue-result{grid-column:1}.catalogue-closet{grid-row:auto;max-width:none}
+  .topic-links{flex-wrap:nowrap;overflow-x:auto;padding:5px 0 9px}.topic-links b{flex:0 0 auto;align-self:center}.topic-link{flex:0 0 auto}
+  .library-room-unit,.libroom.has-multiple-units .library-room-unit{position:relative;aspect-ratio:auto;padding:26px 10px 60px;background-image:linear-gradient(var(--room-tint),var(--room-tint)),url('assets/building-interiors/library-shelf/room/wall-neutral-light-v1.png'),url('assets/building-interiors/library-shelf/room/floor-geometric-v1.png');background-position:center top,center top,center bottom;background-size:100% 100%,100% 100%,auto 6%;background-repeat:no-repeat,no-repeat,repeat-x;background-blend-mode:normal,normal,normal}
+  .library-room-unit.is-compact-room{min-height:390px}
+  .shelf-unit,.libroom.has-multiple-units .shelf-unit{position:relative;inset:auto;width:min(460px,100%);height:auto;aspect-ratio:8/9;margin:0 auto;background:none}
+  .shelf-unit::after{background-image:url('assets/building-interiors/library-shelf/delivery-20260722-3-shelf-upright-v1/library-shelf-unit-3-shelf-upright-v1.png');background-size:100% 100%;background-position:center}
+  .shelf-unit.is-compact,.libroom.has-multiple-units .shelf-unit.is-compact{position:relative;inset:auto;width:min(620px,100%);height:300px;aspect-ratio:auto;margin:0 auto}
+  .shelf-unit.is-compact::after{background-image:url('assets/building-interiors/library-shelf/library-wall-case-2bay-two-row-v2.png');background-size:100% 100%;background-position:center bottom}
+  .ledge{top:3.9%;width:45%;height:7.2%}.mobile-shelf-caption{display:none}
+  /* MOBILE_BOOK_VISIBLE_SIZE_CONTRACT: normal-case rows retain enough height for a readable cover at the narrowest admitted viewport. */
+  .department{z-index:6}.brow{left:9%;right:9%;height:27%;min-height:120px;gap:9%;z-index:6}.brow--1{bottom:65.5%}.brow--2{bottom:37%}.brow--3{bottom:8.5%}
+  .shelf-unit.is-compact .brow{left:3%;right:3%;height:35%;min-height:105px}.shelf-unit.is-compact .brow--1{bottom:65%}.shelf-unit.is-compact .brow--2{bottom:5%}
+  .brow[data-book-count="2"]>.bk:first-child{justify-self:start}.brow[data-book-count="2"]>.bk:last-child{justify-self:end}
+  .bk{flex-basis:clamp(120px,34vw,150px);width:clamp(120px,34vw,150px);max-width:150px}.shelf-unit.is-compact .bk{flex-basis:82px;width:82px;max-width:82px}.bk img{transform:translateY(-4%)}
+}
+@media(max-width:600px){
+  .book-cover-grid{grid-template-columns:repeat(2,minmax(130px,1fr));gap:24px 18px}
+  .book-cover-grid .bk{height:clamp(210px,58vw,300px)}
+}
+@media(max-width:700px){
+  .shelf-guide .libroom{margin-top:24px}
+  .topic-links{flex-wrap:wrap;overflow:visible}
+  .topic-link{flex:0 1 auto}
+}
+@media(max-width:900px){
+  .library-intro{grid-template-columns:minmax(250px,.82fr) minmax(0,1.18fr);gap:28px;padding:22px 32px}
+  .titleblock .eyebrow{margin-bottom:7px;font-size:11px}
+  .titleblock h1{font-size:clamp(46px,6vw,54px)}
+  .library-intro .lede{font-size:clamp(17px,2.2vw,20px);line-height:1.25}
+  .library-intro .lede small{margin-top:7px;font-size:14px;line-height:1.35}
+}
+@media(max-width:700px){
+  .library-intro{grid-template-columns:1fr;gap:12px;padding:20px}
+  .titleblock h1{font-size:clamp(34px,11vw,42px)}
+  .library-intro .lede{font-size:16px}
+}
+@media(max-width:420px){.bk{flex-basis:120px;width:120px}}
+
+/* Keep the selected reader responsive rules authoritative over the older
+   catalogue breakpoints above. Contents stays a compact overlay, not a
+   persistent sidebar or a second title block. */
+@media(max-width:900px){
+  #reader.on{padding:8px}
+  .book{width:calc(100dvw - 16px);max-height:calc(100dvh - 16px);padding-left:0;border-radius:3px}
+  .reader-pop-frame{display:none}
+  .book .band{min-height:0;padding:20px 20px 16px;align-items:flex-start;flex-direction:column;gap:15px}
+  .book .band>div:first-child{min-width:0;width:100%;flex:0 0 auto}
+  .book .band .m{display:block;margin-top:7px}
+  .book .band .t{padding-bottom:6px;border-bottom-width:4px;font-size:clamp(31px,8vw,43px)}
+  .reader-actions{display:flex;width:100%;flex:0 0 auto;justify-content:flex-start;gap:5px}
+  .book .band button:not(.puffy-btn){align-self:auto;margin-top:0}
+  .reader-contents>summary{padding:9px 10px;gap:8px}
+  .reader-contents>summary::before,.reader-contents>summary::after{content:none}
+  .reader-contents nav{left:0;right:auto;width:min(470px,calc(100dvw - 40px))}
+  .book .body{grid-template-columns:1fr}
+  .book .toc{display:none!important}
+  .book .txt{padding:30px max(24px,calc((100% - 720px)/2)) 48px}
+}
+@media(max-width:560px){
+  #reader.on{padding:0}
+  .book{width:100dvw;height:100dvh;max-height:100dvh;border:0;border-radius:0}
+  .book .band{padding:14px 14px 11px;gap:10px}
+  .book .band .m{display:none}
+  .book .band .t{font-size:29px}
+  .reader-actions{display:grid;grid-template-columns:auto auto auto minmax(0,1fr);gap:3px;width:100%}
+  .reader-contents>summary{padding:9px 10px}
+  .reader-save-book{padding:5px 7px}
+  .reader-save-book img{width:30px;height:30px}
+  .reader-save-book span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  .reader-top{min-width:0;padding:8px}
+  .book .band #reader-close{grid-column:4;padding:9px 10px;font-size:10px}
+  .book .band #reader-report{grid-column:1/-1;justify-self:end;padding:4px 3px;font-size:10px}
+  .reader-contents nav{position:fixed;left:10px;right:10px;top:108px;width:auto;max-height:calc(100dvh - 122px)}
+  .book .txt{padding:25px 18px 36px;font-size:16px;line-height:1.68}
+  .book .txt .lede{padding:17px 16px;font-size:16px}
+  .book .txt h2{font-size:19px}
+  .book .txt h2[data-source-block^="chapter-"]{margin-left:-6px;margin-right:-6px;padding:14px 10px}
+}
+
+@media (max-width: 0px) {
+/* REJECTED READER VISUAL LAYER — retained only as history; never rendered. */
+/* Exact selected pop-zine composition. The bitmap supplies the angled paper,
+   halftone and comic edge art; all words and controls remain live HTML. */
+#reader.on{padding:0;place-items:start center;background:rgba(5,9,29,.94)}
+.book{width:min(1488px,100dvw);max-width:1488px;height:100dvh;aspect-ratio:auto;max-height:none;padding:0;overflow:hidden;
+  border:0;border-radius:0;background-color:#fdfcfb;
+  box-shadow:0 28px 90px rgba(2,8,28,.58)}
+.reader-pop-frame{position:absolute;inset:0;z-index:1;display:block;width:auto;overflow:hidden;border:0;background:none;pointer-events:none}
+.reader-pop-frame::before{content:none}
+.reader-motif{filter:drop-shadow(3px 5px 0 rgba(55,32,105,.18))}
+.reader-motif-cursor{top:3.5%;left:2.1%;width:5.3%}
+.reader-motif-lightning{top:23%;left:1.8%;width:4.3%}
+.reader-motif-star{top:45%;left:5.1%;right:auto;bottom:auto;width:3.2%}
+.reader-motif-cassette{top:51%;left:-.6%;width:12.5%}
+.reader-motif-computer{left:1.1%;bottom:3%;width:10.5%}
+.reader-motif-star-right{right:1.1%;bottom:17%;width:5.5%}
+.reader-motif-star-right-small{right:4.4%;bottom:31%;width:2.9%}
+.book>.band,.book>.body,.book>.correction-desk{position:relative;z-index:3}
+.book>.band{z-index:20}
+.book .band{position:relative;display:flex;min-height:clamp(190px,16.465vw,245px);padding:clamp(46px,4.435vw,66px) clamp(52px,4.84vw,72px) 20px clamp(140px,13.306vw,198px);align-items:flex-start;gap:24px;
+  border:0;background:transparent;color:#0f1744}
+.book .band>div:first-child{display:block;min-width:0;flex:1 1 auto}
+.book .band .m{display:none}
+.book .band .t{display:flex;width:auto;max-width:none;margin:0;padding:0;align-items:flex-end;gap:12px;border:0;color:#11163f;
+  font-family:'Jost',system-ui,sans-serif;font-size:clamp(52px,6.18vw,92px);font-weight:950;line-height:.84;letter-spacing:-.065em;text-shadow:none;white-space:nowrap}
+.reader-title-lead{font-size:1.22em;line-height:.78;letter-spacing:-.09em;transform:none}
+.reader-title-name{position:relative;padding:0 5px 13px 0;font-family:'Playfair Display',Georgia,serif;font-size:.68em;font-weight:800;letter-spacing:-.045em}
+.reader-title-name::after{content:"";position:absolute;left:-2%;right:-2%;bottom:-8px;height:35px;background:url('/assets/library-reader/title-pink-brush-v1.png') center/100% 100% no-repeat}
+.reader-title-number{padding-bottom:2px;color:#6f3ac9;font-family:'Playfair Display',Georgia,serif;font-size:1em;font-weight:800;letter-spacing:-.04em}
+.reader-actions{display:flex;flex:0 0 clamp(390px,32.93vw,490px);margin-top:clamp(38px,3.696vw,55px);align-items:center;justify-content:space-between;gap:8px}
+.reader-save-book,.reader-top,.book .band button:not(.puffy-btn){min-height:44px;margin:0;padding:8px 11px;border:0;background:transparent;color:#11183b;
+  box-shadow:none;font:850 11px/1.1 'Jost',system-ui,sans-serif;letter-spacing:.015em;text-transform:none}
+.reader-save-book{gap:0;width:48px;padding:4px;border:2px solid #372080;border-radius:10px;background:#fff;box-shadow:4px 4px 0 #18c6d8}
+.reader-save-book img{width:35px;height:35px}.reader-save-book span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.reader-top{min-width:70px;border-left:1px solid #bfc3d3;border-right:1px solid #bfc3d3;text-transform:uppercase}
+.book .band #reader-close{padding:11px 16px;border:2px solid #18c6d8;border-radius:9px;background:#fff;box-shadow:none}
+.book .band #reader-report{padding:11px 5px;color:#303858;font-size:11px}
+.reader-contents{position:absolute;left:clamp(55px,5.1vw,76px);top:clamp(150px,14.1vw,210px);z-index:15;margin:0}
+.reader-contents>summary{display:flex;width:auto;height:42px;min-height:42px;padding:9px 14px;align-items:center;justify-content:center;border:1px solid #6b42bf;border-radius:10px;
+  background:rgba(255,255,255,.96);color:#5e36b2;box-shadow:0 6px 18px rgba(31,25,71,.12);writing-mode:horizontal-tb;transform:none;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.reader-contents>summary::before,.reader-contents>summary::after{content:none}.reader-contents-label{font-weight:950}
+.reader-contents nav{position:absolute;left:0;right:auto;top:calc(100% + 8px);
+  width:min(360px,calc(100dvw - 100px));max-height:min(58vh,520px);padding:8px;border:1px solid #a894d2;border-radius:12px;background:rgba(255,255,255,.985);box-shadow:0 18px 45px rgba(16,24,66,.2);writing-mode:horizontal-tb}
+.reader-contents nav a{padding:7px 8px;font-size:11.5px}
+.reader-toc-group>summary{min-height:38px;padding:8px;font-size:11.5px}
+.reader-toc-children{padding-left:21px}.reader-toc-children a{font-size:11px}
+.reader-contents nav a[aria-current="location"]{background:#f0ebfb;border-left:3px solid #18c6d8;outline:0}
+.book .body{display:block;flex:1 1 auto;min-height:0;overflow:hidden;background:transparent}
+.book .toc{display:none!important}
+.book .txt{height:100%;padding:10px clamp(82px,7.796vw,116px) 80px clamp(167px,15.86vw,236px);overflow:auto;background:rgba(255,255,255,.08);color:#1b2345;
+  font-size:clamp(16px,1.277vw,19px);line-height:1.62;scroll-padding-top:20px}
+.book .txt>.eyebrow:first-child,.book .txt>h1:nth-child(2),.book .txt>.lede:nth-child(3){display:none}
+.book .txt section[data-source-block="preface-why-this-book-matters"]{position:relative;max-width:1130px;margin:0 auto}
+.book .txt .reader-preface-heading{position:relative;width:calc(100% - clamp(245px,19.15vw,285px));min-height:clamp(108px,10.215vw,152px);margin:0 0 24px;padding:clamp(13px,1.277vw,19px) 0 clamp(18px,1.68vw,25px) clamp(112px,10.618vw,158px);border:0;color:#11183b;
+  font:950 clamp(31px,3.05vw,47px)/1.09 'Jost',system-ui,sans-serif;letter-spacing:.015em;text-transform:uppercase}
+.book .txt .reader-preface-heading::before{content:"01";position:absolute;left:0;top:3px;display:grid;width:clamp(90px,8.602vw,128px);height:clamp(90px,8.602vw,128px);place-items:center;
+  background:url('/assets/library-reader/preface-burst-v1.png') center/contain no-repeat;color:#fff;font:800 43px/1 'Playfair Display',Georgia,serif;letter-spacing:-.04em}
+.book .txt .reader-preface-heading::after{content:"";position:absolute;left:clamp(100px,9.543vw,142px);right:0;bottom:-5px;width:auto;height:35px;background:url('/assets/library-reader/section-cyan-brush-v1.png') center/100% 100% no-repeat}
+.book .txt .reader-preface-heading>.reader-inline-save{display:none}
+.reader-preface-divider{position:absolute;left:clamp(84px,7.93vw,118px);top:0;width:clamp(18px,1.68vw,25px);height:clamp(99px,9.41vw,140px);background:url('/assets/library-reader/preface-divider-v1.png') center/contain no-repeat}
+.reader-preface-kicker,.reader-preface-title{display:block}
+.book .txt .reader-preface-intro{max-width:700px;margin-right:calc(clamp(245px,19.15vw,285px) + clamp(32px,3.024vw,45px))}
+.reader-preface-aside{position:absolute;right:0;top:4px;display:grid;width:clamp(245px,19.15vw,285px);gap:24px}
+.reader-preface-card{margin:0;padding:22px 22px 23px;border:3px solid;border-radius:18px;background:rgba(255,255,255,.86);color:#151c44;box-shadow:none}
+.reader-preface-card-label{display:flex;align-items:center;gap:5px;margin-bottom:10px}.reader-preface-card-label img{width:52px;height:55px;object-fit:contain}
+.reader-preface-card b{display:block;margin:0;font:950 12px/1.2 'Jost',system-ui,sans-serif;letter-spacing:.12em}
+.reader-preface-card p{margin:0;font-size:clamp(15.5px,1.21vw,18px);line-height:1.5}
+.reader-preface-card-why{border-color:#18bdd5;background:rgba(238,253,255,.88)}.reader-preface-card-why b{color:#0aaec4}
+.reader-preface-card-job{border-color:#7040d0;background:rgba(247,243,255,.9)}.reader-preface-card-job b{color:#7040d0}
+.reader-preface-card-why{min-height:218px}.reader-preface-card-job{min-height:390px}
+.book .txt section[data-source-block="preface-why-this-book-matters"]>h2:not(.reader-preface-heading){clear:both;margin-top:45px}
+
+@media(min-width:821px) and (max-width:1050px){
+ .book{width:100dvw;height:100dvh;max-width:none;aspect-ratio:auto;background-position:center top,center 71.035vw;background-size:100% auto,100% auto;background-repeat:no-repeat,repeat-y}
+ .book .band{min-height:16.465vw;padding:4.435vw 4.84vw 1.344vw 13.306vw;align-items:flex-start;flex-direction:row;gap:1.613vw}
+ .book .band .t{flex:0 0 auto;font-size:6.18vw;gap:.806vw}
+ .reader-title-lead{transform:none}
+ .reader-title-name{padding-bottom:9px}.reader-title-name::after{left:5%;right:-2%;bottom:-5px;height:25px}
+ .reader-actions{flex:0 0 32.93vw;margin:3.696vw 0 0 auto;justify-content:space-between;gap:.538vw}
+ .reader-save-book{width:43px;height:43px;padding:3px}.reader-save-book img{width:31px;height:31px}
+ .reader-top{min-width:52px;padding:7px 6px;font-size:9px}
+ .book .band #reader-close{padding:9px 10px;font-size:9px}
+ .book .band #reader-report{padding:9px 3px;font-size:9px}
+ .reader-contents{left:5.1vw;top:14.1vw}.reader-contents>summary{width:auto;height:40px;padding:8px 12px;font-size:10px}
+ .reader-contents nav{position:absolute;left:0;right:auto;top:calc(100% + 8px);width:min(340px,calc(100dvw - 90px))}
+ .book .txt{padding:.672vw 7.796vw 3.763vw 15.86vw;font-size:1.277vw;line-height:1.62}
+ .book .txt .reader-preface-heading{width:calc(100% - 19.15vw);min-height:10.215vw;margin-bottom:1.613vw;padding:1.277vw 0 1.68vw 10.618vw;font-size:3.05vw;line-height:1.09;letter-spacing:.015em}
+ .book .txt .reader-preface-heading::before{width:8.602vw;height:8.602vw;font-size:2.89vw}
+ .book .txt .reader-preface-heading::after{left:10.618vw;bottom:-.336vw;height:2.352vw}
+ .reader-preface-divider{left:7.93vw;top:0;width:1.68vw;height:9.41vw}
+ .reader-preface-aside{width:19.15vw;gap:1.613vw}.reader-preface-card{padding:1.478vw;border-width:2px;border-radius:14px}
+ .reader-preface-card-why{min-height:14.65vw}.reader-preface-card-job{min-height:26.21vw}
+ .reader-preface-card-label{gap:.336vw;margin-bottom:.672vw}.reader-preface-card-label img{width:3.495vw;height:3.696vw}.reader-preface-card b{font-size:.806vw}.reader-preface-card p{font-size:1.21vw;line-height:1.5}
+ .book .txt .reader-preface-intro{max-width:none;margin-right:22.174vw}
+}
+@media(max-width:820px){
+ #reader.on{padding:0;place-items:center}.book{width:100dvw;height:100dvh;max-width:none;aspect-ratio:auto;max-height:none;background:#fff}
+ .reader-pop-frame{display:none}
+ .book .band{min-height:150px;padding:16px 14px 12px;gap:9px;background:#fbf9ff;border-bottom:4px solid #18c6d8;flex-direction:column}
+ .book .band .t{font-size:clamp(34px,10vw,48px);gap:7px}.reader-title-lead{transform:none}.reader-title-name{padding-bottom:8px;font-size:.82em}.reader-title-name::after{bottom:-5px;height:22px}
+ .reader-actions{width:100%;flex:0 0 auto;margin-top:5px;justify-content:flex-start;gap:3px}
+ .reader-contents{position:relative;left:auto;top:auto;order:0}
+ .reader-contents>summary{width:auto;height:44px;padding:8px 10px;writing-mode:horizontal-tb;transform:none;letter-spacing:.03em;text-transform:none}
+ .reader-contents nav{position:fixed;left:12px;right:12px;top:88px;width:auto;max-height:calc(100dvh - 100px);transform:none}
+ .reader-top{min-width:55px;padding:7px}.book .band #reader-close{margin-left:auto;padding:9px 10px}.book .band #reader-report{display:none}
+ .book .txt{height:calc(100dvh - 150px);padding:24px 18px 44px;font-size:16px;line-height:1.65}
+ .book .txt .reader-preface-heading{width:100%;min-height:92px;margin-bottom:20px;padding:9px 0 16px 85px;font-size:clamp(25px,7.8vw,34px)}
+ .book .txt .reader-preface-heading::before{width:72px;height:72px;font-size:25px}.book .txt .reader-preface-heading::after{left:78px;bottom:-2px;height:20px}
+ .reader-preface-divider{display:none}
+ .book .txt .reader-preface-intro{max-width:none;margin-right:0}
+ .reader-preface-aside{position:static;width:auto;margin:24px 0 32px;gap:14px}.reader-preface-card{padding:17px 18px;border-radius:13px}.reader-preface-card p{font-size:16px}
+}
+
+/* Reader overlays stay useful without becoming giant outlined boxes. */
+#reader.on~.puffy-picker{width:min(380px,calc(100dvw - 24px))!important;padding:14px!important;border:1px solid #9d8bc6!important;border-radius:13px!important;background:rgba(255,255,255,.985)!important;box-shadow:0 18px 45px rgba(11,20,52,.24)!important}
+#reader.on~.puffy-picker .puffy-picker-head{margin-bottom:8px;padding-bottom:8px}
+#reader.on~.puffy-picker .puffy-picker-head b{font-size:15px}
+#reader.on~.puffy-picker .puffy-picker-head span{font-size:10.5px;line-height:1.35}
+#reader.on~.puffy-picker .puffy-card-required-actions{gap:8px}
+#reader.on~.puffy-picker .puffy-card-required-actions a,#reader.on~.puffy-picker .puffy-card-required-actions button{min-height:38px!important;padding:8px 11px!important;border:1px solid #7a689e!important;border-radius:9px!important;background:#f7f3ff!important;color:#11183b!important;box-shadow:none!important;font-size:11px!important;letter-spacing:.01em!important;text-transform:none!important}
+#reader.on~.puffy-picker .puffy-card-required-actions a{border-color:#5e36b2!important;background:#5e36b2!important;color:#fff!important}
+#reader.on~.puffy-picker .puffy-card-required-actions a:focus-visible,#reader.on~.puffy-picker .puffy-card-required-actions button:focus-visible{outline:2px solid #18c6d8!important;outline-offset:2px!important}
+@media(max-width:420px){
+ .book .band{min-height:138px}.book .band .t{font-size:34px}.reader-title-number{font-size:.82em}
+ .reader-save-book{width:42px;height:42px}.reader-save-book img{width:31px;height:31px}.book .band #reader-close{font-size:9px}
+ .reader-contents nav{top:130px}.book .txt{height:calc(100dvh - 138px);padding:20px 15px 40px}
+ .book .txt .reader-preface-heading{padding-left:72px;font-size:24px}.book .txt .reader-preface-heading::before{width:61px;height:61px;font-size:21px}.book .txt .reader-preface-heading::after{left:68px}
+}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}
+</style>
+<link rel="stylesheet" href="/assets/library-reader/ai-fundamentals-imagegen-reader-v5.css">
+  <meta property="og:url" content="https://laidies.ai/library" />
+</head>
+<body>
+<header class="sv-header"></header>
+<main>
+
+<div class="wrap">
+  <div class="library-hero">
+    <section class="library-intro" aria-labelledby="library-title">
+      <div class="titleblock">
+        <div class="eyebrow">Civic Square · SUNNYVAiLE</div>
+        <h1 id="library-title">The LIBR<span class="ai">Ai</span>RY</h1>
+      </div>
+      <p class="lede">Come in with a question. Leave with the book—or the exact section—that helps.
+        <small>Not sure where to start? Ask Miss Jeeves. Looking for a specific topic? Browse the shelves.</small>
+      </p>
+      <p class="visitor-state" id="puffyVisitorState" aria-live="polite" hidden></p>
+    </section>
+    <section class="arrival-visual" aria-label="Inside the SUNNYVAiLE LIBRAiRY">
+      <img src="assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-wide-jeeves-blue-walls-v3.png" alt="Miss Jeeves at the light blue Library reference desk with public computers, bookcases and the geometric carpet">
+    </section>
+  </div>
+
+  <div class="library-world">
+
+  <!-- Ask Miss Jeeves -->
+  <section class="jv" id="miss-jeeves" aria-labelledby="miss-jeeves-title">
+    <div class="jv-head">
+      <span class="jv-kicker">Reference desk</span>
+      <div class="h" id="miss-jeeves-title">Ask Miss Jeeves<small>Ask in plain words. Get a direct answer, then open the most useful available place.</small></div>
+    </div>
+    <p class="jv-beta"><strong>Miss Jeeves is in beta.</strong> She works best with questions about LAiDIES, its lessons and its trusted resources. We&rsquo;re still testing and improving how she researches and explains broader questions about AI. Please check the sources she provides and tell us when an answer misses the mark.</p>
+    <form class="jv-form">
+      <input id="jv-q" type="text" autocomplete="off" placeholder="Ask your question about AI or using it at work" aria-label="Ask Miss Jeeves a question">
+      <button type="submit">Ask</button>
+    </form>
+    <p class="jv-privacy">Do not include private, confidential or account information. Miss Jeeves does not save ordinary search wording. <a href="/privacy.html#miss-jeeves">Privacy details</a>.</p>
+    <div class="jv-chips" aria-label="Common questions for Miss Jeeves">
+      <b>Common questions:</b>
+      <button class="jv-chip" type="button">Which AI should I use?</button>
+      <button class="jv-chip" type="button">Can I upload a work document?</button>
+      <button class="jv-chip" type="button">How do I check an AI answer?</button>
+      <button class="jv-chip" type="button">What can AI help me do at work?</button>
+    </div>
+    <div class="jv-results" id="jv-results" aria-live="polite" aria-atomic="true"></div>
+  </section>
+
+  <section class="shelf-guide" aria-labelledby="shelf-guide-title">
+    <div class="shelf-guide-heading">
+      <div class="eyebrow">Browse the Library</div>
+      <h2 id="shelf-guide-title">Browse all books</h2>
+      <p>Choose a cover to see what the book contains, then open it when you are ready.</p>
+    </div>
+    <section class="libroom" aria-label="Browse all books in the SUNNYVAiLE LIBRAiRY">
+      <div class="unit" id="wallcase"></div>
+    </section>
+    <section class="checkout-preview is-empty" id="book-preview" aria-live="polite" aria-labelledby="book-preview-title">
+      <div class="checkout-cover"><img id="book-preview-cover" src="" alt=""></div>
+      <div class="checkout-copy">
+        <div class="checkout-kicker">About this book</div>
+        <h2 id="book-preview-title" tabindex="-1">Choose a book.</h2>
+        <p id="book-preview-summary">Its cover preview will tell you what it contains and whether it is ready before you open it.</p>
+        <p id="book-preview-inside" class="checkout-inside"></p>
+        <div class="checkout-meta" id="book-preview-meta"></div>
+      </div>
+      <div class="checkout-action"><button type="button" id="book-preview-back" class="checkout-back">Back to the books</button><button type="button" id="book-preview-read" hidden>Open this book</button><small id="book-preview-status"></small></div>
+    </section>
+    <div class="catalogue-controls" aria-label="Find a book in the Library">
+      <label class="catalogue-control">Search titles and topics
+        <input id="catalogue-search" type="search" placeholder="e.g. privacy, prompts or ChatGPT" autocomplete="off">
+      </label>
+      <nav class="topic-links" aria-label="Browse books by topic">
+        <b>Browse by topic:</b>
+        <button class="topic-link" type="button" data-topic="all" aria-pressed="true">All</button>
+        <button class="topic-link" type="button" data-topic="basics" aria-pressed="false">AI basics</button>
+        <button class="topic-link" type="button" data-topic="choosing-tools" aria-pressed="false">Choosing tools</button>
+        <button class="topic-link" type="button" data-topic="prompting" aria-pressed="false">Prompting</button>
+        <button class="topic-link" type="button" data-topic="privacy-safety" aria-pressed="false">Privacy &amp; safety</button>
+        <button class="topic-link" type="button" data-topic="checking-research" aria-pressed="false">Checking &amp; research</button>
+        <button class="topic-link" type="button" data-topic="impact-society" aria-pressed="false">Work &amp; society</button>
+      </nav>
+      <a class="catalogue-closet" href="/laidies-card.html#puffyPouch" hidden>
+        <strong>My Closet</strong>
+        <span id="library-saved-count">Checking this device for saved Library places…</span>
+      </a>
+      <p class="catalogue-result" id="catalogue-result" role="status" aria-live="polite"></p>
+    </div>
+    <p class="library-status sr-only" id="library-status" role="status" aria-live="polite"></p>
+  </section>
+
+  </div>
+</div>
+</main>
+
+<div id="reader" role="dialog" aria-modal="true" aria-labelledby="rt" aria-hidden="true">
+  <div class="book book--reference-zine" tabindex="-1">
+    <picture class="reader-pop-frame" aria-hidden="true">
+      <source id="reader-page-art-mobile" media="(max-width: 820px)" srcset="/assets/library-reader/ai-fundamentals-frame-mobile-imagegen-v6.png?v=6a">
+      <img id="reader-page-art" class="reader-page-art" src="/assets/library-reader/ai-fundamentals-frame-imagegen-v6.png?v=6a" alt="">
+    </picture>
+    <div class="band" id="rb"><div><div class="m" id="rm"></div><div class="t" id="rt"></div></div>
+      <div class="reader-actions">
+        <details class="reader-contents" id="mobile-toc"><summary><span class="reader-contents-label">Contents</span><span class="reader-current-section sr-only" id="reader-current-section">Start of book</span></summary></details>
+        <button class="reader-save-book" type="button" data-reader-save="book" aria-label="Save this whole book with one of your 10 Puffy Stickers" title="Save book with a Puffy Sticker"><img src="/assets/puffies/usable-25-images/60-teal-floppy-disk.png" alt=""><span>Save</span></button>
+        <button class="reader-top" id="reader-top" type="button" aria-label="Return to the top of this book">↑ Top</button>
+        <button id="reader-close" type="button">← Back to the shelf</button>
+        <button id="reader-report" type="button" title="Send a correction about this book; its version and your current section are attached automatically">Report issue</button>
+      </div></div>
+    <section class="correction-desk" id="correction-desk" hidden aria-labelledby="correction-title">
+      <form id="correction-form">
+        <h3 id="correction-title">Report an issue with this book</h3>
+        <p class="correction-intro" id="correction-location">The exact book and version will be attached automatically.</p>
+        <label class="correction-field"><span>Where is the issue?</span><select id="correction-scope" name="scope"><option value="book">This whole book</option><option value="section">The section I am reading</option></select></label>
+        <label class="correction-field"><span>What kind of issue?</span><select id="correction-category" name="category" required><option value="factual-error">Factual error</option><option value="stale-source">Out-of-date information</option><option value="source-mismatch">Source does not support it</option><option value="missing-qualification">Important context is missing</option><option value="broken-source">Source link is broken</option><option value="other">Something else</option></select></label>
+        <label class="correction-field correction-finding"><span>What should we check?</span><textarea id="correction-finding" name="finding" maxlength="2000" required placeholder="Tell us what looks wrong and why. You do not need to include your name or email."></textarea></label>
+        <label class="correction-field correction-finding"><span>Supporting source (optional)</span><input id="correction-evidence" name="evidence_url" type="url" inputmode="url" maxlength="1500" placeholder="https://…"></label>
+        <p class="correction-privacy">No account is required. Do not include personal or confidential information. The report is kept separately from your Library searches, reading history, Resident Card and Puffy Stickers.</p>
+        <div class="correction-controls"><button type="submit" id="correction-submit">Send this correction</button><button type="button" id="correction-cancel">Cancel</button><button type="button" id="correction-check" hidden>Check status</button></div>
+        <p class="correction-status" id="correction-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    <div class="body"><nav class="toc" id="rtoc" aria-label="Book contents"></nav><nav class="reader-contents-panel" id="rtoc-mobile" aria-label="All chapters and sections" tabindex="-1"></nav><div class="txt" id="rtxt"></div></div>
+  </div>
+</div>
+
+<script src="/content/site/supabase-config.js?v=20260904-jeeves-account-1"></script>
+<script src="/content/site/resident-card-contract-v1.js?v=20260906-pop-card-1"></script>
+<script src="/content/site/identity-client-v1.js?v=20260904-jeeves-account-1"></script>
+<script src="/content/site/resident-account-runtime-v1.js?v=20260904-jeeves-account-1"></script>
+<script>
+(()=>{
+'use strict';
+const B='assets/library-101/bright-family-v2/';
+const SECTIONS=[
+ {name:'THE 101s',sign:'assets/building-interiors/library-shelf/delivery-20260721-signs-v1/library-shelf-sign-101s-v1.png',cap:'Start with the connected fundamentals, then put them to work with practical briefs, checks and reusable workflows.',mcap:'Understand it. Then use it.',
+  books:[
+   /* Retained only as a fail-closed legacy/deep-link test record. Ali removed
+      Vocab 101 from the public catalogue; it must not render on either shelf. */
+   {id:'vocab-101',t:'Vocab 101',listed:false,status:'hold',statusLabel:'Removed from the catalogue',s:'This former title is not part of the current Library inventory.',img:'',c:'#245ed1'},
+   {id:'ai-fundamentals-101',t:'AI Fundamentals 101',topics:['basics','impact-society'],status:'ready',statusLabel:'Opening edition',s:'Understand the connected AI system—from data and models to products, agents, infrastructure, work and public consequences.',inside:'20 connected chapters, a concept index and selected teaching visuals.',depth:'Plain-English foundation · full textbook',img:B+'textbook-ai-fundamentals-101.png',c:'#7038c9'},
+   {id:'working-with-ai-101',t:'Working with AI 101',topics:['prompting','getting-started','choosing-tools','checking-research'],status:'ready',statusLabel:'Opening edition',s:'Put the fundamentals into practice: manage context, brief the work, shape the output, evaluate it and save what works.',inside:'13 hands-on chapters, exercises, tool cards and a minimum viable AI system.',depth:'Practical companion · hands-on textbook',img:B+'textbook-working-with-ai-101.png',c:'#2457e6'},
+   {id:'briefing-101',t:'Briefing 101',listed:false,topics:['prompting','getting-started'],status:'hold',statusLabel:'Preserved · not opening day',s:'Preserved for later consideration.',img:B+'textbook-briefing-101.png',c:'#d83f86'},
+   {id:'setup-101',t:'Setup 101',listed:false,topics:['getting-started'],status:'hold',statusLabel:'Preserved · not opening day',s:'Preserved for later consideration.',img:B+'textbook-setup-101.png',c:'#1597a7'},
+   {id:'accounts-101',t:'Accounts 101',listed:false,topics:['privacy-safety','getting-started'],status:'hold',statusLabel:'Preserved · not opening day',s:'Preserved for later consideration.',img:B+'textbook-accounts-101.png',c:'#e45e55'}
+  ]},
+ {name:'THE TOOLS',cap:'Use this shelf when you have a job to do and need to compare which kind of AI tool fits it—not hunt for one “best AI.”',mcap:'Choose a tool for the job.',
+  books:[
+   {id:'whos-who',t:"Who's Who in AI",topics:['choosing-tools'],status:'hold',statusLabel:'Currentness and depth review',s:'Who makes what, and which tool to open for which job.',img:B+'book-whos-who.png',c:'#2f4f7c'},
+   {id:'chatgpt',t:'ChatGPT',topics:['choosing-tools'],status:'preview',statusLabel:'Lands EP 5',s:'The all-rounder — most people’s first stop for most things.',soon:'EP 5',img:B+'book-chatgpt.png'},
+   {id:'claude',t:'Claude',topics:['choosing-tools'],status:'preview',statusLabel:'Lands EP 5',s:'The careful one — a strong writer and thinker.',soon:'EP 5',img:B+'book-claude.png'},
+   {id:'gemini',t:'Gemini',topics:['choosing-tools'],status:'preview',statusLabel:'Lands EP 5',s:'Google’s one, wired into the Google apps you already use.',soon:'EP 5',img:B+'book-gemini.png'},
+   {id:'copilot',t:'Copilot',topics:['choosing-tools'],status:'preview',statusLabel:'Lands EP 5',s:'AI sitting inside Word, Excel and the rest of Office.',soon:'EP 5',img:B+'book-copilot.png'},
+   {id:'perplexity',t:'Perplexity',topics:['choosing-tools','checking-research'],status:'preview',statusLabel:'Lands EP 5',s:'Answers that come with their sources attached.',soon:'EP 5',img:B+'book-perplexity.png'}
+  ]},
+ {name:'REFERENCE',cap:'Use this shelf for a specific answer, a safety rule, or a reliable way to check what the AI told you.',mcap:'Sourced answers and checking guides.',
+  books:[
+   {id:'straight-answers',t:'Straight Answers About AI',topics:['impact-society','checking-research','privacy-safety'],status:'ready',statusLabel:'Opening edition',s:'Dated, sourced answers about jobs, data centres, privacy, productivity and learning—without pretending uncertainty has disappeared.',inside:'Fifteen consequential questions with confidence labels, sources and recheck triggers.',depth:'Living reference · source checked 23 August 2026',img:B+'book-straight-answers-about-ai.png',c:'#7c2f4f'},
+   {id:'ai-dictionary',t:'The AI Dictionary',topics:['basics','getting-started','choosing-tools'],status:'ready',statusLabel:'Opening edition',s:'Look up a term in plain English, then jump to the chapter that owns the full explanation.',inside:'179 deduplicated definitions linked to AI Fundamentals and Working with AI.',depth:'Derived reference · 179 maintained terms',img:B+'book-ai-dictionary.png',c:'#1597a7'},
+   {id:'how-to-check',t:"How to Check AI's Work",topics:['checking-research'],status:'hold',statusLabel:'Local review ready · observed newcomer check still required',s:'A repeatable way to identify material claims, match evidence, check scope and freshness, and record an honest decision.',soon:'REVIEW',img:B+'book-how-to-check-ai-work.png',c:'#8a6a1f'},
+   {id:'what-not-to-paste',t:'What Not to Paste',topics:['privacy-safety'],status:'preview',statusLabel:'Lands EP 7',s:'The hard rules on what should never go into a chat box.',soon:'EP 7',img:B+'book-what-not-to-paste.png'},
+   {id:'prompt-cookbook',t:'The Prompt Cookbook',topics:['prompting'],status:'preview',statusLabel:'Coming later',s:'Copy-paste recipes for the jobs that come up every week.',soon:'SOON',img:B+'book-the-prompt-cookbook.png'}
+  ]}
+];
+const ADMITTED_BOOK_RECORDS=Object.freeze(Object.fromEntries(Object.entries(
+/* LIBRARY_ADMISSION_COMPILED_START */
+{"ai-dictionary":{"sourcePath":"/content/library-books/rendered/ai-dictionary.html","contentVersion":"ai-dictionary-2026-08-29.1","admissionVersion":"opening-set-2026-08-29.1","correctionState":"clear","artifactSha256":"43820ca8610a39e02c179eff7b1f2d65bd9eb876e94024c8439c80dedc3a3144"},"ai-fundamentals-101":{"sourcePath":"/content/library-books/rendered/ai-fundamentals-101.html","contentVersion":"ai-fundamentals-101-2026-08-29.1","admissionVersion":"opening-set-2026-08-29.1","correctionState":"clear","artifactSha256":"77ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e"},"straight-answers":{"sourcePath":"/content/library-books/rendered/straight-answers.html","contentVersion":"straight-answers-2026-08-29.1","admissionVersion":"opening-set-2026-08-29.1","correctionState":"clear","artifactSha256":"7ba998a551128a6adeb67233cbbdb70a0cd7dd7e59519b8dca060796ad822b9b"},"working-with-ai-101":{"sourcePath":"/content/library-books/rendered/working-with-ai-101.html","contentVersion":"working-with-ai-101-2026-08-29.1","admissionVersion":"opening-set-2026-08-29.1","correctionState":"clear","artifactSha256":"2ac1f222ceea8e555577f8970c1cd7b8f0f8f94332912f6b8a3db12070886c8c"}}
+/* LIBRARY_ADMISSION_COMPILED_END */
+).map(([id,record])=>[id,Object.freeze(record)])));
+const LOCAL_REVIEW_BOOK_RECORDS=Object.freeze({
+ 'ai-fundamentals-101':Object.freeze({sourcePath:'/content/library-books/rendered/ai-fundamentals-101.html',contentVersion:'ai-fundamentals-101-2026-08-29.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'77ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e'}),
+ 'working-with-ai-101':Object.freeze({sourcePath:'/content/library-books/rendered/working-with-ai-101.html',contentVersion:'working-with-ai-101-2026-08-29.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'2ac1f222ceea8e555577f8970c1cd7b8f0f8f94332912f6b8a3db12070886c8c'}),
+ 'straight-answers':Object.freeze({sourcePath:'/content/library-books/rendered/straight-answers.html',contentVersion:'straight-answers-2026-08-29.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'7ba998a551128a6adeb67233cbbdb70a0cd7dd7e59519b8dca060796ad822b9b'}),
+ 'ai-dictionary':Object.freeze({sourcePath:'/content/library-books/rendered/ai-dictionary.html',contentVersion:'ai-dictionary-2026-08-29.1',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'43820ca8610a39e02c179eff7b1f2d65bd9eb876e94024c8439c80dedc3a3144'}),
+ 'briefing-101':Object.freeze({sourcePath:'/content/library-books/rendered/briefing-101.html',contentVersion:'briefing-101-2026-08-06.2',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'b9c58ceb6067f1dcf044d1d1e49de9967ddcfe9370910bcc059fc7a51d76f95e'}),
+ 'how-to-check':Object.freeze({sourcePath:'/content/library-books/rendered/verification-rulebook.html',contentVersion:'sha256-6f9898d4ec3f0151e7aa171132e78b9227d76f65a18b1abc5f725c81577b7274',admissionVersion:'local-review-only',correctionState:'clear',artifactSha256:'19cf0fc41ac79ca34f595bbc1956c8410513421adb9ae0a7e8e060bffb78753c'})
+});
+const ALL=Object.freeze(SECTIONS.reduce((catalogue,section)=>{
+ section.books=Object.freeze(section.books.map(book=>Object.freeze({...book})));
+ section.books.forEach(book=>{catalogue[book.id]=book;});
+ return catalogue;
+},Object.create(null)));
+SECTIONS.forEach(Object.freeze);
+Object.freeze(SECTIONS);
+function exactAdmittedBookRecord(id){
+ const localReviewHost=location.hostname==='127.0.0.1'||location.hostname==='localhost';
+ const record=ADMITTED_BOOK_RECORDS[id]||(localReviewHost&&LOCAL_REVIEW_BOOK_RECORDS[id]?LOCAL_REVIEW_BOOK_RECORDS[id]:null);
+ if(!record||typeof record!=='object'||record.correctionState!=='clear')return null;
+ const source=record.sourcePath;
+ if(typeof source!=='string'||!/^\/content\/library-books\/rendered\/[a-z0-9-]+\.html$/.test(source))return null;
+ if(source.startsWith('//')||/[\\\u0000-\u001f\u007f%]/.test(source))return null;
+ if(!/^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$/.test(record.contentVersion||'')||
+    !/^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$/.test(record.admissionVersion||'')||
+    !/^[a-f0-9]{64}$/.test(record.artifactSha256||''))return null;
+ let url;
+ try{url=new URL(source,location.origin);}catch(error){return null;}
+ if(url.origin!==location.origin||url.pathname!==source||url.search||url.hash)return null;
+ return record;
+}
+function admittedBook(id){
+ const book=ALL[id];
+ const record=exactAdmittedBookRecord(id);
+ return book&&record?Object.freeze({book,record,source:record.sourcePath}):null;
+}
+function bookIsAvailable(b){return Boolean(b&&admittedBook(b.id)?.book===b);}
+function bookStatusText(b){return b&&b.statusLabel?b.statusLabel:'Not published';}
+function bookVisitorStatus(b){
+ if(bookIsAvailable(b))return 'Ready to read now';
+ if(b?.listed===false)return 'Not in the current catalogue';
+ if(b?.status==='hold')return 'Preview available · full book awaiting final review';
+ if(b?.soon&&/^EP\s*\d+/i.test(b.soon))return `Arriving with ${b.soon.replace(/^EP/i,'Episode')}`;
+ if(b?.soon)return 'Coming later';
+ return 'Not available yet';
+}
+function reportLibraryStatus(message){
+ const status=document.getElementById('library-status');
+ if(status)status.textContent=message||'';
+}
+
+/* Every book stays visible in a case sized for the collection: four-book
+   collections use the two-bay/two-row case; six-book collections use the
+   three-bay case. More than six books adds another room/case, never pagination. */
+const SHELF_LAYOUTS=Object.freeze([
+ {capacity:6,perRow:2},
+ {capacity:6,perRow:3},
+ {capacity:6,perRow:2}
+]);
+const compactShelfMedia=matchMedia('(max-width:560px)');
+let compactShelfLayout=compactShelfMedia.matches;
+const catalogueFilter={q:'',collection:'all',topic:'all',status:'all'};
+let previewReturnFocus=null;
+function catalogueBookMatches(book,sectionIndex){
+ if(book.listed===false)return false;
+ if(catalogueFilter.collection!=='all'&&Number(catalogueFilter.collection)!==sectionIndex)return false;
+ if(catalogueFilter.topic!=='all'&&!(book.topics||[]).includes(catalogueFilter.topic))return false;
+ const state=bookIsAvailable(book)?'ready':book.status;
+ if(catalogueFilter.status!=='all'&&catalogueFilter.status!==state)return false;
+ if(!catalogueFilter.q)return true;
+ const topicText=(book.topics||[]).map(topic=>TOPIC_LABELS[topic]||topic).join(' ');
+ return `${book.t} ${book.s||''} ${book.inside||''} ${topicText} ${SECTIONS[sectionIndex].name}`.toLowerCase().includes(catalogueFilter.q);
+}
+function shelfSplit(books,sectionIndex){
+ const perRow=compactShelfLayout?2:(SHELF_LAYOUTS[sectionIndex]?.perRow||2);
+ return Array.from({length:Math.ceil(books.length/perRow)},(_,index)=>books.slice(index*perRow,(index+1)*perRow));
+}
+/* BOOK_PREVIEW_CHOICE_CONTRACT: the shelf is the physical catalogue. One cover
+   click opens one pre-open preview; the shelf itself never renders the preview. */
+const TOPIC_LABELS=Object.freeze({
+ basics:'AI basics',prompting:'Prompting',"getting-started":'Getting started',"choosing-tools":'Choosing tools',
+ "privacy-safety":'Privacy and safety',"checking-research":'Checking and research',"impact-society":'Work and society'
+});
+const esc=value=>String(value??'').replace(/[&<>"]/g,character=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[character]));
+const shelfBook=book=>`<button class="bk${bookIsAvailable(book)?'':' soon'}" type="button" data-book-id="${esc(book.id)}" data-preview-book="${esc(book.id)}" data-library-status="${esc(book.status)}" data-visible-scale="160" aria-label="Preview ${esc(book.t)}. ${esc(bookVisitorStatus(book))}"><img src="${esc(book.img)}" alt="${esc(book.t)} cover"><span class="sr-only">${esc(bookVisitorStatus(book))}</span></button>`;
+const OPENING_BOOK_IDS=new Set(['ai-fundamentals-101','working-with-ai-101','straight-answers','ai-dictionary']);
+function renderShelf(){
+ const visible=SECTIONS.flatMap((section,sectionIndex)=>section.books.map(book=>({book,sectionIndex})))
+  .filter(({book})=>book.listed!==false&&bookIsAvailable(book)&&OPENING_BOOK_IDS.has(book.id))
+  .filter(({book,sectionIndex})=>catalogueBookMatches(book,sectionIndex))
+  .map(({book})=>book);
+ const matchCount=visible.length;
+ const wallcase=document.getElementById('wallcase');
+ wallcase.innerHTML=`<div class="book-cover-grid" id="library-books-all" tabindex="-1">${visible.map(shelfBook).join('')}${visible.length?'':'<p class="empty-bay">No books match. Try another title or topic.</p>'}</div>`;
+ const result=document.getElementById('catalogue-result');
+ /* CATALOGUE_QUIET_DEFAULT_CONTRACT: counts are useful only after a visitor filters. */
+ const catalogueHasActiveFilter=Boolean(catalogueFilter.q||catalogueFilter.topic!=='all'||catalogueFilter.collection!=='all'||catalogueFilter.status!=='all');
+ if(result)result.textContent=!catalogueHasActiveFilter?'':matchCount?`${matchCount} ${matchCount===1?'book found':'books found'}.`:'No books found. Try another title or topic.';
+}
+function resetBookPreview(returnToShelf=false){
+ const preview=document.getElementById('book-preview');preview.classList.add('is-empty');
+ delete preview.dataset.bookId;
+ document.querySelector('.libroom')?.after(preview);
+ document.getElementById('book-preview-title').textContent='Choose a book.';
+ document.getElementById('book-preview-summary').textContent='Its cover preview will tell you what it contains and whether it is ready before you open it.';
+ document.getElementById('book-preview-inside').textContent='';
+ const returnTarget=previewReturnFocus;
+ previewReturnFocus=null;
+ if(returnToShelf&&returnTarget instanceof HTMLElement){
+  returnTarget.focus({preventScroll:true});
+  returnTarget.scrollIntoView({behavior:motionBehavior(),block:'center'});
+ }
+}
+document.getElementById('book-preview-back')?.addEventListener('click',()=>resetBookPreview(true));
+renderShelf();
+compactShelfMedia.addEventListener?.('change',event=>{
+ if(event.matches===compactShelfLayout)return;
+ const preview=document.getElementById('book-preview');
+ const openPreviewBook=preview.classList.contains('is-empty')?null:preview.dataset.bookId;
+ compactShelfLayout=event.matches;
+ resetBookPreview();
+ renderShelf();
+ if(openPreviewBook){
+  const bookButton=document.querySelector(`.bk[data-book-id="${openPreviewBook}"]`);
+  if(bookButton){bookButton.focus({preventScroll:true});previewBook(openPreviewBook);reportLibraryStatus('Shelf layout updated. Your book preview is still open.');}
+ }
+});
+function filterCatalogue(topicOverride){
+ catalogueFilter.q=(document.getElementById('catalogue-search')?.value||'').trim().toLowerCase();
+ catalogueFilter.collection=document.getElementById('catalogue-collection')?.value||'all';
+ if(typeof topicOverride==='string')catalogueFilter.topic=topicOverride;
+ catalogueFilter.status=document.getElementById('catalogue-status')?.value||'all';
+ resetBookPreview();renderShelf();
+}
+document.getElementById('catalogue-search')?.addEventListener('input',filterCatalogue);
+document.getElementById('catalogue-collection')?.addEventListener('change',filterCatalogue);
+document.getElementById('catalogue-status')?.addEventListener('change',filterCatalogue);
+document.querySelectorAll('.topic-link').forEach(button=>button.addEventListener('click',()=>{
+ const topic=button.dataset.topic||'all';
+ document.querySelectorAll('.topic-link').forEach(link=>link.setAttribute('aria-pressed',String(link===button)));
+ filterCatalogue(topic);
+}));
+function previewBook(id,trigger=null){
+ const book=ALL[id];if(!book)return;
+ previewReturnFocus=trigger||document.activeElement;
+ const section=SECTIONS.find(item=>item.books.includes(book));
+ const preview=document.getElementById('book-preview');
+ preview.dataset.bookId=id;
+ document.querySelector('.libroom')?.after(preview);
+ preview.classList.remove('is-empty');
+ const cover=document.getElementById('book-preview-cover');cover.src=book.img;cover.alt=`${book.t} cover`;
+ document.getElementById('book-preview-title').textContent=book.t;
+ document.getElementById('book-preview-summary').textContent=book.s||'No description is available yet.';
+ const topicLabels={
+  basics:'AI basics',prompting:'Prompting',"getting-started":'Getting started',"choosing-tools":'Choosing tools',
+  "privacy-safety":'Privacy and safety',"checking-research":'Checking and research',"impact-society":'Work and society'
+ };
+ const inside=book.inside||(book.topics||[]).map(topic=>topicLabels[topic]||topic).join(', ');
+ document.getElementById('book-preview-inside').innerHTML=`<b>Inside this book:</b> ${inside||'Coverage details are still being prepared.'}`;
+ const depth=book.depth||(section?.name==='REFERENCE'?'Sourced deep-dive reference':section?.name==='THE TOOLS'?'Quick practical guide':'Plain-English foundation');
+ document.getElementById('book-preview-meta').innerHTML=`<span><b>Collection:</b> ${section?.name||'Library'}</span><span><b>Depth:</b> ${depth}</span><span><b>Availability:</b> ${bookVisitorStatus(book)}</span>`;
+ const read=document.getElementById('book-preview-read'),status=document.getElementById('book-preview-status'),action=read.closest('.checkout-action');
+ action.hidden=false;
+ if(bookIsAvailable(book)){
+  read.hidden=false;read.onclick=()=>openBook(id);status.textContent='Ready to read now.';
+ }else{
+  read.hidden=true;read.onclick=null;status.textContent=`This book is not open yet. ${bookVisitorStatus(book)}`;
+ }
+ preview.scrollIntoView({behavior:motionBehavior(),block:'nearest'});
+ document.getElementById('book-preview-title').focus({preventScroll:true});
+}
+
+/* ── Ask Miss Jeeves ── */
+const INDEX_LIBRARY_BOOKS=Object.freeze({
+ 'ref-verification':'how-to-check',
+ 'ref-straight-answers':'straight-answers',
+ 'ref-whoswho':'whos-who'
+});
+function safeIndexDestination(entry){
+ const bookId=INDEX_LIBRARY_BOOKS[entry.id];
+ if(bookId)return admittedBook(bookId)?{kind:'book',bookId}:null;
+ if(/^\/library\.html#/.test(entry.url||'')){
+   const reference=entry.url.split('#')[1]||'';
+   const [id,rawHeading='']=reference.split('::');
+   let heading='';
+   try{heading=decodeURIComponent(rawHeading);}catch(error){return null;}
+   return admittedBook(id)?{kind:'book',bookId:id,heading}:null;
+ }
+ if(/^\/content\/library-books\/rendered\//.test(entry.url||'')){
+   const publication=Object.keys(ADMITTED_BOOK_RECORDS)
+     .map(admittedBook).find(item=>item&&item.source===entry.url);
+   return publication?{kind:'book',bookId:publication.book.id}:null;
+ }
+ if(typeof entry.url!=='string'||!entry.url.startsWith('/')||
+    entry.url.startsWith('//')||/[\\\u0000-\u001f\u007f]/.test(entry.url))return null;
+ let url;
+ try{url=new URL(entry.url,location.origin);}catch(error){return null;}
+ return url.origin===location.origin?{kind:'url',url:url.pathname+url.search+url.hash}:null;
+}
+function normalizeJeevesQuery(q){
+  return (q||'').trim().toLowerCase().replace(/[’]/g,"'").replace(/\bwhat's\b/g,'what is').replace(/[?!.]+$/,'');
+}
+function escapeJeevesText(value){
+ return String(value||'').replace(/[&<>"']/g,char=>({
+   '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+ }[char]));
+}
+function renderJeevesService(payload,query){
+  const box=document.getElementById('jv-results');
+  if(!payload||typeof payload!=='object'||typeof payload.status!=='string'||typeof payload.answer!=='string'){
+    renderJeevesServiceError(query);return;
+  }
+  if(payload.status==='limit_reached'){
+    if(payload.guestToken)rememberJeevesGuestToken(payload.guestToken);
+    box.innerHTML=`<section class="jv-limit" role="status"><p>${escapeJeevesText(payload.answer)}</p>${payload.error==='guest_limit_reached'?'<a href="/maikeover.html">Make your free Resident Card</a>':''}</section>`;
+    return;
+  }
+  if(payload.status==='unavailable'){
+    renderJeevesServiceError(query);return;
+  }
+  if(payload.status==='not_covered'){
+    const topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
+    box.innerHTML=`<div class="jv-none" role="status">${escapeJeevesText(payload.answer)}</div>
+      <form class="jv-request" id="jv-topic-request" data-topic-id="${escapeJeevesText(topicId)}">
+        <p><strong>Want LAiDIES to cover this?</strong> Send the question to the editorial queue. Ordinary Miss Jeeves searches are not saved; this request is saved only after you agree.</p>
+        <label class="jv-request-consent"><input type="checkbox" id="jv-request-consent" required> <span>I want to send this question for editorial review, and I confirm it contains no personal, confidential or account information.</span></label>
+        <div class="jv-request-controls"><button type="submit" id="jv-request-submit">Ask LAiDIES to cover this</button><span class="jv-request-status" id="jv-request-status" role="status" aria-live="polite"></span></div>
+      </form>`;
+    document.getElementById('jv-topic-request').addEventListener('submit',event=>submitJeevesTopicRequest(event,query));
+    return;
+  }
+  if(!['ok','related'].includes(payload.status)||!Array.isArray(payload.results)){
+    renderJeevesServiceError(query);return;
+  }
+  const results=payload.results.map(entry=>{
+    if(!entry||typeof entry!=='object')return null;
+    const destination=safeIndexDestination(entry);
+    return destination?{...entry,destination}:null;
+  }).filter(Boolean);
+  const links=results.map(entry=>entry.destination.kind==='book'
+    ? `<button type="button" class="jv-card" data-result-id="${escapeJeevesText(entry.id)}" data-open-book="${escapeJeevesText(entry.destination.bookId)}" data-open-heading="${escapeJeevesText(entry.destination.heading||'')}">
+        <span class="jv-type jv-${escapeJeevesText(entry.type)}">${escapeJeevesText(entry.type)}</span>
+        <span class="jv-t">${escapeJeevesText(entry.title)}</span>
+        <span class="jv-s">${escapeJeevesText(entry.summary)}</span></button>`
+    : `<a class="jv-card" data-result-id="${escapeJeevesText(entry.id)}" href="${escapeJeevesText(entry.destination.url)}">
+        <span class="jv-type jv-${escapeJeevesText(entry.type)}">${escapeJeevesText(entry.type)}</span>
+        <span class="jv-t">${escapeJeevesText(entry.title)}</span>
+        <span class="jv-s">${escapeJeevesText(entry.summary)}</span></a>`).join('');
+  const citations=(Array.isArray(payload.citations)?payload.citations:[]).map(source=>{
+    if(!source||typeof source.url!=='string'||typeof source.title!=='string')return '';
+    let url;try{url=new URL(source.url);}catch(error){return '';}
+    if(url.protocol!=='https:')return '';
+    return `<a href="${escapeJeevesText(url.href)}" target="_blank" rel="noopener noreferrer">${escapeJeevesText(source.title)}</a>`;
+  }).filter(Boolean).join('');
+  box.dataset.topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
+  if(payload.guestToken)rememberJeevesGuestToken(payload.guestToken);
+  const checked=payload.current_guidance?.checked_at?new Date(payload.current_guidance.checked_at):null;
+  const checkedLabel=checked&&!Number.isNaN(checked.valueOf())?`Checked live · ${checked.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})}`:'LAiDIES reference';
+  const allowance=payload.allowance&&Number.isInteger(payload.allowance.remaining)
+    ? `<p class="jv-allowance">${payload.allowance.kind==='guest'?`${payload.allowance.remaining} of 3 guest questions left.`:`${payload.allowance.remaining} of 5 answers left today.`}</p>`:'';
+  const paragraphs=escapeJeevesText(payload.answer).split(/\n\s*\n/).filter(Boolean).map(text=>`<p>${text}</p>`).join('');
+  const answerId=payload.answer_id&&/^[a-f0-9]{64}$/.test(payload.answer_id)?payload.answer_id:'';
+  box.innerHTML=`<article class="jv-answer">
+    <span class="jv-answer-kicker">Miss Jeeves says</span>
+    <h3>${payload.status==='related'?'Related material—not an exact answer.':'Here is the clearest answer currently in town.'}</h3>
+    <div class="jv-answer-meta"><span>${checkedLabel}</span></div>
+    <div class="jv-answer-copy">${paragraphs}</div>
+    ${allowance}
+    ${citations?`<div class="jv-sources"><b>Sources checked</b>${citations}</div>`:''}
+    ${links?`<div class="jv-answer-links"><b>Useful places to continue</b>${links}</div>`:''}
+    ${answerId?`<div class="jv-feedback" data-answer-id="${answerId}"><b>How was this answer?</b><button type="button" data-jeeves-helpful aria-pressed="false">Helpful</button><span class="jv-feedback-prompt">If something was wrong, choose all that apply:</span><button type="button" data-jeeves-issue="did_not_answer" aria-pressed="false">Didn&rsquo;t answer me</button><button type="button" data-jeeves-issue="confusing_or_too_technical" aria-pressed="false">Confusing or too technical</button><button type="button" data-jeeves-issue="inaccurate_or_outdated" aria-pressed="false">Inaccurate or outdated</button><button type="button" data-jeeves-issue="missed_context" aria-pressed="false">Missed something important</button><button type="button" data-jeeves-issue="weak_missing_or_broken_sources" aria-pressed="false">Weak or missing sources</button><button type="button" data-jeeves-issue="seemed_like_ai_slop" aria-pressed="false">Seemed like AI slop</button><button type="button" data-jeeves-issue="too_long" aria-pressed="false">Too long</button><button type="button" data-jeeves-issue="too_brief" aria-pressed="false">Too brief</button><button type="button" class="jv-feedback-submit" data-jeeves-submit>Send feedback</button><span role="status" aria-live="polite"></span></div>`:''}
+  </article>`;
+}
+const JEEVES_GUEST_TOKEN_KEY='laidies_miss_jeeves_guest_token_v1';
+function jeevesGuestToken(){try{return localStorage.getItem(JEEVES_GUEST_TOKEN_KEY)||'';}catch{return '';}}
+function rememberJeevesGuestToken(token){try{if(typeof token==='string'&&token.length<1200)localStorage.setItem(JEEVES_GUEST_TOKEN_KEY,token);}catch{}}
+async function jeevesAccessToken(){
+ try{
+  const runtime=window.LAIDIESResidentAccountRuntime?await window.LAIDIESResidentAccountRuntime.get():null;
+  const session=runtime?.client?await runtime.client.auth.getSession():null;
+  return session?.data?.session?.access_token||'';
+ }catch{return '';}
+}
+function newJeevesRequestKey(){
+ return `mjr-browser-${Date.now()}-${crypto.getRandomValues(new Uint32Array(2)).join('-')}`;
+}
+async function submitJeevesTopicRequest(event,query){
+ event.preventDefault();
+ const form=event.currentTarget,consent=document.getElementById('jv-request-consent'),button=document.getElementById('jv-request-submit'),status=document.getElementById('jv-request-status');
+ if(!consent.checked){status.dataset.state='error';status.textContent='Please confirm before sending.';return;}
+ button.disabled=true;status.dataset.state='';status.textContent='Sending your request…';
+ const key=form.dataset.idempotencyKey||(form.dataset.idempotencyKey=newJeevesRequestKey());
+ try{
+  const response=await fetch('/api/miss-jeeves/topic-request',{method:'POST',credentials:'same-origin',redirect:'error',cache:'no-store',headers:{'content-type':'application/json','accept':'application/json','idempotency-key':key},body:JSON.stringify({question:query,topic_id:form.dataset.topicId||'other',placement:jeevesPlacement,consent:true})});
+  const payload=await response.json();
+  if(!response.ok||payload.status!=='accepted')throw new Error(payload.error||'request_failed');
+  localStorage.setItem('laidies_miss_jeeves_last_receipt',JSON.stringify({receipt_id:payload.receipt_id,status_reference:payload.status_reference,created_at:payload.created_at}));
+  status.dataset.state='accepted';status.textContent='Sent. Miss Jeeves gave you a private receipt on this device; the editorial team can now review the gap.';
+  consent.disabled=true;button.hidden=true;
+ }catch(error){
+  status.dataset.state='error';status.textContent=error.message==='private_content_prohibited'?'Please remove private or confidential information before sending.':'Nothing was lost here; try again.';button.disabled=false;
+ }
+}
+function renderJeevesServiceError(query){
+ const box=document.getElementById('jv-results');
+ box.innerHTML=`<section class="jv-error" role="alert"><p>Miss Jeeves cannot check the Library right now. Your question is still here.</p><button type="button" id="jv-service-retry">Try the Library again</button></section>`;
+ document.getElementById('jv-service-retry').addEventListener('click',event=>{
+   event.currentTarget.disabled=true;askMissJeeves(query);
+ },{once:true});
+}
+let jeevesServiceRequest=0;
+let jeevesPlacement='library';
+async function askMissJeeves(value){
+  const query=String(value||'').trim().slice(0,240);
+  const normalized=normalizeJeevesQuery(query);
+  const box=document.getElementById('jv-results');
+  if(!normalized){box.innerHTML='';document.getElementById('jv-q').focus();return;}
+  const requestId=++jeevesServiceRequest;
+  box.innerHTML='<p class="jv-none" role="status">Miss Jeeves is checking the town Library…</p>';
+  try{
+    const accessToken=await jeevesAccessToken();
+    const guestToken=jeevesGuestToken();
+    const headers={'content-type':'application/json','accept':'application/json'};
+    if(accessToken)headers.authorization=`Bearer ${accessToken}`;
+    else if(guestToken)headers['x-laidies-guest-token']=guestToken;
+    const response=await fetch('/api/miss-jeeves',{
+      method:'POST',credentials:'same-origin',redirect:'error',cache:'no-store',
+      headers,
+      body:JSON.stringify({query,placement:jeevesPlacement,guestToken:accessToken?'':guestToken})
+    });
+    const payload=await response.json();
+    if(requestId!==jeevesServiceRequest)return;
+    if(response.status===400&&payload.error==='private_content_prohibited'){
+      box.innerHTML=`<p class="jv-none" role="alert">${escapeJeevesText(payload.answer||'Please remove private or confidential information before asking.')}</p>`;return;
+    }
+    if(!response.ok&&response.status!==503)throw new Error('Miss Jeeves service failed');
+    renderJeevesService(payload,query);
+  }catch(error){
+    if(requestId===jeevesServiceRequest)renderJeevesServiceError(query);
+  }
+}
+document.querySelector('.jv-form').addEventListener('submit',event=>{
+ event.preventDefault();
+ askMissJeeves(document.getElementById('jv-q').value);
+});
+document.getElementById('jv-results').addEventListener('click',event=>{
+ const helpful=event.target.closest('[data-jeeves-helpful]');
+ if(helpful){
+  const feedback=helpful.closest('.jv-feedback');
+  feedback.querySelectorAll('[data-jeeves-issue]').forEach(button=>button.setAttribute('aria-pressed','false'));
+  helpful.setAttribute('aria-pressed','true');
+  feedback.querySelector('[role="status"]').textContent='Thank you. That helps LAiDIES improve Miss Jeeves.';
+  fetch('/api/miss-jeeves/feedback',{method:'POST',credentials:'same-origin',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({answer_id:feedback.dataset.answerId,rating:'helpful',reasons:[],placement:jeevesPlacement})}).catch(()=>{});
+  return;
+ }
+ const issue=event.target.closest('[data-jeeves-issue]');
+ if(issue){
+  const feedback=issue.closest('.jv-feedback');
+  const selected=issue.getAttribute('aria-pressed')!=='true';
+  issue.setAttribute('aria-pressed',String(selected));
+  feedback.querySelector('[data-jeeves-helpful]').setAttribute('aria-pressed','false');
+  const count=feedback.querySelectorAll('[data-jeeves-issue][aria-pressed="true"]').length;
+  feedback.querySelector('[role="status"]').textContent=count?`${count} issue${count===1?'':'s'} selected. Choose more or send feedback.`:'';
+  return;
+ }
+ const submit=event.target.closest('[data-jeeves-submit]');
+ if(submit){
+  const feedback=submit.closest('.jv-feedback');
+  const reasons=Array.from(feedback.querySelectorAll('[data-jeeves-issue][aria-pressed="true"]'),button=>button.dataset.jeevesIssue);
+  const status=feedback.querySelector('[role="status"]');
+  if(!reasons.length){status.textContent='Choose at least one issue first.';return;}
+  submit.disabled=true;
+  status.textContent='Sending feedback…';
+  fetch('/api/miss-jeeves/feedback',{method:'POST',credentials:'same-origin',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({answer_id:feedback.dataset.answerId,rating:'not_helpful',reasons,placement:jeevesPlacement})})
+    .then(response=>{if(!response.ok)throw new Error('feedback_failed');status.textContent='Thank you. Your selected issues were sent together.';})
+    .catch(()=>{status.textContent='Feedback was not sent. Please try again.';submit.disabled=false;});
+  return;
+ }
+ const result=event.target.closest('[data-result-id]');
+ if(result)fetch('/api/miss-jeeves/result-open',{method:'POST',credentials:'same-origin',keepalive:true,headers:{'content-type':'application/json'},body:JSON.stringify({result_id:result.dataset.resultId,topic_id:event.currentTarget.dataset.topicId||'other',placement:jeevesPlacement})}).catch(()=>{});
+ const control=event.target.closest('[data-open-book]');
+ if(!control)return;
+ openBook(control.dataset.openBook,control.dataset.openHeading||'');
+});
+document.querySelectorAll('.jv-chip').forEach(button=>button.addEventListener('click',()=>{
+ const input=document.getElementById('jv-q');
+ input.value=button.textContent.trim();
+ askMissJeeves(input.value);
+ input.focus();
+}));
+
+function renderShelfCopy(b,txt,toc,fallback){
+  txt.innerHTML=fallback||b.body||'<p>This book is still being written.</p>';
+  assignBookSectionAnchors(txt);
+  const headings=[...txt.querySelectorAll('h2,h3')].filter(h=>!h.closest('.receipts,.vr-metadata,.vr-sources'));
+  const groups=bookTocGroups(headings);
+  if(groups.length){
+    setBookToc(toc,groups);
+  }else{
+    setBookToc(toc,(b.toc||[]).map(x=>`<span>${x}</span>`).join(''));
+  }
+}
+function bookTocSourceBlock(heading){
+ const own=heading.dataset.sourceBlock||'';
+ if(own)return own;
+ const section=heading.parentElement?.matches('section[data-source-block]')?heading.parentElement:null;
+ return section&&section.querySelector(':scope > h2')===heading?section.dataset.sourceBlock:'';
+}
+function bookTocGroups(headings){
+ const groups=[];let current=null;
+ headings.forEach(heading=>{
+  const sourceBlock=bookTocSourceBlock(heading);
+  if(sourceBlock){current={heading,sourceBlock,sections:[]};groups.push(current);return;}
+  if(current)current.sections.push(heading);
+ });
+ return groups;
+}
+function bookTocText(value){
+ return String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
+}
+function bookTocKey(sourceBlock){
+ const chapter=sourceBlock.match(/^chapter-(\d+)$/);
+ return chapter?String(Number(chapter[1])).padStart(2,'0'):'';
+}
+function bookTocLink(heading,className=''){
+ return `<a class="${className}" href="#${heading.id}" data-level="${heading.tagName.slice(1)}">${bookTocText(heading.textContent.trim())}</a>`;
+}
+function bookTocPrimary(group){
+ const key=bookTocKey(group.sourceBlock),title=bookTocText(group.heading.textContent.trim());
+ return `<a class="toc-primary" href="#${group.heading.id}" data-level="2" data-source-block="${group.sourceBlock}">${key?`<span class="toc-key">${key}</span>`:''}<span class="toc-title">${title}</span></a>`;
+}
+function desktopBookTocHtml(groups){
+ return groups.map(group=>`<div class="reader-toc-group">${bookTocPrimary(group)}${group.sections.length?`<div class="toc-subsections">${group.sections.map(section=>bookTocLink(section)).join('')}</div>`:''}</div>`).join('');
+}
+function mobileBookTocHtml(groups){
+ return groups.map(group=>{
+  if(!group.sections.length)return bookTocPrimary(group);
+  const key=bookTocKey(group.sourceBlock),title=bookTocText(group.heading.textContent.trim());
+  return `<details class="reader-toc-group"><summary>${key?`<span class="toc-key">${key}</span>`:''}<span class="toc-title">${title}</span></summary><div class="reader-toc-children">${bookTocLink(group.heading,'reader-toc-start')}${group.sections.map(section=>bookTocLink(section)).join('')}</div></details>`;
+ }).join('');
+}
+function setBookToc(toc,groupsOrHtml){
+ const structured=Array.isArray(groupsOrHtml);
+ const desktopHtml=structured?desktopBookTocHtml(groupsOrHtml):groupsOrHtml;
+ const mobileHtml=structured?mobileBookTocHtml(groupsOrHtml):groupsOrHtml;
+ toc.innerHTML=desktopHtml;
+ const mobile=document.getElementById('rtoc-mobile');
+ if(mobile)mobile.innerHTML=mobileHtml?`<h2 class="reader-contents-heading">Contents · Quick index</h2>${mobileHtml}`:'';
+ bindBookTocListeners(toc);
+ if(mobile)bindBookTocListeners(mobile);
+}
+function setReaderContentsOpen(open){
+ const details=document.getElementById('mobile-toc');
+ const book=details.closest('.book');
+ const label=details.querySelector('.reader-contents-label');
+ details.open=Boolean(open);
+ book?.classList.toggle('contents-open',Boolean(open));
+ if(label)label.textContent=open?'Close contents':'Contents';
+}
+function bindBookTocListeners(toc){
+ toc.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',event=>{
+  const sectionId=link.getAttribute('href').slice(1);
+  const target=document.getElementById(sectionId);
+  if(!target||!document.getElementById('rtxt').contains(target))return;
+  event.preventDefault();
+  document.querySelectorAll('#rtoc a[aria-current],#rtoc-mobile a[aria-current]').forEach(item=>item.removeAttribute('aria-current'));
+  document.querySelectorAll(`#rtoc a[href="#${sectionId}"],#rtoc-mobile a[href="#${sectionId}"]`).forEach(item=>item.setAttribute('aria-current','location'));
+  target.setAttribute('tabindex','-1');
+  target.focus({preventScroll:true});
+  setReaderContentsOpen(false);
+  scrollReaderToTarget(target,{replaceHash:true});
+ }));
+}
+function updateReaderPosition(sectionId){
+ const txt=document.getElementById('rtxt');
+ const headings=[...txt.querySelectorAll('h1[id],h2[id],h3[id]')].filter(h=>!h.closest('.receipts,.vr-metadata,.vr-sources'));
+ let current=sectionId?document.getElementById(sectionId):null;
+ if(!current){
+  const txtTop=txt.getBoundingClientRect().top+28;
+  current=[...headings].reverse().find(heading=>heading.getBoundingClientRect().top<=txtTop)||headings[0]||null;
+ }
+ activeReaderSectionId=current?.id||null;
+ const label=document.getElementById('reader-current-section');
+ if(label)label.textContent=current?.textContent.trim()||'Start of book';
+ document.querySelectorAll('#rtoc a[aria-current],#rtoc-mobile a[aria-current]').forEach(item=>item.removeAttribute('aria-current'));
+ if(current)document.querySelectorAll(`#rtoc a[href="#${current.id}"],#rtoc-mobile a[href="#${current.id}"]`).forEach(item=>item.setAttribute('aria-current','location'));
+}
+function scrollReaderToTarget(target,{replaceHash=false}={}){
+ const txt=document.getElementById('rtxt');
+ if(!target||!txt.contains(target))return;
+ const targetTop=txt.scrollTop+target.getBoundingClientRect().top-txt.getBoundingClientRect().top-18;
+ txt.scrollTo({top:Math.max(0,targetTop),behavior:'auto'});
+ if(replaceHash&&activeReaderBookId&&target.id)history.replaceState(null,'','#'+activeReaderBookId+'::'+encodeURIComponent('@'+target.id));
+ updateReaderPosition(target.id||null);
+}
+function sectionAnchorSlug(value){
+  return value.normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase()
+    .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,64)||'section';
+}
+function assignBookSectionAnchors(txt){
+  const seen=new Map();
+  [...txt.querySelectorAll('h1,h2,h3,h4')].forEach(heading=>{
+    const sourceId=(heading.getAttribute('id')||'').trim();
+    const slug=sourceId||'book-section-'+sectionAnchorSlug(heading.textContent.trim());
+    const occurrence=(seen.get(slug)||0)+1;
+    seen.set(slug,occurrence);
+    heading.id=slug+(occurrence>1?'-'+occurrence:'');
+  });
+}
+function renderReaderTitle(id,title){
+ const target=document.getElementById('rt');
+ const book=target.closest('.book');
+ book?.classList.toggle('book--ai-fundamentals-art',id==='ai-fundamentals-101');
+ target.replaceChildren();
+ target.removeAttribute('aria-label');
+ if(id==='ai-fundamentals-101'){
+  target.setAttribute('aria-label','AI Fundamentals 101');
+  const lead=document.createElement('span');lead.className='reader-title-lead';lead.textContent='AI';
+  const name=document.createElement('span');name.className='reader-title-name';name.append(document.createTextNode('Fundamentals'));
+  const brush=document.createElement('img');brush.className='reader-title-brush';brush.src='/assets/library-reader/title-pink-brush-v1.png';brush.alt='';brush.setAttribute('aria-hidden','true');name.append(brush);
+  const number=document.createElement('span');number.className='reader-title-number';number.textContent='101';
+  target.append(lead,name,number);
+  return;
+ }
+ target.textContent=title;
+}
+function updateReaderPageArt(spread){
+ const book=document.querySelector('#reader .book');
+ const image=document.getElementById('reader-page-art');
+ const mobile=document.getElementById('reader-page-art-mobile');
+ if(!book||!image||!mobile)return;
+ const fundamentals=activeReaderBookId==='ai-fundamentals-101';
+ const opening=fundamentals&&Boolean(spread?.querySelector('.reader-preface-heading'));
+ book.classList.toggle('book--ai-fundamentals-art',fundamentals);
+ book.classList.toggle('is-opening-art',opening);
+ image.src=fundamentals?'/assets/library-reader/ai-fundamentals-frame-imagegen-v6.png?v=6a':'/assets/library-reader/library-book-page-art-v4.png?v=4a';
+ mobile.srcset=fundamentals?'/assets/library-reader/ai-fundamentals-frame-mobile-imagegen-v6.png?v=6a':'/assets/library-reader/library-book-page-art-mobile-v4.png?v=4a';
+}
+function decorateReaderOpening(id,txt){
+ txt.querySelectorAll('.reader-preface-aside').forEach(node=>node.remove());
+ txt.querySelectorAll('.reader-preface-intro').forEach(node=>node.classList.remove('reader-preface-intro'));
+ if(id!=='ai-fundamentals-101')return;
+ const preface=[...txt.querySelectorAll('section')].find(section=>section.dataset.sourceBlock==='preface-why-this-book-matters');
+ if(!preface)return;
+ const heading=[...preface.children].find(node=>node.matches?.('h2')&&node.textContent.trim().toLowerCase().startsWith('preface'));
+ if(!heading)return;
+ heading.classList.add('reader-preface-heading');
+ heading.replaceChildren();
+ const kicker=document.createElement('span'),title=document.createElement('span');
+ kicker.className='reader-preface-kicker';kicker.textContent='Preface —';
+ title.className='reader-preface-title';title.textContent='Why This Book Matters';
+ const divider=document.createElement('span');divider.className='reader-preface-divider';divider.setAttribute('aria-hidden','true');
+ heading.append(divider,kicker,title);
+ let lastIntro=heading;
+ for(let node=heading.nextElementSibling;node&&!node.matches('h2');node=node.nextElementSibling){
+  node.classList.add('reader-preface-intro');lastIntro=node;
+ }
+ const aside=document.createElement('div');aside.className='reader-preface-aside';
+ aside.innerHTML='<aside class="reader-preface-card reader-preface-card-why"><div class="reader-preface-card-label"><img src="/assets/library-reader/preface-question-icon-v1.png" alt=""><b>WHY THIS MATTERS</b></div><p>AI is already changing how people work, create, find information and make decisions.</p></aside><aside class="reader-preface-card reader-preface-card-job"><div class="reader-preface-card-label"><img src="/assets/library-reader/preface-concept-icon-v1.png" alt=""><b>WHAT THIS BOOK DOES</b></div><p>Follow the whole AI system in plain English, learn what each part does and know which question to ask when something uses the label AI.</p></aside>';
+ lastIntro.insertAdjacentElement('afterend',aside);
+}
+function decorateReaderSaveIcons(id,txt){
+  txt.querySelectorAll('.reader-inline-save').forEach(button=>button.remove());
+  txt.querySelectorAll('.reader-save-heading-text').forEach(label=>label.replaceWith(...label.childNodes));
+  txt.querySelectorAll('.reader-save-heading').forEach(heading=>heading.classList.remove('reader-save-heading'));
+ const chapterSelector=id==='straight-answers'?'h2[data-source-block]':'h2[data-source-block^="chapter-"]';
+ const chapters=[...txt.querySelectorAll(chapterSelector)];
+ const excluded='.callout,.working-panel,.key-terms-reference,.receipts,.vr-metadata,.vr-sources';
+ const sections=[...txt.querySelectorAll('h2[id],h3[id]')].filter(heading=>
+  !chapters.includes(heading)&&!heading.matches('h2[data-source-block^="part-"]')&&!heading.closest(excluded));
+ [...chapters.map(heading=>({heading,scope:'chapter'})),...sections.map(heading=>({heading,scope:'section'}))].forEach(({heading,scope})=>{
+  const button=document.createElement('button');
+  button.type='button';button.className='reader-inline-save';button.dataset.readerSave=scope;button.dataset.readerSaveTarget=heading.id;
+  button.setAttribute('aria-label',`Save this ${scope}, ${heading.textContent.trim()}, with one of your 10 Puffy Stickers`);
+  button.title=`Save ${scope} with a Puffy Sticker`;button.setAttribute('aria-hidden','false');button.innerHTML='<img src="/assets/puffies/usable-25-images/60-teal-floppy-disk.png" alt="">';
+  const label=document.createElement('span');label.className='reader-save-heading-text';
+  while(heading.firstChild)label.appendChild(heading.firstChild);
+  heading.classList.add('reader-save-heading');
+  heading.append(label,button);
+ });
+}
+function saveReaderScope(scope,anchor,targetId=''){
+ const b=ALL[activeReaderBookId],publication=admittedBook(activeReaderBookId);
+ if(!b||!publication||!window.svPuffyChoose)return;
+ const heading=scope==='book'?null:document.getElementById(targetId);
+ if(scope!=='book'&&!heading)return;
+ const sectionId=heading?.id||'';
+ const title=heading?.textContent.trim()||b.t;
+ window.svPuffyChoose(anchor,{
+  id:scope==='book'?'library-book-'+activeReaderBookId:'library-'+activeReaderBookId+'-section-'+sectionId,
+  bookId:activeReaderBookId,sectionId,contentVersion:publication.record.contentVersion,title,
+  summary:b.t+' · SUNNYVAiLE LIBRAiRY',
+  url:'/library.html#'+activeReaderBookId+(sectionId?'::'+encodeURIComponent('@'+sectionId):'')
+ });
+}
+function findBookHeading(txt,headingReference){
+  if(!headingReference)return null;
+  if(headingReference.startsWith('@')){
+    const sectionId=headingReference.slice(1);
+    const headings=[...txt.querySelectorAll('h1,h2,h3,h4')];
+    const exact=headings.find(h=>h.id===sectionId);
+    if(exact)return exact;
+    // Older learning-index links predate chapter-prefixed rendered anchors.
+    // Preserve them only when the old anchor identifies one heading uniquely.
+    if(!/^\d+-\d+(?:-[a-z0-9]+)+$/.test(sectionId))return null;
+    const legacy=headings.filter(h=>/^(?:chapter-|ch-)/.test(h.id)&&h.id.endsWith('-'+sectionId));
+    return legacy.length===1?legacy[0]:null;
+  }
+  const needle=headingReference.toLowerCase();
+  return [...txt.querySelectorAll('h1,h2,h3,h4')]
+    .find(h=>h.textContent.trim().toLowerCase().includes(needle))||null;
+}
+function scrollBookTo(headingNeedle){
+  if(!headingNeedle)return;
+  const txt=document.getElementById('rtxt');
+  const heading=findBookHeading(txt,headingNeedle);
+  if(heading)scrollReaderToTarget(heading);
+}
+function motionBehavior(){
+ return matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth';
+}
+function focusBookSection(txt,headingNeedle){
+  if(!headingNeedle)return;
+  const heading=findBookHeading(txt,headingNeedle);
+  if(!heading)return;
+  scrollReaderToTarget(heading);
+  heading.setAttribute('tabindex','-1');
+  heading.focus({preventScroll:true});
+}
+async function settleBookSection(txt,headingNeedle){
+  focusBookSection(txt,headingNeedle);
+  if(!headingNeedle)return;
+  try{await document.fonts?.ready;}catch(error){}
+  await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+  scrollBookTo(headingNeedle);
+}
+function hydrateVerificationRulebook(txt){
+ const submissionState=({fieldsValid,keyedMatch,prose})=>{
+  if(!fieldsValid)return'incomplete';
+  if(String(prose||'').trim())return'self-check-ready';
+  return keyedMatch?'keyed-match':'review';
+ };
+ txt.querySelectorAll('.vr-check:not([data-transfer])').forEach(form=>{
+  form.addEventListener('submit',event=>{
+   event.preventDefault();
+   const feedback=form.querySelector('.vr-feedback');
+   if(!form.reportValidity()){
+    feedback.textContent='Complete every choice and required explanation before checking.';feedback.dataset.result='review';return;
+   }
+   const selects=[...form.querySelectorAll('select[data-answer]')];
+   const radios=[...form.querySelectorAll('input[type="radio"]:checked')];
+   const selectPass=selects.every(select=>select.value===select.dataset.answer);
+   const radioPass=radios.length===0||radios.every(radio=>radio.dataset.correct==='true');
+   const prose=[...form.querySelectorAll('textarea')].map(field=>field.value).join('\n');
+   const result=submissionState({fieldsValid:true,keyedMatch:selectPass&&radioPass,prose});
+   form.querySelectorAll('.vr-item-feedback').forEach(item=>{item.hidden=false;});
+   const modelFeedback=['','','','The current applicable provider terms are the best starting source because they match owner, plan, region and date. A strong reason still inspects conditions and does not assume “official” means complete or infallible.','Approval and paid-social scope are contradicted as written; the lift is unresolved. Preserve the useful draft, revise the claims and record owner, source, date and uncertainty.','',''][Number(form.dataset.check?.replace('chapter-',''))-1]||'';
+   if(result==='self-check-ready'){
+    form.querySelector('[data-self-check]')?.removeAttribute('hidden');
+    feedback.textContent=(selectPass&&radioPass?'Keyed choices match the model key. ':'Some keyed choices differ from the model key. ')+'Your written reasoning is recorded but not semantically scored. Compare it with the rubric and mark each dimension Met, Revise or Unsure. '+modelFeedback;
+   }else{
+    feedback.textContent=(result==='keyed-match'?'Keyed choices match the model key. This checks selection, not independent understanding. ':'Review the model feedback and try the keyed choices again. ')+modelFeedback;
+   }
+   feedback.dataset.result=result;
+  });
+ });
+ txt.querySelector('[data-transfer]')?.addEventListener('submit',event=>{
+  event.preventDefault();const form=event.currentTarget,feedback=form.querySelector('.vr-feedback');
+  if(!form.reportValidity()){feedback.textContent='Write a complete evidence plan before revealing the rubric.';feedback.dataset.result='review';return;}
+  form.querySelector('[data-self-check]')?.removeAttribute('hidden');
+  feedback.textContent='Response recorded but not semantically scored. Compare it with the rubric and mark each dimension Met, Revise or Unsure.';feedback.dataset.result='self-check-ready';
+ });
+ txt.querySelectorAll('[data-record-self-check]').forEach(button=>button.addEventListener('click',()=>{
+  const form=button.closest('form'),choices=[...form.querySelectorAll('[data-rubric-choice]')],feedback=form.querySelector('.vr-feedback');
+  if(choices.some(choice=>!choice.value)){feedback.textContent='Mark every rubric dimension Met, Revise or Unsure before recording your self-check.';feedback.dataset.result='review';choices.find(choice=>!choice.value)?.focus();return;}
+  feedback.textContent='Self-check recorded. This is reflection evidence, not an independent correctness score.';feedback.dataset.result='recorded';
+ }));
+ const copyButton=txt.querySelector('[data-copy-target]');
+ copyButton?.addEventListener('click',async()=>{
+  const target=txt.querySelector('#'+copyButton.dataset.copyTarget),status=txt.querySelector('.vr-copy-status');let copied=false;
+  try{if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(target.value);copied=true;}}catch(error){}
+  if(!copied){target.focus();target.select();try{copied=document.execCommand('copy');}catch(error){}}
+  status.textContent=copied?'Prompt copied. Open and check every material source before relying on the answer.':'Copy was unavailable. The prompt is selected so you can copy it manually.';
+ });
+}
+const READER_ACCENTS={
+  'vocab-101':'#245ed1','ai-fundamentals-101':'#7038c9','briefing-101':'#d83f86',
+  'setup-101':'#1597a7','accounts-101':'#e45e55','whos-who':'#245ed1',
+  'working-with-ai-101':'#2457e6','straight-answers':'#6539a8','ai-dictionary':'#1597a7','how-to-check':'#245ed1'
+};
+let readerReturnFocus=null;
+let readerLoadToken=0;
+let activeReaderBookId=null;
+let activeReaderSectionId=null;
+let correctionIdempotencyKey=null;
+let correctionStatusReference=null;
+function newCorrectionIdempotencyKey(){
+ try{if(crypto.randomUUID)return 'library-report-'+crypto.randomUUID().replaceAll('-','');}catch(error){}
+ return 'library-report-'+Date.now().toString(36)+Math.random().toString(36).slice(2);
+}
+function nearestReaderSection(){
+ const headings=[...document.querySelectorAll('#rtxt h2[id],#rtxt h3[id],#rtxt h4[id]')];
+ if(!headings.length)return null;
+ const readerTop=document.querySelector('.book')?.getBoundingClientRect().top||0;
+ return headings.reduce((best,heading)=>Math.abs(heading.getBoundingClientRect().top-readerTop-190)<Math.abs(best.getBoundingClientRect().top-readerTop-190)?heading:best,headings[0]).id;
+}
+function setCorrectionStatus(message,state){
+ const status=document.getElementById('correction-status');status.textContent=message;status.dataset.state=state||'idle';
+}
+function updateCorrectionLocation(){
+ const book=ALL[activeReaderBookId],publication=admittedBook(activeReaderBookId),scope=document.getElementById('correction-scope');
+ const sectionOption=scope.options[1];activeReaderSectionId=activeReaderSectionId||nearestReaderSection();
+ sectionOption.disabled=!activeReaderSectionId;if(sectionOption.disabled&&scope.value==='section')scope.value='book';
+ document.getElementById('correction-location').textContent=scope.value==='section'&&activeReaderSectionId
+  ? `${book.t} · ${document.getElementById(activeReaderSectionId)?.textContent.trim()||activeReaderSectionId} · version ${publication.record.contentVersion}`
+  : `${book.t} · whole book · version ${publication.record.contentVersion}`;
+}
+function openCorrectionDesk(){
+ if(!activeReaderBookId||!admittedBook(activeReaderBookId))return;
+ const desk=document.getElementById('correction-desk');desk.hidden=false;correctionIdempotencyKey=correctionIdempotencyKey||newCorrectionIdempotencyKey();
+ updateCorrectionLocation();setCorrectionStatus('','idle');document.getElementById('correction-finding').focus();
+}
+function closeCorrectionDesk(){document.getElementById('correction-desk').hidden=true;document.getElementById('reader-report').focus();}
+async function submitCorrection(event){
+ event.preventDefault();const form=event.currentTarget;if(!form.reportValidity())return;
+ const publication=admittedBook(activeReaderBookId),scope=document.getElementById('correction-scope').value;
+ const payload={book_id:activeReaderBookId,section_id:scope==='section'?activeReaderSectionId:null,claim_id:null,source_id:null,content_version:publication.record.contentVersion,category:document.getElementById('correction-category').value,finding:document.getElementById('correction-finding').value,evidence_url:document.getElementById('correction-evidence').value||null};
+ const submit=document.getElementById('correction-submit');submit.disabled=true;setCorrectionStatus('Sending this correction…','idle');
+ try{
+  const response=await fetch('/api/library-corrections',{method:'POST',credentials:'same-origin',headers:{'content-type':'application/json','idempotency-key':correctionIdempotencyKey},body:JSON.stringify(payload)});
+  const data=await response.json().catch(()=>null);
+  if(!response.ok||data?.status!=='accepted'||!data.receipt_id)throw new Error(data?.message||'The correction desk could not file this report.');
+  correctionStatusReference=data.status_reference||null;
+  setCorrectionStatus(`Filed. Receipt ${data.receipt_id}. Use Check status to see its current state.`,'accepted');
+  document.getElementById('correction-check').hidden=!correctionStatusReference;submit.textContent='Correction filed';
+ }catch(error){
+  setCorrectionStatus(`${error.message||'The correction desk is unavailable.'} Nothing was lost here; try again.`,'error');submit.disabled=false;submit.textContent='Try sending again';
+ }
+}
+async function checkCorrectionStatus(){
+ if(!correctionStatusReference)return;const button=document.getElementById('correction-check');button.disabled=true;setCorrectionStatus('Checking this receipt…','idle');
+ try{const response=await fetch(correctionStatusReference,{credentials:'same-origin',cache:'no-store'});const data=await response.json();if(!response.ok||data?.status!=='ok')throw new Error();setCorrectionStatus(`Current status: ${String(data.state).replaceAll('_',' ')}. Last updated ${new Date(data.updated_at).toLocaleDateString()}.`,'accepted');}
+ catch{setCorrectionStatus('The receipt status could not be checked. The receipt remains valid; try again.','error');}
+ finally{button.disabled=false;}
+}
+async function sha256Hex(bytes){
+ if(!crypto||!crypto.subtle)throw new Error('artifact verification unavailable');
+ const digest=await crypto.subtle.digest('SHA-256',bytes);
+ return [...new Uint8Array(digest)].map(value=>value.toString(16).padStart(2,'0')).join('');
+}
+function openBook(id,headingNeedle){const b=ALL[id];if(!b)return;
+  if(!headingNeedle&&location.hash.startsWith('#'+id+'::')){
+    try{headingNeedle=decodeURIComponent(location.hash.slice(('#'+id+'::').length));}catch(error){}
+  }
+  const publication=admittedBook(id);
+  if(!publication){
+    reportLibraryStatus(`${b.t} is not available yet: ${bookVisitorStatus(b)}. Try another book marked Ready.`);
+    return;
+  }
+  if(!document.getElementById('reader').classList.contains('on')){
+    readerReturnFocus=previewReturnFocus||document.activeElement;previewReturnFocus=null;
+  }
+  const loadToken=++readerLoadToken;
+  activeReaderBookId=id;activeReaderSectionId=headingNeedle||null;correctionIdempotencyKey=null;correctionStatusReference=null;
+  document.getElementById('correction-form').reset();document.getElementById('correction-desk').hidden=true;document.getElementById('correction-check').hidden=true;document.getElementById('correction-submit').disabled=false;document.getElementById('correction-submit').textContent='Send this correction';setCorrectionStatus('','idle');
+  document.querySelector('.book').classList.toggle('focused',Boolean(headingNeedle));
+  document.querySelector('.book').dataset.bookId=id;
+  document.getElementById('reader').style.setProperty('--accent',READER_ACCENTS[id]||'#d62886');
+  document.getElementById('rm').textContent=b.s||'';
+  const readerTitle=document.getElementById('rt');
+  renderReaderTitle(id,b.t);
+  const oldPuffyRow=readerTitle.nextElementSibling;
+  if(oldPuffyRow&&oldPuffyRow.classList.contains('puffy-save-row'))oldPuffyRow.remove();
+  [...readerTitle.attributes].filter(attribute=>attribute.name.startsWith('data-puffy-')).forEach(attribute=>readerTitle.removeAttribute(attribute.name));
+  const txt=document.getElementById('rtxt'), toc=document.getElementById('rtoc');
+  setReaderContentsOpen(false);
+  if(publication.source){ txt.innerHTML='<p style="opacity:.6">Pulling it off the shelf…</p>'; setBookToc(toc,'');
+    fetch(publication.source,{credentials:'same-origin',redirect:'follow',cache:'no-store'}).then(async r=>{
+      const requestedUrl=new URL(publication.source,location.origin);
+      const canonicalUrl=new URL(requestedUrl.href);
+      if(canonicalUrl.pathname.endsWith('.html'))canonicalUrl.pathname=canonicalUrl.pathname.slice(0,-5);
+      if(!r.ok||![requestedUrl.href,canonicalUrl.href].includes(r.url))throw new Error('not found');
+      const bytes=await r.arrayBuffer();
+      if(await sha256Hex(bytes)!==publication.record.artifactSha256)throw new Error('artifact mismatch');
+      return new TextDecoder().decode(bytes);
+    }).then(async h=>{
+      if(loadToken!==readerLoadToken)return;
+      const doc=new DOMParser().parseFromString(h,'text/html');
+      const version=doc.querySelector('meta[name="laidies:content-version"]')?.getAttribute('content');
+      if(version!==publication.record.contentVersion)throw new Error('version mismatch');
+      doc.querySelectorAll('.gr-topbar,.gr-emblem,.gr-chapter-next,.vr-topbar,.vr-footer,.vr-hold,script,style,body>nav,body>header,body>footer').forEach(n=>n.remove());
+      const pages=[...doc.querySelectorAll('.gr-page')];
+      const sourceMain=doc.querySelector('main');
+      txt.innerHTML = sourceMain ? sourceMain.innerHTML : pages.length ? pages.map(p=>p.innerHTML).join('') : (doc.body.innerHTML||'');
+      if(id==='how-to-check')txt.querySelectorAll('.vr-hero h1,.vr-hero .vr-eyebrow').forEach(node=>node.remove());
+      assignBookSectionAnchors(txt);
+      decorateReaderOpening(id,txt);
+      decorateReaderSaveIcons(id,txt);
+      updateReaderPageArt(txt);
+      const tocSelector=id==='vocab-101'?'.term h3':'h2,h3';
+      const tocHeadings=[...txt.querySelectorAll(tocSelector)].filter(h=>!h.closest('.receipts,.vr-metadata,.vr-sources'));
+      setBookToc(toc,bookTocGroups(tocHeadings));
+      if(id==='how-to-check')hydrateVerificationRulebook(txt);
+      await settleBookSection(txt,headingNeedle);
+      updateReaderPosition();
+    }).catch((error)=>{
+      if(loadToken!==readerLoadToken)return;
+      txt.dataset.readerLoadError=String(error&&error.message||error||'unknown');
+      txt.innerHTML='<section class="reader-error" role="alert"><h3>This book did not load.</h3><p>The short shelf description is not a substitute for the full book. Your place is safe; try the book again or return to the shelf.</p><button type="button" id="reader-retry">Try this book again</button></section>';
+      setBookToc(toc,'');
+      const retry=document.getElementById('reader-retry');
+      if(retry)retry.addEventListener('click',()=>openBook(id,headingNeedle));
+    });
+  }
+  document.getElementById('reader').classList.add('on');
+  document.getElementById('reader').setAttribute('aria-hidden','false');
+  document.body.classList.add('reader-open');
+  document.querySelector('#reader .book').focus({preventScroll:true});
+  history.replaceState(null,'','#'+id+(headingNeedle?'::'+encodeURIComponent(headingNeedle):''));}
+function closeBook(){
+  readerLoadToken++;
+  document.getElementById('reader').classList.remove('on');
+  document.getElementById('reader').setAttribute('aria-hidden','true');
+  document.body.classList.remove('reader-open');
+  activeReaderBookId=null;activeReaderSectionId=null;document.getElementById('correction-desk').hidden=true;
+  history.replaceState(null,'',location.pathname);
+  if(readerReturnFocus&&typeof readerReturnFocus.focus==='function')readerReturnFocus.focus();
+}
+document.getElementById('reader').addEventListener('click',e=>{if(e.target.id==='reader')closeBook()});
+document.getElementById('reader').addEventListener('click',e=>{const link=e.target.closest('#rtoc a,#rtoc-mobile a');if(link?.hash){activeReaderSectionId=decodeURIComponent(link.hash.slice(1));setTimeout(()=>setReaderContentsOpen(false),0);}});
+document.getElementById('mobile-toc').addEventListener('toggle',event=>{
+ const open=event.currentTarget.open;
+ const book=event.currentTarget.closest('.book');
+ const label=event.currentTarget.querySelector('.reader-contents-label');
+ book?.classList.toggle('contents-open',open);
+ if(label)label.textContent=open?'Close contents':'Contents';
+ if(!open)return;
+ const nav=document.getElementById('rtoc-mobile');
+ nav.focus({preventScroll:true});
+ const current=activeReaderSectionId?nav.querySelector(`a[href="#${activeReaderSectionId}"]`):null;
+ nav.querySelectorAll('details.reader-toc-group').forEach(group=>{group.open=group===current?.closest('details.reader-toc-group');});
+ requestAnimationFrame(()=>{
+  (current?.closest('details.reader-toc-group')||current||nav.querySelector('a,summary'))?.scrollIntoView({block:'nearest'});
+ });
+});
+document.getElementById('reader-top').addEventListener('click',()=>{
+ setReaderContentsOpen(false);
+ const txt=document.getElementById('rtxt');
+ txt.scrollTo({top:0,behavior:'auto'});
+ const first=txt.querySelector('h1[id],h2[id],h3[id]');
+ if(first){first.setAttribute('tabindex','-1');first.focus({preventScroll:true});}
+ if(activeReaderBookId)history.replaceState(null,'','#'+activeReaderBookId);
+ updateReaderPosition(first?.id||null);
+});
+document.querySelector('[data-reader-save="book"]').addEventListener('click',event=>saveReaderScope('book',event.currentTarget));
+document.getElementById('rtxt').addEventListener('click',event=>{
+ const button=event.target.closest('.reader-inline-save');
+ if(button)saveReaderScope(button.dataset.readerSave,button,button.dataset.readerSaveTarget);
+});
+let readerScrollFrame=0;
+document.getElementById('rtxt').addEventListener('scroll',()=>{
+ cancelAnimationFrame(readerScrollFrame);
+ readerScrollFrame=requestAnimationFrame(()=>updateReaderPosition());
+},{passive:true});
+addEventListener('keydown',e=>{
+ const reader=document.getElementById('reader');
+ if(!reader.classList.contains('on'))return;
+ if(e.key==='Escape'){
+  if(document.getElementById('mobile-toc').open){setReaderContentsOpen(false);return;}
+  closeBook();return;
+ }
+ if(e.key!=='Tab')return;
+ const focusable=[...reader.querySelectorAll('a[href],button:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(el=>!el.hidden&&el.getClientRects().length);
+ if(!focusable.length)return;
+ const first=focusable[0],last=focusable[focusable.length-1];
+ if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+ else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+});
+const libraryHash=location.hash.slice(1).split('::');
+Object.defineProperty(window,'openBook',{value:openBook,writable:false,configurable:false});
+Object.defineProperty(window,'closeBook',{value:closeBook,writable:false,configurable:false});
+Object.defineProperty(window,'previewBook',{value:previewBook,writable:false,configurable:false});
+document.getElementById('reader-close').addEventListener('click',closeBook);
+document.getElementById('reader-report').addEventListener('click',openCorrectionDesk);
+document.getElementById('correction-cancel').addEventListener('click',closeCorrectionDesk);
+document.getElementById('correction-scope').addEventListener('change',updateCorrectionLocation);
+document.getElementById('correction-form').addEventListener('input',()=>{if(!document.getElementById('correction-submit').disabled)correctionIdempotencyKey=newCorrectionIdempotencyKey();});
+document.getElementById('correction-form').addEventListener('submit',submitCorrection);
+document.getElementById('correction-check').addEventListener('click',checkCorrectionStatus);
+document.getElementById('wallcase').addEventListener('click',event=>{
+ const open=event.target.closest('[data-open-book]');
+ if(open){openBook(open.dataset.openBook);return;}
+ const preview=event.target.closest('[data-preview-book]');
+ if(preview)previewBook(preview.dataset.previewBook,preview);
+});
+if(location.hash.startsWith('#miss-jeeves?')){
+  const incomingParams=new URLSearchParams(location.hash.slice('#miss-jeeves?'.length));
+  const incoming=incomingParams.get('q');
+  if(incomingParams.get('from')==='homepage')jeevesPlacement='homepage';
+  const query=(incoming||'').trim().slice(0,240);
+  history.replaceState(null,'',location.pathname+'#miss-jeeves');
+  if(query){
+    const input=document.getElementById('jv-q');
+    input.value=query;
+    askMissJeeves(query);
+  }
+}
+function paintLibrarySavedCount(){
+ const output=document.getElementById('library-saved-count');if(!output)return;
+ const closet=output.closest('.catalogue-closet');
+ try{
+  const raw=JSON.parse(localStorage.getItem('laidies_puffies_board')||'[]');
+  if(!Array.isArray(raw))throw new Error('invalid board');
+  const count=raw.filter(item=>item&&typeof item==='object'&&typeof item.url==='string'&&/^\/library\.html(?:#|$)/.test(item.url)).length;
+  closet.hidden=!count;
+  output.textContent=count?`${count} saved Library ${count===1?'place':'places'} on this device.`:'';
+ }catch(error){closet.hidden=true;output.textContent='';}
+}
+document.addEventListener('DOMContentLoaded',paintLibrarySavedCount);
+document.addEventListener('puffies:changed',paintLibrarySavedCount);
+window.addEventListener('storage',event=>{if(event.key==='laidies_puffies_board')paintLibrarySavedCount();});
+let libraryHeading='';
+try{libraryHeading=libraryHash[1]?decodeURIComponent(libraryHash[1]):'';}catch(error){}
+if(libraryHash[0]&&ALL[libraryHash[0]])openBook(libraryHash[0],libraryHeading);
+})();
+</script>
+<script defer src="/content/site/puffy-bookmarks.js?v=20260803-card-required"></script>
+  <script defer src="/content/site/sv-back-nav.js?v=svbn-2026-07-26-v1-4490123a7d7e"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4bd3e323a99a49b68a5dc77fff72a1f5","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
