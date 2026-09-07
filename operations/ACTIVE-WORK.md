@@ -1,5 +1,19 @@
 # Active work
 
+> **2026-09-07 — Reader-tip intelligence surfacing: LOCAL VERIFIED / INTEGRATION PENDING.**
+> Owner: Learning System task `019f9f7f-9e4c-72d2-8882-447bcbe01691` with the
+> AIDB Intelligence Desk as scan owner. Isolated worktree
+> `/Users/alisoneakin/Projects/laidies-reader-tip-surfacing-20260907`, branch
+> `task/reader-tip-surfacing-20260907`. The 7 September heartbeat stored a material
+> finding but returned no visible message. The repaired state machine now creates
+> checksum-bound outbox entries for material findings and source-access failures,
+> rejects stale scan writes, renders a mandatory decision card while any entry lacks
+> an append-only exact-owner receipt, and preserves no-production/no-publication
+> authority. Calibrated negative and transition tests pass. No content, public site,
+> deployment, spending or social account changed. Integration and the live automation
+> prompt update remain required before the repair is operational.
+
+
 > **2026-09-06 — Operating integration / BUILDING: read-only Learning map pilot.**
 > Owner `01a077d0-0775-7af2-b631-c311573f0e0e`; isolated
 > `/Users/alisoneakin/Projects/laidies-learning-map-20260906`, branch

@@ -525,3 +525,13 @@ name and bind the principal, task, isolated lane, exact scope and exact current
 inputs; product ownership alone can never establish active assignment or
 drafting authority. Behind the Build angle: why naming the department is not
 the same thing as handing the work to someone.
+### 2026-09-07 — A useful source finding disappeared between storage and attention
+
+The weekly reader-tip scout completed after writing a material `HOLD` and a
+partial-access warning, but the automation turn contained no visible final message.
+Its state named a receiving owner without creating an owner handoff or requiring an
+acknowledgement. Prevention: material findings and source-access failures create a
+checksum-bound outbox entry; silence is permitted only when the renderer proves the
+outbox clear; and an append-only receipt from the exact receiving owner/task closes
+the delivery edge without granting content or release authority. Behind the Build:
+why an AI monitor that found something useful could still look as though it did nothing.
