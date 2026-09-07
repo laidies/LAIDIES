@@ -2,6 +2,12 @@
 
 ## Arrival correction — Ali, September 7, 2026
 
+Becky is in her early twenties, possibly a college student working shifts.
+Her approved clothing direction is a mint store polo with pink trim, a Becky
+name badge, high-waisted jeans and a chunky pink Baby-G watch, holding a VHS
+case. The earlier dark denim jacket and burgundy/mustard shirt are rejected
+for the new masthead. Preserve the brunette bob and adult inked drawing style.
+
 Replace the oversized opening with a compact character-and-title masthead,
 following the current live NewsStand relationship. The keeper is Becky. Create
 her masthead artwork from the existing Becky identity in the current inked

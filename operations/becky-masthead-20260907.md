@@ -1,5 +1,25 @@
 # Becky masthead — BUILDING
 
+## Ali's successor direction — September 7
+
+V2 generated with built-in image editing and saved at
+`assets/chick-flicks/masthead-20260907/becky-clerk-v2-candidate.png`.
+Maker sees correct mint/pink polo, exact Becky badge, high-waisted blue jeans,
+pink digital sports watch and a physically held VHS. Youthfulness remains an
+Ali-owned visual judgment. Output has no alpha: checkerboard is baked in, so
+it is a character review candidate only, not a deployable masthead cutout.
+No HTML asset swap or public deployment made. Extract background after the
+character direction is accepted; do not treat a checkerboard as transparency.
+
+V1 outfit/age treatment is superseded: Becky is in her early twenties,
+possibly working at the rental store while attending college. Her uniform is a
+mint polo with pink collar trim, high-waisted jeans, a Becky name badge and a
+chunky pink Baby-G digital watch. She holds a VHS case so her clerk role is
+immediately legible. Keep her recognizable brunette bob and inked/faceted
+character language. No denim jacket, burgundy/mustard shirt, mature glamour
+styling, fashion pose, modern smartwatch or invented VHS lettering. The badge
+must spell `Becky` exactly. V2 is a review candidate, not public approval.
+
 Ali requested a compact character masthead like the live NewsStand and confirmed
 on September 7 that the Chick Flicks keeper is Becky and needs new artwork.
 This supersedes the oversized title plus full-height room arrival, not the
