@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Ghostbuster wording as a drink preference
+
+Ali rejects the interrupting “or a Ghostbuster, our spirit-free version” aside and asks for Ghostbuster (spirit-free) for those who prefer. Separate the drink preference into a plain sentence; keep normal text weight and the Romy and Michele reference. Updated short/full description: “Let the paper fortune teller pick a cocktail and a conversation starter for the table. Ghostbuster (spirit-free) options are available if you prefer.” Source49a09813; binding normalizationd3481979; hosted evidence1342d3ed; https://9e7e828c.laidies-sunnyvaile.pages.dev/#activities . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only; owner wording acceptance pending.
+
 ## 2026-09-06 — NewsStand homepage description must explain reader value
 
 Ali rejected the format-only NewsStand invitation as severely lacking. Describe understanding headlines, relevance to work and life, deeper Big Picture analysis and traceable sources. Do not substitute a list of publication formats for the reason to visit. Current summary: “Understand the AI headlines—and what they could mean for your work and life. Check the sources, or explore the bigger issues in The Big Picture.” Fuller Read more copy names PAiGE, weekly catch-up and What This Means For You. Source9f69e643; hosted evidence33bc62f1 and ccf0ec89; https://246a1fad.laidies-sunnyvaile.pages.dev/#activities . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only; qualitative owner acceptance pending.
