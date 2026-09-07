@@ -44,11 +44,11 @@ const sha256 = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
 const text = value => typeof value === "string" && value.trim().length > 0;
 const validDateOnly = value => /^\d{4}-\d{2}-\d{2}$/.test(value || "") && new Date(`${value}T00:00:00.000Z`).toISOString().slice(0, 10) === value;
 
-function loadBinding(root, binding, label, errors) {
+function loadBinding(root, binding, label, errors, preservedBytes = {}) {
   if (!binding || !text(binding.path) || !HASH.test(binding.sha256 || "")) { errors.push(`${label}: exact path and SHA-256 are required`); return null; }
   const absolute = path.resolve(root, binding.path);
   if (!absolute.startsWith(`${path.resolve(root)}${path.sep}`) || !fs.existsSync(absolute)) { errors.push(`${label}: file missing or outside repository`); return null; }
-  const bytes = fs.readFileSync(absolute);
+  const bytes = Object.hasOwn(preservedBytes, binding.path) ? preservedBytes[binding.path] : fs.readFileSync(absolute);
   const actual = sha256(bytes);
   if (actual !== binding.sha256) errors.push(`${label}: SHA-256 mismatch expected=${binding.sha256} actual=${actual}`);
   return bytes.toString("utf8");
@@ -126,7 +126,7 @@ function newsEditorialAnalysisFor(receipt, root, errors) {
   return { ...analysis, calibrationPolicy: policy.calibration, reviewMetricsPolicy: policy.reviewMetrics };
 }
 
-export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
+export function inspectProseQualityReview(receipt, { root = ROOT, preservedRenderedBytes = {} } = {}) {
   const errors = [];
   const require = (condition, message) => { if (!condition) errors.push(message); };
   let registry;
@@ -165,7 +165,7 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
     }
   }
   const manifestBody = loadBinding(root, receipt?.artifact?.manifest, "artifact.manifest", errors);
-  if (receipt?.artifact?.rendered) loadBinding(root, receipt.artifact.rendered, "artifact.rendered", errors);
+  if (receipt?.artifact?.rendered) loadBinding(root, receipt.artifact.rendered, "artifact.rendered", errors, preservedRenderedBytes);
   if (manifestBody) {
     try {
       const manifest = JSON.parse(manifestBody);
@@ -355,11 +355,11 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   return { errors, verdict: receipt?.verdict || null, qualityAuthority: receipt?.stage === "INDEPENDENT_SEMANTIC_ADMISSION" ? "INDEPENDENT_REVIEW" : "NONE" };
 }
 
-export function inspectProseReviewChain(producer, independent, { root = ROOT } = {}) {
+export function inspectProseReviewChain(producer, independent, { root = ROOT, preservedRenderedBytes = {} } = {}) {
   const errors = [];
   const require = (condition, message) => { if (!condition) errors.push(message); };
-  const producerResult = inspectProseQualityReview(producer, { root });
-  const independentResult = inspectProseQualityReview(independent, { root });
+  const producerResult = inspectProseQualityReview(producer, { root, preservedRenderedBytes });
+  const independentResult = inspectProseQualityReview(independent, { root, preservedRenderedBytes });
   errors.push(...producerResult.errors.map(error => `producer:${error}`));
   errors.push(...independentResult.errors.map(error => `independent:${error}`));
   require(producer?.stage === "PRODUCER_SELF_REVIEW", "producer stage must be PRODUCER_SELF_REVIEW");

@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { inspectProseReviewChain } from './check-prose-quality-admission.mjs';
 import { inspectHomepageCorrection, homepageCorrectionId } from './lib/homepage-correction-admission.mjs';
 
 const root = process.cwd();
@@ -50,9 +51,19 @@ if(item.design_admission.resident_benefits) {
   cases.push(['missing benefits review',v=>{v.design_admission.resident_benefits.evidence=v.design_admission.resident_benefits.evidence.filter(e=>!e.path.endsWith('/independent-review.json'));},'missing resident evidence']);
   cases.push(['stale benefit sources',v=>{v.design_admission.resident_benefits.evidence.find(e=>e.path.endsWith('/source-facts.txt')).sha256='0'.repeat(64);},'stale resident evidence']);
 }
+if(item.design_admission.resident_signin_wording) cases.push(['missing sign-in review',v=>{v.design_admission.resident_signin_wording.evidence=v.design_admission.resident_signin_wording.evidence.filter(e=>!e.path.endsWith('/independent-review.md'));},'missing sign-in evidence']);
 for (const [name, mutate, reason] of cases) {
   const candidate = structuredClone(item);
   mutate(candidate);
   assert(inspectHomepageCorrection(candidate, root).some(error => error.includes(reason)), `${name} must fail for its actual defect`);
 }
 console.log(`Scoped homepage admission: valid candidate accepted; ${cases.length} bad cases rejected.`);
+
+if(item.design_admission.resident_signin_wording) {
+  const p='operations/product-stewards/town-entry-homepage/candidates/resident-benefits-20260907/';
+  const producer=JSON.parse(fs.readFileSync(p+'producer-self-review.json')),independent=JSON.parse(fs.readFileSync(p+'independent-review.json'));
+  const parent=fs.readFileSync('operations/product-stewards/town-entry-homepage/candidates/resident-signin-wording-20260907/parent.html');
+  assert.deepEqual(inspectProseReviewChain(producer,independent,{root,preservedRenderedBytes:{'index.html':parent}}).errors,[]);
+  assert(inspectProseReviewChain(producer,independent,{root,preservedRenderedBytes:{'index.html':Buffer.from('wrong snapshot')}}).errors.some(e=>e.includes('artifact.rendered: SHA-256 mismatch')),'incorrect preserved render must fail');
+  console.log('Preserved rendered review: exact predecessor accepted; wrong snapshot rejected.');
+}

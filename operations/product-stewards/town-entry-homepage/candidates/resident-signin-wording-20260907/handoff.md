@@ -1,0 +1,15 @@
+# Resident sign-in correction and shared-authentication repair
+
+Status: HOMEPAGE COPY REVIEWED; COMMUNITY AUTHENTICATION HOLD.
+
+Goal: one LAiDIES Resident sign-in also authenticates community participation. Ali reaffirmed an existing requirement; no second account product was approved.
+
+Exact source SHA256: 54aa163703d6b2cfca50881b570c2f8e275eb46b86f3bea084fd62789ea94b25. Only the private-account row heading and separate-sign-in sentence change. Three viewport renders and independent review found no regression. Existing benefit, art, link and runtime bytes remain preserved. A preview stage contains only the HTML correction, with759 public files unchanged.
+
+Authentication remains unfinished: no Resident identity reaches the Hyvor embed, no community SSO issuer exists in current Worker, and provider admin settings require an authenticated Hyvor session. Existing Chrome reached hyvor.com/login; no credentials, account creation, email, settings or purchase actions taken. The exact community paths still carrying old sign-in wording are in implementation-gap.md. Next action: gain the existing provider admin session, verify site15519 SSO settings and plan, then connect the existing Supabase Resident identity and test the real authenticated community journey. Do not imply copy deletion or changed header labels provides SSO.
+
+No production deployment or authenticated community test. No new identity system. Source work is confined to the bounded homepage worktree. iCloud Git metadata hydration caused repeated timed-out reads/add; do not reset or reconstruct the cloud index from assumptions. The precise orphaned index.lock from this task's timed-out git add was preserved under a /tmp/resident-signin-owned-lock-* directory after lsof verified no open owner.
+
+Learning for shared painpoints log: the producer mistook unfinished integration for approved architecture and passed the separate-login sentence through review. Prevention: feature-state inventory must be checked against the user's governing account model before writing visitor copy; contradictions become implementation defects, not new products. Possible Behind the Build angle: test whether a capability gap is a bug before explaining it as a feature. Canonical decision reaffirmation is in this source commit's operations/DECISIONS.md. Shared ACTIVE-WORK/painpoint/model records need coordinated receipt after iCloud metadata access recovers; do not overwrite another thread's index or HEAD.
+
+Model routing: foreground Astra (effort/usage unavailable), independent Terra/Medium inventory and review; one visual review round, zero reviewer-found candidate regressions. Detours: provider browser access initially failed, then real login boundary reached; iCloud Git hydration stalled checkpoint; prior prose review needed exact preserved-render bytes so a successor does not invalidate unchanged historical evidence. A Terra-led bounded correction would likely suffice for the copy; account integration requires separate focused verification.

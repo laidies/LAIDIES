@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-07 — One Resident sign-in includes the community
+
+Ali reaffirms that the town and community must use one LAiDIES sign-in. The homepage’s “Connect your private account” label and assertion that community conversations use a separate sign-in are rejected. Use “Sign in to your Resident account”; do not describe disconnected provider authentication as an intended product choice. Current community code lacks the shared sign-in bridge; treat that as unfinished implementation, not permission for a second visitor account. Correct homepage wording now without claiming the integration is working before provider setup and the authenticated journey are verified.
+
 ## 2026-09-07 — Resident Card benefits must be concrete
 
 Ali says the Move to SUNNYVAiLE section still fails to explain the Resident Card and all its benefits. Explain personalization, the Closet collections/progress hub, the Card-gated ten-Puffy Library bookmarking feature and signed-in FAiRY access; distinguish local Card features from private account continuation with named fields. Preserve current artwork, colours and the rest of the homepage. Do not replace benefits with vague “supported collections” wording, imply all local activity syncs, or market held public profiles, unverified rewards or separately authenticated community posting. Preview only.

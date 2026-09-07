@@ -23,6 +23,24 @@ export function inspectHomepageCorrection(item, root, preservedBytes = {}) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if(a.resident_signin_wording) {
+      const m=a.resident_signin_wording,p='operations/product-stewards/town-entry-homepage/candidates/resident-signin-wording-20260907/';
+      const parentSha='c7ed1432d9e62a2907669871fabcbb3b041edcb339ac7894c0b4c2f18f0f37b2';
+      assert(digest(p+'parent.html')===parentSha,'wrong sign-in wording predecessor');
+      const changes=JSON.parse(bytes(p+'changes.json')).replacements;
+      assert(JSON.stringify(changes)===JSON.stringify([{old:'Connect your private account',new:'Sign in to your Resident account'},{old:' Joining its conversations uses a separate sign-in.',new:''}]),'sign-in correction scope differs');
+      let current=bytes(p+'parent.html').toString();for(const e of changes){assert(current.split(e.old).length===2,'sign-in edit is not unique');current=current.replace(e.old,e.new)}
+      assert(current===bytes('index.html').toString(),'unrelated sign-in homepage change');assert(digest('index.html')===a.candidate.sha256,'homepage bytes differ');
+      const art=a.gates?.decorative_discipline;assert(art?.result==='PASS'&&art.artwork_sources?.length===1&&art.artwork_sources[0].path==='index.html'&&art.artwork_sources[0].sha256===a.candidate.sha256,'resident artwork implementation binding missing or stale');
+      const retained=structuredClone(item);delete retained.design_admission.resident_signin_wording;retained.design_admission.candidate.sha256=parentSha;
+      if(retained.design_admission.gates?.decorative_discipline?.artwork_sources?.[0])retained.design_admission.gates.decorative_discipline.artwork_sources[0].sha256=parentSha;
+      errors.push(...inspectHomepageCorrection(retained,root,{...preservedBytes,'index.html':bytes(p+'parent.html')}));
+      for(const e of m.evidence||[])assert(digest(e.path)===e.sha256,'stale sign-in evidence: '+e.path);
+      for(const name of ['scope.md','parent.html','parent-admission.json','changes.json','copy.md','implementation-gap.md','maker-review.md','checks.json','independent-review.md',...['parent','candidate'].flatMap(k=>[390,820,1440].map(w=>k+'-'+w+'.png'))])assert(m.evidence?.some(e=>e.path===p+name),'missing sign-in evidence: '+name);
+      const c=JSON.parse(bytes(p+'checks.json'));assert(c.sourceSha256===a.candidate.sha256&&c.oldWordingRejected,'sign-in checks differ');
+      for(const w of[390,820,1440]){const n=c.rows.find(r=>r.kind==='candidate'&&r.width===w),o=c.rows.find(r=>r.kind==='parent'&&r.width===w);assert(n&&o&&!n.overflow&&n.access[2].includes('Sign in to your Resident account'),'sign-in label or layout differs');for(const k of['image','background','titleType','bodyType','links','perks'])assert(JSON.stringify(n?.[k])===JSON.stringify(o?.[k]),'sign-in correction changed '+k);}
+      const review=bytes(p+'independent-review.md').toString();assert(review.includes('ADMIT_FOR_OWNER_REVIEW')&&review.includes(a.candidate.sha256),'sign-in independent review differs');assert(a.production_release_approved===false,'sign-in preview does not authorize production');return errors;
+    }
     if(a.resident_benefits) {
       const m=a.resident_benefits,p='operations/product-stewards/town-entry-homepage/candidates/resident-benefits-20260907/';
       const parent=JSON.parse(bytes(p+'parent-admission.json'));
@@ -37,7 +55,7 @@ export function inspectHomepageCorrection(item, root, preservedBytes = {}) {
       for(const name of ['scope.md','parent.html','parent-admission.json','changes.json','copy.md','source-facts.txt','puffy-live-journey.json','producer-contract.json','producer-self-review.json','content-manifest.json','checks.json','independent-review.json','independent-review.md',...['parent','candidate'].flatMap(k=>[390,820,1440].map(w=>k+'-'+w+'.png'))])assert(m.evidence?.some(e=>e.path===p+name),'missing resident evidence: '+name);
       const c=JSON.parse(bytes(p+'checks.json'));assert(c.sourceSha256===a.candidate.sha256&&c.parentMissingBenefitRejected,'resident checks differ');
       for(const w of[390,820,1440]){const n=c.rows.find(r=>r.kind==='candidate'&&r.width===w),o=c.rows.find(r=>r.kind==='parent'&&r.width===w);assert(n&&o&&!n.overflow&&n.perks.length===4&&n.access.length===3&&n.perks[1].includes('ten Puffy Stickers')&&n.perks[1].includes('on this device')&&!n.access[2].includes('Puffy')&&n.links.some(l=>l.href==='/resident-card.html'),'resident payoff or access boundary differs');for(const k of['image','background','titleType','bodyType'])assert(JSON.stringify(n?.[k])===JSON.stringify(o?.[k]),'resident correction changed '+k);}
-      errors.push(...inspectProseReviewChain(JSON.parse(bytes(p+'producer-self-review.json')),JSON.parse(bytes(p+'independent-review.json')),{root}).errors);
+      errors.push(...inspectProseReviewChain(JSON.parse(bytes(p+'producer-self-review.json')),JSON.parse(bytes(p+'independent-review.json')),{root,preservedRenderedBytes:preservedBytes}).errors);
       const review=bytes(p+'independent-review.md').toString();assert(review.includes('ADMIT_FOR_OWNER_REVIEW')&&review.includes(a.candidate.sha256),'resident independent review differs');
       assert(a.production_release_approved===false,'resident preview does not authorize production');return errors;
     }

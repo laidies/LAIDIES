@@ -1,0 +1,3 @@
+## 2026-09-07 — One Resident sign-in includes the community
+
+Ali reaffirms that the town and community must use one LAiDIES sign-in. The homepage’s “Connect your private account” label and assertion that community conversations use a separate sign-in are rejected. Use “Sign in to your Resident account”; do not describe disconnected provider authentication as an intended product choice. Current community code lacks the shared sign-in bridge; treat that as unfinished implementation, not permission for a second visitor account. Correct homepage wording now without claiming the integration is working before provider setup and the authenticated journey are verified.
