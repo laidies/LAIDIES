@@ -1,0 +1,446 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "newsstand-description-20260906",
+  "surface": "HOMEPAGE",
+  "contentClass": "PROMOTIONAL",
+  "maker": "/root",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "producer",
+    "modelFamily": "GPT-6"
+  },
+  "reviewedAt": "2026-09-07T00:57:03.510344+00:00",
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review only, not independent or owner approval.",
+    "Existing unchanged exemplar calibration reused.",
+    "Promotional description of current NewsStand; not a new lesson or promise of real-time coverage."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/town-entry-homepage/candidates/newsstand-description-20260906/copy.md",
+      "sha256": "f7be94dbc940cb06741ee2f44406912167416340228cc105c56b47744c0eddc3"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/town-entry-homepage/candidates/newsstand-description-20260906/content-manifest.json",
+      "sha256": "0580438faa89235aff4f4dcc3f62fcb596fa8ed1ac083df9d1563ef2e54e7b7d"
+    },
+    "rendered": {
+      "path": "index.html",
+      "sha256": "d0d8f738f355c99fc1dfa9eaa33aa7713c8bab5b2ca5e632473dcf1e511fb2b0"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e02cfa8221ae19b2121f7628cd3d04f66988bdec9938b23993ab29e3a0da98de",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-06T05:18:18.618023+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.”",
+            "locator": "opening and repeated term / analogy / In real life scaffold"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "Introduction and Chapter 1: job-offer case displaces broad orientation"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "The concepts that make the story legible",
+            "locator": "glossary interlude and five-question homework ending"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-INVITATION-ALI-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Actual owner yearbook joke and opening retained; unfinished gameplay identified separately."
+      ],
+      "evidence": [
+        {
+          "excerpt": "Have a great summer!",
+          "locator": "Ali Dream Phone alternative ending"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why would I read the NewsStand instead of just another AI headline?",
+    "promisedPayoff": "Understand what happened, its relevance to work and life, and where to examine the wider issues and sources.",
+    "centralMentalModel": "Reporting plus context, practical relevance and traceable sources.",
+    "dailyLifeConnection": "What an AI story could mean for your work and everyday life.",
+    "surfaceJob": "A compact invitation to read the NewsStand with fuller description available.",
+    "desiredReaderFeeling": "Able to tell why this destination is useful."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Begins with what the visitor gains, rather than a list of publication formats.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Understand the AI headlines",
+          "locator": "copy.md"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Names the practical reason to read.",
+      "artifactEvidence": [
+        {
+          "excerpt": "what they could mean for your work and life",
+          "locator": "copy.md"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Uses the existing town character and clear adult language, without invented nostalgia or jokes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "PAiGE breaks down AI headlines",
+          "locator": "copy.md"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Offers a relevant deeper route without homework or hype.",
+      "artifactEvidence": [
+        {
+          "excerpt": "explore the bigger issues in The Big Picture",
+          "locator": "copy.md"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Matches the current rendered article section and sourced story structure.",
+      "artifactEvidence": [
+        {
+          "excerpt": "What This Means For You",
+          "locator": "copy.md"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Current live HTML source excerpts are recorded and bound.",
+      "artifactEvidence": [
+        {
+          "excerpt": "with sources you can follow and check for yourself",
+          "locator": "copy.md"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Short summary fits the unchanged desktop grid and phone card; fuller paragraph fits its dialog.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Understand the AI headlines",
+          "locator": "copy.md"
+        }
+      ]
+    },
+    "truthfulPromise": {
+      "verdict": "PASS",
+      "observation": "Qualified relevance, not personal advice or guaranteed outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "what it could mean for your work and everyday life",
+          "locator": "copy.md"
+        }
+      ]
+    },
+    "clearAction": {
+      "verdict": "PASS",
+      "observation": "Explains available reading choices; existing Read the NewsStand action remains.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Check the sources, or explore the bigger issues",
+          "locator": "copy.md"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "This bounded invitation connects headlines to work and life, names the actual Big Picture and source routes, and contains no invented analogy, technical lesson or guaranteed outcome.",
+      "artifactLocator": "copy.md complete two descriptions"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/town-entry-homepage/candidates/newsstand-description-20260906/source-facts.txt",
+        "sha256": "6e7ee92fb1e8f6051de1bf2ca99596b80688b8d469bda8748c042e30e958546b"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "NEWSSTAND-READER-VALUE",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "What This Means For You",
+            "locator": "copy.md full description"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/town-entry-homepage/candidates/newsstand-description-20260906/source-facts.txt",
+          "sha256": "6e7ee92fb1e8f6051de1bf2ca99596b80688b8d469bda8748c042e30e958546b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "articleSection(\"What This Means For You\", story.what_this_means)",
+            "locator": "source-facts.txt source line1041"
+          }
+        ],
+        "scopeAndFreshness": "Live NewsStand source checked2026-09-06; recheck when publication structure changes."
+      },
+      {
+        "claimId": "NEWSSTAND-DEEPER-READING",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Catch up on the week, or go deeper in The Big Picture",
+            "locator": "copy.md full description"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/town-entry-homepage/candidates/newsstand-description-20260906/source-facts.txt",
+          "sha256": "6e7ee92fb1e8f6051de1bf2ca99596b80688b8d469bda8748c042e30e958546b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Weekly roundup</span>",
+            "locator": "source-facts.txt source line158"
+          },
+          {
+            "excerpt": "The Big Picture</span>",
+            "locator": "source-facts.txt source line168"
+          },
+          {
+            "excerpt": "<p><strong>Sources</strong>",
+            "locator": "source-facts.txt source line1049"
+          }
+        ],
+        "scopeAndFreshness": "Weekly and Big Picture routes plus story sources verified in current source."
+      }
+    ],
+    "reviewedThrough": "2026-09-06",
+    "nextTrigger": "NewsStand reader architecture or publication promise changes",
+    "correctionOwner": "Town-entry homepage producer"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 0,
+    "makerRepairs": [
+      "Replaced the format-only NewsStand description with current reader value before independent review."
+    ],
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW",
+    "priorComparable": {
+      "candidateId": "compact-activities-20260906",
+      "reviewIssues": 1,
+      "reviewCycles": 1,
+      "source": "Ali rejected the unchanged inherited NewsStand description as severely lacking; prior descriptive completeness verdict invalidated."
+    }
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "compact-activities-20260906"
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Current draft repairs the owner-identified format-only promise. No additional reusable defect found in exact maker review."
+  }
+}

@@ -1,0 +1,83 @@
+Source: https://laidies.ai/newsstand.html checked2026-09-06. Exact current source excerpts.
+140:               <button class="ns-front-desk ns-front-desk--lead ns-publication ns-publication--daily" type="button" data-edition="daily" aria-pressed="false">
+141:                 <span class="ns-front-desk__label">THE FRONT PA<span class="ns-brand-i">i</span>GE</span>
+142:                 <span class="ns-front-paige-image" hidden>
+143:                   <img alt="">
+144:                   <small class="ns-front-paige-image__credit"></small>
+145:                 </span>
+146:                 <strong class="ns-front-paige-promise">The story underneath today&rsquo;s headlines</strong>
+147:                 <span class="ns-publication__status" data-status-for="daily" aria-hidden="true">Loading the edition…</span>
+148:                 <span class="ns-publication__contents" data-contents-for="daily" aria-live="polite"></span>
+149:                 <span class="ns-publication__action">Read the full Front PAiGE →</span>
+150:               </button>
+151:               <div class="ns-front-page-grid__right">
+152:                 <section class="ns-front-desk ns-front-desk--more-daily">
+153:                   <span class="ns-front-desk__label">The Latest</span>
+154:                   <div class="ns-front-secondary" data-secondary-for="daily" aria-live="polite">Checking for additional stories…</div>
+155:                 </section>
+156:               </div>
+157:               <button class="ns-front-desk ns-front-desk--weekly ns-front-open" type="button" data-open-edition="weekly">
+158:                 <span class="ns-front-desk__label">Weekly roundup</span>
+159:                 <span class="ns-weekly-image">
+160:                   <img src="./assets/newsstand/design-20260830/weekly-roundup-20260901.png" alt="A stack of newspapers gathered with a binder clip beside a weekly desk calendar and highlighter." loading="lazy">
+161:                 </span>
+162:                 <strong class="ns-front-column-promise">Wednesday to Wednesday</strong>
+163:                 <span class="ns-front-status" data-status-for="weekly">Checking…</span>
+164:                 <span class="ns-front-contents" data-contents-for="weekly" aria-live="polite"></span>
+165:                 <span class="ns-front-action">Open the roundup →</span>
+166:               </button>
+167:               <button class="ns-front-desk ns-front-desk--big-picture ns-front-open" type="button" data-open-edition="big-picture">
+168:                 <span class="ns-front-desk__label">The Big Picture</span>
+169:                 <span class="ns-big-picture-image" hidden><img alt="" loading="lazy"></span>
+170:                 <strong class="ns-front-column-promise">Latest analysis</strong>
+171:                 <span class="ns-front-contents" data-contents-for="big-picture" aria-live="polite"></span>
+172:                 <span class="ns-big-picture-footer">
+173:                   <span class="ns-front-action">Read the full article →</span>
+174:                   <span class="ns-front-status" data-status-for="big-picture" aria-hidden="true">Checking…</span>
+175:                 </span>
+303:         var EDITION = {
+304:           breaking: {
+305:             label: "The Breaking",
+306:             title: "News as it happens.",
+307:             empty: "No breaking story."
+308:           },
+309:           daily: {
+310:             label: "The Latest",
+311:             title: "What changed and why it matters.",
+312:             empty: "No new story is ready for the rack yet."
+313:           },
+314:           weekly: {
+315:             label: "The Weekly",
+316:             title: "This week’s front page.",
+317:             empty: "No roundup is available this week."
+318:           },
+319:           "big-picture": {
+320:             label: "The Big Picture",
+321:             title: "The latest living argument.",
+322:             empty: "No Big Picture analysis is available yet."
+323:           },
+989:           var sources = "";
+990:           if (story.sources && story.sources.length) {
+991:             sources = story.sources.map(function (source) {
+992:               var flag = source.publisherType === "vendor" ? " · vendor source" : "";
+993:               return '<a href="' + escapeHTML(source.url) + '" target="_blank" rel="noopener">' +
+994:                 escapeHTML(source.label) + escapeHTML(flag) + "</a>";
+995:             }).join(" · ");
+996:           }
+1036:               renderCorrectionHistory(story),
+1037:               renderBigPictureHistory(story),
+1038:               renderArticleHero(story),
+1039:               articleSection(isBigPicture ? "The Argument" : "The Story", story.the_story),
+1040:               articleSection("The LAiDIES Read", story.laidies_read),
+1041:               articleSection("What This Means For You", story.what_this_means),
+1042:               story.cocktail_party ? '<blockquote class="ns-article__cocktail"><strong>The Cocktail Party Explanation</strong><p>' + story.cocktail_party + "</p></blockquote>" : "",
+1043:               watch,
+1044:               story.closing_note ? '<p class="ns-article__closing">' + story.closing_note + "</p>" : "",
+1045:               story.class_notes ? '<section class="ns-article__notes"><h3>Class Notes</h3><p>' + story.class_notes + "</p></section>" : "",
+1046:               renderRelatedPeople(story),
+1047:               renderConceptsAndThemes(story),
+1048:               '<footer class="ns-article__sources">',
+1049:                 sources ? "<p><strong>Sources</strong> " + sources + "</p>" : "",
+1050:                 story.aidb_credit ? "<p><em>" + escapeHTML(story.aidb_credit) + "</em></p>" : "",
+1051:                 story.tags && story.tags.length ? "<p><strong>Filed under</strong> " + story.tags.map(escapeHTML).join(" · ") + "</p>" : "",
+1052:               "</footer>",
