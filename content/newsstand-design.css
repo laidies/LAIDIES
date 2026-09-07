@@ -1186,3 +1186,18 @@
 .ns-similar-stories a span { display:block; margin-top:12px; font-size:14px; }
 .ns-similar-stories a:focus-visible { outline:3px solid #003b9e; outline-offset:4px; }
 @media(max-width:760px) { .ns-similar-stories ul { grid-template-columns:1fr; } }
+
+/* Latest cards sit in a responsive sidebar, so their layout follows their own
+   available width rather than the browser width. */
+.ns-redesign .ns-front-secondary { container-type: inline-size; }
+@container (max-width: 350px) {
+  .ns-redesign .ns-front-secondary article:nth-child(n+2) .ns-front-story { display: block; }
+  .ns-redesign .ns-front-secondary article:nth-child(n+2) .ns-latest-image {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    margin: 0 0 10px;
+  }
+  .ns-redesign .ns-front-secondary article:nth-child(n+2) :is(strong, span, em) { display: block; }
+}

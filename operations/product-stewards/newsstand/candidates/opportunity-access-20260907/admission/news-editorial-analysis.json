@@ -1,0 +1,92 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "front-paige-accountable-systems-2026-08-24",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "bcf1b4df11562548ebe3708cfece6dfa03385b4c079bdccd9d0142b0b4e135bf",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can the Census finding that 30% of men but 17% of women use AI daily at work not be read as evidence that women are less able or less interested in AI?",
+      "response": "Because how often someone uses AI depends heavily on conditions her employer controls: whether she was given an approved tool, paid time to learn it, and an invitation to a project where it is used. Two equally interested colleagues with different conditions will show different usage. On top of that, if managers pick trial teams only from existing users, early access differences compound, so a frequency gap can grow without any difference in ability. The survey also only measures self-reported frequency among people who already used AI — it never measured skill, interest or access at all.",
+      "expectedEvidence": "An accurate answer should cite the conditions mechanism (tool, paid time, invitation) from P006, the compounding selection effect from P007, and the measurement limits from P003–P004 (different populations; frequency is not ability).",
+      "assessment": "The article fully supports this answer: P006 supplies the conditions mechanism with an explicit epistemic boundary, P007 supplies the compounding step, and P004 supplies the measurement limits, all in ordinary language."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, what should the director check before treating the login gap as a preference or ability gap, and how should the committee be selected?",
+      "response": "First check the conditions: night nurses may have had no scheduled paid time to learn the tool, restricted terminals, or no invitation to the pilot — so their lower logins may reflect access, not interest. Second, avoid the compounding step: selecting the committee only from heavy users would hand a further opportunity to whoever had early access, entrenching the gap. Instead, publish visible selection criteria, include a supported route for non-users (training time within their shift workload), and judge success by useful work and sound judgment rather than a daily-usage target.",
+      "expectedEvidence": "The answer should apply P006's conditions test, P007's warning about selecting only existing users, and P009–P010's visible criteria, supported route and non-usage-based success measure to this new hospital setting.",
+      "assessment": "The article's mechanism transfers cleanly and completely to this unseen scenario; every step of the answer follows from P006, P007, P009 and P010 without needing information the article lacks."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "Both reports, their publication dates, populations and measures are explained, and the causal reading each supports is made explicit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'AI occupations', usage frequency and the survey population ('workers who had used AI for at least one of the tasks surveyed') gain plain meaning at first use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are grounded in a specific reader situation: joining an approved trial, learning time, and how trial-team selection can compound missed access.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The next decision matters too. If a manager selects a trial team only from people already using the tool, someone who never had supported access can miss another opportunity. Employers can examine how they choose participants, provide learning time and recognize the work of testing and checking AI. More logins, by themselves, would not tell us whether those decisions had become fairer.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>If AI is being introduced where you work, a useful question is: “How can I join an approved trial, and what time and support are available to learn?” That asks for a concrete opportunity. It does not require you to buy a subscription, use AI outside your employer’s rules or turn your evenings into unpaid training.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>If you choose who gets training or project places, make the invitation and selection criteria visible. Include a supported route for people who have not already used the tool. Give participants time within their workload to try it, and include their experience when deciding whether and how to use it.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear in the reader-facing text; advice follows from the access mechanism and stays within evidence limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If AI is being introduced where you work, a useful question is: “How can I join an approved trial, and what time and support are available to learn?” That asks for a concrete opportunity. It does not require you to buy a subscription, use AI outside your employer’s rules or turn your evenings into unpaid training.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>If you choose who gets training or project places, make the invitation and selection criteria visible. Include a supported route for people who have not already used the tool. Give participants time within their workload to try it, and include their experience when deciding whether and how to use it.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>Success should include useful work, sound judgment and recognition for the people contributing—not a target that everyone uses AI every day. Asking for access cannot guarantee that an employer provides it; responsibility for that decision remains with the employer.</p>",
+          "locator": "P010"
+        }
+      ]
+    }
+  }
+}

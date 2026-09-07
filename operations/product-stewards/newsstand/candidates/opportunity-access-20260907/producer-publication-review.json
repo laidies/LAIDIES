@@ -1,0 +1,479 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "front-paige-accountable-systems-2026-08-24",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact full-prose self-review",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-07T21:04:21.966Z",
+  "verdict": "PASS",
+  "limitations": [
+    "Simulated producer explain-back/transfer, not human comprehension observations.",
+    "No causal analysis supplied by the two source passages."
+  ],
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/opportunity-access-20260907/publication-manifest.json",
+      "sha256": "89f8a85b79dc25aad0821224c6ef3e2a7a8046bbba26060c55fa1a728f4ea76d"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/opportunity-access-20260907/review-text.json",
+      "sha256": "bcf1b4df11562548ebe3708cfece6dfa03385b4c079bdccd9d0142b0b4e135bf"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/opportunity-access-20260907/rendered-article.html",
+      "sha256": "e8e2d6dae4658e9de3a9db783c4f6a911d95cb6ab49a05123be3f9008b8466ce"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-05T22:51:01.267Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Plain terms gain meaning in the event explanation.",
+        "A familiar comparison reconnects to the mechanism and a concrete reader check."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "The LAiDIES Read in private NEWS002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What do these gaps in AI hiring and workplace use actually show, and who can change access to the opportunities?",
+    "promisedPayoff": "Understand the separate evidence and distinguish a worker choosing not to use a tool from an employer failing to provide access, time or invitations.",
+    "priorKnowledge": "Adult reader knows AI tools exist; no labour-market or statistical knowledge assumed.",
+    "centralMentalModel": "An outcome gap identifies a question to investigate, not a verdict on women’s ability or choices. Opportunity depends on concrete decisions about tools, time and project selection.",
+    "dailyLifeConnection": "Being invited to a paid workplace trial versus being expected to learn off the clock. This article is explicitly about work, not a claim about personal AI use.",
+    "surfaceJob": "Correct the existing dated Front PAiGE article without turning a representation gap into blame or an unsupported causal finding.",
+    "desiredFeeling": "I can recognize an opportunity gap and ask who has control over the conditions.",
+    "desiredReaderFeeling": "I can recognize an opportunity gap and ask who has control over the conditions."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Three separately scoped measures, dates and plain meaning; frequency is explicitly not skill.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p><p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p><p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+          "locator": "the_story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Exact access question and manager-controlled support follow the evidence limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If AI is being introduced where you work, a useful question is: “How can I join an approved trial, and what time and support are available to learn?” That asks for a concrete opportunity. It does not require you to buy a subscription, use AI outside your employer’s rules or turn your evenings into unpaid training.</p><p>If you choose who gets training or project places, make the invitation and selection criteria visible. Include a supported route for people who have not already used the tool. Give participants time within their workload to try it, and include their experience when deciding whether and how to use it.</p><p>Success should include useful work, sound judgment and recognition for the people contributing—not a target that everyone uses AI every day. Asking for access cannot guarantee that an employer provides it; responsibility for that decision remains with the employer.</p>",
+          "locator": "what_this_means"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Adult direct prose preserves women’s agency without blame or motivational slogan.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Our concern is how employers distribute the opportunities that come with AI: a place on a project, time to learn, a leadership role or a say in how a job changes. Telling women to practise more does not answer who gets those opportunities.</p><p>Imagine two equally interested colleagues. One is given an approved AI tool, paid time to try it and an invitation to help evaluate a new process. The other is told to keep up, without those arrangements. If the first colleague uses AI more often, that alone would tell us little about the second colleague’s enthusiasm or ability. This is an example of why conditions matter, not a finding about what caused the survey gap.</p><p>The next decision matters too. If a manager selects a trial team only from people already using the tool, someone who never had supported access can miss another opportunity. Employers can examine how they choose participants, provide learning time and recognize the work of testing and checking AI. More logins, by themselves, would not tell us whether those decisions had become fairer.</p>",
+          "locator": "laidies_read"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Two equally interested colleagues make an abstract access problem concrete without decorative nostalgia.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Our concern is how employers distribute the opportunities that come with AI: a place on a project, time to learn, a leadership role or a say in how a job changes. Telling women to practise more does not answer who gets those opportunities.</p><p>Imagine two equally interested colleagues. One is given an approved AI tool, paid time to try it and an invitation to help evaluate a new process. The other is told to keep up, without those arrangements. If the first colleague uses AI more often, that alone would tell us little about the second colleague’s enthusiasm or ability. This is an example of why conditions matter, not a finding about what caused the survey gap.</p><p>The next decision matters too. If a manager selects a trial team only from people already using the tool, someone who never had supported access can miss another opportunity. Employers can examine how they choose participants, provide learning time and recognize the work of testing and checking AI. More logins, by themselves, would not tell us whether those decisions had become fairer.</p>",
+          "locator": "laidies_read"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Exact percentages and populations checked against original publishers; no measured causes claimed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p><p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p><p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+          "locator": "the_story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "August publication dates and March survey date explicit; rechecked September7.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p><p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p><p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+          "locator": "the_story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Compact dated report plus proportionate interpretation and advice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p><p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p><p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+          "locator": "the_story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "August18 and August11 reporting tied to distinct measures.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p><p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p><p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+          "locator": "the_story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Hypothetical selection loop explicitly not presented as the cause of survey results.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Our concern is how employers distribute the opportunities that come with AI: a place on a project, time to learn, a leadership role or a say in how a job changes. Telling women to practise more does not answer who gets those opportunities.</p><p>Imagine two equally interested colleagues. One is given an approved AI tool, paid time to try it and an invitation to help evaluate a new process. The other is told to keep up, without those arrangements. If the first colleague uses AI more often, that alone would tell us little about the second colleague’s enthusiasm or ability. This is an example of why conditions matter, not a finding about what caused the survey gap.</p><p>The next decision matters too. If a manager selects a trial team only from people already using the tool, someone who never had supported access can miss another opportunity. Employers can examine how they choose participants, provide learning time and recognize the work of testing and checking AI. More logins, by themselves, would not tell us whether those decisions had become fairer.</p>",
+          "locator": "laidies_read"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Paid learning time and access to a real workplace trial are concrete.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If AI is being introduced where you work, a useful question is: “How can I join an approved trial, and what time and support are available to learn?” That asks for a concrete opportunity. It does not require you to buy a subscription, use AI outside your employer’s rules or turn your evenings into unpaid training.</p><p>If you choose who gets training or project places, make the invitation and selection criteria visible. Include a supported route for people who have not already used the tool. Give participants time within their workload to try it, and include their experience when deciding whether and how to use it.</p><p>Success should include useful work, sound judgment and recognition for the people contributing—not a target that everyone uses AI every day. Asking for access cannot guarantee that an employer provides it; responsibility for that decision remains with the employer.</p>",
+          "locator": "what_this_means"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Visible two-colleague conditions explain why frequency is not enthusiasm.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Our concern is how employers distribute the opportunities that come with AI: a place on a project, time to learn, a leadership role or a say in how a job changes. Telling women to practise more does not answer who gets those opportunities.</p><p>Imagine two equally interested colleagues. One is given an approved AI tool, paid time to try it and an invitation to help evaluate a new process. The other is told to keep up, without those arrangements. If the first colleague uses AI more often, that alone would tell us little about the second colleague’s enthusiasm or ability. This is an example of why conditions matter, not a finding about what caused the survey gap.</p><p>The next decision matters too. If a manager selects a trial team only from people already using the tool, someone who never had supported access can miss another opportunity. Employers can examine how they choose participants, provide learning time and recognize the work of testing and checking AI. More logins, by themselves, would not tell us whether those decisions had become fairer.</p>",
+          "locator": "laidies_read"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The figures measure representation and frequency separately. They do not identify ability or motives. Supported access and learning time are conditions an employer can examine, not a proven explanation for all of the gap.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p><p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p><p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+          "locator": "the_story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Do the reported gaps establish that women lack interest or ability?",
+        "probeResponse": "The figures measure representation and frequency separately. They do not identify ability or motives. Supported access and learning time are conditions an employer can examine, not a proven explanation for all of the gap.",
+        "expectedEvidence": "Differentiate outcome measures from motives and examine access/support before selecting only existing users."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "If only existing users get invited to an AI trial, a manager should examine whether newcomers have a supported route in. Prior use alone does not tell us who is interested or able.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Our concern is how employers distribute the opportunities that come with AI: a place on a project, time to learn, a leadership role or a say in how a job changes. Telling women to practise more does not answer who gets those opportunities.</p><p>Imagine two equally interested colleagues. One is given an approved AI tool, paid time to try it and an invitation to help evaluate a new process. The other is told to keep up, without those arrangements. If the first colleague uses AI more often, that alone would tell us little about the second colleague’s enthusiasm or ability. This is an example of why conditions matter, not a finding about what caused the survey gap.</p><p>The next decision matters too. If a manager selects a trial team only from people already using the tool, someone who never had supported access can miss another opportunity. Employers can examine how they choose participants, provide learning time and recognize the work of testing and checking AI. More logins, by themselves, would not tell us whether those decisions had become fairer.</p>",
+          "locator": "laidies_read"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A trial invites only existing AI users. What should the manager examine?",
+        "probeResponse": "If only existing users get invited to an AI trial, a manager should examine whether newcomers have a supported route in. Prior use alone does not tell us who is interested or able.",
+        "expectedEvidence": "Differentiate outcome measures from motives and examine access/support before selecting only existing users."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Worker asks how to join; manager publishes selection and supplies workload time. No guaranteed advancement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If AI is being introduced where you work, a useful question is: “How can I join an approved trial, and what time and support are available to learn?” That asks for a concrete opportunity. It does not require you to buy a subscription, use AI outside your employer’s rules or turn your evenings into unpaid training.</p><p>If you choose who gets training or project places, make the invitation and selection criteria visible. Include a supported route for people who have not already used the tool. Give participants time within their workload to try it, and include their experience when deciding whether and how to use it.</p><p>Success should include useful work, sound judgment and recognition for the people contributing—not a target that everyone uses AI every day. Asking for access cannot guarantee that an employer provides it; responsibility for that decision remains with the employer.</p>",
+          "locator": "what_this_means"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Explicit imagined workplace case; no analogy or real-world outcome invented.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Our concern is how employers distribute the opportunities that come with AI: a place on a project, time to learn, a leadership role or a say in how a job changes. Telling women to practise more does not answer who gets those opportunities.</p><p>Imagine two equally interested colleagues. One is given an approved AI tool, paid time to try it and an invitation to help evaluate a new process. The other is told to keep up, without those arrangements. If the first colleague uses AI more often, that alone would tell us little about the second colleague’s enthusiasm or ability. This is an example of why conditions matter, not a finding about what caused the survey gap.</p><p>The next decision matters too. If a manager selects a trial team only from people already using the tool, someone who never had supported access can miss another opportunity. Employers can examine how they choose participants, provide learning time and recognize the work of testing and checking AI. More logins, by themselves, would not tell us whether those decisions had become fairer.</p>",
+          "locator": "laidies_read"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Use only source-bounded facts and an explicitly hypothetical access example; no invented motives, decorative nostalgia or unsupported causal claim.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Use only source-bounded facts and an explicitly hypothetical access example; no invented motives, decorative nostalgia or unsupported causal claim.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Use only source-bounded facts and an explicitly hypothetical access example; no invented motives, decorative nostalgia or unsupported causal claim.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Use only source-bounded facts and an explicitly hypothetical access example; no invented motives, decorative nostalgia or unsupported causal claim.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Explain permission, paid time, selection and recognition through one explicitly hypothetical trial.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Give separate proportionate actions for a reader and a manager; do not prescribe daily AI use.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Use only source-bounded facts and an explicitly hypothetical access example; no invented motives, decorative nostalgia or unsupported causal claim.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Use only source-bounded facts and an explicitly hypothetical access example; no invented motives, decorative nostalgia or unsupported causal claim.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Use only source-bounded facts and an explicitly hypothetical access example; no invented motives, decorative nostalgia or unsupported causal claim.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Keep workplace scope because the sources measure work; do not universalize to all women or personal use.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Use only source-bounded facts and an explicitly hypothetical access example; no invented motives, decorative nostalgia or unsupported causal claim.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Use only source-bounded facts and an explicitly hypothetical access example; no invented motives, decorative nostalgia or unsupported causal claim.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Use plain adult language; no workflow-ownership or compounding jargon.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Complete exact article read: no unsupported motive, decorative reference, invented source finding, or vague daily-use prescription. Evidence and explicitly hypothetical access case remain separate.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Complete exact article read: no unsupported motive, decorative reference, invented source finding, or vague daily-use prescription. Evidence and explicitly hypothetical access case remain separate.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Complete exact article read: no unsupported motive, decorative reference, invented source finding, or vague daily-use prescription. Evidence and explicitly hypothetical access case remain separate.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Complete exact article read: no unsupported motive, decorative reference, invented source finding, or vague daily-use prescription. Evidence and explicitly hypothetical access case remain separate.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Complete exact article read: no unsupported motive, decorative reference, invented source finding, or vague daily-use prescription. Evidence and explicitly hypothetical access case remain separate.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Complete exact article read: no unsupported motive, decorative reference, invented source finding, or vague daily-use prescription. Evidence and explicitly hypothetical access case remain separate.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Complete exact article read: no unsupported motive, decorative reference, invented source finding, or vague daily-use prescription. Evidence and explicitly hypothetical access case remain separate.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Complete exact article read: no unsupported motive, decorative reference, invented source finding, or vague daily-use prescription. Evidence and explicitly hypothetical access case remain separate.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Complete exact article read: no unsupported motive, decorative reference, invented source finding, or vague daily-use prescription. Evidence and explicitly hypothetical access case remain separate.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Complete exact article read: no unsupported motive, decorative reference, invented source finding, or vague daily-use prescription. Evidence and explicitly hypothetical access case remain separate.",
+      "artifactLocator": "Complete current story JSON"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Complete exact article read: no unsupported motive, decorative reference, invented source finding, or vague daily-use prescription. Evidence and explicitly hypothetical access case remain separate.",
+      "artifactLocator": "Complete current story JSON"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "reviewedThrough": "2026-09-07",
+    "nextTrigger": "Correction to cited August reports or new evidence changing these historical findings.",
+    "correctionOwner": "NewsStand",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/opportunity-access-20260907/source-evidence.json",
+        "sha256": "e0ed313717b946b3620583c50b21da931dff350467a45cc37def887370e1b882"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/opportunity-access-20260907/editorial-input.json",
+        "sha256": "853f570b992fcaaefeefc0bdd07c4e56c8c3dfc33cd2f8e24b2af7666d292708"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "linkedin-representation",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p>",
+            "locator": "the_story"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/opportunity-access-20260907/editorial-input.json",
+          "sha256": "853f570b992fcaaefeefc0bdd07c4e56c8c3dfc33cd2f8e24b2af7666d292708"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "They accounted for just 26% of U.S. AI hires in 2025, compared with 50% of hires into non-AI occupations. The gap grows at the top: across 27 countries, women hold only 13% of C-suite AI leadership roles at AI companies.",
+            "locator": "https://news.linkedin.com/2026/new-linkedin-research-finds-women-account-for-just-26-percent-of-ai-hires-as-ai-jobs-surge"
+          }
+        ],
+        "scopeAndFreshness": "LinkedIn platform data. Hiring and leadership are separate populations; figures describe representation, not individual ability or reasons for each hiring outcome."
+      },
+      {
+        "claimId": "census-frequency",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p>",
+            "locator": "the_story"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/opportunity-access-20260907/editorial-input.json",
+          "sha256": "853f570b992fcaaefeefc0bdd07c4e56c8c3dfc33cd2f8e24b2af7666d292708"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "When AI users at work were asked how much they used AI in the last week, 30% of male workers said they used it every day, compared with 17% of female workers. Half of female workers said they used it at least one day, but not every day, and 41% of male workers said the same.",
+            "locator": "https://cdn.www.census.gov/library/stories/2026/08/ai-use-at-work.html"
+          },
+          {
+            "excerpt": "About 55% of U.S. workers said they have used Artificial Intelligence (AI) on the job for at least one of 11 tasks asked about on the U.S. Census Bureau’s March 2026 Household Trends and Outlook Pulse Survey (HTOPS).",
+            "locator": "https://cdn.www.census.gov/library/stories/2026/08/ai-use-at-work.html"
+          }
+        ],
+        "scopeAndFreshness": "Self-reported usage frequency among AI users at work; not ability, motivation, equal access, usefulness or causes. Official CDN resolves; original www URL returns404."
+      }
+    ]
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "front-paige-accountable-systems-2026-08-24-public-original",
+    "priorComparable": {
+      "reviewIssues": 2,
+      "reviewCycles": 1
+    }
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "priorComparable": {
+      "candidateId": "front-paige-accountable-systems-2026-08-24-public-original",
+      "reviewIssues": 2,
+      "reviewCycles": 1
+    },
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Known reader-identified capability doubt and individual-blame defects repaired before handoff; original issues recorded in decisions and predecessor file. No additional reusable defect found in this self-review."
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  }
+}

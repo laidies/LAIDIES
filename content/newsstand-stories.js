@@ -80,8 +80,8 @@ window.NEWSSTAND_DATA = {
       "edition": "daily",
       "status": "published",
       "publishedAt": "2026-08-24T17:00:00Z",
-      "updatedAt": "2026-08-24T17:00:00Z",
-      "lastCheckedAt": "2026-08-24T17:00:00Z",
+      "updatedAt": "2026-09-07T21:02:30.701Z",
+      "lastCheckedAt": "2026-09-07T21:02:30.701Z",
       "sourceApproval": {
         "status": "approved",
         "record": "newsstand:source-approval:front-paige-accountable-systems-2026-08-24"
@@ -94,19 +94,19 @@ window.NEWSSTAND_DATA = {
       "relationshipType": null,
       "bigPicture": null,
       "thread": "women-ai-opportunity-gap",
-      "thread_subtitle": "Who gets the opportunity while AI reshapes ordinary work.",
+      "thread_subtitle": "Access to AI jobs, learning and decisions about how work changes.",
       "thread_entry": "Current Front PAiGE",
-      "headline": "Women helped build AI. Will they shape its future at work?",
-      "the_story": "Two gaps are appearing at once. LinkedIn reports that women accounted for 26% of U.S. hires into AI occupations in 2025 and hold 13% of C-suite AI leadership roles across the 27 countries it studied. One week earlier, Census data showed a different divide inside ordinary jobs: among workers who had used AI at work, 30% of men said they used it every day in the previous week, compared with 17% of women. These measures are not the same and should not be collapsed into one statistic. Together, they raise a consequential question: as AI creates highly paid roles and begins to reshape everyday work, who is getting the opportunity, repetition and authority to shape what happens next?",
-      "laidies_read": "This is not evidence that women are avoiding AI, and it is not a prediction that AI is about to erase women’s jobs. LinkedIn’s figures cover occupations it classifies as AI jobs—not every lawyer, marketer, project manager or finance professional who uses AI. The Census finding is specifically a frequency gap among workplace AI users. But opportunity compounds. The person who uses AI repeatedly learns where it fails, finds better uses, becomes the unofficial expert and is more likely to be invited into the next workflow decision. That is why waiting until the new job descriptions and promotion criteria are settled is the risky move.",
-      "what_this_means": "Do not respond by trying every shiny tool. Pick one recurring piece of real work—meeting preparation, research, document review, status updates, spreadsheet cleanup or follow-ups—and use AI on it every time for a month, within your company’s rules. Keep a small record of what changed: time saved, quality improved, new responsibility taken on and judgment you still supplied. The aim is not to become ‘an AI person.’ It is to make sure your experience and authority are present when your team decides how work will be redesigned.",
-      "cocktail_party": "“Women are underrepresented in the new AI opportunities just as AI is beginning to reshape work where women are heavily represented.”",
+      "headline": "AI is reshaping work. Women need equal access to the opportunities.",
+      "the_story": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p><p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p><p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+      "laidies_read": "<p>Our concern is how employers distribute the opportunities that come with AI: a place on a project, time to learn, a leadership role or a say in how a job changes. Telling women to practise more does not answer who gets those opportunities.</p><p>Imagine two equally interested colleagues. One is given an approved AI tool, paid time to try it and an invitation to help evaluate a new process. The other is told to keep up, without those arrangements. If the first colleague uses AI more often, that alone would tell us little about the second colleague’s enthusiasm or ability. This is an example of why conditions matter, not a finding about what caused the survey gap.</p><p>The next decision matters too. If a manager selects a team to test a new AI tool only from people already using it, someone who never had supported access can miss another opportunity. Employers can examine how they choose participants, provide learning time and recognize the work of testing and checking AI. More logins, by themselves, would not tell us whether those decisions had become fairer.</p>",
+      "what_this_means": "<p>If there’s an opportunity to learn about AI or help decide how it’s used at work, you can ask to take part. Ask questions when something doesn’t make sense—even if you think everyone else already knows the answer. You don’t need to arrive as an expert to contribute.</p><p>Employers should make those opportunities visible, provide time and support to learn, and welcome questions rather than assume everyone starts with the same knowledge.</p>",
+      "cocktail_party": "“These reports show gaps in AI hiring, leadership and daily workplace use. They do not show that women lack interest or ability. Employers need to examine who gets the tools, learning time and opportunities to take part.”",
       "watch_fors": [
-        "Whether access to AI projects, training and leadership begins to broaden beyond technical teams.",
-        "Whether employers reward the extra workflow ownership AI creates—or quietly add it to existing jobs without recognition."
+        "Whether employers make AI training and project invitations accessible beyond people already using the tools.",
+        "Whether people receive paid learning time, a say in decisions and recognition for their contribution—not simply extra duties."
       ],
-      "closing_note": "Episode 4 gave us the historical correction: women were not late to computing or AI. They helped build the field. The present-day question is whether we will be in the room while it is built into work. We helped build AI. We should not sit out the part where it gets built into work.",
-      "class_notes": "Episode 4 connection: women were pivotal to the algorithm, signal, first program, compiler, search and computer vision. Current evidence turns that history into an agency question about participation, workflow ownership and leadership now.",
+      "closing_note": "Women’s ability to contribute is not the question. The question for employers is what they are doing to make the opportunities accessible.",
+      "class_notes": "When you encounter a statistic about AI use, ask who was measured, what was measured and whether the research explains why. A difference in frequency is not a measure of ability.",
       "heroVisual": {
         "src": "/assets/newsstand/design-20260830/front-paige-women-computing.png",
         "alt": "Illustration of women working across generations of computing, from handwritten calculations and punch cards to modern AI.",
@@ -118,23 +118,15 @@ window.NEWSSTAND_DATA = {
           "label": "LinkedIn Economic Graph — Women account for 26% of AI hires as AI jobs surge",
           "url": "https://news.linkedin.com/2026/new-linkedin-research-finds-women-account-for-just-26-percent-of-ai-hires-as-ai-jobs-surge",
           "publisherType": "primary-document",
-          "accessedAt": "2026-08-24",
+          "accessedAt": "2026-09-07",
           "approvalStatus": "reviewed"
         },
         {
           "id": "census-ai-use-at-work-2026-08-11",
           "label": "U.S. Census Bureau — AI use at work, frequency and time saved",
-          "url": "https://www.census.gov/library/stories/2026/08/ai-use-at-work.html",
+          "url": "https://cdn.www.census.gov/library/stories/2026/08/ai-use-at-work.html",
           "publisherType": "regulator",
-          "accessedAt": "2026-08-24",
-          "approvalStatus": "reviewed"
-        },
-        {
-          "id": "laidies-episode-04-canon",
-          "label": "LAiDIES Episode 4 — The Founding Mothers",
-          "url": "https://laidies.ai/issues/issue-04.html",
-          "publisherType": "primary-document",
-          "accessedAt": "2026-08-24",
+          "accessedAt": "2026-09-07",
           "approvalStatus": "reviewed"
         }
       ],
@@ -2305,7 +2297,7 @@ window.NEWSSTAND_DATA = {
       "the_story": "<p>NVIDIA announced on September 3 that it has agreed to buy Hugging Face for about <strong>$12.93 billion</strong>. It says the deal will help it strengthen and expand the platform. This is an announced agreement; we have not verified that the purchase has closed.</p><p>NVIDIA builds chips, computer systems and AI software. Hugging Face gives people a place to find and share trained AI <strong>models</strong>—the parts of AI tools that process input to produce a result. Builders can download models from its Hub or connect to services that run them. The catalogue and the computing are different parts of getting AI into a tool someone can use.</p><p>NVIDIA promises that people will still be able to choose other companies’ models and computing services, and that using NVIDIA hardware will not be a requirement. That promise is central to the story. How practical those choices remain is the question to follow.</p><p><strong>Why the name?</strong> It comes from the hugging-face emoji, 🤗. Co-founder Clem Delangue says the founders expected to keep the name for only a few weeks or months. Then their community embraced it—on social posts, T-shirts and other merchandise—and they decided it had to stay.</p><p>An unusual detail in the price: the announced price is <strong>$12,930,300,000</strong>. Its first six digits, <strong>129303</strong>, are the decimal number identifying 🤗 in Unicode, the system that gives characters and emoji their own codes. The digits match; the announcement does not explain whether that was intentional.</p><p><strong>Why does Hugging Face sound familiar?</strong> You may have seen it in reports about OpenAI’s experimental AI agents. OpenAI says that, during internal security tests in July, models operating with reduced safeguards bypassed restrictions meant to keep them isolated from the internet and gained unauthorized access to Hugging Face’s systems. That was a testing security failure, rather than ordinary ChatGPT use, and it is separate from this acquisition announcement. <a href=\"https://openai.com/index/hugging-face-incident-and-the-road-ahead/\">Read OpenAI’s account of the incident.</a></p>",
       "laidies_read": "<p>Imagine a video-player maker buying your local video shop. You would care about which tapes stayed on the shelves, which machines could play them and whether the helpful setup instructions quietly pointed you towards one brand. The shop could influence what was easy to choose without owning every film.</p><p>Back to AI: Hugging Face’s current documentation describes both a place to share models and a way to choose among services that run them. Suppose a team finds a model suited to turning recorded speech into text. The model still needs a computer to do the work. The team might arrange that computing itself or use a service that runs the model for it. Finding the model and choosing who runs it are separate decisions.</p><p>Here is the possible tension we see. NVIDIA says its investment will improve the platform. A company that supplies computing could also benefit if more builders chose its computing. Both can be true. That gives us a reason to watch the choices, prices and effort involved; it does not establish that NVIDIA has restricted any of them.</p><p>And owning the platform would not, by itself, give NVIDIA ownership of everything people share there. Hugging Face tells users to check each project’s licence—the terms setting out permission to use it. A model being available to download is not a promise that you can use it for any purpose. The video shop never owned every film either. Even if it was very firm about the late fees.</p>",
       "what_this_means": "<p>You do not have to use Hugging Face yourself for it to sit behind an AI app you use at home or at work. An app’s maker can use Hugging Face to find a model, or use its service to send requests to a company that runs the model. Those are different relationships.</p><p>A maker can also download a model and run it independently, without contacting Hugging Face each time. So “we got our model from Hugging Face” does not necessarily mean “Hugging Face runs your requests”. If an app you rely on mentions this deal, that is a useful distinction to ask its maker about.</p><p>We have not established that your particular app uses Hugging Face, or that this announcement changes your account, price or access. The practical question is whether the people making the apps you use will still have useful choices about which models to offer and where to run them. NVIDIA promises they will. The announcement alone cannot show how that will work out for you.</p><p>The next concrete developments to look for are confirmation that the deal has closed, published changes to platform terms, and evidence about the options builders can actually use. NVIDIA's September 3 SEC filing says it expects the transaction to close in the first half of 2027, subject to customary closing conditions and regulatory approvals. That is an expectation, not a completed deal. The company’s commitment is something to check against those developments, rather than a result we can report in advance.</p>",
-      "cocktail_party": "“NVIDIA has agreed to buy Hugging Face, where people find and share AI models. It promises to keep other computing options available. The useful question is whether those alternatives stay practical—not just whether they remain on a list.”",
+      "cocktail_party": "“NVIDIA has agreed to buy Hugging Face, where people find and share AI models. NVIDIA says people will still be able to use models with other companies’ chips and services. We don’t yet know whether the deal will change how easy or affordable those choices are.”",
       "watch_fors": null,
       "closing_note": null,
       "class_notes": "When a company promises a benefit, separate its statement from evidence that the benefit happened. Practise that distinction in <a href=\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\">Working with AI 101: Trusting the Output (And Checking It)</a>, which explains why a few correct checks cannot establish that every claim is right.",
@@ -2419,6 +2411,4 @@ window.NEWSSTAND_DATA = {
     }
   ]
 };
-
-/* Compatibility for old private inspection scripts only. Public code uses NEWSSTAND_DATA. */
 window.NEWSSTAND_STORIES = window.NEWSSTAND_DATA.stories;

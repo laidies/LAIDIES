@@ -1,0 +1,932 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "front-paige-accountable-systems-2026-08-24",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-07T21:25:16.861Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/opportunity-participation-20260907/review-text.json",
+      "sha256": "9a96bd1112984284e7bf7d6acfff719d16984c90b6619d11364106354e9e6795"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/opportunity-participation-20260907/publication-manifest.json",
+      "sha256": "d1d2c343df9329cb82bc9e55699e4a426bc2180241e36c14e532c2dc82a50e50"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/opportunity-participation-20260907/rendered-article.html",
+      "sha256": "0b5c4f4f2ce305e5e213f471e3cbc3389f1348869666bb6b1782a9a080391437"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "AI is changing jobs — are women getting a fair shot at the hiring, leadership and learning opportunities that come with it, and what do the new numbers actually show?",
+    "promisedPayoff": "Understand what the LinkedIn hiring/leadership figures and the Census usage-frequency figures each do and do not measure, and what employers and readers can do about access.",
+    "centralMentalModel": "Different statistics measure different populations and questions; a frequency gap reflects conditions of access (tools, paid time, invitations) as much as individual choice, so it cannot be read as ability or interest.",
+    "dailyLifeConnection": "Two equally interested colleagues where only one gets an approved tool, paid learning time and an invitation to evaluate a process — and a manager staffing a pilot only from existing users.",
+    "surfaceJob": "A dated news article synthesizing two August 2026 reports on women's AI hiring, leadership and workplace usage, with limits on what each report can support.",
+    "desiredReaderFeeling": "Equipped and entitled: able to read AI statistics critically, willing to ask to participate without arriving as an expert, and clear that employers own the access question."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Statistics are stated with plain scope (who was measured, when) and no unexplained technical terms; sentences are short and concrete.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader gains a method for reading AI statistics and a concrete workplace ask (participation, learning time).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>If there’s an opportunity to learn about AI or help decide how it’s used at work, you can ask to take part. Ask questions when something doesn’t make sense—even if you think everyone else already knows the answer. You don’t need to arrive as an expert to contribute.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "When you encounter a statistic about AI use, ask who was measured, what was measured and whether the research explains why. A difference in frequency is not a measure of ability.",
+          "locator": "P011"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult tone — 'you don't need to arrive as an expert' addresses the reader directly without condescension or borrowed persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Our concern is how employers distribute the opportunities that come with AI: a place on a project, time to learn, a leadership role or a say in how a job changes. Telling women to practise more does not answer who gets those opportunities.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>If there’s an opportunity to learn about AI or help decide how it’s used at work, you can ask to take part. Ask questions when something doesn’t make sense—even if you think everyone else already knows the answer. You don’t need to arrive as an expert to contribute.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The two-colleague scenario and the manager's staffing decision give the numbers human stakes and sustain interest without gimmicks.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Imagine two equally interested colleagues. One is given an approved AI tool, paid time to try it and an invitation to help evaluate a new process. The other is told to keep up, without those arrangements. If the first colleague uses AI more often, that alone would tell us little about the second colleague’s enthusiasm or ability. This is an example of why conditions matter, not a finding about what caused the survey gap.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>The next decision matters too. If a manager selects a team to test a new AI tool only from people already using it, someone who never had supported access can miss another opportunity. Employers can examine how they choose participants, provide learning time and recognize the work of testing and checking AI. More logins, by themselves, would not tell us whether those decisions had become fairer.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Answers what happened (two dated reports published), what they show, and why it matters, within proper news scope.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The pilot-team selection and paid-learning-time scenario is a recognizable workplace situation that illuminates how access compounds.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Imagine two equally interested colleagues. One is given an approved AI tool, paid time to try it and an invitation to help evaluate a new process. The other is told to keep up, without those arrangements. If the first colleague uses AI more often, that alone would tell us little about the second colleague’s enthusiasm or ability. This is an example of why conditions matter, not a finding about what caused the survey gap.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>The next decision matters too. If a manager selects a team to test a new AI tool only from people already using it, someone who never had supported access can miss another opportunity. Employers can examine how they choose participants, provide learning time and recognize the work of testing and checking AI. More logins, by themselves, would not tell us whether those decisions had become fairer.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Starts from a live human question, moves through a concrete conditions-and-selection mechanism, lands on precise watch-fors and questions; no Fry imitation or name-drop.",
+      "artifactEvidence": [
+        {
+          "excerpt": "AI is reshaping work. Women need equal access to the opportunities.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>Imagine two equally interested colleagues. One is given an approved AI tool, paid time to try it and an invitation to help evaluate a new process. The other is told to keep up, without those arrangements. If the first colleague uses AI more often, that alone would tell us little about the second colleague’s enthusiasm or ability. This is an example of why conditions matter, not a finding about what caused the survey gap.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "When you encounter a statistic about AI use, ask who was measured, what was measured and whether the research explains why. A difference in frequency is not a measure of ability.",
+          "locator": "P011"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The conditions-and-selection mechanism in P006–P007 supports an accurate ordinary-language answer to why frequency gaps aren't ability gaps.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Imagine two equally interested colleagues. One is given an approved AI tool, paid time to try it and an invitation to help evaluate a new process. The other is told to keep up, without those arrangements. If the first colleague uses AI more often, that alone would tell us little about the second colleague’s enthusiasm or ability. This is an example of why conditions matter, not a finding about what caused the survey gap.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>The next decision matters too. If a manager selects a team to test a new AI tool only from people already using it, someone who never had supported access can miss another opportunity. Employers can examine how they choose participants, provide learning time and recognize the work of testing and checking AI. More logins, by themselves, would not tell us whether those decisions had become fairer.</p>",
+          "locator": "P007"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why can't the Census finding that 30% of men versus 17% of women use AI daily be taken as evidence that women are less able or less interested in AI?",
+        "response": "Because frequency of use reflects the conditions someone works under, not just her choices. If one worker is given an approved tool, paid time to practise and an invitation to evaluate a process, and another is simply told to keep up, the first will log more use regardless of relative ability or enthusiasm. The survey also only measured self-reported frequency among people who had already used AI for at least one task — it never asked about skill, interest, access, or whether daily use would even help each job. So the gap is compatible with unequal conditions and cannot identify a cause.",
+        "expectedEvidence": "A correct answer must distinguish what was measured (self-reported frequency among prior users, March 2026) from what was not (ability, interest, access, usefulness), and cite the conditions mechanism: tool provision, paid learning time and invitations drive usage independently of aptitude.",
+        "assessment": "The artifact fully supports this answer: P003 defines the measured population, P004 lists what the figures do not measure, and P006 supplies the causal conditions mechanism with its explicit limit."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The mechanism (measured populations differ; access conditions and selection-from-existing-users compound gaps) applies cleanly to novel workplace statistics.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The next decision matters too. If a manager selects a team to test a new AI tool only from people already using it, someone who never had supported access can miss another opportunity. Employers can examine how they choose participants, provide learning time and recognize the work of testing and checking AI. More logins, by themselves, would not tell us whether those decisions had become fairer.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "When you encounter a statistic about AI use, ask who was measured, what was measured and whether the research explains why. A difference in frequency is not a measure of ability.",
+          "locator": "P011"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using the article's mechanism, what does the 3x usage gap show, and what is wrong with staffing the committee from the highest-volume users?",
+        "response": "The usage gap measures conditions, not aptitude: day-shift nurses have supported access (IT help, scheduled training time), so higher volume tells us little about night nurses' ability or interest. Selecting the committee from existing heavy users repeats the P007 selection error — people who never had supported access lose the next opportunity too, so the gap compounds. The hospital should instead examine how it distributes training time and support across shifts, and open committee selection beyond current users; rising login counts alone would not show the decisions became fairer.",
+        "expectedEvidence": "Application of two article moves: (1) frequency reflects access conditions, not ability (P004, P006); (2) selecting participants from existing users compounds the access gap, and usage metrics cannot verify fairness (P007).",
+        "assessment": "The article's mechanism transfers cleanly to this unseen case: both the measurement critique and the compounding-selection step apply without modification, confirming the explanation generalizes."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Specific, proportionate actions: ask to join AI learning/decision opportunities; employers examine participant selection and provide paid learning time.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The next decision matters too. If a manager selects a team to test a new AI tool only from people already using it, someone who never had supported access can miss another opportunity. Employers can examine how they choose participants, provide learning time and recognize the work of testing and checking AI. More logins, by themselves, would not tell us whether those decisions had become fairer.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>If there’s an opportunity to learn about AI or help decide how it’s used at work, you can ask to take part. Ask questions when something doesn’t make sense—even if you think everyone else already knows the answer. You don’t need to arrive as an expert to contribute.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Employers should make those opportunities visible, provide time and support to learn, and welcome questions rather than assume everyone starts with the same knowledge.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The two-colleague comparison maps the access mechanism accurately and explicitly retains its limit: 'an example of why conditions matter, not a finding about what caused the survey gap.'",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Imagine two equally interested colleagues. One is given an approved AI tool, paid time to try it and an invitation to help evaluate a new process. The other is told to keep up, without those arrangements. If the first colleague uses AI more often, that alone would tell us little about the second colleague’s enthusiasm or ability. This is an example of why conditions matter, not a finding about what caused the survey gap.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Every material figure and date matches the supplied source passages with correct attribution to LinkedIn and the Census Bureau, and no claims exceed the sources.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Publication dates (Aug 18, Aug 11), survey timing (March 2026) and named sources make each time-sensitive claim checkable; sources were accessed 2026-09-07.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The article distinguishes 2025 hiring outcomes from the March 2026 survey and the August 2026 publications, so old events are separated from newly reported evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (missed pilot invitations, learning time) while uncertainty survives: neither report establishes causes, and the illustrative scenario is explicitly flagged as not a finding.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Imagine two equally interested colleagues. One is given an approved AI tool, paid time to try it and an invitation to help evaluate a new process. The other is told to keep up, without those arrangements. If the first colleague uses AI more often, that alone would tell us little about the second colleague’s enthusiasm or ability. This is an example of why conditions matter, not a finding about what caused the survey gap.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>The next decision matters too. If a manager selects a team to test a new AI tool only from people already using it, someone who never had supported access can miss another opportunity. Employers can examine how they choose participants, provide learning time and recognize the work of testing and checking AI. More logins, by themselves, would not tell us whether those decisions had become fairer.</p>",
+          "locator": "P007"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No definition lists; concepts are introduced inside a connected argument about measurement and access.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Paragraphs develop a progressing argument (data, limits, mechanism, action) rather than repeating a scaffold.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The colleague comparison does explanatory work on the access mechanism and states its own limits.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Only the two cited reports are referenced; each carries a specific job.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal steps — tool access, paid time, invitation, selection from existing users — are laid out link by link.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Actions are concrete: ask to join specific opportunities; employers audit pilot-team selection and provide paid learning time.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "No unexplained technical language; statistical scope is spelled out at first use.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Hiring, leadership, usage and employer decisions are explicitly connected and distinguished.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty is repeatedly bounded: 'Neither report establishes why…', 'would tell us little…'.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Both claims carry publication dates, survey timing and traceable sources checked 2026-09-07.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Language is plain and concrete throughout; no motivational filler.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The human scenario and direct address keep the piece from becoming a checklist despite its careful tone.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communicator or benchmark is named anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's question of access is answered with mechanism and specific watch-fors.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The colleague example returns explicitly to what the survey gap can and cannot show.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Voice is original LAiDIES prose; no imitated persona or mannerisms.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No humour or spectacle competes with the explanation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The mechanism occupies the centre of the piece; the opening is brief.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The conclusion about employer responsibility follows the data limits and access mechanism rather than preceding them.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The closing stays bounded to the employer-access question the evidence supports.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers understanding the findings, participating without expertise, and employer responsibility — the full supplied job.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human stakes (women's access to AI opportunity) open the piece before any statistical machinery.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Not a book; the single scenario stays proportionate to the news synthesis.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The organising perspective is reader opportunity and employer decisions, not specialist taxonomy.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/opportunity-participation-20260907/editorial-input.json",
+        "sha256": "8cc785137891e8165f307d9d00a842287fa895894b36443a3f705b99f22baf59"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "linkedin-representation",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/opportunity-participation-20260907/editorial-input.json",
+          "sha256": "8cc785137891e8165f307d9d00a842287fa895894b36443a3f705b99f22baf59"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "They accounted for just 26% of U.S. AI hires in 2025, compared with 50% of hires into non-AI occupations. The gap grows at the top: across 27 countries, women hold only 13% of C-suite AI leadership roles at AI companies.",
+            "locator": "https://news.linkedin.com/2026/new-linkedin-research-finds-women-account-for-just-26-percent-of-ai-hires-as-ai-jobs-surge"
+          }
+        ],
+        "scopeAndFreshness": "P002 matches the LinkedIn excerpt exactly: 26% of U.S. AI hires in 2025 vs 50% of non-AI hires, and 13% of C-suite AI leadership roles at AI companies; the article correctly frames leadership as a separate international analysis and limits the figures to representation, retaining the source's limitations."
+      },
+      {
+        "claimId": "census-frequency",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/opportunity-participation-20260907/editorial-input.json",
+          "sha256": "8cc785137891e8165f307d9d00a842287fa895894b36443a3f705b99f22baf59"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "When AI users at work were asked how much they used AI in the last week, 30% of male workers said they used it every day, compared with 17% of female workers. Half of female workers said they used it at least one day, but not every day, and 41% of male workers said the same.",
+            "locator": "https://cdn.www.census.gov/library/stories/2026/08/ai-use-at-work.html"
+          },
+          {
+            "excerpt": "About 55% of U.S. workers said they have used Artificial Intelligence (AI) on the job for at least one of 11 tasks asked about on the U.S. Census Bureau’s March 2026 Household Trends and Outlook Pulse Survey (HTOPS).",
+            "locator": "https://cdn.www.census.gov/library/stories/2026/08/ai-use-at-work.html"
+          }
+        ],
+        "scopeAndFreshness": "P003 matches the Census excerpt: 30% of male vs 17% of female AI users reported daily use, among workers who had used AI for at least one surveyed task, March 2026 survey, August 11 publication; the article preserves the population restriction and explicitly refuses causal or ability readings, matching the stated limitations."
+      }
+    ],
+    "reviewedThrough": "2026-09-07",
+    "nextTrigger": "Correction to cited August reports or new evidence changing these historical findings.",
+    "correctionOwner": "NewsStand"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "priorComparable": {
+      "candidateId": "front-paige-accountable-systems-2026-08-24-opportunity-access",
+      "reviewIssues": 0,
+      "reviewCycles": 1
+    },
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "front-paige-accountable-systems-2026-08-24-opportunity-access",
+    "predecessorReview": {
+      "path": "operations/product-stewards/newsstand/candidates/opportunity-access-20260907/admission/independent-review.json",
+      "sha256": "0c6e7bd43a942996bb9481393945fddf7020eb3f41e7d4a7735f570b23d2478c"
+    }
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All outcomes and news checks pass and every failure family is clear; no new reusable defect pattern was observed in this artifact."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=1; evidence gaps repaired=0; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/opportunity-participation-20260907/admission/news-editorial-analysis.json",
+      "sha256": "213f8ee780eeda98f2acfbbec851e448aeb252dea42ddd7df77cd754c61f636e"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/opportunity-participation-20260907/admission/independent-raw-report.json",
+    "sha256": "eafb64656e3cfc87b27a34229e9f4ccc15e39aedd9b045b5d8b0bc4f9fcb9984"
+  }
+}

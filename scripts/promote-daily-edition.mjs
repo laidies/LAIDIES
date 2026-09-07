@@ -144,11 +144,30 @@ function validateEnvelope(value, root = ROOT, store = null, now = new Date().toI
       ![value.sourceIdentity.radarSha256, value.sourceIdentity.storiesSha256, value.sourceIdentity.columnsSha256].every((hash) => HASH.test(hash || ""))) {
     reject("source identity is invalid");
   }
-  const sourceFiles = [
-    [value.sourceIdentity.radarPath, value.sourceIdentity.radarSha256],
-    [value.sourceIdentity.storiesPath, value.sourceIdentity.storiesSha256],
-    [value.sourceIdentity.columnsPath, value.sourceIdentity.columnsSha256]
-  ];
+  // A story correction revises one already-admitted story in a historical
+  // issue. Its radar and columns bindings describe the admitted issue at the
+  // time it was published, so they may no longer exist or match current
+  // working files. Require those frozen bindings to be identical to the
+  // existing issue; only the live stories source is re-read for the successor.
+  if (correctionBinding) {
+    const predecessors = (store?.issues || []).filter((issue) => issue && issue.editionDate === value.editionDate);
+    if (predecessors.length !== 1 || !HASH.test(predecessors[0].envelopeSha256 || "")) {
+      reject("story correction requires one admitted predecessor issue");
+    }
+    const predecessorSource = predecessors[0].sourceIdentity || {};
+    for (const field of ["radarPath", "radarSha256", "columnsPath", "columnsSha256"]) {
+      if (canonicalJson(predecessorSource[field] ?? null) !== canonicalJson(value.sourceIdentity[field] ?? null)) {
+        reject(`story correction changes frozen source ${field}`);
+      }
+    }
+  }
+  const sourceFiles = correctionBinding
+    ? [[value.sourceIdentity.storiesPath, value.sourceIdentity.storiesSha256]]
+    : [
+        [value.sourceIdentity.radarPath, value.sourceIdentity.radarSha256],
+        [value.sourceIdentity.storiesPath, value.sourceIdentity.storiesSha256],
+        [value.sourceIdentity.columnsPath, value.sourceIdentity.columnsSha256]
+      ];
   for (const [sourcePath, expectedHash] of sourceFiles) {
     const absolute = path.join(root, sourcePath);
     if (!fs.existsSync(absolute) || sha256(fs.readFileSync(absolute)) !== expectedHash) reject(`source bytes changed for ${sourcePath}`);
@@ -176,41 +195,48 @@ function validateEnvelope(value, root = ROOT, store = null, now = new Date().toI
       if (canonicalJson(actualRecovery) !== canonicalJson(dailyRecovery)) reject("quiet recovery-queue binding differs from the current queue");
     }
   } else if (dailyCoverage || dailyRecovery) reject("non-quiet issue cannot claim a quiet source-coverage binding");
-  const types = typesForDate(value.editionDate);
-  if (!Array.isArray(value.desks) || value.desks.length !== types.length) reject("Daily issue contents are incomplete");
-  const deskTypes = new Set();
-  for (const desk of value.desks) {
-    if (!desk || !types.includes(desk.type) || deskTypes.has(desk.type)) reject("Daily desk types are invalid");
-    deskTypes.add(desk.type);
-    if (desk.state === "ready") {
-      exactKeys(desk, ["type", "state", "recordId", "headline", "summary", "destination", ...(desk.carriedFrom ? ["carriedFrom"] : [])], `ready desk ${desk.type}`);
-      if (!desk.recordId || !desk.headline || !desk.summary || !(desk.destination === null || typeof desk.destination === "string")) reject(`ready desk ${desk.type} is invalid`);
-    } else if (desk.state === "empty") {
-      exactKeys(desk, ["type", "state", "recordId", "emptyState"], `empty desk ${desk.type}`);
-      if (desk.recordId !== null || !desk.emptyState) reject(`empty desk ${desk.type} is invalid`);
-    } else reject(`desk ${desk.type} state is invalid`);
+  if (!correctionBinding) {
+    const types = typesForDate(value.editionDate);
+    if (!Array.isArray(value.desks) || value.desks.length !== types.length) reject("Daily issue contents are incomplete");
+    const deskTypes = new Set();
+    for (const desk of value.desks) {
+      if (!desk || !types.includes(desk.type) || deskTypes.has(desk.type)) reject("Daily desk types are invalid");
+      deskTypes.add(desk.type);
+      if (desk.state === "ready") {
+        exactKeys(desk, ["type", "state", "recordId", "headline", "summary", "destination", ...(desk.carriedFrom ? ["carriedFrom"] : [])], `ready desk ${desk.type}`);
+        if (!desk.recordId || !desk.headline || !desk.summary || !(desk.destination === null || typeof desk.destination === "string")) reject(`ready desk ${desk.type} is invalid`);
+      } else if (desk.state === "empty") {
+        exactKeys(desk, ["type", "state", "recordId", "emptyState"], `empty desk ${desk.type}`);
+        if (desk.recordId !== null || !desk.emptyState) reject(`empty desk ${desk.type} is invalid`);
+      } else reject(`desk ${desk.type} state is invalid`);
+    }
   }
   const readyIds = value.desks.filter((desk) => desk.state === "ready").map((desk) => desk.recordId);
   if (new Set(readyIds).size !== readyIds.length) reject("ready desk record IDs are duplicated");
-  const columnData = JSON.parse(fs.readFileSync(path.join(root, value.sourceIdentity.columnsPath), "utf8"));
-  const predecessor = value.sourceIdentity.servicePredecessor ? loadServicePredecessor(value.sourceIdentity.servicePredecessor, {
-    root, date: value.editionDate, columns: columnData, ...(!correctionBinding ? { storiesRaw: fs.readFileSync(path.join(root, value.sourceIdentity.storiesPath), 'utf8') } : {})
+  const columnData = correctionBinding ? null : JSON.parse(fs.readFileSync(path.join(root, value.sourceIdentity.columnsPath), "utf8"));
+  const predecessor = !correctionBinding && value.sourceIdentity.servicePredecessor ? loadServicePredecessor(value.sourceIdentity.servicePredecessor, {
+    root, date: value.editionDate, columns: columnData, storiesRaw: fs.readFileSync(path.join(root, value.sourceIdentity.storiesPath), 'utf8')
   }) : null;
-  for (const desk of value.desks.filter((item) => item.state === "ready")) {
-    const record = (columnData.records || []).find((item) => item.id === desk.recordId && item.editionDate <= value.editionDate &&
-      ["APPROVED", "PUBLISHED", "CORRECTED"].includes(item.status) && item.publicEligibility === "ELIGIBLE" &&
-      item.freshness && item.freshness.expiresAt >= value.editionDate);
-    if (!record || record.type !== desk.type || record.headline !== desk.headline || record.summary !== desk.summary ||
-        (record.destination || null) !== desk.destination) reject(`ready desk ${desk.type} is not bound to admitted source content`);
+  if (!correctionBinding) {
+    for (const desk of value.desks.filter((item) => item.state === "ready")) {
+      const record = (columnData.records || []).find((item) => item.id === desk.recordId && item.editionDate <= value.editionDate &&
+        ["APPROVED", "PUBLISHED", "CORRECTED"].includes(item.status) && item.publicEligibility === "ELIGIBLE" &&
+        item.freshness && item.freshness.expiresAt >= value.editionDate);
+      if (!record || record.type !== desk.type || record.headline !== desk.headline || record.summary !== desk.summary ||
+          (record.destination || null) !== desk.destination) reject(`ready desk ${desk.type} is not bound to admitted source content`);
+    }
   }
   const storiesContext = { window: {} };
   vm.runInNewContext(fs.readFileSync(path.join(root, value.sourceIdentity.storiesPath), "utf8"), storiesContext, { timeout: 1000 });
   const sameDateIssue = store?.issues?.find(issue => issue.editionDate === value.editionDate) || null;
   const sameDateNewsAppend = Boolean(candidate && sameDateIssue && storiesContext.window.NEWSSTAND_DATA.publications?.daily?.editionDate === value.editionDate);
-  validateServiceSelection({ desks: value.desks, columns: columnData, date: value.editionDate, predecessor, canonicalIssue: storiesContext.window.NEWSSTAND_DATA.publications?.daily?.issue, sameDateNewsAppend });
+  if (!correctionBinding) {
+    validateServiceSelection({ desks: value.desks, columns: columnData, date: value.editionDate, predecessor, canonicalIssue: storiesContext.window.NEWSSTAND_DATA.publications?.daily?.issue, sameDateNewsAppend });
+  }
   const canonicalStories = storiesContext.window.NEWSSTAND_DATA.stories || [];
   if (candidate && (!value.storyIds.includes(candidate.id) || canonicalStories.some(story => story.id === candidate.id || story.slug === candidate.slug))) reject("ordinary candidate is absent from issue or duplicates an incumbent");
   for (const [index, id] of value.storyIds.entries()) {
+    if (correctionBinding && id !== correctionBinding.storyId) continue;
     if (candidate?.id === id) {
       if (canonicalJson(candidate) !== canonicalJson(value.storySnapshots[index])) reject("candidate snapshot differs from the exact reviewed private record");
       continue;
@@ -235,11 +261,13 @@ function validateEnvelope(value, root = ROOT, store = null, now = new Date().toI
       item.sourceApproval && item.sourceApproval.status === "approved");
     if (!weekly) reject("Weekly continuity story is not admitted");
   }
-  const weeklyPublication = storiesContext.window.NEWSSTAND_DATA.publications?.weekly;
-  const currentWeeklyId = weeklyPublication?.status === "current" ? weeklyPublication.storyId : null;
-  if ((value.weeklyStoryId || null) !== (currentWeeklyId || null) ||
-      (weeklyPublication?.status === "current" && (!currentWeeklyId || weeklyPublication.editionDate > value.editionDate))) {
-    reject("Weekly continuity must match the exact current canonical pointer");
+  if (!correctionBinding) {
+    const weeklyPublication = storiesContext.window.NEWSSTAND_DATA.publications?.weekly;
+    const currentWeeklyId = weeklyPublication?.status === "current" ? weeklyPublication.storyId : null;
+    if ((value.weeklyStoryId || null) !== (currentWeeklyId || null) ||
+        (weeklyPublication?.status === "current" && (!currentWeeklyId || weeklyPublication.editionDate > value.editionDate))) {
+      reject("Weekly continuity must match the exact current canonical pointer");
+    }
   }
   if (value.disposition === "QUIET" && (value.storyIds.length || readyIds.length)) reject("quiet issue contains publishable material");
   if (value.disposition === "SERVICE_READY" && !readyIds.length && !value.storyIds.length) reject("service-ready issue contains no admitted material");

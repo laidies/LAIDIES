@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "front-paige-accountable-systems-2026-08-24",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "9a96bd1112984284e7bf7d6acfff719d16984c90b6619d11364106354e9e6795",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can't the Census finding that 30% of men versus 17% of women use AI daily be taken as evidence that women are less able or less interested in AI?",
+      "response": "Because frequency of use reflects the conditions someone works under, not just her choices. If one worker is given an approved tool, paid time to practise and an invitation to evaluate a process, and another is simply told to keep up, the first will log more use regardless of relative ability or enthusiasm. The survey also only measured self-reported frequency among people who had already used AI for at least one task — it never asked about skill, interest, access, or whether daily use would even help each job. So the gap is compatible with unequal conditions and cannot identify a cause.",
+      "expectedEvidence": "A correct answer must distinguish what was measured (self-reported frequency among prior users, March 2026) from what was not (ability, interest, access, usefulness), and cite the conditions mechanism: tool provision, paid learning time and invitations drive usage independently of aptitude.",
+      "assessment": "The artifact fully supports this answer: P003 defines the measured population, P004 lists what the figures do not measure, and P006 supplies the causal conditions mechanism with its explicit limit."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, what does the 3x usage gap show, and what is wrong with staffing the committee from the highest-volume users?",
+      "response": "The usage gap measures conditions, not aptitude: day-shift nurses have supported access (IT help, scheduled training time), so higher volume tells us little about night nurses' ability or interest. Selecting the committee from existing heavy users repeats the P007 selection error — people who never had supported access lose the next opportunity too, so the gap compounds. The hospital should instead examine how it distributes training time and support across shifts, and open committee selection beyond current users; rising login counts alone would not show the decisions became fairer.",
+      "expectedEvidence": "Application of two article moves: (1) frequency reflects access conditions, not ability (P004, P006); (2) selecting participants from existing users compounds the access gap, and usage metrics cannot verify fairness (P007).",
+      "assessment": "The article's mechanism transfers cleanly to this unseen case: both the measurement critique and the compounding-selection step apply without modification, confirming the explanation generalizes."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The two reports, their publication dates, populations measured and the causal reason they cannot be conflated are all explained.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Those are different groups and different questions. The hiring figures do not cover every job in which someone uses AI. The frequency figures do not measure skill, interest or whether daily use would help someone do her job. Neither report establishes why a particular woman has less access to an opportunity.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Terms like 'AI occupations' and usage frequency are given plain scope at first use (who was surveyed, what was asked, when).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Women accounted for 26% of U.S. hires into AI occupations in 2025, compared with 50% of hires into other occupations, according to research LinkedIn published on August 18. Its separate international leadership analysis found that women held 13% of top executive AI leadership roles at AI companies. These figures describe who is getting hired and who holds authority.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A U.S. Census Bureau report published on August 11 measures something different: how often people use AI at work. Among workers who had used AI for at least one of the tasks surveyed, 30% of men and 17% of women reported using it every day in the previous week. The survey was conducted in March 2026.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequence is grounded in a specific situation: being passed over for a tool pilot because you never had supported access, and how to ask to take part.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The next decision matters too. If a manager selects a team to test a new AI tool only from people already using it, someone who never had supported access can miss another opportunity. Employers can examine how they choose participants, provide learning time and recognize the work of testing and checking AI. More logins, by themselves, would not tell us whether those decisions had become fairer.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>If there’s an opportunity to learn about AI or help decide how it’s used at work, you can ask to take part. Ask questions when something doesn’t make sense—even if you think everyone else already knows the answer. You don’t need to arrive as an expert to contribute.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or process details appear; advice stays within what the reported access mechanism supports.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If there’s an opportunity to learn about AI or help decide how it’s used at work, you can ask to take part. Ask questions when something doesn’t make sense—even if you think everyone else already knows the answer. You don’t need to arrive as an expert to contribute.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Employers should make those opportunities visible, provide time and support to learn, and welcome questions rather than assume everyone starts with the same knowledge.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "“These reports show gaps in AI hiring, leadership and daily workplace use. They do not show that women lack interest or ability. Employers need to examine who gets the tools, learning time and opportunities to take part.”",
+          "locator": "P010"
+        }
+      ]
+    }
+  }
+}
