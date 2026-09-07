@@ -513,3 +513,15 @@ material source reconciliation is not complete until its exact research input
 is committed at the routed owner path; chat can coordinate the handoff but
 cannot be its only durable record. Behind the Build angle: why a good answer is
 not yet an operating system until the next worker can reliably find and bind it.
+
+### 2026-09-06 — A product-owner label was mistaken for a producer assignment
+
+`LCWO-002` named `library-101` as BUILD owner and was eligible for producer
+preflight, but no producer principal, task, writable lane or acknowledgement
+existed; the Learning executor was explicitly disabled/unbound with zero
+records. Saying “Library runs preflight next” therefore skipped the handoff
+edge that makes work happen. Prevention: an executable content assignment must
+name and bind the principal, task, isolated lane, exact scope and exact current
+inputs; product ownership alone can never establish active assignment or
+drafting authority. Behind the Build angle: why naming the department is not
+the same thing as handing the work to someone.

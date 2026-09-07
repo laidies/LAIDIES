@@ -48,11 +48,59 @@ distinctions. This establishes a reusable mechanism, not an admitted addition
 or a recovered current builder. The overlay and builder remain in the Library
 worktree; do not import its 110 entries wholesale to satisfy this one order.
 
-**Next operation:** Library runs producer preflight, binding the current source
-packet, current quality registry, work order and existing amendment mechanism.
-No clarification entry or added prose is created until that contract passes.
-Library then owns the versioned clarification and deterministic render target,
-preserving the immutable source without creating a second amendment system.
+**Next operation:** assign one real Library producer principal and task/lane for
+LCWO-002. The product ID `library-101` and its BUILD role identify accountable
+product ownership; they do not identify a person/agent, active task, writable
+lane or accepted assignment. The current execution adapter is
+`DISABLED_UNBOUND`, its automation ID, lane ID and target task ID are null, and
+`execution-metadata.json` contains zero records. The current task inventory has
+no explicit LCWO-002 Library producer. “Add Working with AI 101,” “Plan AI
+companies textbook” and the archived “Restart AI Fundamentals visuals” tasks
+have different scopes and are not implied receivers.
+
+**PREFLIGHT INPUTS PREPARED / ASSIGNMENT MISSING / DRAFTING HOLD.** The smallest
+resolution begins with Control Room identifying a real Library-owner acceptance
+principal and task ID; that edge is also currently missing. That named owner
+then issues one bounded assignment receipt naming: the producer principal and
+task ID; an isolated worktree and branch starting from current integrated commit
+`268614ffd10daca96b1664937f7659e38e51d164` or a verified descendant; LCWO-002
+as its only content scope; the contract output path; start/expiry or completion
+trigger; and these exact inputs:
+
+Evidence time: `2026-09-06T22:18:50-07:00`.
+
+| Preflight input | Current binding |
+| --- | --- |
+| Accepted manuscript | `content/library-books/pilots/ai-fundamentals-101-quick-manuscript/source/full-book.md` — SHA-256 `721522ed4ff94760c7e5d62beef64a6299286efc1d7a7b90e6262a4ca4091eb9` |
+| Source packet | `operations/product-stewards/learning-content-ecosystem/LCWO-002-ACCESS-LABELS-SOURCE-PACKET.md` — SHA-256 `e5f50e7ad6a32efc6f09841fe019e09b88b69d78335478f8d283f20f0aa6e786` |
+| Quality registry | `operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json` — SHA-256 `c5210803bad0311797c408b4db6a108a59302f97f6e5014c6ec0fdb5542992ef` |
+| Canonical work-order queue | `operations/product-stewards/learning-content-ecosystem/content-work-orders.json` — SHA-256 `5e47e31f9e49ec1f8ac86fb8b49a8398265a54e9a9f70646ac7e89e6fcfcfe86` |
+| Learning standard | `operations/product-stewards/LEARNING-CONTENT-STANDARD.md` — SHA-256 `a152357f7aa9e12b8f3b1dba661df1f2829fc1016a819fd05161a20a2a9e6267` |
+| Admission gate | `operations/product-stewards/learning-content-ecosystem/CONTENT-QUALITY-ADMISSION-GATE.md` — SHA-256 `3b26d3174979dd22eafc5b0e0903fc1584cebc418e49d37d68d2a553b0661a85` |
+| Orchestration guide | `operations/product-stewards/learning-content-ecosystem/LEARNING-ORCHESTRATION-GUIDE.md` — SHA-256 `2ed1db9ff0b97e1ac7bc4bd5e3a6503f71f18dc385416683597b4026c2117edf` |
+| Communication benchmark | `operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md` — SHA-256 `7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3` |
+| Producer validator | `scripts/check-content-producer-contract.mjs` — SHA-256 `239256e4f08aba1cccc8fbcb6a9eb7fd47299b3f458556f13a42ab48fff81342` |
+
+The accepted extension mechanism is preserved read-only at Library branch
+`library/ai-fundamentals-full-visuals-20260818`, commit
+`5cc4193e7f4be90e460eb7e66851f1e082155c96`: `rewind-amendments.json` SHA-256
+`741b3872b8b2b6bacc18f25606c5037dfba2ce1db1b294c9a1da0bca0e6d6241`
+binds the accepted manuscript SHA and `build-book.mjs` SHA-256
+`3461691258976b1e764165ae5a9f864268b2bb7e027d087c93857ee3d583eb7d`
+requires each insertion anchor exactly once. These identities establish the
+mechanism only. They are not an active producer lane and are not imported by
+this checkpoint. The producer may inspect those exact files read-only while
+building the preflight; the assignment receipt must name that external evidence
+source. Before later drafting or rendering, the Library owner must approve a
+separate bounded reconciliation from `5cc4193e` into the current-base worktree,
+limited to the amendment/builder mechanism and checked against the then-current
+source SHA. The full 110-entry overlay is not a preflight input to copy and may
+not be imported by implication.
+
+After assignment, that producer creates and passes the exact producer contract
+before writing any clarification prose. Only then may Library own a versioned
+clarification and deterministic render target, preserving the immutable source
+without creating a second amendment system.
 `READY_TO_DISPATCH` remains the canonical label for
 producer-preflight assignment; it is not drafting authority. The work order's
 old immediate-build prose and missing historical input paths are stale. The
@@ -62,6 +110,8 @@ no queue mutation, drafting, rendering, review, activation or publication occurs
 in this source recovery. The old queue's dependency projection therefore still
 returns `QUARANTINED`; fourteen preparation eligibilities are not drafting
 permission. No old README build command or generated manifest was revived.
+This is one representative operating-system handoff test, not evidence that the
+full operating audit is complete.
 
 September 6, 2026. PR108 merged as `9a372e701742dcc2cb9820e49bb39c3e82b5d9df`
 after both Operating baseline CI jobs passed on exact source `a83b9fb0`.
