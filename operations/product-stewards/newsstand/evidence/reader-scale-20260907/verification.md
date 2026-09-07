@@ -36,4 +36,24 @@ The broader reader suite still stops on an unrelated incumbent service-desk asse
 
 ## Public verification
 
-Pending deployment. Record the exact provider deployment, immutable origin, custom-origin checks and public hashes here after release.
+Production deployment: `6b27e20a-a435-490b-8820-2051b7f37a84`
+
+Immutable origin: `https://6b27e20a.laidies-sunnyvaile.pages.dev`
+
+Deploy input: `/private/tmp/laidies-newsstand-reader-scale-20260907.LpmE9C`
+
+Manifest: `/private/tmp/laidies-newsstand-reader-scale-20260907.LpmE9C.manifest.json`
+
+Whole-artifact identity: `b52c20ce14af639aad7fb69eecb9ef6366d3243d8de62f7965c452bc92efa44f` (780 files; 853,112,785 bytes)
+
+The provider head was rechecked immediately before deployment and remained `199e9833-40ec-449e-814d-916696310397`. The release-scope checker found exactly two modified public files: `content/newsstand-design.css` and `newsstand.html`. No files were added or removed.
+
+Both the immutable origin and `https://laidies.ai` returned the candidate-manifest hashes for the two changed files and protected NewsStand stories/issues plus Homepage, LIBRAiRY and LUMINAiRY pages.
+
+Observed on the live custom-domain Astra story:
+
+- desktop 1200px: 820px paper, 36px headline, 480px image, 16px body, Back visible, no horizontal overflow
+- phone 390px: 390px paper, 30.42px headline, 354px image, 16px body, Back visible, no horizontal overflow
+- narrow phone 320px: 320px paper, 28px headline, 284px image, 16px body, Back visible, no horizontal overflow
+
+The existing automated 200% browser harness passed before release. A fresh genuine native Safari 200% check of the deployed page was attempted but not completed because the Mac locked; it is not claimed as publicly verified.
