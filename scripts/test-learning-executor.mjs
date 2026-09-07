@@ -129,7 +129,9 @@ writeAutomation(state);
 metadata = read(metadataRelative);
 metadata.records = [preparedRecord(eligible[0]), preparedRecord(eligible[1])];
 write(metadataRelative, metadata);
-assert(inspect().errors.some((error) => error.includes("more than one active")));
+result = inspect();
+assert(result.errors.filter((error) => error.includes("unavailable live state OWNER_ACKNOWLEDGED")).length >= 2);
+assert(result.errors.some((error) => error.includes("live enablement is unavailable")));
 
 reset();
 state = read(stateRelative);
@@ -151,19 +153,39 @@ assert(inspect().errors.some((error) => error.includes("ownerTaskId is missing o
 
 reset();
 state = enabledState();
-assert(inspect().errors.some((error) => error.includes("required automation is missing")));
+assert(inspect().errors.some((error) => error.includes("live enablement is unavailable")));
 writeAutomation(state, { kind: "cron", target: "wrong-task" });
 result = inspect();
-assert(result.errors.some((error) => error.includes("kind is wrong")));
-assert(result.errors.some((error) => error.includes("target task is wrong")));
+assert(result.errors.some((error) => error.includes("live enablement is unavailable")));
+
+reset();
+state = enabledState();
+writeAutomation(state);
+metadata = read(metadataRelative);
+const terminal = preparedRecord(eligible[0], "DISPATCHED");
+terminal.events[2].evidencePath = ".";
+terminal.events.push({ state: "TERMINAL", at: iso(), disposition: "VERIFIED_PUBLICLY", evidencePaths: ["."] });
+metadata.records = [terminal];
+write(metadataRelative, metadata);
+assert.equal(eligible[0].artifactBinding.status, "UNBOUND");
+result = inspect();
+assert(result.errors.some((error) => error.includes("unavailable live state OWNER_ACKNOWLEDGED")));
+assert(result.errors.some((error) => error.includes("unavailable live state DISPATCHED")));
+assert(result.errors.some((error) => error.includes("unavailable live state TERMINAL")));
+assert(result.errors.some((error) => error.includes("live enablement is unavailable")));
 
 reset();
 metadata = read(metadataRelative);
-const terminal = preparedRecord(eligible[0], "DISPATCHED");
-terminal.events.push({ state: "TERMINAL", at: iso(), disposition: "VERIFIED_PUBLICLY", evidencePaths: ["evidence/missing.md"] });
-metadata.records = [terminal];
+metadata.records = [{
+  workOrderId: eligible[0].id,
+  ownerProductId: eligible[0].ownerProductId,
+  events: [
+    { state: "OWNER_ACKNOWLEDGED", at: iso(-1), ownerProductId: eligible[0].ownerProductId, evidencePath: "." },
+    { state: "SELECTION_PROPOSED", at: iso() }
+  ]
+}];
 write(metadataRelative, metadata);
-assert(inspect().errors.some((error) => error.includes("terminal evidence is missing or invalid")));
+assert(inspect().errors.some((error) => error.includes("unavailable live state OWNER_ACKNOWLEDGED")));
 
 reset();
 const unsupportedQueue = read(queueRelative);
@@ -174,4 +196,4 @@ assert(inspect().errors.some((error) => error.includes("unsupported canonical qu
 fs.rmSync(temporaryRoot, { recursive: true, force: true });
 console.log("LEARNING EXECUTOR ADAPTER TEST PASS");
 console.log("transition=selection_proposed->dispatch_receipt_drafted queue_unchanged=1 active_claim=0");
-console.log("rejected=invalid_state,stale,future,duplicate_active,changed_queue,wrong_owner,missing_owner,missing_automation,wrong_automation,invalid_terminal,unsupported_schema");
+console.log("rejected=invalid_state,stale,future,forbidden_live_history,changed_queue,wrong_owner,missing_owner,enabled_state,fake_public_terminal,unsupported_schema");

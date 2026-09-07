@@ -434,9 +434,9 @@ The preserved Learning executor exposed a second false-equivalence: its contract
 a scheduled worker that reconciled, selected, dispatched and executed work, while the local
 runner only refreshed heartbeat metadata around an already-active queue item. Recovering
 either file alone would turn intent into apparent runtime proof. The inactive successor
-keeps the canonical queue immutable, separates proposed selection, draft receipt, owner
-acknowledgement and dispatch, and makes active states depend on an exact current automation,
-lane and evidence. Prevention: runtime state must prove the transition it claims; a local
+keeps the canonical queue immutable, separates proposed selection and draft receipt, and
+rejects every acknowledgement, dispatch, terminal or enabled state until a real authority
+source is separately implemented. Prevention: runtime state must prove the transition it claims; a local
 receipt draft or heartbeat writer is never owner acceptance or performed work. Behind the
 Build: an AI operating system needs verbs that mean what actually happened, not what the
 surrounding contract hoped would happen.

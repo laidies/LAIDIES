@@ -18,19 +18,22 @@ adapter's narrower authority explicit and testable.
 
 ## States and truth boundary
 
-The adapter uses five ordered states:
+The inactive adapter implements only two ordered states:
 
 1. `SELECTION_PROPOSED` — a locally eligible work order was identified. No owner has
    accepted it.
 2. `DISPATCH_RECEIPT_DRAFTED` — a draft receipt was prepared. It is not a dispatch receipt
    and cannot claim work began.
-3. `OWNER_ACKNOWLEDGED` — a destination owner supplied separate, path-bound evidence.
-4. `DISPATCHED` — a verified live lane accepted the acknowledged scope.
-5. `TERMINAL` — a governed terminal disposition has exact evidence.
-
 The checked-in state is `DISABLED_UNBOUND`. In that state the runner may prepare only the
 first two states. It cannot acknowledge, dispatch, invoke an agent, alter the queue, draft
 content, activate a schedule, publish or release anything.
+
+`OWNER_ACKNOWLEDGED`, `DISPATCHED`, `TERMINAL` and `ENABLED_BOUND` are future integration
+concepts, not accepted states in this version. The schema, checker and runner all reject
+them wherever they appear, including earlier events hidden behind an apparently safe latest
+state. A path that exists, an arbitrary file, a matching caller-written owner/lane string or
+a temporary automation file cannot establish acknowledgement, performed work or public
+verification.
 
 `READY_TO_DISPATCH` in the canonical queue means eligible to assign an owner to producer
 preflight. A valid current producer contract is still required before prose drafting.
@@ -38,19 +41,18 @@ Preparing a selection or draft receipt does not change either boundary.
 
 ## Live integration boundary
 
-Live operation remains absent. Before `OWNER_ACKNOWLEDGED` or `DISPATCHED` can validate,
-the state must be deliberately changed to `ENABLED_BOUND` by the responsible integration
-owner and must name a real current automation, lane and target task. The checker then
-requires the exact automation file to be an active heartbeat with the same target task and
-requires acknowledgement evidence, queue identity and one-active-order discipline.
-
-That future activation is a separate integration change. This recovery does not create an
-automation, bind a lane, schedule a heartbeat or claim autonomous execution.
+Live operation remains absent. Future acknowledgement, dispatch and terminal admission
+need a separately designed source of authority that verifies real owner acceptance, lane
+identity, performed work and public evidence rather than accepting caller-written claims.
+That future activation is a separate integration change. This recovery cannot be enabled
+by editing its JSON, creating a temporary automation file or supplying an arbitrary path.
 
 ## Executable checks
 
 - `node scripts/check-learning-executor.mjs` validates the inactive checked-in state and
-  exact queue binding.
+  exact queue binding. `learning-executor-state.schema.json` permits only
+  `DISABLED_UNBOUND`; `learning-execution-metadata.schema.json` permits only the two
+  preparation states.
 - `node scripts/test-learning-executor.mjs` uses temporary fixtures to prove one
   selection-to-draft-receipt transition without changing queue bytes, and rejects stale or
   future events, duplicate active orders, changed queue bindings, wrong owners, missing or

@@ -143,10 +143,12 @@ or release. The calibrated test proves the queue remains unchanged and rejects i
 state, stale/future events, duplicate active orders, changed queue identity, wrong ownership,
 missing/wrong automation, invalid terminal evidence and unsupported queue schemas.
 
-Autonomous execution remains absent. Live integration still requires a real current
-automation, lane and task binding; owner acknowledgement evidence; a separately reviewed
-activation change; and proof that the worker performs reconciliation, selection, receipt
-and next-action work outside this preparation-only adapter. The Learning dossier's
+Autonomous execution remains absent. This adapter rejects `ENABLED_BOUND`,
+`OWNER_ACKNOWLEDGED`, `DISPATCHED` and `TERMINAL` even when caller-written paths, matching
+strings or a temporary active automation file are supplied. Live integration needs a
+separately implemented and reviewed source of authority for the real automation, lane,
+task, owner acknowledgement, performed work and public evidence; it cannot be activated by
+editing these records. The Learning dossier's
 `state.json` and `backlog.md` remain absent because neither is an execution dependency and
 their preserved versions contain stale status. Legacy path-integrity debt at `loadBinding`
 and `existingEvidence` remains separately open.
