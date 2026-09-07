@@ -398,3 +398,9 @@ Status words: **LOCKED** (settled, don't relitigate) · **ACTIVE** (in force,
 may evolve) · **PROPOSED** (not decided — not binding) · **SUPERSEDED** (kept
 for history; mark `SUPERSEDED →` and point at the replacement, never delete —
 half of repeat questions are about things decided and then reversed).
+
+## 2026-09-06 — Learning-quality receiver adoption
+
+| Status | Decision | Source |
+| --- | --- | --- |
+| ACTIVE | **PR108/109/112 are adopted into the existing Learning owner workflow at receiving commit `a7678df4`, with bounded status.** Package integrity and owner-admitted learning run before producer, exact-prose review and release checks; dispatch requires a valid current producer contract. Scoped consumers pass and strict `LCWO-001` admission fails as required. Current `main` cannot complete `ci:build` because its episode gate script is absent, and the exact `LCWO-001` source/render targets are absent from the receiving checkout. No full-build, real-candidate, learner, deploy or public result is inferred. | Ali adoption instruction 2026-09-06; `operations/product-stewards/learning-content-ecosystem/RECOVERY.md` |

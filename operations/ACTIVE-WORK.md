@@ -1,21 +1,18 @@
 # Active work
 
-> **2026-09-06 — Operating audit / BUILDING: current-source trial adequate; adoption open.**
-> Owner `01a077d0-0775-7af2-b631-c311573f0e0e`; checkout
-> `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`, branch
-> `ops/producer-transfer-retest-20260906`. PR103–112 are merged.
-> Original producer source failure is preserved; PR112 binds current instructions.
-> Two fresh Sol/Medium makers completed different unchanged cases, with 24 declared
-> file bindings verified per case. Frozen prose received independent artifact-first
-> ADEQUATE_FOR_THIS_INTERNAL_CASE verdicts with no material repair or foreground rewrite.
-> This is bounded current performance, not observed learner comprehension, measured
-> improvement, a newly admitted lesson, or adoption by the existing owner workflow.
-> See learning trial `attempt-2/RESULT.md`. Preparation/context overhead remains open.
-> Complete PR108/109/112 adoption message awaits explicit permission; no new message
-> sent. Existing learning task remains notLoaded, which does not mean abandoned.
-> All 17 real orders remain held. No shared dirty-tree overwrite, service purchase,
-> schedule change or public release. Native Goal reports usageLimited; automatic
-> continuation, native hook loading and Mac-off operation are not claimed active.
+> **2026-09-06 — Learning-quality receiver / COMMITTED: scoped adoption passes; full build and real-candidate proof held.**
+> Owner task `019f9f7f-9e4c-72d2-8882-447bcbe01691`; isolated checkout
+> `/Users/alisoneakin/Projects/laidies-learning-quality-adoption-20260906`, branch
+> `task/learning-quality-adoption-20260906`. Current `main` already contains PR108,
+> PR109, PR112 and the bounded PR113 trial. Receiving commit `a7678df4` wires package
+> integrity and learning admission before producer, exact-prose reviewer and release
+> checks; restores a calibrated work-order consumer; and blocks all 14 nominally
+> dispatchable orders without valid producer contracts. Three orders remain trigger-queued.
+> The scoped chain passes; strict `LCWO-001` release admission fails as required and all
+> 17 orders remain held. The full `ci:build` stops before this chain because current
+> `main` lacks `operations/engine/gate.sh`. `LCWO-001` also cannot supply real-candidate
+> proof in this checkout because both recorded target paths are absent. No content,
+> service, schedule, deploy, publication, spend or Ali/public authority changed.
 
 > **2026-09-06 — Small current visual references: REPOSITORY-DISTRIBUTED / PR106 MERGED.** Owner: background-reference task `01a0785e-1438-7161-b041-0be213b06e9b`; isolated branch `ops/current-visual-references-20260906`. Build the small two-job entry and scoped selections, preserve exact originals and reconcile later rejections; system engineering task owns prompt-consumer reconciliation on a separate branch. No all-artwork migration or production art changes. Acceptance: exact usable references and reuse scope, honest unavailable entries, routed instructions, calibrated selection checks and repository distribution. Local index and 13 prompt-consumer checks pass; later Matron/Miss Jeeves identities and destination palettes are reconciled. Current source commits 222a10ae, 3afe85a6, 21b55575 and coordinated consumer 1b1fcf6e. PR106 merged as a38d5068e67582e089e1e7b9ef983fa60882f7c4 after targeted reference CI and both baseline jobs passed; shared entry pointer committed e0812106. Source/consumer delivery is complete; no new artwork, public deployment or native hook activation is claimed. Other product work continues.
 
