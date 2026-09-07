@@ -23,6 +23,37 @@ export function inspectHomepageCorrection(item, root, preservedBytes = {}) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if(a.owner_feedback_successor==='WHY_FROM_TO_LABELS') {
+      const p='operations/product-stewards/town-entry-homepage/candidates/why-from-to-20260907/';
+      const parent=JSON.parse(bytes(p+'parent-admission.json'));
+      assert(parent.design_admission.owner_feedback_successor==='MISS_JEEVES_PANEL_EDGE','wrong quote predecessor');
+      errors.push(...inspectHomepageCorrection(parent,root,{...preservedBytes,'index.html':bytes(p+'parent.html')}));
+      assert(item.id===homepageCorrectionId&&item.review_type==='building_page_visual','wrong scoped candidate');
+      for(const [key,b] of Object.entries(a)) if(b?.path&&b?.sha256) {
+        const label={candidate:'homepage',fairyImage:'current Fairy image',mallImage:'Mall image'}[key]||key;
+        assert(digest(b.path)===b.sha256,label+' bytes differ');
+        if(key!=='candidate')assert(JSON.stringify(b)===JSON.stringify(parent.design_admission[key]),label+' changed from predecessor');
+      }
+      assert(a.cards?.length===2&&a.cards.every(b=>digest(b.path)===b.sha256)&&JSON.stringify(a.cards)===JSON.stringify(parent.design_admission.cards),'current card bytes differ');
+      assert(digest(p+'parent.html')===parent.design_admission.candidate.sha256,'quote parent bytes differ');
+      let old=bytes(p+'parent.html').toString();const edits=JSON.parse(bytes(p+'changes.json')).replacements;
+      assert(edits.length===4,'quote edit scope differs');
+      for(const e of edits){assert(old.split(e.old).length===2,'quote replacement not unique');old=old.replace(e.old,e.new)}
+      assert(old===bytes('index.html').toString(),'unrelated homepage change');
+      for(const b of a.evidence||[])assert(digest(b.path)===b.sha256,'stale evidence: '+b.path);
+      for(const f of ['scope.md','parent-admission.json','parent.html','changes.json','checks.json','browser-test.mjs','independent-review.md','visuals.json','stage-preservation.json'])assert(a.evidence?.some(b=>b.path===p+f),'missing bound evidence: '+f);
+      const c=JSON.parse(bytes(p+'checks.json'));assert(c.status==='PASS'&&c.sourceSha===a.candidate.sha256,'quote checks differ');
+      for(const width of [1440,1074,390]) {
+        const n=c.rows.find(r=>r.kind==='candidate'&&r.width===width),o=c.rows.find(r=>r.kind==='parent'&&r.width===width);
+        assert(n&&o&&!n.overflow&&JSON.stringify(n.copy)===JSON.stringify(o.copy)&&n.quotes.length===3,'quote preservation differs');
+        for(const q of n?.quotes||[])assert(q.labels.length===2&&q.labels[0].colour!==q.colour&&q.labels[1].colour!==q.colour&&q.labels[0].colour!==q.labels[1].colour&&q.labels[1].rect.y>=q.labels[0].rect.bottom&&q.text.every(t=>t.rect.right<=q.rect.right&&t.rect.bottom<=q.rect.bottom),'quote labels or clipping differ');
+      }
+      const review=bytes(p+'independent-review.md').toString();assert(review.includes('ADMIT_FOR_OWNER_REVIEW')&&review.includes(a.candidate.sha256),'independent quote review differs');
+      for(const v of JSON.parse(bytes(p+'visuals.json')))assert(digest(v.path)===v.sha256,'stale visual');
+      const stage=JSON.parse(bytes(p+'stage-preservation.json'));assert(stage.changed.length===1&&stage.changed[0]==='index.html'&&stage.unchanged===759,'preview stage changed beyond homepage');
+      assert(a.production_release_approved===false,'owner presentation does not authorize production');
+      return errors;
+    }
     if(a.owner_feedback_successor==='MISS_JEEVES_PANEL_EDGE') {
       const p='operations/product-stewards/town-entry-homepage/candidates/miss-jeeves-bottom-edge-20260907/';
       const parent=JSON.parse(bytes(p+'parent-admission.json'));

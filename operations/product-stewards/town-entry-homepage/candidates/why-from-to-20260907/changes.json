@@ -1,0 +1,20 @@
+{
+  "replacements": [
+    {
+      "old": ".why-reasons .book-quote{background:var(--hp-midnight);color:var(--hp-quote)}",
+      "new": ".why-reasons .book-quote{background:var(--hp-midnight);color:var(--hp-quote)}\n/* Separate each before/after label from its quote, preserving the existing type. */\n.why-reasons .book-quote{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:10px 12px;align-items:baseline}\n.why-reasons .book-quote .quote-label{font-size:.75em;font-style:normal;line-height:inherit;letter-spacing:.06em;text-transform:uppercase}\n.why-reasons .book-quote .quote-from{color:var(--hp-coral)}\n.why-reasons .book-quote .quote-to{color:var(--hp-lime)}\n.why-reasons .book-quote .quote-text{font-size:inherit;line-height:inherit}\n"
+    },
+    {
+      "old": "<em class=\"book-quote\">From &ldquo;ARGH, WTF?&rdquo; to &ldquo;Ah. That&rsquo;s why.&rdquo;</em>",
+      "new": "<em class=\"book-quote\"><span class=\"quote-label quote-from\">From</span> <span class=\"quote-text\">&ldquo;ARGH, WTF?&rdquo;</span> <span class=\"quote-label quote-to\">to</span> <span class=\"quote-text\">&ldquo;Ah. That&rsquo;s why.&rdquo;</span></em>"
+    },
+    {
+      "old": "<em class=\"book-quote\">From &ldquo;OMG, the end is nigh!&rdquo; to &ldquo;Ugh, as if.&rdquo;</em>",
+      "new": "<em class=\"book-quote\"><span class=\"quote-label quote-from\">From</span> <span class=\"quote-text\">&ldquo;OMG, the end is nigh!&rdquo;</span> <span class=\"quote-label quote-to\">to</span> <span class=\"quote-text\">&ldquo;Ugh, as if.&rdquo;</span></em>"
+    },
+    {
+      "old": "<em class=\"book-quote\">From &ldquo;Whatever&rdquo; to &ldquo;RSVP: Yes. I have notes!&rdquo;</em>",
+      "new": "<em class=\"book-quote\"><span class=\"quote-label quote-from\">From</span> <span class=\"quote-text\">&ldquo;Whatever&rdquo;</span> <span class=\"quote-label quote-to\">to</span> <span class=\"quote-text\">&ldquo;RSVP: Yes. I have notes!&rdquo;</span></em>"
+    }
+  ]
+}
