@@ -500,3 +500,16 @@ revive stale generated artifacts or infer whole-book admission from visual
 approval. Prevention: inspect later owner handoffs and archived successor tasks
 before turning a missing mainline input into a new manuscript decision.
 Behind the Build angle: unfinished integration can look like missing work.
+
+### 2026-09-06 — Correct research was still losable while it existed only in chat
+
+The LCWO-002 access-label research separated model artifacts, licence rights
+and delivery routes, but its first handoff existed only as a task message.
+That left the next producer unable to bind a durable exact input and made the
+research vulnerable to task loss. The bounded source packet now preserves the
+source excerpts, URLs, access dates, adaptations, freshness triggers and
+Library extension boundary in the existing Learning route. Prevention: a
+material source reconciliation is not complete until its exact research input
+is committed at the routed owner path; chat can coordinate the handoff but
+cannot be its only durable record. Behind the Build angle: why a good answer is
+not yet an operating system until the next worker can reliably find and bind it.
