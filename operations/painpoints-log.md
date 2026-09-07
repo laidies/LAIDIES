@@ -402,3 +402,25 @@ files are absent. Prevention: adoption tests must start from the actual receivin
 run the destination command and one exact real order, and distinguish source distribution,
 workflow wiring, candidate availability and release. Behind the Build: a safety system can
 be installed but skipped by the routine that actually makes the work.
+
+## Receiver integration review and real gate execution — 2026-09-06
+
+The first receiver repair reinstated a prerequisite cycle and its tests treated
+14 blocked dispatches as success. Artifact/code review against the earlier
+execution ruling caught it; corrected PR114 separates starting preflight from
+permission to draft and rejects unknown queue states. Do not turn an observed
+snapshot into proof of an implemented future controller: v1.2 is still absent.
+
+The next real build exposed a missing dependency package, not just gate.sh.
+Unchanged shared gate bytes returned exit0/PASS0-of-0 for an invalid scope.
+Recover current-source dependencies together, reject invalid arguments and child
+failure, and test the actual command. Foreground also corrected the first parser
+repair's shell-glob numeric validation and preserved zero-padded episode numbers.
+The actual gate now fails on five absent main images rather than a missing script;
+existing shared copies do not establish current admission. Preserve that HOLD.
+Behind the Build: a green check can certify the wrong bottleneck, or nothing at
+all. Test both a legitimate next step and a realistic way the gate could be fooled.
+
+The same recovered checkers now reject zero-cue/zero-page inputs. Real child-check
+fixtures, not only gate stubs, exercise both valid and invalid inputs; shared
+commits c0068195/359e3e37 apply the bounded fixes without a shared branch push.

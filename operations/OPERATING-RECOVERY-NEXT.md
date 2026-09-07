@@ -88,6 +88,48 @@ No human comprehension, causal improvement or permanent-owner adoption is
 inferred. The prepared existing-owner adoption message includes PR108/109/112;
 permission to send is pending. Source preparation burden remains an open finding.
 
+### Receiver review and episode gate recovery — September 6
+
+PR114 merged as `39428d15fa08ce56d5638d0f132920155fb65179`, after integration
+review rejected the original circular dispatch rule. Corrected head `d6a8da31`
+passed both cloud checks: 14 orders may enter producer preflight, zero may draft,
+and all 17 remain release-held. Unknown state/shape values are rejected. This is
+the preserved v1.1 queue, not recovery of the absent v1.2 executor/state/controller.
+
+The full build initially exited 127 at missing `operations/engine/gate.sh`.
+Current shared source revealed a missing seven-file gate/dependency package,
+not a single omitted executable. An unchanged copy returned exit 0 and PASS 0/0
+for `--scope typo`. This change restores that package, rejects invalid arguments
+and structural-child failure, and fixes the cue checker's ignored explicit
+artifact-root argument. Existing main structural/town checkers are preserved.
+Targeted calibration is now part of the existing cloud baseline and build entry.
+The same gate and cue-root fixes are already applied to the clean tracked shared
+paths and committed alone as `c00681953eac5908dbbdec1e2cedad35dfb1f5eb` on
+`homepage-redesign`; that branch was not pushed. Direct shared execution now
+rejects `--scope typo` with exit 2 before checks/log creation. Unrelated dirty
+and staged work was not included in the commit. No other active copy of the
+same permissive scope-default pattern was found in the scoped shared shell search.
+Follow-up shared commit `359e3e371d47c515d7f92434b5c6c508926ba552` also rejects
+zero-cue and zero-page scans and limits the PASS wording to the named mechanical
+scope. All four changed shared checkers match the integration bytes. Calibration
+runs the real recovered input, required-string, prose-pattern, local-link, inline-JS
+and cue checkers against positive and negative temporary fixtures. Site/all have
+control-flow and fixture calibration, not a current whole-site execution verdict.
+
+The actual build now executes the gate: inputs, must-match, structure and voice
+pass; cues fail on five absent main files under `assets/episodes/issue-02/`:
+`ep02-cold-open-desk.png`, `ep02-david-rose.png`, `ep02-the-brief.png`,
+`ep02-wall-of-text.png`, `ep02-good-summary.png`. All five exist in the shared
+checkout, but their current product/visual admission was not assessed; they were
+not copied. The two LCWO-001 source/render files likewise exist in shared bytes
+and are absent from main. Missing from main does not mean lost or approved to restore.
+
+Full build remains HOLD, with later stages not executed. Main also lacks the
+referenced `test-episode-cue-scope.mjs` and `test-episode-04-banned-cut-assets.mjs`.
+The package still explicitly selects Episode 02; no all-episode coverage is inferred.
+Next reconcile those exact product assets and existing executor dependencies with
+their current owners; do not broaden source recovery into automatic publication.
+
 ## Prior repair and ranked sequence — 2026-09-06
 
 Owner: fresh task `01a077d0-0775-7af2-b631-c311573f0e0e`.

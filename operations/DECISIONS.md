@@ -1,5 +1,19 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Existing episode gate must execute its declared checks
+
+Under the authorized operating audit, restore the existing current-source gate
+and its missing direct dependencies as one bounded package. Reject invalid or
+missing scope values and unknown arguments before execution; an empty scope is
+never a valid PASS. A failed child check cannot be overruled by a zero-failure
+summary. Cue validation must use the explicit artifact root supplied by its caller.
+Keep these calibrations in the existing build/cloud checks. This is mechanical
+validation, not teaching/visual review or release approval. Preserve the current
+explicit Episode02 scope while recording its limited coverage; do not claim a
+full-build pass or restore product assets merely to turn checks green.
+Source/actual results: `OPERATING-RECOVERY-NEXT.md`.
+
+
 ## 2026-09-06 — Bounded producer trial and current instruction bindings
 
 Ali approved the four-test fresh-producer, independent-review, transfer and
