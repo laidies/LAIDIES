@@ -69,3 +69,5 @@
 | INTENT-GRADIENT-20260907 | 2026-09-07 | Tier 1 owner-directed colour-stop reversal | Astra foreground, effort unavailable; Terra/Low independent pixel review | Under15m; task usage unavailable | First candidate retained, independent review admitted | Test expected-colour typo corrected from source tokens; no candidate revision | LIKELY: routine colour edit suits Terra | 9be98137; intent-gradient-20260907 |
 
 | DYK-OUTLINE-20260907 | 2026-09-07 | Tier 1 bounded title outline | Astra foreground, effort unavailable; Terra/Low independent pixel review | Under15m; task usage unavailable | First candidate admitted internally | No candidate revision | LIKELY: routine styling suits Terra | 95b5b360; dyk-outline-20260907 |
+
+| RESIDENT-BENEFITS-20260907 | 2026-09-07 | Tier 1 bounded homepage invitation | Astra foreground, effort unavailable; Terra/Medium inventory, local journey and independent review | Time and task usage not measured | See bound review in resident-benefits-20260907 | Source-excerpt bindings repaired before independent review; no product/backend changes | LIKELY: a Terra-led copy correction with bounded independent review would suffice | 92f3f8e9 |

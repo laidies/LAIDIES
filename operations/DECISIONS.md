@@ -1,5 +1,11 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-07 — Resident Card benefits must be concrete
+
+Ali says the Move to SUNNYVAiLE section still fails to explain the Resident Card and all its benefits. Explain personalization, the Closet collections/progress hub, the Card-gated ten-Puffy Library bookmarking feature and signed-in FAiRY access; distinguish local Card features from private account continuation with named fields. Preserve current artwork, colours and the rest of the homepage. Do not replace benefits with vague “supported collections” wording, imply all local activity syncs, or market held public profiles, unverified rewards or separately authenticated community posting. Preview only.
+
+Implemented in source 92f3f8e9; https://853af8cf.laidies-sunnyvaile.pages.dev#collect. The invitation now names Card personalization, ten device-local Puffy Library bookmarks, Closet collections, quiz/tour progress, specified private account continuation and guest/resident FAiRY beta case differences. Added direct Card/account/Closet actions. Current public local Card→book/chapter save→Closet journey observed in an isolated browser; hosted section checked at390/820/1440. Signed-in restoration, email and backend quota enforcement were not retested. Production unchanged.
+
 ## 2026-09-07 — Dark outline on the Did you know heading
 
 Ali requests a dark outline around the Did you know text so it remains readable over the question mark. Apply to the pink title only, preserving Jost Bold700, current colours, artwork, responsive positioning and other text. This supersedes the no-outline rule for this title only; body copy and needs heading remain unoutlined. Preview only.

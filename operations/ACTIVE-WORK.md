@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-07 — Resident Card benefits: VERIFIED PREVIEW.** Source 92f3f8e9; https://853af8cf.laidies-sunnyvaile.pages.dev#collect. Move to SUNNYVAiLE now explains real Card/Closet benefits and distinguishes visiting, making a local Card and connecting a private account. Full current local Puffy save journey observed; hosted390/820/1440 section verified. Artwork, palette, recent Did you know outline and all other public files retained. Current Puffy account-sync allowlist contradiction and legacy reward/public-profile surfaces remain separate product work; no expanded promise. Production unchanged.
+
 > **2026-09-07 — Did you know dark outline: VERIFIED PREVIEW.** Source 95b5b360; https://1f20b22c.laidies-sunnyvaile.pages.dev/#dyk-title. Pink title now has the requested dark navy outline for separation from the question mark. Exact hosted geometry and colours checked at320/390/700/1440. Other text, pink-first needs gradient, KSVL artwork and existing narrow alignment retained. Separate LIBRAiRY/Miss Jeeves continuation remains active. Production unchanged.
 
 > **2026-09-07 — Needs-section pink-first gradient: VERIFIED PREVIEW.** Source 9be98137; https://b83ea5d1.laidies-sunnyvaile.pages.dev/#today. What brought you to town today now starts pink and blends through coral to orange below. Exact hosted page checked at390/1440; only section gradient changed. Narrow question-mark fix, KSVL sticker palette and protected images retained. Separate LIBRAiRY/Miss Jeeves continuation remains active. Production unchanged.
