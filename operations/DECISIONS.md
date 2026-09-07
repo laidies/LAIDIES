@@ -1,5 +1,11 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-07 — Dark outline on the Did you know heading
+
+Ali requests a dark outline around the Did you know text so it remains readable over the question mark. Apply to the pink title only, preserving Jost Bold700, current colours, artwork, responsive positioning and other text. This supersedes the no-outline rule for this title only; body copy and needs heading remain unoutlined. Preview only.
+
+Implemented in source 95b5b360; https://1f20b22c.laidies-sunnyvaile.pages.dev/#dyk-title. A 2px navy outline is painted behind the pink fill to retain the lettering weight. Actual hosted heading checked at320/390/700/1440; layout, green burst and question mark preserved. Production unchanged.
+
 ## 2026-09-07 — Pink at the top of the needs section
 
 Ali requests reversing the gradient of “What brought you to town today?” so pink is at the top and orange below. Scope is this section’s background only; preserve the Did you know banner, text colours, illustrations, layout and existing interactions. Preview only.
