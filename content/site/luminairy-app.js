@@ -350,6 +350,24 @@
     parent.appendChild(section);
   }
 
+  function appendConceptSection(parent, concepts) {
+    const values = (Array.isArray(concepts) ? concepts : []).filter((concept) => concept && concept.name && concept.connection);
+    if (!values.length) return;
+    const section = document.createElement("section");
+    section.className = "lum-profile__section lum-profile__concepts";
+    section.appendChild(textElement("h3", "", "The AI concepts this opens up"));
+    const list = document.createElement("dl");
+    list.className = "lum-profile__concept-list";
+    values.forEach((concept) => {
+      list.append(
+        textElement("dt", "", concept.name),
+        textElement("dd", "", concept.connection)
+      );
+    });
+    section.appendChild(list);
+    parent.appendChild(section);
+  }
+
   function appendResourceGroups(parent, profile) {
     const resourceOrder = ["read", "watch", "listen", "follow"];
     const grouped = new Map(resourceOrder.map((type) => [type, []]));
@@ -417,6 +435,9 @@
         wing === "saints" ? "Why the lesson works" : wing === "mavens" ? "What she changed" : "What she is building",
         profile.contribution
       );
+      appendConceptSection(copy, profile.concepts);
+      appendProfileSection(copy, "lum-profile__interaction", "How people meet this in AI", profile.humanInteraction);
+      appendProfileSection(copy, "lum-profile__today", "Why this matters at work now", profile.whyItMattersNow);
       appendProfileSection(copy, "lum-profile__lesson", "The move to borrow", profile.move);
       appendProfileSection(copy, "lum-profile__try", "Try it at work", profile.tryIt);
       appendProfileSection(copy, "lum-profile__boundary", "Where this lesson stops", profile.boundary);
@@ -484,7 +505,7 @@
     const query = state.query.trim().toLocaleLowerCase();
     const profiles = state.data[state.wing].filter((profile) => {
       if (!query) return true;
-      return [profile.name, profile.role, profile.archetype, profile.about, profile.lesson, profile.whyHere, profile.move, profile.tryIt, ...(profile.contribution || [])]
+      return [profile.name, profile.role, profile.archetype, profile.about, profile.lesson, profile.whyHere, profile.move, profile.tryIt, profile.humanInteraction, profile.whyItMattersNow, ...(profile.contribution || []), ...((profile.concepts || []).flatMap((concept) => [concept.name, concept.connection]))]
         .filter(Boolean).join(" ").toLocaleLowerCase().includes(query);
     });
 

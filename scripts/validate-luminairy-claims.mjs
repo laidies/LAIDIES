@@ -19,6 +19,8 @@ const gate = read("content/site/luminairy-claim-gate.js");
 const sourcePacket = read("operations/product-stewards/luminairy/profile-source-evidence-2026-08-23.md");
 const hannahResources = JSON.parse(read("operations/product-stewards/luminairy/hannah-fry-resource-links-2026-09-02.json"));
 const evidenceDir = path.resolve(process.env.LUMINAIRY_EVIDENCE_DIR || path.join(root, "operations/product-stewards/luminairy"));
+const teachingEvidenceDocument = JSON.parse(read("operations/product-stewards/luminairy/profile-teaching-chain-evidence-2026-09-07.json"));
+const teachingEvidenceByProfile = new Map((teachingEvidenceDocument.profiles || []).map((item) => [item.profileId, item]));
 const evidenceFiles = fs.readdirSync(evidenceDir)
   .filter((name) => /^profile-resource-evidence-batch-\d\d-2026-09-02\.json$/.test(name))
   .sort();
@@ -97,7 +99,9 @@ for (const file of evidenceFiles) {
   for (const item of batch.profiles || []) {
     if (!item.profileId || resourceEvidence.has(item.profileId)) errors.push(`duplicate resource evidence ${item.profileId}`);
     else {
-      resourceEvidence.set(item.profileId, sha256(JSON.stringify(item)));
+      const teaching = teachingEvidenceByProfile.get(item.profileId);
+      if (!teaching) errors.push(`teaching-chain evidence missing ${item.profileId}`);
+      resourceEvidence.set(item.profileId, sha256(JSON.stringify({ resourceEvidence: item, teachingChainEvidence: teaching })));
       resourceEvidenceProfiles.set(item.profileId, item);
     }
   }

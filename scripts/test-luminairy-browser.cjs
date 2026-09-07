@@ -18,6 +18,9 @@ async function assertExactResources(page, wing) {
     assert.equal(await card.count(), 1, `${profile.id} must render exactly once`);
     await card.locator(".lum-card__cover").click();
     await page.locator("#lumProfileTitle", { hasText: profile.name }).waitFor();
+    assert.equal(await page.locator("#lumProfile .lum-profile__concept-list dt").count(), profile.concepts.length, `${profile.id} must render every explained AI concept`);
+    assert.equal(await page.locator("#lumProfile .lum-profile__interaction").count(), 1, `${profile.id} must explain how people meet the concept in AI`);
+    assert.equal(await page.locator("#lumProfile .lum-profile__today").count(), 1, `${profile.id} must explain why the concept matters at work now`);
     assert.equal(await page.locator("#lumProfile .lum-profile__resource").count(), profile.links.length, `${profile.id} must render every verified destination on its complete profile`);
     for (const link of profile.links) {
       const anchor = page.locator("#lumProfile").getByRole("link", { name: new RegExp(`^${link.label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*↗$`) });
@@ -98,9 +101,9 @@ async function run() {
     assert.equal(await page.locator(".lum-counts").count(), 0, "the redundant stretched collection-count strip must not return");
     assert.equal(await page.locator(".lum-method").count(), 0, "the redundant legalistic label-explanation panel must not return");
     assert.doesNotMatch(await page.locator("body").textContent(), /correction-route status|admiration is not the evidence|same-browser reminder|not a badge|claim that you mastered/i, "internal correction-route and defensive implementation language must not appear on the visitor page");
-    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /20260905-complete-profiles-v3$/, "the complete-profile successor must load its matching cache-busted stylesheet");
+    assert.match(await page.locator('link[href*="luminairy-v2.css"]').getAttribute("href"), /20260907-teaching-chain-v1$/, "the teaching-chain successor must load its matching cache-busted stylesheet");
     assert.match(await page.locator('script[src*="luminairy-claim-gate.js"]').getAttribute("src"), /20260905-r6$/, "the complete profile-resource release must load the matching admission gate");
-    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /20260905-complete-profiles-v3$/, "the complete-profile runtime must load its matching cache-busted script");
+    assert.match(await page.locator('script[src*="luminairy-app.js"]').getAttribute("src"), /20260907-teaching-chain-v1$/, "the teaching-chain runtime must load its matching cache-busted script");
     assert.equal(await page.locator(".lum-window, .lum-hero__windows").count(), 0, "rejected CSS-drawn stained-glass scenery must not return");
     assert.equal(await page.locator("#lumNaveImage").count(), 1, "the arrival must use the established LUMINAiRY nave artwork");
     assert.equal(await page.locator(".lum-tab__image").count(), 3, "each operative wing door needs its established artwork");
@@ -174,6 +177,9 @@ async function run() {
     await page.waitForFunction((id) => location.hash === "#" + id, firstSaintId);
     await page.locator("#lumProfileTitle", { hasText: firstSaintName }).waitFor();
     assert.equal((await page.locator("#lumProfileTitle").textContent()).trim(), firstSaintName, "the whole card must open its complete profile");
+    assert.equal(await page.locator("#lumProfile .lum-profile__concept-list dt").count(), profiles.saints[0].concepts.length, "Saint profile must render every explained AI concept");
+    assert.equal(await page.locator("#lumProfile .lum-profile__interaction").count(), 1, "Saint profile must explain how people meet the concept in AI");
+    assert.equal(await page.locator("#lumProfile .lum-profile__today").count(), 1, "Saint profile must explain why the concept matters at work now");
     assert.equal(await page.locator("#lumPanel").isVisible(), false, "archive grid must yield to the complete profile");
     await page.waitForFunction(() => document.activeElement?.id === "lumProfileTitle");
     assert.equal(await page.locator("#lumProfileTitle").evaluate((node) => document.activeElement === node), true, "profile heading must receive focus");
@@ -463,7 +469,7 @@ async function run() {
 
     const relevantConsoleErrors = consoleErrors.filter((message) => !/favicon|ERR_ABORTED|404/.test(message));
     assert.deepEqual(relevantConsoleErrors, [], "unexpected console errors: " + relevantConsoleErrors.join(" | "));
-    console.log("LUMINAiRY browser PASS: 13/23/7 cover-only cards, complete profile routes, cross-wing search recovery, exact 30-profile typed destinations, honest 12-song playlist/deferred Carrie state, signed admission with/without Web Crypto, images, external links, keyboard activation/focus return, invalid-route handling, local persistence/failure, account-backed cross-device restore into My Closet, audio failure, compact-desktop overflow, non-overlapping mobile return control, and 390/320 mobile overflow");
+    console.log("LUMINAiRY browser PASS: 13/23/7 cover-only cards, explicit concept/human-interaction/work-now teaching chains, complete profile routes, cross-wing search recovery, exact 30-profile typed destinations, honest 12-song playlist/deferred Carrie state, signed admission with/without Web Crypto, images, external links, keyboard activation/focus return, invalid-route handling, local persistence/failure, account-backed cross-device restore into My Closet, audio failure, compact-desktop overflow, non-overlapping mobile return control, and 390/320 mobile overflow");
   } finally {
     await browser.close();
   }

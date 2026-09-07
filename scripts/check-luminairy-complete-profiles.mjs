@@ -16,6 +16,7 @@ const imageFamilies = {
   trailblazers: "/assets/trailblazers/y2k-stained-glass-v1-luminous-comic/"
 };
 const ids = new Set();
+const teachingEvidencePath = path.join(root, "operations/product-stewards/luminairy/profile-teaching-chain-evidence-2026-09-07.json");
 
 function localPath(publicPath) {
   return path.join(root, String(publicPath || "").replace(/^\//, ""));
@@ -45,6 +46,9 @@ for (const [wing, expectedCount] of Object.entries(expectedCounts)) {
     if (!profile.name || !profile.role || !profile.about || !profile.lesson) errors.push(`missing core profile copy ${label}`);
     if (!profile.whyHere || !profile.move || !profile.tryIt || !profile.boundary) errors.push(`missing deep profile section ${label}`);
     if (!Array.isArray(profile.contribution) || profile.contribution.length !== 2 || profile.contribution.some((p) => !String(p).trim())) errors.push(`contribution must contain exactly two paragraphs ${label}`);
+    if (!Array.isArray(profile.concepts) || profile.concepts.length < 1 || profile.concepts.length > 3 || profile.concepts.some((concept) => !String(concept?.name || "").trim() || !String(concept?.connection || "").trim())) errors.push(`profile must connect one to three explained AI concepts ${label}`);
+    if (!profile.humanInteraction || String(profile.humanInteraction).length < 120) errors.push(`human interaction explanation is missing or too thin ${label}`);
+    if (!profile.whyItMattersNow || String(profile.whyItMattersNow).length < 120) errors.push(`present-day work consequence is missing or too thin ${label}`);
     if (!String(profile.image || "").startsWith(imageFamilies[wing])) errors.push(`wrong image family ${label}: ${profile.image || "missing"}`);
 
     const imagePath = localPath(profile.image);
@@ -74,6 +78,19 @@ for (const [wing, expectedCount] of Object.entries(expectedCounts)) {
 }
 
 if (ids.size !== 43) errors.push(`unique profile total must be 43, found ${ids.size}`);
+if (!fs.existsSync(teachingEvidencePath)) {
+  errors.push("30-profile teaching-chain evidence is missing");
+} else {
+  const teachingEvidence = JSON.parse(fs.readFileSync(teachingEvidencePath, "utf8"));
+  const records = new Map((teachingEvidence.profiles || []).map((record) => [record.profileId, record]));
+  const realProfiles = [...profiles.mavens, ...profiles.trailblazers];
+  if (records.size !== 30) errors.push(`teaching-chain evidence must contain 30 unique profiles, found ${records.size}`);
+  for (const profile of realProfiles) {
+    const record = records.get(profile.id);
+    if (!record || !String(record.verdict || "").startsWith("supported")) errors.push(`teaching-chain evidence missing or held ${profile.id}`);
+    if (!record?.support || !Array.isArray(record.sources) || record.sources.length < 1 || record.sources.some((url) => !/^https:\/\//.test(url))) errors.push(`teaching-chain evidence sources incomplete ${profile.id}`);
+  }
+}
 const allText = JSON.stringify(profiles);
 for (const retired of ["Oprah Winfrey", "Jessica Fletcher", "Jennifer Lopez"]) {
   if (allText.includes(retired)) errors.push(`retired profile remains: ${retired}`);

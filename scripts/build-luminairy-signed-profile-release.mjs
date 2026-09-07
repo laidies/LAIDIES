@@ -19,10 +19,15 @@ const profiles = readJson("content/luminairy-profiles.json");
 const previousClaims = readJson("content/luminairy-claims.json");
 const sourcePacketSha256 = sha256(fs.readFileSync(path.join(root, previousClaims.sourcePacket.replace(/^\//, ""))));
 const evidence = new Map();
+const teachingEvidence = new Map(readJson("operations/product-stewards/luminairy/profile-teaching-chain-evidence-2026-09-07.json").profiles.map((item) => [item.profileId, item]));
 
 for (const filename of fs.readdirSync(path.join(root, "operations/product-stewards/luminairy")).filter((name) => /^profile-resource-evidence-batch-\d\d-2026-09-02\.json$/.test(name)).sort()) {
   const batch = readJson(`operations/product-stewards/luminairy/${filename}`);
-  for (const item of batch.profiles || []) evidence.set(item.profileId, sha256(JSON.stringify(item)));
+  for (const item of batch.profiles || []) {
+    const teaching = teachingEvidence.get(item.profileId);
+    if (!teaching) throw new Error(`missing teaching-chain evidence for ${item.profileId}`);
+    evidence.set(item.profileId, sha256(JSON.stringify({ resourceEvidence: item, teachingChainEvidence: teaching })));
+  }
 }
 
 const profilePayload = (wing, profile) => JSON.stringify({ wing, profile });
@@ -67,7 +72,7 @@ for (const wing of ["saints", "mavens", "trailblazers"]) {
     });
     const receipt = {
       schemaVersion: 2,
-      receiptId: `receipt-${claimId}-20260905-r6`,
+      receiptId: `receipt-${claimId}-20260907-r7`,
       keyId,
       product: "luminairy",
       claimId,
@@ -78,7 +83,7 @@ for (const wing of ["saints", "mavens", "trailblazers"]) {
       ...(resourceEvidenceSha256 ? { resourceEvidenceSha256 } : {}),
       verifiedOn: "2026-09-05",
       recheckOn: "2027-09-05",
-      reviewedOn: "2026-09-05",
+      reviewedOn: "2026-09-07",
       reviewerRole: "independent-luminairy-profile-reviewer",
       supportDecision: "exact-profile-reviewed-and-supported"
     };
@@ -89,14 +94,14 @@ for (const wing of ["saints", "mavens", "trailblazers"]) {
 
 const claims = {
   ...previousClaims,
-  generatedOn: "2026-09-05",
+  generatedOn: "2026-09-07",
   sourcePacketSha256,
   records
 };
 const receiptManifest = {
   schemaVersion: 2,
   product: "luminairy",
-  generatedOn: "2026-09-05",
+  generatedOn: "2026-09-07",
   authorityModel: "offline-p256-signed-profile-receipts",
   keyId,
   trustedKeyIds: [keyId],

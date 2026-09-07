@@ -14697,3 +14697,14 @@ HTML and local custom properties.
 - **Calibration:** a temporary profile fixture reintroduced “verified routes”; `scripts/check-luminairy-complete-profiles.mjs` rejected it specifically for internal evidence-process wording before the clean file passed.
 - **Possible Behind the Build angle:** “All 43 cards worked, but the room still did not tell you why to enter”—why component completeness is not product clarity.
 - **Publication status:** VERIFIED LOCALLY / NOT PUSHED / NOT DEPLOYED.
+
+## BTB-507 — Concept labels can deepen a profile and still leave its teaching chain unproven
+
+- **Date:** 2026-09-07
+- **Area:** LUMINAiRY / profile teaching and factual admission.
+- **Failure:** All 43 profiles gained named AI concepts, human-interaction copy and present-day work relevance, but the first independent review found that the existing 30-person evidence packets supported roles and destinations—not the new technical bridge. It also found three workplace exercises disconnected from their concepts, four near-duplicate source checks and fifteen formulaic “Run the [surname] check” lines.
+- **Root cause:** Structural completeness was treated as semantic completeness. The producer added the right fields without extending claim-level evidence or checking whether each practice exercised that person's actual mechanism.
+- **Prevention rule:** A complete profile must bind the contribution-to-concept bridge to primary or authoritative evidence, then prove that its workplace action uses that same mechanism. Reject repeated branded formulas and compare exercises across the whole archive, not only within one card.
+- **Durable correction:** A 30-profile teaching-chain evidence ledger is now signed with each real-person profile; Hedy tests robust handoffs, Wahba tests unseen cases, Goldwasser tests a demonstrable privacy property, Elle tests inference and Emily separates observation from generated wording. The surname-check formula is absent and the exact 43-profile re-review passes.
+- **Possible Behind the Build angle:** “We added more depth and accidentally made fifteen women sound like the same template”—why a content schema cannot substitute for person-specific thinking.
+- **Publication status:** VERIFIED LOCALLY / CARRIE SONG BLOCKED / NOT DEPLOYED.

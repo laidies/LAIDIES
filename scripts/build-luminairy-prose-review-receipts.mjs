@@ -8,12 +8,13 @@ import { enforcedFailureFamilies } from "./check-prose-quality-admission.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OPS = "operations/product-stewards/luminairy";
-const REVIEW_TEXT = `${OPS}/complete-profile-review-text-2026-09-05.md`;
-const MANIFEST = `${OPS}/complete-profile-content-artifact-manifest-2026-09-05.json`;
-const PRODUCER = `${OPS}/complete-profile-producer-self-review-2026-09-05.json`;
-const INDEPENDENT = `${OPS}/complete-profile-independent-semantic-admission-2026-09-05.json`;
+const REVIEW_TEXT = `${OPS}/complete-profile-review-text-2026-09-07.md`;
+const MANIFEST = `${OPS}/complete-profile-content-artifact-manifest-2026-09-07.json`;
+const PRODUCER = `${OPS}/complete-profile-producer-self-review-2026-09-07.json`;
+const INDEPENDENT = `${OPS}/complete-profile-independent-semantic-admission-2026-09-07.json`;
 const REGISTRY_PATH = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
 const EVIDENCE = Array.from({ length: 6 }, (_, index) => `${OPS}/profile-resource-evidence-batch-${String(index + 1).padStart(2, "0")}-2026-09-02.json`);
+const TEACHING_EVIDENCE = `${OPS}/profile-teaching-chain-evidence-2026-09-07.json`;
 
 const read = relative => fs.readFileSync(path.join(ROOT, relative));
 const json = relative => JSON.parse(read(relative));
@@ -29,6 +30,8 @@ const profiles = json("content/luminairy-profiles.json");
 const realProfiles = [...profiles.mavens, ...profiles.trailblazers];
 const evidenceBatches = EVIDENCE.map(file => ({ file, document: json(file), binding: bind(file) }));
 const evidenceByProfile = new Map(evidenceBatches.flatMap(batch => batch.document.profiles.map(profile => [profile.profileId, { ...profile, batch }])));
+const teachingEvidenceDocument = json(TEACHING_EVIDENCE);
+const teachingEvidenceByProfile = new Map(teachingEvidenceDocument.profiles.map(profile => [profile.profileId, profile]));
 
 const assertOccurs = (body, excerpt, label) => {
   if (!body.includes(excerpt)) throw new Error(`${label} does not occur in its bound artifact`);
@@ -60,10 +63,10 @@ const outcomeEvidence = {
   freshnessReviewability: "Read Ada Lovelace’s 1843 Notes",
   surfaceFit: "Why this profile is here:",
   lookupAccuracy: "Role: PATRON SAiNTS of Trendsetting",
-  systemRelationship: "Trendsetting creates the pattern; staying current notices what has changed.",
+  systemRelationship: "People do not interact with AI only by typing requests.",
   dailyLifeConnection: "assembling a weekly project update",
   communicationBenchmark: "Separate a conclusion from the steps that are supposed to support it.",
-  usefulAction: "Check whether those sources support the exact conclusion rather than a nearby idea.",
+  usefulAction: "Then look for one plausible counterexample or missing fact that would break that inference.",
   analogyIntegrity: "This is a LAiDIES teaching duo inspired by two fictional friends whose coordinated looks remain unmistakably individual; that distinction is the teaching clue."
 };
 
@@ -76,9 +79,9 @@ const outcomeObservations = {
   engagingEnjoyable: "Distinct examples and character-specific framing keep the archive lively without burying its useful point.",
   factualIntegrity: "Historical and current-role statements match the separately bound source evidence, while Saints are explicitly framed as LAiDIES interpretations.",
   freshnessReviewability: "Real-person cards expose dated, typed destinations and the review record names the next recheck trigger.",
-  surfaceFit: "The prose is structured for expandable reference cards: role, reason, contribution, move, exercise, boundary and destinations.",
+  surfaceFit: "The prose is structured for expandable reference cards: role, reason, contribution, concepts, human interaction, work consequence, move, exercise, boundary and destinations.",
   lookupAccuracy: "Names, roles and lessons use distinct searchable terms that match the rendered card labels.",
-  systemRelationship: "The three wings and overlapping-looking lessons explicitly distinguish their jobs rather than implying a ranking.",
+  systemRelationship: "Every profile connects the contribution to named AI concepts, the human interaction and the consequence for work rather than stopping at a role label.",
   dailyLifeConnection: "Exercises use ordinary professional work such as updates, decisions, source checks, privacy choices and handoffs.",
   communicationBenchmark: "The profiles move from a human reason through a visible mechanism to a better next question, without borrowing Hannah Fry's persona or wording.",
   usefulAction: "Every profile includes a bounded action with inputs, a check and an observable decision or output.",
@@ -88,31 +91,40 @@ const outcomeObservations = {
 const outcomes = Object.fromEntries(Object.entries(outcomeEvidence).map(([name, excerpt]) => [name, {
   verdict: "PASS",
   observation: outcomeObservations[name],
-  artifactEvidence: evidence(excerpt, "complete-profile-review-text-2026-09-05.md")
+  artifactEvidence: evidence(excerpt, "complete-profile-review-text-2026-09-07.md")
 }]));
 
 const failureFamilies = Object.fromEntries(enforcedFailureFamilies(registry).map(family => [family, {
   present: false,
   observation: `${family} was not present in the repaired exact prose after full-card review.`,
-  artifactLocator: "complete-profile-review-text-2026-09-05.md: all 43 profiles"
+  artifactLocator: "complete-profile-review-text-2026-09-07.md: all 43 profiles"
 }]));
 
-const sourceBindings = evidenceBatches.map(batch => batch.binding);
-const claimMap = realProfiles.map(profile => {
+const sourceBindings = [...evidenceBatches.map(batch => batch.binding), bind(TEACHING_EVIDENCE)];
+const claimMap = realProfiles.flatMap(profile => {
   const source = evidenceByProfile.get(profile.id);
+  const teaching = teachingEvidenceByProfile.get(profile.id);
   if (!source) throw new Error(`No evidence record for ${profile.id}`);
+  if (!teaching) throw new Error(`No teaching-chain evidence for ${profile.id}`);
   if (source.roleAbout.text !== profile.about) throw new Error(`Role/about evidence drift for ${profile.id}`);
   assertOccurs(reviewBody, profile.about, `${profile.id} candidate claim`);
   const sourceBody = read(source.batch.file).toString("utf8");
   assertOccurs(sourceBody, source.roleAbout.text, `${profile.id} source evidence`);
-  return {
+  return [{
     claimId: `${profile.id}-role-about`,
     status: "VERIFIED",
     candidateEvidence: evidence(profile.about, `${profile.name}: At a glance`),
     sourceBinding: source.batch.binding,
     sourceEvidence: evidence(source.roleAbout.text, `${profile.id}: roleAbout.text`),
     scopeAndFreshness: "Role/about claim checked against the listed primary or authoritative source through 2026-09-05; recheck when the role or source changes."
-  };
+  }, {
+    claimId: `${profile.id}-teaching-chain`,
+    status: "VERIFIED",
+    candidateEvidence: evidence(profile.concepts[0].connection, `${profile.name}: The AI concepts this opens up`),
+    sourceBinding: bind(TEACHING_EVIDENCE),
+    sourceEvidence: evidence(teaching.support, `${profile.id}: support`),
+    scopeAndFreshness: "Contribution-to-concept bridge checked against the listed primary or authoritative sources on 2026-09-07; workplace practice remains explicitly labelled LAiDIES interpretation."
+  }];
 });
 
 const common = {
@@ -124,10 +136,10 @@ const common = {
   reviewMode: "EXACT_PROSE_IN_FULL",
   artifact: { reviewText: bind(REVIEW_TEXT), manifest: bind(MANIFEST) },
   reverseBrief: {
-    humanQuestion: "Who belongs in each LUMINAiRY wing, what did she contribute, and what useful AI practice can I take from her work or story?",
-    promisedPayoff: "A complete, credible profile with a distinct practical lesson and verified routes to read, watch, listen to or follow the woman's work where applicable.",
-    centralMentalModel: "Patron Saints make practices memorable; MAiVENs explain how computing and AI got here; Trailblazers show present-day AI work in motion.",
-    dailyLifeConnection: "Readers can apply each profile's exercise to an ordinary workplace task, decision, source check or handoff.",
+    humanQuestion: "Why is each person or cultural Patron in the LUMINAiRY, what did she contribute, which AI concepts does that illuminate, how do people encounter them, and what changes at work today?",
+    promisedPayoff: "A complete, credible contribution-to-concept-to-human-use chain with a distinct practical lesson and verified routes to read, watch, listen to or follow the woman's work where applicable.",
+    centralMentalModel: "Patron Saints make practices memorable; MAiVENs explain how computing and AI got here; Trailblazers show present-day AI work in motion. Each profile connects its source to concepts, human interaction and workplace consequence.",
+    dailyLifeConnection: "Readers can recognise where each concept appears in an ordinary AI interaction and apply its exercise to a workplace task, decision, source check or handoff.",
     surfaceJob: "A searchable, expandable reference archive and personal circle builder for all three LUMINAiRY wings.",
     desiredReaderFeeling: "I understand why she is here, what is distinct about her role, and exactly what I can try next."
   },
@@ -137,7 +149,7 @@ const common = {
     disposition: "CLAIMS_REVIEWED",
     sourceBindings,
     claimMap,
-    reviewedThrough: "2026-09-05",
+    reviewedThrough: "2026-09-07",
     nextTrigger: "A named person's role, official destination, profile wording or source evidence changes.",
     correctionOwner: "LUMINAiRY product steward"
   },
@@ -178,8 +190,8 @@ const producer = {
   ...common,
   stage: "PRODUCER_SELF_REVIEW",
   reviewer: { id: "luminairy-profile-producer", principalId: common.maker, role: "profile content producer", modelFamily: "openai-gpt-6" },
-  reviewedAt: "2026-09-05T16:10:00-07:00",
-  calibration: calibration(common.maker, "2026-09-05T16:00:00-07:00")
+  reviewedAt: "2026-09-07T12:10:00-07:00",
+  calibration: calibration(common.maker, "2026-09-07T12:00:00-07:00")
 };
 
 const independent = {
@@ -193,8 +205,8 @@ const independent = {
     independentFromMaker: true,
     artifactFirst: true
   },
-  reviewedAt: "2026-09-05T16:40:00-07:00",
-  calibration: calibration("newton-semantic-reviewer", "2026-09-05T16:20:00-07:00")
+  reviewedAt: "2026-09-07T13:20:00-07:00",
+  calibration: calibration("newton-semantic-reviewer", "2026-09-07T13:00:00-07:00")
 };
 
 fs.writeFileSync(path.join(ROOT, PRODUCER), `${JSON.stringify(producer, null, 2)}\n`);
