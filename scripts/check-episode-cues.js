@@ -15,7 +15,7 @@ const path = require('path');
 const args = process.argv.slice(2);
 const episodeIndex = args.indexOf('--episode');
 const selectedEpisode = episodeIndex >= 0 ? String(args[episodeIndex + 1] || '').padStart(2, '0') : null;
-const rootArgument = args.find((value, index) => index !== episodeIndex && index !== episodeIndex + 1 && !value.startsWith('-'));
+const rootArgument = args.find((value, index) => !value.startsWith('-') && (episodeIndex < 0 || (index !== episodeIndex && index !== episodeIndex + 1)));
 const ROOT = path.resolve(rootArgument || path.join(__dirname, '..'));
 const EPISODE_DIR = path.join(ROOT, 'content', 'episodes');
 const cueFiles = fs

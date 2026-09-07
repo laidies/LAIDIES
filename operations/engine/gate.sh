@@ -19,6 +19,10 @@
 set -uo pipefail
 
 N="${1:?usage: gate.sh <episode number>   e.g. bash operations/engine/gate.sh 5}"
+if ! [[ "$N" =~ ^[0-9]+$ ]] || ! [[ "$N" =~ [1-9] ]]; then
+  echo "gate usage error: episode number must be a positive integer" >&2
+  exit 2
+fi
 shift || true
 # DEFAULT = episode. "Is THIS episode ready?" must NOT depend on whether every
 # other page on the site is perfect right now — the whole site is edited by
@@ -28,10 +32,28 @@ shift || true
 SCOPE="episode"
 while [ $# -gt 0 ]; do
   case "$1" in
-    --scope) SCOPE="${2:-all}"; shift 2 ;;
-    *) shift ;;
+    --scope)
+      if [ $# -lt 2 ] || [ -z "${2:-}" ]; then
+        echo "gate usage error: --scope needs one of episode, site, all" >&2
+        exit 2
+      fi
+      SCOPE="$2"
+      shift 2
+      ;;
+    *)
+      echo "gate usage error: unknown option $1" >&2
+      exit 2
+      ;;
   esac
 done
+
+case "$SCOPE" in
+  episode|site|all) ;;
+  *)
+    echo "gate usage error: --scope must be episode, site, or all" >&2
+    exit 2
+    ;;
+esac
 
 NN=$(printf "%02d" "$((10#$N))" 2>/dev/null || echo "$N")
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
@@ -77,7 +99,13 @@ run() {
 # code in some paths, and it prints green ticks when it has no files to read.
 # This wrapper refuses both.
 structural() {
-  local out; out="$(bash operations/check-episode.sh "$NN" 2>&1 </dev/null)"
+  local out rc
+  out="$(bash operations/check-episode.sh "$NN" 2>&1 </dev/null)"; rc=$?
+  if [ "$rc" -ne 0 ]; then
+    printf '%s\n' "$out" | tail -20
+    echo "    check-episode.sh exited ${rc}; reject its summary."
+    return 1
+  fi
   if printf '%s' "$out" | grep -q 'unbound variable'; then
     echo "    check-episode.sh found NO surfaces to search for episode ${NN}."
     echo "    Its green ticks below would be meaningless — 'searched nothing,"
