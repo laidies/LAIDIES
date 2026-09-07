@@ -15,6 +15,8 @@ const CALIBRATE = process.argv.includes("--calibrate");
 const CALIBRATE_RETURNING = process.argv.includes("--calibrate-returning");
 const CALIBRATE_READER_SCALE = process.argv.includes("--calibrate-reader-scale");
 const READER_SCALE_ONLY = process.argv.includes("--reader-scale-only");
+const TOWN_LAYOUT = process.argv.includes('--town-layout-only');
+const CALIBRATE_TOWN = process.argv.includes('--calibrate-town-layout');
 const ZOOM = process.argv.includes('--zoom-200');
 const FIXTURE_ROOT = process.env.NEWSSTAND_TEST_FIXTURE_ROOT;
 const inputFile = relative => FIXTURE_ROOT && fs.existsSync(path.join(FIXTURE_ROOT,relative)) ? path.join(FIXTURE_ROOT,relative) : path.join(ROOT,relative);
@@ -24,7 +26,7 @@ const DATA = dataContext.window.NEWSSTAND_DATA;
 const DATE = DATA.publications.daily.editionDate;
 const ISSUE_STORE = JSON.parse(fs.readFileSync(inputFile('content/newsstand-daily-issues.json'), 'utf8'));
 const LATEST_ISSUE_REVIEW = Math.max(...ISSUE_STORE.issues.map(item => Date.parse(item.admission?.reviewedAt || 0)).filter(Number.isFinite));
-const FIXED_NOW = new Date(Math.max(Date.parse(`${DATE}T17:00:00Z`), Date.parse(DATA.lastCheckedAt) + 60000, LATEST_ISSUE_REVIEW + 60000)).toISOString();
+const FIXED_NOW = (TOWN_LAYOUT || CALIBRATE_TOWN) ? '2026-09-07T17:00:00Z' : new Date(Math.max(Date.parse(`${DATE}T17:00:00Z`), Date.parse(DATA.lastCheckedAt) + 60000, LATEST_ISSUE_REVIEW + 60000)).toISOString();
 const ISSUE = ISSUE_STORE.issues.find(item => item.editionDate === DATE);
 const ISSUE_DAILY = (ISSUE?.storyIds || []).map(id => DATA.stories.find(story => story.id === id)).filter(Boolean);
 const FRONT = DATA.stories.find(item => item.id === DATA.publications.daily.issue.frontPaigeStoryId);
@@ -90,6 +92,10 @@ const server = http.createServer((request, response) => {
     let body = fs.readFileSync(file, "utf8").replace("<head>", "<head>" + fixedClock);
     if (CALIBRATE) body = body.replace('class="ns-one-paper"', 'class="ns-retired-four-paper"');
     response.writeHead(200, { "content-type": "text/html; charset=utf-8" }); response.end(body); return;
+  }
+  if (CALIBRATE_TOWN && requestUrl.pathname === "/content/newsstand-design.css") {
+    const body = fs.readFileSync(file, "utf8").split('/* One available town column')[0];
+    response.writeHead(200, { "content-type": "text/css; charset=utf-8" }); response.end(body); return;
   }
   if (CALIBRATE_READER_SCALE && requestUrl.pathname === "/content/newsstand-design.css") {
     const body = fs.readFileSync(file, "utf8")
@@ -201,7 +207,32 @@ function check(actual, expected, label) { assert.deepEqual(actual, expected, lab
 try {
   devtoolsEndpoint = await devtoolsPromise; clearTimeout(timeout);
   const desktop = await openPage("/newsstand.html");
-  if (CALIBRATE_RETURNING) {
+  if (TOWN_LAYOUT || CALIBRATE_TOWN) {
+    const expression = `(() => {
+      const grid = document.querySelector('.ns-feature-desk__grid--town');
+      const item = grid.querySelector('[data-desk="did_you_know"]');
+      const image = item.querySelector('img');
+      const title = item.querySelector('small');
+      const r = node => node.getBoundingClientRect();
+      return {fullRow: Math.abs(r(item).width-r(grid).width)<2,
+        responsive: innerWidth>720 ? r(title).left>r(image).right : r(title).top>=r(image).bottom,
+        noOverflow: document.documentElement.scrollWidth<=innerWidth,
+        retiredHidden:grid.querySelector('[data-desk="whats_new_sunnyvaile"]').hidden,
+        mmeVisible:!grid.querySelector('[data-desk="mme_claio"]').hidden};
+    })()`;
+    if (CALIBRATE_TOWN) {
+      check((await value(desktop, expression)).fullRow, false, 'previous empty-half layout must fail');
+      console.log('TOWN LAYOUT CALIBRATION PASS old empty column rejected');
+    } else {
+      for (const width of [1440,390,320]) {
+        const page=await openPage('/newsstand.html',{width,height:844});
+        check(await value(page, expression),{fullRow:true,responsive:true,noOverflow:true,retiredHidden:true,mmeVisible:true},'town layout '+width);
+        page.close();
+      }
+      console.log('TOWN LAYOUT PASS Sep7 expiry desktop1440 mobile390,320; no expired copy exposed');
+    }
+    desktop.close();
+  } else if (CALIBRATE_RETURNING) {
     const knownBad = await openPage("/newsstand.html#chatgpt-health-permission-screen");
     const wronglyAdvanced = await value(knownBad, `(() => {
       const state = JSON.parse(localStorage.getItem('laidies_newsstand_seen_v1') || 'null');

@@ -388,3 +388,6 @@ Ali rejects the oversized opened-story treatment and identified it as a recurrin
 
 ## 2026-09-06 — Town and catch-up separation
 Ali rejects alternating catch-up colour blocks, butter-yellow town panels, reduced town images and Mme CLAi-O float wrapping/orphan line and empty column. Restore prominent images, explicit newspaper separators and fixed image/text flow; no butter-yellow panel.
+
+## 2026-09-07 — Town-column expiry must not leave empty layout tracks
+A retired town announcement remains retired; do not extend its date to fill space. The town row counts visible eligible columns after selection. One remaining illustrated column spans the row with image beside copy on desktop and stacked on mobile, preserving large artwork. Test the day after an explicit retirement as well as a full edition. Editorial replacement admission remains separate from layout continuity.

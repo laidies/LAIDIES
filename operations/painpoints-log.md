@@ -16043,3 +16043,13 @@ remain unreconciled; cross-chat completeness is not certified.
 - Finding: The existing crossword supplied labels and controls but required spatial grid entry. Static accessibility assertions did not establish actual keyboard or screen-reader usability.
 - Prevention: Keep an equivalent clue-list answer path backed by the same puzzle data. Test keyboard activation, typing, check/reveal/clear, shared answers and retained clue feedback. Record native assistive-technology review separately; do not convert browser checks into that claim.
 - Behind the Build: Offer more than one way to complete the same task; an alternative should retain the learning, not merely remove the difficult interface.
+
+
+## BTB-522 — Review the complete note before asking for founder approval
+- Date: 2026-09-06
+- Finding: The earlier Behind the Build approval request surfaced a draft that the maker subsequently judged repetitive, with unnecessary terminology. Ali had not seen an easily reviewable draft; the task had shifted the review burden back to her.
+- Prevention: Read the exact complete successor first; make the mistake and correction concrete, preserve the private-method boundary, and provide the whole reviewed copy in the message. Separate maker findings from Ali's actual feedback. Keep earlier drafts and honest review counts rather than rewriting their history.
+- Behind the Build: A finished-looking draft still needs to do its reader's job; use an example that shows the consequence instead of explaining the same point repeatedly.
+
+## NewsStand September 7 — Retiring a column left half the newspaper empty
+The dated What's New announcement retired without an admitted successor. Its sibling remained in a fixed two-column grid. Fix: count visible ready town columns and reflow one column across the row with its large image beside text. Prevention: the browser regression exercises the day after retirement; calibrated against the old CSS. Separate unresolved editorial renewal from a repaired layout. Possible public Behind the Build angle: test what happens when real content changes, not only a fully populated page.

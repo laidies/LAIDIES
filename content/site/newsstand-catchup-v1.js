@@ -702,6 +702,9 @@
     });
     Array.prototype.forEach.call(section.querySelectorAll(".ns-feature-desk__grid"), function (grid) {
       var hasReadyDesk = Boolean(grid.querySelector('li[data-desk-state="ready"]:not([hidden])'));
+      // A retired or unavailable column must not reserve half the newspaper.
+      var columnCount = grid.querySelectorAll('li[data-desk-state="ready"]:not([hidden]):not([data-desk="mme_claio"])').length;
+      grid.setAttribute("data-column-count", String(columnCount));
       grid.hidden = !hasReadyDesk;
       var heading = grid.previousElementSibling;
       if (heading && heading.classList.contains("ns-feature-desk__head")) heading.hidden = !hasReadyDesk;

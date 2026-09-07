@@ -1124,3 +1124,25 @@
 .ns-redesign .ns-page .ns-feature-desk__grid > li:nth-child(4n+4) small { color:#003b9e !important; text-shadow:2px 2px 0 #ffea32; }
 .ns-redesign .ns-page .ns-catchup .ns-catchup__intro h2 { color:#003b9e !important; text-shadow:2px 2px 0 #ff2ea6; }
 .ns-redesign .ns-page .ns-archive__label h2 { color:#11183b !important; text-shadow:2px 2px 0 #ff9b3d; }
+
+/* One available town column uses the full row, retaining its large illustration. */
+.ns-redesign .ns-feature-desk__grid--town[data-column-count="1"] > [data-desk]:not([data-desk="mme_claio"]):not([hidden]) {
+  grid-column: 1 / -1;
+}
+@media (min-width: 721px) {
+  .ns-redesign .ns-feature-desk__grid--town[data-column-count="1"] > [data-desk]:not([data-desk="mme_claio"]):not([hidden]) > a {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+    align-content: start;
+  }
+  .ns-redesign .ns-feature-desk__grid--town[data-column-count="1"] > [data-desk]:not([data-desk="mme_claio"]):not([hidden]) > a > * {
+    grid-column: 2;
+  }
+  .ns-redesign .ns-feature-desk__grid--town[data-column-count="1"] > [data-desk]:not([data-desk="mme_claio"]):not([hidden]) > a > .ns-desk-image {
+    grid-column: 1;
+    grid-row: 1 / span 6;
+    margin: 0;
+    align-self: start;
+  }
+}
