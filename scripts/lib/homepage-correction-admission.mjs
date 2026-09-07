@@ -40,16 +40,23 @@ export function inspectHomepageCorrection(item, root, preservedBytes = {}) {
       assert(edits.length===1&&edits[0].old==='</style>','discovery edit scope differs');
       for(const e of edits){assert(old.split(e.old).length===2,'discovery replacement not unique');old=old.replace(e.old,e.new)}
       const reviewedSha=crypto.createHash('sha256').update(old).digest('hex');
+      let comparisonHtml=bytes('index.html').toString();
+      if(a.narrow_heading_anchor) {
+        const base='.dyk-slim h2{color:var(--hp-pink);-webkit-text-stroke:0;text-shadow:none}';
+        const fixed=base+'\n@media(max-width:700px){.dyk-slim h2{justify-self:start;max-width:100%;text-align:center}}';
+        assert(comparisonHtml.split(fixed).length===2,'narrow heading fix differs');comparisonHtml=comparisonHtml.replace(fixed,base);
+      }
+      const parentCandidateSha=crypto.createHash('sha256').update(comparisonHtml).digest('hex');
       if(a.mechanical_green_burst) {
         const m=a.mechanical_green_burst,q='operations/product-stewards/town-entry-homepage/candidates/green-burst-restoration-20260907/';
         const from='.dyk-slim h2::after{background:var(--hp-sky)}',to='.dyk-slim h2::after{background:var(--hp-lime)}';
-        assert(m.parentSha256===reviewedSha&&old.split(from).length===2&&old.replace(from,to)===bytes('index.html').toString(),'unrelated green burst change');
+        assert(m.parentSha256===reviewedSha&&old.split(from).length===2&&old.replace(from,to)===comparisonHtml,'unrelated green burst change');
         for(const e of m.evidence||[])assert(digest(e.path)===e.sha256,'stale green burst evidence');
         for(const f of ['change.json','checks.json','review.md','candidate-1440.png','candidate-390.png'])assert(m.evidence?.some(e=>e.path===q+f),'missing green burst evidence');
         const green=JSON.parse(bytes(q+'checks.json'));
-        assert(green.sourceSha256===a.candidate.sha256&&[1440,390].every(w=>green.rows.some(r=>r.width===w&&r.burst==='rgb(183, 228, 43)'&&r.title==='rgb(242, 84, 169)'&&r.border==='rgb(242, 84, 169)'&&!r.overflow)),'green burst restoration differs');
-        const greenReview=bytes(q+'review.md').toString();assert(greenReview.includes('ADMIT_FOR_OWNER_REVIEW')&&greenReview.includes(a.candidate.sha256),'green burst review differs');
-      } else assert(old===bytes('index.html').toString(),'unrelated homepage change');
+        assert(green.sourceSha256===parentCandidateSha&&[1440,390].every(w=>green.rows.some(r=>r.width===w&&r.burst==='rgb(183, 228, 43)'&&r.title==='rgb(242, 84, 169)'&&r.border==='rgb(242, 84, 169)'&&!r.overflow)),'green burst restoration differs');
+        const greenReview=bytes(q+'review.md').toString();assert(greenReview.includes('ADMIT_FOR_OWNER_REVIEW')&&greenReview.includes(parentCandidateSha),'green burst review differs');
+      } else assert(old===comparisonHtml,'unrelated homepage change');
       for(const b of a.evidence||[])assert(digest(b.path)===b.sha256,'stale evidence: '+b.path);
       for(const f of ['scope.md','parent-admission.json','parent.html','changes.json','checks.json','browser-test.mjs','independent-review.md','visuals.json','stage-preservation.json'])assert(a.evidence?.some(b=>b.path===p+f),'missing bound evidence: '+f);
       const c=JSON.parse(bytes(p+'checks.json'));assert(c.status==='PASS'&&c.sourceSha===reviewedSha&&c.parentOrangeRejected,'discovery checks differ');
@@ -67,10 +74,20 @@ export function inspectHomepageCorrection(item, root, preservedBytes = {}) {
         assert(digest(q+'parent.jpg')==='2f219b7a197a261fce08f36f9d70425ff5262b3d2c5e892c59b069a7ffd65833','wrong sticker source');
         for(const e of m.evidence||[])assert(digest(e.path)===e.sha256,'stale sticker evidence');
         for(const f of ['producer-contract.json','contract-calibration.json','checks.json','maker-review.md','independent-review.md','stage-preservation.json','parent.jpg',...['parent','candidate'].flatMap(k=>[1440,390].flatMap(w=>[k+'-needs-'+w+'.png',k+'-banner-'+w+'.png']))])assert(m.evidence?.some(e=>e.path===q+f),'missing sticker evidence');
-        const c=JSON.parse(bytes(q+'checks.json'));assert(c.assetSha256===m.asset.sha256&&c.sourceSha256===a.candidate.sha256,'sticker checks bind wrong source');
+        const c=JSON.parse(bytes(q+'checks.json'));assert(c.assetSha256===m.asset.sha256&&c.sourceSha256===parentCandidateSha,'sticker checks bind wrong source');
         for(const w of [1440,390]) {const n=c.rows.find(r=>r.kind==='candidate'&&r.width===w),o=c.rows.find(r=>r.kind==='parent'&&r.width===w);assert(n?.pass&&o?.pass&&n.slots.length===4&&n.slots.every(s=>s.decoded)&&JSON.stringify(n.slots)===JSON.stringify(o.slots)&&JSON.stringify(n.kept)===JSON.stringify(o.kept),'sticker layout or protected images changed');}
         const review=bytes(q+'independent-review.md').toString();assert(review.includes('ADMIT_FOR_OWNER_REVIEW')&&review.includes(m.asset.sha256),'sticker review differs');
         const stage=JSON.parse(bytes(q+'stage-preservation.json'));assert(stage.changed.length===1&&stage.changed[0]===m.asset.path&&stage.unchanged===759,'sticker stage exceeds scope');
+      }
+      if(a.narrow_heading_anchor) {
+        const m=a.narrow_heading_anchor,q='operations/product-stewards/town-entry-homepage/candidates/dyk-heading-anchor-20260907/';
+        assert(m.parentSha256===parentCandidateSha,'wrong heading predecessor');
+        for(const e of m.evidence||[])assert(digest(e.path)===e.sha256,'stale heading evidence');
+        for(const f of ['change.json','checks.json','review.md','stage-preservation.json',...['parent','candidate'].flatMap(k=>[320,700,1440].map(w=>k+'-'+w+'.png'))])assert(m.evidence?.some(e=>e.path===q+f),'missing heading evidence');
+        const c=JSON.parse(bytes(q+'checks.json'));assert(c.sourceSha256===a.candidate.sha256&&c.parentDefectRejected&&c.rows.some(r=>r.kind==='parent'&&r.width===700&&r.offset>50),'heading check did not reject old drift');
+        for(const w of [320,390,600,700,701,1024,1440]){const n=c.rows.find(r=>r.kind==='candidate'&&r.width===w),o=c.rows.find(r=>r.kind==='parent'&&r.width===w);assert(n&&o&&n.offset<=12&&n.controlGap>=8&&!n.overflow&&n.burst==='rgb(183, 228, 43)'&&n.pink==='rgb(242, 84, 169)'&&JSON.stringify(n.controls)===JSON.stringify(o.controls)&&JSON.stringify(n.banner)===JSON.stringify(o.banner),'heading alignment or controls differ');if(w>700)assert(JSON.stringify(n.heading)===JSON.stringify(o.heading),'wide heading changed');}
+        const review=bytes(q+'review.md').toString();assert(review.includes('ADMIT_FOR_OWNER_REVIEW')&&review.includes(a.candidate.sha256),'heading review differs');
+        const stage=JSON.parse(bytes(q+'stage-preservation.json'));assert(stage.changed.length===1&&stage.changed[0]==='index.html'&&stage.unchanged===759,'heading scope exceeds HTML');
       }
       assert(a.production_release_approved===false,'owner presentation does not authorize production');
       return errors;

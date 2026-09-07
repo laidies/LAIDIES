@@ -37,6 +37,10 @@ if(item.design_admission.sticker_palette) {
   cases.push(['wrong sticker pixels',v=>{v.design_admission.sticker_palette.asset.sha256='0'.repeat(64);},'sticker asset differs']);
   cases.push(['missing sticker pixel review',v=>{v.design_admission.sticker_palette.evidence=v.design_admission.sticker_palette.evidence.filter(e=>!e.path.endsWith('/independent-review.md'));},'missing sticker evidence']);
 }
+if(item.design_admission.narrow_heading_anchor) {
+  cases.push(['wrong heading predecessor',v=>{v.design_admission.narrow_heading_anchor.parentSha256='0'.repeat(64);},'wrong heading predecessor']);
+  cases.push(['missing heading pixel review',v=>{v.design_admission.narrow_heading_anchor.evidence=v.design_admission.narrow_heading_anchor.evidence.filter(e=>!e.path.endsWith('/review.md'));},'missing heading evidence']);
+}
 for (const [name, mutate, reason] of cases) {
   const candidate = structuredClone(item);
   mutate(candidate);
