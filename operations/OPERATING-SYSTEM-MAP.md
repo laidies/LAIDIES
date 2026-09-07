@@ -4,6 +4,33 @@ September 6, 2026 · Current-state map and proposed design boundaries · Operati
 
 **Start here:** LAiDIES has many defined responsibilities, several working automations and substantial local production. It does not yet have one verified, connected operating loop. This map describes what connects, what only claims to connect, and where a person enters. It does not endorse existing checks or recommend deploying every registered role as an agent.
 
+## Verified integration update — September 6
+
+PR114 (`39428d15`) corrected a circular gate: work may reach producer preflight
+before its contract exists, but cannot draft until that contract passes. Current
+v1.1 queue: 14 preflight-eligible, zero draft-ready, three trigger-queued, all 17
+release-held. The v1.2 executor/state/controller is absent from main, so this
+validation result is not a running autonomous production service.
+
+```mermaid
+flowchart LR
+  Q["17 preserved work orders"] --> C["Validate current queue"]
+  C --> P["14 eligible for owner preflight"]
+  C --> T["3 waiting for recorded triggers"]
+  P -. "AGENT assignment; autonomous controller absent" .-> K["Create and validate producer contract"]
+  K --> D["Draft: currently 0 ready"]
+  D --> R["Exact-artifact review and release gates"]
+  R --> H["All 17 currently held"]
+```
+
+The separate legacy build was stopped by a missing episode-gate package. Its
+restored mechanics now reach an actual content failure: five Episode 02 cue
+images absent from main. Those bytes exist in the shared checkout; admission
+and owner reconciliation remain necessary. Invalid gate scopes previously
+reported PASS with zero checks; the bounded correction rejects them. The build
+still targets Episode 02 only. None of these findings re-verifies the older
+catalogue's full runtime inventory or establishes public readiness.
+
 ## Coverage and how to read this map
 
 The accompanying [catalogue](operating-system-map-catalogue.json) inventories **67 product/champion responsibilities, 34 specialist roles, 5 competition roles, 9 legacy agent descriptions, all 7 workflows on main, and 9 local automation definitions**. It links 148 source documents, including every available product dossier and the 18 functionality maps. Those maps contain the detailed visitor transaction contracts; they are attached to their product in the catalogue. This is a dated descriptive snapshot, not another runtime registry or instruction source.

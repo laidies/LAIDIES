@@ -1,5 +1,19 @@
 # Active work
 
+> **2026-09-06 — Operating integration / BUILDING: receiver merged; gate package recovered.**
+> Owner `01a077d0-0775-7af2-b631-c311573f0e0e`, isolated
+> `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`, branch
+> `ops/episode-gate-recovery-20260906`. Corrected PR114 merged `39428d15` after
+> a real review caught its circular preflight prerequisite and state-validation gap.
+> The missing existing gate package is restored with calibrated argument/child-exit
+> rejection and cue-root selection. Actual build now reaches the gate and holds on
+> five missing main Episode02 images, all present but not admission-verified in shared.
+> Shared gate/checker fixes are committed `c0068195` and `359e3e37`; no shared branch push.
+> Full build, actual candidate, absent v1.2 executor and cloud/user/resume proof remain
+> open. Details and next action: `OPERATING-RECOVERY-NEXT.md`. No product art restored,
+> public release, new service, spend, worktree deletion or automatic-continuation claim.
+
+
 > **2026-09-06 — Learning-quality receiver / COMMITTED: scoped adoption passes; full build and real-candidate proof held.**
 > Owner task `019f9f7f-9e4c-72d2-8882-447bcbe01691`; isolated checkout
 > `/Users/alisoneakin/Projects/laidies-learning-quality-adoption-20260906`, branch
