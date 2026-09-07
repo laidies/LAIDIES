@@ -14735,3 +14735,7 @@ HTML and local custom properties.
 ### 2026-09-07 — Responsive image growth can create column gaps
 
 An uncapped image continued growing while adjacent copy had a fixed reading measure, producing a 260px gap at 1920 and 459px at 2560. Moving the quote merely shifted the gap at other widths. Prevention: compare the approved smaller view and multiple wide views before accepting a layout change; constrain the shared content width when image growth exceeds useful reading width. The scoped cap/type adjustment keeps the quote below the image and reduces wide gaps to 34–62px. Behind the Build angle: why a page can look balanced in one window and empty in another. Evidence: women-wide-spacing-20260907; source 3f57e04f.
+
+### 2026-09-07 — Palette choices need a whole-component check
+
+The banner retained orange title/copy and lime links while its background was darkened to purple. Ali rejects that combination as Halloween-like and says the title should be hot pink. Prevention: protect title and description colours separately; inspect the combined palette with its actual artwork before retaining independently selected colours. The browser guard now rejects the former orange title and checks pink heading, coral copy and sky links. A source-restoration record also does not prove that its restored images were Ali’s approved originals. Behind the Build angle: why correct individual colours can still produce the wrong overall impression. Evidence: discovery-restoration-20260907; source 06efecdc.

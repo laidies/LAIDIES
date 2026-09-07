@@ -1,5 +1,11 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-07 — Restore the discovery banner’s hot-pink title and recover needs artwork
+
+Ali says Did you know used to be hot pink and rejects the current orange, green and dark-purple combination as Halloween-like. Restore the title to hot pink and correct the banner palette as a whole using the established LAiDIES colours; preserve its compact layout, eight invitations, current feature thumbnails, direct destinations and shared radio behavior. This supersedes the blanket orange title/description treatment and the dark-purple backdrop. Ali also recalls purpose-made artwork for the I want to learn and other needs shortcuts, rather than site-building images. Locate the actual earlier artwork and its use/approval evidence before changing those images; do not invent replacements or collapse the broad intent routes back into single buildings.
+
+Implemented banner preview: hot-pink title and borders, coral description, sky-blue links/burst/controls on blue; all eight invitations, images, actions and compact geometry retained. Source 06efecdc; https://f1522ad8.laidies-sunnyvaile.pages.dev/#dyk-title. Desktop and phone hosted checks verified. Purpose-made shortcut set remains unidentified; no shortcut images changed. Ali has been asked for a rough visual description. Production unchanged; rendered verdict pending.
+
 ## 2026-09-07 — Responsive gaps and women-feature subheadings
 
 Ali identifies unused space below the women-feature text at wide widths and explicitly likes the smaller layout. Preserve that smaller arrangement and fix only measured wide-screen imbalance; do not add filler or undo the equal activity cards. Add her exact heading IT WAS WOMEN ALL ALONG above Women have shaped computing; style it like INSIDE THE LUMINAiRY and make both subheadings a brighter contrasting colour. Other artwork, wording, fonts and recent homepage corrections remain protected. The candidate may reposition the existing quote at wide widths after actual responsive comparison; its rendered result remains for Ali to judge.
