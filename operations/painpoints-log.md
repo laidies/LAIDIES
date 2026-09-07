@@ -16036,3 +16036,10 @@ remain unreconciled; cross-chat completeness is not certified.
 - Prevention: A news append carries only the current admitted Weekly, retains original service publication time across first and later revisions, and rebuilds deterministic derivatives. The real append fixture checks all three downstream outcomes. A valid source roster is not a completed source sweep; each selected Weekly development needs its exact source observation and reuse disposition.
 - Verification: Focused positive/negative tests and real production908c7cf9 at desktop/phone; exact four-file update preserves all other artifact bytes. Legacy repo-wide asset/control-room failures remain separate; hooks were bypassed only after scoped checks. Python URL retrieval returned403, while browser and curl verified the actual public bytes successfully.
 - Behind the Build: Explain how changing one thing can accidentally make unchanged information appear fresh, and why comparing the reader's before/after experience matters. Share the lesson, not private prompts, source recipes or operating infrastructure.
+
+
+## BTB-521 — A labelled grid is not the only usable way to play
+- Date: 2026-09-06
+- Finding: The existing crossword supplied labels and controls but required spatial grid entry. Static accessibility assertions did not establish actual keyboard or screen-reader usability.
+- Prevention: Keep an equivalent clue-list answer path backed by the same puzzle data. Test keyboard activation, typing, check/reveal/clear, shared answers and retained clue feedback. Record native assistive-technology review separately; do not convert browser checks into that claim.
+- Behind the Build: Offer more than one way to complete the same task; an alternative should retain the learning, not merely remove the difficult interface.

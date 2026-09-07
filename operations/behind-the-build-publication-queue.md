@@ -6,6 +6,19 @@
 **Source system:** `docs/product/behind-the-build-learning-system.md`  
 **Raw/verified records:** `operations/painpoints-log.md`
 
+## Current continuation — September 6
+
+The existing successor `field-note.md` remains byte-identical at
+`39b65e4aaa1034564ea2168f34f7badefb84a67c0caa80ecb73d03c3585027e2`.
+The current producer-contract and producer-receipt checks still match their
+bound files. Those are integrity checks, not another editorial review.
+The prior independent full-prose/disclosure assessment is retained; no new
+private operating detail or attachment was added. The next actual decision is
+Ali's exact-copy founder voice/taste approval of this complete note. Do not
+redraft or ask her to recover the text from a path. After that decision, record
+it here, complete the current semantic/service admission, and verify its
+NewsStand card, reading view and archive. It is not published yet.
+
 ## Queue rule
 
 A useful incident enters the learning ledger first. It enters this queue only
