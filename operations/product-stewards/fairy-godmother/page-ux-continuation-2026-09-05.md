@@ -29,3 +29,7 @@ Its town, JavaScript and rejection checks passed. This preservation commit
 uses the hook's documented `--no-verify` escape; that does not waive any page
 or public release gate. These unrelated items were not changed or represented
 as repaired here.
+
+## September 7 continuation
+
+Saved usability changes are now carried into an internal corrected style candidate: readable Jost, effective current homepage accents, exact existing desk illustration and repaired lower-text contrast. The portrait test fixture is fixed without weakening negative calibration. Page and portrait checks pass; browser contract passes81/81. Actual initial desktop1440/phone390/320 renders and same-size predecessor comparisons are saved in `evidence/page-ux-20260907/`; independent Terra visual review says INTERNAL_READY for that bounded initial-state comparison. Full repository design admission is still outstanding, so no candidate preview is presented and no publication/public verification is claimed. The Worker, paid settings and homepage remain unchanged. Resume applicable admission and the current-release integration; do not restart the saved page.

@@ -17,9 +17,11 @@ function run(source, supportsObserver = true) {
   });
   const rail = element('div'), select = element('select');
   rail.querySelectorAll = () => rail.children;
+  const promptButtons = [];
   const sandbox = {
     document: {
       getElementById: id => ({fairyMode: select, fgSaintRail: rail}[id] || null),
+      querySelectorAll: selector => selector === '[data-fairy-prompt]' ? promptButtons : [],
       createElement: tag => {const el = element(tag); if(tag === 'img') images.push(el); return el;}
     },
     Event: class {constructor(type) {this.type = type;}},
