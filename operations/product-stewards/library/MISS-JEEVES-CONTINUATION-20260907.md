@@ -1,4 +1,16 @@
-# Miss Jeeves continuation — BUILDING / paid pilot held
+# Miss Jeeves continuation — BUILDING / real pilot completed
+
+## 2026-09-07 successor — authorization acted on
+
+Ali approved the separate project/key and added common-question testing plus reviewed-answer reuse after freshness checks. Approval is settled; do not ask again. Created project `proj_DO8c9XkJ2ZXTqLHTYYIV4Pu5` (Miss Jeeves); UI confirms enforced US$100 monthly cap. Provider warns slight enforcement lag/overage is possible. Created restricted key `key_eOFVyKhAHlyOlJMI` with Responses write and Moderations request only. Saved privately outside git at `/Users/alisoneakin/.config/laidies/miss-jeeves/openai.key` with0600 permissions; value is never recorded in task artifacts. Shared FAiRY/avatar project unchanged. No production secret replacement or deployment occurred.
+
+Six actual Sol calls completed: four cited answers and two clarifications. OpenAI Usage, filtered to Miss Jeeves after refresh, records6requests/US$0.26 (display rounded to cents). Exact sanitized outputs/usage and provider-setting evidence are in `pilot-20260907/`. The first two clarifications preserved employer permission and missing-context boundaries. MJQ005/006/008 come from the existing evidence-weighted50-question bank; do not describe this as search-volume ranking. This is a six-case pilot, not full-suite answer-quality proof.
+
+Backend now requires a dedicated MISS_JEEVES_OPENAI_API_KEY, with no shared-key fallback; prepared production config pins the dedicated project. 148 Worker tests pass, plus existing45/79fixture integrity suites. Actual pilot ran the handler before this variable-name-only successor; no model/prompt changed. Research remains disabled in the production candidate.
+
+Answer Bank module/migration and initial library example integration are BUILDING in `/Users/alisoneakin/Projects/laidies-blend-snap-menu-20260905`. A reviewed exact-alias hit performs a current source-content check before returning stored text without a model call; changed context/source, stale dates or invalid review bindings miss safely. Existing homepage lane is separately owned by the source task for portrait alignment; do not overwrite it. Public prose admission, broader answer quality, deployment and live reuse remain open until explicitly verified.
+
+Historical checkpoint (superseded by the successor above):
 
 Governing programme: existing homepage corrections, then LIBRAiRY/Miss Jeeves → FAiRY → Episodes → Blend & Snap → LUMINAiRY. Homepage preview and assets remain unchanged. This is not programme completion or public release.
 

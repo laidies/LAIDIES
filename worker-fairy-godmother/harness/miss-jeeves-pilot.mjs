@@ -3,12 +3,15 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {handleMissJeevesGuidance} from '../src/miss-jeeves-guidance.js';
-const cases=[
+const defaultCases=[
   {id:'work-permission',query:'Can I upload a work document to ChatGPT to help me summarize it?'},
   {id:'work-ai-help',query:'My boss wants a weekly project update. How can AI help me prepare it without sharing confidential information?'},
   {id:'clarification',query:'Why did it ignore what I asked?'}
 ];
 const arg=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv[i+1];};
+const casesPath=arg('--cases');
+const cases=casesPath?JSON.parse(fs.readFileSync(casesPath,'utf8')):defaultCases;
+if(!Array.isArray(cases)||cases.length<1||cases.length>3||new Set(cases.map(x=>x?.id)).size!==cases.length||cases.some(x=>!/^[-a-zA-Z0-9]+$/.test(x?.id||'')||typeof x?.query!=='string'||!x.query.trim()||x.query.length>240)) throw new Error('Pilot requires one to three uniquely identified public-safe questions.');
 const outArg=arg('--out');
 if (!outArg) throw new Error('Supply --out for a new private results directory. Default mode is offline preflight.');
 const live=process.argv.includes('--live');
@@ -55,9 +58,9 @@ for (const item of cases){
     try{receipt=JSON.parse(buffer.toString());}catch{}
     return new Response(buffer,{status:response.status,headers:response.headers});
   };
-  const response=await handleMissJeevesGuidance(new Request('https://miss-jeeves.internal/guidance',{method:'POST',headers:{'content-type':'application/json','x-laidies-rate-key':rateKey},body:JSON.stringify({query:item.query})}),{OPENAI_API_KEY:key},provider);
+  const response=await handleMissJeevesGuidance(new Request('https://miss-jeeves.internal/guidance',{method:'POST',headers:{'content-type':'application/json','x-laidies-rate-key':rateKey},body:JSON.stringify({query:item.query})}),{MISS_JEEVES_OPENAI_API_KEY:key},provider);
   const result=await response.json();
   fs.writeFileSync(path.join(out,item.id+'-result.json'),JSON.stringify({caseId:item.id,mode:live?'real-provider':'offline-fixture',httpStatus:response.status,latencyMs:Date.now()-started,result,providerReceipt:receipt},null,2),{flag:'wx',mode:0o600});
   append({caseId:item.id,state:live?'finished_no_retry':'offline_no_spend',httpStatus:response.status,providerAttemptCaptured:!!captured,conservativeChargeMicroUsd:result.research_charge_micro_usd??null});
 }
-console.log(live?'Real pilot finished; exact answers and provider usage require independent review. No public service changed.':'Offline preflight finished: three exact request captures, zero network calls, zero spend.');
+console.log(live?'Real pilot finished; exact answers and provider usage require independent review. No public service changed.':'Offline preflight finished: bounded exact request captures, zero network calls, zero spend.');

@@ -1,0 +1,223 @@
+[
+  {
+    "id": "clarification",
+    "question": "Why did it ignore what I asked?",
+    "answer": "CLARIFY: What did you ask it to do, and what did it do instead?",
+    "citations": [],
+    "httpStatus": 200,
+    "outcome": "clarification_required",
+    "model": "gpt-5.6-sol",
+    "sourcePolicyVersion": null,
+    "usage": {
+      "input_tokens": 6217,
+      "input_tokens_details": {
+        "cache_write_tokens": 470,
+        "cached_tokens": 5679
+      },
+      "output_tokens": 23,
+      "output_tokens_details": {
+        "reasoning_tokens": 0
+      },
+      "total_tokens": 6240
+    },
+    "latencyMs": 1825,
+    "conservativeChargeMicroUsd": 59547,
+    "providerResponseId": "resp_05a3e9ba759478e6016a9ef614515487d0a20fac23dd6f8531",
+    "providerServiceTier": "default",
+    "outputSha256": "d9839b78fcd3a1ce545e902995b22dc49fdb4da3799fc84c03d554816c90c5c1",
+    "reviewStatus": "UNREVIEWED_PRIVATE_PILOT"
+  },
+  {
+    "id": "work-ai-help",
+    "question": "My boss wants a weekly project update. How can AI help me prepare it without sharing confidential information?",
+    "answer": "AI can turn your rough notes into a crisp update, spot missing details and adjust the tone for your boss. The trick is to give it the shape of the project without giving it the secrets.\n\nFirst, check your employer’s AI policy and use only an approved work tool. Privacy settings are not the same as company permission. Public guidance recommends keeping confidential workplace information out of AI tools. ([cisa.gov](https://www.cisa.gov/sites/default/files/2024-09/Secure-Our-World-Using-AI-Tip-Sheet.pdf?utm_source=openai))\n\nCreate sanitized notes using labels such as “Client A,” “Project North” and “$X.” Remove names, contact details, contract terms, passwords, unpublished financial figures and anything covered by legal or regulatory restrictions.\n\nThen try:\n\n“Draft a weekly project update for an executive reader. Use these headings: progress, decisions, risks, next steps and help needed. Keep it under 200 words. Do not invent facts. Mark missing information with [CHECK]. Notes: [sanitized notes].”\n\nTreat the result as a first draft. Check every date, number, commitment and project status against your real records. Add confidential details yourself afterward, inside your company’s approved document system.\n\nIf your workplace has an approved business AI account, its data handling may differ from a personal account—but verify the actual settings and policy before entering work information. Some business services exclude customer inputs from model training by default, while personal services may not. ([help.openai.com](https://help.openai.com/en/articles/5722486-data-controls-faq?utm_source=openai))",
+    "citations": [
+      {
+        "type": "url_citation",
+        "end_index": 526,
+        "start_index": 406,
+        "title": "STAY SAFE ONLINE WHEN USING AI",
+        "url": "https://www.cisa.gov/sites/default/files/2024-09/Secure-Our-World-Using-AI-Tip-Sheet.pdf?utm_source=openai"
+      },
+      {
+        "type": "url_citation",
+        "end_index": 1621,
+        "start_index": 1521,
+        "title": "How your data is used to improve model performance | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/5722486-data-controls-faq?utm_source=openai"
+      }
+    ],
+    "httpStatus": 200,
+    "outcome": "ok",
+    "model": "gpt-5.6-sol",
+    "sourcePolicyVersion": "2026-09-04.2",
+    "usage": {
+      "input_tokens": 12545,
+      "input_tokens_details": {
+        "cache_write_tokens": 482,
+        "cached_tokens": 5679
+      },
+      "output_tokens": 605,
+      "output_tokens_details": {
+        "reasoning_tokens": 307
+      },
+      "total_tokens": 13150
+    },
+    "latencyMs": 12877,
+    "conservativeChargeMicroUsd": 116557,
+    "providerResponseId": "resp_0105d48f089a823d016a9ef6079fbc87d0b22a057acc8f7419",
+    "providerServiceTier": "default",
+    "outputSha256": "b6490c99edd8e1ea46ae75c8c9fea2612f4db4c9261a17c63ef015f83a7c4d90",
+    "reviewStatus": "UNREVIEWED_PRIVATE_PILOT"
+  },
+  {
+    "id": "work-permission",
+    "question": "Can I upload a work document to ChatGPT to help me summarize it?",
+    "answer": "CLARIFY: Does your employer’s policy allow work documents to be uploaded to ChatGPT?",
+    "citations": [],
+    "httpStatus": 200,
+    "outcome": "clarification_required",
+    "model": "gpt-5.6-sol",
+    "sourcePolicyVersion": null,
+    "usage": {
+      "input_tokens": 6224,
+      "input_tokens_details": {
+        "cache_write_tokens": 6156,
+        "cached_tokens": 0
+      },
+      "output_tokens": 41,
+      "output_tokens_details": {
+        "reasoning_tokens": 16
+      },
+      "total_tokens": 6265
+    },
+    "latencyMs": 3304,
+    "conservativeChargeMicroUsd": 60130,
+    "providerResponseId": "resp_0f39eda5ce81940d016a9ef6053ad087d0a46662ec7d5d6b9f",
+    "providerServiceTier": "default",
+    "outputSha256": "493a0a799c6582a14630b02c220aac66d025e9767d3f0467c20cb65375a73f0d",
+    "reviewStatus": "UNREVIEWED_PRIVATE_PILOT"
+  },
+  {
+    "id": "MJQ-005",
+    "question": "How do I ask AI a question so it gives me a useful answer?",
+    "answer": "A prompt (the instructions and information you give the AI) works best when it says what you need, why you need it, and what a good answer should look like. Clear context, constraints and examples make the result more reliable. ([platform.claude.com](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices?c=caelum&utm_source=openai))\n\nTry this formula:\n\n“I need help with [task]. The situation is [relevant background]. Please produce [specific result] for [audience or purpose]. Keep it [length, tone or format]. Include [must-haves]. Avoid [unwanted material]. If anything important is missing, ask me before answering.”\n\nFor example:\n\n“I need to explain our new vacation policy to employees. Write a friendly email for people who have not read the policy. Keep it under 250 words. Include the effective date and where to ask questions. Do not invent details. Ask me for anything you need.”\n\nYou do not need magic wording. Treat the AI like a capable new colleague who has zero knowledge of your situation. If the first answer misses, say exactly what went wrong: “Shorter,” “use simpler language,” or “you assumed something I did not say.”\n\nOne important wrinkle: do not paste confidential, personal or workplace information unless you know you have permission and understand how that AI service handles it.",
+    "citations": [
+      {
+        "type": "url_citation",
+        "end_index": 384,
+        "start_index": 228,
+        "title": "Prompting best practices - Claude Platform Docs",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices?c=caelum&utm_source=openai"
+      }
+    ],
+    "httpStatus": 200,
+    "outcome": "ok",
+    "model": "gpt-5.6-sol",
+    "sourcePolicyVersion": "2026-09-04.2",
+    "usage": {
+      "input_tokens": 14453,
+      "input_tokens_details": {
+        "cache_write_tokens": 477,
+        "cached_tokens": 5679
+      },
+      "output_tokens": 498,
+      "output_tokens_details": {
+        "reasoning_tokens": 228
+      },
+      "total_tokens": 14951
+    },
+    "latencyMs": 12548,
+    "conservativeChargeMicroUsd": 125272,
+    "providerResponseId": "resp_05d7247a18fb3f2b016a9ef671f29887d09dae94b2225d65c3",
+    "providerServiceTier": "default",
+    "outputSha256": "d647ed3cb6c056edea72fd000d2ea76044a878e313792fb2c039836249729f40",
+    "reviewStatus": "UNREVIEWED_PRIVATE_PILOT"
+  },
+  {
+    "id": "MJQ-006",
+    "question": "Why does AI sometimes give me a confident answer that is wrong?",
+    "answer": "AI is very good at producing language that sounds like a human answer. It is not automatically checking each sentence against reality. That distinction matters whenever you use it for research, decisions or anything with consequences.\n\nA language model (a system trained to generate likely sequences of words) learns patterns from enormous amounts of writing. When you ask a question, it constructs a plausible response from those patterns. Sometimes the pattern points to the truth. Sometimes it produces a convincing mash-up of related details.\n\nThat wrong but believable output is called a hallucination (a plausible statement generated without reliable factual support). Rare facts, ambiguous questions and requests for exact dates, quotations or citations are particularly troublesome. Outdated or missing information can also cause errors. ([openai.com](https://openai.com/index/why-language-models-hallucinate/?utm_source=openai))\n\nWhy the confidence? Because fluency and certainty are features of the writing style, not evidence that the answer was verified. AI training has also often rewarded taking a guess more than admitting “I don’t know.” ([openai.com](https://openai.com/index/why-language-models-hallucinate/?utm_source=openai))\n\nTreat AI as a capable first-draft partner, not an all-knowing witness. Ask it to identify uncertainty, provide checkable sources and distinguish facts from assumptions. Then verify important claims using reliable original sources. Be especially cautious with medical, legal, financial or workplace decisions. A polished answer can still be confidently, spectacularly wrong.",
+    "citations": [
+      {
+        "type": "url_citation",
+        "end_index": 937,
+        "start_index": 846,
+        "title": "Why language models hallucinate | OpenAI",
+        "url": "https://openai.com/index/why-language-models-hallucinate/?utm_source=openai"
+      },
+      {
+        "type": "url_citation",
+        "end_index": 1245,
+        "start_index": 1154,
+        "title": "Why language models hallucinate | OpenAI",
+        "url": "https://openai.com/index/why-language-models-hallucinate/?utm_source=openai"
+      }
+    ],
+    "httpStatus": 200,
+    "outcome": "ok",
+    "model": "gpt-5.6-sol",
+    "sourcePolicyVersion": "2026-09-04.2",
+    "usage": {
+      "input_tokens": 14578,
+      "input_tokens_details": {
+        "cache_write_tokens": 475,
+        "cached_tokens": 5679
+      },
+      "output_tokens": 467,
+      "output_tokens_details": {
+        "reasoning_tokens": 171
+      },
+      "total_tokens": 15045
+    },
+    "latencyMs": 11423,
+    "conservativeChargeMicroUsd": 125123,
+    "providerResponseId": "resp_01946055e0a15f1a016a9ef67e374087d0a8fabe9159291964",
+    "providerServiceTier": "default",
+    "outputSha256": "e0421c20d39bc18f3a9943355ac21f4cd930c947b49ee015c04032c82bb09463",
+    "reviewStatus": "UNREVIEWED_PRIVATE_PILOT"
+  },
+  {
+    "id": "MJQ-008",
+    "question": "What information is safe to put into ChatGPT or another AI tool?",
+    "answer": "An AI tool reads what you type or upload, then produces an answer. Treat it like an outside service, not a private notebook.\n\nSafe material is information you own, are allowed to share, and would not mind being stored or reviewed. Think public documents, invented examples, generic questions, recipes, or writing stripped of identifying details.\n\nDo not enter passwords, access codes, government identification numbers, banking details, private medical records, legal files, unpublished company information, customer data, or someone else’s personal information. Check screenshots and documents carefully; hidden names, comments and account details count too.\n\nFor work, follow your employer’s policy. A company-approved account may have different protections from a personal account. Permission matters more than whether the task feels harmless.\n\nPrivacy settings reduce risk; they do not make careless sharing safe. ChatGPT lets you turn off use of conversations for model improvement. Its Temporary Chats are not used for training and are deleted after 30 days, though they may be reviewed for abuse. ([help.openai.com](https://help.openai.com/en/articles/7730893-chatgpt-temporary-chat-faq?utm_source=openai)) Google similarly warns Gemini users not to enter confidential information they would not want reviewed or used to improve services. ([support.google.com](https://support.google.com/gemini/answer/13594961?hl=en&utm_source=openai))\n\nThe useful rule: share the minimum needed. Replace real names and numbers with labels such as “Client A,” and paste only the relevant passage. If disclosure would cause trouble, embarrassment or harm, leave it out.",
+    "citations": [
+      {
+        "type": "url_citation",
+        "end_index": 1213,
+        "start_index": 1104,
+        "title": "Data Controls FAQ | OpenAI Help Center",
+        "url": "https://help.openai.com/en/articles/7730893-chatgpt-temporary-chat-faq?utm_source=openai"
+      },
+      {
+        "type": "url_citation",
+        "end_index": 1443,
+        "start_index": 1346,
+        "title": "Gemini Apps Privacy Hub - Gemini Apps Help",
+        "url": "https://support.google.com/gemini/answer/13594961?hl=en&utm_source=openai"
+      }
+    ],
+    "httpStatus": 200,
+    "outcome": "ok",
+    "model": "gpt-5.6-sol",
+    "sourcePolicyVersion": "2026-09-04.2",
+    "usage": {
+      "input_tokens": 14478,
+      "input_tokens_details": {
+        "cache_write_tokens": 476,
+        "cached_tokens": 5679
+      },
+      "output_tokens": 510,
+      "output_tokens_details": {
+        "reasoning_tokens": 210
+      },
+      "total_tokens": 14988
+    },
+    "latencyMs": 10116,
+    "conservativeChargeMicroUsd": 125788,
+    "providerResponseId": "resp_055e084d8bfec746016a9ef68983d087d09eb928e8b5788de2",
+    "providerServiceTier": "default",
+    "outputSha256": "5c55a90db79e90774aeee6cc24f3cf2acda20f713b51f0c9874885fc849be9b2",
+    "reviewStatus": "UNREVIEWED_PRIVATE_PILOT"
+  }
+]

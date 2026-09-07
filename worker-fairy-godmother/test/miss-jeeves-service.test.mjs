@@ -13,7 +13,7 @@ const config = {
   MISS_JEEVES_ACTOR_MONTHLY_CAP_MICRO_USD: '20000000',
   GUEST_TOKEN_SIGNING_KEY: 'guest-test-signing-key',
   IDENTITY_HASH_SALT: 'identity-test-salt',
-  OPENAI_API_KEY: 'test-key'
+  MISS_JEEVES_OPENAI_API_KEY: 'test-key'
 };
 
 function request(query = 'What is AI?', attempt = ATTEMPT, rateKey = RATE_KEY) {
@@ -143,7 +143,7 @@ test('unconfirmed settlement holds the monthly ledger and prevents another provi
 
 test('missing provider configuration is marked pre-provider and refunds the reservation', async () => {
   const f = fixture();
-  delete f.env.OPENAI_API_KEY;
+  delete f.env.MISS_JEEVES_OPENAI_API_KEY;
   const response = await missJeevesGuidance(request(), f.env);
   assert.equal(response.status, 503);
   const state = [...f.states.values()][0];

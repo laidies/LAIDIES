@@ -160,3 +160,7 @@ current source or silently become implementation authority.
 Write a new decision into the narrowest current domain source in the same task.
 Add or change a row here only when routing itself changes. Do not grow this file
 into another decision ledger.
+
+## 2026-09-07 — Miss Jeeves dedicated project and answer reuse approval
+
+Ali explicitly approved the separate Miss Jeeves OpenAI project, enforced US$100 monthly cap and restricted server-side key, followed by the real-answer pilot. Budget and funding/sign-in are settled; do not ask again. Test frequent AI questions/problems using the existing evidence-weighted question bank; retain good reviewed answers in the existing Answer Bank; offer public-safe example questions; reuse equivalent answers after a quick freshness check. Preserve context/permission distinctions, existing private/public states and review rules. This records authorization, not implementation or release. Task record: operations/product-stewards/library/MISS-JEEVES-CONTINUATION-20260907.md.

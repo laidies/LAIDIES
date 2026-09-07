@@ -119,7 +119,7 @@ export async function handleMissJeevesGuidance(request, env, fetchImpl = fetch) 
     const { success } = await limiter.limit({ key: `miss-jeeves:${rateKey}` });
     if (!success) return json({ providerAttempted: false, status: "error", error: "rate_limited" }, 429);
   }
-  if (typeof env?.OPENAI_API_KEY !== "string" || !env.OPENAI_API_KEY) {
+  if (typeof env?.MISS_JEEVES_OPENAI_API_KEY !== "string" || !env.MISS_JEEVES_OPENAI_API_KEY) {
     return json({ providerAttempted: false, status: "unavailable", error: "answer_provider_unavailable" }, 503);
   }
 
@@ -144,7 +144,8 @@ export async function handleMissJeevesGuidance(request, env, fetchImpl = fetch) 
       method: "POST",
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${env.OPENAI_API_KEY}`
+        authorization: `Bearer ${env.MISS_JEEVES_OPENAI_API_KEY}`,
+        ...(env.MISS_JEEVES_OPENAI_PROJECT_ID ? {"OpenAI-Project":env.MISS_JEEVES_OPENAI_PROJECT_ID} : {})
       },
       redirect: "manual",
       signal: controller.signal,
