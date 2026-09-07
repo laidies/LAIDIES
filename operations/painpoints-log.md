@@ -15069,3 +15069,9 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** “Radical candor” is not permission to be
   brutal—the product has to know who can affect whose job before it drafts the
   sentence.
+
+## 2026-09-07 — Completion status is separate from citations
+
+Miss Jeeves previously accepted cut-off or missing-status provider responses if they carried an allowed citation. The new negative cases fail the old handler and pass the repaired one; the service-level case proves incurred usage remains charged and replay cannot spend again. Prevention: check provider and message completion before interpreting cited text, and settle billable failures before refusing display. Source repair: 4dc1a1b4. Possible Behind the Build angle: a sourced-looking answer can still be unfinished.
+
+During the connected FAiRY pass, reading the first CSS token block recovered superseded colours and wider Jost text clipped inside the inherited columns. Maker inspection caught both before independent review. Prevention: bind effective current CSS overrides and inspect real desktop/phone pixels after a type change; a passing interaction test does not prove a readable page.

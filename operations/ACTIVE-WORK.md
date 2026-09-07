@@ -1,5 +1,8 @@
 # Active work
 
+> **2026-09-07 — Homepage programme continuation remains BUILDING.** Miss Jeeves incomplete-answer/cost-retention repair committed as `4dc1a1b4d3ce67289a9f1edfff71fd9ebdeb8539`; 146 local Worker tests plus existing fixture suites pass. Three-case real pilot is prepared but has not run. Signed-in shared OpenAI project has no spend limit; separate hard-US$100/month project and restricted-key approval is pending. No account/provider/public change. Details: `operations/product-stewards/library/MISS-JEEVES-CONTINUATION-20260907.md`. FAiRY advice-first page is being corrected in `/Users/alisoneakin/Projects/laidies-live-site-recovery-20260828`; remains internal pending visual admission. Preserve homepage preview https://ca2efb36.laidies-sunnyvaile.pages.dev/ and the accepted page order. Local repair is not a finished or public service.
+
+
 ## 2026-09-02 FAiRY direction-aware feedback — DEPLOYED / PUBLICLY VERIFIED
 
 Production Worker `laidies-fairy-godmother` version
