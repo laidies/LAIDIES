@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260901-homepage-header-1">
     <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
-    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260907-callout-links">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260907-similar-stories">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -846,6 +846,38 @@
           ].join("");
         }
 
+        function similarStories(story) {
+          // Editorial connections: broad vendor/topic tags alone are not relevance.
+          var groups = [
+            ["nvidia-hugging-face-acquisition-sec-8k-2026-09-06", "cursor-openai-access-2026-08-28"],
+            ["eu-ai-act-transparency-starts", "label-is-not-a-truth-detector"],
+            ["openclaw-shared-sessions-2026-09-02", "openai-wiki-message-board-2026-09-05"],
+            ["anthropic-agentic-incidents-2026-09-02", "openai-wiki-message-board-2026-09-05", "anthropic-automated-alignment-2026-08-28"],
+            ["anthropic-fable-5-1-2026-09-02", "openai-gpt-6-astra-launch-2026-09-04"],
+            ["front-paige-accountable-systems-2026-08-24", "weekly-accountable-systems-2026-08-24"]
+          ];
+          var ids = [];
+          groups.forEach(function (group) {
+            if (group.indexOf(story.id) !== -1) group.forEach(function (id) {
+              if (id !== story.id && ids.indexOf(id) === -1) ids.push(id);
+            });
+          });
+          return ids.map(function (id) { return stories.find(function (item) { return item.id === id; }); })
+            .filter(function (item) {
+              return item && ["published", "corrected"].indexOf(contract.storyState(item)) !== -1 &&
+                Date.parse(item.publishedAt) <= Date.parse(now) &&
+                contract.accessDecision(data, item, {edition: item.edition, scope: "hash"}, now).canExpose;
+            }).slice(0, 3);
+        }
+
+        function renderSimilarStories(story) {
+          var matches = similarStories(story);
+          if (!matches.length) return "";
+          return '<nav class="ns-similar-stories" aria-label="See similar stories"><h3>See similar stories</h3><ul>' + matches.map(function (item) {
+            return '<li><a href="#' + escapeAttribute(item.slug) + '"><strong>' + escapeHTML(item.headline) + ' →</strong><span>' + escapeHTML(formatDate(item.publishedAt)) + '</span></a></li>';
+          }).join("") + '</ul></nav>';
+        }
+
         function renderStoryLineage(story) {
           function links(ids) {
             return (ids || []).map(function (id) {
@@ -951,7 +983,7 @@
           return [
             '<figure class="ns-article__hero">',
               '<img src="' + escapeAttribute(visual.src.replace(/^\//, "./")) + '" alt="' + escapeAttribute(visual.alt || "") + '">',
-              visual.credit ? '<figcaption>' + escapeHTML(visual.credit) + '</figcaption>' : "",
+              visual.credit ? '<figcaption>' + escapeHTML(/^LAiDIES.*illustration/i.test(visual.credit) ? "Illustration: LAiDIES" : visual.credit) + '</figcaption>' : "",
             '</figure>'
           ].join("");
         }
@@ -1058,6 +1090,7 @@
                 '</footer>',
                 renderBigPictureHistory(story),
                 renderStoryLineage(story),
+                renderSimilarStories(story),
               '</article>'
             ].join("");
           }
@@ -1091,6 +1124,7 @@
                 story.tags && story.tags.length ? "<p><strong>Filed under</strong> " + story.tags.map(escapeHTML).join(" · ") + "</p>" : "",
               "</footer>",
               renderStoryLineage(story),
+              renderSimilarStories(story),
             "</article>"
           ].join("");
         }

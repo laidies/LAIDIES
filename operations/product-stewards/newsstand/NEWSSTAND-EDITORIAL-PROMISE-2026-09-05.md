@@ -197,3 +197,9 @@ Link the NVIDIA story to exact published book sections about NVIDIA, chips and o
 ### Personal life as well as work — September 7 clarification
 
 Readers use AI for themselves as well as for work. Do not default to workplace scenarios, employers, suppliers or organizational decisions when explaining relevance. Choose personal-life, work or shared examples according to the actual story: learning something, planning a trip, making something, comparing purchases or handling everyday tasks may be more relevant than choosing a workplace tool. Do not force both settings into every article. “What This Means For You” must address the reader as a person and explain the consequence in the setting where she is likely to encounter it. This clarifies the audience across NewsStand, not only the NVIDIA report.
+
+## September 7 — Related coverage and illustration feedback
+
+Add “See similar stories” at article endings, using editorially selected connections and original headlines/dates. Exclude self-links, duplicates, future publication, withheld/retracted/unapproved stories and unavailable destinations. Omit the section without a useful match; do not fill it from a shared vendor name or generic AI tag. New article preparation should check existing coverage for useful connections. Keep these distinct from correction/successor notices and do not imply separate security incidents are the same event.
+
+Ali rejected the obvious “not a depiction of the transaction” illustration disclaimer and noted the NVIDIA artwork differs from the established art style. Use a simple LAiDIES illustration credit where the image is clearly editorial. Her suggested direction for a future NVIDIA artwork revision is the recognizable Hugging Face emoji; the existing image is not replaced by this navigation repair.

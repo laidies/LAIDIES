@@ -1177,3 +1177,12 @@
 .ns-article__book-links { margin: 24px 0; padding: 20px 0; border-top: 3px solid #15bce0; }
 .ns-article__book-links ul { padding-left: 22px; }
 .ns-article__book-links li { margin: 12px 0; }
+
+.ns-similar-stories { margin-top:32px; padding-top:20px; border-top:5px solid #15bce0; }
+.ns-similar-stories h3 { color:#11183b; text-shadow:2px 2px 0 #7de2c2; font:800 clamp(24px,3vw,32px)/1.2 Jost,sans-serif; }
+.ns-similar-stories ul { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; padding:0; list-style:none; }
+.ns-similar-stories a { display:block; height:100%; box-sizing:border-box; padding:18px; border:2px solid #11183b; background:#7de2c2; box-shadow:4px 4px 0 #15bce0; text-decoration:none; }
+.ns-similar-stories a strong { display:block; font-size:18px; line-height:1.4; }
+.ns-similar-stories a span { display:block; margin-top:12px; font-size:14px; }
+.ns-similar-stories a:focus-visible { outline:3px solid #003b9e; outline-offset:4px; }
+@media(max-width:760px) { .ns-similar-stories ul { grid-template-columns:1fr; } }

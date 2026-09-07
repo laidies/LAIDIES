@@ -16059,3 +16059,6 @@ The initial crossword notes were too definition-heavy; useful linked explanation
 
 ## 2026-09-07 — NewsStand callout invisible under global text colour
 A global navy text override erased the Cocktail Party Explanation against its legacy navy background. The element and prose were present, so presence-only checks missed it. Repair the shared callout background and measure computed foreground/background contrast at desktop and phone widths. A deliberately navy-on-navy fixture must fail the contrast threshold. Public Behind the Build angle: a page can contain every word and still hide its meaning; inspect the rendered experience.
+
+## 2026-09-07 — Related coverage must follow the reader question
+Shared company names and generic agent/model tags connect unrelated reports. Use editorial connections, then current publication/access filtering; do not revive withheld coverage or imply distinct incidents are the same. Prevent empty sections and test actual keyboard navigation to the selected headline. Behind the Build angle: useful recommendations need more than matching words.
