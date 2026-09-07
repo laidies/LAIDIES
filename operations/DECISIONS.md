@@ -1,5 +1,34 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Bounded inactive Learning execution adapter
+
+Control Room accepts reversible implementation under Ali's whole-operation
+repair authorization, not activation or a canonical queue migration. Preserve
+all current v1.1 queue bytes and seventeen orders; adapt the existing executor
+contract/checker/runner/test with versioned execution metadata. Do not restore
+historical LCWO-018, stale ACTIVE state, an absent automation binding or unrelated
+dossier files. The current Learning task owns this preparation; it is not an
+already active autonomous executor.
+
+Keep disabled/unbound, proposed, accepted and performed states distinct. An
+internal selection or receipt cannot prove worker acceptance or production.
+The bounded proof uses temporary fixtures for a selection-to-receipt transition,
+rejecting stale/future timestamps, duplicate active orders, changed queue binding,
+missing/wrong required owner or automation, unsupported schema and invalid
+terminal evidence. Actual integration must retain producer preflight before
+contract creation and require a valid contract before drafting. No schedule,
+external dispatch, product drafting, publication, spend or live execution-state
+migration is activated by this implementation. Any later activation retains its
+existing separate authority and runtime proof requirements.
+
+The preserved contract assigns dispatch/production to its scheduled agent; the
+historical runner records a heartbeat. Missing dispatch code in that recorder
+alone does not prove the historical worker never performed the contract. Current
+absence of that automation and incompatible/stale state prevent direct revival.
+Current implementation and remaining live boundary belong in the existing
+`product-stewards/learning-content-ecosystem/RECOVERY.md`; no new status registry.
+
+
 ## 2026-09-06 — Existing episode gate must execute its declared checks
 
 Under the authorized operating audit, restore the existing current-source gate
