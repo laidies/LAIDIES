@@ -25,3 +25,7 @@ The account-continuation and FAiRY limits are current public-source facts, not a
 ## Calibration
 
 I independently read and rejected all three registered negative exemplars against their listed failures, then read Ali’s Dream Phone/yearbook invitation excerpt. The candidate has a direct useful invitation and a bounded Cher reference, without inheriting any unverified gameplay or community promise. The structured, hash-bound receipt is `independent-review.json`.
+
+## Shared artwork-rule confirmation — 2026-09-07
+
+**Complies.** The reviewed `index.html` remains SHA-256 `c7ed1432d9e62a2907669871fabcbb3b041edcb339ac7894c0b4c2f18f0f37b2`. The correction adds only `.resident-perks` list spacing and the existing `--hp-purple` marker colour. It retains the existing binder asset and page artwork; no new decorative CSS/SVG treatment, imitation art, or artwork replacement was introduced. The phone and desktop pixels inspected for this review show that retained artwork.

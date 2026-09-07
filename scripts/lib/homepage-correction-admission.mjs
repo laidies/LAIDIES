@@ -28,6 +28,7 @@ export function inspectHomepageCorrection(item, root, preservedBytes = {}) {
       const parent=JSON.parse(bytes(p+'parent-admission.json'));
       assert(digest(p+'parent.html')==='63c8d0b72f3813aa1f70b94cfe95f8fa5edc7cb751a12751eaf9103a8373103a','wrong resident benefits predecessor');
       const retained=structuredClone(item);delete retained.design_admission.resident_benefits;retained.design_admission.candidate.sha256=parent.design_admission.candidate.sha256;errors.push(...inspectHomepageCorrection(retained,root,{...preservedBytes,'index.html':bytes(p+'parent.html')}));
+      const art=a.gates?.decorative_discipline;assert(art?.result==='PASS'&&art.artwork_sources?.length===1&&art.artwork_sources[0].path==='index.html'&&art.artwork_sources[0].sha256===a.candidate.sha256,'resident artwork implementation binding missing or stale');
       const changes=JSON.parse(bytes(p+'changes.json')).replacements;
       assert(changes.length===2&&changes[0].old.trimStart().startsWith('<section class="closet" id="collect">')&&changes[1].old==='</style>'&&changes[1].new.includes('.resident-perks{'),'resident benefits scope differs');
       let current=bytes(p+'parent.html').toString();for(const e of changes){assert(current.split(e.old).length===2,'resident edit is not unique');current=current.replace(e.old,e.new)}
