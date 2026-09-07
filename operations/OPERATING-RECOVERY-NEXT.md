@@ -13,13 +13,13 @@ both cloud CI jobs successful. PR107 merge is `f29dfb57cd6f1c27b925016b884e3181d
 CI jobs passed. The actual outer hook registration was updated and its configured
 command now reaches this session. Native hook trust/loading remains unverified.
 
-Ali explicitly activated native Goal mode (“yes activate”). The goal is active
-for the original whole-operation objective and one automatic continuation was
-observed after the activation response. This proves that continuation, not
-unattended Mac-off operation or indefinite persistence. Keep the goal active
-through intermediate milestones; the Stop hook retains its recursion bound.
+Ali explicitly activated native Goal mode (“yes activate”). One automatic continuation was
+observed after the activation response. The latest native query on September 6
+returns usageLimited. The earlier observation proves one continuation only,
+not currently active automation, Mac-off operation or indefinite persistence. Do not mark the governing objective complete at
+intermediate milestones; the Stop hook retains its recursion bound.
 
-Current branch `ops/producer-transfer-trial-20260906` continues after
+Current branch `ops/producer-transfer-retest-20260906` continues after
 the existing producer/review/release package was restored to main by PR108. Two registered writing
 examples are frozen at their exact historical bytes under internal operations;
 current product sources are untouched. The News exemplar's supporting evidence
@@ -70,12 +70,23 @@ learning-standard bytes because required current instruction documents were
 absent main, while the producer preflight still returned READY_TO_DRAFT. That
 failure was independently reproduced. The partial draft is preserved; no
 independent review, second case or content-success claim followed.
-Current bounded repair recovers the three routed instruction sources and binds
-them in preflight; the unchanged failed contract is now rejected. See the existing
+PR112 merged the three routed instruction sources and their enforced
+preflight bindings as 7edf6c6441f0faebe943d10bfec32896a9008e65; the unchanged failed contract is now rejected. See the existing
 learning RECOVERY.md and trial RESULT.md. Guard tests are not a repeated semantic
 trial. PR111 merged as1ebd5738 after both CI checks passed. The latest native Goal
 status query returned usageLimited; do not report automatic continuation as
 currently active or consume a reset without explicit authorization.
+
+### Current-source repeat — bounded internal adequacy
+
+PR112 is merged. New attempt2 used unchanged cases and two fresh makers, with
+no old drafts, case-to-case feedback or corrective coaching. Both current
+preflights and 24 declared-file checks per case matched. Frozen prose received
+ADEQUATE_FOR_THIS_INTERNAL_CASE on each first independent review. See
+`operations/product-stewards/learning-content-ecosystem/trials/2026-09-06-producer-transfer/attempt-2/RESULT.md`.
+No human comprehension, causal improvement or permanent-owner adoption is
+inferred. The prepared existing-owner adoption message includes PR108/109/112;
+permission to send is pending. Source preparation burden remains an open finding.
 
 ## Prior repair and ranked sequence — 2026-09-06
 

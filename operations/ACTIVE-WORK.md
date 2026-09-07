@@ -1,24 +1,21 @@
 # Active work
 
-> **2026-09-06 — Operating audit / BUILDING: learning trial and instruction recovery.**
-> Owner `01a077d0-0775-7af2-b631-c311573f0e0e`; bounded checkout
+> **2026-09-06 — Operating audit / BUILDING: current-source trial adequate; adoption open.**
+> Owner `01a077d0-0775-7af2-b631-c311573f0e0e`; checkout
 > `/Users/alisoneakin/Projects/laidies-operating-integration-20260905`, branch
-> `ops/producer-transfer-trial-20260906`. PR103–111 are merged. Ali explicitly
-> activated native Goal mode; one automatic continuation was observed. Custom
-> hook trust/loading and sustained execution remain separate, unverified claims.
-> Existing producer/review/release checks and exact internal exemplars are now
-> distributed through PR108/9a372e70; all 17 real orders remain held. A fresh
-> reviewer returned REPAIR on the known-bad chapter without seeing its history;
-> full calibration remains open. PR109/53b7d833 distributes the tested admission adapter and producer-plan
-> propagation; real new learning-owner admission and successor remain open.
-> Audit reconciled: shared HEAD3091a1fd still executes older quality consumers.
-> Complete adoption instructions are in the learning ecosystem RECOVERY.md.
-> Authorized fresh-producer trial failed source adoption: preflight allowed
-> missing current instructions and an older Standard. Trial stopped; preserved
-> draft has no quality verdict. Current instruction-binding repair is local;
-> no second producer or independent review was run. See the learning trial RESULT.md.
-> Owner adoption, real learning/successor and cloud/delivery proof remain open.
-> No new paid service, public release or takeover of surface owners.
+> `ops/producer-transfer-retest-20260906`. PR103–112 are merged.
+> Original producer source failure is preserved; PR112 binds current instructions.
+> Two fresh Sol/Medium makers completed different unchanged cases, with 24 declared
+> file bindings verified per case. Frozen prose received independent artifact-first
+> ADEQUATE_FOR_THIS_INTERNAL_CASE verdicts with no material repair or foreground rewrite.
+> This is bounded current performance, not observed learner comprehension, measured
+> improvement, a newly admitted lesson, or adoption by the existing owner workflow.
+> See learning trial `attempt-2/RESULT.md`. Preparation/context overhead remains open.
+> Complete PR108/109/112 adoption message awaits explicit permission; no new message
+> sent. Existing learning task remains notLoaded, which does not mean abandoned.
+> All 17 real orders remain held. No shared dirty-tree overwrite, service purchase,
+> schedule change or public release. Native Goal reports usageLimited; automatic
+> continuation, native hook loading and Mac-off operation are not claimed active.
 
 > **2026-09-06 — Small current visual references: REPOSITORY-DISTRIBUTED / PR106 MERGED.** Owner: background-reference task `01a0785e-1438-7161-b041-0be213b06e9b`; isolated branch `ops/current-visual-references-20260906`. Build the small two-job entry and scoped selections, preserve exact originals and reconcile later rejections; system engineering task owns prompt-consumer reconciliation on a separate branch. No all-artwork migration or production art changes. Acceptance: exact usable references and reuse scope, honest unavailable entries, routed instructions, calibrated selection checks and repository distribution. Local index and 13 prompt-consumer checks pass; later Matron/Miss Jeeves identities and destination palettes are reconciled. Current source commits 222a10ae, 3afe85a6, 21b55575 and coordinated consumer 1b1fcf6e. PR106 merged as a38d5068e67582e089e1e7b9ef983fa60882f7c4 after targeted reference CI and both baseline jobs passed; shared entry pointer committed e0812106. Source/consumer delivery is complete; no new artwork, public deployment or native hook activation is claimed. Other product work continues.
 

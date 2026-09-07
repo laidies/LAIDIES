@@ -41,8 +41,9 @@ instruction and a matching-hash external symlink, while retaining a valid
 exact-binding case. The shared file-binding helper now checks actual filesystem
 target containment for all its source/example/benchmark inputs. These are guard tests, not
 another content trial. The fresh-producer/independent-review/transfer sequence
-has not been rerun, existing owner checkout adoption remains open, and the17
-real content orders remain held.
+is now recorded separately in `trials/2026-09-06-producer-transfer/attempt-2/RESULT.md`: two fresh makers and blind expert reviews found the two unchanged
+cases adequate without corrective coaching. This does not establish human
+comprehension or permanent-owner adoption; the 17 real orders remain held.
 
 Related legacy path-check debt remains explicitly outside this instruction
 repair: `scripts/check-prose-quality-admission.mjs` loadBinding still uses lexical
@@ -66,13 +67,15 @@ The shared `package.json` `ci:build` and `exact-library-preview.yml` use that
 checkout's local scripts. Do not copy the new admission script alone or overwrite
 the dirty shared tree. Adoption must include the registry, schemas, six immutable
 examples, supporting News evidence, all checker imports and calibration tests.
-The changed-path lists in PR108/109 identify that closure; their central audit
+PR112 also restores the three required instruction documents, their enforced
+current-source bindings, and the saved failed-trial regression. Include those
+dependencies: the changed-path lists in PR108/109/112 identify that closure; their central audit
 status files are not product changes to merge blindly.
 
 Prepared receiving-owner action (not dispatched): the Learning System & Concepts
 Director selects a clean receiving integration branch with the affected product
 owner. Start from current main where possible; otherwise reconcile the selected
-PR108 then PR109 dependency paths against destination changes. Preserve the real
+PR108, PR109 and PR112 dependency paths against destination changes. Preserve the real
 work-order queue and reconcile any new registry entries rather than replacing
 them with this snapshot. Add `test-content-quality-package.mjs` and
 `test-content-quality-learning.mjs` to the destination's existing `ci:build`

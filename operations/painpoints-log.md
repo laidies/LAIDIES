@@ -229,7 +229,7 @@ that workers actually read. Test distribution, not just the writing tool.
 Observed: main still scheduled the retired HotGoss rewrite/direct-push job,
 which failed at branch protection on September6; the manual-only retirement was
 already on the NewsStand branch. Main also lacks the mandatory prose producer,
-review and learning registry package present in the shared checkout. All17 shared
+review and learning registry package present in the shared checkout. All 17 shared
 content work orders are held despite green integrity calibration. Prevention:
 reconcile exact receiving-branch behavior before claiming a repair, integrate
 bounded existing packages rather than the mixed branch, and distinguish integrity
@@ -374,3 +374,15 @@ Independent guard review caught a lexical-path bypass: a symlink at the required
 instruction path could read an external historical file. The shared binding
 helper now checks real path containment and regular-file type for every input
 it handles; a matching-hash external symlink regression is rejected.
+
+## Current-source fresh-producer repeat — 2026-09-06
+
+Reusable result: after PR112 source recovery/binding, two fresh makers produced
+adequate explanations on unchanged different cases without prior drafts or
+corrective coaching. Freeze before review and keep artifact-first reviewers
+away from producer receipts. Do not translate this into human comprehension,
+causal improvement or operating adoption. Input identity and useful writing are
+separate tests. Preparation burden remains: 24 declared files per maker is not
+proof of an efficient entry, and raw source size is not measured token use.
+Behind the Build angle: an AI saying it passed its checks does not establish
+which rules it used, whether its work helps, or whether another task uses the fix.
