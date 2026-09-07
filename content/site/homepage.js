@@ -200,30 +200,45 @@
       if (typeof value !== 'string' || !value.startsWith('/') || value.startsWith('//') || /[\\\u0000-\u001f\u007f]/.test(value)) return null;
       try { var url = new URL(value, location.origin); return url.origin === location.origin ? url.pathname + url.search + url.hash : null; } catch (_) { return null; }
     }
-    function showError(message) {
-      answer.replaceChildren(); paragraph(message, answer);
+    function showQuestion(query, conversation) {
+      paragraph('Your question',answer);
+      var h=document.createElement('h3');h.className='jeeves-full-question';h.textContent=conversation ? conversation.originalQuestion : query;h.style.overflowWrap='anywhere';answer.appendChild(h);
+      ((conversation && conversation.turns)||[]).forEach(function(turn){var asked=paragraph('Miss Jeeves asked: '+turn.question,answer);asked.style.overflowWrap='anywhere';var p=paragraph('Your reply: '+turn.reply,answer);p.style.whiteSpace='pre-wrap';p.style.overflowWrap='anywhere';});
+    }
+    function showError(message, query, conversation) {
+      answer.replaceChildren(); showQuestion(query,conversation); paragraph(message, answer);
       var retry = document.createElement('button'); retry.type = 'button'; retry.textContent = 'Try again';
-      retry.addEventListener('click', function () { refForm.requestSubmit(); }); answer.appendChild(retry);
+      retry.addEventListener('click', function () { submitHomepageQuery(query,conversation); }); answer.appendChild(retry);
     }
     document.querySelectorAll('[data-jeeves-example]').forEach(function (button) {
       button.addEventListener('click', function () { refInput.value = button.textContent.trim(); refInput.focus(); refForm.requestSubmit(); });
     });
-    refForm.addEventListener('submit', async function (event) {
-      event.preventDefault();
-      var query = refInput.value.trim();
+    async function submitHomepageQuery(query,conversation) {
       if (!query) { refInput.focus(); return; }
       refInput.setSelectionRange(0, 0); refInput.scrollLeft = 0;
       var id = ++requestNumber;
-      answer.hidden = false; answer.replaceChildren(); paragraph('Miss Jeeves is looking through LAiDIES…', answer);
+      answer.hidden = false; answer.replaceChildren(); showQuestion(query,conversation); paragraph('Miss Jeeves is looking through LAiDIES…', answer);
       answer.setAttribute('aria-busy', 'true'); submit.disabled = true;
       var controller = new AbortController();
       var timeout = window.setTimeout(function () { controller.abort(); }, 15000);
       try {
-        var response = await fetch('/api/miss-jeeves', { method: 'POST', credentials: 'same-origin', redirect: 'error', cache: 'no-store', headers: {'content-type': 'application/json', accept: 'application/json'}, body: JSON.stringify({query: query, placement: 'homepage', intent: 'search'}), signal: controller.signal });
+        var response = await fetch('/api/miss-jeeves', { method: 'POST', credentials: 'same-origin', redirect: 'error', cache: 'no-store', headers: {'content-type': 'application/json', accept: 'application/json'}, body: JSON.stringify({query: query, placement: 'homepage', intent: 'search',clarification:conversation?{originalQuestion:conversation.originalQuestion}:undefined}), signal: controller.signal });
         var payload = await response.json();
         if (id !== requestNumber) return;
         if (response.status === 400 && payload.error === 'private_content_prohibited') {
-          answer.replaceChildren(); paragraph('Please remove private, confidential or account information from your question.', answer); return;
+          answer.replaceChildren(); showQuestion(query,conversation); paragraph('Please remove private, confidential or account information from your question.', answer); return;
+        }
+        if (response.ok && payload.status === 'clarification_required' && typeof payload.answer === 'string') {
+          answer.replaceChildren();showQuestion(query,conversation);
+          var followForm=document.createElement('form');followForm.className='jeeves-clarification-form';
+          var label=document.createElement('label');label.htmlFor='homepage-jeeves-follow-up';label.textContent=payload.answer;followForm.appendChild(label);
+          var replyInput=document.createElement('textarea');replyInput.id='homepage-jeeves-follow-up';replyInput.rows=3;replyInput.maxLength=240;replyInput.required=true;replyInput.style.cssText='display:block;box-sizing:border-box;width:100%;min-height:100px;margin:12px 0;padding:12px;font:inherit;line-height:1.5;background:#fff;color:#121b40;border:2px solid #121b40;border-radius:10px';followForm.appendChild(replyInput);
+          if(payload.hint){var hint=document.createElement('p');hint.textContent=payload.hint;label.after(hint);}
+          var choices=document.createElement('div');choices.className='jeeves-guided-choices';choices.style.cssText='display:flex;flex-wrap:wrap;gap:10px';
+          (Array.isArray(payload.choices)?payload.choices:[]).filter(function(choice){return typeof choice==='string'&&choice.length<=240;}).forEach(function(choice){var button=document.createElement('button');button.type='button';button.textContent=choice;button.style.cssText='min-height:44px;white-space:normal;text-align:left;max-width:100%;overflow-wrap:anywhere';button.addEventListener('click',function(){replyInput.value=choice;followForm.requestSubmit();});choices.appendChild(button);});replyInput.before(choices);
+          var next=document.createElement('button');next.type='submit';next.textContent='Continue';followForm.appendChild(next);answer.appendChild(followForm);
+          followForm.addEventListener('submit',function(event){event.preventDefault();var reply=replyInput.value.trim();if(!reply)return;submitHomepageQuery(reply,{originalQuestion:conversation?conversation.originalQuestion:query,turns:((conversation&&conversation.turns)||[]).concat([{question:payload.answer,reply:reply}])});});
+          replyInput.focus();return;
         }
         if (response.ok && payload.status === 'ok' && payload.mode === 'reviewed-answer') {
           if (typeof payload.answer !== 'string' || !payload.answer.trim() || !Array.isArray(payload.citations) || !payload.citations.length) throw new Error('Incomplete reviewed answer');
@@ -233,18 +248,18 @@
           if (sources.some(function (item) { return !item; })) throw new Error('Invalid reviewed source');
           var checked = new Date(payload.current_guidance && payload.current_guidance.checked_at);
           if (!Number.isFinite(checked.valueOf()) || !payload.freshness_checked_at) throw new Error('Missing reviewed date');
-          answer.replaceChildren();
+          answer.replaceChildren(); showQuestion(query,conversation);
           var reviewedHeading = document.createElement('h3'); reviewedHeading.textContent = 'Your reviewed answer'; answer.appendChild(reviewedHeading);
           paragraph('LAiDIES reviewed · ' + checked.toLocaleDateString(undefined, {month:'short',day:'numeric',year:'numeric'}), answer);
           payload.answer.split(/\n\s*\n/).filter(Boolean).forEach(function (text) { paragraph(text, answer); });
           var sourceList = document.createElement('ul');
           sources.forEach(function (item) { var li = document.createElement('li'); var a = document.createElement('a'); a.href = item.url; a.textContent = item.title; a.rel = 'noopener noreferrer'; li.appendChild(a); sourceList.appendChild(li); });
           answer.appendChild(sourceList);
-          var continueLink = document.createElement('a'); continueLink.href = '/library.html#miss-jeeves?' + new URLSearchParams({q:query,from:'homepage'}).toString(); continueLink.textContent = 'Continue with Miss Jeeves in the LIBRAiRY'; answer.appendChild(continueLink);
+          var continueLink = document.createElement('a'); continueLink.href = '/library.html#miss-jeeves?' + new URLSearchParams({q:query,from:'homepage',conversation:conversation?JSON.stringify(conversation):''}).toString(); continueLink.textContent = 'Continue with Miss Jeeves in the LIBRAiRY'; answer.appendChild(continueLink);
           return;
         }
         if (!response.ok || payload.status !== 'search_results' || payload.mode !== 'site-search' || !Array.isArray(payload.results)) throw new Error('Search unavailable');
-        answer.replaceChildren();
+        answer.replaceChildren(); showQuestion(query,conversation);
         var results = payload.results.filter(function (item) { return item && typeof item.title === 'string' && typeof item.summary === 'string' && safeSource(item.url); });
         var heading = document.createElement('h3'); heading.textContent = results.length ? 'From the LAiDIES collection' : 'I couldn’t find a close match.'; answer.appendChild(heading);
         paragraph(results.length ? 'Here’s what LAiDIES has on the subject. These excerpts may answer part of your question; open a source for the full explanation.' : 'Try a more specific question or a different phrase. I won’t make up an answer to fill the gap.', answer);
@@ -262,12 +277,13 @@
           answer.appendChild(more);
         }
       } catch (_) {
-        if (id === requestNumber) showError('Miss Jeeves couldn’t reach the LAiDIES collection just now. Your question is still here.');
+        if (id === requestNumber) showError('Miss Jeeves couldn’t reach the LAiDIES collection just now. Your question is still here.',query,conversation);
       } finally {
         window.clearTimeout(timeout);
         if (id === requestNumber) { answer.setAttribute('aria-busy', 'false'); submit.disabled = false; }
       }
-    });
+    }
+    refForm.addEventListener('submit',function(event){event.preventDefault();submitHomepageQuery(refInput.value.trim(),null);});
   }
 
   /* ---------- linked town map and building directory ---------- */

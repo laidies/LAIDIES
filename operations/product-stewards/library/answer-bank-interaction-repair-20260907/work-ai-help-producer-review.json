@@ -1,0 +1,480 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "work-ai-help-guided-20260907",
+  "surface": "MISS_JEEVES",
+  "contentClass": "FAQ",
+  "maker": "root-jeeves-preview-maker",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "root-jeeves-preview-maker",
+    "principalId": "root-jeeves-preview-maker",
+    "role": "Producer",
+    "modelFamily": "OpenAI GPT-6 Astra"
+  },
+  "reviewedAt": "2026-09-07T20:23:26.464970+00:00",
+  "verdict": "PASS",
+  "limitations": [
+    "Model self-review is not an independent review or observed beginner test.",
+    "Substantive currentness checked today; source byte check cannot discover guidance on a newly published different page. New record expires after 24 hours unless independently refreshed."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/library/answer-bank-interaction-repair-20260907/work-ai-help.txt",
+      "sha256": "9ecaa0e1f9970b2e72cd0f97e011294f49249fd484ddb12c35c82b68160ca4af"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/library/answer-bank-interaction-repair-20260907/work-ai-help-manifest.json",
+      "sha256": "a63bec166f4bc95372c542dbd80378370e7a7b02c47956aff79e9aeb07c8d09d"
+    }
+  },
+  "calibration": {
+    "registrySha256": "a5559a35fdfaa41b23f71a819aba7c25f03284ef251dfb1a4936e73d3b3b85b9",
+    "reviewerPrincipalId": "root-jeeves-preview-maker",
+    "reviewedAt": "2026-09-07T18:48:18.829779+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ],
+        "observation": "A sequence of separately labelled parts and forced comparisons displaces connected mechanism."
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ],
+        "observation": "One job-offer decision takes over the promised foundational book; technical exposition and that single frame narrow its purpose."
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "## The concepts that make the story legible",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/front-paige-data-centre-policy-memo-known-bad.md"
+          }
+        ],
+        "observation": "Definitions interrupt the story and a five-question checklist turns a news ending into homework; the cloud-coat joke cannot supply human stakes."
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-STRAIGHT-ANSWERS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Answer-first architecture and explicit uncertainty only; dated claims are held, not inherited."
+      ],
+      "evidence": [
+        {
+          "excerpt": "The losses are already measured while the gains are still projected",
+          "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/straight-answers-architecture-positive.md"
+        }
+      ]
+    }
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The exact answer proceeds from permitted tool/material through audience-specific structure, a targeted revision, adding facts outside AI, checking facts and omissions, and saving the empty structure. No capability is treated as permission. ",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use AI to build the structure, then add and check the real project facts in your company\u2019s approved document system. That gives you a useful starting point without sending confidential information to AI.\n\nStart with a tool your employer permits. Some tools can work inside a document: Microsoft\u2019s current Copilot in Word guidance describes drafting from an outline or reference files, then revising the draft. Availability depends on your subscription and organization\u2019s settings. Being able to attach a file does not mean that file is permitted\u2014use only material approved for that tool.\n\nFor an update that keeps project facts out of AI, give it safe context: who will read the update, what they need from it and how long it should be. For example: \u201cMy manager needs a short weekly update showing progress and decisions needed. Create a blank format under 200 words with questions to help me fill it in. Leave project facts as placeholders.\u201d If you have a blank company template that is approved for sharing, use it as a reference.\n\nInspect the structure before filling it in. Does it make room for a delay, its consequence and the help you need? If not, ask for that specific change. Then add this week\u2019s facts yourself in the approved work document. Keep confidential notes outside AI; changing names alone may still leave identifying details.\n\nBefore sending, compare every date, number, status and commitment with your records. Check what was left out, too: \u201con track\u201d could mislead your manager if it depends on an approval that has not arrived. AI can help find gaps when you are allowed to share the material, but its reassurance is not independent verification.\n\nSave the empty format and useful instructions for next week. Replace the facts and check them again. Reusing the structure saves work; carrying forward an old deadline creates new work.",
+          "locator": "Complete 315-word weekly-update answer"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The exact answer proceeds from permitted tool/material through audience-specific structure, a targeted revision, adding facts outside AI, checking facts and omissions, and saving the empty structure. No capability is treated as permission. ",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use AI to build the structure, then add and check the real project facts in your company\u2019s approved document system. That gives you a useful starting point without sending confidential information to AI.\n\nStart with a tool your employer permits. Some tools can work inside a document: Microsoft\u2019s current Copilot in Word guidance describes drafting from an outline or reference files, then revising the draft. Availability depends on your subscription and organization\u2019s settings. Being able to attach a file does not mean that file is permitted\u2014use only material approved for that tool.\n\nFor an update that keeps project facts out of AI, give it safe context: who will read the update, what they need from it and how long it should be. For example: \u201cMy manager needs a short weekly update showing progress and decisions needed. Create a blank format under 200 words with questions to help me fill it in. Leave project facts as placeholders.\u201d If you have a blank company template that is approved for sharing, use it as a reference.\n\nInspect the structure before filling it in. Does it make room for a delay, its consequence and the help you need? If not, ask for that specific change. Then add this week\u2019s facts yourself in the approved work document. Keep confidential notes outside AI; changing names alone may still leave identifying details.\n\nBefore sending, compare every date, number, status and commitment with your records. Check what was left out, too: \u201con track\u201d could mislead your manager if it depends on an approval that has not arrived. AI can help find gaps when you are allowed to share the material, but its reassurance is not independent verification.\n\nSave the empty format and useful instructions for next week. Replace the facts and check them again. Reusing the structure saves work; carrying forward an old deadline creates new work.",
+          "locator": "Complete 315-word weekly-update answer"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The exact answer proceeds from permitted tool/material through audience-specific structure, a targeted revision, adding facts outside AI, checking facts and omissions, and saving the empty structure. No capability is treated as permission. ",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use AI to build the structure, then add and check the real project facts in your company\u2019s approved document system. That gives you a useful starting point without sending confidential information to AI.\n\nStart with a tool your employer permits. Some tools can work inside a document: Microsoft\u2019s current Copilot in Word guidance describes drafting from an outline or reference files, then revising the draft. Availability depends on your subscription and organization\u2019s settings. Being able to attach a file does not mean that file is permitted\u2014use only material approved for that tool.\n\nFor an update that keeps project facts out of AI, give it safe context: who will read the update, what they need from it and how long it should be. For example: \u201cMy manager needs a short weekly update showing progress and decisions needed. Create a blank format under 200 words with questions to help me fill it in. Leave project facts as placeholders.\u201d If you have a blank company template that is approved for sharing, use it as a reference.\n\nInspect the structure before filling it in. Does it make room for a delay, its consequence and the help you need? If not, ask for that specific change. Then add this week\u2019s facts yourself in the approved work document. Keep confidential notes outside AI; changing names alone may still leave identifying details.\n\nBefore sending, compare every date, number, status and commitment with your records. Check what was left out, too: \u201con track\u201d could mislead your manager if it depends on an approval that has not arrived. AI can help find gaps when you are allowed to share the material, but its reassurance is not independent verification.\n\nSave the empty format and useful instructions for next week. Replace the facts and check them again. Reusing the structure saves work; carrying forward an old deadline creates new work.",
+          "locator": "Complete 315-word weekly-update answer"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The exact answer proceeds from permitted tool/material through audience-specific structure, a targeted revision, adding facts outside AI, checking facts and omissions, and saving the empty structure. No capability is treated as permission. ",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use AI to build the structure, then add and check the real project facts in your company\u2019s approved document system. That gives you a useful starting point without sending confidential information to AI.\n\nStart with a tool your employer permits. Some tools can work inside a document: Microsoft\u2019s current Copilot in Word guidance describes drafting from an outline or reference files, then revising the draft. Availability depends on your subscription and organization\u2019s settings. Being able to attach a file does not mean that file is permitted\u2014use only material approved for that tool.\n\nFor an update that keeps project facts out of AI, give it safe context: who will read the update, what they need from it and how long it should be. For example: \u201cMy manager needs a short weekly update showing progress and decisions needed. Create a blank format under 200 words with questions to help me fill it in. Leave project facts as placeholders.\u201d If you have a blank company template that is approved for sharing, use it as a reference.\n\nInspect the structure before filling it in. Does it make room for a delay, its consequence and the help you need? If not, ask for that specific change. Then add this week\u2019s facts yourself in the approved work document. Keep confidential notes outside AI; changing names alone may still leave identifying details.\n\nBefore sending, compare every date, number, status and commitment with your records. Check what was left out, too: \u201con track\u201d could mislead your manager if it depends on an approval that has not arrived. AI can help find gaps when you are allowed to share the material, but its reassurance is not independent verification.\n\nSave the empty format and useful instructions for next week. Replace the facts and check them again. Reusing the structure saves work; carrying forward an old deadline creates new work.",
+          "locator": "Complete 315-word weekly-update answer"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact answer proceeds from permitted tool/material through audience-specific structure, a targeted revision, adding facts outside AI, checking facts and omissions, and saving the empty structure. No capability is treated as permission. Two live Microsoft support pages checked today support drafting from references and verification; no displayed publication date is invented.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use AI to build the structure, then add and check the real project facts in your company\u2019s approved document system. That gives you a useful starting point without sending confidential information to AI.\n\nStart with a tool your employer permits. Some tools can work inside a document: Microsoft\u2019s current Copilot in Word guidance describes drafting from an outline or reference files, then revising the draft. Availability depends on your subscription and organization\u2019s settings. Being able to attach a file does not mean that file is permitted\u2014use only material approved for that tool.\n\nFor an update that keeps project facts out of AI, give it safe context: who will read the update, what they need from it and how long it should be. For example: \u201cMy manager needs a short weekly update showing progress and decisions needed. Create a blank format under 200 words with questions to help me fill it in. Leave project facts as placeholders.\u201d If you have a blank company template that is approved for sharing, use it as a reference.\n\nInspect the structure before filling it in. Does it make room for a delay, its consequence and the help you need? If not, ask for that specific change. Then add this week\u2019s facts yourself in the approved work document. Keep confidential notes outside AI; changing names alone may still leave identifying details.\n\nBefore sending, compare every date, number, status and commitment with your records. Check what was left out, too: \u201con track\u201d could mislead your manager if it depends on an approval that has not arrived. AI can help find gaps when you are allowed to share the material, but its reassurance is not independent verification.\n\nSave the empty format and useful instructions for next week. Replace the facts and check them again. Reusing the structure saves work; carrying forward an old deadline creates new work.",
+          "locator": "Complete 315-word weekly-update answer"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The exact answer proceeds from permitted tool/material through audience-specific structure, a targeted revision, adding facts outside AI, checking facts and omissions, and saving the empty structure. No capability is treated as permission. ",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use AI to build the structure, then add and check the real project facts in your company\u2019s approved document system. That gives you a useful starting point without sending confidential information to AI.\n\nStart with a tool your employer permits. Some tools can work inside a document: Microsoft\u2019s current Copilot in Word guidance describes drafting from an outline or reference files, then revising the draft. Availability depends on your subscription and organization\u2019s settings. Being able to attach a file does not mean that file is permitted\u2014use only material approved for that tool.\n\nFor an update that keeps project facts out of AI, give it safe context: who will read the update, what they need from it and how long it should be. For example: \u201cMy manager needs a short weekly update showing progress and decisions needed. Create a blank format under 200 words with questions to help me fill it in. Leave project facts as placeholders.\u201d If you have a blank company template that is approved for sharing, use it as a reference.\n\nInspect the structure before filling it in. Does it make room for a delay, its consequence and the help you need? If not, ask for that specific change. Then add this week\u2019s facts yourself in the approved work document. Keep confidential notes outside AI; changing names alone may still leave identifying details.\n\nBefore sending, compare every date, number, status and commitment with your records. Check what was left out, too: \u201con track\u201d could mislead your manager if it depends on an approval that has not arrived. AI can help find gaps when you are allowed to share the material, but its reassurance is not independent verification.\n\nSave the empty format and useful instructions for next week. Replace the facts and check them again. Reusing the structure saves work; carrying forward an old deadline creates new work.",
+          "locator": "Complete 315-word weekly-update answer"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The exact answer proceeds from permitted tool/material through audience-specific structure, a targeted revision, adding facts outside AI, checking facts and omissions, and saving the empty structure. No capability is treated as permission. Longer than predecessor because it now explains the complete workflow; must verify complete readable rendering.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use AI to build the structure, then add and check the real project facts in your company\u2019s approved document system. That gives you a useful starting point without sending confidential information to AI.\n\nStart with a tool your employer permits. Some tools can work inside a document: Microsoft\u2019s current Copilot in Word guidance describes drafting from an outline or reference files, then revising the draft. Availability depends on your subscription and organization\u2019s settings. Being able to attach a file does not mean that file is permitted\u2014use only material approved for that tool.\n\nFor an update that keeps project facts out of AI, give it safe context: who will read the update, what they need from it and how long it should be. For example: \u201cMy manager needs a short weekly update showing progress and decisions needed. Create a blank format under 200 words with questions to help me fill it in. Leave project facts as placeholders.\u201d If you have a blank company template that is approved for sharing, use it as a reference.\n\nInspect the structure before filling it in. Does it make room for a delay, its consequence and the help you need? If not, ask for that specific change. Then add this week\u2019s facts yourself in the approved work document. Keep confidential notes outside AI; changing names alone may still leave identifying details.\n\nBefore sending, compare every date, number, status and commitment with your records. Check what was left out, too: \u201con track\u201d could mislead your manager if it depends on an approval that has not arrived. AI can help find gaps when you are allowed to share the material, but its reassurance is not independent verification.\n\nSave the empty format and useful instructions for next week. Replace the facts and check them again. Reusing the structure saves work; carrying forward an old deadline creates new work.",
+          "locator": "Complete 315-word weekly-update answer"
+        }
+      ]
+    },
+    "answersActualQuestion": {
+      "verdict": "PASS",
+      "observation": "The exact answer proceeds from permitted tool/material through audience-specific structure, a targeted revision, adding facts outside AI, checking facts and omissions, and saving the empty structure. No capability is treated as permission. ",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use AI to build the structure, then add and check the real project facts in your company\u2019s approved document system. That gives you a useful starting point without sending confidential information to AI.\n\nStart with a tool your employer permits. Some tools can work inside a document: Microsoft\u2019s current Copilot in Word guidance describes drafting from an outline or reference files, then revising the draft. Availability depends on your subscription and organization\u2019s settings. Being able to attach a file does not mean that file is permitted\u2014use only material approved for that tool.\n\nFor an update that keeps project facts out of AI, give it safe context: who will read the update, what they need from it and how long it should be. For example: \u201cMy manager needs a short weekly update showing progress and decisions needed. Create a blank format under 200 words with questions to help me fill it in. Leave project facts as placeholders.\u201d If you have a blank company template that is approved for sharing, use it as a reference.\n\nInspect the structure before filling it in. Does it make room for a delay, its consequence and the help you need? If not, ask for that specific change. Then add this week\u2019s facts yourself in the approved work document. Keep confidential notes outside AI; changing names alone may still leave identifying details.\n\nBefore sending, compare every date, number, status and commitment with your records. Check what was left out, too: \u201con track\u201d could mislead your manager if it depends on an approval that has not arrived. AI can help find gaps when you are allowed to share the material, but its reassurance is not independent verification.\n\nSave the empty format and useful instructions for next week. Replace the facts and check them again. Reusing the structure saves work; carrying forward an old deadline creates new work.",
+          "locator": "Complete 315-word weekly-update answer"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The exact answer proceeds from permitted tool/material through audience-specific structure, a targeted revision, adding facts outside AI, checking facts and omissions, and saving the empty structure. No capability is treated as permission. ",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use AI to build the structure, then add and check the real project facts in your company\u2019s approved document system. That gives you a useful starting point without sending confidential information to AI.\n\nStart with a tool your employer permits. Some tools can work inside a document: Microsoft\u2019s current Copilot in Word guidance describes drafting from an outline or reference files, then revising the draft. Availability depends on your subscription and organization\u2019s settings. Being able to attach a file does not mean that file is permitted\u2014use only material approved for that tool.\n\nFor an update that keeps project facts out of AI, give it safe context: who will read the update, what they need from it and how long it should be. For example: \u201cMy manager needs a short weekly update showing progress and decisions needed. Create a blank format under 200 words with questions to help me fill it in. Leave project facts as placeholders.\u201d If you have a blank company template that is approved for sharing, use it as a reference.\n\nInspect the structure before filling it in. Does it make room for a delay, its consequence and the help you need? If not, ask for that specific change. Then add this week\u2019s facts yourself in the approved work document. Keep confidential notes outside AI; changing names alone may still leave identifying details.\n\nBefore sending, compare every date, number, status and commitment with your records. Check what was left out, too: \u201con track\u201d could mislead your manager if it depends on an approval that has not arrived. AI can help find gaps when you are allowed to share the material, but its reassurance is not independent verification.\n\nSave the empty format and useful instructions for next week. Replace the facts and check them again. Reusing the structure saves work; carrying forward an old deadline creates new work.",
+          "locator": "Complete 315-word weekly-update answer"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The exact answer proceeds from permitted tool/material through audience-specific structure, a targeted revision, adding facts outside AI, checking facts and omissions, and saving the empty structure. No capability is treated as permission. The missing approval example makes a consequential omission visible.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use AI to build the structure, then add and check the real project facts in your company\u2019s approved document system. That gives you a useful starting point without sending confidential information to AI.\n\nStart with a tool your employer permits. Some tools can work inside a document: Microsoft\u2019s current Copilot in Word guidance describes drafting from an outline or reference files, then revising the draft. Availability depends on your subscription and organization\u2019s settings. Being able to attach a file does not mean that file is permitted\u2014use only material approved for that tool.\n\nFor an update that keeps project facts out of AI, give it safe context: who will read the update, what they need from it and how long it should be. For example: \u201cMy manager needs a short weekly update showing progress and decisions needed. Create a blank format under 200 words with questions to help me fill it in. Leave project facts as placeholders.\u201d If you have a blank company template that is approved for sharing, use it as a reference.\n\nInspect the structure before filling it in. Does it make room for a delay, its consequence and the help you need? If not, ask for that specific change. Then add this week\u2019s facts yourself in the approved work document. Keep confidential notes outside AI; changing names alone may still leave identifying details.\n\nBefore sending, compare every date, number, status and commitment with your records. Check what was left out, too: \u201con track\u201d could mislead your manager if it depends on an approval that has not arrived. AI can help find gaps when you are allowed to share the material, but its reassurance is not independent verification.\n\nSave the empty format and useful instructions for next week. Replace the facts and check them again. Reusing the structure saves work; carrying forward an old deadline creates new work.",
+          "locator": "Complete 315-word weekly-update answer"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The exact answer proceeds from permitted tool/material through audience-specific structure, a targeted revision, adding facts outside AI, checking facts and omissions, and saving the empty structure. No capability is treated as permission. ",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use AI to build the structure, then add and check the real project facts in your company\u2019s approved document system. That gives you a useful starting point without sending confidential information to AI.\n\nStart with a tool your employer permits. Some tools can work inside a document: Microsoft\u2019s current Copilot in Word guidance describes drafting from an outline or reference files, then revising the draft. Availability depends on your subscription and organization\u2019s settings. Being able to attach a file does not mean that file is permitted\u2014use only material approved for that tool.\n\nFor an update that keeps project facts out of AI, give it safe context: who will read the update, what they need from it and how long it should be. For example: \u201cMy manager needs a short weekly update showing progress and decisions needed. Create a blank format under 200 words with questions to help me fill it in. Leave project facts as placeholders.\u201d If you have a blank company template that is approved for sharing, use it as a reference.\n\nInspect the structure before filling it in. Does it make room for a delay, its consequence and the help you need? If not, ask for that specific change. Then add this week\u2019s facts yourself in the approved work document. Keep confidential notes outside AI; changing names alone may still leave identifying details.\n\nBefore sending, compare every date, number, status and commitment with your records. Check what was left out, too: \u201con track\u201d could mislead your manager if it depends on an approval that has not arrived. AI can help find gaps when you are allowed to share the material, but its reassurance is not independent verification.\n\nSave the empty format and useful instructions for next week. Replace the facts and check them again. Reusing the structure saves work; carrying forward an old deadline creates new work.",
+          "locator": "Complete 315-word weekly-update answer"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact answer proceeds from permitted tool/material through audience-specific structure, a targeted revision, adding facts outside AI, checking facts and omissions, and saving the empty structure. No capability is treated as permission. ",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use AI to build the structure, then add and check the real project facts in your company\u2019s approved document system. That gives you a useful starting point without sending confidential information to AI.\n\nStart with a tool your employer permits. Some tools can work inside a document: Microsoft\u2019s current Copilot in Word guidance describes drafting from an outline or reference files, then revising the draft. Availability depends on your subscription and organization\u2019s settings. Being able to attach a file does not mean that file is permitted\u2014use only material approved for that tool.\n\nFor an update that keeps project facts out of AI, give it safe context: who will read the update, what they need from it and how long it should be. For example: \u201cMy manager needs a short weekly update showing progress and decisions needed. Create a blank format under 200 words with questions to help me fill it in. Leave project facts as placeholders.\u201d If you have a blank company template that is approved for sharing, use it as a reference.\n\nInspect the structure before filling it in. Does it make room for a delay, its consequence and the help you need? If not, ask for that specific change. Then add this week\u2019s facts yourself in the approved work document. Keep confidential notes outside AI; changing names alone may still leave identifying details.\n\nBefore sending, compare every date, number, status and commitment with your records. Check what was left out, too: \u201con track\u201d could mislead your manager if it depends on an approval that has not arrived. AI can help find gaps when you are allowed to share the material, but its reassurance is not independent verification.\n\nSave the empty format and useful instructions for next week. Replace the facts and check them again. Reusing the structure saves work; carrying forward an old deadline creates new work.",
+          "locator": "Complete 315-word weekly-update answer"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Bounded question retained throughout. No terminology list, decorative analogy or repeated prompt scaffold; facts and missing conditions checked before saving the empty format.",
+      "artifactLocator": "work-ai-help.txt"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/cyber-canada-current.txt",
+        "sha256": "2dfdc59c3efed54f6fe69743ce9f534fb6085b8de2dedd0a75eb82cc5df79bb3"
+      },
+      {
+        "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/opc.txt",
+        "sha256": "ad02022309f09b0502162b6ded4df63685c66d08a5a3e7baac5932dbfb548047"
+      },
+      {
+        "path": "operations/product-stewards/library/answer-bank-interaction-repair-20260907/sources/microsoft-drafting.txt",
+        "sha256": "6affd558bf0d0680cef40879fea66836de6e3ef13b90855d5a39adea1ef86028"
+      },
+      {
+        "path": "operations/product-stewards/library/answer-bank-interaction-repair-20260907/sources/microsoft-validation.txt",
+        "sha256": "b50d45695da80c50f7df302de1df3472018ba047a5aedadb808347de15261eb6"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "drafting",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Availability depends on your subscription and organization\u2019s settings.",
+            "locator": "paragraph2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/answer-bank-interaction-repair-20260907/sources/microsoft-drafting.txt",
+          "sha256": "6affd558bf0d0680cef40879fea66836de6e3ef13b90855d5a39adea1ef86028"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "it might not be included with your Microsoft 365 subscription or available based on your organization\u2019s settings.",
+            "locator": "Microsoft draft guide"
+          }
+        ],
+        "scopeAndFreshness": "Current retrieved official end-user support, no publication date displayed; no numerical limits or account entitlement asserted."
+      },
+      {
+        "claimId": "validation",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Check what was left out, too:",
+            "locator": "paragraph5"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/answer-bank-interaction-repair-20260907/sources/microsoft-validation.txt",
+          "sha256": "b50d45695da80c50f7df302de1df3472018ba047a5aedadb808347de15261eb6"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Often the real issue is a missing caveat, a dropped dependency, or an overconfident conclusion.",
+            "locator": "Microsoft validation guide"
+          }
+        ],
+        "scopeAndFreshness": "Current retrieved official guidance; update example is an illustrative application, not a reported event."
+      }
+    ],
+    "reviewedThrough": "2026-09-07",
+    "nextTrigger": "Source content change, failed source retrieval, altered answer/alias or seven-day expiry.",
+    "correctionOwner": "Learning / Miss Jeeves"
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessor": {
+      "path": "operations/product-stewards/library/answer-bank-preview-20260907/work-ai-help-producer-review.json",
+      "sha256": "78d70aebe9099d5e7c1182bbc63b9d6a4d7e4ad8445c5d5cf357a90b6b1ced6f"
+    },
+    "reason": "Owner requested full current workflow beyond prompting; preceding work-specific answer had narrower accepted scope.",
+    "predecessorCandidateId": "MJQ-005-preview-20260907-owner-rejected",
+    "comparisonReason": "Compare the end-to-end broad-question experience Ali rejected after two rendered review cycles: clipped question, irrelevant opening, prompt-only scope, weak source scope, missing clarification. Exact work-specific predecessor remains separately bound for retained content."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW",
+    "priorComparable": {
+      "reviewIssues": 5,
+      "reviewCycles": 2,
+      "evidence": "operations/product-stewards/library/answer-bank-interaction-repair-20260907/brief.md"
+    }
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Known source-scope, anonymization and unrelated-link defects repaired during production before this public-interface candidate review."
+  },
+  "reverseBrief": {
+    "humanQuestion": "My boss wants a weekly project update. How can AI help me prepare it without sharing confidential information?",
+    "promisedPayoff": "Complete a repeatable weekly-update workflow without sending confidential facts to AI.",
+    "centralMentalModel": "The tool can propose structure without project secrets. Keep sensitive facts outside the prompt; labels alone do not erase context. Fill and check facts in the approved work system.",
+    "dailyLifeConnection": "Ask for headings and placeholders, then add facts inside the approved company document.",
+    "surfaceJob": "A concise reviewed answer to an explicit question, with sources and correction controls.",
+    "desiredReaderFeeling": "Able to take one useful step while retaining judgement."
+  }
+}

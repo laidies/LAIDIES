@@ -187,3 +187,8 @@ library-interior-purple-sign-wall-v7-clean-metal-stacks.png
 library-wall-case-2bay-clean-v1.png
 commit:75dc0f97
 ```
+
+
+## 2026-09-07 — Guided questions and substantive freshness
+
+Ali requires Miss Jeeves to help a visitor form an answerable question with relevant examples and follow-up, without assuming a failed attempt. The answer must address the clarified task with current primary guidance beyond prompting alone. Source availability or unchanged bytes do not establish contemporary completeness. Reuse requires matching conditions plus a still-valid substantive review; changed claims, expired evidence or materially newer guidance require refresh or withholding. Current work completes one bounded guided preview; production and general paid research remain outside this release.

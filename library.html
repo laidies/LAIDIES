@@ -99,6 +99,13 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .jv-sources a{color:#8f2e67;font-weight:750;text-underline-offset:3px}
 .jv-answer-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 4px;color:#31566f;font-size:12px;font-weight:800}
 .jv-answer-meta span{border:1px solid #9ed8d1;border-radius:999px;background:#eafff8;padding:6px 10px}
+.jv-question-context{margin:0 0 20px;padding:0 0 16px;border-bottom:1px solid #d9def2;color:#121b40;overflow-wrap:anywhere}
+.jv-question-context h3{white-space:normal;line-height:1.35;margin:5px 0 10px}
+.jv-question-context p{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5}
+.jv-clarification-form{display:grid;gap:12px;margin-top:16px}
+.jv-clarification-form label{font-size:18px;font-weight:700;line-height:1.5}
+.jv-clarification-form textarea{box-sizing:border-box;width:100%;min-height:95px;padding:12px;border:2px solid #657098;border-radius:10px;background:#fff;color:#121b40;font:inherit;line-height:1.5;resize:vertical}
+.jv-clarification-form button{justify-self:start;min-height:44px;padding:10px 22px;background:#f254a9;color:#121b40;border:1px solid #121b40;border-radius:24px;font:inherit;font-weight:700;cursor:pointer}
 .jv-answer-copy{max-width:900px}
 .jv-answer-copy p{font-size:16px;line-height:1.6;margin:9px 0;color:#3e3043;white-space:normal}
 .jv-allowance{margin:12px 0 0!important;color:#31566f!important;font-size:13px!important;font-weight:750}
@@ -959,6 +966,25 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
+/* Reference desk: question-first layout across narrow windows and zoom. */
+#miss-jeeves{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start;padding:32px clamp(20px,4vw,64px)}
+#miss-jeeves>.jv-head,#miss-jeeves>.jv-form,#miss-jeeves>.jv-privacy,#miss-jeeves>.jv-beta,#miss-jeeves>.jv-chips,#miss-jeeves>.jv-results{grid-column:1;grid-row:auto;min-width:0}
+#miss-jeeves>.jv-head{margin:0;gap:8px}
+#miss-jeeves .jv-head .h{font-size:clamp(32px,4vw,48px)}
+#miss-jeeves .jv-head .h small{max-width:65ch;font-size:17px;text-shadow:none}
+#miss-jeeves .jv-form{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:stretch;gap:12px}
+#miss-jeeves .jv-form textarea{box-sizing:border-box;width:100%;min-width:0;min-height:100px;padding:14px 16px;background:var(--cream);color:var(--ink);border:2px solid var(--sky);border-radius:10px;font:400 18px/1.5 Jost,system-ui,sans-serif;resize:vertical;white-space:pre-wrap;overflow-wrap:anywhere}
+#miss-jeeves .jv-form textarea:focus{outline:3px solid var(--cyan);outline-offset:2px}
+#miss-jeeves .jv-form button{min-height:48px;padding:12px 20px;font-size:16px}
+#miss-jeeves .jv-beta{order:5;padding:9px 14px;font-size:14px;max-width:75ch}
+#miss-jeeves .jv-beta summary{cursor:pointer;font-weight:700}
+#miss-jeeves .jv-beta p{margin:8px 0 0}
+#miss-jeeves .jv-chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#miss-jeeves .jv-chips>b{grid-column:1/-1}
+#miss-jeeves .jv-chip{text-align:left;border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.4;white-space:normal;overflow-wrap:anywhere}
+#miss-jeeves .jv-results{order:4;margin-top:0}
+#miss-jeeves .jv-answer h3{font-family:Jost,system-ui,sans-serif}
+@media(max-width:700px){#miss-jeeves .jv-form,#miss-jeeves .jv-chips{grid-template-columns:1fr}#miss-jeeves .jv-form button{justify-self:start}#miss-jeeves .jv-head .h small{font-size:16px}}
 </style>
 <link rel="stylesheet" href="/assets/library-reader/ai-fundamentals-imagegen-reader-v5.css">
   <meta property="og:url" content="https://laidies.ai/library" />
@@ -992,9 +1018,9 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <span class="jv-kicker">Reference desk</span>
       <div class="h" id="miss-jeeves-title">Ask Miss Jeeves<small>Search LAiDIES in plain words. Need more? Ask Miss Jeeves to research beyond the site.</small></div>
     </div>
-    <p class="jv-beta"><strong>Miss Jeeves is in beta.</strong> She works best with questions about LAiDIES, its lessons and its trusted resources. We&rsquo;re still testing and improving how she researches and explains broader questions about AI. Please check the sources she provides and tell us when an answer misses the mark.</p>
+    <details class="jv-beta"><summary>Miss Jeeves is in beta</summary><p>She works best with questions about LAiDIES, its lessons and its trusted resources. We’re still testing broader AI research. Check the sources and tell us when an answer misses the mark.</p></details>
     <form class="jv-form">
-      <input id="jv-q" type="text" autocomplete="off" placeholder="Ask your question about AI or using it at work" aria-label="Ask Miss Jeeves a question">
+      <textarea id="jv-q" rows="3" maxlength="240" autocomplete="off" placeholder="Ask your question about AI or using it at work" aria-label="Ask Miss Jeeves a question"></textarea>
       <button type="submit">Search LAiDIES</button>
     </form>
     <p class="jv-privacy">Do not include private, confidential or account information. Miss Jeeves does not save ordinary search wording. <a href="/privacy.html#miss-jeeves">Privacy details</a>.</p>
@@ -1358,15 +1384,33 @@ function jeevesTopicRequestForm(topicId){
         <div class="jv-request-controls"><button type="submit" id="jv-request-submit">Ask LAiDIES to cover this</button><span class="jv-request-status" id="jv-request-status" role="status" aria-live="polite"></span></div>
       </form>`;
 }
-function renderJeevesService(payload,query){
+function jeevesQuestionContext(query,conversation){
+ const original=conversation?.originalQuestion||query;
+ return `<div class="jv-question-context"><span>Your question</span><h3>${escapeJeevesText(original)}</h3>${(conversation?.turns||[]).map(turn=>`<p><strong>Miss Jeeves asked:</strong> ${escapeJeevesText(turn.question)}</p><p><strong>Your reply:</strong> ${escapeJeevesText(turn.reply)}</p>`).join('')}</div>`;
+}
+function renderJeevesService(payload,query,conversation=null){
+ renderJeevesServiceBody(payload,query,conversation);
+ const box=document.getElementById('jv-results');
+ if(!box.querySelector('.jv-question-context'))(box.querySelector('.jv-answer,.jv-limit,.jv-error')||box).insertAdjacentHTML('afterbegin',jeevesQuestionContext(query,conversation));
+}
+function renderJeevesServiceBody(payload,query,conversation){
   const box=document.getElementById('jv-results');
   if(!payload||typeof payload!=='object'||typeof payload.status!=='string'||typeof payload.answer!=='string'){
-    renderJeevesServiceError(query);return;
+    renderJeevesServiceError(query,null,conversation);return;
   }
   if(payload.guestToken)rememberJeevesGuestToken(payload.guestToken);
   if(payload.status==='clarification_required'){
-    box.innerHTML=`<section class="jv-answer"><h3>One detail first</h3><p>${escapeJeevesText(payload.answer)}</p><p>Add that detail to your question above. Searching LAiDIES is always available.</p></section>`;
-    const input=document.getElementById('jv-q');input.value=query;input.focus();return;
+    box.innerHTML=`<section class="jv-answer"><h3>One detail first</h3><form class="jv-clarification-form"><label for="jv-follow-up">${escapeJeevesText(payload.answer)}</label><textarea id="jv-follow-up" rows="3" maxlength="240" required></textarea><button type="submit">Continue</button></form></section>`;
+    const followForm=box.querySelector('.jv-clarification-form');
+    if(payload.hint){const hint=document.createElement('p');hint.textContent=payload.hint;followForm.querySelector('label').after(hint);}
+    const choices=document.createElement('div');choices.className='jv-guided-choices';choices.style.cssText='display:flex;flex-wrap:wrap;gap:10px';
+    (Array.isArray(payload.choices)?payload.choices:[]).filter(choice=>typeof choice==='string'&&choice.length<=240).forEach(choice=>{const button=document.createElement('button');button.type='button';button.textContent=choice;button.style.cssText='white-space:normal;text-align:left;max-width:100%;overflow-wrap:anywhere';button.addEventListener('click',()=>{box.querySelector('#jv-follow-up').value=choice;followForm.requestSubmit();});choices.appendChild(button);});
+    followForm.querySelector('textarea').before(choices);
+    followForm.addEventListener('submit',event=>{
+      event.preventDefault();const reply=box.querySelector('#jv-follow-up').value.trim();if(!reply)return;
+      askMissJeeves(reply,'search',{originalQuestion:conversation?.originalQuestion||query,turns:[...(conversation?.turns||[]),{question:payload.answer,reply}]});
+    });
+    box.querySelector('#jv-follow-up').focus();return;
   }
   if(payload.status==='search_results'){
     const results=Array.isArray(payload.results)?payload.results:[];
@@ -1382,7 +1426,7 @@ function renderJeevesService(payload,query){
     if(!results.length)document.getElementById('jv-topic-request').addEventListener('submit',event=>submitJeevesTopicRequest(event,query));
     box.dataset.topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
     document.getElementById('jv-research').addEventListener('click',event=>{
-      event.currentTarget.disabled=true;askMissJeeves(query,'research');
+      event.currentTarget.disabled=true;askMissJeeves(query,'research',conversation);
     },{once:true});
     return;
   }
@@ -1392,7 +1436,7 @@ function renderJeevesService(payload,query){
     return;
   }
   if(payload.status==='unavailable'){
-    renderJeevesServiceError(query,payload);return;
+    renderJeevesServiceError(query,payload,conversation);return;
   }
   if(payload.status==='not_covered'){
     const topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
@@ -1402,7 +1446,7 @@ function renderJeevesService(payload,query){
     return;
   }
   if(!['ok','related'].includes(payload.status)||!Array.isArray(payload.results)){
-    renderJeevesServiceError(query);return;
+    renderJeevesServiceError(query,null,conversation);return;
   }
   const links=jeevesSourceLinks(payload.results);
   const citations=(Array.isArray(payload.citations)?payload.citations:[]).map(source=>{
@@ -1459,17 +1503,17 @@ async function submitJeevesTopicRequest(event,query){
   status.dataset.state='error';status.textContent=error.message==='private_content_prohibited'?'Please remove private or confidential information before sending.':'Nothing was lost here; try again.';button.disabled=false;
  }
 }
-function renderJeevesServiceError(query,payload=null){
+function renderJeevesServiceError(query,payload=null,conversation=null){
  const box=document.getElementById('jv-results');
- box.innerHTML=`<section class="jv-error" role="alert"><p>${escapeJeevesText(payload?.answer||"Miss Jeeves cannot complete that request right now. Your question is still here.")}</p><button type="button" id="jv-service-retry">Search LAiDIES</button></section>${Array.isArray(payload?.results)?`<div class="jv-answer-links">${jeevesSourceLinks(payload.results)}</div>`:""}`;
+ box.innerHTML=`<section class="jv-error" role="alert">${jeevesQuestionContext(query,conversation)}<p>${escapeJeevesText(payload?.answer||"Miss Jeeves cannot complete that request right now. Your question is still here.")}</p><button type="button" id="jv-service-retry">Search LAiDIES</button></section>${Array.isArray(payload?.results)?`<div class="jv-answer-links">${jeevesSourceLinks(payload.results)}</div>`:""}`;
  document.getElementById('jv-service-retry').addEventListener('click',event=>{
-   event.currentTarget.disabled=true;askMissJeeves(query);
+   event.currentTarget.disabled=true;askMissJeeves(query,'search',conversation);
  },{once:true});
 }
 let jeevesServiceRequest=0;
 let jeevesPlacement='library';
 let jeevesPendingResearch=null;
-async function askMissJeeves(value,intent='search'){
+async function askMissJeeves(value,intent='search',conversation=null){
   const query=String(value||'').trim().slice(0,240);
   const questionInput=document.getElementById('jv-q');
   questionInput.setSelectionRange(0,0);questionInput.scrollLeft=0;
@@ -1489,7 +1533,7 @@ async function askMissJeeves(value,intent='search'){
     const response=await fetch('/api/miss-jeeves',{
       method:'POST',credentials:'same-origin',redirect:'error',cache:'no-store',
       headers,
-      body:JSON.stringify({query,intent,researchAttemptId,placement:jeevesPlacement,guestToken:accessToken?'':guestToken})
+      body:JSON.stringify({query,intent,researchAttemptId,placement:jeevesPlacement,guestToken:accessToken?'':guestToken,clarification:conversation?{originalQuestion:conversation.originalQuestion}:undefined})
     });
     const payload=await response.json();
     if(researchAttemptId&&jeevesPendingResearch?.id===researchAttemptId)jeevesPendingResearch=null;
@@ -1498,9 +1542,9 @@ async function askMissJeeves(value,intent='search'){
       box.innerHTML=`<p class="jv-none" role="alert">${escapeJeevesText(payload.answer||'Please remove private or confidential information before asking.')}</p>`;return;
     }
     if(!response.ok&&!['unavailable','limit_reached'].includes(payload?.status))throw new Error('Miss Jeeves service failed');
-    renderJeevesService(payload,query);
+    renderJeevesService(payload,query,conversation);
   }catch(error){
-    if(requestId===jeevesServiceRequest)renderJeevesServiceError(query);
+    if(requestId===jeevesServiceRequest)renderJeevesServiceError(query,null,conversation);
   }
 }
 document.querySelector('.jv-form').addEventListener('submit',event=>{
@@ -2059,7 +2103,9 @@ if(location.hash.startsWith('#miss-jeeves?')){
   if(query){
     const input=document.getElementById('jv-q');
     input.value=query;
-    askMissJeeves(query);
+    let conversation=null;
+    try{const value=JSON.parse(incomingParams.get('conversation')||'null');if(value&&typeof value.originalQuestion==='string'&&value.originalQuestion.length<=240&&Array.isArray(value.turns)&&value.turns.length<=8&&value.turns.every(t=>typeof t.question==='string'&&typeof t.reply==='string'&&t.question.length<=240&&t.reply.length<=240))conversation=value;}catch{}
+    askMissJeeves(query,'search',conversation);
   }
 }
 function paintLibrarySavedCount(){

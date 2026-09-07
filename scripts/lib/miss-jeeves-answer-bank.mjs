@@ -1,4 +1,6 @@
 const encoder = new TextEncoder();
+// Owner rejected this exact broad, prompt-only answer on 2026-09-07. Preserve history; prevent reuse.
+const WITHDRAWN_ANSWERS = new Set(['070e397c1e85ad7144d60629e114ba9627b952bacafef49a5bfb6f38634d27a5','43ed302c9450b78bcbf07f12227de5f935fe0b44f95df07fffa4c964884982e0']);
 
 function stable(value) {
   if (Array.isArray(value)) return `[${value.map(stable).join(',')}]`;
@@ -123,6 +125,7 @@ export async function lookupReviewedAnswer(db, question, { now = new Date().toIS
   for (const row of rows) versions.set(row.answer_version_id, { ...row, aliases: String(row.all_aliases || '').split(String.fromCharCode(31)).filter(Boolean).sort() });
   if (versions.size !== 1) return { status: 'miss', reason: versions.size ? 'ambiguous_alias' : 'no_alias' };
   const row = [...versions.values()][0];
+  if (WITHDRAWN_ANSWERS.has(row.answer_fingerprint)) return {status:'miss',reason:'owner_withdrawn'};
   const record = {
     answerKey: row.answer_key, canonicalQuestion: row.canonical_question, answer: row.answer_text,
     sources: parseJson(row.sources_json), aliases: row.aliases, relatedLaidiesConcepts: parseJson(row.related_laidies_json),

@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {DatabaseSync} from 'node:sqlite';
 import worker from '../_worker.js';
+import {clarificationForQuestion} from './lib/miss-jeeves-clarification.mjs';
 import {importReviewedAnswer,lookupReviewedAnswer} from './lib/miss-jeeves-answer-bank.mjs';
 import {checkReviewedSources} from './lib/miss-jeeves-source-check.mjs';
 const [recordFile,questionsFile]=process.argv.slice(2);
@@ -14,8 +15,13 @@ let paid=0;
 const env={MISS_JEEVES_DB:db,MISS_JEEVES_ANSWER_BANK_ENABLED:'true',MISS_JEEVES_ANSWER_BANK_SOURCE_POLICY_VERSION:record.sourcePolicyVersion,ASSETS:{async fetch(){return Response.json({_meta:{schema:'laidies-miss-jeeves-index.v1'},entries:[]});}},FAIRY_AI:{async fetch(){paid++;throw Error('Unexpected paid call');}}};
 const ask=query=>worker.fetch(new Request('https://laidies.ai/api/miss-jeeves',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({query,intent:'search'})}),env).then(r=>r.json());
 const displayAnswer=record.answer.replace(/\s*\(\[[^\]]+\]\(https:\/\/[^)]+\)\)/g,'');
-const primary=await ask(record.canonicalQuestion);assert.equal(primary.mode,'reviewed-answer','fresh real source must permit reviewed answer');assert.equal(primary.answer,displayAnswer);assert.deepEqual(primary.results,[],'unreviewed search matches must not be advertised as extensions of the reviewed answer');
-for(const alias of record.aliases){const r=await ask(alias);assert.equal(r.mode,'reviewed-answer');assert.equal(r.answer,displayAnswer);}
+const primary=await ask(record.canonicalQuestion);
+for(const wording of [record.canonicalQuestion,...record.aliases]){
+ const r=await ask(wording);
+ if(clarificationForQuestion(wording)){assert.equal(r.mode,'clarification');assert.equal(r.answer,'What would you like AI to help you do?');}
+ else{assert.equal(r.mode,'reviewed-answer');assert.equal(r.answer,displayAnswer);}
+ assert.deepEqual(r.results,[]);
+}
 const misleadingQuestions=[
  record.canonicalQuestion+' For my confidential contract.',
  record.canonicalQuestion+' In Gemini for medical diagnosis.',
@@ -37,7 +43,7 @@ const misleadingQuestions=[
 for(const question of misleadingQuestions)assert.equal((await ask(question)).status,'search_results',question);
 
 const questions=JSON.parse(fs.readFileSync(questionsFile,'utf8')).questions;assert.equal(questions.length,50);
-for(const q of questions){const r=await ask(q.question);assert.equal(r.mode,q.question===record.canonicalQuestion?'reviewed-answer':'site-search',q.id);}
+for(const q of questions){const r=await ask(q.question);assert.equal(r.mode,clarificationForQuestion(q.question)?'clarification':q.question===record.canonicalQuestion?'reviewed-answer':'site-search',q.id);}
 assert.equal(paid,0,'50 routing cases and aliases must never spend on search');
 const closed=await lookupReviewedAnswer(db,record.canonicalQuestion,{sourcePolicyVersion:record.sourcePolicyVersion,checkSources:args=>checkReviewedSources(args,{fetchImpl:async()=>new Response('',{status:403})})});assert.equal(closed.status,'miss');
-console.log('PASS real-source bank integration: canonical + aliases, 16 misleading near matches, all 50 routing cases, blocked source, zero provider calls.');
+console.log('PASS bank routing: broad canonicals/aliases clarify, 16 misleading near matches, all 50 cases, withdrawn or unchecked record refuses reuse, zero provider calls.');

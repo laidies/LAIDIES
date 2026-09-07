@@ -1,0 +1,153 @@
+{
+  "principalId": "opus5-independent-reviewer",
+  "modelFamily": "claude-opus-5",
+  "artifactFirst": true,
+  "verdict": "PASS",
+  "sha256": "9ecaa0e1f9970b2e72cd0f97e011294f49249fd484ddb12c35c82b68160ca4af",
+  "scores": {
+    "clarity": 3,
+    "usefulness": 4,
+    "mentalModel": 3,
+    "voice": 3,
+    "concise": 4
+  },
+  "hardGates": {
+    "direct_complete_answer": "PASS",
+    "claim_source_fidelity": "PASS",
+    "freshness_and_unknowns": "PASS",
+    "beginner_comprehension": "PASS",
+    "useful_mechanism_or_decision_logic": "PASS",
+    "laidies_relationship_integrity": "PASS",
+    "privacy_and_safety": "PASS",
+    "no_known_slop": "PASS"
+  },
+  "scoreTotal": 17,
+  "thresholdMet": true,
+  "gateNotes": {
+    "direct_complete_answer": "Answers the literal question in the first sentence (AI builds structure; facts go in the approved document system), then covers tool permission, prompt, structure inspection, fact-check, and reuse. No deferral to a checklist or to a later article.",
+    "claim_source_fidelity": "The only sourced product claim \u2014 Copilot in Word drafting from an outline or reference files then revising, with availability dependent on subscription and organization settings \u2014 matches microsoft-drafting, including its own note about subscription/organization settings. 'Its reassurance is not independent verification' matches microsoft-validation's 'Copilot can help you validate its output\u2014but it can't certify its own correctness.' No entitlement, retention, or version claim is asserted beyond what the sources carry.",
+    "freshness_and_unknowns": "No version numbers, word limits, or feature-availability guarantees. 'Microsoft's current Copilot in Word guidance' plus the permission caveat carries the boundary without dating a live-fetched page. The 'attaching a file does not mean it is permitted' line correctly separates technical capability from policy entitlement, which is the live-drift risk in this topic.",
+    "beginner_comprehension": "No undefined jargon. 'Blank format', 'placeholders', 'approved work document' are all plain. A reader who has never opened an AI tool could execute this.",
+    "useful_mechanism_or_decision_logic": "Three transferable mechanisms: safe-context prompting (audience, need, length, placeholders), an inspection test on the structure before filling it (delay / consequence / help needed), and an omission check on send ('on track' hiding a missing approval). The reuse rule at the end is decision logic, not filler.",
+    "laidies_relationship_integrity": "Reader is treated as the accountable professional throughout; AI is the drafting instrument. No assumed failure, no scolding about confidentiality, no lecture on why AI is dangerous. Deficit only in warmth and signature \u2014 recorded in voice, not as a gate breach.",
+    "privacy_and_safety": "The confidentiality control is architectural rather than exhortative: facts never enter the tool, they enter the approved document. 'Changing names alone may still leave identifying details' closes the pseudonymization loophole that a beginner would otherwise walk into. Accountability stays with the reader.",
+    "no_known_slop": "None of the three rejected patterns present: no dictionary-style concept blocks (CQX-BAD-001/002), no numbered end-of-article homework (CQX-BAD-003), no explainer scaffolding. Prose is continuous and task-bound."
+  },
+  "materialDefects": [],
+  "limitations": [
+    "Voice is competent-plain rather than LAiDIES-distinct. It carries no cultural signature, no warmth, and no line a reader would repeat. It is at the floor of acceptable, not above it.",
+    "The full example prompt is visible and usable, but the reusable pattern is left implicit \u2014 the reader must infer the audience/need/length/placeholder slots rather than being handed the shape. The predecessor's explicit 'help me do [job], for [audience]...' template was stronger on that one axis.",
+    "'Some tools can work inside a document' generalizes from a single Microsoft source; no second product is named, so a reader on a non-Microsoft stack gets the principle but no anchor.",
+    "The final paragraph's closing contrast ('Reusing the structure saves work; carrying forward an old deadline creates new work') is the one line that leans on rhetorical symmetry rather than new information."
+  ],
+  "modelExplainBack": "The reader's constraint is that the facts are confidential and the structure is not. So the answer splits the task along exactly that seam: AI produces a fact-free container, and every real date, number, status, and commitment is entered and verified inside the employer's approved document system. Everything else in the piece protects that seam. Tool permission comes first because the split is worthless if the tool itself is unsanctioned, and 'you can attach it' is separated from 'you are allowed to attach it' because the interface does not enforce policy. The example prompt is shown in full so the reader can see that useful context \u2014 audience, purpose, length \u2014 contains no project facts; placeholders are what make that possible. The structure is inspected before filling because a container that has no slot for a delay will quietly produce an update that omits the delay. Verification is framed as comparing against the reader's own records and as checking omissions, because the failure mode here is not a fabricated number but a true-sounding 'on track' that rests on an approval that never arrived. And the closing note that AI's reassurance is not independent verification prevents the reader from using the tool to certify its own output. Accountability never moves off the reader.",
+  "unseenTransfer": "The reader could apply the same split to a monthly client report, an incident write-up, or a board summary: get the container from AI, keep the facts in the sanctioned system, inspect the container for the slot the bad news would occupy, then check both what is stated and what is silently absent before sending. The 'blank format plus questions plus placeholders' request transfers to any document where the shape is generic and the content is restricted.",
+  "calibration": {
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "HOLD",
+        "identifiedFailureFamilies": [
+          "glossary_template",
+          "definition_before_need",
+          "analogy_plus_disclaimer_ritual",
+          "reader_gets_vocabulary_not_capability"
+        ],
+        "evidence": [
+          {
+            "excerpt": "An AI system receives input and produces an output such as content, a prediction, a recommendation or a decision.",
+            "locator": "CQX-BAD-001, 'AI system' entry"
+          },
+          {
+            "excerpt": "Think of a workplace team... Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "CQX-BAD-001, 'AI system' entry, analogy block"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk or use the catalogue, calculator or scanner.",
+            "locator": "CQX-BAD-001, 'Tool' entry"
+          }
+        ],
+        "observation": "Every term follows an identical four-beat cassette \u2014 definition, analogy, 'Where it stops', 'In real life', boundary line. The rigidity is the defect: the reader is walked through nine terms before any of them changes a decision, and the disclaimers are ritual rather than load-bearing. The reviewed artifact avoids this entirely \u2014 it defines nothing and still leaves the reader able to act, because each idea appears at the moment it changes the next step."
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "HOLD",
+        "identifiedFailureFamilies": [
+          "explainer_scaffolding",
+          "bolded_term_introduction",
+          "terminal_numbered_checklist",
+          "roadmap_and_forward_reference_padding"
+        ],
+        "evidence": [
+          {
+            "excerpt": "The information available to the system for this run is its **context**.",
+            "locator": "CQX-BAD-002, Ch.1, 'What the product actually received'"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** ... 4. **What must remain my decision or another person's responsibility?**",
+            "locator": "CQX-BAD-002, Ch.1, 'The output is not the decision'"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits...",
+            "locator": "CQX-BAD-002, Ch.1, closing paragraph"
+          }
+        ],
+        "observation": "Materially better than CQX-BAD-001 \u2014 the job-offer scenario is concrete and the repair pattern is genuinely useful \u2014 but it still converts a lived decision into curriculum: bolded vocabulary drops, a four-question homework list, an arrow-diagram map, and a forward-reference inventory of chapters to come. The reviewed artifact reaches a comparable diagnostic ('does it make room for a delay, its consequence and the help you need?') inside running prose, with no bolding, no numbering, and no promise of a later chapter."
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "HOLD",
+        "identifiedFailureFamilies": [
+          "explainer_template_over_narrative",
+          "dictionary_interruption_of_reporting",
+          "checklist_ending_as_homework",
+          "policy_memo_voice_missing_human_tension"
+        ],
+        "evidence": [
+          {
+            "excerpt": "**Externalities** are costs or benefits a decision creates for people who did not make the decision.",
+            "locator": "CQX-BAD-003, 'The concepts that make the story legible'"
+          },
+          {
+            "excerpt": "For a proposal near you, ask five things: 1. What annual and peak electricity and water demand...",
+            "locator": "CQX-BAD-003, pre-'What to keep watching'"
+          },
+          {
+            "excerpt": "somewhere \"the cloud\" keeps its coat",
+            "locator": "CQX-BAD-003, opening paragraph"
+          }
+        ],
+        "observation": "Sourcing and hedging are careful \u2014 the poll caveats and the New York pause are handled honestly \u2014 which is exactly why the failure is instructive: fidelity does not rescue form. Three definitions stop the story, five questions convert the ending into assignment, and one light clause cannot supply the human stake. The reviewed artifact carries a comparable evidentiary load (a Microsoft capability, an availability caveat, a validation principle) without a single definitional aside, confirming the two are separable."
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-STRAIGHT-ANSWERS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Answers first, qualifies second \u2014 the reviewed artifact opens with the method rather than with preamble about why confidentiality matters.",
+        "Separates what is established from what is not: 'Availability depends on your subscription and organization's settings' plays the same role as the exemplar's 'Where it's contested' band, without importing the exemplar's section furniture.",
+        "Names the specific wrong belief to discard \u2014 'Being able to attach a file does not mean that file is permitted' mirrors the exemplar's 'The myth to drop' move in one inline sentence.",
+        "Leaves the reader with agency and a next action rather than an assignment.",
+        "Marks the boundary of AI's authority explicitly, as the exemplar does with its confidence labels."
+      ],
+      "evidence": [
+        {
+          "excerpt": "Not wholesale \u2014 and \"replacing\" is the wrong word for what's happening.",
+          "locator": "CQX-GOOD-STRAIGHT-ANSWERS-001, 'Is AI replacing jobs right now?', first line"
+        },
+        {
+          "excerpt": "The losses are already measured while the gains are still projected",
+          "locator": "CQX-GOOD-STRAIGHT-ANSWERS-001, 'Where it's contested'"
+        },
+        {
+          "excerpt": "\"AI creates more than it destroys, so relax\" overstates it the other way \u2014 that's a projection, not a result yet.",
+          "locator": "CQX-GOOD-STRAIGHT-ANSWERS-001, 'The myth to drop'"
+        }
+      ],
+      "calibrationNote": "Dated factual content in this exemplar is not admitted as source material; it is used only to calibrate structure, confidence-marking, and stance. On voice the reviewed artifact sits clearly below this exemplar \u2014 the exemplar has cadence and a point of view, the artifact has neither \u2014 which is the basis for the voice score of 3 rather than 4."
+    },
+    "calibrationInspectionNote": "Inspected independently of the artifact verdict. The three negatives share one root: a template is imposed on the reader's situation instead of the situation dictating the shape. The positive shows that rigor, hedging, and evidence survive without any template at all. The reviewed artifact belongs on the positive side of that line structurally, while falling short of the positive exemplar on voice."
+  },
+  "predecessorVerdict": "HOLD",
+  "predecessorReason": "Assessed fresh against the current owner requirement, with no inheritance of any prior verdict. It fails direct_complete_answer: the question is how AI can help prepare a weekly project update without sharing confidential information, and the predecessor answers a different, generic question \u2014 how to write a good prompt. The worked example is a vacation-policy email, not a project update, so the reader is handed no weekly-update structure, no progress/decisions/blockers shape, and no method for keeping project facts out while still producing a usable draft. Confidentiality \u2014 the operative constraint in the question \u2014 appears only in a single closing paragraph as exhortation ('Keep confidential, personal and workplace details out unless you know you have permission'), with no mechanism: no placeholders, no separation between a fact-free container and an approved document system, no warning that renaming leaves identifying detail. It also fails useful_mechanism_or_decision_logic for this task: the reusable brief pattern is genuinely good general craft and transfers well, but it is task-agnostic, and the owner requires a complete task-specific answer. Secondary gaps: no verification step against records before sending to a manager, and no anchoring to any admitted source. Its real strengths \u2014 the explicit '[job] / [audience] / [context] / [format]' template and the concrete correction examples \u2014 are the one axis on which it beats the reviewed artifact, and are worth carrying forward rather than discarding."
+}

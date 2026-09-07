@@ -236,3 +236,6 @@ Remaining: complete hosted candidate verification and exact presentation admissi
 
 
 2026-09-07 — Miss Jeeves four-answer preview ADMITTED AND OPEN: owner approved completed two-reviewer route; exact scoped checker passes with four negative rejection cases. Codex in-app tab3 displays hosted7db5daeb Library and four questions. Prior presentation hold resolved; no production or general research enablement.
+
+
+2026-09-07 Miss Jeeves owner repair BUILDING: Ali rejects broad-answer detour and smaller-window layout. Current lane repairs wrapping question/response, responsive desk and neutral clarification without steering into saved weekly-update answer. General answer usefulness and contemporary-source completeness remain OPEN. New work-specific answer stays internal, not remote-imported. Resume answer-bank-interaction-repair-20260907/status.md.

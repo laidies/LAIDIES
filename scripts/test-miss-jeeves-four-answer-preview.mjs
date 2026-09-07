@@ -61,7 +61,12 @@ const ask = async query => (await worker.fetch(new Request('https://laidies.ai/a
 }), env)).json();
 
 await withFetch(fixtureFetch, async () => {
-  for (const record of records) {
+  const withdrawn = records.find(record => record.answerKey === 'MJQ-005');
+  assert.equal((await lookupReviewedAnswer(db, withdrawn.canonicalQuestion, {
+    sourcePolicyVersion: withdrawn.sourcePolicyVersion,
+    checkSources: async () => ({current: true, sourceDigest: withdrawn.sourceDigest})
+  })).reason, 'owner_withdrawn', 'withdrawn prompt answer must not be reusable');
+  for (const record of records.filter(record => record.answerKey !== 'MJQ-005')) {
     const canonical = await ask(record.canonicalQuestion);
     assert.equal(canonical.mode, 'reviewed-answer', `${record.answerKey} canonical`);
     assert.equal(canonical.answer, display(record.answer), `${record.answerKey} exact display answer`);
@@ -73,6 +78,17 @@ await withFetch(fixtureFetch, async () => {
       assert.equal(result.answer_key, record.answerKey);
     }
   }
+  for (const wording of [withdrawn.canonicalQuestion, ...withdrawn.aliases, 'How can I get useful results from AI?', 'How can I get a useful answer from AI?']) {
+    const clarification = await ask(wording);
+    assert.equal(clarification.status, 'clarification_required', `broad question must clarify: ${wording}`);
+    assert.equal(clarification.mode, 'clarification');
+    assert.equal(clarification.answer, 'What would you like AI to help you do?');
+  }
+  const workReply = await (await worker.fetch(new Request('https://laidies.ai/api/miss-jeeves', {
+    method: 'POST', headers: {'content-type': 'application/json'},
+    body: JSON.stringify({query: 'How can AI help me structure a weekly project update without sharing confidential details?', intent: 'search', clarification: {originalQuestion: withdrawn.canonicalQuestion}})
+  }), env)).json();
+  assert.equal(workReply.answer_key, 'work-ai-help', 'specific follow-up must reach its reviewed answer');
 });
 
 const changedContext = [
@@ -110,4 +126,4 @@ const changedSourceFetch = async url => {
 await withFetch(changedSourceFetch, async () => assert.equal((await ask(current.canonicalQuestion)).status, 'search_results', 'changed official source must block reuse'));
 await withFetch(async () => new Response('', { status: 503 }), async () => assert.equal((await ask(current.canonicalQuestion)).status, 'search_results', 'failed official source must block reuse'));
 assert.equal(paidCalls, 0, 'canonical, aliases, context misses and source failures must spend nothing for free search');
-console.log(`PASS four-answer preview: canonical=4 aliases=${records.reduce((count, record) => count + record.aliases.length, 0)} changed_context=16 source_blocks=3 tamper_rejected=1 paid_calls=0`);
+console.log(`PASS four-answer preview: withdrawn_broad=1 exact_answers=3 aliases=${records.filter(r=>r.answerKey!=='MJQ-005').reduce((count, record) => count + record.aliases.length, 0)} changed_context=16 source_blocks=3 tamper_rejected=1 paid_calls=0`);

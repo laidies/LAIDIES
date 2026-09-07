@@ -1,3 +1,4 @@
+import { clarificationForQuestion } from './scripts/lib/miss-jeeves-clarification.mjs';
 import { lookupReviewedAnswer } from './scripts/lib/miss-jeeves-answer-bank.mjs';
 import { checkReviewedSources } from './scripts/lib/miss-jeeves-source-check.mjs';
 const MAX_QUERY_LENGTH = 240;
@@ -360,9 +361,11 @@ async function missJeeves(request, env) {
   let placement = 'library';
   let intent = 'search';
   let researchAttemptId = '';
+  let originalQuestion = '';
   try {
     const body = await request.json();
     query = String(body?.query || '').trim();
+    originalQuestion = typeof body?.clarification?.originalQuestion === 'string' ? body.clarification.originalQuestion.trim() : '';
     placement = body?.placement === 'homepage' ? 'homepage' : 'library';
     if (body.intent !== undefined && !['search', 'research'].includes(body.intent)) return json({ status: 'error', error: 'invalid_intent' }, 400);
     intent = body.intent || 'search';
@@ -371,9 +374,13 @@ async function missJeeves(request, env) {
     return json({ status: 'error', error: 'invalid_json' }, 400);
   }
   if (!query || query.length > MAX_QUERY_LENGTH) return json({ status: 'error', error: 'invalid_query' }, 400);
-  if (containsPrivateContent(query)) {
+  if (originalQuestion.length > MAX_QUERY_LENGTH) return json({status:'error',error:'invalid_clarification'},400);
+  if (containsPrivateContent(query) || containsPrivateContent(originalQuestion)) {
     return json({ status: 'error', error: 'private_content_prohibited', answer: 'Please remove personal, confidential or account information before asking Miss Jeeves.', results: [] }, 400);
   }
+
+  const clarification = clarificationForQuestion(query,{originalQuestion});
+  if (clarification) return json({status:'clarification_required',mode:'clarification',answer:clarification.question,choices:clarification.choices||[],hint:clarification.hint||'',results:[],research_available:false});
 
   let entries;
   try {

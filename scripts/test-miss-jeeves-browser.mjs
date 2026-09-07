@@ -11,6 +11,7 @@ const runtime=process.env.PLAYWRIGHT_MODULE || '/Users/alisoneakin/.cache/codex-
 const {chromium}=await import(pathToFileURL(runtime));
 const mime={'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml'};
 async function captureSection(page, selector, file) {
+ await page.evaluate(()=>document.fonts.ready);
  await page.evaluate(()=>window.scrollTo({top:0,left:0,behavior:"instant"}));
  await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
  const clip=await page.locator(selector).boundingBox();
@@ -57,9 +58,9 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const origin=`http://127.0.0.1:${server.address().port}`;
 const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
 try{
- for(const width of [320,390,1280,1440]){
+ for(const width of (process.env.JEEVES_VIEWPORTS||'320,390,1280,1440').split(',').map(Number)){
  const context=await browser.newContext({viewport:{width,height:900}});
- await context.route('**/*',route=>route.request().url().startsWith(origin)?route.continue():route.abort());
+ await context.route('**/*',route=>(route.request().url().startsWith(origin)||/^https:\/\/(fonts\.googleapis\.com|fonts\.gstatic\.com)\//.test(route.request().url()))?route.continue():route.abort());
  const page=await context.newPage();page.setDefaultTimeout(10000);const errors=[];page.on('pageerror',error=>errors.push(error.message));
  await page.goto(`${origin}/library.html#miss-jeeves`,{waitUntil:'domcontentloaded'});
  const before=researchCalls;const aiBefore=aiCalls;
@@ -121,7 +122,32 @@ try{
  await page.unroute('**/api/miss-jeeves');
  await page.locator('#jv-q').fill('zzxxyyqqww');await page.locator('.jv-form button[type=submit]').click();
  await page.locator('#jv-topic-request').waitFor();assert.equal(await page.locator('#jv-request-consent').isChecked(),false);
- for(const reviewedRecord of reviewedRecords){
+ const broadQuestion='How do I ask AI a question so it gives me a useful answer?';
+ const beforeClarification=researchCalls;
+ const broadResponse=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/miss-jeeves');
+ await page.locator('#jv-q').fill(broadQuestion);await page.locator('.jv-form button[type=submit]').click();
+ const broadPayload=await (await broadResponse).json();
+ assert.equal(broadPayload.status,'clarification_required');assert.equal(broadPayload.answer,'What would you like AI to help you do?');
+ await page.locator('.jv-clarification-form').waitFor();
+ assert.match(await page.locator('.jv-question-context').innerText(),/How do I ask AI a question so it gives me a useful answer/);
+ assert.equal(researchCalls,beforeClarification,'clarification must not use paid research');
+ if(process.env.JEEVES_SCREENSHOT_DIR)await captureSection(page,'#miss-jeeves',path.join(process.env.JEEVES_SCREENSHOT_DIR,`clarification-initial-${width}.png`));
+ assert.equal(await page.locator('.jv-guided-choices button').count(),6);
+ const choiceResponse=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/miss-jeeves');
+ await page.getByRole('button',{name:'Write an email or document',exact:true}).click();
+ assert.match((await (await choiceResponse).json()).answer,/who will read/);
+ await page.locator('#jv-follow-up').waitFor();
+ if(process.env.JEEVES_SCREENSHOT_DIR)await captureSection(page,'#miss-jeeves',path.join(process.env.JEEVES_SCREENSHOT_DIR,`clarification-writing-${width}.png`));
+ const reply='How can AI help me structure a weekly project update without sharing confidential details?';
+ const replyResponse=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/miss-jeeves');
+ await page.locator('#jv-follow-up').fill(reply);await page.locator('.jv-clarification-form button[type=submit]').click();
+ const replyPayload=await (await replyResponse).json();assert.equal(replyPayload.answer_key,'work-ai-help',JSON.stringify(replyPayload));
+ await page.getByRole('heading',{name:'Your reviewed answer',exact:true}).waitFor();
+ const contextText=await page.locator('.jv-question-context').innerText();assert.match(contextText,/How do I ask AI a question so it gives me a useful answer/);assert.match(contextText,/Miss Jeeves asked:/);assert.match(contextText,/Your reply:/);assert.match(contextText,/What would you like AI to help you do/);assert.match(contextText,/weekly project update without sharing confidential details/);
+ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'clarification context must wrap without horizontal overflow');
+ assert.doesNotMatch(contextText,/not working/i);
+ if(process.env.JEEVES_SCREENSHOT_DIR)await captureSection(page,'#miss-jeeves',path.join(process.env.JEEVES_SCREENSHOT_DIR,`clarification-followup-${width}.png`));
+ for(const reviewedRecord of reviewedRecords.filter(record=>record.answerKey!=='MJQ-005')){
   const beforeReuse=researchCalls;
   const wordings=[reviewedRecord.canonicalQuestion,...reviewedRecord.aliases];
   const label=(await page.locator('.jv-chip').allTextContents()).find(x=>wordings.includes(x.trim()));
@@ -149,14 +175,26 @@ try{
   const beforeHome=researchCalls;
   const homeResponse=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/miss-jeeves');
   await page.getByRole('button',{name:'How do I write a better prompt?',exact:true}).click();
-  assert.equal((await (await homeResponse).json()).mode,'reviewed-answer');
+  const homeClarification=await (await homeResponse).json();assert.equal(homeClarification.status,'clarification_required');
+  await page.locator('#homepage-jeeves-follow-up').fill(reply);
+  const homeReply=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/miss-jeeves');
+  await page.locator('.jeeves-clarification-form button[type=submit]').click();
+  assert.equal((await (await homeReply).json()).answer_key,'work-ai-help');
   await page.locator('#homepage-jeeves-answer').getByRole('heading',{name:'Your reviewed answer'}).waitFor();
   assert.match(await page.locator('#homepage-jeeves-answer').innerText(),/LAiDIES reviewed/);
+  assert.match(await page.locator('#homepage-jeeves-answer').innerText(),/How do I write a better prompt/);
+  assert.match(await page.locator('#homepage-jeeves-answer').innerText(),/Miss Jeeves asked:/);
+  assert.match(await page.locator('#homepage-jeeves-answer').innerText(),/Your reply:/);
+  assert.match(await page.locator('#homepage-jeeves-answer').innerText(),/weekly project update without sharing confidential details/);
   assert.equal(researchCalls,beforeHome);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   if(process.env.JEEVES_SCREENSHOT_DIR)await captureSection(page,'#reference',path.join(process.env.JEEVES_SCREENSHOT_DIR,`homepage-reviewed-${width}.png`));
   await page.getByRole('link',{name:'Continue with Miss Jeeves in the LIBRAiRY'}).click();
   await page.locator('.jv-answer-copy').waitFor();
+  assert.match(await page.locator('.jv-question-context').innerText(),/How do I write a better prompt/);
+  assert.match(await page.locator('.jv-question-context').innerText(),/Miss Jeeves asked:/);
+  assert.match(await page.locator('.jv-question-context').innerText(),/Your reply:/);
+  assert.match(await page.locator('.jv-question-context').innerText(),/weekly project update without sharing confidential details/);
   assert.equal(researchCalls,beforeHome);
   console.log(`PASS ${width}px: homepage example click, reviewed label and Library continuation, zero paid calls.`);
  }

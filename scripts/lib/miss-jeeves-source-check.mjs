@@ -1,6 +1,8 @@
 import { hashAnswerBankValue, normalizeSourceText, sourceDigestFor } from './miss-jeeves-answer-bank.mjs';
 // Each extractor is tied to a reviewed source, not arbitrary visitor URLs.
 const APPROVED_SOURCES = new Map([
+ ['https://support.microsoft.com/en-us/microsoft-365-copilot/validate-copilot-output','microsoft-validation.v1'],
+ ['https://support.microsoft.com/en-us/word/copilot/draft-and-add-content-with-copilot-in-word','microsoft-drafting.v1'],
  ['https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices?c=caelum','claude-doc-article.v1'],
  ['https://www.cyber.gc.ca/en/guidance/generative-artificial-intelligence-ai-itsap00041','cyber-canada-article.v1'],
  ['https://www.priv.gc.ca/en/privacy-topics/technology/artificial-intelligence/gd_principles_ai?wbdisable=true','opc-canada-main.v1'],
@@ -8,6 +10,8 @@ const APPROVED_SOURCES = new Map([
 ]);
 export function extractReviewedSource(html, extractor) {
  const patterns={
+  'microsoft-validation.v1': /<main\b[^>]*id="supMainContent"[^>]*>([\s\S]*?)<\/main>/gi,
+  'microsoft-drafting.v1': /<main\b[^>]*id="supMainContent"[^>]*>([\s\S]*?)<\/main>/gi,
   'claude-doc-article.v1': /<article\b[^>]*id="content-container"[^>]*>([\s\S]*?)<\/article>/gi,
   'cyber-canada-article.v1': /<article\b[^>]*about="\/en\/guidance\/generative-artificial-intelligence-ai-itsap00041"[^>]*>([\s\S]*?)<\/article>/gi,
   'opc-canada-main.v1': /<main\b[^>]*property="mainContentOfPage"[^>]*>([\s\S]*?)<\/main>/gi
@@ -17,6 +21,8 @@ export function extractReviewedSource(html, extractor) {
  if(matches.length!==1)throw new Error('source_structure_changed');
  const text=matches[0][1].replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi,'').replace(/<!--[^]*?-->/g,'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
  const required={
+  'microsoft-validation.v1':['Validation','source material'],
+  'microsoft-drafting.v1':['Start a draft','reference'],
   'claude-doc-article.v1':['Be clear and direct','Use examples effectively'],
   'cyber-canada-article.v1':['Be careful what information you provide','sensitive corporate data'],
   'opc-canada-main.v1':['Limiting Collection, Use, and Disclosure','sensitive or confidential']

@@ -10,6 +10,7 @@ const digest=p=>crypto.createHash('sha256').update(fs.readFileSync(path.join(roo
 const admission=read(packet+'presentation-admission.json');
 function inspect(a){
  const errors=[];const check=(ok,message)=>{if(!ok)errors.push(message);};
+ check(a.status==='ADMITTED_FOR_OWNER_PREVIEW','Owner rejection or presentation hold');
  check(a.scope==='MISS_JEEVES_FOUR_ANSWERS_20260907','Wrong exception scope');
  check(a.ownerApproval==='yes stop asking just do','Exact owner ruling missing');
  check(a.productionReleaseApproved===false,'Preview cannot authorize production');
