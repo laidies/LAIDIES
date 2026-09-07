@@ -1,0 +1,5 @@
+# Environmental question: complete reader-value pilot
+
+Ali supplied “Is AI bad for the environment?” as a real question to support. Answer directly without forced clarification or workplace detour. Explain electricity/emissions, water and hardware, distinguish all data centres from AI and estimates from observations. Do not invent universal per-prompt footprints or claim benefits cancel costs. Current IEA/UNEP primary evidence; research-before-prose contract; independent exact-source/text and visible reviews. Save only admitted answer, exact aliases, freshness scope; test failed/changed source and changed question rejection.
+
+No white boxes or white text in Miss Jeeves. Functional lavender/mint surfaces and dark navy text; exact existing background art retained. No generated/decorative CSS artwork. Preview only; preserve latest homeowner HTML and assets plus separately owned runtime. Existing free search/explicit research consent and general research hold remain. One tested example is labelled Questions you can ask, never claimed measured most frequent.

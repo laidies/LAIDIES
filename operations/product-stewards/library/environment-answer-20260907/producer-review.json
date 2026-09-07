@@ -1,0 +1,608 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "environment-ai-preview-20260907",
+  "surface": "MISS_JEEVES",
+  "contentClass": "FAQ",
+  "maker": "root-jeeves-preview-maker",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "root-jeeves-preview-maker",
+    "principalId": "root-jeeves-preview-maker",
+    "role": "Producer",
+    "modelFamily": "OpenAI GPT-6 Astra"
+  },
+  "reviewedAt": "2026-09-07T21:44:38.413033+00:00",
+  "verdict": "PASS",
+  "limitations": [
+    "Producer judgement only; independent text and rendered review pending.",
+    "2026IEA for current trends;2024UNCTAD for physical mechanism only. No older headline figures used."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/library/environment-answer-20260907/answer.txt",
+      "sha256": "a35d0ad8ce54b4730716e54ef1d817c670d70aaa345494a2b9b3f0f5d7ae5697"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/library/environment-answer-20260907/manifest.json",
+      "sha256": "336854a2789474bccc1b234ec2f7ee8fcce3a172c1f51ed7481da759f529b37c"
+    }
+  },
+  "calibration": {
+    "registrySha256": "a5559a35fdfaa41b23f71a819aba7c25f03284ef251dfb1a4936e73d3b3b85b9",
+    "reviewerPrincipalId": "root-jeeves-preview-maker",
+    "reviewedAt": "2026-09-07T18:48:18.829779+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ],
+        "observation": "A sequence of separately labelled parts and forced comparisons displaces connected mechanism."
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ],
+        "observation": "One job-offer decision takes over the promised foundational book; technical exposition and that single frame narrow its purpose."
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "## The concepts that make the story legible",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/front-paige-data-centre-policy-memo-known-bad.md"
+          }
+        ],
+        "observation": "Definitions interrupt the story and a five-question checklist turns a news ending into homework; the cloud-coat joke cannot supply human stakes."
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-STRAIGHT-ANSWERS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Answer-first architecture and explicit uncertainty only; dated claims are held, not inherited."
+      ],
+      "evidence": [
+        {
+          "excerpt": "The losses are already measured while the gains are still projected",
+          "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/straight-answers-architecture-positive.md"
+        }
+      ]
+    }
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Direct environmental answer explains physical resources, efficiency versus growing totals, and source limits. No scolding, work detour, unexplained units or universal per-prompt figure. Understanding is a complete reader payoff.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Yes. AI has environmental costs: the computers behind it need electricity, cooling and physical equipment. How large those costs are depends on what the AI does, how often it runs and where its computers are located.",
+          "locator": "answer.txt"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Direct environmental answer explains physical resources, efficiency versus growing totals, and source limits. No scolding, work detour, unexplained units or universal per-prompt figure. Understanding is a complete reader payoff.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Yes. AI has environmental costs: the computers behind it need electricity, cooling and physical equipment. How large those costs are depends on what the AI does, how often it runs and where its computers are located.",
+          "locator": "answer.txt"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Direct environmental answer explains physical resources, efficiency versus growing totals, and source limits. No scolding, work detour, unexplained units or universal per-prompt figure. Understanding is a complete reader payoff.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Yes. AI has environmental costs: the computers behind it need electricity, cooling and physical equipment. How large those costs are depends on what the AI does, how often it runs and where its computers are located.",
+          "locator": "answer.txt"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Direct environmental answer explains physical resources, efficiency versus growing totals, and source limits. No scolding, work detour, unexplained units or universal per-prompt figure. Understanding is a complete reader payoff.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Yes. AI has environmental costs: the computers behind it need electricity, cooling and physical equipment. How large those costs are depends on what the AI does, how often it runs and where its computers are located.",
+          "locator": "answer.txt"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Direct environmental answer explains physical resources, efficiency versus growing totals, and source limits. No scolding, work detour, unexplained units or universal per-prompt figure. Understanding is a complete reader payoff.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Yes. AI has environmental costs: the computers behind it need electricity, cooling and physical equipment. How large those costs are depends on what the AI does, how often it runs and where its computers are located.",
+          "locator": "answer.txt"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Direct environmental answer explains physical resources, efficiency versus growing totals, and source limits. No scolding, work detour, unexplained units or universal per-prompt figure. Understanding is a complete reader payoff.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Yes. AI has environmental costs: the computers behind it need electricity, cooling and physical equipment. How large those costs are depends on what the AI does, how often it runs and where its computers are located.",
+          "locator": "answer.txt"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Direct environmental answer explains physical resources, efficiency versus growing totals, and source limits. No scolding, work detour, unexplained units or universal per-prompt figure. Understanding is a complete reader payoff.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Yes. AI has environmental costs: the computers behind it need electricity, cooling and physical equipment. How large those costs are depends on what the AI does, how often it runs and where its computers are located.",
+          "locator": "answer.txt"
+        }
+      ]
+    },
+    "answersActualQuestion": {
+      "verdict": "PASS",
+      "observation": "Direct environmental answer explains physical resources, efficiency versus growing totals, and source limits. No scolding, work detour, unexplained units or universal per-prompt figure. Understanding is a complete reader payoff.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Yes. AI has environmental costs: the computers behind it need electricity, cooling and physical equipment. How large those costs are depends on what the AI does, how often it runs and where its computers are located.",
+          "locator": "answer.txt"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Direct environmental answer explains physical resources, efficiency versus growing totals, and source limits. No scolding, work detour, unexplained units or universal per-prompt figure. Understanding is a complete reader payoff.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Yes. AI has environmental costs: the computers behind it need electricity, cooling and physical equipment. How large those costs are depends on what the AI does, how often it runs and where its computers are located.",
+          "locator": "answer.txt"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Direct environmental answer explains physical resources, efficiency versus growing totals, and source limits. No scolding, work detour, unexplained units or universal per-prompt figure. Understanding is a complete reader payoff.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Yes. AI has environmental costs: the computers behind it need electricity, cooling and physical equipment. How large those costs are depends on what the AI does, how often it runs and where its computers are located.",
+          "locator": "answer.txt"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Direct environmental answer explains physical resources, efficiency versus growing totals, and source limits. No scolding, work detour, unexplained units or universal per-prompt figure. Understanding is a complete reader payoff.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You do not need to calculate a personal footprint to understand the issue. A useful test of a \u201cgreener AI\u201d claim is whether it explains total consumption, local water impacts and hardware\u2014not just how efficient one task has become.",
+          "locator": "answer.txt"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Direct environmental answer explains physical resources, efficiency versus growing totals, and source limits. No scolding, work detour, unexplained units or universal per-prompt figure. Understanding is a complete reader payoff.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Yes. AI has environmental costs: the computers behind it need electricity, cooling and physical equipment. How large those costs are depends on what the AI does, how often it runs and where its computers are located.",
+          "locator": "answer.txt"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Exact answer stays with the environmental question, links costs to physical resources, retains limits, and uses no analogy or unrelated work task.",
+      "artifactLocator": "answer.txt"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/library/environment-answer-20260907/sources/iea.txt",
+        "sha256": "64f0698507bd0bff7657f324abee64786338ed3f349af091be6753e69c818a53"
+      },
+      {
+        "path": "operations/product-stewards/library/environment-answer-20260907/sources/unctad-overview.txt",
+        "sha256": "0d6e5fa7939f3054193874e6602a7ea822f9b3f1f221c1e9d7e6488a83b0a1dd"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "environment-0",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "electricity use at AI-focused data centres rose 50% in 2025",
+            "locator": "answer.txt"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/environment-answer-20260907/sources/iea.txt",
+          "sha256": "64f0698507bd0bff7657f324abee64786338ed3f349af091be6753e69c818a53"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "rastructure for training and running AI models \u2013 grew by 17% in 2025, in line with IEA projections. Electricity consumption from AI-focused data centres grew even faster, surging 50% in 2025. While there are no comprehensive statistics on the frequency and depth of AI usage around the world, major model providers reported a threefold increase in active users and a fivefold increase in revenue over the past year, highlighting the rapid growth of d",
+            "locator": "iea.txt"
+          }
+        ],
+        "scopeAndFreshness": "IEA2026 current energy; UNCTAD2024 physical mechanism only. No universal per-query figure or attribution of all digital infrastructure to AI."
+      },
+      {
+        "claimId": "environment-1",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "each task can use less energy while growing demand pushes the total up",
+            "locator": "answer.txt"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/environment-answer-20260907/sources/iea.txt",
+          "sha256": "64f0698507bd0bff7657f324abee64786338ed3f349af091be6753e69c818a53"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "re energy per query than simple text generation. The energy demand of AI is therefore the result of three rapidly evolving and uncertain trends: improvements in efficiency, surging uptake, and changing model capabilities, which can unlock new and, in many instances, far more energy-intensive use cases. To improve the robustness of the outlook for AI\u2019s energy demand, close monitoring, frequent updates and cooperation with the tech sector, includin",
+            "locator": "iea.txt"
+          }
+        ],
+        "scopeAndFreshness": "IEA2026 current energy; UNCTAD2024 physical mechanism only. No universal per-query figure or attribution of all digital infrastructure to AI."
+      },
+      {
+        "claimId": "environment-2",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The emissions associated with that power depend on how it is generated",
+            "locator": "answer.txt"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/environment-answer-20260907/sources/unctad-overview.txt",
+          "sha256": "0d6e5fa7939f3054193874e6602a7ea822f9b3f1f221c1e9d7e6488a83b0a1dd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": " generated during the use phase is smaller, although this \ncan vary depending on the device and the energy mix used. Emissions related to desktop \ncomputers and televisions occur largely during the use phase, while for smartphones, \ntablets and laptops, the production phase generates most of the emissions. \nData centres exert a significant environmental impact during the use phase. The expanding \ndata-driven digital economy increasingly relies on",
+            "locator": "unctad-overview.txt"
+          }
+        ],
+        "scopeAndFreshness": "IEA2026 current energy; UNCTAD2024 physical mechanism only. No universal per-query figure or attribution of all digital infrastructure to AI."
+      },
+      {
+        "claimId": "environment-3",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Data centres can use water for cooling",
+            "locator": "answer.txt"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/environment-answer-20260907/sources/unctad-overview.txt",
+          "sha256": "0d6e5fa7939f3054193874e6602a7ea822f9b3f1f221c1e9d7e6488a83b0a1dd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": " water \nconsumption is limited. Data centres not only have considerable electricity needs but also \nrequire water for cooling. Water usage and the impact of data centres on local water \nresources needs to be assessed in a location-specific context, as the choice of cooling \ntechnology is influenced by the local climate and resource availability; comparisons \nbetween regions with plentiful water supplies and those facing severe water shortages \nre",
+            "locator": "unctad-overview.txt"
+          }
+        ],
+        "scopeAndFreshness": "IEA2026 current energy; UNCTAD2024 physical mechanism only. No universal per-query figure or attribution of all digital infrastructure to AI."
+      },
+      {
+        "claimId": "environment-4",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "consequences differ between places with plentiful water and places already facing shortages",
+            "locator": "answer.txt"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/environment-answer-20260907/sources/unctad-overview.txt",
+          "sha256": "0d6e5fa7939f3054193874e6602a7ea822f9b3f1f221c1e9d7e6488a83b0a1dd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": " as the choice of cooling \ntechnology is influenced by the local climate and resource availability; comparisons \nbetween regions with plentiful water supplies and those facing severe water shortages \nrequire vastly different considerations. While some cooling technologies can operate with \nless water, these technologies may consume more electricity instead. Therefore, water and \nelectricity use by data centres should be considered holistically.\nE",
+            "locator": "unctad-overview.txt"
+          }
+        ],
+        "scopeAndFreshness": "IEA2026 current energy; UNCTAD2024 physical mechanism only. No universal per-query figure or attribution of all digital infrastructure to AI."
+      },
+      {
+        "claimId": "environment-5",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Manufacturing computers also requires raw materials",
+            "locator": "answer.txt"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/environment-answer-20260907/sources/unctad-overview.txt",
+          "sha256": "0d6e5fa7939f3054193874e6602a7ea822f9b3f1f221c1e9d7e6488a83b0a1dd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ssions. The production of a single 2 kg computer requires the \nextraction of a staggering 800 kg of raw materials.\nThese figures are only set to rise, with the production of minerals essential for the digital \ntransition, such as graphite, lithium and cobalt, projected to surge by 500 per cent by \n2050 to meet the growing demand for digital and low-carbon technologies. Data centres, \nthe backbone of the digital world, consumed an estimated 460 TW",
+            "locator": "unctad-overview.txt"
+          }
+        ],
+        "scopeAndFreshness": "IEA2026 current energy; UNCTAD2024 physical mechanism only. No universal per-query figure or attribution of all digital infrastructure to AI."
+      },
+      {
+        "claimId": "environment-6",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "discarded equipment creates electronic waste",
+            "locator": "answer.txt"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/environment-answer-20260907/sources/unctad-overview.txt",
+          "sha256": "0d6e5fa7939f3054193874e6602a7ea822f9b3f1f221c1e9d7e6488a83b0a1dd"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": " on digital tools \u2013 from raw material depletion, water and energy use, air quality, \npollution, and waste generation. These are accentuated by emerging technologies such as \nartificial intelligence and the Internet of things.\nA just and sustainable digital economy requires just and sustainable policies. \nYet many developing countries continue to face obstacles in accessing digital technologies \nfor their development needs, while bearing the brunt",
+            "locator": "unctad-overview.txt"
+          }
+        ],
+        "scopeAndFreshness": "IEA2026 current energy; UNCTAD2024 physical mechanism only. No universal per-query figure or attribution of all digital infrastructure to AI."
+      },
+      {
+        "claimId": "environment-7",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A short text answer and generating video involve very different amounts of computing",
+            "locator": "answer.txt"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/environment-answer-20260907/sources/iea.txt",
+          "sha256": "64f0698507bd0bff7657f324abee64786338ed3f349af091be6753e69c818a53"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "r, new energy-intensive AI applications are increasingly being launched and used, such as those for video generation, reasoning and agentic tasks. These kinds of tasks can consume hundreds or thousands of times more energy per query than simple text generation. The energy demand of AI is therefore the result of three rapidly evolving and uncertain trends: improvements in efficiency, surging uptake, and changing model capabilities, which can unloc",
+            "locator": "iea.txt"
+          }
+        ],
+        "scopeAndFreshness": "IEA2026 current energy; UNCTAD2024 physical mechanism only. No universal per-query figure or attribution of all digital infrastructure to AI."
+      },
+      {
+        "claimId": "environment-8",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "such as managing electricity grids",
+            "locator": "answer.txt"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/environment-answer-20260907/sources/iea.txt",
+          "sha256": "64f0698507bd0bff7657f324abee64786338ed3f349af091be6753e69c818a53"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "o reduce unexpected failures and outages, and AI and digital grid-enhancing technologies are key to optimising the use of existing grid capacity, helping to offset lengthy and costly grid expansions. At the same time, AI risks making cyberattacks easier and more powerful, and an increasingly digitalised energy sector presents new vulnerabilities. With increasing deployment of AI-enabled robotics, automation and efficiency solutions, AI will be cr",
+            "locator": "iea.txt"
+          }
+        ],
+        "scopeAndFreshness": "IEA2026 current energy; UNCTAD2024 physical mechanism only. No universal per-query figure or attribution of all digital infrastructure to AI."
+      }
+    ],
+    "reviewedThrough": "2026-09-07",
+    "nextTrigger": "Changed or unreachable source, changed answer or alias, new evidence or24hour expiry.",
+    "correctionOwner": "Learning / Miss Jeeves"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First environmental FAQ; raw private Sol pilot held before editorial draft, not an admitted predecessor."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Known off-question detours, scolding and stale statistics repaired before review."
+  },
+  "reverseBrief": {
+    "humanQuestion": "My boss wants a weekly project update. How can AI help me prepare it without sharing confidential information?",
+    "promisedPayoff": "Get a blank useful update structure without giving away project facts.",
+    "centralMentalModel": "The tool can propose structure without project secrets. Keep sensitive facts outside the prompt; labels alone do not erase context. Fill and check facts in the approved work system.",
+    "dailyLifeConnection": "Ask for headings and placeholders, then add facts inside the approved company document.",
+    "surfaceJob": "A concise reviewed answer to an explicit question, with sources and correction controls.",
+    "desiredReaderFeeling": "Able to take one useful step while retaining judgement."
+  }
+}

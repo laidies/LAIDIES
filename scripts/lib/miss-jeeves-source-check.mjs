@@ -1,6 +1,8 @@
 import { hashAnswerBankValue, normalizeSourceText, sourceDigestFor } from './miss-jeeves-answer-bank.mjs';
 // Each extractor is tied to a reviewed source, not arbitrary visitor URLs.
 const APPROVED_SOURCES = new Map([
+ ['https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary','iea-energy-2026.v1'],
+ ['https://unctad.org/system/files/official-document/der2024_overview_en.pdf','unctad-lifecycle-bytes.v1'],
  ['https://support.microsoft.com/en-us/microsoft-365-copilot/validate-copilot-output','microsoft-validation.v1'],
  ['https://support.microsoft.com/en-us/word/copilot/draft-and-add-content-with-copilot-in-word','microsoft-drafting.v1'],
  ['https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices?c=caelum','claude-doc-article.v1'],
@@ -9,6 +11,12 @@ const APPROVED_SOURCES = new Map([
  ['https://cdn.openai.com/pdf/d04913be-3f6f-4d2b-b283-ff432ef4aaa5/why-language-models-hallucinate.pdf','openai-paper-bytes.v1']
 ]);
 export function extractReviewedSource(html, extractor) {
+ if(extractor==='iea-energy-2026.v1') {
+  const blocks=[...html.matchAll(/<div class="m-block__content f-rte f-rte--block">([\s\S]*?)<\/div>/g)];
+  const text=blocks.map(x=>x[1].replace(/<[^>]*>/g,' ')).join(' ').replace(/\s+/g,' ').trim();
+  if(blocks.length<10 || !['485 TWh','950 TWh','50% in 2025'].every(x=>text.includes(x)))throw new Error('source_structure_changed');
+  return normalizeSourceText(text);
+ }
  const patterns={
   'microsoft-validation.v1': /<main\b[^>]*id="supMainContent"[^>]*>([\s\S]*?)<\/main>/gi,
   'microsoft-drafting.v1': /<main\b[^>]*id="supMainContent"[^>]*>([\s\S]*?)<\/main>/gi,
@@ -33,7 +41,7 @@ export function extractReviewedSource(html, extractor) {
 export async function reviewedSourceContentDigest(url,bytes) {
  const extractor=APPROVED_SOURCES.get(url);
  if(!extractor)throw new Error('unapproved_source');
- if(extractor==='openai-paper-bytes.v1'){
+ if(extractor.endsWith('-bytes.v1')){
   if(bytes.length<10000||new TextDecoder().decode(bytes.slice(0,5))!=='%PDF-')throw new Error('invalid_pdf');
   return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),x=>x.toString(16).padStart(2,'0')).join('');
  }
@@ -47,10 +55,10 @@ export async function checkReviewedSources({sources,sourceDigest},{fetchImpl=fet
   for(const source of sources){
    const extractor=APPROVED_SOURCES.get(source.url);
    if(!extractor)return {current:false};
-   const response=await fetchImpl(source.url,{redirect:'manual',signal:controller.signal,headers:{accept:extractor==='openai-paper-bytes.v1'?'application/pdf':'text/html','user-agent':'LAiDIES source freshness checker'}});
-   if(response.status!==200||!response.headers.get('content-type')?.includes(extractor==='openai-paper-bytes.v1'?'application/pdf':'text/html')){await response.body?.cancel();return {current:false};}
+   const response=await fetchImpl(source.url,{redirect:'manual',signal:controller.signal,headers:{accept:extractor.endsWith('-bytes.v1')?'application/pdf':'text/html','user-agent':'LAiDIES source freshness checker'}});
+   if(response.status!==200||!response.headers.get('content-type')?.includes(extractor.endsWith('-bytes.v1')?'application/pdf':'text/html')){await response.body?.cancel();return {current:false};}
    const reader=response.body?.getReader();if(!reader)return {current:false};let size=0;const chunks=[];
-   try{while(true){const {done,value}=await reader.read();if(done)break;size+=value.length;if(size>1500000){await reader.cancel();return {current:false};}chunks.push(value);}}finally{reader.releaseLock();}
+   try{while(true){const {done,value}=await reader.read();if(done)break;size+=value.length;if(size>(extractor==='unctad-lifecycle-bytes.v1'?8000000:1500000)){await reader.cancel();return {current:false};}chunks.push(value);}}finally{reader.releaseLock();}
    const bytes=new Uint8Array(size);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.length;}
    const contentDigest=await reviewedSourceContentDigest(source.url,bytes);
    if(contentDigest!==source.contentDigest)return {current:false};

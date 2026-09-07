@@ -1,0 +1,46 @@
+{
+  "principalId": "claude-independent-rendered-review",
+  "modelFamily": "claude-opus-5",
+  "artifactFirst": true,
+  "inspected": [
+    {
+      "path": "operations/product-stewards/library/environment-answer-20260907/screens/environment-390.png",
+      "sha256": "61f8a0dc8998560bb7fa1d5d7391e7e427e335d8c096cbda981d5d23799aaac8",
+      "observations": "390w reference-desk view. Teal comic-burst background art retained (halftone dots, lightning motif). Single column, lavender answer card on teal, dark navy body text throughout \u2014 no white boxes, no white text. Answer opens 'Yes. AI has environmental costs...' \u2014 direct, no follow-up prompt. Dated review pill 'LAiDIES reviewed \u00b7 Sep 7, 2026'. Two dated sources visible: IEA (2026), UN Trade and Development (2024). Feedback chips wrap cleanly; no clipped glyphs or horizontal overflow."
+    },
+    {
+      "path": "operations/product-stewards/library/environment-answer-20260907/screens/environment-homepage-390.png",
+      "sha256": "186bb01bf4f30ef64dc61acf40ddbf155d68f8c97ceaad2886a7c581ad135477",
+      "observations": "390w homepage variant. Pink\u2192orange gradient with illustrated peripheral doodle art and the photographic/illustrated Miss Jeeves portrait in the header \u2014 real image asset, not CSS-drawn. Purple-on-warm text, legible; no white surfaces. Same direct 'Yes.' answer, same 'LAiDIES reviewed \u00b7 Sep 7, 2026' line, both dated sources plus 'Continue with Miss Jeeves in the LIBRAiRY'. Header portrait is tightly cropped to the top-right corner at this width but not clipping any text."
+    },
+    {
+      "path": "operations/product-stewards/library/environment-answer-20260907/screens/environment-820.png",
+      "sha256": "83c90783f18313183a186fe759165f482f5e63f2e1f669248a105f01c81997d6",
+      "observations": "820w. Search textarea + pink SEARCH LAIDIES button sit side by side without collision. Background comic art retained. Single content column \u2014 no cramped two-column split. Sources render inline on one/two lines, both dated. Full chip row fits; no overflow at container edges."
+    },
+    {
+      "path": "operations/product-stewards/library/environment-answer-20260907/screens/environment-homepage-820.png",
+      "sha256": "4c794355c8477ce2575495688144b42b370b25a02fdda355dcff870a4d6b7a1a",
+      "observations": "820w homepage. Miss Jeeves portrait renders at larger size, unclipped, overlapping the divider rule by design. Orange input + navy 'Ask Miss Jeeves' button abut cleanly. Text readable against gradient; no white text or boxes. Direct answer and both dated sources present."
+    },
+    {
+      "path": "operations/product-stewards/library/environment-answer-20260907/screens/environment-1280.png",
+      "sha256": "f389824ec9f77a96096b6c6a75ddc1c5da367b825ebde8e35c3897c2887de8fd",
+      "observations": "1280w. Comic-burst star/halftone art still visible at page margins. Answer card remains single column at full width \u2014 measure is long (~110ch) but not two-column. All 9 feedback chips on two rows, none truncated. Both sources dated and underlined/visible."
+    },
+    {
+      "path": "operations/product-stewards/library/environment-answer-20260907/screens/environment-homepage-1280.png",
+      "sha256": "af1b9bf38cd25fc3e1182688950c03034d17834b4a09ac1c7a5e79ebb62e07cd",
+      "observations": "1280w homepage. Full illustrated Miss Jeeves figure and keyboard/mouse doodle background retained at high fidelity. No white regions anywhere; all text purple/navy on warm gradient. Direct answer, dated review line, two dated sources, LIBRAiRY continuation link all legible."
+    }
+  ],
+  "materialDefects": [],
+  "nonBlockingLimitations": [
+    "1280w answer body runs to a long measure (~110 characters); readable but wider than typographic ideal.",
+    "Homepage variant lacks the 'How was this answer?' feedback chips present in the reference-desk variant \u2014 appears intentional, not verified.",
+    "Contrast of body text on the mid-gradient orange region (homepage) looks adequate by eye but was not numerically measured.",
+    "Homepage-390 crops the Miss Jeeves portrait aggressively at the top-right; art is present, framing is tight."
+  ],
+  "visualVerdict": "PASS",
+  "notes": "Prior f5 white-surface rejection is not reproduced in any of the six frames. Screenshots are static captures and are not evidence about scroll behavior, focus states, or interaction \u2014 browser checks own that. No production authority asserted or exercised."
+}

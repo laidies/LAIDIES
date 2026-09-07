@@ -19,7 +19,7 @@ h1,h2,h3{font-family:'Playfair Display',Georgia,serif;margin:0}
 .wrap{max-width:none;margin:0;padding:0}
 .library-hero{display:grid;grid-template-columns:minmax(340px,.72fr) minmax(0,1.28fr);min-height:clamp(470px,48vw,650px);
   background:linear-gradient(135deg,#111f53 0%,#39207d 58%,#0d7282 100%);border-bottom:8px solid #07142f}
-.library-world{position:relative;overflow:hidden;background:#f8f5ff;color:var(--midnight)}
+.library-world{position:relative;overflow:clip;background:#f8f5ff;color:var(--midnight)}
 .arrival-visual{position:relative;width:100%;height:100%;min-height:470px;overflow:hidden;background:#d8e8ee}
 .arrival-visual>img{width:100%;height:100%;object-fit:cover;object-position:center center;display:block}
 .arrival-brand{position:absolute;z-index:5;left:5.6%;top:5.4%;width:min(470px,36%);padding:0;
@@ -985,6 +985,23 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 #miss-jeeves .jv-results{order:4;margin-top:0}
 #miss-jeeves .jv-answer h3{font-family:Jost,system-ui,sans-serif}
 @media(max-width:700px){#miss-jeeves .jv-form,#miss-jeeves .jv-chips{grid-template-columns:1fr}#miss-jeeves .jv-form button{justify-self:start}#miss-jeeves .jv-head .h small{font-size:16px}}
+/* Owner colour correction: functional coloured surfaces, existing artwork retained. */
+#miss-jeeves{background-image:linear-gradient(110deg,rgba(129,223,200,.93),rgba(172,201,245,.94)),url('assets/library/episode-01-pop-comic-bg-v1.png');color:#121b40}
+#miss-jeeves .jv-head .h,#miss-jeeves .jv-head .h small,#miss-jeeves .jv-chips>b{color:#121b40;text-shadow:none}
+#miss-jeeves .jv-form textarea,#miss-jeeves .jv-chip,#miss-jeeves .jv-clarification-form textarea{background:#dfd0f7;color:#121b40}
+#miss-jeeves .jv-privacy,#miss-jeeves .jv-privacy a{color:#121b40}
+#miss-jeeves .jv-answer{background:#c9b7ed;border-color:#121b40;border-left-color:#206b72;color:#121b40}
+#miss-jeeves .jv-answer h3,#miss-jeeves .jv-answer p,#miss-jeeves .jv-answer-copy p,#miss-jeeves .jv-answer-kicker,#miss-jeeves .jv-answer-meta,#miss-jeeves .jv-answer::after{color:#121b40}
+#miss-jeeves .jv-answer-meta span,#miss-jeeves .jv-feedback button{background:#81dfc8;color:#121b40;border-color:#206b72}
+#miss-jeeves .jv-beta{background:#81dfc8;color:#121b40;border-color:#206b72}
+#miss-jeeves .jv-sources a,#miss-jeeves .jv-answer-links a{color:#30235f}
+#miss-jeeves .jv-chip:hover,#miss-jeeves .jv-chip:focus-visible{background:#81dfc8;color:#121b40}
+#miss-jeeves .jv-question-context{border-color:#71608f}
+#miss-jeeves .jv-answer{overflow:visible}
+#miss-jeeves .jv-question-context:not(:has(p)){position:sticky;top:8px;z-index:2;background:#c9b7ed;padding:10px 0}
+#miss-jeeves .jv-limit,#miss-jeeves .jv-answer-links .jv-held{background:#dfd0f7;color:#121b40}
+#miss-jeeves .jv-beta strong{color:#121b40}
+#miss-jeeves .jv-chips{grid-template-columns:1fr}
 </style>
 <link rel="stylesheet" href="/assets/library-reader/ai-fundamentals-imagegen-reader-v5.css">
   <meta property="og:url" content="https://laidies.ai/library" />
@@ -1024,12 +1041,9 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
       <button type="submit">Search LAiDIES</button>
     </form>
     <p class="jv-privacy">Do not include private, confidential or account information. Miss Jeeves does not save ordinary search wording. <a href="/privacy.html#miss-jeeves">Privacy details</a>.</p>
-    <div class="jv-chips" aria-label="Common questions for Miss Jeeves">
-      <b>Common questions:</b>
-      <button class="jv-chip" type="button">How do I ask AI a question so it gives me a useful answer?</button>
-      <button class="jv-chip" type="button">How can AI help me structure a weekly project update without sharing confidential details?</button>
-      <button class="jv-chip" type="button">Why can AI sound confident and still be wrong?</button>
-      <button class="jv-chip" type="button">What should I avoid sharing with an AI tool?</button>
+    <div class="jv-chips" aria-label="Questions you can ask Miss Jeeves">
+      <b>Questions you can ask:</b>
+      <button class="jv-chip" type="button">Is AI bad for the environment?</button>
     </div>
     <div class="jv-results" id="jv-results" aria-live="polite" aria-atomic="true"></div>
   </section>

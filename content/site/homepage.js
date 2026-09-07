@@ -210,6 +210,8 @@
       var retry = document.createElement('button'); retry.type = 'button'; retry.textContent = 'Try again';
       retry.addEventListener('click', function () { submitHomepageQuery(query,conversation); }); answer.appendChild(retry);
     }
+    var exampleButtons=document.querySelectorAll('[data-jeeves-example]');
+    exampleButtons.forEach(function(button,index){if(index===0)button.textContent='Is AI bad for the environment?';else button.hidden=true;});
     document.querySelectorAll('[data-jeeves-example]').forEach(function (button) {
       button.addEventListener('click', function () { refInput.value = button.textContent.trim(); refInput.focus(); refForm.requestSubmit(); });
     });
@@ -232,7 +234,7 @@
           answer.replaceChildren();showQuestion(query,conversation);
           var followForm=document.createElement('form');followForm.className='jeeves-clarification-form';
           var label=document.createElement('label');label.htmlFor='homepage-jeeves-follow-up';label.textContent=payload.answer;followForm.appendChild(label);
-          var replyInput=document.createElement('textarea');replyInput.id='homepage-jeeves-follow-up';replyInput.rows=3;replyInput.maxLength=240;replyInput.required=true;replyInput.style.cssText='display:block;box-sizing:border-box;width:100%;min-height:100px;margin:12px 0;padding:12px;font:inherit;line-height:1.5;background:#fff;color:#121b40;border:2px solid #121b40;border-radius:10px';followForm.appendChild(replyInput);
+          var replyInput=document.createElement('textarea');replyInput.id='homepage-jeeves-follow-up';replyInput.rows=3;replyInput.maxLength=240;replyInput.required=true;replyInput.style.cssText='display:block;box-sizing:border-box;width:100%;min-height:100px;margin:12px 0;padding:12px;font:inherit;line-height:1.5;background:#dfd0f7;color:#121b40;border:2px solid #121b40;border-radius:10px';followForm.appendChild(replyInput);
           if(payload.hint){var hint=document.createElement('p');hint.textContent=payload.hint;label.after(hint);}
           var choices=document.createElement('div');choices.className='jeeves-guided-choices';choices.style.cssText='display:flex;flex-wrap:wrap;gap:10px';
           (Array.isArray(payload.choices)?payload.choices:[]).filter(function(choice){return typeof choice==='string'&&choice.length<=240;}).forEach(function(choice){var button=document.createElement('button');button.type='button';button.textContent=choice;button.style.cssText='min-height:44px;white-space:normal;text-align:left;max-width:100%;overflow-wrap:anywhere';button.addEventListener('click',function(){replyInput.value=choice;followForm.requestSubmit();});choices.appendChild(button);});replyInput.before(choices);

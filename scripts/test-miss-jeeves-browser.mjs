@@ -151,9 +151,9 @@ try{
   const beforeReuse=researchCalls;
   const wordings=[reviewedRecord.canonicalQuestion,...reviewedRecord.aliases];
   const label=(await page.locator('.jv-chip').allTextContents()).find(x=>wordings.includes(x.trim()));
-  assert(label,'every reviewed answer must have one working example question');
   const reused=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/miss-jeeves');
-  await page.getByRole('button',{name:label,exact:true}).click();
+  if(label) await page.getByRole('button',{name:label,exact:true}).click();
+  else {await page.locator('#jv-q').fill(reviewedRecord.canonicalQuestion);await page.locator('.jv-form button[type=submit]').click();}
   const payload=await (await reused).json();
   assert.equal(payload.answer_key,reviewedRecord.answerKey);
   assert.equal(payload.answer.trim(),reviewedRecord.answer.trim());
@@ -174,7 +174,8 @@ try{
   await page.goto(`${origin}/#reference`,{waitUntil:'domcontentloaded'});
   const beforeHome=researchCalls;
   const homeResponse=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/miss-jeeves');
-  await page.getByRole('button',{name:'How do I write a better prompt?',exact:true}).click();
+  await page.locator('#lookup').fill('How do I write a better prompt?');
+  await page.locator('#homepage-jeeves-form').evaluate(form=>form.requestSubmit());
   const homeClarification=await (await homeResponse).json();assert.equal(homeClarification.status,'clarification_required');
   await page.locator('#homepage-jeeves-follow-up').fill(reply);
   const homeReply=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/miss-jeeves');
