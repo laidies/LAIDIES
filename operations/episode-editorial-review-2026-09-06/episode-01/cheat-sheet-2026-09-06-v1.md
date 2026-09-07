@@ -3,12 +3,6 @@
 
 Start with one small task you can judge. AI can get a draft moving; your experience helps decide what is worth keeping. Steve does not get a monopoly on the useful tools. Dolly's common-sense rule: a draft still has to fit your actual life.
 
-## Why women need a say
-
-AI can repeat biases from the material, choices and institutions behind it. Learning how it works helps women recognise unfair assumptions, challenge results and influence which tools are used and whose needs they serve. Participation measures use, not ability; using a chatbot does not automatically fix bias.
-
-**If an AI plan gives men the presenting and women the organising:** question the allocation, correct it before use and raise the pattern with whoever chose the tool. A polished table is not proof of a fair plan.
-
 ## What happened between your request and the answer?
 
 **Learned patterns + the context available now → a generated draft → your check and edit.**

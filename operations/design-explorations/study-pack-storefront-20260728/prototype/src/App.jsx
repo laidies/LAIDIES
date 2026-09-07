@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import sheet from "../../../../episode-editorial-review-2026-09-06/episode-01/cheat-sheet.md?raw";
+import previousSheet from "../../../../episode-editorial-review-2026-09-06/episode-01/cheat-sheet-2026-09-06-v1.md?raw";
 import {useCardBinder} from "../../../episode-01-trading-card-pack-20260728/prototype/src/useCardBinder.js";
 
 
@@ -158,15 +159,16 @@ function PackItem({ item, episode, index, onOpen }) {
 function Inline({text}) {
   return text.split(/(\*\*[^*]+\*\*)/g).map((part,index)=>part.startsWith('**')?<strong key={index}>{part.slice(2,-2)}</strong>:part);
 }
-function CheatSheet({onBack}) {
-  const requested = new URLSearchParams(location.search).get('packVersion');
-  if (requested !== null && requested !== '2026-09-06-v1') return <main className="cheat-view"><section className="cheat-actions"><div><h1>This saved edition cannot be opened here.</h1><p>Your saved Cheat Sheet has not been changed.</p><a href="/laidies-card.html#episodeBinderVessel">Return to my Episode Binder</a></div></section></main>;
-  return <CurrentCheatSheet onBack={onBack} />;
+function CheatSheet({onBack, fromSavedLink}) {
+  const requested = fromSavedLink ? new URLSearchParams(location.search).get('packVersion') : null;
+  if (requested !== null && !['2026-09-06-v1','2026-09-06-v2'].includes(requested)) return <main className="cheat-view"><section className="cheat-actions"><div><h1>This saved edition cannot be opened here.</h1><p>Your saved Cheat Sheet has not been changed.</p><a href="/laidies-card.html#episodeBinderVessel">Return to my Episode Binder</a></div></section></main>;
+  return <CurrentCheatSheet key={requested || '2026-09-06-v2'} onBack={onBack} version={requested || '2026-09-06-v2'} />;
 }
 
-function CurrentCheatSheet({onBack}) {
-  const binder=useCardBinder([{id:'episode-01-cheat-sheet'}],'2026-09-06-v1','packs');
-  const sections=sheet.split(/^## /m).slice(1).map(block=>{const [title,...lines]=block.trim().split('\n');return {title,blocks:lines.join('\n').trim().split(/\n\n+/)};});
+function CurrentCheatSheet({onBack,version}) {
+  const binder=useCardBinder([{id:'episode-01-cheat-sheet'}],version,'packs');
+  const content = version === '2026-09-06-v1' ? previousSheet : sheet;
+  const sections=content.split(/^## /m).slice(1).map(block=>{const [title,...lines]=block.trim().split('\n');return {title,blocks:lines.join('\n').trim().split(/\n\n+/)};});
   return <main className="cheat-view" data-clarity-mask="True">
     <nav className="study-pack-breadcrumb" aria-label="Study Pack breadcrumb"><button type="button" className="back-button" onClick={onBack}>← BACK TO EPISODE 01 PACK</button><span>EPISODE 01 · CHEAT SHEET</span></nav>
     <section className="cheat-actions" aria-label="Save the Cheat Sheet">
@@ -193,7 +195,7 @@ export function App() {
   }, [selected, activeItem]);
 
   if (selected?.number === 1 && activeItem === "cheat-sheet") {
-    return <CheatSheet onBack={() => setActiveItem(null)} />;
+    return <CheatSheet fromSavedLink={directCheatSheet} onBack={() => setActiveItem(null)} />;
   }
 
   if (selected) {
@@ -251,7 +253,7 @@ export function App() {
             <h2>Ready to see what stuck?</h2>
             <span>Check your understanding, see why each answer fits and keep your attempt in the Episode Binder.</span>
           </div>
-          <a href={`/learn/quiz.html?issue=${selected.number}${selected.number===1?"&version=2026-09-06-v2":""}#quiz-start`}>GO TO THE POP QUIZ</a>
+          <a href={`/learn/quiz.html?issue=${selected.number}${selected.number===1?"&version=2026-09-06-v3":""}#quiz-start`}>GO TO THE POP QUIZ</a>
         </section>
       </main>
     );

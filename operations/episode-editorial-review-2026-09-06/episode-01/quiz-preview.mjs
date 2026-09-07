@@ -279,7 +279,8 @@ async function mountAccount() {
 
 async function start() {
   const requestedVersion = new URLSearchParams(location.search).get("version");
-  const source = requestedVersion === "2026-09-06-v1" ? "./quiz-2026-09-06-v1.json" : "./quiz.json";
+  const archivedSources = {"2026-09-06-v1":"./quiz-2026-09-06-v1.json", "2026-09-06-v2":"./quiz-2026-09-06-v2.json"};
+  const source = archivedSources[requestedVersion] || "./quiz.json";
   const response = await fetch(new URL(source, import.meta.url), { cache: "no-store" });
   if (!response.ok) throw new Error("candidate-quiz-unavailable");
   quiz = await response.json();

@@ -1,5 +1,9 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Episode01 purpose and visual rejection
+
+LOCKED — Ali rejected the presented Study Pack design: oversized coloured boxes, colours that are not the site palette, and an overall visual result she called awful. The screenshots and prototype shown on port5178 are REJECTED, not a reusable positive reference. Preserve their content and working save mechanisms; replace the visual composition using actual current site authorities. Ali also rejected the Episode01 text for losing the important reasons women should learn AI. Personal usefulness must connect to recognising bias, challenging poor results, influencing decisions about AI and whose needs it serves. Adoption statistics support this purpose; they cannot substitute for it. Restore that causal argument in the original story voice across Read, narration, lesson summary and quiz. Do not restore the inaccurate claim that ordinary chatbot use automatically retrains a model. No further visual approval is implied by permission to inspect the rejected draft.
+
 ## 2026-09-06 — Continuous narration uses minimal paragraphs
 
 LOCKED — Ali requested editing the existing scripts and using as few paragraphs as possible while one person is speaking, because paragraph breaks can change the generated voice. Preserve every spoken word and performance cue when grouping existing narration; split at actual speaker changes or necessary production boundaries, not ordinary reading paragraphs. Written editions retain their readable paragraph structure. Apply this in the paired masters before export and before ElevenLabs generation; verify whitespace-normalized narration is unchanged for a formatting-only pass. Existing Jessica/v3 voice lock remains in force.

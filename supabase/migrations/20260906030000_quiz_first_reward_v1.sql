@@ -42,7 +42,19 @@ values
   ('2026-09-06-v2','01','ep01-human-judgment',1,4,false),
   ('2026-09-06-v2','01','ep01-one-tool',0,4,false),
   ('2026-09-06-v2','01','ep01-bonus-training',2,4,true),
-  ('2026-09-06-v2','01','ep01-bonus-saint',1,4,true)
+  ('2026-09-06-v2','01','ep01-bonus-saint',1,4,true),
+  ('2026-09-06-v3','01','ep01-first-move',0,4,false),
+  ('2026-09-06-v3','01','ep01-safe-input',1,4,false),
+  ('2026-09-06-v3','01','ep01-generation',2,4,false),
+  ('2026-09-06-v3','01','ep01-model-product',3,4,false),
+  ('2026-09-06-v3','01','ep01-unsupported-detail',1,4,false),
+  ('2026-09-06-v3','01','ep01-context',0,4,false),
+  ('2026-09-06-v3','01','ep01-comparison',2,4,false),
+  ('2026-09-06-v3','01','ep01-participation',3,4,false),
+  ('2026-09-06-v3','01','ep01-human-judgment',1,4,false),
+  ('2026-09-06-v3','01','ep01-one-tool',0,4,false),
+  ('2026-09-06-v3','01','ep01-bonus-training',2,4,true),
+  ('2026-09-06-v3','01','ep01-bonus-saint',1,4,true)
 on conflict (quiz_version, episode, question_id) do nothing;
 
 -- Existing broad owner policies are permissive. Restrictive policies are ANDed

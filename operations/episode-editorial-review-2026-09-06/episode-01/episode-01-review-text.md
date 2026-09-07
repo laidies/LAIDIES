@@ -1,6 +1,6 @@
 # Episode 1 — written edition, study pack and quiz
 
-Working text for Ali to review. This is the current written copy and existing study/quiz material, extracted without rewriting. The visual pages remain unfinished; account saving and new narration are not presented as complete.
+Current content repair after Ali’s feedback. Visual design remains rejected. This text review includes the updated agency passage, sheet v2 and quiz v3; it is not a finished design or new audio.
 
 ## Written edition — On Wednesdays We Do AI
 
@@ -54,7 +54,13 @@ This isn't about becoming technical. It's about not leaving a genuinely useful t
 
 Fei-Fei Li, the Stanford computer scientist, co-founded AI4ALL to widen participation in AI education. That gave the question I brought to the LIBRAiRY a bigger frame: who gets to help shape this technology?
 
-People who use these tools can notice whose needs they miss, challenge poor results and ask for something better. Using a chatbot does not automatically retrain its model. But being able to question the technology matters—in the meeting where it is bought, the task where it is used, and the decision to stop when it gets something wrong.
+The machine does not arrive from a world without sexism. It learns patterns from material people made, and people decide what it should do and how its answers will be used. Old assumptions can come along for the ride. Put them into a system that works at speed, and you can repeat the same unfairness much faster.
+
+Say an AI drafts a plan for a team project. It gives the men the presenting and the women the organising. Everybody has a task. The table looks immaculate. You have also seen this meeting before. Your experience is what makes you ask: why did it divide the work that way? You can challenge that plan before it becomes the rota, flag the pattern to whoever chose the tool, and ask how they are checking for it.
+
+Learning AI gives us more than a faster way through the inbox. It helps us question the answer, recognise whose experience is missing, and have a say when these tools are chosen for our workplaces and communities. Using a chatbot does not automatically retrain it or fix its biases. The people building and deploying it still have to do that work. But we can learn enough to ask better questions, demand better answers and decide when a tool should not be used.
+
+NIST on how bias enters AI systems · Why affected people belong in their evaluation . The team-project example illustrates the risk; it is not a reported test.
 
 ### The Gap Is a Starting Line, Not a Finish Line
 
@@ -71,6 +77,8 @@ So the overall gap is not the whole story. In that group, women were already ahe
 Here's what it looked like when I started. A Sunday at the Blend & Snap. There was an email I had dreaded for four days—the delicate one, to the stakeholder who reads tone into line breaks. I described the situation without pasting the correspondence or naming anyone: what the message needed to achieve, the tone I wanted and what it must not promise. For work, the tool and the information have to be allowed by your employer. A personal subscription does not settle that.
 
 A draft comes back in nine seconds. It's 80% right — and the other 20% is wrong in ways only you can see. So you fix it with your own judgment and hit send. Four days of dread, eleven minutes of work. The work didn't get worse. It got done faster, and the time you got back is yours. That's the whole reframe: the thing stopping you was never ability. It was that nobody had made you want to start.
+
+I wanted those eleven minutes back. I also wanted a say in what happened next. Steve had already found the tab. He did not get to be the only person in the meeting who understood what was behind it.
 
 ### The Most Talented New Hire You'll Ever Manage
 
@@ -149,6 +157,12 @@ A hallucination is false or unsupported content delivered as part of an AI-gener
 
 Start with one small task you can judge. AI can get a draft moving; your experience helps decide what is worth keeping. Steve does not get a monopoly on the useful tools. Dolly's common-sense rule: a draft still has to fit your actual life.
 
+## Why women need a say
+
+AI can repeat biases from the material, choices and institutions behind it. Learning how it works helps women recognise unfair assumptions, challenge results and influence which tools are used and whose needs they serve. Participation measures use, not ability; using a chatbot does not automatically fix bias.
+
+**If an AI plan gives men the presenting and women the organising:** question the allocation, correct it before use and raise the pattern with whoever chose the tool. A polished table is not proof of a fair plan.
+
 ## What happened between your request and the answer?
 
 **Learned patterns + the context available now → a generated draft → your check and edit.**
@@ -186,8 +200,7 @@ Use a personal-life task or an invented example. For work, check that both the t
 
 ## Quiz — questions and feedback
 
-Ten scored questions and two optional bonus questions. This review copy includes the answer key and the feedback for every option; the interactive quiz reveals feedback after submission.
-
+Ten scored questions and two optional bonus questions. Answer key for editorial review.
 
 ### 1. You have fifteen minutes and no AI experience. What fits this episode?
 
@@ -287,19 +300,19 @@ Ten scored questions and two optional bonus questions. This review copy includes
 - **D. To avoid having to check any of the finished drafts.**
   A comparison is not a fact-check. Each draft still needs checking against your actual task.
 
-### 8. A survey finds that women use AI less often on average. What does that measure?
+### 8. Your workplace is choosing an AI tool. Why does learning AI matter beyond getting your own work done faster?
 
-- **A. How capable women are of learning to use AI.**
-  The survey measured use. It did not test women’s ability to learn the tools.
+- **A. Using AI often will automatically remove its biases.**
+  Using a chatbot does not automatically retrain the model or remove bias. A reported problem still needs investigation and repair.
 
-- **B. How accurate every woman’s AI-assisted work is.**
-  How often people use AI does not tell you whether their resulting work is accurate.
+- **B. Women will always get more accurate results than men.**
+  Participation is not ability. Neither gender guarantees an accurate answer; the result still needs checking.
 
-- **C. How much each individual woman should use AI.**
-  A group average is not a prescription for one person. Your useful level of use depends on your tasks and circumstances.
+- **C. A rising adoption rate proves the tool treats everyone fairly.**
+  An adoption figure measures use. It cannot tell you whether the system works fairly for the people affected.
 
-- **D. A difference in reported participation between groups.** **Correct.**
-  Reported participation describes use across groups; it does not assign an ability level to individuals.
+- **D. You can question whose needs it misses and influence whether and how it is used.** **Correct.**
+  You bring knowledge of the people and situation the tool may miss. That can help you challenge a poor result, ask how it was tested and influence its use.
 
 ### 9. The draft follows your instructions but would upset the person receiving it. What now?
 

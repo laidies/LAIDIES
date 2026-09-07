@@ -14691,6 +14691,9 @@ Ali caught a workplace-first practical framing that excluded readers without use
 
 ### 2026-09-06 — Episode Binder and first useful practice checkpoint
 
+Ali rejected the exposed Episode01 design and narrowed purpose. Failure: mechanical progress and a small safe-input task displaced the governing motivation and visual craft; visible test screens were handed over before meeting the brief. Prevention: bind actual site palette and composition before replacement, preserve personal usefulness plus bias/agency/influence in the master and companions, and compare the actual rendered result rather than source-only guesses. Original unverified automatic-training claim remains excluded. User rejection is recorded against ecbc248f, not reclassified as taste approval. Behind the Build: correcting a false mechanism must not erase the reason the lesson exists.
+
+
 Narration continuity: ordinary paragraph breaks can change the voice. Preserve speaker-continuous blocks in the master; delivery cues alone are not speaker changes. Formatting across Episodes01–04 was compared against HEAD with whitespace normalized, retaining every word/cue and leaving Read unchanged. Behind the Build angle: a readable article and a recording script need different paragraph boundaries even when their lesson stays aligned.
 
 The private Episode Binder required caller-to-RPC owner identity checks, including nested waits and silent account switches; a late result must never reopen the previous person’s content. Retry keeps the same snapshot and mutation key. Completed exercises need their own instance IDs so trying again preserves the earlier work. Local synthetic browser journeys and isolated PostgreSQL tests establish bounded behavior, not real account deployment. Uncertain removal cannot offer a misleading “Keep it” label; use “Close this notice” until the outcome is confirmed. Card flipping must move keyboard focus off the hidden face.
