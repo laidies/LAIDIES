@@ -140,8 +140,11 @@ only a versioned, checked-in execution-metadata adapter in `DISABLED_UNBOUND` st
 runner can prepare `SELECTION_PROPOSED` and `DISPATCH_RECEIPT_DRAFTED` records in a temporary
 or future owner lane, but cannot claim acknowledgement, dispatch, performed work, drafting
 or release. The calibrated test proves the queue remains unchanged and rejects invalid
-state, stale/future events, duplicate active orders, changed queue identity, wrong ownership,
-missing/wrong automation, invalid terminal evidence and unsupported queue schemas.
+state, stale/future/reversed events, canonical queue contradictions, ineligible prepared
+receipts, changed queue identity, wrong ownership, forbidden live-state history, fake public
+evidence and unsupported queue schemas. Both proposal and draft-receipt eligibility consume
+the existing canonical queue validator without requiring the producer contract before
+preflight.
 
 Autonomous execution remains absent. This adapter rejects `ENABLED_BOUND`,
 `OWNER_ACKNOWLEDGED`, `DISPATCHED` and `TERMINAL` even when caller-written paths, matching

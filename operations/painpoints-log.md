@@ -440,3 +440,10 @@ source is separately implemented. Prevention: runtime state must prove the trans
 receipt draft or heartbeat writer is never owner acceptance or performed work. Behind the
 Build: an AI operating system needs verbs that mean what actually happened, not what the
 surrounding contract hoped would happen.
+
+Independent preparation review then found the adapter could accept a queue contradiction
+after a caller recomputed its hash, and could place a draft receipt before its proposal in
+time. The adapter now consumes the canonical work-order validator, rechecks eligibility for
+both preparation states and requires nondecreasing event timestamps. Prevention: integrity
+binding proves which bytes were read, not that those bytes are internally valid or that a
+sequence happened in causal order.

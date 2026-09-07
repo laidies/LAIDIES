@@ -30,6 +30,16 @@ function hash(relative) {
   return crypto.createHash("sha256").update(fs.readFileSync(path.join(temporaryRoot, relative))).digest("hex");
 }
 
+function rebindToQueue() {
+  const queueSha256 = hash(queueRelative);
+  const state = read(stateRelative);
+  const metadata = read(metadataRelative);
+  state.queueBinding.sha256 = queueSha256;
+  metadata.queueBinding.sha256 = queueSha256;
+  write(stateRelative, state);
+  write(metadataRelative, metadata);
+}
+
 function reset() {
   for (const relative of [queueRelative, stateRelative, metadataRelative]) {
     const destination = path.join(temporaryRoot, relative);
@@ -124,6 +134,40 @@ write(metadataRelative, metadata);
 assert(inspect().errors.some((error) => error.includes("future")));
 
 reset();
+metadata = read(metadataRelative);
+metadata.records = [{
+  workOrderId: eligible[0].id,
+  ownerProductId: eligible[0].ownerProductId,
+  events: [
+    { state: "SELECTION_PROPOSED", at: iso() },
+    { state: "DISPATCH_RECEIPT_DRAFTED", at: iso(-10), receiptId: `DRAFT-${eligible[0].id}`, authority: "DRAFT_ONLY_NO_OWNER_ACKNOWLEDGEMENT" }
+  ]
+}];
+write(metadataRelative, metadata);
+assert(inspect().errors.some((error) => error.includes("timestamps must be nondecreasing")));
+
+reset();
+let contradictoryQueue = read(queueRelative);
+contradictoryQueue.workOrders.find((order) => order.id === eligible[0].id).status = "QUEUED_WITH_TRIGGER";
+write(queueRelative, contradictoryQueue);
+rebindToQueue();
+assert.throws(
+  () => runLearningExecutionPreparation({ root: temporaryRoot, action: "propose", workOrderId: eligible[0].id, now }),
+  /canonical queue validation/
+);
+
+reset();
+let temporarilyPrepared = runLearningExecutionPreparation({ root: temporaryRoot, action: "propose", workOrderId: eligible[0].id, now });
+assert.equal(temporarilyPrepared.state, "SELECTION_PROPOSED");
+temporarilyPrepared = runLearningExecutionPreparation({ root: temporaryRoot, action: "draft-receipt", workOrderId: eligible[0].id, now: new Date(now.getTime() + 1000) });
+assert.equal(temporarilyPrepared.state, "DISPATCH_RECEIPT_DRAFTED");
+contradictoryQueue = read(queueRelative);
+contradictoryQueue.workOrders.find((order) => order.id === eligible[0].id).dispatchState = "NOT_READY";
+write(queueRelative, contradictoryQueue);
+rebindToQueue();
+assert(inspectLearningExecutor({ root: temporaryRoot, now: new Date(now.getTime() + 1000) }).errors.some((error) => error.includes("not eligible for producer-preflight preparation")));
+
+reset();
 state = enabledState();
 writeAutomation(state);
 metadata = read(metadataRelative);
@@ -196,4 +240,4 @@ assert(inspect().errors.some((error) => error.includes("unsupported canonical qu
 fs.rmSync(temporaryRoot, { recursive: true, force: true });
 console.log("LEARNING EXECUTOR ADAPTER TEST PASS");
 console.log("transition=selection_proposed->dispatch_receipt_drafted queue_unchanged=1 active_claim=0");
-console.log("rejected=invalid_state,stale,future,forbidden_live_history,changed_queue,wrong_owner,missing_owner,enabled_state,fake_public_terminal,unsupported_schema");
+console.log("rejected=invalid_state,stale,future,reversed_time,canonical_queue_invalid,draft_ineligible,forbidden_live_history,changed_queue,wrong_owner,missing_owner,enabled_state,fake_public_terminal,unsupported_schema");

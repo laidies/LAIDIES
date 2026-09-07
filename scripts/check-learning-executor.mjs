@@ -4,6 +4,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { checkContentWorkOrders } from "./check-content-work-orders.mjs";
 
 const OWNER_TASK_ID = "019f9f7f-9e4c-72d2-8882-447bcbe01691";
 const QUEUE_RELATIVE = "operations/product-stewards/learning-content-ecosystem/content-work-orders.json";
@@ -54,6 +55,8 @@ export function inspectLearningExecutor({
 
   if (queue.schemaVersion !== "1.1.0") errors.push(`unsupported canonical queue schema ${queue.schemaVersion || "MISSING"}`);
   if (!Array.isArray(queue.workOrders)) errors.push("canonical queue workOrders must be an array");
+  const queueValidation = checkContentWorkOrders({ root });
+  for (const error of queueValidation.errors || []) errors.push(`canonical queue validation: ${error}`);
   if (state.schemaVersion !== "laidies-learning-executor-state.v2") errors.push("unsupported executor state schema");
   if (state.ownerTaskId !== OWNER_TASK_ID) errors.push("executor ownerTaskId is missing or wrong");
   if (state.status !== "DISABLED_UNBOUND") errors.push("executor must remain DISABLED_UNBOUND; live enablement is unavailable");
@@ -82,6 +85,7 @@ export function inspectLearningExecutor({
       continue;
     }
     let priorIndex = -1;
+    let priorTimestamp = null;
     for (const event of record.events) {
       if (FORBIDDEN_FUTURE_STATES.has(event?.state)) errors.push(`${id} contains unavailable live state ${event.state}`);
       const index = STATES.indexOf(event?.state);
@@ -90,7 +94,11 @@ export function inspectLearningExecutor({
       priorIndex = index;
       const timestamp = Date.parse(event?.at || "");
       if (!Number.isFinite(timestamp)) errors.push(`${id} has invalid event timestamp`);
-      else if (timestamp > now.getTime() + 60000) errors.push(`${id} has an event timestamp in the future`);
+      else {
+        if (timestamp > now.getTime() + 60000) errors.push(`${id} has an event timestamp in the future`);
+        if (priorTimestamp !== null && timestamp < priorTimestamp) errors.push(`${id} event timestamps must be nondecreasing`);
+        priorTimestamp = timestamp;
+      }
       if (event?.state === "DISPATCH_RECEIPT_DRAFTED") {
         if (!event.receiptId || event.authority !== "DRAFT_ONLY_NO_OWNER_ACKNOWLEDGEMENT") {
           errors.push(`${id} has an invalid draft receipt`);
@@ -102,7 +110,9 @@ export function inspectLearningExecutor({
     if (Number.isFinite(latestAt) && Number.isFinite(state.maxOpenAgeMinutes) && now.getTime() - latestAt > state.maxOpenAgeMinutes * 60000) {
       errors.push(`${id} open execution metadata is stale`);
     }
-    if (latest?.state === "SELECTION_PROPOSED" && order?.dispatchState !== "READY_TO_DISPATCH") errors.push(`${id} is not eligible for producer-preflight selection`);
+    if (["SELECTION_PROPOSED", "DISPATCH_RECEIPT_DRAFTED"].includes(latest?.state) && order?.dispatchState !== "READY_TO_DISPATCH") {
+      errors.push(`${id} is not eligible for producer-preflight preparation`);
+    }
   }
 
   const prepared = (metadata.records || []).filter((record) => record.events?.at(-1)?.state === "DISPATCH_RECEIPT_DRAFTED").length;

@@ -55,8 +55,11 @@ by editing its JSON, creating a temporary automation file or supplying an arbitr
   preparation states.
 - `node scripts/test-learning-executor.mjs` uses temporary fixtures to prove one
   selection-to-draft-receipt transition without changing queue bytes, and rejects stale or
-  future events, duplicate active orders, changed queue bindings, wrong owners, missing or
-  wrong automation, invalid terminal evidence and unsupported queue schemas.
+  future or reversed events, canonical queue contradictions, ineligible prepared receipts,
+  changed queue bindings, wrong owners, forbidden live-state history, fake public evidence
+  and unsupported queue schemas. Eligibility comes from the existing canonical work-order
+  validator; a missing producer contract remains valid preflight eligibility, not drafting
+  permission.
 - `node scripts/run-learning-executor-cycle.mjs --action propose ...` and
   `--action draft-receipt ...` are preparation operations only. The runner refuses any
   invalid pre-state and validates the post-state before replacing the metadata file.
