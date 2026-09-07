@@ -314,6 +314,12 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
     const day = vancouverDay(decision.reviewedAt);
     if (day !== envelope.editionDate) reject("ordinary story publication must be admitted on its Vancouver issue date");
   }
+  const sameDate = store.issues.filter((item) => item && item.editionDate === envelope.editionDate);
+  if (sameDate.length > 1) reject(`duplicate canonical issue for ${envelope.editionDate}`);
+  const existing = sameDate[0];
+  const servicePublishedAt = newsRevisionDecision && existing
+    ? (existing.admission?.servicePublishedAt || existing.admission?.reviewedAt)
+    : decision.reviewedAt;
   const issue = {
     editionDate: envelope.editionDate,
     editorialTimeZone: envelope.editorialTimeZone,
@@ -332,12 +338,10 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
       reviewedAt: decision.reviewedAt,
       reviewedBy: decision.reviewedBy,
       reviewerRole: decision.reviewerRole,
+      ...(newsRevisionDecision ? { servicePublishedAt } : {}),
       ...((successorDecision || serviceRevisionDecision || newsRevisionDecision || storyCorrectionDecision) ? { predecessorEnvelopeSha256: decision.predecessorEnvelopeSha256 } : {})
     }
   };
-  const sameDate = store.issues.filter((item) => item && item.editionDate === envelope.editionDate);
-  if (sameDate.length > 1) reject(`duplicate canonical issue for ${envelope.editionDate}`);
-  const existing = sameDate[0];
   if (existing) {
     if (existing.envelopeSha256 === decision.envelopeSha256) {
       if (canonicalJson(existing) !== canonicalJson(issue)) {

@@ -146,7 +146,7 @@ export function buildDerivatives({ storyRaw, columns, issues }) {
         edition: "daily",
         desk: record.type,
         editionDate: original.editionDate,
-        publishedAt: original.admission.reviewedAt,
+        publishedAt: original.admission.servicePublishedAt || original.admission.reviewedAt,
         headline: record.headline,
         summary: record.summary,
         themes: [...(record.themes || [])].sort(),
