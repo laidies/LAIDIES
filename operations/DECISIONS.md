@@ -1,5 +1,11 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Homepage closeout and Library search derivatives
+
+Source cb0a78ef (pushed); verified preview https://ca2efb36.laidies-sunnyvaile.pages.dev/#reference . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905; packet operations/product-stewards/town-entry-homepage/candidates/homepage-closeout-20260906/.
+
+Preserve the agreed homepage HTML/runtime/art/copy. The free catalogue now prioritizes current relevant sections and returns no match for unrelated questions without spending on AI. When an admitted book changes, rebuild the existing Miss Jeeves index and run scripts/build-miss-jeeves-index.mjs --check before release; bind exact parent versions/hashes and verify all emitted anchors. Reusing a checksum-bound older index beside a newer book is a stale derivative, not current search. Optional Sol research and newer FAiRY entrance remain next-page release work; do not describe those as completed.
+
 ## 2026-09-06 — Ghostbuster wording as a drink preference
 
 Ali rejects the interrupting “or a Ghostbuster, our spirit-free version” aside and asks for Ghostbuster (spirit-free) for those who prefer. Separate the drink preference into a plain sentence; keep normal text weight and the Romy and Michele reference. Updated short/full description: “Let the paper fortune teller pick a cocktail and a conversation starter for the table. Ghostbuster (spirit-free) options are available if you prefer.” Source49a09813; binding normalizationd3481979; hosted evidence1342d3ed; https://9e7e828c.laidies-sunnyvaile.pages.dev/#activities . Worktree /Users/alisoneakin/Projects/laidies-homepage-corrections-20260905. Preview only; owner wording acceptance pending.
