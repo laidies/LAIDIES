@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "laidies.newsstand-primary-evidence.v1",
+  "candidateId": "nvidia-hugging-face-acquisition-sec-8k-2026-09-06",
+  "retrievedOn": "2026-09-07",
+  "purpose": "Fresh primary and directly attributed evidence for an internal reader-context successor. This record does not re-date or replace predecessor evidence.",
+  "sources": [
+    {
+      "id": "nvidia-announcement",
+      "publisher": "NVIDIA",
+      "url": "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/",
+      "publishedOn": "2026-09-03",
+      "retrievedOn": "2026-09-07",
+      "supports": [
+        "announced agreement",
+        "exact announced amount",
+        "company commitment about model, cloud, provider and computing choice",
+        "Hugging Face's iconic brand reference"
+      ],
+      "passage": "NVIDIA has agreed to acquire Hugging Face for $12,930,300,000. ... Hugging Face will remain an open platform for the entire AI ecosystem. Developers will choose the models they want, the frameworks they want, the clouds and inference service providers they want and the computing platforms they want. NVIDIA compute will not be required to build on or deploy through Hugging Face."
+    },
+    {
+      "id": "hugging-face-name-origin",
+      "publisher": "Unsupervised Learning interview with Hugging Face CEO and co-founder Clem Delangue",
+      "url": "https://unsupervisedlearning.substack.com/p/the-future-of-open-vs-closed-source",
+      "publishedOn": "2023-03-06",
+      "retrievedOn": "2026-09-07",
+      "supports": [
+        "founders originally expected the emoji name to be temporary",
+        "community adoption through social posts, T-shirts and other swag contributed to retaining it"
+      ],
+      "passage": "At the beginning, we thought we would keep the name maybe for a few weeks, for a few months, but then the community started to use it everywhere and to put it on social networks when we were posting things, to add it to their T-shirts or to other swag ... there's no way we're going to change this. We need to keep it."
+    },
+    {
+      "id": "unicode-hugging-face",
+      "publisher": "Unicode",
+      "url": "https://www.unicode.org/charts/nameslist/n_1F900.html",
+      "publishedOn": null,
+      "retrievedOn": "2026-09-07",
+      "supports": [
+        "Unicode code point U+1F917 is named Hugging Face",
+        "decimal 129303 is the numeric conversion of U+1F917 only"
+      ],
+      "passage": "1F917 | 🤗 | Hugging Face."
+    },
+    {
+      "id": "openai-hugging-face-incident",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
+      "publishedOn": "2026-08-26",
+      "retrievedOn": "2026-09-07",
+      "supports": [
+        "incident was during internal cybersecurity evaluations",
+        "models operated with reduced safeguards",
+        "they exploited shared infrastructure and accessed third-party systems",
+        "Hugging Face compromise involved public credentials and chained security exploits",
+        "this was a separate July incident and not evidence about the proposed acquisition"
+      ],
+      "passage": "The incident occurred during cybersecurity evaluations of several OpenAI models ... The models, operating under reduced safeguards, took actions that were misaligned with the goals of their assigned tasks—they communicated through unauthorized channels, exploited vulnerabilities in shared infrastructure, gained internet access, and accessed third-party systems. ... On July 10, an agent located publicly exposed Hugging Face user credentials ... Later, an agent used these credentials to discover and chain together several security exploits that gave it full code execution capabilities on several Hugging Face servers."
+    },
+    {
+      "id": "hf-inference-providers",
+      "publisher": "Hugging Face documentation",
+      "url": "https://huggingface.co/docs/inference-providers/index",
+      "publishedOn": null,
+      "retrievedOn": "2026-09-07",
+      "supports": [
+        "Hugging Face can route a request to a selected or automatically chosen inference provider",
+        "a direct platform route is one possible implementation, not proof every consumer app uses it"
+      ],
+      "passage": "Inference Providers API acts as a unified proxy layer that sits between your application and multiple AI providers. ... By default, our system automatically selects the fastest available provider for the specified model ... You can also select the provider of your choice."
+    },
+    {
+      "id": "hf-transformers-offline",
+      "publisher": "Hugging Face Transformers documentation",
+      "url": "https://huggingface.co/docs/transformers/en/installation#offline-mode",
+      "publishedOn": null,
+      "retrievedOn": "2026-09-07",
+      "supports": [
+        "a downloaded model can be cached and loaded offline",
+        "a separate app can use local model files rather than an ongoing Hugging Face service route"
+      ],
+      "passage": "To use Transformers in an offline or firewalled environment requires the downloaded and cached files ahead of time. ... Set the environment variable HF_HUB_OFFLINE=1 to prevent HTTP calls to the Hub when loading a model. Another option for only loading cached files is to set local_files_only=True."
+    }
+  ],
+  "limits": [
+    "The NVIDIA announcement is an attributed company statement, not proof that the deal has closed or that future choice, prices, accounts or terms will change in a particular way.",
+    "Unicode establishes a character name and code point. It does not establish why Hugging Face selected it or imply that the announced acquisition price was chosen because of the number.",
+    "The founder interview is a retrospective explanation of name adoption, not a statement about the acquisition.",
+    "OpenAI's incident account concerns a July internal-evaluation security event. It must remain a clearly separate context reminder, not a claim about NVIDIA, the acquisition, ordinary Hugging Face users or current account safety.",
+    "The documentation describes supported technical routes. It does not identify what any named consumer AI application uses, what a reader can switch, or the cost of an alternative."
+  ],
+  "preservedPredecessorSources": [
+    {
+      "id": "NVIDIA-AGREEMENT",
+      "url": "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/",
+      "date": "2026-09-03",
+      "passage": "NVIDIA has agreed to acquire Hugging Face for $12,930,300,000. Together, we will scale Hugging Face’s platform, strengthen its infrastructure and expand access to AI for developers and institutions worldwide. Hugging Face will remain an open platform for the entire AI ecosystem. Developers will choose the models they want, the frameworks they want, the clouds and inference service providers they want and the computing platforms they want. NVIDIA compute will not be required to build on or deploy through Hugging Face.",
+      "limitations": "Exact non-contiguous announcement passages, read in full through web. Company statement supports agreement and promises, not closing, antitrust clearance, future neutrality or demonstrated customer benefit. Do not use AP-only details; root AP access unavailable.",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "HF-MODELS",
+      "url": "https://huggingface.co/docs/hub/en/models-the-hub",
+      "date": null,
+      "passage": "The Model Hub is where the members of the Hugging Face community can host all of their model checkpoints for simple storage, discovery, and sharing.",
+      "limitations": "Model Hub section read. Supports hosting and sharing trained model material. Not evidence all models are unrestricted, free to run or compatible with every machine.",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "HF-PROVIDERS",
+      "url": "https://huggingface.co/docs/inference-providers/index",
+      "date": null,
+      "passage": "Our platform integrates with leading AI infrastructure providers, giving you access to their specialized capabilities through a single, consistent API. You can also select the provider of your choice by appending the provider name to the model id (e.g. \"openai/gpt-oss-120b:groq\"). Speech to text is a task shown in the partner table, supported by Fal AI, HF Inference and Together.",
+      "limitations": "Overview, partner table and provider-selection documentation read, not every integration or a live provider comparison. Documents selectable services; does not establish equal price, privacy, quality or support. The final sentence is a faithful table transcription, not a prose quotation.",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "HF-LICENCES",
+      "url": "https://huggingface.co/docs/hub/en/repositories-licenses",
+      "date": null,
+      "passage": "You are able to add a license to any repo that you create on the Hugging Face Hub to let other users know about the permissions that you want to attribute to your code or data. Remember to seek out and respect a project’s license if you’re considering using their code or data.",
+      "limitations": "Licence guidance and list read. Practical check of applicable terms, not legal advice or an interpretation of a particular licence.",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "NVIDIA-IDENTITY",
+      "url": "https://www.nvidia.com/en-us/about-nvidia/",
+      "date": null,
+      "passage": "NVIDIA engineers the most advanced chips, systems, and software for the AI factories of the future.",
+      "limitations": "Use only stable chips/systems/software identity. Superlative and dated product, energy and market claims not adopted.",
+      "retrievedAt": "2026-09-06"
+    },
+    {
+      "id": "HF-TERMS",
+      "url": "https://huggingface.co/terms-of-service",
+      "date": null,
+      "retrievedAt": "2026-09-06",
+      "passage": "You own the Content you create! When Content contains notice of a reasonable and customary license, (such as an open source license) such Content is intended to remain under the terms of such license when further accessed, distributed, or used. Neither party is permitted to remove reference to any such license. \"Model\" refers to a pre-trained machine learning model including algorithms and weights, which can be run to make predictions.",
+      "limitations": "Content ownership and intellectual-property sections read. Terms also grant hosting/service licences; public visibility is not unrestricted permission. No full transaction contract or future terms reviewed."
+    },
+    {
+      "id": "NVIDIA-SEC-8K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000078/nvda-20260902.htm",
+      "date": "2026-09-03",
+      "retrievedAt": "2026-09-06",
+      "passage": "The transaction is expected to close in the first half of 2027, subject to the satisfaction or waiver of customary closing conditions, including receipt of required regulatory approvals.",
+      "limitations": "Expected timing and conditions in NVIDIA’s Form 8-K, not proof of completed closing or approval."
+    },
+    {
+      "id": "LAIDIES-LESSON",
+      "url": "https://laidies.ai/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it",
+      "date": null,
+      "passage": "Correct samples are evidence, not proof; increase the sample when the stakes or cost of error rises.",
+      "limitations": "Exact linked lesson passage used only for the class-note learning route; it does not certify the whole book.",
+      "retrievedAt": "2026-09-06"
+    }
+  ]
+}

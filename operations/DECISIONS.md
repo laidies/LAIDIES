@@ -398,3 +398,9 @@ A retired town announcement remains retired; do not extend its date to fill spac
 
 ## 2026-09-07 — Crossword pilot and two house ads
 Ali approved completing one 8–10 clue untimed crossword using the existing grid, saved progress, optional hints and lesson links, short answer explanations and purposeful Rewind Era references; then two clearly labelled SUNNYVAiLE house ads linking to working site features. Verify first before publication; recurring puzzle production is not yet promised. Behind the Build is parked and its fictional draft rejected.
+
+## September 7 — NewsStand reader-context revision and correction integrity
+
+Ali authorized the NVIDIA reader-context and emoji revision: include personal as well as work use; distinguish using Hugging Face directly, an app routing through it, and independently run downloaded models. Do not imply an ordinary reader uses the platform or predict an account/price/access change. Preserve the video-player/video-store analogy. Add the founder's temporary-name/community-adoption account, the exact decimal emoji-code price correspondence without claiming intent, and the precise separate July OpenAI testing reminder. Use recognizable emoji artwork with a simple illustration credit.
+
+Corrections retain the publication instant and compare issue membership in the issue's editorial time zone, not the UTC date prefix. Exact prose evidence in JSON article artifacts is matched against decoded public prose fields; JSON escaping of HTML links must not reject genuine quotations, and source metadata cannot substitute for article prose.

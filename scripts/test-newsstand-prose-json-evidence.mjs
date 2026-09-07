@@ -1,0 +1,12 @@
+import assert from "node:assert/strict";
+import {proseEvidenceContains} from "./check-prose-quality-admission.mjs";
+const paragraph = '<p>Read the <a href="/library.html#chapter">exact lesson</a>.</p>';
+const body = JSON.stringify({headline:"A dated article",the_story:paragraph,sources:[{passage:"This appears only in source metadata."}]});
+assert.equal(body.includes(paragraph),false,"Fixture must reproduce escaped-attribute mismatch");
+assert.equal(proseEvidenceContains(body,paragraph),true);
+assert.equal(proseEvidenceContains(body,paragraph.replace("exact lesson","invented lesson")),false);
+assert.equal(proseEvidenceContains(body,"This appears only in source metadata."),false);
+assert.equal(proseEvidenceContains(body,'<a href="/other">exact lesson</a>'),false);
+assert.equal(proseEvidenceContains("Ordinary prose is still checked exactly.","still checked exactly"),true);
+assert.equal(proseEvidenceContains("Ordinary prose is still checked exactly.","Still checked exactly"),false);
+console.log("NEWS JSON PROSE EVIDENCE PASS: real link accepted; altered text, URL and source-only evidence rejected");

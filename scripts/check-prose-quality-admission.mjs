@@ -58,11 +58,23 @@ function loadBinding(root, binding, label, errors) {
   return bytes.toString("utf8");
 }
 
+export function proseEvidenceContains(body, excerpt) {
+  let article;
+  try { article = JSON.parse(body); } catch { /* Plain prose keeps exact matching. */ }
+  if (typeof article?.headline === "string" && typeof article?.the_story === "string") {
+    // Reviewers quote the article, not JSON's escaping of HTML attributes.
+    // Search only public prose fields; source metadata cannot prove article prose.
+    return ["headline", "the_story", "laidies_read", "what_this_means", "cocktail_party", "class_notes", "watch_fors", "closing_note"]
+      .some(key => typeof article[key] === "string" && article[key].includes(excerpt));
+  }
+  return Boolean(body?.includes(excerpt));
+}
+
 function evidenceAppears(body, evidence, label, errors) {
   if (!Array.isArray(evidence) || evidence.length === 0) { errors.push(`${label}: exact prose evidence is required`); return; }
   for (const [index, item] of evidence.entries()) {
     if (!text(item?.excerpt) || item.excerpt.trim().length < 15 || !text(item?.locator)) errors.push(`${label}[${index}]: excerpt of at least 15 characters and locator are required`);
-    else if (!body?.includes(item.excerpt)) errors.push(`${label}[${index}]: excerpt does not occur in the exact prose`);
+    else if (!proseEvidenceContains(body, item.excerpt)) errors.push(`${label}[${index}]: excerpt does not occur in the exact prose`);
   }
 }
 

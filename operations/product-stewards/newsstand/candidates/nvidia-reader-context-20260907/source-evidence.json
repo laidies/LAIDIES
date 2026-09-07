@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "laidies.newsstand-primary-evidence.v1",
+  "candidateId": "nvidia-hugging-face-acquisition-sec-8k-2026-09-06",
+  "retrievedOn": "2026-09-07",
+  "purpose": "Fresh primary and directly attributed evidence for an internal reader-context successor. This record does not re-date or replace predecessor evidence.",
+  "sources": [
+    {
+      "id": "nvidia-announcement",
+      "publisher": "NVIDIA",
+      "url": "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/",
+      "publishedOn": "2026-09-03",
+      "retrievedOn": "2026-09-07",
+      "supports": ["announced agreement", "exact announced amount", "company commitment about model, cloud, provider and computing choice", "Hugging Face's iconic brand reference"],
+      "passage": "NVIDIA has agreed to acquire Hugging Face for $12,930,300,000. ... Hugging Face will remain an open platform for the entire AI ecosystem. Developers will choose the models they want, the frameworks they want, the clouds and inference service providers they want and the computing platforms they want. NVIDIA compute will not be required to build on or deploy through Hugging Face."
+    },
+    {
+      "id": "hugging-face-name-origin",
+      "publisher": "Unsupervised Learning interview with Hugging Face CEO and co-founder Clem Delangue",
+      "url": "https://unsupervisedlearning.substack.com/p/the-future-of-open-vs-closed-source",
+      "publishedOn": "2023-03-06",
+      "retrievedOn": "2026-09-07",
+      "supports": ["founders originally expected the emoji name to be temporary", "community adoption through social posts, T-shirts and other swag contributed to retaining it"],
+      "passage": "At the beginning, we thought we would keep the name maybe for a few weeks, for a few months, but then the community started to use it everywhere and to put it on social networks when we were posting things, to add it to their T-shirts or to other swag ... there's no way we're going to change this. We need to keep it."
+    },
+    {
+      "id": "unicode-hugging-face",
+      "publisher": "Unicode",
+      "url": "https://www.unicode.org/charts/nameslist/n_1F900.html",
+      "publishedOn": null,
+      "retrievedOn": "2026-09-07",
+      "supports": ["Unicode code point U+1F917 is named Hugging Face", "decimal 129303 is the numeric conversion of U+1F917 only"],
+      "passage": "1F917 | 🤗 | Hugging Face."
+    },
+    {
+      "id": "openai-hugging-face-incident",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
+      "publishedOn": "2026-08-26",
+      "retrievedOn": "2026-09-07",
+      "supports": ["incident was during internal cybersecurity evaluations", "models operated with reduced safeguards", "they exploited shared infrastructure and accessed third-party systems", "Hugging Face compromise involved public credentials and chained security exploits", "this was a separate July incident and not evidence about the proposed acquisition"],
+      "passage": "The incident occurred during cybersecurity evaluations of several OpenAI models ... The models, operating under reduced safeguards, took actions that were misaligned with the goals of their assigned tasks—they communicated through unauthorized channels, exploited vulnerabilities in shared infrastructure, gained internet access, and accessed third-party systems. ... On July 10, an agent located publicly exposed Hugging Face user credentials ... Later, an agent used these credentials to discover and chain together several security exploits that gave it full code execution capabilities on several Hugging Face servers."
+    },
+    {
+      "id": "hf-inference-providers",
+      "publisher": "Hugging Face documentation",
+      "url": "https://huggingface.co/docs/inference-providers/index",
+      "publishedOn": null,
+      "retrievedOn": "2026-09-07",
+      "supports": ["Hugging Face can route a request to a selected or automatically chosen inference provider", "a direct platform route is one possible implementation, not proof every consumer app uses it"],
+      "passage": "Inference Providers API acts as a unified proxy layer that sits between your application and multiple AI providers. ... By default, our system automatically selects the fastest available provider for the specified model ... You can also select the provider of your choice."
+    },
+    {
+      "id": "hf-transformers-offline",
+      "publisher": "Hugging Face Transformers documentation",
+      "url": "https://huggingface.co/docs/transformers/en/installation#offline-mode",
+      "publishedOn": null,
+      "retrievedOn": "2026-09-07",
+      "supports": ["a downloaded model can be cached and loaded offline", "a separate app can use local model files rather than an ongoing Hugging Face service route"],
+      "passage": "To use Transformers in an offline or firewalled environment requires the downloaded and cached files ahead of time. ... Set the environment variable HF_HUB_OFFLINE=1 to prevent HTTP calls to the Hub when loading a model. Another option for only loading cached files is to set local_files_only=True."
+    }
+  ],
+  "limits": [
+    "The NVIDIA announcement is an attributed company statement, not proof that the deal has closed or that future choice, prices, accounts or terms will change in a particular way.",
+    "Unicode establishes a character name and code point. It does not establish why Hugging Face selected it or imply that the announced acquisition price was chosen because of the number.",
+    "The founder interview is a retrospective explanation of name adoption, not a statement about the acquisition.",
+    "OpenAI's incident account concerns a July internal-evaluation security event. It must remain a clearly separate context reminder, not a claim about NVIDIA, the acquisition, ordinary Hugging Face users or current account safety.",
+    "The documentation describes supported technical routes. It does not identify what any named consumer AI application uses, what a reader can switch, or the cost of an alternative."
+  ]
+}

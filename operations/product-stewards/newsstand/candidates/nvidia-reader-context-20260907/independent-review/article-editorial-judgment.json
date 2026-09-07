@@ -1,0 +1,529 @@
+{
+  "facts": {
+    "attestations": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    },
+    "claims": {
+      "announced-agreement": {
+        "state": "supported",
+        "reason": "P002 matches the NVIDIA announcement passage: agreement, September 3, $12,930,300,000 rounded to $12.93 billion, strengthen/expand framing, and the article correctly states closing is unverified.",
+        "passages": [
+          "P002"
+        ],
+        "sourceIds": [
+          "NVIDIA-AGREEMENT"
+        ]
+      },
+      "company-and-platform": {
+        "state": "supported",
+        "reason": "P003's chips/systems/software identity, Model Hub hosting/sharing, download-or-connect routes and catalogue/computing separation are each backed by the identity, Hub, providers and terms passages without adopting superlatives.",
+        "passages": [
+          "P003"
+        ],
+        "sourceIds": [
+          "NVIDIA-IDENTITY",
+          "HF-MODELS",
+          "HF-PROVIDERS",
+          "HF-TERMS"
+        ]
+      },
+      "choice-commitment": {
+        "state": "supported",
+        "reason": "P004 faithfully attributes NVIDIA's promise of model/computing choice and no NVIDIA-hardware requirement, mirroring the announcement passage, and frames practicality as an open question rather than a verified fact.",
+        "passages": [
+          "P004"
+        ],
+        "sourceIds": [
+          "NVIDIA-AGREEMENT"
+        ]
+      },
+      "distribution-analogy": {
+        "state": "supported",
+        "reason": "P008 is explicitly an imagined scenario, not an allegation; it maps the documented distribution roles (Hub catalogue, provider services) onto how a distributor can shape ease of choice.",
+        "passages": [
+          "P008"
+        ],
+        "sourceIds": [
+          "HF-MODELS",
+          "HF-PROVIDERS"
+        ]
+      },
+      "model-to-computing": {
+        "state": "supported",
+        "reason": "P009's find-a-model vs choose-who-runs-it separation matches Hub and providers documentation; speech-to-text is a hypothetical task supported by the provider table transcription.",
+        "passages": [
+          "P009"
+        ],
+        "sourceIds": [
+          "HF-MODELS",
+          "HF-PROVIDERS",
+          "HF-TERMS"
+        ]
+      },
+      "possible-incentive": {
+        "state": "supported",
+        "reason": "P010 is clearly labelled editorial analysis ('possible tension we see'), grounded in NVIDIA's stated computing business, and explicitly disclaims any established restriction.",
+        "passages": [
+          "P010"
+        ],
+        "sourceIds": [
+          "NVIDIA-AGREEMENT",
+          "NVIDIA-IDENTITY"
+        ]
+      },
+      "ownership-and-licence": {
+        "state": "supported",
+        "reason": "P011 matches the terms passage ('You own the Content you create') and licence guidance to check each project's licence; availability-is-not-permission is a fair reading of the cited limits.",
+        "passages": [
+          "P011"
+        ],
+        "sourceIds": [
+          "HF-LICENCES",
+          "HF-TERMS"
+        ]
+      },
+      "next-developments": {
+        "state": "supported",
+        "reason": "P015 accurately reports the 8-K passage: expected close in first half of 2027, subject to customary conditions and regulatory approvals, and correctly labels it an expectation.",
+        "passages": [
+          "P015"
+        ],
+        "sourceIds": [
+          "NVIDIA-SEC-8K"
+        ]
+      },
+      "cocktail-summary": {
+        "state": "supported",
+        "reason": "P016 compresses the sourced agreement, platform role and choice promise, plus the article's own practicality test, without exceeding what the announcement and docs support.",
+        "passages": [
+          "P016"
+        ],
+        "sourceIds": [
+          "NVIDIA-AGREEMENT",
+          "HF-MODELS",
+          "HF-PROVIDERS"
+        ]
+      },
+      "learning-route": {
+        "state": "supported",
+        "reason": "P017 applies exactly the linked lesson's claim that correct samples are evidence not proof, matching the LAIDIES-LESSON passage without certifying the whole book.",
+        "passages": [
+          "P017"
+        ],
+        "sourceIds": [
+          "LAIDIES-LESSON"
+        ]
+      },
+      "closing-expectation-and-conditions": {
+        "state": "supported",
+        "reason": "P015 mirrors the 8-K wording on expected first-half-2027 close and customary conditions, and explicitly distinguishes expectation from completion.",
+        "passages": [
+          "P015"
+        ],
+        "sourceIds": [
+          "NVIDIA-SEC-8K"
+        ]
+      },
+      "name-origin": {
+        "state": "supported",
+        "reason": "P005 matches Delangue's quoted account: expected the name for weeks or months, community adoption on social posts and T-shirts, decision to keep it.",
+        "passages": [
+          "P005"
+        ],
+        "sourceIds": [
+          "hugging-face-name-origin"
+        ]
+      },
+      "emoji-number": {
+        "state": "supported",
+        "reason": "P006 is arithmetically correct: U+1F917 in decimal is 129303, the first six digits of $12,930,300,000; the article correctly declines to claim intent.",
+        "passages": [
+          "P006"
+        ],
+        "sourceIds": [
+          "nvidia-announcement",
+          "unicode-hugging-face"
+        ]
+      },
+      "security-reminder": {
+        "state": "supported",
+        "reason": "P007 accurately attributes to OpenAI the July testing incident under reduced safeguards, including unauthorized access to Hugging Face systems, and correctly separates it from ordinary use and from the acquisition.",
+        "passages": [
+          "P007"
+        ],
+        "sourceIds": [
+          "openai-hugging-face-incident"
+        ]
+      },
+      "direct-indirect-use": {
+        "state": "supported",
+        "reason": "P012's two routes (find a model vs proxy requests to a provider) match the Inference Providers proxy-layer documentation; no named app is asserted to use them.",
+        "passages": [
+          "P012"
+        ],
+        "sourceIds": [
+          "hf-inference-providers"
+        ]
+      },
+      "independent-download": {
+        "state": "supported",
+        "reason": "P013's claim that downloaded models can run without contacting the Hub matches the documented offline mode (HF_HUB_OFFLINE, local_files_only), with the correct caveat that not every app does so.",
+        "passages": [
+          "P013"
+        ],
+        "sourceIds": [
+          "hf-transformers-offline"
+        ]
+      },
+      "reader-effect-boundary": {
+        "state": "supported",
+        "reason": "P014 states the reporting's own limits, attributes future choice to NVIDIA's promise per the announcement, and forecasts nothing about accounts, prices or access.",
+        "passages": [
+          "P014"
+        ],
+        "sourceIds": [
+          "nvidia-announcement"
+        ]
+      }
+    },
+    "outcomes": {
+      "factualIntegrity": {
+        "state": "pass",
+        "reason": "All seventeen passages' material claims trace to the supplied source passages with attribution ('NVIDIA says', 'OpenAI says', 'Hugging Face tells users') and preserved limits.",
+        "passages": [
+          "P002",
+          "P004",
+          "P007"
+        ]
+      },
+      "freshnessReviewability": {
+        "state": "pass",
+        "reason": "The announcement date (September 3), incident dates (July test, August 26 account) and expected 2027 close are all stated, and the article flags what has not yet been verified.",
+        "passages": [
+          "P002",
+          "P007",
+          "P015"
+        ]
+      },
+      "datedChange": {
+        "state": "pass",
+        "reason": "The July security incident is explicitly dated and separated from the September acquisition announcement, and expected closing is distinguished from completed change.",
+        "passages": [
+          "P007",
+          "P015",
+          "P002"
+        ]
+      },
+      "consequenceAndUncertainty": {
+        "state": "pass",
+        "reason": "Reader consequences are concrete (which routes an app may use, what to ask a maker) while uncertainty survives: no claim the reader's app, price or access changes.",
+        "passages": [
+          "P013",
+          "P014",
+          "P015"
+        ]
+      }
+    },
+    "learningDisposition": {
+      "disposition": "NO_NEW_DEFECT",
+      "rationale": "Every claim is supported by its cited sources and all four fact outcomes pass; no failed or uncertain fact assessment, so no repair candidate or evidence gap arises."
+    },
+    "summary": "All material claims — the $12.93bn announced agreement, NVIDIA's choice promise, platform roles, licence limits, the Unicode price coincidence (verified: 0x1F917 = 129303), name origin, the OpenAI July incident, and the 8-K's 2027 closing expectation — match the supplied source passages with attribution and scope limits intact. The article consistently separates company statements from verified outcomes."
+  },
+  "reader": {
+    "attestations": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    },
+    "reverseBrief": {
+      "humanQuestion": "A big chip company is buying the place where many AI models come from — does that quietly change the AI apps I use at home or work?",
+      "promisedPayoff": "You will understand what Hugging Face actually is, the two separate decisions (finding a model vs running it), and how to judge NVIDIA's neutrality promise against future evidence.",
+      "centralMentalModel": "A catalogue and the computing that runs its contents are separate; whoever owns the catalogue can shape which choices stay practical without banning any of them.",
+      "dailyLifeConnection": "A video-player maker buying your local video shop: what stays on the shelves, what plays on which machines, and whether setup instructions nudge you toward one brand.",
+      "surfaceJob": "A dated news article reporting an announced acquisition, its promises, its conditions, and the concrete developments to watch.",
+      "desiredReaderFeeling": "Oriented and calm: able to distinguish a promise from an outcome, and knowing exactly which question to ask if an app mentions the deal."
+    },
+    "outcomes": {
+      "plainClarity": {
+        "state": "pass",
+        "reason": "Each technical idea (model, computing service, licence) is defined in plain words at first meaningful use; sentences are short and concrete throughout.",
+        "passages": [
+          "P003",
+          "P009",
+          "P011"
+        ]
+      },
+      "readerValue": {
+        "state": "pass",
+        "reason": "Beyond the headline, the reader gains the catalogue/computing distinction, the direct/indirect/offline routes behind their apps, and a concrete question to ask an app maker.",
+        "passages": [
+          "P012",
+          "P013",
+          "P014"
+        ]
+      },
+      "laidiesVoice": {
+        "state": "pass",
+        "reason": "Warm, candid and adult: 'Here is the possible tension we see', the earned late-fees joke, and honest 'we have not established' limits without condescension.",
+        "passages": [
+          "P010",
+          "P011",
+          "P014"
+        ]
+      },
+      "engagingEnjoyable": {
+        "state": "pass",
+        "reason": "The name story, the verified Unicode price coincidence, and the light video-shop humour sustain interest while each detail earns its place.",
+        "passages": [
+          "P005",
+          "P006",
+          "P011"
+        ]
+      },
+      "surfaceFit": {
+        "state": "pass",
+        "reason": "It answers what happened (announced agreement), why it matters (choice practicality), and its bounds (expected 2027 close, conditions) — proper dated-news scope.",
+        "passages": [
+          "P002",
+          "P004",
+          "P015"
+        ]
+      },
+      "dailyLifeConnection": {
+        "state": "pass",
+        "reason": "The video-shop scenario and the 'app you use at home or at work' framing anchor the mechanism in recognisable consumer experience.",
+        "passages": [
+          "P008",
+          "P012",
+          "P013"
+        ]
+      },
+      "communicationBenchmark": {
+        "state": "pass",
+        "reason": "Starts from a human stake, spends its centre on the catalogue/computing mechanism, earns the 'list vs practical' click, and lands on a precise next question — no imitation of any communicator.",
+        "passages": [
+          "P008",
+          "P009",
+          "P016"
+        ]
+      },
+      "explainBack": {
+        "state": "pass",
+        "reason": "The mechanism in P009–P010 supports an accurate ordinary-language answer to why platform ownership could steer choice without restricting it; see explainBack below.",
+        "passages": [
+          "P009",
+          "P010",
+          "P008"
+        ]
+      },
+      "unseenTransfer": {
+        "state": "pass",
+        "reason": "The catalogue/computing/defaults mechanism transfers cleanly to a new scenario (podcast directory bought by a speaker maker); see unseenTransfer below.",
+        "passages": [
+          "P009",
+          "P010",
+          "P013"
+        ]
+      },
+      "usefulAction": {
+        "state": "pass",
+        "reason": "Specific, proportionate actions: ask your app's maker whether Hugging Face finds or runs their model, and watch for closing confirmation, terms changes and real builder options.",
+        "passages": [
+          "P013",
+          "P015",
+          "P017"
+        ]
+      },
+      "analogyIntegrity": {
+        "state": "pass",
+        "reason": "The video-shop analogy maps distribution influence accurately, returns explicitly to the AI mechanism, and its limit (the shop never owned every film) carries the licence point.",
+        "passages": [
+          "P008",
+          "P009",
+          "P011"
+        ]
+      }
+    },
+    "newsChecks": {
+      "incidentExplained": {
+        "state": "pass",
+        "reason": "The announcement, its promises and the causal chain from ownership to potential steering of choices are all made understandable, with the separate July incident correctly contextualised.",
+        "passages": [
+          "P002",
+          "P010",
+          "P007"
+        ]
+      },
+      "termsExplainedInContext": {
+        "state": "pass",
+        "reason": "Model, computing service, licence and Unicode are each glossed in plain language at first meaningful use rather than in a detached glossary.",
+        "passages": [
+          "P003",
+          "P011",
+          "P006"
+        ]
+      },
+      "readerConsequenceSpecific": {
+        "state": "pass",
+        "reason": "The consequence is anchored in a recognisable situation — an app the reader relies on may source or route through Hugging Face — with an honest boundary on what is not established.",
+        "passages": [
+          "P012",
+          "P013",
+          "P014"
+        ]
+      },
+      "noInternalNotesOrInventedAdvice": {
+        "state": "pass",
+        "reason": "No internal operating notes or process details appear; the class note is a public learning link, and all advice follows from sourced distinctions.",
+        "passages": [
+          "P017",
+          "P013",
+          "P015"
+        ]
+      }
+    },
+    "families": {
+      "glossaryAccumulation": {
+        "state": "clear",
+        "reason": "Definitions are woven into the working system (catalogue → computing → licence), never stacked as isolated entries.",
+        "passages": []
+      },
+      "templateRepetition": {
+        "state": "clear",
+        "reason": "Paragraphs develop a single argument through distinct moves — report, mechanism, tension, limits — without repeated scaffolds.",
+        "passages": []
+      },
+      "decorativeAnalogy": {
+        "state": "clear",
+        "reason": "The video-shop comparison explains a specific causal mechanism (distribution shaping ease of choice) and is explicitly reconnected to AI in P009.",
+        "passages": []
+      },
+      "referenceConfetti": {
+        "state": "clear",
+        "reason": "The emoji, Unicode and OpenAI references each do explanatory work (name origin, price coincidence, prior-familiarity context); none is ornamental.",
+        "passages": []
+      },
+      "missingMechanism": {
+        "state": "clear",
+        "reason": "The causal steps from ownership to influence over choices, prices and effort are laid out link by link in P008–P010.",
+        "passages": []
+      },
+      "genericAction": {
+        "state": "clear",
+        "reason": "Actions are case-specific: ask whether Hugging Face finds or runs your app's model; watch closing, terms changes and builder options.",
+        "passages": []
+      },
+      "jargonBeforeMeaning": {
+        "state": "clear",
+        "reason": "Every technical term (model, licence, Unicode, inference-style services) receives plain meaning at first meaningful use.",
+        "passages": []
+      },
+      "disconnectedSystem": {
+        "state": "clear",
+        "reason": "The article shows how parts connect: model found on the Hub, computing chosen separately, requests routed or run offline.",
+        "passages": []
+      },
+      "factlessConfidence": {
+        "state": "clear",
+        "reason": "Certainty is calibrated throughout: 'we have not verified', 'does not establish', 'expectation, not a completed deal'.",
+        "passages": []
+      },
+      "staleUnreviewableClaims": {
+        "state": "clear",
+        "reason": "All time-sensitive claims carry dates (Sept 3 announcement, July incident, Aug 26 account, H1 2027 expectation) and traceable sources.",
+        "passages": []
+      },
+      "corporateSludge": {
+        "state": "clear",
+        "reason": "NVIDIA's promotional framing is quoted as a claim to test, not absorbed; the article's own prose is concrete.",
+        "passages": []
+      },
+      "joylessInstruction": {
+        "state": "clear",
+        "reason": "Human interest survives: the name story, the price coincidence and light humour keep it from becoming a checklist.",
+        "passages": []
+      },
+      "benchmarkNameDrop": {
+        "state": "clear",
+        "reason": "No communicator or benchmark is named anywhere in the artifact; clarity is done, not claimed.",
+        "passages": []
+      },
+      "curiosityWithoutPayoff": {
+        "state": "clear",
+        "reason": "Each hook pays off: the name question resolves via Delangue's account, the price oddity via verified digits, the tension via the watch-list.",
+        "passages": []
+      },
+      "familiarExampleWithoutTechnicalReturn": {
+        "state": "clear",
+        "reason": "The video shop returns explicitly to the technical mechanism ('Back to AI') and again to carry the licence limit.",
+        "passages": []
+      },
+      "communicationPastiche": {
+        "state": "clear",
+        "reason": "The voice is original LAiDIES prose; no borrowed persona, mannerisms or imitated structure.",
+        "passages": []
+      },
+      "entertainmentBeforeUnderstanding": {
+        "state": "clear",
+        "reason": "Humour (late fees) and trivia (129303) come after the relevant mechanism and sharpen rather than displace it.",
+        "passages": []
+      },
+      "mechanismCompressedBehindHook": {
+        "state": "clear",
+        "reason": "The largest share of the piece is the causal explanation (P003, P008–P013); hooks are brief.",
+        "passages": []
+      },
+      "prematureClickBeforeMechanism": {
+        "state": "clear",
+        "reason": "The 'practical vs on a list' conclusion arrives only after the distribution mechanism and incentive analysis earn it.",
+        "passages": []
+      },
+      "inflatedTakeawayEnding": {
+        "state": "clear",
+        "reason": "The ending is a bounded watch-list of concrete developments, explicitly refusing to report results in advance.",
+        "passages": []
+      },
+      "purposeTooNarrow": {
+        "state": "clear",
+        "reason": "The article serves the full brief: reporting, analogy, platform routes, name/emoji context and security context, for non-Hugging-Face users.",
+        "passages": []
+      },
+      "mechanismBeforeMotivation": {
+        "state": "clear",
+        "reason": "The reader's stake (an app you use may sit downstream of this platform) is established before and alongside the machinery.",
+        "passages": []
+      },
+      "workedExampleOvertakesBookPurpose": {
+        "state": "clear",
+        "reason": "The speech-to-text example is one illustrative paragraph; it never crowds out the broader orientation.",
+        "passages": []
+      },
+      "technicalExplainerVoice": {
+        "state": "clear",
+        "reason": "The organising perspective is the reader's practical position toward their apps, not specialist taxonomy; for this bounded news report the mechanism focus is proper.",
+        "passages": []
+      }
+    },
+    "explainBack": {
+      "question": "If NVIDIA promises builders can still choose any model and any computing provider, how could owning Hugging Face nonetheless reduce their real choice?",
+      "answer": "Because Hugging Face sits at the point where builders discover models and pick who runs them. The owner of that point controls what is easiest: which options are prominent, how documentation and defaults route people, and how much effort, price or friction each alternative carries. So every alternative can stay on the list while some become impractical — choice narrows through convenience, not prohibition. That is why the article says to watch choices, prices and effort, not just availability.",
+      "expectedEvidence": "A correct answer must use the catalogue/computing separation (P003, P009), the distribution-influence mechanism from the video-shop analogy (P008), and the incentive analysis with its explicit limit that no restriction is established (P010).",
+      "assessment": "The article fully supports this answer: P008 supplies the influence-without-ownership mechanism, P009 the two-decision structure, and P010 the incentive and its evidentiary boundary, so the causal explain-back succeeds in ordinary language."
+    },
+    "unseenTransfer": {
+      "scenario": "A smart-speaker manufacturer announces it will buy the most popular podcast directory — the index most listening apps query to find shows. It promises podcasts will remain playable on every brand of device and that shows can still be hosted anywhere.",
+      "question": "Using this article's mechanism, what should a listener or podcaster actually watch to judge whether that neutrality promise holds?",
+      "answer": "Separate the directory (finding shows) from hosting and playback (who serves the audio and on what device). The promise keeps rivals on the list; the mechanism says to watch whether they stay practical: do search rankings, defaults or setup guides start favouring the buyer's speakers; does hosting elsewhere gain friction or cost; do directory terms change after closing? Also note that owning the directory does not transfer ownership of the shows — each podcast keeps its own rights, like models keeping their licences. And a listening app that cached episodes could keep working without querying the directory at all, just as a maker can run a downloaded model offline.",
+      "expectedEvidence": "The transfer should reuse the catalogue-vs-computing split (P009), the promise-vs-practicality test and incentive watch-list (P010, P016), the licence/ownership limit (P011) and the offline-independence route (P013).",
+      "assessment": "The mechanism transfers cleanly with no strain: every element of the new scenario maps to a distinct, explicitly taught step in the article, confirming the explanation generalises beyond its own case."
+    },
+    "learningDisposition": {
+      "disposition": "NO_NEW_DEFECT",
+      "rationale": "All reader outcomes and news checks pass and every failure family is clear on inspection of the exact passages; there is no failed or uncertain assessment to route into the learning loop."
+    },
+    "summary": "A strong dated news article: the video-shop analogy carries a real causal mechanism and returns to the AI system twice; the catalogue/computing distinction is applied to the reader's own apps with honest limits; promises are consistently separated from outcomes; and the name, price-coincidence and security asides each earn their place. Explain-back and a fresh transfer scenario (podcast directory bought by a speaker maker) both succeed on the article's mechanism alone."
+  }
+}

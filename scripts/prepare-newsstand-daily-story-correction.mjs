@@ -13,6 +13,25 @@ const canonicalJson = value => value === null || typeof value !== "object" ? JSO
   : Array.isArray(value) ? `[${value.map(canonicalJson).join(",")}]`
     : `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${canonicalJson(value[key])}`).join(",")}}`;
 const fail = message => { throw new Error(`DAILY_STORY_CORRECTION_REJECT: ${message}`); };
+export const editorialDate = (timestamp, editorialTimeZone = "America/Vancouver") => {
+  const instant = new Date(timestamp);
+  if (!Number.isFinite(instant.getTime())) fail("current story publication timestamp is invalid");
+  if (typeof editorialTimeZone !== "string" || !editorialTimeZone.trim()) fail("issue editorial time zone is invalid");
+  try {
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: editorialTimeZone,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(instant);
+    const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+    if (!/^\d{4}$/.test(values.year || "") || !/^\d{2}$/.test(values.month || "") || !/^\d{2}$/.test(values.day || "")) fail("issue editorial time zone did not produce a calendar date");
+    return `${values.year}-${values.month}-${values.day}`;
+  } catch (error) {
+    if (String(error?.message || "").startsWith("DAILY_STORY_CORRECTION_REJECT:")) throw error;
+    fail("issue editorial time zone is invalid");
+  }
+};
 const arg = name => process.argv.includes(name) ? process.argv[process.argv.indexOf(name) + 1] : null;
 const bind = relative => {
   const absolute = path.resolve(ROOT, relative || "");
@@ -56,7 +75,7 @@ export function prepareCorrection({ root = ROOT, date, storyId, evidencePath }) 
   const storiesRaw = fs.readFileSync(storiesPath, "utf8");
   const canonical = parseStories(storiesRaw).stories?.filter(story => story.id === storyId) || [];
   if (canonical.length !== 1 || canonical[0].edition !== "daily" || !["published", "corrected"].includes(canonical[0].status) || canonical[0].sourceApproval?.status !== "approved") fail("current canonical story is not admitted");
-  if (String(canonical[0].publishedAt || "").slice(0, 10) !== date) fail("current story publication date differs from the issue date");
+  if (editorialDate(canonical[0].publishedAt, existing.editorialTimeZone || "America/Vancouver") !== date) fail("current story publication date differs from the issue date");
   const evidence = bind(evidencePath);
   if (evidence.value.storyId !== storyId || evidence.value.candidateStatus !== "approved-for-publication" || evidence.value.candidatePath !== "content/newsstand-stories.js") fail("evidence does not admit the current canonical story");
   const predecessorStorySha256 = sha256(canonicalJson(existing.stories[index]));
