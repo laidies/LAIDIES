@@ -3,7 +3,7 @@
 > **2026-09-06 — Operating integration / BUILDING: read-only Learning map pilot.**
 > Owner `01a077d0-0775-7af2-b631-c311573f0e0e`; isolated
 > `/Users/alisoneakin/Projects/laidies-learning-map-20260906`, branch
-> `ops/learning-provenance-pilot-20260906`. PR120 research and item-level source
+> `ops/learning-source-recovery-20260906`. PR120 research and item-level source
 > monitoring merged `50c0cc83`. The projection consumes existing queue, release
 > and inactive-executor checkers; no new runtime or source of authority.
 > Current counts remain 17 orders, 14 preflight-eligible, zero draft-eligible,
@@ -11,15 +11,14 @@
 > the projection; missing planned outputs remain visible build holds. Independent
 > review caught and corrected missing-input success and output-as-input impact.
 > Current view: `product-stewards/learning-content-ecosystem/LEARNING-DEPENDENCY-MAP.md`.
-> LCWO-002 real producer preflight is now **HOLD — SOURCE AUTHORITY
-> UNRESOLVED**. All seven declared paths are absent from current `main`; the
-> recoverable evidence refers to the superseded/rejected Concepts 101 successor,
-> and no current Library-owned AI Fundamentals source identity exists in this
-> branch. The durable access-label concept assignment survives, but the recorded
-> immediate-build trigger does not. Exact reconciliation and next trigger:
+> LCWO-002 source identity is now resolved to the exact twenty-chapter Quick
+> bundle accepted August16, recovered from original commit `5a4b5208` without
+> altering source bytes. Its access-label placement is Chapter2, section2.5.
+> Current four-label evidence and Library's versioned extension/render route
+> remain prerequisites; no producer contract or drafting is claimed. Exact
+> hashes, authority and next operation:
 > `product-stewards/learning-content-ecosystem/RECOVERY.md`. Queue bytes remain
-> unchanged; no producer contract, draft, render, review or execution activation
-> was created.
+> unchanged, so the original missing-input quarantine remains visible.
 > Whole-operation acceptance and remaining build/cloud/product/backup work remain
 > in `OPERATING-RECOVERY-NEXT.md`. No execution activation, publication, spend,
 > deletion or automatic-continuation claim.

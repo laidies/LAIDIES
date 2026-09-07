@@ -489,3 +489,14 @@ creating a producer contract; preserve durable rulings separately from obsolete
 artifact/status claims; and require the destination owner to bind one exact
 current canonical source before drafting. Behind the Build angle: why a work
 order can be internally valid yet still point confidently at yesterday's book.
+
+### 2026-09-06 — Missing on main did not mean no accepted successor existed
+
+The first LCWO-002 reconciliation stopped at older missing/rejected six-chapter
+records. Archived-task inspection found a later twenty-chapter source accepted
+by Ali, then exact original Git blobs and three worktrees confirmed its identity.
+Recover only that accepted immutable input bundle and its current route; do not
+revive stale generated artifacts or infer whole-book admission from visual
+approval. Prevention: inspect later owner handoffs and archived successor tasks
+before turning a missing mainline input into a new manuscript decision.
+Behind the Build angle: unfinished integration can look like missing work.
