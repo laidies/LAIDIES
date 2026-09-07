@@ -1,0 +1,22 @@
+[
+  {
+    "id": "work-template-repair",
+    "httpStatus": 200,
+    "status": "ok",
+    "answer": "AI can turn rough, non-sensitive notes into a clear weekly update. The safest method is to give it the structure, not the confidential facts.\n\nFirst, check whether your employer permits AI for this work. Approval and privacy settings are separate checks. If the approved tool or permitted information is unclear, ask your manager or security team before entering project material. Government security guidance says not to share workplace data you need to keep private with an AI service. ([cisa.gov](https://www.cisa.gov/sites/default/files/2024-09/Secure-Our-World-Using-AI-Tip-Sheet.pdf?utm_source=openai))\n\nUse an invented example or blank template:\n\n\u201cCreate a concise weekly update with these headings: progress, next steps, risks, decisions needed and deadlines. Keep it under 200 words. Use a calm, factual tone.\u201d\n\nThen fill in the real details yourself outside the AI tool.\n\nYou can also provide sanitized notes, but be ruthless. Remove client and employee names, financial figures, contract terms, unpublished plans, passwords, links, customer information and distinctive details. Swapping names for \u201cClient A\u201d does not guarantee anonymity; several clues together may identify the project or people.\n\nLet AI improve wording and organization, not decide what is true. Verify every date, number, status and commitment before sending. NIST recommends protecting personal information from inappropriate access, use and disclosure. ([csrc.nist.gov](https://csrc.nist.gov/pubs/sp/800/122/final?utm_source=openai))\n\nIn short: ask AI to build the clean skeleton, then add the confidential meat yourself.",
+    "answerSha256": "ca54cd2b5879baf1ae96d4bcb41488454330920c91cb311bc4e5d8efa740748a",
+    "conservativeChargeMicroUsd": 99844,
+    "reviewStatus": "HOLD_NOT_REUSABLE",
+    "finding": "Anonymity boundary present. Canned conclusion or unnecessary product controls remain; not admitted to bank or preview."
+  },
+  {
+    "id": "privacy-repair",
+    "httpStatus": 200,
+    "status": "ok",
+    "answer": "Treat an AI chat like a conversation that may be stored, reviewed or shared with connected services. \u201cSafe\u201d means you have permission to share it and would be comfortable if it were exposed.\n\nUsually fine: public information, your own non-sensitive writing, invented examples, generic questions and blank templates.\n\nKeep out: passwords, security codes, government identification numbers, banking details, medical records, legal files, private photos, customer or employee information, trade secrets and confidential workplace documents. Anthropic gives similar warnings for its consumer AI tool. ([support.anthropic.com](https://support.anthropic.com/en/articles/8325621-i-would-like-to-input-sensitive-data-into-my-free-pro-or-max-plan-claude-account-who-can-view-my-conversations?utm_source=openai))\n\nRemoving names helps, but does not guarantee anonymity. A combination of job title, location, dates and circumstances can still identify someone. Use fictional details when the real ones are unnecessary.\n\nFor work material, check two separate things: does your employer permit this tool, and does the information\u2019s owner permit you to share it? Privacy settings do not replace permission.\n\nChatGPT lets you turn off \u201cImprove the model for everyone.\u201d Temporary Chat is not used to improve its AI, does not appear in history and may still be retained for up to 30 days for safety purposes. ([help.openai.com](https://help.openai.com/en/articles/8914046-temporary-chat-faq%23.pict?utm_source=openai)) Other tools have different rules, so check the exact account and settings you are using.\n\nThe clean rule: share the minimum information needed. If a blank template will do, use that.",
+    "answerSha256": "b748743e28563bf67aa916e058f2c138704715cc3402fe88937f6183146ffdcd",
+    "conservativeChargeMicroUsd": 128507,
+    "reviewStatus": "HOLD_NOT_REUSABLE",
+    "finding": "Anonymity boundary present. Canned conclusion or unnecessary product controls remain; not admitted to bank or preview."
+  }
+]
