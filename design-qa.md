@@ -1,6 +1,6 @@
 # Three additional approved Card backgrounds — September 6
 
-final result: passed for the bounded Skates, Boombox and Computer art/enum integration; release verification follows separately
+final result: passed for the bounded Skates, Boombox and Computer art/enum integration; deployed81ac8fdc and publicly verified
 
 Exact approved raster bytes are installed, not regenerated or recoloured. The
 image-to-code workflow preserves editable Card fields and the shared Closet
@@ -17,6 +17,10 @@ all ten finishes and rejects an unknown finish, preserving other validation rule
 No resident account rows changed. Email delivery, sign-in, account-backed save,
 cross-device restoration and portrait generation are not proven by these checks.
 Exact artifact and release status: operations/design-qa/three-card-backgrounds-release.md.
+Live custom-domain UI roundtrips passed for all three; both Closet faces and maker
+restored the selected finish. Independent live desktop review passed all three.
+Immutable and current custom origins matched16 scoped/protected file hashes;
+coordinated NewsStand successor bf06ac26 retained every Card file unchanged.
 
 # Getting Ready integration QA
 

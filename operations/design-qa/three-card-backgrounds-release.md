@@ -1,6 +1,43 @@
 # Skates, Boombox and Computer — bounded release
 
-Status: ready for release; live result recorded below when verified.
+Status: DEPLOYED / PUBLICLY VERIFIED for the bounded three-background addition.
+
+## Final public result
+
+Production81ac8fdc-ec33-43ac-9bbb-06219ec4f833, source4257fdffeb0d69c9aa48e1d0d11a49f889e77640.
+Immutable https://81ac8fdc.laidies-sunnyvaile.pages.dev; public https://laidies.ai/maikeover.
+Immediately preceding provider check matched f5535c59. Wrangler4.105.0 uploaded
+11 new/757 reused assets plus routing and Worker, from the external source cwd.
+Provider readback confirmed Production/homepage-redesign/source4257fdf.
+
+All11 scoped paths plus homepage, Getting Ready CSS/art and two NewsStand files
+matched exact manifest hashes at the immutable origin (16 checks). During the
+custom-origin check the coordinated NewsStand successor deployed, so its changed
+CSS correctly failed the old hash comparison. Full successor comparison confirmed
+exactly newsstand.html and content/newsstand-design.css changed, no additions or
+removals, and every Card byte preserved. Rechecking the same16 paths against the
+new current manifest passed on laidies.ai. Latest shared release is bf06ac26,
+source7e68ca76, /private/tmp/laidies-newsstand-reader-updates-20260906 with adjacent
+.manifest.json, identity2739ed25d569415778d497557485e34b671f8c1a59c0a43194386dcbd86229c2.
+
+Live real controls at laidies.ai: reused only the synthetic Test Resident local
+Card from the preceding approved test. For each Skates, Boombox, Computer:
+selected background, clicked Save, followed See it in my Closet, observed both
+Card faces' exact data-finish, returned to maker and observed the same finish.
+All three passed. A browser-control timeout on Computer occurred after Closet
+navigation; inspecting current state confirmed both faces computer, then return
+confirmed computer. No repeated save was needed. No actual resident account data
+or authentication session was modified. Final local test finish is Computer.
+
+Coordinator01a0785e independently inspected live desktop pixels after clicking
+each new choice and returning to the maker anchor: distinct exact art, readable
+fields, separated headers, proportional rendering, ten options/Getting Ready
+retained. It did not save or edit data. Live mobile pixels were not re-reviewed;
+the identical scoped Card bytes passed local390px independent and320px maker
+checks. Broader account lifecycle is still not claimed.
+
+Implementation commit4257fdff; the commit containing this final evidence binds
+the verified deployment result. No subsequent Pages deployment by this task.
 
 Ali approved these exact three additional backgrounds through coordinator task
 01a0785e-1438-7161-b041-0be213b06e9b, approval record db56431d. Existing Getting

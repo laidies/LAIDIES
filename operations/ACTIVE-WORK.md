@@ -2,12 +2,12 @@
 
 ## 2026-09-06 Skates, Boombox and Computer Card backgrounds
 
-- **Status:** READY FOR RELEASE; local browser and independent visual checks complete, server allowlist applied. Not yet a public verification claim.
+- **Status:** DEPLOYED / PUBLICLY VERIFIED for the three-background addition. Production81ac8fdc, implementation4257fdff; retained by NewsStand successor bf06ac26. Not whole account-lifecycle completion.
 - **Source:** `/Users/alisoneakin/Projects/laidies-getting-ready-20260906`, branch `art-integration/getting-ready-20260906`; exact approved art from coordinator approval db56431d.
 - **Scope:** Three additional finish IDs and unchanged approved art, maker/Closet CSS and mapping, shared validation, cache references. Original seven choices and unrelated auth work preserved.
 - **Verified:** All three real UI selection/save/Closet/return journeys locally; 60/60 shared contract, 33/33 cross-surface checks; desktop/390px independent visual review and maker 320px test. SQL transaction accepts ten valid finishes/rejects unknown without changing account rows.
 - **Release:** `/private/tmp/laidies-three-card-backgrounds-final-20260906`, identity 5f92084060c869df59a973fbc63b1b8d52dec9211439d8ed71aa398acaa76e6f, 770 files/831422048 bytes. Exact seven changes/four additions/no removals from homepage f5535c59; every unrelated file retained.
-- **Next / limitations:** Fresh provider head check, deploy exact input, verify public bytes and real live roundtrips. Broader email/account work remains separate. Evidence: `operations/design-qa/three-card-backgrounds-release.md`.
+- **Final / limitations:** Live Skates/Boombox/Computer selection, local save, both Closet faces and maker return passed. Independent live desktop pixels passed all3. Immutable16hashes and current custom16hashes matched respective manifests; full NewsStand successor preserved all Card bytes. Broader email/account work remains separate. Evidence: `operations/design-qa/three-card-backgrounds-release.md`.
 
 ## 2026-09-06 Getting Ready Resident Card background
 
