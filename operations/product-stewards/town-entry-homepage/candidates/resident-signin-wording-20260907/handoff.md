@@ -1,6 +1,8 @@
 # Resident sign-in correction and shared-authentication repair
 
-Status: HOMEPAGE COPY REVIEWED; COMMUNITY AUTHENTICATION HOLD.
+Status: HOMEPAGE COPY VERIFIED PREVIEW; COMMUNITY AUTHENTICATION HOLD.
+
+Preview: https://63ca535f.laidies-sunnyvaile.pages.dev/#collect. Source commit: 2c29f56be57a97881034388730a8222bece4ba54. Hosted page bytes match the reviewed source;390/820/1440 checks passed. Source checkpoint succeeded after hydration recovered.
 
 Goal: one LAiDIES Resident sign-in also authenticates community participation. Ali reaffirmed an existing requirement; no second account product was approved.
 
