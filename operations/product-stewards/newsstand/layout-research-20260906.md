@@ -71,3 +71,7 @@ CORRECTION: Ali meant whitishpaper with tangerinedots, not tangerinepaper. Resto
 Preview requested: larger, spaced tangerine halftone dots restricted to outside gutters and section-break margins; clear whitish reading areas. Preserve artwork, layout and masthead. Not yet approved for production.
 
 Maker/reviewer correction: continuous dotted edge rails were still noisy, especially on mobile. Removed rails; final preview uses 8px dots spaced on a 24px pitch in short section-break clusters, with clear whitish paper throughout reading areas.
+
+Ali approves the direction of the sparse-dot preview and requests the Big Picture double-colour heading treatment elsewhere. Apply navy faces and mint offset lettering to main section and named-column headings; keep story headlines/body unchanged, with a legible coral/mint variant on the dark catch-up surface.
+
+Big Picture title correction: article headline spans the whole spread beneath the section name and above both image and summary; not confined to the summary panel. Mobile reading order is section, title, art, summary, footer.

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assets/sunnyvaile-building-v2.css?v=20260723-1">
     <link rel="stylesheet" href="./content/site/sv-topbar.css?v=20260901-homepage-header-1">
     <link rel="stylesheet" href="./content/newsstand.css?v=20260830-service-bank-1">
-    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260906-halftone-edges-1">
+    <link rel="stylesheet" href="./content/newsstand-design.css?v=20260906-two-tone-headings-1">
     <script defer src="./content/site/sv-topbar.js?v=20260725-1"></script>
     <script defer src="./content/site/sv-nav-auth.js?v=20260729-1"></script>
     <script defer src="./content/site/sv-welcome-tour.js?v=20260713-1"></script>
@@ -166,6 +166,7 @@
               </button>
               <button class="ns-front-desk ns-front-desk--big-picture ns-front-open" type="button" data-open-edition="big-picture">
                 <span class="ns-front-desk__label">The Big Picture</span>
+                <span class="ns-big-picture-headline" hidden></span>
                 <span class="ns-big-picture-image" hidden><img alt="" loading="lazy"></span>
                 <strong class="ns-front-column-promise">Latest analysis</strong>
                 <span class="ns-front-contents" data-contents-for="big-picture" aria-live="polite"></span>
@@ -1507,6 +1508,8 @@
             node.setAttribute("data-story-count", String(visible.length));
             var leadDesk = node.closest(".ns-front-desk--lead");
             var pictureDesk = node.closest(".ns-front-desk--big-picture");
+            var pictureHeadline = pictureDesk && pictureDesk.querySelector(".ns-big-picture-headline");
+            if (pictureHeadline) { pictureHeadline.textContent = ""; pictureHeadline.hidden = true; }
             var leadVisual = leadDesk ? leadDesk.querySelector(".ns-front-paige-image") : pictureDesk && pictureDesk.querySelector(".ns-big-picture-image");
             var leadVisualImage = leadVisual && leadVisual.querySelector("img");
             var leadVisualCredit = leadVisual && leadVisual.querySelector(".ns-front-paige-image__credit");
@@ -1549,6 +1552,7 @@
                 : edition === "weekly" || edition === "big-picture"
                   ? firstSentence(lead.the_story || lead.laidies_read)
                   : firstSentence(lead.laidies_read || lead.the_story));
+              if (pictureHeadline) { pictureHeadline.textContent = lead.headline; pictureHeadline.hidden = false; }
               node.innerHTML = [
                 edition === "big-picture" ? "" : [
                   '<span class="ns-publication__count">',
@@ -1557,7 +1561,7 @@
                       visible.length + (visible.length === 1 ? " story" : " stories"),
                     "</span>"
                 ].join(""),
-                '<span class="ns-publication__headline">', escapeHTML(lead.headline), "</span>",
+                edition === "big-picture" ? "" : '<span class="ns-publication__headline">' + escapeHTML(lead.headline) + "</span>",
                 '<span class="ns-publication__teaser">', escapeHTML(primaryRead), "</span>",
                 leadDesk && lead.the_story ? '<span class="ns-front-opening">' + escapeHTML(lead.the_story) + '</span>' : "",
                 secondaryRead && edition === "weekly" ? '<span class="ns-publication__read"><b>' +

@@ -1042,3 +1042,25 @@
 @media(max-width:650px) {
  .ns-redesign :is(.ns-feature-desk__head,.ns-luminairy__head)::after { width: 48px; }
 }
+
+/* The Big Picture's two-colour lettering identifies newspaper sections. */
+.ns-redesign .ns-page :is(.ns-feature-desk__head h2,.ns-luminairy__head h2,.ns-archive__label h2,.ns-front-desk__label,.ns-feature-desk__grid small,.ns-reading-card small) {
+ color: #11183b !important;
+ text-shadow: 2px 2px 0 #7de2c2;
+}
+.ns-redesign .ns-page .ns-catchup .ns-catchup__intro h2 {
+ color: #ff7366 !important;
+ text-shadow: 2px 2px 0 #7de2c2;
+}
+@media(max-width:650px) {
+ .ns-redesign .ns-page :is(.ns-feature-desk__head h2,.ns-luminairy__head h2,.ns-archive__label h2,.ns-front-desk__label,.ns-feature-desk__grid small,.ns-reading-card small,.ns-catchup__intro h2) { text-shadow: 1.5px 1.5px 0 #7de2c2; }
+}
+
+/* The article title introduces the whole Big Picture spread. */
+.ns-redesign .ns-front-desk--big-picture { grid-template-areas: 'label label' 'headline headline' 'image contents' 'footer contents'; grid-template-rows: auto auto auto auto; }
+.ns-redesign .ns-big-picture-headline { grid-area: headline; display: block; margin: 0 0 22px; color: #11183b; font: 850 clamp(27px,3vw,42px)/1.12 Jost,sans-serif; letter-spacing: -.025em; }
+.ns-redesign .ns-big-picture-headline[hidden] { display: none; }
+@media(max-width:600px) {
+ .ns-redesign .ns-front-desk--big-picture { grid-template-areas: 'label' 'headline' 'image' 'contents' 'footer'; grid-template-columns: minmax(0,1fr); }
+ .ns-redesign .ns-big-picture-headline { margin-bottom: 4px; }
+}

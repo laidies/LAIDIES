@@ -1,0 +1,1 @@
+Independent Terra Low scoped visual assessments: ADMIT headings and ADMIT Big Picture title. Inspected actual1200/390/320 renders. Offset lettering remains legible with no overlap; article title appears once above image and summary; illustration uncropped; no responsive clipping. This records scoped preview assessment, not full product approval or release.
