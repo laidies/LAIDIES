@@ -1,5 +1,11 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-07 — Pink at the top of the needs section
+
+Ali requests reversing the gradient of “What brought you to town today?” so pink is at the top and orange below. Scope is this section’s background only; preserve the Did you know banner, text colours, illustrations, layout and existing interactions. Preview only.
+
+Implemented in source 9be98137; https://b83ea5d1.laidies-sunnyvaile.pages.dev/#today. Only the needs-section gradient colour stops changed: pink, coral, orange. Existing desktop/phone geometry, typography, content, illustrations and preceding discovery banner retained; verified at the exact hosted preview. Production unchanged.
+
 ## 2026-09-07 — Anchor the narrow discovery graphic to its heading
 
 Ali flags the narrow Did you know layout: the question mark drifts to the right while the heading stays left, unlike the wider version where the mark is behind the words. Keep the heading sized to its text within the grid so the existing mark and green burst remain behind it. Preserve current colours, images, controls, wording and wide layout; verify the breakpoint and the narrowest supported width. Preview only.

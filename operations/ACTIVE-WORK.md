@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-07 — Needs-section pink-first gradient: VERIFIED PREVIEW.** Source 9be98137; https://b83ea5d1.laidies-sunnyvaile.pages.dev/#today. What brought you to town today now starts pink and blends through coral to orange below. Exact hosted page checked at390/1440; only section gradient changed. Narrow question-mark fix, KSVL sticker palette and protected images retained. Separate LIBRAiRY/Miss Jeeves continuation remains active. Production unchanged.
+
 > **2026-09-07 — Responsive discovery heading: VERIFIED PREVIEW.** Source 0294cb9c; https://e7893ab4.laidies-sunnyvaile.pages.dev/#dyk-title. Question mark and green burst stay behind Did you know at narrow widths. Seven widths checked from 320–1440px. One scoped HTML style override; runtime and 759 other public files retained, including KSVL sticker colours, PAiGE and Chick Flicks. Separate LIBRAiRY/Miss Jeeves continuation owns its service/runtime. Production unchanged.
 
 > **2026-09-07 — KSVL sticker palette: VERIFIED PREVIEW.** Source 14b124cc; https://f0dea92b.laidies-sunnyvaile.pages.dev/#today. Selected radio sticker colours now follow the homepage palette. PAiGE and The Chick Flicks explicitly retained per Ali. Exact JPEG and desktop/phone placements reviewed; all four uses updated together. Homepage HTML, runtime and 759 other public files preserved, including green question-mark burst. Original learning/help shortcut artwork still unidentified; separate LIBRAiRY/Miss Jeeves continuation owns its service/runtime. Production unchanged.
