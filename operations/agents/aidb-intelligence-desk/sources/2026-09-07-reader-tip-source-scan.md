@@ -28,7 +28,7 @@ A bounded check on 2026-09-07 opened Google's live Code Wiki for the public `fac
 
 ## Other dispositions
 
-The scan recorded minimal tombstones for 30 newly observed items: 29 `DISCARD` and one `DUPLICATE`. The duplicate is eluna.ai's secondary Astra-demonstration item, which adds no sourced capability or access change beyond the existing NewsStand treatment at <https://laidies.ai/newsstand#openai-gpt-6-astra-launch-2026-09-04>.
+Apart from the Code Wiki hold, the scan recorded minimal tombstones for 31 newly observed items: 30 `DISCARD` and one `DUPLICATE`. The duplicate is eluna.ai's secondary Astra-demonstration item, which adds no sourced capability or access change beyond the existing NewsStand treatment at <https://laidies.ai/newsstand#openai-gpt-6-astra-launch-2026-09-04>.
 
 The existing God of Prompt output-volume item remains `HOLD`; the existing eluna.ai premortem item remains `MERGE`. Neither was overwritten. No source caption, carousel, transcript or paid prompt body was copied into the ledger.
 
