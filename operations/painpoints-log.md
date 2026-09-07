@@ -396,8 +396,9 @@ target paths as if they had to exist in this clean receiver. The first receiving
 made a second mistake: it required the producer contract before the dispatch whose job was
 to create that contract. Corrected the consumer to distinguish producer-preflight eligibility
 from permission to draft. Added negative calibration for workflow omission/order, eleven
-queue shape/state defects and an invalid contract. Scoped adoption passes; the full build remains honestly held on
-an earlier missing episode gate, and `LCWO-001` cannot prove real use while its exact target
+queue shape/state defects and an invalid contract. Scoped adoption passes; after the gate
+package merged, the full build advanced to five absent, unadmitted Episode 02 images rather
+than hiding that dependency, and `LCWO-001` cannot prove real use while its exact target
 files are absent. Prevention: adoption tests must start from the actual receiving branch,
 run the destination command and one exact real order, and distinguish source distribution,
 workflow wiring, candidate availability and release. Behind the Build: a safety system can

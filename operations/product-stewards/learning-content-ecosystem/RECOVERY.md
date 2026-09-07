@@ -109,21 +109,40 @@ Observed scoped results:
 - `node scripts/check-content-release-readiness.mjs --require-id LCWO-002`: expected FAIL;
   the order lacks its producer contract, both reviews, gate receipts and artifact binding.
 
-The destination-wide `npm run ci:build` is HOLD: it stops at its first unrelated command
-because `operations/engine/gate.sh` is absent from current `main`. It therefore cannot be
-reported as a full-build pass. The actual `LCWO-001` target files are also absent from this
-receiving checkout, so no real prose candidate has yet exercised the adopted chain. All 17
-orders remain release-held. The next real producer-preflight candidate is `LCWO-002`: its
-LIBRAiRY owner creates and passes the current producer contract before drafting its specified
-concept cluster. `LCWO-001` separately remains a recovery hold until its exact source and
-rendered artifact are reconciled. Current `main` has no checked-in v1.2 queue schema,
-learning executor, executor state or controller despite the historical ACTIVE-WORK record;
-this adoption does not reconstruct or claim that autonomous mechanism. Legacy path-integrity debt at
-`loadBinding` and `existingEvidence` remains separately open.
+Corrected PR114 merged as `39428d15fa08ce56d5638d0f132920155fb65179`.
+PR115 then restored the existing Episode gate package on current `main` as
+`357117980d7d701a64b8540f0beddfde979924fa`, and this clean receiver was
+fast-forwarded to that commit before verification. The destination-wide
+`npm run ci:build` now passes the recovered gate calibration and four Episode 02 checks,
+then holds at the cue check on these five absent, unadmitted images:
 
-Worktree truth at this checkpoint: corrected implementation `COMMITTED` as `b9c1b7ff`; push is recorded only after
-remote confirmation. No product prose or surface artifact changed. No release, deployment,
-publication, service, schedule, spend or Ali/public authority was used.
+- `assets/episodes/issue-02/ep02-cold-open-desk.png`
+- `assets/episodes/issue-02/ep02-david-rose.png`
+- `assets/episodes/issue-02/ep02-the-brief.png`
+- `assets/episodes/issue-02/ep02-wall-of-text.png`
+- `assets/episodes/issue-02/ep02-good-summary.png`
+
+Shared copies do not establish visual admission, so none was copied. Later build stages were
+not reached; current `main` also lacks `scripts/test-episode-cue-scope.mjs` and
+`scripts/test-episode-04-banned-cut-assets.mjs`. This is not a full-build pass.
+
+The actual `LCWO-001` target files are also absent from this receiving checkout, so no real
+prose candidate has yet exercised the adopted chain. All 17 orders remain release-held. The
+next real producer-preflight candidate is `LCWO-002`: its LIBRAiRY owner creates and passes
+the current producer contract before drafting its specified concept cluster. `LCWO-001`
+separately remains a recovery hold until its exact source and rendered artifact are
+reconciled.
+
+Current `main` still lacks the Learning-owned v1.2 work-order schema and migrated queue,
+learning executor, executor state, executor checker/test and the Learning dossier's
+`state.json` and `backlog.md`. This adoption does not reconstruct or claim autonomous
+twice-daily execution. Legacy path-integrity debt at `loadBinding` and `existingEvidence`
+remains separately open.
+
+Worktree truth at this checkpoint: PR114 is `MERGED` as `39428d15`; the clean receiver was
+at current `main` `35711798` before this status correction. No product prose or surface
+artifact changed. No release, deployment, publication, service, schedule, spend or
+Ali/public authority was used.
 
 Pre-adoption receiving roles: learning owner task
 `019f9f7f-9e4c-72d2-8882-447bcbe01691` (“LEARNING SYSTEM — Concepts & Curriculum”)
