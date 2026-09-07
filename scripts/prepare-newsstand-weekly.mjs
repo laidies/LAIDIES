@@ -61,7 +61,32 @@ function continuationHolds(raw) {
     .filter(item => /\*\*HOLD\*\*|\*\*DUPLICATE \/ WATCH\*\*/.test(item.text))
     .map(item => ({ line: item.line, text: item.text.trim() }));
 }
-export function prepareNewsstandWeekly({ storiesRaw, continuationRaw = '', asOf, publicationDate = null, correctiveCurrentWeek = false, storiesPath = 'content/newsstand-stories.js', continuationPath = null }) {
+const DESK_IDS = ['accountability', 'medical_science', 'product_releases', 'work_economy', 'security', 'contrary_evidence'];
+const DESK_DISPOSITIONS = ['SELECTED', 'DECLINED', 'HOLD', 'NO_FRESH_LEAD_OBSERVED'];
+
+// A Weekly can legitimately select one development. What it cannot do is call a
+// one-vendor sweep "breadth" without recording what the other standing desks
+// found and why their leads were not selected.
+export function validateWeeklySourceAssessment(assessment, { asOf }) {
+  if (!assessment || assessment.schemaVersion !== 'newsstand-weekly-source-assessment.v1' || assessment.asOf !== asOf) reject('Weekly source assessment must be dated to the preparation day');
+  if (!Array.isArray(assessment.desks) || assessment.desks.length !== DESK_IDS.length || new Set(assessment.desks.map(desk => desk?.id)).size !== DESK_IDS.length) reject('Weekly source assessment must include each standing desk exactly once');
+  for (const id of DESK_IDS) {
+    const desk = assessment.desks.find(item => item.id === id);
+    if (!desk || !DESK_DISPOSITIONS.includes(desk.disposition) || !Array.isArray(desk.sourceIds) || !desk.sourceIds.length || typeof desk.reason !== 'string' || !desk.reason.trim()) reject(`Weekly source assessment desk ${id} needs sources, disposition, and editorial reason`);
+  }
+  if (!Array.isArray(assessment.selections) || !assessment.selections.length) reject('Weekly source assessment needs explicit selected or declined developments');
+  const selected = assessment.selections.filter(item => item?.decision === 'SELECT');
+  if (!selected.length || assessment.selections.some(item => !item?.id || !['SELECT', 'DECLINE'].includes(item.decision) || !Array.isArray(item.sourceIds) || !item.sourceIds.length || typeof item.reason !== 'string' || !item.reason.trim())) reject('Weekly source assessment selections need IDs, sources, decisions, and reasons');
+  const assessedSourceIds = new Set(assessment.desks.flatMap(desk => desk.sourceIds));
+  if (assessment.selections.some(item => item.sourceIds.some(id => !assessedSourceIds.has(id)))) reject('Weekly source assessment selection references an unassessed source');
+  const selectedSourceIds = new Set(selected.flatMap(item => item.sourceIds));
+  if (assessment.desks.some(desk => desk.disposition === 'SELECTED' && !desk.sourceIds.some(id => selectedSourceIds.has(id)))) reject('Weekly source assessment marks a desk selected without a selected development');
+  if (assessment.desks.some(desk => desk.disposition !== 'SELECTED' && desk.sourceIds.some(id => selectedSourceIds.has(id)))) reject('Weekly source assessment selected development lacks a selected desk disposition');
+  const selectedDeskCount = assessment.desks.filter(desk => desk.sourceIds.some(id => selectedSourceIds.has(id))).length;
+  if (selectedDeskCount === 1 && assessment.desks.some(desk => !desk.sourceIds.some(id => selectedSourceIds.has(id)) && !['DECLINED', 'HOLD', 'NO_FRESH_LEAD_OBSERVED'].includes(desk.disposition))) reject('one-desk Weekly selection requires explicit non-selected desk dispositions');
+  return { selected: selected.length, selectedDeskCount };
+}
+export function prepareNewsstandWeekly({ storiesRaw, continuationRaw = '', sourceAssessmentRaw = '', asOf, publicationDate = null, correctiveCurrentWeek = false, storiesPath = 'content/newsstand-stories.js', continuationPath = null, sourceAssessmentPath = null }) {
   if (!validDate(asOf)) reject('as-of date must be a real YYYY-MM-DD date');
   const data = parseStories(storiesRaw);
   const current = data.publications.weekly;
@@ -81,6 +106,8 @@ export function prepareNewsstandWeekly({ storiesRaw, continuationRaw = '', asOf,
     .sort((left, right) => String(right.publishedAt).localeCompare(String(left.publishedAt)) || left.id.localeCompare(right.id))
     .map(story => ({ id: story.id, headline: story.headline, publishedAt: story.publishedAt, sourceApproval: story.sourceApproval, storySha256: sha256(stable(story)) }));
   const missedIssueDate = current.editionDate < lastDueDate ? lastDueDate : null;
+  const sourceAssessment = sourceAssessmentRaw ? JSON.parse(sourceAssessmentRaw) : null;
+  const sourceAssessmentResult = sourceAssessment ? validateWeeklySourceAssessment(sourceAssessment, { asOf }) : null;
   return {
     schemaVersion: 'newsstand-weekly-input-packet-v1',
     mode: correctiveCurrentWeek ? 'PRIVATE_CORRECTIVE_PREPARATION_ONLY' : 'PRIVATE_PREPARATION_ONLY',
@@ -112,8 +139,12 @@ export function prepareNewsstandWeekly({ storiesRaw, continuationRaw = '', asOf,
     coverage: {
       continuation: continuationPath ? binding(continuationPath, continuationRaw) : null,
       sourceAssessmentStatus: continuationPath && continuationRaw ? 'BOUND_INPUT_REQUIRES_EDITORIAL_RECONCILIATION' : 'MISSING_DATED_SOURCE_ASSESSMENT',
+      datedDeskAssessment: sourceAssessmentPath ? binding(sourceAssessmentPath, sourceAssessmentRaw) : null,
+      datedDeskAssessmentStatus: sourceAssessmentResult ? 'BOUND_ALL_DESKS_WITH_SELECTION_REASONS' : 'MISSING_DATED_DESK_ASSESSMENT',
+      selectedDevelopments: sourceAssessmentResult?.selected || 0,
+      selectedDeskCount: sourceAssessmentResult?.selectedDeskCount || 0,
       heldOrDuplicateLeadLines: continuationHolds(continuationRaw),
-      statement: 'Held or duplicate leads remain inputs for editorial judgment; this packet does not certify source coverage or approve a Weekly.'
+      statement: 'Held or duplicate leads remain inputs for editorial judgment; this packet does not certify source coverage or approve a Weekly. A final Weekly must bind a dated all-desk assessment with explicit selection or decline reasons.'
     },
     sourceIdentity: { stories: binding(storiesPath, storiesRaw) },
     canonicalWrite: false,
@@ -133,11 +164,13 @@ function main() {
   const storiesRelative = argument('--stories', args) || 'content/newsstand-stories.js';
   const defaultContinuation = `operations/product-stewards/newsstand/editorial-intake/${asOf}-source-continuation.md`;
   const continuationRelative = argument('--continuation', args) || (fs.existsSync(path.join(ROOT, defaultContinuation)) ? defaultContinuation : null);
+  const sourceAssessmentRelative = argument('--source-assessment', args) || null;
   const storiesPath = local(ROOT, storiesRelative, '--stories');
   const continuationPath = continuationRelative ? local(ROOT, continuationRelative, '--continuation') : null;
+  const sourceAssessmentPath = sourceAssessmentRelative ? local(ROOT, sourceAssessmentRelative, '--source-assessment') : null;
   const output = argument('--output', args);
   if (!check && !output) reject('--output is required unless --check is used');
-  const packet = prepareNewsstandWeekly({ storiesRaw: fs.readFileSync(storiesPath, 'utf8'), continuationRaw: continuationPath ? fs.readFileSync(continuationPath, 'utf8') : '', asOf, publicationDate: argument('--publication-date', args), correctiveCurrentWeek: args.includes('--corrective-current-week'), storiesPath: path.relative(ROOT, storiesPath), continuationPath: continuationPath ? path.relative(ROOT, continuationPath) : null });
+  const packet = prepareNewsstandWeekly({ storiesRaw: fs.readFileSync(storiesPath, 'utf8'), continuationRaw: continuationPath ? fs.readFileSync(continuationPath, 'utf8') : '', sourceAssessmentRaw: sourceAssessmentPath ? fs.readFileSync(sourceAssessmentPath, 'utf8') : '', asOf, publicationDate: argument('--publication-date', args), correctiveCurrentWeek: args.includes('--corrective-current-week'), storiesPath: path.relative(ROOT, storiesPath), continuationPath: continuationPath ? path.relative(ROOT, continuationPath) : null, sourceAssessmentPath: sourceAssessmentPath ? path.relative(ROOT, sourceAssessmentPath) : null });
   const rendered = canonical(packet);
   if (!check) {
     const outputPath = path.resolve(ROOT, output);
