@@ -184,21 +184,37 @@ function CurrentCheatSheet({onBack,version}) {
 }
 
 function EpisodeOnePack({onOpen}) {
-  return <main className="ep-study">
-    <section className="ep-study-head">
-      <div><p className="ep-kicker">BLEND &amp; SNAP / EPISODE 01 STUDY PACK</p><h1>On Wednesdays<br/>We <em>Do AI.</em></h1><p className="ep-study-deck">Start with one small task you can judge. Keep the useful draft—and your say in how AI is used.</p><a className="ep-primary" href="/episode-01-try-on/index.html">Start your Try-On ↗</a></div>
-      <figure className="ep-study-figure"><img src="/assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-steve-ovation-c-end-comic-textfix.png" alt="The office applauds Steve while our heroine considers what changed."/><figcaption>Steve found the tab. He doesn't get a monopoly on it.</figcaption></figure>
-    </section>
-    <div className="ep-study-body">
-      <section><h2 className="ep-contents-title">Inside your pack <span>Keep what helps.</span></h2>
-        <button className="ep-study-link" onClick={()=>onOpen('cheat-sheet')}><span>01</span><span><strong>The Cheat Sheet</strong><small>The lesson, the critical ideas, and why women need a say.</small></span><span aria-hidden="true">↗</span></button>
-        <a className="ep-study-link" href="/episode-01-try-on/index.html"><span>02</span><span><strong>Three Tabs, One Task</strong><small>Try a small request. Compare the answers. Keep your own edit.</small></span><span aria-hidden="true">↗</span></a>
-        <a className="ep-study-link" href="/episode-01-cards/index.html"><span>03</span><span><strong>Trading Cards</strong><small>Tear open the pack. Test your recall. Save the four concepts.</small></span><span aria-hidden="true">↗</span></a>
-        <a className="ep-study-link" href="/learn/quiz.html?issue=1&version=2026-09-06-v3"><span>04</span><span><strong>The Pop Quiz</strong><small>Ten questions, two optional extras, and an explanation for each answer.</small></span><span aria-hidden="true">↗</span></a>
+  return <main className="study-desk">
+    <div className="pack-desk-label"><span>BLEND &amp; SNAP</span><h1>Episode 01 · Your study pack</h1><a href="/laidies-card.html#episodeBinderVessel">Keep it in my Closet ↗</a></div>
+    <div className="study-binder">
+      <div className="binder-rings" aria-hidden="true"><i/><i/><i/></div>
+      <section className="binder-leaf binder-left" aria-label="Episode cover and Cheat Sheet">
+        <div className="binder-cover"><img src="/assets/episodes/episode-01.png" alt="On Wednesdays We Do AI. Episode One. A 90s desk with a translucent computer, pager, CD and notebook."/></div>
+        <button className="pack-summary-sheet" onClick={()=>onOpen('cheat-sheet')}>
+          <span className="sheet-corner" aria-hidden="true"/><span className="pack-object-label">01 / THE CHEAT SHEET</span>
+          <strong>The lesson.<br/>All the useful bits.</strong>
+          <span className="pack-highlight">Why women need a say.</span>
+          <span>What AI does. What to question.<br/>One small place to start.</span>
+          <b className="pack-object-action">Open your lesson summary ↗</b>
+        </button>
+        <p className="binder-left-note">On Wednesdays we learn it.<br/><strong>Then we make it useful.</strong></p>
       </section>
-      <aside className="ep-sheet-preview"><p className="ep-kicker">A PAGE FROM YOUR CHEAT SHEET</p><h2>The lesson to keep.</h2><p>AI can get a draft moving. Your experience helps decide what is worth keeping.</p><p><strong>Why women need a say</strong><br/>Learning helps us recognise unfair assumptions, challenge results and influence whose needs these tools serve.</p><p className="ep-equation">Learned patterns + available context<br/>→ a generated draft<br/>→ your check and edit.</p><button onClick={()=>onOpen('cheat-sheet')}>OPEN THE FULL CHEAT SHEET ↗</button></aside>
+      <section className="binder-leaf binder-right" aria-label="Your exercises and trading cards">
+        <a className="pack-exercise-book" href="/episode-01-try-on/index.html">
+          <span className="exercise-binding" aria-hidden="true"/>
+          <span className="pack-object-label">02 / YOUR TRY-ON</span>
+          <strong>Three tabs.<br/>One task.<span className="hand-drawn-underline" aria-hidden="true"/></strong>
+          <span className="exercise-prompt">Your request → their drafts → your edit.</span>
+          <b className="pack-object-action">Open your exercise ↗</b>
+        </a>
+        <a className="pack-card-pocket" href="/episode-01-cards/index.html" aria-label="Open your four trading cards">
+          <div className="pocket-card-fan" aria-hidden="true"><img src="/episode-01-cards/assets/cards/hallucination-episode-art-v2.png" alt=""/><img src="/episode-01-cards/assets/cards/model-episode-art-v3.png" alt=""/><img src="/episode-01-cards/assets/cards/generative-ai-episode-art-v2.png" alt=""/></div>
+          <div className="pocket-front"><span className="pack-object-label">03 / TRADING CARDS</span><strong>Four ideas.<br/>Worth keeping.</strong><b className="pack-object-action">Open the card pack ↗</b></div>
+        </a>
+      </section>
+      <nav className="binder-divider-tabs" aria-label="Open a study pack item"><button onClick={()=>onOpen('cheat-sheet')}>Summary</button><a href="/episode-01-try-on/index.html">Try-On</a><a href="/episode-01-cards/index.html">Cards</a></nav>
     </div>
-    <footer className="ep-study-foot"><strong>Your work has a home.</strong> Keep your sheets, exercises, cards and quiz attempts together in <a href="/laidies-card.html#episodeBinderVessel">your Episode Binder</a>.</footer>
+    <a className="pack-quiz-ticket" href="/learn/quiz.html?issue=1&version=2026-09-06-v3"><span>UP NEXT<br/><b>SUNNYVAiLE HIGH</b></span><strong>Ready for your Pop Quiz?</strong><span>Test what stuck. ↗</span></a>
   </main>;
 }
 
@@ -208,16 +224,36 @@ export function App() {
   const directEpisodePack = reviewTarget === "episode-01-pack" || location.hash === "#episode-01-pack";
   const [selected, setSelected] = useState(directCheatSheet || directEpisodePack ? episodes[0] : null);
   const [activeItem, setActiveItem] = useState(directCheatSheet ? "cheat-sheet" : null);
+  useEffect(() => {
+    const syncLocation = () => {
+      if (location.hash === '#episode-01-pack' || location.hash === '#episode-01-cheat-sheet') {
+        setSelected(episodes[0]);
+        setActiveItem(location.hash === '#episode-01-cheat-sheet' ? 'cheat-sheet' : null);
+      }
+    };
+    window.addEventListener('hashchange', syncLocation);
+    window.addEventListener('popstate', syncLocation);
+    return () => { window.removeEventListener('hashchange', syncLocation); window.removeEventListener('popstate', syncLocation); };
+  }, []);
+  const openEpisodeItem = item => {
+    const url = new URL(location.href);
+    url.hash = item === 'cheat-sheet' ? 'episode-01-cheat-sheet' : 'episode-01-pack';
+    url.searchParams.delete('review');
+    if (item === 'cheat-sheet') url.searchParams.set('packVersion', '2026-09-06-v2');
+    history.pushState({}, '', url);
+    setActiveItem(item);
+  };
+
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
   }, [selected, activeItem]);
 
   if (selected?.number === 1 && activeItem === "cheat-sheet") {
-    return <CheatSheet fromSavedLink={directCheatSheet} onBack={() => setActiveItem(null)} />;
+    return <CheatSheet fromSavedLink={directCheatSheet} onBack={() => openEpisodeItem(null)} />;
   }
 
-  if (selected?.number === 1) return <EpisodeOnePack onOpen={setActiveItem} />;
+  if (selected?.number === 1) return <EpisodeOnePack onOpen={openEpisodeItem} />;
 
   if (selected) {
     return (

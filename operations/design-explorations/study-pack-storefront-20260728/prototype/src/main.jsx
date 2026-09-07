@@ -15,3 +15,5 @@ async function start(){
 start();
 
 import "../../../../../content/site/episode-review-design.mjs";
+
+import "./study-binder.css";
