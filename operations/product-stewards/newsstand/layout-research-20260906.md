@@ -85,3 +85,5 @@ Ali: Big Picture publication date goes beneath the article title, aligned left; 
 Ali rejects dark background as out of place with last preferred newspaper direction. Remove dark catch-up gradient; use whitish paper, navy reading ink, cobalt links and navy/mint heading. Preserve boxed CTAs and catch-up functionality.
 
 Ali rejects tangerine dots: they resemble swipe/carousel controls and convey no useful meaning. Remove decorative section dot clusters entirely. Keep typography, artwork and existing section rules.
+
+Ali rejects repeating navy/mint everywhere. Preserve that pair for Big Picture; use distinct established palette offsets across named sections/columns: bright pink, tangerine, cyan and vivid yellow with navy/cobalt faces. Actual implementation and live verification required, not a promise.
