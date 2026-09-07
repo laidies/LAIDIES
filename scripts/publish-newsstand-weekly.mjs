@@ -8,6 +8,7 @@ import {fileURLToPath} from 'node:url';
 import {inspectProseReviewChain} from './check-prose-quality-admission.mjs';
 import {stable, vancouverDay, candidateReviewText, readCandidateBinding} from './validate-newsstand-ordinary-story-candidate.mjs';
 import {inspectContentProducerContract} from './check-content-producer-contract.mjs';
+import {validateWeeklySourceAssessment} from './prepare-newsstand-weekly.mjs';
 
 const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const reader=createRequire(import.meta.url)('../content/newsstand-reader-contract.js');
@@ -45,6 +46,19 @@ export function validateWeeklySelection(candidate) {
   }
   return selection;
 }
+const REUSE_DISPOSITIONS=new Set(['link','correct','update','extend','create','queue-with-trigger','decline']);
+export function validateWeeklyBreadthAndReuse(candidate,root){
+  const assessment=boundJson(root,candidate.preparation?.sourceAssessment,'Weekly dated desk assessment');
+  try{validateWeeklySourceAssessment(assessment,{asOf:candidate.publicationDate})}catch(error){fail(`Weekly dated desk assessment is invalid: ${error.message}`)}
+  const selected=new Set((assessment.selections||[]).filter(item=>item.decision==='SELECT').map(item=>item.id));
+  const reported=new Set((candidate.selection?.developments||[]).map(item=>item.headline));
+  if(!selected.size||[...selected].some(id=>!reported.has(id)))fail('Weekly dated desk assessment selection is not bound to reported developments');
+  const reuse=boundJson(root,candidate.researchReuse,'Weekly research-reuse disposition manifest');
+  if(reuse?.schemaVersion!=='newsstand-weekly-research-reuse.v1'||reuse.candidateId!==candidate.candidateId||!Array.isArray(reuse.developments)||reuse.developments.length!==selected.size)fail('Weekly research-reuse manifest is incomplete');
+  const reuseIds=new Set(reuse.developments.map(item=>item?.id));
+  if(reuseIds.size!==reuse.developments.length||[...selected].some(id=>!reuseIds.has(id))||reuse.developments.some(item=>!REUSE_DISPOSITIONS.has(item?.disposition)||typeof item.owner!=='string'||!item.owner.trim()||typeof item.trigger!=='string'||!item.trigger.trim()))fail('Weekly research-reuse manifest needs one owned disposition and trigger per selected development');
+  return {assessment,reuse};
+}
 function parseDataset(raw){const c={window:{}};try{vm.runInNewContext(raw,c,{timeout:1000})}catch{fail('canonical story dataset cannot be evaluated')} const d=JSON.parse(JSON.stringify(c.window.NEWSSTAND_DATA));if(!d?.publications?.weekly||!Array.isArray(d.stories))fail('canonical Weekly pointer is missing');return d}
 function exact(binding, raw, label){if(!binding?.path||!/^[a-f0-9]{64}$/.test(binding.sha256||'')||binding.sha256!==hash(raw))fail(`${label} binding changed`)}
 function claims(story,map){const ids=new Set((story.sources||[]).map(s=>s.id));if(!ids.size||!Array.isArray(map)||!map.length||map.some(c=>!c?.claimId||!['VERIFIED','QUALIFIED'].includes(c.status)||!Array.isArray(c.sourceIds)||!c.sourceIds.length||c.sourceIds.some(id=>!ids.has(id))))fail('Weekly claim map is incomplete or references unknown sources')}
@@ -73,6 +87,7 @@ export function publishNewsstandWeekly({datasetRaw,candidate,producer,independen
   const timing=validateWeeklyPublicationTiming({candidate,date,now,current:data.publications.weekly});
   validateWeeklySelection(candidate);
   if(!story||story.edition!=='weekly'||story.status!=='hold'||story.publishedAt!==null||story.sourceApproval?.status!=='independent-review-required'||story.id!==candidate.candidateId||!story.heroVisual?.src||!story.heroVisual?.alt)fail('Weekly story is not a held, complete Weekly candidate');
+  validateWeeklyBreadthAndReuse(candidate,root);
   if(story.bigPicture!==null||!Array.isArray(story.predecessorStoryIds)||story.predecessorStoryIds.length||!Array.isArray(story.successorStoryIds)||story.successorStoryIds.length)fail('Weekly candidate cannot use ordinary lineage or Big Picture scope');
   if(!Array.isArray(story.weeklyHighlights)||!story.weeklyHighlights.length||!story.front_read||!story.the_story||!story.laidies_read||!story.what_this_means)fail('Weekly candidate lacks complete Weekly reader fields');
   if(candidate.storySha256!==hash(stable(story))||manifest?.reviewedContentSha256!==candidate.storySha256||reviewTextRaw!==`${stable(story)}\n`||candidate.manifest?.path!==producer?.artifact?.manifest?.path||candidate.manifest?.sha256!==producer?.artifact?.manifest?.sha256||candidate.manifest?.path!==independent?.artifact?.manifest?.path||candidate.manifest?.sha256!==independent?.artifact?.manifest?.sha256||candidate.reviewText?.path!==producer?.artifact?.reviewText?.path||candidate.reviewText?.sha256!==producer?.artifact?.reviewText?.sha256||candidate.reviewText?.path!==independent?.artifact?.reviewText?.path||candidate.reviewText?.sha256!==independent?.artifact?.reviewText?.sha256)fail('manifest/review text does not bind the exact complete Weekly prose and both reviews');
