@@ -1,5 +1,23 @@
 # Resident Card construction — 2026-07-24
 
+## Approved Skates, Boombox and Computer — 2026-09-06
+
+Ali's latest ruling treats all three as approved; coordinator01a0785e confirms
+approval recorddb56431d in the exact artwork directory REVIEW.md.
+Install unchanged originals as skates, boombox and computer, retaining the six
+incumbent finishes and Getting Ready. Reuse the existing Card/Closet mechanism,
+with per-art readable fields and distinct headers; no generation or recolouring.
+Sources under assets/resident-card/candidates-20260906-full-patterns in
+/Users/alisoneakin/Projects/laidies-current-visual-references-20260906:
+-02-roller-rink-v2.png → assets/resident-card/backgrounds/skates-v2.png,
+ SHA256 dc6990e75c34514c3a8b6c2b134607599dd8ac1244c54ffee40d91ab221b7a12.
+-04-radio-night-v3.png → assets/resident-card/backgrounds/boombox-v3.png,
+ SHA256 6e4702af260a7ab08f43e10190d51cb405549d42f16c4e34265489c94372070a.
+-03-retro-desktop.png → assets/resident-card/backgrounds/computer.png,
+ SHA256 8772513a58087da6d0cb49621562c804eef861b24dbd08076c4df5ac2445a0d0.
+Server acceptance precedes publishing the options. This bounded addition does
+not change auth or claim the separately held email/account lifecycle is complete.
+
 ## Approved Getting Ready background — 2026-09-06
 
 Ali approved the exact Getting Ready v2 artwork in task

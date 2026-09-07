@@ -1,3 +1,23 @@
+# Three additional approved Card backgrounds — September 6
+
+final result: passed for the bounded Skates, Boombox and Computer art/enum integration; release verification follows separately
+
+Exact approved raster bytes are installed, not regenerated or recoloured. The
+image-to-code workflow preserves editable Card fields and the shared Closet
+contract. All ten finishes remain selectable. Maker inspected desktop, 390px and
+320px phone results with populated long fields; repaired the mobile reading panel
+to contain all five rows. Independent artifact-first inspection passed all three
+at 390x844 and 1440x900. Its initial missing-Card claim was retracted after checking
+the actual maker anchor and Card bounds: the observer had inspected an offscreen
+region, not a failed render. No remaining new visual defect was reported.
+
+All three passed actual UI selection, local save, Closet and return on port4188.
+Shared contract 60/60, cross-surface contract 33/33. Live SQL transaction accepts
+all ten finishes and rejects an unknown finish, preserving other validation rules.
+No resident account rows changed. Email delivery, sign-in, account-backed save,
+cross-device restoration and portrait generation are not proven by these checks.
+Exact artifact and release status: operations/design-qa/three-card-backgrounds-release.md.
+
 # Getting Ready integration QA
 
 final result: passed for the bounded Getting Ready integration; account lifecycle verification remains pending

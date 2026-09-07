@@ -1,5 +1,7 @@
 # LAiDIES build learning ledger
 
+- **2026-09-06 Three approved Card backgrounds:** Mobile fixed-height reading areas can lose the last field even when the overall Card fits; inspect populated long fields at320px, not an empty desktop mockup. Maker repaired the panel before admission. An independent missing-Card report was an offscreen observation error: anchor to the actual maker, bind element bounds and inspect those pixels before diagnosing absence. Wrangler can add cache files when its working directory is the upload input; run outside it and require a manifest-exact clean base. Behind the Build angle: checking what a reviewer actually saw, and why a saved design is more than a picture.
+
   Getting Ready task follow-up: Supabase authentication was restored and the
   exact migration executed, preserving newer live portrait/security rules.
   Separate valid-envelope readback accepted all seven finishes and rejected an

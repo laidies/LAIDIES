@@ -45,7 +45,7 @@ function parse(value) {
 const validAsset = "/assets/brand/laidies-logo-square-pearl-512-v1.png";
 const raster = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a6X8AAAAASUVORK5CYII=";
 check(Boolean(contract), "shared contract installs");
-for (const cardBg of ['classic', 'pinklilac', 'peach', 'mint', 'lavender', 'holo', 'gettingready']) {
+for (const cardBg of ['classic', 'pinklilac', 'peach', 'mint', 'lavender', 'holo', 'gettingready', 'skates', 'boombox', 'computer']) {
   const envelope = parse({version: 1, fields: {displayName: 'Test Resident', cardBg}});
   check(envelope?.fields.cardBg === cardBg, `background ${cardBg} is retained by validation`);
   check(parse(JSON.stringify(envelope))?.fields.cardBg === cardBg, `background ${cardBg} survives serialization and restoration`);
