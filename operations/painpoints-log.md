@@ -447,7 +447,10 @@ discussed as if one new architecture would solve every consistency problem.
 Prevention: name the exact relationship problem first; keep current authority in
 its existing source; generate any graph as a disposable projection; separate
 execution flow from context flow and semantic judgment; benchmark one bounded
-pilot against the current process before selecting a framework. Behind the Build:
+pilot against the current process before selecting a framework. A change to the
+decisions router also regenerates and current-byte checks the existing standing
+card in the same change; omitting that derivative is an incomplete integration,
+not an unrelated failure. Behind the Build:
 why adding more connections can make an AI operating system less reliable when
 the lines do not say what evidence, authority or information crosses them.
 
