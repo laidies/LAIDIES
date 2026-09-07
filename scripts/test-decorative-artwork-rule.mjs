@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {imitationPatterns,checkArtworkSources} from './check-decorative-artwork-rule.mjs';
+const rejected='.cf-section-head{background-image:radial-gradient(circle,rgba(17,24,59,.15) 1px,transparent 1.5px)} .cf-routebar>a{clip-path:polygon(0 0,94% 0,100% 50%,94% 100%,0 100%)} .cf-section-head h2{transform:rotate(-2deg)}';
+assert.equal(imitationPatterns(rejected).length,3);
+assert.equal(imitationPatterns(':root{--fake:radial-gradient(circle,blue 1px,transparent 2px)}.cf-section-head{background-image:var(--fake)}').length,1);
+assert.equal(imitationPatterns('<svg class="icon cf-route-art"></svg>').length,1);
+assert.equal(imitationPatterns('.becky{clip-path:inset(0 0 20px);object-fit:contain}.layout{display:grid;background:linear-gradient(110deg,pink,blue)}').length,0);
+assert.ok(checkArtworkSources([],process.cwd()).length);
+assert.equal(imitationPatterns('.loading{transform:rotate(90deg)} .approved-portrait{clip-path:polygon(0 0,100% 0,100% 100%);transform:rotate(-2deg)}').length,0);
+assert.ok(checkArtworkSources([{path:'missing.css',sha256:'bad'}],process.cwd()).length);
+console.log('PASS: rejected ticket/halftone/rotation detected; layout, gradients and image cropping retained; missing sources fail closed');
