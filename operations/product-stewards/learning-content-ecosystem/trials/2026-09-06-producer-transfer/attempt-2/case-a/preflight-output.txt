@@ -1,0 +1,13 @@
+Calibration run before the producer contract was trusted
+command: node scripts/check-content-producer-contract.mjs /dev/stdin
+input: {}
+exit: 1
+first output line: CONTENT PRODUCER CONTRACT FAIL
+observed behaviour: the checker rejected the empty contract and listed missing schema, identity, instruction bindings, reader contract, source, exemplar, known-failure, architecture, communication, proof and ratchet fields.
+
+Actual producer preflight run before explanation.md was drafted
+command: node scripts/check-content-producer-contract.mjs operations/product-stewards/learning-content-ecosystem/trials/2026-09-06-producer-transfer/attempt-2/case-a/producer-contract.json
+exit: 0
+output: CONTENT PRODUCER CONTRACT INTEGRITY MATCH status=READY_TO_DRAFT quality_authority=none
+
+Interpretation: this is an input and contract integrity result. It is not a prose-quality, reader-comprehension, release or publication verdict.
