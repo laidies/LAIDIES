@@ -298,3 +298,9 @@ library-interior-purple-sign-wall-v6-metal-stacks.png
 library-interior-purple-sign-wall-v5.png
 library-wall-case-2bay-clean-v1.png
 ```
+
+## 2026-09-07 — Freshness review finding: section5.1 correction pending
+
+Receiving factual review2026-09-07: actual live Library section ch-5-5-1-first-what-is-a-model and book SHA25677ebbc5b7c180a93eba68493234acdab664a4e951b509abcf39fe00c83cb6b7e inspected. Carlini et al. USENIX Security2021/arXiv2012.07805v2 primary abstract confirms verbatim GPT-2 training-data extraction; the universal denial of remembering specific web pages requires a bounded correction. Preserve learned parameters versus retrieval and do not generalize to all output or current-product exploitability. Learning/LIBRAiRY owns correction/admission of section5.1 manuscript, structured source, rendered book and current search derivative, then actual public verification. No replacement prose or release is claimed. Evidence: /Users/alisoneakin/Projects/laidies-blend-snap-menu-20260905/operations/product-stewards/learning-content-ecosystem/freshness-runs/2026-09-07-review.md
+
+This is a source-confirmed correction target, not new admitted teaching prose. Current canonical manuscript8977e5e, structured source841c9d7d and rendered book3c61d012 each retain the same sentence; the public book has a distinct77ebbc5b hash. Preserve source/public distinctions, correct all three maintained representations, then regenerate the existing index from the admitted book and verify the actual published reader. Existing model/context/loop work retains its separate ownership and scope.
