@@ -16,7 +16,14 @@
 > altering source bytes. Its access-label placement is Chapter2, section2.5.
 > The current four-label evidence is now durable at
 > `product-stewards/learning-content-ecosystem/LCWO-002-ACCESS-LABELS-SOURCE-PACKET.md`.
-> Library's producer preflight is next; its later versioned extension/render
+> LCWO-002's exact producer-preflight inputs are prepared, but no real Library
+> producer principal, task or writable lane is assigned. The Library product
+> role is not an assignee; the execution adapter is disabled/unbound with zero
+> records. Control Room must first identify the real Library-owner acceptance
+> principal/task. Its bounded assignment starts from current integrated commit
+> `268614ff` or a verified descendant and keeps the preserved overlay read-only
+> during preflight. That is followed by the exact
+> producer contract before any prose. Its later versioned extension/render
 > remains held. No producer contract or drafting is claimed. Exact hashes,
 > authority and next operation:
 > `product-stewards/learning-content-ecosystem/RECOVERY.md`. Queue bytes remain
