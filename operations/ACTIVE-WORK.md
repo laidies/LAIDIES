@@ -8,7 +8,7 @@
 - **Evidence:** `operations/product-stewards/town-entry-homepage/candidates/ai-letter-layer-repair-20260906/`. Actual Sol and Claude pixel admissions after fragment/stem repairs; continuous 7.7-second browser completion; canvas/video pause, Skip focus, reduced-motion and narrow-phone checks. Stills do not prove smooth motion. Dial-up audio not added.
 - **Single-i correction:** Owner caught source closing i being rendered as a miniature icon. Renderer now restores native I from3.55s; all67 closing source frames match native-I pixels, and the old renderer fails the same test. Focused desktop/390 inspection; prior ending assurance invalidated.
 - **VHS reveal:** User requested the line reveal the masthead. Exit now clips intro top-to-bottom along the tracking line, with no global fade. Original Ai gains brief luminous echoes during separation/return and source-change-driven dot glow. Local full playback8.3s;42 measured wipe positions descend monotonically and align within1px; old unclipped behavior fails boundary test.67 closing source frames retain single i.
-- **Boundary:** Private preview only at localhost8789; no public deployment or owner taste approval. Original rejected versions preserved in quarantine. Do not resume the rejected camera version.
+- **Release:** Ali explicitly approved publication. Exact current-production successor prepared with only index intro plus7 assets;758 other files preserved. Release packet ai-arrival-live-20260906. Publication and public verification underway; preserve rejected versions in quarantine.
 
 ## 2026-09-05 NewsStand source-to-reader continuation
 

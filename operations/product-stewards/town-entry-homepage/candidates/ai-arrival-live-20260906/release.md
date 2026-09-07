@@ -1,0 +1,8 @@
+# Owner-authorized homepage arrival release
+Owner ruling: “ok not bad!” then “lets push live” for the centred original-brush Ai, single-i fix, electric accents and descending VHS masthead reveal. Destination https://laidies.ai/.
+
+Approved animation source f16d2543; isolated source branch codex/homepage-ai-reveal-20260906. Production baseline provider-confirmed90720fd2-d7ff-40dd-9ea4-202b16bc9c5b (source9bc4eac079051eb238dbf512ef480dbeda0ef566), exact artifact /private/tmp/laidies-getting-ready-tangerine-successor-20260906, identity823e53a85375a232e66e623ca50272a71799ece94c9d6895419b312902bbbab7. Baseline serves as rollback target. MAiKEOVER lane acknowledges no competing deployment during this release.
+
+Input /private/tmp/laidies-home-ai-arrival-20260906;766 files;823221573 bytes; identity9f7f66d409c658e3ed6071270883b2733f713bcb954beaf3f5dc6fb24888b3d5. Exact manifest in this packet. One changed file index.html, seven added intro dependencies, zero removals,758 other files unchanged. Production homepage changes are only three resource links, original-arrival markup and Replay button. Preview-only homepage changes were not copied. Internal proofs/review files not in artifact.
+
+Independent Terra Low compared all actual files, source diff and dependency closure: ACCEPT for artifact integrity, no whole-site quality claim. Maximum asset fits existing provider limit. Existing-output negative calibration rejected before mutation. Actual full-package browser ran all six phases through masthead, video ended, wipe aligned, no overflow or legacy arrival conflict. Earlier approved desktop/phone pixel reviews and67-frame single-i guard retained. Current source/parity and public browser checks follow deployment; this preflight is not live completion.

@@ -319,3 +319,6 @@ Ali reported “an extra i at the end” / “like an icon of an i.” In the la
 
 ### 2026-09-06 — VHS tracking reveals the masthead
 Ali: “the vhs line should load the masthead as it goes down”; retain original brush/comic visual direction while drawing more electric energy from supplied Crave inspiration. The exit reveals the already-rendered masthead above a descending tracking edge, retaining intro below; no separate whole-overlay fade. Add only local letter light echoes and dot impact glow, preserve the single-i boundary and stationary background. Private preview; taste remains Ali-owned.
+
+### 2026-09-06 — Homepage arrival approved for production
+Ali said “ok not bad!” then “lets push live” after the centred original-brush Ai, single-i correction and descending VHS masthead reveal. Publish this approved animation only, preserving fresh production homepage/site bytes outside the intro. Exact release packet: operations/product-stewards/town-entry-homepage/candidates/ai-arrival-live-20260906/.
