@@ -61,6 +61,17 @@ export function inspectHomepageCorrection(item, root, preservedBytes = {}) {
       const review=bytes(p+'independent-review.md').toString();assert(review.includes('ADMIT_FOR_OWNER_REVIEW')&&review.includes(reviewedSha),'independent discovery review differs');
       for(const v of JSON.parse(bytes(p+'visuals.json')))assert(digest(v.path)===v.sha256,'stale visual');
       const stage=JSON.parse(bytes(p+'stage-preservation.json'));assert(stage.changed.length===1&&stage.changed[0]==='index.html'&&stage.unchanged===759,'preview stage changed beyond homepage');
+      if(a.sticker_palette) {
+        const m=a.sticker_palette,q='operations/product-stewards/town-entry-homepage/candidates/ksvl-sticker-palette-20260907/';
+        assert(m.asset?.path==='assets/building-interiors/ksvl-sticker-banner.jpg'&&digest(m.asset.path)===m.asset.sha256,'sticker asset differs');
+        assert(digest(q+'parent.jpg')==='2f219b7a197a261fce08f36f9d70425ff5262b3d2c5e892c59b069a7ffd65833','wrong sticker source');
+        for(const e of m.evidence||[])assert(digest(e.path)===e.sha256,'stale sticker evidence');
+        for(const f of ['producer-contract.json','contract-calibration.json','checks.json','maker-review.md','independent-review.md','stage-preservation.json','parent.jpg',...['parent','candidate'].flatMap(k=>[1440,390].flatMap(w=>[k+'-needs-'+w+'.png',k+'-banner-'+w+'.png']))])assert(m.evidence?.some(e=>e.path===q+f),'missing sticker evidence');
+        const c=JSON.parse(bytes(q+'checks.json'));assert(c.assetSha256===m.asset.sha256&&c.sourceSha256===a.candidate.sha256,'sticker checks bind wrong source');
+        for(const w of [1440,390]) {const n=c.rows.find(r=>r.kind==='candidate'&&r.width===w),o=c.rows.find(r=>r.kind==='parent'&&r.width===w);assert(n?.pass&&o?.pass&&n.slots.length===4&&n.slots.every(s=>s.decoded)&&JSON.stringify(n.slots)===JSON.stringify(o.slots)&&JSON.stringify(n.kept)===JSON.stringify(o.kept),'sticker layout or protected images changed');}
+        const review=bytes(q+'independent-review.md').toString();assert(review.includes('ADMIT_FOR_OWNER_REVIEW')&&review.includes(m.asset.sha256),'sticker review differs');
+        const stage=JSON.parse(bytes(q+'stage-preservation.json'));assert(stage.changed.length===1&&stage.changed[0]===m.asset.path&&stage.unchanged===759,'sticker stage exceeds scope');
+      }
       assert(a.production_release_approved===false,'owner presentation does not authorize production');
       return errors;
     }

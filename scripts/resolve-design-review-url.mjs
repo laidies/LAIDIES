@@ -83,6 +83,7 @@ if (exception) {
       (exception.design_admission.owner_directory_restoration && !verification.journeys?.categoryDiscovery?.pass) ||
       (exception.design_admission.owner_restoration ? !verification.journeys?.mastheadAnchors?.pass :
         !verification.journeys?.episode1?.pass || !verification.journeys?.missJeeves?.pass)) fail('hosted visitor paths were not verified');
+  if (exception.design_admission.sticker_palette && verification.responseBodies?.sticker?.receivedSha256 !== exception.design_admission.sticker_palette.asset.sha256) fail('hosted sticker bytes were not verified');
   console.log(`DESIGN PRESENTATION ADMITTED ${admitted.id}`);
   console.log(hosted.url);
   process.exit(0);

@@ -33,6 +33,10 @@ if(item.design_admission.owner_feedback_successor==='HOMEPAGE_CLOSEOUT') {
     cases.push(['changed '+label,v=>{v.design_admission[key].sha256='0'.repeat(64);},label+' bytes differ']);
   }
 }
+if(item.design_admission.sticker_palette) {
+  cases.push(['wrong sticker pixels',v=>{v.design_admission.sticker_palette.asset.sha256='0'.repeat(64);},'sticker asset differs']);
+  cases.push(['missing sticker pixel review',v=>{v.design_admission.sticker_palette.evidence=v.design_admission.sticker_palette.evidence.filter(e=>!e.path.endsWith('/independent-review.md'));},'missing sticker evidence']);
+}
 for (const [name, mutate, reason] of cases) {
   const candidate = structuredClone(item);
   mutate(candidate);
