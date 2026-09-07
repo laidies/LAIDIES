@@ -10,6 +10,54 @@ import { checkContentReleaseReadiness } from './check-content-release-readiness.
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const base = 'operations/product-stewards/learning-content-ecosystem/';
+function workflowErrors(scripts) {
+  const errors = [];
+  const proseSteps = (scripts['test:content-prose-quality'] || '').split(' && ');
+  const requiredProseSteps = [
+    'node scripts/test-content-quality-package.mjs',
+    'node scripts/test-content-quality-learning.mjs',
+    'node scripts/test-content-producer-contract.mjs',
+    'node scripts/test-prose-quality-admission.mjs',
+    'node scripts/test-content-release-readiness.mjs'
+  ];
+  const positions = requiredProseSteps.map(step => proseSteps.indexOf(step));
+  if (positions.some(position => position < 0)) errors.push('content prose workflow is missing a required quality consumer');
+  if (positions.some((position, index) => index > 0 && position <= positions[index - 1])) errors.push('content prose workflow consumers are out of order');
+  const buildSteps = (scripts['ci:build'] || '').split(' && ');
+  const buildRequired = [
+    'npm run test:content-prose-quality',
+    'node scripts/check-content-work-orders.mjs',
+    'node scripts/check-content-release-readiness.mjs'
+  ];
+  const buildPositions = buildRequired.map(step => buildSteps.indexOf(step));
+  if (buildPositions.some(position => position < 0)) errors.push('ci:build is missing a required content consumer');
+  if (buildPositions.some((position, index) => index > 0 && position <= buildPositions[index - 1])) errors.push('ci:build content consumers are out of order');
+  return errors;
+}
+const packageJson = JSON.parse(fs.readFileSync(path.join(root, 'package.json')));
+assert.deepEqual(workflowErrors(packageJson.scripts), [], 'actual package workflow must consume package, learning, producer, review, work-order and release checks in dependency order');
+for (const missing of [
+  'node scripts/test-content-quality-learning.mjs',
+  'node scripts/test-content-producer-contract.mjs',
+  'node scripts/test-prose-quality-admission.mjs',
+  'node scripts/check-content-work-orders.mjs',
+  'node scripts/check-content-release-readiness.mjs'
+]) {
+  const broken = structuredClone(packageJson.scripts);
+  const owner = missing.startsWith('node scripts/test-') && missing !== 'node scripts/check-content-work-orders.mjs' && missing !== 'node scripts/check-content-release-readiness.mjs'
+    ? 'test:content-prose-quality'
+    : 'ci:build';
+  broken[owner] = broken[owner].split(' && ').filter(step => step !== missing).join(' && ');
+  assert.ok(workflowErrors(broken).length > 0, `workflow calibration must reject omission: ${missing}`);
+}
+{
+  const broken = structuredClone(packageJson.scripts);
+  broken['test:content-prose-quality'] = broken['test:content-prose-quality'].replace(
+    'node scripts/test-content-quality-learning.mjs && node scripts/test-content-producer-contract.mjs',
+    'node scripts/test-content-producer-contract.mjs && node scripts/test-content-quality-learning.mjs'
+  );
+  assert.match(workflowErrors(broken).join('\n'), /out of order/);
+}
 const registry = JSON.parse(fs.readFileSync(path.join(root, base, 'content-quality-exemplars.json')));
 assert.equal(registry.schemaVersion, 'laidies-content-quality-exemplars.v1');
 const entries = [...registry.negativeExemplars, ...registry.positiveExemplars];
@@ -53,3 +101,4 @@ if (queue.workOrders.every(order => order.artifactBinding?.status === 'UNBOUND')
 }
 console.log(`REAL CONTENT QUEUE INTEGRITY MATCH orders=${queue.workOrders.length} ready=${release.ready.length} held=${release.held.length}; not release authorization`);
 console.log(`CONTENT QUALITY PACKAGE INTEGRITY MATCH exemplars=${entries.length}; changed/missing bytes rejected; semantic quality NOT EVALUATED`);
+console.log('CONTENT QUALITY WORKFLOW WIRING PASS actual=1 rejected_omissions=5 rejected_order=1');
