@@ -10,7 +10,7 @@ assert.deepEqual(inspectHomepageCorrection(item, root), []);
 const cases = [
   ['different homepage', v => { v.design_admission.candidate.sha256 = '0'.repeat(64); }, 'homepage bytes differ'],
   ['different runtime', v => { v.design_admission.runtime.sha256 = '0'.repeat(64); }, 'runtime bytes differ'],
-  ['MISS_JEEVES_PANEL_EDGE','WHY_FROM_TO_LABELS','WOMEN_WIDE_SPACING'].includes(item.design_admission.owner_feedback_successor)
+  ['MISS_JEEVES_PANEL_EDGE','WHY_FROM_TO_LABELS','WOMEN_WIDE_SPACING','DISCOVERY_PALETTE'].includes(item.design_admission.owner_feedback_successor)
     ? ['missing portrait review', v => { v.design_admission.evidence = v.design_admission.evidence.filter(b => !b.path.endsWith('/independent-review.md')); }, 'missing bound evidence: independent-review.md']
     : ['missing Claude binding', v => { v.design_admission.evidence = v.design_admission.evidence.filter(b => !b.path.endsWith('/claude-review-result.json')); }, 'missing bound evidence: claude'],
   ['stale review', v => { v.design_admission.evidence[0].sha256 = '0'.repeat(64); }, 'stale evidence'],
