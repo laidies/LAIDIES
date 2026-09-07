@@ -463,3 +463,16 @@ time. The adapter now consumes the canonical work-order validator, rechecks elig
 both preparation states and requires nondecreasing event timestamps. Prevention: integrity
 binding proves which bytes were read, not that those bytes are internally valid or that a
 sequence happened in causal order.
+
+### 2026-09-06 — A dependency view can create false confidence without changing state
+
+The first read-only Learning projection exposed missing sources but returned
+success, and reverse impact treated planned outputs as consumed inputs. An
+independent artifact-first review reproduced both. Required input absence now
+quarantines the view and returns exit 1; planned outputs and ambiguous evidence
+locations are separate relations and cannot imply input-consumer impact. The
+current real queue therefore remains visibly input-held rather than receiving
+a cosmetic pass. Positive and negative fixtures run in the existing cloud
+baseline. Prevention: preserve relation meaning and fail on missing required
+inputs before claiming a trustworthy view; report undeclared reach as unknown.
+Behind the Build angle: a diagram can mislead even when it has no write access.

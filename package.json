@@ -30,6 +30,7 @@
     "test:content-prose-quality": "node scripts/test-content-quality-package.mjs && node scripts/test-content-quality-learning.mjs && node scripts/test-content-producer-contract.mjs && node scripts/test-prose-quality-admission.mjs && node scripts/test-content-release-readiness.mjs",
     "test:content-work-orders": "node scripts/test-content-work-orders.mjs",
     "test:learning-executor": "node scripts/test-learning-executor.mjs",
+    "test:learning-dependencies": "node scripts/test-learning-dependencies.mjs",
     "test:content-execution": "npm run test:content-work-orders && npm run test:learning-executor && node scripts/check-learning-executor.mjs",
     "test:blend-snap-pack": "node scripts/validate-blend-snap-packs.mjs && node scripts/test-validate-blend-snap-packs.mjs && node scripts/test-blend-snap-cross-entry.mjs",
     "test:three-page-design-program": "node scripts/test-three-page-design-program.mjs && node scripts/check-three-page-design-program.mjs && node scripts/test-design-review-admission.mjs",
