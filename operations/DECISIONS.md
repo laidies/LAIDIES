@@ -383,5 +383,8 @@ into another decision ledger.
 ## 2026-09-06 — NewsStand archive presentation correction
 Ali rejects the oversized form, flat yellow sidebar and cream/purple archive treatment. Use a compact newspaper index with masthead texture, navy text and coloured reading surface; search first, optional filters/topics collapsed. Merge casing variants without losing matching stories. This supersedes prior archive visual acceptance, not content or reader policy.
 
+## 2026-09-07 — NewsStand full-story reading scale
+Ali rejects the oversized opened-story treatment and identified it as a recurring defect. Daily, Weekly and Big Picture stories use one compact newspaper reading scale: the paper is no wider than 820px, desktop headlines no larger than 40px, compact-screen headlines no larger than 32px, story images no wider than 480px, and body copy stays between 16px and 17px. A rendered-browser guard must reject the previous oversized cascade and verify both Daily and Big Picture stories on desktop, 390px, 320px and 200% zoom. This changes the shared reader scale, not article copy, front-page hierarchy or the direct-reader/Back journey.
+
 ## 2026-09-06 — Town and catch-up separation
 Ali rejects alternating catch-up colour blocks, butter-yellow town panels, reduced town images and Mme CLAi-O float wrapping/orphan line and empty column. Restore prominent images, explicit newspaper separators and fixed image/text flow; no butter-yellow panel.

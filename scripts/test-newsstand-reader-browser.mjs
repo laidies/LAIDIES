@@ -13,6 +13,8 @@ const ROOT = path.resolve(process.env.NEWSSTAND_ROOT || path.resolve(path.dirnam
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const CALIBRATE = process.argv.includes("--calibrate");
 const CALIBRATE_RETURNING = process.argv.includes("--calibrate-returning");
+const CALIBRATE_READER_SCALE = process.argv.includes("--calibrate-reader-scale");
+const READER_SCALE_ONLY = process.argv.includes("--reader-scale-only");
 const ZOOM = process.argv.includes('--zoom-200');
 const FIXTURE_ROOT = process.env.NEWSSTAND_TEST_FIXTURE_ROOT;
 const inputFile = relative => FIXTURE_ROOT && fs.existsSync(path.join(FIXTURE_ROOT,relative)) ? path.join(FIXTURE_ROOT,relative) : path.join(ROOT,relative);
@@ -40,6 +42,28 @@ const CONTRACT_SRC = HTML.match(/src="([^"]*newsstand-reader-contract\.js[^"]*)"
 const READY = ISSUE.desks.filter(desk => desk.state === 'ready');
 const FRONT_READY = READY.filter(desk => ['paige_tip','career_life','concept_week','mme_claio','behind_build','around_town'].includes(desk.type));
 const sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds));
+const readerScaleExpression = `(() => {
+  const paper = document.querySelector('.ns-reader--story .ns-unfolded-paper');
+  const heading = document.querySelector('.ns-reader--story .ns-article__head h2');
+  const hero = document.querySelector('.ns-reader--story .ns-article__hero');
+  const copy = document.querySelector('.ns-reader--story .ns-article__copy, .ns-reader--story .ns-examination__copy');
+  if (!paper || !heading || !hero || !copy) return { pass: false, missing: true };
+  const px = (element, property) => Number.parseFloat(getComputedStyle(element)[property]);
+  const compact = innerWidth <= 720;
+  const metrics = {
+    paperWidth: paper.getBoundingClientRect().width,
+    headingSize: px(heading, 'fontSize'),
+    heroWidth: hero.getBoundingClientRect().width,
+    copySize: px(copy, 'fontSize'),
+    viewportWidth: innerWidth,
+    overflow: document.documentElement.scrollWidth > innerWidth
+  };
+  metrics.pass = metrics.paperWidth <= Math.min(innerWidth, 821) &&
+    metrics.headingSize <= (compact ? 32.5 : 40.5) &&
+    metrics.heroWidth <= Math.min(480.5, metrics.paperWidth) &&
+    metrics.copySize <= 17.5 && !metrics.overflow;
+  return metrics;
+})()`;
 
 if (!fs.existsSync(CHROME)) {
   console.log("SKIP NEWSSTAND BROWSER: Google Chrome is unavailable.");
@@ -66,6 +90,14 @@ const server = http.createServer((request, response) => {
     let body = fs.readFileSync(file, "utf8").replace("<head>", "<head>" + fixedClock);
     if (CALIBRATE) body = body.replace('class="ns-one-paper"', 'class="ns-retired-four-paper"');
     response.writeHead(200, { "content-type": "text/html; charset=utf-8" }); response.end(body); return;
+  }
+  if (CALIBRATE_READER_SCALE && requestUrl.pathname === "/content/newsstand-design.css") {
+    const body = fs.readFileSync(file, "utf8")
+      .replace("width: min(100%, 820px);", "width: min(100%, 1120px);")
+      .replace("font-size: clamp(30px, 3vw, 40px);", "font-size: clamp(48px, 5.8vw, 76px);")
+      .replace("width: min(100%, 480px);", "width: min(100%, 780px);")
+      .replace("font-size: clamp(16px, 1.1vw, 17px);", "font-size: clamp(18px, 1.5vw, 21px);");
+    response.writeHead(200, { "content-type": "text/css; charset=utf-8" }); response.end(body); return;
   }
   if (CALIBRATE_RETURNING && requestUrl.pathname === "/content/site/newsstand-catchup-v1.js") {
     const body = fs.readFileSync(file, "utf8").replace(
@@ -178,6 +210,31 @@ try {
     if (wronglyAdvanced) throw new Error("RETURNING READER CALIBRATION FAIL known-bad page-visit baseline was accepted");
     console.log("NEWSSTAND RETURNING READER CALIBRATION PASS known-bad publication baseline rejected");
     knownBad.close(); desktop.close();
+  } else if (CALIBRATE_READER_SCALE) {
+    await act(desktop, "document.querySelector('.ns-publication').focus()"); await pressEnter(desktop);
+    const knownBad = await value(desktop, readerScaleExpression);
+    check(knownBad.pass, false, `known-bad oversized reader must be rejected (${JSON.stringify(knownBad)})`);
+    console.log(`NEWSSTAND READER SCALE CALIBRATION PASS known-bad oversized reader rejected metrics=${JSON.stringify(knownBad)}`);
+    desktop.close();
+  } else if (READER_SCALE_ONLY) {
+    const routes = [
+      { label: 'Daily', slug: CURRENT_DAILY.slug },
+      { label: 'Big Picture', slug: BIG_PICTURE.slug }
+    ];
+    for (const route of routes) {
+      const page = await openPage(`/newsstand.html#${route.slug}`);
+      const metrics = await value(page, readerScaleExpression);
+      check(metrics.pass, true, `${route.label} uses compact newspaper scale (${JSON.stringify(metrics)})`);
+      page.close();
+    }
+    for (const width of [390, 320]) {
+      const page = await openPage(`/newsstand.html#${CURRENT_DAILY.slug}`, { width, height: 844 });
+      const metrics = await value(page, readerScaleExpression);
+      check(metrics.pass, true, `${width}: Daily uses compact newspaper scale (${JSON.stringify(metrics)})`);
+      page.close();
+    }
+    console.log(`NEWSSTAND READER SCALE PASS checks=${checks} desktop Daily/Big-Picture mobile=390,320`);
+    desktop.close();
   } else if (ZOOM) {
     const metrics = await value(desktop,"({width:innerWidth,outer:outerWidth,dpr:devicePixelRatio,scale:visualViewport.scale,overflow:document.documentElement.scrollWidth>innerWidth})");
     check(metrics.dpr,2,'native browser 200% zoom with device scale forced to 1');
@@ -189,6 +246,8 @@ try {
     await sleep(200);
     check(await value(desktop,"document.activeElement.id"),'ns-story-title','200% keyboard opens full story and transfers focus');
     check(await value(desktop,"document.documentElement.scrollWidth<=innerWidth"),true,'200% article no overflow');
+    const zoomReaderScale = await value(desktop, readerScaleExpression);
+    check(zoomReaderScale.pass, true, `200% story reader retains compact newspaper scale (${JSON.stringify(zoomReaderScale)})`);
     const shot=await desktop.call('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});
     const screenshot=path.join(os.tmpdir(),`newsstand-zoom-200-${Date.now()}.png`); fs.writeFileSync(screenshot,Buffer.from(shot.data,'base64'));
     await act(desktop,"document.querySelector('#ns-return').click();document.querySelector('#ns-browse-all').click()");
@@ -270,7 +329,14 @@ try {
         article.textContent.includes('What This Means For You') &&
         article.querySelectorAll('.ns-article__sources a[href^="https://"]').length >= 2;
     })()`), true, "current daily story opens directly with reader consequence and source links");
+    const currentDailyScale = await value(currentDaily, readerScaleExpression);
+    check(currentDailyScale.pass, true, `current Daily story uses compact newspaper scale (${JSON.stringify(currentDailyScale)})`);
     currentDaily.close();
+
+    const currentBigPicture = await openPage(`/newsstand.html#${BIG_PICTURE.slug}`);
+    const currentBigPictureScale = await value(currentBigPicture, readerScaleExpression);
+    check(currentBigPictureScale.pass, true, `current Big Picture story uses the same compact reader scale (${JSON.stringify(currentBigPictureScale)})`);
+    currentBigPicture.close();
 
     for (const story of ISSUE_DAILY) {
       const articlePage = await openPage(`/newsstand.html#${story.slug}`);
@@ -375,6 +441,8 @@ try {
         await sleep(50);
       }
       check(await value(mobile, "document.activeElement.id"), "ns-story-title", `${width}: focus moves to the actual story heading`);
+      const mobileReaderScale = await value(mobile, readerScaleExpression);
+      check(mobileReaderScale.pass, true, `${width}: story reader retains compact newspaper scale (${JSON.stringify(mobileReaderScale)})`);
       mobile.close();
     }
 

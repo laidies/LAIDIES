@@ -461,20 +461,20 @@
 }
 
 .ns-redesign .ns-reader--story .ns-unfolded-paper {
-  width: min(100%, 900px);
-  padding: clamp(30px, 3.5vw, 44px) clamp(24px, 5vw, 64px) clamp(64px, 7vw, 88px);
+  width: min(100%, 820px);
+  padding: clamp(26px, 3vw, 36px) clamp(20px, 4vw, 48px) clamp(56px, 6vw, 72px);
 }
 
 .ns-redesign .ns-reader--story .ns-article__head {
-  max-width: 760px;
-  padding-bottom: clamp(24px, 3vw, 34px);
+  max-width: 680px;
+  padding-bottom: clamp(20px, 2.5vw, 28px);
 }
 
 .ns-redesign .ns-reader--story .ns-article__head h2 {
-  max-width: 21ch;
-  margin-bottom: 16px;
-  font-size: clamp(36px, 3.6vw, 48px);
-  line-height: 1.04;
+  max-width: 23ch;
+  margin-bottom: 14px;
+  font-size: clamp(30px, 3vw, 40px);
+  line-height: 1.08;
 }
 
 .ns-redesign .ns-reader--story .ns-article__date {
@@ -482,8 +482,30 @@
 }
 
 .ns-redesign .ns-reader--story .ns-article__hero {
-  width: min(100%, 560px);
-  margin: 8px 0 28px;
+  width: min(100%, 480px);
+  margin: 6px 0 24px;
+}
+
+.ns-redesign .ns-reader--story .ns-article__section,
+.ns-redesign .ns-reader--story .ns-examination__section,
+.ns-redesign .ns-reader--story .ns-article__quick-read,
+.ns-redesign .ns-reader--story .ns-article__sources {
+  max-width: 680px;
+}
+
+.ns-redesign .ns-reader--story .ns-examination__copy,
+.ns-redesign .ns-reader--story .ns-article__copy,
+.ns-redesign .ns-reader--story .ns-article__watch li,
+.ns-redesign .ns-reader--story .ns-article__notes p,
+.ns-redesign .ns-reader--story .ns-article__closing {
+  font-size: clamp(16px, 1.1vw, 17px);
+  line-height: 1.62;
+}
+
+.ns-redesign .ns-reader--story .ns-examination__section h3,
+.ns-redesign .ns-reader--story .ns-article__section h3 {
+  font-size: clamp(23px, 2vw, 28px);
+  line-height: 1.15;
 }
 
 @media (max-width: 720px) {
@@ -498,9 +520,9 @@
 
   .ns-redesign .ns-reader--story .ns-article__head h2 {
     max-width: none;
-    margin-bottom: 14px;
-    font-size: clamp(30px, 9vw, 36px);
-    line-height: 1.05;
+    margin-bottom: 12px;
+    font-size: clamp(28px, 7.8vw, 32px);
+    line-height: 1.08;
   }
 
   .ns-redesign .ns-reader--story .ns-article__hero {
