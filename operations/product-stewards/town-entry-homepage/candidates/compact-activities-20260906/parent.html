@@ -1145,19 +1145,6 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
 .intent>div:first-child>h2{color:#1b30bd}
 
 .dyk-slim .dyk-media img[src$="fairy-writing-desk.png"]{object-position:left center}
-
-/* Compact excerpts keep the desktop grid even; the complete copy opens separately. */
-.activity-grid.is-compact{grid-auto-rows:1fr;align-items:stretch}
-.activity-grid.is-compact .activity-card-actions{display:grid;gap:8px;margin-top:auto;padding-top:2px}
-.activities .activity-grid.is-compact .activity-more{min-height:44px;width:auto;justify-self:start;padding:6px 0;margin:0;background:none;border:0;box-shadow:none;color:var(--hp-ink);font:700 1rem/1.3 Jost,sans-serif;text-decoration:underline;text-underline-offset:4px;border-radius:4px}
-.activities .activity-grid.is-compact .activity-card-actions>button:last-child{margin:0}
-#activity-detail{box-sizing:border-box;width:min(660px,calc(100% - 32px));max-height:calc(100dvh - 32px);overflow:auto;padding:24px;border:3px solid var(--hp-ink);border-radius:24px;background:linear-gradient(135deg,var(--hp-mint),var(--hp-cyan));color:var(--hp-ink);box-shadow:8px 8px 0 var(--hp-purple)}
-#activity-detail::backdrop{background:rgba(7,15,43,.8)}
-#activity-detail .activity-detail-close{display:block;margin:0 0 16px auto;padding:10px 18px;min-height:44px;background:var(--hp-ink);color:var(--hp-orange);border:2px solid var(--hp-ink);border-radius:999px;font:700 1rem/1.3 Jost,sans-serif}
-#activity-detail h3{margin:0 0 20px;font:700 clamp(1.7rem,4vw,2.3rem)/1.2 Jost,sans-serif;color:var(--hp-ink)}
-#activity-detail p{margin:0 0 18px;font:400 1.125rem/1.5 Jost,sans-serif;color:var(--hp-ink)}
-#activity-detail .activity-detail-go{display:flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:48px;padding:12px 20px;border:2px solid var(--hp-ink);border-radius:999px;background:var(--hp-orange);color:var(--hp-ink);font:700 1.05rem/1.3 Jost,sans-serif;text-decoration:none;text-align:center}
-@media(max-width:560px){.activity-grid.is-compact{grid-auto-rows:auto}.activity-grid.is-compact .activity-card-actions{margin-top:0}}
 </style>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260906-shared-radio"></script>
@@ -1441,12 +1428,12 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
       <div class="section-heading"><p class="eyebrow">Come for one thing. Stay if you feel like it.</p><h2>Games, tools and quick ways to use AI.</h2><p>Quick, useful activities around town—real help with work, a decision, or just a laugh with a blast from the past. No lesson required.</p></div>
       <div class="filter" role="group" aria-label="Filter activities"><button class="active" data-filter="all">Everything</button><button data-filter="help">Work help</button><button data-filter="decide">Help me decide</button><button data-filter="fun">Make me laugh</button><button data-filter="quick">Under 5 min</button></div>
       <div class="activity-grid">
-        <article data-summary="Tell FAiRY what is going on: get advice now, and learn how to ask your own AI for help next time." data-tags="help quick" id="help"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A writing desk with a laptop, drafts and a star wand overlooking the FAiRY Godmother’s magical garden"><div><span class="tag">Advice you can put to work</span><h3>FAiRY Godmother</h3><p>Your boss has asked for something you have never done. Or you have a decision to make and sixteen tabs open about it. Tell FAiRY what is going on: get advice now, and learn how to ask your own AI for help next time.</p><button onclick="location.href='/games/fairy-godmother.html'">Ask the FAiRY Godmother</button></div></article>
-        <article data-summary="Tarot, but the deck is Rewind Era objects and experiences. Pull a card for a reading and advice—practical, with late-night-commercial drama." data-tags="fun decide quick"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/mme-claio.png" alt="Mme CLAi-O with tarot cards"><div><span class="tag">Just for fun · 2 min</span><h3>Mme CLAi-O</h3><p>Tarot, but the deck is Rewind Era objects and experiences. Pull a card for a reading and advice&mdash;practical, with late-night-commercial drama.</p><button onclick="location.href='/games/madame-claio.html'">Consult Mme CLAi-O</button></div></article>
-        <article data-summary="Let the paper fortune teller choose your cocktail—or a Ghostbuster, our spirit-free version—plus a conversation starter for the table." data-tags="fun quick"><img loading="lazy" decoding="async" class="img-center" src="assets/homepage/activity-landscapes-20260831/businesswomens-special.png" alt="The Businesswomen’s Special paper fortune teller on the bar: Bubbles, After Dark, Citrus, Classic"><div><span class="tag">Happy hour · cocktails &amp; Ghostbusters</span><h3>Businesswomen’s Special</h3><p>Romy and Michele asked for the businesswomen’s special. We made one. Let the paper fortune teller choose your cocktail—or a Ghostbuster, our spirit-free version—plus a conversation starter for the table. Business credentials optional.</p><button onclick="location.href='/games/businesswomens-special.html'">Visit the Businesswomen’s Special</button></div></article>
-        <article data-summary="Use Just Call to get fun advice from someone who would have written something way better than “Have a great summer!” (brutal) in your high school yearbook." data-tags="help fun"><img loading="lazy" decoding="async" src="assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp" alt="The Dream Phone booth on MAiN Street"><div><span class="tag">Just Call · advice with a LAiDIES twist</span><h3>Dream Phone</h3><p>Remember Dream Phone—that incredible game from the ’90s where you had to figure out your secret crush? We do too. And we brought it back, but this time with a LAiDIES twist! Use Just Call to get fun advice from someone who would have written something way better than “Have a great summer!” (brutal) in your high school yearbook.</p><p class="activity-availability">The full game, for practising how to spot and correct AI hallucinations, is still in development.</p><button onclick="location.href='/games/dream-phone.html'">Answer Dream Phone</button></div></article>
-        <article data-summary="Truth: what have you copied from AI without checking? Dare: give AI a clearer brief using a made-up task. Your turn." data-tags="fun"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/girl-talk.png" alt="Truth and Dare card stacks with lavender and pink flip-phone artwork"><div><span class="tag">Truth or dare · with your girls</span><h3>Girl Talk</h3><p>Remember Girl Talk? Truth or dare is back at Delta LAi Nu—with your AI habits on the table. Own up to an AI answer you didn’t check, or practise a clearer brief using a made-up task. Choose a card, decide how far you want to take it, and skip anything you don’t fancy. Your answers stay yours; sharing is up to you.</p><button onclick="location.href='/games/girl-talk.html'">Play Girl Talk</button></div></article>
-        <article data-summary="Catch breaking news, a clear daily explainer, the week’s bigger picture and thoughtful opinion." data-tags="help quick"><img loading="lazy" decoding="async" src="assets/town-characters/scenes/paige-newsstand-current-palette-20260823.png" alt="Paige at the NewsStand counter beside her source-checking board"><div><span class="tag">AI news, explained for real life</span><h3>The NewsStand</h3><p>Catch breaking news, a clear daily explainer, the week&rsquo;s bigger picture and thoughtful opinion.</p><button onclick="location.href='/newsstand.html'">Read the NewsStand</button></div></article>
+        <article data-tags="help quick" id="help"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A writing desk with a laptop, drafts and a star wand overlooking the FAiRY Godmother’s magical garden"><div><span class="tag">Advice you can put to work</span><h3>FAiRY Godmother</h3><p>Your boss has asked for something you have never done. Or you have a decision to make and sixteen tabs open about it. Tell FAiRY what is going on: get advice now, and learn how to ask your own AI for help next time.</p><button onclick="location.href='/games/fairy-godmother.html'">Ask the FAiRY Godmother</button></div></article>
+        <article data-tags="fun decide quick"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/mme-claio.png" alt="Mme CLAi-O with tarot cards"><div><span class="tag">Just for fun · 2 min</span><h3>Mme CLAi-O</h3><p>Tarot, but the deck is Rewind Era objects and experiences. Pull a card for a reading and advice&mdash;practical, with late-night-commercial drama.</p><button onclick="location.href='/games/madame-claio.html'">Consult Mme CLAi-O</button></div></article>
+        <article data-tags="fun quick"><img loading="lazy" decoding="async" class="img-center" src="assets/homepage/activity-landscapes-20260831/businesswomens-special.png" alt="The Businesswomen’s Special paper fortune teller on the bar: Bubbles, After Dark, Citrus, Classic"><div><span class="tag">Happy hour · cocktails &amp; Ghostbusters</span><h3>Businesswomen’s Special</h3><p>Romy and Michele asked for the businesswomen’s special. We made one. Let the paper fortune teller choose your cocktail—or a Ghostbuster, our spirit-free version—plus a conversation starter for the table. Business credentials optional.</p><button onclick="location.href='/games/businesswomens-special.html'">Visit the Businesswomen’s Special</button></div></article>
+        <article data-tags="help fun"><img loading="lazy" decoding="async" src="assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp" alt="The Dream Phone booth on MAiN Street"><div><span class="tag">Just Call · advice with a LAiDIES twist</span><h3>Dream Phone</h3><p>Remember Dream Phone—that incredible game from the ’90s where you had to figure out your secret crush? We do too. And we brought it back, but this time with a LAiDIES twist! Use Just Call to get fun advice from someone who would have written something way better than “Have a great summer!” (brutal) in your high school yearbook.</p><p class="activity-availability">The full game, for practising how to spot and correct AI hallucinations, is still in development.</p><button onclick="location.href='/games/dream-phone.html'">Answer Dream Phone</button></div></article>
+        <article data-tags="fun"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/girl-talk.png" alt="Truth and Dare card stacks with lavender and pink flip-phone artwork"><div><span class="tag">Truth or dare · with your girls</span><h3>Girl Talk</h3><p>Remember Girl Talk? Truth or dare is back at Delta LAi Nu. Choose a card, decide how far you want to take it, and skip anything you don’t fancy. Your answers stay yours; sharing is up to you.</p><button onclick="location.href='/games/girl-talk.html'">Play Girl Talk</button></div></article>
+        <article data-tags="help quick"><img loading="lazy" decoding="async" src="assets/town-characters/scenes/paige-newsstand-current-palette-20260823.png" alt="Paige at the NewsStand counter beside her source-checking board"><div><span class="tag">AI news, explained for real life</span><h3>The NewsStand</h3><p>Catch breaking news, a clear daily explainer, the week&rsquo;s bigger picture and thoughtful opinion.</p><button onclick="location.href='/newsstand.html'">Read the NewsStand</button></div></article>
       </div>
       <section id="reference" class="reference reference-inline" aria-labelledby="jeeves-title">
         <div class="jeeves-desk-copy"><p class="eyebrow">Your technical AI question desk</p><h2 id="jeeves-title">Ask Miss Jeeves.</h2>
@@ -1552,54 +1539,40 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
   <script defer src="/content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
   <script src="/content/site/homepage.js?v=20260906-radio-controls"></script>
   <script>
-  /* Give each activity a useful excerpt and a native full-description dialog.
-     Keep complete original copy available; equalise only labels/buttons, never paragraphs. */
+  /* Align labels within each visible row; cards and paragraphs keep their natural height.
+     Recalculate after fonts, resizing and filters; rows never borrow height from other rows. */
   (function(){
     var grid=document.querySelector('.activity-grid');
-    if(!grid||typeof HTMLDialogElement==='undefined') return;
-    var dialog=document.createElement('dialog');
-    dialog.id='activity-detail';
-    dialog.setAttribute('aria-labelledby','activity-detail-title');
-    dialog.innerHTML='<button type="button" class="activity-detail-close">Close ×</button><h3 id="activity-detail-title"></h3><div class="activity-detail-copy"></div><a class="activity-detail-go"></a>';
-    document.body.appendChild(dialog);
-    var opener=null;
-    dialog.querySelector('.activity-detail-close').addEventListener('click',function(){dialog.close();});
-    dialog.addEventListener('close',function(){if(opener&&!opener.closest('[hidden]'))opener.focus();});
-    Array.from(grid.children).forEach(function(card){
-      var body=card.querySelector('div'), paragraphs=Array.from(body.querySelectorAll(':scope>p'));
-      var primary=body.querySelector('button'), title=card.querySelector('h3').textContent;
-      var summary=document.createElement('p');summary.className='activity-summary';summary.textContent=card.dataset.summary;
-      var full=document.createElement('template');full.className='activity-full-copy';
-      paragraphs.forEach(function(p){full.content.appendChild(p);});
-      var more=document.createElement('button');more.type='button';more.className='activity-more';more.textContent='Read more';more.setAttribute('aria-label','Read more about '+title);more.setAttribute('aria-haspopup','dialog');
-      var actions=document.createElement('div');actions.className='activity-card-actions';
-      body.appendChild(summary);body.appendChild(full);actions.appendChild(more);actions.appendChild(primary);body.appendChild(actions);
-      more.addEventListener('click',function(){
-        opener=more;
-        dialog.querySelector('h3').textContent=title;
-        dialog.querySelector('.activity-detail-copy').replaceChildren(full.content.cloneNode(true));
-        var link=dialog.querySelector('a'), route=primary.getAttribute('onclick').match(/location.href=['"]([^'"]+)/);
-        link.textContent=primary.textContent;link.href=route?route[1]:'#activities';
-        dialog.showModal();
-      });
-    });
-    grid.classList.add('is-compact');
-    var pending=false,lastWidth=-1;
+    if(!grid) return;
+    var pending=false, lastWidth=-1;
     function alignSlots(){
       pending=false;
-      var cards=Array.from(grid.children).filter(function(card){return !card.hidden;});
-      cards.forEach(function(card){card.querySelectorAll('.tag,h3,button').forEach(function(slot){slot.style.minHeight='';});});
-      if(getComputedStyle(grid).gridTemplateColumns.trim().split(/\s+/).length===1)return;
-      ['.tag','h3','.activity-card-actions>button:last-child'].forEach(function(selector){
-        var slots=cards.map(function(card){return card.querySelector(selector);});
-        var height=Math.ceil(Math.max(0,...slots.map(function(slot){return slot.getBoundingClientRect().height;})));
-        slots.forEach(function(slot){slot.style.minHeight=height+'px';});
+      var cards=Array.from(grid.querySelectorAll('article')).filter(function(card){return !card.hidden;});
+      cards.forEach(function(card){
+        card.querySelectorAll('.tag,h3,p,button').forEach(function(slot){slot.style.minHeight='';});
+      });
+      if(getComputedStyle(grid).gridTemplateColumns.trim().split(/\s+/).length===1) return;
+      var rows=new Map();
+      cards.forEach(function(card){
+        var top=card.offsetTop;
+        if(!rows.has(top)) rows.set(top,[]);
+        rows.get(top).push(card);
+      });
+      rows.forEach(function(row){
+        ['.tag','h3'].forEach(function(selector){
+          var slots=row.map(function(card){return card.querySelector(selector);}).filter(Boolean);
+          var height=Math.ceil(Math.max(0,...slots.map(function(slot){return slot.getBoundingClientRect().height;})));
+          slots.forEach(function(slot){slot.style.minHeight=height+'px';});
+        });
       });
     }
     function schedule(){if(!pending){pending=true;requestAnimationFrame(alignSlots);}}
     window.addEventListener('resize',schedule);
-    if(document.fonts)document.fonts.ready.then(schedule);
-    if(window.ResizeObserver)new ResizeObserver(function(entries){var width=entries[0].contentRect.width;if(width!==lastWidth){lastWidth=width;schedule();}}).observe(grid);
+    if(document.fonts) document.fonts.ready.then(schedule);
+    if(window.ResizeObserver) new ResizeObserver(function(entries){
+      var width=entries[0].contentRect.width;
+      if(width!==lastWidth){lastWidth=width;schedule();}
+    }).observe(grid);
     new MutationObserver(schedule).observe(grid,{subtree:true,attributes:true,attributeFilter:['hidden']});
     schedule();
   })();
@@ -1672,8 +1645,6 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
       add(document.querySelector('.route-cell .route-head'), document.querySelector('.route-cell'));
       add(document.querySelector('#activities .filter'), document.querySelector('#activities'), document.querySelector('#activities .activity-grid'), false);
     }catch(e){}
-    var activityGrid=document.querySelector('#activities .activity-grid');
-    if(activityGrid)new MutationObserver(onScroll).observe(activityGrid,{subtree:true,attributes:true,attributeFilter:['hidden']});
     window.addEventListener('scroll',onScroll,{passive:true});
     window.addEventListener('resize',function(){ reg.forEach(clear); requestAnimationFrame(function(){ reg.forEach(update); }); },{passive:true});
     reg.forEach(update);

@@ -1,0 +1,3 @@
+Exact index SHA256 075e95a692e89a2fa591041fc1b7f2f13d68d371b61267377463342f5aa5a8d2
+
+I inspected both full desktop grids, phone stack and full-copy dialogs. Six desktop cards and actions align; remaining prose-to-Read-more gap is16–64px instead of variable card bottoms or hundreds of blank pixels. Full words/routes/art retained except the requested Girl Talk clarification, mapped to current game T2/D2. All6 dialogs, Close/Escape/focus return, filters and resize pass. A mobile sticky-filter stale position appeared after hiding cards; its existing position updater now watches hidden changes and the actual-click regression passes. The prior natural-height design was independently rejected under the whole-grid requirements before reviewing this successor.

@@ -1,0 +1,62 @@
+Current complete preview game source; no model call.
+775:         // ===== TRUTH CARDS (25) ===== id: T1-T25
+776:         // Each truth has a private one-line "now what". These prompts rehearse
+777:         // useful behaviour without routing personal material into another tool.
+778:         const TRUTHS = [
+779:           { id: "T1",  text: "What AI task are you avoiding because you don't know how to start?",
+780:             tip: "→ Privately write the smallest safe first step and one sentence of context." },
+781:           { id: "T2",  text: "What's the last thing you copy-pasted from AI without reading properly?",
+782:             tip: "→ Name the check you skipped, then write a better verification step for next time." },
+783:           { id: "T3",  text: "What work task do you secretly hope AI will make disappear?",
+784:             tip: "→ Break a fictional version into a safe first 30 minutes; keep real work details out." },
+785:           { id: "T4",  text: "When did you last pretend to understand something in a meeting and then Google it after?",
+786:             tip: "→ Rehearse one three-sentence clarification question you could ask next time." },
+787:           { id: "T5",  text: "What's the most embarrassing prompt you've ever sent?",
+788:             tip: "→ Rebuild a sanitized version with a goal, context and success check." },
+789:           { id: "T6",  text: "What are you most scared AI will be able to do better than you?",
+790:             tip: "→ Name the task, then list the judgment, context or responsibility you still bring." },
+815:           { id: "T19", text: "What's the dumbest meeting agenda you've seen this month?",
+816:             tip: "→ Rewrite an invented agenda around decisions, owners and finish time." },
+817:           { id: "T20", text: "What would you do differently if you started your current job today?",
+818:             tip: "→ Pick one low-risk move and define how you would know it helped." },
+819:           { id: "T21", text: "What's the task you'd delegate to AI in a heartbeat if you knew how?",
+820:             tip: "→ Draft a sanitized task brief with inputs, limits and a human review step." },
+821:           { id: "T22", text: "What's one thing you're pretending is fine?",
+822:             tip: "→ Name it privately first, then decide whether any real conversation is safe and useful." },
+823:           { id: "T23", text: "What's the last time AI surprised you?",
+824:             tip: "→ Note what surprised you and one test that could distinguish skill from luck." },
+825:           { id: "T24", text: "What work habit do you have that you know is bad but haven't stopped?",
+826:             tip: "→ Choose one tiny replacement habit and a private reminder." },
+827:           { id: "T25", text: "What's the thing you're most proud of at work that nobody noticed?",
+828:             tip: "→ Write a private evidence sentence using no confidential names, numbers or documents." }
+829:         ];
+830: 
+831:         // ===== DARE CARDS (28) ===== id: D1-D28
+832:         // Every dare has a complete private route. AI exercises use invented or
+833:         // sanitized inputs; no card directs someone to publish or process a real
+834:         // email, private message or confidential work artifact.
+835:         const DARES = [
+836:           { id: "D1",  text: "Draft a low-pressure happy-hour invitation. Keep it private; sending or booking is optional.", room: "Wins" },
+837:           { id: "D2",  text: "Invent a harmless fictional email and practise briefing AI to draft it. Do not paste a real message.", room: "Send It Energy" },
+838:           { id: "D3",  text: "Create a fictional meeting agenda with a decision, owner and finish time. Privately judge whether it is usable.", room: "Try-On Debrief" },
+839:           { id: "D4",  text: "Draft a practice out-of-office message for an imaginary break. Keep it private unless you genuinely need one.", room: "Send It Energy" },
+840:           { id: "D5",  text: "Invent a three-slide presentation and ask AI for a playful critique. Keep the fictional material private.", room: "Burn Book" },
+850:           { id: "D15", text: "Make a private five-song playlist for your current work mood.", room: "Mix CD Exchange" },
+851:           { id: "D16", text: "Invent an annoying fictional email, then practise a polite, firm reply. Never paste a real inbox message.", room: "Send It Energy" },
+852:           { id: "D17", text: "Write one private hot take on AI at work, then add the evidence that could change your mind.", room: "Ask the Room" },
+853:           { id: "D18", text: "Plan an ideal workday with one realistic constraint. Keep the plan private.", room: "Wins" },
+854:           { id: "D19", text: "Rewrite one sanitized, invented prompt by adding context, limits and a success check. Keep both versions private.", room: "Try-On Debrief" },
+855:           { id: "D20", text: "Estimate your last week in broad categories without calendar details, then choose one low-risk thing to reduce.", room: "Comment Card" },
+856:           { id: "D21", text: "Create a fictional vague prompt, then privately improve it with a goal, context, constraints and verification step.", room: "Try-On Debrief" },
+857:           { id: "D22", text: "Draft a short thank-you using no names or private details. Sending it is optional.", room: "Wins" },
+858:           { id: "D23", text: "Invent an ambiguous fictional email and list three possible readings. Do not upload a received message or claim to know the sender's intent.", room: "Burn Book" },
+1143:         function prepareAndFlip() {
+1144:           const isTruth = Math.random() < 0.5;
+1145:           if (isTruth) {
+1146:             lastTruthIndex = nextIndex(TRUTHS.length, lastTruthIndex);
+1147:             const t = TRUTHS[lastTruthIndex];
+1148:             currentCard = { kind: "truth", id: t.id, text: t.text, tip: t.tip || "" };
+1149:           } else {
+1150:             lastDareIndex = nextIndex(DARES.length, lastDareIndex);
+1151:             const d = DARES[lastDareIndex];
+1152:             currentCard = { kind: "dare", id: d.id, text: d.text, room: d.room, url: ROOM_URLS[d.room] || "#" };

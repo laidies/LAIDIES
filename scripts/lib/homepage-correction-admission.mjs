@@ -23,6 +23,30 @@ export function inspectHomepageCorrection(item, root) {
   try {
     const a = item.design_admission;
     if(a.owner_feedback_successor==='GIRL_TALK_THUMBNAIL') return ['retired board direction rejected by owner'];
+    if(a.owner_feedback_successor==='COMPACT_ACTIVITIES') {
+      const p='operations/product-stewards/town-entry-homepage/candidates/compact-activities-20260906/';
+      assert(item.id===homepageCorrectionId && item.review_type==='building_page_visual','wrong scoped candidate');
+      for(const [name,b] of [['homepage',a.candidate],['runtime',a.runtime],['worker',a.worker],['graphic',a.graphic],['Mall image',a.mallImage],['burst',a.burst],['wallpaper',a.wallpaper],['cover',a.cover],['current Fairy image',a.fairyImage]]) assert(b&&digest(b.path)===b.sha256,name+' bytes differ');
+      assert(a.cards?.length===2&&a.cards.every(b=>digest(b.path)===b.sha256),'current card bytes differ');
+      assert(digest(p+'parent.html')==='df65cb7db17cfbc28697a8c43385069eb315b558c2dc1cd15faafba8edca40bf','wrong compact-card parent');
+      const changes=JSON.parse(bytes(p+'changes.json'));
+      assert(changes.replacements.reduce((s,c)=>s.replace(c.old,c.new),bytes(p+'parent.html').toString())===bytes('index.html').toString(),'unrelated homepage change');
+      for(const b of a.evidence||[])assert(digest(b.path)===b.sha256,'stale evidence: '+b.path);
+      for(const f of ['scope.md','changes.json','parent.html','source-diff.patch','checks.json','copy.md','girl-talk-source.txt','producer-contract.json','producer-self-review.json','producer-self-review.md','independent-review.md','claude-review-result.json','visuals.json','browser-test.mjs'])assert(a.evidence?.some(b=>b.path===p+f),'missing bound evidence: '+(f.startsWith('claude')?'claude':f));
+      const checks=JSON.parse(bytes(p+'checks.json'));
+      assert(checks.status==='PASS'&&checks.sourceSha===a.candidate.sha256&&checks.oldUnequalCardsRejected,'compact checks differ');
+      for(const width of[1440,1074,390]){
+        const row=checks.rows.find(r=>r.width===width&&r.kind==='candidate'),old=checks.rows.find(r=>r.width===width&&r.kind==='parent');
+        assert(row&&!row.overflow&&row.cards.length===6&&row.cards.every((c,i)=>c.decoded&&c.route===old.cards[i].route&&c.image===old.cards[i].image&&(i===4?c.copy.join(' ').includes('AI habits'):JSON.stringify(c.copy)===JSON.stringify(old.cards[i].copy))),'compact copy or assets differ');
+        if(width>560)assert(row.cards.every(c=>Math.abs(c.h-row.cards[0].h)<1&&Math.abs(c.buttonY-row.cards[0].buttonY)<1&&c.moreGap<=100),'unequal cards or excessive blank panel');
+      }
+      const independent=bytes(p+'independent-review.md').toString(),claude=JSON.parse(bytes(p+'claude-review-result.json'));
+      assert(independent.includes('ADMIT_FOR_OWNER_REVIEW')&&independent.includes(a.candidate.sha256),'independent compact review differs');
+      assert(!claude.is_error&&claude.modelUsage?.['claude-opus-5']&&claude.result?.includes('ADMIT_FOR_OWNER_REVIEW')&&claude.result.includes(a.candidate.sha256),'actual Claude compact review differs');
+      for(const v of JSON.parse(bytes(p+'visuals.json')))assert(digest(v.path)===v.sha256,'stale visual');
+      assert(a.production_release_approved===false,'owner presentation does not authorize production');
+      return errors;
+    }
     if(a.owner_feedback_successor==='ACTIVITY_CARD_SPACING') {
       const p='operations/product-stewards/town-entry-homepage/candidates/activity-spacing-20260906/';
       assert(item.id===homepageCorrectionId && item.review_type==='building_page_visual','wrong scoped candidate');

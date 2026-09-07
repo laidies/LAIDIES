@@ -1,0 +1,28 @@
+import fs from 'node:fs';import crypto from 'node:crypto';import assert from 'node:assert/strict';
+import {chromium} from '/Users/alisoneakin/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/index.mjs';
+const p='operations/product-stewards/town-entry-homepage/candidates/compact-activities-20260906',stage=fs.readFileSync('/tmp/laidies-activity-spacing-stage.txt','utf8').trim();
+const origin=process.env.COMPACT_ORIGIN||'https://3c284745.laidies-sunnyvaile.pages.dev',hosted=!!process.env.COMPACT_ORIGIN,sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});let rows=[],rejected=false;
+const settle=page=>page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+const measure=page=>page.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth,cards:[...document.querySelectorAll('.activity-grid>article')].filter(c=>!c.hidden).map(c=>{const r=c.getBoundingClientRect(),p=c.querySelector('.activity-summary')||c.querySelector('p'),a=c.querySelector('.activity-card-actions'),b=a?a.lastElementChild:c.querySelector('button'),br=b.getBoundingClientRect(),more=c.querySelector('.activity-more');return{title:c.querySelector('h3').textContent,h:r.height,y:r.top,w:r.width,buttonY:br.top-r.top,buttonBottom:br.bottom-r.top,summary:p.textContent,copy:(c.querySelector('template')?[...c.querySelector('template').content.querySelectorAll('p')]:[...c.querySelectorAll('p')]).map(p=>p.textContent),moreGap:more?more.getBoundingClientRect().top-p.getBoundingClientRect().bottom:null,route:b.getAttribute('onclick'),image:c.querySelector('img').getAttribute('src'),decoded:c.querySelector('img').naturalWidth>0};})}));
+const aligned=s=>s.cards.every(c=>Math.abs(c.h-s.cards[0].h)<1&&Math.abs(c.buttonY-s.cards[0].buttonY)<1);
+try{for(const width of[1440,1074,390])for(const kind of hosted?['hosted']:['parent','candidate']){
+ const ctx=await browser.newContext({viewport:{width,height:1000},reducedMotion:'reduce'});
+ if(!hosted)await ctx.route(origin+'/**',r=>{const path=new URL(r.request().url()).pathname,file=path==='/'?(kind==='parent'?p+'/parent.html':'index.html'):stage+path;return fs.existsSync(file)&&fs.statSync(file).isFile()?r.fulfill({path:file}):r.continue();});
+ const page=await ctx.newPage(),response=await page.goto(origin+'/',{waitUntil:'domcontentloaded'});if(kind!=='parent')assert.equal(sha(await response.body()),sha(fs.readFileSync('index.html')));await page.evaluate(()=>document.fonts.ready);await page.locator('.activity-grid>article>img').evaluateAll(is=>Promise.all(is.map(i=>{i.loading='eager';return i.decode();})));await settle(page);
+ const s=await measure(page);assert(!s.overflow);assert(s.cards.every(c=>c.decoded));
+ if(width>560&&kind==='parent'){assert(!aligned(s));rejected=true;}else if(width>560){assert(aligned(s),'closed card heights and buttons align across both rows');assert(s.cards.every(c=>c.moreGap<=100),'no large empty gap before Read more');}
+ await page.screenshot({path:p+'/'+kind+'-'+width+'.png',fullPage:true,clip:await page.locator('.activity-grid').evaluate(e=>{const r=e.getBoundingClientRect();return{x:r.x,y:r.y+scrollY,width:r.width,height:r.height};}),animations:'disabled'});
+ if(kind!=='parent'){
+  for(let i=0;i<6;i++){
+   const more=page.locator('.activity-more').nth(i);await more.click();await page.locator('#activity-detail').waitFor({state:'visible'});assert.equal(await page.locator('#activity-detail h3').textContent(),s.cards[i].title);assert.deepEqual(await page.locator('#activity-detail .activity-detail-copy p').allTextContents(),s.cards[i].copy);assert.equal(await page.locator('#activity-detail a').getAttribute('href'),s.cards[i].route.match(/location.href=['"]([^'"]+)/)[1]);
+   if(i===3||i===4)await page.locator('#activity-detail').screenshot({path:p+'/'+kind+'-'+width+'-detail-'+i+'.png'});
+   if(i%2)await page.keyboard.press('Escape');else await page.locator('.activity-detail-close').click();await page.locator('#activity-detail').waitFor({state:'hidden'});assert(await more.evaluate(e=>e===document.activeElement),'focus returned to Read more');
+  }
+  for(const [filter,count]of[['fun',4],['help',3],['decide',1],['quick',4],['all',6]]){await page.locator('[data-filter="'+filter+'"]').click();await settle(page);const f=await measure(page);assert.equal(f.cards.length,count);assert(!f.overflow);if(width>560)assert(aligned(f));}
+  if(width===1074){for(const w of[760,390,1074]){await page.setViewportSize({width:w,height:1000});await settle(page);const f=await measure(page);assert(!f.overflow);if(w>560)assert(aligned(f));}}
+ }
+ rows.push({width,kind,...s});await ctx.close();
+}}finally{await browser.close();}
+if(!hosted){for(const width of[1440,1074,390]){const old=rows.find(r=>r.width===width&&r.kind==='parent'),n=rows.find(r=>r.width===width&&r.kind==='candidate');for(let i=0;i<6;i++){assert.equal(old.cards[i].route,n.cards[i].route);assert.equal(old.cards[i].image,n.cards[i].image);if(i!==4)assert.deepEqual(old.cards[i].copy,n.cards[i].copy);else assert(n.cards[i].copy.join(' ').includes('AI habits')&&n.cards[i].copy.join(' ').includes('made-up task'));} }}
+fs.writeFileSync(p+'/'+(hosted?'hosted-checks':'checks')+'.json',JSON.stringify({status:'PASS',sourceSha:sha(fs.readFileSync('index.html')),oldUnequalCardsRejected:rejected,rows},null,2)+'\n');console.log(JSON.stringify({status:'PASS',rows:rows.map(r=>({width:r.width,kind:r.kind,heights:r.cards.map(c=>c.h),gaps:r.cards.map(c=>c.moreGap)}))}));
