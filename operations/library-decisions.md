@@ -192,3 +192,12 @@ commit:75dc0f97
 ## 2026-09-07 — Guided questions and substantive freshness
 
 Ali requires Miss Jeeves to help a visitor form an answerable question with relevant examples and follow-up, without assuming a failed attempt. The answer must address the clarified task with current primary guidance beyond prompting alone. Source availability or unchanged bytes do not establish contemporary completeness. Reuse requires matching conditions plus a still-valid substantive review; changed claims, expired evidence or materially newer guidance require refresh or withholding. Current work completes one bounded guided preview; production and general paid research remain outside this release.
+
+
+## 2026-09-07 — Miss Jeeves reader-value reset and visual rejection
+
+**Direct Ali instruction:** step back and define the feature around readers who have AI questions and do not know where to go. Scope includes understanding consequences (her example: “Is AI bad for the environment?”) and diagnosing practical failures (“Every time I do X, Y happens. How can I fix it?”). She rejects the current common-question selection. Do not treat the four fixtures as validated common reader questions or restrict the service to prompting/workplace templates.
+
+**Direct visual rejection:** no white boxes and no white text in the Miss Jeeves treatment. Preserve LAiDIES palette authority and review legible coloured surfaces/dark text before another visual presentation; the current white treatment is not owner-approved.
+
+**Status:** product reasoning requested before further interface iteration. A broad topic can be an answerable question; missing diagnosis-changing facts can require a follow-up. This working interpretation is a proposal, not a newly approved runtime or research-budget change. The existing free-search, explicit research-consent and production boundaries remain unless Ali changes them.
