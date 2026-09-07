@@ -429,3 +429,14 @@ commits c0068195/359e3e37 apply the bounded fixes without a shared branch push.
 Continuation of the operating receiver/gate repair: the recovery entry itself retained obsolete permission-pending and first-action instructions alongside completed outcomes. Replaced the accumulated narrative with one current checkpoint and narrow source links; history remains in Git. Prevention: update the current entry by replacement, not by appending another competing current state. Behind the Build angle: long memory can increase mistakes when historical instructions look current.
 
 Learning receiver status integration continuation: a policy row duplicated a volatile missing-gate result after the gate was restored. Route current dependency status to the existing recovery record and keep the policy row about permission boundaries; regenerate its standing card binding. This avoids one more contradictory startup source without creating a new status registry.
+
+The preserved Learning executor exposed a second false-equivalence: its contract described
+a scheduled worker that reconciled, selected, dispatched and executed work, while the local
+runner only refreshed heartbeat metadata around an already-active queue item. Recovering
+either file alone would turn intent into apparent runtime proof. The inactive successor
+keeps the canonical queue immutable, separates proposed selection, draft receipt, owner
+acknowledgement and dispatch, and makes active states depend on an exact current automation,
+lane and evidence. Prevention: runtime state must prove the transition it claims; a local
+receipt draft or heartbeat writer is never owner acceptance or performed work. Behind the
+Build: an AI operating system needs verbs that mean what actually happened, not what the
+surrounding contract hoped would happen.

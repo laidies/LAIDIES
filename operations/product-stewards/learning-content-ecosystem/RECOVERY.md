@@ -133,11 +133,23 @@ the current producer contract before drafting its specified concept cluster. `LC
 separately remains a recovery hold until its exact source and rendered artifact are
 reconciled.
 
-Current `main` still lacks the Learning-owned v1.2 work-order schema and migrated queue,
-learning executor, executor state, executor checker/test and the Learning dossier's
-`state.json` and `backlog.md`. This adoption does not reconstruct or claim autonomous
-twice-daily execution. Legacy path-integrity debt at `loadBinding` and `existingEvidence`
-remains separately open.
+The historical v1.2 executor cannot be copied into the current queue: it would restore an
+obsolete eighteenth order, stale `ACTIVE` heartbeat and absent automation binding. The
+bounded successor therefore keeps the canonical 17-order v1.1 queue byte-for-byte and adds
+only a versioned, checked-in execution-metadata adapter in `DISABLED_UNBOUND` state. Its
+runner can prepare `SELECTION_PROPOSED` and `DISPATCH_RECEIPT_DRAFTED` records in a temporary
+or future owner lane, but cannot claim acknowledgement, dispatch, performed work, drafting
+or release. The calibrated test proves the queue remains unchanged and rejects invalid
+state, stale/future events, duplicate active orders, changed queue identity, wrong ownership,
+missing/wrong automation, invalid terminal evidence and unsupported queue schemas.
+
+Autonomous execution remains absent. Live integration still requires a real current
+automation, lane and task binding; owner acknowledgement evidence; a separately reviewed
+activation change; and proof that the worker performs reconciliation, selection, receipt
+and next-action work outside this preparation-only adapter. The Learning dossier's
+`state.json` and `backlog.md` remain absent because neither is an execution dependency and
+their preserved versions contain stale status. Legacy path-integrity debt at `loadBinding`
+and `existingEvidence` remains separately open.
 
 Worktree truth at this checkpoint: PR114 is `MERGED` as `39428d15`; the clean receiver was
 at current `main` `35711798` before this status correction. No product prose or surface
