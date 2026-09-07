@@ -427,3 +427,5 @@ fixtures, not only gate stubs, exercise both valid and invalid inputs; shared
 commits c0068195/359e3e37 apply the bounded fixes without a shared branch push.
 
 Continuation of the operating receiver/gate repair: the recovery entry itself retained obsolete permission-pending and first-action instructions alongside completed outcomes. Replaced the accumulated narrative with one current checkpoint and narrow source links; history remains in Git. Prevention: update the current entry by replacement, not by appending another competing current state. Behind the Build angle: long memory can increase mistakes when historical instructions look current.
+
+Learning receiver status integration continuation: a policy row duplicated a volatile missing-gate result after the gate was restored. Route current dependency status to the existing recovery record and keep the policy row about permission boundaries; regenerate its standing card binding. This avoids one more contradictory startup source without creating a new status registry.

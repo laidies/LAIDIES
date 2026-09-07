@@ -1180,3 +1180,7 @@ remains closed; this repair does not change message handling.
 ### Operating recovery entry consolidation — September 6
 
 PR115 merged as `357117980d7d701a64b8540f0beddfde979924fa` after both cloud checks. The current recovery entry now replaces accumulated, contradictory historical next steps with the verified delivered repairs, five open edges and narrow resume sources. Original checkpoints remain in Git history. Full build, real owner successor, cloud delivery proof and the governing audit remain incomplete. No public release or cleanup occurred.
+
+### Learning receiver status integration — September 6
+
+PR117 records the receiving owner's actual PR115 adoption with full-build and executor holds retained. Integration review found one obsolete gate-absent statement in DECISIONS; replaced that runtime snapshot with the existing Learning recovery route and regenerated the standing card. This changes no policy or release permission. The existing Learning owner is continuing bounded executor/state reconciliation; no schedule or real-content drafting is authorized by this status correction.
