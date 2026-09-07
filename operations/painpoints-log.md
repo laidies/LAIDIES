@@ -1,5 +1,7 @@
 # LAiDIES build learning ledger
 
+- **2026-09-06 Chick Flicks release:** A source contract accepted a trailer Play link merely because its route existed, while the destination explicitly held playback. Prevention: verify destination availability, not just link presence; unavailable tapes need honest labels and a working alternative. Calibrated shelf browser check rejects the old live page (0 versus8tapes); updated candidate passes1440/390/320 locally, hosted preview and custom domain. Preserve current whole-artifact base, not stale worktree release-state notes. Behind the Build angle: a correct link can still be a broken promise.
+
 - **2026-09-05 Episode 04 contact-state animation test:** A source frame with
   visibly depressed keys passed still-image review, but a five-second animation
   preserved that state as a near-still instead of inventing a release/press

@@ -1,5 +1,11 @@
 # Active work
 
+## 2026-09-06 Chick Flicks — DEPLOYED / PUBLICLY VERIFIED
+
+Ali authorized the rental-store/VHS successor. Production199e9833-40ec-449e-814d-916696310397, source19c6f42b54b3ae180b83c2f102386e651503a899.
+Exact input /private/tmp/laidies-chick-flicks-release-20260906-7QRBsU; manifest same path plus .manifest.json;780files,853112037bytes,identity50bd51d773be6b6f1d734ff95bc5658329b518c6148e8e4335747034764ba588.
+Overlay of908c7cf9:2changed,10added,768unchanged,zero removed. Live1440/390/320shelf/dialog/focus/image checks pass;34custom/immutable byte comparisons match. Trailer now truthfully unavailable with ReadEpisode1 alternative. Watch/read pages and all other production bytes preserved. Full record: operations/release-control/CHICK-FLICKS-20260906.md. Earlier local-only notes below are historical.
+
 ## 2026-09-05 Canva limited-animation pilot — STAGED; SAVE APPROVAL REQUIRED
 
 Ali approved a consistent, subtle motion-comic direction for weekly episodes:
