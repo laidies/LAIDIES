@@ -1,5 +1,72 @@
 # Existing prose-quality package recovery
 
+## Current LCWO-002 producer-preflight reconciliation — September 6, 20:24 PDT
+
+**Status: HOLD — SOURCE AUTHORITY UNRESOLVED / NO PRODUCER CONTRACT.** The
+durable need to distinguish open, open-weight, source-available and closed AI
+still belongs inside AI Fundamentals 101. The recorded instruction to draft a
+`Concepts 101` cluster immediately is not current authority.
+
+The current dependency projection correctly quarantines `LCWO-002`: all seven
+declared paths are absent from current `main`. The two target paths are planned
+outputs, not available source authority:
+
+- `content/library-books/sources/ai-fundamentals-101.source.json`
+- `content/library-books/rendered/ai-fundamentals-101.html`
+
+The five declared evidence inputs are recoverable only from non-ancestor
+historical commits `c80291686d522192c097beb5d5eebeab1764f942` and
+`1cf7342df80a76a7b6765f448d00b384abb405bf`. They remain provenance, not current
+producer inputs:
+
+| Declared input | Current preflight disposition |
+| --- | --- |
+| `NEWSSTAND-INTAKE-openai-hugging-face-agent-security-2026-07-28.md` | Retains the durable concept distinction and the no-duplicate-surface ruling. Reject its `CONCEPTS 101 LOCAL SUCCESSOR BUILT` status and its immediate-build instruction as obsolete. |
+| `stage-4-learning-system-concepts-gemini-flash-and-kimi-k3-2026-07-29.md` | Retains only the distinction between dated product examples and an evergreen concept home. Kimi/model/access claims require a new current primary-source packet before use. |
+| `stage-4-learning-system-concepts-openai-hugging-face-breaking-final-2026-07-29.md` | Retains only routing provenance. Its incident compound, local Concepts treatment and reader-link conclusions cannot establish current book truth. |
+| `stage-4-learning-system-concepts-cross-lab-cyber-evaluation-openai-freshness-repaired-2026-08-01.md` | Retains the rule that access labels are not a safety score and must stay separate from dated incident claims. Its bound news artifact is not a current book source. |
+| `stage-4-learning-system-concepts-cross-lab-cyber-evaluation-contrast-focus-repaired-2026-08-02.md` | Retains the no-duplicate concept disposition only. Its exact news review identity is historical and supplies no current Fundamentals manuscript authority. |
+
+Current decisions D-2026-08-06-097 and D-2026-08-06-098 supersede the old
+product identity: AI Fundamentals 101 owns the connected durable system map and
+its internal reader-facing **Key Definitions** section; Ali explicitly rejected
+`Concept Index` as the displayed label. The rejected Concepts artifact cannot
+be reused as a successor structure. Current prose rules additionally require motivation
+before mechanisms, plain connected explanation, practical consequences,
+misconception resistance, exact current evidence and an earned analogy or no
+analogy. The five historical records do not satisfy that producer-preflight
+package.
+
+A preservation-sensitive checkout contains staged, unadmitted copies at the
+two target paths, and historical AI Fundamentals branches contain partial or
+dirty candidates. None has a current Library-owner source declaration or an
+exact checksum-bound book admission. The mandatory current concept map and the
+AI Fundamentals learning-content intake cited by current decisions are also
+absent from this branch, so a producer contract could not truthfully bind the
+required whole-book sequence even if the two target files were restored. The
+candidates were preserved and were not copied,
+edited, reset, stashed or treated as a fallback.
+
+**Exact next trigger:** the LIBRAiRY owner identifies and checkpoints one exact
+current AI Fundamentals source as the canonical successor, names where this
+concept cluster belongs in the whole-book sequence, and supplies its intended
+deterministic render target. The Learning owner then reissues the five missing
+inputs as one current, renamed source packet: durable definitions and boundaries
+from current primary/authoritative sources; dated examples separately marked and
+freshness-triggered; current concept-map placement; practical and misconception
+tests; and explicit cross-surface boundaries. Only then may `LCWO-002` receive a
+real producer contract. No prose, render, review or queue-state change is
+authorized before that trigger.
+
+Evidence at `2026-09-06T20:24:34-07:00`: queue SHA-256
+`5e47e31f9e49ec1f8ac86fb8b49a8398265a54e9a9f70646ac7e89e6fcfcfe86`;
+`node scripts/project-learning-dependencies.mjs --order LCWO-002` returns the
+required non-zero `QUARANTINED / RECONCILE_INVALID_INPUTS`; both target paths
+are absent; neither historical source commit is an ancestor of current `main`.
+All 17 work orders remain release-held, the executor remains `DISABLED_UNBOUND`,
+and the queue bytes are unchanged. No integration lock, deploy, publication,
+spend or Ali/public authority was used.
+
 September 6, 2026. PR108 merged as `9a372e701742dcc2cb9820e49bb39c3e82b5d9df`
 after both Operating baseline CI jobs passed on exact source `a83b9fb0`.
 Integration work under the whole-operation audit; the Learning
