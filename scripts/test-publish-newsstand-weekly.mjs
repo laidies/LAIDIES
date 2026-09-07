@@ -79,6 +79,7 @@ function makeFixture(){
     {id:'security',sourceIds:['security-source'],disposition:'NO_FRESH_LEAD_OBSERVED',reason:'No current security development was found.'},
     {id:'contrary_evidence',sourceIds:['contrary-source'],disposition:'DECLINED',reason:'The standing material is context rather than a dated change.'}
   ],selections:[{id:story.headline,sourceIds:['weekly-source'],decision:'SELECT',reason:'The source has a distinct dated reader consequence.'}]};
+  assessment.sources=assessment.desks.flatMap(desk=>desk.sourceIds).map(id=>{const p='candidate/desk-'+id+'.txt';writeJson(p,{schemaVersion:'newsstand-source-observation.v1',id,url:'https://example.com/'+id,checkedAt:DATE+'T18:00:00Z',excerpt:'Synthetic source observation for '+id});return {id,url:'https://example.com/'+id,checkedAt:DATE+'T18:00:00Z',evidence:bind(p)}});
   writeJson(assessmentPath,assessment);
   const reusePath='candidate/research-reuse.json';
   writeJson(reusePath,{schemaVersion:'newsstand-weekly-research-reuse.v1',candidateId:story.id,developments:[{id:story.headline,disposition:'decline',owner:'synthetic learning owner',trigger:'Reconsider if a durable claim or named consumer changes.'}]});
@@ -116,6 +117,10 @@ try{
   reject(f=>rebindReceipt(f,'independent',value=>{value.samplingOverride={policy:{path:'service-policy.json',sha256:'0'.repeat(64)}}}),/review pair|review chain/);
   reject(f=>{f.candidate.sources=[]},/one source-evidence binding/);
   reject(f=>{delete f.candidate.preparation},/dated desk assessment/);
+  reject(f=>{const a=JSON.parse(fs.readFileSync(path.join(f.root,f.paths.assessmentPath)));a.sources[0].url='https://example.com/wrong';f.writeJson(f.paths.assessmentPath,a);f.candidate.preparation.sourceAssessment=f.bind(f.paths.assessmentPath)},/observation does not match/);
+  reject(f=>{const a=JSON.parse(fs.readFileSync(path.join(f.root,f.paths.assessmentPath)));a.sources[1].evidence=a.sources[0].evidence;f.writeJson(f.paths.assessmentPath,a);f.candidate.preparation.sourceAssessment=f.bind(f.paths.assessmentPath)},/observation does not match/);
+  reject(f=>{f.candidate.selection.developments.push({...f.candidate.selection.developments[0],headline:'Unassessed extra development'})},/selection is not bound/);
+  reject(f=>{const a=JSON.parse(fs.readFileSync(path.join(f.root,f.paths.assessmentPath)));delete a.sources;f.writeJson(f.paths.assessmentPath,a);f.candidate.preparation.sourceAssessment=f.bind(f.paths.assessmentPath)},/exact evidence bindings/);
   reject(f=>{const assessment=JSON.parse(fs.readFileSync(path.join(f.root,f.paths.assessmentPath)));assessment.desks=assessment.desks.filter(desk=>desk.id==='product_releases');f.writeJson(f.paths.assessmentPath,assessment);f.candidate.preparation.sourceAssessment=f.bind(f.paths.assessmentPath)},/dated desk assessment is invalid/);
   reject(f=>{const reuse=JSON.parse(fs.readFileSync(path.join(f.root,f.paths.reusePath)));reuse.developments[0].trigger='';f.writeJson(f.paths.reusePath,reuse);f.candidate.researchReuse=f.bind(f.paths.reusePath)},/research-reuse manifest needs one owned disposition/);
   reject(f=>{f.candidate.candidateId='conflicting-weekly-id'},/Weekly story is not/);
@@ -135,5 +140,5 @@ try{
   assert.deepEqual([...filesAfter.keys()].sort(),[...filesBefore.keys()].sort(),'CLI must not add files');
   assert.deepEqual([...filesAfter].filter(([name,digest])=>filesBefore.get(name)!==digest).map(([name])=>name),[cli.basePath],'CLI must change only the disposable dataset');
   const cliData=parse(fs.readFileSync(path.join(cli.root,cli.basePath),'utf8'));assert.equal(cliData.publications.weekly.storyId,cli.story.id);assert.equal(cliData.stories.length,cli.data.stories.length+1);
-  console.log('NEWSSTAND WEEKLY PUBLICATION TEST PASS real_chain=1 real_contract=1 real_reader=1 atomic_preservation=1 cli_temp_only=1 rejected=18 replay_safe=1');
+  console.log('NEWSSTAND WEEKLY PUBLICATION TEST PASS real_chain=1 real_contract=1 real_reader=1 atomic_preservation=1 cli_temp_only=1 rejected=28 replay_safe=1');
 }finally{for(const root of roots)fs.rmSync(root,{recursive:true,force:true})}

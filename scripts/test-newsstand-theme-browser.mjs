@@ -93,6 +93,7 @@ async function assertDynamicAdmittedSong(page, ctx) {
   assert.equal(await page.locator('.ksvl-now-playing.is-visible').count(), 1, 'Dynamic selection must use the existing in-page deck');
   assert.equal(await page.locator('.ksvl-np-btn--play').evaluate(el => document.activeElement === el), true, 'Dynamic keyboard selection must move focus to the deck');
   assert.equal(ctx.pages().length, 1, 'Dynamic selection must not open another tab');
+  await revealStop(page);
   await page.locator('.ksvl-np-btn--stop').click();
   await page.waitForFunction(name => document.activeElement && document.activeElement.textContent === name, label);
   assert.equal(await page.evaluate(() => window.__themeAudio.every(audio => audio.paused)), true);
@@ -105,7 +106,17 @@ async function assertDynamicAdmittedSong(page, ctx) {
   }, label);
   await reinserted.click();
   await page.waitForFunction(() => window.__themeAudio.filter(audio => !audio.paused).length === 1);
+  await revealStop(page);
   await page.locator('.ksvl-np-btn--stop').click();
+}
+async function revealStop(page) {
+  const stop = page.locator('.ksvl-np-btn--stop');
+  if (!(await stop.isVisible())) {
+    const more = page.locator('.ksvl-np-more');
+    assert.equal(await more.isVisible(), true, 'Hidden Stop needs a visible controls disclosure');
+    await more.click();
+    await stop.waitFor({state:'visible'});
+  }
 }
 async function assertDynamicUnavailableSong(page, id, label) {
   const button = await insertRelatedSong(page, id, label);
@@ -155,6 +166,7 @@ try {
     assert.ok(geometry.height >= 44 && geometry.width >= 44);
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true, 'Player/masthead must fit the viewport');
     if (output) await page.screenshot({path:path.join(output, `playing-${width}.png`)});
+    await revealStop(page);
     await page.locator('.ksvl-np-btn--stop').focus();
     await page.keyboard.press('Enter');
     await page.waitForFunction(() => document.activeElement === document.querySelector('[data-ksvl-track="the-newsstand"]'));

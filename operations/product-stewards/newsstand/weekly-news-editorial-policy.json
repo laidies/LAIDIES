@@ -92,5 +92,26 @@
       "State the actual change and reader consequence for each selected story. Do not replace reporting with repetitive general advice.",
       "Do not force a fixed item count or common thesis. Prioritize consequence, reach, evidence and relevance."
     ]
+  },
+  "coverageAndReuseAdmission": {
+    "requiredFor": "new Weekly candidates",
+    "preparation": "Bind a publication-day six-desk assessment before drafting. Include selected and declined developments, reasons, exact source URLs, actual check times and source-evidence file bindings.",
+    "publication": "Every reported development must match the selected assessment exactly. Publication rejects missing or changed desk evidence, stale checks and unassessed extra developments.",
+    "reuse": "Every selected development needs an owned link/correct/update/extend/create/queue-with-trigger/decline disposition and a concrete trigger. Reuse does not mean every surface gets a new article.",
+    "commands": [
+      "node scripts/test-prepare-newsstand-weekly.mjs",
+      "node scripts/test-publish-newsstand-weekly.mjs"
+    ],
+    "limitation": "The checks enforce evidence and completeness. They do not judge whether editorial selection is good; the independent editor must read the evidence and article.",
+    "sourceObservationFormat": {
+      "schemaVersion": "newsstand-source-observation.v1",
+      "requiredFields": [
+        "id",
+        "url",
+        "checkedAt",
+        "excerpt"
+      ],
+      "rule": "One exact JSON evidence binding per assessed source; matching ID, HTTPS URL and checkedAt on the publication day in America/Vancouver. The excerpt must contain the actually read evidence; a structured record alone does not establish factual or editorial quality."
+    }
   }
 }

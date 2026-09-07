@@ -52,7 +52,17 @@ export function validateWeeklyBreadthAndReuse(candidate,root){
   try{validateWeeklySourceAssessment(assessment,{asOf:candidate.publicationDate})}catch(error){fail(`Weekly dated desk assessment is invalid: ${error.message}`)}
   const selected=new Set((assessment.selections||[]).filter(item=>item.decision==='SELECT').map(item=>item.id));
   const reported=new Set((candidate.selection?.developments||[]).map(item=>item.headline));
-  if(!selected.size||[...selected].some(id=>!reported.has(id)))fail('Weekly dated desk assessment selection is not bound to reported developments');
+  if(!selected.size||selected.size!==reported.size||reported.size!==candidate.selection.developments.length||[...selected].some(id=>!reported.has(id)))fail('Weekly dated desk assessment selection is not bound to reported developments');
+  const assessedIds=new Set(assessment.desks.flatMap(desk=>desk.sourceIds));
+  const evidence=assessment.sources;
+  if(!Array.isArray(evidence)||evidence.length!==assessedIds.size||new Set(evidence.map(source=>source?.id)).size!==assessedIds.size)fail('Weekly desk sources require exact evidence bindings');
+  for(const source of evidence){
+    if(!assessedIds.has(source?.id)||!/^https:\/\//.test(source.url||'')||vancouverDay(source.checkedAt)!==candidate.publicationDate)fail('Weekly desk source identity or freshness is invalid');
+    const raw=readCandidateBinding(root,source.evidence,'Weekly desk source evidence');
+    let observation;
+    try{observation=JSON.parse(raw)}catch{fail('Weekly desk source evidence must be a structured observation')}
+    if(observation.schemaVersion!=='newsstand-source-observation.v1'||observation.id!==source.id||observation.url!==source.url||observation.checkedAt!==source.checkedAt||typeof observation.excerpt!=='string'||!observation.excerpt.trim())fail('Weekly desk source observation does not match its identity or passage');
+  }
   const reuse=boundJson(root,candidate.researchReuse,'Weekly research-reuse disposition manifest');
   if(reuse?.schemaVersion!=='newsstand-weekly-research-reuse.v1'||reuse.candidateId!==candidate.candidateId||!Array.isArray(reuse.developments)||reuse.developments.length!==selected.size)fail('Weekly research-reuse manifest is incomplete');
   const reuseIds=new Set(reuse.developments.map(item=>item?.id));
