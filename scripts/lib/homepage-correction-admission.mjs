@@ -23,6 +23,18 @@ export function inspectHomepageCorrection(item, root, preservedBytes = {}) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if(a.heading_outline) {
+      const m=a.heading_outline,p='operations/product-stewards/town-entry-homepage/candidates/dyk-outline-20260907/';
+      const before='.dyk-slim h2{color:var(--hp-pink);-webkit-text-stroke:0;text-shadow:none}',after='.dyk-slim h2{color:var(--hp-pink);-webkit-text-stroke:2px var(--hp-ink);paint-order:stroke fill;text-shadow:none}';
+      const current=bytes('index.html').toString();assert(current.split(after).length===2,'heading outline differs');
+      const parent=current.replace(after,before),parentSha=crypto.createHash('sha256').update(parent).digest('hex');assert(m.parentSha256===parentSha&&parentSha==='accca2a5ea4778afe51eee713ff616c7da0195e29613c8e5dad2b1640b203772','wrong outline predecessor');assert(digest('index.html')===a.candidate.sha256,'homepage bytes differ');
+      const retained=structuredClone(item);delete retained.design_admission.heading_outline;retained.design_admission.candidate.sha256=parentSha;errors.push(...inspectHomepageCorrection(retained,root,{...preservedBytes,'index.html':Buffer.from(parent)}));
+      for(const e of m.evidence||[])assert(digest(e.path)===e.sha256,'stale outline evidence');
+      for(const f of ['change.json','checks.json','review.md',...['parent','candidate'].flatMap(k=>[320,390,1440].map(w=>k+'-'+w+'.png'))])assert(m.evidence?.some(e=>e.path===p+f),'missing outline evidence');
+      const c=JSON.parse(bytes(p+'checks.json'));assert(c.sourceSha256===a.candidate.sha256&&c.oldOutlineRejected,'outline checks differ');
+      for(const w of[320,390,700,1440]){const n=c.rows.find(r=>r.kind==='candidate'&&r.width===w),o=c.rows.find(r=>r.kind==='parent'&&r.width===w);assert(n&&o&&!n.overflow&&n.stroke==='2px rgb(17, 24, 59)'&&n.paintOrder==='stroke'&&o.stroke==='0px rgb(242, 84, 169)','outline not verified');for(const k of['heading','controls','banner','pink','burst'])assert(JSON.stringify(n?.[k])===JSON.stringify(o?.[k]),'outline changed '+k);}
+      const review=bytes(p+'review.md').toString();assert(review.includes('ADMIT_FOR_OWNER_REVIEW')&&review.includes(a.candidate.sha256),'outline review differs');return errors;
+    }
     if(a.intent_gradient) {
       const m=a.intent_gradient,p='operations/product-stewards/town-entry-homepage/candidates/intent-gradient-20260907/';
       const before='.intent{background:var(--hp-ground-warm);color:var(--hp-midnight)}';

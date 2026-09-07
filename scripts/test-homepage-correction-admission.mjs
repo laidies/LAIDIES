@@ -44,6 +44,7 @@ if(item.design_admission.narrow_heading_anchor) {
 if(item.design_admission.intent_gradient) {
   cases.push(['missing gradient review',v=>{v.design_admission.intent_gradient.evidence=v.design_admission.intent_gradient.evidence.filter(e=>!e.path.endsWith('/review.md'));},'missing gradient evidence']);
 }
+if(item.design_admission.heading_outline) cases.push(['missing outline review',v=>{v.design_admission.heading_outline.evidence=v.design_admission.heading_outline.evidence.filter(e=>!e.path.endsWith('/review.md'));},'missing outline evidence']);
 for (const [name, mutate, reason] of cases) {
   const candidate = structuredClone(item);
   mutate(candidate);
