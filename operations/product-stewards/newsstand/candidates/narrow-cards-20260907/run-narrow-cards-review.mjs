@@ -43,6 +43,23 @@ try {
     }
     await page.goto(`${origin}/newsstand.html`, { waitUntil: "domcontentloaded" });
     await page.locator(".ns-front-secondary article").nth(1).waitFor();
+    await page.evaluate(async () => { await document.fonts?.ready; });
+    const latestImages = page.locator(".ns-front-secondary .ns-latest-image");
+    for (let index = 0; index < await latestImages.count(); index += 1) {
+      const image = latestImages.nth(index);
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate(async (node) => {
+        const imageNode = node;
+        if (!imageNode.complete) {
+          await Promise.race([
+            new Promise((resolve, reject) => { imageNode.addEventListener("load", resolve, { once: true }); imageNode.addEventListener("error", () => reject(new Error("image load failed")), { once: true }); }),
+            new Promise((_, reject) => setTimeout(() => reject(new Error("image load timed out")), 8000))
+          ]);
+        }
+        if (!imageNode.naturalWidth) throw new Error("image has no natural width");
+        if (typeof imageNode.decode === "function") await imageNode.decode();
+      });
+    }
     const observed = await page.evaluate(() => {
       const articleMetrics = [...document.querySelectorAll(".ns-front-secondary article")].map((article) => {
         const story = article.querySelector(".ns-front-story");
@@ -51,7 +68,7 @@ try {
         const cta = article.querySelector("em");
         const box = (node) => { const rect = node?.getBoundingClientRect(); return rect ? { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom, width: rect.width, height: rect.height } : null; };
         const imageStyle = image ? getComputedStyle(image) : null;
-        return { story: box(story), image: box(image), headline: box(headline), cta: box(cta), imageStyle: imageStyle ? { objectFit: imageStyle.objectFit, aspectRatio: imageStyle.aspectRatio } : null, headlineText: headline?.textContent.trim() || "", ctaText: cta?.textContent.trim() || "" };
+        return { story: box(story), image: box(image), imageLoaded: image ? { complete: image.complete, naturalWidth: image.naturalWidth, naturalHeight: image.naturalHeight, src: image.currentSrc } : null, headline: box(headline), cta: box(cta), imageStyle: imageStyle ? { objectFit: imageStyle.objectFit, aspectRatio: imageStyle.aspectRatio } : null, headlineText: headline?.textContent.trim() || "", ctaText: cta?.textContent.trim() || "" };
       });
       return { scrollWidth: document.documentElement.scrollWidth, viewportWidth: innerWidth, secondary: (() => { const r = document.querySelector(".ns-front-secondary").getBoundingClientRect(); return { width: r.width, left: r.left, right: r.right }; })(), articles: articleMetrics };
     });
@@ -60,6 +77,7 @@ try {
     if (observed.scrollWidth > width) errors.push(`horizontal overflow: ${observed.scrollWidth}px > ${width}px`);
     observed.articles.forEach((card, index) => {
       if (!card.image || !card.headline || !card.cta) errors.push(`card ${index + 1} is missing image, headline, or CTA`);
+      if (!card.imageLoaded?.complete || !card.imageLoaded?.naturalWidth) errors.push(`card ${index + 1} image did not load`);
       if (card.image && card.image.height / card.image.width > 1.34) errors.push(`card ${index + 1} image is stretched/tall (${card.image.width}×${card.image.height})`);
       if (card.headline && card.headline.width < 140) errors.push(`card ${index + 1} headline column is squeezed (${card.headline.width}px)`);
       if (card.cta && (card.cta.width < 84 || card.cta.height < 44)) errors.push(`card ${index + 1} CTA is too small (${card.cta.width}×${card.cta.height})`);
@@ -74,6 +92,6 @@ try {
 }
 report.sha256 = Object.fromEntries(fs.readdirSync(OUT).filter((name) => name.startsWith(`${mode}-latest-`) && name.endsWith(".png")).map((name) => [name, crypto.createHash("sha256").update(fs.readFileSync(path.join(OUT, name))).digest("hex")]));
 report.layoutPass = report.widths.every((entry) => entry.pass) && report.requestFailures.length === 0;
-report.fullPageAssetHealthPass = report.layoutPass && report.console.length === 0;
+report.observedLatestImageHealthPass = report.layoutPass && report.console.length === 0;
 fs.writeFileSync(path.join(OUT, `${mode}-results.json`), `${JSON.stringify(report, null, 2)}\n`);
-console.log(JSON.stringify({ mode, layoutPass: report.layoutPass, fullPageAssetHealthPass: report.fullPageAssetHealthPass, widths: report.widths.map(({ width, pass, errors, observed }) => ({ width, pass, errors, secondaryWidth: observed.secondary.width })), console: report.console, requestFailures: report.requestFailures }, null, 2));
+console.log(JSON.stringify({ mode, layoutPass: report.layoutPass, observedLatestImageHealthPass: report.observedLatestImageHealthPass, widths: report.widths.map(({ width, pass, errors, observed }) => ({ width, pass, errors, secondaryWidth: observed.secondary.width })), console: report.console, requestFailures: report.requestFailures }, null, 2));
