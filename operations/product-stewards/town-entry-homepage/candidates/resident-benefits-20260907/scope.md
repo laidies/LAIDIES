@@ -1,0 +1,3 @@
+## 2026-09-07 — Resident Card benefits must be concrete
+
+Ali says the Move to SUNNYVAiLE section still fails to explain the Resident Card and all its benefits. Explain personalization, the Closet collections/progress hub, the Card-gated ten-Puffy Library bookmarking feature and signed-in FAiRY access; distinguish local Card features from private account continuation with named fields. Preserve current artwork, colours and the rest of the homepage. Do not replace benefits with vague “supported collections” wording, imply all local activity syncs, or market held public profiles, unverified rewards or separately authenticated community posting. Preview only.

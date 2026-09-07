@@ -1,0 +1,615 @@
+PUBLIC SOURCE maikeover.html; SHA256 3b209dcd4df1852f8170a437b685d16f9d5781a95d48c61b3e816a4dcdb7917c; fetched2026-09-07 status200. Bytes inspected; account restoration not exercised.
+650:       var envelope = window.LAIDIESResidentCard
+651:         ? window.LAIDIESResidentCard.buildEnvelope(candidateFields)
+652:         : null;
+653:       if (!envelope) {
+654:         announceCardSave(
+655:           'Your Card contains a value this browser cannot safely save. Review the fields and try again; the previous saved Card is unchanged.',
+656:           '#a83243'
+657:         );
+658:         $('moSeeCloset').style.display='none';
+659:         return;
+660:       }
+661:       var serialized = JSON.stringify(envelope);
+662:       var before;
+663:       try {
+664:         // One versioned envelope is the only authoritative local card write.
+665:         // The browser's single setItem is atomic; legacy keys are import-only
+666:         // compatibility inputs and are never partially rewritten here.
+667:         before = localStorage.getItem(CARD_STORAGE_KEY);
+668:         localStorage.setItem(CARD_STORAGE_KEY, serialized);
+669:         if (localStorage.getItem(CARD_STORAGE_KEY) !== serialized) {
+670:           throw new Error('storage verification failed');
+671:         }
+672:         announceCardSave(
+673:           'Card saved on this device. Sign in at the Resident Card desk to restore your Card and supported progress across devices.',
+674:           '#2c7d3c'
+675:         );
+
+PUBLIC SOURCE resident-card.html; SHA256 7e014465d1e0dbe7b24e50e16b2648ef19c213f0c84326421b405c4e4fac0626; fetched2026-09-07 status200. Bytes inspected; account restoration not exercised.
+190:           <span class="sv-eyebrow-label">MAiN Street · No. 6 · SUNNYVAiLE</span>
+191:         </div>
+192:         <h1>Your Resident Card.</h1>
+193:         <p class="sv-lede">
+194:           Make a card at MAiKEOVER on MAiN. This browser keeps a local copy;
+195:           signing in lets supported browsers restore that Card and pick up
+196:           supported SUNNYVAiLE progress.
+197:         </p>
+198:         <p>
+199:           Your account copy stays private. Signing in does not publish the Card,
+200:           subscribe you to email or turn collectibles into a public balance.
+201:         </p>
+202:         <p class="rc-tour-crumb">Wednesday tour · Stop No. 6 · After class, before the Bronze.</p>
+203:       </div>
+204:     </section>
+205: 
+206:     <section class="rc-form-card rc-local-status" aria-labelledby="rcLocalTitle">
+207:       <div class="rc-local-copy">
+208:         <p class="rc-local-kicker" id="rcLocalKicker">Checking this device…</p>
+209:         <h2 class="rc-local-title" id="rcLocalTitle">Looking for your card</h2>
+210:         <p class="rc-local-detail" id="rcLocalDetail" aria-live="polite" aria-atomic="true">
+211:           Checking this browser for a valid Resident Card.
+212:         </p>
+213:         <p class="rc-local-boundary" id="rcLocalBoundary">
+214:           Clearing site data or using private browsing can remove this local
+215:           copy. Sign in below to keep supported state with your account.
+216:         </p>
+217:       </div>
+218:       <div class="rc-local-actions">
+219:         <a class="rc-local-action" id="rcPrimaryAction" href="/maikeover.html">Make a local card</a>
+220:         <a class="rc-local-action secondary" id="rcClosetAction" href="/laidies-card.html" hidden>Open this device’s Closet</a>
+221:       </div>
+222:     </section>
+223: 
+224:     <section class="rc-local-facts" aria-labelledby="rcFactsTitle">
+225:       <h2 id="rcFactsTitle">What belongs to what</h2>
+226:       <ul>
+227:         <li>The Resident Card keeps its selected card details locally and, when you explicitly claim it, in your private account.</li>
+228:         <li>Signed-in continuation currently synchronizes episode position, tour completion and the supported charms, trading-card and Puffy collections.</li>
+229:         <li>Private prompts, messages, drafts, Girl Talk choices and other free-form activity content stay out of continuation sync.</li>
+230:         <li>A local handle is a draft label only. It is not reserved and cannot sign posts, unlock rooms, publish a Card or authorize account data.</li>
+231:         <li>A verified account may keep and restore the private Card and supported continuation state. Public member Cards and public reward ownership remain separate features.</li>
+232:       </ul>
+233:     </section>
+234: 
+235:     <section class="rc-account" aria-labelledby="rcAccountTitle">
+236:       <p class="rc-local-kicker">Private account continuation</p>
+237:       <h2 id="rcAccountTitle">Pick up where you left off.</h2>
+238:       <p id="rcAccountStatus" role="status" aria-live="polite" aria-atomic="true">Checking the private account service…</p>
+239:       <div id="rcAccountSignedOut" hidden>
+240:         <form class="rc-account-form" id="rcAccountForm">
+241:           <label class="sr-only" for="rcAccountEmail">Email address</label>
+242:           <input id="rcAccountEmail" type="email" autocomplete="email" required placeholder="you@example.com">
+243:           <button id="rcAccountEmailButton" type="submit">Email my sign-in link</button>
+244:         </form>
+245:         <p>No password. Requesting a link does not publish your Card or subscribe you to email. Only the supported continuation state listed above syncs.</p>
+246:       </div>
+247:       <div id="rcAccountSignedIn" hidden>
+
+PUBLIC SOURCE laidies-card.html; SHA256 4bf1e3da9d5bf370da805ab4720b838d66cd6c6fc05a66bdb9f0d5813f183ae6; fetched2026-09-07 status200. Bytes inspected; account restoration not exercised.
+1425:     .opt-stop__name { font-family: 'Jost', sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 0.01em; }
+1426:     .opt-stop__sub { font-size: 12px; color: var(--plum-soft); }
+1427:   </style>
+1428: 
+1429:   <!-- ==============================================
+1430:        SECTION 2: PASSPORT VESSELS
+1431:        ============================================== -->
+1432:   <section class="passport-section" id="collectionSection">
+1433:     <p class="passport-section-eyebrow">★ Closet · Your Shelves</p>
+1434:     <h2 class="passport-section-title">Your Collections</h2>
+1435: 
+1436:     <!-- Sticker Book -->
+1437:     <div class="vessel vessel--puffy-board">
+1438:       <h3 class="vessel-title">The Puffy Board</h3>
+1439:       <p class="vessel-note">Device-local Library shortcuts—not owned books, rewards, account history or synced saves. Reopening always returns to the LIBRAiRY so its current admission status can be checked again; peel a shortcut off any time.</p>
+1440:       <p id="puffyVisitorState" class="vessel-note" role="status" aria-live="polite">Checking this browser’s Puffy state…</p>
+1441:       <div id="puffyPouch" class="puffy-pouch" aria-label="Your 10 Puffy Stickers"></div>
+1442:       <div class="puffy-pouch-actions">
+1443:         <button id="puffyPouchEdit" type="button">Change my 10</button>
+1444:         <span id="puffyPouchCount" class="puffy-pouch-count" aria-live="polite"></span>
+1445:       </div>
+1446:       <p class="vessel-note">Give each sticker a purpose if you want—“read later,” “important,” “try this,” or your own private shorthand. Those labels appear when you save something.</p>
+1447:       <div id="puffyPouchEditor" class="puffy-pouch-editor" hidden></div>
+1448:       <div id="puffyBoard" class="puffy-board"></div>
+1449:       <style>
+1450:         .puffy-board { display: grid; gap: 10px; margin-top: 12px; }
+1451:         .puffy-empty { font-size: 13.5px; font-style: italic; color: var(--plum-soft, #6b3a66); margin: 0; }
+1452:         .puffy-empty a { color: var(--rose, #9b3f5f); font-weight: 600; }
+1453:         .puffy-item { position: relative; display: grid; grid-template-columns: minmax(0,1fr) 26px; align-items: center; gap: 12px;
+1454:           padding: 12px 14px; background: var(--cream, #fffdfb); border: 1.5px solid rgba(155,63,95,0.25); border-radius: 10px;
+1455:           text-decoration: none; color: var(--plum, #4b2148); transition: border-color .15s, transform .15s; }
+1456:         .puffy-item-main { display: grid; grid-template-columns: 34px minmax(0,1fr); align-items: center; gap: 12px;
+1457:           min-width: 0; color: inherit; text-decoration: none; }
+1458:         .puffy-item-main:focus-visible { outline: 3px solid var(--rose, #9b3f5f); outline-offset: 4px; }
+1459:         .puffy-item:hover { border-color: var(--rose, #9b3f5f); transform: translateY(-1px); }
+1460:         .puffy-item-clip { width: 30px; height: 20px; border: 2px solid var(--plum, #4b2148); border-radius: 999px 999px 6px 6px; background: linear-gradient(135deg, #f8bdd3, #d66c99); box-shadow: 2px 2px 0 rgba(75,33,72,.22); transform: rotate(-8deg); }
+1461:         .puffy-item-clip::after { content: ""; display: block; width: 5px; height: 5px; margin: 5px auto; border-radius: 50%; background: #fff7d2; box-shadow: 7px 0 0 #fff7d2; }
+1462:         .puffy-item-body b { display: block; font-size: 14px; font-weight: 700; }
+1463:         .puffy-item-body small { display: block; font-size: 12px; color: var(--plum-soft, #6b3a66); }
+1464:         .puffy-peel { border: 0; background: transparent; color: var(--plum-soft, #6b3a66); font-size: 18px; cursor: pointer; line-height: 1; }
+1465:         .puffy-peel:hover { color: var(--rose, #9b3f5f); }
+1466:       </style>
+1467:     </div>
+1468: 
+1469:     <div class="vessel vessel--sticker-book">
+1470:       <div class="vessel-header">
+1471:         <h3 class="vessel-title">Sticker Book</h3>
+1472:         <span class="vessel-count" id="stickerCount">0 collected</span>
+1473:       </div>
+1474:       <div class="sticker-grid" id="stickerGrid">
+1475:         <div class="sticker sticker--empty"></div>
+1476:         <div class="sticker sticker--empty"></div>
+1477:         <div class="sticker sticker--empty"></div>
+1478:         <div class="sticker sticker--empty"></div>
+1479:         <div class="sticker sticker--empty"></div>
+1480:         <div class="sticker sticker--empty"></div>
+1481:       </div>
+1482:       <p class="vessel-note">Collected from supported quizzes and Express tours. Girl Talk keeps its honour-system collection inside the game on this device.</p>
+1483:     </div>
+1484: 
+1485:     <section class="vessel vessel--sticker-book" id="ksvlClosetStickers" hidden>
+1520:         <span class="vessel-count" id="bestieCount">Not checked</span>
+1521:       </div>
+1522:       <div class="bestie-grid" id="bestieGrid"></div>
+1523:       <p class="vessel-note" id="bestieNote">Checking your private account necklaces…</p>
+1524:       <p class="vessel-note"><a href="/resident-referrals.html">Invite a friend or manage your invitations →</a></p>
+1525:     </div>
+1526: 
+1527:     <!-- Charm Bracelet — reads from charm-hunt.js (window.CHARM_HUNT) if present, else empty state -->
+1528:     <div class="vessel vessel--charm-bracelet" id="charmVessel">
+1529:       <div class="vessel-header">
+1530:         <h3 class="vessel-title">Charm Bracelet</h3>
+1531:         <span class="vessel-count" id="charmCount">0 of 7 found this week</span>
+1532:       </div>
+1533:       <div class="charm-chain" id="charmBracelet"></div>
+1534:       <p class="vessel-note">Hidden charms tucked in the town's images each week. Look closely — every stop page has one.</p>
+1535:     </div>
+1536: 
+1537:     <!-- Device-local summary of Pop Quiz scores and Express completions. -->
+1538:     <div class="vessel vessel--clip-jar" id="butterflyJar">
+1539:       <div class="vessel-header">
+1540:         <h3 class="vessel-title">Quiz + Express Progress</h3>
+1541:         <span class="vessel-count" id="clipJarCount">No local records yet</span>
+1542:       </div>
+1543:       <div class="clip-jar">
+1544:         <div class="clip-jar-glass" aria-hidden="true">
+1545:           <span class="clip-jar-total" id="clipJarTotal">0</span>
+1546:           <span class="clip-jar-unit">local record points</span>
+1547:         </div>
+1548:         <ul class="clip-jar-ledger" id="clipJarLedger"></ul>
+1549:       </div>
+1550:       <p class="vessel-note">This is a playful summary of your best Pop Quiz score for each episode plus completed Express tours. It is not a Butterfly Clip balance, reward, purchase record, or verified status. <a href="/sunnyvaile-high.html#report-card">Your Report Card →</a> · <a href="/sunnyvaile-high.html">Take this week's quiz →</a></p>
+1551:     </div>
+1552: 
+1553:     <!-- Trading Card Binder -->
+1554:     <div class="vessel vessel--card-binder">
+1555:       <div class="vessel-header">
+1556:         <h3 class="vessel-title">Trading Card Binder</h3>
+1557:         <span class="vessel-count" id="tradingCount">0 cards</span>
+1558:       </div>
+1559:       <div class="card-binder-grid" id="tradingGrid">
+1560:         <div class="trading-card trading-card--empty">?</div>
+1561:         <div class="trading-card trading-card--empty">?</div>
+1562:         <div class="trading-card trading-card--empty">?</div>
+1563:         <div class="trading-card trading-card--empty">?</div>
+1564:       </div>
+1565:       <p class="vessel-note">Weekly pack drops Wednesday. Some rare, some common. Trade with other residents.</p>
+1566:     </div>
+1567: 
+1568:     <!-- Locked Diary (secret badges) -->
+1569:     <div class="vessel vessel--diary">
+1570:       <div class="vessel-header">
+1571:         <h3 class="vessel-title">Locked Diary</h3>
+1572:         <span class="vessel-count" id="secretCount">0 discovered</span>
+1573:       </div>
+1574:       <div class="diary-grid" id="secretGrid">
+1575:         <div class="secret-badge">?</div>
+1576:         <div class="secret-badge">?</div>
+1577:         <div class="secret-badge">?</div>
+1578:         <div class="secret-badge">?</div>
+1579:       </div>
+1580:       <p class="vessel-note">867-5309 energy. Try things. You'll know when you find one.</p>
+1581:     </div>
+1582:   </section>
+1583: 
+1584:   <!-- ==============================================
+1585:        SECTION 3: FAIRY PLAYS BANK (self only)
+1586:        ============================================== -->
+1587:   <section class="passport-section" id="fairyBankSection" hidden>
+1588:     <p class="passport-section-eyebrow">★ Your Wallet</p>
+1589:     <h2 class="passport-section-title">FAiRY allowance</h2>
+1590: 
+1591:     <div class="fairy-bank">
+1592:       <div class="fairy-bank-icon">🧚</div>
+1593:       <div>
+1594:         <p class="fairy-bank-label">Bonus wishes earned</p>
+1595:         <p class="fairy-bank-count"><span id="fairyPlayCount">0</span><small>available</small></p>
+1596:         <p class="passport-section-lede" style="margin: 0;">This allowance is not available on the public site.</p>
+
+PUBLIC SOURCE content__site__resident-continuation-v1.js; SHA256 0055cfa285b192bd520dc4edf79e6db2cbc214e57d22ed0eace592a3c24360b1; fetched2026-09-07 status200. Bytes inspected; account restoration not exercised.
+1: (function installResidentContinuationV1(global) {
+2:   "use strict";
+3: 
+4:   var DOCUMENT_KEY = "laidies_continuation_v1";
+5:   var OWNER_KEY = "laidies_continuation_owner_v1";
+6:   var SAFE_PATH = /^\/[A-Za-z0-9._~!$&'()*+,;=:@%/?#-]{0,300}$/;
+7:   var FIXED_COLLECTIONS = Object.freeze({
+8:     charms: "laidies_charms_found",
+9:     tradingCards: "laidies_card_collection",
+10:     tradingCardMeta: "laidies_cards_meta",
+11:     puffies: "laidies_puffies_board",
+12:     puffyPouch: "laidies_puffy_sticker_pouch",
+13:     ritual: "laidies_ritual_done",
+14:     express: "laidies_express_done"
+15:   });
+16:   var FIXED_ACTIVITIES = Object.freeze({
+17:     welcomeTour: "laidies_welcome_tour_v1",
+18:     tourCompletions: "laidies_tour_completions",
+19:     tourLastRewardedWeek: "laidies_tour_last_rewarded_week",
+20:     newsstandSeen: "laidies_newsstand_seen_v1",
+21:     buildingVisits: "laidies_building_visits",
+22:     quizProgress: "laidiesQuizProgress",
+23:     quizBestScores: "laidiesQuizBestScores",
+24:     luminaryMaven: "laidies_maven",
+25:     luminaryBuilder: "laidies_builder",
+26:     luminaryTownRegular: "laidies_town_regular",
+27:     ksvlStickerPicks: "laidies_ksvl_sticker_picks_v1"
+28:   });
+29:   var listeners = [];
+30:   var syncPromise = null;
+31:   var lastSnapshot = "";
+32:   // Mirror the admitted profile IDs, not names or free-form profile content.
+33:   var PREFERENCES = Object.freeze({
+34:     luminaryMaven: "ada-lovelace grace-hopper hedy-lamarr karen-sparck-jones hannah-fry fei-fei-li timnit-gebru rachel-thomas joy-buolamwini kate-crawford meredith-whittaker emily-bender eniac-six margaret-hamilton frances-allen grace-wahba cynthia-dwork daphne-koller barbara-liskov jean-sammet adele-goldberg shafi-goldwasser lynn-conway".split(" "),
+35:     luminaryBuilder: "mira-murati daniela-amodei lila-ibrahim fidji-simo chelsea-finn amanda-askell allie-k-miller".split(" "),
+36:     luminaryTownRegular: "mme-claio fairy-godmother dj-sunnyv mayor-deb".split(" ")
+37:   });
+38:   function isPreference(name) {
+39:     return Object.prototype.hasOwnProperty.call(PREFERENCES, name);
+40:   }
+41: 
+42:   // These are private progress records, never currency or proof of ownership.
+43:   function memoryValue(name, value) {
+44:     if (name === "ksvlStickerPicks") {
+45:       if (!isObject(value) || !Array.isArray(value.slugs) || typeof value.picked !== "boolean") return undefined;
+46:       var allowed = "ksvl-community-raidio ksvl-dj-sunnyv-fanclub ksvl-books-hooks-motto-oval ksvl-dont-just-learn-bumper band-the-laidies band-the-regressions band-the-recalls band-the-overfits band-the-embeddings band-latent-space band-the-bots band-chain-of-thought band-grand-ol-query band-the-predicts".split(" ");
+47:       return {picked:value.picked,slugs:Array.from(new Set(value.slugs.filter(function (slug) { return allowed.indexOf(slug) !== -1; }))).slice(0,3).sort()};
+48:     }
+49:     if (isPreference(name)) {
+50:       return value === null || value === "" ? null
+51:         : PREFERENCES[name].indexOf(value) !== -1 ? value : undefined;
+52:     }
+53:     if (["buildingVisits", "quizProgress", "quizBestScores"].indexOf(name) === -1) return value;
+54:     if (!isObject(value)) return undefined;
+55:     var result = {};
+56:     Object.keys(value).slice(0, 100).forEach(function (key) {
+57:       if (!/^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$/.test(key) || key === "constructor") return;
+58:       var record = value[key];
+59:       if (name === "quizBestScores") {
+60:         if (Number.isFinite(record) && record >= 0 && record <= 100) result[key] = record;
+61:         return;
+62:       }
+63:       if (!isObject(record)) return;
+64:       var clean = {};
+65:       var fields = name === "buildingVisits" ? ["n", "first", "last"]
+66:         : ["bestScore", "latestScore", "latestCoreScore", "bestCoreScore", "maxScore", "bonusScore", "attempts"];
+67:       fields.forEach(function (field) {
+68:         if (Number.isFinite(record[field]) && record[field] >= 0 && record[field] <= Number.MAX_SAFE_INTEGER) clean[field] = record[field];
+69:       });
+70:       if (name === "quizProgress") {
+71:         ["completedAt", "updated_at"].forEach(function (field) {
+72:           if (safeTimestamp(record[field])) clean[field] = record[field];
+73:         });
+74:         // Existing quiz catalogue labels are display-only, never HTML.
+75:         if (safeLabel(record.stickerTitle)) clean.stickerTitle = safeLabel(record.stickerTitle);
+76:         if (safeLabel(record.stickerTier)) clean.stickerTier = safeLabel(record.stickerTier);
+77:       }
+78:       if (Object.keys(clean).length) result[key] = clean;
+79:     });
+80:     return result;
+405:       kind: currentPageKind(),
+406:       updated_at: now()
+407:     };
+408:     return writeLocalDocument(local);
+409:   }
+410: 
+411:   function collectEpisode(document) {
+412:     var progress = readJson("laidies_screening_progress_v1");
+413:     var programme = String(progress && (progress.programme || progress.ep) || "");
+414:     if (!isObject(progress) ||
+415:         !(/^\d{1,3}$/.test(programme) || programme === "trailer") ||
+416:         !Number.isFinite(Number(progress.time)) || Number(progress.time) < 0) return;
+417:     var key = programme === "trailer"
+418:       ? programme
+419:       : programme.padStart(2, "0");
+420:     document.episodes[key] = entry({
+421:       position_seconds: Math.round(Number(progress.time) * 10) / 10,
+422:       completed: progress.completed === true
+423:     }, progress.savedAt || progress.updated_at);
+424:   }
+425: 
+481:     var episodeKeys = Object.keys(valid.episodes);
+482:     if (episodeKeys.length) {
+483:       var current = readJson("laidies_screening_progress_v1");
+484:       var newestEpisode = episodeKeys.map(function (key) {
+485:         return { key: key, item: valid.episodes[key] };
+486:       }).sort(function (a, b) {
+487:         return (Date.parse(b.item.updated_at || "") || 0) -
+488:           (Date.parse(a.item.updated_at || "") || 0);
+489:       })[0];
+490:       var remote = newestEpisode.item.value;
+491:       if (!current ||
+492:           (Date.parse(newestEpisode.item.updated_at || "") || 0) >=
+493:           (Date.parse(current.savedAt || current.updated_at || "") || 0)) {
+494:         writeJson("laidies_screening_progress_v1", {
+495:           version: 1,
+496:           programme: newestEpisode.key,
+497:           time: Number(remote.position_seconds) || 0,
+498:           completed: remote.completed === true,
+499:           savedAt: newestEpisode.item.updated_at
+500:         });
+501:       }
+502:     }
+503:     Object.keys(FIXED_ACTIVITIES).forEach(function (name) {
+504:       var item = valid.activities[name];
+505:       if (isPreference(name)) {
+506:         if (!item) return;
+507:         if (item.value === null) global.localStorage.removeItem(FIXED_ACTIVITIES[name]);
+508:         else global.localStorage.setItem(FIXED_ACTIVITIES[name], item.value);
+509:         if (global.localStorage.getItem(FIXED_ACTIVITIES[name]) !== item.value) throw new Error("continuation-local-read-after-write-failed");
+510:       } else {
+511:         // The supplied document is already merged with local progress.
+512:         applyEntry(FIXED_ACTIVITIES[name], item, false);
+513:       }
+514:     });
+515:     Object.keys(valid.activities).forEach(function (name) {
+516:       if (/^tour_\d{4}-W\d{2}$/.test(name)) {
+517:         applyEntry("laidies_" + name, valid.activities[name], true);
+518:       }
+519:     });
+520:     Object.keys(FIXED_COLLECTIONS).forEach(function (name) {
+521:       applyEntry(FIXED_COLLECTIONS[name], valid.collections[name], true);
+522:     });
+523:     writeLocalDocument(valid, true);
+524:     return valid;
+
+PUBLIC SOURCE /tmp/fairy-live.js; SHA256 fdc769b7919719d1a1e8520ff0d733071eafef0cf1afdbb2a062704544199112.
+54:   async function setArrivalState() {
+55:     if (!arrivalStatus || !arrivalNote) return;
+56:     arrivalStatus.textContent = "Guest beta: one case today.";
+57:     arrivalNote.textContent = "Signed-in Residents receive three cases each UTC day. Every completed case includes up to three fittings.";
+58:     try {
+59:       var runtime = window.LAIDIESResidentAccountRuntime
+60:         ? await window.LAIDIESResidentAccountRuntime.get()
+61:         : null;
+62:       var result = runtime ? await runtime.client.auth.getSession() : null;
+63:       if (result && !result.error && result.data && result.data.session) {
+64:         arrivalStatus.textContent = "Resident beta: three cases today.";
+65:         arrivalNote.textContent = "Every completed case includes up to three fittings. Failed or safely declined requests do not use a case.";
+66:       }
+
+PUBLIC SOURCE /tmp/puffy-live.js; SHA256 38d8a8a135562c433eda42824884b032ceb6b9214430a422da8738bfaee4b4d2.
+1: /*!
+2:  * Puffy-sticker bookmarks — mark sections in the Handbook, they land on the
+3:  * Puffy Board in your Closet. Locked 2026-07-03; built 2026-07-12.
+4:  * Storage: laidies_puffies_board = JSON array of versioned device-local
+5:  * retrieval records. A Puffy is not identity, ownership, a reward or sync.
+6:  */
+7: (function () {
+460: 
+461:   function openCardRequirement(anchor) {
+462:     closePicker(false);
+463:     var picker = document.createElement('div');
+464:     picker.className = 'puffy-picker puffy-card-required';
+465:     picker.setAttribute('role', 'dialog');
+466:     picker.setAttribute('aria-modal', 'true');
+467:     picker.setAttribute('aria-label', 'Resident Card required to save with a Puffy Sticker');
+468:     picker.innerHTML =
+469:       '<div class="puffy-picker-head"><b>Make your Resident Card to save</b>' +
+470:         '<span>Puffy Stickers create shortcuts on the Puffy Board in My Closet. Your Card unlocks your pouch of 10 active stickers on this device.</span></div>' +
+471:       '<div class="puffy-card-required-actions"><a href="/laidies-card.html#sectionCard">Make my Resident Card</a>' +
+472:         '<button type="button">Keep reading</button></div>';
+473:     picker.querySelector('button').addEventListener('click', function () { closePicker(true); });
+474:     document.body.appendChild(picker);
+475:     activePicker = picker;
+476:     activePickerOpener = anchor;
+477:     positionPicker(picker, anchor);
+478:     picker.querySelector('a').focus();
+479:   }
+480: 
+481:   function openPicker(anchor, el, id, paint) {
+482:     if (!hasDeviceLocalCard()) {
+483:       openCardRequirement(anchor);
+484:       return;
+485:     }
+630:     document.head.appendChild(css);
+631:     targets.forEach(wireTarget);
+632:   }
+633: 
+634:   function initPouch() {
+635:     var pouch = document.getElementById('puffyPouch');
+636:     var editor = document.getElementById('puffyPouchEditor');
+637:     var editButton = document.getElementById('puffyPouchEdit');
+638:     if (!pouch || !editor || !editButton || pouch.getAttribute('data-ready') === 'true') return;
+639:     if (!hasDeviceLocalCard()) {
+640:       pouch.innerHTML = '<p class="puffy-empty">Make your Resident Card to choose your 10 active Puffy Stickers and save books or exact sections to this device.</p>';
+641:       editButton.hidden = true;
+642:       var lockedCount = document.getElementById('puffyPouchCount');
+643:       if (lockedCount) lockedCount.textContent = 'Resident Card required';
+644:       return;
+645:     }
+646:     editButton.hidden = false;
+647:     pouch.setAttribute('data-ready', 'true');
+648: 
+649:     var css = document.createElement('style');
+650:     css.textContent =
+
+CURRENT AUTHORITY operations/resident-card-design-decisions.md
+# Resident Card construction — 2026-07-24
+
+## Decision
+
+Resident Card is the MAiKEOVER intake experience, not a generic account form.
+The page now moves through one salon arrival, one Post Office intake sheet, and
+one optional consultation. Existing authentication and profile code remains in
+place.
+
+## Identity and continuation — locked 2026-09-02
+
+- The Resident Card is how LAiDIES recognizes a resident. It is not merely a
+  decorative card saved in one browser.
+- The signed-in Resident Card account keeps the Card and the continuation data
+  explicitly admitted by the shared identity contract available across devices,
+  and it owns clear sign-in and sign-out states.
+- MAiKEOVER must explain that relationship in the primary journey: make the Card
+  at the vanity, then sign in through the single Resident Card account desk to
+  keep the supported Card and saves across devices. It must not imply that an
+  unsigned local draft is already synced.
+- A device-local draft may remain as a resilient fallback, but it is secondary
+  state/explanation rather than the product's defining promise.
+- This decision does not authorize a second email intake inside MAiKEOVER,
+  public Card sharing, unadmitted collection sync, avatar generation, or a
+  broader cross-device promise than the currently admitted continuation fields.
+
+Source: Ali direct product clarification, 2026-09-02.
+
+## MAiKEOVER palette correction — locked 2026-09-02
+
+- Mauve cabinetry and dusty mauve/plum room treatments are rejected for
+  MAiKEOVER. Increasing their saturation does not make them current.
+- The page follows the current electric 1990s UI system: near-black navy
+  structure with hot pink, electric teal, saturated purple/periwinkle and coral
+  used as controlled accents. The vanity may use vivid coral/raspberry lacquer
+  and dark navy rather than a mauve base.
+- Pink and lilac may appear as a visitor-selected Resident Card finish or other
+  bounded choice; that does not authorize mauve as the room's structural
+  palette.
+
+Source: Ali direct correction, 2026-09-02; `operations/DECISIONS.md` palette
+authority.
+
+## Construction grammar
+
+- The dimensional-comic MAiKEOVER vanity establishes the room.
+- The email/magic-link surface is one ruled Post Office intake sheet with one
+  primary action, not a rounded membership card.
+- Confirmation, pending-mail help, privacy, and status states stay on that same
+  sheet.
+- The four optional profile groups form one open consultation. Each group is a
+  ruled accordion row and its values behave like underlined swatches rather
+  than pill cards.
+- Parlor and homepage exits form one open two-column route strip.
+
+## Preserved behaviour
+
+- Supabase configuration, magic-link sending, resend, pending-mail state,
+  newsletter opt-in, sign-out, and reset wiring are unchanged.
+- The original `laidiesMemberPass` and `laidiesMemberAuthPending` storage keys
+  remain.
+- All 31 optional profile choices and four profile groups remain.
+- Existing auto-advance between consultation groups remains.
+- Existing privacy, terms, MAiKEOVER, and homepage routes remain.
+
+## QA result
+
+Desktop and 390 × 844 mobile pass with no horizontal overflow and no broken
+images. The email field, primary action, four profile groups, and 31 profile
+buttons remain present. Accordion and single-choice state were exercised; the
+temporary QA selection was removed with the page's own reset action.
+
+## Art boundary
+
+The vanity is the same installed structural candidate used by MAiKEOVER and
+Try-On. It supports the mechanic but remains lighter and peachier than the
+approved Episode 04 Heroine style lock.
+
+
+BOUNDARIES: Card-gated Puffy library shortcuts are device-local per current public feature copy despite a generic continuation allowlist. Do not promise Puffy sync. Card/episode/tours/charms/trading-card continuation is implemented and described by current public account desk; no new signed-in second-browser E2E proof. FAiRY public beta interface states1guest/3resident cases per UTC day and3follow-up fittings; no case consumed or backend quota tested. Portrait booth is closed. Public handles, community access, public collections, reward balances and referral fulfilment are excluded.
+
+
+PUBLIC SOURCE laidies-card.html SHA256 4bf1e3da9d5bf370da805ab4720b838d66cd6c6fc05a66bdb9f0d5813f183ae6
+1486:       <h3 class="vessel-title">Your KSVL sticker picks</h3>
+1487:       <p id="ksvlClosetStickerStatus" class="vessel-note" role="status" aria-live="polite"></p>
+1488:       <div id="ksvlClosetStickerGrid"></div>
+1489:       <p class="vessel-note"><a href="/radio#hub-stickers">Visit the Radio sticker counter →</a></p>
+1490:     </section>
+1491:     <style>
+1492:       #ksvlClosetStickerGrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px; }
+1493:       .ksvl-closet-sticker { display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0; }
+1494:       .ksvl-closet-sticker img { width:100%;max-width:160px;height:130px;object-fit:contain; }
+1495:       .ksvl-closet-sticker button { min-height:44px;padding:8px;max-width:100%;font:inherit;color:var(--plum);background:var(--cream);border:1px solid var(--rose);border-radius:6px;cursor:pointer; }
+1496:     </style>
+1497:     <script defer src="/content/site/ksvl-stickers-v1.js?v=20260830-counter-1"></script>
+1498: 
+1499:     <!-- Merit Sash -->
+
+PUBLIC SOURCE sorority-house.html SHA256 bf5c72a2573d2491d41994b01f82687198200b61357fdc00c70a78e53f64d61d
+235:       <a class="sh-girl-talk" href="/games/girl-talk.html">
+236:         <span class="sh-girl-talk-marker" aria-hidden="true">GIRL<br>TALK</span>
+237:         <span>
+238:           <span class="sh-kicker">The deck is out</span>
+239:           <h2>Girl Talk</h2>
+240:           <p>Draw a private Truth or an optional Dare. Reflect, rehearse one useful move and mark an honour-system sticker on this device. It is not a post, Closet import or member reward.</p>
+241:           <strong>Draw a card →</strong>
+242:         </span>
+243:       </a>
+244: 
+245:       <aside class="sh-wall" aria-labelledby="shWallTitle">
+246:         <div>
+247:           <p class="sh-kicker">Entry board</p>
+248:           <h2 id="shWallTitle">Tonight at Delta L<span class="ai">Ai</span> Nu</h2>
+249:         </div>
+250:         <ul class="sh-house-status">
+251:           <li><strong>Front desk</strong><span id="shResidentState">Checking your card…</span></li>
+252:           <li><strong>The rooms</strong><span id="shDoorState">Checking the locks…</span></li>
+253:           <li><strong>On the coffee table</strong>Girl Talk is private, optional and device-local.</li>
+254:         </ul>
+255:       </aside>
+256:     </section>
+257: 
+258:     <section class="sh-rules" aria-labelledby="shRulesTitle">
+259:       <div class="sh-rules-head">
+260:         <div>
+261:           <p class="sh-kicker">June’s house rules</p>
+262:           <h2 id="shRulesTitle">We are not mean in this house.</h2>
+263:         </div>
+264:         <ol class="sh-rules-list">
+265:           <li><strong>The messy draft is allowed.</strong> Half-finished thoughts count. Perfectionism is not a sisterly virtue.</li>
+266:           <li><strong>Cite the receipt or say you're guessing.</strong> Confidence is not a source.</li>
+267:           <li><strong>No burning a real person.</strong> The Burn Book is for Y2K references and takes, not sisters.</li>
+268:           <li><strong>Know the boundary.</strong> Hyvor controls its own sign-in, publication and moderation. A local Resident Card does not sign a community post.</li>
+269:           <li><strong>Keep public rooms safe.</strong> Do not post confidential work, private messages, personal identifiers, high-stakes personal details or another person's information.</li>
+270:           <li><strong>The dare is optional; the honesty isn't.</strong> Skip a dare, keep the truth.</li>
+271:         </ol>
+272:       </div>
+273:     </section>
+274: 
+275:     <section class="sh-exit" aria-label="Resident Card and provider boundary">
+276:       <div>
+277:         <h2>Your Resident Card is local profile space — not a community login.</h2>
+278:         <p>Make one at MAiKEOVER if you want it. Hyvor separately controls discussion sign-in, publication and moderation; participation and replies are never guaranteed.</p>
+279:       </div>
+280:       <div class="sh-exit-actions">
+281:         <a class="sh-button sh-button--paper" href="/resident-card.html">Get your card <span>→</span></a>
+
+MAiKEOVER primary current introduction
+56:       <img class="mo-masthead__image" src="/assets/town-characters/scenes/paulette-maikeover-masthead-comic-candidate-v1.png" alt="Paulette welcomes visitors inside MAiKEOVER on MAiN." width="1774" height="887">
+57:     </section>
+58:   </section>
+59: 
+60:   <main class="mo-page">
+61:     <section class="mo-card-explainer" id="mo-card-explained" aria-labelledby="moExplainerTitle">
+62:       <div class="mo-card-explainer__intro">
+63:         <p class="mo-section-kicker">Your town profile</p>
+64:         <h2 id="moExplainerTitle">Get your Resident Card.</h2>
+65:         <p>Your Resident Card is how LAiDIES knows you around town. Once it is connected to your account, your Closet is where your saved things and progress live.</p>
+66:       </div>
+67:       <div class="mo-card-explainer__steps" aria-label="How your Resident Card works">
+68:         <div><strong>1 · Make it yours</strong><span>Choose your Card background, era faves, soundtrack, Patron Saint and what you’re carrying.</span></div>
+69:         <div><strong>2 · Open your Closet</strong><span>Sign in to connect the Card to your private account. Your Closet keeps your saved things and progress available across devices.</span></div>
+70:         <div><strong>3 · Update it any time</strong><span>Come back to MAiKEOVER whenever you want a new Card design or want to change your favourites.</span></div>
+71:       </div>
+72:       <div class="mo-card-explainer__actions">
+73:         <a class="mo-primary-link" href="#mo-maker">Get my Card</a>
+74:         <a class="mo-secondary-link" href="/resident-card.html#rcAccountTitle">Already have an account? Sign in</a>
+75:       </div>

@@ -23,6 +23,23 @@ export function inspectHomepageCorrection(item, root, preservedBytes = {}) {
   const json = p => JSON.parse(bytes(homepageCorrectionPacket + p));
   try {
     const a = item.design_admission;
+    if(a.resident_benefits) {
+      const m=a.resident_benefits,p='operations/product-stewards/town-entry-homepage/candidates/resident-benefits-20260907/';
+      const parent=JSON.parse(bytes(p+'parent-admission.json'));
+      assert(digest(p+'parent.html')==='63c8d0b72f3813aa1f70b94cfe95f8fa5edc7cb751a12751eaf9103a8373103a','wrong resident benefits predecessor');
+      const retained=structuredClone(item);delete retained.design_admission.resident_benefits;retained.design_admission.candidate.sha256=parent.design_admission.candidate.sha256;errors.push(...inspectHomepageCorrection(retained,root,{...preservedBytes,'index.html':bytes(p+'parent.html')}));
+      const changes=JSON.parse(bytes(p+'changes.json')).replacements;
+      assert(changes.length===2&&changes[0].old.trimStart().startsWith('<section class="closet" id="collect">')&&changes[1].old==='</style>'&&changes[1].new.includes('.resident-perks{'),'resident benefits scope differs');
+      let current=bytes(p+'parent.html').toString();for(const e of changes){assert(current.split(e.old).length===2,'resident edit is not unique');current=current.replace(e.old,e.new)}
+      assert(current===bytes('index.html').toString(),'unrelated resident homepage change');assert(digest('index.html')===a.candidate.sha256,'homepage bytes differ');
+      for(const e of m.evidence||[])assert(digest(e.path)===e.sha256,'stale resident evidence: '+e.path);
+      for(const name of ['scope.md','parent.html','parent-admission.json','changes.json','copy.md','source-facts.txt','puffy-live-journey.json','producer-contract.json','producer-self-review.json','content-manifest.json','checks.json','independent-review.json','independent-review.md',...['parent','candidate'].flatMap(k=>[390,820,1440].map(w=>k+'-'+w+'.png'))])assert(m.evidence?.some(e=>e.path===p+name),'missing resident evidence: '+name);
+      const c=JSON.parse(bytes(p+'checks.json'));assert(c.sourceSha256===a.candidate.sha256&&c.parentMissingBenefitRejected,'resident checks differ');
+      for(const w of[390,820,1440]){const n=c.rows.find(r=>r.kind==='candidate'&&r.width===w),o=c.rows.find(r=>r.kind==='parent'&&r.width===w);assert(n&&o&&!n.overflow&&n.perks.length===4&&n.access.length===3&&n.perks[1].includes('ten Puffy Stickers')&&n.perks[1].includes('on this device')&&!n.access[2].includes('Puffy')&&n.links.some(l=>l.href==='/resident-card.html'),'resident payoff or access boundary differs');for(const k of['image','background','titleType','bodyType'])assert(JSON.stringify(n?.[k])===JSON.stringify(o?.[k]),'resident correction changed '+k);}
+      errors.push(...inspectProseReviewChain(JSON.parse(bytes(p+'producer-self-review.json')),JSON.parse(bytes(p+'independent-review.json')),{root}).errors);
+      const review=bytes(p+'independent-review.md').toString();assert(review.includes('ADMIT_FOR_OWNER_REVIEW')&&review.includes(a.candidate.sha256),'resident independent review differs');
+      assert(a.production_release_approved===false,'resident preview does not authorize production');return errors;
+    }
     if(a.heading_outline) {
       const m=a.heading_outline,p='operations/product-stewards/town-entry-homepage/candidates/dyk-outline-20260907/';
       const before='.dyk-slim h2{color:var(--hp-pink);-webkit-text-stroke:0;text-shadow:none}',after='.dyk-slim h2{color:var(--hp-pink);-webkit-text-stroke:2px var(--hp-ink);paint-order:stroke fill;text-shadow:none}';

@@ -1,0 +1,97 @@
+{
+  "run": "fresh isolated headless context",
+  "actions": [
+    {
+      "name": "navigate",
+      "path": "/library",
+      "url": "https://laidies.ai/library"
+    },
+    {
+      "name": "open_current_book",
+      "saveControls": 1
+    },
+    {
+      "name": "no_card_gate",
+      "text": "Make your Resident Card to save Puffy Stickers create shortcuts on the Puffy Board in My Closet. Your Card unlocks your pouch of 10 active stickers on this device. Make my Resident Card Keep reading",
+      "cardStored": false
+    },
+    {
+      "name": "navigate",
+      "path": "/maikeover",
+      "url": "https://laidies.ai/maikeover"
+    },
+    {
+      "name": "local_card_save",
+      "text": "Card saved on this device. Sign in at the Resident Card desk to restore your Card and supported progress across devices.",
+      "cardStored": true,
+      "emailInputs": 0
+    },
+    {
+      "name": "navigate",
+      "path": "/library",
+      "url": "https://laidies.ai/library"
+    },
+    {
+      "name": "open_current_book",
+      "saveControls": 1
+    },
+    {
+      "name": "puffy_picker",
+      "optionCount": 10
+    },
+    {
+      "name": "book_saved",
+      "count": 1,
+      "record": {
+        "schema_version": 2,
+        "id": "library-book-ai-fundamentals-101",
+        "book_id": "ai-fundamentals-101",
+        "section_id": "",
+        "content_version": "ai-fundamentals-101-2026-08-29.1",
+        "title": "AI Fundamentals 101",
+        "summary": "AI Fundamentals 101 · SUNNYVAiLE LIBRAiRY",
+        "url": "/library.html#ai-fundamentals-101",
+        "sticker": "usable-25/01-heart-sunglasses.png",
+        "purpose": "",
+        "placedAt": "2026-09-07T21:18:11.645Z"
+      }
+    },
+    {
+      "name": "chapter_controls",
+      "count": 20
+    },
+    {
+      "name": "chapter_saved",
+      "count": 2,
+      "record": {
+        "schema_version": 2,
+        "id": "library-ai-fundamentals-101-section-chapter-1",
+        "book_id": "ai-fundamentals-101",
+        "section_id": "chapter-1",
+        "content_version": "ai-fundamentals-101-2026-08-29.1",
+        "title": "Chapter 1: What \"AI\" Actually Means (and What It Doesn't)",
+        "summary": "AI Fundamentals 101 · SUNNYVAiLE LIBRAiRY",
+        "url": "/library.html#ai-fundamentals-101::%40chapter-1",
+        "sticker": "usable-25/02-flip-phone-charm.png",
+        "purpose": "",
+        "placedAt": "2026-09-07T21:18:12.055Z"
+      }
+    },
+    {
+      "name": "navigate",
+      "path": "/laidies-card",
+      "url": "https://laidies.ai/laidies-card"
+    },
+    {
+      "name": "closet_reopen",
+      "pouchCount": "10 OF 10 SELECTED",
+      "board": "Chapter 1: What \"AI\" Actually Means (and What It Doesn't) AI Fundamentals 101 · SUNNYVAiLE LIBRAiRY × AI Fundamentals 101 AI Fundamentals 101 · SUNNYVAiLE LIBRAiRY ×",
+      "state": "Device-local Resident Card found. Your Card and Puffy saves are separate browser records; the Card does not add Library access, login, backup or sync."
+    }
+  ],
+  "limitations": [
+    "No email, sign-in, account claim, or FAiRY request was made.",
+    "The context was closed after this run; all test Card and Puffy data was isolated and disposable."
+  ],
+  "result": "OBSERVED"
+}

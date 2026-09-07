@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-07 — Resident Card benefits must be concrete
+
+Ali says the Move to SUNNYVAiLE section still fails to explain the Resident Card and all its benefits. Explain personalization, the Closet collections/progress hub, the Card-gated ten-Puffy Library bookmarking feature and signed-in FAiRY access; distinguish local Card features from private account continuation with named fields. Preserve current artwork, colours and the rest of the homepage. Do not replace benefits with vague “supported collections” wording, imply all local activity syncs, or market held public profiles, unverified rewards or separately authenticated community posting. Preview only.
+
 ## 2026-09-06 — Remove inflated activity-card spacing
 
 Ali flags oversized blank space in the homepage activity cards, recalling an earlier correction. Scope all six activity cards: remove cross-card paragraph minimum heights and equal heights across separate grid rows. Keep current images, palette, fonts, descriptions, button destinations and filters. Align tags and titles only within each visible row; paragraphs and cards keep their natural height, with each button immediately after its text. Single-column cards require no slot equalisation. Verify resizing and filters as well as the default grid. Preview only.

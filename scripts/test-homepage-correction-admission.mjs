@@ -45,6 +45,10 @@ if(item.design_admission.intent_gradient) {
   cases.push(['missing gradient review',v=>{v.design_admission.intent_gradient.evidence=v.design_admission.intent_gradient.evidence.filter(e=>!e.path.endsWith('/review.md'));},'missing gradient evidence']);
 }
 if(item.design_admission.heading_outline) cases.push(['missing outline review',v=>{v.design_admission.heading_outline.evidence=v.design_admission.heading_outline.evidence.filter(e=>!e.path.endsWith('/review.md'));},'missing outline evidence']);
+if(item.design_admission.resident_benefits) {
+  cases.push(['missing benefits review',v=>{v.design_admission.resident_benefits.evidence=v.design_admission.resident_benefits.evidence.filter(e=>!e.path.endsWith('/independent-review.json'));},'missing resident evidence']);
+  cases.push(['stale benefit sources',v=>{v.design_admission.resident_benefits.evidence.find(e=>e.path.endsWith('/source-facts.txt')).sha256='0'.repeat(64);},'stale resident evidence']);
+}
 for (const [name, mutate, reason] of cases) {
   const candidate = structuredClone(item);
   mutate(candidate);
