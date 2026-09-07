@@ -1,0 +1,265 @@
+{
+  "principalId": "claude-jeeves-preview-reviewer",
+  "modelFamily": "Claude Opus 5",
+  "independentFromMaker": true,
+  "artifactFirst": true,
+  "reviewScope": "Public FAQ text only; rendered browser review still outstanding.",
+  "calibration": {
+    "all3negativeIdentified": true,
+    "CQX-BAD-001": {
+      "families": [
+        "glossaryAccumulation",
+        "templateRepetition",
+        "decorativeAnalogy",
+        "missingMechanism",
+        "jargonBeforeMeaning",
+        "joylessInstruction"
+      ],
+      "excerpts": [
+        "\"AI system / Provider / Product / app / Model / Model types / Large language model (LLM) / Generative AI / Multimodal / Tool\" \u2014 nine consecutive headed definitions, glossaryAccumulation",
+        "Every entry repeats the identical slots: definition, analogy, \"Where it stops:\", \"In real life.\", closing placement line \u2014 templateRepetition",
+        "\"Cher's wardrobe computer in Clueless is a useful product analogy\" and \"Think of the mechanism inside a Walkman\" \u2014 recognizable references doing decorative rather than causal work",
+        "\"Tools connect around the model. Having one available does not prove it was used, or used well.\" \u2014 placement assertions substitute for mechanism"
+      ]
+    },
+    "CQX-BAD-002": {
+      "families": [
+        "purposeTooNarrow",
+        "mechanismBeforeMotivation",
+        "workedExampleOvertakesBookPurpose",
+        "technicalExplainerVoice"
+      ],
+      "excerpts": [
+        "\"Northstar pays $12,000 more per year and expects three days a week in the office\" \u2014 one worked example annexes the whole chapter",
+        "\"the model used that current material during **inference**\u2014the stage when a trained model produces an output from new input\" \u2014 mechanism/terminology arrives ahead of motivation",
+        "\"your goal \u2192 the product and available context \u2192 the trained model \u2192 any retrieval or tools \u2192 the output \u2192 evidence checking and human decision\" \u2014 pipeline-diagram explainer voice",
+        "\"Before you rely on the result, ask four questions:\" \u2014 homework close"
+      ]
+    },
+    "CQX-BAD-003": {
+      "families": [
+        "policyMemoVoice",
+        "glossaryInterruptsStory",
+        "checklistTurnsNewsIntoHomework",
+        "missingHumanTension",
+        "scaffoldingVisible"
+      ],
+      "excerpts": [
+        "\"## The concepts that make the story legible\" followed by \"**Compute infrastructure**\", \"**Externalities**\", \"**Governance**\" \u2014 glossary interrupting narrative",
+        "\"For a proposal near you, ask five things:\" \u2014 checklist ending",
+        "\"That is a striking movement inside one polling series. It is not proof of why people changed their minds.\" \u2014 accurate but memo-register; no named stake, no person, no scene",
+        "\"somewhere 'the cloud' keeps its coat\" \u2014 single light line cannot carry the absent human tension"
+      ]
+    },
+    "positiveArchitectureJudgement": {
+      "verdict": "Architecture is a valid FAQ calibration target; factual claims inside it are stale and were not used.",
+      "whatTransfers": [
+        "Direct answer in the first sentence before any structure: \"Not wholesale \u2014 and 'replacing' is the wrong word for what's happening.\"",
+        "Explicit epistemic separation: \"**What's solid**\" / \"**Where it's contested**\" / \"**What it depends on**\" / \"**The myth to drop**\"",
+        "Evidence converted into a reader move: \"Stop asking 'will AI take my job' and start asking 'where's the new work, and am I moving toward it?'\"",
+        "Freshness made visible in an envelope line: \"*Verified July 2026. Recheck when the next Stanford 'Canaries' update...*\""
+      ],
+      "whatMustNotTransfer": [
+        "Its dated numbers (e.g. \"a 16% relative decline\", \"170 million new roles by 2030\") \u2014 explicitly excluded, and its own registry limit says never inherit its dated claims",
+        "Repeating the four-heading scaffold across every format \u2014 that would reproduce templateRepetition (CQX-BAD-001)",
+        "Its named-persona reference density (\"Regina George energy\", \"Miranda Priestly\", \"Elle Woods\") as a quota"
+      ],
+      "note": "The four preview answers correctly do NOT copy the scaffold; they carry the architecture as prose. That is the right reading of the limit."
+    }
+  },
+  "answers": [
+    {
+      "candidateId": "MJQ-005-preview-20260907",
+      "manifestReviewTextSha256": "3e63c2999fbbde239f3cd936ef35b51abc478883b91d5b12310e0c1344bcfe1c",
+      "shaVerifiedAgainstActualText": false,
+      "shaVerificationNote": "No shell/hashing tool available in this read-only session; SHA is transcribed from MJQ-005-manifest.json, not recomputed. Path and content class in the manifest do match the file I read.",
+      "verdict": "PASS",
+      "hardGates": {
+        "noUnsafePrivacyAssurance": "PASS \u2014 the closing line is conditional, not a guarantee: \"do not paste confidential, personal or workplace information unless you know you have permission and understand how that AI service handles it.\"",
+        "noInventedLaidiesLinks": "PASS \u2014 no internal links; empty related destinations valid per brief.",
+        "noProductControlRetentionClaims": "PASS \u2014 no tier, toggle, retention-period or training-default claim anywhere.",
+        "aliasEquivalence": "PASS \u2014 \"How do I write a better prompt?\" and \"How can I get a more useful answer from AI?\" both resolve to the same job as the canonical question; no scope, negation or account-constraint drift.",
+        "claimsWithinSourceScope": "PASS",
+        "noGenericFiller": "PASS",
+        "earnedExample": "PASS",
+        "usefulAction": "PASS"
+      },
+      "scores": {
+        "clarity": 4,
+        "usefulness": 4,
+        "mentalModel": 3,
+        "voice": 2,
+        "concise": 4
+      },
+      "issueCount": 0,
+      "observations": {
+        "plainClarity": "Defines prompt inline (\"the instructions and information you give the AI\") without a glossary block \u2014 avoids CQX-BAD-001 jargonBeforeMeaning.",
+        "readerValue": "Formula plus a filled instance is immediately transferable.",
+        "laidiesVoice": "Candid and adult but flat; no warmth or wit. Registers closer to competent-guide than LAiDIES. Not a defect against the stated gates, and correcting it by adding decorative personality would risk CQX-BAD-001 decorativeAnalogy. Scored 2, not held.",
+        "engagingEnjoyable": "Low-to-moderate; the vacation-policy example does the lifting.",
+        "factualIntegrity": "Supported. \"Treat the AI like a capable new colleague who has zero knowledge of your situation\" maps to prompting.txt \"Think of Claude as a brilliant but new employee who lacks context on your norms and workflows.\" \"Clear context, constraints and examples make the result more reliable\" maps to \"Be clear and direct\", \"Add context to improve performance\", \"Use examples effectively\". No model names, versions or benchmark numbers imported \u2014 correctly avoids the source's volatile model-specific material.",
+        "freshnessReviewability": "No dates in body; correct per envelope rule.",
+        "surfaceFit": "Fits a short FAQ answer.",
+        "answersActualQuestion": "Yes, first sentence.",
+        "dailyLifeConnection": "Workplace vacation-policy email \u2014 ordinary and concrete.",
+        "communicationBenchmark": "Meets it; does not exceed it.",
+        "usefulAction": "Specific and executable, including the corrective moves (\"Shorter,\" \"use simpler language,\" \"you assumed something I did not say\").",
+        "analogyIntegrity": "The colleague analogy carries one job (missing context) and is not extended past its limit."
+      },
+      "claimSourceMapping": "Prompting guidance \u2192 prompting.txt (sound). Final confidentiality caution \u2192 opc.txt \"Where personal information (and, in particular, sensitive or confidential information) must be entered into a prompt, only do so where authorised\" (sound, and stated as a condition rather than an assurance).",
+      "aliasesVerdict": "PASS",
+      "explainBack": "A prompt fails most often because the model has no access to what you did not say; the formula is a checklist for supplying goal, situation, deliverable, audience, form and exclusions, and the ask-before-answering clause converts a silent wrong guess into a question.",
+      "unseenTransfer": "A reader could apply this to an unseen task (e.g. drafting a landlord letter) without further instruction \u2014 the formula is task-agnostic.",
+      "limitations": "Voice is the weakest dimension; rendered review may change the read."
+    },
+    {
+      "candidateId": "work-ai-help",
+      "manifestReviewTextSha256": null,
+      "shaVerifiedAgainstActualText": false,
+      "shaVerificationNote": "work-ai-help-manifest.json not read \u2014 session budget exhausted before I could open it. SHA not asserted.",
+      "verdict": "PASS",
+      "hardGates": {
+        "noUnsafePrivacyAssurance": "PASS, and this is the strongest instance in the set: \"Replacing a name with 'Client A' is not a guarantee of anonymity: a distinctive project, date or combination of details may still identify someone.\" This directly discharges the brief's producer repair \"workplace aliases do not ensure anonymity\".",
+        "noInventedLaidiesLinks": "PASS",
+        "noProductControlRetentionClaims": "PASS \u2014 \"Use a tool your employer permits\" defers to policy rather than asserting a product behaviour.",
+        "aliasEquivalence": "PASS \u2014 the single alias narrows only wording, not scope.",
+        "claimsWithinSourceScope": "PASS",
+        "noGenericFiller": "PASS",
+        "earnedExample": "PASS \u2014 the blank-structure prompt is the mechanism, not decoration.",
+        "usefulAction": "PASS"
+      },
+      "scores": {
+        "clarity": 4,
+        "usefulness": 4,
+        "mentalModel": 4,
+        "voice": 3,
+        "concise": 4
+      },
+      "issueCount": 0,
+      "observations": {
+        "plainClarity": "No jargon at all.",
+        "readerValue": "Highest of the four: it resolves a real conflict (need help / cannot share) with a working method.",
+        "laidiesVoice": "Candid and direct; the flat statement \"A fluent draft does not know which deadline your team actually agreed to\" has some edge.",
+        "engagingEnjoyable": "Moderate.",
+        "factualIntegrity": "Sound. Structure-not-content split maps to opc.txt \"Where possible and reasonable, use anonymized or de-identified information within prompts\"; the de-identification caveat maps to the same source's treatment of inference and identifiability. \"Do not share private information with AI tools unless you understand what they are doing with your data\" (cyber-canada-current.txt) supports the permission framing.",
+        "freshnessReviewability": "No body dates; correct.",
+        "surfaceFit": "Good.",
+        "answersActualQuestion": "Yes \u2014 answers both halves (how AI helps AND how to avoid disclosure).",
+        "dailyLifeConnection": "Direct workplace scenario.",
+        "communicationBenchmark": "Best in set for cause/effect logic: separation of container from contents is the mental model, and the answer names why it works (\"You have used AI to organize the update without sending it the information the update contains\").",
+        "usefulAction": "Concrete, plus a verification step at the end.",
+        "analogyIntegrity": "No analogy used; none needed."
+      },
+      "claimSourceMapping": "Privacy/authorisation \u2192 opc.txt; individual caution \u2192 cyber-canada-current.txt; blank-structure prompt craft \u2192 prompting.txt. No claim exceeds its source.",
+      "aliasesVerdict": "PASS",
+      "explainBack": "The update's structure carries no confidential information, so it is the only part safe to outsource; identifiability survives name removal because combinations of ordinary details re-identify.",
+      "unseenTransfer": "Generalizes cleanly to a board memo, incident report or performance summary.",
+      "limitations": "Manifest bindings and any producer claims for this candidate are unverified by me."
+    },
+    {
+      "candidateId": "MJQ-006",
+      "manifestReviewTextSha256": null,
+      "shaVerifiedAgainstActualText": false,
+      "shaVerificationNote": "MJQ-006-manifest.json not read \u2014 budget exhausted. SHA not asserted.",
+      "verdict": "PASS",
+      "hardGates": {
+        "noUnsafePrivacyAssurance": "PASS \u2014 not applicable, none made.",
+        "noInventedLaidiesLinks": "PASS",
+        "noProductControlRetentionClaims": "PASS",
+        "aliasEquivalence": "PASS \u2014 both aliases preserve scope.",
+        "claimsWithinSourceScope": "PASS, and notably careful \u2014 see mapping.",
+        "noGenericFiller": "PASS",
+        "earnedExample": "PASS",
+        "usefulAction": "PASS"
+      },
+      "scores": {
+        "clarity": 4,
+        "usefulness": 4,
+        "mentalModel": 4,
+        "voice": 3,
+        "concise": 4
+      },
+      "issueCount": 0,
+      "observations": {
+        "plainClarity": "Opens with the cause, not a definition: \"Because sounding convincing and checking a fact are different jobs.\"",
+        "readerValue": "High \u2014 converts a frustrating experience into a predictable mechanism.",
+        "laidiesVoice": "Candid, unhedged, adult. \"The answer had the shape of a fact; it was still false\" is the best line in the set.",
+        "engagingEnjoyable": "Moderate-good.",
+        "factualIntegrity": "Strong, and it does not overclaim the mechanism \u2014 exactly the brief's producer repair. \"That helps explain the behaviour; it does not mean every error has the same cause\" is an accurate hedge against openai-hallucinations.txt, which itself lists multiple factors (arbitrary facts, poor models, computational hardness, distribution shift, GIGO).",
+        "freshnessReviewability": "No body dates; correct.",
+        "surfaceFit": "Good.",
+        "answersActualQuestion": "Yes.",
+        "dailyLifeConnection": "Weakest of the four \u2014 the dissertation example is academic rather than everyday. Not a gate failure; the example is genuine and load-bearing, and inventing a domestic scenario would be less faithful to the source.",
+        "communicationBenchmark": "Meets it.",
+        "usefulAction": "Excellent and non-obvious: \"Asking 'Are you sure?' may produce another confident paragraph. What you need is evidence you can inspect.\"",
+        "analogyIntegrity": "No analogy; the paper's own example does the work."
+      },
+      "claimSourceMapping": "Dissertation example \u2192 openai-hallucinations.txt Table 1 (\"None generated the correct title or year\") \u2014 the answer's \"got its title and year wrong\" is exact, and \"several models\" matches the three shown. Reward-for-guessing \u2192 \"guessing when unsure improves test performance\" / \"an answer of 'I don't know' receives 0 points\". Hallucination definition \u2192 \"plausible yet incorrect statements\". Verification habit \u2192 cyber-canada-current.txt \"take the time to fact check it against credible sources\". No number, rate or benchmark from the paper is imported \u2014 correct, since those are bounds, not user-facing rates.",
+      "aliasesVerdict": "PASS",
+      "explainBack": "Fluency is produced by pattern generation, which is a separate operation from evidence retrieval; scoring regimes that give zero for abstention make confident guessing the score-maximising behaviour, so confidence carries no information about truth and only an inspectable source does.",
+      "unseenTransfer": "A reader would correctly predict that a cited case, statute or price is the risky part of an otherwise well-written answer.",
+      "limitations": "I read only lines 1\u2013617 of the 1801-line source; my scope check covers the abstract, introduction and Sections 1\u20134.2, which contain every claim the answer makes. Manifest unverified."
+    },
+    {
+      "candidateId": "MJQ-008",
+      "manifestReviewTextSha256": null,
+      "shaVerifiedAgainstActualText": false,
+      "shaVerificationNote": "MJQ-008-manifest.json not read \u2014 budget exhausted. SHA not asserted.",
+      "verdict": "PASS",
+      "hardGates": {
+        "noUnsafePrivacyAssurance": "PASS \u2014 explicitly conservative as the brief requires: \"A conservative starting point is public material or an invented example\"; \"Removing names is not enough by itself\"; \"Privacy settings do not grant someone else's permission\"; closes on \"If permission or the tool's current handling of your information is unclear, leave the information out.\" No safe-to-share guarantee is issued anywhere.",
+        "noInventedLaidiesLinks": "PASS",
+        "noProductControlRetentionClaims": "PASS \u2014 no retention window, training default, tier or toggle is named. \"the tool's current handling of your information\" is deliberately non-specific, which is correct given these change.",
+        "aliasEquivalence": "PASS \u2014 \"What should I avoid sharing with an AI tool?\" is the negation-framed form of the same question and the answer covers both directions (what is safe, what to keep out), so the alias is genuinely equivalent rather than a scope flip.",
+        "claimsWithinSourceScope": "PASS",
+        "noGenericFiller": "PASS",
+        "earnedExample": "PASS",
+        "usefulAction": "PASS"
+      },
+      "scores": {
+        "clarity": 4,
+        "usefulness": 4,
+        "mentalModel": 3,
+        "voice": 3,
+        "concise": 3
+      },
+      "issueCount": 0,
+      "observations": {
+        "plainClarity": "Plain throughout.",
+        "readerValue": "High.",
+        "laidiesVoice": "Candid; \"Being able to paste something into an AI tool does not mean you have permission to share it there\" is the right register.",
+        "engagingEnjoyable": "Moderate; the densest and most list-like of the four, though still prose rather than a checklist \u2014 it does not reproduce CQX-BAD-003 checklistTurnsNewsIntoHomework.",
+        "factualIntegrity": "Sound.",
+        "freshnessReviewability": "No body dates; correct.",
+        "surfaceFit": "Good; slightly the longest.",
+        "answersActualQuestion": "Yes \u2014 and correctly reframes 'safe' as a permission question rather than a technical one.",
+        "dailyLifeConnection": "Covers both workplace and personal material; the overdue-invoice example is ordinary.",
+        "communicationBenchmark": "Meets it.",
+        "usefulAction": "Two actions: use an invented example, and add real data later in an approved system.",
+        "analogyIntegrity": "No analogy used.",
+        "decisionLogic": "The strongest decision rule in the set: permission is the axis, not sensitivity-feel; the fallback when the rule cannot be applied is stated (\"use an invented example or ask for a blank template instead\")."
+      },
+      "claimSourceMapping": "Keep credentials/PII out \u2192 cyber-canada-current.txt \"Avoid providing PII or sensitive corporate data as part of the queries or prompts\". Re-identification by combination \u2192 opc.txt (inference treated as collection of personal information; de-identification guidance). Data-minimisation close (\"Share only what the task needs\") \u2192 opc.txt Principle 7 \"Limiting Collection, Use, and Disclosure\". The attachment/screenshot sweep is a reasonable operational extension of the same minimisation principle rather than a new factual claim. Note: the ChatGPT mention lives in the question text, not the answer, and the answer makes no vendor-specific assertion \u2014 correct.",
+      "aliasesVerdict": "PASS",
+      "explainBack": "Safety here is a permission question, not a content-classification question; because identifiability survives name removal, the only reliably safe input is one that was never about a real identifiable party.",
+      "unseenTransfer": "Generalizes to an unseen case (uploading a photo of a colleague's whiteboard, a medical letter) without new rules.",
+      "limitations": "Manifest bindings unverified."
+    }
+  ],
+  "crossCuttingObservations": {
+    "noNegativeFamilyReproduced": "None of the four reproduces glossaryAccumulation, templateRepetition, decorativeAnalogy, checklistTurnsNewsIntoHomework, policyMemoVoice or scaffoldingVisible. The four answers also differ structurally from one another, which is the correct reading of the positive exemplar's limit against repeating one scaffold.",
+    "noInventedHumans": "No named human participants appear in any of the four answers.",
+    "voicePattern": "Voice is the consistently lowest-scoring dimension (2\u20133). This is a taste-level observation, not a defect, and I have not converted it into a HOLD or proposed a rewrite for it."
+  },
+  "verificationNotCompleted": {
+    "items": [
+      "work-ai-help-manifest.json, MJQ-006-manifest.json, MJQ-008-manifest.json \u2014 not read",
+      "All four *-producer-review.json \u2014 not read",
+      "All four *-producer-contract.json \u2014 not read",
+      "Recomputation of any reviewText SHA-256 against actual bytes"
+    ],
+    "reason": "This session has Read-only file access with no shell, hashing, glob or directory-listing tool, and the session cost budget was exhausted after the calibration set, the four answers, candidates.json, the four sources, brief.md and MJQ-005-manifest.json.",
+    "consequence": "Scope/binding verification and unsupported-producer-claim detection are INCOMPLETE. The four PASS verdicts are verdicts on the answer text against the sources and gates only. No producer claim has been checked, and no proposed repair in this report is approved."
+  },
+  "overallVerdict": "Four PASS on text quality, factual scope, alias equivalence and hard gates. Not clearable for the owner preview until the unread manifests, producer-review and producer-contract files are checked and the reviewText SHAs are recomputed against actual bytes, plus the rendered browser review."
+}

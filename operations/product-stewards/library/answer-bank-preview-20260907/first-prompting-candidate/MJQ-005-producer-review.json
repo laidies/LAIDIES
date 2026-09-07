@@ -1,0 +1,461 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "MJQ-005-preview-20260907",
+  "surface": "MISS_JEEVES",
+  "contentClass": "FAQ",
+  "maker": "root-jeeves-preview-maker",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "root-jeeves-preview-maker",
+    "principalId": "root-jeeves-preview-maker",
+    "role": "Producer",
+    "modelFamily": "OpenAI GPT-6 Astra"
+  },
+  "reviewedAt": "2026-09-07T18:48:18.829779+00:00",
+  "verdict": "PASS",
+  "limitations": [
+    "Model maker judgement, not human participant evidence. Source-bound runtime FAQ only; no book or column promotion.",
+    "Independent semantic and rendered review still required."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/library/answer-bank-preview-20260907/MJQ-005.txt",
+      "sha256": "3e63c2999fbbde239f3cd936ef35b51abc478883b91d5b12310e0c1344bcfe1c"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/library/answer-bank-preview-20260907/MJQ-005-manifest.json",
+      "sha256": "eec30f5a57e56634a2172efd083b171d337a4a6c29eb5d64ea8579a956b69ed0"
+    }
+  },
+  "calibration": {
+    "registrySha256": "a5559a35fdfaa41b23f71a819aba7c25f03284ef251dfb1a4936e73d3b3b85b9",
+    "reviewerPrincipalId": "root-jeeves-preview-maker",
+    "reviewedAt": "2026-09-07T18:48:18.829779+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ],
+        "observation": "A sequence of separately labelled parts and forced comparisons displaces connected mechanism."
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ],
+        "observation": "One job-offer decision takes over the promised foundational book; technical exposition and that single frame narrow its purpose."
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "## The concepts that make the story legible",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/front-paige-data-centre-policy-memo-known-bad.md"
+          }
+        ],
+        "observation": "Definitions interrupt the story and a five-question checklist turns a news ending into homework; the cloud-coat joke cannot supply human stakes."
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-STRAIGHT-ANSWERS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Answer-first architecture and explicit uncertainty only; dated claims are held, not inherited."
+      ],
+      "evidence": [
+        {
+          "excerpt": "The losses are already measured while the gains are still projected",
+          "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/straight-answers-architecture-positive.md"
+        }
+      ]
+    }
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Answers the question immediately using familiar actions and defines any technical term inline.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A prompt (the instructions and information you give the AI) works best when it says what you need, why you need it, and what a good answer should look like. Clear context, constraints and examples make the result more reliable.",
+          "locator": "MJQ-005"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Provides a usable move tied to the exact question: A prompt (the instructions and information you give the AI) works best when it says what you need, why you need it, and what a good answer should look like. Clear context, constraints and examples make the result more reliable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A prompt (the instructions and information you give the AI) works best when it says what you need, why you need it, and what a good answer should look like. Clear context, constraints and examples make the result more reliable.",
+          "locator": "MJQ-005"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Direct adult voice with a recognisable work or everyday situation; no empowerment slogans or decorative references.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A prompt (the instructions and information you give the AI) works best when it says what you need, why you need it, and what a good answer should look like. Clear context, constraints and examples make the result more reliable.",
+          "locator": "MJQ-005"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The concrete example supplies recognition and makes the advice usable without an extra lesson.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A prompt (the instructions and information you give the AI) works best when it says what you need, why you need it, and what a good answer should look like. Clear context, constraints and examples make the result more reliable.",
+          "locator": "MJQ-005"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Material mechanism and permission claims map to exact source excerpts; invented prompts are illustrative suggestions, not provider guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A prompt (the instructions and information you give the AI) works best when it says what you need, why you need it, and what a good answer should look like. Clear context, constraints and examples make the result more reliable.",
+          "locator": "MJQ-005"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Reviewed source articles or PDF have exact content digests; changes, failed fetch or expiry stop reuse. No volatile plan comparison remains.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A prompt (the instructions and information you give the AI) works best when it says what you need, why you need it, and what a good answer should look like. Clear context, constraints and examples make the result more reliable.",
+          "locator": "MJQ-005"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Under 200 words in connected paragraphs, suitable for an inline answer with source links and correction controls.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A prompt (the instructions and information you give the AI) works best when it says what you need, why you need it, and what a good answer should look like. Clear context, constraints and examples make the result more reliable.",
+          "locator": "MJQ-005"
+        }
+      ]
+    },
+    "answersActualQuestion": {
+      "verdict": "PASS",
+      "observation": "How do I ask AI a question so it gives me a useful answer? is addressed by the first paragraph and useful action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A prompt (the instructions and information you give the AI) works best when it says what you need, why you need it, and what a good answer should look like. Clear context, constraints and examples make the result more reliable.",
+          "locator": "MJQ-005"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The worked move is part of an everyday writing, checking or workplace task; it does not take over the answer.",
+      "artifactEvidence": [
+        {
+          "excerpt": "One important wrinkle: do not paste confidential, personal or workplace information unless you know you have permission and understand how that AI service handles it.",
+          "locator": "MJQ-005"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Answer first, concrete mechanism or decision logic, retained limits and a better next question; no persona imitation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A prompt (the instructions and information you give the AI) works best when it says what you need, why you need it, and what a good answer should look like. Clear context, constraints and examples make the result more reliable.",
+          "locator": "MJQ-005"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The reader can act on the specified step, then inspect evidence or retain the sensitive data locally.",
+      "artifactEvidence": [
+        {
+          "excerpt": "One important wrinkle: do not paste confidential, personal or workplace information unless you know you have permission and understand how that AI service handles it.",
+          "locator": "MJQ-005"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No new decorative analogy; the preserved prompting colleague comparison models missing task context, not human responsibility or guaranteed competence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A prompt (the instructions and information you give the AI) works best when it says what you need, why you need it, and what a good answer should look like. Clear context, constraints and examples make the result more reliable.",
+          "locator": "MJQ-005"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-005"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/prompting.txt",
+        "sha256": "385f04db1e5d92d1ebc5d643a9da1da96d0303190a0732febda308e9344979f5"
+      },
+      {
+        "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/opc.txt",
+        "sha256": "ad02022309f09b0502162b6ded4df63685c66d08a5a3e7baac5932dbfb548047"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "MJQ-005-0",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Clear context, constraints and examples make the result more reliable.",
+            "locator": "MJQ-005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/prompting.txt",
+          "sha256": "385f04db1e5d92d1ebc5d643a9da1da96d0303190a0732febda308e9344979f5"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Claude responds well to clear, explicit instructions.",
+            "locator": "prompting.txt"
+          }
+        ],
+        "scopeAndFreshness": "Conservative guidance or bounded mechanism. Examples illustrate the advice; no legal compliance, universal anonymity or current model accuracy guarantee. Recheck exact source before reuse and after seven days."
+      },
+      {
+        "claimId": "MJQ-005-1",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "do not paste confidential, personal or workplace information unless you know you have permission",
+            "locator": "MJQ-005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/opc.txt",
+          "sha256": "ad02022309f09b0502162b6ded4df63685c66d08a5a3e7baac5932dbfb548047"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "only do so where authorised.",
+            "locator": "opc.txt"
+          }
+        ],
+        "scopeAndFreshness": "Conservative guidance or bounded mechanism. Examples illustrate the advice; no legal compliance, universal anonymity or current model accuracy guarantee. Recheck exact source before reuse and after seven days."
+      }
+    ],
+    "reviewedThrough": "2026-09-07",
+    "nextTrigger": "Source content change, failed source retrieval, altered answer/alias or seven-day expiry.",
+    "correctionOwner": "Learning / Miss Jeeves"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First exact public-interface adaptation. Prior private-provider review is retained separately; this does not reset future successor comparisons."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Known source-scope, anonymization and unrelated-link defects repaired during production before this public-interface candidate review."
+  },
+  "reverseBrief": {
+    "humanQuestion": "How do I ask AI a question so it gives me a useful answer?",
+    "promisedPayoff": "Turn a vague request into a task, relevant context and a checkable output.",
+    "centralMentalModel": "Purpose and context reduce guesswork. Format and constraints state what success means. Inspect the result and correct a specific mismatch.",
+    "dailyLifeConnection": "A vacation-policy email needs its audience, effective date and missing-details instruction.",
+    "surfaceJob": "A concise reviewed answer to an explicit question, with sources and correction controls.",
+    "desiredReaderFeeling": "Able to take one useful step while retaining judgement."
+  }
+}

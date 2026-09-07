@@ -224,3 +224,10 @@ historical evidence, not current task state.
 
 The operation-agent blueprint task is paused at its prior exact review point;
 it is not activated authority and cannot block the 24-hour recovery objective.
+
+
+### 2026-09-07 — Miss Jeeves four-answer preview: BUILDING / presentation admission pending
+
+Owned packet: operations/product-stewards/library/answer-bank-preview-20260907/. Four short FAQ texts independently passed and remote immutable records were verified by fingerprints, reviewer scores and alias counts. The previous MJQ-005 version remains preserved. Real-source browser checks pass at320/390/1280/1440, including homepage to Library continuation, without paid calls. Latest homepage HTML3f57e04f is preserved in the preview artifact; homepage.js consumer ownership was explicitly assigned to this lane.
+
+Remaining: complete hosted candidate verification and exact presentation admission before showing Ali; no production promotion. The normal design gate requires eleven distinct roles; the existing two-reviewer exception names the homepage pass and must not silently be widened to a new Library visual candidate. Separate paid freeform research remains HOLD after two additional Sol answers needed prose/scope repair. Keep the page programme order and other owners' active work.

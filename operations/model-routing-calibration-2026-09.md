@@ -60,3 +60,5 @@ not unrelated outputs.
 Not due. At the trigger, record: task classes reviewed, observed failure and
 review-cycle patterns, any route moved up or down, confidence, unresolved gaps,
 and the next review date only if continued measurement can change a decision.
+
+| 2026-09-07 | Miss Jeeves four FAQ previews and reusable-answer consumers | GPT-6 Astra foreground, effort unavailable; Terra/Medium source and integration lane; actual Claude Opus5/Low independent text/render review | >4h across continuation; total task usage unavailable | NO | Source scope, prompting voice2, maker-note boilerplate, mutable calibration path and homepage consumer repaired; paid Sol outputs held | LIKELY cheaper foreground for record serialization; independent judgment still needed | operations/product-stewards/library/answer-bank-preview-20260907/ |

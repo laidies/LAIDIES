@@ -10,6 +10,13 @@ const artifact=process.env.LAIDIES_PUBLIC_ROOT || root;
 const runtime=process.env.PLAYWRIGHT_MODULE || '/Users/alisoneakin/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright-core/index.mjs';
 const {chromium}=await import(pathToFileURL(runtime));
 const mime={'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.svg':'image/svg+xml'};
+async function captureSection(page, selector, file) {
+ await page.evaluate(()=>window.scrollTo({top:0,left:0,behavior:"instant"}));
+ await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));
+ const clip=await page.locator(selector).boundingBox();
+ assert(clip && clip.width>0 && clip.height>0);
+ await page.screenshot({path:file,clip,fullPage:true});
+}
 const requests=[];let aiCalls=0;let researchCalls=0;let fixture='answer';let forwarded;
 const asset=async request=>{
  const url=new URL(request.url);let relative=decodeURIComponent(url.pathname).replace(/^\//,'');
@@ -26,15 +33,17 @@ const env={ASSETS:{fetch:asset},AI:{run(){aiCalls++;throw Error('legacy AI invok
  if(fixture==='capacity')return Response.json({status:'error',error:'research_capacity_reached',guestToken:'capacity-fixture',allowance:{kind:'guest',policy:'adaptive.v1',state:'paused',retryAt:'2026-09-06T00:00:00.000Z'}},{status:429});
  return Response.json({status:'ok',model:'gpt-5.6-sol',source_policy_version:'fixture',citation_policy:'all-approved-https.v1',guestToken:'research-fixture',allowance:{kind:'guest',policy:'adaptive.v1',state:'available',remaining:7},output:[{content:[{type:'output_text',text:'Check whether your employer permits this account to receive the document before uploading. If you do not know, ask first.',annotations:[{type:'url_citation',url:'https://help.openai.com/',title:'Fixture source'}]}]}]});
 }}};
-let reviewedRecord=null;
+let reviewedRecords=[];
 if(process.env.JEEVES_REVIEWED_RECORD){
  const {DatabaseSync}=await import('node:sqlite');
  const {importReviewedAnswer}=await import('./lib/miss-jeeves-answer-bank.mjs');
- reviewedRecord=JSON.parse(fs.readFileSync(process.env.JEEVES_REVIEWED_RECORD,'utf8'));
+ const loaded=JSON.parse(fs.readFileSync(process.env.JEEVES_REVIEWED_RECORD,'utf8'));
+ reviewedRecords=Array.isArray(loaded)?loaded:[loaded];
  const sqlite=new DatabaseSync(':memory:');sqlite.exec(fs.readFileSync(path.join(root,'migrations/library-corrections/0004_miss_jeeves_answer_bank.sql'),'utf8'));
  const db={prepare(sql){const stmt=sqlite.prepare(sql);return{bind(...args){return{run:async()=>stmt.run(...args),all:async()=>stmt.all(...args)};}};},async batch(statements){for(const stmt of statements)await stmt.run();}};
- assert.equal((await importReviewedAnswer(db,reviewedRecord)).status,'imported');
- Object.assign(env,{MISS_JEEVES_DB:db,MISS_JEEVES_ANSWER_BANK_ENABLED:'true',MISS_JEEVES_ANSWER_BANK_SOURCE_POLICY_VERSION:reviewedRecord.sourcePolicyVersion});
+ if(process.env.JEEVES_BANK_PREDECESSORS)for(const item of JSON.parse(fs.readFileSync(process.env.JEEVES_BANK_PREDECESSORS,'utf8')))assert.equal((await importReviewedAnswer(db,item.record,{id:item.id})).status,'imported');
+ for(const record of reviewedRecords)assert.equal((await importReviewedAnswer(db,record)).status,'imported');
+ Object.assign(env,{MISS_JEEVES_DB:db,MISS_JEEVES_ANSWER_BANK_ENABLED:'true',MISS_JEEVES_ANSWER_BANK_SOURCE_POLICY_VERSION:reviewedRecords[0].sourcePolicyVersion});
 }
 const server=http.createServer(async(req,res)=>{
  try{
@@ -48,7 +57,7 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const origin=`http://127.0.0.1:${server.address().port}`;
 const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
 try{
- for(const width of [390,1280]){
+ for(const width of [320,390,1280,1440]){
  const context=await browser.newContext({viewport:{width,height:900}});
  await context.route('**/*',route=>route.request().url().startsWith(origin)?route.continue():route.abort());
  const page=await context.newPage();page.setDefaultTimeout(10000);const errors=[];page.on('pageerror',error=>errors.push(error.message));
@@ -112,16 +121,44 @@ try{
  await page.unroute('**/api/miss-jeeves');
  await page.locator('#jv-q').fill('zzxxyyqqww');await page.locator('.jv-form button[type=submit]').click();
  await page.locator('#jv-topic-request').waitFor();assert.equal(await page.locator('#jv-request-consent').isChecked(),false);
- if(reviewedRecord){
+ for(const reviewedRecord of reviewedRecords){
   const beforeReuse=researchCalls;
-  await page.getByRole('button',{name:reviewedRecord.canonicalQuestion,exact:true}).click();
+  const wordings=[reviewedRecord.canonicalQuestion,...reviewedRecord.aliases];
+  const label=(await page.locator('.jv-chip').allTextContents()).find(x=>wordings.includes(x.trim()));
+  assert(label,'every reviewed answer must have one working example question');
+  const reused=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/miss-jeeves');
+  await page.getByRole('button',{name:label,exact:true}).click();
+  const payload=await (await reused).json();
+  assert.equal(payload.answer_key,reviewedRecord.answerKey);
+  assert.equal(payload.answer.trim(),reviewedRecord.answer.trim());
   await page.getByRole('heading',{name:'Your reviewed answer',exact:true}).waitFor();
   assert.match(await page.locator('.jv-answer-meta').innerText(),/LAiDIES reviewed/);
   assert.doesNotMatch(await page.locator('.jv-answer-copy').innerText(),/\]\(https:/);
   assert.equal(researchCalls,beforeReuse,'example click must reuse without spending');
   assert.equal(requests.at(-1).intent,'search');
-  if(process.env.JEEVES_SCREENSHOT_DIR)await page.screenshot({path:path.join(process.env.JEEVES_SCREENSHOT_DIR,`reviewed-answer-${width}.png`),fullPage:true});
+  assert.equal(await page.locator('#jv-q').evaluate(input=>input.scrollLeft),0,'submitted question must show its opening words');
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'no horizontal overflow');
+  if(process.env.JEEVES_SCREENSHOT_DIR){
+   await captureSection(page,'#miss-jeeves',path.join(process.env.JEEVES_SCREENSHOT_DIR,`${reviewedRecord.answerKey}-${width}.png`));
+   await page.screenshot({path:path.join(process.env.JEEVES_SCREENSHOT_DIR,`reviewed-answer-${width}.png`),fullPage:true});
+  }
   console.log(`PASS ${width}px: real-source reviewed example click, truthful review label, zero paid calls.`);
+ }
+ if(reviewedRecords.length){
+  await page.goto(`${origin}/#reference`,{waitUntil:'domcontentloaded'});
+  const beforeHome=researchCalls;
+  const homeResponse=page.waitForResponse(r=>new URL(r.url()).pathname==='/api/miss-jeeves');
+  await page.getByRole('button',{name:'How do I write a better prompt?',exact:true}).click();
+  assert.equal((await (await homeResponse).json()).mode,'reviewed-answer');
+  await page.locator('#homepage-jeeves-answer').getByRole('heading',{name:'Your reviewed answer'}).waitFor();
+  assert.match(await page.locator('#homepage-jeeves-answer').innerText(),/LAiDIES reviewed/);
+  assert.equal(researchCalls,beforeHome);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  if(process.env.JEEVES_SCREENSHOT_DIR)await captureSection(page,'#reference',path.join(process.env.JEEVES_SCREENSHOT_DIR,`homepage-reviewed-${width}.png`));
+  await page.getByRole('link',{name:'Continue with Miss Jeeves in the LIBRAiRY'}).click();
+  await page.locator('.jv-answer-copy').waitFor();
+  assert.equal(researchCalls,beforeHome);
+  console.log(`PASS ${width}px: homepage example click, reviewed label and Library continuation, zero paid calls.`);
  }
  assert.deepEqual(errors,[],'page must not throw runtime errors');
  await context.close();

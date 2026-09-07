@@ -1,0 +1,207 @@
+{
+  "principalId": "claude-jeeves-final-reviewer",
+  "calibration": {
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "AI system",
+            "locator": "entry heading 1 \u2014 followed by ten further bare term headings (Provider, Product / app, Model, Model types, Large language model (LLM), Generative AI, Multimodal, Tool)"
+          },
+          {
+            "excerpt": "Where it stops:",
+            "locator": "appears once in every one of the nine entries"
+          },
+          {
+            "excerpt": "In real life.",
+            "locator": "appears once in every one of the nine entries"
+          },
+          {
+            "excerpt": "Cher\u2019s wardrobe computer in Clueless is a useful product analogy",
+            "locator": "Product / app, sentence 2"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "Model, sentence 2"
+          },
+          {
+            "excerpt": "A toolbox contains different tools for different jobs.",
+            "locator": "Model types, sentence 2"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk or use the catalogue, calculator or scanner.",
+            "locator": "Tool, sentence 2"
+          },
+          {
+            "excerpt": "It is an extremely capable pattern-completion system for language.",
+            "locator": "Large language model (LLM) \u2014 asserted, with no account of how completion produces the failure described"
+          },
+          {
+            "excerpt": "must still check names, dates and small labels against the originals",
+            "locator": "Multimodal, In real life \u2014 the only reader action in the chapter"
+          },
+          {
+            "excerpt": "It reads and produces text in small pieces called tokens; Chapter 2 explains tokens in full.",
+            "locator": "Large language model (LLM)"
+          },
+          {
+            "excerpt": "This is the complete container around every other concept in this book.",
+            "locator": "AI system, closing line"
+          },
+          {
+            "excerpt": "That distinction is not pedantry; it tells you what to fix.",
+            "locator": "opening paragraph"
+          }
+        ],
+        "observation": "Every listed family is present. Nine terms are defined in sequence with no accumulating picture (glossaryAccumulation), each under an identical definition/analogy/'Where it stops'/'In real life'/positioning-line template (templateRepetition). Clueless, the Walkman, the toolbox, the taxi company and Miss Jeeves are ornamental labels that are immediately retracted by the 'Where it stops' clause rather than doing explanatory work (decorativeAnalogy), and their sheer accumulation across consecutive entries is referenceConfetti. Mechanism is asserted, not shown \u2014 'pattern-completion system' and 'learned mathematical transformations' name a process without explaining how it yields the invented commitment the same entry warns about (missingMechanism). The single action offered is a bare instruction to check against originals, unattached to any mechanism that would tell the reader what to check for (genericAction). Tokens are introduced and deferred to a later chapter (jargonBeforeMeaning). Each entry closes by restating its own boundary rather than connecting to the next, so the parts never assemble into one working system (disconnectedSystem), and the promise 'it tells you what to fix' is never redeemed with anything a reader could enjoy or do (joylessInstruction)."
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming \u201cAI\u201d as though it were one indivisible object.",
+            "locator": "Introduction \u2014 the book's whole stated purpose is a diagnostic procedure"
+          },
+          {
+            "excerpt": "It is the trained component that processes input and produces an output.",
+            "locator": "Introduction, paragraph 3 \u2014 component definition arrives before the reader has felt any stake"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "Introduction, close"
+          },
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office.",
+            "locator": "Chapter 1 \u2014 the job-offer case, which then supplies every subsequent section heading and example"
+          },
+          {
+            "excerpt": "your goal \u2192 the product and available context \u2192 the trained model \u2192 any retrieval or tools \u2192 the output \u2192 evidence checking and human decision",
+            "locator": "Chapter 1, 'The output is not the decision'"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits",
+            "locator": "Chapter 1, final paragraph"
+          }
+        ],
+        "observation": "All four required families are present, and this exemplar is genuinely stronger than CQX-BAD-001 \u2014 the job-offer decision is concrete and the repair sequence is real. It still fails. The book's purpose is narrowed to fault-location in a pipeline, which cannot carry a whole book (purposeTooNarrow). The Introduction defines AI system, model and context as components before the reader has any felt reason to care, so the machinery precedes the motive (mechanismBeforeMotivation). One comparison then becomes the organising spine of every section, and by the closing map the example has displaced the book's larger promise (workedExampleOvertakesBookPurpose). The arrow diagram, the numbered four-question list and the syllabus preview of later chapters are the register of a competent technical explainer rather than a voice with a stake (technicalExplainerVoice). No family from the CQX-BAD-001 set is fairly chargeable here: the prose is continuous and the analogies are absent rather than decorative."
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "It is an allocation decision: who gets which benefits, who bears which burdens and who has the power to negotiate the terms.",
+            "locator": "after the governance definition"
+          },
+          {
+            "excerpt": "## The concepts that make the story legible",
+            "locator": "mid-article section heading"
+          },
+          {
+            "excerpt": "**Externalities** are costs or benefits a decision creates for people who did not make the decision.",
+            "locator": "concepts section \u2014 one of three consecutive bolded definitions interrupting the reporting"
+          },
+          {
+            "excerpt": "For a proposal near you, ask five things:",
+            "locator": "checklist introduction"
+          },
+          {
+            "excerpt": "What changes if the demand forecast, construction plan or promised benefit is wrong?",
+            "locator": "checklist item 5"
+          },
+          {
+            "excerpt": "75% said they would oppose a new data centre near where they live",
+            "locator": "lede \u2014 no named person, place or scene anywhere in the piece"
+          },
+          {
+            "excerpt": "somewhere \u201cthe cloud\u201d keeps its coat",
+            "locator": "opening paragraph \u2014 the article's only human warmth"
+          },
+          {
+            "excerpt": "The useful question is therefore not \u201cShould I be pro-AI or anti-AI?\u201d It is:",
+            "locator": "transition into the checklist"
+          },
+          {
+            "excerpt": "## What to keep watching",
+            "locator": "closing section heading"
+          }
+        ],
+        "observation": "All six required families are present. The register is measured institutional analysis \u2014 allocation decisions, ledgers, frameworks \u2014 rather than a story with a point of view (policyMemoVoice, and in the definitional passages technicalExplainerVoice). Three bolded dictionary entries under an explicit 'concepts' heading halt the reporting mid-article (glossaryInterruptsStory). A five-item numbered list converts the ending from news into an assignment (checklistTurnsNewsIntoHomework). Nobody appears: no resident, no meeting, no named town \u2014 only percentages and a permit pause, so there is no one for the reader to care about (missingHumanTension). The article narrates its own construction with 'The concepts that make the story legible', the 'useful question is therefore not' pivot and a 'What to keep watching' coda (scaffoldingVisible). The single light line about the cloud keeping its coat is charm, not stake, and cannot carry the absence. The article's factual handling is careful \u2014 'It is not proof of why people changed their minds' \u2014 which is why the failure is one of form, not accuracy."
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-STRAIGHT-ANSWERS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Answer delivered in the first line, before any mechanism or definition",
+        "The correction of the question's framing is itself the answer ('\"replacing\" is the wrong word')",
+        "Explicit partition of solid / contested / depends-on, so certainty is graded rather than uniform",
+        "Asymmetry between measured and projected evidence stated plainly instead of smoothed over",
+        "Named myths dropped in both directions, not only the alarmist one",
+        "One reframed, actionable next question rather than a checklist of homework",
+        "Dated verification with a concrete recheck trigger tied to named forthcoming publications",
+        "Sources listed separately at the end so they never interrupt the prose"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Not wholesale \u2014 and \"replacing\" is the wrong word for what's happening.",
+          "locator": "Jobs & Work, first answer, opening line"
+        },
+        {
+          "excerpt": "It's churn, not subtraction",
+          "locator": "Jobs & Work, first answer, opening paragraph"
+        },
+        {
+          "excerpt": "The losses are already measured while the gains are still projected",
+          "locator": "Where it's contested"
+        },
+        {
+          "excerpt": "The myth to drop \u2014 Two of them, actually.",
+          "locator": "Jobs & Work, first answer"
+        },
+        {
+          "excerpt": "Stop asking \"will AI take my job\" and start asking \"where's the new work, and am I moving toward it?\"",
+          "locator": "The receipt"
+        },
+        {
+          "excerpt": "Verified July 2026. Recheck when the next Stanford \"Canaries\" update and the next WEF Future of Jobs land.",
+          "locator": "footer of first answer"
+        },
+        {
+          "excerpt": "Cher had a closet computer in 1995; being early to the new work has always been the move.",
+          "locator": "The receipt, final line \u2014 a single load-bearing reference, not confetti"
+        }
+      ]
+    }
+  },
+  "artifactVerdictsUnchanged": true,
+  "reviewerAttestation": "I am claude-jeeves-final-reviewer (Claude Opus 5), independent of the GPT6 maker. This pass reassessed only the three negative calibration exemplars and the positive exemplar against the nine + four + six required assessment families; I did not re-open, re-score or alter the four exact answers (MJQ-005 b2023b04\u2026, work-ai-help 04a0fd28\u2026, MJQ-006 637694ce\u2026, MJQ-008 b2a3016c\u2026), whose per-answer verdicts, dimension scores and hard-gate results stand exactly as issued: PASS on all four, 20/19/20/19, all eight gates PASS on each. Every family reported above was identified by reading the pasted artifact text; each is supported by a literal excerpt copied from that text with its locator. I found no required family to be absent from its exemplar, so no absence declaration is made \u2014 but I explicitly declined to extend CQX-BAD-001's families to CQX-BAD-002, where the prose is continuous and no decorative analogy appears, rather than charging families to fill the schema. Correction to my prior pass, made on my own reading and not at any producer's direction: I previously omitted referenceConfetti and genericAction from CQX-BAD-001 and mechanismBeforeMotivation from CQX-BAD-002; all three are present on re-reading and are now evidenced. The positive exemplar is admitted for architecture only; its dated claims (Stanford 16%, WEF 170M/92M, July 2026 verification) are held, not adopted, and were not used to support any judgement. No maker observation, source map status or manifest claim was treated as evidence of quality; the templated makerObservations noted in my prior pass remain flagged there for separate correction and influenced nothing here."
+}

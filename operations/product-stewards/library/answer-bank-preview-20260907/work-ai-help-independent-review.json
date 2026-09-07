@@ -1,0 +1,568 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "work-ai-help-preview-20260907",
+  "surface": "MISS_JEEVES",
+  "contentClass": "FAQ",
+  "maker": "root-jeeves-preview-maker",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "claude-jeeves-final-reviewer",
+    "principalId": "claude-jeeves-final-reviewer",
+    "role": "Independent semantic reviewer",
+    "modelFamily": "Claude Opus 5",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewedAt": "2026-09-07T19:12:26.038868+00:00",
+  "verdict": "PASS",
+  "limitations": [
+    "Model review, not observed human participant testing. Rendered browser review remains separate.",
+    "Voice is the weakest dimension at 3/4 \u2014 serviceable and unmistakably adult, but nearer instruction than the surface's best register. Does not threaten the gate.",
+    "Maker-observation limitations are preserved in final-text-review.json unsupportedMakerClaims; reviewer did not inherit maker judgements."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/library/answer-bank-preview-20260907/work-ai-help.txt",
+      "sha256": "04a0fd2858aacf2163fc3b5cea89d00e1c4c3737349684548cd349fd97326296"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/library/answer-bank-preview-20260907/work-ai-help-manifest.json",
+      "sha256": "c11e1067b86891b1ad071111de230af6a5fa63b19e2523b9a90822be47ae5f16"
+    }
+  },
+  "calibration": {
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops:",
+            "locator": "appears once in every one of the nine entries"
+          },
+          {
+            "excerpt": "Cher\u2019s wardrobe computer in Clueless is a useful product analogy",
+            "locator": "Product / app, sentence 2"
+          },
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "Model, sentence 2"
+          },
+          {
+            "excerpt": "A toolbox contains different tools for different jobs.",
+            "locator": "Model types, sentence 2"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk or use the catalogue, calculator or scanner.",
+            "locator": "Tool, sentence 2"
+          },
+          {
+            "excerpt": "It is an extremely capable pattern-completion system for language.",
+            "locator": "Large language model (LLM) \u2014 asserted, with no account of how completion produces the failure described"
+          },
+          {
+            "excerpt": "must still check names, dates and small labels against the originals",
+            "locator": "Multimodal, In real life \u2014 the only reader action in the chapter"
+          },
+          {
+            "excerpt": "It reads and produces text in small pieces called tokens; Chapter 2 explains tokens in full.",
+            "locator": "Large language model (LLM)"
+          },
+          {
+            "excerpt": "This is the complete container around every other concept in this book.",
+            "locator": "AI system, closing line"
+          },
+          {
+            "excerpt": "That distinction is not pedantry; it tells you what to fix.",
+            "locator": "opening paragraph"
+          }
+        ],
+        "observation": "Every listed family is present. Nine terms are defined in sequence with no accumulating picture (glossaryAccumulation), each under an identical definition/analogy/'Where it stops'/'In real life'/positioning-line template (templateRepetition). Clueless, the Walkman, the toolbox, the taxi company and Miss Jeeves are ornamental labels that are immediately retracted by the 'Where it stops' clause rather than doing explanatory work (decorativeAnalogy), and their sheer accumulation across consecutive entries is referenceConfetti. Mechanism is asserted, not shown \u2014 'pattern-completion system' and 'learned mathematical transformations' name a process without explaining how it yields the invented commitment the same entry warns about (missingMechanism). The single action offered is a bare instruction to check against originals, unattached to any mechanism that would tell the reader what to check for (genericAction). Tokens are introduced and deferred to a later chapter (jargonBeforeMeaning). Each entry closes by restating its own boundary rather than connecting to the next, so the parts never assemble into one working system (disconnectedSystem), and the promise 'it tells you what to fix' is never redeemed with anything a reader could enjoy or do (joylessInstruction)."
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming \u201cAI\u201d as though it were one indivisible object.",
+            "locator": "Introduction \u2014 the book's whole stated purpose is a diagnostic procedure"
+          },
+          {
+            "excerpt": "It is the trained component that processes input and produces an output.",
+            "locator": "Introduction, paragraph 3 \u2014 component definition arrives before the reader has felt any stake"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "Introduction, close"
+          },
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office.",
+            "locator": "Chapter 1 \u2014 the job-offer case, which then supplies every subsequent section heading and example"
+          },
+          {
+            "excerpt": "your goal \u2192 the product and available context \u2192 the trained model \u2192 any retrieval or tools \u2192 the output \u2192 evidence checking and human decision",
+            "locator": "Chapter 1, 'The output is not the decision'"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits",
+            "locator": "Chapter 1, final paragraph"
+          }
+        ],
+        "observation": "All four required families are present, and this exemplar is genuinely stronger than CQX-BAD-001 \u2014 the job-offer decision is concrete and the repair sequence is real. It still fails. The book's purpose is narrowed to fault-location in a pipeline, which cannot carry a whole book (purposeTooNarrow). The Introduction defines AI system, model and context as components before the reader has any felt reason to care, so the machinery precedes the motive (mechanismBeforeMotivation). One comparison then becomes the organising spine of every section, and by the closing map the example has displaced the book's larger promise (workedExampleOvertakesBookPurpose). The arrow diagram, the numbered four-question list and the syllabus preview of later chapters are the register of a competent technical explainer rather than a voice with a stake (technicalExplainerVoice). No family from the CQX-BAD-001 set is fairly chargeable here: the prose is continuous and the analogies are absent rather than decorative."
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "## The concepts that make the story legible",
+            "locator": "mid-article section heading"
+          },
+          {
+            "excerpt": "For a proposal near you, ask five things:",
+            "locator": "checklist introduction"
+          },
+          {
+            "excerpt": "The useful question is therefore not \u201cShould I be pro-AI or anti-AI?\u201d It is:",
+            "locator": "transition into the checklist"
+          },
+          {
+            "excerpt": "## What to keep watching",
+            "locator": "closing section heading"
+          }
+        ],
+        "observation": "All six required families are present. The register is measured institutional analysis \u2014 allocation decisions, ledgers, frameworks \u2014 rather than a story with a point of view (policyMemoVoice, and in the definitional passages technicalExplainerVoice). Three bolded dictionary entries under an explicit 'concepts' heading halt the reporting mid-article (glossaryInterruptsStory). A five-item numbered list converts the ending from news into an assignment (checklistTurnsNewsIntoHomework). Nobody appears: no resident, no meeting, no named town \u2014 only percentages and a permit pause, so there is no one for the reader to care about (missingHumanTension). The article narrates its own construction with 'The concepts that make the story legible', the 'useful question is therefore not' pivot and a 'What to keep watching' coda (scaffoldingVisible). The single light line about the cloud keeping its coat is charm, not stake, and cannot carry the absence. The article's factual handling is careful \u2014 'It is not proof of why people changed their minds' \u2014 which is why the failure is one of form, not accuracy."
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-STRAIGHT-ANSWERS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Answer delivered in the first line, before any mechanism or definition",
+        "The correction of the question's framing is itself the answer ('\"replacing\" is the wrong word')",
+        "Explicit partition of solid / contested / depends-on, so certainty is graded rather than uniform",
+        "Asymmetry between measured and projected evidence stated plainly instead of smoothed over",
+        "Named myths dropped in both directions, not only the alarmist one",
+        "One reframed, actionable next question rather than a checklist of homework",
+        "Dated verification with a concrete recheck trigger tied to named forthcoming publications",
+        "Sources listed separately at the end so they never interrupt the prose"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Not wholesale \u2014 and \"replacing\" is the wrong word for what's happening.",
+          "locator": "Jobs & Work, first answer, opening line"
+        },
+        {
+          "excerpt": "It's churn, not subtraction",
+          "locator": "Jobs & Work, first answer, opening paragraph"
+        },
+        {
+          "excerpt": "The losses are already measured while the gains are still projected",
+          "locator": "Where it's contested"
+        },
+        {
+          "excerpt": "Stop asking \"will AI take my job\" and start asking \"where's the new work, and am I moving toward it?\"",
+          "locator": "The receipt"
+        },
+        {
+          "excerpt": "Verified July 2026. Recheck when the next Stanford \"Canaries\" update and the next WEF Future of Jobs land.",
+          "locator": "footer of first answer"
+        },
+        {
+          "excerpt": "Cher had a closet computer in 1995; being early to the new work has always been the move.",
+          "locator": "The receipt, final line \u2014 a single load-bearing reference, not confetti"
+        }
+      ]
+    },
+    "registrySha256": "a5559a35fdfaa41b23f71a819aba7c25f03284ef251dfb1a4936e73d3b3b85b9",
+    "reviewerPrincipalId": "claude-jeeves-final-reviewer",
+    "reviewedAt": "2026-09-07T19:12:26.038868+00:00"
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The separation \u2014 structure from the tool, facts from you \u2014 is stated in the first two sentences and never blurred afterwards.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.\n\nUse a tool your employer permits, and try:\n\n\u201cCreate a blank weekly project update for my boss. Include progress, decisions, risks, next steps and help needed. Keep it suitable for an update under 200 words. Use placeholders and questions for missing information; do not invent project facts.\u201d\n\nThen fill in the real details yourself inside your company\u2019s approved document system. You have used AI to organize the update without sending it the information the update contains.\n\nIf you also want help polishing notes, first check that the specific information is allowed in that tool. Replacing a name with \u201cClient A\u201d is not a guarantee of anonymity: a distinctive project, date or combination of details may still identify someone. When you cannot tell whether the notes are safe to share, keep them out and work from a blank example.\n\nBefore sending the update, check every date, number, commitment and status against your records. A fluent draft does not know which deadline your team actually agreed to.",
+          "locator": "work-ai-help.txt (complete short FAQ)"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Solves the stated tension rather than dodging it: the reader gets the update help and keeps the confidential material out.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.\n\nUse a tool your employer permits, and try:\n\n\u201cCreate a blank weekly project update for my boss. Include progress, decisions, risks, next steps and help needed. Keep it suitable for an update under 200 words. Use placeholders and questions for missing information; do not invent project facts.\u201d\n\nThen fill in the real details yourself inside your company\u2019s approved document system. You have used AI to organize the update without sending it the information the update contains.\n\nIf you also want help polishing notes, first check that the specific information is allowed in that tool. Replacing a name with \u201cClient A\u201d is not a guarantee of anonymity: a distinctive project, date or combination of details may still identify someone. When you cannot tell whether the notes are safe to share, keep them out and work from a blank example.\n\nBefore sending the update, check every date, number, commitment and status against your records. A fluent draft does not know which deadline your team actually agreed to.",
+          "locator": "work-ai-help.txt (complete short FAQ)"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Direct and adult, but flatter than MJQ-005 \u2014 competent instruction with little of the dry recognition that gives the surface its character. Sufficient, not distinguished.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.\n\nUse a tool your employer permits, and try:\n\n\u201cCreate a blank weekly project update for my boss. Include progress, decisions, risks, next steps and help needed. Keep it suitable for an update under 200 words. Use placeholders and questions for missing information; do not invent project facts.\u201d\n\nThen fill in the real details yourself inside your company\u2019s approved document system. You have used AI to organize the update without sending it the information the update contains.\n\nIf you also want help polishing notes, first check that the specific information is allowed in that tool. Replacing a name with \u201cClient A\u201d is not a guarantee of anonymity: a distinctive project, date or combination of details may still identify someone. When you cannot tell whether the notes are safe to share, keep them out and work from a blank example.\n\nBefore sending the update, check every date, number, commitment and status against your records. A fluent draft does not know which deadline your team actually agreed to.",
+          "locator": "work-ai-help.txt (complete short FAQ)"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The 'Client A' line is the one moment of genuine friction that keeps the reader alert.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.\n\nUse a tool your employer permits, and try:\n\n\u201cCreate a blank weekly project update for my boss. Include progress, decisions, risks, next steps and help needed. Keep it suitable for an update under 200 words. Use placeholders and questions for missing information; do not invent project facts.\u201d\n\nThen fill in the real details yourself inside your company\u2019s approved document system. You have used AI to organize the update without sending it the information the update contains.\n\nIf you also want help polishing notes, first check that the specific information is allowed in that tool. Replacing a name with \u201cClient A\u201d is not a guarantee of anonymity: a distinctive project, date or combination of details may still identify someone. When you cannot tell whether the notes are safe to share, keep them out and work from a blank example.\n\nBefore sending the update, check every date, number, commitment and status against your records. A fluent draft does not know which deadline your team actually agreed to.",
+          "locator": "work-ai-help.txt (complete short FAQ)"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Employer-permission claim maps to the Canada source; the re-identification caution is correctly filed as QUALIFIED and phrased as 'not a guarantee' rather than a prohibition \u2014 the conservative reading the source supports.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.\n\nUse a tool your employer permits, and try:\n\n\u201cCreate a blank weekly project update for my boss. Include progress, decisions, risks, next steps and help needed. Keep it suitable for an update under 200 words. Use placeholders and questions for missing information; do not invent project facts.\u201d\n\nThen fill in the real details yourself inside your company\u2019s approved document system. You have used AI to organize the update without sending it the information the update contains.\n\nIf you also want help polishing notes, first check that the specific information is allowed in that tool. Replacing a name with \u201cClient A\u201d is not a guarantee of anonymity: a distinctive project, date or combination of details may still identify someone. When you cannot tell whether the notes are safe to share, keep them out and work from a blank example.\n\nBefore sending the update, check every date, number, commitment and status against your records. A fluent draft does not know which deadline your team actually agreed to.",
+          "locator": "work-ai-help.txt (complete short FAQ)"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Digest-bound, recheck window stated, no plan or product specifics to decay.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.\n\nUse a tool your employer permits, and try:\n\n\u201cCreate a blank weekly project update for my boss. Include progress, decisions, risks, next steps and help needed. Keep it suitable for an update under 200 words. Use placeholders and questions for missing information; do not invent project facts.\u201d\n\nThen fill in the real details yourself inside your company\u2019s approved document system. You have used AI to organize the update without sending it the information the update contains.\n\nIf you also want help polishing notes, first check that the specific information is allowed in that tool. Replacing a name with \u201cClient A\u201d is not a guarantee of anonymity: a distinctive project, date or combination of details may still identify someone. When you cannot tell whether the notes are safe to share, keep them out and work from a blank example.\n\nBefore sending the update, check every date, number, commitment and status against your records. A fluent draft does not know which deadline your team actually agreed to.",
+          "locator": "work-ai-help.txt (complete short FAQ)"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Paragraph form, under ceiling, one quoted prompt that renders cleanly inline.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.\n\nUse a tool your employer permits, and try:\n\n\u201cCreate a blank weekly project update for my boss. Include progress, decisions, risks, next steps and help needed. Keep it suitable for an update under 200 words. Use placeholders and questions for missing information; do not invent project facts.\u201d\n\nThen fill in the real details yourself inside your company\u2019s approved document system. You have used AI to organize the update without sending it the information the update contains.\n\nIf you also want help polishing notes, first check that the specific information is allowed in that tool. Replacing a name with \u201cClient A\u201d is not a guarantee of anonymity: a distinctive project, date or combination of details may still identify someone. When you cannot tell whether the notes are safe to share, keep them out and work from a blank example.\n\nBefore sending the update, check every date, number, commitment and status against your records. A fluent draft does not know which deadline your team actually agreed to.",
+          "locator": "work-ai-help.txt (complete short FAQ)"
+        }
+      ]
+    },
+    "answersActualQuestion": {
+      "verdict": "PASS",
+      "observation": "Both halves \u2014 how AI helps, and how confidentiality is preserved \u2014 are addressed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.\n\nUse a tool your employer permits, and try:\n\n\u201cCreate a blank weekly project update for my boss. Include progress, decisions, risks, next steps and help needed. Keep it suitable for an update under 200 words. Use placeholders and questions for missing information; do not invent project facts.\u201d\n\nThen fill in the real details yourself inside your company\u2019s approved document system. You have used AI to organize the update without sending it the information the update contains.\n\nIf you also want help polishing notes, first check that the specific information is allowed in that tool. Replacing a name with \u201cClient A\u201d is not a guarantee of anonymity: a distinctive project, date or combination of details may still identify someone. When you cannot tell whether the notes are safe to share, keep them out and work from a blank example.\n\nBefore sending the update, check every date, number, commitment and status against your records. A fluent draft does not know which deadline your team actually agreed to.",
+          "locator": "work-ai-help.txt (complete short FAQ)"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The weekly update is the question itself, so the connection is intrinsic.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.\n\nUse a tool your employer permits, and try:\n\n\u201cCreate a blank weekly project update for my boss. Include progress, decisions, risks, next steps and help needed. Keep it suitable for an update under 200 words. Use placeholders and questions for missing information; do not invent project facts.\u201d\n\nThen fill in the real details yourself inside your company\u2019s approved document system. You have used AI to organize the update without sending it the information the update contains.\n\nIf you also want help polishing notes, first check that the specific information is allowed in that tool. Replacing a name with \u201cClient A\u201d is not a guarantee of anonymity: a distinctive project, date or combination of details may still identify someone. When you cannot tell whether the notes are safe to share, keep them out and work from a blank example.\n\nBefore sending the update, check every date, number, commitment and status against your records. A fluent draft does not know which deadline your team actually agreed to.",
+          "locator": "work-ai-help.txt (complete short FAQ)"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Answer first, mechanism, then the retained human check on dates and commitments.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.\n\nUse a tool your employer permits, and try:\n\n\u201cCreate a blank weekly project update for my boss. Include progress, decisions, risks, next steps and help needed. Keep it suitable for an update under 200 words. Use placeholders and questions for missing information; do not invent project facts.\u201d\n\nThen fill in the real details yourself inside your company\u2019s approved document system. You have used AI to organize the update without sending it the information the update contains.\n\nIf you also want help polishing notes, first check that the specific information is allowed in that tool. Replacing a name with \u201cClient A\u201d is not a guarantee of anonymity: a distinctive project, date or combination of details may still identify someone. When you cannot tell whether the notes are safe to share, keep them out and work from a blank example.\n\nBefore sending the update, check every date, number, commitment and status against your records. A fluent draft does not know which deadline your team actually agreed to.",
+          "locator": "work-ai-help.txt (complete short FAQ)"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The prompt can be pasted as-is.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.\n\nUse a tool your employer permits, and try:\n\n\u201cCreate a blank weekly project update for my boss. Include progress, decisions, risks, next steps and help needed. Keep it suitable for an update under 200 words. Use placeholders and questions for missing information; do not invent project facts.\u201d\n\nThen fill in the real details yourself inside your company\u2019s approved document system. You have used AI to organize the update without sending it the information the update contains.\n\nIf you also want help polishing notes, first check that the specific information is allowed in that tool. Replacing a name with \u201cClient A\u201d is not a guarantee of anonymity: a distinctive project, date or combination of details may still identify someone. When you cannot tell whether the notes are safe to share, keep them out and work from a blank example.\n\nBefore sending the update, check every date, number, commitment and status against your records. A fluent draft does not know which deadline your team actually agreed to.",
+          "locator": "work-ai-help.txt (complete short FAQ)"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No new decorative analogy; the preserved prompting colleague comparison models missing task context, not human responsibility or guaranteed competence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.",
+          "locator": "work-ai-help"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "PASS \u2014 all four answers reach 20/20, 19/20, 20/20 and 19/20 respectively, every dimension at or above 3/4, and all eight hard gates pass on each. The two 3/4 voice scores (work-ai-help, MJQ-008) are honest ceilings rather than defects: both are correct, adult and unmistakably non-templated, but flatter in register than MJQ-005 and MJQ-006. None of the four exhibits the calibration failure families \u2014 no glossary accumulation, no repeated slot template across answers, no decorative analogy, no checklist-as-homework, and no scaffolding on display. Factual scope is conservatively held throughout: permission and de-identification claims are phrased as guidance and 'not a guarantee', and MJQ-006 explicitly declines to generalise the OpenAI paper's mechanism to all errors. Approved for owner preview and private internal reuse within the stated seven-day recheck window; browser rendering assessed separately.",
+      "artifactLocator": "final-text-review.json answers work-ai-help; overallVerdict"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/cyber-canada-current.txt",
+        "sha256": "2dfdc59c3efed54f6fe69743ce9f534fb6085b8de2dedd0a75eb82cc5df79bb3"
+      },
+      {
+        "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/opc.txt",
+        "sha256": "ad02022309f09b0502162b6ded4df63685c66d08a5a3e7baac5932dbfb548047"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "work-ai-help-0",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Use a tool your employer permits",
+            "locator": "work-ai-help"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/cyber-canada-current.txt",
+          "sha256": "2dfdc59c3efed54f6fe69743ce9f534fb6085b8de2dedd0a75eb82cc5df79bb3"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Your organization should establish a plan that identifies policies on how AI should be used",
+            "locator": "cyber-canada-current.txt"
+          }
+        ],
+        "scopeAndFreshness": "Conservative guidance or bounded mechanism. Examples illustrate the advice; no legal compliance, universal anonymity or current model accuracy guarantee. Recheck exact source before reuse and after seven days."
+      },
+      {
+        "claimId": "work-ai-help-1",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Replacing a name with \u201cClient A\u201d is not a guarantee of anonymity",
+            "locator": "work-ai-help"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/opc.txt",
+          "sha256": "ad02022309f09b0502162b6ded4df63685c66d08a5a3e7baac5932dbfb548047"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Avoid prompting a generative AI system to re-identify any previously de-identified data.",
+            "locator": "opc.txt"
+          }
+        ],
+        "scopeAndFreshness": "Conservative guidance or bounded mechanism. Examples illustrate the advice; no legal compliance, universal anonymity or current model accuracy guarantee. Recheck exact source before reuse and after seven days."
+      }
+    ],
+    "reviewedThrough": "2026-09-07",
+    "nextTrigger": "Source content change, failed source retrieval, altered answer/alias or seven-day expiry.",
+    "correctionOwner": "Learning / Miss Jeeves",
+    "independentObservation": "Employer-permission claim maps to the Canada source; the re-identification caution is correctly filed as QUALIFIED and phrased as 'not a guarantee' rather than a prohibition \u2014 the conservative reading the source supports."
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First exact public-interface adaptation. Prior private-provider review is retained separately; this does not reset future successor comparisons."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Current exact FAQ passes; voice ceilings and evidence limitations retained without treating optional polish as defects."
+  },
+  "reverseBrief": {
+    "humanQuestion": "My boss wants a weekly project update. How can AI help me prepare it without sharing confidential information?",
+    "promisedPayoff": "Get a blank useful update structure without giving away project facts.",
+    "centralMentalModel": "The tool can propose structure without project secrets. Keep sensitive facts outside the prompt; labels alone do not erase context. Fill and check facts in the approved work system.",
+    "dailyLifeConnection": "Ask for headings and placeholders, then add facts inside the approved company document.",
+    "surfaceJob": "A concise reviewed answer to an explicit question, with sources and correction controls.",
+    "desiredReaderFeeling": "Able to take one useful step while retaining judgement."
+  },
+  "sourceSerializationNote": "Exact matching reviewer excerpts retained for validation; all original reviewer wording, including imprecise quotations, is preserved in final-calibration.json.",
+  "sourceOfJudgement": {
+    "review": "final-text-review.json",
+    "calibration": "final-calibration.json",
+    "transformation": "Root mechanically serialized reviewer judgments; no new reviewer findings were invented."
+  },
+  "modelExplainBack": "Ask the tool for headings and placeholders, not content. Fill the real facts inside your approved system, and verify each date and commitment yourself. Pseudonyms do not reliably de-identify a distinctive project.",
+  "modelUnseenTransfer": "A reader preparing a board summary of a sensitive HR matter asks for a blank agenda structure with placeholders, drafts the substance in the internal system, and does not paste the case notes even with names swapped, because the combination of role and date would identify the person."
+}

@@ -1,0 +1,461 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "work-ai-help-preview-20260907",
+  "surface": "MISS_JEEVES",
+  "contentClass": "FAQ",
+  "maker": "root-jeeves-preview-maker",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "root-jeeves-preview-maker",
+    "principalId": "root-jeeves-preview-maker",
+    "role": "Producer",
+    "modelFamily": "OpenAI GPT-6 Astra"
+  },
+  "reviewedAt": "2026-09-07T18:48:18.829779+00:00",
+  "verdict": "PASS",
+  "limitations": [
+    "Model maker judgement, not human participant evidence. Source-bound runtime FAQ only; no book or column promotion.",
+    "Independent semantic and rendered review still required."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/library/answer-bank-preview-20260907/work-ai-help.txt",
+      "sha256": "04a0fd2858aacf2163fc3b5cea89d00e1c4c3737349684548cd349fd97326296"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/library/answer-bank-preview-20260907/work-ai-help-manifest.json",
+      "sha256": "c11e1067b86891b1ad071111de230af6a5fa63b19e2523b9a90822be47ae5f16"
+    }
+  },
+  "calibration": {
+    "registrySha256": "a5559a35fdfaa41b23f71a819aba7c25f03284ef251dfb1a4936e73d3b3b85b9",
+    "reviewerPrincipalId": "root-jeeves-preview-maker",
+    "reviewedAt": "2026-09-07T18:48:18.829779+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ],
+        "observation": "A sequence of separately labelled parts and forced comparisons displaces connected mechanism."
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ],
+        "observation": "One job-offer decision takes over the promised foundational book; technical exposition and that single frame narrow its purpose."
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "## The concepts that make the story legible",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/front-paige-data-centre-policy-memo-known-bad.md"
+          }
+        ],
+        "observation": "Definitions interrupt the story and a five-question checklist turns a news ending into homework; the cloud-coat joke cannot supply human stakes."
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-STRAIGHT-ANSWERS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Answer-first architecture and explicit uncertainty only; dated claims are held, not inherited."
+      ],
+      "evidence": [
+        {
+          "excerpt": "The losses are already measured while the gains are still projected",
+          "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/straight-answers-architecture-positive.md"
+        }
+      ]
+    }
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Answers the question immediately using familiar actions and defines any technical term inline.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.",
+          "locator": "work-ai-help"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Provides a usable move tied to the exact question: Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.",
+          "locator": "work-ai-help"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Direct adult voice with a recognisable work or everyday situation; no empowerment slogans or decorative references.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.",
+          "locator": "work-ai-help"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The concrete example supplies recognition and makes the advice usable without an extra lesson.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.",
+          "locator": "work-ai-help"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Material mechanism and permission claims map to exact source excerpts; invented prompts are illustrative suggestions, not provider guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.",
+          "locator": "work-ai-help"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Reviewed source articles or PDF have exact content digests; changes, failed fetch or expiry stop reuse. No volatile plan comparison remains.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.",
+          "locator": "work-ai-help"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Under 200 words in connected paragraphs, suitable for an inline answer with source links and correction controls.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.",
+          "locator": "work-ai-help"
+        }
+      ]
+    },
+    "answersActualQuestion": {
+      "verdict": "PASS",
+      "observation": "My boss wants a weekly project update. How can AI help me prepare it without sharing confidential information? is addressed by the first paragraph and useful action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.",
+          "locator": "work-ai-help"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The worked move is part of an everyday writing, checking or workplace task; it does not take over the answer.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Before sending the update, check every date, number, commitment and status against your records. A fluent draft does not know which deadline your team actually agreed to.",
+          "locator": "work-ai-help"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Answer first, concrete mechanism or decision logic, retained limits and a better next question; no persona imitation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.",
+          "locator": "work-ai-help"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The reader can act on the specified step, then inspect evidence or retain the sensitive data locally.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Before sending the update, check every date, number, commitment and status against your records. A fluent draft does not know which deadline your team actually agreed to.",
+          "locator": "work-ai-help"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No new decorative analogy; the preserved prompting colleague comparison models missing task context, not human responsibility or guaranteed competence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask AI for the structure of your update first. It does not need your client names, budget or project secrets to suggest useful headings.",
+          "locator": "work-ai-help"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "work-ai-help"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/cyber-canada-current.txt",
+        "sha256": "2dfdc59c3efed54f6fe69743ce9f534fb6085b8de2dedd0a75eb82cc5df79bb3"
+      },
+      {
+        "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/opc.txt",
+        "sha256": "ad02022309f09b0502162b6ded4df63685c66d08a5a3e7baac5932dbfb548047"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "work-ai-help-0",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Use a tool your employer permits",
+            "locator": "work-ai-help"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/cyber-canada-current.txt",
+          "sha256": "2dfdc59c3efed54f6fe69743ce9f534fb6085b8de2dedd0a75eb82cc5df79bb3"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Your organization should establish a plan that identifies policies on how AI should be used",
+            "locator": "cyber-canada-current.txt"
+          }
+        ],
+        "scopeAndFreshness": "Conservative guidance or bounded mechanism. Examples illustrate the advice; no legal compliance, universal anonymity or current model accuracy guarantee. Recheck exact source before reuse and after seven days."
+      },
+      {
+        "claimId": "work-ai-help-1",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Replacing a name with \u201cClient A\u201d is not a guarantee of anonymity",
+            "locator": "work-ai-help"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/opc.txt",
+          "sha256": "ad02022309f09b0502162b6ded4df63685c66d08a5a3e7baac5932dbfb548047"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Avoid prompting a generative AI system to re-identify any previously de-identified data.",
+            "locator": "opc.txt"
+          }
+        ],
+        "scopeAndFreshness": "Conservative guidance or bounded mechanism. Examples illustrate the advice; no legal compliance, universal anonymity or current model accuracy guarantee. Recheck exact source before reuse and after seven days."
+      }
+    ],
+    "reviewedThrough": "2026-09-07",
+    "nextTrigger": "Source content change, failed source retrieval, altered answer/alias or seven-day expiry.",
+    "correctionOwner": "Learning / Miss Jeeves"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First exact public-interface adaptation. Prior private-provider review is retained separately; this does not reset future successor comparisons."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Known source-scope, anonymization and unrelated-link defects repaired during production before this public-interface candidate review."
+  },
+  "reverseBrief": {
+    "humanQuestion": "My boss wants a weekly project update. How can AI help me prepare it without sharing confidential information?",
+    "promisedPayoff": "Get a blank useful update structure without giving away project facts.",
+    "centralMentalModel": "The tool can propose structure without project secrets. Keep sensitive facts outside the prompt; labels alone do not erase context. Fill and check facts in the approved work system.",
+    "dailyLifeConnection": "Ask for headings and placeholders, then add facts inside the approved company document.",
+    "surfaceJob": "A concise reviewed answer to an explicit question, with sources and correction controls.",
+    "desiredReaderFeeling": "Able to take one useful step while retaining judgement."
+  }
+}

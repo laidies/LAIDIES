@@ -1001,9 +1001,9 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
     <div class="jv-chips" aria-label="Common questions for Miss Jeeves">
       <b>Common questions:</b>
       <button class="jv-chip" type="button">How do I ask AI a question so it gives me a useful answer?</button>
-      <button class="jv-chip" type="button">Can I upload a work document?</button>
-      <button class="jv-chip" type="button">How do I check an AI answer?</button>
-      <button class="jv-chip" type="button">What can AI help me do at work?</button>
+      <button class="jv-chip" type="button">How can AI help me structure a weekly project update without sharing confidential details?</button>
+      <button class="jv-chip" type="button">Why can AI sound confident and still be wrong?</button>
+      <button class="jv-chip" type="button">What should I avoid sharing with an AI tool?</button>
     </div>
     <div class="jv-results" id="jv-results" aria-live="polite" aria-atomic="true"></div>
   </section>
@@ -1471,6 +1471,8 @@ let jeevesPlacement='library';
 let jeevesPendingResearch=null;
 async function askMissJeeves(value,intent='search'){
   const query=String(value||'').trim().slice(0,240);
+  const questionInput=document.getElementById('jv-q');
+  questionInput.setSelectionRange(0,0);questionInput.scrollLeft=0;
   const normalized=normalizeJeevesQuery(query);
   const box=document.getElementById('jv-results');
   if(!normalized){box.innerHTML='';document.getElementById('jv-q').focus();return;}
@@ -1547,8 +1549,8 @@ document.getElementById('jv-results').addEventListener('click',event=>{
 document.querySelectorAll('.jv-chip').forEach(button=>button.addEventListener('click',()=>{
  const input=document.getElementById('jv-q');
  input.value=button.textContent.trim();
- askMissJeeves(input.value);
  input.focus();
+ askMissJeeves(input.value);
 }));
 
 function renderShelfCopy(b,txt,toc,fallback){

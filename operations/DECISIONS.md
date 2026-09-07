@@ -212,3 +212,10 @@ current source or silently become implementation authority.
 Write a new decision into the narrowest current domain source in the same task.
 Add or change a row here only when routing itself changes. Do not grow this file
 into another decision ledger.
+
+
+## 2026-09-07 — Stable review exemplars and exact reusable FAQ bindings
+
+The positive Straight Answers architecture exemplar now points to the archived exact registered SHA8cd3d bytes at operations/product-stewards/learning-content-ecosystem/quality-exemplars/straight-answers-architecture-positive.md. The current book remains unchanged. Mutable publication paths must not serve as immutable calibration artifacts; archive the registered bytes before a successor changes that path. Its dated product claims are not admitted by an architecture calibration.
+
+A PASS label cannot override a failed minimum dimension. The first prompting preview received voice2 and remained HOLD despite the reviewer label; only its independently reviewed successor is reusable. Maker observations must describe a literal current candidate passage, not a source analogy or another answer's boilerplate. Original findings remain preserved. Four final FAQ records have separate source, alias and review fingerprints; failed retrieval, source change or expiry blocks reuse. Only the preview environment may enable this candidate; paid general research and production promotion remain held.

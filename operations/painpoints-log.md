@@ -14928,3 +14928,14 @@ while remaining falsely unfinished in the launch record.
   the model we thought it was. A working response is not the same as a verified
   service, a complete answer or an affordable operating model.
 - **Status:** LOCAL IMPLEMENTATION / RELEASE HOLD; no Miss Jeeves cloud changes.
+
+
+## BTB-JEEVES-20260907 — Reviewed answers need checked consumers and honest review records
+
+The four pilot FAQs are repaired, independently reviewed and saved as immutable internal versions. A homepage consumer still rejected reviewed-answer responses even though the Library consumer accepted them; its exact owned handler now renders the answer, sources, checked date and Library continuation. Real browser checks at320/390/1280/1440 returned all four exact answers with no paid calls.
+
+Failures retained: live Sol regression outputs still had generic prose and unnecessary changing product claims, so both remain HOLD. One reviewer PASS label hid a voice2 score; enforcing the minimum forced a better prompting answer. Root maker notes accidentally described a source analogy as present in the candidate; the independent reviewer caught it, and the correction withdraws that claim. A mutable positive-exemplar book path no longer matched its registered bytes; archive the exact original, never overwrite the current book to make a validator pass.
+
+Prevention: test every response consumer and changed-context near match; require fetched article/PDF content rather than HTTP200 as freshness proof; validate score thresholds separately from labels; derive each qualitative observation from the current text. Preserve raw review quotations, but bind only exact matching excerpts; an imprecise quotation is not evidence. Screenshot capture must start at document origin to prevent sticky headers being stitched across the answer.
+
+Behind the Build: a reusable answer is an explanation plus its conditions, evidence, review and expiry. Fast reuse needs a safe way to decline as well as a safe way to answer. Public freeform research is not ready merely because four edited examples are good.

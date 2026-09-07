@@ -1,0 +1,665 @@
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="secondary no-js" lang="en" dir="ltr">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+    wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+
+    <title>Principles for responsible, trustworthy and privacy-protective generative AI technologies - Office of the Privacy Commissioner of Canada</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <!-- Meta data -->
+        <meta name="description" content="Considerations for the application of key privacy principles to generative &lt;abbr title=&quot;artificial intelligence&quot;&gt;AI&lt;/abbr&gt; technologies." />
+        <meta name="dcterms.subject" title="scheme" content="Considerations for the application of key privacy principles to generative &lt;abbr title=&quot;artificial intelligence&quot;&gt;AI&lt;/abbr&gt; technologies." />
+
+    <meta name="dcterms.title" content="Principles for responsible, trustworthy and privacy-protective generative AI technologies" />
+    <meta name="dcterms.creator" content="Office of the Privacy Commissioner of Canada" />
+    <meta name="dcterms.issued" title="W3CDTF" content="2023-12-07" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2025-05-06" />
+    <meta name="dcterms.language" title="ISO639-2" content="eng" />
+
+
+    <meta name="referrer" content="same-origin" />
+
+    <!-- Meta data-->
+    <!--[if gte IE 9 | !IE ]><!-->
+    <link rel="icon" type="image/x-icon" href="/wet/gcweb-opc/assets/favicon.ico" />
+    <link rel="stylesheet" href="/wet/gcweb-opc/css/theme.min.css" />
+    <!--<![endif]-->
+    <!--[if lt IE 9]>
+        <link href="/wet/gcweb-opc/assets/favicon.ico" rel="shortcut icon" />
+
+        <link rel="stylesheet" href="/wet/gcweb-opc/css/ie8-theme.min.css" />
+        <script src="/wet/wet-boew/js/jquery/1.11.1/jquery.min.js"></script>
+        <script src="/wet/wet-boew/js/ie8-wet-boew.min.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+
+    <![endif]-->
+    <noscript><link rel="stylesheet" href="/wet/wet-boew/css/noscript.min.css" /></noscript>
+
+    <link rel="stylesheet" href="/css/opc-style.css" />
+
+    
+    
+
+    <link rel="stylesheet" href="/cms-css/feedback.css" />
+
+    <script type="text/javascript">
+
+        var _paq = (function (paq) {
+            var removeTrailingSlash = function (site) {
+                // if site has an end slash (like: www.example.com/),
+                // then remove it and return the site without the end slash
+                return site.replace(/\/$/, ''); // Match a forward slash / at the end of the string ($)
+            }
+
+paq.push(['setCustomVariable', '1', 'Sections of the Site', 'Publications', 'page']); 
+paq.push(['setCustomVariable', '2', 'Types of Publication', 'Guidance for organizations', 'page']); 
+
+
+                        // Push the english url in lower case for consistent results
+                        var u = "/m/";
+            var url = removeTrailingSlash(window.location.href).toLowerCase();
+                        var ipsource = 'external';
+
+            paq.push(['setCustomDimension', '2', url]);
+            paq.push(['setCustomDimension', '3', ipsource]);
+            paq.push(['setCustomUrl', url]);
+            paq.push(['enableLinkTracking']);
+            paq.push(['trackPageView']);
+            paq.push(['trackVisibleContentImpressions']);
+            paq.push(['setTrackerUrl', u + 'm.php']);
+            paq.push(['setSiteId', '1']);
+
+        var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript'; g.async = true; g.defer = true; g.src = u + 'm.js'; s.parentNode.insertBefore(g, s);
+
+        return paq;
+        })(window._paq || []);
+
+    </script>
+
+
+</head>
+<body class="secondary" vocab="http://schema.org/" typeof="WebPage">
+    <section aria-label="Skip to">
+        <ul id="wb-tphp">
+            <li class="wb-slc">
+                <a class="wb-sl" href="#wb-cont">Skip to main content</a>
+            </li>
+            <li class="wb-slc visible-sm visible-md visible-lg">
+                <a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+            </li>
+        </ul>
+    </section>
+    <header role="banner">
+        <div id="wb-bnr" class="container">
+            <section id="wb-lng" class="visible-md visible-lg text-right" aria-labelledby="lang-section">
+                <h2 id="lang-section" class="wb-inv">Language selection</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="list-inline margin-bottom-none">
+                            <li><a lang="fr" hreflang="fr" href="/fr/sujets-lies-a-la-protection-de-la-vie-privee/technologie/intelligence-artificielle/gd_principes_ia/">Français</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <div class="row">
+                <div class="brand col-xs-8 col-sm-9 col-md-5">
+                    <a href="/en">
+                        <img class="visible-print-block" src="/wet/gcweb-opc/assets/opc-blk-en.png" alt="">
+                        <img src="/wet/gcweb-opc/assets/opc-wht-en.png" class="hidden-print img img-responsive" alt="OPC Logo" />
+                        <span class="wb-inv"> Office of the Privacy Commissioner of Canada</span>
+                    </a>
+                </div>
+
+                <section class="wb-mb-links col-xs-4 col-sm-3 visible-sm visible-xs" id="wb-glb-mn" aria-labelledby="search-menu-section">
+                    <h2 id="search-menu-section">Search and menus</h2>
+                    <ul class="list-inline text-right chvrn">
+                        <li>
+                            <a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk" role="button">
+                                <span class="glyphicon glyphicon-search">
+                                    <span class="glyphicon glyphicon-th-list">
+                                        <span class="wb-inv">Search and menus</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div id="mb-pnl"></div>
+                </section>
+
+                <section id="wb-srch" class="col-xs-7 text-right visible-md visible-lg" aria-labelledby="search-section">
+                    <h2 id="search-section">Search</h2>
+
+<form action="/en/search" class="form-inline" enctype="multipart/form-data" id="formfe1fd8889ee94dbdbdea04482d6e1365" method="post" name="cse-search-box" role="search">                        <div class="form-group">
+                            <label for="wb-srch-q" class="wb-inv">Search website</label>
+                            <input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="t" type="search" value="" size="27" maxlength="150" placeholder="Search priv.gc.ca" />
+                            <datalist id="wb-srch-q-ac">
+                                <!--[if lte IE 9]><select><![endif]-->
+                                <!--[if lte IE 9]></select><![endif]-->
+                            </datalist>
+                        </div>
+                        <div class="form-group submit">
+                            <button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub"><span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
+                        </div>
+<input name="__RequestVerificationToken" type="hidden" value="CfDJ8I6gV6CnbC1GnLOCZ41FdjHHTE3E1bN8wPl3BsVwnd-3NYYNLHxC-tDPkvbV7EhtyBfFAw79F4vfZH8nSPgFRRz9Uari4gCX13uUY8FPjVkZxY_S-tOxoFP_ZiuXwrq36CXpO2b3Vgohu_Nvu2rv6ws" /><input name="ufprt" type="hidden" value="CfDJ8I6gV6CnbC1GnLOCZ41FdjGhDl84rDvNPZUYQJoqTGVG0lHqSkYE6sFfWZ-rL1BYJnT-UWfrPcwcSitBfFGRmCL0JPTtOtLknDuauwMfgTXE5cVoDT6vkZeaQwbTb1ivP0mgkM-r14ybsth1Ph9sIGE" /></form>                </section>
+            </div>
+        </div>
+        <nav id="wb-sm" data-ajax-replace="/ajax/sitemenu-en" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement" aria-labelledby="topics-menu-section">
+            <div class="container nvbar">
+                <h2 id="topics-menu-section">Topics menu</h2>
+                <div class="row">
+                    <ul class="list-inline menu">
+                        <li><a href="/en/for-individuals/" class="item">For individuals</a></li>
+                        <li><a href="" class="item">For businesses</a></li>
+                        <li><a href="/en/for-federal-institutions/" class="item">For federal institutions</a></li>
+                        <li><a href="/en/report-a-concern/" class="item">Report a concern</a></li>
+                        <li><a href="/en/opc-actions-and-decisions/" class="item">OPC actions and decisions</a></li>
+                        <li><a href="/en/about-the-opc/" class="item">About the OPC</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <nav id="wb-bc" property="breadcrumb" aria-labelledby="you-are-here">
+            <h2 id="you-are-here">You are here:</h2>
+            <div class="container">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        
+                        <li><a href="/en/">Home</a></li><li><a href="/en/privacy-topics/">Privacy topics</a></li><li><a href="/en/privacy-topics/technology/">AI, technology and innovation</a></li><li><a href="/en/privacy-topics/technology/artificial-intelligence/">Privacy and artificial intelligence (AI)</a></li>
+                    </ol>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main property="mainContentOfPage" class="container">
+        <div class="row">
+                    <section class="col-md-8 pull-right" aria-label="Main content">
+                        
+
+			<div class="col-md-12">
+				<h1 id="wb-cont">Principles for responsible, trustworthy and privacy-protective generative <abbr title="artificial intelligence">AI</abbr> technologies</h1>
+			</div>
+
+                        <div class="row">
+                            <div class="col-md-12 img-responsive">
+                                <div class="visible-print-block" style="margin: 40px 0;"></div>
+                                
+
+                                
+                                
+<p><strong>December 7, 2023</strong></p>
+<p>Within the overall context of ongoing advances in <abbr title="artificial intelligence">AI</abbr> technologies, one version of the technology has seen particularly rapid development, proliferation of use cases, and increase in adoption of late: generative <abbr title="artificial intelligence">AI</abbr>. Generative <abbr title="artificial intelligence">AI</abbr> is a subset of machine learning in which systems are trained on massive information sets – often including personal information – to generate content such as text, computer code, images, video, or audio in response to a user prompt. This content is probabilistic, and may vary even in response to multiple uses of the same or similar prompts.</p>
+<p>Authorities across multiple fields around the world are recognizing the potential risks posed by this technology, including the June 2023 publication of a joint statement from <abbr>G7</abbr> data protection and privacy authorities on generative <abbr title="artificial intelligence">AI</abbr> technologies<sup id="fn1-rf"><a href="#fn1" class="fn-lnk"><span class="wb-inv">Footnote </span>1</a></sup>, the November 2023 <abbr>G7</abbr> Leaders Statement which included guiding principles and a code of conduct for organizations developing advanced <abbr title="artificial intelligence">AI</abbr> systems<sup id="fn2-rf"><a href="#fn2" class="fn-lnk"><span class="wb-inv">Footnote </span>2</a></sup>, and the October 2023 Global Privacy Assembly resolution on generative <abbr title="artificial intelligence">AI</abbr> systems.<sup id="fn3-rf"><a href="#fn3" class="fn-lnk"><span class="wb-inv">Footnote </span>3</a></sup> The Office of the Privacy Commissioner of Canada (<abbr>OPC</abbr>) and its counterparts in British Columbia, Quebec and Alberta also have an open investigation relating to a particular generative <abbr title="artificial intelligence">AI</abbr> service.<sup id="fn4-rf"><a href="#fn4" class="fn-lnk"><span class="wb-inv">Footnote </span>4</a></sup> Privacy authorities from countries around the world have recently called on organizations to exercise great caution before scraping<sup id="fn5-rf"><a href="#fn5" class="fn-lnk"><span class="wb-inv">Footnote </span>5</a></sup> “publicly accessible” personal information, which is still subject to data protection and privacy laws in most jurisdictions.<sup id="fn6-rf"><a href="#fn6" class="fn-lnk"><span class="wb-inv">Footnote </span>6</a></sup> Such scraping is common practice when training generative <abbr title="artificial intelligence">AI</abbr> systems. Privacy authorities have also been working with their counterparts in related fields – such as human rights commissioners – to call for strong guardrails that ensure <abbr title="artificial intelligence">AI</abbr> systems are safe, privacy protective, transparent, accountable, and human rights affirming.<sup id="fn7-rf"><a href="#fn7" class="fn-lnk"><span class="wb-inv">Footnote </span>7</a></sup></p>
+<p>While generative <abbr title="artificial intelligence">AI</abbr> tools may pose novel risks to privacy and raise new questions and concerns about the collection, use and disclosure of personal information, they do not occupy a space outside of current legislative frameworks. Organizations developing, providing, or using generative <abbr title="artificial intelligence">AI</abbr> are obligated to ensure that their activities comply with applicable privacy laws and regulations in Canada. Organizations should also recognize that to build and maintain a digital society in which innovation is socially-beneficial and human dignity is protected, <abbr title="artificial intelligence">AI</abbr> development and use have to be responsible and trustworthy.</p>
+<h2>About this document</h2>
+<p>In this document, we identify considerations for the application of key privacy principles to generative <abbr title="artificial intelligence">AI</abbr> technologies.<sup id="fn8-rf"><a href="#fn8" class="fn-lnk"><span class="wb-inv">Footnote </span>8</a></sup> We recognize that generative <abbr title="artificial intelligence">AI</abbr> is an emerging field, and that our understanding of it will evolve over time. Canada’s federal, provincial, and territorial privacy commissioners will continue to explore this complex topic and may provide guidance or other resources as we learn more about the technology and its potential risks, including as formal investigations related to the technology are completed.</p>
+<p>Obligations under privacy legislation in Canada will vary by nature of the organization (such as whether it is in the private, health, or public sector) as well as the activities it undertakes. As such, while we use “should” throughout this document many of the considerations listed will be required for an organization to comply with applicable privacy law. Organizations are responsible for understanding, and complying with, these laws. We also note that the principles set out below do not exhaustively reflect all compliance requirements under privacy and other laws and do not bind any specific investigations or adjudications carried out by Canada’s federal, provincial, or territorial privacy commissioners, depending on the individual circumstances of each case.</p>
+<h2>Intended Audience for this Document</h2>
+<p>This document is intended to help organizations developing, providing or using generative <abbr title="artificial intelligence">AI</abbr> apply key Canadian privacy principles. For this document, we use the following terminology:</p>
+<p class="indent"><strong>Developers and Providers</strong><sup id="fn9-rf"><a href="#fn9" class="fn-lnk"><span class="wb-inv">Footnote </span>9</a></sup>: Individuals or organizations that develop (including training) foundation models or generative <abbr title="artificial intelligence">AI</abbr> systems, or that put such services onto the market. In short, those organizations that determine how a generative <abbr title="artificial intelligence">AI</abbr> system operates, how it is initially trained and tested, and how it can be used.</p>
+<p class="indent"><strong>Organizations using Generative AI</strong>: Organizations (or individuals acting on behalf of an organization) using a generative <abbr title="artificial intelligence">AI</abbr> system as part of their activities. This could include both public-facing uses (i.e. a generative AI-based chatbot to interact with clients) or private use (i.e. the use of generative <abbr title="artificial intelligence">AI</abbr> as part of a decision-making system). Organizations that refine a foundation model for a specific purpose (such as by further training it on a dataset proprietary to the organization) are included in this category.</p>
+<p>An organization might shift between or play multiple roles at once. The activities undertaken (including collection, use, or disclosure of personal information) by an organization will also vary within each group. However, the division into ‘developers and providers’ and ‘organizations using generative AI’ is a useful way to examine the application of privacy principles to multiple elements of the generative <abbr title="artificial intelligence">AI</abbr> ecosystem<sup id="fn10-rf"><a href="#fn10" class="fn-lnk"><span class="wb-inv">Footnote </span>10</a></sup>.</p>
+<p>For clarity, these Principles focus on privacy legislation and regulation, and how they may apply to organizations. However, we recognize that individuals or organizations may have further obligations, restrictions, or responsibilities pursuant to other laws, regulations, or policies.</p>
+<div class="box">
+<h3>Special consideration: The unique impact on vulnerable groups</h3>
+<p>When applying the principles set out below, developers, providers and organizations using generative <abbr title="artificial intelligence">AI</abbr> should give particular consideration to their mutually-shared responsibility to identify and prevent risks to vulnerable groups, including children and groups that have historically experienced discrimination or bias.</p>
+<p>Developers, providers, and organizations using generative <abbr title="artificial intelligence">AI</abbr> systems must all actively work to ensure the fairness of these systems. When developing a generative <abbr title="artificial intelligence">AI</abbr> system, this means evaluating the training data sets to ensure that they do not replicate, entrench, or amplify historical or present biases – or introduce new biases. When deploying such a system, this could mean establishing additional oversight and review of outputs, or enhanced monitoring for potential adverse effects. Without these steps, the use of generative <abbr title="artificial intelligence">AI</abbr> models and applications may be more likely to result in discriminatory outcomes based on race, gender, sexual orientation, disability, or other protected characteristics, particularly where they are used as part of an administrative decision-making process (whether or not that process is fully automated) or in highly impactful contexts such as health care, employment, education, policing, immigration, criminal justice, housing or access to finance.</p>
+<p>Children are particularly at high risk of significant negative impact by <abbr title="artificial intelligence">AI</abbr> technologies, including generative <abbr title="artificial intelligence">AI</abbr>. They may be less able than adults to identify or challenge biased or inaccurate information, or be more prone to having their agency limited by an <abbr title="artificial intelligence">AI</abbr> that generates information based on a restricted world view. Children should be able to benefit from technology safely and free from fear that they may be targeted, manipulated, or harmed. Young people are also generally less able to understand and appreciate the long-term implications of data collection, use and disclosure which is why they need even greater privacy safeguards.</p>
+<p>Developers, providers and organizations using generative <abbr title="artificial intelligence">AI</abbr> tools should work together to ensure that risks to vulnerable populations are mitigated, including through important protective measures such as privacy impact assessments.</p>
+</div>
+<hr>
+<h2>Principles for the Development, Provision, and Use of Generative <abbr title="artificial intelligence">AI</abbr> systems</h2>
+<h3>1. Legal Authority and Consent</h3>
+<p><em>Ensure legal authority for collecting and using personal information; when consent is the legal authority, it should be valid and meaningful.</em></p>
+<p>All parties should:</p>
+<ul>
+<li>Know and document their legal authority for collection, use, disclosure and deletion of personal information that occurs as part of the training, development, deployment, operation, or decommissioning of a generative <abbr title="artificial intelligence">AI</abbr> system.</li>
+<li>Ensure that where consent is the legal authority for collection, use or disclosure of personal information, it is valid and meaningful.<sup id="fn11-rf"><a href="#fn11" class="fn-lnk"><span class="wb-inv">Footnote </span>11</a></sup> Consent should be as specific as possible, and deceptive design patterns should be avoided.</li>
+<li>Ensure that where personal information is sourced from third parties, the third parties have collected it lawfully and have authority to disclose it.</li>
+<li>Be mindful that the inference of information about an identifiable individual (such as outputs about a person from a generative <abbr title="artificial intelligence">AI</abbr> system) will be considered a collection of personal information, and as such would require legal authority.</li>
+<li>In contexts where information is sensitive and consent (even where provided) may be inappropriate or inadequate, such as in health care, establish a separate review process which takes into account both the privacy and ethics of the proposed use of the information and which is subject to independent oversight.</li>
+</ul>
+<h3>2. Appropriate Purposes</h3>
+<p><em>Collection, use and disclosure of personal information should only be for appropriate purposes.</em></p>
+<p>All parties should:</p>
+<ul>
+<li>Ensure that any collection, use or disclosure of personal information associated with a generative <abbr title="artificial intelligence">AI</abbr> system be for appropriate purposes. In many Canadian jurisdictions, this means for purposes that a reasonable person would consider appropriate in the circumstances.<sup id="fn12-rf"><a href="#fn12" class="fn-lnk"><span class="wb-inv">Footnote </span>12</a></sup></li>
+<li>Consider also the legitimacy of the <em>manner</em> of any collection, use and disclosure of personal information in relation to a generative <abbr title="artificial intelligence">AI</abbr> system. This includes consideration of whether the use of the generative <abbr title="artificial intelligence">AI</abbr> system is appropriate for the specific application.</li>
+</ul>
+<p>Developers and providers of generative <abbr title="artificial intelligence">AI</abbr> systems should:</p>
+<ul>
+<li>Not develop or put into service generative <abbr title="artificial intelligence">AI</abbr> systems that violate “no-go zones”<sup id="fn13-rf"><a href="#fn13" class="fn-lnk"><span class="wb-inv">Footnote </span>13</a></sup> such as profiling that may lead to unfair, unethical, or discriminatory treatment, or creating outputs that threaten fundamental rights and freedoms.</li>
+<li>Use an adversarial or red team<sup id="fn14-rf"><a href="#fn14" class="fn-lnk"><span class="wb-inv">Footnote </span>14</a></sup> testing process to identify potential unintended inappropriate uses of the generative <abbr title="artificial intelligence">AI</abbr> system.</li>
+<li>Where potential unintended inappropriate uses are identified, take appropriate steps to mitigate the likelihood of, or potential risks associated with, such uses. This might include establishing technical measures to prevent the inappropriate use or developing appropriate use policies to which individuals or organizations using the generative <abbr title="artificial intelligence">AI</abbr> system must agree in advance of use.</li>
+</ul>
+<p>Organizations using generative <abbr title="artificial intelligence">AI</abbr> systems should:</p>
+<ul>
+<li>Only use generative <abbr title="artificial intelligence">AI</abbr> tools that respect privacy laws and best practices, including with respect to the personal information collected or used for training or operation of the system.</li>
+<li>Avoid prompting a generative <abbr title="artificial intelligence">AI</abbr> system to re-identify any previously de-identified data.</li>
+<li>Monitor for, and notify developers or providers of, potential inappropriate uses or biased outcomes that have not been disclosed as a potential limitation of the system.</li>
+<li>Avoid inappropriate uses of generative <abbr title="artificial intelligence">AI</abbr> tools, including ‘no-go zones’ such as the collection, use, or disclosure of personal information that is otherwise unlawful; profiling or categorization that may lead to unfair, unethical, or discriminatory treatment that is contrary to human rights law; the collection, use, or disclosure of personal information for purposes that are known or likely to cause significant harm to individuals or groups, or activities which are known or likely to threaten fundamental rights and freedoms.</li>
+<li>If use of a generative <abbr title="artificial intelligence">AI</abbr> system is detected to violate a ‘no-go zone’, cease the activity.</li>
+</ul>
+<div class="box">
+<p class="text-center"><strong>Potential emerging ‘no-go zones’</strong></p>
+<p>Firm rulings on the legality of certain practices – such as through investigative or legal findings – have not yet been made in the context of generative AI, nor have Canada’s federal, provincial or territorial privacy commissioners issued policy positions on generative <abbr title="artificial intelligence">AI</abbr> no-go zones.</p>
+<p>However, we anticipate (without binding future investigations, legal findings or policy positions) that such no-go zones may include purposes such as:</p>
+<ul>
+<li>the creation of <abbr title="artificial intelligence">AI</abbr> content (including deep fakes) for malicious purposes, such as to bypass an authentication system or to generate intimate images of an identifiable person without their consent;</li>
+<li>the use of conversational bots to deliberately nudge individuals into divulging personal information (and, in particular, sensitive personal information) that they would not have otherwise; or,</li>
+<li>the generation and publication of false or defamatory information about an individual.</li>
+</ul>
+</div>
+<h3>3. Necessity and proportionality</h3>
+<p><em>Establish the necessity and proportionality of using generative AI, and personal information within generative <abbr title="artificial intelligence">AI</abbr> systems, to achieve intended purposes.</em></p>
+<p>All parties should:</p>
+<ul>
+<li>Use anonymized, synthetic, or de-identified data rather than personal information where the latter is not required to fulfill the identified appropriate purpose(s).</li>
+</ul>
+<p>Organizations using generative <abbr title="artificial intelligence">AI</abbr> systems should:</p>
+<ul>
+<li>Consider whether the use of a generative <abbr title="artificial intelligence">AI</abbr> system is necessary and proportionate, particularly where it may have a significant impact<sup id="fn15-rf"><a href="#fn15" class="fn-lnk"><span class="wb-inv">Footnote </span>15</a></sup> on individuals or groups. This means that the tool should be more than simply potentially useful. This consideration should be evidence-based and establish that the tool is both necessary and likely to be effective in achieving the specified purpose.</li>
+<li>Evaluate the validity and reliability of the generative <abbr title="artificial intelligence">AI</abbr> tool for the intended purpose.<sup id="fn16-rf"><a href="#fn16" class="fn-lnk"><span class="wb-inv">Footnote </span>16</a></sup> Tools must be accurate throughout the intended lifecycle of the tool and across the variety of circumstances in which they are used.</li>
+<li>Consider whether there are other more privacy-protective technologies that can be used to achieve the same purpose.</li>
+</ul>
+<h3>4. Openness</h3>
+<p><em>Be open and transparent about the collection, use and disclosure of personal information and the potential risks to individuals’ privacy.</em></p>
+<p>All parties should:</p>
+<ul>
+<li>Inform individuals what, how, when, and why personal information is collected, used or disclosed throughout any stage of the generative <abbr title="artificial intelligence">AI</abbr> system’s lifecycle (including development, training and operation) for which the party is responsible. This includes stating the appropriate purposes for these collections, uses and disclosures. Ensure that system outputs that could have a significant impact on an individual or group are meaningfully identified as being created by a generative <abbr title="artificial intelligence">AI</abbr> tool.</li>
+<li>Ensure that all information communicated about a generative <abbr title="artificial intelligence">AI</abbr> system is designed to be understandable by the intended audience, and made readily available both before, during and after use of the system.</li>
+</ul>
+<p>Developers and providers of generative <abbr title="artificial intelligence">AI</abbr> systems should:</p>
+<ul>
+<li>Inform organizations using, and any individuals interacting with, a generative <abbr title="artificial intelligence">AI</abbr> system about both the primary purpose(s) and any secondary purpose, such as where personal information collected from prompts is used for further training or refining of an <abbr title="artificial intelligence">AI</abbr> model.</li>
+<li>Ensure that organizations using a generative <abbr title="artificial intelligence">AI</abbr> system are made aware of any known or likely risks associated with that system, including any known or reasonably expected failure cases (such as inputs or contexts in which the system may produce incorrect information, particularly if that system will foreseeably be used in a process to make decisions about individuals).</li>
+<li>Inform organizations using a generative <abbr title="artificial intelligence">AI</abbr> system about any known policies and practices that could reasonably be used to mitigate identified privacy risks, where the developer or provider cannot implement those policies or practices themselves.</li>
+<li>Maintain and publish documentation about the datasets used to develop or train the generative <abbr title="artificial intelligence">AI</abbr> tool, including the sources of the datasets, the legal authority for its collection and use, whether there are any licensing agreements or other restrictions on the acceptable uses of the datasets, and any modification, filtering or other curation practices applied to the datasets.</li>
+</ul>
+<p>Organizations using generative <abbr title="artificial intelligence">AI</abbr> systems should:</p>
+<ul>
+<li>Clearly communicate to any affected party whether a generative <abbr title="artificial intelligence">AI</abbr> tool will be used as part of a decision-making process, and if so, in what capacity, with what safeguards, and what options or recourse are available to the affected party (particularly where a decision may have a significant impact on an individual). This explanation should also include a general description of the functioning of the system, how it is used to make a decision or take an action, and an overview of potential outcomes.</li>
+<li>Describe what, if any, personal information was used to re-train or refine the generative <abbr title="artificial intelligence">AI</abbr> system for their specific use.</li>
+<li>Where a generative <abbr title="artificial intelligence">AI</abbr> tool is public-facing, ensure that individuals interacting with the tool are aware that they are interacting with a generative <abbr title="artificial intelligence">AI</abbr> tool and that they are informed about both privacy risks and any mitigations available to them (such as not entering personal information into a prompt, unless necessary).</li>
+</ul>
+<h3>5. Accountability</h3>
+<p><em>Establish accountability for compliance with privacy legislation and principles and make <abbr title="artificial intelligence">AI</abbr> tools explainable.</em></p>
+<p>All parties should:</p>
+<ul>
+<li>Recognize that they are responsible for compliance with privacy legislation, and should be able to demonstrate this compliance.</li>
+<li>Have a clearly defined internal governance structure for privacy compliance, including defined roles and responsibilities, policies and practices establishing clear expectations with respect to compliance with privacy obligations.</li>
+<li>Establish a mechanism by which the organization can receive and respond to privacy-related questions or complaints.</li>
+<li>Undertake assessments, such as Privacy Impact Assessments (<abbr>PIA</abbr>s) and/or Algorithmic Impact Assessments (<abbr>AIA</abbr>s), to identify and mitigate against potential or known impacts that the generative <abbr title="artificial intelligence">AI</abbr> system (or proposed use thereof, as applicable) may have with respect to privacy and other fundamental rights.</li>
+<li>Regularly re-visit and re-evaluate accountability measures (including bias testing and assessments), given the evolving nature of both generative <abbr title="artificial intelligence">AI</abbr> systems and <abbr title="artificial intelligence">AI</abbr> regulation.</li>
+</ul>
+<p>Developers and providers of generative <abbr title="artificial intelligence">AI</abbr> systems should:</p>
+<ul>
+<li>Take appropriate steps to make the outputs from generative <abbr title="artificial intelligence">AI</abbr> systems traceable and explainable. In summary, this includes a complete account of how the system works (traceability) and a rationale for how an output was arrived at. Where a developer or provider is of the opinion that outputs from a generative <abbr title="artificial intelligence">AI</abbr> tool <em>are not</em> explainable, this should be made explicit to any organization using or individual interacting with the tool to allow them to determine whether the tool is appropriate for use for their intended purpose.</li>
+<li>If revealing a generative AI’s training data would impact individuals’ privacy, ensure that testing is done on the system’s vulnerability to data extraction and other methods by which training data could be revealed to a third party.</li>
+<li>Undertake independent auditing to assess the validity and reliability of the system, confirm compliance with privacy legislation, test outputs for inaccuracies and biases, and recommend effective guardrail measures to mitigate potential risks. Developers and providers are also encouraged to allow independent researchers, data protection authorities, and other relevant oversight bodies to assess and audit their generative <abbr title="artificial intelligence">AI</abbr> systems (or foundation model) for potential risks and impacts.</li>
+</ul>
+<p>Organizations using generative <abbr title="artificial intelligence">AI</abbr> systems should:</p>
+<ul>
+<li>Know that accountability for decisions rests with the organization, and not with any kind of automated system used to support the decision-making process.</li>
+<li>Ensure that impacted individuals are provided with an effective challenge mechanism for any administrative or otherwise significant decision made about them. This includes maintaining and providing on request sufficient information for that person to be able to understand how a decision was reached, and allowing them the opportunity to request human review and/or re-consideration of the decision.</li>
+<li>If the outputs of a generative <abbr title="artificial intelligence">AI</abbr> system are not meaningfully explainable, consider whether the proposed use is appropriate.</li>
+</ul>
+<h3>6. Individual Access</h3>
+<p><em>Facilitate individuals’ right to access their personal information by developing procedures that enable it to be meaningfully exercised.</em></p>
+<p>All parties should:</p>
+<ul>
+<li>Ensure that procedures exist for individuals to access and correct any information collected about them during their use of the system.</li>
+<li>Develop processes to permit individuals to exercise their ability to access or correct personal information contained in an <abbr title="artificial intelligence">AI</abbr> model, particularly where that information may be included in outputs generated in response to a prompt.</li>
+</ul>
+<p>Organizations using generative <abbr title="artificial intelligence">AI</abbr> systems should:</p>
+<ul>
+<li>Where a generative <abbr title="artificial intelligence">AI</abbr> system is used as part of a decision-making process, maintain adequate records to allow for requests for access to information about that decision to be meaningfully fulfilled.</li>
+</ul>
+<h3>7. Limiting Collection, Use, and Disclosure</h3>
+<p><em>Limit the collection, use, and disclosure of personal information to only what is needed to fulfill the explicitly specified, appropriate identified purpose.</em></p>
+<p>All parties should:</p>
+<ul>
+<li>Ensure that the collection and use of personal information for training <abbr title="artificial intelligence">AI</abbr> tools is limited to what is necessary for the purpose, and use anonymized or de-identified data where possible. This can include the use of synthetic data.</li>
+<li>Avoid function creep, and only use personal information for purposes identified at the time of collection or (where permissible) for purposes that are consistent with the purpose for collection.</li>
+<li>Avoid indiscriminate collection of personal information based on assertions about the breadth of potential purposes for a generative <abbr title="artificial intelligence">AI</abbr> system.</li>
+<li>Recognize that the public accessibility of data does not mean that it can be indiscriminately collected or used. Personal information that is accessible online is still subject to Canadian legislation or other regulatory instruments – even where that information is defined as being ‘publicly available’.</li>
+<li>Establish and abide by appropriate retention schedules for personal information, including (as applicable) that contained within training data, system prompts, and outputs. These schedules should both (i) limit retention for information that is no longer required, and (ii) ensure that information is retained long enough for individuals to exercise their right to access (particularly where a decision has been made about them).</li>
+</ul>
+<p>Developers and providers of generative <abbr title="artificial intelligence">AI</abbr> systems should:</p>
+<ul>
+<li>Where possible and appropriate, use a filter or other process to remove personal information from data sets in advance of using them for training.</li>
+<li>Ensure that the outputs of <abbr title="artificial intelligence">AI</abbr> products and services disclose only personal information that is necessary to achieve the request in the prompt.</li>
+</ul>
+<p>Organizations using generative <abbr title="artificial intelligence">AI</abbr> systems should:</p>
+<ul>
+<li>Ensure that any inferences created about individuals are for specified and disclosed purposes, and that their accuracy can be reasonably assessed and validated.</li>
+<li>Treat any inferences generated about an identifiable individual as personal information.</li>
+<li>Where possible and reasonable, use anonymized or de-identified information within prompts to a generative <abbr title="artificial intelligence">AI</abbr> system rather than personal information.</li>
+<li>Where personal information (and, in particular, sensitive or confidential information) must be entered into a prompt, only do so where authorised.</li>
+<li>Unless otherwise required, prompts should not be retained, used for secondary purposes, or disclosed.</li>
+</ul>
+<h3>8. Accuracy</h3>
+<p><em>Personal information must be as accurate, complete, and up-to-date as is necessary for purposes for which it is to be used.</em></p>
+<p>Developers and providers of generative <abbr title="artificial intelligence">AI</abbr> systems should:</p>
+<ul>
+<li>Ensure that any personal information used to train their generative <abbr title="artificial intelligence">AI</abbr> models is as accurate as necessary for the purposes. This may require a detailed consideration; for instance, the introduction of 'inaccuracies’ by modifying a dataset to address a known bias (such as by enhancing it with synthetic data) may be preferable to use of the original ‘accurate’ dataset.</li>
+<li>Have a process by which a generative <abbr title="artificial intelligence">AI</abbr> system can be updated (for instance, by refining or retraining the model) where it becomes known that the information on which it was trained is inaccurate or out-of-date.</li>
+<li>Inform organizations using generative <abbr title="artificial intelligence">AI</abbr> about any known issues or limitations about the accuracy of generative <abbr title="artificial intelligence">AI</abbr> outputs. This may include where the training dataset is time bounded (i.e. only contains information up to a certain date); where it is from a single, non-representative source; or where there are particular use cases or inputs that tend to lead to inaccurate outputs.</li>
+</ul>
+<p>Organizations using generative <abbr title="artificial intelligence">AI</abbr> systems should:</p>
+<ul>
+<li>Ensure that personal information is as accurate, complete and up-to-date as necessary for the purpose whenever it must be entered into a generative <abbr title="artificial intelligence">AI</abbr> prompt or is used to train a bespoke generative <abbr title="artificial intelligence">AI</abbr> model.</li>
+<li>Evaluate the impacts of any accuracy issues or limitations disclosed by the provider or developer of the generative <abbr title="artificial intelligence">AI</abbr> system, such as time-bounded or single-source training data, on the use of the system. If this has not been disclosed and is not otherwise available, consider whether the use of the system remains appropriate and/or legally authorized.</li>
+<li>Take reasonable steps to ensure that any outputs from a generative <abbr title="artificial intelligence">AI</abbr> tool are accurate as necessary for the purpose, especially if those outputs are used to make or assist in decisions about an individual or individuals, will be used in high-risk contexts, or will be released publicly.</li>
+<li>If the proposed use of a generative <abbr title="artificial intelligence">AI</abbr> system relates to a specific group, take appropriate measures to ensure that that group is adequately and accurately represented in the system’s training data.</li>
+<li>Be aware that issues regarding the accuracy of training data or outputs may make a generative <abbr title="artificial intelligence">AI</abbr> system inappropriate for use (either in general or where such use could have significant impacts on an individual).</li>
+</ul>
+<h3>9. Safeguards</h3>
+<p><em>Establish safeguards to protect personal information and mitigate potential privacy risks.</em></p>
+<p>All parties should:</p>
+<ul>
+<li>Safeguard any personal information collected or used throughout the lifecycle of a generative <abbr title="artificial intelligence">AI</abbr> tool with measures commensurate to the sensitivity of the information.</li>
+<li>Maintain ongoing awareness of, and mitigations against, threats that are of particular concern when using generative AI, which include but are not limited to prompt injection attacks (in which carefully crafted prompts bypass filters or make the model perform unanticipated actions); model inversion attacks (in which personal information contained in the model’s training data is exposed); and jailbreaking (in which privacy or security controls in the tool are overridden).</li>
+</ul>
+<p>Developers and providers of generative <abbr title="artificial intelligence">AI</abbr> systems should:</p>
+<ul>
+<li>Design products and services to prevent the inappropriate use of their tools and limit or prohibit the creation of illegal or harmful content. This includes safeguards and guardrails that prevent inappropriate uses that may lead to unfair, unethical, or discriminatory treatment, and threats to fundamental rights and freedoms.</li>
+<li>Monitor for instances of the generative <abbr title="artificial intelligence">AI</abbr> tool being used inappropriately and amend or correct systems to address these issues.</li>
+</ul>
+<p>Organizations using generative <abbr title="artificial intelligence">AI</abbr> systems should:</p>
+<ul>
+<li>Confirm that when using data under their control in the course of preparing, using, or deploying a generative <abbr title="artificial intelligence">AI</abbr> system, the use of that data does not negatively impact model safeguards such as by creating or exacerbating biases, increasing the ability to undertake prompt injections, model inversions, or jailbreaks, or otherwise resulting in unauthorized parties being able to extract personal information in the course of using a generative <abbr title="artificial intelligence">AI</abbr> system.</li>
+</ul>
+<!-- 16 notes -->
+<aside class="wb-fnote wb-init wb-fnote-inited" role="note" id="wb-auto-1">
+<h2>Footnotes</h2>
+<dl>
+<dt id="fn1-dt">Footnote 1</dt>
+<dd id="fn1">
+<p><a href="/en/opc-news/speeches-and-statements/2023/s-d_20230621_g7/" title="s-d_20230621_g7">Statement on Generative <abbr title="artificial intelligence">AI</abbr> – Roundtable of <abbr>G7</abbr> Data Protection and Privacy Authorities</a>. June 21, 2023.</p>
+<p class="fn-rtn"><a href="#fn1-rf"><span class="wb-inv">Return to footnote </span>1</a></p>
+</dd>
+<dt id="fn2-dt">Footnote 2</dt>
+<dd id="fn2">
+<p><a href="https://www.mofa.go.jp/ecm/ec/page5e_000076.html?s=03"><abbr>G7</abbr> Leaders' Statement on the Hiroshima <abbr title="artificial intelligence">AI</abbr> Process</a>. October 30, 2023.</p>
+<p class="fn-rtn"><a href="#fn2-rf"><span class="wb-inv">Return to footnote </span>2</a></p>
+</dd>
+<dt id="fn3-dt">Footnote 3</dt>
+<dd id="fn3">
+<p>Global Privacy Assembly – <a href="https://globalprivacyassembly.org/wp-content/uploads/2023/10/5.-Resolution-on-Generative-AI-Systems-101023.pdf">Resolution on Generative Artificial Intelligence Systems</a>. October 2023.</p>
+<p class="fn-rtn"><a href="#fn3-rf"><span class="wb-inv">Return to footnote </span>3</a></p>
+</dd>
+<dt id="fn4-dt">Footnote 4</dt>
+<dd id="fn4">
+<p>Office of the Privacy Commissioner of Canada – <a href="/en/opc-news/news-and-announcements/2023/an_230525-2/" title="an_230525-2"><abbr title="Office of the Privacy Commissioner of Canada">OPC</abbr> to investigate Chat<abbr>GPT</abbr> jointly with provincial privacy authorities</a>. May 25, 2023.</p>
+<p class="fn-rtn"><a href="#fn4-rf"><span class="wb-inv">Return to footnote </span>4</a></p>
+</dd>
+<dt id="fn5-dt">Footnote 5</dt>
+<dd id="fn5">
+<p>Data scraping refers to automated extraction of data generally from one or more websites.</p>
+<p class="fn-rtn"><a href="#fn5-rf"><span class="wb-inv">Return to footnote </span>5</a></p>
+</dd>
+<dt id="fn6-dt">Footnote 6</dt>
+<dd id="fn6">
+<p><a href="/en/opc-news/speeches-and-statements/2023/js-dc_20230824/" title="js-dc_20230824">Joint statement on data scraping and the protection of privacy</a>. August 24, 2023.</p>
+<p class="fn-rtn"><a href="#fn6-rf"><span class="wb-inv">Return to footnote </span>6</a></p>
+</dd>
+<dt id="fn7-dt">Footnote 7</dt>
+<dd id="fn7">
+<p><a href="https://www.ipc.on.ca/newsrelease/joint-statement-by-the-information-and-privacy-commissioner-of-ontario-and-the-ontario-human-rights-commission-on-the-use-of-ai-technologies/">Joint statement by the Information and Privacy Commissioner of Ontario and the Ontario Human Rights Commission on the use of <abbr title="artificial intelligence">AI</abbr> technologies</a>. May 25, 2023.</p>
+<p class="fn-rtn"><a href="#fn7-rf"><span class="wb-inv">Return to footnote </span>7</a></p>
+</dd>
+<dt id="fn8-dt">Footnote 8</dt>
+<dd id="fn8">
+<p>Noting that many of these considerations will be equally applicable to most, if not all, <abbr title="artificial intelligence">AI</abbr> technologies.</p>
+<p class="fn-rtn"><a href="#fn8-rf"><span class="wb-inv">Return to footnote </span>8</a></p>
+</dd>
+<dt id="fn9-dt">Footnote 9</dt>
+<dd id="fn9">
+<p>This encompasses “AI provider”, “AI platform provider”, “AI device or product provider”, and “AI developer” as defined by <a href="https://www.iso.org/standard/74296.html"><abbr title="International Organization for Standardization">ISO</abbr>/<abbr title="International Electrotechnical Commission">IEC</abbr> 22989:2022, <em>Artificial intelligence concepts and terminology</em></a>.</p>
+<p class="fn-rtn"><a href="#fn9-rf"><span class="wb-inv">Return to footnote </span>9</a></p>
+</dd>
+<dt id="fn10-dt">Footnote 10</dt>
+<dd id="fn10">
+<p>Noting that these are not the only actors in the <abbr title="artificial intelligence">AI</abbr> ecosystem, which can include among many others data subjects, data brokers or other organizations who collect and sell data for training purposes, and individual users of public-facing generative <abbr title="artificial intelligence">AI</abbr> systems.</p>
+<p class="fn-rtn"><a href="#fn10-rf"><span class="wb-inv">Return to footnote </span>10</a></p>
+</dd>
+<dt id="fn11-dt">Footnote 11</dt>
+<dd id="fn11">
+<p>Office of the Privacy Commissioner of Canada. <a href="/en/privacy-topics/privacy-for-businesses/appropriate-handling-of-personal-information/collecting-personal-information-and-consent/consent/gl_omc_201805/" title="gl_omc_201805">Guidance for obtaining meaningful consent</a>. Revised: August 13, 2021.</p>
+<p class="fn-rtn"><a href="#fn11-rf"><span class="wb-inv">Return to footnote </span>11</a></p>
+</dd>
+<dt id="fn12-dt">Footnote 12</dt>
+<dd id="fn12">
+<p>"Quebec’s legislation refers to terms such as collection for a 'serious and legitimate reason'."</p>
+<p class="fn-rtn"><a href="#fn12-rf"><span class="wb-inv">Return to footnote </span>12</a></p>
+</dd>
+<dt id="fn13-dt">Footnote 13</dt>
+<dd id="fn13">
+<p>Office of the Privacy Commissioner of Canada. <a href="/en/privacy-topics/privacy-for-businesses/appropriate-handling-of-personal-information/collecting-personal-information-and-consent/consent/gd_53_201805/" title="gd_53_201805">Guidance on inappropriate data practices: Interpretation and application of subsection 5(3)</a>. May 2018.</p>
+<p class="fn-rtn"><a href="#fn13-rf"><span class="wb-inv">Return to footnote </span>13</a></p>
+</dd>
+<dt id="fn14-dt">Footnote 14</dt>
+<dd id="fn14">
+<p>In summary, adversarial and red-team testing refers to processes in which the tester (potentially part of the organization, but generally not part of the development team) attempts to defeat or bypass system protections or policies, with the goal of identifying required improvements or changes.</p>
+<p class="fn-rtn"><a href="#fn14-rf"><span class="wb-inv">Return to footnote </span>14</a></p>
+</dd>
+<dt id="fn15-dt">Footnote 15</dt>
+<dd id="fn15">
+<p>For this joint statement, the term ‘significant impact’ is indicative as opposed to having a specific legal definition.</p>
+<p class="fn-rtn"><a href="#fn15-rf"><span class="wb-inv">Return to footnote </span>15</a></p>
+</dd>
+<dt id="fn16-dt">Footnote 16</dt>
+<dd id="fn16">
+<p>For more information on validity and reliability in <abbr title="artificial intelligence">AI</abbr> systems, see the <a href="https://airc.nist.gov/AI_RMF_Knowledge_Base/AI_RMF/Foundational_Information/3-sec-characteristics"><abbr title="National Institute of Standards and Technology">NIST</abbr> <abbr title="artificial intelligence">AI</abbr> Risk Management Framework</a>.</p>
+<p class="fn-rtn"><a href="#fn16-rf"><span class="wb-inv">Return to footnote </span>16</a></p>
+</dd>
+</dl>
+</aside>
+
+
+                            </div>
+                        </div>
+                        
+
+                    </section>
+                    <div class="col-md-4 pull-left mrgn-tp-md featured-content">
+                        
+                        <div class="hidden-print"></div>
+                        <div class="col-md-12 brdr-rght">
+<div class="row">
+<div class="col-md-12"><img class="img-responsive" src="/media/5825/00-opc-en.png" alt="Office of the Privacy Commissioner of Canada signature"></div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12"><img class="img-responsive" src="/media/5828/05-ipc-on.png" alt="IPC-ON signature"></div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12"><img class="img-responsive" src="/media/5829/06-cai-qc.png" alt="CAI-QC signature"></div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12"><img class="img-responsive" src="/media/5831/09-oipc-ns.png" alt="OIPC-NS signature"></div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12"><img class="img-responsive" src="/media/5830/07-ombuds-nb.png" alt="NB signature"></div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12"><img class="img-responsive" src="/media/5827/04-ombuds-mb.png" alt="Manitoba Ombudsman signature"></div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12"><img class="img-responsive" src="/media/5782/01-oipc-bc.png" alt="OIPC-BC signature"></div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12"><img class="img-responsive" src="/media/5789/08-oipc-pei.png" alt="OIPC-PEI signature"></div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12"><img class="img-responsive" src="/media/5784/03-oipc-sk.png" alt="OIPC-SK signature"></div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12"><img class="img-responsive" src="/media/5783/02-oipc-ab.png" alt="OIPC-AB signature"></div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12"><img class="img-responsive" src="/media/5791/10-oipc-nfl.png" alt="OIPC-NL signature"></div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12"><img class="img-responsive" src="/media/5832/11-oipc-nt-en.png" alt="OIPC-NT signature"></div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12"><img class="img-responsive" src="/media/5834/12-oipc-yk.png" alt="OIPC-YK signature"></div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12"><img class="img-responsive" src="/media/5835/13-oipc-nu.png" alt="OIPC-NU signature"></div>
+</div>
+</div>
+                    </div>
+
+
+        </div>
+
+        <div class="pagedetails">
+                <div class="row mrgn-tp-sm">
+                    <div class="col-sm-6 col-md-5 col-lg-5" id="reportAProblem">
+                        
+
+
+
+    <i18n-host locale="en">
+        <feedback-problem feedback-api="https://api.priv.gc.ca/feedback/api/feedback" content-id="46377" version-id="276915"></feedback-problem>
+    </i18n-host>
+
+
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-md-push-3 col-lg-5 col-lg-push-2">
+
+
+    <i18n-host locale="en">
+        <feedback-helpful feedback-api="https://api.priv.gc.ca/feedback/api/feedback" content-id="46377" version-id="276915"></feedback-helpful>
+    </i18n-host>
+
+
+</div>
+                </div>
+            <dl id="wb-dtmd">
+                <dt>Date modified:&#32;</dt>
+                <dd><time property="dateModified">2025-05-06</time></dd>
+            </dl>
+        </div>
+    </main>
+
+    <footer id="wb-info">
+        <nav class="container visible-sm visible-md visible-lg wb-navcurr" aria-labelledby="footer-links">
+            <h2 class="wb-inv" id="footer-links">About this site</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <section aria-labelledby="about-opc-section">
+                        <h3 id="about-opc-section">About the OPC</h3>
+                        <p>The Privacy Commissioner of Canada is an Agent of Parliament whose mission is to protect and promote privacy rights.</p>
+                        <ul class="list-unstyled">
+                            <li><a href="/en/about-the-opc/who-we-are/">Who we are</a></li>
+                            <li><a href="/en/about-the-opc/what-we-do/">What we do</a></li>
+                            <li><a href="/en/about-the-opc/opc-operational-reports/">OPC operational reports</a></li>
+                            <li><a href="/en/accessibility/">Accessibility</a></li>
+                            <li><a href="/en/about-the-opc/publications/">Publications</a></li>
+                            <li><a href="/en/about-the-opc/working-at-the-opc/">Working at the OPC</a></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="col-md-3">
+                    <section aria-labelledby="opc-news-section">
+                        <h3 id="opc-news-section">OPC news</h3>
+                        <p>Get updates about the OPC’s announcements and activities, as well as the events in which we participate.</p>
+                        <ul class="list-unstyled">
+                            <li><a href="/en/opc-news/news-and-announcements/">News and announcements</a></li>
+                            <li><a href="">Privacy events</a></li>
+                            <li><a href="/en/opc-news/speeches-and-statements/">Speeches</a></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="col-md-3">
+                    <section aria-labelledby="respect-section">
+                        <h3 id="respect-section">Your privacy</h3>
+                        <p><strong>We respect your privacy</strong></p>
+                        <p>Read our <a href="/en/privacy-and-transparency-at-the-opc/pp/">Privacy policy</a> and <a href="/en/privacy-and-transparency-at-the-opc/terms-and-conditions-of-use/">Terms and conditions of use</a> to find out more about your privacy and rights when using the <a href="/">priv.gc.ca</a> website or contacting the Office of the Privacy Commissioner of Canada.</p>
+                    </section>
+                    <section aria-labelledby="transparency-section">
+                        <h3 id="transparency-section">Transparency</h3>
+                        <ul class="list-unstyled">
+                            <li><a href="/en/privacy-and-transparency-at-the-opc/proactive-disclosure/">Proactive disclosure</a></li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="col-md-3">
+                    <section aria-labelledby="contact-us-section">
+                        <h3 id="contact-us-section">Contact us</h3>
+                        <p>If you have a question, concerns about your privacy or want to file a complaint against an organization, we are here to help.</p>
+                        <a href="/en/contact-the-opc/" role="button" class="btn btn-default">Contact the OPC</a>
+                    </section>
+                    <section aria-labelledby="stay-connected-section">
+                        <h3 id="stay-connected-section">Stay connected</h3>
+                        <ul class="list-unstyled">
+                            <li><span class="fa fa-comments"></span> <a href="/en/blog">OPC Blog</a></li>
+                            <li><span class="fa fa-linkedin-square"></span> <a href="https://www.linkedin.com/company/office-of-the-privacy-commissioner-of-canada">OPC LinkedIn</a></li>
+                            <li><span class="fa fa-rss-square"></span> <a href="/en/rss-feeds/">OPC RSS feeds</a></li>
+                            <li><span class="opc-icon"><img src="/wet/gcweb-opc/assets/x.svg" alt="X Account" title="X Account" /> </span> <a href="https://x.com/PrivacyPrivee">OPC @XAccount</a></li>
+                            <li><span class="fa fa-youtube"></span> <a href="https://www.youtube.com/user/PrivacyComm">OPC YouTube channel</a></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </nav>
+
+        <div class="brand">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-6">
+                        <img src="/wet/gcweb-opc/assets/opc-blk-en.png" alt="OPC Logo" class="img img-responsive" />
+                        <span class="wb-inv">Office of Privacy Commissioner of Canada</span>
+                    </div>
+                    <div class="col-md-6 tofpg text-right">
+                        <a href="#wb-cont">Top of Page <span class="fa fa-arrow-circle-up"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--[if gte IE 9 | !IE ]><!-->
+    <script src="/wet/wet-boew/js/jquery/2.1.4/jquery.min.js"></script>
+    <script src="/wet/wet-boew/js/wet-boew.min.js"></script>
+    <!--<![endif]-->
+    <!--[if lt IE 9]>
+        <script src="/wet/wet-boew/js/ie8-wet-boew2.min.js"></script>
+    <![endif]-->
+
+    <script src="/wet/gcweb-opc/js/theme.min.js"></script>
+    <script src="/lib/feedbackform.client/dist/feedback.js"></script>
+    <script src="/Scripts/externalLinks.js"></script>
+
+    
+    
+</body>
+</html>

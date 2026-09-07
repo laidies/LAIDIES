@@ -1,0 +1,482 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "MJQ-008-preview-20260907",
+  "surface": "MISS_JEEVES",
+  "contentClass": "FAQ",
+  "maker": "root-jeeves-preview-maker",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "root-jeeves-preview-maker",
+    "principalId": "root-jeeves-preview-maker",
+    "role": "Producer",
+    "modelFamily": "OpenAI GPT-6 Astra"
+  },
+  "reviewedAt": "2026-09-07T18:48:18.829779+00:00",
+  "verdict": "PASS",
+  "limitations": [
+    "Model maker judgement, not human participant evidence. Source-bound runtime FAQ only; no book or column promotion.",
+    "Independent semantic and rendered review still required."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/library/answer-bank-preview-20260907/MJQ-008.txt",
+      "sha256": "b2a3016cfe2076f376ebbde525129d29c96e9158d72b94df1879be60e649c577"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/library/answer-bank-preview-20260907/MJQ-008-manifest.json",
+      "sha256": "3642879e5f60dfc2a73a9bebbb9672dbfa62a4c834d4668a21e753c75980abfc"
+    }
+  },
+  "calibration": {
+    "registrySha256": "a5559a35fdfaa41b23f71a819aba7c25f03284ef251dfb1a4936e73d3b3b85b9",
+    "reviewerPrincipalId": "root-jeeves-preview-maker",
+    "reviewedAt": "2026-09-07T18:48:18.829779+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ],
+        "observation": "A sequence of separately labelled parts and forced comparisons displaces connected mechanism."
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ],
+        "observation": "One job-offer decision takes over the promised foundational book; technical exposition and that single frame narrow its purpose."
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "## The concepts that make the story legible",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/front-paige-data-centre-policy-memo-known-bad.md"
+          }
+        ],
+        "observation": "Definitions interrupt the story and a five-question checklist turns a news ending into homework; the cloud-coat joke cannot supply human stakes."
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-STRAIGHT-ANSWERS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Answer-first architecture and explicit uncertainty only; dated claims are held, not inherited."
+      ],
+      "evidence": [
+        {
+          "excerpt": "The losses are already measured while the gains are still projected",
+          "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/straight-answers-architecture-positive.md"
+        }
+      ]
+    }
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Answers the question immediately using familiar actions and defines any technical term inline.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A conservative starting point is public material or an invented example that contains no sensitive information. Being able to paste something into an AI tool does not mean you have permission to share it there.",
+          "locator": "MJQ-008"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Provides a usable move tied to the exact question: A conservative starting point is public material or an invented example that contains no sensitive information. Being able to paste something into an AI tool does not mean you have permission to share it there.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A conservative starting point is public material or an invented example that contains no sensitive information. Being able to paste something into an AI tool does not mean you have permission to share it there.",
+          "locator": "MJQ-008"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Direct adult voice with a recognisable work or everyday situation; no empowerment slogans or decorative references.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A conservative starting point is public material or an invented example that contains no sensitive information. Being able to paste something into an AI tool does not mean you have permission to share it there.",
+          "locator": "MJQ-008"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The concrete example supplies recognition and makes the advice usable without an extra lesson.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A conservative starting point is public material or an invented example that contains no sensitive information. Being able to paste something into an AI tool does not mean you have permission to share it there.",
+          "locator": "MJQ-008"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Material mechanism and permission claims map to exact source excerpts; invented prompts are illustrative suggestions, not provider guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A conservative starting point is public material or an invented example that contains no sensitive information. Being able to paste something into an AI tool does not mean you have permission to share it there.",
+          "locator": "MJQ-008"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Reviewed source articles or PDF have exact content digests; changes, failed fetch or expiry stop reuse. No volatile plan comparison remains.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A conservative starting point is public material or an invented example that contains no sensitive information. Being able to paste something into an AI tool does not mean you have permission to share it there.",
+          "locator": "MJQ-008"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Under 200 words in connected paragraphs, suitable for an inline answer with source links and correction controls.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A conservative starting point is public material or an invented example that contains no sensitive information. Being able to paste something into an AI tool does not mean you have permission to share it there.",
+          "locator": "MJQ-008"
+        }
+      ]
+    },
+    "answersActualQuestion": {
+      "verdict": "PASS",
+      "observation": "What information is safe to put into ChatGPT or another AI tool? is addressed by the first paragraph and useful action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A conservative starting point is public material or an invented example that contains no sensitive information. Being able to paste something into an AI tool does not mean you have permission to share it there.",
+          "locator": "MJQ-008"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The worked move is part of an everyday writing, checking or workplace task; it does not take over the answer.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Share only what the task needs. If permission or the tool\u2019s current handling of your information is unclear, leave the information out.",
+          "locator": "MJQ-008"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Answer first, concrete mechanism or decision logic, retained limits and a better next question; no persona imitation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A conservative starting point is public material or an invented example that contains no sensitive information. Being able to paste something into an AI tool does not mean you have permission to share it there.",
+          "locator": "MJQ-008"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The reader can act on the specified step, then inspect evidence or retain the sensitive data locally.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Share only what the task needs. If permission or the tool\u2019s current handling of your information is unclear, leave the information out.",
+          "locator": "MJQ-008"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No new decorative analogy; the preserved prompting colleague comparison models missing task context, not human responsibility or guaranteed competence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A conservative starting point is public material or an invented example that contains no sensitive information. Being able to paste something into an AI tool does not mean you have permission to share it there.",
+          "locator": "MJQ-008"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-008"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/cyber-canada-current.txt",
+        "sha256": "2dfdc59c3efed54f6fe69743ce9f534fb6085b8de2dedd0a75eb82cc5df79bb3"
+      },
+      {
+        "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/opc.txt",
+        "sha256": "ad02022309f09b0502162b6ded4df63685c66d08a5a3e7baac5932dbfb548047"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "MJQ-008-0",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Keep passwords, access codes, account details, private records and confidential company or customer information out",
+            "locator": "MJQ-008"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/cyber-canada-current.txt",
+          "sha256": "2dfdc59c3efed54f6fe69743ce9f534fb6085b8de2dedd0a75eb82cc5df79bb3"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Avoid providing PII or sensitive corporate data as part of the queries or prompts.",
+            "locator": "cyber-canada-current.txt"
+          }
+        ],
+        "scopeAndFreshness": "Conservative guidance or bounded mechanism. Examples illustrate the advice; no legal compliance, universal anonymity or current model accuracy guarantee. Recheck exact source before reuse and after seven days."
+      },
+      {
+        "claimId": "MJQ-008-1",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Removing names is not enough by itself.",
+            "locator": "MJQ-008"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/opc.txt",
+          "sha256": "ad02022309f09b0502162b6ded4df63685c66d08a5a3e7baac5932dbfb548047"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Avoid prompting a generative AI system to re-identify any previously de-identified data.",
+            "locator": "opc.txt"
+          }
+        ],
+        "scopeAndFreshness": "Conservative guidance or bounded mechanism. Examples illustrate the advice; no legal compliance, universal anonymity or current model accuracy guarantee. Recheck exact source before reuse and after seven days."
+      },
+      {
+        "claimId": "MJQ-008-2",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Being able to paste something into an AI tool does not mean you have permission",
+            "locator": "MJQ-008"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/opc.txt",
+          "sha256": "ad02022309f09b0502162b6ded4df63685c66d08a5a3e7baac5932dbfb548047"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "only do so where authorised.",
+            "locator": "opc.txt"
+          }
+        ],
+        "scopeAndFreshness": "Conservative guidance or bounded mechanism. Examples illustrate the advice; no legal compliance, universal anonymity or current model accuracy guarantee. Recheck exact source before reuse and after seven days."
+      }
+    ],
+    "reviewedThrough": "2026-09-07",
+    "nextTrigger": "Source content change, failed source retrieval, altered answer/alias or seven-day expiry.",
+    "correctionOwner": "Learning / Miss Jeeves"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First exact public-interface adaptation. Prior private-provider review is retained separately; this does not reset future successor comparisons."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Known source-scope, anonymization and unrelated-link defects repaired during production before this public-interface candidate review."
+  },
+  "reverseBrief": {
+    "humanQuestion": "What information is safe to put into ChatGPT or another AI tool?",
+    "promisedPayoff": "Choose a conservative low-risk input and know when to leave details out.",
+    "centralMentalModel": "An external tool receives whatever you upload. Permission and sensitivity determine what can be shared. Removing names does not remove all identifying context. Provide the minimum or ask for a blank example instead.",
+    "dailyLifeConnection": "Ask for an invented example instead of uploading an internal screenshot.",
+    "surfaceJob": "A concise reviewed answer to an explicit question, with sources and correction controls.",
+    "desiredReaderFeeling": "Able to take one useful step while retaining judgement."
+  }
+}

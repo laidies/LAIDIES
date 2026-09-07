@@ -1,0 +1,478 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "MJQ-006-preview-20260907",
+  "surface": "MISS_JEEVES",
+  "contentClass": "FAQ",
+  "maker": "root-jeeves-preview-maker",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "root-jeeves-preview-maker",
+    "principalId": "root-jeeves-preview-maker",
+    "role": "Producer",
+    "modelFamily": "OpenAI GPT-6 Astra"
+  },
+  "reviewedAt": "2026-09-07T18:48:18.829779+00:00",
+  "verdict": "PASS",
+  "limitations": [
+    "Model maker judgement, not human participant evidence. Source-bound runtime FAQ only; no book or column promotion.",
+    "Independent semantic and rendered review still required."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/library/answer-bank-preview-20260907/MJQ-006.txt",
+      "sha256": "637694ce54589c9aed4bafe271ea1e3ddf0dfac54aa4622e51b8544038bf46eb"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/library/answer-bank-preview-20260907/MJQ-006-manifest.json",
+      "sha256": "d79dee8d11d26a6cae400831b7459fca43460c77ff0c3843d714fa3a438ef9c9"
+    }
+  },
+  "calibration": {
+    "registrySha256": "a5559a35fdfaa41b23f71a819aba7c25f03284ef251dfb1a4936e73d3b3b85b9",
+    "reviewerPrincipalId": "root-jeeves-preview-maker",
+    "reviewedAt": "2026-09-07T18:48:18.829779+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Think of the mechanism inside a Walkman",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ],
+        "observation": "A sequence of separately labelled parts and forced comparisons displaces connected mechanism."
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ],
+        "observation": "One job-offer decision takes over the promised foundational book; technical exposition and that single frame narrow its purpose."
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "## The concepts that make the story legible",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/front-paige-data-centre-policy-memo-known-bad.md"
+          }
+        ],
+        "observation": "Definitions interrupt the story and a five-question checklist turns a news ending into homework; the cloud-coat joke cannot supply human stakes."
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-STRAIGHT-ANSWERS-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Answer-first architecture and explicit uncertainty only; dated claims are held, not inherited."
+      ],
+      "evidence": [
+        {
+          "excerpt": "The losses are already measured while the gains are still projected",
+          "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/straight-answers-architecture-positive.md"
+        }
+      ]
+    }
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Answers the question immediately using familiar actions and defines any technical term inline.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Because sounding convincing and checking a fact are different jobs. A language model\u2014the part of an AI system that generates text\u2014can produce a plausible answer without having reliable evidence for it.",
+          "locator": "MJQ-006"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Provides a usable move tied to the exact question: Because sounding convincing and checking a fact are different jobs. A language model\u2014the part of an AI system that generates text\u2014can produce a plausible answer without having reliable evidence for it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Because sounding convincing and checking a fact are different jobs. A language model\u2014the part of an AI system that generates text\u2014can produce a plausible answer without having reliable evidence for it.",
+          "locator": "MJQ-006"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Direct adult voice with a recognisable work or everyday situation; no empowerment slogans or decorative references.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Because sounding convincing and checking a fact are different jobs. A language model\u2014the part of an AI system that generates text\u2014can produce a plausible answer without having reliable evidence for it.",
+          "locator": "MJQ-006"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The concrete example supplies recognition and makes the advice usable without an extra lesson.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Because sounding convincing and checking a fact are different jobs. A language model\u2014the part of an AI system that generates text\u2014can produce a plausible answer without having reliable evidence for it.",
+          "locator": "MJQ-006"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Material mechanism and permission claims map to exact source excerpts; invented prompts are illustrative suggestions, not provider guarantees.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Because sounding convincing and checking a fact are different jobs. A language model\u2014the part of an AI system that generates text\u2014can produce a plausible answer without having reliable evidence for it.",
+          "locator": "MJQ-006"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Reviewed source articles or PDF have exact content digests; changes, failed fetch or expiry stop reuse. No volatile plan comparison remains.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Because sounding convincing and checking a fact are different jobs. A language model\u2014the part of an AI system that generates text\u2014can produce a plausible answer without having reliable evidence for it.",
+          "locator": "MJQ-006"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Under 200 words in connected paragraphs, suitable for an inline answer with source links and correction controls.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Because sounding convincing and checking a fact are different jobs. A language model\u2014the part of an AI system that generates text\u2014can produce a plausible answer without having reliable evidence for it.",
+          "locator": "MJQ-006"
+        }
+      ]
+    },
+    "answersActualQuestion": {
+      "verdict": "PASS",
+      "observation": "Why does AI sometimes give me a confident answer that is wrong? is addressed by the first paragraph and useful action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Because sounding convincing and checking a fact are different jobs. A language model\u2014the part of an AI system that generates text\u2014can produce a plausible answer without having reliable evidence for it.",
+          "locator": "MJQ-006"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The worked move is part of an everyday writing, checking or workplace task; it does not take over the answer.",
+      "artifactEvidence": [
+        {
+          "excerpt": "When a claim matters, ask for its original source, open it and check whether it supports that exact claim. Asking \u201cAre you sure?\u201d may produce another confident paragraph. What you need is evidence you can inspect.",
+          "locator": "MJQ-006"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Answer first, concrete mechanism or decision logic, retained limits and a better next question; no persona imitation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Because sounding convincing and checking a fact are different jobs. A language model\u2014the part of an AI system that generates text\u2014can produce a plausible answer without having reliable evidence for it.",
+          "locator": "MJQ-006"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The reader can act on the specified step, then inspect evidence or retain the sensitive data locally.",
+      "artifactEvidence": [
+        {
+          "excerpt": "When a claim matters, ask for its original source, open it and check whether it supports that exact claim. Asking \u201cAre you sure?\u201d may produce another confident paragraph. What you need is evidence you can inspect.",
+          "locator": "MJQ-006"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No new decorative analogy; the preserved prompting colleague comparison models missing task context, not human responsibility or guaranteed competence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Because sounding convincing and checking a fact are different jobs. A language model\u2014the part of an AI system that generates text\u2014can produce a plausible answer without having reliable evidence for it.",
+          "locator": "MJQ-006"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Exact short FAQ stays with its question, connects the reason to the useful action and retains uncertainty. No repeated scaffold, ornamental comparison or unrelated terms.",
+      "artifactLocator": "MJQ-006"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/openai-hallucinations.txt",
+        "sha256": "7f92bb32d458c5c8b8f7f04b11c387d244f93bdb7e403644f0e79749207fb0f2"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "MJQ-006-0",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Training teaches it patterns in language.",
+            "locator": "MJQ-006"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/openai-hallucinations.txt",
+          "sha256": "7f92bb32d458c5c8b8f7f04b11c387d244f93bdb7e403644f0e79749207fb0f2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "During pretraining, a base model learns the distribution of language in a large text corpus.",
+            "locator": "openai-hallucinations.txt"
+          }
+        ],
+        "scopeAndFreshness": "Conservative guidance or bounded mechanism. Examples illustrate the advice; no legal compliance, universal anonymity or current model accuracy guarantee. Recheck exact source before reuse and after seven days."
+      },
+      {
+        "claimId": "MJQ-006-1",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "got its title and year wrong.",
+            "locator": "MJQ-006"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/openai-hallucinations.txt",
+          "sha256": "7f92bb32d458c5c8b8f7f04b11c387d244f93bdb7e403644f0e79749207fb0f2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "None generated the correct title or year",
+            "locator": "openai-hallucinations.txt"
+          }
+        ],
+        "scopeAndFreshness": "Conservative guidance or bounded mechanism. Examples illustrate the advice; no legal compliance, universal anonymity or current model accuracy guarantee. Recheck exact source before reuse and after seven days."
+      },
+      {
+        "claimId": "MJQ-006-2",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "guessing can score better.",
+            "locator": "MJQ-006"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/library/answer-bank-preview-20260907/sources/openai-hallucinations.txt",
+          "sha256": "7f92bb32d458c5c8b8f7f04b11c387d244f93bdb7e403644f0e79749207fb0f2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "guessing when uncertain improves test performance.",
+            "locator": "openai-hallucinations.txt"
+          }
+        ],
+        "scopeAndFreshness": "Conservative guidance or bounded mechanism. Examples illustrate the advice; no legal compliance, universal anonymity or current model accuracy guarantee. Recheck exact source before reuse and after seven days."
+      }
+    ],
+    "reviewedThrough": "2026-09-07",
+    "nextTrigger": "Source content change, failed source retrieval, altered answer/alias or seven-day expiry.",
+    "correctionOwner": "Learning / Miss Jeeves"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First exact public-interface adaptation. Prior private-provider review is retained separately; this does not reset future successor comparisons."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Known source-scope, anonymization and unrelated-link defects repaired during production before this public-interface candidate review."
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why does AI sometimes give me a confident answer that is wrong?",
+    "promisedPayoff": "Understand why fluent language is not factual verification and inspect an original source.",
+    "centralMentalModel": "Training learns patterns in language. Generating a plausible answer does not ensure facts were verified. Rewarding a guess can discourage admitting uncertainty. Inspect original evidence before relying on a claim.",
+    "dailyLifeConnection": "A plausible but incorrect dissertation title demonstrates that a polished sentence is not retrieval.",
+    "surfaceJob": "A concise reviewed answer to an explicit question, with sources and correction controls.",
+    "desiredReaderFeeling": "Able to take one useful step while retaining judgement."
+  }
+}
