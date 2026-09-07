@@ -29,6 +29,7 @@
 > Ali forbids reward-farming retakes: first account submission fixes Butterfly Clips; later attempts practice only.
 > Private server-claim/caller/UI implemented and tested locally; legacy clip bank/spending integration is required before release.
 > Complete design/content admission, real account/pouch restoration, live saving and new audio remain open.
+> Visual repair remains BUILDING: homepage/LIBRAiRY/NewsStand references inspected; shared Episode1 candidate rebuilt and synthetic save/return checked, full presentation/account/audio admission pending.
 > Continue in `/Users/alisoneakin/Projects/laidies-episode-review-20260906`; detailed resume: `operations/episode-review-resume-2026-09-06.md`.
 > Trailer, other binders and later-season mapping are deferred. Shared iCloud working files are preserved.
 

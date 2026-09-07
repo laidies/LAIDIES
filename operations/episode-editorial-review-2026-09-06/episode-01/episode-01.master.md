@@ -239,6 +239,7 @@ Patron Saint: Dolly Parton — Common Sense. Her bridge encouragement leads into
   </script>
   <link rel="canonical" href="https://laidies.ai/issues/issue-01" />
   <meta property="og:url" content="https://laidies.ai/issues/issue-01" />
+<script type="module" src="/content/site/episode-review-design.mjs"></script>
 </head>
 <body>
 

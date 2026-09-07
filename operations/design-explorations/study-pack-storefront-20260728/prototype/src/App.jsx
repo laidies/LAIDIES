@@ -183,6 +183,25 @@ function CurrentCheatSheet({onBack,version}) {
   </main>;
 }
 
+function EpisodeOnePack({onOpen}) {
+  return <main className="ep-study">
+    <section className="ep-study-head">
+      <div><p className="ep-kicker">BLEND &amp; SNAP / EPISODE 01 STUDY PACK</p><h1>On Wednesdays<br/>We <em>Do AI.</em></h1><p className="ep-study-deck">Start with one small task you can judge. Keep the useful draft—and your say in how AI is used.</p><a className="ep-primary" href="/episode-01-try-on/index.html">Start your Try-On ↗</a></div>
+      <figure className="ep-study-figure"><img src="/assets/episodes/ep-01/pixel/delivery-20260719-master-v1/ep01-steve-ovation-c-end-comic-textfix.png" alt="The office applauds Steve while our heroine considers what changed."/><figcaption>Steve found the tab. He doesn't get a monopoly on it.</figcaption></figure>
+    </section>
+    <div className="ep-study-body">
+      <section><h2 className="ep-contents-title">Inside your pack <span>Keep what helps.</span></h2>
+        <button className="ep-study-link" onClick={()=>onOpen('cheat-sheet')}><span>01</span><span><strong>The Cheat Sheet</strong><small>The lesson, the critical ideas, and why women need a say.</small></span><span aria-hidden="true">↗</span></button>
+        <a className="ep-study-link" href="/episode-01-try-on/index.html"><span>02</span><span><strong>Three Tabs, One Task</strong><small>Try a small request. Compare the answers. Keep your own edit.</small></span><span aria-hidden="true">↗</span></a>
+        <a className="ep-study-link" href="/episode-01-cards/index.html"><span>03</span><span><strong>Trading Cards</strong><small>Tear open the pack. Test your recall. Save the four concepts.</small></span><span aria-hidden="true">↗</span></a>
+        <a className="ep-study-link" href="/learn/quiz.html?issue=1&version=2026-09-06-v3"><span>04</span><span><strong>The Pop Quiz</strong><small>Ten questions, two optional extras, and an explanation for each answer.</small></span><span aria-hidden="true">↗</span></a>
+      </section>
+      <aside className="ep-sheet-preview"><p className="ep-kicker">A PAGE FROM YOUR CHEAT SHEET</p><h2>The lesson to keep.</h2><p>AI can get a draft moving. Your experience helps decide what is worth keeping.</p><p><strong>Why women need a say</strong><br/>Learning helps us recognise unfair assumptions, challenge results and influence whose needs these tools serve.</p><p className="ep-equation">Learned patterns + available context<br/>→ a generated draft<br/>→ your check and edit.</p><button onClick={()=>onOpen('cheat-sheet')}>OPEN THE FULL CHEAT SHEET ↗</button></aside>
+    </div>
+    <footer className="ep-study-foot"><strong>Your work has a home.</strong> Keep your sheets, exercises, cards and quiz attempts together in <a href="/laidies-card.html#episodeBinderVessel">your Episode Binder</a>.</footer>
+  </main>;
+}
+
 export function App() {
   const reviewTarget = new URLSearchParams(window.location.search).get("review");
   const directCheatSheet = reviewTarget === "episode-01-cheat-sheet" || location.hash === "#episode-01-cheat-sheet";
@@ -197,6 +216,8 @@ export function App() {
   if (selected?.number === 1 && activeItem === "cheat-sheet") {
     return <CheatSheet fromSavedLink={directCheatSheet} onBack={() => setActiveItem(null)} />;
   }
+
+  if (selected?.number === 1) return <EpisodeOnePack onOpen={setActiveItem} />;
 
   if (selected) {
     return (

@@ -1,5 +1,19 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-06 — Study Pack must be a recognisable 90s object
+
+REJECTED — Ali rejected the successor shown after the local presentation exception: “very boring white background no colour, no 90s graphics” and “study pack should look like a study pack … this looks like a boring webpage.” The cream editorial spread and conventional webpage hero do not meet the brief even with coloured framing. Replace the page metaphor with recognisable study materials and a colourful 90s pack/binder composition; preserve useful content and interactive saves. No approval of the rejected composition or automatic approval of a replacement is implied.
+
+
+## 2026-09-06 — Episode01 local design presentation exception
+
+Ali answered “ok” to the explicit request to show the revised, locally tested Episode01 design before full formal design admission. This authorizes presentation of this successor for feedback only; it is not design approval, publication permission, a real-account saving claim or narration completion. The review starts at the local Episode01 Study Pack and links Read, Try-On, trading cards and quiz.
+
+
+## 2026-09-06 — Episode review visual references
+
+LOCKED — Ali explicitly named the current homepage and LIBRAiRY as visual and colour references, adding the NewsStand “too in some bits.” Compare actual current rendered pages, not a palette list or earlier episode prototype. Retain the episode's own layout and teaching job; apply the town's vivid pink/coral and cyan relationships, navy structure, substantial illustration and clear editorial reading surfaces. The NewsStand is a reference for selected editorial details, not a request to turn the whole episode into a newspaper. New local candidate remains internal until reviewed; no approval inferred from these references.
+
 ## 2026-09-06 — Episode01 purpose and visual rejection
 
 LOCKED — Ali rejected the presented Study Pack design: oversized coloured boxes, colours that are not the site palette, and an overall visual result she called awful. The screenshots and prototype shown on port5178 are REJECTED, not a reusable positive reference. Preserve their content and working save mechanisms; replace the visual composition using actual current site authorities. Ali also rejected the Episode01 text for losing the important reasons women should learn AI. Personal usefulness must connect to recognising bias, challenging poor results, influencing decisions about AI and whose needs it serves. Adoption statistics support this purpose; they cannot substitute for it. Restore that causal argument in the original story voice across Read, narration, lesson summary and quiz. Do not restore the inaccurate claim that ordinary chatbot use automatically retrains a model. No further visual approval is implied by permission to inspect the rejected draft.
