@@ -1215,3 +1215,104 @@
 .ns-overheard summary:focus-visible { outline:3px solid #0053a6; outline-offset:5px; }
 .ns-overheard details[open] summary { margin-bottom:18px; }
 @media(max-width:720px){.ns-overheard{grid-template-columns:minmax(0,1fr);gap:0}.ns-overheard__quote,.ns-overheard__challenge{padding:20px}.ns-overheard p{font-size:16px}}
+
+/* September 7: explicit flow prevents inherited grid areas colliding at tablet widths. */
+.ns-redesign .ns-luminairy__profile:nth-child(n) {
+ display:grid; grid-template-columns:minmax(0,1fr); grid-template-rows:none;
+ grid-template-areas:'wing' 'portrait' 'story' 'lesson' 'links' 'freshness'; gap:16px;
+}
+.ns-redesign .ns-luminairy__profile > * { min-width:0; position:static; }
+.ns-redesign .ns-luminairy__wing { grid-area:wing; margin:0; }
+.ns-redesign .ns-luminairy__profile > img { grid-area:portrait; width:min(100%,220px); height:auto; margin:0 auto; float:none; }
+.ns-redesign .ns-luminairy__story { grid-area:story; }
+.ns-redesign .ns-luminairy__lesson { grid-area:lesson; margin:0; }
+.ns-redesign .ns-luminairy__links { grid-area:links; margin:0; display:flex; flex-wrap:wrap; }
+.ns-redesign .ns-luminairy__freshness { grid-area:freshness; }
+@media(min-width:601px) and (max-width:900px) {
+ .ns-redesign .ns-luminairy__profile:nth-child(n) {
+  grid-template-columns:minmax(150px,.6fr) minmax(0,1.6fr);
+  grid-template-areas:'wing wing' 'portrait story' 'lesson lesson' 'links links' 'freshness freshness';
+  gap:20px;
+ }
+}
+.ns-redesign .ns-front-desk--weekly {
+ display:grid; min-width:0; width:100%; box-sizing:border-box;
+ grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);
+ grid-template-areas:'label label' 'status status' 'image headline' 'image teaser' 'highlights highlights' 'action action';
+ grid-template-rows:auto auto auto auto auto auto; gap:16px 28px;
+}
+.ns-redesign .ns-front-desk--weekly > * { min-width:0; max-width:100%; white-space:normal; }
+.ns-redesign .ns-front-desk--weekly .ns-front-contents { display:contents; }
+.ns-redesign .ns-front-desk--weekly .ns-publication__count { display:none; }
+.ns-redesign .ns-front-desk--weekly .ns-publication__headline { grid-area:headline; margin:0; align-self:end; font-size:clamp(25px,2.7vw,38px); }
+.ns-redesign .ns-front-desk--weekly .ns-publication__teaser { grid-area:teaser; margin:0; align-self:start; font-size:18px; line-height:1.5; }
+.ns-redesign .ns-front-desk--weekly .ns-weekly-highlights { grid-area:highlights; margin:4px 0 0; text-align:left; }
+.ns-redesign .ns-front-desk--weekly .ns-weekly-highlights ul { columns:2; column-gap:40px; }
+.ns-redesign .ns-front-desk--weekly .ns-front-action { padding:10px 14px; }
+.ns-redesign .ns-weekly-image { align-self:start; }
+.ns-redesign .ns-weekly-image img { height:auto; min-height:0; aspect-ratio:4/3; object-fit:cover; }
+.ns-redesign .ns-front-desk--big-picture { min-width:0; }
+.ns-redesign .ns-front-desk--big-picture .ns-publication__teaser { font-size:18px; line-height:1.5; }
+@media(max-width:1000px) {
+ .ns-redesign .ns-front-desk--big-picture {
+  grid-template-columns:minmax(0,1fr);
+  grid-template-areas:'eyebrow' 'label' 'headline' 'status' 'image' 'reading'; gap:16px;
+ }
+ .ns-redesign .ns-front-desk--big-picture > .ns-front-status { margin:0; }
+ .ns-redesign .ns-big-picture-reading { gap:16px; }
+ .ns-redesign .ns-big-picture-reading .ns-front-contents { padding:20px; }
+}
+@media(max-width:600px) {
+ .ns-redesign .ns-front-desk--weekly {
+  grid-template-columns:minmax(0,1fr);
+  grid-template-areas:'label' 'status' 'image' 'headline' 'teaser' 'highlights' 'action';
+ }
+ .ns-redesign .ns-front-desk--weekly .ns-weekly-highlights ul { columns:1; }
+ .ns-redesign .ns-front-desk--weekly .ns-publication__teaser { font-size:16px; }
+ .ns-redesign .ns-front-desk--big-picture .ns-publication__teaser { font-size:16px; }
+}
+
+/* Short newspaper wit, followed by a visible puzzle and illustrated house ads. */
+.ns-redesign .ns-overheard {
+ display:block; margin:30px 0; padding:20px 26px; border:0; border-left:8px solid #ff2ea6;
+ box-shadow:none; background:#fffdfb;
+}
+.ns-redesign .ns-overheard h2 { margin:0 0 10px; font-size:14px; letter-spacing:.12em; text-transform:uppercase; text-shadow:none; color:#003b9e; }
+.ns-redesign .ns-overheard blockquote { margin:0; max-width:38ch; font-size:clamp(24px,3vw,38px); font-weight:700; line-height:1.25; }
+.ns-redesign .ns-play-desk { grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); align-items:start; gap:32px; }
+.ns-redesign .ns-play-desk__puzzle { padding:0; background:transparent; border:0; box-shadow:none; }
+.ns-redesign .ns-play-desk__puzzle h2 { margin:8px 0 18px; font-size:clamp(30px,3vw,44px); }
+.ns-redesign .ns-crossword-preview { display:block; width:min(100%,480px); margin:0 0 18px; }
+.ns-redesign .ns-crossword-preview img { display:block; width:100%; height:auto; border:2px solid #11183b; box-sizing:border-box; }
+.ns-redesign .ns-play-desk__puzzle > p:not(.ns-kicker) { font-size:17px; margin:12px 0; }
+.ns-redesign .ns-play-desk__puzzle .ns-play-action { margin:8px 0; }
+.ns-redesign .ns-house-ads { gap:28px; }
+.ns-redesign .ns-house-ad { position:relative; overflow:hidden; padding:20px; border:3px solid #11183b; box-shadow:4px 4px 0 #11183b; }
+.ns-redesign .ns-house-ad--library { background:#00cce1; }
+.ns-redesign .ns-house-ad--claio { background:#ff9b3d; }
+.ns-redesign .ns-house-ad .ns-kicker { font-size:10px; letter-spacing:.1em; margin:0 0 12px; }
+.ns-redesign .ns-house-ad h3 { margin:14px 0 10px; font-size:clamp(25px,2.5vw,36px); line-height:1.05; }
+.ns-redesign .ns-house-ad p:not(.ns-kicker) { font-size:16px; line-height:1.4; margin:10px 0 16px; }
+.ns-redesign .ns-house-ad .ns-ad-art { display:block; width:100%; height:auto; max-height:230px; object-fit:cover; border:1px solid #11183b; }
+.ns-redesign .ns-house-ad a { font-size:16px; padding:10px 14px; }
+@media(max-width:700px) {
+ .ns-redesign .ns-play-desk { grid-template-columns:minmax(0,1fr); }
+ .ns-redesign .ns-house-ads { grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; gap:16px; }
+ .ns-redesign .ns-house-ad { padding:14px; }
+ .ns-redesign .ns-house-ad h3 { font-size:25px; }
+}
+@media(max-width:480px) {
+ .ns-redesign .ns-house-ads { grid-template-columns:minmax(0,1fr); }
+ .ns-redesign .ns-overheard { padding:16px; }
+}
+.ns-redesign .ns-play-desk { grid-template-columns:minmax(0,1.1fr) minmax(0,1.8fr); }
+.ns-redesign .ns-house-ads { grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; gap:22px; }
+.ns-redesign .ns-house-ad .ns-ad-art { max-height:none; aspect-ratio:4/3; object-fit:cover; }
+.ns-redesign .ns-house-ad h3 { font-size:clamp(25px,2.4vw,32px); }
+.ns-redesign .ns-house-ad--claio h3 { color:#003b9e; text-shadow:2px 2px 0 white; }
+@media(max-width:1000px) {
+ .ns-redesign .ns-play-desk { grid-template-columns:minmax(0,1fr); }
+ .ns-redesign .ns-crossword-preview { width:min(100%,480px); }
+}
+@media(max-width:480px) { .ns-redesign .ns-house-ads { grid-template-columns:minmax(0,1fr); } }
+.ns-redesign .ns-house-ad--library .ns-ad-art { aspect-ratio:auto; height:auto; object-fit:contain; }

@@ -20,6 +20,8 @@ proper domain source before building from it.
 
 ## Core routes
 
+September 7, Ali rejected the Overheard lesson-box treatment and generic gradient house ads. Overheard is short dry wit, not an obligatory teaching exercise. The crossword must display its actual numbered grid; house ads must show relevant existing artwork. Responsive review must check overlapping sibling content and decoded images, not merely page overflow. This ruling supersedes the earlier Overheard visual acceptance. See `operations/product-stewards/newsstand/candidates/layout-and-ad-repair-20260907/review.md`.
+
 September 7: article endings use “See similar stories” with relevant published coverage, omitting empty or weak matches. Related-coverage and illustration-caption rules route to the NewsStand editorial promise, September 7 Related coverage and illustration feedback.
 
 September 7 NVIDIA reader feedback, personal-life as well as work relevance, beginner-facing implications and exact book-link requirements are recorded in `operations/product-stewards/newsstand/NEWSSTAND-EDITORIAL-PROMISE-2026-09-05.md`, September 7 reader feedback. Preserve readable article callouts under the final sitewide palette cascade.
