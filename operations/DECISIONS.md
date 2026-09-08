@@ -20,6 +20,8 @@ proper domain source before building from it.
 
 ## Core routes
 
+September 8: daily NewsStand work must catch up after a late invocation; the schedule hour is not an eligibility window. Overdue or blocked publication cannot be silently skipped. The exact late-start recovery and new execution-entry rules are in `operations/product-stewards/newsstand/DAILY-MANUAL-RUNBOOK.md`, September 8 section.
+
 September 7, Ali rejected the Overheard lesson-box treatment and generic gradient house ads. Overheard is short dry wit, not an obligatory teaching exercise. The crossword must display its actual numbered grid; house ads must show relevant existing artwork. Responsive review must check overlapping sibling content and decoded images, not merely page overflow. This ruling supersedes the earlier Overheard visual acceptance. See `operations/product-stewards/newsstand/candidates/layout-and-ad-repair-20260907/review.md`.
 
 September 7: article endings use “See similar stories” with relevant published coverage, omitting empty or weak matches. Related-coverage and illustration-caption rules route to the NewsStand editorial promise, September 7 Related coverage and illustration feedback.

@@ -1,5 +1,13 @@
 # The Daily — cycle runbook (heartbeat and manual)
 
+## September 8 — overdue daily work must run on a late start
+
+Ali requires daily NewsStand updating. At every heartbeat, compare elapsed Vancouver scheduled phases with the last durably completed dated cycle. A morning cycle still unfinished after 07:00 is overdue, regardless of the actual invocation hour. Recover it immediately, including missing evening research; after 20:00 finish overdue daily work before next-morning preparation. Do not return DONT_NOTIFY because the clock is outside the scheduled hours. A blocked or overdue daily run must surface its exact blocker. A skipped or interrupted turn is never a completed cycle. Do not invent reporting to fill a date: quiet requires actual dated research and eligible-work checks.
+
+Verified incident: September 8 heartbeat started 15:27:50 Vancouver and finished 15:28:06 with “No NewsStand phase is due at 15:27 Vancouver”. It performed no daily research/publication and suppressed notification. The cause of the late scheduler delivery has not been established. The active 07:00/20:00 schedule was retained and its prompt now requires overdue catch-up.
+
+Execution entry is now `/Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907`, branch `ops/newsstand-recurring-20260905`, the preserved non-iCloud successor. Materialize missing sparse dependencies by exact path from its current branch. The older recurring worktree retains its dirty/staged bytes and failed iCloud Git metadata; do not reset, publish or overwrite it. Always reconcile the current production artifact before publishing. A prompt repair is not proof of today's publication or future on-time delivery.
+
 Use this bounded sequence inside the existing active Codex heartbeat,
 `daily-allie-k-miller-and-ethan-mollick-source-check`, named **Daily LAiDIES
 NewsStand research and publication cycle**. The September 5 app update and
