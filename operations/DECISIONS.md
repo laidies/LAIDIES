@@ -342,3 +342,7 @@ Add or change a row here only when routing itself changes. Do not grow this file
 into another decision ledger.
 
 Ali also requested a small rotating “Did you know?” banner directly under the masthead, about the header width. Reuse existing feature artwork and source-supported feature highlights; keep it a slim strip, not the retired large carousel. Include previous/next and persistent pause, respect reduced motion, and pause while hovered, focused or offscreen. Final order: masthead → slim Did you know → visible needs shortcuts → compact expandable full directory.
+
+
+## 2026-09-08 — KSVL booth permanently retired
+Ali rejects the dark-wood/cottagecore KSVL booth family. The governing paths, hashes, retained sticker collage and no-reselection rule are in `operations/homepage-decisions-20260827.md` (2026-09-08 retirement) and `operations/assets/active-asset-registry.json`. Retirement overrides any stale ACTIVE selection. Historical episode maps remain evidence only and cannot authorize reuse.

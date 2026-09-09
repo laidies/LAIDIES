@@ -227,3 +227,7 @@ historical evidence, not current task state.
 
 The operation-agent blueprint task is paused at its prior exact review point;
 it is not activated authority and cannot block the 24-hour recovery objective.
+
+
+## 2026-09-08 — Homepage KSVL booth retirement
+Ali rejected the dark-wood booth. The bounded correction removes the family from index, fun-connect and radio, retains the approved sticker collage, and blocks path/hash reuse. Source and verification: `operations/product-stewards/town-entry-homepage/ksvl-retirement-20260908.md`. Resident Card explanation recovery and one-sign-in integration remain separate unfinished work; do not overwrite their checkpoints.

@@ -99,6 +99,8 @@ const servedHomepageScript = process.env.CALIBRATE_HOMEPAGE_MAP_FOCUS_FAILURE ==
   ? homepageScriptSource.replace("        a.focus();", "        /* deliberate calibration: focus is not moved */")
   : homepageScriptSource;
 const targets = [
+  "/assets/building-interiors/ksvl-booth.jpg",
+  "/approved-assets/building-interiors/ksvl-booth.png",
   "/assets/bws-fortune-teller/frame-1-closed.webp",
   "/assets/games/girl-talk/truth-card-face.webp",
   "/assets/games/girl-talk/dare-card-face.webp",
@@ -129,7 +131,7 @@ const recoveredHomepage = [
 ];
 const recoveredRoutes = [
   ["/luminairy.html", "/assets/building-interiors/luminairy-nave.jpg", ".luminairy-nave-held"],
-  ["/radio.html", "/assets/building-interiors/ksvl-booth.jpg", ".ksvl-studio-held"],
+  ["/radio.html", null, null],
   ["/maikeover.html", "/assets/building-interiors/maikeover-salon.jpg", ".mo-room-held"]
 ];
 const held = [];
@@ -327,21 +329,25 @@ try {
       const page = await context.newPage();
       page.on("pageerror", (error) => failures.push(`${route} ${width}px page error: ${error.message}`));
       await page.goto(`${origin}${route}`, {waitUntil:"domcontentloaded"});
-      check(await page.locator(formerHeldSelector).count() === 0,
-        `${route} ${width}px still renders its former held panel`);
-      const image = page.locator(`img[src*="${asset.replace(/^\//, "")}"]`).first();
-      check(await image.count() === 1, `${route} ${width}px recovered image is missing`);
-      if (await image.count()) {
-        await image.scrollIntoViewIfNeeded();
-        await image.evaluate((node) => node.decode ? node.decode().catch(() => {}) : Promise.resolve());
-        check(await image.evaluate((node) => node.complete && node.naturalWidth > 0 && node.naturalHeight > 0),
-          `${route} ${width}px recovered image did not decode`);
-        check(await image.evaluate((node) => {
-          const rect = node.getBoundingClientRect();
-          return rect.width >= Math.min(300, window.innerWidth * 0.7) && rect.height >= 180;
-        }), `${route} ${width}px recovered image is not materially visible`);
+      if (asset) {
+        check(await page.locator(formerHeldSelector).count() === 0,
+          `${route} ${width}px still renders its former held panel`);
+        const image = page.locator(`img[src*="${asset.replace(/^\//, "")}"]`).first();
+        check(await image.count() === 1, `${route} ${width}px recovered image is missing`);
+        if (await image.count()) {
+          await image.scrollIntoViewIfNeeded();
+          await image.evaluate((node) => node.decode ? node.decode().catch(() => {}) : Promise.resolve());
+          check(await image.evaluate((node) => node.complete && node.naturalWidth > 0 && node.naturalHeight > 0),
+            `${route} ${width}px recovered image did not decode`);
+          check(await image.evaluate((node) => {
+            const rect = node.getBoundingClientRect();
+            return rect.width >= Math.min(300, window.innerWidth * 0.7) && rect.height >= 180;
+          }), `${route} ${width}px recovered image is not materially visible`);
+        }
       }
       if (route === "/radio.html") {
+        check(await page.locator('img[src*="ksvl-booth."]').count() === 0,
+          `${route} ${width}px still selects the retired KSVL booth`);
         for (const selector of [".ksvl-studio__copy h1", ".ksvl-studio__motto", ".ksvl-studio .ksvl-hero-tunein"]) {
           check(await page.locator(selector).first().evaluate((node) => {
             const rect = node.getBoundingClientRect();

@@ -15851,3 +15851,7 @@ remain unreconciled; cross-chat completeness is not certified.
   fail as a textbook diagram—and the test that finally caught it.
 - **Publication status:** BUILT LOCALLY / NOT PUBLISHED / ALI REVIEW AND
   FULL-BOOK ADMISSION PENDING.
+
+
+## 2026-09-08 — Rejected KSVL booth was still selectable
+Ali identified an outdated cottagecore studio in the homepage. A stale ACTIVE registry entry overrode its retired-path list; another public radio use was missed by inventory of a stale checkout. Reproduced the stale-ACTIVE acceptance before repair. Prevention: retirement takes precedence, deny exact original/export hashes under aliases, inspect the receiving deployment artifact, and remove old selection requirements in fixtures. Calibrated with both actual rejected exports and a renamed copy; independent visual review found no new layout defect. Behind the Build: removing a picture means retiring its eligibility, not only changing one image tag.

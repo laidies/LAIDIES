@@ -58,9 +58,37 @@
     }
     @keyframes ksvl-onair { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
     @media (prefers-reduced-motion: reduce) { .ksvl-hero-tunein__dot { animation: none; } }
+
+    /* The retired booth no longer supplies the layout for the station controls. */
+    .sv-hero.ksvl-studio--no-art {
+      display: grid; gap: 26px; aspect-ratio: auto; min-height: 0;
+      padding: clamp(28px, 5vw, 64px) max(18px, calc((100vw - 1100px) / 2));
+    }
+    .ksvl-studio--no-art::after { content: none; }
+    .ksvl-studio--no-art .ksvl-studio__copy {
+      position: relative; inset: auto; width: 100%; transform: none;
+    }
+    .ksvl-studio--no-art .ksvl-studio__controls {
+      position: relative; inset: auto; height: auto; padding: 0;
+    }
+    .ksvl-studio--no-art .ksvl-hubs {
+      position: static !important; display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 12px !important;
+    }
+    .ksvl-studio--no-art .ksvl-hub {
+      position: relative !important; inset: auto !important;
+      width: auto !important; height: auto !important; min-height: 64px;
+      align-items: center !important; padding: 14px 10px !important;
+      border: 2px solid var(--hotspot-accent) !important; border-radius: 12px !important;
+    }
+    .ksvl-studio--no-art .ksvl-tuner {
+      position: relative; inset: auto; grid-template-columns: auto minmax(0, 1fr) auto;
+    }
+    @media (max-width: 760px) {
+      .ksvl-studio--no-art .ksvl-hubs { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    }
   </style>
-  <div class="sv-hero ksvl-studio" aria-labelledby="ksvlStudioTitle">
-    <img src="assets/building-interiors/ksvl-booth.jpg?v=20260707" alt="Inside the KSVL 99.9 booth — a mixing console with heart-topped mics, ON AIR sign, walls of records, and the SUNNYVAiLE street glowing through the window at dusk" loading="eager">
+  <div class="sv-hero ksvl-studio ksvl-studio--no-art" aria-labelledby="ksvlStudioTitle">
     <div class="ksvl-studio__copy">
       <p class="ksvl-studio__kicker">MAiN Street · 99.9 FM · SUNNYVAiLE</p>
       <h1 id="ksvlStudioTitle">KSVL R<span class="ai">Ai</span>DIO.</h1>

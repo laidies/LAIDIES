@@ -3,6 +3,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { assertAssetNotRetired, compileActiveAssetRegistry } from "./lib/active-asset-admission.mjs";
 
 const args = process.argv.slice(2);
 const calibrate = args.includes("--calibrate");
@@ -60,8 +61,10 @@ if (!artifactArg) {
 const root = process.cwd();
 const artifactRoot = path.resolve(artifactArg);
 const registry = JSON.parse(fs.readFileSync(path.join(root, "operations/assets/active-asset-registry.json"), "utf8"));
-const textExtensions = new Set([".css", ".html", ".js", ".json"]);
+const compiledRegistry = compileActiveAssetRegistry(registry);
+const textExtensions = new Set([".css", ".html", ".js", ".mjs", ".json", ".svg"]);
 const publicSources = [];
+const publicFiles = [];
 
 function walk(directory) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
@@ -71,6 +74,7 @@ function walk(directory) {
     else if (entry.isFile() && textExtensions.has(path.extname(entry.name))) {
       publicSources.push(fs.readFileSync(absolute, "utf8"));
     }
+    if (entry.isFile()) publicFiles.push(absolute);
   }
 }
 
@@ -85,6 +89,18 @@ const referenced = referencedActiveAssets(
   publicSources.join("\n"),
 );
 const failures = [];
+const publicText = publicSources.join("\n");
+for (const retiredPath of compiledRegistry.retiredPaths) {
+  if (publicText.includes(retiredPath)) failures.push({ path: retiredPath, reason: "retired_reference" });
+}
+for (const absolutePath of publicFiles) {
+  const relativePath = path.relative(artifactRoot, absolutePath).split(path.sep).join("/");
+  try {
+    assertAssetNotRetired({ relativePath, absolutePath, registry: compiledRegistry });
+  } catch (error) {
+    failures.push({ path: relativePath, reason: "retired_asset", detail: error.message });
+  }
+}
 for (const entry of referenced) {
   const absolute = path.join(artifactRoot, entry.path);
   if (!fs.statSync(absolute, { throwIfNoEntry: false })?.isFile()) {

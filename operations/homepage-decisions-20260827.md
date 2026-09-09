@@ -1,5 +1,9 @@
 # Homepage decisions — 2026-08-27
 
+## 2026-09-08 — Retire the old dark-wood KSVL booth
+
+Ali explicitly rejects the old KSVL studio pictured in the homepage's Make it stick step as outdated and cottagecore. Remove it from the homepage and retire `assets/building-interiors/ksvl-booth.jpg` and the same-scene export `approved-assets/building-interiors/ksvl-booth.png`. Do not select, re-export, recolour or restore this image family. Retain historical evidence only. The separately approved KSVL sticker collage and working radio controls are not retired. Enforce the retirement through the existing asset registry and build/artifact checks, including rejection of these exact image bytes under a new filename.
+
 ## 2026-09-08 — Recover the existing full Resident Card explanation
 
 Ali has repeatedly requested reuse of the earlier complete explanation. Further piecemeal replacements are rejected. The July 12 homepage source `35e323cf5b10ddf3ef58e7ff08c53578dcd1f7ee:index.html#collect` has been recovered in `operations/product-stewards/town-entry-homepage/resident-card-explanation-recovered-20260712.md`, with the complete wording, what was lost, and Ali's later corrections. The July 12 copy audit says the Closet section was built with her direction and explicitly prohibits copy invented mid-redline. Use the recovered full explanation as the baseline, incorporate her explicit corrections, and reconcile implementation gaps separately. Do not reconstruct the product promise from one tested route or rewrite it around those gaps. This recovery did not edit or deploy the homepage.

@@ -30,9 +30,23 @@ try {
 
   assert.equal(assertActiveAsset({ relativePath: 'assets/active.png', absolutePath: active.filename, registry }).role, 'test.active');
   assert.equal(assertActiveAsset({ relativePath: 'assets/cards/one.png', absolutePath: dynamic.filename, registry }).dynamic_family, 'test.cards');
-  assert.throws(() => assertActiveAsset({ relativePath: 'assets/retired.png', absolutePath: retired.filename, registry }), /non-ACTIVE/);
+  assert.throws(() => assertActiveAsset({ relativePath: 'assets/retired.png', absolutePath: retired.filename, registry }), /retired/);
   assert.throws(() => assertActiveAsset({ relativePath: 'assets/card-candidate-v1.png', absolutePath: candidate.filename, registry }), /candidate/);
   assert.throws(() => assertActiveAsset({ relativePath: 'assets/unregistered.png', absolutePath: active.filename, registry }), /not registered ACTIVE/);
+  const oldRadio = write('assets/old-radio.jpg', 'owner-rejected-radio');
+  const renamedRadio = write('assets/new-radio.jpg', 'owner-rejected-radio');
+  const retirementRegistry = compileActiveAssetRegistry({
+    schema: 'laidies.active-assets.v1', default_policy: 'DENY',
+    entries: [
+      { status: 'ACTIVE', path: 'assets/old-radio.jpg', sha256: oldRadio.sha256 },
+      { status: 'ACTIVE', path: 'assets/new-radio.jpg', sha256: renamedRadio.sha256 },
+    ],
+    retired_paths: ['assets/old-radio.jpg'],
+    retired_sha256: [oldRadio.sha256],
+  });
+  assert.throws(() => assertActiveAsset({ relativePath: 'assets/old-radio.jpg', absolutePath: oldRadio.filename, registry: retirementRegistry }), /retired/);
+  assert.throws(() => assertActiveAsset({ relativePath: 'assets/new-radio.jpg', absolutePath: renamedRadio.filename, registry: retirementRegistry }), /retired image bytes/);
+  assert.throws(() => compileActiveAssetRegistry({ schema: 'laidies.active-assets.v1', default_policy: 'DENY', entries: [], retired_sha256: ['invalid'] }), /retired sha256/);
   fs.writeFileSync(active.filename, 'changed');
   assert.throws(() => assertActiveAsset({ relativePath: 'assets/active.png', absolutePath: active.filename, registry }), /checksum mismatch/);
   assert.throws(() => compileActiveAssetRegistry({ schema: 'laidies.active-assets.v1', default_policy: 'DENY', entries: [], retired_paths: [], dynamic_families: [{ status: 'ACTIVE', path: 'assets/cards', members: [] }] }), /explicit members/);

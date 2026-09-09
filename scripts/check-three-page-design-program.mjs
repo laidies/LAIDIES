@@ -113,10 +113,10 @@ export function visitorProofErrors(source) {
     '/assets/town-characters/scenes/paige-scene.png',
     '/assets/building-interiors/delivery-20260722-library-interior-reroll-v1/library-interior-from-credits-dechromed-v4-no-baked-text.png',
     '/assets/episodes/ep-01/pixel/ep01-title-card-comic-v2.png',
-    '/assets/building-interiors/ksvl-booth.jpg',
     '/assets/sunnyvaile-streets/schoolhouse-road-morning.webp'
   ];
-  if (!formatImages.every(asset => source.includes(asset))) errors.push('six current-owner images are not all bound to the format jobs');
+  if (!formatImages.every(asset => source.includes(asset))) errors.push('current-owner images are not all bound to the format jobs');
+  if (/ksvl-booth\.(?:jpg|png)/i.test(source)) errors.push('retired KSVL booth is still selected');
   for (const route of ['/games/fairy-godmother.html', '/sorority-house.html', '#vc-proof-map']) {
     if (!source.includes(route)) errors.push(`goal route missing: ${route}`);
   }
