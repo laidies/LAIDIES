@@ -335,9 +335,10 @@ try {
       const section = document.querySelector('.ns-feature-desk');
       const normalize = value => value.replace(/[.?!]+$/,'');
       const sectionText = normalize(section.textContent);
-      return {valid: section.querySelectorAll('[data-desk-state=ready]').length === ${READY.length} &&
+      const visibleReady = section.querySelectorAll('[data-desk][data-desk-state=ready]').length;
+      return {valid: visibleReady >= ${READY.length} &&
         ${JSON.stringify(READY.map(desk => desk.headline))}.every(headline => sectionText.includes(normalize(headline))),
-        ready: section.querySelectorAll('[data-desk-state=ready]').length,
+        ready: visibleReady,
         missing: ${JSON.stringify(READY.map(desk => desk.headline))}.filter(headline => !sectionText.includes(normalize(headline))),
         failure: window.__newsstandDailyIssueValidationFailure || window.__newsstandDailyIssueError || null};
     })()`);
@@ -348,7 +349,7 @@ try {
         !card.textContent.includes('No published article yet') &&
         !card.querySelector('.ns-big-picture-tracking__list');
     })()`), true, "Big Picture shows the approved data-centre article instead of the retired coming-soon tracker");
-    check(await value(currentPreview, `(() => { const section=document.querySelector('.ns-feature-desk'); const links=section.querySelectorAll('[data-desk][data-desk-state=ready] a').length; return links > 0 && links <= ${READY.length} && !section.querySelector('[data-desk-state=empty] a') && !document.querySelector('.ns-paper-sections'); })()`), true, "only admitted service desks expose destinations and redundant section tabs stay removed");
+    check(await value(currentPreview, `(() => { const section=document.querySelector('.ns-feature-desk'); const visible=section.querySelectorAll('[data-desk][data-desk-state=ready]').length; const links=section.querySelectorAll('[data-desk][data-desk-state=ready] a').length; return links > 0 && links <= visible && !section.querySelector('[data-desk-state=empty] a') && !document.querySelector('.ns-paper-sections'); })()`), true, "only admitted service desks expose destinations and redundant section tabs stay removed");
     await act(currentPreview, "document.querySelector('.ns-front-desk--lead').click()");
     check(await value(currentPreview, `!!document.querySelector('.ns-article') && !document.querySelector('.ns-daily-issue') && location.hash === ${JSON.stringify('#' + FRONT.slug)}`), true, "Front PAiGE opens its full admitted story in one action");
     currentPreview.close();

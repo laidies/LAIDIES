@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "chatgpt-images-2-5-2026-09-08",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "f21ec6944d8f5149a2e0582b0c09e918dc3b1bb0efd90822b7456e24d7f8cca1",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can drawing a rough sketch or commenting on one region produce a better result than writing an ever-longer text prompt?",
+      "response": "Because words describe spatial arrangement ambiguously, while a sketch delivers the layout directly as visual context — the system receives where things go rather than a paragraph it must interpret. A comment narrows the editing target to one region, so the system changes less and preserves the rest. The output is still a freshly generated image, not an editable layered file, so precise text, measurements and brand details must be verified outside it.",
+      "expectedEvidence": "P005 (visual communication versus long prompts), P006 (rough map, smaller editing target, regeneration limit), P010 (use the richer context route).",
+      "assessment": "The article's mechanism fully supports this answer in ordinary language; the causal chain from richer input context to more steerable output is explicit and honest about its limits."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using this article's mechanism, how should the planner guide the tool, and what must they still not trust the image for?",
+      "response": "They should sketch the room's rough layout first — stage here, dance floor there, table clusters at these positions — so the system gets a spatial map instead of an ambiguous paragraph, then use a comment pinned to one region ('swap this table cluster for a buffet line, keep everything else') for each single targeted edit. Because the tool regenerates an image rather than editing a data file, they must not trust it for real measurements, aisle clearances, fire-capacity numbers or exact signage text; those come from the venue's floor plan and regulations.",
+      "expectedEvidence": "P006 (map and target mechanism, regeneration limit), P008 (one targeted edit at a time), P007 (measurements and factual details checked outside the picture).",
+      "assessment": "The transfer succeeds: the article's context-routing mechanism resolves a genuinely new situation absent from the text and correctly predicts what the image cannot be trusted for."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "What was released, when, what it adds and what it is not (a new general chat model) are all clear in sequence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released ChatGPT Images 2.5 on September 8. It is the image-making and image-editing part of ChatGPT—not a new general chat model. The release adds ways to begin with a rough drawing or a template, place a comment on part of an image you want changed, and share the prompt behind an image.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI says Images 2.5 is rolling out across all ChatGPT tiers on desktop, mobile and web, as well as ChatGPT Work and Codex. The release notes add two important limits: templates are not yet available in Work mode, and existing image-generation limits have not changed. Because this is a rollout, a feature may not appear in every account at the same moment.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Sketch, comment, template and rollout gain plain meaning at first use; 'context' is explained through the picture-versus-prompt contrast.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released ChatGPT Images 2.5 on September 8. It is the image-making and image-editing part of ChatGPT—not a new general chat model. The release adds ways to begin with a rough drawing or a template, place a comment on part of an image you want changed, and share the prompt behind an image.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A sketch gives the system a rough map: put the sofa here, leave space for a headline there, or make the product the largest object. A comment gives it a smaller editing target: change this sleeve, remove that lamp, keep the rest. The AI still generates a new image; it is not turning the result into a fully editable design file with independent text boxes and layers.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>The larger lesson is current AI practice: when the product gives you a better way to provide context—a picture, a file, a marked region or a shared project—use that route instead of forcing the whole job into a longer prompt.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences land in specific reader situations: marketing asset drafting, room planning, and what still needs external checking.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>That distinction matters for real work. A marketing manager could sketch the arrangement of a social post, then ask for visual directions before a designer builds the final asset. Someone planning a room could draw the furniture placement instead of writing a paragraph about left, right and centre. But exact copy, measurements, brand rules and important factual details still need checking outside the finished picture.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>If the new tools appear in your account, try them on a task where layout matters. Draw the rough arrangement first, add the few details that must be preserved, and make one targeted edit at a time. That tests the real improvement: whether you can steer the image without rebuilding the whole idea after every change.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear, and every piece of advice follows from sourced features and stated limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If the new tools appear in your account, try them on a task where layout matters. Draw the rough arrangement first, add the few details that must be preserved, and make one targeted edit at a time. That tests the real improvement: whether you can steer the image without rebuilding the whole idea after every change.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Do not treat “all tiers” as unlimited use, or OpenAI's speed claim as a promise about every device and every image. Your plan's existing generation limits still apply, rollout timing can vary, and a complex request may still need several attempts.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "This connects to <a href=\\\"/library.html#working-with-ai-101::%401-3-whats-actually-determining-the-output\\\">Working with AI 101: What’s Actually Determining the Output</a>. The lesson explains why the model is only one part of the result; the input format, surrounding tools and context can change what the system is able to produce.",
+          "locator": "P012"
+        }
+      ]
+    }
+  }
+}

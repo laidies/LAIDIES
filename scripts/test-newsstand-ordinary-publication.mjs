@@ -269,7 +269,8 @@ assert.match(cli('build-newsstand-derivatives', []), /PASS/);
 assert.match(cli('build-newsstand-derivatives', ['--check']), /PASS/);
 assert.equal(fs.readFileSync(path.join(SOURCE, 'content/newsstand-stories.js'), 'utf8'), sourceBase, 'real canonical data must never change during tests');
 // Exercise the real client snapshot gate, not just story access eligibility.
-class FixtureDate extends Date { constructor(...a){super(...(a.length?a:[`${date}T23:00:00Z`]));}static now(){return Date.parse(`${date}T23:00:00Z`);} }
+const snapshotNow = new Date(Math.max(...admitted.store.issues.map(issue => Date.parse(issue.admission.reviewedAt))) + 1).toISOString();
+class FixtureDate extends Date { constructor(...a){super(...(a.length?a:[snapshotNow]));}static now(){return Date.parse(snapshotNow);} }
 const sandbox={window:{crypto:webcrypto,NEWSSTAND_DATA:publicData,localStorage:{getItem:()=>null}},document:{readyState:'loading',addEventListener(){}},Date:FixtureDate,TextEncoder,URL,Intl,Set};
 vm.runInNewContext(fs.readFileSync(path.join(SOURCE,'content/site/newsstand-catchup-v1.js'),'utf8').replace('})(window);',`global.test={validDailyIssueStore,set(c){columns=c;}};})(window);`),sandbox);
 sandbox.window.test.set(columns);

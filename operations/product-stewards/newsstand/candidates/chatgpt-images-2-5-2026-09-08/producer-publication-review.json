@@ -1,0 +1,566 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "chatgpt-images-2-5-2026-09-08",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-08T23:55:00.000Z",
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review is not independent admission.",
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Image and public release remain separate gates."
+  ],
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/publication-manifest.json",
+      "sha256": "b2b8f3af5fbb501d63139ab41f30318363db651ee2a1eba75157c96b68c69e51"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/review-text.json",
+      "sha256": "0a21589aa66a35ef3b056d40a455236365960f0a717c60dec4362bedbbac69d5"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/rendered-article.html",
+      "sha256": "8fb4ab44e6fea9cc60307141ed1de3ee72b7d0116d1e5f0f889317ddbd3011af"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-05T22:51:01.267Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Plain terms gain meaning in the event explanation.",
+        "A familiar comparison reconnects to the mechanism and a concrete reader check."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "The LAiDIES Read in private NEWS002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What changed in ChatGPT's image tool, and is there a better way to guide it than writing a longer prompt?",
+    "promisedPayoff": "Understand the new visual-control tools, their limits and one useful way to test them.",
+    "centralMentalModel": "A sketch and a marked edit area are forms of context that can guide an image system more directly than prose alone.",
+    "dailyLifeConnection": "Planning a room or social post where arrangement is easier to draw than describe.",
+    "surfaceJob": "Ordinary dated Daily report on a current product release; not a tutorial, product endorsement or Big Picture replacement.",
+    "desiredReaderFeeling": "I understand what is genuinely new, what still needs checking and how I can test whether it helps my own work.",
+    "desiredFeeling": "I understand what is genuinely new, what still needs checking and how I can test whether it helps my own work."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies specific plainClarity evidence while keeping the release and its limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It is the image-making and image-editing part of ChatGPT—not a new general chat model. The release adds ways to begin with a rough drawing or a template, place a comment on part of an image you want changed, and share the prompt behind an image.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies specific readerValue evidence while keeping the release and its limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "you can communicate visually instead of trying to describe every detail in one long prompt.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies specific laidiesVoice evidence while keeping the release and its limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The practical change is not simply that the pictures may look better.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies specific engagingEnjoyable evidence while keeping the release and its limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Someone planning a room could draw the furniture placement instead of writing a paragraph about left, right and centre.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies specific factualIntegrity evidence while keeping the release and its limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those performance figures are company claims.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies specific freshnessReviewability evidence while keeping the release and its limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI released ChatGPT Images 2.5 on September 8.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies specific surfaceFit evidence while keeping the release and its limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The release adds ways to begin with a rough drawing or a template",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies specific datedChange evidence while keeping the release and its limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI released ChatGPT Images 2.5 on September 8.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies specific consequenceAndUncertainty evidence while keeping the release and its limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Because this is a rollout, a feature may not appear in every account at the same moment.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies specific dailyLifeConnection evidence while keeping the release and its limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A marketing manager could sketch the arrangement of a social post",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies specific communicationBenchmark evidence while keeping the release and its limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The useful advance is better context and control—not a magical replacement for design judgement or final checks.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies specific explainBack evidence while keeping the release and its limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A sketch gives the system a rough map: put the sofa here, leave space for a headline there, or make the product the largest object. A comment gives it a smaller editing target: change this sleeve, remove that lamp, keep the rest.",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain how visual context changes the job.",
+        "probeResponse": "A sketch shows arrangement and a marked region shows the edit target, so the system does not have to infer all spatial instructions from prose.",
+        "expectedEvidence": "Visual input and targeted edit mechanism."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies specific unseenTransfer evidence while keeping the release and its limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The larger lesson is current AI practice",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Apply this to a slide deck.",
+        "probeResponse": "A rough wireframe can show the composition, but values and wording still need separate verification.",
+        "expectedEvidence": "New layout case plus preserved checking boundary."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies specific usefulAction evidence while keeping the release and its limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Draw the rough arrangement first, add the few details that must be preserved, and make one targeted edit at a time.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies specific analogyIntegrity evidence while keeping the release and its limits connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A sketch gives the system a rough map",
+          "locator": "exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The complete article avoids glossaryAccumulation; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The complete article avoids templateRepetition; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The complete article avoids decorativeAnalogy; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The complete article avoids referenceConfetti; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The complete article avoids missingMechanism; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The complete article avoids genericAction; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The complete article avoids jargonBeforeMeaning; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The complete article avoids disconnectedSystem; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The complete article avoids joylessInstruction; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The complete article avoids purposeTooNarrow; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The complete article avoids mechanismBeforeMotivation; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The complete article avoids workedExampleOvertakesBookPurpose; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The complete article avoids technicalExplainerVoice; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The complete article avoids benchmarkNameDrop; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The complete article avoids communicationPastiche; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The complete article avoids corporateSludge; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The complete article avoids curiosityWithoutPayoff; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The complete article avoids entertainmentBeforeUnderstanding; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The complete article avoids factlessConfidence; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The complete article avoids familiarExampleWithoutTechnicalReturn; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The complete article avoids inflatedTakeawayEnding; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The complete article avoids mechanismCompressedBehindHook; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The complete article avoids prematureClickBeforeMechanism; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The complete article avoids staleUnreviewableClaims; the dated release, mechanism, limits and reader test remain connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/source-evidence.json",
+        "sha256": "6d766cf5c9283594afaa5d92ffaa220f0b94df7b25f8466fdda9bed9f0732224"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "release",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI released ChatGPT Images 2.5 on September 8.",
+            "locator": "exact story"
+          }
+        ],
+        "sourceIds": [
+          "openai-images-2-5"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/source-evidence.json",
+          "sha256": "6d766cf5c9283594afaa5d92ffaa220f0b94df7b25f8466fdda9bed9f0732224"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI published the product release on September 8, 2026.",
+            "locator": "source-evidence record passages"
+          }
+        ],
+        "scopeAndFreshness": "Checked September 8, 2026; vendor claims remain attributed and the independent test is explicitly bounded."
+      },
+      {
+        "claimId": "features",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The release adds ways to begin with a rough drawing or a template, place a comment on part of an image you want changed, and share the prompt behind an image.",
+            "locator": "exact story"
+          }
+        ],
+        "sourceIds": [
+          "openai-images-2-5",
+          "openai-release-notes"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/source-evidence.json",
+          "sha256": "6d766cf5c9283594afaa5d92ffaa220f0b94df7b25f8466fdda9bed9f0732224"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "It says ChatGPT Images 2.5 adds Sketch, templates, image comments and prompt sharing.",
+            "locator": "source-evidence record passages"
+          }
+        ],
+        "scopeAndFreshness": "Checked September 8, 2026; vendor claims remain attributed and the independent test is explicitly bounded."
+      },
+      {
+        "claimId": "availability",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI says Images 2.5 is rolling out across all ChatGPT tiers on desktop, mobile and web, as well as ChatGPT Work and Codex.",
+            "locator": "exact story"
+          }
+        ],
+        "sourceIds": [
+          "openai-images-2-5",
+          "openai-release-notes"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/source-evidence.json",
+          "sha256": "6d766cf5c9283594afaa5d92ffaa220f0b94df7b25f8466fdda9bed9f0732224"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "It says the product is rolling out to ChatGPT, ChatGPT Work and Codex users across all tiers on desktop, mobile and web.",
+            "locator": "source-evidence record passages"
+          }
+        ],
+        "scopeAndFreshness": "Checked September 8, 2026; vendor claims remain attributed and the independent test is explicitly bounded."
+      },
+      {
+        "claimId": "limits",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "templates are not yet available in Work mode, and existing image-generation limits have not changed.",
+            "locator": "exact story"
+          }
+        ],
+        "sourceIds": [
+          "openai-release-notes"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/source-evidence.json",
+          "sha256": "6d766cf5c9283594afaa5d92ffaa220f0b94df7b25f8466fdda9bed9f0732224"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "It says templates are not yet available in Work mode.",
+            "locator": "source-evidence record passages"
+          }
+        ],
+        "scopeAndFreshness": "Checked September 8, 2026; vendor claims remain attributed and the independent test is explicitly bounded."
+      },
+      {
+        "claimId": "performance",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI also says the underlying model keeps people and objects more consistent through several edits and can reduce the time it takes to generate an image by up to 50% compared with Images 2.0.",
+            "locator": "exact story"
+          }
+        ],
+        "sourceIds": [
+          "openai-images-2-5"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/source-evidence.json",
+          "sha256": "6d766cf5c9283594afaa5d92ffaa220f0b94df7b25f8466fdda9bed9f0732224"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "It says generation latency is reduced by up to 50% compared with Images 2.0 and that reference subjects and targeted edits are more consistent.",
+            "locator": "source-evidence record passages"
+          }
+        ],
+        "scopeAndFreshness": "Checked September 8, 2026; vendor claims remain attributed and the independent test is explicitly bounded."
+      },
+      {
+        "claimId": "hands-on",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Axios tested early access and found better likeness preservation and more detailed editing in its own small set of tasks",
+            "locator": "exact story"
+          }
+        ],
+        "sourceIds": [
+          "axios-hands-on"
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/source-evidence.json",
+          "sha256": "6d766cf5c9283594afaa5d92ffaa220f0b94df7b25f8466fdda9bed9f0732224"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Its reporter found improved likeness preservation and more detailed editing in those tasks.",
+            "locator": "source-evidence record passages"
+          }
+        ],
+        "scopeAndFreshness": "Checked September 8, 2026; vendor claims remain attributed and the independent test is explicitly bounded."
+      }
+    ],
+    "reviewedThrough": "2026-09-08",
+    "nextTrigger": "Rollout, plan limits, release notes, system card or credible independent testing changes.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand article on this release exists."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Producer found no known defect after the bounded source and full-prose review; independent review remains required."
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  }
+}

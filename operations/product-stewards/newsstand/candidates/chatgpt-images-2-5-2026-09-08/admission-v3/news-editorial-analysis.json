@@ -1,0 +1,92 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "chatgpt-images-2-5-2026-09-08",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "0a21589aa66a35ef3b056d40a455236365960f0a717c60dec4362bedbbac69d5",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why does drawing a rough sketch or placing a comment on an image work better than writing a longer, more detailed prompt?",
+      "response": "Because a sketch carries spatial information directly — relative positions, sizes and empty space — that prose describes ambiguously, and a comment pins the edit to one region so the system regenerates only what you targeted while keeping the rest. A longer prompt forces every constraint through words, where the model must reconstruct your layout from description; the visual input hands it the layout ready-made. Crucially, the system still generates a new image each time, so precise text, measurements and brand details must be verified outside the picture.",
+      "expectedEvidence": "P005 (visual communication versus one long prompt), P006 (sketch as rough map, comment as smaller editing target, new-image limit), P010 (better context routes beat longer prompts).",
+      "assessment": "The article's mechanism fully supports this causal answer in ordinary language; the limit on editability survives the explanation, so explain-back passes."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using this article's mechanism, how should she guide the tool, and what should she never trust the generated image to get right?",
+      "response": "She should sketch the flyer's three zones — crest box top-left, map box bottom-right, centre column — so the spatial layout arrives as visual context rather than ambiguous prose, then add only the few must-keep details in words. If one region is wrong, she should place a comment on that region for a targeted regeneration instead of rewriting the whole prompt. Because the output is a generated image, not a design file with live text, she must verify the event times, translations and crest fidelity outside the picture — ideally having a designer rebuild final text — since factual copy inside a generated image is exactly what the article warns still needs external checking.",
+      "expectedEvidence": "The reasoning applies P006 (map/target mechanism and new-image limit), P007 (copy and factual details checked outside the picture) and P010 (prefer a better context route over a longer prompt) to a situation absent from the article.",
+      "assessment": "The mechanism transfers cleanly and completely to this new scenario, including its limits, so transfer passes."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "What was released, when, by whom, what it adds and what it does not change are all laid out causally.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released ChatGPT Images 2.5 on September 8. It is the image-making and image-editing part of ChatGPT—not a new general chat model. The release adds ways to begin with a rough drawing or a template, place a comment on part of an image you want changed, and share the prompt behind an image.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI says Images 2.5 is rolling out across all ChatGPT tiers on desktop, mobile and web, as well as ChatGPT Work and Codex. The release notes add two important limits: templates are not yet available in Work mode, and existing image-generation limits have not changed. Because this is a rollout, a feature may not appear in every account at the same moment.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>OpenAI also says the underlying model keeps people and objects more consistent through several edits and can reduce the time it takes to generate an image by up to 50% compared with Images 2.0. Those performance figures are company claims. Axios tested early access and found better likeness preservation and more detailed editing in its own small set of tasks; that is useful first-hand evidence, not a broad independent benchmark.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Sketch, comment-based editing and rollout are each given plain meaning at first meaningful use; 'context' is explained by example.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI says Images 2.5 is rolling out across all ChatGPT tiers on desktop, mobile and web, as well as ChatGPT Work and Codex. The release notes add two important limits: templates are not yet available in Work mode, and existing image-generation limits have not changed. Because this is a rollout, a feature may not appear in every account at the same moment.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A sketch gives the system a rough map: put the sofa here, leave space for a headline there, or make the product the largest object. A comment gives it a smaller editing target: change this sleeve, remove that lamp, keep the rest. The AI still generates a new image; it is not turning the result into a fully editable design file with independent text boxes and layers.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>The larger lesson is current AI practice: when the product gives you a better way to provide context—a picture, a file, a marked region or a shared project—use that route instead of forcing the whole job into a longer prompt.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences land in specific reader situations: a marketing manager's social post, a room plan, one's own plan limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>That distinction matters for real work. A marketing manager could sketch the arrangement of a social post, then ask for visual directions before a designer builds the final asset. Someone planning a room could draw the furniture placement instead of writing a paragraph about left, right and centre. But exact copy, measurements, brand rules and important factual details still need checking outside the finished picture.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>If the new tools appear in your account, try them on a task where layout matters. Draw the rough arrangement first, add the few details that must be preserved, and make one targeted edit at a time. That tests the real improvement: whether you can steer the image without rebuilding the whole idea after every change.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Do not treat “all tiers” as unlimited use, or OpenAI's speed claim as a promise about every device and every image. Your plan's existing generation limits still apply, rollout timing can vary, and a complex request may still need several attempts.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; all advice follows from sourced limits (rollout variability, unchanged generation limits).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If the new tools appear in your account, try them on a task where layout matters. Draw the rough arrangement first, add the few details that must be preserved, and make one targeted edit at a time. That tests the real improvement: whether you can steer the image without rebuilding the whole idea after every change.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Do not treat “all tiers” as unlimited use, or OpenAI's speed claim as a promise about every device and every image. Your plan's existing generation limits still apply, rollout timing can vary, and a complex request may still need several attempts.</p>",
+          "locator": "P009"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1031 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "chatgpt-images-2-5-2026-09-08",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-09T00:08:50.594Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/review-text.json",
+      "sha256": "0a21589aa66a35ef3b056d40a455236365960f0a717c60dec4362bedbbac69d5"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/publication-manifest.json",
+      "sha256": "b2b8f3af5fbb501d63139ab41f30318363db651ee2a1eba75157c96b68c69e51"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/rendered-article.html",
+      "sha256": "8fb4ab44e6fea9cc60307141ed1de3ee72b7d0116d1e5f0f889317ddbd3011af"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Is there a better way to guide ChatGPT's image tool than writing an ever-longer prompt?",
+    "promisedPayoff": "Understand the new sketch and comment controls, their real limits, and one concrete way to test them on your own work.",
+    "centralMentalModel": "A sketch gives the system a rough spatial map and a comment gives it a small editing target; both supply visual context that words struggle to carry, but the output is still a freshly generated image, not an editable design file.",
+    "dailyLifeConnection": "A marketing manager sketching a social post layout and someone planning furniture placement in a room, instead of describing left/right/centre in prose.",
+    "surfaceJob": "A dated news article reporting what changed in ChatGPT Images 2.5 on September 8, with attribution, rollout limits and a practical test.",
+    "desiredReaderFeeling": "Curious and equipped to try the feature deliberately, without over-trusting speed claims or expecting a design tool."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Every sentence is followable without AI training; 'sketch as rough map' and 'comment as smaller editing target' are explained in ordinary language.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The practical change is not simply that the pictures may look better. It is that you can communicate visually instead of trying to describe every detail in one long prompt.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>A sketch gives the system a rough map: put the sofa here, leave space for a headline there, or make the product the largest object. A comment gives it a smaller editing target: change this sleeve, remove that lamp, keep the rest. The AI still generates a new image; it is not turning the result into a fully editable design file with independent text boxes and layers.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader learns the mechanism (visual context beats longer prompts), the boundary (not a layered file), and a concrete test.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A sketch gives the system a rough map: put the sofa here, leave space for a headline there, or make the product the largest object. A comment gives it a smaller editing target: change this sleeve, remove that lamp, keep the rest. The AI still generates a new image; it is not turning the result into a fully editable design file with independent text boxes and layers.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>That distinction matters for real work. A marketing manager could sketch the arrangement of a social post, then ask for visual directions before a designer builds the final asset. Someone planning a room could draw the furniture placement instead of writing a paragraph about left, right and centre. But exact copy, measurements, brand rules and important factual details still need checking outside the finished picture.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>If the new tools appear in your account, try them on a task where layout matters. Draw the rough arrangement first, add the few details that must be preserved, and make one targeted edit at a time. That tests the real improvement: whether you can steer the image without rebuilding the whole idea after every change.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult tone; direct address ('If the new tools appear in your account') without condescension or borrowed persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The practical change is not simply that the pictures may look better. It is that you can communicate visually instead of trying to describe every detail in one long prompt.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>If the new tools appear in your account, try them on a task where layout matters. Draw the rough arrangement first, add the few details that must be preserved, and make one targeted edit at a time. That tests the real improvement: whether you can steer the image without rebuilding the whole idea after every change.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "“ChatGPT's image tool now lets you sketch the composition and point to the exact area you want changed. The useful advance is better context and control—not a magical replacement for design judgement or final checks.”",
+          "locator": "P011"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The human question of steering versus rewriting sustains interest through concrete images (sofa, sleeve, lamp); no forced humour.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The practical change is not simply that the pictures may look better. It is that you can communicate visually instead of trying to describe every detail in one long prompt.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>A sketch gives the system a rough map: put the sofa here, leave space for a headline there, or make the product the largest object. A comment gives it a smaller editing target: change this sleeve, remove that lamp, keep the rest. The AI still generates a new image; it is not turning the result into a fully editable design file with independent text boxes and layers.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>That distinction matters for real work. A marketing manager could sketch the arrangement of a social post, then ask for visual directions before a designer builds the final asset. Someone planning a room could draw the furniture placement instead of writing a paragraph about left, right and centre. But exact copy, measurements, brand rules and important factual details still need checking outside the finished picture.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "A dated news piece: what shipped, for whom, with what limits and why it matters — bounded scope answered fully.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released ChatGPT Images 2.5 on September 8. It is the image-making and image-editing part of ChatGPT—not a new general chat model. The release adds ways to begin with a rough drawing or a template, place a comment on part of an image you want changed, and share the prompt behind an image.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI says Images 2.5 is rolling out across all ChatGPT tiers on desktop, mobile and web, as well as ChatGPT Work and Codex. The release notes add two important limits: templates are not yet available in Work mode, and existing image-generation limits have not changed. Because this is a rollout, a feature may not appear in every account at the same moment.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Do not treat “all tiers” as unlimited use, or OpenAI's speed claim as a promise about every device and every image. Your plan's existing generation limits still apply, rollout timing can vary, and a complex request may still need several attempts.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Marketing-post sketching and room-planning are recognizable professional/life situations tied directly to the mechanism.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>That distinction matters for real work. A marketing manager could sketch the arrangement of a social post, then ask for visual directions before a designer builds the final asset. Someone planning a room could draw the furniture placement instead of writing a paragraph about left, right and centre. But exact copy, measurements, brand rules and important factual details still need checking outside the finished picture.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human purpose (P005), concrete causality (P006), a better next question implied by the test (P008); principles applied without imitating any explainer's voice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The practical change is not simply that the pictures may look better. It is that you can communicate visually instead of trying to describe every detail in one long prompt.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>A sketch gives the system a rough map: put the sofa here, leave space for a headline there, or make the product the largest object. A comment gives it a smaller editing target: change this sleeve, remove that lamp, keep the rest. The AI still generates a new image; it is not turning the result into a fully editable design file with independent text boxes and layers.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>If the new tools appear in your account, try them on a task where layout matters. Draw the rough arrangement first, add the few details that must be preserved, and make one targeted edit at a time. That tests the real improvement: whether you can steer the image without rebuilding the whole idea after every change.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The article's mechanism supports an accurate causal answer to why a sketch outperforms a longer prompt; see explain-back below.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The practical change is not simply that the pictures may look better. It is that you can communicate visually instead of trying to describe every detail in one long prompt.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>A sketch gives the system a rough map: put the sofa here, leave space for a headline there, or make the product the largest object. A comment gives it a smaller editing target: change this sleeve, remove that lamp, keep the rest. The AI still generates a new image; it is not turning the result into a fully editable design file with independent text boxes and layers.</p>",
+          "locator": "P006"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why does drawing a rough sketch or placing a comment on an image work better than writing a longer, more detailed prompt?",
+        "response": "Because a sketch carries spatial information directly — relative positions, sizes and empty space — that prose describes ambiguously, and a comment pins the edit to one region so the system regenerates only what you targeted while keeping the rest. A longer prompt forces every constraint through words, where the model must reconstruct your layout from description; the visual input hands it the layout ready-made. Crucially, the system still generates a new image each time, so precise text, measurements and brand details must be verified outside the picture.",
+        "expectedEvidence": "P005 (visual communication versus one long prompt), P006 (sketch as rough map, comment as smaller editing target, new-image limit), P010 (better context routes beat longer prompts).",
+        "assessment": "The article's mechanism fully supports this causal answer in ordinary language; the limit on editability survives the explanation, so explain-back passes."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The context-over-longer-prompt principle (P010) transfers cleanly to my invented scenario below without strain.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A sketch gives the system a rough map: put the sofa here, leave space for a headline there, or make the product the largest object. A comment gives it a smaller editing target: change this sleeve, remove that lamp, keep the rest. The AI still generates a new image; it is not turning the result into a fully editable design file with independent text boxes and layers.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>The larger lesson is current AI practice: when the product gives you a better way to provide context—a picture, a file, a marked region or a shared project—use that route instead of forcing the whole job into a longer prompt.</p>",
+          "locator": "P010"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using this article's mechanism, how should she guide the tool, and what should she never trust the generated image to get right?",
+        "response": "She should sketch the flyer's three zones — crest box top-left, map box bottom-right, centre column — so the spatial layout arrives as visual context rather than ambiguous prose, then add only the few must-keep details in words. If one region is wrong, she should place a comment on that region for a targeted regeneration instead of rewriting the whole prompt. Because the output is a generated image, not a design file with live text, she must verify the event times, translations and crest fidelity outside the picture — ideally having a designer rebuild final text — since factual copy inside a generated image is exactly what the article warns still needs external checking.",
+        "expectedEvidence": "The reasoning applies P006 (map/target mechanism and new-image limit), P007 (copy and factual details checked outside the picture) and P010 (prefer a better context route over a longer prompt) to a situation absent from the article.",
+        "assessment": "The mechanism transfers cleanly and completely to this new scenario, including its limits, so transfer passes."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Specific and proportionate: draw layout first, preserve key details, make one targeted edit at a time; plus a caution against treating rollout as unlimited access.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If the new tools appear in your account, try them on a task where layout matters. Draw the rough arrangement first, add the few details that must be preserved, and make one targeted edit at a time. That tests the real improvement: whether you can steer the image without rebuilding the whole idea after every change.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Do not treat “all tiers” as unlimited use, or OpenAI's speed claim as a promise about every device and every image. Your plan's existing generation limits still apply, rollout timing can vary, and a complex request may still need several attempts.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The 'rough map' comparison maps the mechanism accurately, and P006 explicitly retains the limit that output is a new image, not editable layers.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A sketch gives the system a rough map: put the sofa here, leave space for a headline there, or make the product the largest object. A comment gives it a smaller editing target: change this sleeve, remove that lamp, keep the rest. The AI still generates a new image; it is not turning the result into a fully editable design file with independent text boxes and layers.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "All six material claims trace to the designated source excerpts with correct attribution ('OpenAI says', 'Axios tested') and no overreach beyond the excerpts.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released ChatGPT Images 2.5 on September 8. It is the image-making and image-editing part of ChatGPT—not a new general chat model. The release adds ways to begin with a rough drawing or a template, place a comment on part of an image you want changed, and share the prompt behind an image.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI says Images 2.5 is rolling out across all ChatGPT tiers on desktop, mobile and web, as well as ChatGPT Work and Codex. The release notes add two important limits: templates are not yet available in Work mode, and existing image-generation limits have not changed. Because this is a rollout, a feature may not appear in every account at the same moment.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>OpenAI also says the underlying model keeps people and objects more consistent through several edits and can reduce the time it takes to generate an image by up to 50% compared with Images 2.0. Those performance figures are company claims. Axios tested early access and found better likeness preservation and more detailed editing in its own small set of tasks; that is useful first-hand evidence, not a broad independent benchmark.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The event is dated September 8, sources carry accessed dates, and rollout/limit caveats make time-sensitive claims checkable against the release notes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released ChatGPT Images 2.5 on September 8. It is the image-making and image-editing part of ChatGPT—not a new general chat model. The release adds ways to begin with a rough drawing or a template, place a comment on part of an image you want changed, and share the prompt behind an image.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI says Images 2.5 is rolling out across all ChatGPT tiers on desktop, mobile and web, as well as ChatGPT Work and Codex. The release notes add two important limits: templates are not yet available in Work mode, and existing image-generation limits have not changed. Because this is a rollout, a feature may not appear in every account at the same moment.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Do not treat “all tiers” as unlimited use, or OpenAI's speed claim as a promise about every device and every image. Your plan's existing generation limits still apply, rollout timing can vary, and a complex request may still need several attempts.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The new release is clearly distinguished from the prior Images 2.0 baseline and same-day independent hands-on evidence is separated from vendor claims.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released ChatGPT Images 2.5 on September 8. It is the image-making and image-editing part of ChatGPT—not a new general chat model. The release adds ways to begin with a rough drawing or a template, place a comment on part of an image you want changed, and share the prompt behind an image.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>OpenAI also says the underlying model keeps people and objects more consistent through several edits and can reduce the time it takes to generate an image by up to 50% compared with Images 2.0. Those performance figures are company claims. Axios tested early access and found better likeness preservation and more detailed editing in its own small set of tasks; that is useful first-hand evidence, not a broad independent benchmark.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (layout tasks, plan limits) and uncertainty survives: rollout timing varies, speed is not promised per device, complex requests may take attempts.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>That distinction matters for real work. A marketing manager could sketch the arrangement of a social post, then ask for visual directions before a designer builds the final asset. Someone planning a room could draw the furniture placement instead of writing a paragraph about left, right and centre. But exact copy, measurements, brand rules and important factual details still need checking outside the finished picture.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>If the new tools appear in your account, try them on a task where layout matters. Draw the rough arrangement first, add the few details that must be preserved, and make one targeted edit at a time. That tests the real improvement: whether you can steer the image without rebuilding the whole idea after every change.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Do not treat “all tiers” as unlimited use, or OpenAI's speed claim as a promise about every device and every image. Your plan's existing generation limits still apply, rollout timing can vary, and a complex request may still need several attempts.</p>",
+          "locator": "P009"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Terms are introduced inside working explanations, never as stacked definitions.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Paragraphs develop the explanation progressively; no repeated scaffolds.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The rough-map comparison does causal work: it explains what information a sketch actually supplies.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references anywhere in the piece.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal step — visual input carries spatial and regional context words cannot — is explicit.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Advice is concrete: sketch first, preserve named details, one targeted edit, check copy and measurements externally.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "No unexplained technical language; 'rollout' and 'tiers' are unpacked in the same paragraph.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Sketch, comment, model and output are connected as one flow of information into a generated image.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty tracks evidence: vendor claims labelled as such, Axios test bounded as a small task set.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Every time-sensitive claim carries a date, a source and a checked-at timestamp.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Language is concrete throughout; no vague motivational filler.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Human situations and vivid particulars (sofa, sleeve, lamp) keep the prose alive.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No benchmark or famous explainer is named as a substitute for explanation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's promise is fully paid off with mechanism and limits.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The marketing and room-planning examples return directly to the mechanism and its checking limits.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The voice is original LAiDIES house voice, not an imitation of any communicator.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No spectacle or humour obstructs the explanation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The mechanism receives two full paragraphs; the hook is one headline line.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The claim of better control is earned by the sketch/comment explanation before the takeaway.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending generalizes modestly to a practice already demonstrated, not a grand moral.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The scope matches the stated reader job: the change, its limits and a way to test it.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human motivation (escaping the ever-longer prompt) precedes the mechanism.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Examples serve the news purpose; none crowds out the report itself.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "This is a bounded news report; explaining its specific mechanism is exactly the right organising perspective, and reader orientation stays primary.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/editorial-input.json",
+        "sha256": "1076e1efddc61ddb2d9d70c1f37a7fb4cfe548fd07ce9d73437fc050b4cff7a9"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "release",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI released ChatGPT Images 2.5 on September 8. It is the image-making and image-editing part of ChatGPT—not a new general chat model. The release adds ways to begin with a rough drawing or a template, place a comment on part of an image you want changed, and share the prompt behind an image.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/editorial-input.json",
+          "sha256": "1076e1efddc61ddb2d9d70c1f37a7fb4cfe548fd07ce9d73437fc050b4cff7a9"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI published the product release on September 8, 2026. It says ChatGPT Images 2.5 adds Sketch, templates, image comments and prompt sharing. It says the product is rolling out to ChatGPT, ChatGPT Work and Codex users across all tiers on desktop, mobile and web. It says generation latency is reduced by up to 50% compared with Images 2.0 and that reference subjects and targeted edits are more consistent. It describes two API models, Flare and Sunburst; this article does not translate their API pricing into a consumer cost claim.",
+            "locator": "https://openai.com/index/introducing-chatgpt-images-2-5/"
+          },
+          {
+            "excerpt": "Primary for release, features, rollout and company performance claims. Limitation: Performance and safety descriptions are vendor claims unless separately corroborated.",
+            "locator": "https://openai.com/index/introducing-chatgpt-images-2-5/"
+          }
+        ],
+        "scopeAndFreshness": "P002 states OpenAI released ChatGPT Images 2.5 on September 8; the OpenAI release excerpt confirms publication on September 8, 2026."
+      },
+      {
+        "claimId": "features",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI released ChatGPT Images 2.5 on September 8. It is the image-making and image-editing part of ChatGPT—not a new general chat model. The release adds ways to begin with a rough drawing or a template, place a comment on part of an image you want changed, and share the prompt behind an image.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/editorial-input.json",
+          "sha256": "1076e1efddc61ddb2d9d70c1f37a7fb4cfe548fd07ce9d73437fc050b4cff7a9"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI published the product release on September 8, 2026. It says ChatGPT Images 2.5 adds Sketch, templates, image comments and prompt sharing. It says the product is rolling out to ChatGPT, ChatGPT Work and Codex users across all tiers on desktop, mobile and web. It says generation latency is reduced by up to 50% compared with Images 2.0 and that reference subjects and targeted edits are more consistent. It describes two API models, Flare and Sunburst; this article does not translate their API pricing into a consumer cost claim.",
+            "locator": "https://openai.com/index/introducing-chatgpt-images-2-5/"
+          },
+          {
+            "excerpt": "Primary for release, features, rollout and company performance claims. Limitation: Performance and safety descriptions are vendor claims unless separately corroborated.",
+            "locator": "https://openai.com/index/introducing-chatgpt-images-2-5/"
+          },
+          {
+            "excerpt": "The September 8 release note describes templates, Sketch, image comments and prompt sharing. It says templates are not yet available in Work mode. It says existing image-generation limits are unchanged and broader availability is planned over the coming days.",
+            "locator": "https://help.openai.com/en/articles/6825453"
+          },
+          {
+            "excerpt": "Primary for current consumer feature and plan notes. Limitation: Rollout language means availability can vary by account and time.",
+            "locator": "https://help.openai.com/en/articles/6825453"
+          }
+        ],
+        "scopeAndFreshness": "P002's rough drawing/template start, region comments and prompt sharing match both the release excerpt (Sketch, templates, image comments, prompt sharing) and the September 8 release note."
+      },
+      {
+        "claimId": "availability",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI says Images 2.5 is rolling out across all ChatGPT tiers on desktop, mobile and web, as well as ChatGPT Work and Codex. The release notes add two important limits: templates are not yet available in Work mode, and existing image-generation limits have not changed. Because this is a rollout, a feature may not appear in every account at the same moment.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/editorial-input.json",
+          "sha256": "1076e1efddc61ddb2d9d70c1f37a7fb4cfe548fd07ce9d73437fc050b4cff7a9"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI published the product release on September 8, 2026. It says ChatGPT Images 2.5 adds Sketch, templates, image comments and prompt sharing. It says the product is rolling out to ChatGPT, ChatGPT Work and Codex users across all tiers on desktop, mobile and web. It says generation latency is reduced by up to 50% compared with Images 2.0 and that reference subjects and targeted edits are more consistent. It describes two API models, Flare and Sunburst; this article does not translate their API pricing into a consumer cost claim.",
+            "locator": "https://openai.com/index/introducing-chatgpt-images-2-5/"
+          },
+          {
+            "excerpt": "Primary for release, features, rollout and company performance claims. Limitation: Performance and safety descriptions are vendor claims unless separately corroborated.",
+            "locator": "https://openai.com/index/introducing-chatgpt-images-2-5/"
+          },
+          {
+            "excerpt": "The September 8 release note describes templates, Sketch, image comments and prompt sharing. It says templates are not yet available in Work mode. It says existing image-generation limits are unchanged and broader availability is planned over the coming days.",
+            "locator": "https://help.openai.com/en/articles/6825453"
+          },
+          {
+            "excerpt": "Primary for current consumer feature and plan notes. Limitation: Rollout language means availability can vary by account and time.",
+            "locator": "https://help.openai.com/en/articles/6825453"
+          }
+        ],
+        "scopeAndFreshness": "P003 attributes the all-tiers desktop/mobile/web plus Work and Codex rollout to OpenAI, matching the release excerpt, and retains the rollout-variability limitation from the release notes."
+      },
+      {
+        "claimId": "limits",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI says Images 2.5 is rolling out across all ChatGPT tiers on desktop, mobile and web, as well as ChatGPT Work and Codex. The release notes add two important limits: templates are not yet available in Work mode, and existing image-generation limits have not changed. Because this is a rollout, a feature may not appear in every account at the same moment.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/editorial-input.json",
+          "sha256": "1076e1efddc61ddb2d9d70c1f37a7fb4cfe548fd07ce9d73437fc050b4cff7a9"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The September 8 release note describes templates, Sketch, image comments and prompt sharing. It says templates are not yet available in Work mode. It says existing image-generation limits are unchanged and broader availability is planned over the coming days.",
+            "locator": "https://help.openai.com/en/articles/6825453"
+          },
+          {
+            "excerpt": "Primary for current consumer feature and plan notes. Limitation: Rollout language means availability can vary by account and time.",
+            "locator": "https://help.openai.com/en/articles/6825453"
+          }
+        ],
+        "scopeAndFreshness": "P003's two limits — templates not yet in Work mode and unchanged image-generation limits — match the release-notes excerpt exactly."
+      },
+      {
+        "claimId": "performance",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI also says the underlying model keeps people and objects more consistent through several edits and can reduce the time it takes to generate an image by up to 50% compared with Images 2.0. Those performance figures are company claims. Axios tested early access and found better likeness preservation and more detailed editing in its own small set of tasks; that is useful first-hand evidence, not a broad independent benchmark.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/editorial-input.json",
+          "sha256": "1076e1efddc61ddb2d9d70c1f37a7fb4cfe548fd07ce9d73437fc050b4cff7a9"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI published the product release on September 8, 2026. It says ChatGPT Images 2.5 adds Sketch, templates, image comments and prompt sharing. It says the product is rolling out to ChatGPT, ChatGPT Work and Codex users across all tiers on desktop, mobile and web. It says generation latency is reduced by up to 50% compared with Images 2.0 and that reference subjects and targeted edits are more consistent. It describes two API models, Flare and Sunburst; this article does not translate their API pricing into a consumer cost claim.",
+            "locator": "https://openai.com/index/introducing-chatgpt-images-2-5/"
+          },
+          {
+            "excerpt": "Primary for release, features, rollout and company performance claims. Limitation: Performance and safety descriptions are vendor claims unless separately corroborated.",
+            "locator": "https://openai.com/index/introducing-chatgpt-images-2-5/"
+          }
+        ],
+        "scopeAndFreshness": "P004 reports the up-to-50% latency reduction versus Images 2.0 and improved consistency of subjects across edits, explicitly framed as company claims per the source's stated limitation."
+      },
+      {
+        "claimId": "hands-on",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI also says the underlying model keeps people and objects more consistent through several edits and can reduce the time it takes to generate an image by up to 50% compared with Images 2.0. Those performance figures are company claims. Axios tested early access and found better likeness preservation and more detailed editing in its own small set of tasks; that is useful first-hand evidence, not a broad independent benchmark.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/editorial-input.json",
+          "sha256": "1076e1efddc61ddb2d9d70c1f37a7fb4cfe548fd07ce9d73437fc050b4cff7a9"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Axios reports testing logo creation, a cat-photo transformation and a tattoo design with the new image engine. Its reporter found improved likeness preservation and more detailed editing in those tasks. The article presents the test as hands-on experience, not a comprehensive benchmark.",
+            "locator": "https://www.axios.com/2026/09/08/exclusive-hands-on-with-chatgpts-new-image-editor"
+          },
+          {
+            "excerpt": "Independent first-hand reporting on a small early-access task set. Limitation: A few newsroom tests do not establish performance across all images, devices or accounts.",
+            "locator": "https://www.axios.com/2026/09/08/exclusive-hands-on-with-chatgpts-new-image-editor"
+          }
+        ],
+        "scopeAndFreshness": "P004 matches the Axios excerpt: early-access testing found better likeness preservation and more detailed editing in a small task set, and the article preserves the not-a-benchmark limitation."
+      }
+    ],
+    "reviewedThrough": "2026-09-08",
+    "nextTrigger": "Rollout, plan limits, release notes, system card or credible independent testing changes.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand article on this release exists."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All outcomes and news checks pass and every failure family is clear; no new defect pattern is evidenced by this artifact."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=1; evidence gaps repaired=0; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/admission-v2/news-editorial-analysis.json",
+      "sha256": "11ef5aa168c8350761e121a06a549c2907872b696f2e994156ac6d2997875a07"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/admission-v2/independent-raw-report.json",
+    "sha256": "052188350a53c5d66b191c55a7a838cf7404f390e66fee52361601fee63145e5"
+  }
+}

@@ -24,6 +24,20 @@ assert.equal(prior.serviceRecordIds.length,7,'representative seven-desk publishe
 // published story on the synthetic cycle date must not turn its quiet radar
 // into a contradictory mixed fixture.
 base.stories = base.stories.filter(story => !story.publishedAt || story.publishedAt.slice(0,10) <= prior.editionDate);
+const fixtureWeekly = base.stories.find(story => story.edition === 'weekly' &&
+  ['published', 'corrected'].includes(story.status) && story.sourceApproval?.status === 'approved' &&
+  story.publishedAt?.slice(0,10) <= prior.editionDate);
+assert.ok(fixtureWeekly, 'fixture needs an admitted non-future Weekly');
+base.publications.weekly = {
+  ...base.publications.weekly,
+  storyId: fixtureWeekly.id,
+  editionDate: fixtureWeekly.publishedAt.slice(0,10),
+  publishedAt: fixtureWeekly.publishedAt,
+  updatedAt: fixtureWeekly.updatedAt,
+  lastCheckedAt: fixtureWeekly.lastCheckedAt,
+  status: 'current'
+};
+delete base.publications.weekly.correctivePublication;
 const bank = JSON.parse(read('content/daily-edition-columns.json'));
 bank.records=bank.records.filter(r=>r.editionDate<='2026-08-30');
 const history={schemaVersion:'daily-issues-v1',owner:'newsstand-daily',issues:[prior]};

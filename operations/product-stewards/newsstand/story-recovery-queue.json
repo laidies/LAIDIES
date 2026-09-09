@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-07T02:51:32.531Z",
+  "updatedAt": "2026-09-09T00:10:04.765Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -284,6 +284,56 @@
           "originalServiceDatesUnchanged": true
         }
       }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "chatgpt-images-2-5-2026-09-08",
+      "producerPrincipal": "/root",
+      "sourceIdentitySha256": "fce0fb58b997bcefa1e8d7561f03ed384df4af7568f629bd688c30fbd283ab27",
+      "artifactSha256": "0a21589aa66a35ef3b056d40a455236365960f0a717c60dec4362bedbbac69d5",
+      "status": "READY_FOR_ADMISSION",
+      "active": true,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-08T23:55:00.000Z",
+      "lastReviewedAt": "2026-09-09T00:08:50.594Z",
+      "attempts": [
+        {
+          "artifactSha256": "0a21589aa66a35ef3b056d40a455236365960f0a717c60dec4362bedbbac69d5",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-09T00:08:50.594Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/admission-v3/independent-review.json",
+            "sha256": "469305f1777b041d3507b2c01a10770e8be96a80764f40e5c10f43997297d0e1"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/admission-v3/independent-raw-report.json",
+            "sha256": "052188350a53c5d66b191c55a7a838cf7404f390e66fee52361601fee63145e5"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "COMPOSE_AND_ADMIT_EXACT_ARTIFACT",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/admission-v3/ordinary-candidate.json",
+        "sha256": "c5aac328bcea826736938fae664ec0495547ca67190b091eb4c8e2aad3c9fca9"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "fce0fb58b997bcefa1e8d7561f03ed384df4af7568f629bd688c30fbd283ab27",
+        "artifactSha256": "0a21589aa66a35ef3b056d40a455236365960f0a717c60dec4362bedbbac69d5",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/admission-v3/independent-review.json",
+          "sha256": "469305f1777b041d3507b2c01a10770e8be96a80764f40e5c10f43997297d0e1"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/admission-v3/independent-raw-report.json",
+          "sha256": "052188350a53c5d66b191c55a7a838cf7404f390e66fee52361601fee63145e5"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval."
     }
   ]
 }

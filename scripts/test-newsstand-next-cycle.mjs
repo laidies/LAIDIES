@@ -113,6 +113,7 @@ const weeklyDate='2026-08-19';
 const weekly={...structuredClone(base.stories.find(s=>s.edition==='weekly')),id:'weekly-synthetic-continuity',slug:'weekly-synthetic-continuity',status:'published',publishedAt:weeklyDate+'T15:00:00Z',updatedAt:weeklyDate+'T15:00:00Z',lastCheckedAt:weeklyDate+'T15:00:00Z',sourceApproval:{status:'approved'},front_summary:'WITHDRAWN_BODY_MUST_NOT_EXPORT.'};
 const wd=structuredClone(base); wd.stories.push(weekly);
 wd.publications.weekly={...wd.publications.weekly,status:'current',storyId:weekly.id,editionDate:weeklyDate,editorialTimeZone:'America/Vancouver',publishedAt:weekly.publishedAt,updatedAt:weekly.updatedAt,lastCheckedAt:weekly.lastCheckedAt};
+delete wd.publications.weekly.correctivePublication;
 weekly.sourceApproval=structuredClone(base.stories.find(s=>s.sourceApproval?.status==='approved').sourceApproval);
 assert.deepEqual(Array.from(contract.validate(wd)),[], 'synthetic Weekly fixture meets existing reader contract');
 for (const days of [6,7,8,13]) {
