@@ -2,7 +2,7 @@
 
 ## 2026-09-08 — Pink women-feature subheadings
 
-Ali requests pink for both “IT WAS WOMEN ALL ALONG” and “INSIDE THE LUMINAiRY”. Use the existing homepage pink token `--hp-pink` (#f254a9) on `.women-subheading`; preserve their font, size, layout and all surrounding copy. This supersedes the earlier tangerine choice for these two headings only. Preview correction.
+Ali requests pink for both “IT WAS WOMEN ALL ALONG” and “INSIDE THE LUMINAiRY”. Use the existing homepage pink token `--hp-pink` (#f254a9) on `.women-subheading`; preserve their font, size, layout and all surrounding copy. This supersedes the earlier tangerine choice for these two headings only. Preview correction. Verified preview: https://8f133695.laidies-sunnyvaile.pages.dev/#why-laidies-title; source bc7aa0ef. Both headings render #f254a9 at1440/390; unchanged font sizes/weights, no horizontal overflow. Only index.html changed in the hosted manifest;756 other asset identities retained, including the KSVL retirement. Production was not changed.
 
 
 ## 2026-09-07 — One Resident sign-in includes the community
