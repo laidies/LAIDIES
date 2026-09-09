@@ -2,11 +2,17 @@
 
 ## 2026-09-08 — Explain the ten-sticker pouch in plain language
 
-Ali rejects the unexplained term “Puffy bookmarks” in the Resident Card benefits. Name the existing pouch of ten puffy stickers and explain that the stickers mark places to return to in the LIBRAiRY. They are the same feature, not an extra benefit. Preserve the existing book/chapter/section scopes, Closet destination, device-local wording, other benefits, and approved design.
+Ali rejects the unexplained term “Puffy bookmarks” in the Resident Card benefits. Describe the puffy stickers in plain language. Their intended scope is **any place on the LAiDIES site that the visitor wants to save to her Closet**, not only the LIBRAiRY. This supersedes the Library-only framing of the September 7 benefits description and the first two September 8 copy corrections. Keep the existing Library book/chapter/section saves as part of this broader feature, not its definition.
 
 Ali further clarifies the mechanism: visitors select the ten sticker designs they want to use, pick from that selection when saving, and can change their ten selected designs at any time. The first correction omitted this selection step and was rejected. Explain the selectable, changeable designs; do not describe a fixed allocation of ten stickers or imply a ten-save limit.
 
-Status: local wording correction; preview deployment is pending the coordinated NewsStand release handoff. The separate one-Resident-sign-in integration remains in progress and is not made live by this copy change.
+Status: local wording correction; not deployed. The copy no longer restricts stickers to Library pages, but a universal working-save promise remains held until sitewide coverage is implemented and verified. Preview deployment also remains pending the coordinated NewsStand release handoff. The separate one-Resident-sign-in integration remains in progress and is not made live by this copy change.
+
+Implementation gap found September 8: the existing generic picker and Closet Board can store non-Library places, but `content/site/puffy-bookmarks.js` only accepts an explicit route allowlist and the runtime/targets are connected to selected surfaces. Source inventory found Library, Handbook and Gift Shop saves; SUNNYVAiLE High has an inert target without the runtime. This is source evidence, not an all-page live test. Direct live runtime inspection was unavailable (HTTP 403 and browser navigation blocked); the existing homepage preview was read successfully and still contains the old wording.
+
+Next functional correction: reuse the existing ten-design selector, picker, saved-place records and Closet Board across the public site. Verify saving an exact place outside the Library, reopening it from the Closet, changing the selected designs without losing earlier saves, and removing a save. Extend coverage without treating page navigation as saved private activity or changing account-sync promises. Keep the NewsStand release ownership and unfinished shared-sign-in work intact.
+
+Prevention: a successful Library save journey proves that route only. It must never be used to narrow the product's sitewide purpose or to claim universal coverage. Behind the Build angle: distinguish the intended feature from the one path that was tested.
 
 ## Current incumbent and bounded prototype carry-forward
 
