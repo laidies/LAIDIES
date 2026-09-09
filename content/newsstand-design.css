@@ -1316,3 +1316,35 @@
 }
 @media(max-width:480px) { .ns-redesign .ns-house-ads { grid-template-columns:minmax(0,1fr); } }
 .ns-redesign .ns-house-ad--library .ns-ad-art { aspect-ratio:auto; height:auto; object-fit:contain; }
+
+/* September 8: independent editorial rows; colour signals emphasis, not every link. */
+.ns-redesign .ns-feature-desk {
+ display: block;
+}
+.ns-redesign .ns-feature-desk__head--useful { margin-bottom: 20px; }
+.ns-redesign .ns-feature-desk__grid--useful { margin-top: 0; }
+.ns-redesign .ns-feature-desk > .ns-luminairy {
+ margin: 28px 0 0; padding: 0; border: 0;
+}
+.ns-redesign .ns-luminairy__head { padding-bottom: 12px; }
+.ns-redesign .ns-luminairy__head > p:last-child { max-width: 72ch; }
+.ns-redesign .ns-luminairy__lesson {
+ background: transparent; border: 0; border-left: 4px solid #ff2ea6; padding: 4px 0 4px 16px;
+}
+.ns-redesign .ns-page :is(.ns-service-action,.ns-front-story em,.ns-reading-card a,.ns-luminairy__all,.ns-luminairy__links a,.ns-luminairy__links button,.ns-catchup-item__body > a) {
+ background: #fffdfb; box-shadow: 3px 3px 0 #003b9e;
+}
+.ns-redesign .ns-page :is(.ns-service-action,.ns-front-story em,.ns-reading-card a,.ns-luminairy__all,.ns-luminairy__links a,.ns-luminairy__links button,.ns-catchup-item__body > a):hover {
+ background: #e5faf6;
+}
+@media(min-width:601px) {
+ .ns-redesign .ns-luminairy__profile:nth-child(n) {
+  grid-template-columns: minmax(150px,220px) minmax(0,1fr);
+  grid-template-areas: 'wing story' 'portrait story' 'portrait lesson' 'links links' 'freshness freshness';
+  grid-template-rows: auto auto auto auto auto; align-items: start; gap: 12px 28px;
+ }
+ .ns-redesign .ns-luminairy__story { max-width: 78ch; }
+}
+.ns-redesign .ns-luminairy__links { flex-direction: row; align-items: flex-start; }
+.ns-redesign .ns-luminairy__links > * { flex: 0 1 auto; }
+.ns-redesign .ns-luminairy__all { margin-top: 16px; }

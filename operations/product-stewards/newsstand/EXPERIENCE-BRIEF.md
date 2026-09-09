@@ -420,3 +420,6 @@ complete the publication journey. `APPROVED BRIEF/ARTIFACT`
 > the current canonical story before applying public access rules; the public
 > feed and archive index exclude held bodies. This rule is calibrated against
 > the known-bad historical-snapshot bypass.
+
+## September 8 — useful-section spacing and action hierarchy
+Ali rejects the large gaps around Useful this week and repeated teal boxes. Keep approved artwork, copy and boxed reading actions, but remove shared-row stretching from the tall spotlight and use paper-filled secondary buttons. Reserve filled colour for emphasis; the spotlight takeaway is editorial text, not another action box. Check heading-to-image spacing and following-section spacing at desktop and compact widths, not just overflow.

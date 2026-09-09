@@ -16087,3 +16087,6 @@ The heartbeat ran15:27 and treated07:00/20:00 as permitted execution windows ins
 
 ## September 8 — production source was not the complete deployed artifact
 The current deployment exposed 780 static asset identities, while rebuilding its source commit produced only 679 static assets and omitted or changed inherited cross-product files. Prevention: query the provider deployment manifest first, reuse unchanged provider asset hashes, and overlay only the admitted NewsStand delta; never substitute a source-tree rebuild for the live whole artifact. Stale synthetic tests also failed after later Weekly corrections and persistent service columns changed their assumptions, so fixtures now bind a non-future Weekly and reader time after the latest admission. Possible Behind the Build angle: the recipe is not the cake already in the window; publication has to preserve what visitors actually have.
+
+## 2026-09-08 — NewsStand shared-row whitespace
+A tall spanning spotlight stretched the heading row when fewer advice cards were present. Prior overflow-only checks missed the empty area. Keep independent editorial flow; calibrated two-card fixture rejects249px gap and accepts20px. Secondary action boxes need not all be filled mint. Possible Behind the Build angle: content can be present and technically fit while the layout still wastes the page.
