@@ -1,5 +1,9 @@
 # Homepage decisions — 2026-08-27
 
+## 2026-09-08 — Recover the existing full Resident Card explanation
+
+Ali has repeatedly requested reuse of the earlier complete explanation. Further piecemeal replacements are rejected. The July 12 homepage source `35e323cf5b10ddf3ef58e7ff08c53578dcd1f7ee:index.html#collect` has been recovered in `operations/product-stewards/town-entry-homepage/resident-card-explanation-recovered-20260712.md`, with the complete wording, what was lost, and Ali's later corrections. The July 12 copy audit says the Closet section was built with her direction and explicitly prohibits copy invented mid-redline. Use the recovered full explanation as the baseline, incorporate her explicit corrections, and reconcile implementation gaps separately. Do not reconstruct the product promise from one tested route or rewrite it around those gaps. This recovery did not edit or deploy the homepage.
+
 ## 2026-09-08 — Explain the ten-sticker pouch in plain language
 
 Ali rejects the unexplained term “Puffy bookmarks” in the Resident Card benefits. Describe the puffy stickers in plain language. Their intended scope is **any place on the LAiDIES site that the visitor wants to save to her Closet**, not only the LIBRAiRY. This supersedes the Library-only framing of the September 7 benefits description and the first two September 8 copy corrections. Keep the existing Library book/chapter/section saves as part of this broader feature, not its definition.
