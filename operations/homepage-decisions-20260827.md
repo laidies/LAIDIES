@@ -4,6 +4,8 @@
 
 Ali rejects the unexplained term “Puffy bookmarks” in the Resident Card benefits. Name the existing pouch of ten puffy stickers and explain that the stickers mark places to return to in the LIBRAiRY. They are the same feature, not an extra benefit. Preserve the existing book/chapter/section scopes, Closet destination, device-local wording, other benefits, and approved design.
 
+Ali further clarifies the mechanism: visitors select the ten sticker designs they want to use, pick from that selection when saving, and can change their ten selected designs at any time. The first correction omitted this selection step and was rejected. Explain the selectable, changeable designs; do not describe a fixed allocation of ten stickers or imply a ten-save limit.
+
 Status: local wording correction; preview deployment is pending the coordinated NewsStand release handoff. The separate one-Resident-sign-in integration remains in progress and is not made live by this copy change.
 
 ## Current incumbent and bounded prototype carry-forward
