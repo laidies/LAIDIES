@@ -1,3 +1,5 @@
+> **2026-09-09 — VERIFIED PUBLICLY: approved pink women headings, production069f58a8/sourcecba48f17. Only current production index HTML changed;779 static identities plus worker/redirects preserved. Both headings and exact bytes checked at1440/390 on custom and immutable origins. Other homepage preview changes and Resident Card explanation remain unfinished; preserve earlier programme. Release: operations/product-stewards/town-entry-homepage/releases/pink-headings-20260909/release.md.**
+
 # Active work
 
 ## 2026-09-05 NewsStand source-to-reader continuation

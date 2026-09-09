@@ -2,7 +2,7 @@
 
 ## 2026-09-09 — Publish the pink women headings
 
-Ali says “ok push live” after reviewing the pink headings. Apply the approved two-heading treatment to the current production homepage. Preserve newer arrival, Miss Jeeves, Resident Card, radio and NewsStand work; this bounded release does not promote older preview runtime or unfinished Resident Card prose. Exact release record: operations/product-stewards/town-entry-homepage/releases/pink-headings-20260909/release.md.
+Ali says “ok push live” after reviewing the pink headings. Apply the approved two-heading treatment to the current production homepage. Preserve newer arrival, Miss Jeeves, Resident Card, radio and NewsStand work; this bounded release does not promote older preview runtime or unfinished Resident Card prose. Verified live at https://laidies.ai/#why-laidies-title; source cba48f17, deployment069f58a8. Both desktop and phone checked;779 other provider identities preserved. Exact release record: operations/product-stewards/town-entry-homepage/releases/pink-headings-20260909/release.md.
 
 
 ## 2026-09-08 — Pink women-feature subheadings

@@ -10,3 +10,5 @@ clearly instead of silently treating archived entries as current authority.
 
 ## 2026-09-08 — KSVL retired image override
 A RETIRED path must override a stale ACTIVE entry. Both rejected KSVL exports are denied by path and SHA-256, including renamed identical bytes. Live artifact overlay checks must include retired references and binary hashes. See `operations/product-stewards/town-entry-homepage/ksvl-retirement-20260908.md`.
+
+- 2026-09-09 — VERIFIED PUBLICLY: approved pink women headings, production069f58a8/sourcecba48f17. Only current production index HTML changed;779 static identities plus worker/redirects preserved. Both headings and exact bytes checked at1440/390 on custom and immutable origins. Other homepage preview changes and Resident Card explanation remain unfinished; preserve earlier programme. Release: operations/product-stewards/town-entry-homepage/releases/pink-headings-20260909/release.md.

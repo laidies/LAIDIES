@@ -15855,3 +15855,8 @@ remain unreconciled; cross-chat completeness is not certified.
 
 ## 2026-09-08 — Rejected KSVL booth was still selectable
 Ali identified an outdated cottagecore studio in the homepage. A stale ACTIVE registry entry overrode its retired-path list; another public radio use was missed by inventory of a stale checkout. Reproduced the stale-ACTIVE acceptance before repair. Prevention: retirement takes precedence, deny exact original/export hashes under aliases, inspect the receiving deployment artifact, and remove old selection requirements in fixtures. Calibrated with both actual rejected exports and a renamed copy; independent visual review found no new layout defect. Behind the Build: removing a picture means retiring its eligibility, not only changing one image tag.
+
+
+## 2026-09-09 — Older homepage preview must not replace newer shared releases
+
+A colour-only publish crossed a long-lived preview with older arrival, Miss Jeeves and shared files. Full preview promotion would revert newer work. Prevention: compare current provider manifest and actual live HTML first, carry the approved bounded delta onto current production, and preserve all unrelated hashes. Do not describe a narrow release as the whole preview. The existing publish command was only recoverable from chat; record it beside the release. Initial screenshots preceded lazy-image decode; wait for image.decode before judging. Behind the Build angle: a preview is a snapshot, so publishing it blindly can erase newer work.
