@@ -1,5 +1,10 @@
 # LAiDIES decision router
 
+## 2026-09-09 — Publish the pink women headings
+
+Ali says “ok push live” after reviewing the pink headings. Apply the approved two-heading treatment to the current production homepage. Preserve newer arrival, Miss Jeeves, Resident Card, radio and NewsStand work; this bounded release does not promote older preview runtime or unfinished Resident Card prose. Exact release record: operations/product-stewards/town-entry-homepage/releases/pink-headings-20260909/release.md.
+
+
 ## 2026-09-08 — Pink women-feature subheadings
 
 Ali requests pink for both “IT WAS WOMEN ALL ALONG” and “INSIDE THE LUMINAiRY”. Use the existing homepage pink token `--hp-pink` (#f254a9) on `.women-subheading`; preserve their font, size, layout and all surrounding copy. This supersedes the earlier tangerine choice for these two headings only. Preview correction. Verified preview: https://8f133695.laidies-sunnyvaile.pages.dev/#why-laidies-title; source bc7aa0ef. Both headings render #f254a9 at1440/390; unchanged font sizes/weights, no horizontal overflow. Only index.html changed in the hosted manifest;756 other asset identities retained, including the KSVL retirement. Production was not changed.
