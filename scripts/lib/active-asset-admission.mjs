@@ -33,6 +33,8 @@ export function compileActiveAssetRegistry(registry) {
 
   const exact = new Map();
   const blocked = new Set();
+  const retiredPaths = new Set();
+  const retiredHashes = new Set();
   const add = (assetPath, entry, label) => {
     const normalized = normalizedPath(assetPath, label);
     if (exact.has(normalized)) throw new Error(`duplicate asset authority for ${normalized}`);
@@ -48,6 +50,10 @@ export function compileActiveAssetRegistry(registry) {
     const normalized = normalizedPath(entry.path, `asset registry entry ${entry.role || '(unnamed)'}`);
     if (entry.status !== 'ACTIVE') {
       blocked.add(normalized);
+      if (entry.status === 'RETIRED') {
+        retiredPaths.add(normalized);
+        if (SHA256.test(entry.sha256 || '')) retiredHashes.add(entry.sha256.toLowerCase());
+      }
       continue;
     }
     if (!SHA256.test(entry.sha256 || '')) {
@@ -57,7 +63,16 @@ export function compileActiveAssetRegistry(registry) {
   }
 
   if (!Array.isArray(registry.retired_paths || [])) throw new Error('asset registry retired_paths must be an array');
-  for (const assetPath of registry.retired_paths || []) blocked.add(normalizedPath(assetPath, 'retired asset path'));
+  for (const assetPath of registry.retired_paths || []) {
+    const normalized = normalizedPath(assetPath, 'retired asset path');
+    blocked.add(normalized);
+    retiredPaths.add(normalized);
+  }
+  if (!Array.isArray(registry.retired_sha256 || [])) throw new Error('asset registry retired sha256 values must be an array');
+  for (const hash of registry.retired_sha256 || []) {
+    if (!SHA256.test(hash)) throw new Error('asset registry retired sha256 is invalid');
+    retiredHashes.add(hash.toLowerCase());
+  }
 
   if (!Array.isArray(registry.dynamic_families || [])) throw new Error('asset registry dynamic_families must be an array');
   for (const family of registry.dynamic_families || []) {
@@ -76,18 +91,27 @@ export function compileActiveAssetRegistry(registry) {
     }
   }
 
-  return { exact, blocked };
+  return { exact, blocked, retiredPaths, retiredHashes };
+}
+
+export function assertAssetNotRetired({ relativePath, absolutePath, registry }) {
+  const relative = normalizedPath(relativePath, 'public asset path');
+  if (registry.retiredPaths?.has(relative)) throw new Error(`public asset is retired: ${relative}`);
+  const actual = fileHash(absolutePath);
+  if (registry.retiredHashes?.has(actual)) throw new Error(`public asset contains retired image bytes: ${relative}`);
+  return actual;
 }
 
 export function assertActiveAsset({ relativePath, absolutePath, registry }) {
   const relative = normalizedPath(relativePath, 'public asset path');
   if (BLOCKED_PATH.test(relative)) throw new Error(`public asset path is candidate/retired/rejected: ${relative}`);
+  if (registry.retiredPaths?.has(relative)) throw new Error(`public asset is retired: ${relative}`);
   const authority = registry.exact.get(relative);
   if (!authority) {
     const reason = registry.blocked.has(relative) ? 'has non-ACTIVE status' : 'is not registered ACTIVE';
     throw new Error(`public asset ${reason}: ${relative}`);
   }
-  const actual = fileHash(absolutePath);
+  const actual = assertAssetNotRetired({ relativePath: relative, absolutePath, registry });
   if (actual !== authority.sha256) throw new Error(`public asset checksum mismatch: ${relative}`);
   return authority;
 }
