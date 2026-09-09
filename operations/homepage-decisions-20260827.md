@@ -1,5 +1,11 @@
 # Homepage decisions — 2026-08-27
 
+## 2026-09-08 — Explain the ten-sticker pouch in plain language
+
+Ali rejects the unexplained term “Puffy bookmarks” in the Resident Card benefits. Name the existing pouch of ten puffy stickers and explain that the stickers mark places to return to in the LIBRAiRY. They are the same feature, not an extra benefit. Preserve the existing book/chapter/section scopes, Closet destination, device-local wording, other benefits, and approved design.
+
+Status: local wording correction; preview deployment is pending the coordinated NewsStand release handoff. The separate one-Resident-sign-in integration remains in progress and is not made live by this copy change.
+
 ## Current incumbent and bounded prototype carry-forward
 
 - **LOCKED:** The live Homepage remains the incumbent. The rejected prototype is not a wholesale replacement source.
