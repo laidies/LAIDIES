@@ -49,6 +49,21 @@ export function validateModelReleaseUtility(story) {
   if (!/(?:Anthropic says|OpenAI says|Google says|Meta says|vendor|not a promise|LAiDIES)/i.test(prose)) errors.push("model release does not distinguish vendor claims from interpretation");
   return errors;
 }
+export function validateOrdinaryDailyLength(story) {
+  if (!story || story.edition !== "daily") return [];
+  const visible = [story.headline, story.the_story, story.laidies_read, story.what_this_means, story.cocktail_party, story.closing_note, story.class_notes]
+    .filter(value => typeof value === "string")
+    .join(" ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&(?:[a-z]+|#\d+);/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  const words = visible ? visible.split(" ").length : 0;
+  const errors = [];
+  if (words > 550) errors.push(`ordinary Daily reader copy is ${words} words; maximum is 550`);
+  if (visible.length > 3500) errors.push(`ordinary Daily reader copy is ${visible.length} visible characters; maximum is 3500`);
+  return errors;
+}
 export function loadOrdinaryStoryCandidate(binding, { root = ROOT, date, admittedHistoricalBase = false, now = new Date().toISOString() } = {}) {
   if (!binding?.path?.startsWith("operations/product-stewards/newsstand/candidates/")) throw new Error("ordinary candidate must be private NewsStand candidate input");
   const candidate = JSON.parse(read(root, binding, "ordinary candidate package"));
@@ -80,6 +95,13 @@ export function validateOrdinaryStoryCandidate(candidate, { root = ROOT, admitte
   if (["headline", "the_story", "laidies_read", "what_this_means"].some(key => typeof story?.[key] !== "string" || !story[key].trim())) throw new Error("ordinary candidate requires headline and complete reader copy");
   const modelReleaseErrors = validateModelReleaseUtility(story);
   if (modelReleaseErrors.length) throw new Error(`ordinary model-release candidate fails reader utility contract: ${modelReleaseErrors.join(" | ")}`);
+  // Do not retroactively invalidate an already admitted historical package
+  // merely because the reader budget was introduced later. New candidates
+  // and any changed prose must satisfy it before admission.
+  if (!admittedHistoricalBase) {
+    const lengthErrors = validateOrdinaryDailyLength(story);
+    if (lengthErrors.length) throw new Error(`ordinary candidate exceeds the Daily reader budget: ${lengthErrors.join(" | ")}`);
+  }
   const luminairyLinks = inspectNewsstandLuminairyLinks(story, { root });
   if (luminairyLinks.errors.length) throw new Error(`ordinary candidate LUMINAiRY links invalid: ${luminairyLinks.errors.join(" | ")}`);
   const publicationBaseRaw = read(root, candidate.publicationBase, "candidate publication base");

@@ -11,7 +11,7 @@ import { promoteDailyIssue } from "./promote-daily-edition.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const date = "2026-09-04";
 const storyId = "openai-gpt-6-astra-launch-2026-09-04";
-const evidencePath = "operations/product-stewards/newsstand/evidence/stories/openai-gpt-6-astra-launch-2026-09-04-reader-fit.json";
+const evidencePath = "operations/product-stewards/newsstand/evidence/stories/openai-gpt-6-astra-compact-2026-09-09.json";
 const result = prepareCorrection({ root, date, storyId, evidencePath });
 const store = JSON.parse(fs.readFileSync(path.join(root, "content/newsstand-daily-issues.json"), "utf8"));
 const canonicalJson = value => value === null || typeof value !== "object" ? JSON.stringify(value)

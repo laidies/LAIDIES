@@ -79,13 +79,24 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
     reject("persistent Front PAiGE is missing, held or duplicated");
   }
   if (issue.weeklyStoryId && (!isAdmitted(stories.get(issue.weeklyStoryId)) || stories.get(issue.weeklyStoryId).edition !== "weekly")) reject("Weekly continuity is not admitted");
+  if (issue.sourceIdentity?.storyCorrection) {
+    const correctedId = issue.sourceIdentity.storyCorrection.storyId;
+    const correctedSnapshot = issue.stories.find((story) => story.id === correctedId);
+    if (!correctedSnapshot || stable(stories.get(correctedId)) !== stable(correctedSnapshot)) {
+      reject("corrected dated snapshot differs from the current approved story");
+    }
+    // A correction repairs dated history only. Current Weekly and service
+    // pointers may have advanced since that issue and must not be reopened or
+    // rewritten by a historical projection.
+    return next;
+  }
   const weekly = dataset.publications.weekly;
   const currentWeeklyId = weekly?.status === "current" ? weekly.storyId : null;
   if ((issue.weeklyStoryId || null) !== (currentWeeklyId || null) ||
       (weekly?.status === "current" && (!currentWeeklyId || weekly.editionDate > issue.editionDate))) {
     reject("Weekly continuity must preserve the exact current canonical pointer; Daily cannot replace or clear it");
   }
-  const predecessor = issue.sourceIdentity?.servicePredecessor ? loadServicePredecessor(issue.sourceIdentity.servicePredecessor, {
+  const predecessor = issue.sourceIdentity?.servicePredecessor && !issue.sourceIdentity?.storyCorrection ? loadServicePredecessor(issue.sourceIdentity.servicePredecessor, {
     root, date: issue.editionDate, columns, reviewedAt: issue.admission.reviewedAt
   }) : null;
   if (predecessor && !issue.sourceIdentity?.storyCorrection && createHash('sha256').update(predecessor.storiesRaw).digest('hex') !== issue.sourceIdentity.storiesSha256) reject('carry-forward source differs from published predecessor');
@@ -111,10 +122,6 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
     const laneErrors = careerLaneErrors(record, issue.editionDate);
     if (laneErrors.length) reject(`${id}: ${laneErrors.join('; ')}`);
   }
-  // A dated-snapshot correction records history only. The corrected story is
-  // already the exact current schema-2 story; do not republish the day or move
-  // its timestamps while repairing the archive authority.
-  if (issue.sourceIdentity?.storyCorrection) return next;
   const timestamp = issue.admission.reviewedAt;
   if (!Number.isFinite(Date.parse(timestamp))) reject("admission timestamp is invalid");
   next.generatedAt = timestamp;
@@ -146,7 +153,7 @@ export function projectDailyIssue({ dataset, issue, columns, root = ROOT }) {
 
 export function projectDailySourceRaw({ raw, issue, columns, root = ROOT, now = new Date().toISOString() }) {
   const ordinary = issue.sourceIdentity?.ordinaryCandidate ? loadOrdinaryStoryCandidate(issue.sourceIdentity.ordinaryCandidate, { root, date: issue.editionDate, admittedHistoricalBase: true }) : null;
-  const predecessor = issue.sourceIdentity?.servicePredecessor ? loadServicePredecessor(issue.sourceIdentity.servicePredecessor, { root, date: issue.editionDate, columns, reviewedAt: issue.admission.reviewedAt }) : null;
+  const predecessor = issue.sourceIdentity?.servicePredecessor && !issue.sourceIdentity?.storyCorrection ? loadServicePredecessor(issue.sourceIdentity.servicePredecessor, { root, date: issue.editionDate, columns, reviewedAt: issue.admission.reviewedAt }) : null;
   const baseRaw = ordinary ? ordinary.publicationBaseRaw : issue.sourceIdentity?.storyCorrection ? raw : predecessor ? predecessor.storiesRaw : raw;
   if (ordinary && createHash("sha256").update(baseRaw).digest("hex") !== issue.sourceIdentity.storiesSha256) reject("ordinary frozen publication base differs from admitted source");
   const context = { window: {} };

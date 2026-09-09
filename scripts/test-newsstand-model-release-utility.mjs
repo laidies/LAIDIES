@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import assert from "node:assert/strict";
-import { validateModelReleaseUtility } from "./validate-newsstand-ordinary-story-candidate.mjs";
+import { validateModelReleaseUtility, validateOrdinaryDailyLength } from "./validate-newsstand-ordinary-story-candidate.mjs";
 
 const priorFailure = {
   headline: "Anthropic released Fable 5.1",
@@ -26,4 +26,22 @@ assert.ok(validateModelReleaseUtility(noAlternative).some(error => error.include
 const vagueTool = { headline: "A new AI tool launched", themes: ["tool release"], tags: [], the_story: "The tool is now available.", laidies_read: "It has many powerful capabilities.", what_this_means: "Try it." };
 assert.ok(validateModelReleaseUtility(vagueTool).length >= 5, "a vague new-tool announcement must fail the same reader-fit gate");
 
-console.log("NEWSSTAND MODEL RELEASE UTILITY PASS known_bad_rejected=1 access_fit_tasks_limits_attribution=1");
+const compactDaily = {
+  ...useful,
+  edition: "daily",
+  headline: "A useful model release",
+  cocktail_party: "Choose the model by the job.",
+  class_notes: "The model is one part of the complete system."
+};
+assert.deepEqual(validateOrdinaryDailyLength(compactDaily), [], "a complete compact Daily story must pass the reader budget");
+
+const oversizedDaily = {
+  ...compactDaily,
+  the_story: Array.from({ length: 560 }, () => "detail").join(" ")
+};
+assert.ok(validateOrdinaryDailyLength(oversizedDaily).some(error => error.includes("maximum is 550")), "an oversized Daily story must be rejected");
+
+const weeklyLongform = { ...oversizedDaily, edition: "weekly" };
+assert.deepEqual(validateOrdinaryDailyLength(weeklyLongform), [], "Weekly long-form remains outside the ordinary Daily budget");
+
+console.log("NEWSSTAND MODEL RELEASE UTILITY PASS known_bad_rejected=1 access_fit_tasks_limits_attribution=1 daily_length_budget=1");

@@ -913,6 +913,15 @@ calibration and anti-slop rulings still apply. A failed explanation means rewrit
 and fresh independent review, not a caveat pasted into the story. These tests
 validate evidence completeness and identity, not the truth of a reviewer's judgment.
 
+Ordinary Daily copy must also pass the reader budget enforced by
+`validateOrdinaryDailyLength`: no more than 550 visible words or 3,500 visible
+characters across its headline, three article sections, takeaway, closing note
+and Class Notes. This is a fail-closed admission limit, not a target to pad toward.
+Weekly and Big Picture retain their separate long-form jobs. If a Daily cannot
+explain the news, consequence and decision inside the limit, tighten the article
+or route a genuinely durable argument to the correct longer form; never reduce
+the type size to hide editorial-length drift.
+
 The composer stores a held snapshot and the package binding. Promotion reopens
 all evidence and admits that exact snapshot; projection performs the only
 held-to-published conversion after issue admission. It never composes prose.

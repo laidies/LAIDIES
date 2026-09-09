@@ -293,7 +293,12 @@
           readyIds.join("\n") !== issue.serviceRecordIds.join("\n")) return invalid("desk-binding:" + issue.editionDate);
       for (var carriedDesk of issue.desks.filter(function (desk) { return desk.carriedFrom; })) {
         var from = carriedDesk.carriedFrom;
-        var predecessors = value.issues.filter(function (prior) { return prior.editionDate === from.editionDate && prior.envelopeSha256 === from.envelopeSha256; });
+        var predecessors = value.issues.filter(function (prior) {
+          return prior.editionDate === from.editionDate && (
+            prior.envelopeSha256 === from.envelopeSha256 ||
+            (prior.sourceIdentity && prior.sourceIdentity.storyCorrection && prior.admission && prior.admission.predecessorEnvelopeSha256 === from.envelopeSha256)
+          );
+        });
         var prior = predecessors[0];
         var priorDesk = prior && prior.desks.find(function (desk) { return desk.state === "ready" && desk.recordId === carriedDesk.recordId && desk.type === carriedDesk.type; });
         var record = columns && columns.records.find(function (item) { return item.id === carriedDesk.recordId; });

@@ -1,0 +1,65 @@
+{
+  "model": "@cf/meta/llama-3.3-70b-instruct-fp8-fast",
+  "promptSha256": "3084cd232311bc88af152169dfa83f0b467c5ace4cb41290b2573ad909712166",
+  "provider": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "logprobs": null,
+        "message": {
+          "annotations": null,
+          "audio": null,
+          "content": "{\"verdict\": \"PASS\", \"summary\": \"The article accurately presents the information about OpenAI's GPT-6 Astra model, its capabilities, and limitations, while also providing a balanced comparison with other models and highlighting the importance of safety and uncertainty.\", \"checks\": {\"plainLanguage\": \"PASS\", \"readerDecision\": \"PASS\", \"accessAndCost\": \"PASS\", \"comparison\": \"PASS\", \"safetyAndUncertainty\": \"PASS\", \"sourceScopePreserved\": \"PASS\", \"noInternalNotes\": \"PASS\", \"dailyScale\": \"PASS\"}, \"evidence\": {\"readerDecision\": \"Use Sol when a routine or contained job already turns out well. Test Astra when the value lies in carrying a complicated chain of work across tools. Test Fable 5.1 for an ambitious, long-running Claude coding, research or document workflow.\", \"accessAndCost\": \"The launch does not list the Free tier. Its developer price is $10 per million input tokens and $50 per million output tokens.\", \"safetyAndUncertainty\": \"OpenAI classifies Astra at its Critical cyber-capability threshold. It reports stronger safety results than Sol in several tests, while also reporting that Astra’s written reasoning was harder to monitor in adversarial tests.\"}}",
+          "function_call": null,
+          "reasoning": null,
+          "refusal": null,
+          "role": "assistant"
+        },
+        "routed_experts": null,
+        "stop_reason": null,
+        "token_ids": null
+      }
+    ],
+    "created": 1788977082,
+    "ec_transfer_params": null,
+    "id": "chatcmpl-af0c8920-803a-4826-8d59-acc6fa415a96",
+    "kv_transfer_params": null,
+    "metrics": null,
+    "model": "@cf/meta/llama-3.3-70b-json",
+    "object": "chat.completion",
+    "prompt_logprobs": null,
+    "prompt_text": null,
+    "prompt_token_ids": null,
+    "response": {
+      "checks": {
+        "accessAndCost": "PASS",
+        "comparison": "PASS",
+        "dailyScale": "PASS",
+        "noInternalNotes": "PASS",
+        "plainLanguage": "PASS",
+        "readerDecision": "PASS",
+        "safetyAndUncertainty": "PASS",
+        "sourceScopePreserved": "PASS"
+      },
+      "evidence": {
+        "accessAndCost": "The launch does not list the Free tier. Its developer price is $10 per million input tokens and $50 per million output tokens.",
+        "readerDecision": "Use Sol when a routine or contained job already turns out well. Test Astra when the value lies in carrying a complicated chain of work across tools. Test Fable 5.1 for an ambitious, long-running Claude coding, research or document workflow.",
+        "safetyAndUncertainty": "OpenAI classifies Astra at its Critical cyber-capability threshold. It reports stronger safety results than Sol in several tests, while also reporting that Astra’s written reasoning was harder to monitor in adversarial tests."
+      },
+      "summary": "The article accurately presents the information about OpenAI's GPT-6 Astra model, its capabilities, and limitations, while also providing a balanced comparison with other models and highlighting the importance of safety and uncertainty.",
+      "verdict": "PASS"
+    },
+    "service_tier": null,
+    "tool_calls": [],
+    "usage": {
+      "prompt_tokens": 3003,
+      "completion_tokens": 264,
+      "total_tokens": 3267,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "neurons": 134.151611328125
+    }
+  }
+}

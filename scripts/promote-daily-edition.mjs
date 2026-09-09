@@ -283,13 +283,18 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
   envelope = parsedEnvelope;
   const exactReplay = store.issues.some((issue) => issue && issue.editionDate === envelope.editionDate && issue.envelopeSha256 === sha256(envelopeRaw));
   validateEnvelope(envelope, root, store, now, { recheckQuietRecovery: !exactReplay });
-  if (envelope.sourceIdentity.servicePredecessor) loadServicePredecessor(envelope.sourceIdentity.servicePredecessor, {
-    root, date: envelope.editionDate, columns: JSON.parse(fs.readFileSync(path.join(root, envelope.sourceIdentity.columnsPath), 'utf8')), reviewedAt: decision.reviewedAt
-  });
   const successorDecision = decision && decision.schemaVersion === "daily-issue-successor-admission-v1";
   const newsRevisionDecision = decision && decision.schemaVersion === "daily-issue-news-revision-admission-v1";
   const serviceRevisionDecision = decision && decision.schemaVersion === "daily-issue-service-revision-admission-v1";
   const storyCorrectionDecision = decision && decision.schemaVersion === "daily-issue-story-correction-admission-v1";
+  // A correction cannot change service bytes or their proof binding. Reopening
+  // a historical predecessor proof as though it were today's service selection
+  // makes an otherwise valid text correction impossible after the proof date.
+  // The protected-field comparison below still requires the binding to remain
+  // byte-identical to the admitted issue.
+  if (envelope.sourceIdentity.servicePredecessor && !storyCorrectionDecision) loadServicePredecessor(envelope.sourceIdentity.servicePredecessor, {
+    root, date: envelope.editionDate, columns: JSON.parse(fs.readFileSync(path.join(root, envelope.sourceIdentity.columnsPath), 'utf8')), reviewedAt: decision.reviewedAt
+  });
   const hasPredecessorStories = serviceRevisionDecision && Object.prototype.hasOwnProperty.call(decision, "predecessorStories");
   const hasPublishedBase = serviceRevisionDecision && Object.prototype.hasOwnProperty.call(decision, "publishedBase");
   if (serviceRevisionDecision && hasPredecessorStories === hasPublishedBase) reject("service revision must bind exactly one predecessorStories or publishedBase proof");

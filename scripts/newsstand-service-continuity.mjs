@@ -125,7 +125,10 @@ export function validateServiceSelection({ desks, columns, date, predecessor = n
 export function validatePublicCarry(desk, issue, store, record) {
   if (!desk.carriedFrom) return;
   const from = desk.carriedFrom;
-  const predecessors = (store.issues || []).filter(i => i.editionDate === from.editionDate && i.envelopeSha256 === from.envelopeSha256);
+  const predecessors = (store.issues || []).filter(i => i.editionDate === from.editionDate && (
+    i.envelopeSha256 === from.envelopeSha256 ||
+    (i.sourceIdentity?.storyCorrection && i.admission?.predecessorEnvelopeSha256 === from.envelopeSha256)
+  ));
   const prior = predecessors[0];
   const priorDesk = prior?.desks?.find(d => d.state === 'ready' && d.type === desk.type && d.recordId === desk.recordId);
   if (predecessors.length !== 1 || prior.status !== 'complete' || !prior.admission || !prior.serviceRecordIds.includes(desk.recordId) ||
