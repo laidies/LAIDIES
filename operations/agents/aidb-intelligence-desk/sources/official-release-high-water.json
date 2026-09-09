@@ -1,36 +1,40 @@
 {
   "schemaVersion": "newsstand-official-release-high-water-v1",
   "editorialTimeZone": "America/Vancouver",
-  "updatedAt": "2026-09-07T03:00:00Z",
+  "updatedAt": "2026-09-09T03:15:00Z",
   "indexes": [
     {
       "sourceId": "SRC-OPENAI-NEWS",
       "indexUrl": "https://openai.com/news/",
-      "checkedOn": "2026-09-06",
-      "newestSeenPublicationDate": "2026-09-06",
+      "checkedOn": "2026-09-08",
+      "newestSeenPublicationDate": "2026-09-08",
       "newestSeenUrls": [
-        "https://openai.com/index/research-acceleration-view-inside-openai/",
-        "https://openai.com/index/an-alien-mind/"
+        "https://openai.com/index/introducing-chatgpt-images-2-5/",
+        "https://openai.com/index/codex-quantum-computing-experiments/",
+        "https://openai.com/index/the-work-now-within-reach/",
+        "https://openai.com/index/navier-stokes-solution/",
+        "https://openai.com/index/teen-development-research-grants/",
+        "https://openai.com/index/supporting-journalism-from-classrooms-to-newsrooms/"
       ],
       "comparisonBasis": "ADVANCED_FROM_PRIOR_HIGH_WATER",
-      "note": "The evening index check found two September 6 publications after the morning high-water: OpenAI's internal research-acceleration report and Chief Scientist Jakub Pachocki's attributed essay. The report is a mandatory private ordinary-story candidate with its internal-metric limitations retained; the essay is Big Picture context, not independent factual authority. Neither is admitted or published."
+      "note": "The September 8 index also lists ChatGPT Images 2.5, already published by LAiDIES. Quantum and Navier-Stokes items remain held for technical primary and independent context; the work essay is corporate thesis, and grants/support announcements are not outcomes."
     },
     {
       "sourceId": "SRC-OPENAI-DEVELOPERS",
       "indexUrl": "https://developers.openai.com/",
-      "checkedOn": "2026-09-06",
+      "checkedOn": "2026-09-08",
       "newestSeenPublicationDate": "2026-09-04",
       "newestSeenUrls": [
         "https://developers.openai.com/blog/architectural-visualization-with-astra",
         "https://developers.openai.com/blog/how-to-build-games-with-astra"
       ],
-      "comparisonBasis": "ADVANCED_FROM_PRIOR_HIGH_WATER",
-      "note": "Two September 4 Astra build narratives are new. They are vendor-authored demonstrations, not a product release or independent proof of general performance; route as practical examples and internal experimentation leads, not a duplicate Latest story."
+      "comparisonBasis": "NO_CHANGE_FROM_PRIOR_HIGH_WATER",
+      "note": "No developer-index item newer than the September 4 Astra build narratives was visible."
     },
     {
       "sourceId": "SRC-ANTHROPIC-NEWS",
       "indexUrl": "https://www.anthropic.com/news",
-      "checkedOn": "2026-09-06",
+      "checkedOn": "2026-09-08",
       "newestSeenPublicationDate": "2026-09-01",
       "newestSeenUrls": [
         "https://www.anthropic.com/claude-fable-and-mythos-5-1",
@@ -42,13 +46,24 @@
     {
       "sourceId": "SRC-ANTHROPIC-ENGINEERING",
       "indexUrl": "https://www.anthropic.com/engineering",
-      "checkedOn": "2026-09-06",
+      "checkedOn": "2026-09-08",
       "newestSeenPublicationDate": "2026-05-25",
       "newestSeenUrls": [
         "https://www.anthropic.com/engineering/how-we-contain-claude"
       ],
       "comparisonBasis": "NO_CHANGE_FROM_PRIOR_HIGH_WATER",
-      "note": "No new September engineering article was exposed by the index."
+      "note": "No new September engineering article was exposed by the index; retain the previous exact high-water rather than inferring a new date from index ordering."
+    },
+    {
+      "sourceId": "SRC-GOOGLE-GEMINI-API-CHANGELOG",
+      "indexUrl": "https://ai.google.dev/gemini-api/docs/changelog",
+      "checkedOn": "2026-09-08",
+      "newestSeenPublicationDate": "2026-09-03",
+      "newestSeenUrls": [
+        "https://ai.google.dev/gemini-api/docs/changelog"
+      ],
+      "comparisonBasis": "INITIAL_HIGH_WATER",
+      "note": "September 3 Lyria 3.5 preview is the newest entry; September 2 Gemini 3.8 Flash GA and September 1 agentic-video entries were also observed. Product facts require their exact release documentation before publication."
     }
   ]
 }

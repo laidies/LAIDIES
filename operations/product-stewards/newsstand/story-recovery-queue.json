@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-09T00:10:04.765Z",
+  "updatedAt": "2026-09-09T03:15:00Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -291,8 +291,8 @@
       "producerPrincipal": "/root",
       "sourceIdentitySha256": "fce0fb58b997bcefa1e8d7561f03ed384df4af7568f629bd688c30fbd283ab27",
       "artifactSha256": "0a21589aa66a35ef3b056d40a455236365960f0a717c60dec4362bedbbac69d5",
-      "status": "READY_FOR_ADMISSION",
-      "active": true,
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
       "consequencePriority": 0,
       "firstSeenAt": "2026-09-08T23:55:00.000Z",
       "lastReviewedAt": "2026-09-09T00:08:50.594Z",
@@ -314,7 +314,7 @@
         }
       ],
       "unresolvedDefects": [],
-      "nextAction": "COMPOSE_AND_ADMIT_EXACT_ARTIFACT",
+      "nextAction": "MONITOR_CORRECTIONS",
       "terminalDisposition": null,
       "assembledCandidate": {
         "path": "operations/product-stewards/newsstand/candidates/chatgpt-images-2-5-2026-09-08/admission-v3/ordinary-candidate.json",
@@ -333,7 +333,19 @@
           "sha256": "052188350a53c5d66b191c55a7a838cf7404f390e66fee52361601fee63145e5"
         }
       },
-      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval."
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "292f29fc-db1d-404c-afd4-56f464ebaf0b",
+        "sourceCommit": "d128042fd83b711377413798ff27b50838d5e0d2",
+        "immutableUrl": "https://292f29fc.laidies-sunnyvaile.pages.dev/newsstand#chatgpt-images-2-5-2026-09-08",
+        "customUrl": "https://laidies.ai/newsstand#chatgpt-images-2-5-2026-09-08",
+        "artifactIdentitySha256": "4f6d311c1686ae52fe4f198c5cd74d160be9e8f150a5ccf69fd0e21159c0b255",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-09T00:57:14.788Z",
+        "receipt": "operations/product-stewards/newsstand/evidence/september-8-publication/recovery-publication-receipt.json"
+      }
     }
   ]
 }
