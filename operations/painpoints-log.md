@@ -16090,3 +16090,6 @@ The current deployment exposed 780 static asset identities, while rebuilding its
 
 ## 2026-09-08 — NewsStand shared-row whitespace
 A tall spanning spotlight stretched the heading row when fewer advice cards were present. Prior overflow-only checks missed the empty area. Keep independent editorial flow; calibrated two-card fixture rejects249px gap and accepts20px. Secondary action boxes need not all be filled mint. Possible Behind the Build angle: content can be present and technically fit while the layout still wastes the page.
+
+## 2026-09-08 — Crossword preview edge
+Preview SVG placed its rightmost cell stroke at the viewBox boundary; full dark inactive area overwhelmed sparse puzzle. Preserve exact cells but provide30unit margin and compact paper ground; preview feature has16–28px inset. Geometry guard rejects old zero margin. Possible Behind the Build angle: correct data can still look nothing like the intended feature when framing is wrong.

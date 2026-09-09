@@ -423,3 +423,6 @@ complete the publication journey. `APPROVED BRIEF/ARTIFACT`
 
 ## September 8 — useful-section spacing and action hierarchy
 Ali rejects the large gaps around Useful this week and repeated teal boxes. Keep approved artwork, copy and boxed reading actions, but remove shared-row stretching from the tall spotlight and use paper-filled secondary buttons. Reserve filled colour for emphasis; the spotlight takeaway is editorial text, not another action box. Check heading-to-image spacing and following-section spacing at desktop and compact widths, not just overflow.
+
+## September 8 — crossword preview framing
+Ali rejects the oversized dark crossword preview and edge-flush puzzle feature. Preserve the real numbered cells, but use a compact paper-ground preview with margin on every side and inset the whole puzzle feature. Preview geometry must include the rightmost cell stroke; verify the solve link and mobile fit.

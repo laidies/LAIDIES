@@ -1,0 +1,3 @@
+# Crossword framing
+
+Exact numbered-cell geometry is unchanged:49 cells,9 starts. Old right edge margin0; new30. Root verified paper-ground preview and16–28px section inset. Click-through to puzzle and49-cell grid pass at1440/390/320. Independent Terra Low reviewer /root/spacing_audit inspected all3 exact rendered screenshots and returned PASS after rejecting a blank320 capture; explicit scroll settling produced the correct populated capture. No source CSS repair was needed for the screenshot timing fault. Preview remains the real freeform crossword; no answers or clue text changed. Publication pending coordinated KSVL successor.
