@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "laidies-newsstand-combined-editorial-raw.v1",
+  "candidateId": "weekly-control-layers-20260909",
+  "storySha256": "2b9ada95218cb7448395d8cc273279f1db4509420703d8656bf306089a93a35b",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-weekly:medium",
+  "verdict": "PASS",
+  "findings": {
+    "reader": "A strong, bounded Weekly: it answers a genuine reader question about what 'control' means, gives each of the three in-period developments a real causal mechanism in plain language, keeps vendor and legal limits visible to the end, and converts the synthesis into concrete proportionate actions. Explain-back and a novel transfer scenario both resolve correctly from the article's own machinery. No failure family is present.",
+    "facts": "The September 2–9 Weekly accurately attributes all material claims to the OpenAI announcement, Anthropic assessment, DOJ release and prior LAiDIES Weekly, keeps vendor self-reporting, pending METR review and multi-offence sentencing limits visible, and delivers a coherent bounded three-layer control thesis with proportionate reader actions; no defects found."
+  },
+  "readerProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/independent-review/runtime-claude-fable-20260910/article-editorial-provider.raw.json",
+    "sha256": "3e76a5508b87ecb3606dd6608a42deca01c0b59a04d3bc40572505f5aa8c9009"
+  },
+  "factualProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/independent-review/runtime-claude-fable-facts-r2-20260910/article-facts-provider.raw.json",
+    "sha256": "ba0f64eb3c6c91b71358715645bac2f9928101bfcc083b718017dc7458409387"
+  },
+  "factualJudgment": {
+    "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/independent-review/runtime-claude-fable-facts-r2-20260910/article-facts-judgment.json",
+    "sha256": "e510be039f8a305379a31d368368eb896ba9d14c419b713ed5ae9ac723ce5727"
+  },
+  "failedInitialCombinedAttempt": {
+    "status": "PRESERVED_PROTOCOL_FAILURE_AFTER_EVIDENCE_GAP",
+    "failure": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/independent-review/runtime-claude-fable-20260910/article-editorial-failure.json",
+      "sha256": "ed43cf90aedb9ab81b79559b9862e0410cf4bb02ab71650f60f7226a030c966b"
+    },
+    "judgment": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/independent-review/runtime-claude-fable-20260910/article-editorial-judgment.json",
+      "sha256": "1ea4b841574d620b1b2a80f6a1ae25ac671b2f88974a769d5a6ff571dfeed00c"
+    }
+  },
+  "calibration": {
+    "path": "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/calibration-result.json",
+    "sha256": "006b3ff3300c856daee21a482d77003064a03b79591a72c75026c2c07a042e10"
+  }
+}

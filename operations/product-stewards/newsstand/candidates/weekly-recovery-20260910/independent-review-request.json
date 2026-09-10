@@ -139,8 +139,34 @@
     "verdictRule": "PASS only when every current factual and reader outcome passes and every failure family is clear. Otherwise HOLD or REJECT with exact locators and the smallest repair or evidence dependency."
   },
   "knownNonEditorialHold": {
-    "status": "PUBLICATION_PROTOCOL_HOLD",
-    "reason": "All real source observations were checked on 2026-09-10. The target edition date is 2026-09-09, while the active Weekly policy requires source checkedAt to match the publication day in America/Vancouver. Backdating is forbidden.",
-    "smallestDependency": "A separately authorized recovery-date publication route that accepts truthful September 10 checks for the missed September 9 edition, followed by the normal publisher and live-browser gates."
+    "status": "RESOLVED_BY_AUTHORIZED_RECOVERY_ROUTE",
+    "reason": "The publisher now uses publicationDate 2026-09-10 with truthful fresh checks while recoveryPublication preserves missed editionDate 2026-09-09 and the September 2–9 coverage period."
+  },
+  "status": "COMPLETED_AFTER_EVIDENCE_PACKET_REPAIR",
+  "actualReview": {
+    "firstAttempt": {
+      "raw": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/independent-review/runtime-claude-fable-20260910/article-editorial-provider.raw.json",
+        "sha256": "3e76a5508b87ecb3606dd6608a42deca01c0b59a04d3bc40572505f5aa8c9009"
+      },
+      "failure": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/independent-review/runtime-claude-fable-20260910/article-editorial-failure.json",
+        "sha256": "ed43cf90aedb9ab81b79559b9862e0410cf4bb02ab71650f60f7226a030c966b"
+      }
+    },
+    "factualReassessment": {
+      "raw": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/independent-review/runtime-claude-fable-facts-r2-20260910/article-facts-provider.raw.json",
+        "sha256": "ba0f64eb3c6c91b71358715645bac2f9928101bfcc083b718017dc7458409387"
+      },
+      "result": {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/independent-review/runtime-claude-fable-facts-r2-20260910/article-result.json",
+        "sha256": "b4a3efd7c8c2581d8331a0b4aa66be51b82a095f58304684ad8d581183764abd"
+      }
+    },
+    "final": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/independent-review/final/independent-review.json",
+      "sha256": "b45a995c1914d44ec95bc5a7babb9fb183b7b5fa26c58caa79922e9baf49c389"
+    }
   }
 }

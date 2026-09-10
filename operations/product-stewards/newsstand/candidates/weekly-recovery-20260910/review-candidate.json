@@ -1,7 +1,7 @@
 {
   "schemaVersion": "newsstand-weekly-review-candidate.v1",
-  "candidateStatus": "READY_FOR_INDEPENDENT_EDITORIAL_AND_FACTUAL_REVIEW",
-  "publicationStatus": "HOLD",
+  "candidateStatus": "SUPERSEDED_BY_INDEPENDENTLY_REVIEWED_CANDIDATE",
+  "publicationStatus": "READY_FOR_WEEKLY_ADMISSION",
   "candidateId": "weekly-control-layers-20260909",
   "targetEditionDate": "2026-09-09",
   "preparedOn": "2026-09-10",
@@ -20,12 +20,12 @@
     "retention": "RETAIN_UNTIL_SUCCESSOR_IS_ADMITTED_AND_RELEASED"
   },
   "weeklyInput": {
-    "path": "operations/product-stewards/newsstand/release-pipeline-v1/weekly-inputs/2026-09-09-r4-recovery-20260910.json",
-    "sha256": "08527bf80c8837726c15a38931d94c5f265e82a91e385f154bbf5f1ba879cc52"
+    "path": "operations/product-stewards/newsstand/release-pipeline-v1/weekly-inputs/2026-09-09-r5-recovery-20260910.json",
+    "sha256": "4e5facb1323c918a3acf444e02bec2004db6f146508532b654ff7bc91771118e"
   },
   "datedDeskAssessment": {
     "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/dated-desk-assessment.json",
-    "sha256": "60823aaf2d289e526c7dbea92d2c74600b87e5756d475fb847fa94b9458adec4"
+    "sha256": "25d454d4ff5032d2c8083ca361d33f805d5f12ea024ad47c05a4a09b01bb02ea"
   },
   "story": {
     "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/story.json",
@@ -45,15 +45,15 @@
   },
   "producerContract": {
     "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/producer-contract.json",
-    "sha256": "d98e80850165173e5b16a5c1cf799d42f1a41c51da591cf0c3f6b11e9504cd63"
+    "sha256": "a92db5d2e32a5cd811779fdb99fd683a625614d89729282c9d4f2c93c7b8a92c"
   },
   "producerSelfReview": {
     "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/producer-self-review.json",
-    "sha256": "0e8b25207ecbf02dc2bfef9365a827e6f436898c23682db6820a7386d598e49f"
+    "sha256": "267339d4dfc866dae7cc5404e22ff825c710de72bbd34355e0ac50bea8e719cb"
   },
   "claimMap": {
     "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/claim-map.json",
-    "sha256": "fb450d69e42db67e15e7ef0f41f1ccea818e605cfd1a083c96fc067c0d8a68c4"
+    "sha256": "080d2fa9925ae704dcaaa3b0aa409291db899bf018ff65a603b2cf83747dbd7b"
   },
   "independentReviewRequest": {
     "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/independent-review-request.json",
@@ -97,14 +97,15 @@
   "gates": {
     "producerContract": "PASS_INTEGRITY_ONLY",
     "producerSelfReview": "PASS_NO_QUALITY_AUTHORITY",
-    "independentReview": "REQUIRED_NOT_YET_RETURNED",
-    "publisher": "BLOCKED_BY_TRUTHFUL_CHECK_DATE",
+    "independentReview": "PASS_ACTUAL_CLAUDE_READER_AND_FACTUAL",
+    "publisher": "READY_FOR_LOCAL_CHECK",
     "renderAndLiveVerification": "NOT_RUN"
   },
-  "publicationBlock": {
-    "reason": "Source observations were checked on September 10, one Vancouver day after the missed September 9 edition date. The active publisher requires publication-day checks; the reporting cannot be backdated.",
-    "smallestDependency": "Authorize and implement a recovery-date route that preserves editionDate 2026-09-09 and the truthful 2026-09-10 source checks, then run publisher, rendered desktop/mobile and public verification."
-  },
+  "publicationBlock": null,
   "publicWriteTaken": false,
-  "canonicalWriteTaken": false
+  "canonicalWriteTaken": false,
+  "supersededBy": {
+    "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/candidate.json",
+    "sha256": "d4115b290c4dc8a82b484c5b57a4a17090287adc42d69e1a8f16d93e46f3289b"
+  }
 }
