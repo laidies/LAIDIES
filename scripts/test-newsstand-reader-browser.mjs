@@ -18,6 +18,8 @@ const READER_SCALE_ONLY = process.argv.includes("--reader-scale-only");
 const TOWN_LAYOUT = process.argv.includes('--town-layout-only');
 const CALIBRATE_TOWN = process.argv.includes('--calibrate-town-layout');
 const ZOOM = process.argv.includes('--zoom-200');
+const READER_SCALE_CAPTURE_ONLY = process.env.NEWSSTAND_READER_SCALE_CAPTURE_ONLY === '1';
+const READER_SCALE_EVIDENCE_DIR = process.env.NEWSSTAND_READER_SCALE_EVIDENCE_DIR;
 const FIXTURE_ROOT = process.env.NEWSSTAND_TEST_FIXTURE_ROOT;
 const inputFile = relative => FIXTURE_ROOT && fs.existsSync(path.join(FIXTURE_ROOT,relative)) ? path.join(FIXTURE_ROOT,relative) : path.join(ROOT,relative);
 const dataContext = { window: {} };
@@ -30,7 +32,11 @@ const FIXED_NOW = (TOWN_LAYOUT || CALIBRATE_TOWN) ? '2026-09-07T17:00:00Z' : new
 const ISSUE = ISSUE_STORE.issues.find(item => item.editionDate === DATE);
 const ISSUE_DAILY = (ISSUE?.storyIds || []).map(id => DATA.stories.find(story => story.id === id)).filter(Boolean);
 const FRONT = DATA.stories.find(item => item.id === DATA.publications.daily.issue.frontPaigeStoryId);
-const CURRENT_DAILY = DATA.stories.find(item => item.id === DATA.publications.daily.issue.storyIds[0]);
+const CURRENT_DAILY = DATA.stories.find(item => item.id === DATA.publications.daily.issue.storyIds[0]) ||
+  DATA.stories.filter(item => item.edition === 'daily' && item.id !== DATA.publications.daily.issue.frontPaigeStoryId &&
+    ['published', 'corrected'].includes(item.status) && item.sourceApproval?.status === 'approved')
+    .sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)))[0];
+const ASTRA_DAILY = DATA.stories.find(item => item.id === 'openai-gpt-6-astra-launch-2026-09-04');
 const BIG_PICTURE = DATA.stories.filter(item => item.edition==='big-picture'&&['published','corrected'].includes(item.status)&&item.sourceApproval?.status==='approved').sort((a,b)=>String(b.updatedAt).localeCompare(String(a.updatedAt)))[0];
 const ARCHIVE = JSON.parse(fs.readFileSync(inputFile('content/newsstand-archive-index.json'), 'utf8'));
 const readerContractContext = { module: { exports: {} } };
@@ -52,17 +58,21 @@ const readerScaleExpression = `(() => {
   if (!paper || !heading || !hero || !copy) return { pass: false, missing: true };
   const px = (element, property) => Number.parseFloat(getComputedStyle(element)[property]);
   const compact = innerWidth <= 720;
+  const ordinary = paper.dataset.paper === 'daily';
+  const storyParagraph = ordinary ? Array.from(document.querySelectorAll('.ns-reader--story .ns-article__copy p')).find(item => !/^Updated\s/i.test(item.textContent.trim())) : copy;
   const metrics = {
     paperWidth: paper.getBoundingClientRect().width,
     headingSize: px(heading, 'fontSize'),
     heroWidth: hero.getBoundingClientRect().width,
     copySize: px(copy, 'fontSize'),
+    firstCopyTop: copy.getBoundingClientRect().top,
+    firstStoryCopyTop: storyParagraph ? storyParagraph.getBoundingClientRect().top : copy.getBoundingClientRect().top,
     viewportWidth: innerWidth,
     overflow: document.documentElement.scrollWidth > innerWidth
   };
   metrics.pass = metrics.paperWidth <= Math.min(innerWidth, 821) &&
-    metrics.headingSize <= (compact ? 32.5 : 40.5) &&
-    metrics.heroWidth <= Math.min(480.5, metrics.paperWidth) &&
+    metrics.headingSize <= (ordinary ? (compact ? 26.5 : 30.5) : (compact ? 32.5 : 40.5)) &&
+    metrics.heroWidth <= Math.min(ordinary ? (compact ? 240.5 : 250.5) : 480.5, metrics.paperWidth) &&
     metrics.copySize <= 17.5 && !metrics.overflow;
   return metrics;
 })()`;
@@ -100,8 +110,8 @@ const server = http.createServer((request, response) => {
   if (CALIBRATE_READER_SCALE && requestUrl.pathname === "/content/newsstand-design.css") {
     const body = fs.readFileSync(file, "utf8")
       .replace("width: min(100%, 820px);", "width: min(100%, 1120px);")
-      .replace("font-size: clamp(30px, 3vw, 40px);", "font-size: clamp(48px, 5.8vw, 76px);")
-      .replace("width: min(100%, 480px);", "width: min(100%, 780px);")
+      .replace("font-size: clamp(27px, 2.3vw, 30px);", "font-size: clamp(30px, 3vw, 40px);")
+      .replace("width: min(100%, 250px);", "width: min(100%, 480px);")
       .replace("font-size: clamp(16px, 1.1vw, 17px);", "font-size: clamp(18px, 1.5vw, 21px);");
     response.writeHead(200, { "content-type": "text/css; charset=utf-8" }); response.end(body); return;
   }
@@ -201,6 +211,13 @@ async function pressEnter(client) {
   await sleep(180);
 }
 
+async function capturePng(client, filename) {
+  if (!READER_SCALE_EVIDENCE_DIR) return;
+  fs.mkdirSync(READER_SCALE_EVIDENCE_DIR, { recursive: true });
+  const shot = await client.call('Page.captureScreenshot', { format: 'png', captureBeyondViewport: false });
+  fs.writeFileSync(path.join(READER_SCALE_EVIDENCE_DIR, filename), Buffer.from(shot.data, 'base64'));
+}
+
 let checks = 0;
 function check(actual, expected, label) { assert.deepEqual(actual, expected, label); checks += 1; }
 
@@ -248,8 +265,22 @@ try {
     console.log(`NEWSSTAND READER SCALE CALIBRATION PASS known-bad oversized reader rejected metrics=${JSON.stringify(knownBad)}`);
     desktop.close();
   } else if (READER_SCALE_ONLY) {
-    const routes = [
-      { label: 'Daily', slug: CURRENT_DAILY.slug },
+    if (READER_SCALE_CAPTURE_ONLY) {
+      const observations = [];
+      for (const [width, height] of [[1280, 720], [390, 844], [320, 844]]) {
+        const page = await openPage(`/newsstand.html#${ASTRA_DAILY.slug}`, { width, height });
+        const metrics = await value(page, readerScaleExpression);
+        await capturePng(page, `astra-${width}x${height}.png`);
+        observations.push({ width, height, metrics });
+        page.close();
+      }
+      console.log(`NEWSSTAND READER SCALE EVIDENCE ${JSON.stringify(observations)}`);
+      desktop.close();
+      process.exitCode = 0;
+    } else {
+      const routes = [
+      { label: 'Current Daily', slug: CURRENT_DAILY.slug },
+      { label: 'Astra Daily regression', slug: ASTRA_DAILY.slug },
       { label: 'Big Picture', slug: BIG_PICTURE.slug }
     ];
     for (const route of routes) {
@@ -258,14 +289,21 @@ try {
       check(metrics.pass, true, `${route.label} uses compact newspaper scale (${JSON.stringify(metrics)})`);
       page.close();
     }
+    const laptop = await openPage(`/newsstand.html#${ASTRA_DAILY.slug}`, { width: 1280, height: 720 });
+    const laptopMetrics = await value(laptop, readerScaleExpression);
+    check(laptopMetrics.pass, true, `1280x720: Daily uses compact newspaper scale (${JSON.stringify(laptopMetrics)})`);
+    check(laptopMetrics.firstStoryCopyTop <= 720, true, `1280x720: first actual story paragraph begins in the opening viewport (${JSON.stringify(laptopMetrics)})`);
+    laptop.close();
     for (const width of [390, 320]) {
-      const page = await openPage(`/newsstand.html#${CURRENT_DAILY.slug}`, { width, height: 844 });
+      const page = await openPage(`/newsstand.html#${ASTRA_DAILY.slug}`, { width, height: 844 });
       const metrics = await value(page, readerScaleExpression);
       check(metrics.pass, true, `${width}: Daily uses compact newspaper scale (${JSON.stringify(metrics)})`);
+      check(metrics.firstStoryCopyTop <= 844, true, `${width}: first actual story paragraph begins in the opening viewport (${JSON.stringify(metrics)})`);
       page.close();
     }
-    console.log(`NEWSSTAND READER SCALE PASS checks=${checks} desktop Daily/Big-Picture mobile=390,320`);
-    desktop.close();
+      console.log(`NEWSSTAND READER SCALE PASS checks=${checks} desktop current/Astra/Big-Picture laptop=1280x720 ${JSON.stringify(laptopMetrics)} mobile=390,320`);
+      desktop.close();
+    }
   } else if (ZOOM) {
     const metrics = await value(desktop,"({width:innerWidth,outer:outerWidth,dpr:devicePixelRatio,scale:visualViewport.scale,overflow:document.documentElement.scrollWidth>innerWidth})");
     check(metrics.dpr,2,'native browser 200% zoom with device scale forced to 1');

@@ -530,6 +530,39 @@
   }
 }
 
+/* An ordinary Latest story must start like an article, not an image-led poster.
+   Weekly and Big Picture retain their longer-form reading scale. */
+.ns-redesign .ns-reader--story .ns-unfolded-paper[data-paper="daily"] .ns-article__head {
+  padding-bottom: clamp(8px, 1vw, 12px);
+}
+.ns-redesign .ns-reader--story .ns-unfolded-paper[data-paper="daily"] .ns-article__head h2 {
+  margin-bottom: 8px;
+  font-size: clamp(27px, 2.3vw, 30px);
+  line-height: 1.1;
+}
+.ns-redesign .ns-reader--story .ns-unfolded-paper[data-paper="daily"] .ns-article__hero {
+  width: min(100%, 250px);
+  margin: 0 0 10px;
+}
+.ns-redesign .ns-reader--story .ns-unfolded-paper[data-paper="daily"] .ns-article__section {
+  padding-top: clamp(10px, 1.2vw, 14px);
+  padding-bottom: clamp(18px, 2vw, 22px);
+}
+@media (max-width: 720px) {
+  .ns-redesign .ns-reader--story .ns-unfolded-paper[data-paper="daily"] .ns-article__head {
+    padding-bottom: 9px;
+  }
+  .ns-redesign .ns-reader--story .ns-unfolded-paper[data-paper="daily"] .ns-article__head h2 {
+    margin-bottom: 8px;
+    font-size: clamp(24px, 6.4vw, 26px);
+    line-height: 1.1;
+  }
+  .ns-redesign .ns-reader--story .ns-unfolded-paper[data-paper="daily"] .ns-article__hero {
+    width: min(75vw, 240px);
+    margin-bottom: 10px;
+  }
+}
+
 /* A related song opens the shared KSVL deck without leaving the newspaper. */
 .ns-redesign .ns-theme-control { position: relative; z-index: 2; grid-column: 1 / -1; justify-self: end; margin: -8px 0 16px 16px; max-width: calc(100% - 16px); text-align: right; }
 .ns-redesign .ns-theme-button {

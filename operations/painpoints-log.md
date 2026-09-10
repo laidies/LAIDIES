@@ -16105,3 +16105,9 @@ The evening recovery accepted `agent.json` and the visible index as newest-editi
 
 ## 2026-09-10 — NewsStand preview exposed paragraph markup
 The Front PAiGE opening escaped HTML-authored body text directly, making `<p>` visible. Correct all three publication preview values with text extraction before escaping; archive/search/catchup already extract text. Browser calibration rejected incumbent on desktop/mobile and accepted correction. Behind the Build angle: a preview and full article need different display handling; no public draft created.
+## 2026-09-10 — Passing component caps still produced an oversized opening viewport
+
+- **Failure:** The Astra Daily passed the 820px paper, 40px headline, 480px image and 550-word guards, yet the live 1280 × 720 reader still showed only orientation, headline and illustration before the first useful paragraph.
+- **Cause:** The visual guard measured individual maximums but not their combined vertical result in a common laptop viewport. A service-only current issue also made the scale-only test crash because it assumed the current issue always contains a story.
+- **Prevention:** Measure the first article paragraph against the opening viewport as well as individual sizes; use the newest eligible ordinary story when the current dated issue is service-only. Calibrate by restoring the rejected large values and require the guard to fail.
+- **Behind the Build angle:** A page can pass every component-size rule and still feel huge; test the reader's first screen, not only the pieces.
