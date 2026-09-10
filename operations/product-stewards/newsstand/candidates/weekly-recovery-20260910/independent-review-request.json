@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "newsstand-weekly-independent-review-request.v1",
+  "candidateId": "weekly-control-layers-20260909",
+  "requestedStage": "INDEPENDENT_SEMANTIC_AND_FACTUAL_ADMISSION",
+  "requestedBy": "/root/weekly_recovery",
+  "makerPrincipalId": "/root/weekly_recovery",
+  "requirement": "A role-distinct reviewer from a non-OpenAI model family must inspect the frozen artifact first, then the exact current source observations and Weekly policy. Maker verdicts are not review evidence.",
+  "artifactFirst": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/review-text.json",
+      "sha256": "7a7657eb646d28a0aa2b75ad08fecf0a580be6d05d2bcd95c5103d774b8718e3"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/publication-manifest.json",
+      "sha256": "2e9f98f267a95ba1c1d57fce139d03904d60e1c54c4146eea497f52334b23771"
+    },
+    "story": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/story.json",
+      "sha256": "98e319c57b9e9681a1da813c1c5b9f80ba0a745c105626d8086edd1b5629e448"
+    },
+    "reviewedContentSha256": "2b9ada95218cb7448395d8cc273279f1db4509420703d8656bf306089a93a35b"
+  },
+  "reviewerInputs": {
+    "weeklyPolicy": {
+      "path": "operations/product-stewards/newsstand/weekly-news-editorial-policy.json",
+      "sha256": "1bd57b1b88a2b0ac530fdc1e6c8112269327417dfcaae197173785137ee62d9e"
+    },
+    "voiceLock": {
+      "path": "operations/voice/laidies-writing-lock.md",
+      "sha256": "de0eb56784ac220187766b4b98eae2fb96ce978e4d50a2345ed09aefc7829e08"
+    },
+    "communicationBenchmark": {
+      "path": "operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md",
+      "sha256": "7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3"
+    },
+    "exemplarRegistry": {
+      "path": "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json",
+      "sha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3"
+    },
+    "calibrationReference": {
+      "path": "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/calibration-result.json",
+      "sha256": "006b3ff3300c856daee21a482d77003064a03b79591a72c75026c2c07a042e10",
+      "scopeNote": "Use the existing blind NEWS rejection evidence as calibration evidence; apply the current Weekly policy independently. Do not treat the ordinary-policy binding as Weekly admission."
+    },
+    "coverageAssessment": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/dated-desk-assessment.json",
+      "sha256": "60823aaf2d289e526c7dbea92d2c74600b87e5756d475fb847fa94b9458adec4"
+    },
+    "weeklyInput": {
+      "path": "operations/product-stewards/newsstand/release-pipeline-v1/weekly-inputs/2026-09-09-r4-recovery-20260910.json",
+      "sha256": "08527bf80c8837726c15a38931d94c5f265e82a91e385f154bbf5f1ba879cc52"
+    },
+    "claimMap": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/claim-map.json",
+      "sha256": "fb450d69e42db67e15e7ef0f41f1ccea818e605cfd1a083c96fc067c0d8a68c4"
+    },
+    "priorWeekly": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/sources/laidies-prior-weekly.json",
+      "sha256": "d9992a6b84b0c3c3f61534ffbcbbc27aaf71993ae39434d1f107675f97572a5f"
+    },
+    "selectedPrimaryEvidence": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/sources/openai-images-2-5.json",
+        "sha256": "e3fca6b3cf2c750cd0177bcaa77ef1de212bb5f8d7c22029b0f04c3f9879b1c0"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/sources/anthropic-alignment-assessment.json",
+        "sha256": "3d665de533d801ab9cfd837b2dc9ac94a3d8b0cec35999d6e112cb0e9ada4f7f"
+      },
+      {
+        "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/sources/doj-take-it-down-sentencing.json",
+        "sha256": "a66c5bfbe55eade487bcd5017f51c1b73d977293dfd2dcfb7bc19c635748a6e7"
+      }
+    ],
+    "excludedSourceHold": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/sources/nature-tnbc-primary-hold.json",
+      "sha256": "70626c20d013fd3d8ff5b7af6eacaf7863b321752ef4ec4ad6e91d590705a4cd"
+    },
+    "researchReuse": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/research-reuse.json",
+      "sha256": "e3fccc97074065f26551d27798095c810e134ef2af03536db2ecda0a797cfd9f"
+    }
+  },
+  "independenceControls": {
+    "requiredModelFamily": "non-OpenAI",
+    "differentPrincipalFromMaker": true,
+    "artifactFirst": true,
+    "excludedBeforeInitialArtifactJudgment": [
+      "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/producer-contract.json",
+      "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/producer-self-review.json"
+    ],
+    "noRepairDuringReview": true,
+    "noFabricatedHumanObservation": true,
+    "noMakerSuppliedVerdict": true,
+    "preserveRawProviderOutput": true
+  },
+  "requiredJudgments": {
+    "outcomes": [
+      "plainClarity",
+      "readerValue",
+      "laidiesVoice",
+      "engagingEnjoyable",
+      "factualIntegrity",
+      "freshnessReviewability",
+      "surfaceFit",
+      "datedChange",
+      "consequenceAndUncertainty",
+      "dailyLifeConnection",
+      "communicationBenchmark",
+      "explainBack",
+      "unseenTransfer",
+      "usefulAction",
+      "analogyIntegrity"
+    ],
+    "failureFamilies": "Every current registered family must be clear; present or uncertain blocks PASS.",
+    "weeklySelection": [
+      "actual event dates fall within 2026-09-02 through 2026-09-09",
+      "article compares with rather than repeats the September 6 Weekly",
+      "three items support a coherent through-line without being flattened into one trend",
+      "selected items exactly match the dated desk assessment",
+      "declined and excluded items do not leak into public prose"
+    ],
+    "factual": [
+      "every material clause maps to verbatim source evidence",
+      "vendor claims remain attributed",
+      "Anthropic independent investigation remains pending",
+      "180-month sentence is not attributed to the Take It Down Act count alone",
+      "Images 2.5 rollout and capability claims retain vendor/rollout limits"
+    ],
+    "art": [
+      "hero src is the incumbent approved Weekly newspaper asset",
+      "credit and alt describe the asset without a story-outcome disclaimer"
+    ]
+  },
+  "requiredOutputs": {
+    "rawReport": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/independent-review/independent-raw-report.json",
+    "review": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/independent-review/independent-review.json",
+    "claimMap": "operations/product-stewards/newsstand/candidates/weekly-recovery-20260910/independent-review/independent-claim-map.json",
+    "verdictRule": "PASS only when every current factual and reader outcome passes and every failure family is clear. Otherwise HOLD or REJECT with exact locators and the smallest repair or evidence dependency."
+  },
+  "knownNonEditorialHold": {
+    "status": "PUBLICATION_PROTOCOL_HOLD",
+    "reason": "All real source observations were checked on 2026-09-10. The target edition date is 2026-09-09, while the active Weekly policy requires source checkedAt to match the publication day in America/Vancouver. Backdating is forbidden.",
+    "smallestDependency": "A separately authorized recovery-date publication route that accepts truthful September 10 checks for the missed September 9 edition, followed by the normal publisher and live-browser gates."
+  }
+}
