@@ -16,4 +16,5 @@ assert.throws(()=>inspectCycle({...input,from:'2026-02-30'}));assert.throws(()=>
 for(const editionDate of ['not-a-date','9999-99-99','2026-09-11']){const bad=structuredClone(input);bad.stories.publications.weekly.editionDate=editionDate;assert.throws(()=>inspectCycle(bad));}
 assert.throws(()=>inspectCycle({...input,from:'2026-09-11'}));
 
+assert.throws(()=>inspectCycle({...input,from:'2026-09-10',now:'2026-09-10T13:59:00Z'}));
 console.log('Cycle delivery check: known missing/old/invalid inputs rejected; current, service-only and Vancouver deadline boundaries verified. No editorial approval asserted.');

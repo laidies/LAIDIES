@@ -12,7 +12,7 @@ export function inspectCycle({issues,stories,from,now=new Date().toISOString()})
  const parts=Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:'America/Vancouver',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',hourCycle:'h23'}).formatToParts(instant).map(p=>[p.type,p.value]));
  const today=`${parts.year}-${parts.month}-${parts.day}`;
  const through=Number(parts.hour)>=7?today:new Date(Date.parse(today+'T12:00:00Z')-86400000).toISOString().slice(0,10);
- if(from>today)throw Error('Recovery start cannot be in the future');
+ if(from>through)throw Error('Recovery start cannot be after the last due date');
  if(!Array.isArray(issues?.issues)||!stories?.publications?.weekly||!Array.isArray(stories.stories))throw Error('Public data shape unavailable');
  const byDate=new Map();for(const row of issues.issues){date(row.editionDate);if(byDate.has(row.editionDate))throw Error('Duplicate issue date');byDate.set(row.editionDate,row);}
  const missing=[];const delivered=[];
