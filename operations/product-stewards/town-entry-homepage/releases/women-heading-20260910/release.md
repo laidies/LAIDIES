@@ -1,6 +1,6 @@
 # Women feature heading contrast — 2026-09-10
 
-Status: ADMITTED, not yet deployed. Receiving production cba636cb-b9a4-4f88-bd9e-7cdc53230356.
+Status: VERIFIED PUBLICLY. Source commit 348cd54d (pushed). Production f9f53b6f-2496-485b-b4df-cbd473e82e7b. Receiving production cba636cb-b9a4-4f88-bd9e-7cdc53230356.
 
 ## Exact change
 
@@ -22,3 +22,10 @@ Stage: /private/tmp/laidies-women-heading-20260910/stage. Preserve all receiving
 Candidate index SHA-256: `e461bb837ad273ce00c7468b83f82515da439001e535fcc7e77933444d27b9ac`.
 
 The remaining Resident Card explanation/feature reconciliation is not part of this color correction and remains unfinished. No new copy, artwork, account behavior or other route changes are included.
+
+## Public verification
+
+Live: https://laidies.ai/#why-laidies-title
+Immutable: https://f9f53b6f.laidies-sunnyvaile.pages.dev/#why-laidies-title
+
+Custom and immutable origins each returned the exact admitted HTML and passed real Chrome browser checks at390/960/1440: heading #070f2b, Jost700 retained, two subheadings #f254a9, correct responsive columns/footer, decoded original image and no horizontal overflow. Custom phone and middle-width screenshots were visually inspected. Provider canonical head is f9f53b6f; all783 static keys retained, only /index.html changed,782 identities preserved, including the current NewsStand and Chick Flicks files. Current worker/redirects retained byte-for-byte from the receiving release artifact. No native Safari, whole-site audit or signed-in lifecycle test was performed for this color-only correction.
