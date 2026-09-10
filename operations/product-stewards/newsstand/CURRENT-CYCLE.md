@@ -6,9 +6,9 @@ Ali requested recovery of September 9 and September 10 incomplete NewsStand upda
 ## Actual checkpoint
 - September 9 service-only issue is public: four service records, zero new news stories. Do not re-publish or relabel that as new news.
 - September 10 service-only Daily is public at 4c4c5d19-2fb4-40bc-bcff-b91cbafeefc5 (source5166165c): four carried September9 service records, zero new news. Exact eight live data responses and desktop/mobile on both origins verified. Fresh-news recovery remains OPEN.
-- Wednesday September 9 Weekly is still overdue; public Weekly is September 6.
+- Wednesday September 9 Weekly is public at bcab97e6-fb62-4e59-b4a7-28be18f77fd1 (source efb13bf2), covering September 2–9 with actual September 10 publication. All 783 provider paths retained; exactly three data changes; six immutable/custom data matches and four desktop/phone reader journeys passed.
 - Research for both days has material leads; no quiet-news claim is supported.
-- Next editorial action: resolve the highest-consequence viable lead into a source-bound candidate or concrete source block; complete eligible September 10 dated issue admission and release independently of held stories; finish the overdue Weekly with actual current-week sources/review.
+- Next editorial action: resolve the highest-consequence viable lead into a source-bound candidate or concrete source block; complete eligible September 10 dated issue admission and release independently of held stories; finish the separately reviewed Daily report and same-day issue admission.
 - Next operational action: run `node scripts/check-newsstand-cycle-completion.mjs --from 2026-09-09` at entry, after compaction and before closure. Its output is public delivery presence, not editorial approval.
 
 ## Ownership

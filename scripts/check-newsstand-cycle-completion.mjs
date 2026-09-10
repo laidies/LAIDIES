@@ -7,6 +7,11 @@ import {execFileSync} from 'node:child_process';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const datePattern=/^\d{4}-\d{2}-\d{2}$/;
 function date(value){if(!datePattern.test(value)||new Date(value+'T12:00:00Z').toISOString().slice(0,10)!==value)throw Error('Invalid date: '+value);return value;}
+export function parseStories(raw) {
+ const match=raw.match(/^window\.NEWSSTAND_DATA\s*=\s*([\s\S]*?);\s*(?:\/\*[\s\S]*?\*\/\s*)?window\.NEWSSTAND_STORIES\s*=\s*window\.NEWSSTAND_DATA\.stories;\s*$/);
+ if(!match)throw Error('Unrecognized story data wrapper');
+ return JSON.parse(match[1]);
+}
 export function inspectCycle({issues,stories,from,now=new Date().toISOString()}) {
  date(from);const instant=new Date(now);if(!Number.isFinite(+instant))throw Error('Invalid now');
  const parts=Object.fromEntries(new Intl.DateTimeFormat('en-CA',{timeZone:'America/Vancouver',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',hourCycle:'h23'}).formatToParts(instant).map(p=>[p.type,p.value]));
@@ -33,7 +38,7 @@ if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.ur
   const now=take('--now')||new Date().toISOString();const from=take('--from');if(!from)throw Error('Usage: --from YYYY-MM-DD [--now ISO] [--fixture DIR]');
   const fixture=take('--fixture');
   const get=(name)=>fixture?fs.readFileSync(path.join(fixture,name),'utf8'):execFileSync('curl',['-fsSL','--max-time','30','https://laidies.ai/content/'+name+'?cycle-check='+Date.now()],{encoding:'utf8',maxBuffer:12*1024*1024});
-  const issues=JSON.parse(get('newsstand-daily-issues.json'));const raw=get('newsstand-stories.js');const match=raw.match(/^window\.NEWSSTAND_DATA\s*=\s*([\s\S]*?);\s*window\.NEWSSTAND_STORIES/);if(!match)throw Error('Unrecognized story data wrapper');
-  const result=inspectCycle({issues,stories:JSON.parse(match[1]),from,now});console.log(JSON.stringify(result,null,2));if(result.status==='DELIVERY_INCOMPLETE')process.exitCode=1;
+  const issues=JSON.parse(get('newsstand-daily-issues.json'));const parsed=parseStories(get('newsstand-stories.js'));
+  const result=inspectCycle({issues,stories:parsed,from,now});console.log(JSON.stringify(result,null,2));if(result.status==='DELIVERY_INCOMPLETE')process.exitCode=1;
  }catch(error){console.error(JSON.stringify({status:'UNVERIFIED',error:error.message}));process.exitCode=2;}
 }

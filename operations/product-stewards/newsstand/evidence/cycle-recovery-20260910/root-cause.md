@@ -10,12 +10,22 @@ Additional contributors: research inventory and admission were treated as stoppi
 ## Correction and verification
 - Added a read-only live Daily/Weekly delivery check. It distinguishes service-only delivery from news and grants no editorial/release approval.
 - Added a small CURRENT-CYCLE.md checkpoint and entry/re-entry/closure instructions so compaction has a durable current objective.
-- Updated the existing ACTIVE heartbeat, same target, preserving 07:00/20:00 phases and adding10:00/13:00/16:00 recovery checks. No second scheduler. Idle completed recovery checks must not repeat full research/review.
+- Updated the existing ACTIVE heartbeat, subsequently retargeted as recorded below, preserving 07:00/20:00 phases and adding10:00/13:00/16:00 recovery checks. No second scheduler. Idle completed recovery checks must not repeat full research/review.
 - Removed stale story-specific instructions from the scheduled prompt; current runbook remains full authority. Exact before/after and readback in automation-change.json.
 - Calibrated tests reject absent Daily, stale/invalid/future Weekly, duplicate/impossible dates and future recovery scope. Vancouver07:00 boundaries and service-only zero-news reporting pass. Independent Terra/Medium review identified two date flaws, repaired and regression-tested; scoped re-review passed. No claim of hard app stop enforcement.
-- Live check reproduces the actual debt: September9 service-only issue4services/0news is public; September10 Daily missing; expectedSeptember9Weekly stillSeptember6. Editorial recovery is a separate active lane, not complete as of this record.
+- Initial live check reproduced the actual debt: September9 service-only issue4services/0news is public; September10 Daily missing; expectedSeptember9Weekly stillSeptember6. Editorial recovery is a separate active lane, not complete as of this record.
 
 Limitations: these are tested detection/continuation controls and verified schedule configuration. No subsequent unattended full cycle has yet been observed. Local scheduled work still needs the computer and app available, but this incident's trigger did fire. Official documentation: https://learn.chatgpt.com/docs/automations.
 
 ## Recovery routing correction
 Three explicit recovery followups to the old task at 19:17, 19:19 and 19:20 UTC were delivered as `send_message_to_thread` tool outputs, but each returned the stale completed Astra result in roughly 2–3 seconds. This shows the followups were present, not that new instructions were executed. The single existing heartbeat was therefore moved to active recovery task `01a071e7-db55-7a22-8c99-04eba5060355`; target, ACTIVE status and 7/10/13/16/20 schedule were read back from automation.toml. No duplicate scheduler was created. The next actual unattended completion remains unobserved.
+
+## Weekly recovery dead end reproduced and repaired
+`publish-newsstand-weekly.mjs` rejected all ordinary non-Wednesday publication and required source checks on the publication day. A missed Wednesday therefore had no Thursday recovery path: backdating would fail freshness and be dishonest. The new private recovery metadata admits only the latest missed Wednesday (1–6 days), keeps its exact coverage period and pointer edition date, and requires real current-day sources/reviews/publication timestamp. Full validator-chain and CLI tests prove an actual Thursday write in a disposable root and reject stale sources, future/old/already-delivered targets and altered coverage. Existing Sunday corrective behavior is retained.
+
+The integration test also exposed the prose evidence checker excluding public Weekly introductions and highlights while accepting Daily fields. Those visible prose fields are now recognized; fabricated text and source-only metadata still reject. Both fixes are source94623668. No editorial or source gate was disabled.
+
+## Weekly public recovery and detector compatibility
+Weekly bcab97e6-fb62-4e59-b4a7-28be18f77fd1 is public from efb13bf2, with September2–9 coverage and actual September10 publication. All783 provider asset paths retained; exactly three NewsStand data deltas; six immutable/custom exact-byte comparisons and four desktop/phone reader journeys passed. See weekly-release.json.
+
+The first post-Weekly delivery check returned UNVERIFIED because the admitted Weekly writer inserts a compatibility comment before the legacy alias. The detector now parses both admitted wrappers without executing source; known access-screen and executable-suffix inputs reject. The live recheck correctly reports both dated service-only issues, zero new Daily news, and a current September9 Weekly. Fresh Daily reporting remains active; dated presence is not editorial completion.

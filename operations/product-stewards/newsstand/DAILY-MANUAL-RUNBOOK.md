@@ -33,7 +33,7 @@ Use this bounded sequence inside the existing active Codex heartbeat,
 NewsStand research and publication cycle**. The September 5 app update and
 read-back confirmed 20:00 research/private drafting and 07:00 freshness/gated
 publication in America/Vancouver. See the activation boundary below.
-Its target is thread `01a02f95-3838-7af0-a4c7-2f51253a133d`. The heartbeat
+Its current target is thread `01a071e7-db55-7a22-8c99-04eba5060355` (retargeted September 10; the former target repeatedly resumed unrelated completed work). The heartbeat
 orchestrates research and independent reviews; no single shell command
 substitutes for editorial judgment. No duplicate automation or separate
 backend cron is enabled. The older Control Room dispatcher stays paused.
@@ -41,7 +41,7 @@ backend cron is enabled. The older Control Room dispatcher stays paused.
 ## Recurring entry and current released seed
 
 Current execution checkout:
-`/Users/alisoneakin/Projects/laidies-newsstand-recurring-20260905`, branch
+`/Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907`, branch
 `ops/newsstand-recurring-20260905`, initially based on `b6ca03d2`. It includes
 the September 5 source records and recovery/cursor state plus the local
 recovery scheduling, AIDB channel discovery and research-reuse repairs.
@@ -84,7 +84,7 @@ Vancouver date. Its full source/admission/release prompt remains authoritative.
 The command entry after source research and preflight is:
 
 ```sh
-cd /Users/alisoneakin/Projects/laidies-newsstand-recurring-20260905
+cd /Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907
 NEWSSTAND_DAY=$(TZ=America/Vancouver date +%F)
 node scripts/compose-daily-edition.mjs --date "$NEWSSTAND_DAY" \
   --radar "operations/agents/aidb-intelligence-desk/daily/$NEWSSTAND_DAY.md" \
