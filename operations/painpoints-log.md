@@ -1,5 +1,15 @@
 # LAiDIES build learning ledger
 
+## September 10 — A fired schedule is not a completed publication
+
+- **Observed:** September9/10 NewsStand runs started research, then after compaction resumed an old completed layout request. Three explicit followups to that task repeated the stale result. The Weekly publisher also had no honest Thursday path for a missed Wednesday.
+- **Prevention:** Retargeted the one existing heartbeat, removed historical story instructions, added a short current-cycle checkpoint and live dated-delivery check at entry/re-entry/closure, plus bounded recovery times. The publisher now admits only the latest missed Wednesday with its real coverage and actual current publication/review dates. Added failing regression cases; did not bypass editorial gates.
+- **Maker-found repairs:** Weekly intro/highlight evidence was excluded by the prose-field checker; admitted public fields now qualify while source-only text still fails. The delivery parser rejected the Weekly publisher's compatibility comment; both writer wrappers now parse without executing them, while access screens and executable suffixes reject. A DOJ download was an Akamai screen, not source text; failed retrieval preserved and replaced by a current bound official-page observation before admission.
+- **Outcome:** Sep9 service-only history retained, Sep10 new independently reviewed Daily published, missed Weekly recovered. All783 provider paths preserved; exact public deltas and actual desktop/phone/keyboard journeys verified. Evidence: `operations/product-stewards/newsstand/evidence/cycle-recovery-20260910/`.
+- **Limit:** Schedule configuration and manual recovery are proven; the next unattended complete cycle is not yet observed.
+- **Possible public Behind the Build angle:** The difference between a reminder firing and the promised result arriving, using a generic household task. Do not expose internal operational details.
+
+
 
 ## BTB-505 — A valid destination can still leave the reader at the book cover
 

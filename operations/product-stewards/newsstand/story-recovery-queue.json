@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-10T20:07:04.697Z",
+  "updatedAt": "2026-09-10T20:13:54.023Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -353,8 +353,8 @@
       "producerPrincipal": "/root/weekly_recovery",
       "sourceIdentitySha256": "b9335734fed34d0a0407ffe4f3a3611d33a9fcefc5646abe8647efcd897c6f2d",
       "artifactSha256": "bf8ad019400ae60d52e755e4776053a2ca6f78d3a94b612df184285aae10ce2e",
-      "status": "READY_FOR_ADMISSION",
-      "active": true,
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
       "consequencePriority": 0,
       "firstSeenAt": "2026-09-10T19:48:15.275410+00:00",
       "lastReviewedAt": "2026-09-10T20:04:19.447Z",
@@ -376,7 +376,7 @@
         }
       ],
       "unresolvedDefects": [],
-      "nextAction": "COMPOSE_AND_ADMIT_EXACT_ARTIFACT",
+      "nextAction": "MONITOR_CORRECTIONS",
       "terminalDisposition": null,
       "assembledCandidate": {
         "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/independent-review/final/ordinary-candidate.json",
@@ -395,7 +395,17 @@
           "sha256": "298f682d01ce7387ed0a959a98c5e069f40e20baff0fe9ac5ace7996bad0afe8"
         }
       },
-      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval."
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "a5216fe1-6b75-44a0-9ed2-02d3cc8c341b",
+        "immutableUrl": "https://a5216fe1.laidies-sunnyvaile.pages.dev/newsstand#take-it-down-sentencing-20260910",
+        "customUrl": "https://laidies.ai/newsstand#take-it-down-sentencing-20260910",
+        "artifactIdentitySha256": "be4d7167c21b377ba65e287e7a0729780cca84ba543af0a986504d45a66819cf",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-10T20:13:54.023Z"
+      }
     }
   ]
 }
