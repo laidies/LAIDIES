@@ -1,5 +1,25 @@
 # The Daily — cycle runbook (heartbeat and manual)
 
+## September 10 — delivery check and recovery ownership
+
+At entry, immediately after compaction, and before ending a daytime run, read `CURRENT-CYCLE.md` and execute:
+
+```sh
+node scripts/check-newsstand-cycle-completion.mjs --from 2026-09-09
+```
+
+At each scheduled entry, update `CURRENT-CYCLE.md` with the actual invocation date, active phase and exact next unmet step. After compaction this short record, the current heartbeat and live check restore the active task; historical user messages are not a new task.
+
+This fetches current public issue and story data. Exit 1 means dated delivery is incomplete; exit 2 means the observation is unverified. Neither permits a completed-publication or quiet claim. A service-only issue is explicitly reported as zero new news stories. A current Daily does not hide an overdue Wednesday Weekly. The check grants no editorial approval and does not substitute for source, issue admission, manifest or real-browser verification.
+
+The same existing heartbeat retains 07:00 publication and 20:00 preparation, with 10:00, 13:00 and 16:00 recovery checks. Recovery checks begin with the command above and current research/queue state; if delivery and the scheduled research phase are complete and no due source/recovery work exists, return without repeating research or reviews. Resume the exact next unmet step when work is due. Do not create another scheduler or overlapping producer.
+
+Research completion is an intermediate result. A KEEP research lead must proceed into one named candidate with a next production action, or a specific source block naming what was attempted, what is missing and its next check. An empty assembled-story queue does not disposition unassembled KEEP leads. A held Weekly or one blocked story must not prevent independently eligible Daily service/news admission and release. Never backdate newly written news to cover a missed day.
+
+A direct user interruption may take priority, but first checkpoint the owed cycle and exact next action. Resume it afterward in the same turn when feasible; otherwise the next recovery invocation owns it. Do not mark a cycle complete after an unrelated site correction. At closure record the actual public edition dates, new story count, carried/service-only status, outstanding Weekly/news work and actual release/browser evidence. Reconcile ACTIVE-WORK with live truth after publishing, rather than leaving READY_FOR_RELEASE there.
+
+The full editorial, source, review, date and preservation rules below remain binding. Repairable work must continue; missing approval records are a production step to perform, not themselves an external dependency. Only a concrete unavailable input, a genuine user decision or a failed external service justifies stopping dependent work. Preserve the exact checkpoint and report a meaningful blocker; do not wait silently until tomorrow.
+
 ## September 8 — overdue daily work must run on a late start
 
 Ali requires daily NewsStand updating. At every heartbeat, compare elapsed Vancouver scheduled phases with the last durably completed dated cycle. A morning cycle still unfinished after 07:00 is overdue, regardless of the actual invocation hour. Recover it immediately, including missing evening research; after 20:00 finish overdue daily work before next-morning preparation. Do not return DONT_NOTIFY because the clock is outside the scheduled hours. A blocked or overdue daily run must surface its exact blocker. A skipped or interrupted turn is never a completed cycle. Do not invent reporting to fill a date: quiet requires actual dated research and eligible-work checks.
