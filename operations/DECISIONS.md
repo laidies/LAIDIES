@@ -1,5 +1,10 @@
 # LAiDIES decision router
 
+## 2026-09-09 — Women feature must balance at middle widths
+
+Ali flags the live section’s empty lower-left area at an intermediate width. Fix responsive composition, preserving both pink headings, approved artwork, complete copy, destinations and existing fonts. Restore the accepted footer spanning both columns. Keep image and quote together, restore the equal-width footer, and stack the full feature at1050px and below. Reuse the earlier 1380px wide cap and 1.2rem wide body sizing; narrow screens keep a natural single-column order. A row-paired pilot was rejected internally because it created a large gap under the image or introduction. Check intermediate widths, not only full desktop and phone. This is a bounded correction to the just-published section; remaining programme next recovers the Resident Card explanation against actual features.
+
+
 ## 2026-09-09 — Publish the pink women headings
 
 Ali says “ok push live” after reviewing the pink headings. Apply the approved two-heading treatment to the current production homepage. Preserve newer arrival, Miss Jeeves, Resident Card, radio and NewsStand work; this bounded release does not promote older preview runtime or unfinished Resident Card prose. Verified live at https://laidies.ai/#why-laidies-title; source cba48f17, deployment069f58a8. Both desktop and phone checked;779 other provider identities preserved. Exact release record: operations/product-stewards/town-entry-homepage/releases/pink-headings-20260909/release.md.
