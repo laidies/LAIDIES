@@ -1,8 +1,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-10T19:31:11.000Z",
-  "lastCheckedAt": "2026-09-10T19:31:11.000Z",
+  "generatedAt": "2026-09-10T14:18:00Z",
+  "lastCheckedAt": "2026-09-10T14:18:00Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -16,7 +16,7 @@ window.NEWSSTAND_DATA = {
     },
     "daily": {
       "edition": "daily",
-      "editionDate": "2026-09-10",
+      "editionDate": "2026-09-09",
       "editorialTimeZone": "America/Vancouver",
       "issue": {
         "status": "complete",
@@ -29,14 +29,13 @@ window.NEWSSTAND_DATA = {
           "DAILY-2026-09-09-CAREER-LIFE-CORNER-02-PRIORITIES",
           "DAILY-2026-09-09-CONCEPT-WEEK-CONCEPT-02-TOKEN",
           "DAILY-2026-09-09-DEAR-MISS-JEEVES-JEEVES-02-CITATION"
-        ],
-        "envelopeSha256": "b5e26205094ffd98ee7fe9bb357306957471236121f2dd37054a2e7820727cc2"
+        ]
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-10T19:31:11.000Z",
-      "updatedAt": "2026-09-10T19:31:11.000Z",
-      "lastCheckedAt": "2026-09-10T19:31:11.000Z",
+      "publishedAt": "2026-09-10T14:18:00Z",
+      "updatedAt": "2026-09-10T14:18:00Z",
+      "lastCheckedAt": "2026-09-10T14:18:00Z",
       "maxAgeHours": 36,
       "note": "No new news story was published today. The latest Front PAiGE and available columns remain below."
     },
