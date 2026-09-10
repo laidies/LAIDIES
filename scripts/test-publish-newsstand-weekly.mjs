@@ -9,7 +9,7 @@ import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 import {enforcedFailureFamilies} from './check-prose-quality-admission.mjs';
 import {candidateReviewText,stable} from './validate-newsstand-ordinary-story-candidate.mjs';
-import {publishNewsstandWeekly,validateWeeklySelection} from './publish-newsstand-weekly.mjs';
+import {publishNewsstandWeekly,validateWeeklySelection,validateWeeklyPublicationTiming} from './publish-newsstand-weekly.mjs';
 
 const REPO=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const PUBLISHER=path.join(REPO,'scripts/publish-newsstand-weekly.mjs');
@@ -20,7 +20,9 @@ const sha=value=>crypto.createHash('sha256').update(value).digest('hex');
 const parse=raw=>{const context={window:{}};vm.runInNewContext(raw,context,{timeout:1000});return JSON.parse(JSON.stringify(context.window.NEWSSTAND_DATA))};
 const render=data=>`window.NEWSSTAND_DATA = ${JSON.stringify(data,null,2)};\n\n/* Compatibility for old private inspection scripts only. Public code uses NEWSSTAND_DATA. */\nwindow.NEWSSTAND_STORIES = window.NEWSSTAND_DATA.stories;\n`;
 
-function makeFixture(){
+function makeFixture(recovery=false){
+  const DATE=recovery?'2026-09-10':'2026-09-09';
+  const STAMP=DATE+(recovery?'T19:00:00Z':'T17:00:00Z');
   const root=fs.mkdtempSync(path.join(os.tmpdir(),'laidies-weekly-publication-'));roots.push(root);
   const write=(relative,value)=>{const target=path.join(root,relative);fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,value);return relative};
   const bind=relative=>({path:relative,sha256:sha(fs.readFileSync(path.join(root,relative)))});
@@ -29,6 +31,7 @@ function makeFixture(){
   const prior=sourceData.stories.find(item=>item.id===sourceData.publications.weekly.storyId);
   assert.ok(prior,'canonical fixture source needs a current Weekly story');
   const data=structuredClone(sourceData);
+  if(recovery)data.publications.weekly.editionDate='2026-09-06';
   const basePath='content/newsstand-stories.js';
   write(basePath,render(data));
 
@@ -83,13 +86,14 @@ function makeFixture(){
   writeJson(assessmentPath,assessment);
   const reusePath='candidate/research-reuse.json';
   writeJson(reusePath,{schemaVersion:'newsstand-weekly-research-reuse.v1',candidateId:story.id,developments:[{id:story.headline,disposition:'decline',owner:'synthetic learning owner',trigger:'Reconsider if a durable claim or named consumer changes.'}]});
-  const candidate={schemaVersion:'newsstand-weekly-candidate-v1',candidateStatus:'READY_FOR_WEEKLY_ADMISSION',candidateId:story.id,publicationDate:DATE,period:{startDate:'2026-09-02',endDate:DATE},publicationBase:{path:basePath,sha256:bind(basePath).sha256},priorWeekly:{storyId:prior.id,storySha256:sha(stable(prior))},manifest:manifestBinding,reviewText:reviewBinding,sourceText:reviewBinding,producerContract:bind(contractPath),producerReview:bind(producerPath),independentReview:bind(independentPath),independentRawReport:bind(rawReportPath),claimMap:bind(claimMapPath),preparation:{sourceAssessment:bind(assessmentPath)},researchReuse:bind(reusePath),sources:[{id:'weekly-source',url:'https://example.com/weekly-source',evidence:sourceBinding}],pointerNote:'The 2026-09-02–2026-09-09 Weekly.',story,storySha256:storySha};
-  candidate.selection={scoutingScope:'WIDER_NEWS_AND_PRIMARY_ANNOUNCEMENTS',developments:[{headline:story.headline,announcementDate:DATE,sourceIds:['weekly-source'],dateEvidence:'Synthetic dated fixture announcement'}]};
+  const candidate={schemaVersion:'newsstand-weekly-candidate-v1',candidateStatus:'READY_FOR_WEEKLY_ADMISSION',candidateId:story.id,publicationDate:DATE,period:{startDate:'2026-09-02',endDate:'2026-09-09'},publicationBase:{path:basePath,sha256:bind(basePath).sha256},priorWeekly:{storyId:prior.id,storySha256:sha(stable(prior))},manifest:manifestBinding,reviewText:reviewBinding,sourceText:reviewBinding,producerContract:bind(contractPath),producerReview:bind(producerPath),independentReview:bind(independentPath),independentRawReport:bind(rawReportPath),claimMap:bind(claimMapPath),preparation:{sourceAssessment:bind(assessmentPath)},researchReuse:bind(reusePath),sources:[{id:'weekly-source',url:'https://example.com/weekly-source',evidence:sourceBinding}],pointerNote:'The 2026-09-02–2026-09-09 Weekly.',story,storySha256:storySha};
+  candidate.selection={scoutingScope:'WIDER_NEWS_AND_PRIMARY_ANNOUNCEMENTS',developments:[{headline:story.headline,announcementDate:'2026-09-09',sourceIds:['weekly-source'],dateEvidence:'Synthetic dated fixture announcement'}]};
+  if(recovery)candidate.recoveryPublication={mode:'MISSED_WEDNESDAY',editionDate:'2026-09-09'};
   const candidatePath='candidate/weekly-candidate.json';writeJson(candidatePath,candidate);
   return {root,write,writeJson,bind,data,basePath,candidatePath,candidate,story,producer,independent,manifest:JSON.parse(fs.readFileSync(path.join(root,manifestPath))),paths:{registryPath,sourcePath,reviewPath,manifestPath,claimMapPath,producerPath,independentPath,rawReportPath,contractPath,assessmentPath,reusePath}};
 }
 
-function invoke(f){return publishNewsstandWeekly({datasetRaw:fs.readFileSync(path.join(f.root,f.basePath),'utf8'),candidate:f.candidate,producer:f.producer,independent:f.independent,manifest:f.manifest,reviewTextRaw:fs.readFileSync(path.join(f.root,f.paths.reviewPath),'utf8'),root:f.root,now:STAMP})}
+function invoke(f){return publishNewsstandWeekly({datasetRaw:fs.readFileSync(path.join(f.root,f.basePath),'utf8'),candidate:f.candidate,producer:f.producer,independent:f.independent,manifest:f.manifest,reviewTextRaw:fs.readFileSync(path.join(f.root,f.paths.reviewPath),'utf8'),root:f.root,now:f.candidate.publicationDate+'T20:00:00Z'})}
 function rebindReceipt(f,which,mutate){const value=structuredClone(f[which]);mutate(value);f[which]=value;const pathKey=which==='producer'?'producerPath':'independentPath';f.writeJson(f.paths[pathKey],value);f.candidate[which==='producer'?'producerReview':'independentReview']=f.bind(f.paths[pathKey])}
 function reject(mutate,pattern){const f=makeFixture();mutate(f);assert.throws(()=>invoke(f),pattern)}
 
@@ -140,5 +144,24 @@ try{
   assert.deepEqual([...filesAfter.keys()].sort(),[...filesBefore.keys()].sort(),'CLI must not add files');
   assert.deepEqual([...filesAfter].filter(([name,digest])=>filesBefore.get(name)!==digest).map(([name])=>name),[cli.basePath],'CLI must change only the disposable dataset');
   const cliData=parse(fs.readFileSync(path.join(cli.root,cli.basePath),'utf8'));assert.equal(cliData.publications.weekly.storyId,cli.story.id);assert.equal(cliData.stories.length,cli.data.stories.length+1);
-  console.log('NEWSSTAND WEEKLY PUBLICATION TEST PASS real_chain=1 real_contract=1 real_reader=1 atomic_preservation=1 cli_temp_only=1 rejected=28 replay_safe=1');
+  const late=makeFixture(true),lateResult=invoke(late);
+  assert.equal(lateResult.dataset.publications.weekly.editionDate,'2026-09-09');
+  assert.equal(lateResult.publishedStory.publishedAt,'2026-09-10T20:00:00Z');
+  assert.deepEqual(lateResult.dataset.stories.slice(0,-1),late.data.stories);
+  assert.deepEqual(lateResult.dataset.publications.daily,late.data.publications.daily);
+  execFileSync(process.execPath,[PUBLISHER,'--root',late.root,'--now','2026-09-10T20:00:00Z','--candidate',late.candidatePath,'--write'],{encoding:'utf8'});
+  const lateWritten=parse(fs.readFileSync(path.join(late.root,late.basePath),'utf8'));
+  assert.equal(lateWritten.publications.weekly.editionDate,'2026-09-09');
+  assert.equal(lateWritten.publications.weekly.publishedAt,'2026-09-10T20:00:00Z');
+  const stale=makeFixture(true);rebindReceipt(stale,'independent',r=>{r.factualReview.reviewedThrough='2026-09-09'});assert.throws(()=>invoke(stale),/source date is invalid/);
+  const timing=(candidate,date='2026-09-10',current={editionDate:'2026-09-06'})=>validateWeeklyPublicationTiming({candidate,date,now:date+'T20:00:00Z',current});
+  const rc={period:{startDate:'2026-09-02',endDate:'2026-09-09'},recoveryPublication:{mode:'MISSED_WEDNESDAY',editionDate:'2026-09-09'}};
+  assert.throws(()=>timing({...rc,recoveryPublication:{...rc.recoveryPublication,extra:true}}),/metadata/);
+  assert.throws(()=>timing({...rc,correctivePublication:{}}),/metadata/);
+  assert.throws(()=>timing(rc,'2026-09-09'),/latest missed/);
+  assert.throws(()=>timing(rc,'2026-09-16'),/latest missed/);
+  assert.throws(()=>timing(rc,'2026-09-10',{editionDate:'2026-09-09'}),/latest missed/);
+  assert.throws(()=>timing({...rc,period:{startDate:'2026-09-02',endDate:'2026-09-10'}}),/exact missed/);
+  assert.throws(()=>validateWeeklyPublicationTiming({candidate:rc,date:'2026-09-10',now:'2026-09-11T20:00:00Z',current:{editionDate:'2026-09-06'}}),/today/);
+  console.log('NEWSSTAND WEEKLY PUBLICATION TEST PASS late_recovery_real_chain_and_cli=1 stale_review_and_invalid_recovery_rejected=1  real_chain=1 real_contract=1 real_reader=1 atomic_preservation=1 cli_temp_only=1 rejected=28 replay_safe=1');
 }finally{for(const root of roots)fs.rmSync(root,{recursive:true,force:true})}

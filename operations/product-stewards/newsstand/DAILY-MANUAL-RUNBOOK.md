@@ -1379,9 +1379,17 @@ node scripts/publish-newsstand-weekly.mjs --candidate <private-weekly-candidate.
 node scripts/publish-newsstand-weekly.mjs --candidate <private-weekly-candidate.json> --write
 ```
 
-The default is check-only. A write requires the actual current Wednesday in
+The default is check-only. Ordinary publication requires the actual current Wednesday in
 Vancouver, current source review, exact passing artifacts and unchanged canonical
-bytes. It appends the admitted Weekly and replaces only its pointer, preserving
+bytes. September 10 recovery repair: an overdue latest Wednesday may instead use
+`publicationDate` equal to the actual current Vancouver day plus
+`recoveryPublication: {"mode":"MISSED_WEDNESDAY","editionDate":"YYYY-MM-DD"}`.
+The named edition must be the latest missed Wednesday, one to six days ago, newer
+than the incumbent; its original Wednesday-to-Wednesday period stays exact. All
+source checks and independent review still bind the actual publication day.
+The public pointer retains the covered Wednesday as `editionDate`, while
+`publishedAt` records the actual release time. No date override, stale review,
+future week, already delivered week or unrelated earlier backlog is admitted. It appends the admitted Weekly and replaces only its pointer, preserving
 Daily/Breaking/Big Picture and every older article. A repeated transaction
 rejects explicitly. Reconcile the current state rather than resubmitting it.
 The date override is exclusively for disposable test roots. Follow with normal

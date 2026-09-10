@@ -64,8 +64,9 @@ export function proseEvidenceContains(body, excerpt) {
   if (typeof article?.headline === "string" && typeof article?.the_story === "string") {
     // Reviewers quote the article, not JSON's escaping of HTML attributes.
     // Search only public prose fields; source metadata cannot prove article prose.
-    return ["headline", "the_story", "laidies_read", "what_this_means", "cocktail_party", "class_notes", "watch_fors", "closing_note"]
-      .some(key => typeof article[key] === "string" && article[key].includes(excerpt));
+    return ["headline", "front_read", "weeklyHighlights", "the_story", "laidies_read", "what_this_means", "cocktail_party", "class_notes", "watch_fors", "closing_note"]
+      .some(key => (Array.isArray(article[key]) ? article[key] : [article[key]])
+        .some(value => typeof value === "string" && value.includes(excerpt)));
   }
   return Boolean(body?.includes(excerpt));
 }

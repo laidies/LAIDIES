@@ -9,4 +9,10 @@ assert.equal(proseEvidenceContains(body,"This appears only in source metadata.")
 assert.equal(proseEvidenceContains(body,'<a href="/other">exact lesson</a>'),false);
 assert.equal(proseEvidenceContains("Ordinary prose is still checked exactly.","still checked exactly"),true);
 assert.equal(proseEvidenceContains("Ordinary prose is still checked exactly.","Still checked exactly"),false);
+const weekly=JSON.stringify({headline:'Weekly',the_story:'Body.',front_read:'The weekly introduction.',weeklyHighlights:['First visible highlight.','Second visible highlight.'],watch_fors:['Watch this development.'],sources:[{label:'Source-only assertion.'}]});
+assert.equal(proseEvidenceContains(weekly,'The weekly introduction.'),true);
+assert.equal(proseEvidenceContains(weekly,'Second visible highlight.'),true);
+assert.equal(proseEvidenceContains(weekly,'Watch this development.'),true);
+assert.equal(proseEvidenceContains(weekly,'Third visible highlight.'),false);
+assert.equal(proseEvidenceContains(weekly,'Source-only assertion.'),false);
 console.log("NEWS JSON PROSE EVIDENCE PASS: real link accepted; altered text, URL and source-only evidence rejected");

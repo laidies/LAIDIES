@@ -28,7 +28,16 @@ const correctivePeriod=date=>({startDate:new Date(Date.parse(`${date}T12:00:00Z`
 const equal=(a,b)=>stable(a)===stable(b);
 export function validateWeeklyPublicationTiming({candidate,date,now,current}){
   const corrective=candidate && candidate.correctivePublication;
+  const recovery=candidate && candidate.recoveryPublication;
   if(!validCalendarDate(date)) fail('Weekly publication date must be a real YYYY-MM-DD date');
+  if(recovery){
+    if(corrective||Object.keys(recovery).sort().join(',')!=='editionDate,mode'||recovery.mode!=='MISSED_WEDNESDAY'||!wednesday(recovery.editionDate))fail('Weekly recovery metadata is invalid');
+    const elapsed=(Date.parse(`${date}T12:00:00Z`)-Date.parse(`${recovery.editionDate}T12:00:00Z`))/86400000;
+    if(date!==vancouverDay(now))fail('Weekly publication date must be today in Vancouver');
+    if(elapsed<1||elapsed>6||!current||!validCalendarDate(current.editionDate)||current.editionDate>=recovery.editionDate)fail('Weekly recovery requires the latest missed Wednesday successor');
+    if(!equal(candidate.period,period(recovery.editionDate)))fail('Weekly recovery period must retain the exact missed Wednesday window');
+    return {corrective:null,editionDate:recovery.editionDate,pointerNote:`The ${candidate.period.startDate}–${candidate.period.endDate} Weekly.`};
+  }
   if(!corrective&&!wednesday(date))fail('Weekly publication date must be a Wednesday');
   if(date!==vancouverDay(now))fail('Weekly publication date must be today in Vancouver');
   if(!corrective){if(!equal(candidate.period,period(date)))fail('Weekly period must be the exact Wednesday-to-Wednesday window');return {corrective:null,pointerNote:`The ${candidate.period.startDate}–${candidate.period.endDate} Weekly.`};}
@@ -115,7 +124,7 @@ export function publishNewsstandWeekly({datasetRaw,candidate,producer,independen
   if(existing)fail('completed Weekly replay is not accepted; prepare a new explicit transaction');
   if(candidate.pointerNote!==timing.pointerNote)fail('Weekly pointer note must be the exact deterministic dated continuity note');
   const next=structuredClone(data);if(!existing)next.stories.push(published);
-  next.publications.weekly={...prior,edition:'weekly',status:'current',storyId:published.id,editionDate:date,editorialTimeZone:'America/Vancouver',publishedAt:published.publishedAt,updatedAt:published.updatedAt,lastCheckedAt:published.lastCheckedAt,note:timing.pointerNote};
+  next.publications.weekly={...prior,edition:'weekly',status:'current',storyId:published.id,editionDate:timing.editionDate||date,editorialTimeZone:'America/Vancouver',publishedAt:published.publishedAt,updatedAt:published.updatedAt,lastCheckedAt:published.lastCheckedAt,note:timing.pointerNote};
   delete next.publications.weekly.correctivePublication;
   if(timing.corrective) next.publications.weekly.correctivePublication=timing.corrective;
   const errors=validateReader(next);if(errors.length)fail(`updated Weekly dataset fails reader contract: ${errors.join('; ')}`);

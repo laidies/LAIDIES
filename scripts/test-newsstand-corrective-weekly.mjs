@@ -30,9 +30,9 @@ const prepared=prepareNewsstandWeekly({storiesRaw:raw,asOf:date,publicationDate:
 assert.equal(prepared.mode,'PRIVATE_CORRECTIVE_PREPARATION_ONLY');
 assert.deepEqual(prepared.period,period);
 assert.deepEqual(prepared.correctivePublication,corrective);
-assert.equal(prepared.candidateInputs.stories.length,8,'corrective packet includes every admitted Daily in the closed Vancouver week');
+assert.equal(prepared.candidateInputs.stories.length,9,'corrective packet includes every admitted Daily in the closed Vancouver week');
 assert.deepEqual(prepared.candidateInputs.stories.map(item=>item.id).sort(),[
-  'anthropic-agentic-incidents-2026-09-02','anthropic-fable-5-1-2026-09-02','chatgpt-ad-expansion-2026-08-31','gastric-cancer-prediction-2026-09-05','openai-gpt-6-astra-launch-2026-09-04','openai-wiki-message-board-2026-09-05','openclaw-shared-sessions-2026-09-02','us-doj-openai-copyright-2026-09-05'
+  'nvidia-hugging-face-acquisition-sec-8k-2026-09-06','anthropic-agentic-incidents-2026-09-02','anthropic-fable-5-1-2026-09-02','chatgpt-ad-expansion-2026-08-31','gastric-cancer-prediction-2026-09-05','openai-gpt-6-astra-launch-2026-09-04','openai-wiki-message-board-2026-09-05','openclaw-shared-sessions-2026-09-02','us-doj-openai-copyright-2026-09-05'
 ].sort());
 const normal=prepareNewsstandWeekly({storiesRaw:raw,asOf:date});
 assert.equal(normal.publicationDate,'2026-09-09','ordinary preparation retains its Wednesday cadence');

@@ -5,7 +5,7 @@ Ali requested recovery of September 9 and September 10 incomplete NewsStand upda
 
 ## Actual checkpoint
 - September 9 service-only issue is public: four service records, zero new news stories. Do not re-publish or relabel that as new news.
-- September 10 Daily is not yet public.
+- September 10 service-only Daily is public at 4c4c5d19-2fb4-40bc-bcff-b91cbafeefc5 (source5166165c): four carried September9 service records, zero new news. Exact eight live data responses and desktop/mobile on both origins verified. Fresh-news recovery remains OPEN.
 - Wednesday September 9 Weekly is still overdue; public Weekly is September 6.
 - Research for both days has material leads; no quiet-news claim is supported.
 - Next editorial action: resolve the highest-consequence viable lead into a source-bound candidate or concrete source block; complete eligible September 10 dated issue admission and release independently of held stories; finish the overdue Weekly with actual current-week sources/review.

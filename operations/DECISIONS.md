@@ -1,3 +1,5 @@
+September 10: recover missed NewsStand Weekly on the actual publication day, retaining the latest missed Wednesday coverage window and fresh source/review requirements. Never backdate publication or silently defer to next Wednesday. The existing single heartbeat now targets recovery task `01a071e7-db55-7a22-8c99-04eba5060355`; durable CURRENT-CYCLE and live delivery checks bind entry, compaction and closure. See `operations/product-stewards/newsstand/DAILY-MANUAL-RUNBOOK.md`.
+
 # LAiDIES decision router
 
 <!-- context-authority: operations/context-authority.json -->
