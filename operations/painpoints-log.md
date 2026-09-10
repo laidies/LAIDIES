@@ -16099,3 +16099,6 @@ The Astra article was factually reviewed and technically responsive, but accumul
 
 ## 2026-09-09 — Ads and quote source
 Ali rejected ad labels pasted onto content cards, retired Library character art, and the voicemail joke. Also rejected editorial wit presented as overheard dialogue. Bind product artwork to current live asset bytes and quote to actual speaker/context before draft. Replacement components use products themselves and credited Episode2 narration. Possible Behind the Build angle: attribution and context are part of the content, not optional decoration.
+
+## 2026-09-10 — NewsStand preview exposed paragraph markup
+The Front PAiGE opening escaped HTML-authored body text directly, making `<p>` visible. Correct all three publication preview values with text extraction before escaping; archive/search/catchup already extract text. Browser calibration rejected incumbent on desktop/mobile and accepted correction. Behind the Build angle: a preview and full article need different display handling; no public draft created.

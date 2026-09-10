@@ -429,3 +429,6 @@ Ali rejects the oversized dark crossword preview and edge-flush puzzle feature. 
 
 ## September 9 — attributed Overheard and actual house advertisements
 Ali rejects generic coloured cards labelled Advertisement, retired Library/character imagery, and the future/voicemail line. Prepare replacements for review, not publication: current book covers and actual Mme CLAi-O reading cards, distinct ad compositions and clear invitations. Overheard must name its actual source/speaker and explain the situation; no invented character attribution or unattributed editorial wit.
+
+## September 10 — plain-text story previews
+Story prose may contain authored paragraph/link markup. Publication previews must extract text before escaping it; full article readers retain their formatting. The calibrated excerpt-tags browser guard reproduces the exposed paragraph-tag regression.

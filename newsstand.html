@@ -1643,11 +1643,11 @@
                     "</span>"
                 ].join(""),
                 edition === "big-picture" ? "" : '<span class="ns-publication__headline">' + escapeHTML(lead.headline) + "</span>",
-                '<span class="ns-publication__teaser">', escapeHTML(primaryRead), "</span>",
-                leadDesk && lead.the_story ? '<span class="ns-front-opening">' + escapeHTML(lead.the_story) + '</span>' : "",
+                '<span class="ns-publication__teaser">', escapeHTML(stripHTML(primaryRead)), "</span>",
+                leadDesk && lead.the_story ? '<span class="ns-front-opening">' + escapeHTML(stripHTML(lead.the_story)) + '</span>' : "",
                 secondaryRead && edition === "weekly" ? '<span class="ns-publication__read"><b>' +
                   (leadDesk ? "The LAiDIES read" : edition === "weekly" ? "Why it matters" : "The question underneath it") +
-                  '</b>' + escapeHTML(secondaryRead) + "</span>" : ""
+                  '</b>' + escapeHTML(stripHTML(secondaryRead)) + "</span>" : ""
                 ,edition === "weekly" && Array.isArray(lead.weeklyHighlights) && lead.weeklyHighlights.length
                   ? '<span class="ns-weekly-highlights"><b>This week&rsquo;s storylines</b><ul>' +
                     lead.weeklyHighlights.slice(0, 5).map(function (item) { return '<li>' + escapeHTML(item) + '</li>'; }).join("") +
