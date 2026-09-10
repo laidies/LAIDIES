@@ -426,3 +426,6 @@ Ali rejects the large gaps around Useful this week and repeated teal boxes. Keep
 
 ## September 8 — crossword preview framing
 Ali rejects the oversized dark crossword preview and edge-flush puzzle feature. Preserve the real numbered cells, but use a compact paper-ground preview with margin on every side and inset the whole puzzle feature. Preview geometry must include the rightmost cell stroke; verify the solve link and mobile fit.
+
+## September 9 — attributed Overheard and actual house advertisements
+Ali rejects generic coloured cards labelled Advertisement, retired Library/character imagery, and the future/voicemail line. Prepare replacements for review, not publication: current book covers and actual Mme CLAi-O reading cards, distinct ad compositions and clear invitations. Overheard must name its actual source/speaker and explain the situation; no invented character attribution or unattributed editorial wit.
