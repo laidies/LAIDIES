@@ -16100,5 +16100,8 @@ The Astra article was factually reviewed and technically responsive, but accumul
 ## 2026-09-09 — Ads and quote source
 Ali rejected ad labels pasted onto content cards, retired Library character art, and the voicemail joke. Also rejected editorial wit presented as overheard dialogue. Bind product artwork to current live asset bytes and quote to actual speaker/context before draft. Replacement components use products themselves and credited Episode2 narration. Possible Behind the Build angle: attribution and context are part of the content, not optional decoration.
 
+## 2026-09-10 — A publisher index lag hid a complete AIDB edition
+The evening recovery accepted `agent.json` and the visible index as newest-edition authority, but the direct September 9 edition and its full transcript already existed. The next morning found it by probing the dated canonical route. Prevention: after checking the website and archive, probe the expected dated edition and transcript directly; record index-versus-edition disagreement and never call the source quiet from `agent.json` alone. A complete source index is a convenience, not proof that the underlying publisher has no newer edition. Possible Behind the Build angle: a table of contents can be stale while the chapter already exists.
+
 ## 2026-09-10 — NewsStand preview exposed paragraph markup
 The Front PAiGE opening escaped HTML-authored body text directly, making `<p>` visible. Correct all three publication preview values with text extraction before escaping; archive/search/catchup already extract text. Browser calibration rejected incumbent on desktop/mobile and accepted correction. Behind the Build angle: a preview and full article need different display handling; no public draft created.

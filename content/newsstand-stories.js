@@ -1,8 +1,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-09T00:41:57Z",
-  "lastCheckedAt": "2026-09-09T00:41:57Z",
+  "generatedAt": "2026-09-10T14:18:00Z",
+  "lastCheckedAt": "2026-09-10T14:18:00Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -16,30 +16,28 @@ window.NEWSSTAND_DATA = {
     },
     "daily": {
       "edition": "daily",
-      "editionDate": "2026-09-08",
+      "editionDate": "2026-09-09",
       "editorialTimeZone": "America/Vancouver",
       "issue": {
         "status": "complete",
         "disposition": "service_ready",
         "frontPaigeStoryId": "front-paige-accountable-systems-2026-08-24",
         "weeklyStoryId": "weekly-correction-20260906",
-        "storyIds": [
-          "chatgpt-images-2-5-2026-09-08"
-        ],
+        "storyIds": [],
         "serviceRecordIds": [
-          "DAILY-2026-09-06-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
-          "DAILY-2026-09-06-CAREER-LIFE-CORNER-03-RECONNECT",
-          "DAILY-2026-09-06-DEAR-MISS-JEEVES-JEEVES-02-CITATION"
-        ],
-        "envelopeSha256": "774d750626230c758ad1ae8ec2cd9ff99326188aa67577eb291020fb45ab3e56"
+          "DAILY-2026-09-09-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
+          "DAILY-2026-09-09-CAREER-LIFE-CORNER-02-PRIORITIES",
+          "DAILY-2026-09-09-CONCEPT-WEEK-CONCEPT-02-TOKEN",
+          "DAILY-2026-09-09-DEAR-MISS-JEEVES-JEEVES-02-CITATION"
+        ]
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-09T00:41:57Z",
-      "updatedAt": "2026-09-09T00:41:57Z",
-      "lastCheckedAt": "2026-09-09T00:41:57Z",
+      "publishedAt": "2026-09-10T14:18:00Z",
+      "updatedAt": "2026-09-10T14:18:00Z",
+      "lastCheckedAt": "2026-09-10T14:18:00Z",
       "maxAgeHours": 36,
-      "note": "The Daily for 2026-09-08."
+      "note": "No new news story was published today. The latest Front PAiGE and available columns remain below."
     },
     "weekly": {
       "edition": "weekly",

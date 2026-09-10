@@ -14,7 +14,7 @@ The 07:00 September 9 cycle did not durably complete. At the 20:00 phase, the ca
 
 ## AIDB and theme routing
 
-AIDB September 8 was reviewed 24/24 with the full transcript. Its opportunity-versus-efficiency thesis is useful for AI Fundamentals, Paige and a possible Big Picture extension: the reader question is not only whether a model writes better, but whether the surrounding tools and permissions let it complete a different kind of job. Big Picture remains HOLD pending Ali's exact-version review.
+AIDB September 8 was reviewed 24/24 with the full transcript. The following morning also recovered and reviewed the complete September 9 edition 23/23 after finding that the publisher's direct dated edition was ahead of its `agent.json` discovery index. September 9's model-stack thesis is useful for AI Fundamentals and Paige: the reader question is not which model wins overall, but which combination of model, interface, cost and supervision fits the job. Its factual claims remain held until their original sources are recovered. Big Picture remains HOLD pending Ali's exact-version review.
 
 ## Publication boundary
 
