@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-10 — Women-feature title contrast
+
+Ali flags the coral main title against the pink/purple feature background as hard to read. Improve only “Meet the women behind AI and get inspired to help shape the future.” using the existing darkest navy token, verified against the rendered gradient at phone, middle and wide widths. Preserve wording, Jost typography, responsive geometry, artwork and the two separately approved pink subheadings. Do not broaden this correction into a section palette change.
+
 ## 2026-09-09 — Women feature must balance at middle widths
 
 Ali flags the live section’s empty lower-left area at an intermediate width. Fix responsive composition, preserving both pink headings, approved artwork, complete copy, destinations and existing fonts. Restore the accepted footer spanning both columns. Keep image and quote together, restore the equal-width footer, and stack the full feature at1050px and below. Reuse the earlier 1380px wide cap and 1.2rem wide body sizing; narrow screens keep a natural single-column order. A row-paired pilot was rejected internally because it created a large gap under the image or introduction. Check intermediate widths, not only full desktop and phone. This is a bounded correction to the just-published section; remaining programme next recovers the Resident Card explanation against actual features.
