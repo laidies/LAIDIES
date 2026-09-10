@@ -1,8 +1,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-10T19:31:11.000Z",
-  "lastCheckedAt": "2026-09-10T19:31:11.000Z",
+  "generatedAt": "2026-09-10T20:08:01Z",
+  "lastCheckedAt": "2026-09-10T20:08:01Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -22,23 +22,24 @@ window.NEWSSTAND_DATA = {
         "status": "complete",
         "disposition": "service_ready",
         "frontPaigeStoryId": "front-paige-accountable-systems-2026-08-24",
-        "weeklyStoryId": "weekly-correction-20260906",
-        "storyIds": [],
+        "weeklyStoryId": "weekly-control-layers-20260909",
+        "storyIds": [
+          "take-it-down-sentencing-20260910"
+        ],
         "serviceRecordIds": [
           "DAILY-2026-09-09-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
           "DAILY-2026-09-09-CAREER-LIFE-CORNER-02-PRIORITIES",
           "DAILY-2026-09-09-CONCEPT-WEEK-CONCEPT-02-TOKEN",
           "DAILY-2026-09-09-DEAR-MISS-JEEVES-JEEVES-02-CITATION"
-        ],
-        "envelopeSha256": "b5e26205094ffd98ee7fe9bb357306957471236121f2dd37054a2e7820727cc2"
+        ]
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-10T19:31:11.000Z",
-      "updatedAt": "2026-09-10T19:31:11.000Z",
-      "lastCheckedAt": "2026-09-10T19:31:11.000Z",
+      "publishedAt": "2026-09-10T20:08:01Z",
+      "updatedAt": "2026-09-10T20:08:01Z",
+      "lastCheckedAt": "2026-09-10T20:08:01Z",
       "maxAgeHours": 36,
-      "note": "No new news story was published today. The latest Front PAiGE and available columns remain below."
+      "note": "The Daily for 2026-09-10."
     },
     "weekly": {
       "edition": "weekly",
@@ -2584,6 +2585,92 @@ window.NEWSSTAND_DATA = {
         "credit": "LAiDIES NewsStand",
         "src": "/assets/newsstand/design-20260830/latest-checking.png"
       }
+    },
+    {
+      "id": "take-it-down-sentencing-20260910",
+      "slug": "take-it-down-sentencing-20260910",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-10T20:08:01Z",
+      "updatedAt": "2026-09-10T19:48:15.275410+00:00",
+      "lastCheckedAt": "2026-09-10T19:48:15.275410+00:00",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:take-it-down-sentencing-20260910"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "A 15-year sentence in an AI image-abuse case. Getting the images removed is a separate step.",
+      "heroVisual": {
+        "src": "/assets/newsstand/design-20260906/copyright-vibrant.png",
+        "alt": "A gavel and scales of justice beside books, a computer chip and a laptop, in the LAiDIES editorial pop-art style.",
+        "credit": "LAiDIES illustration"
+      },
+      "the_story": "<p>An Ohio man was sentenced on September 8 to 15 years in prison in a case involving threats, cyberstalking and real and AI-generated sexual images of women and children. The U.S. Attorney’s Office says James Strahler II’s conviction for publishing digital forgeries was the first under the Take It Down Act.</p><p>He pleaded guilty in April to three offences: cyberstalking, producing obscene visual representations of child sexual abuse, and publishing digital forgeries. The 15-year sentence covers the wider case. It is not a sentence for the Take It Down Act offence alone.</p><p>The new development is the sentencing. The U.S. law was enacted in 2025; this case does not mean the law has only just started applying.</p>",
+      "laidies_read": "<p>A digital forgery can be a fabricated intimate image that appears to show a real person. The event in the picture may never have happened. The person targeted, the harassment and the damage to her life can still be real.</p><p>There are two separate jobs here: holding the perpetrator accountable and getting the image taken down. A criminal sentence addresses the first. The platform hosting the image has a different role in the second. A prison sentence does not automatically erase copies from the internet.</p>",
+      "what_this_means": "<p>If this happens to you or someone you know, the <a href=\"https://consumer.ftc.gov/articles/image-based-abuse-what-know-and-do\">FTC’s guide to image-based abuse</a> explains where to start. Under the U.S. law, covered platforms must provide a removal process and remove the image and known identical copies within 48 hours of a valid request. This includes AI-generated intimate images.</p><p>For example, if a friend finds a fabricated intimate image of herself on a covered platform, she can use that platform’s removal process. If it fails to act within 48 hours, or has no working process, she can report the platform at <a href=\"https://takeitdown.ftc.gov/\">TakeItDown.ftc.gov</a>. Reporting the perpetrator to police is a separate step; the FTC guide explains those routes too.</p><p>These are U.S. procedures, not a promise that one request removes every copy worldwide. The useful distinction is which problem you are reporting: the person’s conduct, the hosted image, or the platform’s failure to remove it.</p>",
+      "cocktail_party": "A fake image can cause real abuse. This case has reached sentencing, but punishing the perpetrator and getting an image removed are separate processes. The U.S. Take It Down Act also gives people a route to request removal from covered platforms.",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "For the practical next steps, use the <a href=\"https://consumer.ftc.gov/articles/image-based-abuse-what-know-and-do\">FTC’s image-based abuse guide</a>. It separates requesting removal, limiting further spread and reporting the perpetrator.",
+      "sources": [
+        {
+          "id": "doj-sentencing",
+          "url": "https://www.justice.gov/usao-sdoh/pr/columbus-man-sentenced-15-years-prison-cyberstalking-exes-creating-ai-generated",
+          "label": "U.S. Department of Justice — September 8 sentencing announcement",
+          "publisherType": "government",
+          "accessedAt": "2026-09-10",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "ftc-removal",
+          "url": "https://consumer.ftc.gov/articles/image-based-abuse-what-know-and-do",
+          "label": "Federal Trade Commission — Image-Based Abuse: What To Know and Do",
+          "publisherType": "government",
+          "accessedAt": "2026-09-10",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "ftc-valid-request",
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2026/05/ftc-begins-enforcing-take-it-down-act",
+          "label": "Federal Trade Commission — TAKE IT DOWN Act enforcement",
+          "publisherType": "government",
+          "accessedAt": "2026-09-10",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "bleepingcomputer-sentencing",
+          "url": "https://www.bleepingcomputer.com/news/security/man-gets-15-years-in-prison-for-cyberstalking-and-sextortion/",
+          "label": "BleepingComputer — September 9 sentencing report",
+          "publisherType": "reporting",
+          "accessedAt": "2026-09-10",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "accountability",
+        "image-based abuse"
+      ],
+      "concepts": [
+        "digital forgery",
+        "platform removal"
+      ],
+      "tags": [
+        "Take It Down Act",
+        "AI-generated images",
+        "accountability"
+      ],
+      "saint_lane": null,
+      "badge": "THE LATEST"
     }
   ]
 };

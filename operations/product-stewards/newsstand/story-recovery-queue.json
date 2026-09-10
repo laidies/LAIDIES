@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-09T03:15:00Z",
+  "updatedAt": "2026-09-10T20:07:04.697Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -346,6 +346,56 @@
         "verifiedAt": "2026-09-09T00:57:14.788Z",
         "receipt": "operations/product-stewards/newsstand/evidence/september-8-publication/recovery-publication-receipt.json"
       }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "take-it-down-sentencing-20260910",
+      "producerPrincipal": "/root/weekly_recovery",
+      "sourceIdentitySha256": "b9335734fed34d0a0407ffe4f3a3611d33a9fcefc5646abe8647efcd897c6f2d",
+      "artifactSha256": "bf8ad019400ae60d52e755e4776053a2ca6f78d3a94b612df184285aae10ce2e",
+      "status": "READY_FOR_ADMISSION",
+      "active": true,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-10T19:48:15.275410+00:00",
+      "lastReviewedAt": "2026-09-10T20:04:19.447Z",
+      "attempts": [
+        {
+          "artifactSha256": "bf8ad019400ae60d52e755e4776053a2ca6f78d3a94b612df184285aae10ce2e",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-10T20:04:19.447Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/independent-review/final/independent-review.json",
+            "sha256": "c62dcda197338646afadcb6eee7b2c8919b8ab621d37f1f0c022db6fdeb51b3d"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/independent-review/final/independent-raw-report.json",
+            "sha256": "298f682d01ce7387ed0a959a98c5e069f40e20baff0fe9ac5ace7996bad0afe8"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "COMPOSE_AND_ADMIT_EXACT_ARTIFACT",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/independent-review/final/ordinary-candidate.json",
+        "sha256": "313b78cce13255da1db745a240cde49616739cedc314e39c49d0fe95576bd2a3"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "b9335734fed34d0a0407ffe4f3a3611d33a9fcefc5646abe8647efcd897c6f2d",
+        "artifactSha256": "bf8ad019400ae60d52e755e4776053a2ca6f78d3a94b612df184285aae10ce2e",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/independent-review/final/independent-review.json",
+          "sha256": "c62dcda197338646afadcb6eee7b2c8919b8ab621d37f1f0c022db6fdeb51b3d"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/independent-review/final/independent-raw-report.json",
+          "sha256": "298f682d01ce7387ed0a959a98c5e069f40e20baff0fe9ac5ace7996bad0afe8"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval."
     }
   ]
 }
