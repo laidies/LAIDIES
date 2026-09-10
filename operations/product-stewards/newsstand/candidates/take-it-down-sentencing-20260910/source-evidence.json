@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "newsstand-source-evidence-v1",
+  "candidateId": "take-it-down-sentencing-20260910",
+  "reviewedThrough": "2026-09-10",
+  "records": [
+    {
+      "id": "doj-sentencing",
+      "url": "https://www.justice.gov/usao-sdoh/pr/columbus-man-sentenced-15-years-prison-cyberstalking-exes-creating-ai-generated",
+      "publisher": "U.S. Department of Justice",
+      "accessedAt": "2026-09-10",
+      "authority": "Primary sentencing announcement; attribute first-conviction claim to prosecutors",
+      "passages": [
+        "September 8, 2026. James Strahler II was sentenced to 180 months in prison.",
+        "Strahler pleaded guilty in April to cyberstalking, producing obscene visual representations of child sexual abuse and publication of digital forgeries.",
+        "His conviction of publication of digital forgeries is part of the Take It Down Act, a law enacted in 2025 that prohibits non-consensual online publication of intimate visual depictions and AI forgeries.",
+        "The conduct involved real and AI-generated images, harassment and threats to adult women and children."
+      ],
+      "limitation": "No sentencing breakdown by count; no claim of typical penalty or deterrence.",
+      "directFetchAttempt": {
+        "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/doj-sentencing.txt",
+        "sha256": "c5be6f841ba0604d8c4ffd26c1c7f51b40b0509610fc3649df03a7fd9d782443",
+        "status": "FAILED_INTERSTITIAL",
+        "limitation": "The saved response is an Akamai JavaScript challenge and contains no article body; it is preserved as a failed source attempt and is not source evidence."
+      },
+      "webObservation": {
+        "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/doj-web-source-observation.json",
+        "sha256": "28eda8163eec73cd8335a8998599d1bc32d6c65ad551a797de5ab551ad7c6887"
+      }
+    },
+    {
+      "id": "ftc-removal",
+      "url": "https://consumer.ftc.gov/articles/image-based-abuse-what-know-and-do",
+      "publisher": "Federal Trade Commission",
+      "accessedAt": "2026-09-10",
+      "authority": "Primary current consumer removal and reporting guidance",
+      "passages": [
+        "Image-based abuse includes real, digitally altered and AI-generated intimate images shared without consent.",
+        "Certain platforms must provide a removal request process and remove the image and known identical copies within 48 hours.",
+        "Report a platform to TakeItDown.ftc.gov if it fails to remove the image or has no working removal process.",
+        "The FTC directs reports about perpetrators to local criminal law enforcement and the FBI."
+      ],
+      "limitation": "United States legal framework; covered platforms and valid request conditions apply; not a promise of worldwide erasure."
+    },
+    {
+      "id": "ftc-valid-request",
+      "url": "https://www.ftc.gov/news-events/news/press-releases/2026/05/ftc-begins-enforcing-take-it-down-act",
+      "publisher": "Federal Trade Commission",
+      "accessedAt": "2026-09-10",
+      "authority": "Primary scope and valid-request requirement",
+      "passages": [
+        "Section 3 requires covered platforms to offer removal requests and remove intimate images and known identical copies within 48 hours of a valid request."
+      ],
+      "limitation": "Separate platform duty from criminal prosecution."
+    },
+    {
+      "id": "bleepingcomputer-sentencing",
+      "url": "https://www.bleepingcomputer.com/news/security/man-gets-15-years-in-prison-for-cyberstalking-and-sextortion/",
+      "publisher": "BleepingComputer",
+      "accessedAt": "2026-09-10",
+      "authority": "Separate reporting corroborates sentence and multiple offenses, drawing on prosecutor record",
+      "passages": [
+        "September 9 reporting describes a 15-year sentence for multiple cybercrimes, including sextortion and cyberstalking."
+      ],
+      "limitation": "Not an independent court-file audit; do not inflate source independence."
+    }
+  ],
+  "fetchedObservations": {
+    "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/web-source-observations.json",
+    "sha256": "c36c4264db04e91a0c08eedc6fa7cc70779dd8637dd9e304b25bd2f15aa92c50"
+  }
+}

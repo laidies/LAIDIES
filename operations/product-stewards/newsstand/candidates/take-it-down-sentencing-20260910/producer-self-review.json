@@ -1,0 +1,628 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "take-it-down-sentencing-20260910",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/weekly_recovery",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "daily-recovery-maker-review-v1",
+    "principalId": "/root/weekly_recovery",
+    "role": "producer and self-reviewer",
+    "modelFamily": "OpenAI GPT"
+  },
+  "reviewedAt": "2026-09-10T20:04:00Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/publication-manifest.json",
+      "sha256": "7f441b45b4f11d6d5f3802bb0825db7d4a55a146c07d752ffeb619b80c4d8975"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/review-text.json",
+      "sha256": "bf8ad019400ae60d52e755e4776053a2ca6f78d3a94b612df184285aae10ce2e"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/rendered-article.html",
+      "sha256": "7b7502b61679f1d4123260c89dc7ad4a70b441e4aba50f3ac4588402cc9077fb"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/weekly_recovery",
+    "reviewedAt": "2026-09-10T19:36:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Does a fake intimate image count as real abuse, and does a prison sentence help get the image removed?",
+    "promisedPayoff": "Understand the sentencing and the separate U.S. route for requesting removal from a covered platform.",
+    "centralMentalModel": "Criminal accountability and removing a hosted image are separate jobs.",
+    "dailyLifeConnection": "A friend discovers a fabricated intimate image and needs to know which reporting route does what.",
+    "surfaceJob": "A dated Daily report of the September 8 sentence with proportionate current FTC guidance.",
+    "desiredReaderFeeling": "I can distinguish punishing the perpetrator from asking a platform to remove an image."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The article states the sentence, defines digital forgery and separates punishment from removal in ordinary language.",
+      "artifactEvidence": [
+        {
+          "excerpt": "There are two separate jobs here: holding the perpetrator accountable and getting the image taken down.",
+          "locator": "story.laidies_read paragraph 2"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The reader leaves with the practical distinction among reporting the person, image and platform failure.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The useful distinction is which problem you are reporting: the person’s conduct, the hosted image, or the platform’s failure to remove it.",
+          "locator": "story.what_this_means paragraph 3"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The prose is candid, adult and supportive without minimizing image-based abuse or using decorative humour.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The event in the picture may never have happened. The person targeted, the harassment and the damage to her life can still be real.",
+          "locator": "story.laidies_read paragraph 1"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "A concrete tension between a serious sentence and the remaining removal job sustains attention without sensational detail.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A criminal sentence addresses the first. The platform hosting the image has a different role in the second.",
+          "locator": "story.laidies_read paragraph 2"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The article attributes the first-conviction claim and expressly prevents the multi-offence sentence from being assigned to one count.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The 15-year sentence covers the wider case. It is not a sentence for the Take It Down Act offence alone.",
+          "locator": "story.the_story paragraph 2"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The September 8 event and September 10 checks are explicit, with current DOJ and FTC sources identified.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new development is the sentencing. The U.S. law was enacted in 2025; this case does not mean the law has only just started applying.",
+          "locator": "story.the_story paragraph 3"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "This is a compact Daily report whose explanation and action follow directly from the dated sentencing.",
+      "artifactEvidence": [
+        {
+          "excerpt": "An Ohio man was sentenced on September 8 to 15 years in prison",
+          "locator": "story.the_story paragraph 1"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The prose distinguishes the September 8 sentence from the already-enacted law and existing platform duty.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new development is the sentencing.",
+          "locator": "story.the_story paragraph 3"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The practical removal route is concrete while valid-request, covered-platform and worldwide limits stay visible.",
+      "artifactEvidence": [
+        {
+          "excerpt": "These are U.S. procedures, not a promise that one request removes every copy worldwide.",
+          "locator": "story.what_this_means paragraph 3"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The friend example shows which action belongs to the platform process without claiming individualized legal advice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "For example, if a friend finds a fabricated intimate image of herself on a covered platform, she can use that platform’s removal process.",
+          "locator": "story.what_this_means paragraph 2"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The article answers the safety-relevant question first, makes the two processes visible, preserves limits and lands on a better reporting question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A prison sentence does not automatically erase copies from the internet.",
+          "locator": "story.laidies_read paragraph 2"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The separate-job mechanism supports an accurate causal explanation of why sentencing does not produce takedown.",
+      "artifactEvidence": [
+        {
+          "excerpt": "There are two separate jobs here: holding the perpetrator accountable and getting the image taken down.",
+          "locator": "story.laidies_read paragraph 2"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Why does the 15-year sentence not automatically remove the images?",
+        "probeResponse": "The court sentence addresses the person’s criminal conduct. Copies are hosted by platforms, so removing those copies requires the platform process and a valid removal request.",
+        "expectedEvidence": "Separates the court’s role from the hosting platform’s role."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The distinction transfers to a different image-abuse case in which a platform acts but the creator remains unreported.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Reporting the perpetrator to police is a separate step; the FTC guide explains those routes too.",
+          "locator": "story.what_this_means paragraph 2"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A platform removes a fabricated intimate image within 48 hours, but the creator is still threatening the victim. What remains?",
+        "probeResponse": "The hosted-image problem may have been addressed on that platform, but removal does not resolve the person’s threats. Reporting the perpetrator to law enforcement is a separate route.",
+        "expectedEvidence": "Applies the two-job model when removal succeeds but conduct continues."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The article links the exact FTC guide and names when the platform-failure route becomes relevant.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If it fails to act within 48 hours, or has no working process, she can report the platform at",
+          "locator": "story.what_this_means paragraph 2"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The article uses a direct scenario rather than an analogy, so no comparison distorts the legal or platform process.",
+      "artifactEvidence": [
+        {
+          "excerpt": "if a friend finds a fabricated intimate image of herself on a covered platform",
+          "locator": "story.what_this_means paragraph 2"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Only digital forgery receives a needed in-context definition.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The sections progress from event to distinction to route rather than repeating a template.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy appears in the article.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No cultural or nostalgia reference appears.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The prose connects sentence, platform process, valid request and separate reporting route.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The action names the FTC guide, platform process, response window and reporting destination.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Digital forgery is defined as a fabricated intimate image when first explained.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Court accountability and platform removal are explicitly connected and distinguished.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Every material factual statement is mapped to the current source packet.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Event and source-check dates are explicit and current through September 10.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The prose uses concrete legal and platform actions rather than promotional language.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The writing centers a recognizable human problem while treating harm seriously.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The public article does not mention the internal communication benchmark.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline tension resolves into the distinct accountability and removal processes.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The friend scenario returns directly to the platform removal process.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The article uses original LAiDIES newspaper prose without borrowed persona.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No entertainment device competes with the explanation.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The separation of responsibilities receives the central explanatory space.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The central distinction is explained through the roles of court and platform.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The close remains a bounded reporting distinction rather than a broad moral.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The article serves event understanding, practical removal and civic accountability together.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The opening establishes the serious event before the process explanation.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The single friend example stays subordinate to this bounded Daily report.",
+      "artifactLocator": "complete review-text.json"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The organising perspective is the reader’s safety question, not a legal taxonomy.",
+      "artifactLocator": "complete review-text.json"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "reviewedThrough": "2026-09-10",
+    "nextTrigger": "Recheck the DOJ and FTC pages immediately before publication, and update for any appeal, new court record or changed FTC guidance.",
+    "correctionOwner": "NewsStand",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/editorial-input.json",
+        "sha256": "fea8b3c4ae22c25e8f495e33e95938fb4bb901a9da293665beda37164cdc5113"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "sentence-and-case-scope",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "An Ohio man was sentenced on September 8 to 15 years in prison in a case involving threats, cyberstalking and real and AI-generated sexual images of women and children.",
+            "locator": "story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/editorial-input.json",
+          "sha256": "fea8b3c4ae22c25e8f495e33e95938fb4bb901a9da293665beda37164cdc5113"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The DOJ page is dated September 8, 2026 and reports that James Strahler II was sentenced to 180 months for cybercrimes involving real and AI-generated sexually explicit images and threats. The page lists guilty pleas to cyberstalking, producing obscene visual representations of child sexual abuse, and publication of digital forgeries. It describes that conviction as part of the Take It Down Act, enacted in 2025. The DOJ calls the prosecution the first in the nation under the Act and describes harassment and images involving adult women and children.",
+            "locator": "https://www.justice.gov/usao-sdoh/pr/columbus-man-sentenced-15-years-prison-cyberstalking-exes-creating-ai-generated"
+          },
+          {
+            "excerpt": "BleepingComputer reported on September 9 that Strahler received a 15-year sentence for multiple cybercrimes and pleaded guilty to cyberstalking, producing obscene child-abuse representations and publication of digital forgeries.",
+            "locator": "https://www.bleepingcomputer.com/news/security/man-gets-15-years-in-prison-for-cyberstalking-and-sextortion/"
+          }
+        ],
+        "scopeAndFreshness": "Source evidence checked September 10, 2026; source-specific attribution and jurisdiction limits remain attached."
+      },
+      {
+        "claimId": "pleas-and-no-count-allocation",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "He pleaded guilty in April to three offences: cyberstalking, producing obscene visual representations of child sexual abuse, and publishing digital forgeries.",
+            "locator": "story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/editorial-input.json",
+          "sha256": "fea8b3c4ae22c25e8f495e33e95938fb4bb901a9da293665beda37164cdc5113"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The DOJ page is dated September 8, 2026 and reports that James Strahler II was sentenced to 180 months for cybercrimes involving real and AI-generated sexually explicit images and threats. The page lists guilty pleas to cyberstalking, producing obscene visual representations of child sexual abuse, and publication of digital forgeries. It describes that conviction as part of the Take It Down Act, enacted in 2025. The DOJ calls the prosecution the first in the nation under the Act and describes harassment and images involving adult women and children.",
+            "locator": "https://www.justice.gov/usao-sdoh/pr/columbus-man-sentenced-15-years-prison-cyberstalking-exes-creating-ai-generated"
+          },
+          {
+            "excerpt": "BleepingComputer reported on September 9 that Strahler received a 15-year sentence for multiple cybercrimes and pleaded guilty to cyberstalking, producing obscene child-abuse representations and publication of digital forgeries.",
+            "locator": "https://www.bleepingcomputer.com/news/security/man-gets-15-years-in-prison-for-cyberstalking-and-sextortion/"
+          }
+        ],
+        "scopeAndFreshness": "Source evidence checked September 10, 2026; source-specific attribution and jurisdiction limits remain attached."
+      },
+      {
+        "claimId": "sentence-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The 15-year sentence covers the wider case. It is not a sentence for the Take It Down Act offence alone.",
+            "locator": "story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/editorial-input.json",
+          "sha256": "fea8b3c4ae22c25e8f495e33e95938fb4bb901a9da293665beda37164cdc5113"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The DOJ page is dated September 8, 2026 and reports that James Strahler II was sentenced to 180 months for cybercrimes involving real and AI-generated sexually explicit images and threats. The page lists guilty pleas to cyberstalking, producing obscene visual representations of child sexual abuse, and publication of digital forgeries. It describes that conviction as part of the Take It Down Act, enacted in 2025. The DOJ calls the prosecution the first in the nation under the Act and describes harassment and images involving adult women and children.",
+            "locator": "https://www.justice.gov/usao-sdoh/pr/columbus-man-sentenced-15-years-prison-cyberstalking-exes-creating-ai-generated"
+          }
+        ],
+        "scopeAndFreshness": "Source evidence checked September 10, 2026; source-specific attribution and jurisdiction limits remain attached."
+      },
+      {
+        "claimId": "first-conviction-attribution",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The U.S. Attorney’s Office says James Strahler II’s conviction for publishing digital forgeries was the first under the Take It Down Act.",
+            "locator": "story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/editorial-input.json",
+          "sha256": "fea8b3c4ae22c25e8f495e33e95938fb4bb901a9da293665beda37164cdc5113"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The DOJ page is dated September 8, 2026 and reports that James Strahler II was sentenced to 180 months for cybercrimes involving real and AI-generated sexually explicit images and threats. The page lists guilty pleas to cyberstalking, producing obscene visual representations of child sexual abuse, and publication of digital forgeries. It describes that conviction as part of the Take It Down Act, enacted in 2025. The DOJ calls the prosecution the first in the nation under the Act and describes harassment and images involving adult women and children.",
+            "locator": "https://www.justice.gov/usao-sdoh/pr/columbus-man-sentenced-15-years-prison-cyberstalking-exes-creating-ai-generated"
+          }
+        ],
+        "scopeAndFreshness": "Source evidence checked September 10, 2026; source-specific attribution and jurisdiction limits remain attached."
+      },
+      {
+        "claimId": "law-timing",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The U.S. law was enacted in 2025; this case does not mean the law has only just started applying.",
+            "locator": "story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/editorial-input.json",
+          "sha256": "fea8b3c4ae22c25e8f495e33e95938fb4bb901a9da293665beda37164cdc5113"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The DOJ page is dated September 8, 2026 and reports that James Strahler II was sentenced to 180 months for cybercrimes involving real and AI-generated sexually explicit images and threats. The page lists guilty pleas to cyberstalking, producing obscene visual representations of child sexual abuse, and publication of digital forgeries. It describes that conviction as part of the Take It Down Act, enacted in 2025. The DOJ calls the prosecution the first in the nation under the Act and describes harassment and images involving adult women and children.",
+            "locator": "https://www.justice.gov/usao-sdoh/pr/columbus-man-sentenced-15-years-prison-cyberstalking-exes-creating-ai-generated"
+          },
+          {
+            "excerpt": "The FTC says Section 3 set a May 19, 2026 deadline for covered platforms to provide a request process and remove intimate images and known identical copies within 48 hours of a valid request.",
+            "locator": "https://www.ftc.gov/news-events/news/press-releases/2026/05/ftc-begins-enforcing-take-it-down-act"
+          }
+        ],
+        "scopeAndFreshness": "Source evidence checked September 10, 2026; source-specific attribution and jurisdiction limits remain attached."
+      },
+      {
+        "claimId": "platform-removal-duty",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Under the U.S. law, covered platforms must provide a removal process and remove the image and known identical copies within 48 hours of a valid request.",
+            "locator": "story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/editorial-input.json",
+          "sha256": "fea8b3c4ae22c25e8f495e33e95938fb4bb901a9da293665beda37164cdc5113"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The FTC says image-based abuse includes real, digitally altered, and AI-generated intimate images shared without consent. The FTC says certain platforms must provide a removal request process and remove the image and known identical copies within 48 hours. The FTC routes platform failures to TakeItDown.ftc.gov and reports about perpetrators to local law enforcement or the FBI.",
+            "locator": "https://consumer.ftc.gov/articles/image-based-abuse-what-know-and-do"
+          },
+          {
+            "excerpt": "The FTC says Section 3 set a May 19, 2026 deadline for covered platforms to provide a request process and remove intimate images and known identical copies within 48 hours of a valid request.",
+            "locator": "https://www.ftc.gov/news-events/news/press-releases/2026/05/ftc-begins-enforcing-take-it-down-act"
+          }
+        ],
+        "scopeAndFreshness": "Source evidence checked September 10, 2026; source-specific attribution and jurisdiction limits remain attached."
+      },
+      {
+        "claimId": "ai-images-included",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "This includes AI-generated intimate images.",
+            "locator": "story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/editorial-input.json",
+          "sha256": "fea8b3c4ae22c25e8f495e33e95938fb4bb901a9da293665beda37164cdc5113"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The FTC says image-based abuse includes real, digitally altered, and AI-generated intimate images shared without consent. The FTC says certain platforms must provide a removal request process and remove the image and known identical copies within 48 hours. The FTC routes platform failures to TakeItDown.ftc.gov and reports about perpetrators to local law enforcement or the FBI.",
+            "locator": "https://consumer.ftc.gov/articles/image-based-abuse-what-know-and-do"
+          }
+        ],
+        "scopeAndFreshness": "Source evidence checked September 10, 2026; source-specific attribution and jurisdiction limits remain attached."
+      },
+      {
+        "claimId": "reporting-routes",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Reporting the perpetrator to police is a separate step; the FTC guide explains those routes too.",
+            "locator": "story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/editorial-input.json",
+          "sha256": "fea8b3c4ae22c25e8f495e33e95938fb4bb901a9da293665beda37164cdc5113"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The FTC says image-based abuse includes real, digitally altered, and AI-generated intimate images shared without consent. The FTC says certain platforms must provide a removal request process and remove the image and known identical copies within 48 hours. The FTC routes platform failures to TakeItDown.ftc.gov and reports about perpetrators to local law enforcement or the FBI.",
+            "locator": "https://consumer.ftc.gov/articles/image-based-abuse-what-know-and-do"
+          }
+        ],
+        "scopeAndFreshness": "Source evidence checked September 10, 2026; source-specific attribution and jurisdiction limits remain attached."
+      },
+      {
+        "claimId": "jurisdiction-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "These are U.S. procedures, not a promise that one request removes every copy worldwide.",
+            "locator": "story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/take-it-down-sentencing-20260910/editorial-input.json",
+          "sha256": "fea8b3c4ae22c25e8f495e33e95938fb4bb901a9da293665beda37164cdc5113"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The FTC says image-based abuse includes real, digitally altered, and AI-generated intimate images shared without consent. The FTC says certain platforms must provide a removal request process and remove the image and known identical copies within 48 hours. The FTC routes platform failures to TakeItDown.ftc.gov and reports about perpetrators to local law enforcement or the FBI.",
+            "locator": "https://consumer.ftc.gov/articles/image-based-abuse-what-know-and-do"
+          },
+          {
+            "excerpt": "The FTC says Section 3 set a May 19, 2026 deadline for covered platforms to provide a request process and remove intimate images and known identical copies within 48 hours of a valid request.",
+            "locator": "https://www.ftc.gov/news-events/news/press-releases/2026/05/ftc-begins-enforcing-take-it-down-act"
+          }
+        ],
+        "scopeAndFreshness": "Source evidence checked September 10, 2026; source-specific attribution and jurisdiction limits remain attached."
+      }
+    ]
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "This is the first exact Daily candidate for this September 8 sentencing and removal-route treatment."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The failed DOJ direct-fetch label was repaired before this self-review; the reviewed prose contains no new reusable defect and still requires independent admission."
+  },
+  "limitations": [
+    "This is the producer’s exact-artifact self-review, not independent editorial admission.",
+    "The DOJ source is a prosecution announcement rather than a sentencing transcript; the article does not allocate the sentence by count.",
+    "No observed human-comprehension evidence is claimed."
+  ]
+}

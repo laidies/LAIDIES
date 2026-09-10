@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "take-it-down-sentencing-20260910",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "bf8ad019400ae60d52e755e4776053a2ca6f78d3a94b612df184285aae10ce2e",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why does a 15-year prison sentence not automatically remove the fabricated images from the internet, and what actually does?",
+      "response": "A criminal sentence punishes the perpetrator's conduct; the court's judgment binds him, not the platforms hosting copies. Removal happens through a different legal duty: under the Take It Down Act, a covered platform that receives a valid request must remove the image and known identical copies within 48 hours. If the platform fails or has no working process, the person reports the platform itself at TakeItDown.ftc.gov. So removal is driven by requests to platforms and FTC enforcement, not by the criminal verdict.",
+      "expectedEvidence": "The article's separation of the two jobs (P006), the 48-hour covered-platform duty on a valid request (P007), and the escalation route for platform failure (P008).",
+      "assessment": "Accurate: the answer is fully derivable from P006–P008 in ordinary language, correctly identifying the different legal actors and preserving the 'covered platform' and 'valid request' conditions."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's model, what should she do about each site, and what should she expect from each route?",
+      "response": "For the large platform, if it is a covered platform she submits a valid removal request through its process and expects the image and known identical copies down within 48 hours; if it fails, she reports the platform at TakeItDown.ftc.gov. For the overseas forum, she should recognise the article's jurisdiction limit: the 48-hour duty is a U.S. procedure and may not bind that host, so no single request erases every copy worldwide. Separately from both, she can report the perpetrator's conduct to police via the routes in the FTC guide — that route targets the person, not the hosting.",
+      "expectedEvidence": "The 48-hour covered-platform duty (P007), the escalation and separate police route (P008), and the explicit U.S.-procedures limit and three-problem distinction (P009).",
+      "assessment": "The mechanism transfers cleanly: the article's three-way split — conduct, hosted image, platform failure — plus the P009 jurisdiction limit lets a reader correctly triage a mixed-jurisdiction case the article never discusses."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "Who, what, when, the three pleas, and why the 15 years covers the wider case are all laid out in sequence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>An Ohio man was sentenced on September 8 to 15 years in prison in a case involving threats, cyberstalking and real and AI-generated sexual images of women and children. The U.S. Attorney’s Office says James Strahler II’s conviction for publishing digital forgeries was the first under the Take It Down Act.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>He pleaded guilty in April to three offences: cyberstalking, producing obscene visual representations of child sexual abuse, and publishing digital forgeries. The 15-year sentence covers the wider case. It is not a sentence for the Take It Down Act offence alone.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The new development is the sentencing. The U.S. law was enacted in 2025; this case does not mean the law has only just started applying.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'Digital forgery' and 'covered platforms' gain plain meaning at first meaningful use; no unexplained legal jargon remains.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A digital forgery can be a fabricated intimate image that appears to show a real person. The event in the picture may never have happened. The person targeted, the harassment and the damage to her life can still be real.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>If this happens to you or someone you know, the <a href=\\\"https://consumer.ftc.gov/articles/image-based-abuse-what-know-and-do\\\">FTC’s guide to image-based abuse</a> explains where to start. Under the U.S. law, covered platforms must provide a removal process and remove the image and known identical copies within 48 hours of a valid request. This includes AI-generated intimate images.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is grounded in a specific, recognizable scenario: a friend finding a fabricated image and choosing which route to use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For example, if a friend finds a fabricated intimate image of herself on a covered platform, she can use that platform’s removal process. If it fails to act within 48 hours, or has no working process, she can report the platform at <a href=\\\"https://takeitdown.ftc.gov/\\\">TakeItDown.ftc.gov</a>. Reporting the perpetrator to police is a separate step; the FTC guide explains those routes too.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>These are U.S. procedures, not a promise that one request removes every copy worldwide. The useful distinction is which problem you are reporting: the person’s conduct, the hosted image, or the platform’s failure to remove it.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "All advice is anchored to the FTC guide and TakeItDown.ftc.gov; no internal operating notes or unsupported guidance appear.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If this happens to you or someone you know, the <a href=\\\"https://consumer.ftc.gov/articles/image-based-abuse-what-know-and-do\\\">FTC’s guide to image-based abuse</a> explains where to start. Under the U.S. law, covered platforms must provide a removal process and remove the image and known identical copies within 48 hours of a valid request. This includes AI-generated intimate images.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>For example, if a friend finds a fabricated intimate image of herself on a covered platform, she can use that platform’s removal process. If it fails to act within 48 hours, or has no working process, she can report the platform at <a href=\\\"https://takeitdown.ftc.gov/\\\">TakeItDown.ftc.gov</a>. Reporting the perpetrator to police is a separate step; the FTC guide explains those routes too.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "For the practical next steps, use the <a href=\\\"https://consumer.ftc.gov/articles/image-based-abuse-what-know-and-do\\\">FTC’s image-based abuse guide</a>. It separates requesting removal, limiting further spread and reporting the perpetrator.",
+          "locator": "P011"
+        }
+      ]
+    }
+  }
+}
