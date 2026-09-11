@@ -240,3 +240,6 @@ Ali rejected the dark-wood booth. The bounded correction removes the family from
 
 ## 2026-09-11 — Homepage discovery restoration
 VERIFIED PUBLICLY at3d9a4501 (sourcecb958c15): third masthead CTA, approved slim rotating discovery strip and collapsed full directory restored; bright readable lime women-feature title and shared KSVL player loader restored. Receiving NewsStand3e056ac6 retained. Current source/release checkpoint: `operations/product-stewards/town-entry-homepage/releases/discovery-restoration-20260911/release.md`. Preserve current NewsStand/Miss Jeeves dependencies and all artwork except adding the three already-approved missing banner assets. Resident Card benefit reconciliation remains unfinished.
+
+## 2026-09-11 — Bright directory paragraph
+VERIFIED PUBLICLY at644040ff/sourceb1a8ca86: scoped coral description on compact navy backing. Text/font/collapsed26linkdirectory retained, phone/middle/wide verified. PaperCut cc69ef58 and791other provider assets preserved. Evidence: operations/product-stewards/town-entry-homepage/releases/directory-copy-20260911/release.md. No broader homepage or Resident Card completion implied.
