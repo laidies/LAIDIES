@@ -1,0 +1,20 @@
+import {chromium} from '/Users/alisoneakin/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import fs from 'node:fs';import assert from 'node:assert/strict';import crypto from 'node:crypto';
+const dir=decodeURIComponent(new URL('.',import.meta.url).pathname).replace(/\/$/,''),origin=process.argv[2],label=process.argv[3],calibrate=label==='incumbent';
+const expected=fs.readFileSync(dir+(calibrate?'/before.html':'/index.html'),'utf8');
+const b=await chromium.launch({channel:'chrome',headless:true}),rows=[];
+for(const width of calibrate?[390]:[320,390,701,960,1440]){
+ const p=await b.newPage({viewport:{width,height:1000},reducedMotion:'reduce'});const r=await p.goto(origin+'/',{waitUntil:'domcontentloaded'});
+ const source=(await r.body()).toString().replace(/<script type="module" src="https:\/\/static\.cloudflareinsights\.com\/[\s\S]*?<\/script>\s*/g,'');assert.equal(source,expected);
+ await p.evaluate(()=>document.fonts.ready);await p.locator('[data-dyk]').evaluate(n=>n.scrollIntoView({block:'center',behavior:'instant'}));
+ await p.evaluate(async()=>{await Promise.all(['/assets/homepage/did-you-know-question-mark-20260906.webp','/assets/library-reader/preface-burst-v1.png','/assets/homepage/pattern-purple-computing.png','/assets/homepage/rewind-wallpaper-20260906.webp'].map(async src=>{const i=new Image();i.src=src;await i.decode()}))});
+ const row=await p.locator('#dyk-title').evaluate(n=>{const s=getComputedStyle(n),a=getComputedStyle(n,'::before'),burst=getComputedStyle(n,'::after'),h=n.getBoundingClientRect(),range=document.createRange();range.selectNodeContents(n);const t=range.getBoundingClientRect(),c=n.closest('section').querySelector('.dyk-controls').getBoundingClientRect();return{text:n.textContent,color:s.color,font:s.fontFamily,weight:s.fontWeight,stroke:s.webkitTextStrokeWidth,titleTop:t.top-h.top,artBottom:parseFloat(a.top)+parseFloat(a.height)/2,art:a.backgroundImage,burst:burst.backgroundColor,controlsOverlap:h.right>c.left&&h.left<c.right&&h.bottom>c.top&&h.top<c.bottom,overflow:document.documentElement.scrollWidth>innerWidth+1,wallpaper:getComputedStyle(document.body).backgroundImage}});
+ function checkTitle(){assert(row.titleTop>=row.artBottom,'question mark overlaps title');assert(!row.controlsOverlap,'title overlaps controls');assert(!row.overflow,'horizontal overflow')}
+ if(calibrate){assert.throws(checkTitle,/question mark overlaps title/);rows.push({width,...row,knownBadRejected:true});await p.close();continue;}
+ checkTitle();assert.equal(row.text,'Did you know?');assert.equal(row.color,'rgb(242, 84, 169)');assert.equal(row.font,'Jost, sans-serif');assert.equal(row.weight,'700');assert.equal(row.stroke,'2px');assert.equal(row.burst,'rgb(183, 228, 43)');assert(row.art.includes('did-you-know-question-mark-20260906.webp'));assert(row.wallpaper.includes('rewind-wallpaper-20260906.webp'));
+ const pause=p.locator('.dyk-pause');if(await pause.textContent()==='Pause')await pause.click();assert.equal(await pause.textContent(),'Play');
+ const current=()=>p.locator('[data-dyk-slide]:not([hidden])').textContent();const first=await current();await p.locator('[data-dyk-next]').click();assert.notEqual(await current(),first);await p.locator('[data-dyk-prev]').click();assert.equal(await current(),first);
+ assert.equal(await p.locator('.directory-disclosure').evaluate(n=>n.open),false);assert.equal(await p.locator('.directory-disclosure a').count(),26);assert.equal(await p.locator('.hero-jumps>a').count(),3);
+ await p.waitForTimeout(300);await p.screenshot({path:`${dir}/${label}-${width}.png`});rows.push({width,...row,previousNextPause:true});await p.close();
+}
+await b.close();fs.writeFileSync(`${dir}/${label}-checks.json`,JSON.stringify({origin,sourceSha256:crypto.createHash('sha256').update(expected).digest('hex'),rows},null,2));console.log(calibrate?'Known-bad live title rejected by overlap check.':label+': reviewed source, readable title, previous/next/pause controls and restored wallpaper verified.');

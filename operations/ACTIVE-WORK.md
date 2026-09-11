@@ -246,3 +246,6 @@ VERIFIED PUBLICLY at644040ff/sourceb1a8ca86: scoped coral description on compact
 
 ## 2026-09-11 — Original wallpaper recovered; rejected directory box removed
 VERIFIED PUBLICLY2226fefd/source0ec5e390. Exact approved lilac/pink Rewind wallpaper restored at desktop/phone repeat sizes; lime body text directly on royal blue, no navy paragraph box. Preview/live asset comparison found this missing wallpaper, no additional missing image URL. Current NewsStand793-path provider retained except/index.html. Source and live checks: operations/product-stewards/town-entry-homepage/releases/wallpaper-recovery-20260911/release.md. Earlier coral/box admission superseded. Resident Card reconciliation remains unfinished.
+
+## 2026-09-11 — Did you know title legibility
+VERIFIED PUBLICLYf3bb5c8a/sourced6d889d7. Smaller approved mark and green burst sit immediately above clear pink outlined title. Actual old overlap rejected by geometry check; successor inspected at320/390/700/701/960/1440 and publicly verified on both origins with carousel controls. Only index changed; wallpaper/directory/current services retained. Release: operations/product-stewards/town-entry-homepage/releases/dyk-title-20260911/release.md. Resident Card work remains open.

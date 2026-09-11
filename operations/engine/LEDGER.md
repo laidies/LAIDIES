@@ -27,3 +27,5 @@ VERIFIED PUBLICLY: production3d9a4501, sourcecb958c15. Bright lime women title; 
 - 2026-09-11 — Directory paragraph bright-coral correction VERIFIED PUBLICLY644040ff/sourceb1a8ca86. Exact three-line style delta;6.48:1 coral/navy contrast;3viewports bothorigins;791currentassets preserved. Evidence: operations/product-stewards/town-entry-homepage/releases/directory-copy-20260911/release.md.
 
 - 2026-09-11 — Homepage wallpaper recovery VERIFIED PUBLICLY2226fefd/source0ec5e390. Restore approved wallpaper and remove rejected directory backing; current services preserved. Release: operations/product-stewards/town-entry-homepage/releases/wallpaper-recovery-20260911/release.md. Prior directory-copy visual admission invalidated by Ali; source guard now rejects solid-body predecessor and box reintroduction.
+
+- 2026-09-11 — DYK title VERIFIED PUBLICLYf3bb5c8a/sourced6d889d7. Readable pink title separated from smaller original question-mark graphic; green burst retained. Known-bad incumbent overlap check rejected; both origins/controls/current wallpaper verified. Evidence: releases/dyk-title-20260911 under town-entry-homepage.
