@@ -77,7 +77,7 @@
       var runtime = await window.LAIDIESResidentAccountRuntime.get();
       var accountState = await runtime.getState();
       var profile = accountState && accountState.remote && accountState.remote.profile;
-      paintResidentNumber(profile && profile.resident_number);
+      paintResidentNumber(accountState.session && profile && profile.resident_number);
     } catch (_) {
       paintResidentNumber(null);
     }
@@ -221,6 +221,7 @@
     setArrivalState();
     paintResidentNumber(null);
     window.addEventListener("laidies:continuation-ready", syncResidentNumber);
+    window.addEventListener("laidies:maikeover-account-ready", syncResidentNumber);
     if (window.LAIDIESResidentAccountRuntime) syncResidentNumber();
     watchMirror();
   }

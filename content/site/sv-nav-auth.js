@@ -113,6 +113,7 @@
   window.addEventListener('pageshow', updateNav);
   window.addEventListener('focus', updateNav);
   window.addEventListener('laidies:resident-card-restored', updateNav);
+  window.addEventListener('laidies:maikeover-account-ready', updateNav);
   window.addEventListener('storage', function (event) {
     if (event.key === KEY ||
         event.key === 'laidies_card_avatar_url' ||
