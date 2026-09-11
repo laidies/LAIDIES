@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-11 — Daily activity Homepage placement rejected
+
+Remove “Try this today” from the Homepage; retain it in NewsStand. The exact decision and no-reintroduction rule are in `operations/homepage-decisions-20260827.md`.
+
 ## 2026-09-10 — Women-feature title contrast
 
 Ali flags the coral main title against the pink/purple feature background as hard to read. Improve only “Meet the women behind AI and get inspired to help shape the future.” using the existing darkest navy token, verified against the rendered gradient at phone, middle and wide widths. Preserve wording, Jost typography, responsive geometry, artwork and the two separately approved pink subheadings. Do not broaden this correction into a section palette change.
