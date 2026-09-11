@@ -31,3 +31,9 @@ Prevention: a successful Library save journey proves that route only. It must ne
 - **LOCKED:** This ruling does not revive any other Homepage image held or rejected by the public asset controller.
 
 Authority: Ali direct rulings in the Homepage review, 2026-08-27. Exact asset authority is recorded by `operations/assets/active-asset-registry.json` role `episode.04.static-cover`.
+
+
+## 2026-09-11 — Restore missing discovery features; bright women heading
+Ali confirms the women-feature title must use a bright, readable brand colour. Dark navy is superseded; preserve exact copy, Jost Bold, artwork and pink subheadings. Restore the already-built third masthead button (Find what I need), slim rotating Did you know strip with approved imagery/pink title/green burst, and initially collapsed full directory with full-width show/close pill. Preserve the established masthead → discovery strip → needs shortcuts → compact directory order. Base this recovery on current production, retaining current NewsStand activity/coverage and Miss Jeeves/shared service code. Never equate a preview feature with a published feature; final live checks must verify each requested component visibly and functionally.
+
+The recovery also restores the previously implemented shared KSVL loader: each town page using the shared header loads the canonical deck once, so saved controls can reappear after navigation. Library needs no page-specific workaround.
