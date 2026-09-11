@@ -1,3 +1,7 @@
+## 2026-09-11 — Replace the dark-purple/orange discovery pairing
+
+Ali rejects the dark purple and orange beside one another and flags “What brought you to town today” in that same colour discussion. Scope the adjustment to Did you know and the adjacent needs section; preserve wording, card artwork, layout, typography, carousel and the recently separated pink title/green burst. Use a brighter royal-blue banner with readable mint copy/lime links; make the needs section pink-led from its top instead of orange. This is not a sitewide ban on purple or orange. Preserve the approved lilac/pink wallpaper and the rejected Daily preview removal. Original shortcut art replacement remains unfinished.
+
 ## 2026-09-11 — Remove Daily activity preview from Homepage
 
 Ali rejects the newly added “Try this today” block beneath the six needs choices: “i don’t think it belongs there” and “it looks terrible.” Remove the Homepage preview and its script/style imports. Keep the original activity in the NewsStand. Do not reintroduce this Homepage placement in subsequent NewsStand or Homepage releases without a new explicit decision. Preserve the six choices, all other Homepage sections, current artwork and runtime. The separate shortcut-art recovery remains HOLD for identifying the original Learn and Useful or Fun images.

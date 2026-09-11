@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-11 — Discovery colour pairing correction
+
+Ali rejects dark purple and orange beside each other at Did you know and the needs section. The scoped blue/mint and pink-led replacement is recorded in `operations/homepage-decisions-20260827.md`; it does not recolour unrelated sections or alter wording/art.
+
 ## 2026-09-11 — Daily activity Homepage placement rejected
 
 Remove “Try this today” from the Homepage; retain it in NewsStand. The exact decision and no-reintroduction rule are in `operations/homepage-decisions-20260827.md`.
