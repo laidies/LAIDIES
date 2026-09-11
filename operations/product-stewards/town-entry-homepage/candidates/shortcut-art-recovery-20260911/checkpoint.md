@@ -1,6 +1,6 @@
 ## September11 continuation
 
-Earlier combined HOLD is superseded for framing and Learn: selected existing AI Fundamentals book replaces rejected exterior; original icon was not recovered. Complete-image framing is proceeding independently. Latest artifact/status is `../../releases/shortcut-framing-20260911/release.md`. Useful/Fun replacement remains HOLD; prior findings below are historical.
+Earlier combined HOLD is superseded for framing and Learn: selected existing AI Fundamentals book replaces rejected exterior; original icon was not recovered. Learn book replacement and complete-image framing are VERIFIED PUBLICLY at f42275fd, source e025022d. Latest artifact/status is `../../releases/shortcut-framing-20260911/release.md`. Useful/Fun replacement remains HOLD; prior findings below are historical.
 
 # Shortcut artwork recovery — 2026-09-11
 

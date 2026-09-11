@@ -1,4 +1,4 @@
-> **2026-09-11 — Learn book replacement and six-card uncropped framing VERIFIED LOCALLY; final review/release pending. Existing AI Fundamentals art replaces Learn exterior; allsiximages use contain above copy. Selected replacement, not recovered original. Useful/Fun artwork still unresolved. Record: releases/shortcut-framing-20260911 under town-entry-homepage.**
+> **2026-09-11 — Learn book and all six complete shortcut frames VERIFIED PUBLICLY at f42275fd, source e025022d. Phone, medium and wide checks passed on custom and immutable origins; 792 other assets retained. Existing book replaces rejected Learn exterior; original icon was not recovered. Useful/Fun artwork replacement remains unfinished. Record: releases/shortcut-framing-20260911 under town-entry-homepage.**
 
 > **2026-09-11 — Discovery pairing VERIFIED PUBLICLYf489e1e6/source1334863a: royal-blue/mint Did you know above pink-led needs section, preserving exact geometry/art/text and rejected activity removal. Custom/immutable390/960/1440 verified;792other assets retained. Record: releases/discovery-palette-20260911 under town-entry-homepage. Original shortcut-art task remains HOLD.**
 

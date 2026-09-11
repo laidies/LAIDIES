@@ -35,3 +35,6 @@ VERIFIED PUBLICLY: production3d9a4501, sourcecb958c15. Bright lime women title; 
 - 2026-09-11 — Rejected Homepage Try this today placement removed, VERIFIED PUBLICLYc2f2ccf3/source1d4f5863. Daily activity preserved in NewsStand; six choices and792other assets unchanged. No reintroduction without new Ali decision. Evidence: releases/activity-removal-20260911 under town-entry-homepage.
 
 - 2026-09-11 — Discovery palette VERIFIED PUBLICLYf489e1e6/source1334863a. Royal-blue/mint Did you know beside pink-led needs section replaces rejected dark-purple/orange pairing. Exact geometry, content, artwork, pink title/green burst and activity removal retained. Release: discovery-palette-20260911 under town-entry-homepage.
+
+
+- 2026-09-11 — Learn exterior replacement and six-card complete-image framing VERIFIED PUBLICLY f42275fd/source e025022d. Existing AI Fundamentals book selected; original icon not recovered. Same-row alignment, full images and copy/routes verified at three widths on both origins; 792 other assets retained. Useful/Fun artwork remains unresolved. Evidence: releases/shortcut-framing-20260911 under town-entry-homepage.
