@@ -1,3 +1,7 @@
+## 2026-09-11 — Remove Daily activity preview from Homepage
+
+Ali rejects the newly added “Try this today” block beneath the six needs choices: “i don’t think it belongs there” and “it looks terrible.” Remove the Homepage preview and its script/style imports. Keep the original activity in the NewsStand. Do not reintroduce this Homepage placement in subsequent NewsStand or Homepage releases without a new explicit decision. Preserve the six choices, all other Homepage sections, current artwork and runtime. The separate shortcut-art recovery remains HOLD for identifying the original Learn and Useful or Fun images.
+
 # Homepage decisions — 2026-08-27
 
 ## 2026-09-08 — Retire the old dark-wood KSVL booth
