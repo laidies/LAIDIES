@@ -31,3 +31,5 @@ VERIFIED PUBLICLY: production3d9a4501, sourcecb958c15. Bright lime women title; 
 - 2026-09-11 — DYK title VERIFIED PUBLICLYf3bb5c8a/sourced6d889d7. Readable pink title separated from smaller original question-mark graphic; green burst retained. Known-bad incumbent overlap check rejected; both origins/controls/current wallpaper verified. Evidence: releases/dyk-title-20260911 under town-entry-homepage.
 
 - 2026-09-11 — Shortcut art correction HOLD for original Learn/Useful-or-Fun identification. Six-card uncropped framing prepared locally, not published. Earlier September7 recovery was explicitly OPEN. Checkpoint: candidates/shortcut-art-recovery-20260911 under town-entry-homepage.
+
+- 2026-09-11 — Rejected Homepage Try this today placement removed, VERIFIED PUBLICLYc2f2ccf3/source1d4f5863. Daily activity preserved in NewsStand; six choices and792other assets unchanged. No reintroduction without new Ali decision. Evidence: releases/activity-removal-20260911 under town-entry-homepage.
