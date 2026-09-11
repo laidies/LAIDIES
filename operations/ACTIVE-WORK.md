@@ -2,10 +2,10 @@
 
 ## 2026-09-10 Complete MAiKEOVER signup journey
 
-- **Status:** BUILDING. Ali authorizes implementation and release; no production page deployment yet.
+- **Status:** PUBLICLY VERIFIED for bounded signup/Card journey. Deployed5a3ea5f4-2564-4dbe-af6f-7403731d5950; source804dab5f. Newer coordinated NewsStand bases preserved.
 - **Acceptance:** Inline email code; retained choices; real portrait; account Card save; Closet; returning sign-in and second-browser restoration; exact current-production integration and public verification.
-- **Current:** Dirty email-code work preserved. Real email received in Gmail spam and verified inside local MAiKEOVER; test account has no remote Card. Custom Resend SMTP enabled; OTP template includes Token and ConfirmationURL. No provider settings changed.
-- **Repairs:** Generated raster preview rejected by asset-only check and stale avatar not cleared; repairing. Old separate-desk routes must point to MAiKEOVER. Independent review found these gaps despite existing passing tests.
+- **Current:** Real new signup/code/save1048 and returning signup/portrait/save/Closet1047 verified at laidies.ai. Independent browser restored identical portrait, background and favourites. Sign-out display clears without reload; optional email link returns to signed-in MAiKEOVER. Evidence: operations/releases/maikeover-signup-20260911/README.md.
+- **Repairs:** Raster preview/clear; inline account routes; owner-issued numbers; Closet edit route; cache tokens; signup email Token; immediate sign-out state. Added only monitoring DMARC record; Gmail still places tests in Spam. Native phone code suggestions unverified.
 - **Scope:** Existing auth worktree; preserve released Card backgrounds and unrelated production bytes. No unrelated resident data changes.
 
 ## 2026-09-05 MAiKEOVER integrated account onboarding

@@ -1,5 +1,9 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-10 Verified inline signup and one edit journey
+
+Ali's authorization to finish the full journey is implemented and live. MAiKEOVER owns email verification, portrait creation and account Card save; Closet's Edit my Card returns to this maker, not the old device-only drawer. A positive number comes only from verified owner state; sign-out clears it to No.NEW. New and returning real email flows, actual portrait generation, account save, Closet, independent-browser restore and email-link return were verified. Exact release/provider/test boundaries: operations/releases/maikeover-signup-20260911/README.md. Retain approved background raster bytes; this functional release is not a new palette/art decision.
+
 ## Complete MAiKEOVER signup release — 2026-09-10
 
 Ali authorizes finishing and releasing email verification, portrait creation,
