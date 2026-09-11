@@ -1,0 +1,23 @@
+import {chromium} from '/Users/alisoneakin/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
+import fs from 'node:fs';import assert from 'node:assert/strict';
+const dir=decodeURIComponent(new URL('.',import.meta.url).pathname).replace(/\/$/,''),origin=process.argv[2]||'https://laidies.ai',label=process.argv[3]||'pilot',strip=s=>s.replace(/<script type="module" src="https:\/\/static\.cloudflareinsights\.com\/[\s\S]*?<\/script>\s*/g,'');
+const b=await chromium.launch({channel:'chrome',headless:true}),rows=[];
+try{
+ if(label==='pilot'){
+ const p=await b.newPage();const r=await p.goto(origin+'/',{waitUntil:'domcontentloaded'});const before=strip((await r.body()).toString());fs.writeFileSync(dir+'/before.html',before);assert(!before.includes('shortcut-full-image-frames'));const css=fs.readFileSync(dir+'/framing.css','utf8'),style='<style id="shortcut-full-image-frames">\n'+css+'</style>\n';let candidate=before.replace('</head>',style+'</head>');assert.equal(candidate.replace(style,''),before);if(fs.existsSync(dir+'/replacements.json')){for(const [old,next] of Object.entries(JSON.parse(fs.readFileSync(dir+'/replacements.json'))))candidate=candidate.replace(old,next);}fs.writeFileSync(dir+'/index.html',candidate);await p.close();
+ }
+ const expected=fs.readFileSync(dir+'/index.html','utf8');
+ for(const width of label==='pilot'?[320,390,760,761,960,1100,1101,1440]:[390,960,1440]){
+ let before;
+ for(const state of label==='pilot'?['before','candidate']:[label]){
+ const p=await b.newPage({viewport:{width,height:1050},reducedMotion:'reduce'});if(state==='candidate')await p.route(origin+'/',r=>r.fulfill({status:200,contentType:'text/html',body:expected}));const r=await p.goto(origin+'/',{waitUntil:'domcontentloaded'});if(label!=='pilot')assert.equal(strip((await r.body()).toString()),expected);await p.evaluate(()=>document.fonts.ready);await p.locator('.intent-grid-5 img').evaluateAll(async ns=>Promise.all(ns.map(n=>n.decode())));
+ const data=await p.evaluate(()=>({cards:[...document.querySelectorAll('.intent-grid-5 a')].map(n=>{const i=n.querySelector('img'),s=getComputedStyle(i);return{text:n.innerText,href:n.getAttribute('href'),src:i.getAttribute('src'),natural:[i.naturalWidth,i.naturalHeight],card:{x:n.offsetLeft,y:n.offsetTop,w:n.offsetWidth,h:n.offsetHeight},image:{w:i.offsetWidth,h:i.offsetHeight,fit:s.objectFit,padding:s.padding},imageAbove:i.offsetTop<n.querySelector('div').offsetTop}}),overflow:document.documentElement.scrollWidth>innerWidth+1,preview:!!document.querySelector('[data-daily-activity-preview]'),wallpaper:getComputedStyle(document.body).backgroundImage,banner:getComputedStyle(document.querySelector('[data-dyk]')).backgroundImage,pink:getComputedStyle(document.querySelector('#today')).backgroundImage}));assert.equal(data.cards.length,6);assert(!data.overflow);assert(!data.preview);
+ const guard=()=>{for(const card of data.cards){assert.equal(card.image.fit,'contain','cropped cover frame');assert(card.imageAbove,'image must sit above its copy');assert(card.natural[0]>0);}}
+ if(state==='before'){before=data;if(width===960)assert.throws(guard,/cropped cover frame/);}else{guard();assert(data.cards[0].src.includes('textbook-ai-fundamentals-101.png'));if(before)for(let i=0;i<6;i++){assert.equal(data.cards[i].text,before.cards[i].text);assert.equal(data.cards[i].href,before.cards[i].href);}const grouped=Map.groupBy(data.cards,c=>c.card.y);for(const group of grouped.values())assert(Math.max(...group.map(c=>c.card.h))-Math.min(...group.map(c=>c.card.h))<=1);assert(data.wallpaper.includes('rewind-wallpaper-20260906.webp'));assert(data.banner.includes('25, 73, 195'));assert(data.pink.startsWith('linear-gradient(rgb(242, 84, 169)'));}
+ if([390,960,1440].includes(width)){
+ await p.evaluate(async()=>{await Promise.all(['/assets/homepage/rewind-wallpaper-20260906.webp','/assets/homepage/pattern-purple-computing.png'].map(async src=>{const i=new Image();i.src=src;await i.decode()}))});await p.locator('.intent-grid-5').evaluate(n=>scrollTo({top:n.getBoundingClientRect().top+scrollY-85,behavior:'instant'}));await p.waitForTimeout(350);await p.screenshot({path:`${dir}/${state}-${width}-top.png`});await p.locator('.intent-grid-5').evaluate(n=>scrollTo({top:n.getBoundingClientRect().bottom+scrollY-innerHeight*.85,behavior:'instant'}));await p.waitForTimeout(250);await p.screenshot({path:`${dir}/${state}-${width}-bottom.png`});}
+ rows.push({width,state,...data});await p.close();
+ }
+ }
+ fs.writeFileSync(`${dir}/${label}-checks.json`,JSON.stringify({origin,rows},null,2));console.log(label+': six complete frames, preserved copy/links, row alignment, latest palette and no overflow verified');
+}finally{await b.close()}
