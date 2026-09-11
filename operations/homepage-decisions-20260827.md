@@ -41,3 +41,10 @@ The recovery also restores the previously implemented shared KSVL loader: each t
 ## 2026-09-11 — Bright directory description
 Ali rejects the dark text in the paragraph beside “Everything you can do in LAiDIES.” Use bright brand-coloured text with readable separation from the blue patterned ground. Scope `.feature-directory-head>p`; preserve its wording/Jost/size, all26 directory links, collapsed disclosure and surrounding colours.
 Implementation: existing coral #ff7366 with a compact rounded navy #11183b paragraph backing keeps bright body copy legible across the blue gradient; do not add letter outlines or change the font.
+
+## 2026-09-11 — Restore approved wallpaper; reject dark directory box
+Ali rejects the navy paragraph box and orange-looking coral text. That treatment and its prior visual admission are superseded. Remove the box; use bright lime copy directly on the existing blue directory background, preserving wording, Jost and collapsed links. Do not add another dark panel or heavy letter effects.
+
+Ali also flags the missing whole-page wallpaper and asks for the existing roller-skate/computer imagery. Restore the exact approved `assets/homepage/rewind-wallpaper-20260906.webp`: lilac ground, pink skates/lips/shoes plus computers, cassettes and other Rewind Era objects. Use the approved 680px desktop / 480px phone repeat; no regeneration or recolouring. Compare approved preview8f133695 with current live for lost visual corrections before release. Use a fresh production HTML base and explicit visual deltas, never roll back current service/runtime/content work with the old preview wholesale.
+
+Readability implementation: the box-free lime body text has insufficient contrast against the former cyan end of the directory gradient. Keep the whole section blue, with royal-blue endpoints #2051cf and #234bd0 (minimum 4.51:1 against existing lime). Preserve body font weight and size; no separate backing or text outline. The approved wallpaper itself is retained byte-for-byte.

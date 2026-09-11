@@ -655,13 +655,6 @@ main>section:not(.hero) :is(a,button,input,summary):focus-visible,main>.postcard
 .why-women .eyebrow,.why-women h2{color:var(--hp-ink)}
 .why-reasons article,.why-reasons article:nth-child(2),.why-reasons article:nth-child(3){background:linear-gradient(135deg,var(--hp-mint),var(--hp-cyan));border-color:var(--hp-ink);box-shadow:7px 7px 0 var(--hp-ink)}
 .why-reasons .book-quote{background:var(--hp-midnight);color:var(--hp-quote)}
-/* Separate each before/after label from its quote, preserving the existing type. */
-.why-reasons .book-quote{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:10px 12px;align-items:baseline}
-.why-reasons .book-quote .quote-label{font-size:.75em;font-style:normal;line-height:inherit;letter-spacing:.06em;text-transform:uppercase}
-.why-reasons .book-quote .quote-from{color:var(--hp-coral)}
-.why-reasons .book-quote .quote-to{color:var(--hp-lime)}
-.why-reasons .book-quote .quote-text{font-size:inherit;line-height:inherit}
-
 .why-full-link{background:var(--hp-ink);color:var(--hp-paper)}
 .why-laidies{background:var(--hp-midnight);color:var(--hp-paper);border-color:var(--hp-cyan)}
 .why-laidies .eyebrow,.why-laidies blockquote cite{color:var(--hp-sky)}
@@ -776,7 +769,7 @@ main{--hp-ground-warm:linear-gradient(125deg,var(--hp-orange) 0%,var(--hp-coral)
 .closet{background:linear-gradient(125deg,var(--hp-pink) 0%,var(--hp-coral) 54%,var(--hp-orange) 118%)}
 .explainer{background:linear-gradient(125deg,var(--hp-lime),var(--hp-mint))}
 .activities,.postcard-band{background:var(--hp-ground-deep)}
-.intent{background:linear-gradient(125deg,var(--hp-pink) 0%,var(--hp-coral) 54%,var(--hp-orange) 118%);color:var(--hp-midnight)}
+.intent{background:var(--hp-ground-warm);color:var(--hp-midnight)}
 .town{background:var(--hp-ground-cool);color:var(--hp-midnight)}
 .activities{--activities-copy:var(--hp-copy-on-purple)}
 .why-women .why-intro{color:var(--hp-midnight)}
@@ -835,7 +828,7 @@ main :is(.weekly,.activities,.town)>.section-heading>p:not(.eyebrow),.intent>div
 .explainer .explainer-head .eyebrow{color:#a91873}
 .explainer .explainer-head h2{color:var(--hp-cobalt)}
 .intent>div:first-child>.eyebrow{color:var(--hp-purple)}
-.intent>div:first-child>h2{color:var(--hp-cobalt);-webkit-text-stroke:2px var(--hp-ink);paint-order:stroke fill}
+.intent>div:first-child>h2{color:#003b9e}
 .weekly>.section-heading .eyebrow{color:var(--hp-pink)}
 .weekly>.section-heading h2{color:#4564df}
 .weekly .ritual li .ritual-stop>span{box-sizing:border-box;line-height:1;padding-top:2px}
@@ -879,7 +872,7 @@ main .explainer a.tune-in:not(.inline-link){background:var(--hp-midnight);color:
 main .explainer a.tune-in:not(.inline-link):hover{background:var(--hp-ink);color:var(--hp-mint)}
 main .explainer a.tune-in:not(.inline-link):focus-visible{outline-color:var(--hp-ink);outline-offset:4px}
 /* One media frame and aligned content slots for every activity card. */
-.activity-grid{grid-auto-rows:auto;align-items:start}
+.activity-grid{grid-auto-rows:1fr}
 .activity-grid>article{min-width:0}
 .activity-grid>article>img,.activity-grid>article>.card-duo{
   height:auto;min-height:0;box-sizing:border-box;
@@ -1002,7 +995,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
 .dyk-media img{display:block;width:100%;height:100%;min-height:300px;object-fit:cover;object-position:center}
 .dyk-copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;min-width:0;padding:clamp(24px,3.3vw,48px)}
 .dyk-kicker{margin:0 0 10px;color:var(--dyk-accent);font:800 clamp(.78rem,1vw,.95rem)/1.2 Jost,sans-serif;letter-spacing:.13em;text-transform:uppercase}
-.dyk-copy :is(h3,.dyk-title){max-width:21ch;margin:0 0 12px;color:var(--hp-paper);font-size:clamp(1.7rem,3vw,2.8rem);line-height:1.05}
+.dyk-copy h3{max-width:21ch;margin:0 0 12px;color:var(--hp-paper);font-size:clamp(1.7rem,3vw,2.8rem);line-height:1.05}
 .dyk-copy p{max-width:54ch;margin:0 0 20px;color:var(--hp-mint);font-size:clamp(1.05rem,1.4vw,1.25rem);line-height:1.5}
 .dyk-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:9px 22px;border:2px solid var(--hp-paper);border-radius:999px;background:var(--dyk-accent);color:var(--hp-ink);font:800 1rem/1.2 Jost,sans-serif}
 .dyk-slide:hover .dyk-cta{background:var(--hp-paper)}
@@ -1015,7 +1008,7 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
 .dyk-dot[aria-pressed="true"]{background:var(--hp-orange);transform:scale(1.2)}
 .dyk-arrow:focus-visible,.dyk-dot:focus-visible{outline:3px solid var(--hp-lime);outline-offset:3px}
 .dyk-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-@media(max-width:760px){.did-you-know{padding:28px 18px 32px}.dyk-heading{align-items:start}.dyk-slide{grid-template-columns:1fr;min-height:0}.dyk-media{min-height:0;aspect-ratio:16/8}.dyk-media img{min-height:0}.dyk-copy{padding:22px}.dyk-copy :is(h3,.dyk-title){font-size:clamp(1.65rem,8vw,2.2rem)}.dyk-copy p{font-size:1.05rem}.dyk-cta{width:100%;box-sizing:border-box;text-align:center}}
+@media(max-width:760px){.did-you-know{padding:28px 18px 32px}.dyk-heading{align-items:start}.dyk-slide{grid-template-columns:1fr;min-height:0}.dyk-media{min-height:0;aspect-ratio:16/8}.dyk-media img{min-height:0}.dyk-copy{padding:22px}.dyk-copy h3{font-size:clamp(1.65rem,8vw,2.2rem)}.dyk-copy p{font-size:1.05rem}.dyk-cta{width:100%;box-sizing:border-box;text-align:center}}
 /* Fresh editorial preview: the Homepage shows useful NewsStand content without
    pretending that an expired feed is current. */
 .sunny-now{position:relative;overflow:hidden;padding:clamp(46px,6vw,82px) clamp(24px,7vw,112px);background:linear-gradient(125deg,var(--hp-coral),var(--hp-pink));color:var(--hp-ink)}
@@ -1046,150 +1039,8 @@ main .explainer .method-intro-action:not(.inline-link):focus-visible{outline:3px
 @media(max-width:1100px){.feature-directory-groups{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){.feature-directory{margin:16px;padding:30px 18px 34px}.feature-directory-head{grid-template-columns:1fr;gap:12px}.feature-directory-groups{grid-template-columns:1fr}.feature-group{padding:17px}.feature-group ul{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:430px){.feature-group ul{grid-template-columns:1fr}}
-
-/* Bounded homepage correction: keep the illustrated incumbent and bring the
-   first useful action forward. The complete directory is opt-in browsing. */
-.makeover-notice{display:block;padding:10px clamp(22px,7vw,112px)}
-.makeover-notice summary{min-height:44px;align-content:center;cursor:pointer;font-weight:700;font-size:1rem;line-height:1.35}
-.makeover-notice details p{max-width:80ch;padding:8px 0 12px}
-.makeover-notice summary:focus-visible{outline:3px solid var(--hp-ink);outline-offset:4px}
-.intent-radio{grid-column:1/-1;margin:8px 0 0;font-size:1.1rem}
-.intent-radio a{display:inline-flex;align-items:center;min-height:44px;font-weight:700;color:inherit;text-underline-offset:5px}
-.intent-grid-5 a img.intent-jeeves{object-fit:contain;background:var(--hp-midnight)}
-.helper-advice a{color:inherit;font-weight:700;text-underline-offset:4px}
-@media(max-width:560px){.makeover-notice summary{font-size:.94rem}}
-
-/* Readable text keeps its established palette; narrow screens do not reserve
-   a character-sized hole inside a navigation button. */
-.closet>div>p:nth-of-type(n) strong,.closet .closet-aside{color:var(--hp-ink)}
-.closet .closet-aside{border-left-color:var(--hp-purple)}
-.town>.town-heading .town-heading-title h2{color:var(--hp-purple)}
-@media(max-width:760px){
-  .reference-inline .library-entry{width:100%;min-height:44px;margin-right:0;padding-inline:14px}
-  .reference-inline .helper-advice{box-sizing:border-box;min-height:140px;padding-right:140px;align-content:center;margin-bottom:0}
-}
-
-/* Owner feedback: preserve the established palette/art; restore useful choices. */
-.hero-dusk .hero-jumps{width:min(1000px,calc(100% - clamp(48px,14vw,224px)));grid-template-columns:repeat(3,minmax(0,1fr))}
-.hero-jumps .mast-find{background:var(--hp-lime)}
-#today{scroll-margin-top:85px}
-.homepage-radio-pill{display:flex;align-items:center;gap:24px;width:100%;box-sizing:border-box;margin:30px 0 0;padding:22px 30px;border:3px solid var(--hp-midnight);border-radius:999px;background:var(--hp-cyan);color:var(--hp-midnight);box-shadow:6px 6px 0 var(--hp-purple);text-decoration:none;font:500 1.05rem/1.45 Jost,sans-serif}
-.homepage-radio-pill .radio-pill-name{font:900 clamp(1.25rem,2vw,1.8rem)/1.2 Jost,sans-serif;white-space:nowrap}
-.homepage-radio-pill>span:nth-child(2){flex:1}.homepage-radio-pill>b{white-space:nowrap}
-.homepage-radio-pill:focus-visible{outline:3px solid var(--hp-purple);outline-offset:5px}
-.reference.reference-inline{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,30%);align-items:center;gap:0;padding:clamp(24px,3.4vw,48px);overflow:hidden}
-.reference.reference-inline>.jeeves-desk-copy{width:auto;max-width:none;padding:0;min-width:0}
-.reference.reference-inline>.jeeves-corner-cutout{position:static;inset:auto;align-self:end;width:100%;height:auto;min-height:0;max-height:580px;object-fit:contain;object-position:bottom;margin:0 0 -48px;filter:none;pointer-events:none}
-.reference-inline .helper-advice{padding:0;min-height:0;margin:20px 0 0;max-width:none}
-.reference-inline .question-routing-note{font-size:.95rem;line-height:1.5;margin-top:16px}
-.reference-inline input{min-width:0}.reference-inline form button{min-height:48px;font:800 1rem/1.2 Jost,sans-serif;cursor:pointer}
-.jeeves-examples{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.jeeves-examples>span{flex-basis:100%;color:var(--hp-paper);font-size:.95rem}
-.jeeves-examples button{min-height:44px;padding:9px 13px;border:2px solid var(--hp-mint);border-radius:999px;background:transparent;color:var(--hp-mint);font:600 .95rem/1.3 Jost,sans-serif;cursor:pointer}
-.jeeves-examples button:hover,.jeeves-examples button:focus-visible{background:var(--hp-mint);color:var(--hp-ink)}
-.reference.reference-inline>.jeeves-answer{grid-column:1/-1;width:auto;max-width:none;margin-top:28px;padding:24px 0 0;border-top:2px solid var(--hp-cyan);overflow-wrap:anywhere}
-.jeeves-answer[hidden]{display:none!important}.jeeves-answer h3{font-size:1.5rem;color:var(--hp-paper);margin:0 0 10px}
-.jeeves-answer ul{list-style:none;margin:18px 0;padding:0}.jeeves-answer li{padding:16px 0;border-bottom:1px solid var(--hp-mint)}
-.jeeves-answer a{color:var(--hp-cyan);font-weight:700;text-underline-offset:4px}.jeeves-answer p{white-space:pre-line}.jeeves-answer summary{min-height:44px;padding-block:12px;color:var(--hp-mint);cursor:pointer;font-weight:700}.jeeves-answer button{min-height:44px;padding:10px 18px;border:0;border-radius:999px;background:var(--hp-pink);color:var(--hp-ink);font:800 1rem Jost,sans-serif;cursor:pointer}
-.activity-grid .activity-availability{font-size:.95rem;line-height:1.5}
-.resident-benefits{clear:both;width:100%;border-collapse:collapse;margin:24px 0;font:500 1.08rem/1.5 Jost,sans-serif;color:var(--hp-ink)}
-.resident-benefits caption{text-align:left;font-weight:800;font-size:1.3rem;padding:0 0 12px}.resident-benefits th,.resident-benefits td{text-align:left;vertical-align:top;padding:20px 18px;border-top:2px solid var(--hp-purple)}
-.resident-benefits th{width:25%;font-weight:800}.resident-benefits strong{color:var(--hp-ink)}
-@media(max-width:820px){.hero-dusk .hero-jumps{width:calc(100% - 44px);margin:0 22px}.homepage-radio-pill{border-radius:28px;flex-wrap:wrap;gap:12px;padding:22px}.homepage-radio-pill>span:nth-child(2){flex-basis:65%}.reference.reference-inline{grid-template-columns:minmax(0,1fr) 25%;gap:14px}.reference.reference-inline>.jeeves-corner-cutout{margin-bottom:-24px}.jeeves-desk-copy h2{font-size:2.6rem}}
-@media(max-width:600px){.hero-dusk .hero-jumps{grid-template-columns:1fr}.homepage-radio-pill{display:block}.homepage-radio-pill>span,.homepage-radio-pill>b{display:block}.homepage-radio-pill>span:nth-child(2){margin:12px 0}.reference.reference-inline{grid-template-columns:1fr;padding:24px 20px}.reference.reference-inline>.jeeves-corner-cutout{grid-row:1;justify-self:end;width:100px;height:132px;margin:0 0 -132px;align-self:start}.jeeves-desk-copy>.eyebrow,.jeeves-desk-copy>h2{padding-right:105px}.jeeves-desk-copy>h2{font-size:2.1rem;min-height:84px}.reference-inline form>div{display:grid;gap:8px}.reference-inline input,.reference-inline form button{border-radius:9px;padding:14px}.resident-benefits th,.resident-benefits td{display:block;width:auto;padding:14px 0}.resident-benefits td{border-top:0;padding-top:0}.resident-benefits th{padding-bottom:6px}}
-  .directory-disclosure>summary{display:flex;align-items:center;justify-content:center;gap:14px;box-sizing:border-box;width:100%;min-height:60px;padding:16px 24px;list-style:none;border:3px solid var(--hp-ink);border-radius:999px;background:var(--hp-lime);color:var(--hp-ink);font:800 clamp(1.05rem,1.5vw,1.4rem)/1.25 Jost,sans-serif;text-align:center;cursor:pointer;box-shadow:5px 5px 0 var(--hp-ink)}
-.directory-disclosure>summary::-webkit-details-marker{display:none}.directory-disclosure>summary:hover{background:var(--hp-mint)}.directory-disclosure>summary:focus-visible{outline:4px solid var(--hp-paper);outline-offset:5px}.directory-disclosure[open]>summary{margin-bottom:28px}.directory-disclosure .directory-close,.directory-disclosure[open] .directory-show{display:none}.directory-disclosure[open] .directory-close{display:inline}.directory-disclosure .directory-symbol{font-size:1.5em;line-height:1}
-.dyk-slim{margin:18px clamp(20px,5vw,72px);padding:14px 22px;border:3px solid var(--hp-ink);border-radius:24px;background:linear-gradient(135deg,var(--hp-mint),var(--hp-cyan));color:var(--hp-paper)}
-.dyk-slim .dyk-inner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:22px;max-width:none}.dyk-slim h2{position:relative;isolation:isolate;margin:0;color:var(--hp-orange);font:800 clamp(1.15rem,1.8vw,1.55rem)/1.1 Jost,sans-serif}.dyk-slim .dyk-stage{min-width:0;min-height:80px}.dyk-slim .dyk-slide{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;align-items:center;min-height:80px;padding:0;border:0;border-radius:0;box-shadow:none;background:transparent;color:var(--hp-orange)}.dyk-slim .dyk-slide[hidden]{display:none}.dyk-slim .dyk-media{width:72px;height:72px;min-height:0;border-radius:12px;overflow:hidden;outline:2px solid var(--hp-lime);outline-offset:0}.dyk-slim .dyk-media img{display:block;width:72px;height:72px;min-height:0;object-fit:cover}.dyk-slim .dyk-copy{padding:0;min-width:0;align-self:center}.dyk-slim .dyk-copy :is(h3,.dyk-title){margin:0 0 6px;color:var(--hp-orange);font:600 clamp(1rem,1.25vw,1.2rem)/1.3 Jost,sans-serif}.dyk-slim .dyk-cta{display:inline;min-height:0;line-height:1.3;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--hp-orange);font-size:1rem;font-weight:800;text-decoration:underline;text-underline-offset:4px}.dyk-slim .dyk-controls{display:flex;gap:6px;margin:0;justify-content:flex-end}.dyk-slim .dyk-arrow,.dyk-slim .dyk-pause{min-width:44px;height:44px;padding:0 10px;border:2px solid var(--hp-ink);border-radius:999px;background:var(--hp-midnight);color:var(--hp-mint);font:800 .9rem/1 Jost,sans-serif;cursor:pointer}.dyk-slim .dyk-arrow{font-size:1.6rem}.dyk-slim :is(a,button):focus-visible{outline:3px solid var(--hp-ink);outline-offset:4px}.dyk-slim .dyk-controls[hidden]{display:none}
-
-.dyk-slim .dyk-slide:hover .dyk-cta{background:transparent}.dyk-slim .dyk-media-jeeves{background:linear-gradient(135deg,var(--hp-coral),var(--hp-pink))}.dyk-slim .dyk-media-ada img{object-position:center top}
-.dyk-slim .dyk-media-mall{position:relative}.dyk-slim .dyk-media.dyk-media-mall img{position:absolute;max-width:none;width:466.6667%;height:auto;left:-308.3333%;top:-33.3333%}
-
-.dyk-slim h2,.dyk-slim .dyk-copy{-webkit-text-stroke:2px var(--hp-ink);paint-order:stroke fill}.dyk-slim .dyk-copy :is(h3,.dyk-title,.dyk-cta){paint-order:stroke fill}.dyk-slim .dyk-cta{color:var(--hp-lime)}.dyk-slim h2::before{content:"";position:absolute;z-index:-1;pointer-events:none;width:88px;height:110px;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-12deg);background:url("/assets/homepage/did-you-know-question-mark-20260906.webp") center/contain no-repeat}
-.dyk-slim h2::after{content:"";position:absolute;z-index:-2;pointer-events:none;width:104px;height:104px;left:50%;top:50%;transform:translate(-50%,-50%) rotate(8deg);background:var(--hp-lime);-webkit-mask:url("/assets/library-reader/preface-burst-v1.png") center/contain no-repeat;mask:url("/assets/library-reader/preface-burst-v1.png") center/contain no-repeat;filter:drop-shadow(1px 1px 0 var(--hp-ink))}
-@media(max-width:700px){.dyk-slim h2::before{width:48px;height:62px}.dyk-slim h2::after{width:62px;height:62px}}
-@media(max-width:700px){.dyk-slim{margin:16px;padding:14px}.dyk-slim .dyk-inner{grid-template-columns:minmax(0,1fr) auto;gap:12px}.dyk-slim .dyk-stage{grid-column:1/-1;grid-row:2;min-height:96px}.dyk-slim .dyk-slide{min-height:96px}.dyk-slim .dyk-controls{grid-column:2;grid-row:1}.dyk-slim .dyk-copy :is(h3,.dyk-title){font-size:1.04rem}.dyk-slim h2{font-size:1.1rem}}
-.dyk-slim .dyk-copy :is(h3,.dyk-title){max-width:none}.dyk-slim .dyk-stage{display:grid}.dyk-slim .dyk-slide{grid-area:1/1}.dyk-slim .dyk-slide[hidden]{display:grid;visibility:hidden;pointer-events:none}
-@media(max-width:700px){.dyk-slim .dyk-slide,.dyk-slim .dyk-slide[hidden]{display:block}.dyk-slim .dyk-media{float:left;width:56px;height:56px;margin:0 12px 6px 0}.dyk-slim .dyk-media img{width:56px;height:56px}.dyk-slim .dyk-copy{display:contents}.dyk-slim .dyk-copy :is(h3,.dyk-title){font-size:1rem;line-height:1.35}.dyk-slim .dyk-cta{font-size:.95rem}}
-button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-title{display:block}.homepage-radio-pill{text-align:left;cursor:pointer}
-/* Compact transition to the women behind AI; book link spans the existing content width. */
-.why-women-copy{padding-bottom:24px}
-.why-laidies{padding-top:16px}
-#why a.why-full-link:not(.inline-link){display:flex;width:100%;justify-content:space-between;gap:24px;padding:14px 30px;margin-top:28px;border:2px solid var(--hp-orange);border-radius:28px;background:var(--hp-ink);color:var(--hp-orange);text-align:left;font-size:clamp(1.1rem,1.6vw,1.45rem)}
-.why-full-link>span{max-width:42ch}.why-full-link strong{color:var(--hp-lime)}
-.why-full-link>img{display:block;flex:0 0 auto;width:62px;height:94px;object-fit:contain;transform:rotate(5deg)}
-@media(max-width:560px){.why-women-copy{padding-bottom:20px}.why-laidies{padding-top:12px}#why a.why-full-link:not(.inline-link){gap:16px;padding:14px 18px;border-radius:22px}.why-full-link>img{width:50px;height:76px}}
-/* Shared footer keeps the women-feature links beneath both columns. */
-#why .why-laidies{padding-bottom:24px;row-gap:20px}
-#why .why-laidies>.why-links{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0}
-#why .why-laidies>.why-links a{width:100%;height:100%;min-width:0;justify-content:center;text-align:center;padding:12px 20px}
-@media(max-width:900px){#why .why-laidies>.why-links{grid-template-columns:1fr;gap:12px}}
-#why .why-laidies>div:not(.why-links)>p:last-child{margin-bottom:0}
-/* Warm question-desk ground separates Miss Jeeves from her navy clothes. */
-#reference{background:linear-gradient(115deg,var(--hp-pink),var(--hp-coral) 55%,var(--hp-orange));color:var(--hp-ink)}
-#reference::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;background:url('/assets/homepage/pattern-retro-print-v2.png') center/560px auto repeat;filter:grayscale(1) brightness(1.076) contrast(1.529);mix-blend-mode:multiply;opacity:.09}
-#reference :is(p,label,.jeeves-examples>span,.jeeves-answer h3,.jeeves-answer summary),#reference a{color:var(--hp-ink)}
-#reference h2{color:#451b78}
-#reference input{background:var(--hp-orange);color:var(--hp-ink);box-shadow:inset 0 0 0 2px var(--hp-ink)}
-#reference form button{background:var(--hp-ink);color:var(--hp-pink)}
-#reference .jeeves-examples button{background:var(--hp-orange);border-color:var(--hp-ink);color:var(--hp-ink)}
-#reference .jeeves-examples button:nth-of-type(2){background:var(--hp-coral)}
-#reference .jeeves-examples button:nth-of-type(3){background:var(--hp-pink)}
-#reference .jeeves-examples button:hover,#reference .jeeves-examples button:focus-visible{background:var(--hp-ink);color:var(--hp-orange)}
-#reference .jeeves-answer{border-color:var(--hp-ink)}
-#reference .jeeves-answer li{border-color:var(--hp-ink)}
-#reference .jeeves-answer button{background:var(--hp-ink);color:var(--hp-orange)}
-#reference :is(a,button,input,summary):focus-visible{outline:3px solid var(--hp-ink);outline-offset:4px}
-/* Offset the cutout's transparent foot so her hands rest over the panel edge. */
-@media(min-width:601px){
-  .reference.reference-inline{overflow:visible}
-  .reference.reference-inline>.jeeves-corner-cutout{margin-bottom:calc(-1 * clamp(24px,3.4vw,48px));transform:translateY(10%)}
-}
-/* Match the chosen directory heading: Jost Bold, retaining compact banner sizes. */
-.dyk-slim h2,.dyk-slim .dyk-copy :is(h3,.dyk-title,.dyk-cta),.dyk-slim .dyk-controls button{font-family:Jost,sans-serif;font-weight:700;font-style:normal}
-
-/* Current Girl Talk cards, and the plain Jost Bold heading treatment Ali selected. */
-.dyk-slim .dyk-media-cards{position:relative;background:var(--hp-coral)}
-.dyk-slim .dyk-media-cards img{position:absolute;width:46%;height:auto;max-width:none;min-height:0;object-fit:contain;border-radius:3px;top:50%;transform:translateY(-50%)}
-.dyk-slim .dyk-media-cards img:first-child{left:3%}
-.dyk-slim .dyk-media-cards img:last-child{right:3%}
-.intent>div:first-child>h2,.dyk-slim .dyk-copy{-webkit-text-stroke:0;text-shadow:none;font-family:Jost,sans-serif;font-weight:700}
-.dyk-slim{background:linear-gradient(135deg,color-mix(in srgb,var(--hp-purple) 60%,var(--hp-ink)),color-mix(in srgb,var(--hp-cobalt) 50%,var(--hp-ink)))}
-.intent>div:first-child>h2{color:#1b30bd}
-
-.dyk-slim .dyk-media img[src$="fairy-writing-desk.png"]{object-position:left center}
-
-/* Compact excerpts keep the desktop grid even; the complete copy opens separately. */
-.activity-grid.is-compact{grid-auto-rows:1fr;align-items:stretch}
-.activity-grid.is-compact .activity-card-actions{display:grid;gap:8px;margin-top:auto;padding-top:2px}
-.activities .activity-grid.is-compact .activity-more{min-height:44px;width:auto;justify-self:start;padding:6px 0;margin:0;background:none;border:0;box-shadow:none;color:var(--hp-ink);font:700 1rem/1.3 Jost,sans-serif;text-decoration:underline;text-underline-offset:4px;border-radius:4px}
-.activities .activity-grid.is-compact .activity-card-actions>button:last-child{margin:0}
-#activity-detail{box-sizing:border-box;width:min(660px,calc(100% - 32px));max-height:calc(100dvh - 32px);overflow:auto;padding:24px;border:3px solid var(--hp-ink);border-radius:24px;background:linear-gradient(135deg,var(--hp-mint),var(--hp-cyan));color:var(--hp-ink);box-shadow:8px 8px 0 var(--hp-purple)}
-#activity-detail::backdrop{background:rgba(7,15,43,.8)}
-#activity-detail .activity-detail-close{display:block;margin:0 0 16px auto;padding:10px 18px;min-height:44px;background:var(--hp-ink);color:var(--hp-orange);border:2px solid var(--hp-ink);border-radius:999px;font:700 1rem/1.3 Jost,sans-serif}
-#activity-detail h3{margin:0 0 20px;font:700 clamp(1.7rem,4vw,2.3rem)/1.2 Jost,sans-serif;color:var(--hp-ink)}
-#activity-detail p{margin:0 0 18px;font:400 1.125rem/1.5 Jost,sans-serif;color:var(--hp-ink)}
-#activity-detail .activity-detail-go{display:flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:48px;padding:12px 20px;border:2px solid var(--hp-ink);border-radius:999px;background:var(--hp-orange);color:var(--hp-ink);font:700 1.05rem/1.3 Jost,sans-serif;text-decoration:none;text-align:center}
-@media(max-width:560px){.activity-grid.is-compact{grid-auto-rows:auto}.activity-grid.is-compact .activity-card-actions{margin-top:0}}
-
+  /* Approved pink labels for the women feature. */
 #why .why-laidies .women-subheading{color:var(--hp-pink)}
-@media(min-width:1200px){
-#why .why-laidies{max-width:1380px;margin-inline:auto}
-#why .why-laidies>div:not(.why-links)>p{font-size:1.2rem}
-}
-
-/* Restore a pink and blue discovery palette, separately from feature text. */
-.dyk-slim{background:linear-gradient(135deg,color-mix(in srgb,var(--hp-cobalt) 35%,var(--hp-ink)),var(--hp-midnight))}
-.dyk-slim h2{color:var(--hp-pink);-webkit-text-stroke:2px var(--hp-ink);paint-order:stroke fill;text-shadow:none}
-@media(max-width:700px){.dyk-slim h2{justify-self:start;max-width:100%;text-align:center}}
-.dyk-slim .dyk-copy :is(h3,.dyk-title){color:var(--hp-coral)}
-.dyk-slim .dyk-cta{color:var(--hp-sky)}
-.dyk-slim .dyk-media{outline-color:var(--hp-pink)}
-.dyk-slim h2::after{background:var(--hp-lime)}
-.dyk-slim .dyk-arrow,.dyk-slim .dyk-pause{color:var(--hp-sky);border-color:var(--hp-pink)}
-.dyk-slim :is(a,button):focus-visible{outline-color:var(--hp-pink)}
-
-/* Concrete Resident Card benefits: readable beside the existing binder, stacked on phones. */
-.resident-perks{padding-left:1.35em;margin:22px 0 26px}.resident-perks li{padding-left:.15em;margin:0 0 16px}.resident-perks li::marker{color:var(--hp-purple)}
 /* Keep the complete visual and prose together; shared actions belong beneath both. */
 #why .why-laidies{max-width:1380px;margin-inline:auto;padding-bottom:24px;row-gap:20px}
 #why .why-laidies>.why-links{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0}
@@ -1201,7 +1052,7 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
 @media(max-width:700px){#why .why-laidies>.why-links{grid-template-columns:1fr;gap:12px}}
 </style>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260906-shared-radio"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260823-resident-truth-4f8af546d716"></script>
   <script defer src="/content/site/sv-nav-auth.js?v=20260823-resident-truth-a6e7832439e1"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <!-- Privacy-friendly analytics by Plausible -->
@@ -1219,9 +1070,64 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
     })(window, document, "clarity", "script", "xnqcp37urd");
   </script>
   <link rel="canonical" href="https://laidies.ai/" />
+<link rel="stylesheet" href="/content/site/ai-letter-arrival/arrival.css">
+<script src="/content/site/ai-letter-arrival/layers.js" defer></script>
+<script src="/content/site/ai-letter-arrival/arrival.js" defer></script>
 <style id="women-heading-contrast">
 /* Keep the women-feature title legible across its pink and purple background. */
 #why #why-laidies-title{color:var(--hp-lime);-webkit-text-stroke:1.5px var(--hp-ink);paint-order:stroke fill;text-shadow:0 2px 0 var(--hp-ink)}
+</style>
+<link rel="stylesheet" href="/content/site/newsstand-home-preview-v1.css">
+<style id="restored-homepage-discovery">
+.directory-disclosure>summary{display:flex;align-items:center;justify-content:center;gap:14px;box-sizing:border-box;width:100%;min-height:60px;padding:16px 24px;list-style:none;border:3px solid var(--hp-ink);border-radius:999px;background:var(--hp-lime);color:var(--hp-ink);font:800 clamp(1.05rem,1.5vw,1.4rem)/1.25 Jost,sans-serif;text-align:center;cursor:pointer;box-shadow:5px 5px 0 var(--hp-ink)}
+.directory-disclosure>summary::-webkit-details-marker{display:none}.directory-disclosure>summary:hover{background:var(--hp-mint)}.directory-disclosure>summary:focus-visible{outline:4px solid var(--hp-paper);outline-offset:5px}.directory-disclosure[open]>summary{margin-bottom:28px}.directory-disclosure .directory-close,.directory-disclosure[open] .directory-show{display:none}.directory-disclosure[open] .directory-close{display:inline}.directory-disclosure .directory-symbol{font-size:1.5em;line-height:1}
+.dyk-slim{margin:18px clamp(20px,5vw,72px);padding:14px 22px;border:3px solid var(--hp-ink);border-radius:24px;background:linear-gradient(135deg,var(--hp-mint),var(--hp-cyan));color:var(--hp-paper)}
+.dyk-slim .dyk-inner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:22px;max-width:none}.dyk-slim h2{position:relative;isolation:isolate;margin:0;color:var(--hp-orange);font:800 clamp(1.15rem,1.8vw,1.55rem)/1.1 Jost,sans-serif}.dyk-slim .dyk-stage{min-width:0;min-height:80px}.dyk-slim .dyk-slide{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;align-items:center;min-height:80px;padding:0;border:0;border-radius:0;box-shadow:none;background:transparent;color:var(--hp-orange)}.dyk-slim .dyk-slide[hidden]{display:none}.dyk-slim .dyk-media{width:72px;height:72px;min-height:0;border-radius:12px;overflow:hidden;outline:2px solid var(--hp-lime);outline-offset:0}.dyk-slim .dyk-media img{display:block;width:72px;height:72px;min-height:0;object-fit:cover}.dyk-slim .dyk-copy{padding:0;min-width:0;align-self:center}.dyk-slim .dyk-copy :is(h3,.dyk-title){margin:0 0 6px;color:var(--hp-orange);font:600 clamp(1rem,1.25vw,1.2rem)/1.3 Jost,sans-serif}.dyk-slim .dyk-cta{display:inline;min-height:0;line-height:1.3;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:var(--hp-orange);font-size:1rem;font-weight:800;text-decoration:underline;text-underline-offset:4px}.dyk-slim .dyk-controls{display:flex;gap:6px;margin:0;justify-content:flex-end}.dyk-slim .dyk-arrow,.dyk-slim .dyk-pause{min-width:44px;height:44px;padding:0 10px;border:2px solid var(--hp-ink);border-radius:999px;background:var(--hp-midnight);color:var(--hp-mint);font:800 .9rem/1 Jost,sans-serif;cursor:pointer}.dyk-slim .dyk-arrow{font-size:1.6rem}.dyk-slim :is(a,button):focus-visible{outline:3px solid var(--hp-ink);outline-offset:4px}.dyk-slim .dyk-controls[hidden]{display:none}
+
+.dyk-slim .dyk-slide:hover .dyk-cta{background:transparent}.dyk-slim .dyk-media-jeeves{background:linear-gradient(135deg,var(--hp-coral),var(--hp-pink))}.dyk-slim .dyk-media-ada img{object-position:center top}
+.dyk-slim .dyk-media-mall{position:relative}.dyk-slim .dyk-media.dyk-media-mall img{position:absolute;max-width:none;width:466.6667%;height:auto;left:-308.3333%;top:-33.3333%}
+
+.dyk-slim h2,.dyk-slim .dyk-copy{-webkit-text-stroke:2px var(--hp-ink);paint-order:stroke fill}.dyk-slim .dyk-copy :is(h3,.dyk-title,.dyk-cta){paint-order:stroke fill}.dyk-slim .dyk-cta{color:var(--hp-lime)}.dyk-slim h2::before{content:"";position:absolute;z-index:-1;pointer-events:none;width:88px;height:110px;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-12deg);background:url("/assets/homepage/did-you-know-question-mark-20260906.webp") center/contain no-repeat}
+.dyk-slim h2::after{content:"";position:absolute;z-index:-2;pointer-events:none;width:104px;height:104px;left:50%;top:50%;transform:translate(-50%,-50%) rotate(8deg);background:var(--hp-lime);-webkit-mask:url("/assets/library-reader/preface-burst-v1.png") center/contain no-repeat;mask:url("/assets/library-reader/preface-burst-v1.png") center/contain no-repeat;filter:drop-shadow(1px 1px 0 var(--hp-ink))}
+@media(max-width:700px){.dyk-slim h2::before{width:48px;height:62px}.dyk-slim h2::after{width:62px;height:62px}}
+@media(max-width:700px){.dyk-slim{margin:16px;padding:14px}.dyk-slim .dyk-inner{grid-template-columns:minmax(0,1fr) auto;gap:12px}.dyk-slim .dyk-stage{grid-column:1/-1;grid-row:2;min-height:96px}.dyk-slim .dyk-slide{min-height:96px}.dyk-slim .dyk-controls{grid-column:2;grid-row:1}.dyk-slim .dyk-copy :is(h3,.dyk-title){font-size:1.04rem}.dyk-slim h2{font-size:1.1rem}}
+.dyk-slim .dyk-copy :is(h3,.dyk-title){max-width:none}.dyk-slim .dyk-stage{display:grid}.dyk-slim .dyk-slide{grid-area:1/1}.dyk-slim .dyk-slide[hidden]{display:grid;visibility:hidden;pointer-events:none}
+@media(max-width:700px){.dyk-slim .dyk-slide,.dyk-slim .dyk-slide[hidden]{display:block}.dyk-slim .dyk-media{float:left;width:56px;height:56px;margin:0 12px 6px 0}.dyk-slim .dyk-media img{width:56px;height:56px}.dyk-slim .dyk-copy{display:contents}.dyk-slim .dyk-copy :is(h3,.dyk-title){font-size:1rem;line-height:1.35}.dyk-slim .dyk-cta{font-size:.95rem}}
+button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-title{display:block}.homepage-radio-pill{text-align:left;cursor:pointer}
+
+/* Match the chosen directory heading: Jost Bold, retaining compact banner sizes. */
+.dyk-slim h2,.dyk-slim .dyk-copy :is(h3,.dyk-title,.dyk-cta),.dyk-slim .dyk-controls button{font-family:Jost,sans-serif;font-weight:700;font-style:normal}
+
+/* Current Girl Talk cards, and the plain Jost Bold heading treatment Ali selected. */
+.dyk-slim .dyk-media-cards{position:relative;background:var(--hp-coral)}
+.dyk-slim .dyk-media-cards img{position:absolute;width:46%;height:auto;max-width:none;min-height:0;object-fit:contain;border-radius:3px;top:50%;transform:translateY(-50%)}
+.dyk-slim .dyk-media-cards img:first-child{left:3%}
+.dyk-slim .dyk-media-cards img:last-child{right:3%}
+.dyk-slim .dyk-copy{-webkit-text-stroke:0;text-shadow:none;font-family:Jost,sans-serif;font-weight:700}
+.dyk-slim{background:linear-gradient(135deg,color-mix(in srgb,var(--hp-purple) 60%,var(--hp-ink)),color-mix(in srgb,var(--hp-cobalt) 50%,var(--hp-ink)))}
+
+
+.dyk-slim .dyk-media img[src$="fairy-writing-desk.png"]{object-position:left center}
+
+
+/* Restore a pink and blue discovery palette, separately from feature text. */
+.dyk-slim{background:linear-gradient(135deg,color-mix(in srgb,var(--hp-cobalt) 35%,var(--hp-ink)),var(--hp-midnight))}
+.dyk-slim h2{color:var(--hp-pink);-webkit-text-stroke:2px var(--hp-ink);paint-order:stroke fill;text-shadow:none}
+@media(max-width:700px){.dyk-slim h2{justify-self:start;max-width:100%;text-align:center}}
+.dyk-slim .dyk-copy :is(h3,.dyk-title){color:var(--hp-coral)}
+.dyk-slim .dyk-cta{color:var(--hp-sky)}
+.dyk-slim .dyk-media{outline-color:var(--hp-pink)}
+.dyk-slim h2::after{background:var(--hp-lime)}
+.dyk-slim .dyk-arrow,.dyk-slim .dyk-pause{color:var(--hp-sky);border-color:var(--hp-pink)}
+.dyk-slim :is(a,button):focus-visible{outline-color:var(--hp-pink)}
+
+
+.hero-dusk .hero-jumps{width:min(1000px,calc(100% - clamp(48px,14vw,224px)));grid-template-columns:repeat(3,minmax(0,1fr))}
+.hero-jumps .mast-find{background:var(--hp-lime)}
+#today{scroll-margin-top:85px}
+@media(max-width:820px){.hero-dusk .hero-jumps{width:calc(100% - 44px);margin:0 22px}}
+@media(max-width:600px){.hero-dusk .hero-jumps{grid-template-columns:1fr}}
+
 </style>
 <style id="directory-bright-copy">
 .feature-directory{background:linear-gradient(120deg,#2051cf,#234bd0)}
@@ -1234,25 +1140,23 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
 <header class="topbar">
     <a class="logo" href="#top" aria-label="LAiDIES home">L<span class="lac">A</span><span class="logo-iw"><span class="lac">&#305;</span><span class="logo-tit" aria-hidden="true"></span></span>DIES</a>
     <nav aria-label="Primary">
-      <a href="/issues/issue-01.html">Start learning</a><a href="/newsstand.html">Read the headlines</a><a data-latest-episode-link href="/issues/issue-04.html">Latest episode</a><a href="#town">Explore the town</a><a class="signin-link" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></nav>
+      <a href="#method">Start learning</a><a href="/newsstand.html">Read the headlines</a><a data-latest-episode-link href="/issues/issue-04.html">Latest episode</a><a href="#town">Explore the town</a><a class="signin-link" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></nav>
     <button class="menu" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
   </header>
   <aside class="makeover-notice" aria-label="Temporary website notice">
-    <details><summary>LAiDIES is in the middle of its makeover montage.</summary><p>Some features have yet to roll out, and some pages may not work quite as intended. There is still great content on the site, but bear with us while we take off our glasses, shake out our hair and put on our power outfit.</p></details>
+    <strong>LAiDIES.ai is currently in the middle of its makeover montage.</strong>
+    <p>Some features have yet to roll out, and some pages may not work quite as intended. There is still great content on the site, but bear with us while we take off our glasses, shake out our hair and put on our power outfit.</p>
   </aside>
-  <div id="mobile-nav" class="mobile-nav" role="navigation" aria-label="Menu" hidden><a href="/issues/issue-01.html">Start learning</a><a href="/newsstand.html">Read the headlines</a><a data-latest-episode-link href="/issues/issue-04.html">Latest episode</a><a href="#town">Explore the town</a><a data-library-entry="mobile-menu" href="/library.html">LIBRAiRY</a><a href="#activities">Games and tools</a><a class="nav-ksvl" href="/radio.html">KSVL 99.9</a><a class="signin-link" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></div>
+  <div id="mobile-nav" class="mobile-nav" role="navigation" aria-label="Menu" hidden><a href="#method">Start learning</a><a href="/newsstand.html">Read the headlines</a><a data-latest-episode-link href="/issues/issue-04.html">Latest episode</a><a href="#town">Explore the town</a><a data-library-entry="mobile-menu" href="/library.html">LIBRAiRY</a><a href="#activities">Games and tools</a><a class="nav-ksvl" href="/radio.html">KSVL 99.9</a><a class="signin-link" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="join-btn" href="/maikeover.html">Join the town</a></div>
 
   <main id="top" tabindex="-1">
     <section class="hero hero-dusk" aria-labelledby="hero-title">
       <img loading="eager" fetchpriority="high" decoding="async" src="assets/sunnyvaile-streets/main-street-dusk.webp" alt="SUNNYVAiLE's MAiN Street at dusk, storefronts and neon signs glowing">
-      <div class="hero-arrival" data-home-arrival hidden aria-label="Dialling up to SUNNYVAiLE">
-        <video muted playsinline preload="auto" aria-label="LAiDIES dial-up arrival animation">
-          <source src="/assets/homepage/arrival/dial-up-to-sunnyvaile-v1.mp4" type="video/mp4">
-        </video>
-        <div class="hero-arrival-controls">
-          <button type="button" data-arrival-pause>Pause arrival</button>
-          <button type="button" data-arrival-skip>Skip arrival</button>
-        </div>
+      <div class="original-arrival" data-original-arrival hidden aria-label="LAiDIES arrival">
+        <div class="original-arrival__screen" data-screen aria-hidden="true"><canvas class="original-arrival__canvas" width="960" height="540"></canvas><video class="original-arrival__video" muted playsinline preload="auto" poster="/content/site/ai-original-arrival/poster.png" src="/content/site/ai-original-arrival/original.mp4"></video></div>
+        <div class="original-arrival__dial" data-dial aria-hidden="true"><div class="original-arrival__bar"><span>SUNNYVAiLE · DIAL-UP CONNECTION</span><span>×</span></div><h2>Dialling up to SUNNYVAiLE…</h2><div class="original-arrival__meter"><span data-meter></span></div><p data-state>CONNECTING…</p></div>
+        <div class="original-arrival__tracking" data-tracking aria-hidden="true"></div>
+        <div class="original-arrival__controls"><button type="button" data-arrival-pause>Pause arrival</button><button type="button" data-arrival-skip>Skip arrival</button></div>
       </div>
       <div class="hero-shade"></div>
       <div class="hero-copy">
@@ -1260,11 +1164,25 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
         <h1 id="hero-title">AI fluency, taught through the pop culture you <em>never forgot.</em> <span class="hero-tagline">Made to click. Built to stick.</span></h1>
         <p class="lede">LAiDIES helps women understand and use AI through stories, practical tools, games, music and community. Welcome to the <strong class="rewind-accent">Rewind Era</strong>—twenty years of pop culture, from dial-up to downloads (1990–2010)—and to <span class="town-accent">SUNNYVAiLE</span>, the learning town where <strong class="power-accent">Girl Power meets Machine Power</strong>.</p>
         <p class="namecheck"><strong>Be kind, rewind.</strong> Put the pop-culture encyclopedia in your head to work on what comes next.</p>
+      <button class="arrival-replay" type="button" data-arrival-replay hidden>Replay arrival</button>
         </div>
       <div class="actions hero-jumps" role="group" aria-label="Learn about LAiDIES">
         <a class="button mast-why" href="#why">Why women must shape AI</a>
         <a class="button mast-how" href="#method">How LAiDIES works</a>
         <a class="button mast-find" href="#today">Find what I need</a>
+      </div>
+    </section>
+
+    <section class="town-switchboard-hero" aria-labelledby="town-switchboard-title" hidden>
+      <div class="town-switchboard-inner">
+        <header class="town-switchboard-head"><div><p class="eyebrow">Around SUNNYVAiLE</p><h2 id="town-switchboard-title">Pick your next stop.</h2></div><p>See what is new, ask a question, put on the radio or find something useful to try.</p></header>
+        <div class="town-switchboard-grid">
+          <a class="town-switchboard-card town-switchboard-news" data-switchboard-news href="/newsstand.html"><img src="/assets/homepage/original-restoration-20260829/newsstand-building.jpg" alt="The SUNNYVAiLE NewsStand"><div class="town-switchboard-copy"><span class="town-switchboard-kicker" data-switchboard-news-kicker>At the NewsStand</span><h3 data-switchboard-news-title>See the latest headlines.</h3><p data-switchboard-news-summary>PAiGE gathers released reporting and explains what it means in real life.</p><span class="town-switchboard-go">Read the NewsStand &rarr;</span></div></a>
+          <a class="town-switchboard-card town-switchboard-radio" href="/radio.html"><img src="/assets/building-interiors/ksvl-sticker-banner.jpg" alt="KSVL 99.9, SUNNYVAiLE's radio station"><div class="town-switchboard-copy"><span class="town-switchboard-kicker">Now playing</span><h3>KSVL 99.9 is on the air.</h3><p>Hear LAiDIES original songs, lesson hooks and Rewind Era radio.</p><span class="town-switchboard-go">Listen to KSVL &rarr;</span></div></a>
+          <a class="town-switchboard-card town-switchboard-jeeves" href="#reference"><img loading="lazy" src="/assets/sunnyvaile-buildings/y2k-v3/03-town-library.webp" alt="The SUNNYVAiLE LIBRAiRY"><div class="town-switchboard-copy"><span class="town-switchboard-kicker">Your AI reference desk</span><h3>Ask Miss Jeeves.</h3><p>She searches LAiDIES books, episodes, NewsStand stories, Study Packs, tools and activities.</p><span class="town-switchboard-go">Ask a question &rarr;</span></div></a>
+          <a class="town-switchboard-card town-switchboard-games" href="/fun-connect.html"><img loading="lazy" src="/assets/homepage/original-restoration-20260829/puffy-binder.webp" alt="A Rewind Era binder covered with LAiDIES keepsakes"><div class="town-switchboard-copy"><span class="town-switchboard-kicker">Games, tools and quick diversions</span><h3>Find something useful or fun.</h3><p>Get help with a draft, investigate a claim, pull a card or start a conversation.</p><span class="town-switchboard-go">Explore games and tools &rarr;</span></div></a>
+        </div>
+        <a class="town-switchboard-resume" data-switchboard-resume href="#this-week" hidden><strong>Continue where you left off.</strong><span>Return to your released episode &rarr;</span></a>
       </div>
     </section>
 
@@ -1318,47 +1236,33 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
       <div><p class="eyebrow">Come for the whole story or one useful thing</p><h2 id="intent-title">What brought you to town today?</h2><p>You do not need to learn the town before you can use it.</p></div>
       <div class="intent-grid intent-grid-5">
         <a href="/learn.html"><img decoding="async" src="assets/sunnyvaile-buildings/y2k-v3/03-town-library.webp" alt="The SUNNYVAiLE LIBRAiRY entrance"><div><strong>I want to learn</strong><span>Find learning resources, including books, tips, explanations, and guides.</span></div></a>
-        <a href="/learn.html#help-now"><img decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A colourful desk ready for an AI question"><div><strong>I have an AI question</strong><span>Start with a question, prompt, draft or decision.</span></div></a>
+        <a href="#reference"><img decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A colourful desk ready for an AI question"><div><strong>I have an AI question</strong><span>Ask Miss Jeeves anything about AI: why something is happening, what a headline means, which tool or model fits, or how to do a task.</span></div></a>
         <a href="/newsstand.html" data-intent-news><img decoding="async" src="assets/town-characters/scenes/paige-newsstand-current-palette-20260823.png" alt="PAiGE at the SUNNYVAiLE NewsStand"><div><strong data-intent-news-title>I want today&rsquo;s headline explained</strong><span data-intent-news-summary>See current released reporting and what it means in real life.</span></div></a>
-        <a href="#this-week" data-intent-episode data-latest-episode-link><img decoding="async" src="assets/homepage/original-restoration-20260829/chick-flicks-postcard.webp" alt="The Chick Flicks video rental store"><div><strong data-intent-episode-title>Continue or catch the latest episode</strong><span data-intent-episode-summary data-latest-episode-title>Episode 04: The Founding Mothers.</span></div></a>
+        <a href="#this-week" data-intent-episode data-latest-episode-link><img decoding="async" src="assets/homepage/original-restoration-20260829/chick-flicks-postcard.webp" alt="The Chick Flicks video rental store"><div><strong data-intent-episode-title>Continue or catch the latest episode</strong><span data-intent-episode-summary>Episode 04: The Founding Mothers.</span></div></a>
         <a href="/radio.html"><img decoding="async" src="assets/building-interiors/ksvl-sticker-banner.jpg" alt="KSVL 99.9, SUNNYVAiLE's radio station"><div><strong>I want something to listen to</strong><span>Tune into KSVL 99.9 for LAiDIES original songs and Rewind Era radio.</span></div></a>
         <a href="/fun-connect.html"><img decoding="async" src="assets/homepage/activity-landscapes-20260831/girl-talk.png" alt="Truth and Dare card stacks with lavender and pink flip-phone artwork"><div><strong>I want something useful or fun</strong><span>Find games, practical tools, drinks, conversation and the LAiDIES at Delta LAi Nu.</span></div></a>
       </div>
     </section>
 
-    <section class="feature-directory" id="full-directory" aria-labelledby="feature-directory-title" data-feature-directory>
-      <header class="feature-directory-head"><div><p class="eyebrow">Browse the whole town</p><h2 id="feature-directory-title">Everything you can do in LAiDIES.</h2></div><p>Books, episodes, answers, advice, games and a whole town to explore. Go straight to what interests you.</p></header>
+    <section class="feature-directory" aria-labelledby="feature-directory-title" data-feature-directory>
+      <header class="feature-directory-head"><div><p class="eyebrow">Browse the whole town</p><h2 id="feature-directory-title">Everything you can do in LAiDIES.</h2></div><p>The six doors above get you started. This directory makes the rest visible, so you can discover something you did not arrive looking for.</p></header>
       <details class="directory-disclosure">
-        <summary><span class="directory-show">Show the full directory</span><span class="directory-close">Close the directory</span><span class="directory-show directory-symbol" aria-hidden="true">+</span><span class="directory-close directory-symbol" aria-hidden="true">−</span></summary>
+      <summary><span class="directory-show">Show the full directory</span><span class="directory-close">Close the directory</span><span class="directory-show directory-symbol" aria-hidden="true">+</span><span class="directory-close directory-symbol" aria-hidden="true">−</span></summary>
       <div class="feature-directory-groups">
         <article class="feature-group"><h3>Learn and understand.</h3><ul>
-          <li><a href="/learn.html"><span class="feature-link-copy"><strong>Learning routes</strong><small>Find books, explainers, people and practical guidance.</small></span></a></li><li><a href="/library.html"><span class="feature-link-copy"><strong>Books and guides</strong><small>Browse the LAiDIES learning and reference collection.</small></span></a></li><li><a href="#reference"><span class="feature-link-copy"><strong>Ask Miss Jeeves</strong><small>Find answers to technical AI questions in LAiDIES resources.</small></span></a></li><li><a href="/newsstand.html"><span class="feature-link-copy"><strong>NewsStand</strong><small>Understand current AI headlines and why they matter.</small></span></a></li><li><a href="/luminairy.html"><span class="feature-link-copy"><strong>LUMINAiRY</strong><small>Meet the women who built computing and are shaping AI.</small></span></a></li><li><a href="/blend-snap.html"><span class="feature-link-copy"><strong>Blend &amp; Snap</strong><small>Find your episode&rsquo;s practice activities and field trips.</small></span></a></li><li><a href="/sunnyvaile-high.html"><span class="feature-link-copy"><strong>SUNNYVAiLE High</strong><small>Test what you learned with quizzes and activities.</small></span></a></li>
+          <li><a href="/learn.html"><span class="feature-link-copy"><strong>Learning hub</strong><small>Find books, explainers, people and practical guidance.</small></span></a></li><li><a href="/library.html"><span class="feature-link-copy"><strong>Books and guides</strong><small>Browse the LAiDIES learning and reference collection.</small></span></a></li><li><a href="#reference"><span class="feature-link-copy"><strong>Ask Miss Jeeves</strong><small>Ask why AI is behaving that way, what a headline means, which tool or model to use, or how to do something.</small></span></a></li><li><a href="/newsstand.html"><span class="feature-link-copy"><strong>NewsStand</strong><small>Understand current AI headlines and why they matter.</small></span></a></li><li><a href="/luminairy.html"><span class="feature-link-copy"><strong>LUMINAiRY</strong><small>Meet the women who built computing and are shaping AI.</small></span></a></li><li><a href="/blend-snap.html"><span class="feature-link-copy"><strong>Blend &amp; Snap</strong><small>Open practical Study Packs, Try-Ons and teaching cards.</small></span></a></li><li><a href="/sunnyvaile-high.html"><span class="feature-link-copy"><strong>SUNNYVAiLE High</strong><small>Test what you learned with quizzes and activities.</small></span></a></li>
         </ul></article>
         <article class="feature-group"><h3>Watch and listen.</h3><ul>
-          <li><a data-latest-episode-link href="/issues/issue-04.html"><span class="feature-link-copy"><strong>Latest episode</strong><small data-latest-episode-title>Episode 04: The Founding Mothers</small></span></a></li><li><a href="/chick-flicks.html"><span class="feature-link-copy"><strong>Chick Flicks</strong><small>Find every episode in order at the video store.</small></span></a></li><li><a href="/radio.html"><span class="feature-link-copy"><strong>KSVL 99.9</strong><small>Hear original songs that make the AI lessons stick.</small></span></a></li><li><a href="#this-week"><span class="feature-link-copy"><strong>Wednesday route</strong><small>Choose your stops for the week&rsquo;s episode.</small></span></a></li><li><a href="/visitors-centre.html"><span class="feature-link-copy"><strong>Visitor&rsquo;s Centre</strong><small>Get oriented before you explore the town.</small></span></a></li>
+          <li><a data-latest-episode-link href="/issues/issue-04.html"><span class="feature-link-copy"><strong>Latest episode</strong><small>Continue the SUNNYVAiLE story and its next AI lesson.</small></span></a></li><li><a href="/chick-flicks.html"><span class="feature-link-copy"><strong>Chick Flicks</strong><small>Find every episode in order at the video store.</small></span></a></li><li><a href="/radio.html"><span class="feature-link-copy"><strong>KSVL 99.9</strong><small>Hear original songs that make the AI lessons stick.</small></span></a></li><li><a href="#this-week"><span class="feature-link-copy"><strong>Wednesday route</strong><small>Follow the weekly eight-stop learning route.</small></span></a></li><li><a href="/visitors-centre.html"><span class="feature-link-copy"><strong>Visitor&rsquo;s Centre</strong><small>Get oriented before you explore the town.</small></span></a></li>
         </ul><figure class="feature-group-art"><img loading="lazy" decoding="async" src="/assets/building-interiors/ksvl-sticker-banner.jpg" alt="A colourful collage of KSVL 99.9 radio stickers"><figcaption>Now playing: original LAiDIES songs and Rewind Era radio.</figcaption></figure></article>
         <article class="feature-group"><h3>Use and have fun.</h3><ul>
-          <li><a href="/games/fairy-godmother.html"><span class="feature-link-copy"><strong>FAiRY Godmother</strong><small>Get work or career advice and learn to ask your own AI for tailored help.</small></span></a></li><li><a href="/fun-connect.html"><span class="feature-link-copy"><strong>All games and tools</strong><small>Find practical help, decisions, laughs and connection.</small></span></a></li><li><a href="/games/madame-claio.html"><span class="feature-link-copy"><strong>Mme CLAi-O</strong><small>Pull a Rewind Era card for a playful reading.</small></span></a></li><li><a href="/games/businesswomens-special.html"><span class="feature-link-copy"><strong>Businesswomen&rsquo;s Special</strong><small>Pick a drink and conversation prompt for the table.</small></span></a></li><li><a href="/games/dream-phone.html"><span class="feature-link-copy"><strong>Dream Phone</strong><small>Pick a personality and Just Call for playful advice.</small></span></a></li><li><a href="/mall.html"><span class="feature-link-copy"><strong>The Mall</strong><small>Browse the Rewind Era reference catalogue.</small></span></a></li><li><a href="/bronze-aige.html"><span class="feature-link-copy"><strong>BRONZE AiGE</strong><small>Find happy-hour tools and conversation starters.</small></span></a></li>
+          <li><a href="/games/fairy-godmother.html"><span class="feature-link-copy"><strong>FAiRY Godmother</strong><small>Improve a prompt or draft with guided feedback.</small></span></a></li><li><a href="/fun-connect.html"><span class="feature-link-copy"><strong>All games and tools</strong><small>Find practical help, decisions, laughs and connection.</small></span></a></li><li><a href="/games/madame-claio.html"><span class="feature-link-copy"><strong>Mme CLAi-O</strong><small>Pull a Rewind Era card for a playful reading.</small></span></a></li><li><a href="/games/businesswomens-special.html"><span class="feature-link-copy"><strong>Businesswomen&rsquo;s Special</strong><small>Pick a drink and conversation prompt for the table.</small></span></a></li><li><a href="/games/dream-phone.html"><span class="feature-link-copy"><strong>Dream Phone</strong><small>Call a town character or investigate an AI claim.</small></span></a></li><li><a href="/mall.html"><span class="feature-link-copy"><strong>The Mall</strong><small>Browse the Rewind Era reference catalogue.</small></span></a></li><li><a href="/bronze-aige.html"><span class="feature-link-copy"><strong>BRONZE AiGE</strong><small>Find happy-hour tools and conversation starters.</small></span></a></li>
         </ul></article>
         <article class="feature-group"><h3>Belong and explore.</h3><ul>
-          <li><a href="#town"><span class="feature-link-copy"><strong>Explore SUNNYVAiLE</strong><small>Open the map and visit every town building.</small></span></a></li><li><a href="/sorority-house.html"><span class="feature-link-copy"><strong>Delta LAi Nu</strong><small>Visit the community home, its rooms and Girl Talk.</small></span></a></li><li><a href="/games/girl-talk.html"><span class="feature-link-copy"><strong>Girl Talk</strong><small>Choose a truth or dare and play on your own terms.</small></span></a></li><li><a href="/maikeover.html"><span class="feature-link-copy"><strong>Make a Resident Card</strong><small>Create your town ID and begin your Resident experience.</small></span></a></li><li><a href="/laidies-card.html"><span class="feature-link-copy"><strong>Open your Closet</strong><small>See your Card, supported saves and keepsakes.</small></span></a></li><li><a href="/post-office.html"><span class="feature-link-copy"><strong>Post Office</strong><small>Request the weekly Postcard and discover town mail.</small></span></a></li><li><a href="/town-hall.html"><span class="feature-link-copy"><strong>Town Hall</strong><small>Meet Mayor Deb, read notices and share feedback.</small></span></a></li>
+          <li><a href="#town"><span class="feature-link-copy"><strong>Explore SUNNYVAiLE</strong><small>Open the map and visit every town building.</small></span></a></li><li><a href="/sorority-house.html"><span class="feature-link-copy"><strong>Delta LAi Nu</strong><small>Visit the community home, its rooms and Girl Talk.</small></span></a></li><li><a href="/games/girl-talk.html"><span class="feature-link-copy"><strong>Girl Talk</strong><small>Try the private honour-system truth-or-dare game.</small></span></a></li><li><a href="/maikeover.html"><span class="feature-link-copy"><strong>Make a Resident Card</strong><small>Create your town ID and begin your Resident experience.</small></span></a></li><li><a href="/laidies-card.html"><span class="feature-link-copy"><strong>Open your Closet</strong><small>See your Card, supported saves and keepsakes.</small></span></a></li><li><a href="/post-office.html"><span class="feature-link-copy"><strong>Post Office</strong><small>Request the weekly Postcard and discover town mail.</small></span></a></li><li><a href="/town-hall.html"><span class="feature-link-copy"><strong>Town Hall</strong><small>Meet Mayor Deb, read notices and share feedback.</small></span></a></li>
         </ul></article>
       </div>
-      <button class="homepage-radio-pill" type="button" data-ksvl-start-live><span class="radio-pill-name">KSVL 99.9 <span aria-hidden="true">▶</span></span><span><strong>SUNNYVAiLE’s radio station.</strong> Original LAiDIES songs turn the AI lessons into hooks you can sing back. Put it on while you explore.</span><b>Listen now</b></button>
-      </details>
-    </section>
-
-    <section class="town-switchboard-hero" aria-labelledby="town-switchboard-title" hidden>
-      <div class="town-switchboard-inner">
-        <header class="town-switchboard-head"><div><p class="eyebrow">Around SUNNYVAiLE</p><h2 id="town-switchboard-title">Pick your next stop.</h2></div><p>See what is new, ask a question, put on the radio or find something useful to try.</p></header>
-        <div class="town-switchboard-grid">
-          <a class="town-switchboard-card town-switchboard-news" data-switchboard-news href="/newsstand.html"><img src="/assets/homepage/original-restoration-20260829/newsstand-building.jpg" alt="The SUNNYVAiLE NewsStand"><div class="town-switchboard-copy"><span class="town-switchboard-kicker" data-switchboard-news-kicker>At the NewsStand</span><h3 data-switchboard-news-title>See the latest headlines.</h3><p data-switchboard-news-summary>PAiGE follows AI news and explains what it means in real life.</p><span class="town-switchboard-go">Read the NewsStand &rarr;</span></div></a>
-          <a class="town-switchboard-card town-switchboard-radio" href="/radio.html"><img src="/assets/building-interiors/ksvl-sticker-banner.jpg" alt="KSVL 99.9, SUNNYVAiLE's radio station"><div class="town-switchboard-copy"><span class="town-switchboard-kicker">Now playing</span><h3>KSVL 99.9 is on the air.</h3><p>Hear LAiDIES original songs, lesson hooks and Rewind Era radio.</p><span class="town-switchboard-go">Listen to KSVL &rarr;</span></div></a>
-          <a class="town-switchboard-card town-switchboard-jeeves" href="#reference"><img loading="lazy" src="/assets/sunnyvaile-buildings/y2k-v3/03-town-library.webp" alt="The SUNNYVAiLE LIBRAiRY"><div class="town-switchboard-copy"><span class="town-switchboard-kicker">Your AI reference desk</span><h3>Ask Miss Jeeves.</h3><p>She searches LAiDIES books, episodes, NewsStand stories, Study Packs, tools and activities.</p><span class="town-switchboard-go">Ask a question &rarr;</span></div></a>
-          <a class="town-switchboard-card town-switchboard-games" href="/fun-connect.html"><img loading="lazy" src="/assets/homepage/original-restoration-20260829/puffy-binder.webp" alt="A Rewind Era binder covered with LAiDIES keepsakes"><div class="town-switchboard-copy"><span class="town-switchboard-kicker">Games, tools and quick diversions</span><h3>Find something useful or fun.</h3><p>Get help with a draft, investigate a claim, pull a card or start a conversation.</p><span class="town-switchboard-go">Explore games and tools &rarr;</span></div></a>
-        </div>
-        <a class="town-switchboard-resume" data-switchboard-resume href="#this-week" hidden><strong>Continue where you left off.</strong><span>Return to your episode &rarr;</span></a>
-      </div>
+    </details>
     </section>
 
     <section class="why-women" id="why" aria-labelledby="why-title">
@@ -1370,11 +1274,11 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
         </div>
         <p class="why-reasons-intro">So why should women engage and participate with AI when we are already so busy?</p>
         <div class="why-reasons" aria-label="Three ways women can help shape AI">
-          <article><strong>Use it better. Take your career further.</strong><em class="book-quote"><span class="quote-label quote-from">From</span> <span class="quote-text">&ldquo;ARGH, WTF?&rdquo;</span> <span class="quote-label quote-to">to</span> <span class="quote-text">&ldquo;Ah. That&rsquo;s why.&rdquo;</span></em><span>What you ask, what context you provide, what the system can see and how you evaluate its answer can all change the result. Understand why an AI tool has gone off track&mdash;and what you can do about it. These are practical career skills: strengthening your work, exercising judgment and preparing for new responsibilities.</span></article>
-          <article><strong>See through the noise. Make sound decisions.</strong><em class="book-quote"><span class="quote-label quote-from">From</span> <span class="quote-text">&ldquo;OMG, the end is nigh!&rdquo;</span> <span class="quote-label quote-to">to</span> <span class="quote-text">&ldquo;Ugh, as if.&rdquo;</span></em><span>You cannot cut through that noise by memorising a list of approved opinions. You need enough of the fundamentals to ask: What evidence supports the claim? What does the demonstration leave out? What would have to be true for this prediction to happen? That is how you evaluate a tool, a workplace proposal or a headline on its merits.</span></article>
-          <article><strong>Have a say. Help change the defaults.</strong><em class="book-quote"><span class="quote-label quote-from">From</span> <span class="quote-text">&ldquo;Whatever&rdquo;</span> <span class="quote-label quote-to">to</span> <span class="quote-text">&ldquo;RSVP: Yes. I have notes!&rdquo;</span></em><span>Once you understand how AI works, you can participate meaningfully in decisions about what happens next. These debates are already happening&mdash;in workplaces, governments, schools, city halls and homes. Refusing to engage does not stop decisions from being made. It only means they will be made without you.</span></article>
+          <article><strong>Use it better. Take your career further.</strong><em class="book-quote">From &ldquo;ARGH, WTF?&rdquo; to &ldquo;Ah. That&rsquo;s why.&rdquo;</em><span>What you ask, what context you provide, what the system can see and how you evaluate its answer can all change the result. Understand why an AI tool has gone off track&mdash;and what you can do about it. These are practical career skills: strengthening your work, exercising judgment and preparing for new responsibilities.</span></article>
+          <article><strong>See through the noise. Make sound decisions.</strong><em class="book-quote">From &ldquo;OMG, the end is nigh!&rdquo; to &ldquo;Ugh, as if.&rdquo;</em><span>You cannot cut through that noise by memorising a list of approved opinions. You need enough of the fundamentals to ask: What evidence supports the claim? What does the demonstration leave out? What would have to be true for this prediction to happen? That is how you evaluate a tool, a workplace proposal or a headline on its merits.</span></article>
+          <article><strong>Have a say. Help change the defaults.</strong><em class="book-quote">From &ldquo;Whatever&rdquo; to &ldquo;RSVP: Yes. I have notes!&rdquo;</em><span>Once you understand how AI works, you can participate meaningfully in decisions about what happens next. These debates are already happening&mdash;in workplaces, governments, schools, city halls and homes. Refusing to engage does not stop decisions from being made. It only means they will be made without you.</span></article>
         </div>
-        <a class="why-full-link" href="/library.html#ai-fundamentals-101::Why%20This%20Book%20Matters"><span>Read why this matters in <strong>AI Fundamentals 101&nbsp;<span aria-hidden="true">&rarr;</span></strong></span><img src="/assets/library-101/bright-family-v2/textbook-ai-fundamentals-101.png" alt="" width="62" height="94" loading="lazy" decoding="async"></a>
+        <a class="why-full-link" href="/library.html#ai-fundamentals-101::Why%20This%20Book%20Matters">Read why this matters in AI Fundamentals 101 &rarr;</a>
       </div>
       <aside class="why-laidies" aria-labelledby="why-laidies-title">
         <header class="women-heading">
@@ -1417,10 +1321,10 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
       <h3 class="steps-title">How it all works</h3>
       </div>
       <ol class="explainer-steps method-step-grid">
-        <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/homepage/original-restoration-20260829/chick-flicks-postcard.webp" alt="The Chick Flicks video rental store at dusk"><div class="method-step-body"><span class="step-n n-teal">1</span><div><h3>Follow the plot</h3><p>Start with <a class="inline-link" href="/issues/issue-01.html">Episode 1</a>, then follow the story in order as our main character learns AI and discovers SUNNYVAiLE alongside you.</p><details><summary>Read more</summary><p>Season One teaches the AI basics in 24 episodes, because we remember the glory days when a season had time for a proper plot, a questionable haircut and at least one inexplicable musical episode. Future seasons will continue the story&mdash;and take your AI fluency further.</p></details></div></div></li>
+        <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/homepage/original-restoration-20260829/chick-flicks-postcard.webp" alt="The Chick Flicks video rental store at dusk"><div class="method-step-body"><span class="step-n n-teal">1</span><div><h3>Follow the plot</h3><p>Start with <a class="inline-link" href="/visitors-centre.html">the Visitor’s Centre</a>, then read or hear the episodes in order as our main character learns AI and discovers SUNNYVAiLE alongside you.</p><details><summary>Read more</summary><p>Season One teaches the AI basics in 24 episodes, because we remember the glory days when a season had time for a proper plot, a questionable haircut and at least one inexplicable musical episode. Future seasons will continue the story&mdash;and take your AI fluency further.</p></details></div></div></li>
         <li><div class="method-step-media method-step-media--edge-crop"><img class="method-step-image" loading="lazy" decoding="async" src="assets/homepage/original-restoration-20260829/puffy-binder.webp" alt="A Rewind Era binder covered with computer, cassette, camera and music stickers"></div><div class="method-step-body"><span class="step-n n-pink">2</span><div><h3>Unlock the idea</h3><p>Each episode pairs an unfamiliar AI concept with a film, television moment, character, lyric or gloriously specific Y2K reference your brain already understands.</p><details><summary>Read more</summary><p>Because sometimes &ldquo;context window&rdquo; makes more sense when explained through <em>The Devil Wears Prada</em>&mdash;and butterfly clips, roll-on glitter and a suspiciously translucent landline have waited long enough to contribute to your professional development.</p></details></div></div></li>
-        <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A laptop and a marked-up practical guide on a colourful desk"><div class="method-step-body"><span class="step-n n-coral">3</span><div><h3>Make it click</h3><p>Put the lesson to work with your episode’s <a class="inline-link" href="/blend-snap.html">Blend &amp; Snap</a> activities, then try the <a class="inline-link" href="/sunnyvaile-high.html">Pop Quiz at SUNNYVAiLE High</a> to see what you understood and what needs another look.</p><details><summary>Read more</summary><p>Each episode has its own practice: try an AI task, investigate an idea or take a field trip around town. The quiz gives you another way to check your understanding before you move on.</p></details></div></div></li>
-        <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/building-interiors/ksvl-sticker-banner.jpg" alt="The KSVL collection of colourful music stickers"><div class="method-step-body"><span class="step-n n-yellow">4</span><div><h3>Make it stick</h3><p>KSVL turns central lessons into memorable LAiDIES original songs.</p><p>Pick a song and let the hook do the revision. Finally, a chorus stuck in your head that can help at work.</p><a class="tune-in" href="/radio.html">Listen to KSVL</a></div></div></li>
+        <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A laptop and a marked-up practical guide on a colourful desk"><div class="method-step-body"><span class="step-n n-coral">3</span><div><h3>Make it click</h3><p>Open the practice pieces that are actually ready for that episode. Blend &amp; Snap keeps each Try-On, one-page guide and teaching-card pack unavailable until its exact component passes review; the Pop Quiz remains a separate stop.</p><details><summary>Read more</summary><p>When a piece is available, it should leave you with something you can actually use&mdash;not just another tab you opened with excellent intentions and quietly abandoned three Tuesdays ago.</p></details></div></div></li>
+        <li><img class="method-step-image" loading="lazy" decoding="async" src="assets/building-interiors/ksvl-sticker-banner.jpg" alt="The KSVL collection of colourful music stickers"><div class="method-step-body"><span class="step-n n-yellow">4</span><div><h3>Make it stick</h3><p>KSVL turns central lessons into memorable LAiDIES original songs.</p><p>Twenty-nine tracks are ready to hear. Pick a song, start listening and let the hook do the revision.</p><a class="tune-in" href="/radio.html">Listen to KSVL</a></div></div></li>
       </ol>
 
     </section>
@@ -1437,18 +1341,22 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
             <a class="sunny-now-radio" href="/radio.html">Listen to KSVL 99.9 &mdash; SUNNYVAiLE&rsquo;s very own radio station &rarr;</a>
           </div>
         </div>
-        <div class="sunny-now-footer"><a class="sunny-now-all" href="/newsstand.html">See all the latest headlines &rarr;</a><p class="sunny-now-status" data-now-status aria-live="polite">Browse the NewsStand.</p></div>
+        <div class="sunny-now-footer"><a class="sunny-now-all" href="/newsstand.html">See all the latest headlines &rarr;</a><p class="sunny-now-status" data-now-status aria-live="polite">Browse the released NewsStand.</p></div>
       </div>
     </section>
 
+
+
+
+
     <section id="this-week" class="weekly">
-      <div class="section-heading"><p class="eyebrow">The weekly route</p><h2>Your Wednesday in SUNNYV<span class="ai">Ai</span>LE.</h2><p>On Wednesdays we do AI. Read or listen to the episode, try its activities, then take the long way home through SUNNYVAiLE. Make an evening of it, or choose the stop you have time for.</p></div>
+      <div class="section-heading"><p class="eyebrow">The weekly route</p><h2>Your Wednesday in SUNNYV<span class="ai">Ai</span>LE.</h2><p>On Wednesdays we do AI. The route below shows the intended eight-stop weekly experience, and each destination tells you what is actually available. Released episode pages and KSVL remain open; held Study Pack, video and NewsStand pieces stay unavailable until their exact reviews pass. Start at the Visitor&rsquo;s Centre, then Episode 1, or resume the latest released episode page.</p></div>
       <div class="weekly-layout">
         <div class="weekly-side">
         <article id="new-here" class="feature-card">
           <img loading="lazy" decoding="async" src="assets/homepage/original-restoration-20260829/chick-flicks-postcard.webp" alt="The Chick Flicks video rental postcard">
           <div class="fc-state fc-default">
-            <span class="tag">The latest episode</span>
+            <span class="tag">Where you are in the season</span>
             <h3>Ep 04 · The Founding Mothers</h3>
             <ol class="season-track">
               <li><a href="/visitors-centre.html">The Visitor’s Centre</a></li>
@@ -1457,9 +1365,9 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
               <li><a href="/issues/issue-03.html"><i>03</i>The Burn Book Problem</a></li>
               <li class="st-current"><a href="/issues/issue-04.html"><i>04</i>The Founding Mothers</a><a class="play-chip pc-mini" href="/radio.html" aria-label="Listen to the Episode 04 anthem at KSVL"><span class="pc-icon">&#9654;</span></a></li>
             </ol>
-            <p>New to LAiDIES? Episode 1 starts the story. The Visitor&rsquo;s Centre is there if you would like a look around first.</p>
+            <p>New to LAiDIES? Start at the Visitor’s Centre to get oriented. Then Episode 1 begins the season in order.</p>
             <div class="weekly-actions" role="group" aria-label="Start, sign in, read or listen">
-              <a class="text-link" href="/issues/issue-01.html">Start with Episode 1</a>
+              <a class="text-link" href="/visitors-centre.html">Start at the Visitor’s Centre</a>
               <a class="side-link fc-signin" href="/resident-card.html#rcAccountTitle">Sign in</a>
               <a class="fc-btn fc-btn-teal" href="/issues/issue-04.html">Read Episode 04</a>
               <a class="fc-btn fc-btn-coral" href="/watch.html?ep=04">Listen to Episode 04</a>
@@ -1468,47 +1376,40 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
           <div class="fc-state fc-resume" hidden>
             <span class="tag">Where you are in the season</span>
             <h3 class="fc-resume-title"></h3>
-            <p>Your last episode is ready when you are.</p>
+            <p>We&rsquo;ve taken you to where you left off.</p>
             <a class="text-link fc-resume-link" href="/chick-flicks.html">Continue your episode →</a>
           </div>
         </article>
       </div>
-        <div class="route-cell"><div class="route-head"><strong>The weekly route</strong><small>Eight stops. Choose your own Wednesday.</small></div><a class="play-chip chip-route chip-ghost" href="/radio.html"><span class="pc-icon" aria-hidden="true">&#9654;</span> Hear the Wednesday theme at KSVL</a>
+        <div class="route-cell"><div class="route-head"><strong>The weekly route</strong><small>8 intended stops &mdash; open each destination for its current availability</small></div><a class="play-chip chip-route chip-ghost" href="/radio.html"><span class="pc-icon" aria-hidden="true">&#9654;</span> Hear the Wednesday theme at KSVL</a>
         <ol class="ritual">
-          <li data-stop="newsstand"><a class="ritual-stop" href="/newsstand.html"><span>1</span><div><strong>Check the NewsStand</strong><small>AI news and what it means in real life</small></div><b>Full Route</b></a></li>
-          <li data-stop="chick-flicks"><a class="ritual-stop" href="/chick-flicks.html"><span>2</span><div><strong>Read or hear the episode</strong><small>The Chick Flicks · start at Episode 1 or pick up the story</small></div><b>Learn</b></a></li>
-          <li data-stop="blend-snap"><a class="ritual-stop" href="/blend-snap.html"><span>3</span><div><strong>Try the episode&rsquo;s activities</strong><small>Blend &amp; Snap · including the Episode 04 LUMINAiRY field trip</small></div><b>Practise</b></a></li>
+          <li data-stop="newsstand"><a class="ritual-stop" href="/newsstand.html"><span>1</span><div><strong>Check the NewsStand</strong><small>Current reporting when the evidence earns it; released archive otherwise</small></div><b>Full Route</b></a></li>
+          <li data-stop="chick-flicks"><a class="ritual-stop" href="/chick-flicks.html"><span>2</span><div><strong>Read or hear the episode</strong><small>The Chick Flicks · latest released episode, or start at Episode 1</small></div><b>Learn</b></a></li>
+          <li data-stop="blend-snap"><a class="ritual-stop" href="/blend-snap.html"><span>3</span><div><strong>See available Study Pack pieces</strong><small>Blend &amp; Snap · only components marked available</small></div><b>Practise</b></a></li>
           <li data-stop="ksvl"><a class="ritual-stop" href="/radio.html"><span>4</span><div><strong>Listen to KSVL 99.9</strong><small>LAiDIES original songs</small></div><b>Listen</b></a></li>
           <li data-stop="sunnyvaile-high"><a class="ritual-stop" href="/sunnyvaile-high.html"><span>5</span><div><strong>Take the Pop Quiz</strong><small>SUNNYVAiLE High</small></div><b>Check</b></a></li>
           <li data-stop="mall"><a class="ritual-stop" href="/mall.html"><span>6</span><div><strong>Take some free time</strong><small>Choose an activity around town</small></div><b>Explore</b></a></li>
           <li data-stop="bronze-aige"><a class="ritual-stop" href="/bronze-aige.html"><span>7</span><div><strong>Visit the BRONZE AiGE</strong><small>Happy-hour tools and Businesswomen’s Special</small></div><b>Connect</b></a></li>
-          <li data-stop="sorority-house"><a class="ritual-stop" href="/sorority-house.html"><span>8</span><div><strong>Bring it home</strong><small>Delta LAi Nu · conversation, community and Girl Talk</small></div><b>Finish</b></a></li>
+          <li data-stop="sorority-house"><a class="ritual-stop" href="/sorority-house.html"><span>8</span><div><strong>Bring it home</strong><small>Delta LAi Nu · progress, haul and Girl Talk</small></div><b>Finish</b></a></li>
         </ol></div>
       </div>
-      <a class="express" data-latest-episode-link href="/issues/issue-04.html"><strong>Just here for the episode?</strong> Open the latest story and choose read or listen. <b class="express-go">Open the episode &rarr;</b></a>
+      <a class="express" href="/this-week.html"><strong>Short on time? Check the Express Route:</strong> episode page → any available practice → quiz. Held pieces stay out of the route. <b class="express-go">Start →</b></a>
     </section>
 
     <section id="activities" class="activities">
       <div class="section-heading"><p class="eyebrow">Come for one thing. Stay if you feel like it.</p><h2>Games, tools and quick ways to use AI.</h2><p>Quick, useful activities around town—real help with work, a decision, or just a laugh with a blast from the past. No lesson required.</p></div>
       <div class="filter" role="group" aria-label="Filter activities"><button class="active" data-filter="all">Everything</button><button data-filter="help">Work help</button><button data-filter="decide">Help me decide</button><button data-filter="fun">Make me laugh</button><button data-filter="quick">Under 5 min</button></div>
       <div class="activity-grid">
-        <article data-summary="Tell FAiRY what is going on: get advice now, and learn how to ask your own AI for help next time." data-tags="help quick" id="help"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A writing desk with a laptop, drafts and a star wand overlooking the FAiRY Godmother’s magical garden"><div><span class="tag">Advice you can put to work</span><h3>FAiRY Godmother</h3><p>Your boss has asked for something you have never done. Or you have a decision to make and sixteen tabs open about it. Tell FAiRY what is going on: get advice now, and learn how to ask your own AI for help next time.</p><button onclick="location.href='/games/fairy-godmother.html'">Ask the FAiRY Godmother</button></div></article>
-        <article data-summary="Tarot, but the deck is Rewind Era objects and experiences. Pull a card for a reading and advice—practical, with late-night-commercial drama." data-tags="fun decide quick"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/mme-claio.png" alt="Mme CLAi-O with tarot cards"><div><span class="tag">Just for fun · 2 min</span><h3>Mme CLAi-O</h3><p>Tarot, but the deck is Rewind Era objects and experiences. Pull a card for a reading and advice&mdash;practical, with late-night-commercial drama.</p><button onclick="location.href='/games/madame-claio.html'">Consult Mme CLAi-O</button></div></article>
-        <article data-summary="Let the paper fortune teller pick a cocktail and a conversation starter for the table. Ghostbuster (spirit-free) options are available if you prefer." data-tags="fun quick"><img loading="lazy" decoding="async" class="img-center" src="assets/homepage/activity-landscapes-20260831/businesswomens-special.png" alt="The Businesswomen’s Special paper fortune teller on the bar: Bubbles, After Dark, Citrus, Classic"><div><span class="tag">Happy hour · cocktails &amp; Ghostbusters</span><h3>Businesswomen’s Special</h3><p>Romy and Michele asked for the businesswomen’s special. We made one. Let the paper fortune teller pick a cocktail and a conversation starter for the table. Ghostbuster (spirit-free) options are available if you prefer. Business credentials optional.</p><button onclick="location.href='/games/businesswomens-special.html'">Visit the Businesswomen’s Special</button></div></article>
-        <article data-summary="Use Just Call to get fun advice from someone who would have written something way better than “Have a great summer!” (brutal) in your high school yearbook." data-tags="help fun"><img loading="lazy" decoding="async" src="assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp" alt="The Dream Phone booth on MAiN Street"><div><span class="tag">Just Call · advice with a LAiDIES twist</span><h3>Dream Phone</h3><p>Remember Dream Phone—that incredible game from the ’90s where you had to figure out your secret crush? We do too. And we brought it back, but this time with a LAiDIES twist! Use Just Call to get fun advice from someone who would have written something way better than “Have a great summer!” (brutal) in your high school yearbook.</p><p class="activity-availability">The full game, for practising how to spot and correct AI hallucinations, is still in development.</p><button onclick="location.href='/games/dream-phone.html'">Answer Dream Phone</button></div></article>
-        <article data-summary="Truth: what have you copied from AI without checking? Dare: give AI a clearer brief using a made-up task. Your turn." data-tags="fun"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/girl-talk.png" alt="Truth and Dare card stacks with lavender and pink flip-phone artwork"><div><span class="tag">Truth or dare · with your girls</span><h3>Girl Talk</h3><p>Remember Girl Talk? Truth or dare is back at Delta LAi Nu—with your AI habits on the table. Own up to an AI answer you didn’t check, or practise a clearer brief using a made-up task. Choose a card, decide how far you want to take it, and skip anything you don’t fancy. Your answers stay yours; sharing is up to you.</p><button onclick="location.href='/games/girl-talk.html'">Play Girl Talk</button></div></article>
-        <article data-summary="Understand the AI headlines—and what they could mean for your work and life. Check the sources, or explore the bigger issues in The Big Picture." data-tags="help quick"><img loading="lazy" decoding="async" src="assets/town-characters/scenes/paige-newsstand-current-palette-20260823.png" alt="Paige at the NewsStand counter beside her source-checking board"><div><span class="tag">AI news, explained for real life</span><h3>The NewsStand</h3><p>PAiGE breaks down AI headlines so you can understand what happened, why it matters and what it could mean for your work and everyday life. Catch up on the week, or go deeper in The Big Picture, where we examine the bigger issues behind the news. Stories connect the reporting to practical questions in “What This Means For You,” with sources you can follow and check for yourself.</p><button onclick="location.href='/newsstand.html'">Read the NewsStand</button></div></article>
+        <article data-tags="help quick" id="help"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A writing desk with a laptop, drafts and a star wand overlooking the FAiRY Godmother’s magical garden"><div><span class="tag">Prompt and writing help · 3–5 min</span><h3>FAiRY Godmother</h3><p>Bring her a prompt or draft and get help making it clearer, more specific and more useful.</p><button onclick="location.href='/games/fairy-godmother.html'">Ask the FAiRY Godmother</button></div></article>
+        <article data-tags="fun decide quick"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/mme-claio.png" alt="Mme CLAi-O with tarot cards"><div><span class="tag">Just for fun · 2 min</span><h3>Mme CLAi-O</h3><p>Tarot, but the deck is Rewind Era objects and experiences. Pull a card for a reading and advice&mdash;practical, with late-night-commercial drama.</p><button onclick="location.href='/games/madame-claio.html'">Consult Mme CLAi-O</button></div></article>
+        <article data-tags="fun quick"><img loading="lazy" decoding="async" class="img-center" src="assets/homepage/activity-landscapes-20260831/businesswomens-special.png" alt="The Businesswomen’s Special paper fortune teller on the bar: Bubbles, After Dark, Citrus, Classic"><div><span class="tag">Happy hour · cocktail or spirit-free</span><h3>Businesswomen’s Special</h3><p>A social AI ritual with an equal-choice paper fortune teller and a conversation menu for the table.</p><button onclick="location.href='/games/businesswomens-special.html'">Visit the Businesswomen’s Special</button></div></article>
+        <article data-tags="help fun"><img loading="lazy" decoding="async" src="assets/sunnyvaile-buildings/y2k-v3/17-dream-phone-booth.webp" alt="The Dream Phone booth on MAiN Street"><div><span class="tag">Call a character or spot the hallucination · 3–5 min</span><h3>Dream Phone</h3><p>Phone a SUNNYVAiLE character for a funny new perspective, or try For Real / As If and investigate an AI claim.</p><button onclick="location.href='/games/dream-phone.html'">Answer Dream Phone</button></div></article>
+        <article data-tags="fun"><img loading="lazy" decoding="async" src="assets/homepage/activity-landscapes-20260831/girl-talk.png" alt="Truth and Dare card stacks with lavender and pink flip-phone artwork"><div><span class="tag">Private honour-system game · 5–10 min</span><h3>Girl Talk</h3><p>Truth or dare for LAiDIES, with optional community-room inspiration. Open to browse; live conversation uses Hyvor&rsquo;s separate sign-in when available.</p><button onclick="location.href='/sorority-house.html'">Visit Delta LAi Nu</button></div></article>
+        <article data-tags="help quick"><img loading="lazy" decoding="async" src="assets/town-characters/scenes/paige-newsstand-current-palette-20260823.png" alt="Paige at the NewsStand counter beside her source-checking board"><div><span class="tag">AI news, explained for real life</span><h3>The NewsStand</h3><p>Catch breaking news, a clear daily explainer, the week&rsquo;s bigger picture and thoughtful opinion.</p><button onclick="location.href='/newsstand.html'">Read the NewsStand</button></div></article>
       </div>
       <section id="reference" class="reference reference-inline" aria-labelledby="jeeves-title">
-        <div class="jeeves-desk-copy"><p class="eyebrow">Your technical AI question desk</p><h2 id="jeeves-title">Ask Miss Jeeves.</h2>
-          <p>What’s a context window? Why does AI make things up? Ask here. Miss Jeeves searches LAiDIES books, explainers and resources, and brings what she finds back to this page.</p>
-          <form id="homepage-jeeves-form"><label for="lookup">What would you like to know?</label><div><input id="lookup" maxlength="240" required autocomplete="off" placeholder="Ask your AI question…"><button type="submit">Ask Miss Jeeves</button></div></form>
-          <div class="jeeves-examples" aria-label="Example questions"><span>Try a question:</span><button type="button" data-jeeves-example>Why does AI make things up?</button><button type="button" data-jeeves-example>What is a context window?</button><button type="button" data-jeeves-example>How do I write a better prompt?</button></div>
-          <p class="question-routing-note">Search LAiDIES as often as you like. Leave out private or confidential information.</p>
-          <p class="helper-advice">Need advice on a work or career situation? <a href="/games/fairy-godmother.html">Talk to FAiRY Godmother.</a></p>
-        </div>
-        <img class="jeeves-corner-cutout" loading="lazy" decoding="async" src="assets/homepage/characters/miss-jeeves-question-desk-cutout-v2.png" alt="Miss Jeeves, your LAiDIES question desk guide">
-        <div id="homepage-jeeves-answer" class="jeeves-answer" aria-live="polite" aria-atomic="true" hidden></div>
+        <div><p class="eyebrow">Your AI question desk</p><h2 id="jeeves-title">Ask Miss Jeeves anything about AI.</h2><p>Tell her what is happening, what everyone is talking about, or what you want to do. Miss Jeeves checks current LAiDIES books, episodes, NewsStand reporting, Study Packs, tools and activities. If LAiDIES covers it, she gives you a direct answer and the best place to continue. If it does not, she tells you honestly and can pass the question to the editorial team only with your consent.</p><p class="reference-beta-note"><strong>Beta:</strong> Reliable for finding your way around LAiDIES. Broader AI answers are still being tested and improved.</p><form id="homepage-jeeves-form"><label for="lookup">What do you want to know or do?</label><div><input id="lookup" maxlength="240" autocomplete="off" placeholder="Why is everyone talking about Nvidia?"><button type="submit">Ask Miss Jeeves</button></div></form><div class="popular"><span>For example:</span><a href="/library.html#miss-jeeves?q=Why%20does%20the%20AI%20ignore%20part%20of%20my%20prompt%3F&amp;from=homepage">Why does the AI ignore part of my prompt?</a><a href="/library.html#miss-jeeves?q=Why%20is%20everyone%20talking%20about%20Nvidia%3F&amp;from=homepage">Why is everyone talking about Nvidia?</a><a href="/library.html#miss-jeeves?q=I%20want%20to%20turn%20meeting%20notes%20into%20a%20clear%20summary.%20Which%20AI%20tool%20or%20model%20should%20I%20use%3F&amp;from=homepage">Which AI tool or model should I use for meeting notes?</a></div><p class="question-routing-note">Ask in plain language. Do not include private, confidential or account information.</p><a class="library-entry" data-library-entry="reference" href="/library.html#miss-jeeves">Visit Miss Jeeves in the LIBRAiRY &rarr;</a></div>
+        <img class="jeeves-corner-cutout" loading="lazy" decoding="async" src="assets/homepage/characters/miss-jeeves-question-desk-cutout-v2.png" alt="" aria-hidden="true">
       </section>
     </section>
 
@@ -1523,7 +1424,7 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
         <button class="map-spot" style="left:16.2%;top:1.7%;width:14%;height:47%" data-name="Town Hall" data-desc="Mayor Deb, notices and feedback" data-href="/town-hall.html" aria-label="Town Hall"></button>
         <button class="map-spot" style="left:29.3%;top:29.8%;width:10.5%;height:23%" data-name="The LIBRAiRY" data-desc="Miss Jeeves&rsquo; reference desk" data-href="/library.html" aria-label="The LIBRAiRY"></button>
         <button class="map-spot" style="left:43.9%;top:18.3%;width:16.4%;height:19.5%" data-name="SUNNYVAiLE High" data-desc="Pop Quiz and the Book Fair" data-href="/sunnyvaile-high.html" aria-label="SUNNYVAiLE High"></button>
-        <button class="map-spot" style="left:55.5%;top:31.5%;width:9.7%;height:22.4%" data-name="FAiRY Godmother" data-desc="Work and career advice; help using your own AI" data-href="/games/fairy-godmother.html" aria-label="FAiRY Godmother"></button>
+        <button class="map-spot" style="left:55.5%;top:31.5%;width:9.7%;height:22.4%" data-name="FAiRY Godmother" data-desc="Prompt help and guidance" data-href="/games/fairy-godmother.html" aria-label="FAiRY Godmother"></button>
         <button class="map-spot" style="left:72.2%;top:28.1%;width:6.8%;height:22.4%" data-name="Delta LAi Nu" data-desc="Girl Talk, room prompts and your Closet" data-href="/sorority-house.html" aria-label="Delta LAi Nu"></button>
         <button class="map-spot" style="left:76.5%;top:3.4%;width:11.8%;height:22.9%" data-name="The LUMINAiRY" data-desc="Saints, MAiVENS and Trailblazers" data-href="/luminairy.html" aria-label="The LUMINAiRY"></button>
         <button class="map-spot" style="left:91%;top:0%;width:8.5%;height:83%" data-name="KSVL 99.9" data-desc="Community radio and LAiDIES original songs" data-href="/radio.html" aria-label="KSVL 99.9"></button>
@@ -1534,7 +1435,7 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
         <button class="map-spot" style="left:46%;top:61.4%;width:8.9%;height:30%" data-name="Mme CLAi-O" data-desc="A reading for your question" data-href="/games/madame-claio.html" aria-label="Mme CLAi-O"></button>
         <button class="map-spot" style="left:55.5%;top:62.5%;width:10.2%;height:29%" data-name="MAiKEOVER on MAiN" data-desc="Make a Resident Card" data-href="/maikeover.html" aria-label="MAiKEOVER on MAiN"></button>
         <button class="map-spot" style="left:66.8%;top:61.9%;width:8.6%;height:30%" data-name="BRONZE AiGE" data-desc="Happy-hour social AI ritual and conversation menu" data-href="/bronze-aige.html" aria-label="BRONZE AiGE"></button>
-        <button class="map-spot" style="left:75.7%;top:70.5%;width:3.2%;height:22%" data-name="Dream Phone" data-desc="Just Call for a playful, prewritten perspective, or try the experimental game. For entertainment." data-href="/games/dream-phone.html" aria-label="Dream Phone"></button>
+        <button class="map-spot" style="left:75.7%;top:70.5%;width:3.2%;height:22%" data-name="Dream Phone" data-desc="Call a town character for a prewritten perspective, or try For Real / As If and investigate an AI claim. For fun—not personalized or professional advice." data-href="/games/dream-phone.html" aria-label="Dream Phone"></button>
         <button class="map-spot" style="left:79.2%;top:47.6%;width:11.3%;height:40%" data-name="The Mall" data-desc="The Rewind Era reference catalogue" data-href="/mall.html" aria-label="The Mall"></button>
       </div><figcaption class="building-map-caption" aria-live="polite">Choose a building on the map or in the list.</figcaption></figure>
       <nav class="building-directory" aria-label="Buildings in SUNNYVAiLE">
@@ -1547,14 +1448,14 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
           <li><small class="building-address">5 MAiN Street</small><a class="building-name" href="/games/madame-claio.html" data-building-link>Mme CLAi-O</a><p>A reading for your question</p></li>
           <li><small class="building-address">6 MAiN Street</small><a class="building-name" href="/maikeover.html" data-building-link>MAiKEOVER on MAiN</a><p>Make a Resident Card</p></li>
           <li><small class="building-address">7 MAiN Street</small><a class="building-name" href="/bronze-aige.html" data-building-link>BRONZE AiGE</a><p>Happy-hour social AI ritual and conversation menu</p></li>
-          <li><small class="building-address">8 MAiN Street</small><a class="building-name" href="/games/dream-phone.html" data-building-link>Dream Phone</a><p>Just Call for a playful perspective, or try the experimental game. For entertainment.</p></li>
+          <li><small class="building-address">8 MAiN Street</small><a class="building-name" href="/games/dream-phone.html" data-building-link>Dream Phone</a><p>Call a town character or try For Real / As If. For fun—not personalized or professional advice.</p></li>
           <li><small class="building-address">9 MAiN Street</small><a class="building-name" href="/mall.html" data-building-link>The Mall</a><p>The Rewind Era reference catalogue</p></li>
           <li><small class="building-address">10 MAiN Street</small><a class="building-name" href="/radio.html" data-building-link>KSVL 99.9</a><p>LAiDIES original songs</p></li>
           <li><small class="building-address">1 Civic Square</small><a class="building-name" href="/post-office.html" data-building-link>Post Office</a><p>The Wednesday newsletter, town mail and postcards</p></li>
           <li><small class="building-address">2 Civic Square</small><a class="building-name" href="/town-hall.html" data-building-link>Town Hall</a><p>Mayor Deb, notices and feedback</p></li>
           <li><small class="building-address">3 Civic Square</small><a class="building-name" data-library-entry="directory" href="/library.html" data-building-link>The LIBRAiRY</a><p>Miss Jeeves, books and the reference desk</p></li>
           <li><small class="building-address">1 School House Road</small><a class="building-name" href="/sunnyvaile-high.html" data-building-link>SUNNYVAiLE High</a><p>Pop Quiz and the Book Fair</p></li>
-          <li><small class="building-address">1 Willow Lane</small><a class="building-name" href="/games/fairy-godmother.html" data-building-link>FAiRY Godmother</a><p>Work and career advice; help using your own AI</p></li>
+          <li><small class="building-address">1 Willow Lane</small><a class="building-name" href="/games/fairy-godmother.html" data-building-link>FAiRY Godmother</a><p>Prompt help and guidance</p></li>
           <li><small class="building-address">1 Wisteria Lane</small><a class="building-name" href="/sorority-house.html" data-building-link>Delta LAi Nu</a><p>Girl Talk, room prompts and your Closet</p></li>
           <li><small class="building-address">1 Lantern Hill</small><a class="building-name" href="/luminairy.html" data-building-link>The LUMINAiRY</a><p>Saints, MAiVENS and Trailblazers</p></li>
         </ul>
@@ -1575,21 +1476,19 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
 
     <section class="closet" id="collect"><div><p class="eyebrow">Resident Card · Closet · Community</p><h2>Move to SUNNYVAiLE.</h2>
       <figure class="closet-photo-frame"><img loading="lazy" decoding="async" class="closet-photo" src="assets/homepage/original-restoration-20260829/puffy-binder.webp" alt="A Y2K puffy binder covered with LAiDIES collectibles"></figure>
-      <p>Your Resident Card is your SUNNYVAiLE town ID. Your <strong>Closet</strong> brings your Card, collections and learning progress together—so you can return to your favourites and pick up where you left off.</p>
-      <ul class="resident-perks">
-        <li><strong>Make it yours.</strong> Choose your Card background, favourite Rewind Era film and TV show, soundtrack, Patron Saint and what you’re carrying. Change them whenever you fancy a MAiKEOVER.</li>
-        <li><strong>Keep your favourite places in your Closet.</strong> Choose ten puffy sticker designs for your pouch, then pick from them when you save a place you want to return to. You can change your ten selected designs at any time. Reopen your saved places from your Closet on this device.</li>
-        <li><strong>Give your collections a home.</strong> Keep your hidden charms, trading cards, quiz stickers and KSVL sticker picks together in your Closet.</li>
-        <li><strong>See how far you’ve come.</strong> Return to your episode, check your Pop Quiz scores and see which stops you’ve completed on the weekly tour.</li>
+      <p>Ready to make it official? Create your <strong>Resident Card</strong> at MAiKEOVER on MAiN. It is your SUNNYVAiLE town ID and gives you your own <strong>Closet</strong>&mdash;the place where your Card, supported saves and keepsakes live.</p>
+      <p>Then visit <strong>Delta LAi Nu</strong>, SUNNYVAiLE&rsquo;s sorority house and community home. Explore the rooms, join the conversation and try Girl Talk&mdash;our private honour-system spin on classic &rsquo;90s truth or dare.</p>
+      <p class="closet-aside">It&rsquo;s considerably more fun than joining yet another professional networking group.</p>
+      <p>Inside your <strong>Closet</strong>, you can keep track of what you have found around town:</p>
+      <ul class="closet-haul">
+        <li><strong>Charms:</strong> Hidden around town. Spot one and it snaps onto your bracelet.</li>
+        <li><strong>Puffies:</strong> Puffy stickers that mark your favourite Handbook pages. The Puffy Board keeps them together.</li>
+        <li><strong>Stickers:</strong> Selected quizzes and activities can add keepsakes to your Card. They are saved in this browser.</li>
+        <li><strong>Trading cards:</strong> Preview the teaching prompts planned for each episode. Packs, ownership, duplicates and trading are not available yet.</li>
+        <li><strong>Mail:</strong> Notes and gifts to your girls through the Post Office. Coming soon.</li>
       </ul>
-      <table class="resident-benefits"><caption>What changes when you move in?</caption><tbody>
-        <tr><th scope="row">Just visiting</th><td>Read the episodes, browse books and news, listen to KSVL and try the games. Search LAiDIES with Miss Jeeves as often as you like. FAiRY’s current beta gives guests up to one case a day, with up to three follow-up fittings per completed case.</td></tr>
-        <tr><th scope="row">Make a Resident Card</th><td>Create your town ID at MAiKEOVER on MAiN, open your Closet and choose your ten puffy sticker designs. Pick from those to mark places you want to return to, and change your selection whenever you like. You can do this before signing in. Your Card and activity begin in this browser; your sticker saves stay on this device.</td></tr>
-        <tr><th scope="row">Sign in to your Resident account</th><td>Sign in to keep your Card, episode position, completed tours, charms and trading cards available across devices. You also get more time with FAiRY: up to three cases a day in the current beta. Each completed case includes up to three follow-up fittings to work through her advice.</td></tr>
-      </tbody></table>
-      <p>Looking for your people? <a class="inline-link" href="/sorority-house.html">Delta LAi Nu</a>, our community house, is open to visitors too.</p>
-      <p>Cher was right: “It does not say RSVP on the Statue of Liberty.” But we’d love yours.</p>
-      <div class="closet-actions"><a class="button" href="/maikeover.html">Make my Resident Card</a><a class="closet-open" href="/resident-card.html">Sign in and connect my Card</a><a class="closet-open" href="/laidies-card.html">Open my Closet</a></div></div></section>
+      <p>Cher was right: &ldquo;It does not say RSVP on the Statue of Liberty.&rdquo; But we&rsquo;d love yours. Move to SUNNYVAiLE and make yourself at home.</p>
+      <div class="closet-actions"><a class="button" href="/maikeover.html">Move to SUNNYVAiLE</a><a class="closet-open" href="/laidies-card.html">Open my Closet</a></div></div></section>
     <aside class="postcard-band" aria-labelledby="postcard-title">
       <div>
         <p class="eyebrow">The Wednesday Postcard</p>
@@ -1606,56 +1505,31 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
   <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
   <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
   <script defer src="/content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
-  <script src="/content/site/homepage.js?v=20260906-radio-controls"></script>
+  <script src="/content/site/homepage.js?v=20260911-restored-discovery"></script>
   <script>
-  /* Give each activity a useful excerpt and a native full-description dialog.
-     Keep complete original copy available; equalise only labels/buttons, never paragraphs. */
+  /* Size corresponding card slots to the largest current label, never clip text.
+     Recalculate after fonts, resizing and filters; do not fix the card height. */
   (function(){
     var grid=document.querySelector('.activity-grid');
-    if(!grid||typeof HTMLDialogElement==='undefined') return;
-    var dialog=document.createElement('dialog');
-    dialog.id='activity-detail';
-    dialog.setAttribute('aria-labelledby','activity-detail-title');
-    dialog.innerHTML='<button type="button" class="activity-detail-close">Close ×</button><h3 id="activity-detail-title"></h3><div class="activity-detail-copy"></div><a class="activity-detail-go"></a>';
-    document.body.appendChild(dialog);
-    var opener=null;
-    dialog.querySelector('.activity-detail-close').addEventListener('click',function(){dialog.close();});
-    dialog.addEventListener('close',function(){if(opener&&!opener.closest('[hidden]'))opener.focus();});
-    Array.from(grid.children).forEach(function(card){
-      var body=card.querySelector('div'), paragraphs=Array.from(body.querySelectorAll(':scope>p'));
-      var primary=body.querySelector('button'), title=card.querySelector('h3').textContent;
-      var summary=document.createElement('p');summary.className='activity-summary';summary.textContent=card.dataset.summary;
-      var full=document.createElement('template');full.className='activity-full-copy';
-      paragraphs.forEach(function(p){full.content.appendChild(p);});
-      var more=document.createElement('button');more.type='button';more.className='activity-more';more.textContent='Read more';more.setAttribute('aria-label','Read more about '+title);more.setAttribute('aria-haspopup','dialog');
-      var actions=document.createElement('div');actions.className='activity-card-actions';
-      body.appendChild(summary);body.appendChild(full);actions.appendChild(more);actions.appendChild(primary);body.appendChild(actions);
-      more.addEventListener('click',function(){
-        opener=more;
-        dialog.querySelector('h3').textContent=title;
-        dialog.querySelector('.activity-detail-copy').replaceChildren(full.content.cloneNode(true));
-        var link=dialog.querySelector('a'), route=primary.getAttribute('onclick').match(/location.href=['"]([^'"]+)/);
-        link.textContent=primary.textContent;link.href=route?route[1]:'#activities';
-        dialog.showModal();
-      });
-    });
-    grid.classList.add('is-compact');
-    var pending=false,lastWidth=-1;
+    if(!grid) return;
+    var pending=false, lastWidth=-1;
     function alignSlots(){
       pending=false;
-      var cards=Array.from(grid.children).filter(function(card){return !card.hidden;});
-      cards.forEach(function(card){card.querySelectorAll('.tag,h3,button').forEach(function(slot){slot.style.minHeight='';});});
-      if(getComputedStyle(grid).gridTemplateColumns.trim().split(/\s+/).length===1)return;
-      ['.tag','h3','.activity-card-actions>button:last-child'].forEach(function(selector){
-        var slots=cards.map(function(card){return card.querySelector(selector);});
+      var cards=Array.from(grid.querySelectorAll('article')).filter(function(card){return !card.hidden;});
+      ['.tag','h3','p','button'].forEach(function(selector){
+        var slots=cards.map(function(card){return card.querySelector(selector);}).filter(Boolean);
+        slots.forEach(function(slot){slot.style.minHeight='';});
         var height=Math.ceil(Math.max(0,...slots.map(function(slot){return slot.getBoundingClientRect().height;})));
         slots.forEach(function(slot){slot.style.minHeight=height+'px';});
       });
     }
     function schedule(){if(!pending){pending=true;requestAnimationFrame(alignSlots);}}
     window.addEventListener('resize',schedule);
-    if(document.fonts)document.fonts.ready.then(schedule);
-    if(window.ResizeObserver)new ResizeObserver(function(entries){var width=entries[0].contentRect.width;if(width!==lastWidth){lastWidth=width;schedule();}}).observe(grid);
+    if(document.fonts) document.fonts.ready.then(schedule);
+    if(window.ResizeObserver) new ResizeObserver(function(entries){
+      var width=entries[0].contentRect.width;
+      if(width!==lastWidth){lastWidth=width;schedule();}
+    }).observe(grid);
     new MutationObserver(schedule).observe(grid,{subtree:true,attributes:true,attributeFilter:['hidden']});
     schedule();
   })();
@@ -1728,8 +1602,6 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
       add(document.querySelector('.route-cell .route-head'), document.querySelector('.route-cell'));
       add(document.querySelector('#activities .filter'), document.querySelector('#activities'), document.querySelector('#activities .activity-grid'), false);
     }catch(e){}
-    var activityGrid=document.querySelector('#activities .activity-grid');
-    if(activityGrid)new MutationObserver(onScroll).observe(activityGrid,{subtree:true,attributes:true,attributeFilter:['hidden']});
     window.addEventListener('scroll',onScroll,{passive:true});
     window.addEventListener('resize',function(){ reg.forEach(clear); requestAnimationFrame(function(){ reg.forEach(update); }); },{passive:true});
     reg.forEach(update);
@@ -1752,5 +1624,6 @@ button.dyk-slide{text-align:left;width:100%;font:inherit;cursor:pointer}.dyk-tit
   })();
   </script>
   <script defer src="/content/site/sv-back-nav.js?v=svbn-2026-08-29-v3-f3347a06b810"></script>
+<script src="/content/site/newsstand-home-preview-v1.js" defer></script>
 </body>
 </html>
