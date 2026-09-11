@@ -39,7 +39,7 @@ function check(value, label) {
 
 check(page.includes('src="/content/site/resident-card-contract-v1.js'), "route loads the shared Card contract");
 check(page.indexOf("resident-card-contract-v1.js") < page.indexOf("resident-card-v2.js"), "shared contract loads before status runtime");
-check(/type=["']email["']/.test(page), "Resident Card owns the private email sign-in intake");
+check(/type=["']email["']/.test(maikeover) && maikeover.includes('id="mo-account"'), "MAiKEOVER owns inline email verification for signup and returning residents");
 check(page.includes("identity-client-v1.js") &&
   page.includes("resident-account-runtime-v1.js") &&
   page.includes("resident-account-page-v1.js"),

@@ -8,19 +8,20 @@ function node(id) {
     addEventListener(name, fn) { this.handlers[name] = fn; }, focus(){this.focused=true;}, scrollIntoView(){}});
   return nodes.get(id);
 }
-let current = {session:null}, session=null, claimed=[], restored=[], requested=[], rejectSave=false, confirm=true;
+let current = {session:null}, session=null, claimed=[], restored=[], requested=[], rejectSave=false, confirm=true, rejectCode=true;
 const runtime = {
   getState: async()=>current,
   client:{auth:{getSession:async()=>({data:{session}})}},
   writeLocalEnvelope:doc=>restored.push(doc),
   controller:{
-    requestMagicLink:async(email,path)=>requested.push([email,path]),
+    requestEmailCode:async(email,path)=>requested.push([email,path]),
+    verifyEmailCode:async(email,code)=>{if(rejectCode) throw Error('expired'); session={user:{id:'a'}};current={session,remote:null};},
     claimLocalCard:async(doc,key,revision)=>{if(rejectSave) throw Error('network'); claimed.push([doc,revision]); return {localPreserved:true};},
     signOut:async()=>{session=null;current={session:null};}
   }
 };
-let reloads=0;
-const window={LAIDIESResidentAccountRuntime:{get:async()=>runtime}, dispatchEvent(){},addEventListener(){},
+let reloads=0, events={};
+const window={LAIDIESResidentAccountRuntime:{get:async()=>runtime}, dispatchEvent(){},addEventListener:(name,fn)=>{events[name]=fn;},
   confirm:()=>confirm, location:{pathname:'/maikeover.html',reload(){reloads++;}}};
 vm.runInNewContext(source,{window,document:{getElementById:node},CustomEvent:class{},crypto:{randomUUID:()=> 'test-id'}});
 await new Promise(setImmediate);
@@ -28,8 +29,24 @@ assert.equal(node('moAccountForm').hidden,false);
 node('moAccountEmail').value='test@example.com';
 await node('moAccountForm').handlers.submit({preventDefault(){}});
 assert.deepEqual(requested,[['test@example.com','/maikeover.html']]);
+assert.equal(node('moAccountCodeForm').hidden,false);
+assert.equal(node('moAccountForm').hidden,true);
+events.focus();
+await new Promise(setImmediate);
+assert.equal(node('moAccountCodeForm').hidden,false,'return from email preserves code entry');
+assert.match(node('moAccountStatus').textContent,/Check test@example.com/);
+await node('moAccountResend').handlers.click();
+assert.equal(requested.length,1,'resend cooldown prevents another request');
+node('moAccountCode').value='123456';
+await node('moAccountCodeForm').handlers.submit({preventDefault(){}});
+assert.match(node('moAccountStatus').textContent,/couldn’t finish verification/);
+assert.equal(node('moAccountCodeForm').hidden,false);
 assert.equal(await window.LAIDIESMaikeoverAccount.beforeSave(),null);
 assert.equal(claimed.length,0);
+rejectCode=false;
+await node('moAccountCodeForm').handlers.submit({preventDefault(){}});
+assert.equal(node('moAccountCodeForm').hidden,true);
+assert.equal(node('moAccountReady').hidden,false);
 session={user:{id:'a'}};current={session,remote:null};
 const first=await window.LAIDIESMaikeoverAccount.beforeSave();
 assert.equal(first.userId,'a');assert.equal(first.revision,null);

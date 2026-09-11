@@ -31,7 +31,7 @@
   })();
 
   var JOIN_HREF = '/maikeover.html';
-  var SIGNIN_HREF = '/resident-card.html#rcAccountTitle';
+  var SIGNIN_HREF = '/maikeover.html#mo-account';
   var QUICK_LINKS = [
     { label: 'Latest Episode', href: '/chick-flicks.html' },
     { label: 'Look it up', href: '/library.html' },
@@ -198,7 +198,7 @@
     }).join('');
     panel.innerHTML =
       '<p class="svgh-panel-title">★ Around town</p>'
-      + '<div class="svgh-panel-account"><a class="svgh-panel-signin" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="svgh-panel-join" href="/maikeover.html">Join the town</a></div>'
+      + '<div class="svgh-panel-account"><a class="svgh-panel-signin" href="/maikeover.html#mo-account">Sign in</a><a class="svgh-panel-join" href="/maikeover.html">Join the town</a></div>'
       + '<div class="svgh-panel-grid">' + essentials + '</div>'
       + '<p class="svgh-panel-title">★ Every building · M<span class="ai">Ai</span>N Street &amp; beyond</p>'
       + '<div class="svgh-panel-grid svgh-panel-grid--town"><span class="svgh-item" style="cursor:default;">Loading the map…</span></div>';
@@ -315,7 +315,7 @@
     if (window.LAIDIESResidentContinuationBootstrapV1 ||
         document.querySelector('script[data-laidies-continuation-bootstrap]')) return;
     var script = document.createElement('script');
-    script.src = '/content/site/resident-continuation-bootstrap-v1.js?v=20260829-continuation-restore-1';
+    script.src = '/content/site/resident-continuation-bootstrap-v1.js?v=20260830-ksvl-service-1';
     script.async = true;
     script.dataset.laidiesContinuationBootstrap = '1';
     document.head.appendChild(script);

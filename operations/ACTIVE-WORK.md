@@ -1,5 +1,13 @@
 # Active work
 
+## 2026-09-10 Complete MAiKEOVER signup journey
+
+- **Status:** BUILDING. Ali authorizes implementation and release; no production page deployment yet.
+- **Acceptance:** Inline email code; retained choices; real portrait; account Card save; Closet; returning sign-in and second-browser restoration; exact current-production integration and public verification.
+- **Current:** Dirty email-code work preserved. Real email received in Gmail spam and verified inside local MAiKEOVER; test account has no remote Card. Custom Resend SMTP enabled; OTP template includes Token and ConfirmationURL. No provider settings changed.
+- **Repairs:** Generated raster preview rejected by asset-only check and stale avatar not cleared; repairing. Old separate-desk routes must point to MAiKEOVER. Independent review found these gaps despite existing passing tests.
+- **Scope:** Existing auth worktree; preserve released Card backgrounds and unrelated production bytes. No unrelated resident data changes.
+
 ## 2026-09-05 MAiKEOVER integrated account onboarding
 
 - **Status:** HOLD for real authenticated end-to-end proof; local implementation and scoped tests complete. Not pushed or deployed.

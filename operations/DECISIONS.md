@@ -1,5 +1,13 @@
 # LAiDIES decision router
 
+## 2026-09-10 — Complete signup belongs in MAiKEOVER
+
+Ali authorizes full inline signup/sign-in and public release after real email,
+portrait, account-save, Closet and second-browser tests. This supersedes the old
+sole separate Resident Card desk rule. Preserve shared Supabase identity,
+explicit replacement consent, bounded continuation, approved art and unrelated
+production bytes. See operations/resident-card-design-decisions.md.
+
 <!-- context-authority: operations/context-authority.json -->
 
 This file routes a task to current authority. It is not a second decision

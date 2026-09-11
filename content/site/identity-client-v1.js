@@ -151,6 +151,24 @@
       return { state: "magic-link-requested" };
     }
 
+    async function requestEmailCode(email, requestedPath) {
+      // Supabase uses the same request for links and email codes. Delivery of
+      // the code requires {{ .Token }} in the provider's email template.
+      await requestMagicLink(email, requestedPath);
+      return { state: "email-code-requested" };
+    }
+
+    async function verifyEmailCode(email, code) {
+      var normalized = validEmail(email);
+      var token = String(code || "").replace(/\s/g, "");
+      if (!normalized) throw new TypeError("Enter a valid email address.");
+      if (!/^\d{6,10}$/.test(token)) throw new TypeError("Enter the verification code from your email.");
+      var result = await client.auth.verifyOtp({ email: normalized, token: token, type: "email" });
+      if (result.error) throw result.error;
+      if (!result.data || !result.data.session) throw new Error("Verification did not create a sign-in session.");
+      return getState();
+    }
+
     async function exchangeCode(code) {
       var value = String(code || "").trim();
       if (!value) throw new TypeError("A callback code is required.");
@@ -238,6 +256,8 @@
       getSession: getSession,
       getState: getState,
       requestMagicLink: requestMagicLink,
+      requestEmailCode: requestEmailCode,
+      verifyEmailCode: verifyEmailCode,
       revokeCard: revokeCard,
       signOut: signOut,
       updateProfile: updateProfile

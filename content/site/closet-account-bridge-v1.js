@@ -45,16 +45,23 @@
       if (state.error) throw state.error;
       if (!state.session) {
         setPersistence(
-          "Device-local view: sign in at the Resident Card desk to restore your private account-backed Card on another browser.",
+          "This browser’s Card: sign in at MAiKEOVER to restore the Card saved to your account.",
           "local"
         );
+        var signInNode = document.getElementById("closetPersistenceState");
+        if (signInNode) {
+          var signInLink = document.createElement("a");
+          signInLink.href = "/maikeover.html#mo-account";
+          signInLink.textContent = " Sign in →";
+          signInNode.appendChild(signInLink);
+        }
         return;
       }
       if (state.state !== "account-backed-resident" ||
           !state.remote ||
           !state.remote.card) {
         setPersistence(
-          "Signed-in account: no account-backed Card is stored yet. Make and save one at MAiKEOVER, then keep it at the Resident Card desk.",
+          "You’re signed in. Make and save your Resident Card at MAiKEOVER to keep it with your account.",
           "account"
         );
         return;
@@ -69,7 +76,7 @@
         var node = document.getElementById("closetPersistenceState");
         if (node) {
           var link = document.createElement("a");
-          link.href = "/resident-card.html#rcAccountTitle";
+          link.href = "/maikeover.html#mo-account";
           link.textContent = "Keep these changes with my account, or restore the account copy →";
           node.appendChild(link);
         }

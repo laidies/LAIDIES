@@ -7,8 +7,11 @@
   <meta name="description" content="Make your SUNNYVAiLE Resident Card, save your town profile, and sign in to restore your Card and supported progress across devices.">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
-  <link rel="stylesheet" href="content/maikeover-v2.css?v=20260905-onboarding-1">
-  <script src="/content/site/resident-card-contract-v1.js?v=20260904-portrait-restore-1"></script>
+  <link rel="stylesheet" href="content/maikeover-v2.css?v=20260902-card-text-fit-1">
+  <link rel="stylesheet" href="/content/resident-card-getting-ready.css?v=20260906-1">
+  <link rel="stylesheet" href="/content/resident-card-pop-backgrounds.css?v=20260906-1">
+  <link rel="stylesheet" href="/content/maikeover-account.css?v=20260911-1">
+  <script src="/content/site/resident-card-contract-v1.js?v=20260906-pop-card-1"></script>
   <script src="/content/site/supabase-config.js?v=20260702-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=svgh-320-2026-08-04-v2-532de5ac8032"></script>
@@ -63,7 +66,7 @@
         <p>Your Resident Card is how LAiDIES knows you around town. Once it is connected to your account, your Closet is where your saved things and progress live.</p>
       </div>
       <div class="mo-card-explainer__steps" aria-label="How your Resident Card works">
-        <div><strong>1 · Start your account</strong><span>Verify your email here. Already a resident? The same link signs you in.</span></div>
+        <div><strong>1 · Start your account</strong><span>Verify your email with a code here. Already a resident? The same process signs you in.</span></div>
         <div><strong>2 · Make it yours</strong><span>Create your portrait, then choose your Card background, era faves, soundtrack, Patron Saint and what you’re carrying.</span></div>
         <div><strong>3 · Open your Closet</strong><span>Save your Card to your account. Your Closet keeps your saved things and progress available across devices. Come back here any time to update your Card.</span></div>
       </div>
@@ -80,8 +83,16 @@
       <form id="moAccountForm" hidden>
         <label for="moAccountEmail">Your email</label>
         <input id="moAccountEmail" type="email" autocomplete="email" required maxlength="254">
-        <button id="moAccountSend" type="submit">Email me a verification link</button>
+        <button id="moAccountSend" type="submit">Email me a code</button>
         <p>This creates or opens your account. It does not subscribe you to the Postcard.</p>
+      </form>
+      <form id="moAccountCodeForm" hidden>
+        <label for="moAccountCode">Code from your email</label>
+        <input id="moAccountCode" name="verification-code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9\s]{6,20}" maxlength="20" required aria-describedby="moAccountCodeHelp">
+        <p id="moAccountCodeHelp">Paste or type your code here, or use your device’s suggested code if it offers one. You can read the email on another device. Check Spam or Junk if it hasn’t arrived.</p>
+        <button id="moAccountVerify" type="submit">Verify and continue</button>
+        <button id="moAccountResend" type="button">Send a new code</button>
+        <button id="moAccountChange" type="button">Use a different email</button>
       </form>
       <p id="moAccountStatus" role="status" aria-live="polite">Checking your account…</p>
       <div id="moAccountReady" hidden>
@@ -92,7 +103,7 @@
     </section>
   <section class="mo-room" id="mo-maker" aria-labelledby="moMakerTitle">
     <div class="mo-room__canvas">
-      <img class="mo-room__backdrop" src="/assets/building-interiors/maikeover/maikeover-vanity-resident-card-candidate-v6.png" alt="" width="1672" height="941">
+      <img class="mo-room__backdrop" src="/assets/building-interiors/maikeover/maikeover-vanity-resident-card-candidate-v5.png" alt="" width="1672" height="941">
       <div class="mo-maker-intro">
         <p class="mo-section-kicker">The working vanity</p>
         <h2 id="moMakerTitle">Make your <span>Resident Card.</span></h2>
@@ -414,7 +425,7 @@
 
     <p class="mo-claim-intro">
       You can make and save a Resident Card on this device. Private account
-      continuation is available at the <a href="/resident-card.html#rcAccountTitle">Resident Card desk</a>.
+      continuation starts with <a href="#mo-account">email verification here in MAiKEOVER</a>.
       Public handles and shareable Closet addresses remain held.
     </p>
 
@@ -441,7 +452,7 @@
         <p id="mo-claim-result-label" style="margin: 0 0 6px; font-family: 'Jost', sans-serif; font-weight: 600; color: var(--rose); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;">★ Your handle is claimed</p>
         <p style="margin: 0 0 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: var(--plum);">@<span class="mo-your-handle">handle</span></p>
         <p style="margin: 0 0 18px; color: var(--plum-soft); font-size: 14px; word-break: break-all;">Your Closet lives at <span class="mo-your-url" style="color: var(--rose); font-weight: 600;">…</span></p>
-        <p id="mo-local-note" hidden style="margin: 0 0 16px; padding: 10px 14px; background: rgba(246,192,74,0.15); border-radius: 8px; font-size: 13px; color: var(--plum);">Saved only in this browser. It is not reserved or public. <a id="mo-local-signin" href="/resident-card.html#rcAccountTitle" style="color:var(--rose); font-weight:700; text-decoration:underline;">Keep it with a private account at the Resident Card desk →</a></p>
+        <p id="mo-local-note" hidden style="margin: 0 0 16px; padding: 10px 14px; background: rgba(246,192,74,0.15); border-radius: 8px; font-size: 13px; color: var(--plum);">Saved only in this browser. It is not reserved or public. <a id="mo-local-signin" href="#mo-account" style="color:var(--rose); font-weight:700; text-decoration:underline;">Verify your email here to keep it with your account →</a></p>
         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
           <a href="/laidies-card.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--rose); color: var(--cream); border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;">See my Closet →</a>
           <button type="button" class="mo-copy-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: transparent; color: var(--plum); border: 1.5px solid var(--plum); border-radius: 999px; font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; font-family: inherit;">Copy URL</button>
@@ -494,10 +505,14 @@
       peach:    'linear-gradient(160deg,#fde7d8 0%,#f8d9e0 100%)',
       mint:     'linear-gradient(160deg,#dbeee7 0%,#cfe6f4 100%)',
       lavender: 'linear-gradient(160deg,#ece4f6 0%,#f6dfe9 100%)',
-      holo:     'linear-gradient(120deg,#fbe0ee 0%,#e2ddf6 45%,#d5eef0 100%)'
+      holo:     'linear-gradient(120deg,#fbe0ee 0%,#e2ddf6 45%,#d5eef0 100%)',
+      gettingready: 'url("/assets/resident-card/backgrounds/getting-ready-v2.png") center / cover',
+      skates: 'url("/assets/resident-card/backgrounds/skates-v2.png") center / cover',
+      boombox: 'url("/assets/resident-card/backgrounds/boombox-v3.png") center / cover',
+      computer: 'url("/assets/resident-card/backgrounds/computer.png") center / cover'
     };
-    var BG_ORDER = ['classic','pinklilac','peach','mint','lavender','holo'];
-    var BG_LABEL = {classic:'Classic',pinklilac:'Pink + lilac',peach:'Peach',mint:'Mint',lavender:'Lavender',holo:'Holo'};
+    var BG_ORDER = ['classic','pinklilac','peach','mint','lavender','holo','gettingready','skates','boombox','computer'];
+    var BG_LABEL = {classic:'Classic',pinklilac:'Pink + lilac',peach:'Peach',mint:'Mint',lavender:'Lavender',holo:'Holo',gettingready:'Getting Ready',skates:'Skates',boombox:'Boombox',computer:'Computer'};
     var SONG_LABEL = {
       'wednesday-in-sunnyvaile':'Wednesday in SUNNYVAiLE','down-at-the-blend-and-snap':'Down at the Blend & Snap',
       'the-library':'The LIBRAiRY','on-wednesday-we-do-ai':'On Wednesday We Do AI',
@@ -549,10 +564,12 @@
       $('moSaint').textContent = SAINT_LABEL[$('moSaintSel').value] || '—';
       $('moCarry').textContent = $('moCarrySel').value || '—';
       var av = $('moAvatar');
+      av.replaceChildren();
       if(state.avatar){
         var image = document.createElement('img');
         var safePreview = window.LAIDIESResidentCard &&
-          window.LAIDIESResidentCard.isSafeAssetPath(state.avatar);
+          (window.LAIDIESResidentCard.isSafeAssetPath(state.avatar) ||
+           window.LAIDIESResidentCard.isSafeRasterPortrait(state.avatar));
         if (safePreview) {
           image.src = state.avatar;
           image.alt = 'avatar';
@@ -1086,13 +1103,14 @@
   <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="/content/site/ksvl-player.js?v=20260712-22"></script>
 <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
-<script src="/content/site/identity-client-v1.js?v=20260727-account-1"></script>
+<script src="/content/site/identity-client-v1.js?v=20260905-email-code-1"></script>
 <script src="/content/site/resident-account-runtime-v1.js?v=20260829-provider-health-1"></script>
-<script defer src="/content/site/maikeover-account-v1.js?v=20260905-onboarding-1"></script>
+<script defer src="/content/site/maikeover-account-v1.js?v=20260905-email-code-1"></script>
 <script defer src="/content/site/maikeover-portraits-v1.js?v=20260905-onboarding-1"></script>
 <script defer src="/content/site/maikeover-v2.js?v=20260905-onboarding-1"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
+  <script defer src="/content/site/sv-back-nav.js?v=svbn-2026-08-29-v3-f3347a06b810"></script>
 </body>
 </html>

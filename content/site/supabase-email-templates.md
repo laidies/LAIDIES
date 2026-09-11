@@ -1,5 +1,9 @@
 # LAiDIES — Supabase Email Templates
 
+## Email-code rollout — 2026-09-05 (local candidate; provider not verified)
+
+MAiKEOVER now uses `signInWithOtp` followed by `verifyOtp` on the same page for both new and returning residents. Both provider templates below must include `{{ .Token }}` before that UI ships. Keep `{{ .ConfirmationURL }}` for the existing Resident desk and legacy consumers. Updating this file does not update Supabase. Verify actual new/returning emails, code acceptance, expiry/rejection, and legacy links before release. The older presentation below is retained, not a new palette approval.
+
 Two letters from the SUNNYVAiLE Post Office. Paste into your Supabase dashboard at **Authentication → Email Templates**.
 
 Both templates use the same subject line. The body differentiates new vs. returning member.
@@ -27,7 +31,9 @@ You've Got Mail from the SUNNYVAiLE Post Office
 
   <h1 style="font-size: 28px; color: #4b2148; margin: 0 0 24px; font-weight: 700;">You've Got Mail.</h1>
 
-  <p style="font-size: 17px; margin: 0 0 24px;">Your new home in SUNNYVAiLE is just a click away.</p>
+  <p style="font-size: 17px; margin: 0 0 12px;">Your LAiDIES verification code:</p>
+  <p style="font-size: 30px; font-weight: bold; letter-spacing: 0.15em;">{{ .Token }}</p>
+  <p>Enter this code on the page where you requested it. Keep it private. If you requested a sign-in link instead, use the button below.</p>
 
   <p style="margin: 28px 0;">
     <a href="{{ .ConfirmationURL }}" style="display: inline-block; background: #4b2148; color: #fffdfb; padding: 16px 28px; text-decoration: none; border-radius: 999px; font-family: 'Jost', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.04em;">Start my SUNNYVAiLE MAiKEOVER →</a>
@@ -63,6 +69,10 @@ You've Got Mail from the SUNNYVAiLE Post Office
   <h1 style="font-size: 28px; color: #4b2148; margin: 0 0 24px; font-weight: 700;">You've Got Mail.</h1>
 
   <p style="font-size: 17px; margin: 0 0 24px;">Welcome back to SUNNYVAiLE!</p>
+
+  <p style="font-size: 17px; margin: 0 0 12px;">Your LAiDIES verification code:</p>
+  <p style="font-size: 30px; font-weight: bold; letter-spacing: 0.15em;">{{ .Token }}</p>
+  <p>Enter this code on the page where you requested it. Keep it private. If you requested a sign-in link instead, use the button below.</p>
 
   <p style="margin: 28px 0;">
     <a href="{{ .ConfirmationURL }}" style="display: inline-block; background: #4b2148; color: #fffdfb; padding: 16px 28px; text-decoration: none; border-radius: 999px; font-family: 'Jost', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.04em;">Now Entering SUNNYVAiLE →</a>

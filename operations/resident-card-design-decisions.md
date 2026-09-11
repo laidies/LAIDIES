@@ -1,6 +1,17 @@
 # Resident Card construction — 2026-07-24
 
+## Complete MAiKEOVER signup release — 2026-09-10
+
+Ali authorizes finishing and releasing email verification, portrait creation,
+editable Card, account save, Closet and second-browser restoration inside
+MAiKEOVER. This supersedes the old separate-desk intake rule. Preserve existing
+accounts and explicit replacement consent, approved art and unrelated deployed
+bytes. The authorized test address is wednesday.laidies@gmail.com. Local saves
+alone are not account/cross-browser verification.
+
 ## MAiKEOVER account onboarding — 2026-09-05
+
+Ali approves email-code sign-up/sign-in in MAiKEOVER, with semantic one-time-code autofill and paste/type fallback. Keep the existing Supabase account identity and Card/Closet linkage. No Google requirement. Verification stays on this page, including when the email is read on another device. Provider email templates must include the code while preserving working links for other existing consumers; do not announce rollout until real delivery and account continuity are verified.
 
 Ali authorizes one continuous account-to-Card journey in MAiKEOVER. New
 visitors request email verification here and return here to make their Card.
