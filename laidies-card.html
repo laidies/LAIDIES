@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Closet · LAiDIES · SUNNYVAiLE</title>
   <meta name="description" content="Your SUNNYVAiLE Closet — your Resident Card and supported saved progress in one place, with browser-only items clearly identified.">
-  <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg?v=20260902-ai-v2" sizes="any" />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
-  <script defer src="/content/site/sv-global-header.js?v=20260829-continuation-restore-1"></script>
-  <script defer src="/content/site/sv-nav-auth.js?v=20260823-resident-truth-a6e7832439e1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260911-signup-2"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260911-signup-2"></script>
   <script defer src="/content/site/sv-welcome-tour.js?v=20260713-1"></script>
   <script>
     window.__LAIDIES_CONTROLLED_PREFLIGHT__ =
@@ -937,6 +937,13 @@
     .public-mode-banner strong { color: var(--rose); }
   </style>
   <link rel="stylesheet" href="/content/closet-v2.css?v=20260724-1" />
+  <link rel="stylesheet" href="/content/resident-card-getting-ready.css?v=20260906-1">
+  <link rel="stylesheet" href="/content/resident-card-pop-backgrounds.css?v=20260906-1">
+  <style>
+    @media (max-width: 360px) {
+      .closet-page .wallet-label { max-width: 100%; white-space: normal; line-height: 1.35; }
+    }
+  </style>
   <!-- Microsoft Clarity (heatmaps + session recordings) -->
   <script type="text/javascript">
     if (!window.__LAIDIES_CONTROLLED_PREFLIGHT__) (function(c,l,a,r,i,t,y){
@@ -1061,7 +1068,7 @@
     </div>
 
       <!-- Wallet slots: one membership card per building, 90s-style -->
-      <div class="wallet-slots" id="walletSlots" hidden>
+      <div class="wallet-slots" id="walletSlots">
         <p class="wallet-slots-title">Membership cards</p>
         <p class="wallet-slots-note">One per building, like it's 1999 — visits stamp automatically at the door. Hit Visit to head over.</p>
         <div class="wallet-grid" id="walletGrid"></div>
@@ -1146,7 +1153,7 @@
     .vessel-flash { animation: dashVesselFlash 1.4s ease; }
     @keyframes dashVesselFlash { 0%, 100% { box-shadow: none; } 25% { box-shadow: 0 0 0 3px var(--gold, #c9a227); } }
   </style>
-  <section class="passport-section" id="dashboardSection" hidden>
+  <section class="passport-section" id="dashboardSection">
     <p class="passport-section-eyebrow">★ Closet · At a glance</p>
     <h2 class="passport-section-title" id="dashTitle">Your Report Card</h2>
     <p class="passport-section-lede" id="dashLede">Every collection, counted. Tap a tile to jump straight to the shelf it lives on.</p>
@@ -1166,7 +1173,7 @@
       var TILES = [
         { icon: '🌸', label: 'Charms this week',  src: 'charmCount',     target: 'charmBracelet',    total: 7,    pub: true,  hint: 'Hiding in town images' },
         { icon: '🗺️', label: 'Tour stops',        src: 'tourCount',      target: 'tourVessel',       total: 8,    pub: false, hint: 'Resets Wednesday' },
-        { icon: '✦', label: 'Quiz + Express progress', src: 'clipJarTotal', target: 'butterflyJar', total: null, pub: false, hint: 'This-device summary' },
+        { icon: '✦', label: 'Quiz + Express progress', src: 'clipJarTotal', target: 'butterflyJar', total: null, pub: false, hint: 'Saved progress summary' },
         { icon: '📓', label: 'Stickers',          src: 'stickerCount',   target: 'stickerGrid',      total: null, pub: true,  hint: 'Quizzes + Express tours' },
         { icon: '🎗️', label: 'Merit badges',      src: 'meritCount',     target: 'meritGrid',        total: null, pub: true,  hint: 'Earned around town' },
         { icon: '🃏', label: 'Trading cards',     src: 'tradingCount',   target: 'tradingGrid',      total: null, pub: true,  hint: 'Packs at Blend & Snap' },
@@ -1252,6 +1259,7 @@
           new MutationObserver(refresh).observe(el, { childList: true, characterData: true, subtree: true });
         });
         window.addEventListener('load', refresh);
+        window.addEventListener('laidies:continuation-change', refresh);
       }
 
       if (document.readyState === 'loading') {
@@ -1266,7 +1274,7 @@
        SECTION 1.25: YOUR COVEN — one favorite per pantheon
        (SAiNT / MAiVEN / TRAiLBLAZER / Town Character. Trip mechanic: pick at LUMINAiRY wings or the character's building.)
        ============================================== -->
-  <section class="passport-section" id="covenSection" hidden>
+  <section class="passport-section" id="covenSection">
     <p class="passport-section-eyebrow">★ Closet · Your Luminaries</p>
     <h2 class="passport-section-title">Your Luminaries</h2>
     <p class="passport-section-lede">The women you draw power from &mdash; one favorite per pantheon. Change any pick by visiting where she lives.</p>
@@ -1474,6 +1482,20 @@
       <p class="vessel-note">Collected from supported quizzes and Express tours. Girl Talk keeps its honour-system collection inside the game on this device.</p>
     </div>
 
+    <section class="vessel vessel--sticker-book" id="ksvlClosetStickers" hidden>
+      <h3 class="vessel-title">Your KSVL sticker picks</h3>
+      <p id="ksvlClosetStickerStatus" class="vessel-note" role="status" aria-live="polite"></p>
+      <div id="ksvlClosetStickerGrid"></div>
+      <p class="vessel-note"><a href="/radio#hub-stickers">Visit the Radio sticker counter →</a></p>
+    </section>
+    <style>
+      #ksvlClosetStickerGrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px; }
+      .ksvl-closet-sticker { display:flex;flex-direction:column;align-items:center;gap:8px;min-width:0; }
+      .ksvl-closet-sticker img { width:100%;max-width:160px;height:130px;object-fit:contain; }
+      .ksvl-closet-sticker button { min-height:44px;padding:8px;max-width:100%;font:inherit;color:var(--plum);background:var(--cream);border:1px solid var(--rose);border-radius:6px;cursor:pointer; }
+    </style>
+    <script defer src="/content/site/ksvl-stickers-v1.js?v=20260830-counter-1"></script>
+
     <!-- Merit Sash -->
     <div class="vessel vessel--sash">
       <div class="vessel-header">
@@ -1495,10 +1517,11 @@
     <div class="vessel vessel--besties" id="bestieVessel">
       <div class="vessel-header">
         <h3 class="vessel-title">Best Friends</h3>
-        <span class="vessel-count" id="bestieCount">0 necklaces</span>
+        <span class="vessel-count" id="bestieCount">Not checked</span>
       </div>
       <div class="bestie-grid" id="bestieGrid"></div>
-      <p class="vessel-note" id="bestieNote">Mail a friend a postcard from the Post Office. When she comes to town and makes her card, you both get a half of the BEST FRIENDS necklace.</p>
+      <p class="vessel-note" id="bestieNote">Checking your private account necklaces…</p>
+      <p class="vessel-note"><a href="/resident-referrals.html">Invite a friend or manage your invitations →</a></p>
     </div>
 
     <!-- Charm Bracelet — reads from charm-hunt.js (window.CHARM_HUNT) if present, else empty state -->
@@ -1524,7 +1547,7 @@
         </div>
         <ul class="clip-jar-ledger" id="clipJarLedger"></ul>
       </div>
-      <p class="vessel-note">On this device, this is a playful summary of your best Pop Quiz score for each episode plus completed Express tours. It is not a Butterfly Clip balance, reward, purchase record, or synced account history. <a href="/sunnyvaile-high.html#report-card">Your local Report Card →</a> · <a href="/sunnyvaile-high.html">Take this week's quiz →</a></p>
+      <p class="vessel-note">This is a playful summary of your best Pop Quiz score for each episode plus completed Express tours. It is not a Butterfly Clip balance, reward, purchase record, or verified status. <a href="/sunnyvaile-high.html#report-card">Your Report Card →</a> · <a href="/sunnyvaile-high.html">Take this week's quiz →</a></p>
     </div>
 
     <!-- Trading Card Binder -->
@@ -1608,10 +1631,11 @@
     <h3 id="editPanelTitle">Edit your Resident Card</h3>
 
     <div class="edit-field">
-      <label class="edit-field-label">Pick your archetype (this is your card face)</label>
+      <p class="edit-field-label">Your Card portrait</p>
       <div class="avatar-picker-note">
-        <strong>The 24 archetype avatars are being illustrated.</strong><br>
-        When they land, this grid will show them (12 archetypes × F/M presentations).
+        Choose an era, outfit and accessories at MAiKEOVER. Making portraits needs sign-in.<br>
+        Save any edits here before leaving.<br>
+        <a href="/maikeover.html" style="display:block;min-height:44px;padding:12px 0;font-style:normal;font-weight:700;text-decoration:underline">Open MAiKEOVER to change your portrait →</a>
       </div>
     </div>
 
@@ -1740,7 +1764,7 @@
 <footer>© LAiDIES · Filed from SUNNYVAiLE · Your Closet</footer>
 
 <script src="content/site/supabase-config.js"></script>
-<script src="/content/site/resident-card-contract-v1.js?v=20260904-portrait-restore-1"></script>
+<script src="/content/site/resident-card-contract-v1.js?v=20260906-pop-card-1"></script>
 <script src="/content/site/identity-client-v1.js?v=20260727-account-1"></script>
 <script src="/content/site/resident-account-runtime-v1.js?v=20260829-provider-health-1"></script>
 <script>
@@ -1794,16 +1818,11 @@
     // These vessels render from THIS device's localStorage — on someone
     // else's Closet they'd show the visitor's own data. Hide until synced.
     document.getElementById('walletSlots').hidden = true;
+    document.getElementById('dashboardSection').hidden = true;
+    document.getElementById('covenSection').hidden = true;
     document.getElementById('butterflyJar').hidden = true;
     document.getElementById('tourSection').hidden = true;
     document.getElementById('charmVessel').hidden = true;
-  }
-
-  function residentNumberText(value) {
-    var number = Number(value);
-    return Number.isInteger(number) && number > 0
-      ? 'No. ' + String(number).padStart(4, '0')
-      : 'No. NEW';
   }
 
   function updateCardFromProfile(profile) {
@@ -1851,9 +1870,10 @@
     if (profile.favorite_quote) {
       document.getElementById('cardQuote').firstChild.textContent = '"' + profile.favorite_quote + '"';
     }
-    var residentNumber = residentNumberText(profile.resident_number);
-    document.getElementById('residentNo').textContent = residentNumber;
-    document.getElementById('residentNoBack').textContent = residentNumber;
+    var number = Number(isPublicMode ? profile.resident_number : document.getElementById('residentNo').dataset.verifiedNumber);
+    var num = Number.isSafeInteger(number) && number > 0 ? String(number).padStart(4, '0') : 'NEW';
+    document.getElementById('residentNo').textContent = 'No. ' + num;
+    document.getElementById('residentNoBack').textContent = 'No. ' + num;
   }
 
   var editBtn = document.getElementById('editCardBtn');
@@ -1866,8 +1886,9 @@
   }
   if (editBtn && editPanel) {
     editBtn.addEventListener('click', function() {
-      editPanel.hidden = !editPanel.hidden;
-      if (!editPanel.hidden && closeEditDrawer) closeEditDrawer.focus();
+      // MAiKEOVER owns the verified account save; the legacy local drawer must
+      // not create a second, device-only editing journey.
+      window.location.href = '/maikeover.html#mo-maker';
     });
   }
   var cancelBtn = document.getElementById('cancelEditBtn');
@@ -1952,6 +1973,21 @@
 
   // Your Coven — pantheon label maps (SAiNT map already lives above as SAINT_LABEL)
   var MAVEN_LABEL = {
+    'ada-lovelace': 'Ada Lovelace',
+    'grace-hopper': 'Grace Hopper',
+    'hedy-lamarr': 'Hedy Lamarr',
+    'karen-sparck-jones': 'Karen Spärck Jones',
+    'eniac-six': 'The ENIAC Six',
+    'margaret-hamilton': 'Margaret Hamilton',
+    'frances-allen': 'Frances Allen',
+    'grace-wahba': 'Grace Wahba',
+    'cynthia-dwork': 'Cynthia Dwork',
+    'daphne-koller': 'Daphne Koller',
+    'barbara-liskov': 'Barbara Liskov',
+    'jean-sammet': 'Jean Sammet',
+    'adele-goldberg': 'Adele Goldberg',
+    'shafi-goldwasser': 'Shafi Goldwasser',
+    'lynn-conway': 'Lynn Conway',
     'hannah-fry': 'Hannah Fry',
     'fei-fei-li': 'Fei-Fei Li',
     'timnit-gebru': 'Timnit Gebru',
@@ -1959,9 +1995,10 @@
     'joy-buolamwini': 'Joy Buolamwini',
     'kate-crawford': 'Kate Crawford',
     'meredith-whittaker': 'Meredith Whittaker',
-    'emily-bender': 'Emily Bender'
+    'emily-bender': 'Emily M. Bender'
   };
   var BUILDER_LABEL = {
+    'allie-k-miller': 'Allie K. Miller',
     'mira-murati': 'Mira Murati',
     'daniela-amodei': 'Daniela Amodei',
     'lila-ibrahim': 'Lila Ibrahim',
@@ -2068,6 +2105,7 @@
   document.addEventListener('charmhunt:week-unlocked', function () { if (window.renderCharmBracelet) window.renderCharmBracelet(); });
 
   function hydrateCoven() {
+    if (isPublicMode) return;
     var read = function(k) { try { return localStorage.getItem(k) || ''; } catch(e) { return ''; } };
     var applyPick = function(elId, key, labels) {
       var el = document.getElementById(elId);
@@ -2099,6 +2137,7 @@
       hydrateCoven();
     }
   });
+  window.addEventListener('laidies:continuation-change', hydrateCoven);
 
   function readCache() {
     var envelope = readCardEnvelope();
@@ -2205,12 +2244,21 @@
     peach:    'linear-gradient(160deg,#fde7d8 0%,#f8d9e0 100%)',
     mint:     'linear-gradient(160deg,#dbeee7 0%,#cfe6f4 100%)',
     lavender: 'linear-gradient(160deg,#ece4f6 0%,#f6dfe9 100%)',
-    holo:     'linear-gradient(120deg,#fbe0ee 0%,#e2ddf6 45%,#d5eef0 100%)'
+    holo:     'linear-gradient(120deg,#fbe0ee 0%,#e2ddf6 45%,#d5eef0 100%)',
+      gettingready: 'url("/assets/resident-card/backgrounds/getting-ready-v2.png") center / cover',
+      skates: 'url("/assets/resident-card/backgrounds/skates-v2.png") center / cover',
+      boombox: 'url("/assets/resident-card/backgrounds/boombox-v3.png") center / cover',
+      computer: 'url("/assets/resident-card/backgrounds/computer.png") center / cover'
   };
   function applyCardBg(p) {
-    var bg = CARD_BG[(p && p.card_bg) || 'classic'] || CARD_BG.classic;
+    var finish = (p && p.card_bg) || 'classic';
+    if (!Object.prototype.hasOwnProperty.call(CARD_BG, finish)) finish = 'classic';
+    var bg = CARD_BG[finish];
     var faces = document.querySelectorAll('.card-face--front, .card-face--back');
-    for (var i = 0; i < faces.length; i++) faces[i].style.background = bg;
+    for (var i = 0; i < faces.length; i++) {
+      faces[i].dataset.finish = finish;
+      faces[i].style.background = bg;
+    }
   }
 
   function renderProfile(p) {
@@ -2580,11 +2628,13 @@
 
   async function init() {
     var persistenceState = document.getElementById('closetPersistenceState');
+    // Guard local-only shelves before a public lookup can await the network.
+    if (isPublicMode) applyPublicMode();
     // Fast first paint from local cache (feels alive immediately)
     var cached = readCache();
-    if (readCardEnvelope()) {
+    if (!isPublicMode && readCardEnvelope()) {
       renderProfile(cached);
-    } else {
+    } else if (!isPublicMode) {
       // Coven band hydrates independently — always run so empty slots show correct state
       hydrateCoven();
       renderCharmBracelet();
@@ -2666,17 +2716,21 @@
   init();
 })();
 </script>
-  <script src="/content/site/closet-account-bridge-v1.js?v=20260904-portrait-restore-1"></script>
+  <script src="/content/site/closet-account-bridge-v1.js?v=20260911-signup-2"></script>
+  <script src="/content/site/resident-necklaces-v1.js?v=20260831-1"></script>
   <script src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
   <script src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
   <script>
-  (function renderWallet() {
+  (function () {
     'use strict';
     // Membership cards — one per building, fed by the visit counter that
     // sv-you-are-here.js stamps on every building page (laidies_building_visits).
+    function renderWallet() {
+    if (window.LAIDIESPublicCardRoute.parse(window.location.search).requested) return;
     var grid = document.getElementById('walletGrid');
     var list = window.SV_BUILDINGS;
     if (!grid || !list || !list.length) return;
+    grid.replaceChildren();
     var EMOJI = {
       'visitors-centre': '🚐', 'newsstand': '🗞️', 'chick-flicks': '📼', 'blend-snap': '☕',
       'mme-claio': '🔮', 'maikeover': '💇‍♀️', 'bronze-aige': '🍸', 'dream-phone': '📞',
@@ -2717,11 +2771,16 @@
       card.appendChild(visit);
       grid.appendChild(card);
     });
+    }
+    renderWallet();
+    window.addEventListener('laidies:continuation-change', renderWallet);
   })();
-  (function renderClipJar() {
+  (function () {
     'use strict';
     // Device-local Quiz + Express progress summary. It reads product-owned
     // local records but does not create currency, rewards, ownership or sync.
+    function renderClipJar() {
+    if (window.LAIDIESPublicCardRoute.parse(window.location.search).requested) return;
     function stored(key) {
       try { return JSON.parse(localStorage.getItem(key)) || {}; } catch (e) { return {}; }
     }
@@ -2756,13 +2815,13 @@
     var ledger = document.getElementById('clipJarLedger');
     if (!countEl || !totalEl || !ledger) return;
     totalEl.textContent = String(total);
-    countEl.textContent = total === 0 ? 'No local records yet'
-      : total + ' local record point' + (total === 1 ? '' : 's');
+    countEl.textContent = total === 0 ? 'No saved progress yet'
+      : total + ' saved progress point' + (total === 1 ? '' : 's');
     ledger.innerHTML = '';
     if (!rows.length) {
       var empty = document.createElement('li');
       empty.className = 'clip-empty';
-      empty.textContent = 'No local progress recorded yet — complete a Pop Quiz or Express tour on this device.';
+      empty.textContent = 'No saved progress recorded yet — complete a Pop Quiz or Express tour.';
       ledger.appendChild(empty);
       return;
     }
@@ -2779,13 +2838,19 @@
       li.append(ep, amount);
       ledger.appendChild(li);
     });
+    }
+    renderClipJar();
+    window.addEventListener('laidies:continuation-change', renderClipJar);
   })();
-  (function renderLocalStickerBook() {
+  (function () {
     'use strict';
     // Signed-in users get the Sticker Book from Supabase (renderCollections).
     // Signed-out/local users don't, so fill it from local stores here — the
     // Express "Caught Up" stickers plus local Pop Quiz stickers.
     // Guarded to signed-out so it never clobbers the Supabase pass.
+    var defaultSlots = (document.getElementById('stickerGrid') || { children: [] }).children.length;
+    function renderLocalStickerBook() {
+    if (window.LAIDIESPublicCardRoute.parse(window.location.search).requested) return;
     var signedIn = false;
     try { signedIn = Object.keys(localStorage).some(function(k){ return /^sb-.*-auth-token$/.test(k); }); } catch (e) {}
     if (signedIn) return;
@@ -2805,8 +2870,8 @@
     var countEl = document.getElementById('stickerCount');
     var gridEl = document.getElementById('stickerGrid');
     if (countEl) countEl.textContent = stickers.length + ' collected';
-    if (gridEl && stickers.length > 0) {
-      var slots = Math.max(gridEl.children.length, Math.min(stickers.length, 12));
+    if (gridEl) {
+      var slots = Math.max(defaultSlots, Math.min(stickers.length, 12));
       gridEl.innerHTML = '';
       for (var s = 0; s < slots; s++) {
         var tile = document.createElement('div');
@@ -2820,6 +2885,9 @@
         gridEl.appendChild(tile);
       }
     }
+    }
+    renderLocalStickerBook();
+    window.addEventListener('laidies:continuation-change', renderLocalStickerBook);
   })();
   (function() {
     'use strict';
@@ -2860,9 +2928,9 @@
     document.addEventListener('sv:tour-checkin', renderTour);
   })();
   </script>
-    <script defer src="/content/site/ksvl-player.js?v=20260829-touch-targets-1"></script>
+    <script defer src="/content/site/ksvl-player.js?v=20260830-continuity-1"></script>
     <script defer src="/content/site/charm-hunt.js?v=20260716-coords" onload="if(typeof renderCharmBracelet==='function')renderCharmBracelet();"></script>
-<script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260830-native-controls-1"></script>
 <script defer src="/content/site/puffy-bookmarks.js?v=20260724-pouch10"></script>
 </body>
 </html>

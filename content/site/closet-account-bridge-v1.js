@@ -57,6 +57,16 @@
         }
         return;
       }
+      var number = Number(state.remote && state.remote.profile && state.remote.profile.resident_number);
+      if (Number.isSafeInteger(number) && number > 0) {
+        ["residentNo", "residentNoBack"].forEach(function (id) {
+          var numberNode = document.getElementById(id);
+          if (numberNode) {
+            numberNode.dataset.verifiedNumber = String(number);
+            numberNode.textContent = "No. " + String(number).padStart(4, "0");
+          }
+        });
+      }
       if (state.state !== "account-backed-resident" ||
           !state.remote ||
           !state.remote.card) {
