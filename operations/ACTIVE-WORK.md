@@ -249,3 +249,6 @@ VERIFIED PUBLICLY2226fefd/source0ec5e390. Exact approved lilac/pink Rewind wallp
 
 ## 2026-09-11 — Did you know title legibility
 VERIFIED PUBLICLYf3bb5c8a/sourced6d889d7. Smaller approved mark and green burst sit immediately above clear pink outlined title. Actual old overlap rejected by geometry check; successor inspected at320/390/700/701/960/1440 and publicly verified on both origins with carousel controls. Only index changed; wallpaper/directory/current services retained. Release: operations/product-stewards/town-entry-homepage/releases/dyk-title-20260911/release.md. Resident Card work remains open.
+
+## 2026-09-11 — Shortcut artwork/framing correction awaiting image identification
+HOLD on identifying original Learn/Useful-or-Fun images; current sources expressly rejected for those slots. Independent full-image framing prepared and checked at eight widths; no root index change or deployment. Exact checkpoint: operations/product-stewards/town-entry-homepage/candidates/shortcut-art-recovery-20260911/checkpoint.md. User asked what the two originals depicted; resume from answer and latest live provider. Do not mark old recovery complete.
