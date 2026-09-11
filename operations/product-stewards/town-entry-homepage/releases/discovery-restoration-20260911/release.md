@@ -1,6 +1,6 @@
 # Homepage discovery restoration — 2026-09-11
 
-Status: source ready; awaiting current production deployment and public checks.
+Status: VERIFIED PUBLICLY. Source commit cb958c15; production 3d9a4501-9bcb-42d1-9bc6-6fe42a6431d4.
 
 ## Exact visitor change
 Restore the previously built third masthead CTA, Find what I need → #today; eight-slide slim Did you know strip directly beneath masthead; initially closed full directory with full-width show/close pill and all26 current links. Bright lime (#b7e42b) women-feature main title with1.5px navy edge preserves Jost700, exact wording, image/quote, responsive geometry and pink subheadings. Restore the existing shared KSVL loader because Library and other shared-header pages otherwise never create the saved radio player.
@@ -21,3 +21,13 @@ This recovery does not complete the outstanding Resident Card explanation/one-si
 Candidate actual Chrome journeys:8second automatic rotation; pause remains after8.5seconds; DYK Radio opens fixed deck; real Library link restores deck; Stop & close works there; third CTA reaches#today; current Microsoft headline and Open today’s activity remain visible.
 
 Final commit hygiene removed spaces on two otherwise empty lines; no non-whitespace bytes changed and renders are identical. Final index SHA-256: `13f7c33ad8e6cf3e705e5b56cf5e595790a49ab89cf9d922ec7f53b44db0c703`.
+
+## Public verification — final
+
+Live https://laidies.ai/ and immutable https://3d9a4501.laidies-sunnyvaile.pages.dev/ return the exact final HTML, homepage runtime and shared header. Actual Chrome checks390/960/1440 on both origins pass: three masthead CTA links, correct section order,8-slide banner,26 links inside closed-by-default native disclosure with keyboard open/close, bright lime title/exact wording/Jost700, pink subheadings, decoded original women image, no horizontal overflow or page exceptions. Foreground inspected the actual live phone/banner, middle/heading and wide/directory captures.
+
+Live automatic rotation and persistent pause pass. Radio opens the fixed bottom deck; a real banner Library link loads the same saved player there; Stop & close works. No claim of uninterrupted audio through a full document navigation is made. Current NewsStand activity and current Meta Muse headline render; a first check incorrectly expected the earlier Microsoft headline, then was corrected to read the current published result rather than require stale text. Audio controls/state verified, not an auditory quality review.
+
+Immediately before publication, NewsStand advanced to receiving3e056ac6-c3cb-473f-8fe8-4151e44c2f00/sourcec65e8ead. Its six changed NewsStand paths were preserved using the fresh provider manifest. Its current worker/redirects from /private/tmp/laidies-meta-cache-release-20260911/stage are byte-identical to the pair already staged. Final provider792 keys, no removed keys, only3 expected existing file changes and3 declared approved image additions;786 other current identities retained.
+
+The broader previously approved preview includes additional design/copy changes not present in current public production. This task restores the four explicitly requested outcomes and shared radio dependency; it does not silently promote the whole preview or label the Resident Card reconciliation/site audit complete.

@@ -19,3 +19,7 @@ A RETIRED path must override a stale ACTIVE entry. Both rejected KSVL exports ar
 ## 2026-09-10 — Women-feature heading contrast
 
 VERIFIED PUBLICLY: source348cd54d, productionf9f53b6f. Single main-title color change to existing #070f2b; exact wording, Jost, image, responsive layout and pink subheadings retained. Three live widths on both origins and seven candidate widths checked;782 other static assets plus current worker/redirects preserved. Exact release: operations/product-stewards/town-entry-homepage/releases/women-heading-20260910/release.md. Remaining Resident Card explanation work remains open.
+
+
+## 2026-09-11 — Restore missing homepage discovery
+VERIFIED PUBLICLY: production3d9a4501, sourcecb958c15. Bright lime women title; third masthead CTA; slim8-slide DYK; closed26-link full directory; shared KSVL loader restoring controls on Library. Current NewsStand3e056ac6 retained;786 unrelated static identities preserved. Exact evidence: operations/product-stewards/town-entry-homepage/releases/discovery-restoration-20260911/release.md. The full preview and Resident Card reconciliation remain distinct unfinished work.
