@@ -243,3 +243,6 @@ VERIFIED PUBLICLY at3d9a4501 (sourcecb958c15): third masthead CTA, approved slim
 
 ## 2026-09-11 — Bright directory paragraph
 VERIFIED PUBLICLY at644040ff/sourceb1a8ca86: scoped coral description on compact navy backing. Text/font/collapsed26linkdirectory retained, phone/middle/wide verified. PaperCut cc69ef58 and791other provider assets preserved. Evidence: operations/product-stewards/town-entry-homepage/releases/directory-copy-20260911/release.md. No broader homepage or Resident Card completion implied.
+
+## 2026-09-11 — Original wallpaper recovered; rejected directory box removed
+VERIFIED PUBLICLY2226fefd/source0ec5e390. Exact approved lilac/pink Rewind wallpaper restored at desktop/phone repeat sizes; lime body text directly on royal blue, no navy paragraph box. Preview/live asset comparison found this missing wallpaper, no additional missing image URL. Current NewsStand793-path provider retained except/index.html. Source and live checks: operations/product-stewards/town-entry-homepage/releases/wallpaper-recovery-20260911/release.md. Earlier coral/box admission superseded. Resident Card reconciliation remains unfinished.
