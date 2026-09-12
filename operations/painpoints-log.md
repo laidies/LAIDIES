@@ -1,5 +1,7 @@
 # LAiDIES build learning ledger
 
+- **2026-09-12 MAiKEOVER palette:** Use live computed homepage wallpaper/panel values, not older copied palette variables. Changing a surface from light to dark exposes explicit inherited paragraph colors; inspect signup/status and adjacent steps, not just the requested heading. Behind the Build: a palette is color relationships, not merely a list of hex values.
+
 - **2026-09-12 Portrait group boxes:** Fieldset legends need explicit internal placement when replacing a rule with a complete enclosing box. Verify actual desktop/phone pixels as well as narrow overflow; preserve live HTML script references when updating the CSS version from an older owned checkout. Behind the Build: semantic grouping can also make a form visibly easier to scan.
 
 - **2026-09-11 MAiKEOVER follow-up:** Actual upload attempt exposed stale signed-in copy after the session had ended; no image was sent. Subscribe to auth changes and defer UI refresh outside the provider callback; regression now covers expiry without focus/reload. The 800px check also found global quick links overflowing, corrected only on this page's middle-width header. Compare Privacy against current public bytes, not an old checkout, to avoid rolling back unrelated scripts. Newsletter checkbox is an explicit request handoff, never proof of subscription. Behind the Build angle: a remembered name is not a valid session. Phone autofill, inbox placement and provider-confirmed newsletter subscription cannot be inferred from mocks.

@@ -1,5 +1,9 @@
 # Active work
 
+## 2026-09-12 MAiKEOVER homepage palette
+
+- PUBLICLY VERIFIED: source4167b515, productiond96c233b-98f3-417b-8fa2-05325fd28f60. Exact homepage wallpaper (680px repeat), bright yellow titles and homepage blue panels replace muted surfaces. Desktop/390px pixels independently reviewed;320/800 no horizontal overflow; public selection still works. Account text override repaired after pixel check. Only two deployed paths changed;793 unrelated IDs retained from cd1ff76a; both origins match. Input /private/tmp/laidies-maikeover-boxes-bXt9N9/stage with adjacent manifest/base/preserve/verification JSON. Existing wallpaper copied into owned checkout and byte-matched against public asset; no artwork regeneration. Auth/backend unchanged; no new email or generation tests. Focused calibrated guard passed; unrelated whole-site asset hook not rerun.
+
 ## 2026-09-12 MAiKEOVER boxed portrait groups
 
 - PUBLICLY VERIFIED: four enclosed fieldsets replace title/rule styling. Source abb69466; production 2c35b124-6a8e-424a-b6bf-fe65a841e005. Desktop/390px pixel review and 320/800px overflow checks passed; live selection still works. Two static paths changed, 793 unrelated IDs preserved, no removals; immutable and custom-origin bytes match. Input /private/tmp/laidies-maikeover-boxes-vf7C8a/stage, adjacent manifest/base/preserve/verification JSON. Art and account/portrait logic unchanged. Scoped calibrated followup guard passed; known unrelated whole-site asset hook skipped, not claimed passed.
