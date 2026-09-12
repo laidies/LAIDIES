@@ -1,6 +1,10 @@
 # MAiKEOVER follow-up
 
-Status: locally tested; release pending. No new art approval.
+Status: PUBLICLY VERIFIED for the bounded layout and uploaded-portrait/Card journey; newsletter delivery remains unverified. No new art approval. Source b30ca472 committed and pushed; production33df7a32-a345-43f1-bfa8-37ed2942c649, https://33df7a32.laidies-sunnyvaile.pages.dev and https://laidies.ai/maikeover.
+
+Both origins returned exact hashes for all five files; provider comparison preserved789otherIDs, no additions/removals. deployed-provider.json and verification.json are beside the immutable input. Worker/redirect hashes independently confirmed against current Homepage stage. Whole-site historical hook was not rerun: prior partial checkout has45unrelated missing Episode3 assets; scoped tested commit used hooks disabled, not a whole-site pass.
+
+Public follow-through: fresh returning email code arrived in Gmail INBOX at2026-09-12T01:13:45Z and verified on MAiKEOVER. This single observation does not guarantee deliverability. After reauthentication, native file picker uploaded the fictional JPEG; provider returned3portraits. Choseportrait1; new visible selected caption appeared. Explicitly saved over private testCard1047. Closet rendered exact same image source, name, number and favourites. Independent Chrome profile explicitly restored account Card and its displayed image source matched exactly. Edit returned to MAiKEOVER. Public390/800 screenshots inspected, scrollWidth equalsviewport; arrow absent and groups visible. Physical phone autofill remains untested. One real generation set used; no personal photo transmitted.
 
 Five static paths: maikeover.html; content/maikeover-account.css; content/site/maikeover-account-v1.js; content/site/maikeover-portraits-v1.js; privacy.html.
 
@@ -8,7 +12,7 @@ Input: /private/tmp/laidies-maikeover-followup-HzkPXB/stage. Adjacent manifest.j
 
 Local account tests include actual registered auth-event callback, second-account newsletter reset, signout, replacement consent and failed saves. Calibrated arrow/prechecked-checkbox and portrait guards pass; shared Card40/40, Card33/33, email-code and avatar-worker tests passed. 320/390/800 layouts fit; maker and independent reviewer inspected phone and800 pixels. No artwork changed. Privacy script differences from old HEAD are existing live references, not new public mutations.
 
-Live upload fixture was selected through native picker after extension file access failed. Generation stopped before transmission because the browser session had expired. This exposed stale account display; local listener fix is not yet real-provider expiry verification. Fixture is a prior fictional portrait, no personal photo. No new paid generation occurred.
+Initial live upload attempt stopped before transmission because the browser session had expired. This exposed stale account display; listener fix has event-regression evidence but no deliberately forced real-provider expiry. Subsequent successful upload journey is recorded above. Extension/native confirmation bookkeeping caused tool timeouts; actual native dialogs and final DOM outcome were checked rather than treating timeout as success.
 
 Newsletter uses existing Post Office Buttondown standard form endpoint, only after signed-in account state, with required unchecked consent. No database flag or automatic subscription claim; actual provider confirmation/unsubscribe unverified. Previous Gmail tests authenticated SPF/DKIM/DMARC but landed in Spam; no fresh DNS change or inbox guarantee. Physical-phone automatic code suggestion remains unverified.
 

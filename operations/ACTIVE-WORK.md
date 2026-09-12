@@ -2,10 +2,10 @@
 
 ## 2026-09-11 MAiKEOVER portrait and subscription follow-up
 
-- Status: BUILDING; five-file release prepared, not yet public. Own source: /Users/alisoneakin/Projects/laidies-maikeover-release-20260902.
+- Status: PUBLICLY VERIFIED for bounded portrait/layout journey; sourceb30ca472, deployment33df7a32. Own source: /Users/alisoneakin/Projects/laidies-maikeover-release-20260902.
 - Bounded changes: remove floating back arrow; grouped readable portrait controls; explicit unchecked Buttondown episode-email request; current-live Privacy correction; session-expiry display refresh.
 - Local checks: account/event expiry, signout, portrait preview and calibrated followup guards pass. Independent source and 800/390 pixel review found no blocker. Approved art preserved.
-- Remaining: deploy exact overlay, verify public UI; real upload generation was blocked by expired session before any image transmission; actual newsletter confirmation/unsubscribe and physical-phone code suggestions remain unverified. Earlier description portrait/save/Closet/browser2 evidence remains separately recorded.
+- Live: fictional photo upload→3portraits→selection→save1047→Closet→independent browser restore succeeded, exact displayed portrait bytes match. Fresh login email reachedINBOX. Five published hashes matchbothorigins,789otherIDs preserved. Remaining: actual newsletter confirmation/unsubscribe awaits explicit test-email permission; physical-phone code suggestions unverified. Full record operations/releases/maikeover-followup-20260911.md.
 - Input: /private/tmp/laidies-maikeover-followup-HzkPXB/stage and adjacent manifest/preserve/base JSON; base4eb84a05, 789 unrelated provider IDs retained.
 
 ## 2026-09-10 Complete MAiKEOVER signup journey
