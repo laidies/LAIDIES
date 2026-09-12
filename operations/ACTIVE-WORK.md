@@ -1,5 +1,9 @@
 # Active work
 
+## 2026-09-12 Rejected dark panels removed
+
+- PUBLICLY VERIFIED: f259988a-263e-4269-b655-c02c4630f0f2, source f8bec88c. Light pink/lilac surfaces and pink titles replace rejected dark/blue panels; homepage wallpaper retained. Independent desktop/phone pixel check, calibrated regression guard and actual public selection passed. Two-path delta,793 other IDs preserved, both origins exact. Input /private/tmp/laidies-maikeover-boxes-dPxkdJ/stage and adjacent verification/manifest. No auth/art changes. Supersedes preceding dark palette verdict; functional scope unchanged.
+
 ## 2026-09-12 MAiKEOVER homepage palette
 
 - PUBLICLY VERIFIED: source4167b515, productiond96c233b-98f3-417b-8fa2-05325fd28f60. Exact homepage wallpaper (680px repeat), bright yellow titles and homepage blue panels replace muted surfaces. Desktop/390px pixels independently reviewed;320/800 no horizontal overflow; public selection still works. Account text override repaired after pixel check. Only two deployed paths changed;793 unrelated IDs retained from cd1ff76a; both origins match. Input /private/tmp/laidies-maikeover-boxes-bXt9N9/stage with adjacent manifest/base/preserve/verification JSON. Existing wallpaper copied into owned checkout and byte-matched against public asset; no artwork regeneration. Auth/backend unchanged; no new email or generation tests. Focused calibrated guard passed; unrelated whole-site asset hook not rerun.

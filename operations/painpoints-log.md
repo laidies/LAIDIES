@@ -1,5 +1,7 @@
 # LAiDIES build learning ledger
 
+- **2026-09-12 Rejected dark panels:** Exact homepage color borrowing did not authorize switching the whole form to dark surfaces. Ali rejected that interpretation. Preserve light surfaces when asked for bright headings; do not expand a bounded color request into an unrequested theme switch. Acknowledging a requested fix is not execution: finish authorized work before final response. Behind the Build: a correct reference can still be applied to the wrong design role.
+
 - **2026-09-12 MAiKEOVER palette:** Use live computed homepage wallpaper/panel values, not older copied palette variables. Changing a surface from light to dark exposes explicit inherited paragraph colors; inspect signup/status and adjacent steps, not just the requested heading. Behind the Build: a palette is color relationships, not merely a list of hex values.
 
 - **2026-09-12 Portrait group boxes:** Fieldset legends need explicit internal placement when replacing a rule with a complete enclosing box. Verify actual desktop/phone pixels as well as narrow overflow; preserve live HTML script references when updating the CSS version from an older owned checkout. Behind the Build: semantic grouping can also make a form visibly easier to scan.
