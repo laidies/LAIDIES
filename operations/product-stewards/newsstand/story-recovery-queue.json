@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-12T19:49:49.821238+00:00",
+  "updatedAt": "2026-09-12T22:39:12.758Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -833,6 +833,56 @@
         "readerJourneyPassed": true,
         "verifiedAt": "2026-09-12T19:48:14.712031+00:00"
       }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "crisp-pathology-20260912",
+      "producerPrincipal": "/root/remaining_build_review",
+      "sourceIdentitySha256": "df059db2295e74bc2414d8a2b0e5ff48916ffe243e17b3c162ee2f031fa4df6c",
+      "artifactSha256": "47d102259170ff4d40caaf74715d2b3358103244db14fe24f0347b7459a6b20f",
+      "status": "READY_FOR_ADMISSION",
+      "active": true,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-12T22:35:30.726Z",
+      "lastReviewedAt": "2026-09-12T22:38:08.148Z",
+      "attempts": [
+        {
+          "artifactSha256": "47d102259170ff4d40caaf74715d2b3358103244db14fe24f0347b7459a6b20f",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-12T22:38:08.148Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/admitted-v3/independent-review.json",
+            "sha256": "fea1e33ddb5f20fd7695dfdc91d635e60c6da7c21bcf42189156c895104bdbcd"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/admitted-v3/independent-raw-report.json",
+            "sha256": "acb2eae49f3d3c9731ef7048ce0d331aab0e30aeda4dbc67ecc0d893798d59c6"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "COMPOSE_AND_ADMIT_EXACT_ARTIFACT",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/admitted-v3/ordinary-candidate.json",
+        "sha256": "b1c35c555fff0d0fec419c696e4da20898140ba712338703214252fe20ed6e19"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "df059db2295e74bc2414d8a2b0e5ff48916ffe243e17b3c162ee2f031fa4df6c",
+        "artifactSha256": "47d102259170ff4d40caaf74715d2b3358103244db14fe24f0347b7459a6b20f",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/admitted-v3/independent-review.json",
+          "sha256": "fea1e33ddb5f20fd7695dfdc91d635e60c6da7c21bcf42189156c895104bdbcd"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/admitted-v3/independent-raw-report.json",
+          "sha256": "acb2eae49f3d3c9731ef7048ce0d331aab0e30aeda4dbc67ecc0d893798d59c6"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval."
     }
   ]
 }

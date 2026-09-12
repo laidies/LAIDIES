@@ -1,8 +1,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-12T19:43:16Z",
-  "lastCheckedAt": "2026-09-12T19:43:16Z",
+  "generatedAt": "2026-09-12T22:42:56Z",
+  "lastCheckedAt": "2026-09-12T22:42:56Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -31,7 +31,8 @@ window.NEWSSTAND_DATA = {
           "deepseek-flash-20260912",
           "microsoft-capacity-20260912",
           "nvidia-groq-inquiry-20260912",
-          "honeybook-plugin-20260912"
+          "honeybook-plugin-20260912",
+          "crisp-pathology-20260912"
         ],
         "serviceRecordIds": [
           "DAILY-2026-09-12-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
@@ -43,9 +44,9 @@ window.NEWSSTAND_DATA = {
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-12T19:43:16Z",
-      "updatedAt": "2026-09-12T19:43:16Z",
-      "lastCheckedAt": "2026-09-12T19:43:16Z",
+      "publishedAt": "2026-09-12T22:42:56Z",
+      "updatedAt": "2026-09-12T22:42:56Z",
+      "lastCheckedAt": "2026-09-12T22:42:56Z",
       "maxAgeHours": 36,
       "note": "The Daily for 2026-09-12."
     },
@@ -4837,6 +4838,77 @@ window.NEWSSTAND_DATA = {
         "HoneyBook",
         "ChatGPT",
         "plugins"
+      ],
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "crisp-pathology-20260912",
+      "slug": "crisp-pathology-20260912",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-12T22:42:56Z",
+      "updatedAt": "2026-09-12T22:35:30.726Z",
+      "lastCheckedAt": "2026-09-12T22:35:30.726Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:crisp-pathology-20260912"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "CRISP matched a senior specialist during fast surgery checks.",
+      "heroVisual": {
+        "src": "/assets/newsstand/design-20260830/latest-checking.png",
+        "alt": "Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.</p><p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
+      "laidies_read": "<p>Frozen images must be read quickly. CRISP gives a prediction; the pathologist still interprets the tissue. The paper calls it decision support, not a replacement for the specialist.</p>",
+      "what_this_means": "<p>This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.</p>",
+      "cocktail_party": "“CRISP matched a senior tissue specialist and beat the other AI models compared. That is still different from proving better care.”",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "<a href=\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains that a result describes the task and conditions tested. It does not establish readiness for a different real-world job. That distinction matters when reading this study.",
+      "sources": [
+        {
+          "id": "nature-crisp-paper-20260910",
+          "label": "Nature Medicine — A clinically-oriented foundation model for intraoperative pathology",
+          "url": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf",
+          "publisherType": "primary-peer-reviewed-accepted-paper",
+          "accessedAt": "2026-09-12",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "nature-crisp-landing-20260910",
+          "label": "Nature Medicine — article landing page",
+          "url": "https://www.nature.com/articles/s41591-026-04703-0?error=cookies_not_supported",
+          "publisherType": "primary-journal-record",
+          "accessedAt": "2026-09-12",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "health and medicine",
+        "research"
+      ],
+      "concepts": [
+        "intraoperative pathology",
+        "computer vision",
+        "observational evidence"
+      ],
+      "tags": [
+        "CRISP",
+        "pathology",
+        "medical AI"
       ],
       "saint_lane": null,
       "badge": "THE LATEST"

@@ -3,38 +3,38 @@
   "candidateId": "crisp-pathology-20260912",
   "claims": [
     {
-      "claimId": "frozen",
+      "claimId": "frozen-specific",
       "status": "VERIFIED",
       "candidateEvidence": [
         {
-          "excerpt": "A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves it in chemicals and wax first, giving it a different appearance.",
+          "excerpt": "Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images.",
           "locator": "exact candidate prose"
         }
       ],
       "sourceBinding": {
         "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/source-evidence.json",
-        "sha256": "12db97eb5e24cfd0a9674dc7cb9b8d1b988250df4453d897f9fbcfe18c310072"
+        "sha256": "3b2df14ec13b0a2021e3f4cde6d89e5c1ff095b5afceb6bc128688d21e50838b"
       },
       "sourceEvidence": [
         {
-          "excerpt": "Frozen section examination has served as an indispensable modality for intraoperative pathological assessment, enabling surgeons to make informed choices regarding tumor resection, margin status, and differential diagnosis. The widespread adoption of frozen sections is driven by their expedited preparation and diagnostic accuracy, which closely parallels that of formalin-fixed paraffin-embedded (FFPE) specimens in clinical practice.",
+          "excerpt": "Most existing foundation models are built upon FFPE specimens, which differ fundamentally from frozen sections in both preparation and tissue morphology. Direct application of FFPE-trained models to intraoperative frozen section risks compromising diagnostic accuracy as such models may lack exposure to frozen section morphology.",
           "locator": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf"
         }
       ],
-      "scopeAndFreshness": "Accepted paper research only; no availability, patient-benefit or medical-advice claim."
+      "scopeAndFreshness": "Accepted paper research only."
     },
     {
       "claimId": "result",
       "status": "VERIFIED",
       "candidateEvidence": [
         {
-          "excerpt": "In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.",
+          "excerpt": "In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.",
           "locator": "exact candidate prose"
         }
       ],
       "sourceBinding": {
         "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/source-evidence.json",
-        "sha256": "12db97eb5e24cfd0a9674dc7cb9b8d1b988250df4453d897f9fbcfe18c310072"
+        "sha256": "3b2df14ec13b0a2021e3f4cde6d89e5c1ff095b5afceb6bc128688d21e50838b"
       },
       "sourceEvidence": [
         {
@@ -42,28 +42,32 @@
           "locator": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf"
         }
       ],
-      "scopeAndFreshness": "Accepted paper research only; no availability, patient-benefit or medical-advice claim."
+      "scopeAndFreshness": "Accepted paper research only."
     },
     {
-      "claimId": "limit",
+      "claimId": "simulation-limit",
       "status": "VERIFIED",
       "candidateEvidence": [
         {
-          "excerpt": "The authors say they still need a study that changes care and follows what happens to patients.",
+          "excerpt": "A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.",
           "locator": "exact candidate prose"
         }
       ],
       "sourceBinding": {
         "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/source-evidence.json",
-        "sha256": "12db97eb5e24cfd0a9674dc7cb9b8d1b988250df4453d897f9fbcfe18c310072"
+        "sha256": "3b2df14ec13b0a2021e3f4cde6d89e5c1ff095b5afceb6bc128688d21e50838b"
       },
       "sourceEvidence": [
+        {
+          "excerpt": "In a simulated deployment experiment conducted on 100 cases from SYCC, the average end-to-end processing time for CRISP was 196.4 seconds per case, compared to 292.6 seconds for pathologists.",
+          "locator": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf"
+        },
         {
           "excerpt": "a fully prospective interventional study is still necessary to assess its real-world deployment and impact on clinical outcomes.",
           "locator": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf"
         }
       ],
-      "scopeAndFreshness": "Accepted paper research only; no availability, patient-benefit or medical-advice claim."
+      "scopeAndFreshness": "Accepted paper research only."
     }
   ]
 }

@@ -1,0 +1,739 @@
+{
+  "kind": "editorial",
+  "startedAt": "2026-09-12T22:19:48.651Z",
+  "replayedAt": null,
+  "completedAt": "2026-09-12T22:21:48.713Z",
+  "requestedModel": "claude-fable-5",
+  "providerModel": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "providerId": "f22d6084-01dd-4008-8cf8-307fcd8b1d62",
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 32303,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 9375,
+    "output_tokens_details": {
+      "thinking_tokens": 3650
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 32303,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 9375,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 32303,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 32303
+        },
+        "type": "message",
+        "model": null
+      }
+    ],
+    "speed": "standard"
+  },
+  "attestations": {
+    "reader": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    },
+    "facts": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    }
+  },
+  "requestSha256": "40c0ebb7f5178391b3005bbd90006248ccb27a6dc3f62f1d51a4b87a0be47da1",
+  "rawSha256": "4505dbf7bf7c5ca894bfd46e08e0cdc984afbafec3bddd75060609c7e8d81d44",
+  "protocolSha256": "7d5c9426f84748a80fce818b4d4bb85a41666f70ba8cebb0a9c680e21151e837",
+  "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+  "reader": {
+    "families": {
+      "glossaryAccumulation": {
+        "state": "clear",
+        "reason": "Definitions in P002 and P003 are immediately put to work in the study narrative rather than accumulating inertly.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "templateRepetition": {
+        "state": "clear",
+        "reason": "Each section does distinct work (scene, result, interpretation, limit); no repeated scaffold.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "decorativeAnalogy": {
+        "state": "clear",
+        "reason": "No analogies are deployed anywhere in the piece.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "referenceConfetti": {
+        "state": "clear",
+        "reason": "No pop-culture or gratuitous references; the single link (P007) does explanatory work.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "missingMechanism": {
+        "state": "present",
+        "reason": "P002 establishes that frozen sections look different from usual preparation, but the article never supplies the causal step — most models are trained on the usual slides, so a frozen-specific model was needed — leaving 'CRISP analyses those images' (P003) unexplained as to why it exists.",
+        "passages": [
+          "P002",
+          "P003"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to help identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves it in chemicals and wax first, giving it a different appearance.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.</p>",
+            "locator": "P003"
+          }
+        ],
+        "artifactLocator": "P002, P003"
+      },
+      "genericAction": {
+        "state": "clear",
+        "reason": "The implied action in P007 is concrete for this case: read the result as bounded by task and conditions.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "jargonBeforeMeaning": {
+        "state": "uncertain",
+        "reason": "'Reader study' (P003) and 'simulated deployment analysis' (P005) are used without a plain gloss at first meaningful use; comprehension survives but with a bump.",
+        "passages": [
+          "P003",
+          "P005"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.</p>",
+            "locator": "P005"
+          }
+        ],
+        "artifactLocator": "P003, P005"
+      },
+      "disconnectedSystem": {
+        "state": "clear",
+        "reason": "Information flow is shown: CRISP predicts, pathologist interprets, surgical team is informed (P004).",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "factlessConfidence": {
+        "state": "clear",
+        "reason": "Certainty is carefully bounded throughout; P005 and P006 explicitly hold back the unproven claim.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "staleUnreviewableClaims": {
+        "state": "clear",
+        "reason": "Claims trace to a dated peer-reviewed paper and landing page, both accessed 2026-09-12 for a 2026-09-10 publication.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "corporateSludge": {
+        "state": "clear",
+        "reason": "No vague corporate or motivational filler anywhere in the artifact.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "joylessInstruction": {
+        "state": "clear",
+        "reason": "The surgical stakes keep the prose human; it never becomes a checklist or terminology manual.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "benchmarkNameDrop": {
+        "state": "clear",
+        "reason": "The explainer link in P007 is applied to the story's specific reading problem, not name-dropped.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "curiosityWithoutPayoff": {
+        "state": "clear",
+        "reason": "The headline's promise (P001) is delivered and correctly bounded by P003–P005.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "familiarExampleWithoutTechnicalReturn": {
+        "state": "clear",
+        "reason": "The surgery example is the technical subject itself; it never detaches from the mechanism.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "communicationPastiche": {
+        "state": "clear",
+        "reason": "Plain original voice; no imitation of a known communicator's mannerisms.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "entertainmentBeforeUnderstanding": {
+        "state": "clear",
+        "reason": "No humour or spectacle competes with understanding.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "mechanismCompressedBehindHook": {
+        "state": "clear",
+        "reason": "There is no oversized hook; explanation and limits occupy most of the piece.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "prematureClickBeforeMechanism": {
+        "state": "clear",
+        "reason": "The headline claim (P001) is promptly grounded by the study description in P003 and conditions in P004.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "inflatedTakeawayEnding": {
+        "state": "clear",
+        "reason": "The ending (P005) deflates rather than inflates, stating exactly what remains unproved.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "purposeTooNarrow": {
+        "state": "clear",
+        "reason": "The piece covers the incident, its meaning and its limits — the full news job requested.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "mechanismBeforeMotivation": {
+        "state": "clear",
+        "reason": "Motivation (urgent intraoperative answer, P002) precedes any technical material.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "workedExampleOvertakesBookPurpose": {
+        "state": "clear",
+        "reason": "Not applicable in force: the single case is the news story itself and stays proportionate.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "technicalExplainerVoice": {
+        "state": "clear",
+        "reason": "This is a bounded news report where explaining the specific mechanism is the right perspective; it stays reader-oriented.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      }
+    },
+    "outcomes": {
+      "plainClarity": {
+        "state": "pass",
+        "reason": "Sentences are short and defined in place: pathologist, frozen section and observational study are each glossed at first use (P002, P003).",
+        "passages": [
+          "P002",
+          "P003"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to help identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves it in chemicals and wax first, giving it a different appearance.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.</p>",
+            "locator": "P003"
+          }
+        ],
+        "artifactLocator": "P002, P003"
+      },
+      "readerValue": {
+        "state": "pass",
+        "reason": "Beyond the headline the reader gains the observation-vs-intervention distinction and the authors' stated remaining requirement (P005), reinforced by P007.",
+        "passages": [
+          "P005",
+          "P007"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.</p>",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "<a href=\\\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\\\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains that a result describes the task and conditions tested. It does not establish readiness for a different real-world job. That distinction matters when reading this study.",
+            "locator": "P007"
+          }
+        ],
+        "artifactLocator": "P005, P007"
+      },
+      "laidiesVoice": {
+        "state": "pass",
+        "reason": "Candid, adult, plain register with no hype or borrowed persona; P004 and P006 speak directly about what is and is not shown.",
+        "passages": [
+          "P004",
+          "P006"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>This was a comparison in a difficult setting: the image must be read quickly while surgery is underway. CRISP gives a prediction; the pathologist still interprets the tissue and informs the surgical team. The paper describes it as decision support, not a replacement for the specialist.</p>",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "“CRISP matched a senior tissue specialist and beat the other AI models compared. That is still different from proving better care.”",
+            "locator": "P006"
+          }
+        ],
+        "artifactLocator": "P004, P006"
+      },
+      "engagingEnjoyable": {
+        "state": "pass",
+        "reason": "The urgent mid-surgery stakes in P002 carry genuine human interest through a short piece; no forced humour.",
+        "passages": [
+          "P002",
+          "P004"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to help identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves it in chemicals and wax first, giving it a different appearance.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>This was a comparison in a difficult setting: the image must be read quickly while surgery is underway. CRISP gives a prediction; the pathologist still interprets the tissue and informs the surgical team. The paper describes it as decision support, not a replacement for the specialist.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P002, P004"
+      },
+      "surfaceFit": {
+        "state": "pass",
+        "reason": "A bounded dated news article: what happened (P003), why it matters (P004) and its limits (P005), within proper scope.",
+        "passages": [
+          "P003",
+          "P005"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.</p>",
+            "locator": "P005"
+          }
+        ],
+        "artifactLocator": "P003, P005"
+      },
+      "dailyLifeConnection": {
+        "state": "hold",
+        "reason": "The surgical scene is vivid, but the article never links the mechanism to a situation the reading professional recognises from their own work or life; the framing stays entirely in the operating theatre.",
+        "passages": [
+          "P002",
+          "P004"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to help identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves it in chemicals and wax first, giving it a different appearance.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>This was a comparison in a difficult setting: the image must be read quickly while surgery is underway. CRISP gives a prediction; the pathologist still interprets the tissue and informs the surgical team. The paper describes it as decision support, not a replacement for the specialist.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P002, P004"
+      },
+      "communicationBenchmark": {
+        "state": "pass",
+        "reason": "Human purpose (surgical decisions, P002), concrete causality about what was tested (P003, P004) and a useful next question — the interventional study in P005 — with no imitation of any communicator.",
+        "passages": [
+          "P002",
+          "P005"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to help identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves it in chemicals and wax first, giving it a different appearance.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.</p>",
+            "locator": "P005"
+          }
+        ],
+        "artifactLocator": "P002, P005"
+      },
+      "explainBack": {
+        "state": "pass",
+        "reason": "P003, P004 and P005 together let a reader accurately explain why matching a specialist in a watched study does not prove better care.",
+        "passages": [
+          "P003",
+          "P004",
+          "P005"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>This was a comparison in a difficult setting: the image must be read quickly while surgery is underway. CRISP gives a prediction; the pathologist still interprets the tissue and informs the surgical team. The paper describes it as decision support, not a replacement for the specialist.</p>",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.</p>",
+            "locator": "P005"
+          }
+        ],
+        "artifactLocator": "P003, P004, P005"
+      },
+      "unseenTransfer": {
+        "state": "pass",
+        "reason": "The observation-vs-intervention mechanism in P003 and P005 transfers cleanly to novel decision-support situations, as my invented scenario below demonstrates.",
+        "passages": [
+          "P003",
+          "P005"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.</p>",
+            "locator": "P005"
+          }
+        ],
+        "artifactLocator": "P003, P005"
+      },
+      "usefulAction": {
+        "state": "pass",
+        "reason": "P007 gives a proportionate reading action: treat a result as describing the task and conditions tested, not readiness for a different real-world job.",
+        "passages": [
+          "P007",
+          "P005"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<a href=\\\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\\\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains that a result describes the task and conditions tested. It does not establish readiness for a different real-world job. That distinction matters when reading this study.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.</p>",
+            "locator": "P005"
+          }
+        ],
+        "artifactLocator": "P007, P005"
+      },
+      "analogyIntegrity": {
+        "state": "pass",
+        "reason": "No decorative analogies are used; the one comparison offered (P006) accurately preserves the study's limit rather than stretching it.",
+        "passages": [
+          "P006"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "“CRISP matched a senior tissue specialist and beat the other AI models compared. That is still different from proving better care.”",
+            "locator": "P006"
+          }
+        ],
+        "artifactLocator": "P006"
+      }
+    },
+    "newsChecks": {
+      "incidentExplained": {
+        "state": "pass",
+        "reason": "The event (a new study), the setting (frozen sections during surgery) and the findings with limits are all laid out in sequence.",
+        "passages": [
+          "P002",
+          "P003",
+          "P005"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to help identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves it in chemicals and wax first, giving it a different appearance.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.</p>",
+            "locator": "P005"
+          }
+        ],
+        "artifactLocator": "P002, P003, P005"
+      },
+      "termsExplainedInContext": {
+        "state": "hold",
+        "reason": "Pathologist, frozen section and observational study are well glossed (P002, P003), but 'reader study' and 'simulated deployment analysis' (P005) appear without plain meaning at first use.",
+        "passages": [
+          "P003",
+          "P005"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.</p>",
+            "locator": "P005"
+          }
+        ],
+        "artifactLocator": "P003, P005"
+      },
+      "readerConsequenceSpecific": {
+        "state": "pass",
+        "reason": "The consequence is grounded in a recognisable specific situation: a surgical team waiting on a fast tissue answer, with the pathologist still interpreting and informing them (P002, P004).",
+        "passages": [
+          "P002",
+          "P004"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to help identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves it in chemicals and wax first, giving it a different appearance.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>This was a comparison in a difficult setting: the image must be read quickly while surgery is underway. CRISP gives a prediction; the pathologist still interprets the tissue and informs the surgical team. The paper describes it as decision support, not a replacement for the specialist.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P002, P004"
+      },
+      "noInternalNotesOrInventedAdvice": {
+        "state": "pass",
+        "reason": "No internal operating notes or unsupported advice; the only guidance (P007) is a published explainer link and the limits stated track the paper's own limits (P005).",
+        "passages": [
+          "P005",
+          "P007"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.</p>",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "<a href=\\\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\\\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains that a result describes the task and conditions tested. It does not establish readiness for a different real-world job. That distinction matters when reading this study.",
+            "locator": "P007"
+          }
+        ],
+        "artifactLocator": "P005, P007"
+      }
+    },
+    "explainBack": {
+      "question": "Why does CRISP matching a senior specialist in this study not prove that using CRISP would improve patient care?",
+      "answer": "Because the study only watched normal care: CRISP's predictions were compared against what specialists did, but they were never used to change any surgical decision. Agreement under those observed, time-pressured conditions shows the model can read frozen sections well; it does not show that inserting its predictions into the workflow leads to better decisions or better patient outcomes. That requires an interventional study where CRISP actually influences care and patients are then followed.",
+      "expectedEvidence": "P003 (observational study defined as watching normal care), P004 (CRISP predicts, pathologist still decides), P005 (authors say a care-changing, outcome-following study is still needed).",
+      "assessment": "The article fully supports this causal answer in ordinary language; a careful reader can reconstruct it from P003–P005 without outside knowledge."
+    },
+    "unseenTransfer": {
+      "scenario": "A hospital pilots an AI that reads incoming ECGs in the emergency department. In a six-month study, clinicians treated patients as usual while the AI silently flagged heart attacks; its flags matched the senior cardiologist's calls and beat two older algorithms.",
+      "question": "Does this show the hospital should switch to AI-first ECG triage to save lives?",
+      "answer": "No. As with CRISP, the AI only shadowed normal care — its flags never changed who was treated or how fast. Matching the cardiologist under observed conditions shows reading skill, not that acting on the AI's flags would speed correct treatment or avoid new errors. The hospital needs a trial where the flags actually drive triage and patient outcomes are then measured.",
+      "expectedEvidence": "Transfer of the P003 observational definition, the P004 decision-support boundary, and the P005 requirement for a study that changes care and follows patients.",
+      "assessment": "The article's mechanism applies cleanly and completely to this new situation, confirming the central mental model transfers beyond pathology."
+    },
+    "reverseBrief": {
+      "humanQuestion": "Can an AI read urgent tissue slides during an operation as reliably as a senior specialist, and does that mean patients are better off?",
+      "promisedPayoff": "The reader learns what the CRISP study actually tested (comparison during fast frozen-section checks) and what remains unproved (any effect on treatment or outcomes).",
+      "centralMentalModel": "Observed performance parity in a watched study is different from proven benefit: until predictions actually change care and patients are followed, better care is not established.",
+      "dailyLifeConnection": "A high-stakes decision made under time pressure — the surgical team waiting on a quick tissue answer before the next step.",
+      "surfaceJob": "A dated news brief reporting a newly published Nature Medicine paper and its stated limits.",
+      "desiredReaderFeeling": "Informed and calibrated: impressed by the result but clear-eyed about what has not been shown."
+    },
+    "verdict": "REJECT",
+    "summary": "A disciplined, honest news brief: the frozen-section job, the comparison result and the observation-vs-intervention limit are all accurate and clearly bounded. Its repairable defects are a missing causal step (why frozen slides' different appearance necessitated a frozen-specific model), two unglossed study terms, and no bridge from the operating theatre to the reader's own experience.",
+    "learningDisposition": {
+      "disposition": "CANDIDATE_REPAIR_ONLY",
+      "rationale": "One real defect (the missing why-frozen-specific causal step across P002–P003) plus undefined 'reader study'/'simulated deployment' terms and a thin reader-life link. Each is repairable with one added sentence; the core explanation is sound."
+    }
+  },
+  "facts": {
+    "outcomes": {
+      "factualIntegrity": {
+        "state": "pass",
+        "reason": "Every material claim in P002, P003 and P005 is supported by the paper excerpts with correct attribution; no claim exceeds the source, and P006 explicitly withholds the unproven care claim.",
+        "passages": [
+          "P002",
+          "P003",
+          "P005"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to help identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves it in chemicals and wax first, giving it a different appearance.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.</p>",
+            "locator": "P005"
+          }
+        ],
+        "artifactLocator": "P002, P003, P005"
+      },
+      "freshnessReviewability": {
+        "state": "pass",
+        "reason": "The paper (published 2026-09-10 per the landing page) and access date 2026-09-12 make the time-sensitive claims checkable; P005 states the study's stage and remaining requirement so readers know what is not yet established.",
+        "passages": [
+          "P003",
+          "P005"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.</p>",
+            "locator": "P005"
+          }
+        ],
+        "artifactLocator": "P003, P005"
+      },
+      "datedChange": {
+        "state": "pass",
+        "reason": "The article clearly frames this as newly reported evidence (a just-published study) and distinguishes it from the future interventional evidence still required (P005); no old event is conflated with new findings.",
+        "passages": [
+          "P003",
+          "P005"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.</p>",
+            "locator": "P005"
+          }
+        ],
+        "artifactLocator": "P003, P005"
+      },
+      "consequenceAndUncertainty": {
+        "state": "pass",
+        "reason": "Consequence is concrete (decision support during urgent frozen-section reads, P004) and uncertainty survives the explanation — P005 and P006 keep 'matched a specialist' distinct from 'proves better care'.",
+        "passages": [
+          "P004",
+          "P005",
+          "P006"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>This was a comparison in a difficult setting: the image must be read quickly while surgery is underway. CRISP gives a prediction; the pathologist still interprets the tissue and informs the surgical team. The paper describes it as decision support, not a replacement for the specialist.</p>",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.</p>",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "“CRISP matched a senior tissue specialist and beat the other AI models compared. That is still different from proving better care.”",
+            "locator": "P006"
+          }
+        ],
+        "artifactLocator": "P004, P005, P006"
+      }
+    },
+    "claims": {
+      "frozen": {
+        "state": "supported",
+        "reason": "P002's description — tissue quickly frozen, sliced and examined during surgery, versus usual chemical-and-wax preparation with a different appearance — matches the paper's account that FFPE specimens 'differ fundamentally from frozen sections in both preparation and tissue morphology' (PDF p.12) and the urgent intraoperative role of frozen sections.",
+        "passages": [
+          "P002"
+        ],
+        "sourceIds": [
+          "nature-crisp-paper-20260910"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>During surgery, a pathologist — a specialist who examines tissue to help identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves it in chemicals and wax first, giving it a different appearance.</p>",
+            "locator": "P002"
+          }
+        ],
+        "artifactLocator": "P002"
+      },
+      "result": {
+        "state": "supported",
+        "reason": "P003's claims track the paper: CRISP showed 'consistent superiority over competing foundation models' and the reader study found the senior pathologist's operating point on CRISP's ROC curve, 'comparable overall performance under the evaluated conditions' (PDF pp.13, 23). P004 preserves the time-constrained-conditions qualifier and the decision-support framing, so the 'matched overall' wording does not overreach.",
+        "passages": [
+          "P001",
+          "P003",
+          "P004"
+        ],
+        "sourceIds": [
+          "nature-crisp-paper-20260910"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "CRISP matched a senior specialist during fast surgery checks.",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "<p>CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>This was a comparison in a difficult setting: the image must be read quickly while surgery is underway. CRISP gives a prediction; the pathologist still interprets the tissue and informs the surgical team. The paper describes it as decision support, not a replacement for the specialist.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P001, P003, P004"
+      },
+      "limit": {
+        "state": "supported",
+        "reason": "P005 mirrors the paper's own limitation: 'a fully prospective interventional study is still necessary to assess its real-world deployment and impact on clinical outcomes' (PDF pp.23–24), and the simulated deployment analysis is likewise documented (PDF pp.13, 20). Attribution to the authors is retained.",
+        "passages": [
+          "P005"
+        ],
+        "sourceIds": [
+          "nature-crisp-paper-20260910"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.</p>",
+            "locator": "P005"
+          }
+        ],
+        "artifactLocator": "P005"
+      }
+    },
+    "verdict": "PASS",
+    "summary": "Factually clean: the frozen-section description, the comparison and reader-study results, and the authors' stated need for an interventional outcome study all match the Nature Medicine excerpts, with conditions and attribution preserved and no overclaiming.",
+    "learningDisposition": {
+      "disposition": "NO_NEW_DEFECT",
+      "rationale": "All three claims are supported by the supplied source excerpts with attribution and limits intact, and all four factual outcomes pass; no factual defect or evidence gap found."
+    }
+  },
+  "verdict": "REJECT"
+}

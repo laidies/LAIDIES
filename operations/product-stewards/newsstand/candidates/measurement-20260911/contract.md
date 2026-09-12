@@ -2,7 +2,7 @@
 
 Status: PRIVATE; not installed, not collecting events, no dashboard result.
 
-Reuse the site's existing Plausible installation. Do not add a second analytics service or alter the shared Cloudflare worker. Before connection, configure the exact `NewsStand action` goal and verify a controlled event in the aggregate report. No available Plausible API credential was found in the current process or the repository's standard local environment files. The native Mac is locked, so authenticated dashboard access has not been examined. A transmitted request,202 response or callback does not establish that the event was recorded; Plausible can drop bot events and requires a matching goal.
+Reuse the site's existing Plausible installation. Do not add a second analytics service or alter the shared Cloudflare worker. Before connection, configure the exact `NewsStand action` goal and verify a controlled event in the aggregate report. No available Plausible API credential was found in the current process or the repository's standard local environment files. September12 native dashboard inspection reached an empty Plausible login form; no authenticated account session is available. A transmitted request,202 response or callback does not establish that the event was recorded; Plausible can drop bot events and requires a matching goal.
 
 ## Allowed record
 

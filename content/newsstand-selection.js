@@ -29,6 +29,7 @@
   "askca-pilot-20260911",
   "deepseek-flash-20260912",
   "alphagenome-atlas-20260912",
+  "crisp-pathology-20260912",
   "navier-stokes-claim-20260911",
   "cursor-projects-20260912",
   "openai-data-agent-20260910",

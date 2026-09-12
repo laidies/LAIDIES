@@ -6,15 +6,15 @@
   "artifactBindings": {
     "story": {
       "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/story.json",
-      "sha256": "bd5819f2fdb0f8dc925902cb37d24e1bc4a53d1aeed9093afda228ef9bdf75e6"
+      "sha256": "ffac9ead9344c7ae22af93e3f1d05a427b0c12ed785459babb17d20cd155a247"
     },
     "article": {
       "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/article.md",
-      "sha256": "a06a837ec3ffc4f3b324ea9b3508ae47c63b978caf53d6e28fba606471274936"
+      "sha256": "557152112a45e1855eb398c229d0559e036c469c61767184fcb88d2828677489"
     },
     "rendered": {
       "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/rendered-article.html",
-      "sha256": "05ea4bfe3f3c1ba50c688e14795d97411592703a05462eaaf76c539b0d35f09a"
+      "sha256": "5b9044511bec7c0f527d443746e3d0b3a1c6e0b53f9119a49566e6765890cc14"
     }
   },
   "fields": [
@@ -33,10 +33,10 @@
       "field": "the_story",
       "fragments": [
         {
-          "text": "During surgery, a pathologist — a specialist who examines tissue to help identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves it in chemicals and wax first, giving it a different appearance.CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.",
+          "text": "During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.",
           "kind": "SOURCE_DERIVED",
           "sourceId": "nature-crisp-paper-20260910",
-          "wordCount": 76
+          "wordCount": 92
         }
       ]
     },
@@ -44,10 +44,10 @@
       "field": "laidies_read",
       "fragments": [
         {
-          "text": "This was a comparison in a difficult setting: the image must be read quickly while surgery is underway. CRISP gives a prediction; the pathologist still interprets the tissue and informs the surgical team. The paper describes it as decision support, not a replacement for the specialist.",
+          "text": "Frozen images must be read quickly. CRISP gives a prediction; the pathologist still interprets the tissue. The paper calls it decision support, not a replacement for the specialist.",
           "kind": "SOURCE_DERIVED",
           "sourceId": "nature-crisp-paper-20260910",
-          "wordCount": 46
+          "wordCount": 28
         }
       ]
     },
@@ -55,10 +55,10 @@
       "field": "what_this_means",
       "fragments": [
         {
-          "text": "This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.",
+          "text": "This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.",
           "kind": "SOURCE_DERIVED",
           "sourceId": "nature-crisp-paper-20260910",
-          "wordCount": 38
+          "wordCount": 45
         }
       ]
     },
@@ -99,20 +99,20 @@
         },
         {
           "field": "the_story",
-          "text": "During surgery, a pathologist — a specialist who examines tissue to help identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves it in chemicals and wax first, giving it a different appearance.CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.",
-          "wordCount": 76,
+          "text": "During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.",
+          "wordCount": 92,
           "directQuoteWords": 0
         },
         {
           "field": "laidies_read",
-          "text": "This was a comparison in a difficult setting: the image must be read quickly while surgery is underway. CRISP gives a prediction; the pathologist still interprets the tissue and informs the surgical team. The paper describes it as decision support, not a replacement for the specialist.",
-          "wordCount": 46,
+          "text": "Frozen images must be read quickly. CRISP gives a prediction; the pathologist still interprets the tissue. The paper calls it decision support, not a replacement for the specialist.",
+          "wordCount": 28,
           "directQuoteWords": 0
         },
         {
           "field": "what_this_means",
-          "text": "This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.",
-          "wordCount": 38,
+          "text": "This does not show that CRISP improves treatment or patient outcomes. A simulated deployment analysis ran CRISP through 100 cases in a row to estimate timing; it did not change live care. The authors still need a study that changes care and follows patients.",
+          "wordCount": 45,
           "directQuoteWords": 0
         },
         {
@@ -126,7 +126,7 @@
   ],
   "result": "PASS",
   "totals": {
-    "nature-crisp-paper-20260910": 190
+    "nature-crisp-paper-20260910": 195
   },
   "allVisitorFieldsAccountedFor": true
 }
