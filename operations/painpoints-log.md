@@ -1,5 +1,7 @@
 # LAiDIES build learning ledger
 
+- **2026-09-12 Instruction strips rejected:** Individual background strips solved local contrast but violated Ali's visual grammar. Keep instructions within the existing continuous workspace instead. New guard rejects the known strip treatment and reddish hex. A screenshot taken immediately after viewport resize was scaled incorrectly; settle viewport in a separate call and save the exact inspected buffer. Independent review caught this evidence defect before release. Behind the Build: solving contrast without inventing a new visual language.
+
 - **2026-09-12 Rejected dark panels:** Exact homepage color borrowing did not authorize switching the whole form to dark surfaces. Ali rejected that interpretation. Preserve light surfaces when asked for bright headings; do not expand a bounded color request into an unrequested theme switch. Acknowledging a requested fix is not execution: finish authorized work before final response. Behind the Build: a correct reference can still be applied to the wrong design role.
 
 - **2026-09-12 MAiKEOVER palette:** Use live computed homepage wallpaper/panel values, not older copied palette variables. Changing a surface from light to dark exposes explicit inherited paragraph colors; inspect signup/status and adjacent steps, not just the requested heading. Behind the Build: a palette is color relationships, not merely a list of hex values.

@@ -1,5 +1,9 @@
 # Active work
 
+## 2026-09-12 Integrated purple maker workspace
+
+- PUBLICLY VERIFIED: source4d4d2aac, deployment890fe270-6eb8-4397-acaf-7b604bf03e30. Removed individual heading/help/status backing strips; intro shares continuous light form workspace. Reddish and near-black form typography replaced by homepage purple. Wallpaper and controls retained. Actual next/previous/selection pass; independent desktop and corrected390x844 pixel review clear. Dual-origin two-file bytes exact,793 unrelated IDs preserved. Stage/private/tmp/laidies-maikeover-boxes-m8YILQ/stage and adjacent manifest/verification. Guard rejects reintroduced strips. No auth/backend/art changes; public appearance remains subject to Ali's judgment.
+
 ## 2026-09-12 Rejected dark panels removed
 
 - PUBLICLY VERIFIED: f259988a-263e-4269-b655-c02c4630f0f2, source f8bec88c. Light pink/lilac surfaces and pink titles replace rejected dark/blue panels; homepage wallpaper retained. Independent desktop/phone pixel check, calibrated regression guard and actual public selection passed. Two-path delta,793 other IDs preserved, both origins exact. Input /private/tmp/laidies-maikeover-boxes-dPxkdJ/stage and adjacent verification/manifest. No auth/art changes. Supersedes preceding dark palette verdict; functional scope unchanged.
