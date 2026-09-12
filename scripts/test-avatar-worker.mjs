@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import worker from "../worker-avatar/avatar.js";
 
+const testAccount={email:'wednesday.laidies@gmail.com',email_confirmed_at:'2026-09-10T00:00:00Z'};
+
 const USER = "11111111-1111-4111-8111-111111111111";
 const PNG = "iVBORw0KGgo=";
 const PHOTO_PNG = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScL9wQAAAABJRU5ErkJggg==";
@@ -23,7 +25,7 @@ class Usage {
         const duplicate = this.rows.some((row) => row.request_id === id);
         const userCount = this.rows.filter((row) => row.user_hash === userHash && row.utc_day === day).length;
         const globalCount = this.rows.filter((row) => row.utc_day === day).length;
-        if (duplicate || userCount >= 2 || globalCount >= 20) return { meta: { changes: 0 } };
+        if (duplicate || (args[5] !== 1 && (userCount >= 2 || globalCount >= 20))) return { meta: { changes: 0 } };
         this.rows.push({ request_id: id, user_hash: userHash, utc_day: day, created_at: created });
         return { meta: { changes: 1 } };
       },
@@ -34,6 +36,7 @@ class Usage {
 const usage = new Usage();
 const env = { GENERATION_ENABLED: "true", OPENAI_API_KEY: "test", SUPABASE_URL: "https://auth.example", SUPABASE_PUBLISHABLE_KEY: "test", PORTRAIT_USAGE: usage };
 let providerCalls = 0;
+let authUser = {id:USER};
 let providerPlan = null;
 const prompts = [];
 function checkStyle(prompt) {
@@ -46,7 +49,7 @@ assert.throws(() => checkStyle('a highly detailed pixel-art character portrait, 
 const originalFetch = globalThis.fetch;
 globalThis.fetch = async (url, options) => {
   const href = String(url);
-  if (href.includes("/auth/v1/user")) return Response.json({ id: USER });
+  if (href.includes("/auth/v1/user")) return Response.json(authUser);
   if (href.includes("api.openai.com")) {
     const prompt = options.body instanceof FormData ? options.body.get('prompt') : JSON.parse(options.body).prompt;
     prompts.push(prompt);
@@ -134,4 +137,16 @@ try {
   const unavailable = await worker.fetch(post(valid(41)), { ...env, PORTRAIT_USAGE: undefined });
   assert.equal(unavailable.status, 503);
   console.log("AVATAR WORKER CONTRACT PASS auth=1 origin=1 bounds=1 replay=1 quotas=1 partial=1 timeout=1 fail_closed=1");
+  authUser={id:USER,...testAccount};
+  const trialDb=new Usage();
+  for(let i=0;i<22;i++)assert.equal((await worker.fetch(post(valid(500+i)),{...env,PORTRAIT_USAGE:trialDb})).status,200);
+  assert(trialDb.rows.every(row=>row.utc_day.startsWith('owner:')),'owner usage separated from visitor capacity');
+  assert.equal((await worker.fetch(post(valid(500)),{...env,PORTRAIT_USAGE:trialDb})).status,409,'owner cannot replay requests');
+  for(const account of [{id:USER,email:'other@example.com',email_confirmed_at:'yes'},{id:USER,email:testAccount.email,email_confirmed_at:null}]){
+    authUser=account;
+    const capped=new Usage();
+    for(let i=0;i<2;i++)assert.equal((await worker.fetch(post(valid(550+i)),{...env,PORTRAIT_USAGE:capped})).status,200);
+    assert.equal((await worker.fetch(post(valid(555)),{...env,PORTRAIT_USAGE:capped})).status,429,'only confirmed exact owner bypasses cap');
+  }
+  console.log('Owner bypasses daily caps; other/unconfirmed accounts remain capped; replay still rejected.');
 } finally { globalThis.fetch = originalFetch; }

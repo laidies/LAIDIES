@@ -1,5 +1,14 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Owner portrait quota exemption
+
+Ali confirms wednesday.laidies@gmail.com and requests no portrait daily limits
+for herself, superseding the proposed temporary four-set allowance. Admit only
+the exact confirmed email returned by Supabase's authenticated user endpoint;
+never trust client claims. Preserve replay, authentication and input safeguards.
+Record owner usage separately from visitor-day capacity so testing cannot spend
+the visitor global allowance. Normal account2/global20 limits remain.
+
 ## 2026-09-12 Graphic-novel trial rejected on likeness
 
 Ali's new three-image screenshot rejects the trial: first has odd eyes, second

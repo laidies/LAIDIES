@@ -73,15 +73,18 @@ async function user(request, env) {
   try {
     const result = await fetch(new URL("/auth/v1/user", env.SUPABASE_URL), { headers: { apikey: env.SUPABASE_PUBLISHABLE_KEY, authorization: `Bearer ${token}` }, signal: AbortSignal.timeout(5000) });
     const value = result.ok ? await result.json() : null;
-    return UUID.test(String(value?.id || "")) ? value.id : null;
+    return UUID.test(String(value?.id || "")) ? { id:value.id, email:value.email, email_confirmed_at:value.email_confirmed_at } : null;
   } catch { return null; }
 }
 async function hash(value) { const data = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value)); return [...new Uint8Array(data)].map(x => x.toString(16).padStart(2, "0")).join(""); }
-async function reserve(db, requestId, userHash, day, now) {
+function isPortraitOwner(account) {
+  return account.email === "wednesday.laidies@gmail.com" && !!account.email_confirmed_at;
+}
+async function reserve(db, requestId, userHash, day, now, owner) {
   if (!db?.prepare) return "unavailable";
   try {
     await db.prepare("DELETE FROM portrait_usage WHERE created_at < ?").bind(now - 604800000).run();
-    const result = await db.prepare("INSERT INTO portrait_usage (request_id,user_hash,utc_day,created_at) SELECT ?,?,?,? WHERE (SELECT COUNT(*) FROM portrait_usage WHERE request_id=?)=0 AND (SELECT COUNT(*) FROM portrait_usage WHERE user_hash=? AND utc_day=?)<2 AND (SELECT COUNT(*) FROM portrait_usage WHERE utc_day=?)<20").bind(requestId,userHash,day,now,requestId,userHash,day,day).run();
+    const result = await db.prepare("INSERT INTO portrait_usage (request_id,user_hash,utc_day,created_at) SELECT ?,?,?,? WHERE (SELECT COUNT(*) FROM portrait_usage WHERE request_id=?)=0 AND (?=1 OR ((SELECT COUNT(*) FROM portrait_usage WHERE user_hash=? AND utc_day=?)<2 AND (SELECT COUNT(*) FROM portrait_usage WHERE utc_day=?)<20))").bind(requestId,userHash,day,now,requestId,owner ? 1 : 0,userHash,day,day).run();
     if (result.meta?.changes === 1) return "reserved";
     return await db.prepare("SELECT request_id FROM portrait_usage WHERE request_id=?").bind(requestId).first() ? "replay" : "limited";
   } catch { return "unavailable"; }
@@ -117,7 +120,10 @@ export default { async fetch(request, env) {
   let data; try { data = input(JSON.parse(text)); } catch { data = null; }
   if (!data) return fail("invalid-request",400,origin,env);
   const uid = await user(request,env); if (!uid) return fail("unauthorized",401,origin,env);
-  const reserved = await reserve(env.PORTRAIT_USAGE,data.requestId,await hash(uid),new Date().toISOString().slice(0,10),Date.now());
+  const now=Date.now();
+  const owner=isPortraitOwner(uid), day=new Date(now).toISOString().slice(0,10);
+  // Owner testing is recorded separately so it cannot exhaust visitor capacity.
+  const reserved = await reserve(env.PORTRAIT_USAGE,data.requestId,await hash(uid.id),owner ? `owner:${day}` : day,now,owner);
   if (reserved === "unavailable") return fail("service-unavailable",503,origin,env);
   if (reserved === "replay") return fail("request-already-used",409,origin,env);
   if (reserved === "limited") return fail("quota-exhausted",429,origin,env);
