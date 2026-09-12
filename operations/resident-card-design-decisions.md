@@ -1,5 +1,14 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Portrait illustration and likeness correction
+
+Ali approves trying 90s adult graphic-novel illustration instead of the old
+video-game pixel-art rule. Preserve the uploaded person's apparent age and
+facial proportions; era, outfit, accessories and backdrop must not redesign
+their face. Apply the illustration rule to description portraits too. Keep
+three results for this isolated style trial; two was discussed, not decided.
+Prompt checks cannot establish likeness: generated pixels still need review.
+
 ## 2026-09-12 Random and None are distinct era choices
 
 Ali requests Random in place of Any: choose one of the five dated era prompts

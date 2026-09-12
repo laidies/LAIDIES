@@ -35,11 +35,21 @@ const usage = new Usage();
 const env = { GENERATION_ENABLED: "true", OPENAI_API_KEY: "test", SUPABASE_URL: "https://auth.example", SUPABASE_PUBLISHABLE_KEY: "test", PORTRAIT_USAGE: usage };
 let providerCalls = 0;
 let providerPlan = null;
+const prompts = [];
+function checkStyle(prompt) {
+  assert.match(prompt, /1990s adult graphic-novel illustration/);
+  assert.match(prompt, /No pixel art/);
+  assert.doesNotMatch(prompt, /crisp fine pixels|highly detailed pixel-art/);
+  assert.match(prompt, /illustration technique only/);
+}
+assert.throws(() => checkStyle('a highly detailed pixel-art character portrait, crisp fine pixels'), 'old pixel rule must fail');
 const originalFetch = globalThis.fetch;
-globalThis.fetch = async (url) => {
+globalThis.fetch = async (url, options) => {
   const href = String(url);
   if (href.includes("/auth/v1/user")) return Response.json({ id: USER });
   if (href.includes("api.openai.com")) {
+    const prompt = options.body instanceof FormData ? options.body.get('prompt') : JSON.parse(options.body).prompt;
+    prompts.push(prompt);
     providerCalls += 1;
     const next = providerPlan?.shift();
     if (next === "throw") throw new Error("timeout");
@@ -68,6 +78,8 @@ try {
   assert.equal(providerCalls - before, 3, "replay never spends provider calls");
   const success = await (first.status === 200 ? first : replay).json();
   assert.equal(success.completed, 3); assert.equal(success.images.length, 3);
+  prompts.forEach(checkStyle);
+  assert.match(prompts[0], /Respect the described age/);
   assert.equal((await worker.fetch(post(valid(6)), env)).status, 200);
   providerPlan = ["success", "fail", "success"];
   const partial = await worker.fetch(post(valid(9)), { ...env, PORTRAIT_USAGE: new Usage() });
@@ -82,6 +94,12 @@ try {
   assert.equal(providerCalls - beforeLarge, 3, "large-output batch makes exactly three provider calls");
   const photo = await worker.fetch(post({ ...valid(12), itemPrompt: "", image: `data:image/png;base64,${PHOTO_PNG}`, consent: true }), { ...env, PORTRAIT_USAGE: new Usage() });
   assert.equal(photo.status, 200, "bounded photo decode accepts a valid PNG without callback-array allocation");
+  prompts.slice(-3).forEach(prompt => {
+    checkStyle(prompt);
+    assert.match(prompt, /preserve the reference person's apparent age/);
+    assert.match(prompt, /Do not make them younger/);
+    assert.match(prompt, /Likeness takes priority over styling/);
+  });
   providerPlan = ["throw", "throw", "throw"];
   const timeout = await worker.fetch(post(valid(10)), { ...env, PORTRAIT_USAGE: new Usage() });
   assert.equal(timeout.status, 502, "all timed-out candidates fail without provider detail leakage");

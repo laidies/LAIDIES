@@ -2,7 +2,7 @@ const MAX_JSON = 3_000_000, MAX_IMAGE = 2_000_000, MAX_OUTPUT = 8_000_000;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const B64 = /^[A-Za-z0-9+/]+={0,2}$/;
 const PNG = [137,80,78,71,13,10,26,10];
-const STYLE = "a highly detailed pixel-art character portrait, head and shoulders, crisp fine pixels, saturated pink and purple Y2K palette, flattering natural makeup, no text, no watermark. Preserve the selected era styling rather than imposing a single year.";
+const STYLE = "a detailed 1990s adult graphic-novel illustration, head and shoulders, expressive controlled ink contours, rich bold colour, smooth painted colour areas and selective hand-drawn shadow hatching. Natural human facial proportions, not a caricature. No pixel art, video-game sprites, dithering, stippled skin, anime eyes, plastic skin, text or watermark. The 1990s reference governs the illustration technique only: preserve the selected era, outfit, accessories and backdrop rather than imposing a single year or a fixed pink-purple palette.";
 
 const body = (value, status = 200, headers = {}) => new Response(JSON.stringify(value), { status, headers: { "content-type": "application/json", ...headers } });
 function allowed(origin, env) {
@@ -84,7 +84,7 @@ async function reserve(db, requestId, userHash, day, now) {
     return await db.prepare("SELECT request_id FROM portrait_usage WHERE request_id=?").bind(requestId).first() ? "replay" : "limited";
   } catch { return "unavailable"; }
 }
-function promptFor(data) { return data.photo ? `Turn this photo into ${STYLE} Preserve the person's recognizable identity. ${data.extras}`.trim() : `${data.prompt}, ${data.extras}, ${STYLE}`.trim(); }
+function promptFor(data) { return data.photo ? `Illustrate the person in the reference photo as ${STYLE} Styling choices: ${data.extras}. Likeness takes priority over styling: preserve the reference person's apparent age, face shape, jaw and chin, eye size and spacing, nose shape, lip shape, skin tone and distinctive features. Do not make them younger, enlarge their eyes, slim their face, reshape their nose or lips, or substitute an idealized model face. Change only the requested clothing, accessories and setting; keep the same recognizable person.`.trim() : `${data.prompt}, ${data.extras}, ${STYLE} Respect the described age and physical features without automatic beautification.`.trim(); }
 function logProviderFailure(status) { console.warn(JSON.stringify({ event: "portrait-provider-failure", status })); }
 function logProviderException(error) {
   const name = String(error && error.name || "Error").replace(/[^A-Za-z0-9_.-]/g, "").slice(0, 64) || "Error";
