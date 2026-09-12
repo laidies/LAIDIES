@@ -1,8 +1,9 @@
 /* Inline account and portrait controls; existing scene and Card art stay unchanged. */
 .mo-account { padding:32px max(5%,calc((100% - 1320px)/2)); background:#f8e6fa; color:var(--mo-ink); border-bottom:4px solid var(--mo-ink); scroll-margin-top:90px; }
-.mo-account h2 { color:#b51c68; }
+.mo-account,#mo-chair,.mo-exit { --mo-ink:#7137d6; }
+.mo-account h2 { color:#7137d6; }
 .mo-account p,.mo-account [role="status"],.mo-exit p { color:var(--mo-ink)!important; }
-.mo-exit h2 { color:#b51c68; }
+.mo-exit h2 { color:#7137d6; }
 .mo-account form { max-width:600px; }
 .mo-account label { display:block; font-weight:800; }
 .mo-account input { box-sizing:border-box; width:100%; padding:12px; margin:8px 0; color:var(--mo-ink); background:#fff; font:inherit; border:2px solid var(--mo-ink); border-radius:8px; }
@@ -40,10 +41,13 @@ body.mo-v3 { --mo-ink:#07142f; --mo-hot:#f254a9; --mo-purple:#7137d6; --mo-blue:
 .mo-controls { color:var(--mo-ink); background:#f8e6fa; }
 .mo-masthead__copy { background:linear-gradient(120deg,#f254a9,#c195e9); }
 .mo-card-explainer { background:linear-gradient(125deg,#f254a9,#ff7366); }
-.mo-drawer-heading,.mo-tool-status,.mo-drawer-help { width:fit-content; padding:10px 16px; color:#b51c68; background:#f8e6fa; }
+.mo-workspace { padding:clamp(20px,3vw,40px); background:#f8e6fa; }
+.mo-workspace .mo-controls { padding:0; border:0; background:transparent; }
+.mo-workspace .mo-controls>div { max-width:none; }
+.mo-drawer-heading,.mo-tool-status,.mo-drawer-help { width:auto; padding:0; color:#7137d6; background:none; }
 .mo-exit { color:var(--mo-ink); background:#f8e6fa; }
 .mo-controls label,.mo-controls .mo-sub,.mo-controls a { color:var(--mo-ink)!important; }
-.mo-controls .mo-portrait-intro { color:#b51c68!important; }
+.mo-controls .mo-portrait-intro { color:#7137d6!important; }
 .mo-controls .mo-portrait-modes legend { color:#7137d6; }
 .mo-controls .mo-portrait-modes label { color:var(--mo-ink)!important; border-color:#7137d6; }
 .mo-controls .mo-portrait-modes label:has(input:checked) { color:var(--mo-ink)!important; }
@@ -59,7 +63,7 @@ body.mo-v3 { --mo-ink:#07142f; --mo-hot:#f254a9; --mo-purple:#7137d6; --mo-blue:
 .mo-portrait-modes label:focus-within { outline:3px solid var(--mo-ink); outline-offset:3px; }
 #moPortraitOptions { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin:32px 0; }
 .mo-style-section { min-width:0; margin:0; padding:22px; border:3px solid #7137d6; border-radius:12px; background:#fff1f8; box-shadow:5px 5px 0 var(--mo-hot); }
-.mo-style-section legend { float:left; width:100%; box-sizing:border-box; margin:0 0 12px; padding:0; color:#b51c68; font:800 21px/1.2 "Jost",sans-serif; }
+.mo-style-section legend { float:left; width:100%; box-sizing:border-box; margin:0 0 12px; padding:0; color:#7137d6; font:800 21px/1.2 "Jost",sans-serif; }
 .mo-style-section p { clear:both; margin:0 0 14px; }
 .mo-portrait-studio .mo-style-section .chip { min-height:44px; padding:10px 13px; color:var(--mo-ink); background:transparent; border:2px solid #7137d6; font-size:15px; }
 .mo-portrait-studio .mo-style-section .chip.on { color:var(--mo-ink); background:var(--mo-yellow); }

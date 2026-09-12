@@ -1,5 +1,12 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 No isolated text strips or reddish/black form text
+
+Ali rejects separate blocks behind each instruction and the reddish heading
+colour; near-black text only where necessary. Integrate the intro with the
+existing light workspace, no individual text backgrounds. Use homepage purple
+for form typography; retain wallpaper, grouped choices and functionality.
+
 ## 2026-09-12 Dark/blue panel rejection
 
 Ali rejects the dark and blue surface changes. Remove those panels; retain the

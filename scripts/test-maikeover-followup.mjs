@@ -1,6 +1,13 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 const html=fs.readFileSync(new URL('../maikeover.html',import.meta.url),'utf8');
+const css=fs.readFileSync(new URL('../content/maikeover-account.css',import.meta.url),'utf8');
+function inspectPalette(text){
+  assert.doesNotMatch(text,/#b51c68/i,'rejected reddish heading must not return');
+  assert.match(text,/\.mo-drawer-heading,\.mo-tool-status,\.mo-drawer-help\s*\{[^}]*background:none/,'no individual text strips');
+}
+assert.throws(()=>inspectPalette(css.replace('background:none; }','background:#f8e6fa; }')));
+inspectPalette(css);
 function inspect(text) {
   assert.doesNotMatch(text,/src=["'][^"']*sv-back-nav/,'floating back navigation must not mount');
   const consent=text.match(/<input[^>]*id="moEpisodeConsent"[^>]*>/)?.[0];
@@ -12,7 +19,7 @@ function inspect(text) {
   assert.match(text,/name="email" type="email"/);
   assert.match(text,/Buttondown opens in a new tab to confirm your request/);
   assert.equal((text.match(/class="mo-style-section"/g)||[]).length,4);
-  assert.match(text,/maikeover-account.css\?v=20260912-light-panels-1/);
+  assert.match(text,/maikeover-account.css\?v=20260912-purple-workspace-1/);
   assert.match(text,/maikeover-portraits-v1.js\?v=20260911-portrait-2/);
 }
 assert.throws(()=>inspect(html.replace('id="moEpisodeConsent"','checked id="moEpisodeConsent"')));
