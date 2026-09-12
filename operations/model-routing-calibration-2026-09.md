@@ -1,5 +1,7 @@
 # LAiDIES model-routing calibration — September 2026
 
+| OWNER-QUOTA-20260912 | 2026-09-12 | Tier1 owner-only quota exception | Foreground model/effort unavailable; independent read-only review | Under15m; usage unavailable | Mocked identity/replay/cap tests pass; deployed source verified | User superseded temporary allowance with unlimited owner scope | Cheaper bounded route likely adequate | 9ba22f5d;d1349778 |
+
 | PHOTO-RETRY-20260912 | 2026-09-12 | Tier1 bounded validation UX | Foreground model/effort unavailable; inherited source review | Under15m; usage unavailable | Retention/focus mocked browser and live label pass | No implementation detour; user reported separate likeness failure, captured | Cheaper bounded route likely adequate | 71e763ff;70f7d9d1 |
 
 | PORTRAIT-OBJECT-20260912 | 2026-09-12 | Tier1 object input through Worker and Card preview | Foreground model/effort unavailable; inherited read-only source/pixel review | Under30m; usage unavailable | Source/UI verified; image quality unverified | Test fixture syntax repaired, dependency entry clarified; existing stale portrait browser suite not claimed passed | Cheaper bounded implementation likely adequate | 782b891f; b94b608f |

@@ -1,5 +1,7 @@
 # LAiDIES build learning ledger
 
+- **2026-09-12 Owner testing limits:** Founder testing needs a server-authenticated exception, not a client flag or erased quota history. Keep duplicate protection and separate owner usage from visitor-day capacity. Tests reject other/unconfirmed identities and replay while admitting owner requests beyond normal caps. Behind the Build: unlimited owner testing must not exhaust visitors' allowance.
+
 - **2026-09-12 Photo retry:** Clearing uploads in finally made even local validation failures destructive to the form. Clear only on successful candidate creation or explicit mode change. Missing permission now preserves the file and focuses a clear inline error; local browser asserts zero request and retained file. Behind the Build: privacy does not require making people repeat corrections. The separately deployed illustration prompt still failed real likeness feedback; instruction checks cannot substitute for generated-image review.
 
 - **2026-09-12 Object versus human input:** A prop alternative needs a separate allowlisted backend prompt and request, not an object word appended to head-and-shoulders styling. Hide irrelevant human settings and never send retained description/photo data in object mode. Test both return paths and reject mixed inputs before provider calls. Behind the Build: privacy and intuitive controls share the same input-boundary design.

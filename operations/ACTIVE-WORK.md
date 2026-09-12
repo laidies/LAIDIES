@@ -1,5 +1,9 @@
 # Active work
 
+## 2026-09-12 Owner portrait daily limits removed
+
+- DEPLOYED Worker d1349778-2261-4af2-87ff-5d0006351e16, source9ba22f5d. Exact confirmed Supabase owner email exempt from daily caps; owner usage isolated under owner:day, normal visitor2/global20 and replay unchanged. Live Worker source verified; calibrated other/unconfirmed rejection and22 mocked owner requests pass. No usage records erased, no real image generated, no Pages deployment. Standard public two-set explanatory copy remains unchanged; backend owner exception applies immediately.
+
 ## 2026-09-12 Photo validation retry
 
 - DEPLOYED and UI verified: source71e763ff, Pages70f7d9d1-8271-495e-9141-11d8c1393b7f. Three paths,792 other IDs preserved; dual origins exact. Input/private/tmp/laidies-maikeover-boxes-uhQA7O/stage and adjacent verification. Local browser proves missing permission retains file, sends nothing and focuses inline error. Live390px confirms clear unchecked permission label and no overflow. Independent source review no blocker. Success clears; failure retains by source review. No real generation or account save tested.
