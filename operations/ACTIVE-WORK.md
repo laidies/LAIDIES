@@ -1,6 +1,6 @@
-## 2026-09-12 — Header controls: Quiz exception — BUILT LOCALLY / verification pending
+## 2026-09-12 — Header controls: Quiz exception — VERIFIED LOCALLY / release ready
 
-Shared header release e413a1b0 remains public, but the legacy Quiz return link was missed. The bounded two-public-path correction is prepared and source-reviewed in `operations/product-stewards/town-entry-homepage/releases/header-controls-20260912/`. Browser testing is blocked by the locked Mac; no new deployment. Resume actual phone/middle/wide header placement and Back/keyboard journeys after unlock, then scoped visual review and provider-preserving release. Sitewide completion is not claimed. Homepage art and Resident Card open work remain unchanged.
+Three-path correction preserves the Quiz return through header rebuilding and removes its floating placement. Maker320/390/960/1440 and independent320/960 rendered review accepted, including real return journeys. Foreground completed visible keyboard focus and Enter; MAiKEOVER320 Menu/Escape still works. Receiving production2c35b124, preserving newer NewsStand and MAiKEOVER changes. Exact packet: `operations/product-stewards/town-entry-homepage/releases/header-controls-20260912/`. Next: provider-preserving release and custom/immutable verification. No claim that artwork or Resident Card open work is complete.
 
 ## 2026-09-11 — Header controls — VERIFIED PUBLICLY
 

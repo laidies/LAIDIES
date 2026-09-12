@@ -271,7 +271,6 @@
       return '<a class="svgh-quick" href="' + esc(l.href) + '"' + current + '>' + esc(l.label) + '</a>';
     }).join('');
 
-    var utilities = container.querySelector('.sv-header-utilities');
     container.innerHTML =
       '<div class="svgh-left">'
       + brandHtmlStr
@@ -285,7 +284,6 @@
       + '<a class="svgh-join" href="' + esc(JOIN_HREF) + '">Join<span class="svgh-jointail"> the town</span></a>'
       + '<button type="button" class="svgh-menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="svghPanel">Menu</button>'
       + '</nav>';
-    if (utilities) header.appendChild(utilities);
 
     var panel = document.createElement('div');
     panel.className = 'svgh-panel';
