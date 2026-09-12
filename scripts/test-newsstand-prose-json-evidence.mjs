@@ -4,6 +4,9 @@ const paragraph = '<p>Read the <a href="/library.html#chapter">exact lesson</a>.
 const body = JSON.stringify({headline:"A dated article",the_story:paragraph,sources:[{passage:"This appears only in source metadata."}]});
 assert.equal(body.includes(paragraph),false,"Fixture must reproduce escaped-attribute mismatch");
 assert.equal(proseEvidenceContains(body,paragraph),true);
+assert.equal(proseEvidenceContains(body,JSON.stringify(paragraph).slice(1,-1)),true);
+assert.equal(proseEvidenceContains(body,JSON.stringify(paragraph.replace('exact lesson','invented lesson')).slice(1,-1)),false);
+assert.equal(proseEvidenceContains(body,JSON.stringify('This appears only in source metadata.').slice(1,-1)),false);
 assert.equal(proseEvidenceContains(body,paragraph.replace("exact lesson","invented lesson")),false);
 assert.equal(proseEvidenceContains(body,"This appears only in source metadata."),false);
 assert.equal(proseEvidenceContains(body,'<a href="/other">exact lesson</a>'),false);
@@ -16,3 +19,10 @@ assert.equal(proseEvidenceContains(weekly,'Watch this development.'),true);
 assert.equal(proseEvidenceContains(weekly,'Third visible highlight.'),false);
 assert.equal(proseEvidenceContains(weekly,'Source-only assertion.'),false);
 console.log("NEWS JSON PROSE EVIDENCE PASS: real link accepted; altered text, URL and source-only evidence rejected");
+
+const {assertCompleteCandidateReviewText: complete, candidateReviewText} = await import('./validate-newsstand-ordinary-story-candidate.mjs');
+const record=JSON.parse(body);
+complete(candidateReviewText(record),record);
+complete(JSON.stringify(record,null,2)+'\n',record);
+for(const bad of [JSON.stringify({...record,headline:'Changed'},null,2)+'\n', '{"id":"one","id":"two"}\n', JSON.stringify({headline:record.headline},null,2)+'\n']) assert.throws(()=>complete(bad,record),/exact complete held story/);
+console.log('COMPLETE REVIEW ENCODING PASS: both exact encodings accepted; changed, duplicate or incomplete records rejected');

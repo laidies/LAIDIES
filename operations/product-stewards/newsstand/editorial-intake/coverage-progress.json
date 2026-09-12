@@ -1,0 +1,652 @@
+{
+  "schemaVersion": "newsstand-coverage-progress-v1",
+  "asOf": "2026-09-12",
+  "checkedAt": "2026-09-12T22:10:32.871782+00:00",
+  "nextReviewAt": "2026-09-12T23:00:00Z",
+  "sourceAudit": "operations/product-stewards/newsstand/editorial-intake/2026-09-12-1500-root-sweep.json",
+  "sourceChecks": [
+    {
+      "url": "https://openai.com/news/",
+      "role": "PROVIDER",
+      "status": "CHECKED",
+      "assessment": "Latest indexed entry remains September11 storage engineering; published and excluded September10 stories retained.",
+      "checkedAt": "2026-09-12T22:10:32.871782+00:00"
+    },
+    {
+      "url": "https://www.anthropic.com/news",
+      "role": "PROVIDER",
+      "status": "CHECKED",
+      "assessment": "September10 misuse report remains latest dated newsroom item; already published dedicated coverage.",
+      "checkedAt": "2026-09-12T22:10:32.871782+00:00"
+    },
+    {
+      "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
+      "role": "PROVIDER",
+      "status": "BLOCKED",
+      "assessment": "Direct reopen failed Internal Error; earlier captured statement and published story retained, no refreshed full-source claim.",
+      "checkedAt": "2026-09-12T22:10:32.871782+00:00",
+      "missingInput": "Accessible current direct statement for further changes",
+      "nextCheckAt": "2026-09-12T23:00:00Z"
+    },
+    {
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "role": "INDEPENDENT_REPORTING",
+      "status": "CHECKED",
+      "assessment": "Current leading pacing, misuse and Senate stories already covered. Read current AI section, not navigation headlines; older court story not reclassified as new.",
+      "checkedAt": "2026-09-12T22:10:32.871782+00:00"
+    },
+    {
+      "url": "https://www.reuters.com/technology/artificial-intelligence/",
+      "role": "INDEPENDENT_REPORTING",
+      "status": "BLOCKED",
+      "assessment": "Current hub again failed Internal Error; no complete current Reuters agenda claimed.",
+      "checkedAt": "2026-09-12T22:10:32.871782+00:00",
+      "missingInput": "Accessible current Reuters AI agenda",
+      "nextCheckAt": "2026-09-12T23:00:00Z"
+    },
+    {
+      "url": "https://deepmind.google/blog/",
+      "role": "PROVIDER",
+      "status": "CHECKED",
+      "assessment": "Latest indexed releases remain Gemini3.8, Atlas, WeatherNext, cyber defence and agentic video; existing event dispositions retained.",
+      "checkedAt": "2026-09-12T22:10:32.871782+00:00"
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "role": "PROVIDER",
+      "status": "CHECKED",
+      "assessment": "Latest dated entry September3 Lyria; no new dated entry in inspected changelog.",
+      "checkedAt": "2026-09-12T22:10:32.871782+00:00"
+    },
+    {
+      "url": "https://www.ftc.gov/news-events/news/press-releases",
+      "role": "REGULATOR",
+      "status": "CHECKED",
+      "assessment": "Latest September10 horseracing item unrelated; existing older policy entries unchanged.",
+      "checkedAt": "2026-09-12T22:10:32.871782+00:00"
+    },
+    {
+      "url": "https://www.eff.org/issues/ai",
+      "role": "ADVOCACY",
+      "status": "CHECKED",
+      "assessment": "Latest September8 WISeR entry already covered.",
+      "checkedAt": "2026-09-12T22:10:32.871782+00:00"
+    },
+    {
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "role": "RESEARCH",
+      "status": "CHECKED",
+      "assessment": "Latest September10 CRISP and PathSegmentor entries unchanged. CRISP captured accepted paper now available privately, draft needs repair; not source-blocked for main paper.",
+      "checkedAt": "2026-09-12T22:10:32.871782+00:00"
+    },
+    {
+      "url": "https://www.oneusefulthing.org/archive",
+      "role": "SCOUT",
+      "status": "CHECKED",
+      "assessment": "Latest exposed archive entry remains August31 Agency and Agents.",
+      "checkedAt": "2026-09-12T22:10:32.871782+00:00"
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-12.json",
+      "role": "SCOUT",
+      "status": "BLOCKED",
+      "assessment": "Actual curl404 during this refresh; prior complete September11 review retained.",
+      "checkedAt": "2026-09-12T22:10:32.871782+00:00",
+      "missingInput": "Complete September12 AIDB edition if released",
+      "nextCheckAt": "2026-09-12T23:00:00Z"
+    }
+  ],
+  "leads": [
+    {
+      "id": "anthropic-threat-report-20260910",
+      "event": "September10 Anthropic threat intelligence report",
+      "sourceUrls": [
+        "https://www.anthropic.com/threat-intelligence-report-september-2026"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor material follow-up and corrections; exact dedicated story already publicly verified.",
+      "storyId": "anthropic-threat-report-20260910",
+      "coverageReason": "Exact September10 threat report is the main subject; surveillance, biology, company intervention and limits covered. Custom-origin reader verified at 4 widths."
+    },
+    {
+      "id": "openai-data-agent-20260910",
+      "event": "September10 ChatGPT Work Data agent release",
+      "sourceUrls": [
+        "https://openai.com/index/put-data-to-work/"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor material follow-up and corrections; exact dedicated story already publicly verified.",
+      "storyId": "openai-data-agent-20260910",
+      "coverageReason": "Dedicated reviewed article published and public reader checked at four widths; exact primary and response/independent source links retained."
+    },
+    {
+      "id": "china-distillation-advisory-20260908",
+      "event": "September8 CISA advisory and September9 China response",
+      "sourceUrls": [
+        "https://www.cisa.gov/news-events/cybersecurity-advisories/aa26-251a"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor substantive new evidence or corrections.",
+      "storyId": "cisa-distillation-20260910",
+      "coverageReason": "Dedicated article covers the exact advisory and China response; public reader verified at four widths on release 8b3dd3dd."
+    },
+    {
+      "id": "openai-agents-api-20260910",
+      "event": "September10 Agents API public beta",
+      "sourceUrls": [
+        "https://openai.com/index/introducing-the-agents-api/"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor documented availability and independently demonstrated downstream outcomes; do not infer consumer adoption.",
+      "attemptedRecovery": "Official release and developer changelog read in full; bounded independent evaluation search found no examined public-product outcome.",
+      "triageCorrection": "Independent proof of a consumer deployment is not required to report a verified API announcement. Keep claims about effectiveness and adoption separate and attributed; do not promise benefits not established by evidence.",
+      "storyId": "agents-api-20260911",
+      "coverageReason": "Dated public beta and managed task mechanism reported from current primary documentation, with explicit reliability, availability, billing and retention boundaries. Four live reader widths and actual Library section journey verified.",
+      "releaseEvidence": "operations/product-stewards/newsstand/evidence/full-build-20260910/agents-api-release.json"
+    },
+    {
+      "id": "openai-gpt-live-1-20260910",
+      "event": "September10 realtime voice API release",
+      "sourceUrls": [
+        "https://openai.com/index/introducing-gpt-live-1-in-the-api/"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor substantive follow-up; exact public reader and immutable/custom data verified at eb72d66a.",
+      "coverageReason": "September11 dedicated article; eight reader journeys across1280/800/390/320 retain allfive services.",
+      "releaseEvidence": "operations/product-stewards/newsstand/evidence/full-build-20260910/voice-family-release.json",
+      "storyId": "gpt-live-downstream-20260911"
+    },
+    {
+      "id": "openai-financial-services-20260910",
+      "event": "September10 Financial Services product",
+      "sourceUrls": [
+        "https://openai.com/index/introducing-chatgpt-financial-services/"
+      ],
+      "status": "EXCLUDED",
+      "owner": "/root",
+      "nextAction": "Read scope and decide distinct beginner public-interest relevance versus Data agent coverage.",
+      "reason": "Eligible-financial-institution product announcement, initially investment banking and equity research. Primary release establishes neither a new consumer financial adviser nor an independently measured change in outcomes for readers. Retain as sector context; reopen for actual rollout consequences, independent evaluation or a broader reader-facing change.",
+      "reviewedBy": "/root",
+      "reviewedAt": "2026-09-11T03:43:10.529157+00:00"
+    },
+    {
+      "id": "openai-antimicrobials-20260910",
+      "event": "September10 research application of Codex and ChatGPT",
+      "sourceUrls": [
+        "https://openai.com/index/using-codex-chatgpt-to-search-for-new-antimicrobials/"
+      ],
+      "status": "EXCLUDED",
+      "owner": "/root",
+      "nextAction": "Recover research stage and independent evidence; do not claim clinical benefit from vendor story.",
+      "reason": "Vendor profile of an existing research lab using ChatGPT and Codex for discovery work. It announces no newly approved treatment or independently established clinical result. Suitable as a future sourced learning example; reopen for a specific new paper or trial result. Do not turn a researcher-use profile into a medical breakthrough headline.",
+      "reviewedBy": "/root",
+      "reviewedAt": "2026-09-11T03:43:10.529157+00:00"
+    },
+    {
+      "id": "proteintalks-20260909",
+      "event": "September9 virtual-cell proteomics study",
+      "sourceUrls": [
+        "https://www.nature.com/articles/s41586-026-11001-9"
+      ],
+      "status": "EVIDENCE_BLOCKED",
+      "attemptedRecovery": "September12 17:15UTC root reopened exact Nature main article; both returned500/cookie-authorization redirect failure. Earlier official supplements/author sources retained; no main-paper completion claimed. September12 ~22:10UTC exact primary reopen attempted again: Nature main paper and both exact X announcements returned Internal Error. No recovered new source content claimed.",
+      "missingInput": "Main methods/results and independent expert interpretation.",
+      "nextCheckAt": "2026-09-12T23:00:00Z",
+      "owner": "/root",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-11-1600-root-sources.json",
+      "nextAction": "Retry legitimate full-paper recovery; assess a research-stage report without implying clinical benefit."
+    },
+    {
+      "id": "senate-hugging-face-inquiry-20260910",
+      "event": "September10 Senate inquiries into OpenAI HuggingFace incident",
+      "sourceUrls": [
+        "https://apnews.com/article/1f730a59284c718f2e758898748a8069"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root/weekly_recovery",
+      "nextAction": "Check actual responses near September24 and October1, or earlier substantive developments.",
+      "storyId": "senate-hugging-face-inquiry-20260910",
+      "coverageReason": "Dedicated separate Senate inquiry follow-up published at4881836e; four-width reader and exact public data verified."
+    },
+    {
+      "id": "eff-wiser-records-20260908",
+      "event": "September8 EFF release of Medicare WISeR records",
+      "sourceUrls": [
+        "https://www.eff.org/deeplinks/2026/09/new-records-reveal-problems-medicares-ai-prior-authorization-experiment"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor CMS and independent reporting for actual follow-up; no backdating.",
+      "storyId": "wiser-records-20260910",
+      "coverageReason": "Reviewed records story published September10; underlying table distinguishes total decisions from nonaffirmations. Four public widths and immutable/custom bytes verified."
+    },
+    {
+      "id": "anthropic-researcher-resignation-20260909",
+      "event": "Coxon resignation and separate Hubinger existential-risk estimate",
+      "sourceUrls": [
+        "https://apnews.com/article/2ed549e07f2f941600a135070487d83d",
+        "https://x.com/hilbertspaess/status/2097476196791709843"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor material follow-up; exact September11 story publicly verified at c5244038.",
+      "storyId": "coxon-warning-20260910",
+      "coverageReason": "Researcher warning, forecast limits and separate Hubinger estimate covered in dedicated verified reader."
+    },
+    {
+      "id": "california-child-chatbot-law-20260910",
+      "event": "September10 California child chatbot safety legislation signing",
+      "sourceUrls": [
+        "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119",
+        "https://apnews.com/article/6063026d1b54a8537d639605c23aab80"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor substantive updates and operative dates; public release3292d667 verified at four widths.",
+      "storyId": "california-chatbot-law-20260910",
+      "coverageReason": "Dedicated signing story with July2027 operative date and later audit dates; five services and all prior news preserved."
+    },
+    {
+      "id": "openai-national-safety-call-20260909",
+      "event": "September9 OpenAI call for mandatory national safety rules",
+      "sourceUrls": [
+        "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor substantive primary-source follow-up; exact reviewed story publicly verified at fccff599.",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-11-additional-lead-check.json",
+      "coverageReason": "September11 eight-news edition; paired four-width Daily-to-reader and ten origin file checks passed.",
+      "storyId": "national-safety-proposals-20260911"
+    },
+    {
+      "id": "agent-web-tracing-20260910",
+      "event": "September10 reports of volunteers tracing alleged agent activity to other websites",
+      "sourceUrls": [
+        "https://www.axios.com/2026/09/10/ai-agents-rogue-german-wiki-openai",
+        "https://collusion.wiki/additional-findings",
+        "https://collusion.wiki/explorer/sites/",
+        "https://ai-safety-commons.github.io/collision-swarm-site/"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor substantive verified attribution or corrections; expanded historical traces and subsequent fake posts are distinguished.",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-11-additional-lead-check.json",
+      "storyId": "agent-web-tracing-20260911",
+      "coverageReason": "Public reader explains historical researcher classifications, fake-post contamination and why screenshots alone do not establish authenticity or attribution.",
+      "releaseEvidence": "operations/product-stewards/newsstand/evidence/full-build-20260910/agent-web-release.json"
+    },
+    {
+      "id": "askca-pilot-20260909",
+      "event": "September9 California government AI assistant pilot",
+      "sourceUrls": [
+        "https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/",
+        "https://ask.ca.gov/"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor actual October pilot start and changed official conditions; no signup submitted.",
+      "storyId": "askca-pilot-20260911",
+      "releaseEvidence": "operations/product-stewards/newsstand/evidence/full-build-20260910/askca-release.json",
+      "coverageReason": "Nine-news September11 edition; exact two-origin files and four Daily-to-reader widths verified at67a936d5."
+    },
+    {
+      "id": "microsoft-youth-framework-20260910",
+      "event": "September10 Microsoft youth AI participation framework",
+      "sourceUrls": [
+        "https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor substantive follow-up; exact public reader and immutable/custom data verified at eb72d66a.",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-11-additional-lead-check.json",
+      "coverageReason": "September11 dedicated article; eight reader journeys across1280/800/390/320 retain allfive services.",
+      "releaseEvidence": "operations/product-stewards/newsstand/evidence/full-build-20260910/voice-family-release.json",
+      "storyId": "microsoft-family-safety-20260911"
+    },
+    {
+      "id": "meta-muse-20260908",
+      "event": "Meta personal agent launch",
+      "sourceUrls": [
+        "https://apnews.com/article/meta-muse-ai-agent-3a4572eb4cf4e95d8a0dfdad6e6ca065",
+        "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
+        "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor material access or privacy changes; current report retains US availability, permission boundaries, opt-out and future private workspace distinction. Age minimum omitted because primary confirmation was not obtained.",
+      "storyId": "meta-muse-20260911",
+      "publicUrl": "https://laidies.ai/newsstand#meta-muse-20260911",
+      "release": "3e056ac6-c3cb-473f-8fe8-4151e44c2f00",
+      "coverageReason": "Dedicated reader explains personal-agent access, permissions, opt-out and future private-workspace limits; exact reviewed public story verified at3e056ac6."
+    },
+    {
+      "id": "epa-public-notice-20260905",
+      "event": "EPA air-permit public notice proposal",
+      "sourceUrls": [
+        "https://apnews.com/article/epa-data-centers-ai-public-comment-states-947eb927ae81162ad4cc3e828915c804",
+        "https://www.govinfo.gov/content/pkg/FR-2026-07-07/pdf/2026-13667.pdf",
+        "https://www.local10.com/business/2026/09/03/epa-proposal-could-leave-the-public-in-the-dark-on-data-center-plans/"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor final rule or state implementation changes; no expired comment invitation.",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-11-school-epa-recovery.json",
+      "storyId": "epa-public-participation-20260911",
+      "coverageReason": "Exact proposal and retained state participation rights explained. Official PDF and current-status sources retained; actual reader verified at1280/800/390/320 and book link clicked to intended section at390.",
+      "releaseEvidence": "operations/product-stewards/newsstand/evidence/full-build-20260910/epa-release.json",
+      "sourceRecovery": "Original AP lead retained. Published report cites the exact primary proposal and recovered AP syndication; recovered full source bindings are in the final EPA candidate."
+    },
+    {
+      "id": "nyc-school-ai-20260902",
+      "event": "NYC student-facing AI moratorium",
+      "sourceUrls": [
+        "https://apnews.com/article/zohran-mamdani-ai-ban-nyc-schools-647f6a968eea0399521b7934418b1aff"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor implementation and material policy changes.",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-11-school-epa-recovery.json",
+      "storyId": "nyc-school-ai-20260911",
+      "coverageReason": "Exact NYC student-facing generative AI pause and high-school pilot limits covered; Daily-to-reader verified at1280/800/390/320 and actual AI Fundamentals target clicked at390.",
+      "releaseEvidence": "operations/product-stewards/newsstand/evidence/full-build-20260910/nyc-school-release.json"
+    },
+    {
+      "id": "papercut-ai-campaign-20260910",
+      "event": "GreyNoise AI-assisted PaperCut campaign disclosure",
+      "sourceUrls": [
+        "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/",
+        "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf",
+        "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root/weekly_recovery",
+      "nextAction": "Public cc69ef58 verified at both origins and four widths; revisit on vendor or independent corrections, keeping harness/model and attribution limits.",
+      "storyId": "papercut-campaign-20260911",
+      "coverageReason": "Dedicated attributed campaign story distinguishes AI orchestration, model identity and confirmed exploitation; public four-width reader checked."
+    },
+    {
+      "id": "sanders-casar-proposal-20260903",
+      "event": "Announced federal superintelligence ban proposal",
+      "sourceUrls": [
+        "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor substantive primary-source follow-up; exact reviewed story publicly verified at fccff599.",
+      "coverageReason": "September11 eight-news edition; paired four-width Daily-to-reader and ten origin file checks passed.",
+      "storyId": "national-safety-proposals-20260911"
+    },
+    {
+      "id": "openai-maths-claim-20260908",
+      "event": "Millennium mathematics claim and attribution dispute",
+      "sourceUrls": [
+        "https://openai.com/index/navier-stokes-solution/",
+        "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf",
+        "https://github.com/openai/NavierStokesAndEuler",
+        "https://www.claymath.org/millennium-problems/rules/",
+        "https://cims.nyu.edu/~tristanb/statement.pdf"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor substantive primary-source follow-up; exact reviewed story publicly verified at fccff599.",
+      "coverageReason": "September11 eight-news edition; paired four-width Daily-to-reader and ten origin file checks passed.",
+      "storyId": "navier-stokes-claim-20260911"
+    },
+    {
+      "id": "openai-habitat-storage-engineering-20260911",
+      "event": "September11 OpenAI Habitat infrastructure engineering account",
+      "sourceUrls": [
+        "https://openai.com/index/scaling-storage-one-billion-users-part-one/"
+      ],
+      "status": "EXCLUDED",
+      "owner": "/root",
+      "reason": "Dated September11 retrospective infrastructure engineering account. No new access, price, privacy policy, feature or current outage established; decline Daily item, retain possible future infrastructure explanation.",
+      "reviewedAt": "2026-09-11T20:12:57.139344+00:00",
+      "nextAction": "Reopen for a distinct consumer consequence or a scoped infrastructure explanation.",
+      "reviewedBy": "/root"
+    },
+    {
+      "id": "crisp-pathology-20260910",
+      "event": "September10 CRISP intraoperative pathology research",
+      "sourceUrls": [
+        "https://www.nature.com/articles/s41591-026-04703-0"
+      ],
+      "status": "IN_PRODUCTION",
+      "owner": "/root/remaining_build_review",
+      "attemptedRecovery": "Complete accepted-paper PDF captured at20:02UTC; source-evidence binds exact local paper. Root read draft and rejected omission of findings. Current primary reopen failed; earlier capture remains retained.",
+      "nextAction": "Repair private draft: actual results, comparator and plain-language surgical mechanism; complete distinct admission before any publication.",
+      "sourceReview": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/source-evidence.json"
+    },
+    {
+      "id": "anthropic-pentagon-ruling-20260827",
+      "event": "August27 Anthropic Pentagon ruling resurfaced during September11 sweep",
+      "sourceUrls": [
+        "https://am590theanswer.com/business/judge-says-pentagons-measures-against-anthropic-were-illegal-and-baseless/f15e3c30186385e73e72bee82d85b05c",
+        "https://www.investing.com/news/general-news/us-judge-blocks-pentagons-anthropic-blacklisting-4880421"
+      ],
+      "status": "EXCLUDED",
+      "owner": "/root",
+      "reason": "Exact AP syndication and Reuters dates establish August27 event, outside September9\u201311 recovery window. No new September11 order or development established; do not relabel old news as current.",
+      "reviewedBy": "/root",
+      "reviewedAt": "2026-09-11T23:04:30.018758+00:00",
+      "nextAction": "Reopen for independently verified new order, appeal or changed restrictions."
+    },
+    {
+      "id": "openai-pro-signup-pause-20260910",
+      "status": "COVERED",
+      "owner": "/root",
+      "nextAction": "Monitor substantive follow-up and corrections; exact public article already verified.",
+      "discoveredAt": "2026-09-12T14:12:14.788335+00:00",
+      "event": "September10 new ChatGPT Pro200 signups paused",
+      "sourceUrls": [
+        "https://help.openai.com/en/articles/9793128-what-is-chatgpt-pro/"
+      ],
+      "storyId": "pro-signup-pause-20260912",
+      "coverageReason": "Explains pausednewPro200purchasesversuscontinuingactivesubscriptions; exactarticlepubliclyverifiede3fa1d11."
+    },
+    {
+      "id": "deepseek-v41-flash-20260910",
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor corrections; publicly verified at deployment 42b73c46 on September 12.",
+      "discoveredAt": "2026-09-12T14:12:14.788335+00:00",
+      "event": "September10 DeepSeekV4.1Flash API release and planned model routing",
+      "sourceUrls": [
+        "https://deepseek.com/en/news/deepseek-v4-1-flash/"
+      ],
+      "storyId": "deepseek-flash-20260912",
+      "publicationEvidence": "operations/product-stewards/newsstand/evidence/morning-20260912/atlas-deepseek-release.json",
+      "discoverySourceUrls": [
+        "https://www.deepseek.com/en/news/deepseek-v4-1-flash/"
+      ],
+      "coverageReason": "Explains native image understanding versus whether a specific app exposes it; September14 model-routing change remains future-dated."
+    },
+    {
+      "id": "cursor-projects-20260910",
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor substantive follow-up and corrections.",
+      "discoveredAt": "2026-09-12T14:12:14.788335+00:00",
+      "event": "September10 CursorProjects beta rollout",
+      "sourceUrls": [
+        "https://cursor.com/changelog/projects"
+      ],
+      "storyId": "cursor-projects-20260912",
+      "releaseEvidence": "operations/product-stewards/newsstand/evidence/morning-20260912/cursor-release.json",
+      "coverageReason": "Exact independent article and issue admission; ten dual-origin files and67 public browser checks passed;790 unrelated provider identities retained.",
+      "discoverySourceUrls": [
+        "https://cursor.com/en-US/changelog"
+      ]
+    },
+    {
+      "id": "deepmind-genome-atlas-20260908",
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor corrections; publicly verified at deployment 42b73c46 on September 12.",
+      "discoveredAt": "2026-09-12T14:12:14.788335+00:00",
+      "event": "September8 AlphaGenomeAtlas predictive variant map",
+      "sourceUrls": [
+        "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/"
+      ],
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-12-1045-source-reconciliation.json",
+      "storyId": "alphagenome-atlas-20260912",
+      "publicationEvidence": "operations/product-stewards/newsstand/evidence/morning-20260912/atlas-deepseek-release.json",
+      "coverageReason": "Explains predicted DNA-change effects as research leads, the rare-epilepsy lab example and the evidence still needed before clinical use."
+    },
+    {
+      "id": "openai-altman-slowdown-report-20260911",
+      "status": "EXCLUDED",
+      "owner": "/root",
+      "nextAction": "Monitor distinct OpenAI commitment; preserve private attributed-report predecessor.",
+      "discoveredAt": "2026-09-12T14:12:14.788335+00:00",
+      "event": "September11 reported Altman staff discussion of coordinated slowdown",
+      "sourceUrls": [
+        "https://qz.com/sam-altman-openai-slow-ai-development-staff-meeting-091126"
+      ],
+      "reason": "Retain reported staff discussion as context; direct September12 Amodei statement now covers the pacing question with a concrete outside-evaluation commitment. Do not combine executives into an industry agreement. Reopen for a specific OpenAI commitment or independently consequential response.",
+      "reviewedBy": "/root",
+      "reviewedAt": "2026-09-12T17:46:11.601463+00:00"
+    },
+    {
+      "id": "microsoft-capacity-report-20260910",
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor substantive corrections and follow-up; preserve source and publication dates.",
+      "discoveredAt": "2026-09-12T14:12:14.788335+00:00",
+      "event": "September10 reported Microsoft2032capacity plan",
+      "sourceUrls": [
+        "https://www.investing.com/news/stock-market-news/microsoft-plans-38-gigawatts-of-data-center-capacity-by-2032-bloomberg-news-reports-4897030",
+        "https://news.bloomberglaw.com/ip-law/microsoft-plans-data-center-push-to-triple-its-computing-power"
+      ],
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-12-1100-source-reconciliation.json",
+      "discoverySourceUrls": [
+        "https://www.investing.com/news/stock-market-news/microsoft-plans-38-gigawatts-of-data-center-capacity-by-2032-bloomberg-news-reports-4897030"
+      ],
+      "storyId": "microsoft-capacity-20260912",
+      "coverageReason": "Dedicated sourced article publicly verified with its actual phone learning destination.",
+      "releaseEvidence": "operations/product-stewards/newsstand/evidence/morning-20260912/reporting-release.json"
+    },
+    {
+      "id": "nvidia-groq-inquiry-report-20260910",
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor substantive corrections and follow-up; preserve source and publication dates.",
+      "discoveredAt": "2026-09-12T14:12:14.788335+00:00",
+      "event": "September10 reported DOJ inquiry into NvidiaGroq licensing deal",
+      "sourceUrls": [
+        "https://economictimes.indiatimes.com/tech/artificial-intelligence/doj-probes-nvidias-licensing-deal-with-ai-startup-groq/articleshow/133994951.cms",
+        "https://groq.com/newsroom/groq-and-nvidia-enter-non-exclusive-inference-technology-licensing-agreement-to-accelerate-ai-inference-at-global-scale"
+      ],
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-12-1100-source-reconciliation.json",
+      "discoverySourceUrls": [
+        "https://news.bloomberglaw.com/artificial-intelligence/doj-probes-nvidias-license-deal-with-groq-on-antitrust-concerns"
+      ],
+      "storyId": "nvidia-groq-inquiry-20260912",
+      "coverageReason": "Dedicated sourced article publicly verified with its actual phone learning destination.",
+      "releaseEvidence": "operations/product-stewards/newsstand/evidence/morning-20260912/reporting-release.json"
+    },
+    {
+      "id": "cognition-swe2-20260910",
+      "status": "EXCLUDED",
+      "owner": "/root",
+      "nextAction": "Follow officialdatedblogentry, assessaudience and concrete userchange.",
+      "discoveredAt": "2026-09-12T14:12:14.788335+00:00",
+      "event": "September10 CognitionSWE2 model announcement",
+      "sourceUrls": [
+        "https://cognition.com/blog/swe-2"
+      ],
+      "reason": "Root read official September10 release and availability. New coding model in Devin Desktop/CLI; public claims centre on company coding benchmarks, training economics and developer workflow. No distinct general-reader news payoff established for this Daily alongside larger governance and consumer changes. Retain for future builder-tool comparison; not excluded because it lacks adoption proof.",
+      "reviewedBy": "/root",
+      "reviewedAt": "2026-09-12T17:19:10.111688+00:00"
+    },
+    {
+      "id": "devin-voice-20260911",
+      "status": "EVIDENCE_BLOCKED",
+      "owner": "/root",
+      "nextAction": "Retry accessible original announcement and assess distinct reader value.",
+      "discoveredAt": "2026-09-12T14:12:14.788335+00:00",
+      "event": "Reported DevinVoice launch; exact event date pending",
+      "sourceUrls": [
+        "https://aidailybrief.beehiiv.com/p/what-to-use-the-latest-ai-tools-for"
+      ],
+      "attemptedRecovery": "Full official feature documentation read. Fan wire links exact official post; actual web fetch403. September12 ~22:10UTC exact primary reopen attempted again: Nature main paper and both exact X announcements returned Internal Error. No recovered new source content claimed.",
+      "missingInput": "Exact dated primary announcement; current feature documentation does not establish launch date.",
+      "nextCheckAt": "2026-09-12T23:00:00Z",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-12-1045-source-reconciliation.json"
+    },
+    {
+      "id": "openai-small-business-plugins",
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor substantive corrections and follow-up; preserve source and publication dates.",
+      "discoveredAt": "2026-09-12T14:12:14.788335+00:00",
+      "event": "September9 HoneyBook announcement of its ChatGPT integration and Small Business collection placement",
+      "sourceUrls": [
+        "https://www.honeybook.com/blog/honeybook-chatgpt-plugin",
+        "https://openai.com/business/plugins/honeybook/"
+      ],
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-12-1045-source-reconciliation.json",
+      "discoverySourceUrls": [
+        "https://www.honeybook.com/blog/honeybook-chatgpt-plugin",
+        "https://openai.com/business/plugins/?tab=plugins-productivity"
+      ],
+      "storyId": "honeybook-plugin-20260912",
+      "coverageReason": "Dedicated sourced article publicly verified with its actual phone learning destination.",
+      "releaseEvidence": "operations/product-stewards/newsstand/evidence/morning-20260912/reporting-release.json"
+    },
+    {
+      "id": "grokbot-sales-integrations",
+      "status": "EVIDENCE_BLOCKED",
+      "owner": "/root",
+      "nextAction": "Retry accessible original announcement and assess distinct reader value.",
+      "discoveredAt": "2026-09-12T14:12:14.788335+00:00",
+      "event": "Reported GrokBot sales integrations; exact event identity pending",
+      "sourceUrls": [
+        "https://aidailybrief.beehiiv.com/p/what-to-use-the-latest-ai-tools-for"
+      ],
+      "attemptedRecovery": "Official current marketplace inspected; official dated post fetch403. September12 ~22:10UTC exact primary reopen attempted again: Nature main paper and both exact X announcements returned Internal Error. No recovered new source content claimed.",
+      "missingInput": "Exact dated primary announcement; current feature documentation does not establish launch date.",
+      "nextCheckAt": "2026-09-12T23:00:00Z",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-12-1045-source-reconciliation.json"
+    },
+    {
+      "id": "anthropic-amodei-pacing-20260912",
+      "event": "September12 Amodei public pacing proposal and Anthropic commitment to invite embedded external evaluators",
+      "sourceUrls": [
+        "https://darioamodei.com/post/we-must-pace-the-frontier",
+        "https://apnews.com/article/d59552edcb27892d8ee4d98a48397706"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "nextAction": "Monitor substantive follow-up and corrections.",
+      "storyId": "amodei-ai-pacing-20260912",
+      "coverageReason": "Independent exact review and issue admission; ten exact dual-origin files and65 public browser checks passed. Native live visual check remains locked.",
+      "releaseEvidence": "operations/product-stewards/newsstand/evidence/morning-20260912/amodei-release.json"
+    },
+    {
+      "id": "pathsegmentor-20260910",
+      "event": "September10 Nature Computational Science research on natural-language-guided pathology segmentation",
+      "sourceUrls": [
+        "https://www.nature.com/subjects/machine-learning"
+      ],
+      "status": "EXCLUDED",
+      "owner": "/root",
+      "nextAction": "Reopen for a focused pathology research explainer or substantive follow-up.",
+      "reviewedBy": "/root",
+      "reviewedAt": "2026-09-12T17:55:55.140346+00:00",
+      "reason": "Read dated paper abstract/code and full university methods/results summary. This is a specialized pathology image-annotation workflow with cross-dataset evaluation; distinct but lower priority for this general-reader edition than Atlas variant interpretation and the held prospective CRISP study. Retain for a focused research explainer; exclusion is editorial selection, not a requirement for clinical outcomes.",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-12-1100-source-reconciliation.json"
+    }
+  ],
+  "reviewScope": "Root morning source refresh; source discovery and disposition only, no editorial admission. Older source observations retained in prior audit records.",
+  "sourceAudits": [
+    "operations/product-stewards/newsstand/editorial-intake/2026-09-12-1000-root-sweep.json",
+    "operations/agents/aidb-intelligence-desk/daily/2026-09-12-morning/sep11-item-review.json"
+  ]
+}

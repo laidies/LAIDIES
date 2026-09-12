@@ -8,6 +8,8 @@ import { fileURLToPath } from "node:url";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
 const NEWSSTAND_SAMPLING_POLICY = "operations/product-stewards/newsstand/recurring-service-sampling-policy.json";
+const CURIOSITY_SAMPLING_POLICY = "operations/product-stewards/newsstand/curiosity-sampling-policy-20260910.json";
+const CROSSWORD_REVIEW_FLOOR_POLICY = "operations/product-stewards/newsstand/crossword-review-floor-policy.json";
 const SERVICE_REVIEW_FLOOR_POLICY = "operations/product-stewards/newsstand/recurring-service-review-floor-policy.json";
 const NEWS_EDITORIAL_POLICY = "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json";
 const WEEKLY_EDITORIAL_POLICY = "operations/product-stewards/newsstand/weekly-news-editorial-policy.json";
@@ -64,18 +66,23 @@ export function proseEvidenceContains(body, excerpt) {
   if (typeof article?.headline === "string" && typeof article?.the_story === "string") {
     // Reviewers quote the article, not JSON's escaping of HTML attributes.
     // Search only public prose fields; source metadata cannot prove article prose.
+    let decodedExcerpt = excerpt;
+    // Runtime passage references serialize string fragments. Decode one layer
+    // only, then require the fragment in an actual public field.
+    try { decodedExcerpt = JSON.parse(`"${excerpt}"`); } catch { /* Literal prose. */ }
     return ["headline", "front_read", "weeklyHighlights", "the_story", "laidies_read", "what_this_means", "cocktail_party", "class_notes", "watch_fors", "closing_note"]
       .some(key => (Array.isArray(article[key]) ? article[key] : [article[key]])
-        .some(value => typeof value === "string" && value.includes(excerpt)));
+        .some(value => typeof value === "string" && (value.includes(excerpt) || (decodedExcerpt.trim().length >= 15 && value.includes(decodedExcerpt)))));
   }
   return Boolean(body?.includes(excerpt));
 }
 
-function evidenceAppears(body, evidence, label, errors) {
+function evidenceAppears(body, evidence, label, errors, { typographicQuotes = false } = {}) {
+  const quotes = value => typeof value === "string" ? value.replace(/[‘’]/g, "\'").replace(/[“”]/g, '"') : value;
   if (!Array.isArray(evidence) || evidence.length === 0) { errors.push(`${label}: exact prose evidence is required`); return; }
   for (const [index, item] of evidence.entries()) {
     if (!text(item?.excerpt) || item.excerpt.trim().length < 15 || !text(item?.locator)) errors.push(`${label}[${index}]: excerpt of at least 15 characters and locator are required`);
-    else if (!proseEvidenceContains(body, item.excerpt)) errors.push(`${label}[${index}]: excerpt does not occur in the exact prose`);
+    else if (!proseEvidenceContains(typographicQuotes ? quotes(body) : body, typographicQuotes ? quotes(item.excerpt) : item.excerpt)) errors.push(`${label}[${index}]: excerpt does not occur in the exact prose`);
   }
 }
 
@@ -103,7 +110,7 @@ function samplingOverrideFor(receipt, root, errors) {
   const require = (condition, message) => { if (!condition) errors.push(message); };
   require(receipt?.stage === "INDEPENDENT_SEMANTIC_ADMISSION", "samplingOverride is only available to independent review");
   require(receipt?.surface === "NEWSSTAND_RECURRING_SERVICE_COLUMNS", "samplingOverride is limited to NEWSSTAND_RECURRING_SERVICE_COLUMNS");
-  require(override?.policy?.path === NEWSSTAND_SAMPLING_POLICY, "samplingOverride must bind the canonical NewsStand sampling policy");
+  require([NEWSSTAND_SAMPLING_POLICY, CURIOSITY_SAMPLING_POLICY].includes(override?.policy?.path), "samplingOverride must bind the canonical NewsStand sampling policy");
   const policyBody = loadBinding(root, override?.policy, "samplingOverride.policy", errors);
   if (!policyBody) return null;
   let policy;
@@ -116,6 +123,9 @@ function samplingOverrideFor(receipt, root, errors) {
   require(Array.isArray(policy.allowedContentClasses) && policy.allowedContentClasses.includes(receipt.contentClass), "samplingOverride contentClass is not authorized");
   require(!policy.excludedContentClasses?.includes(receipt.contentClass), "samplingOverride contentClass is excluded");
   const entries = Array.isArray(policy.entries) ? policy.entries : [];
+  if (override?.policy?.path === CURIOSITY_SAMPLING_POLICY) {
+    require(policy.policyId === "newsstand-curiosity-sampled-comprehension-20260910" && receipt.contentClass === "PRACTICE" && entries.every(item => item.type === "curiosity" && item.contentClass === "PRACTICE"), "curiosity sampling policy is limited to curiosity PRACTICE entries");
+  }
   require(entries.length > 0, "samplingOverride policy entries are required");
   require(entries.length === new Set(entries.map(item => item?.id)).size, "samplingOverride policy entry IDs must be unique");
   for (const [index, item] of entries.entries()) {
@@ -147,14 +157,26 @@ function serviceReviewFloorPolicyFor(receipt, root, errors) {
   const require = (condition, message) => { if (!condition) errors.push(`reviewFloorPolicy: ${message}`); };
   require(binding && typeof binding === "object" && !Array.isArray(binding) && Object.keys(binding).sort().join("\n") === ["path", "policyId", "sha256"].join("\n"), "binding must contain only path, policyId, and sha256");
   require(["PRODUCER_SELF_REVIEW", "INDEPENDENT_SEMANTIC_ADMISSION"].includes(receipt.stage), "stage is not authorized");
-  require(receipt.surface === "NEWSSTAND_RECURRING_SERVICE_COLUMNS", "limited to NEWSSTAND_RECURRING_SERVICE_COLUMNS");
-  require(binding.path === SERVICE_REVIEW_FLOOR_POLICY, "canonical policy path required");
+  const crossword = receipt.surface === "NEWSSTAND_CROSSWORD";
+  require(crossword || receipt.surface === "NEWSSTAND_RECURRING_SERVICE_COLUMNS", "surface is outside bounded floor policies");
+  require(binding.path === (crossword ? CROSSWORD_REVIEW_FLOOR_POLICY : SERVICE_REVIEW_FLOOR_POLICY), "canonical policy path required");
   const body = loadBinding(root, binding, "reviewFloorPolicy", errors);
   if (!body) return null;
   let policy;
   try { policy = JSON.parse(body); }
   catch { errors.push("reviewFloorPolicy: invalid policy JSON"); return null; }
-  require(policy.schemaVersion === "laidies-newsstand-recurring-service-review-floor-policy.v1", "schemaVersion mismatch");
+  require(policy.schemaVersion === (crossword ? "laidies-newsstand-crossword-review-floor-policy.v1" : "laidies-newsstand-recurring-service-review-floor-policy.v1"), "schemaVersion mismatch");
+  if (crossword) {
+    require(receipt.candidateId === policy.candidateId && policy.candidateId === "crossword-02-20260911", "crossword candidate is outside authorized scope");
+    require(receipt.lineage?.predecessorCandidateId === policy.predecessorCandidateId, "crossword predecessor mismatch");
+    const priorBody = loadBinding(root, policy.predecessorReviews?.[receipt.stage], "reviewFloorPolicy.predecessorReview", errors);
+    if (priorBody) {
+      try {
+        const prior = JSON.parse(priorBody);
+        require(prior.candidateId === policy.predecessorCandidateId && prior.stage === receipt.stage && prior.verdict === "PASS" && prior.ratchet?.reviewIssues === 0 && prior.ratchet?.reviewCycles === 1, "bound predecessor was not clean at the floor");
+      } catch { errors.push("reviewFloorPolicy: invalid predecessor review JSON"); }
+    }
+  }
   require(policy.policyId === binding.policyId, "policyId mismatch");
   require(policy.status === "ACTIVE", "policy status is not ACTIVE");
   require(policy.surface === receipt.surface, "surface mismatch");
@@ -288,7 +310,8 @@ export function inspectProseQualityReview(receipt, { root = ROOT } = {}) {
   }
   require(receipt?.calibration?.positive?.verdict === "PASS", "positive calibration must be recognized as PASS");
   require(Array.isArray(receipt?.calibration?.positive?.strengthsRetained) && receipt.calibration.positive.strengthsRetained.length > 0, "positive calibration must name strengths retained without copying its template");
-  evidenceAppears(positiveBody, receipt?.calibration?.positive?.evidence, "calibration.positive.evidence", errors);
+  // Voice-exemplar citations tolerate quote glyphs only; words, case, order and all artifact hashes remain exact.
+  evidenceAppears(positiveBody, receipt?.calibration?.positive?.evidence, "calibration.positive.evidence", errors, { typographicQuotes: true });
 
   for (const field of ["humanQuestion", "promisedPayoff", "centralMentalModel", "dailyLifeConnection", "surfaceJob", "desiredReaderFeeling"]) require(text(receipt?.reverseBrief?.[field]), `reverseBrief.${field} is required`);
 

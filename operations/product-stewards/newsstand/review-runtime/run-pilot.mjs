@@ -8,7 +8,7 @@ import {sha,paragraphs,storyParagraphs,requestFor,normalize} from './protocol.mj
 import {inspectPreparedDraft} from '../../../../scripts/prepare-newsstand-draft.mjs';
 import {inspectProseQualityReview} from '../../../../scripts/check-prose-quality-admission.mjs';
 import {validateStoryTypeCoverage} from '../../../../scripts/validate-newsstand-story-type-coverage.mjs';
-import {resolveNewsstandEditorialPacket} from '../../../../scripts/compact-newsstand-editorial-input.mjs';
+import {resolveNewsstandEditorialPacket,assertCurrentEditorialParagraphs} from '../../../../scripts/compact-newsstand-editorial-input.mjs';
 const root=process.cwd();
 const option=name=>{const i=process.argv.indexOf(name);return i<0?null:process.argv[i+1]};
 const privateDirectory=p=>{const resolved=path.resolve(root,p);assert.ok(resolved.startsWith(path.resolve(root,'operations/product-stewards')+path.sep),'Review files must remain private');return path.relative(root,resolved)+'/'};
@@ -137,7 +137,7 @@ if(mode==='reconcile-calibration'){
  const producer=json(dir+'producer-publication-review.json');assert.equal(producer.verdict,'PASS','Producer must finish its own repairs first');assert.deepEqual(inspectProseQualityReview(producer,{root}).errors,[],'Producer review is not valid');
  assert.deepEqual(inspectPreparedDraft(json(dir+'story.json'),json(dir+'writer-input-current.json'),json(dir+'producer-observations.json')).errors,[],'Prepared draft has unresolved producer gaps');
  if(fs.existsSync(dir+'editorial-input.json')){
-  const packet=json(dir+'editorial-input.json');assert.equal(packet.completeArtifact,read(dir+'review-text.json'),'Editorial input differs from reviewed artifact');assert.equal(producer.artifact.reviewText.sha256,sha(packet.completeArtifact),'Producer reviewed different prose');
+  const packet=json(dir+'editorial-input.json');assertCurrentEditorialParagraphs(packet,storyParagraphs(JSON.parse(packet.completeArtifact)));assert.equal(packet.completeArtifact,read(dir+'review-text.json'),'Editorial input differs from reviewed artifact');assert.equal(producer.artifact.reviewText.sha256,sha(packet.completeArtifact),'Producer reviewed different prose');
   const reuse=option('--reuse-reader-from');
   if(reuse){
    const prior=privateDirectory(reuse),oldPacket=json(prior+'article-editorial-packet.json');

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "laidies-newsstand-combined-editorial-raw.v1",
+  "candidateId": "askca-pilot-20260911",
+  "storySha256": "19ba00142431e4c0aabde6987c4de87cd712cf24b2c93bd09e89bb5f553dad10",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "verdict": "PASS",
+  "findings": {
+    "reader": "A well-executed bounded news article: it answers the availability question immediately, defines prototype and pilot in plain language, makes the situation-to-sources-to-links-to-agency chain visible, keeps state claims distinct from independent evidence, and lands on specific proportionate actions. Explain-back and a new transfer scenario both succeed on the article's own mechanism. No failure families present.",
+    "facts": "Factually solid dated news article. All material claims trace to the supplied government and StateScoop passages with attribution and limits intact; two claims (the agency-decides-outcomes boundary and the independent-evaluation watch item) are qualified as reasonable inferences beyond verbatim source wording rather than direct statements. Dates are precise and reviewable, state promotion is kept distinct from independent evidence, and the state's own accuracy and privacy disclaimers are rendered faithfully."
+  },
+  "readerProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/independent-review/runtime-claude-fable-20260911-v1/article-editorial-provider.raw.json",
+    "sha256": "a913c2fcc90a007065885771ddde6fd0f9dbd5f54c71a80658a2e9c6e697a3c8"
+  },
+  "factualProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/independent-review/runtime-claude-fable-20260911-v1/article-editorial-provider.raw.json",
+    "sha256": "a913c2fcc90a007065885771ddde6fd0f9dbd5f54c71a80658a2e9c6e697a3c8"
+  },
+  "factualJudgment": {
+    "path": "operations/product-stewards/newsstand/candidates/askca-pilot-20260911/independent-review/runtime-claude-fable-20260911-v1/article-editorial-judgment.json",
+    "sha256": "3ba73661449d9d88a256501887e644c84c83507df845245ea2c7f4afb44063da"
+  },
+  "calibration": {
+    "path": "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/calibration-result.json",
+    "sha256": "006b3ff3300c856daee21a482d77003064a03b79591a72c75026c2c07a042e10"
+  }
+}

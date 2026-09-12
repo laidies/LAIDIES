@@ -1,0 +1,590 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "crossword-02-20260911",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "INTERACTIVE",
+  "surface": "NEWSSTAND_CROSSWORD",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer full-prose review",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T19:00:17.402008+00:00",
+  "verdict": "PASS",
+  "limitations": [
+    "Producer exact-content review only; independent review and current integration remain required.",
+    "No native screen-reader or observed human comprehension result is claimed."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/review-text.md",
+      "sha256": "388cf83b6a685ed7562c41ef9fcbbbbef7ae609ede332a4ebbfea08f10ca05e4"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/publication-manifest.json",
+      "sha256": "895b3c7521b0b72cb668f796eda72bc59e6aef6505a5614ac5474117a4e0aefc"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-11T19:00:17.402008+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "A familiar situation supplies the question before technical naming.",
+        "Specific limitations and useful actions remain after humour."
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud \u2014 then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Can I recognise an AI idea in an ordinary situation and find more about it in SUNNYVAiLE?",
+    "promisedPayoff": "Recall ten connected answers, use optional hints, and learn why each answer fits.",
+    "centralMentalModel": "A clue connects a familiar situation to a term; its answer explanation supplies meaning and a useful distinction.",
+    "dailyLifeConnection": "Writing a message, checking an answer, finding information and recalling a VHS rewind.",
+    "surfaceJob": "Second untimed crossword: ten new terms, clue-list alternative, optional hints and full answer explanations. No advertising copy.",
+    "desiredReaderFeeling": "Curious and capable, not tested on insider vocabulary."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "A label photograph is an ordinary example of information supplied, with format support retained.",
+      "artifactEvidence": [
+        {
+          "excerpt": "INPUT is information supplied to a system. It can include your instructions and, where supported, an image or other file. If you want help reading a label, a clear photo may supply details a vague description leaves out. Check that the tool can use that format.",
+          "locator": "input explanation"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Feedback teaches result-versus-reliability and checking invitation details.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OUTPUT is the result a system produces. It names what came back, not how reliable it is. If an AI rewrites your invitation, compare the date, place and meaning with your original before sending it. Fluency is not a fact-check.",
+          "locator": "output explanation"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The restrained incantation joke serves the missing-information distinction.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A PROMPT gives the AI a request or instruction. For an invitation, say who it is for, which details must stay and what tone you want. There is no need to locate a secret incantation; the missing date is usually more useful.",
+          "locator": "prompt explanation"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The arcade clue supplies a familiar second route to the answer while feedback limits the analogy to pieces.",
+      "artifactEvidence": [
+        {
+          "excerpt": "TOKENS are the pieces a language model processes. A text token can be a word, part of a word or punctuation. A token limit is therefore not a word limit: a short paragraph can use more tokens than its word count suggests.",
+          "locator": "tokens explanation"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Weight adjustment is distinguished from a current document; the text makes no product-wide privacy promise.",
+      "artifactEvidence": [
+        {
+          "excerpt": "During TRAINING, a model's internal numbers are adjusted using examples and feedback. That differs from supplying a document for the current answer. A chatbot using your document does not, by itself, prove the model has been retrained on it.",
+          "locator": "training explanation"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The opening-time example directs the reader to current primary information, without current product claims.",
+      "artifactEvidence": [
+        {
+          "excerpt": "SEARCH can bring retrieved information into an AI answer. It does not make every result reliable or prove the final answer reflects the pages accurately. For a changed opening time, check the venue's own current notice rather than stopping at the AI's summary.",
+          "locator": "search explanation"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Ten compact clues have optional help and feedback rather than mandatory lesson blocks.",
+      "artifactEvidence": [
+        {
+          "excerpt": "AI MODELS use patterns learned during training to make predictions or generate results. A chatbot product adds other parts around a model, such as its interface and connected tools. Changing the product's settings does not necessarily change the model underneath.",
+          "locator": "models explanation"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "A photograph of a label makes the information choice practical outside employment.",
+      "artifactEvidence": [
+        {
+          "excerpt": "INPUT is information supplied to a system. It can include your instructions and, where supported, an image or other file. If you want help reading a label, a clear photo may supply details a vague description leaves out. Check that the tool can use that format.",
+          "locator": "input explanation"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The invisible change is made concrete as adjusted numbers, then contrasted with supplying a document.",
+      "artifactEvidence": [
+        {
+          "excerpt": "During TRAINING, a model's internal numbers are adjusted using examples and feedback. That differs from supplying a document for the current answer. A chatbot using your document does not, by itself, prove the model has been retrained on it.",
+          "locator": "training explanation"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Opening a cited source and comparing its claim is a specific verification step.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A SOURCE lets you inspect the basis for a claim. Open it and check whether it actually supports the sentence beside the link. A real document can still be cited for something it never says. The link has arrived; the evidence may not have.",
+          "locator": "source explanation"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "The answer explanation gives a reusable distinction after solving; integration tests must still prove reveal behavior.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OUTPUT is the result a system produces. It names what came back, not how reliable it is. If an AI rewrites your invitation, compare the date, place and meaning with your original before sending it. Fluency is not a fact-check.",
+          "locator": "output explanation"
+        }
+      ]
+    },
+    "honestLimits": {
+      "verdict": "PASS",
+      "observation": "Product settings need not change the model; the explanation avoids universal behavior claims.",
+      "artifactEvidence": [
+        {
+          "excerpt": "AI MODELS use patterns learned during training to make predictions or generate results. A chatbot product adds other parts around a model, such as its interface and connected tools. Changing the product's settings does not necessarily change the model underneath.",
+          "locator": "models explanation"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Complete ten clue, hint and feedback sets read: familiar input/output tasks supply meaning, model/product and training/context remain separate, optional explanation gives limits and useful next steps; humour supports solving, no ads or invented founder experience.",
+      "artifactLocator": "review-text.md all ten entries"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/source-evidence.txt",
+        "sha256": "3e9f51854fe6156a36ebdde48c5b6f940bfc17e0c83b8ff4ef99e456a266545f"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "models",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "AI MODELS use patterns learned during training to make predictions or generate results. A chatbot product adds other parts around a model, such as its interface and connected tools. Changing the product's settings does not necessarily change the model underneath.",
+            "locator": "models"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/source-evidence.txt",
+          "sha256": "3e9f51854fe6156a36ebdde48c5b6f940bfc17e0c83b8ff4ef99e456a266545f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": " 5.1 \u2014 First: What IS a Model? We've been saying \"the system\" since Chapter 1. The spam filter learned. The face grouper recognised. The chatbot generated. But what is the thing that does the learning and the recognising and the generating? It's called a model. A model is the finished product of training. It's the thing that took in all that data, did all that learning, and came out the other side as something that can make predictions or generate output. When you hear \"ChatGPT\" or \"Claude\" or \"Gemini\" \u2014 those are products built on top of specific models. What it is, physically: Imagine a recipe with billions of ingredients. Each ingredient has a specific amount \u2014 a pinch of this, a cup of that. Before training, all the amounts are random garbage. The dish tastes terrible. During training, the system tweaks the amount of every single ingredient, a tiny bit at a time, testing the result each time. After billions of adjustments, the amounts are dialled in and the dish tastes right. A trained AI model is like that finished recipe: a long list of specific amounts (called weights ) that, together, produce good output. No single amount does anything meaningful on its own. It's the combination of all of them \u2014 billions working together \u2014 that makes the system work. You can't point to one weight and say \"that's where it learned grammar.\" The knowledge is spread across all of them. Because that's literally what it is: a model of the patterns in its training data. Not a copy of the data \u2014 a compressed, generalised representation of the patterns within it. The way a globe is a model of the Earth \u2014 it captures the structure without containing every tree and building. A trained model doesn't store articles or remember specific web pages. It stores patterns \u2014 statistical relationships between tokens \u2014 learned from billions of examples. When it produces a correct answer, it's because it learned a pattern during training that, applied to your input, generates the right output. \ud83d\udca1 Architecture vs Model vs Weights \u2014 three words you'll keep hearing Sticking with the recipe analogy: Architecture = the recipe structure. Which ingredients are included, what order the steps go in, how ",
+            "locator": "models extracted source section or canon/live destination"
+          }
+        ],
+        "scopeAndFreshness": "Stable bounded concept or canonical town destination. Everyday examples are authored hypotheticals, not measured outcomes. Exact Library snapshots and September11 destination observations retained; recheck on source or route change."
+      },
+      {
+        "claimId": "tokens",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "TOKENS are the pieces a language model processes. A text token can be a word, part of a word or punctuation. A token limit is therefore not a word limit: a short paragraph can use more tokens than its word count suggests.",
+            "locator": "tokens"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/source-evidence.txt",
+          "sha256": "3e9f51854fe6156a36ebdde48c5b6f940bfc17e0c83b8ff4ef99e456a266545f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": " 4.2 \u2014 What a Token Actually Is \ud83d\udcfc Rewind it: If you ever cut words and letters from magazines for a school-project title, you already know the basic move: build new text from a fixed box of reusable pieces. A tokeniser also works with reusable pieces \u2014 but its pieces may be a whole word, part of one, punctuation, or one character. It is not reading the pieces or deciding what they mean. The intuition is simple: a token is a word. One word = one token. That's close, but wrong in ways that matter. A token is a chunk \u2014 sometimes a whole word, sometimes part of a word, sometimes just a single character or a punctuation mark. The system has a fixed vocabulary of these chunks (typically 50,000\u2013100,000 of them), and every piece of text you give it gets broken into pieces from that vocabulary. Real examples: The sentence \"I love playing basketball\" might get split like this: Text Tokens I I love love playing play + ing basketball basket + ball \"Love\" is common enough to be one token. \"Playing\" gets split into \"play\" and \"ing\" \u2014 because \"ing\" appears at the end of thousands of words, so the system learned to treat it as its own chunk. \"Basketball\" splits into \"basket\" + \"ball\" \u2014 two familiar pieces. Now a less common word: \"tokenisation\" might split into token + isation \u2014 or even token + is + ation , depending on the specific system. And something unusual \u2014 a rare word, a name, a technical term the system hasn't seen often \u2014 gets chopped into smaller and smaller pieces, sometimes all the way down to individual letters. The rule of thumb: In English, one token is roughly three-quarters of a word. So 100 words \u2248 130 tokens. A full page of text is about 500\u2013700 tokens. \ud83d\udca1 Why not just use whole words? Because there are too many of them. English alone has hundreds of thousands of words, plus names, technical terms, slang, new words being invented constantly. You'd need an infinitely large vocabulary. By splitting into subword chunks, the system can handle any word it's never seen before \u2014 it just breaks it into smaller familiar pieces. It's a balance between efficiency (common words stay whole) and flexibility (rare words get broken down). Think of it like Scrabble tiles \u2014 bu",
+            "locator": "tokens extracted source section or canon/live destination"
+          }
+        ],
+        "scopeAndFreshness": "Stable bounded concept or canonical town destination. Everyday examples are authored hypotheticals, not measured outcomes. Exact Library snapshots and September11 destination observations retained; recheck on source or route change."
+      },
+      {
+        "claimId": "prompt",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A PROMPT gives the AI a request or instruction. For an invitation, say who it is for, which details must stay and what tone you want. There is no need to locate a secret incantation; the missing date is usually more useful.",
+            "locator": "prompt"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/source-evidence.txt",
+          "sha256": "3e9f51854fe6156a36ebdde48c5b6f940bfc17e0c83b8ff4ef99e456a266545f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": " 2.3 The Brief (Not the Prompt) The word \"prompt\" implies a single clever sentence that unlocks the AI's potential. The reality in 2026 is closer to writing a brief: a short, structured description that gives a smart but uninformed executor everything they need to produce what you want. An agent can sometimes pause or ask for clarification, but you should not depend on that happening at the right moment. If the brief leaves an important blank, the system may make a plausible choice and continue. Name the ambiguity before it becomes an autonomous decision. A good brief has at most six parts: Outcome. What you want to end up with, described as a result, not a process. \"A one-page summary of this report for my CFO\" not \"read this and tell me what's important.\" Audience. Who will read/use this output. This changes everything: vocabulary, detail level, what gets emphasised, what gets left out. Constraints. What it must NOT do. Length limits. Things to avoid. Scope boundaries. \"Under 300 words. No technical jargon. Don't mention the restructuring.\" Format. What the output looks like structurally. Bullet points or prose. Sections or one block. Table or narrative. If you don't specify, it'll choose for you (often wrong). What good looks like. If you have an example of the kind of output you want, show it (Section 4.5 covers this in depth). If you don't, describe the quality bar: \"The tone of an internal email between peers, not a formal memo to a board.\" What you've already tried (if relevant). If this isn't your first attempt, tell it what didn't work and why. \"I already tried asking for a summary and it was too high-level. I need more operational detail, specifically around timelines and owners.\" You don't always need all six. A simple task might only need outcome + constraints. A complex task might need all of them. The test: could a smart colleague you've never worked with execute this brief without asking you a single clarifying question? If yes, the AI can too. If not, what question would they ask? Answer it in the brief. ",
+            "locator": "prompt extracted source section or canon/live destination"
+          }
+        ],
+        "scopeAndFreshness": "Stable bounded concept or canonical town destination. Everyday examples are authored hypotheticals, not measured outcomes. Exact Library snapshots and September11 destination observations retained; recheck on source or route change."
+      },
+      {
+        "claimId": "input",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "INPUT is information supplied to a system. It can include your instructions and, where supported, an image or other file. If you want help reading a label, a clear photo may supply details a vague description leaves out. Check that the tool can use that format.",
+            "locator": "input"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/source-evidence.txt",
+          "sha256": "3e9f51854fe6156a36ebdde48c5b6f940bfc17e0c83b8ff4ef99e456a266545f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": " 2.7 When to Show Instead of Tell (Multimodal Input) Many major AI products can process images or screenshots; audio and video support varies by product, model, plan, mode and region. If your current tool supports the relevant format, typing may not be the clearest input. Screenshots are faster and more accurate than descriptions when: You're looking at something visual (a UI, a layout, a design, a chart) An error message or state is hard to put into words precisely The spatial arrangement of information matters You'd normally walk over to someone's desk and point at their screen Text is better when: The information is structured data (numbers, names, facts) You need the AI to process, compute, or transform the information You want to quote it exactly (text tokens are processed more reliably than OCR'd text from images) The content could be pasted directly Voice/audio input is efficient when: You're explaining a situation and talking is faster than typing You're on mobile The nuance of HOW something was said matters (tone analysis) The practical rule: if showing it would be faster and more precise than describing it, show it. If describing or pasting is cleaner and more accurate, do that instead. ",
+            "locator": "input extracted source section or canon/live destination"
+          }
+        ],
+        "scopeAndFreshness": "Stable bounded concept or canonical town destination. Everyday examples are authored hypotheticals, not measured outcomes. Exact Library snapshots and September11 destination observations retained; recheck on source or route change."
+      },
+      {
+        "claimId": "output",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OUTPUT is the result a system produces. It names what came back, not how reliable it is. If an AI rewrites your invitation, compare the date, place and meaning with your original before sending it. Fluency is not a fact-check.",
+            "locator": "output"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/source-evidence.txt",
+          "sha256": "3e9f51854fe6156a36ebdde48c5b6f940bfc17e0c83b8ff4ef99e456a266545f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": " 11.8 \u2014 The Trust Framework: When to Trust AI Output \ud83d\udcfc Rewind it: This is the Dolly test: before a polished answer gets to run the meeting, ask the plain question \u2014 what would make this wrong, and what would I check next? Common sense starts the check; evidence and the right professional judgment finish it. Not all AI outputs deserve equal trust. Here's a practical framework: Situation Trust level Why Widely-known facts (\"capital of France\") High Strong patterns, consistently correct Summarising a document you provided High Grounded in text the model can see Creative writing, brainstorming High No \"correct\" answer to get wrong Specific statistics, dates, names Low Hallucination-prone territory Medical, legal, or financial advice Low Requires domain verification Claims about recent events Low May be beyond knowledge cutoff, may hallucinate Anything that would have serious consequences if wrong Very low Always verify independently The rule of thumb: Use AI as a starting point (draft, brainstorm, summarise, explore), not as a final authority (for anything where accuracy has consequences). The system is powerful but not reliable in the way a database lookup or a verified source is. ",
+            "locator": "output extracted source section or canon/live destination"
+          }
+        ],
+        "scopeAndFreshness": "Stable bounded concept or canonical town destination. Everyday examples are authored hypotheticals, not measured outcomes. Exact Library snapshots and September11 destination observations retained; recheck on source or route change."
+      },
+      {
+        "claimId": "training",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "During TRAINING, a model's internal numbers are adjusted using examples and feedback. That differs from supplying a document for the current answer. A chatbot using your document does not, by itself, prove the model has been retrained on it.",
+            "locator": "training"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/source-evidence.txt",
+          "sha256": "3e9f51854fe6156a36ebdde48c5b6f940bfc17e0c83b8ff4ef99e456a266545f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": " 5.5 \u2014 The Training Loop in Detail Let's go deeper into each step of the loop, because this is where the actual learning happens. Step 1: Forward pass (make a guess) Your input tokens flow through the network, layer by layer, front to back \u2014 like passing through that chain of people from Section 5.3. Each layer adjusts the signal using its current weights. At the end, the network produces a set of likelihoods for every possible next token: \"I'm 12% confident the next token is mat , 9% confident it's floor , 7% confident it's chair ...\" Step 2: Loss function (how wrong was it?) The loss function compares the network's guess to the correct answer. If the right answer was mat and the network only gave it 12% probability, the loss is high \u2014 the guess was poor. If it gave mat 95% probability, the loss is low \u2014 good guess. The loss is just a number. Lower is better. The entire goal of training is to make this number as low as possible across all the training examples. Step 3: Backpropagation (figure out what went wrong) This is the clever part. The system needs to figure out: which specific weights in which specific layers caused the error? The network has billions of weights \u2014 you can't just randomly jiggle them and hope. Backpropagation works backwards through the network (that's the \"back\" part). Think of it like tracing a bad dish back to the kitchen: the dish was too salty. OK \u2014 which step added the salt? And how much of the saltiness came from step 4 vs step 7? The system traces the error backwards through all the layers, figuring out how much each weight (each ingredient amount) contributed to the mistake. Every single weight gets a \"blame score\" \u2014 how responsible it was for the error. Step 4: Gradient descent (adjust in the right direction) Now the system knows which weights need to change, and in which direction. Gradient descent makes the actual adjustment \u2014 nudging each weight by a tiny amount in the direction that would reduce the loss. \"Gradient\" means \"slope\" \u2014 it's figuring out which way is \"downhill\" (toward lower error) and taking a small step that way. Do this enough times and you end up at a low point \u2014 a set of weights that produces good prediction",
+            "locator": "training extracted source section or canon/live destination"
+          }
+        ],
+        "scopeAndFreshness": "Stable bounded concept or canonical town destination. Everyday examples are authored hypotheticals, not measured outcomes. Exact Library snapshots and September11 destination observations retained; recheck on source or route change."
+      },
+      {
+        "claimId": "source",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A SOURCE lets you inspect the basis for a claim. Open it and check whether it actually supports the sentence beside the link. A real document can still be cited for something it never says. The link has arrived; the evidence may not have.",
+            "locator": "source"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/source-evidence.txt",
+          "sha256": "3e9f51854fe6156a36ebdde48c5b6f940bfc17e0c83b8ff4ef99e456a266545f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": " May be beyond knowledge cutoff, may hallucinate Anything that would have serious consequences if wrong Very low Always verify independently The rule of thumb: Use AI as a starting point (draft, brainstorm, summarise, explore), not as a final authority (for anything where accuracy has consequences). The system is powerful but not reliable in the way a database lookup or a verified source is. 11.9 \u2014 The System Picture So Far Open the text version of this diagram \u250c\u2500\u2500\u2500 SAFETY LAYERS \u2500\u2500\u2500\u2510 \u2502 \u2502 [Your Input] \u2192 [Input Guardrails] \u2192 [Aligned Model (RLHF'd)] \u2192 [Output Guardrails] \u2192 [Response] \u2502 \u2502 \u2502 \u2502 [System Prompt: \u2502 \u2502 sa",
+            "locator": "source extracted source section or canon/live destination"
+          }
+        ],
+        "scopeAndFreshness": "Stable bounded concept or canonical town destination. Everyday examples are authored hypotheticals, not measured outcomes. Exact Library snapshots and September11 destination observations retained; recheck on source or route change."
+      },
+      {
+        "claimId": "search",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "SEARCH can bring retrieved information into an AI answer. It does not make every result reliable or prove the final answer reflects the pages accurately. For a changed opening time, check the venue's own current notice rather than stopping at the AI's summary.",
+            "locator": "search"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/source-evidence.txt",
+          "sha256": "3e9f51854fe6156a36ebdde48c5b6f940bfc17e0c83b8ff4ef99e456a266545f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "ime) Explain what embeddings are and how they let machines measure \"similarity\" Understand how RAG (Retrieval-Augmented Generation) gives a model access to information it wasn't trained on Describe why \"the model knows things\" is misleading \u2014 and what's actually happening Key Terms Introduced in This Chapter Term Plain English Context Everything the model can \"see\" right now \u2014 your message, the conversation history, system instructions, retrieved documents. All in one window. Memory (in AI) Not actual memory \u2014 information stored externally and re-injected into the context window each time. The model itself remembers nothing. Embedding A list ",
+            "locator": "search extracted source section or canon/live destination"
+          }
+        ],
+        "scopeAndFreshness": "Stable bounded concept or canonical town destination. Everyday examples are authored hypotheticals, not measured outcomes. Exact Library snapshots and September11 destination observations retained; recheck on source or route change."
+      },
+      {
+        "claimId": "rewind",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "REWIND sends a tape back towards the start. At Chick Flicks, you can revisit a LAiDIES episode instead. Return to an explanation you want to hear again; remembering every detail on the first visit is not an entrance requirement.",
+            "locator": "rewind"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/source-evidence.txt",
+          "sha256": "3e9f51854fe6156a36ebdde48c5b6f940bfc17e0c83b8ff4ef99e456a266545f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The Chick Flicks",
+            "locator": "rewind extracted source section or canon/live destination"
+          }
+        ],
+        "scopeAndFreshness": "Stable bounded concept or canonical town destination. Everyday examples are authored hypotheticals, not measured outcomes. Exact Library snapshots and September11 destination observations retained; recheck on source or route change."
+      },
+      {
+        "claimId": "jeeves",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Miss JEEVES is the LIBRAiRY's AI-question service. Ask about the part that does not make sense and include enough detail to show what you mean. You do not need to disguise a beginner's question as an advanced one.",
+            "locator": "jeeves"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/source-evidence.txt",
+          "sha256": "3e9f51854fe6156a36ebdde48c5b6f940bfc17e0c83b8ff4ef99e456a266545f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Miss Jeeves**: the LIBRAiRY reference-desk guide.",
+            "locator": "jeeves extracted source section or canon/live destination"
+          }
+        ],
+        "scopeAndFreshness": "Stable bounded concept or canonical town destination. Everyday examples are authored hypotheticals, not measured outcomes. Exact Library snapshots and September11 destination observations retained; recheck on source or route change."
+      }
+    ],
+    "reviewedThrough": "2026-09-11",
+    "nextTrigger": "Linked lesson, canonical role, puzzle feedback or destination changes.",
+    "correctionOwner": "newsstand"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "priorComparable": {
+      "candidateId": "crossword-discovery-20260907-final",
+      "reviewIssues": 0,
+      "reviewCycles": 1
+    },
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "crossword-discovery-20260907-final"
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Exact ten entries preserve distinctions, use bounded personal examples and meaningful optional feedback. No unresolved content defect found in this producer review; independent judgment and integration still required."
+  },
+  "reviewFloorPolicy": {
+    "path": "operations/product-stewards/newsstand/crossword-review-floor-policy.json",
+    "sha256": "2551c07b406b94ce202d38be82b69ede26dc1287f8b6ced2eefa823c2fbb7d27",
+    "policyId": "newsstand-crossword02-zero-floor-2026-09-11"
+  }
+}

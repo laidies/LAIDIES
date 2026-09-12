@@ -19,7 +19,7 @@ const sandbox = {
   Date, URL, Intl, Set, TextEncoder
 };
 vm.runInNewContext(runtime.replace('})(window);', `
-  global.testReader = {readableColumn, columnBodyHTML, columnHref, serviceLink, issueEnvelopeProjection, canonicalJson,
+  global.testReader = {readableColumn, columnBodyHTML, columnHref, serviceLink, dailyDesk, issueEnvelopeProjection, canonicalJson,
     setFixture: function(c,i) { columns=c;dailyIssues=i; }};
 })(window);`), sandbox);
 const helper = sandbox.window.testReader;
@@ -43,6 +43,11 @@ assert.equal((html.match(/<a /g)||[]).length,1,'duplicate source/destination lin
 const hostile=helper.columnBodyHTML({...item,body:['<script>alert(1)</script>'],sourceLinks:[{url:'javascript:alert(1)',label:'bad'}],destination:null});
 assert.ok(!hostile.includes('<script>') && !hostile.includes('javascript:'));
 assert.equal(helper.serviceLink('//example.com'), '');
+assert.equal(helper.dailyDesk('Empty desk', 'empty', 'No story', 'No column', '', null), '', 'unpublished desks cannot generate filler cards');
+const activity = helper.dailyDesk('Try this today', 'ready', 'Ask one question.', 'A self-contained activity.', '', {type:'curiosity',recordId:item.id});
+assert.ok(activity.includes('ns-daily-desk--activity'));
+assert.ok(activity.includes('A self-contained activity.'));
+assert.ok(!activity.includes('<a '), 'complete activity does not add a duplicate or empty column link');
 assert.ok(helper.columnHref(item.id).includes('?column='));
 assert.ok(!helper.columnHref(item.id).includes('#'));
 const mme=bank.items.find(i=>i.type==='mme_claio');

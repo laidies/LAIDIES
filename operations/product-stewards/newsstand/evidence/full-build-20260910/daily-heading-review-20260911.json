@@ -1,0 +1,46 @@
+{
+  "schema": "newsstand-daily-heading-review-v1",
+  "reviewedAt": "2026-09-11T15:39:23.013944+00:00",
+  "reviewer": "/root/weekly_recovery",
+  "result": "PASS",
+  "issues": [],
+  "cssSha256": "4c8693f64302451815e294d49267041a0c2a106260a2db4e77b1e06cbc37f150",
+  "browserTestSha256": "89e1c8758a0dcbb80f1c28c3d639963c3152b749ed6a0b0b0e74fe72991b9e75",
+  "renderEvidence": [
+    {
+      "path": "/private/tmp/daily-heading-incumbent-1280.png",
+      "sha256": "aeb1feba88930a2ba1f4ae07e4364aef60377a6dcaf539a8e7eaac24f8a64fa7"
+    },
+    {
+      "path": "/private/tmp/daily-heading-incumbent-800.png",
+      "sha256": "2d1f7990f3753749426fb5aa086e5cb2545856f8096cebc32c2e845ab7ea1256"
+    },
+    {
+      "path": "/private/tmp/daily-heading-incumbent-390.png",
+      "sha256": "597c4c1b352097da84200da1458efe52b379c9b5f5ee598ed0f2e2685ce5dc53"
+    },
+    {
+      "path": "/private/tmp/daily-heading-incumbent-320.png",
+      "sha256": "4b586b87f9800fce741ec6855a32a82c84a925ee911a245d7dbbb084cfa66213"
+    },
+    {
+      "path": "/private/tmp/daily-heading-candidate-1280.png",
+      "sha256": "9a170337fc06e4c2cdc0a6020031c0dd4b8876e16e45e9c0a5b146e0775fe5b6"
+    },
+    {
+      "path": "/private/tmp/daily-heading-candidate-800.png",
+      "sha256": "1bb59b153d6087e7acc99809d21d43c9cde18de1c3dcce19be8ce681e49e98a8"
+    },
+    {
+      "path": "/private/tmp/daily-heading-candidate-390.png",
+      "sha256": "5ea1056b19a0a0f0aa7426ea993691c67178b01dda1ba6576dc5938651b99be2"
+    },
+    {
+      "path": "/private/tmp/daily-heading-candidate-320.png",
+      "sha256": "47a8539ea75fae42e3c78ca1fa50657ddae74f43b8025e325369270f4bdc1980"
+    }
+  ],
+  "finding": "Artifact-first paired inspection at1280/800/390/320: sentence-case Jost hierarchy clearer; full copy/current edition preserved; lead boxed action readable including two-line wrap at320. Exact scope limited to Daily masthead/lead typography, head spacing and existing service CTA styling.",
+  "independentTest": "NEWSSTAND BROWSER PASS checks=68 desktop=1440 mobile=390,320 archive Daily Big-Picture crossword keyboard; uppercase regression calibration rejected.",
+  "limits": "Private browser and paired renders; native VoiceOver remains unverified. Public verification follows deployment."
+}

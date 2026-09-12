@@ -10,13 +10,15 @@ import { pathToFileURL, fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const fixture = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), 'newsstand-next-cycle-test-')));
 const put = (name, value) => { const dest = path.join(fixture, name); fs.mkdirSync(path.dirname(dest), {recursive:true}); fs.writeFileSync(dest, value); };
-for (const name of ['newsstand-service-continuity','newsstand-career-lane','select-aidb-edition','check-practitioner-signal-pilot','validate-newsstand-ordinary-story-candidate','newsstand-story-lineage','prepare-newsstand-draft','validate-newsstand-story-type-coverage','check-content-producer-contract','check-prose-quality-admission','advance-newsstand-story-recovery','compose-daily-edition','promote-daily-edition','publish-daily-edition','build-newsstand-derivatives']) put(`scripts/${name}.mjs`, fs.readFileSync(path.join(ROOT, `scripts/${name}.mjs`)));
+for (const name of ['newsstand-service-revision-base','newsstand-service-continuity','newsstand-career-lane','select-aidb-edition','check-practitioner-signal-pilot','validate-newsstand-ordinary-story-candidate','newsstand-story-lineage','prepare-newsstand-draft','validate-newsstand-story-type-coverage','check-content-producer-contract','check-prose-quality-admission','advance-newsstand-story-recovery','compose-daily-edition','promote-daily-edition','publish-daily-edition','build-newsstand-derivatives']) put(`scripts/${name}.mjs`, fs.readFileSync(path.join(ROOT, `scripts/${name}.mjs`)));
 put('operations/product-stewards/newsstand/story-type-modules.json', fs.readFileSync(path.join(ROOT, 'operations/product-stewards/newsstand/story-type-modules.json')));
 put('operations/product-stewards/newsstand/story-recovery-policy.json', fs.readFileSync(path.join(ROOT, 'operations/product-stewards/newsstand/story-recovery-policy.json')));
 put('operations/product-stewards/newsstand/story-recovery-queue.json', JSON.stringify({ schema: 'laidies.newsstand-story-recovery-queue.v1', items: [] }));
 put('operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json', fs.readFileSync(path.join(ROOT, 'operations/agents/aidb-intelligence-desk/sources/practitioner-source-roster.json')));
 put('scripts/lib/newsstand-luminairy-links.mjs', fs.readFileSync(path.join(ROOT, 'scripts/lib/newsstand-luminairy-links.mjs')));
 put('scripts/lib/newsstand-overnight-freshness.mjs', fs.readFileSync(path.join(ROOT, 'scripts/lib/newsstand-overnight-freshness.mjs')));
+put('scripts/lib/newsstand-evidence-time.mjs', fs.readFileSync(path.join(ROOT, 'scripts/lib/newsstand-evidence-time.mjs')));
+put('content/newsstand-selection.js', fs.readFileSync(path.join(ROOT, 'content/newsstand-selection.js')));
 put('content/newsstand-reader-contract.js', fs.readFileSync(path.join(ROOT, 'content/newsstand-reader-contract.js')));
 put('content/newsstand-big-picture-versions.js', fs.readFileSync(path.join(ROOT, 'content/newsstand-big-picture-versions.js')));
 put('content/luminairy-profiles.json', fs.readFileSync(path.join(ROOT, 'content/luminairy-profiles.json')));
@@ -110,7 +112,7 @@ for (const invalid of [{status:'HOLD'},{publicEligibility:'INELIGIBLE'},{edition
 }
 // Synthetic Weekly carries an explicit identity; copy is never released.
 const weeklyDate='2026-08-19';
-const weekly={...structuredClone(base.stories.find(s=>s.edition==='weekly')),id:'weekly-synthetic-continuity',slug:'weekly-synthetic-continuity',status:'published',publishedAt:weeklyDate+'T15:00:00Z',updatedAt:weeklyDate+'T15:00:00Z',lastCheckedAt:weeklyDate+'T15:00:00Z',sourceApproval:{status:'approved'},front_summary:'WITHDRAWN_BODY_MUST_NOT_EXPORT.'};
+const weekly={...structuredClone(base.stories.find(s=>s.edition==='weekly')),id:'weekly-synthetic-continuity',predecessorStoryIds:[],successorStoryIds:[],correction:null,retraction:null,slug:'weekly-synthetic-continuity',status:'published',publishedAt:weeklyDate+'T15:00:00Z',updatedAt:weeklyDate+'T15:00:00Z',lastCheckedAt:weeklyDate+'T15:00:00Z',sourceApproval:{status:'approved'},front_summary:'WITHDRAWN_BODY_MUST_NOT_EXPORT.'};
 const wd=structuredClone(base); wd.stories.push(weekly);
 wd.publications.weekly={...wd.publications.weekly,status:'current',storyId:weekly.id,editionDate:weeklyDate,editorialTimeZone:'America/Vancouver',publishedAt:weekly.publishedAt,updatedAt:weekly.updatedAt,lastCheckedAt:weekly.lastCheckedAt};
 delete wd.publications.weekly.correctivePublication;

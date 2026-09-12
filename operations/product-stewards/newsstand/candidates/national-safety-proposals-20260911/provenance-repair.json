@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "laidies-newsstand-provenance-repair.v1",
+  "candidateId": "national-safety-proposals-20260911",
+  "recordedAt": "2026-09-11T16:03:14.952Z",
+  "defect": {
+    "status": "CONFIRMED",
+    "description": "Source access, evidence completion and story freshness timestamps were recorded later than the preserved source captures and later than the first independent review.",
+    "detectedBy": "/root",
+    "firstReviewDisposition": "SUPERSEDED_PROVENANCE_DEFECT"
+  },
+  "observedTimes": {
+    "basis": "Pre-repair filesystem modification times observed for the preserved source capture files and generated evidence files.",
+    "directHttpCapture": "2026-09-11T08:45:28-07:00",
+    "browserSourceCapture": "2026-09-11T08:45:37-07:00",
+    "evidencePacketCompletion": "2026-09-11T08:46:55-07:00",
+    "producerReview": "2026-09-11T08:51:44-07:00",
+    "firstIndependentRequest": "2026-09-11T08:52:04.861-07:00",
+    "firstIndependentCompletion": "2026-09-11T08:53:43.609-07:00"
+  },
+  "corrections": [
+    {
+      "paths": [
+        "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source/openai-web-observation.json",
+        "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source/sanders-web-observation.json",
+        "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source/reuters-web-observation.json"
+      ],
+      "field": "accessedAt",
+      "from": [
+        "2026-09-11T09:02:00-07:00",
+        "2026-09-11T09:03:00-07:00",
+        "2026-09-11T09:04:00-07:00"
+      ],
+      "to": "2026-09-11T08:45:37-07:00"
+    },
+    {
+      "paths": [
+        "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+        "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-attempts.json"
+      ],
+      "field": "checkedAt",
+      "from": "2026-09-11T09:04:00-07:00",
+      "to": "2026-09-11T08:46:55-07:00"
+    },
+    {
+      "paths": [
+        "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/story.json",
+        "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/review-text.json"
+      ],
+      "field": "story.updatedAt and story.lastCheckedAt",
+      "from": "2026-09-11T09:12:00-07:00",
+      "to": "2026-09-11T08:46:55-07:00"
+    }
+  ],
+  "integrity": {
+    "article": {
+      "before": "048966ea01ec87732e8cac15a9a9b870e63ce829dbd8a86980e1bedb7b9f2d09",
+      "after": "048966ea01ec87732e8cac15a9a9b870e63ce829dbd8a86980e1bedb7b9f2d09",
+      "unchanged": true
+    },
+    "renderedArticle": {
+      "before": "5adc32e6cbaa9bdb7326afaf3e7d84581a99a48ff212d6eb6be5f2344f224d15",
+      "after": "5adc32e6cbaa9bdb7326afaf3e7d84581a99a48ff212d6eb6be5f2344f224d15",
+      "unchanged": true
+    },
+    "storyMeaningProjection": {
+      "unchanged": true,
+      "excludedFields": [
+        "updatedAt",
+        "lastCheckedAt"
+      ]
+    },
+    "sourceMeaningProjection": {
+      "unchanged": true,
+      "excludedFields": [
+        "checkedAt"
+      ]
+    },
+    "sourceEvidence": {
+      "before": "dbb04534875072441c7fb5d72508312bc7a207ea4a06287ad8b42a50370a3323",
+      "after": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+    },
+    "reviewText": {
+      "before": "4f9421c61046774521762e9b67ca56fec4a35d4dd8aa43de7742dda63ce3d432",
+      "after": "d04caed518c4e3d635eced7bc9aa880857cd07ea172dbba9678a04e24adc07fa"
+    }
+  },
+  "reviewPolicy": {
+    "metadataOnlySemanticReusePermitted": false,
+    "reason": "The ordinary candidate validator requires independent review to bind the exact complete held story. Correcting story freshness changes review-text.json even though public prose is byte-identical.",
+    "successorReview": "independent-review/runtime-claude-fable-20260911-v2"
+  },
+  "prevention": {
+    "guard": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/check-source-packet-preflight.mjs",
+    "calibration": "A synthetic source-evidence timestamp one minute in the future must be rejected before review."
+  }
+}

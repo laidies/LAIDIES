@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "laidies.newsstand-source-budget-check.v1",
+  "candidateId": "crisp-pathology-20260912",
+  "scope": "All visitor-facing source-derived wording and every repeat.",
+  "countingMethod": "Each factual paraphrase and repetition is charged to its supporting primary source. Only the verified Library explanation is separate.",
+  "artifactBindings": {
+    "story": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/story.json",
+      "sha256": "bd5819f2fdb0f8dc925902cb37d24e1bc4a53d1aeed9093afda228ef9bdf75e6"
+    },
+    "article": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/article.md",
+      "sha256": "a06a837ec3ffc4f3b324ea9b3508ae47c63b978caf53d6e28fba606471274936"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/rendered-article.html",
+      "sha256": "05ea4bfe3f3c1ba50c688e14795d97411592703a05462eaaf76c539b0d35f09a"
+    }
+  },
+  "fields": [
+    {
+      "field": "headline",
+      "fragments": [
+        {
+          "text": "CRISP matched a senior specialist during fast surgery checks.",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "nature-crisp-paper-20260910",
+          "wordCount": 9
+        }
+      ]
+    },
+    {
+      "field": "the_story",
+      "fragments": [
+        {
+          "text": "During surgery, a pathologist — a specialist who examines tissue to help identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves it in chemicals and wax first, giving it a different appearance.CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "nature-crisp-paper-20260910",
+          "wordCount": 76
+        }
+      ]
+    },
+    {
+      "field": "laidies_read",
+      "fragments": [
+        {
+          "text": "This was a comparison in a difficult setting: the image must be read quickly while surgery is underway. CRISP gives a prediction; the pathologist still interprets the tissue and informs the surgical team. The paper describes it as decision support, not a replacement for the specialist.",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "nature-crisp-paper-20260910",
+          "wordCount": 46
+        }
+      ]
+    },
+    {
+      "field": "what_this_means",
+      "fragments": [
+        {
+          "text": "This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "nature-crisp-paper-20260910",
+          "wordCount": 38
+        }
+      ]
+    },
+    {
+      "field": "cocktail_party",
+      "fragments": [
+        {
+          "text": "“CRISP matched a senior tissue specialist and beat the other AI models compared. That is still different from proving better care.”",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "nature-crisp-paper-20260910",
+          "wordCount": 21
+        }
+      ]
+    },
+    {
+      "field": "class_notes",
+      "fragments": [
+        {
+          "text": "AI Fundamentals 101: Why Benchmarks Are Useful But Flawed explains that a result describes the task and conditions tested. It does not establish readiness for a different real-world job. That distinction matters when reading this study.",
+          "kind": "EDITORIAL_AUTHORITY",
+          "rationale": "Verified Library connection.",
+          "wordCount": 36
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "nature-crisp-paper-20260910",
+      "url": "https://www.nature.com/articles/s41591-026-04703-0_reference.pdf",
+      "wordLimit": 200,
+      "allocations": [
+        {
+          "field": "headline",
+          "text": "CRISP matched a senior specialist during fast surgery checks.",
+          "wordCount": 9,
+          "directQuoteWords": 0
+        },
+        {
+          "field": "the_story",
+          "text": "During surgery, a pathologist — a specialist who examines tissue to help identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves it in chemicals and wax first, giving it a different appearance.CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models. A separate reader study found it matched the senior specialist overall.",
+          "wordCount": 76,
+          "directQuoteWords": 0
+        },
+        {
+          "field": "laidies_read",
+          "text": "This was a comparison in a difficult setting: the image must be read quickly while surgery is underway. CRISP gives a prediction; the pathologist still interprets the tissue and informs the surgical team. The paper describes it as decision support, not a replacement for the specialist.",
+          "wordCount": 46,
+          "directQuoteWords": 0
+        },
+        {
+          "field": "what_this_means",
+          "text": "This does not show that CRISP improves treatment or patient outcomes. The study observed performance and included a simulated deployment analysis. The authors say they still need a study that changes care and follows what happens to patients.",
+          "wordCount": 38,
+          "directQuoteWords": 0
+        },
+        {
+          "field": "cocktail_party",
+          "text": "“CRISP matched a senior tissue specialist and beat the other AI models compared. That is still different from proving better care.”",
+          "wordCount": 21,
+          "directQuoteWords": 0
+        }
+      ]
+    }
+  ],
+  "result": "PASS",
+  "totals": {
+    "nature-crisp-paper-20260910": 190
+  },
+  "allVisitorFieldsAccountedFor": true
+}

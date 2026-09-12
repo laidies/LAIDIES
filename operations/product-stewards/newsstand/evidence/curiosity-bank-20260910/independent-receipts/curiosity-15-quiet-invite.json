@@ -1,0 +1,463 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "curiosity-15-quiet-invite",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-curiosity-20260910",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/independent-repairs-01.json",
+      "sha256": "69ae1571a26b096809bcd8f0c4e536977b0042ef6f8a16771d2f1994821fc633"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T06:02:22.017Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-15-quiet-invite.md",
+      "sha256": "f094cfe06ea860a7bafe136f7afc753c61378b40d98b4326ffadcb313eb89aba"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-15-quiet-invite.manifest.json",
+      "sha256": "a396419bf11acb54eb4923a6447c96f006de14f49b186d506e9fb3a3413e517e"
+    }
+  },
+  "calibration": {
+    "mode": "RECURRING_SERVICE_ARTIFACT_REJECTION_V1",
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "claude-fable-curiosity-20260910",
+    "reviewedAt": "2026-09-11T06:02:22.017Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "glossaryAccumulation",
+          "technicalExplainerVoice",
+          "joylessInstruction",
+          "decorativeAnalogy"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops: an AI system is software and machines",
+            "locator": "CQX-BAD-001 · AI system section (the 'Where it stops:' / 'In real life.' block repeats in every section)"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app",
+            "locator": "CQX-BAD-001 · AI system section"
+          },
+          {
+            "excerpt": "Different models are built for different transformations: language generation",
+            "locator": "CQX-BAD-001 · Model types section — term-after-term accumulation with no narrative job"
+          },
+          {
+            "excerpt": "A model is the trained mathematical component that transforms input into output.",
+            "locator": "CQX-BAD-001 · Model section — textbook cadence, no LAiDIES warmth or point of view"
+          },
+          {
+            "excerpt": "wardrobe computer in Clueless is a useful product analogy",
+            "locator": "CQX-BAD-001 · Product / app section — the reference is labelled as an analogy rather than carrying the teaching"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "technicalExplainerVoice",
+          "workedExampleOvertakesBookPurpose",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "You did not consult one all-knowing thing.",
+            "locator": "CQX-BAD-002 · Introduction — competent generic-explainer voice, not Ali writing LAiDIES"
+          },
+          {
+            "excerpt": "the stage when a trained model produces an output from new input",
+            "locator": "CQX-BAD-002 · 'What the model did' — definitional lecture register throughout"
+          },
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office.",
+            "locator": "CQX-BAD-002 · Chapter 1 — the single job-offer scenario carries the entire chapter and displaces the book's own structure"
+          },
+          {
+            "excerpt": "Before you rely on the result, ask four questions:",
+            "locator": "CQX-BAD-002 · 'The output is not the decision' — checklist procedure with no warmth, humour, or reader recognition"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "plain mechanic leads; wit and references are garnish that sharpen the lesson",
+        "warm specificity rooted in real workplace situations",
+        "honest hedging — verification and judgment stay with the reader",
+        "one small, low-risk, concrete first action rather than a course"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Four days of dread, eleven minutes of work.",
+          "locator": "CQX-GOOD-EPISODE-001 · narrative beat 9 — concrete, warm, specific payoff"
+        },
+        {
+          "excerpt": "Polished is a style. Evidence is a standard.",
+          "locator": "CQX-GOOD-EPISODE-001 · concepts[] Hallucination — plain-teaching line where the wit serves the mechanic"
+        },
+        {
+          "excerpt": "Small sips. Big moves.",
+          "locator": "CQX-GOOD-EPISODE-001 · quotables[] — small doable act framing that the practice entries should echo in spirit, not in facts or format"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "How do I run a discussion so the people who won't speak up still get their questions in?",
+    "promisedPayoff": "Quieter participants get a real route in, with their permission and naming preferences respected, and their questions actually answered.",
+    "centralMentalModel": "Participation needs more than one door, and a submitted question is only handled well if consent, attribution choice, and an actual answer all happen.",
+    "dailyLifeConnection": "Organising meetings, book clubs, community sessions, or team discussions.",
+    "surfaceJob": "A one-shot optional daily act under the Try this today label.",
+    "desiredReaderFeeling": "Next time I run a discussion, I know one concrete change to make."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The act and its three safeguards are each stated in one plain sentence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "offer people a way to send a question beforehand",
+          "locator": "curiosity-15 ¶1"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Directly usable by anyone who organises any discussion; no cost, signup, or exposure required.",
+      "artifactEvidence": [
+        {
+          "excerpt": "When organising a discussion",
+          "locator": "curiosity-15 ¶1"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Plain and practical rather than witty, which the surface permits; frames the room as the thing to fix, never the quiet person as deficient, matching the locked anti-deficit rule. Canadian spelling ('organising') retained.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give her another way in.",
+          "locator": "curiosity-15 title"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The title's promise and the reader's likely memory of unanswered submitted questions give quiet recognition; no humour, none required.",
+      "artifactEvidence": [
+        {
+          "excerpt": "check that the question actually received an answer",
+          "locator": "curiosity-15 ¶1"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Original advice; no claims about outcomes, tools, or people.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use a submitted question only with permission",
+          "locator": "curiosity-15 ¶1"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Evergreen facilitation practice; nothing month-dependent.",
+      "artifactEvidence": [
+        {
+          "excerpt": "as well as asking aloud",
+          "locator": "curiosity-15 ¶1"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "One optional act; the question author's consent and attribution choice are explicitly hers.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ask whether its author wants her name included",
+          "locator": "curiosity-15 ¶1"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "A real organisational behaviour to enact at the next discussion the reader runs.",
+      "artifactEvidence": [
+        {
+          "excerpt": "offer people a way to send a question beforehand as well as asking aloud",
+          "locator": "curiosity-15 ¶1"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "An explicit after-the-fact check on whether the practice delivered its point.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Afterward, check that the question actually received an answer.",
+          "locator": "curiosity-15 ¶1 final sentence"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Proportional format applying human question, limitations/consequences (consent and attribution), and useful action; no manufactured arc.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use a submitted question only with permission, and ask whether its author wants her name included.",
+          "locator": "curiosity-15 ¶1"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The multiple-doors-plus-consent pattern transfers to surveys, retros, classrooms, and online threads.",
+      "artifactEvidence": [
+        {
+          "excerpt": "When organising a discussion",
+          "locator": "curiosity-15 ¶1"
+        }
+      ]
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "The closing check catches the common failure (submitted question silently dropped) and implies the fix: get it answered.",
+      "artifactEvidence": [
+        {
+          "excerpt": "check that the question actually received an answer",
+          "locator": "curiosity-15 ¶1"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No names invoked.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No persona imitation.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No filler; every sentence instructs or checks.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "No hook opened.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy; absence is fine.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Not a systems piece.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Instruction throughout.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "No empirical or benefit claims.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "No example used.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Concrete mechanism (pre-submission route) plus three specific safeguards, not a vague 'be inclusive'.",
+      "artifactLocator": "curiosity-15 ¶1"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No terms introduced.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on a verification step, not inspiration.",
+      "artifactLocator": "curiosity-15 ¶1 final sentence"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "No jargon.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Functional rather than funny, but the title and intent carry warmth; within tolerance for a short practice item.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The organising situation motivates immediately.",
+      "artifactLocator": "curiosity-15 ¶1 first clause"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "No hook.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Practice item; act, safeguards, and check present.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "No reveal structure.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Applies to any discussion format the reader organises.",
+      "artifactLocator": "curiosity-15 ¶1"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No references.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Nothing dated or claim-bearing.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Imperative advice register, not definitional prose.",
+      "artifactLocator": "curiosity-15 (full)"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Distinct shape from the other reviewed entries (event-organiser act with post-hoc check); full-bank repetition review still pending per brief.",
+      "artifactLocator": "curiosity-15 vs curiosity-02/12/13"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No extended example.",
+      "artifactLocator": "curiosity-15 (full)"
+    }
+  },
+  "factualReview": {
+    "disposition": "NO_MATERIAL_CLAIMS",
+    "rationale": "Original facilitation practice per the brief; no statistics, quotations, product capabilities, or effectiveness assertions.",
+    "claimScan": {
+      "observation": "All sentences are imperatives governing the reader's own organising conduct; no worldly assertion requires a source.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Afterward, check that the question actually received an answer.",
+          "locator": "curiosity-15 ¶1 final sentence"
+        }
+      ]
+    },
+    "sourceBindings": [],
+    "claimMap": [],
+    "reviewedThrough": "2026-09-10",
+    "nextTrigger": "Re-review if a destination, tool reference, or effectiveness framing is added, or at full thirty-entry bank assembly and tone review.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this original activity; pilot repair and full-bank maker inspection are preserved."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No new reusable defect found in this exact activity; conditional-result pilot repair applied before full bank."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Assessed from prose only; no rendered-page review and no simulated or observed reader responses.",
+    "Voice is the flattest of the four reviewed entries — acceptable for a short practical column, but worth watching when the thirty are reviewed together for tone.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/curiosity-sampling-policy-20260910.json",
+      "sha256": "2d114ecc0a064628ed33f4157a87781672fb031581672f110645e50ad1b7abc5"
+    },
+    "policyId": "newsstand-curiosity-sampled-comprehension-20260910",
+    "serviceType": "curiosity",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-69ae1571a26b",
+    "sampleQueue": [
+      "curiosity-01-ask-example",
+      "curiosity-02-name-contribution",
+      "curiosity-03-compare-rewrite",
+      "curiosity-04-find-original",
+      "curiosity-05-invite-question",
+      "curiosity-06-ask-before-help",
+      "curiosity-07-small-feedback",
+      "curiosity-08-unseen-step",
+      "curiosity-09-change-one-detail",
+      "curiosity-10-share-opportunity",
+      "curiosity-11-check-assumption",
+      "curiosity-12-credit-introduction",
+      "curiosity-13-show-start",
+      "curiosity-14-separate-preference",
+      "curiosity-15-quiet-invite",
+      "curiosity-16-find-date",
+      "curiosity-17-ask-why-rule",
+      "curiosity-18-share-template",
+      "curiosity-19-let-finish",
+      "curiosity-20-name-unknown",
+      "curiosity-21-read-own-words",
+      "curiosity-22-ask-good-part",
+      "curiosity-23-test-directions",
+      "curiosity-24-check-added-detail",
+      "curiosity-25-share-question",
+      "curiosity-26-smaller-offer",
+      "curiosity-27-ask-evidence-change",
+      "curiosity-28-record-useful-fix",
+      "curiosity-29-check-invitation",
+      "curiosity-30-ask-follow-up"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

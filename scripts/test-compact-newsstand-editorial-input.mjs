@@ -6,9 +6,15 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { compactNewsstandEditorialInput, resolveNewsstandEditorialPacket } from './compact-newsstand-editorial-input.mjs';
+import { compactNewsstandEditorialInput, resolveNewsstandEditorialPacket, assertCurrentEditorialParagraphs } from './compact-newsstand-editorial-input.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const currentParagraphs = [{ id: 'P001', text: 'The active plan continues.' }];
+assert.doesNotThrow(() => assertCurrentEditorialParagraphs({ paragraphs: currentParagraphs }, currentParagraphs));
+assert.throws(() => assertCurrentEditorialParagraphs({ paragraphs: [{ id: 'P001', text: 'Open Settings to keep the plan.' }] }, currentParagraphs), /Editorial paragraphs differ/);
+assert.throws(() => assertCurrentEditorialParagraphs({}, currentParagraphs), /Editorial paragraphs differ/);
+assert.throws(() => assertCurrentEditorialParagraphs({ paragraphs: [...currentParagraphs, { id: 'P002', text: 'Old paragraph' }] }, currentParagraphs), /Editorial paragraphs differ/);
+
 const inputPath = path.join(ROOT, 'operations/product-stewards/newsstand/candidates/us-doj-openai-copyright-2026-09-05/editorial-input-before-compaction.json');
 const original = JSON.parse(fs.readFileSync(inputPath, 'utf8'));
 const compacted = compactNewsstandEditorialInput(original);

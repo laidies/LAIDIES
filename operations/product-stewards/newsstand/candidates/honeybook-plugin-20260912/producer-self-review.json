@@ -1,0 +1,784 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "honeybook-plugin-20260912",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "Producer exact prose and repaired evidence read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-12T19:29:13.000Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/honeybook-plugin-20260912/publication-manifest.json",
+      "sha256": "2b6eeabed6e2d4631915e6aded18ec0fa5a49c490e358d4b8c350c713552b932"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/honeybook-plugin-20260912/review-text.json",
+      "sha256": "c85884e3a02afce4f4c0d765e386d17b8a7ee89ee5e7ceaf892a1e0f4c39d955"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/honeybook-plugin-20260912/rendered-article.html",
+      "sha256": "2ae6d849f3ee23e0e0806a30868cdf365e26171fe5faa2617e869a6ca46bea68"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-05T22:51:01.267Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Plain terms gain meaning in the event explanation.",
+        "A familiar comparison reconnects to the mechanism and a concrete reader check."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "The LAiDIES Read in private NEWS002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "If I already use HoneyBook, what can this ChatGPT connection see and do, and what still waits for me?",
+    "promisedPayoff": "Ask account-grounded questions and prepare specific work while understanding the resource and approval boundaries.",
+    "centralMentalModel": "Selected HoneyBook records may be read; proposed work remains a draft until the user reviews and approves it.",
+    "dailyLifeConnection": "A small-business owner wants to check client work and prepare a next step without giving up the decision to change or send it.",
+    "surfaceJob": "A concise September 12 explanation of HoneyBook’s September 9 plugin announcement.",
+    "desiredReaderFeeling": "I know what the HoneyBook connection can reach and where I still decide.",
+    "evidenceBoundary": "HoneyBook-specific official product claims; no all-plugin, plan, effectiveness or automatic-action claim."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Root read the unchanged complete article and accepted its dated change, account-grounded example, resource boundary and propose-then-approve explanation for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Root read the unchanged complete article and accepted its dated change, account-grounded example, resource boundary and propose-then-approve explanation for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Root read the unchanged complete article and accepted its dated change, account-grounded example, resource boundary and propose-then-approve explanation for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Root read the unchanged complete article and accepted its dated change, account-grounded example, resource boundary and propose-then-approve explanation for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Root read the unchanged complete article and accepted its dated change, account-grounded example, resource boundary and propose-then-approve explanation for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Root read the unchanged complete article and accepted its dated change, account-grounded example, resource boundary and propose-then-approve explanation for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Root read the unchanged complete article and accepted its dated change, account-grounded example, resource boundary and propose-then-approve explanation for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "Root read the unchanged complete article and accepted its dated change, account-grounded example, resource boundary and propose-then-approve explanation for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Root read the unchanged complete article and accepted its dated change, account-grounded example, resource boundary and propose-then-approve explanation for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Root read the unchanged complete article and accepted its dated change, account-grounded example, resource boundary and propose-then-approve explanation for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Root read the unchanged complete article and accepted its dated change, account-grounded example, resource boundary and propose-then-approve explanation for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Root read the unchanged complete article and accepted its dated change, account-grounded example, resource boundary and propose-then-approve explanation for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002",
+      "simulatedReaderProbe": {
+        "prompt": "What changes for an existing HoneyBook user?",
+        "probeResponse": "An existing HoneyBook user can ask ChatGPT about approved account records and prepare work, but the work stays a draft until she reviews and approves it.",
+        "expectedEvidence": "Keep selected account access and user approval separate."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Root read the unchanged complete article and accepted its dated change, account-grounded example, resource boundary and propose-then-approve explanation for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002",
+      "simulatedReaderProbe": {
+        "prompt": "How would you assess another connected service?",
+        "probeResponse": "For another connected service, ask separately what it can read, what it can prepare, and what it can change or send without another approval.",
+        "expectedEvidence": "Ask separately about read, prepare, change and send permissions."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Root read the unchanged complete article and accepted its dated change, account-grounded example, resource boundary and propose-then-approve explanation for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Root read the unchanged complete article and accepted its dated change, account-grounded example, resource boundary and propose-then-approve explanation for producer self-review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+          "locator": "complete exact candidate prose"
+        }
+      ],
+      "artifactLocator": "P002"
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Root found no such prose defect in the unchanged complete article; the real HoneyBook records, draft gate and evidence limits remain explicit.",
+      "artifactLocator": "complete exact candidate prose",
+      "artifactEvidence": [
+        {
+          "excerpt": "The boundary is read, draft, review, approve.",
+          "locator": "What This Means for You"
+        }
+      ]
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/honeybook-plugin-20260912/source-evidence.json",
+        "sha256": "4b0c629eed4ebbef2713151d320654c761c90b821d8bc8af157065d10cb4d66b"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "announcement-and-connection",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "On September 9, HoneyBook announced a plugin that connects its client-management service to ChatGPT.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/honeybook-plugin-20260912/source-evidence.json",
+          "sha256": "4b0c629eed4ebbef2713151d320654c761c90b821d8bc8af157065d10cb4d66b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026\n\nYou can now [connect your HoneyBook account to ChatGPT](https://openai.com/business/plugins/honeybook?utm_medium=partner_click&utm_source=honeybook_partnership&utm_campaign=PLG-SMB-Plugin-Promo-Pilot&utm_content=blog_content), and once you do, ChatGPT answers from your actual account instead of from general advice, giving you real insights and helping you act on your business. Here is what it does, and why we built it.\n\nOnce connected, ChatGPT answers from your actual account. What's overdue. Who's on this week's schedule. Where things stand with a specific client. Which of your new leads are worth answering first.\n\nIt's not just lookups. Say five inquiries came in overnight and two want the same date. It flags the conflict, tells you which asked first, and offers to draft replies to all five. All in your style, from your account. It can build a lead form for your website, create a proposal, invoice, or contract from your own templates with your pricing, add a contact the moment you meet someone, or raise a payment request when something's overdue.\n\nEverything the AI builds lands as a draft. Nothing sends, changes, or goes out until you've reviewed and approved it. When you connect, you choose exactly which parts of HoneyBook ChatGPT can reach (nothing is handed over by default) and you can disconnect any time from your ChatGPT settings without touching your HoneyBook account.",
+            "locator": "https://www.honeybook.com/blog/honeybook-chatgpt-plugin"
+          }
+        ],
+        "scopeAndFreshness": "HoneyBook supports the September 9 announcement and account connection; no claim uses “Yesterday” as a launch date."
+      },
+      {
+        "claimId": "records",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "An existing HoneyBook user can connect her account, then ask ChatGPT about the projects, contracts, invoices and payments stored there.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/honeybook-plugin-20260912/source-evidence.json",
+          "sha256": "4b0c629eed4ebbef2713151d320654c761c90b821d8bc8af157065d10cb4d66b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026\n\nYou can now [connect your HoneyBook account to ChatGPT](https://openai.com/business/plugins/honeybook?utm_medium=partner_click&utm_source=honeybook_partnership&utm_campaign=PLG-SMB-Plugin-Promo-Pilot&utm_content=blog_content), and once you do, ChatGPT answers from your actual account instead of from general advice, giving you real insights and helping you act on your business. Here is what it does, and why we built it.\n\nOnce connected, ChatGPT answers from your actual account. What's overdue. Who's on this week's schedule. Where things stand with a specific client. Which of your new leads are worth answering first.\n\nIt's not just lookups. Say five inquiries came in overnight and two want the same date. It flags the conflict, tells you which asked first, and offers to draft replies to all five. All in your style, from your account. It can build a lead form for your website, create a proposal, invoice, or contract from your own templates with your pricing, add a contact the moment you meet someone, or raise a payment request when something's overdue.\n\nEverything the AI builds lands as a draft. Nothing sends, changes, or goes out until you've reviewed and approved it. When you connect, you choose exactly which parts of HoneyBook ChatGPT can reach (nothing is handed over by default) and you can disconnect any time from your ChatGPT settings without touching your HoneyBook account.",
+            "locator": "https://www.honeybook.com/blog/honeybook-chatgpt-plugin"
+          },
+          {
+            "excerpt": "HoneyBook is where independent businesses and lean teams run their client work: inquiries, proposals, contracts, invoices, payments and the messages in between. Connect your account and work through a whole job in one conversation. Ask which leads are worth chasing and get a ranked answer from your own bookings. Have the proposal built from your saved template. Review it before it goes anywhere. Later, ask who still owes you money, and raise a payment request for whoever does. You approve what it can reach before anything runs, resource by resource, and nothing reaches a client until you send it. Each request runs in an isolated environment, and your credentials are never shared with the model. Built for photographers, event planners, venues, designers and consultants. Requires a HoneyBook account.",
+            "locator": "https://openai.com/business/plugins/honeybook/"
+          }
+        ],
+        "scopeAndFreshness": "Both sources support the connection and these account-grounded categories."
+      },
+      {
+        "claimId": "account-required",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI’s official listing says the plugin requires a HoneyBook account.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/honeybook-plugin-20260912/source-evidence.json",
+          "sha256": "4b0c629eed4ebbef2713151d320654c761c90b821d8bc8af157065d10cb4d66b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "HoneyBook is where independent businesses and lean teams run their client work: inquiries, proposals, contracts, invoices, payments and the messages in between. Connect your account and work through a whole job in one conversation. Ask which leads are worth chasing and get a ranked answer from your own bookings. Have the proposal built from your saved template. Review it before it goes anywhere. Later, ask who still owes you money, and raise a payment request for whoever does. You approve what it can reach before anything runs, resource by resource, and nothing reaches a client until you send it. Each request runs in an isolated environment, and your credentials are never shared with the model. Built for photographers, event planners, venues, designers and consultants. Requires a HoneyBook account.",
+            "locator": "https://openai.com/business/plugins/honeybook/"
+          }
+        ],
+        "scopeAndFreshness": "OpenAI explicitly states the HoneyBook-account requirement."
+      },
+      {
+        "claimId": "examples",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "You could ask which payments are overdue, where a project stands or have a proposal prepared from a saved template.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/honeybook-plugin-20260912/source-evidence.json",
+          "sha256": "4b0c629eed4ebbef2713151d320654c761c90b821d8bc8af157065d10cb4d66b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026\n\nYou can now [connect your HoneyBook account to ChatGPT](https://openai.com/business/plugins/honeybook?utm_medium=partner_click&utm_source=honeybook_partnership&utm_campaign=PLG-SMB-Plugin-Promo-Pilot&utm_content=blog_content), and once you do, ChatGPT answers from your actual account instead of from general advice, giving you real insights and helping you act on your business. Here is what it does, and why we built it.\n\nOnce connected, ChatGPT answers from your actual account. What's overdue. Who's on this week's schedule. Where things stand with a specific client. Which of your new leads are worth answering first.\n\nIt's not just lookups. Say five inquiries came in overnight and two want the same date. It flags the conflict, tells you which asked first, and offers to draft replies to all five. All in your style, from your account. It can build a lead form for your website, create a proposal, invoice, or contract from your own templates with your pricing, add a contact the moment you meet someone, or raise a payment request when something's overdue.\n\nEverything the AI builds lands as a draft. Nothing sends, changes, or goes out until you've reviewed and approved it. When you connect, you choose exactly which parts of HoneyBook ChatGPT can reach (nothing is handed over by default) and you can disconnect any time from your ChatGPT settings without touching your HoneyBook account.",
+            "locator": "https://www.honeybook.com/blog/honeybook-chatgpt-plugin"
+          },
+          {
+            "excerpt": "HoneyBook is where independent businesses and lean teams run their client work: inquiries, proposals, contracts, invoices, payments and the messages in between. Connect your account and work through a whole job in one conversation. Ask which leads are worth chasing and get a ranked answer from your own bookings. Have the proposal built from your saved template. Review it before it goes anywhere. Later, ask who still owes you money, and raise a payment request for whoever does. You approve what it can reach before anything runs, resource by resource, and nothing reaches a client until you send it. Each request runs in an isolated environment, and your credentials are never shared with the model. Built for photographers, event planners, venues, designers and consultants. Requires a HoneyBook account.",
+            "locator": "https://openai.com/business/plugins/honeybook/"
+          }
+        ],
+        "scopeAndFreshness": "The examples are stated product functions, not effectiveness or outcome claims."
+      },
+      {
+        "claimId": "draft-approval",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "HoneyBook says anything the plugin builds stays a draft. Nothing sends, changes or reaches a client until you review and approve it.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/honeybook-plugin-20260912/source-evidence.json",
+          "sha256": "4b0c629eed4ebbef2713151d320654c761c90b821d8bc8af157065d10cb4d66b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026\n\nYou can now [connect your HoneyBook account to ChatGPT](https://openai.com/business/plugins/honeybook?utm_medium=partner_click&utm_source=honeybook_partnership&utm_campaign=PLG-SMB-Plugin-Promo-Pilot&utm_content=blog_content), and once you do, ChatGPT answers from your actual account instead of from general advice, giving you real insights and helping you act on your business. Here is what it does, and why we built it.\n\nOnce connected, ChatGPT answers from your actual account. What's overdue. Who's on this week's schedule. Where things stand with a specific client. Which of your new leads are worth answering first.\n\nIt's not just lookups. Say five inquiries came in overnight and two want the same date. It flags the conflict, tells you which asked first, and offers to draft replies to all five. All in your style, from your account. It can build a lead form for your website, create a proposal, invoice, or contract from your own templates with your pricing, add a contact the moment you meet someone, or raise a payment request when something's overdue.\n\nEverything the AI builds lands as a draft. Nothing sends, changes, or goes out until you've reviewed and approved it. When you connect, you choose exactly which parts of HoneyBook ChatGPT can reach (nothing is handed over by default) and you can disconnect any time from your ChatGPT settings without touching your HoneyBook account.",
+            "locator": "https://www.honeybook.com/blog/honeybook-chatgpt-plugin"
+          },
+          {
+            "excerpt": "HoneyBook is where independent businesses and lean teams run their client work: inquiries, proposals, contracts, invoices, payments and the messages in between. Connect your account and work through a whole job in one conversation. Ask which leads are worth chasing and get a ranked answer from your own bookings. Have the proposal built from your saved template. Review it before it goes anywhere. Later, ask who still owes you money, and raise a payment request for whoever does. You approve what it can reach before anything runs, resource by resource, and nothing reaches a client until you send it. Each request runs in an isolated environment, and your credentials are never shared with the model. Built for photographers, event planners, venues, designers and consultants. Requires a HoneyBook account.",
+            "locator": "https://openai.com/business/plugins/honeybook/"
+          }
+        ],
+        "scopeAndFreshness": "Both sources support the HoneyBook-specific propose-then-approve boundary."
+      },
+      {
+        "claimId": "permissions-disconnect",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "When connecting, you choose which HoneyBook resources it can reach, and you can disconnect it later in ChatGPT settings without changing your HoneyBook account.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/honeybook-plugin-20260912/source-evidence.json",
+          "sha256": "4b0c629eed4ebbef2713151d320654c761c90b821d8bc8af157065d10cb4d66b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026\n\nYou can now [connect your HoneyBook account to ChatGPT](https://openai.com/business/plugins/honeybook?utm_medium=partner_click&utm_source=honeybook_partnership&utm_campaign=PLG-SMB-Plugin-Promo-Pilot&utm_content=blog_content), and once you do, ChatGPT answers from your actual account instead of from general advice, giving you real insights and helping you act on your business. Here is what it does, and why we built it.\n\nOnce connected, ChatGPT answers from your actual account. What's overdue. Who's on this week's schedule. Where things stand with a specific client. Which of your new leads are worth answering first.\n\nIt's not just lookups. Say five inquiries came in overnight and two want the same date. It flags the conflict, tells you which asked first, and offers to draft replies to all five. All in your style, from your account. It can build a lead form for your website, create a proposal, invoice, or contract from your own templates with your pricing, add a contact the moment you meet someone, or raise a payment request when something's overdue.\n\nEverything the AI builds lands as a draft. Nothing sends, changes, or goes out until you've reviewed and approved it. When you connect, you choose exactly which parts of HoneyBook ChatGPT can reach (nothing is handed over by default) and you can disconnect any time from your ChatGPT settings without touching your HoneyBook account.",
+            "locator": "https://www.honeybook.com/blog/honeybook-chatgpt-plugin"
+          },
+          {
+            "excerpt": "HoneyBook is where independent businesses and lean teams run their client work: inquiries, proposals, contracts, invoices, payments and the messages in between. Connect your account and work through a whole job in one conversation. Ask which leads are worth chasing and get a ranked answer from your own bookings. Have the proposal built from your saved template. Review it before it goes anywhere. Later, ask who still owes you money, and raise a payment request for whoever does. You approve what it can reach before anything runs, resource by resource, and nothing reaches a client until you send it. Each request runs in an isolated environment, and your credentials are never shared with the model. Built for photographers, event planners, venues, designers and consultants. Requires a HoneyBook account.",
+            "locator": "https://openai.com/business/plugins/honeybook/"
+          }
+        ],
+        "scopeAndFreshness": "HoneyBook supports selection and disconnect. OpenAI corroborates resource-by-resource approval; no all-plugin claim is made."
+      }
+    ],
+    "reviewedThrough": "2026-09-12",
+    "nextTrigger": "Any change to HoneyBook permissions, draft behaviour, plugin availability or official listing.",
+    "correctionOwner": "/root",
+    "scope": "Root reopened both official pages. Literal captured excerpts now support HoneyBook’s dated announcement, draft and disconnect controls and OpenAI’s listed functions, resource approval and account requirement."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 1,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound candidate covers this HoneyBook ChatGPT plugin announcement."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "This source-binding successor introduces no new unresolved defect. The v1 factual evidence gap and its repair remain explicitly preserved in review metrics, repair history and root reconciliation; facts-only reassessment is still required."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "No observed human-comprehension evidence is claimed.",
+    "Official product sources do not establish ChatGPT plan availability or real-account effectiveness."
+  ],
+  "limits": [
+    "Producer review is not independent admission.",
+    "No observed human-comprehension evidence is claimed.",
+    "Official product sources do not establish ChatGPT plan availability or real-account effectiveness."
+  ],
+  "completeArtifact": "{\"aidb_credit\":null,\"badge\":\"THE LATEST\",\"bigPicture\":null,\"class_notes\":\"<a href=\\\"/library.html#ai-fundamentals-101::%40ch-13-13-3-the-autonomy-spectrum\\\">AI Fundamentals 101: The Autonomy Spectrum</a> explains “propose, then approve”: a system prepares an action, and an authorised person confirms before it happens. That is the useful pattern in HoneyBook’s stated draft boundary.\",\"closing_note\":null,\"cocktail_party\":\"“HoneyBook’s ChatGPT plugin can answer from the account areas you approve and prepare things like proposals or payment requests. Its work stays in draft until you review and approve it.”\",\"concepts\":[\"account connection\",\"permission boundary\",\"propose then approve\"],\"correction\":null,\"correctionHistory\":[],\"edition\":\"daily\",\"headline\":\"HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.\",\"heroVisual\":{\"alt\":\"Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.\",\"credit\":\"Illustration: LAiDIES\",\"src\":\"/assets/newsstand/design-20260830/latest-checking.png\"},\"id\":\"honeybook-plugin-20260912\",\"laidies_read\":\"<p>The useful change is that ChatGPT can answer from the HoneyBook records you allow it to reach. You could ask which payments are overdue, where a project stands or have a proposal prepared from a saved template.</p><p>HoneyBook says anything the plugin builds stays a draft. Nothing sends, changes or reaches a client until you review and approve it. When connecting, you choose which HoneyBook resources it can reach, and you can disconnect it later in ChatGPT settings without changing your HoneyBook account.</p>\",\"lastCheckedAt\":\"2026-09-12T19:29:13.000Z\",\"predecessorStoryIds\":[],\"publishedAt\":null,\"relationshipType\":null,\"retraction\":null,\"saint_lane\":null,\"slug\":\"honeybook-plugin-20260912\",\"sourceApproval\":{\"record\":\"newsstand:source-approval:honeybook-plugin-20260912\",\"status\":\"independent-review-required\"},\"sources\":[{\"accessedAt\":\"2026-09-12\",\"approvalStatus\":\"reviewed\",\"id\":\"honeybook-plugin-announcement-20260909\",\"label\":\"HoneyBook — HoneyBook is now in ChatGPT: whatever your business needs, just ask\",\"publisherType\":\"primary-company-announcement\",\"url\":\"https://www.honeybook.com/blog/honeybook-chatgpt-plugin\"},{\"accessedAt\":\"2026-09-12\",\"approvalStatus\":\"reviewed\",\"id\":\"openai-honeybook-plugin-directory-20260912\",\"label\":\"OpenAI — HoneyBook plugin\",\"publisherType\":\"primary-platform-directory\",\"url\":\"https://openai.com/business/plugins/honeybook/\"}],\"status\":\"hold\",\"successorStoryIds\":[],\"tags\":[\"HoneyBook\",\"ChatGPT\",\"plugins\"],\"the_story\":\"<p>On September 9, HoneyBook announced a plugin that connects its client-management service to ChatGPT. An existing HoneyBook user can connect her account, then ask ChatGPT about the projects, contracts, invoices and payments stored there. OpenAI’s official listing says the plugin requires a HoneyBook account.</p>\",\"themes\":[\"small business tools\",\"AI assistants\"],\"thread\":null,\"thread_entry\":null,\"thread_subtitle\":null,\"updatedAt\":\"2026-09-12T19:29:13.000Z\",\"watch_fors\":null,\"what_this_means\":\"<p>For an existing HoneyBook user, one conversation can move from “what is happening?” to a prepared next step. The boundary is read, draft, review, approve. The plugin can prepare work from the connected account; you remain the person who decides whether that HoneyBook change or client message happens.</p>\"}",
+  "storyParagraphs": [
+    {
+      "id": "P001",
+      "text": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+      "exact": "HoneyBook users can now ask ChatGPT about their client work—and approve drafts before anything goes out.",
+      "field": "headline"
+    },
+    {
+      "id": "P002",
+      "text": "On September 9, HoneyBook announced a plugin that connects its client-management service to ChatGPT. An existing HoneyBook user can connect her account, then ask ChatGPT about the projects, contracts, invoices and payments stored there. OpenAI’s official listing says the plugin requires a HoneyBook account.",
+      "exact": "<p>On September 9, HoneyBook announced a plugin that connects its client-management service to ChatGPT. An existing HoneyBook user can connect her account, then ask ChatGPT about the projects, contracts, invoices and payments stored there. OpenAI’s official listing says the plugin requires a HoneyBook account.</p>",
+      "field": "the_story"
+    },
+    {
+      "id": "P003",
+      "text": "The useful change is that ChatGPT can answer from the HoneyBook records you allow it to reach. You could ask which payments are overdue, where a project stands or have a proposal prepared from a saved template.",
+      "exact": "<p>The useful change is that ChatGPT can answer from the HoneyBook records you allow it to reach. You could ask which payments are overdue, where a project stands or have a proposal prepared from a saved template.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P004",
+      "text": "HoneyBook says anything the plugin builds stays a draft. Nothing sends, changes or reaches a client until you review and approve it. When connecting, you choose which HoneyBook resources it can reach, and you can disconnect it later in ChatGPT settings without changing your HoneyBook account.",
+      "exact": "<p>HoneyBook says anything the plugin builds stays a draft. Nothing sends, changes or reaches a client until you review and approve it. When connecting, you choose which HoneyBook resources it can reach, and you can disconnect it later in ChatGPT settings without changing your HoneyBook account.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P005",
+      "text": "For an existing HoneyBook user, one conversation can move from “what is happening?” to a prepared next step. The boundary is read, draft, review, approve. The plugin can prepare work from the connected account; you remain the person who decides whether that HoneyBook change or client message happens.",
+      "exact": "<p>For an existing HoneyBook user, one conversation can move from “what is happening?” to a prepared next step. The boundary is read, draft, review, approve. The plugin can prepare work from the connected account; you remain the person who decides whether that HoneyBook change or client message happens.</p>",
+      "field": "what_this_means"
+    },
+    {
+      "id": "P006",
+      "text": "“HoneyBook’s ChatGPT plugin can answer from the account areas you approve and prepare things like proposals or payment requests. Its work stays in draft until you review and approve it.”",
+      "exact": "“HoneyBook’s ChatGPT plugin can answer from the account areas you approve and prepare things like proposals or payment requests. Its work stays in draft until you review and approve it.”",
+      "field": "cocktail_party"
+    },
+    {
+      "id": "P007",
+      "text": "AI Fundamentals 101: The Autonomy Spectrum explains “propose, then approve”: a system prepares an action, and an authorised person confirms before it happens. That is the useful pattern in HoneyBook’s stated draft boundary.",
+      "exact": "<a href=\\\"/library.html#ai-fundamentals-101::%40ch-13-13-3-the-autonomy-spectrum\\\">AI Fundamentals 101: The Autonomy Spectrum</a> explains “propose, then approve”: a system prepares an action, and an authorised person confirms before it happens. That is the useful pattern in HoneyBook’s stated draft boundary.",
+      "field": "class_notes"
+    }
+  ],
+  "status": "PRODUCER_READY_FOR_INDEPENDENT_REVIEW",
+  "rootReviewHandoff": {
+    "status": "COMPLETED_AFTER_EVIDENCE_REPAIR",
+    "reviewedAt": "2026-09-12T19:29:13.000Z",
+    "reviewer": "/root",
+    "draftAndBindingLane": "/root/producer_repair_sol",
+    "scope": "Root read the unchanged complete prose, reopened both official sources and authorized this source-binding-only producer successor. Independent factual admission remains pending."
+  },
+  "calibrationSource": {
+    "path": "operations/product-stewards/newsstand/candidates/honeybook-plugin-20260912/../chatgpt-images-2-5-2026-09-08/producer-publication-review.json",
+    "sha256": "3550bb7bc2aae5be29332c02adc544f65d8332bd32f3fde4575e80009fe472fb"
+  }
+}

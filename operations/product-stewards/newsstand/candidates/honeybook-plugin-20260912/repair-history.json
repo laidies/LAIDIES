@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "laidies.newsstand-repair-history.v1",
+  "candidateId": "honeybook-plugin-20260912",
+  "createdAt": "2026-09-12T19:16:25.000Z",
+  "origin": "New bounded candidate from the September 12 reporting reconciliation.",
+  "repairs": [
+    {
+      "at": "2026-09-12T19:16:25.000Z",
+      "kind": "producer-specific-plugin-boundary",
+      "status": "RESOLVED",
+      "finding": "The announcement could become a generic plugin story or imply automatic changes.",
+      "repair": "Bound the article to HoneyBook’s actual records, resource selection, draft gate and disconnect control; treated September 9 as the announcement date.",
+      "remaining": "Distinct independent semantic review remained required; no provider call was made.",
+      "draftAndBindingLane": "/root/producer_repair_sol",
+      "producerReviewer": "/root"
+    },
+    {
+      "at": "2026-09-12T19:29:13.000Z",
+      "kind": "exact-source-capture-and-budget-repair",
+      "status": "RESOLVED_FOR_REVIEW",
+      "finding": "The v1 evidence packet presented paraphrases as source passages and exempted one factual synthesis from the source budget.",
+      "repair": "Preserved the unchanged article and all v1 review files; replaced passages with separated literal excerpts asserted against HTTP-extracted source captures, and charged the factual What This Means synthesis to HoneyBook.",
+      "remaining": "The v1 factual evidence gap remains held. A distinct facts-only v2 review is required; no provider call was made.",
+      "rootReconciliation": "independent-review/runtime-claude-fable-20260912-v1/root-reconciliation.json",
+      "draftAndBindingLane": "/root/producer_repair_sol",
+      "producerReviewer": "/root"
+    }
+  ]
+}

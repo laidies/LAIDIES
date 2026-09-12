@@ -1,0 +1,1420 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "california-chatbot-law-20260910",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/weekly_recovery",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T09:19:57.593Z",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/publication-manifest.json",
+      "sha256": "ed92075dd38e4c58b582cc1acadfe65490d2a1e1d05ebfcdc2c4f8456716c836"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/review-text.json",
+      "sha256": "4659488627999a2f62c9f4065d693fab7b6379f6352d26aa31689d2fc7913732"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/rendered-article.html",
+      "sha256": "cba29c2ad9d4418194913ca81d5b70cc67df0e86c0dbc492f0826078760d3cf6"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Did California's new child-chatbot law change anything for my family today, and when do the real safeguards actually start?",
+    "promisedPayoff": "The reader can distinguish the signing event from the July 1, 2027 operative date, name the concrete default settings, and know which evidence to watch next.",
+    "centralMentalModel": "A signing date enacts a law while an operative date starts the duty; audits run on a third, later timetable with revenue-based exemptions.",
+    "dailyLifeConnection": "A California parent deciding what to expect from a chatbot their child uses, and what the service must build before mid-2027.",
+    "surfaceJob": "A dated news article reporting the September 10 signing of SB 1119 and its staged implementation for companion chatbots.",
+    "desiredReaderFeeling": "Informed and calm: neither falsely reassured that protections exist today nor misled that nothing changed."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Terms like companion chatbot, operative and persistent conversational memory are defined in plain language at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A <strong>companion chatbot</strong> is an AI system designed to simulate a relationship or ongoing social interaction, rather than simply answer one isolated question. The new law does not switch on all its protections at signing. Its main child-safety sections become <strong>operative</strong>—the date a legal requirement begins to apply—on July 1, 2027.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The default settings include no push notifications, a one-hour continuous-session limit and a two-hour daily limit. <strong>Persistent conversational memory</strong>—using earlier conversations in later ones—is ordinarily off by default, with a qualified exception for users 16 or older when specified guardrails are in place.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader learns concrete defaults, audit timing with the $500M exemption, and the correct question to ask before July 2027.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The default settings include no push notifications, a one-hour continuous-session limit and a two-hour daily limit. <strong>Persistent conversational memory</strong>—using earlier conversations in later ones—is ordinarily off by default, with a qualified exception for users 16 or older when specified guardrails are in place.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>Independent audits follow a different timetable. The enrolled text sets the first audit for January 1, 2029 or before an operator first makes a chatbot publicly available, whichever is later. Operators with less than $500 million in prior-year revenue are exempt from that audit section until 2032. Those limits matter when a headline says every chatbot now faces immediate independent review.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>For a California family, the useful question today is not “Did every control appear overnight?” It is “What must the service build before July 1, 2027, and which rules apply to this child and product?” The answer depends on age determination, whether the operator permits child users and the specific provision.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid adult register without condescension or borrowed persona; the cocktail-party line and family framing stay conversational.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For a California family, the useful question today is not “Did every control appear overnight?” It is “What must the service build before July 1, 2027, and which rules apply to this child and product?” The answer depends on age determination, whether the operator permits child users and the specific provision.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "“California signed child-chatbot safety rules on September 10. The main safeguards begin July 1, 2027, so signing did not make every control appear overnight.”",
+          "locator": "P011"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The human stakes (Adam Raine's story, a parent's real question) sustain interest without spectacle; humour is appropriately absent for the subject.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Signing creates a legal commitment and an implementation clock. It does not prove the protections are already operating or that they will prevent every harm. AP reported that the measure was inspired by Adam Raine’s story; his mother, Maria Raine, said parents had not understood the dangers of AI companionship. That experience explains the public stakes, but the law’s future results still need evidence.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>For a California family, the useful question today is not “Did every control appear overnight?” It is “What must the service build before July 1, 2027, and which rules apply to this child and product?” The answer depends on age determination, whether the operator permits child users and the specific provision.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "It answers what happened (signing), when duties begin, who is covered, and why it matters, within a bounded dated-news scope.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>California Governor Gavin Newsom signed Senate Bill 1119 on September 10, according to an official release from bill author Senator Steve Padilla and reporting by the Associated Press. The law sets child-safety requirements for operators that make companion chatbots available in California.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A <strong>companion chatbot</strong> is an AI system designed to simulate a relationship or ongoing social interaction, rather than simply answer one isolated question. The new law does not switch on all its protections at signing. Its main child-safety sections become <strong>operative</strong>—the date a legal requirement begins to apply—on July 1, 2027.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>For a California family, the useful question today is not “Did every control appear overnight?” It is “What must the service build before July 1, 2027, and which rules apply to this child and product?” The answer depends on age determination, whether the operator permits child users and the specific provision.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The family framing grounds the mechanism in a recognizable parent situation with product-specific conditions.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For a California family, the useful question today is not “Did every control appear overnight?” It is “What must the service build before July 1, 2027, and which rules apply to this child and product?” The answer depends on age determination, whether the operator permits child users and the specific provision.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human purpose leads, causal sequence (signing → operative date → audits) is explicit, and it closes with a better next question and evidence to watch; no imitation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A <strong>companion chatbot</strong> is an AI system designed to simulate a relationship or ongoing social interaction, rather than simply answer one isolated question. The new law does not switch on all its protections at signing. Its main child-safety sections become <strong>operative</strong>—the date a legal requirement begins to apply—on July 1, 2027.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>For a California family, the useful question today is not “Did every control appear overnight?” It is “What must the service build before July 1, 2027, and which rules apply to this child and product?” The answer depends on age determination, whether the operator permits child users and the specific provision.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>The legislative status page still showed the bill as presented to the Governor when checked, even after the sponsor’s signing release and AP report. That is a lagging public record, not evidence of a veto. The next evidence to watch is the chaptered record, implementation guidance, product changes and eventually the required audits.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The signing/operative distinction and staged audit timetable support an accurate causal explain-back in ordinary language.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A <strong>companion chatbot</strong> is an AI system designed to simulate a relationship or ongoing social interaction, rather than simply answer one isolated question. The new law does not switch on all its protections at signing. Its main child-safety sections become <strong>operative</strong>—the date a legal requirement begins to apply—on July 1, 2027.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Independent audits follow a different timetable. The enrolled text sets the first audit for January 1, 2029 or before an operator first makes a chatbot publicly available, whichever is later. Operators with less than $500 million in prior-year revenue are exempt from that audit section until 2032. Those limits matter when a headline says every chatbot now faces immediate independent review.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "A signing date and an operative date do different jobs: one enacts the law; the other says when a duty begins to apply.",
+          "locator": "P012"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why doesn't the September 10 signing mean a companion chatbot must already have the one-hour session limit and disabled push notifications today?",
+        "response": "Because signing enacts the law but the specific duty sections (21812, 21812.5, 21813) only become operative on July 1, 2027. Until that date the legal requirement does not yet apply, so an operator has an implementation window, not an immediate obligation; audits start on a still-later clock, January 1, 2029 or first public availability, whichever is later.",
+        "expectedEvidence": "An accurate answer must cite the operative-date concept (P003, P012), the specific defaults (P005), and the separate audit timetable (P008).",
+        "assessment": "The article supports this answer fully in ordinary language; a reader could reconstruct the causal chain from P003, P005, P008 and P012 without outside knowledge."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The mechanism (enactment vs operative duty vs audit exemption) transfers to new situations such as judging a startup's compliance obligations before 2027.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A <strong>companion chatbot</strong> is an AI system designed to simulate a relationship or ongoing social interaction, rather than simply answer one isolated question. The new law does not switch on all its protections at signing. Its main child-safety sections become <strong>operative</strong>—the date a legal requirement begins to apply—on July 1, 2027.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Independent audits follow a different timetable. The enrolled text sets the first audit for January 1, 2029 or before an operator first makes a chatbot publicly available, whichever is later. Operators with less than $500 million in prior-year revenue are exempt from that audit section until 2032. Those limits matter when a headline says every chatbot now faces immediate independent review.</p>",
+          "locator": "P008"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Is the startup violating the law today, and when would an audit apply to it?",
+        "response": "It is likely not yet violating the operative duties: the default-settings and session-limit requirements in Section 21812 do not apply until July 1, 2027, so today the company is inside its implementation window rather than in breach. And the audit section will not reach it soon: with under $500 million in prior-year revenue, the operator is exempt from that audit section until 2032, so no independent audit is due before then regardless of the general 2029 deadline.",
+        "expectedEvidence": "Correct application requires the operative date (P003), the default settings (P005), and the audit timing plus revenue exemption (P008).",
+        "assessment": "The article's mechanism handles this new scenario completely; both the timing and the exemption transfer cleanly, confirming genuine mechanism understanding rather than headline recall."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Specific proportionate action: ask what the service must build before July 1, 2027 and watch the chaptered record, guidance and audits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For a California family, the useful question today is not “Did every control appear overnight?” It is “What must the service build before July 1, 2027, and which rules apply to this child and product?” The answer depends on age determination, whether the operator permits child users and the specific provision.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>The legislative status page still showed the bill as presented to the Governor when checked, even after the sponsor’s signing release and AP report. That is a lagging public record, not evidence of a veto. The next evidence to watch is the chaptered record, implementation guidance, product changes and eventually the required audits.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No decorative analogies are used; the signing-date/operative-date contrast is a literal legal distinction mapped accurately.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A signing date and an operative date do different jobs: one enacts the law; the other says when a duty begins to apply.",
+          "locator": "P012"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Every material claim traces to the supplied sources with correct attribution and retained limitations; only the status-lag check timing needed a minor qualification.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>California Governor Gavin Newsom signed Senate Bill 1119 on September 10, according to an official release from bill author Senator Steve Padilla and reporting by the Associated Press. The law sets child-safety requirements for operators that make companion chatbots available in California.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Independent audits follow a different timetable. The enrolled text sets the first audit for January 1, 2029 or before an operator first makes a chatbot publicly available, whichever is later. Operators with less than $500 million in prior-year revenue are exempt from that audit section until 2032. Those limits matter when a headline says every chatbot now faces immediate independent review.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>The legislative status page still showed the bill as presented to the Governor when checked, even after the sponsor’s signing release and AP report. That is a lagging public record, not evidence of a veto. The next evidence to watch is the chaptered record, implementation guidance, product changes and eventually the required audits.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Signing date, operative date, audit deadlines and a lastCheckedAt timestamp make each time-sensitive claim checkable, and the status-page lag is disclosed rather than hidden.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>California Governor Gavin Newsom signed Senate Bill 1119 on September 10, according to an official release from bill author Senator Steve Padilla and reporting by the Associated Press. The law sets child-safety requirements for operators that make companion chatbots available in California.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Independent audits follow a different timetable. The enrolled text sets the first audit for January 1, 2029 or before an operator first makes a chatbot publicly available, whichever is later. Operators with less than $500 million in prior-year revenue are exempt from that audit section until 2032. Those limits matter when a headline says every chatbot now faces immediate independent review.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>The legislative status page still showed the bill as presented to the Governor when checked, even after the sponsor’s signing release and AP report. That is a lagging public record, not evidence of a veto. The next evidence to watch is the chaptered record, implementation guidance, product changes and eventually the required audits.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The article explicitly distinguishes the September 10 signing from the 2027 operative duties and the 2029/2032 audit timetable, preventing conflation of old and new events.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A <strong>companion chatbot</strong> is an AI system designed to simulate a relationship or ongoing social interaction, rather than simply answer one isolated question. The new law does not switch on all its protections at signing. Its main child-safety sections become <strong>operative</strong>—the date a legal requirement begins to apply—on July 1, 2027.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Independent audits follow a different timetable. The enrolled text sets the first audit for January 1, 2029 or before an operator first makes a chatbot publicly available, whichever is later. Operators with less than $500 million in prior-year revenue are exempt from that audit section until 2032. Those limits matter when a headline says every chatbot now faces immediate independent review.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "A signing date and an operative date do different jobs: one enacts the law; the other says when a duty begins to apply.",
+          "locator": "P012"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (defaults, deadlines, family question) while uncertainty survives: signing does not prove protections operate or prevent harm, and future evidence is named.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Signing creates a legal commitment and an implementation clock. It does not prove the protections are already operating or that they will prevent every harm. AP reported that the measure was inspired by Adam Raine’s story; his mother, Maria Raine, said parents had not understood the dangers of AI companionship. That experience explains the public stakes, but the law’s future results still need evidence.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>For a California family, the useful question today is not “Did every control appear overnight?” It is “What must the service build before July 1, 2027, and which rules apply to this child and product?” The answer depends on age determination, whether the operator permits child users and the specific provision.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>The legislative status page still showed the bill as presented to the Governor when checked, even after the sponsor’s signing release and AP report. That is a lagging public record, not evidence of a veto. The next evidence to watch is the chaptered record, implementation guidance, product changes and eventually the required audits.</p>",
+          "locator": "P010"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The three defined terms each do immediate work in the explanation rather than accumulating as a list.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Paragraphs develop the story from event to duties to audits without repeated scaffolds.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogies are deployed; comparisons are literal legal distinctions.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The only references are the three sources, each doing evidentiary work.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal chain from signing to operative duties to audits is explicit throughout.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The recommended question and evidence-to-watch list are concrete and case-specific.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Every technical or legal term is explained where it first matters.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Signing, operative sections, defaults and audits are shown as connected stages, not isolated parts.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Uncertainty is preserved: signing does not prove effectiveness and future results still need evidence.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Dates, lastCheckedAt and the status-page lag note make time-sensitive claims checkable.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Language is concrete throughout; no vague motivational filler.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The human stakes and family framing keep the piece from becoming a dry checklist.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is mentioned anywhere.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's promise about the 2027 start date is fully delivered and explained.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The family example returns to the specific statutory conditions of age, operator choice and provision.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitation of any communicator's voice or mannerisms.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No humour or spectacle competes with understanding in this sober piece.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The headline is brief; the causal explanation occupies the body of the piece.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The headline claim is immediately earned with the operative-date explanation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending is a bounded evidence-watch list, not a grand moral.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Coverage spans signing, scope, duties, dates, audits and family consequences — the full reader job.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Human motivation (child safety, the Raine story) frames the legal machinery.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No single example crowds out the article's bounded news purpose.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "For a bounded news report, explaining this specific legal mechanism is the correct perspective, and it stays reader-oriented.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+        "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "signing",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>California Governor Gavin Newsom signed Senate Bill 1119 on September 10, according to an official release from bill author Senator Steve Padilla and reporting by the Associated Press. The law sets child-safety requirements for operators that make companion chatbots available in California.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "padilla-signing",
+          "ap-signing-report"
+        ],
+        "scopeAndFreshness": "The Padilla release states Newsom signed SB 1119 on September 10, 2026, and AP independently reports the September 10 signing of the package including this law.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 10, 2026: Today, Governor Gavin Newsom signed into law Senate Bill 1119, Adam's Law.",
+            "locator": "https://sd18.senate.ca.gov/news/governor-newsom-signs-adams-law"
+          },
+          {
+            "excerpt": "The release lists risk assessments, crisis support, parent-controlled default settings, limits on harmful outputs, incident reporting, advertising limits and independent audits among the law's requirements.",
+            "locator": "https://sd18.senate.ca.gov/news/governor-newsom-signs-adams-law"
+          },
+          {
+            "excerpt": "AP reported that Newsom signed the child online-safety package on September 10, including the companion-chatbot safety law.",
+            "locator": "https://apnews.com/article/6063026d1b54a8537d639605c23aab80"
+          },
+          {
+            "excerpt": "AP reported that the chatbot law was inspired by Adam Raine's story and quoted Maria Raine on parents' need to understand AI-companion risks.",
+            "locator": "https://apnews.com/article/6063026d1b54a8537d639605c23aab80"
+          }
+        ]
+      },
+      {
+        "claimId": "scope",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>California Governor Gavin Newsom signed Senate Bill 1119 on September 10, according to an official release from bill author Senator Steve Padilla and reporting by the Associated Press. The law sets child-safety requirements for operators that make companion chatbots available in California.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>A <strong>companion chatbot</strong> is an AI system designed to simulate a relationship or ongoing social interaction, rather than simply answer one isolated question. The new law does not switch on all its protections at signing. Its main child-safety sections become <strong>operative</strong>—the date a legal requirement begins to apply—on July 1, 2027.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "The enrolled text's Section 21812 imposes child-safety duties on operators making companion chatbots available in California, matching the article's scope statement.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "operative-date",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>A <strong>companion chatbot</strong> is an AI system designed to simulate a relationship or ongoing social interaction, rather than simply answer one isolated question. The new law does not switch on all its protections at signing. Its main child-safety sections become <strong>operative</strong>—the date a legal requirement begins to apply—on July 1, 2027.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "The enrolled text states Sections 21812, 21812.5 and 21813 become operative July 1, 2027, matching the article's 'main child-safety sections' framing.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "risk-assessment",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Before releasing a new or substantially changed companion chatbot, an operator must document a child-safety risk assessment and reasonable steps to reduce identified risks. Operators that allow children must also create crisis-response procedures, child-appropriate notices and parental controls.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified chatbot is released, with documented reasonable mitigation, exactly as reported.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "settings",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The default settings include no push notifications, a one-hour continuous-session limit and a two-hour daily limit. <strong>Persistent conversational memory</strong>—using earlier conversations in later ones—is ordinarily off by default, with a qualified exception for users 16 or older when specified guardrails are in place.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "The enrolled text specifies parent-controlled defaults disabling push notifications and limits of one continuous hour and two total hours per day, matching the article.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "memory-exception",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The default settings include no push notifications, a one-hour continuous-session limit and a two-hour daily limit. <strong>Persistent conversational memory</strong>—using earlier conversations in later ones—is ordinarily off by default, with a qualified exception for users 16 or older when specified guardrails are in place.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "The enrolled text says persistent conversational memory is ordinarily disabled by default with a qualified exception for users 16 or older when specified guardrails are implemented, as the article states.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "prohibited-behaviours",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The law targets relationship-like design, not every ordinary chatbot answer. It requires reasonable measures against listed behaviours including encouraging self-harm, sexual or romantic interaction, claims that the chatbot is sentient, emotional dependence, excessive praise and instructions to hide use from parents.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "The listed behaviours (self-harm encouragement, sexual/romantic content, sentience claims, emotional reliance, disproportionate praise, evading parental controls) match the enrolled text; the article's paraphrases ('excessive praise', 'hide use from parents') are faithful.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "family-context",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Signing creates a legal commitment and an implementation clock. It does not prove the protections are already operating or that they will prevent every harm. AP reported that the measure was inspired by Adam Raine’s story; his mother, Maria Raine, said parents had not understood the dangers of AI companionship. That experience explains the public stakes, but the law’s future results still need evidence.</p>",
+            "locator": "P007"
+          }
+        ],
+        "sourceIds": [
+          "ap-signing-report"
+        ],
+        "scopeAndFreshness": "AP reported the law was inspired by Adam Raine's story and quoted Maria Raine on parents' understanding of AI-companion risks; the article attributes both correctly to AP.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "AP reported that Newsom signed the child online-safety package on September 10, including the companion-chatbot safety law.",
+            "locator": "https://apnews.com/article/6063026d1b54a8537d639605c23aab80"
+          },
+          {
+            "excerpt": "AP reported that the chatbot law was inspired by Adam Raine's story and quoted Maria Raine on parents' need to understand AI-companion risks.",
+            "locator": "https://apnews.com/article/6063026d1b54a8537d639605c23aab80"
+          }
+        ]
+      },
+      {
+        "claimId": "audit-timing",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Independent audits follow a different timetable. The enrolled text sets the first audit for January 1, 2029 or before an operator first makes a chatbot publicly available, whichever is later. Operators with less than $500 million in prior-year revenue are exempt from that audit section until 2032. Those limits matter when a headline says every chatbot now faces immediate independent review.</p>",
+            "locator": "P008"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "Section 21814 sets the first audit deadline at January 1, 2029 or before first public availability, whichever is later, exactly as reported.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "audit-exception",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Independent audits follow a different timetable. The enrolled text sets the first audit for January 1, 2029 or before an operator first makes a chatbot publicly available, whichever is later. Operators with less than $500 million in prior-year revenue are exempt from that audit section until 2032. Those limits matter when a headline says every chatbot now faces immediate independent review.</p>",
+            "locator": "P008"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "The enrolled text exempts operators with under $500 million in prior-calendar-year gross revenue from the audit section before January 1, 2032, matching the article's 'until 2032'.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "status-lag",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The legislative status page still showed the bill as presented to the Governor when checked, even after the sponsor’s signing release and AP report. That is a lagging public record, not evidence of a veto. The next evidence to watch is the chaptered record, implementation guidance, product changes and eventually the required audits.</p>",
+            "locator": "P010"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled",
+          "padilla-signing",
+          "ap-signing-report"
+        ],
+        "scopeAndFreshness": "The source records the status pages showing 'presented to the Governor' as of September 9 when checked; the article adds that this persisted 'even after' the signing release, a timing claim slightly stronger than the excerpt, though the substance (lagging record, not a veto) is fully supported and correctly bounded.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "September 10, 2026: Today, Governor Gavin Newsom signed into law Senate Bill 1119, Adam's Law.",
+            "locator": "https://sd18.senate.ca.gov/news/governor-newsom-signs-adams-law"
+          },
+          {
+            "excerpt": "The release lists risk assessments, crisis support, parent-controlled default settings, limits on harmful outputs, incident reporting, advertising limits and independent audits among the law's requirements.",
+            "locator": "https://sd18.senate.ca.gov/news/governor-newsom-signs-adams-law"
+          },
+          {
+            "excerpt": "AP reported that Newsom signed the child online-safety package on September 10, including the companion-chatbot safety law.",
+            "locator": "https://apnews.com/article/6063026d1b54a8537d639605c23aab80"
+          },
+          {
+            "excerpt": "AP reported that the chatbot law was inspired by Adam Raine's story and quoted Maria Raine on parents' need to understand AI-companion risks.",
+            "locator": "https://apnews.com/article/6063026d1b54a8537d639605c23aab80"
+          }
+        ]
+      }
+    ],
+    "reviewedThrough": "2026-09-11",
+    "nextTrigger": "Reopen signing and statutory records on publication day; redraft for chaptered text differences, implementation guidance, product changes, enforcement or audit results.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 1,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No checksum-bound reviewed predecessor candidate covers California's September 10 signing of SB 1119."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All outcomes and news checks pass and every failure family is clear; no defect or uncertain assessment appears on the reader side. Ten of eleven claims are fully supported and one is qualified on a minor timing nuance; no claim is contradicted or on hold and all fact outcomes pass, so no new defect is warranted."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "The first review cycle found a claim-to-excerpt mismatch. The repaired exact prose received a fresh independent review; the failed attempt remains preserved."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/independent-review/final-v2/news-editorial-analysis.json",
+      "sha256": "34e2b51825dc81acf468f032dd6cc8821bc7d45e47e3a0f507b1156d24347771"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/independent-review/final-v2/independent-raw-report.json",
+    "sha256": "f62f3598eecc7f62da1637d22c5eaf45a8f5a24f98da3799a946df6dacfd50be"
+  }
+}

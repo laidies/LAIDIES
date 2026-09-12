@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { checkBigPictureRetention, checkNewStoryPublicationDay } from './lib/newsstand-big-picture-update.mjs';
+import { checkNewsstandAssetVersions } from './lib/newsstand-asset-versions.mjs';
 
 const [baseManifestPath, candidateManifestPath, scopePath, receiptPath] = process.argv.slice(2);
 if (!baseManifestPath || !candidateManifestPath || !scopePath) {
@@ -87,6 +88,7 @@ if (storiesChanged) {
   checkBigPictureRetention(base, candidate);
   checkNewStoryPublicationDay(base, candidate);
 }
+checkNewsstandAssetVersions(candidate, changes.map(change => change.path));
 
 for (const verificationPath of scope.verificationPaths || []) {
   const artifactPath = normalized(verificationPath);

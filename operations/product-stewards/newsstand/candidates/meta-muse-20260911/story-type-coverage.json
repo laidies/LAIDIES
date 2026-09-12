@@ -1,0 +1,53 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "primaryType": "model-tool-release",
+  "overlays": [],
+  "universalAnswers": {
+    "whatHappened": "Meta launched Muse, a personal AI agent, in the United States on September 8.",
+    "plainLanguageIdentity": "Muse can use a browser and connected services to carry out steps; a control outside the agent checks whether each proposed action fits the permission for that service.",
+    "evidenceBasis": "Meta's complete launch and safety pages and the complete Associated Press report were reopened on September 11.",
+    "evidenceLimits": "Meta's sources establish the launch and intended architecture; neither they nor AP independently prove that Muse completes actions reliably or that its safeguards always prevent mistakes.",
+    "readerRelevance": "A person in the United States can encounter Muse through its app, website or WhatsApp and may be asked to connect email, Instagram or another service so it can act for her.",
+    "affectedPeople": "People who use Muse, contacts who receive messages it sends, businesses it contacts and services connected to it may be affected by its actions.",
+    "changesNow": "Muse is rolling out in the United States on iOS, Android and muse.ai, with free limited use and subscriptions for more use.",
+    "uncertainty": "Prices and exact free limits are undisclosed; planned AI glasses, Shop Pay, 1Password and the later privacy option are not launch features; adoption and outcome evidence are not established.",
+    "readerAction": "Before connecting a service, decide whether Muse needs read access, action access or no access, and use one-time or bounded permission where a lasting grant is unnecessary.",
+    "betterQuestion": "Which service can the agent read or change, what may proceed under an existing permission, and does the privacy claim describe current policy limits or the later promise to prevent Meta access?"
+  },
+  "typeAnswers": {
+    "model-tool-release": {
+      "productRange": "Muse is a standalone personal agent powered by Meta's Muse Spark model, available through a Muse app and website and by messaging it in WhatsApp.",
+      "newCapabilities": "Meta says Muse can browse, fill forms, keep working after the app closes, use connected services and return for selected approvals.",
+      "bestFitTasks": "Multi-step personal jobs that require browsing or connected services and can be checked before a consequential action, such as turning a saved recipe into a grocery list and draft invitation.",
+      "notFor": "Meta itself says the agent will make mistakes; the reviewed evidence does not support leaving sensitive, high-consequence actions unchecked or granting broader access than a task needs.",
+      "nearestAlternatives": "An ordinary chatbot can suggest or draft; the person then performs the action herself. Muse is designed to take multiple steps and act through tools.",
+      "availability": "Rolling out now in the United States on iOS, Android and muse.ai; Meta also describes WhatsApp interaction. AI glasses support is future.",
+      "freePaidBoundary": "Meta says most use is free and subscription plans offer more, but it gives no exact free quota or subscription price in the reviewed launch material.",
+      "costBoundary": "No exact consumer price is stated in the reviewed sources, so the article reports the free-limited versus subscription boundary without inventing a cost.",
+      "limitations": "Current safeguards are Meta’s design claims; Meta acknowledges mistakes and prompt injection, and the later privacy option intended to prevent Meta access is not generally available.",
+      "technicalExampleProportionality": "One saved-recipe example makes the agent-to-connected-service permission boundary visible without becoming a promotional task list.",
+      "vendorEvidenceBoundary": "Meta owns the capability, safety and privacy claims; AP independently confirms the launch and context but does not validate reliability or security outcomes."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "Meta launched Muse, a personal AI agent, in the United States on September 8.",
+    "actualMeaningExact": "Unlike a chatbot that stops after suggesting or drafting, Muse is designed to keep taking steps through a browser and connected services.",
+    "mechanismExact": "Meta says a control outside the agent checks whether a proposed action fits the permission for that connected service before letting it reach the internet.",
+    "familiarExampleExact": "Meta’s example combines turning an Instagram recipe into a grocery list with sending a dinner invitation.",
+    "jargon": [
+      {
+        "term": "personal AI agent",
+        "plainMeaning": "software that can plan and take several actions toward a personal goal rather than only answer once"
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "an agent acts through tools, memory and a planning loop",
+        "learningPayoff": "AI Fundamentals 101 explains why an agent can keep taking steps after a chatbot would stop at an answer.",
+        "disposition": "link",
+        "destination": "/library.html#ai-fundamentals-101::%40ch-2-2-4-agentic-ai-the-layer-that-acts"
+      }
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "proseReview": {
+    "reviewIssues": 1,
+    "reviewCycles": 2
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 1,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 1,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "history": [
+    {
+      "stage": "producer",
+      "note": "Multiple root clarity and wrapper packet repairs retained in commits332bc54f,8a16fdc6,cc439d51,4f882a65 and predecessor-v1."
+    },
+    {
+      "stage": "independent",
+      "review": "runtime-claude-fable-20260912-v1",
+      "verdict": "PROTOCOL_HOLD",
+      "issues": 1,
+      "note": "Scope qualification and contradictory learning disposition. Exact raw output retained."
+    },
+    {
+      "stage": "root-producer-repair",
+      "note": "Broader source scope, conservative194/200 sourcecount, canonical sourceURL, actual draft/frame binding repaired before nextprovider."
+    },
+    {
+      "stage": "independent",
+      "review": "runtime-claude-fable-20260912-v2",
+      "verdict": "PASS",
+      "issues": 0
+    }
+  ],
+  "evidencePacket": {
+    "rounds": 3,
+    "gaps": 2,
+    "repaired": 2,
+    "checkedClaims": 5,
+    "exactSourceExcerpts": 5
+  }
+}

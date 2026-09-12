@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { loadServiceRevisionBase } from "./newsstand-service-revision-base.mjs";
 
 // Local canonical Daily issue writer. It consumes one exact private envelope
 // plus an independent checksum-bound admission. It cannot deploy or publish.
@@ -100,7 +101,7 @@ function validatePublishedBase(binding, currentStoriesRaw) {
   if (expectedOrigins.size) reject("service revision publishedBase must include custom and immutable origin observations");
 }
 
-function validateEnvelope(value, root = ROOT, store = null, now = new Date().toISOString(), { recheckQuietRecovery = true } = {}) {
+function validateEnvelope(value, root = ROOT, store = null, now = new Date().toISOString(), { recheckQuietRecovery = true, replayIssue = null } = {}) {
   const hasFrontPaige = value && Object.prototype.hasOwnProperty.call(value, "frontPaigeStoryId");
   const hasWeekly = value && Object.prototype.hasOwnProperty.call(value, "weeklyStoryId");
   exactKeys(value, ["schemaVersion", "mode", "editionDate", "editorialTimeZone", "disposition", "status", "storyIds", "storySnapshots", "desks", "sourceIdentity", "canonicalWrite", "deployActionTaken", ...(hasFrontPaige ? ["frontPaigeStoryId"] : []), ...(hasWeekly ? ["weeklyStoryId"] : [])], "envelope");
@@ -124,8 +125,12 @@ function validateEnvelope(value, root = ROOT, store = null, now = new Date().toI
   const dailyCoverage = value.sourceIdentity?.dailyCoverage;
   const dailyRecovery = value.sourceIdentity?.dailyRecovery;
   if (candidateBinding && correctionBinding) reject("ordinary candidate and story correction cannot share one issue envelope");
-  exactKeys(value.sourceIdentity, ["radarPath", "radarSha256", "storiesPath", "storiesSha256", "columnsPath", "columnsSha256", ...(dailyCoverage ? ["dailyCoverage"] : []), ...(dailyRecovery ? ["dailyRecovery"] : []), ...(candidateBinding ? ["ordinaryCandidate"] : []), ...(correctionBinding ? ["storyCorrection"] : []), ...(value.sourceIdentity.servicePredecessor ? ["servicePredecessor"] : [])], "sourceIdentity");
-  const candidate = candidateBinding ? loadOrdinaryStoryCandidate(candidateBinding, { root, date: value.editionDate, now }).story : null;
+  exactKeys(value.sourceIdentity, ["radarPath", "radarSha256", "storiesPath", "storiesSha256", "columnsPath", "columnsSha256", ...(dailyCoverage ? ["dailyCoverage"] : []), ...(dailyRecovery ? ["dailyRecovery"] : []), ...(candidateBinding ? ["ordinaryCandidate"] : []), ...(correctionBinding ? ["storyCorrection"] : []), ...(value.sourceIdentity.servicePredecessor ? ["servicePredecessor"] : []), ...(value.sourceIdentity.serviceRevisionBase ? ["serviceRevisionBase"] : [])], "sourceIdentity");
+  const revisionBase = value.sourceIdentity.serviceRevisionBase ? loadServiceRevisionBase(value.sourceIdentity.serviceRevisionBase, { root, date: value.editionDate, sourceSha256: value.sourceIdentity.storiesSha256 }) : null;
+  if (revisionBase && (candidateBinding || correctionBinding)) reject("service revision base cannot share an ordinary candidate or correction");
+  const loadedCandidate = candidateBinding ? loadOrdinaryStoryCandidate(candidateBinding, { root, date: value.editionDate, now }) : null;
+  const candidate = loadedCandidate?.story || null;
+  let validatedStoriesRaw = fs.readFileSync(path.join(root, value.sourceIdentity.storiesPath), "utf8");
   if (correctionBinding) {
     exactKeys(correctionBinding, ["storyId", "predecessorStorySha256", "successorStorySha256", "evidence"], "story correction");
     if (typeof correctionBinding.storyId !== "string" || !HASH.test(correctionBinding.predecessorStorySha256 || "") ||
@@ -170,7 +175,19 @@ function validateEnvelope(value, root = ROOT, store = null, now = new Date().toI
       ];
   for (const [sourcePath, expectedHash] of sourceFiles) {
     const absolute = path.join(root, sourcePath);
-    if (!fs.existsSync(absolute) || sha256(fs.readFileSync(absolute)) !== expectedHash) reject(`source bytes changed for ${sourcePath}`);
+    if (!fs.existsSync(absolute)) reject(`source bytes changed for ${sourcePath}`);
+    if (sha256(fs.readFileSync(absolute)) !== expectedHash) {
+      // Retry after projection is valid only for the exact stored admission and
+      // exact deterministic output. Validate incumbent membership against its
+      // frozen pre-publication base, not against the newly inserted candidate.
+      if (sourcePath !== value.sourceIdentity.storiesPath || !(loadedCandidate || revisionBase) || !replayIssue ||
+          sha256(revisionBase?.raw || loadedCandidate.publicationBaseRaw) !== expectedHash) reject(`source bytes changed for ${sourcePath}`);
+      const columns = JSON.parse(fs.readFileSync(path.join(root, value.sourceIdentity.columnsPath), "utf8"));
+      if (projectDailySourceRaw({ raw: validatedStoriesRaw, issue: replayIssue, columns, root, now }) !== validatedStoriesRaw) {
+        reject(`source bytes changed for ${sourcePath}`);
+      }
+      validatedStoriesRaw = revisionBase?.raw || loadedCandidate.publicationBaseRaw;
+    }
   }
   if (value.disposition === "QUIET" && value.editionDate >= "2026-09-05") {
     if (!dailyCoverage) reject("quiet issue lacks dated source-coverage binding");
@@ -215,7 +232,7 @@ function validateEnvelope(value, root = ROOT, store = null, now = new Date().toI
   if (new Set(readyIds).size !== readyIds.length) reject("ready desk record IDs are duplicated");
   const columnData = correctionBinding ? null : JSON.parse(fs.readFileSync(path.join(root, value.sourceIdentity.columnsPath), "utf8"));
   const predecessor = !correctionBinding && value.sourceIdentity.servicePredecessor ? loadServicePredecessor(value.sourceIdentity.servicePredecessor, {
-    root, date: value.editionDate, columns: columnData, storiesRaw: fs.readFileSync(path.join(root, value.sourceIdentity.storiesPath), 'utf8')
+    root, date: value.editionDate, columns: columnData, ...(revisionBase ? {} : { storiesRaw: fs.readFileSync(path.join(root, value.sourceIdentity.storiesPath), 'utf8') })
   }) : null;
   if (!correctionBinding) {
     for (const desk of value.desks.filter((item) => item.state === "ready")) {
@@ -227,7 +244,7 @@ function validateEnvelope(value, root = ROOT, store = null, now = new Date().toI
     }
   }
   const storiesContext = { window: {} };
-  vm.runInNewContext(fs.readFileSync(path.join(root, value.sourceIdentity.storiesPath), "utf8"), storiesContext, { timeout: 1000 });
+  vm.runInNewContext(validatedStoriesRaw, storiesContext, { timeout: 1000 });
   const sameDateIssue = store?.issues?.find(issue => issue.editionDate === value.editionDate) || null;
   const sameDateNewsAppend = Boolean(candidate && sameDateIssue && storiesContext.window.NEWSSTAND_DATA.publications?.daily?.editionDate === value.editionDate);
   if (!correctionBinding) {
@@ -281,11 +298,13 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
   try { parsedEnvelope = JSON.parse(envelopeRaw); } catch { reject("envelope raw bytes are not valid JSON"); }
   if (canonicalJson(parsedEnvelope) !== canonicalJson(envelope)) reject("envelope raw/object mismatch");
   envelope = parsedEnvelope;
-  const exactReplay = store.issues.some((issue) => issue && issue.editionDate === envelope.editionDate && issue.envelopeSha256 === sha256(envelopeRaw));
-  validateEnvelope(envelope, root, store, now, { recheckQuietRecovery: !exactReplay });
+  if (envelope.sourceIdentity?.serviceRevisionBase && envelopeRaw !== `${canonicalJson(envelope)}\n`) reject("service revision envelope must use browser-verifiable canonical bytes");
+  const replayIssue = store.issues.find((issue) => issue && issue.editionDate === envelope.editionDate && issue.envelopeSha256 === sha256(envelopeRaw)) || null;
+  validateEnvelope(envelope, root, store, now, { recheckQuietRecovery: !replayIssue, replayIssue });
   const successorDecision = decision && decision.schemaVersion === "daily-issue-successor-admission-v1";
   const newsRevisionDecision = decision && decision.schemaVersion === "daily-issue-news-revision-admission-v1";
   const serviceRevisionDecision = decision && decision.schemaVersion === "daily-issue-service-revision-admission-v1";
+  if (envelope.sourceIdentity.serviceRevisionBase && !serviceRevisionDecision) reject("service revision base requires explicit service revision admission");
   const storyCorrectionDecision = decision && decision.schemaVersion === "daily-issue-story-correction-admission-v1";
   // A correction cannot change service bytes or their proof binding. Reopening
   // a historical predecessor proof as though it were today's service selection
@@ -439,6 +458,11 @@ export function promoteDailyIssue({ store, envelope, envelopeRaw, decision, make
     if (serviceRevisionDecision) {
       if (existing.envelopeSha256 !== decision.predecessorEnvelopeSha256) reject(`conflicting canonical issue for ${envelope.editionDate}`);
       const currentStoriesRaw = fs.readFileSync(path.join(ROOT, existing.sourceIdentity.storiesPath), "utf8");
+      if (issue.sourceIdentity.serviceRevisionBase) {
+        const revision = loadServiceRevisionBase(issue.sourceIdentity.serviceRevisionBase, { root, date: issue.editionDate, sourceSha256: issue.sourceIdentity.storiesSha256 });
+        if (revision.raw !== currentStoriesRaw || issue.sourceIdentity.serviceRevisionBase.predecessorEnvelopeSha256 !== existing.envelopeSha256 ||
+            canonicalJson(existing.sourceIdentity.servicePredecessor ?? null) !== canonicalJson(issue.sourceIdentity.servicePredecessor ?? null)) reject("service revision changes frozen publication base or carried-service proof");
+      }
       if (hasPredecessorStories) {
         const predecessorStoriesRaw = readBoundPredecessorStories(decision.predecessorStories, existing);
         const columns = JSON.parse(fs.readFileSync(path.join(ROOT, existing.sourceIdentity.columnsPath), "utf8"));

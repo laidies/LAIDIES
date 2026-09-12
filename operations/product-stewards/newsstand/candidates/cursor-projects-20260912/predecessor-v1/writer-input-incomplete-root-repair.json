@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "laidies.newsstand-writer-input-current.v1",
+  "candidateId": "cursor-projects-20260912",
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/cursor-projects-20260912/review-text.json",
+    "sha256": "32da5c4bc180fe0fe522ca2aba9933f12f43f648100333bd2da3f29eab52347b"
+  },
+  "storyParagraphs": [
+    {
+      "id": "P001",
+      "text": "Cursor Projects beta lets website or app work continue online after your laptop closes.",
+      "exact": "Cursor Projects beta lets website or app work continue online after your laptop closes.",
+      "field": "headline"
+    },
+    {
+      "id": "P002",
+      "text": "Cursor launched Projects in beta on September 10 for longer software jobs, from adding a feature to building a whole app. A Project keeps the files and notes for that job, so agents working on different parts can use what the others have learned. A coordinator is the agent that plans the job and sends pieces to other agents; Cursor says the other agents write the code.",
+      "exact": "<p>Cursor launched Projects in beta on September 10 for longer software jobs, from adding a feature to building a whole app. A Project keeps the files and notes for that job, so agents working on different parts can use what the others have learned. A coordinator is the agent that plans the job and sends pieces to other agents; Cursor says the other agents write the code.</p>",
+      "field": "the_story"
+    },
+    {
+      "id": "P003",
+      "text": "A Project runs on a computer in the cloud\u2014online rather than on your laptop\u2014so closing your laptop does not stop that part of the job. If testing is needed on your own computer, Cursor says the coordinator starts a local agent there. The result comes back to you to check.",
+      "exact": "<p>A Project runs on a computer in the cloud\u2014online rather than on your laptop\u2014so closing your laptop does not stop that part of the job. If testing is needed on your own computer, Cursor says the coordinator starts a local agent there. The result comes back to you to check.</p>",
+      "field": "the_story"
+    },
+    {
+      "id": "P004",
+      "text": "For your own website, ask before you start: can the remaining work stay online, or does a test need your laptop? That determines whether closing it will interrupt the job.",
+      "exact": "<p>For your own website, ask before you start: can the remaining work stay online, or does a test need your laptop? That determines whether closing it will interrupt the job.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P005",
+      "text": "Projects are in beta and rolling out to all users.",
+      "exact": "<p>Projects are in beta and rolling out to all users.</p>",
+      "field": "laidies_read"
+    },
+    {
+      "id": "P006",
+      "text": "When the page comes back, check the thing you asked for: does it say what you meant, do its links work, and did anything else change? That is the concrete job that still belongs to you.",
+      "exact": "<p>When the page comes back, check the thing you asked for: does it say what you meant, do its links work, and did anything else change? That is the concrete job that still belongs to you.</p>",
+      "field": "what_this_means"
+    },
+    {
+      "id": "P007",
+      "text": "\u201cCursor Projects can keep cloud work moving after your laptop closes; testing on your own computer is a separate local-agent handoff.\u201d",
+      "exact": "\u201cCursor Projects can keep cloud work moving after your laptop closes; testing on your own computer is a separate local-agent handoff.\u201d",
+      "field": "cocktail_party"
+    },
+    {
+      "id": "P008",
+      "text": "AI Fundamentals 101: Agents \u2014 AI That Acts explains agents that plan, use tools, and keep state across steps\u2014the pieces behind Cursor\u2019s coordinator and handoffs.",
+      "exact": "<a href=\\\"/library.html#ai-fundamentals-101::%40chapter-14\\\">AI Fundamentals 101: Agents \u2014 AI That Acts</a> explains agents that plan, use tools, and keep state across steps\u2014the pieces behind Cursor\u2019s coordinator and handoffs.",
+      "field": "class_notes"
+    }
+  ],
+  "explanationPlan": {
+    "readerQuestions": [
+      {
+        "id": "scope",
+        "question": "What is Cursor Projects and who may find it relevant?"
+      },
+      {
+        "id": "mechanism",
+        "question": "What happens when the laptop closes or local testing is needed?"
+      },
+      {
+        "id": "boundary",
+        "question": "What does the release not promise?"
+      }
+    ],
+    "requiredTerms": [
+      {
+        "term": "coordinator",
+        "reason": "The term is necessary to explain who plans and delegates work."
+      }
+    ]
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/cursor-projects-20260912/producer-contract.json",
+    "sha256": "6beefdaef8ee5ed79d04796be3758b5d6f6bcca35741deb40fcd117e0c240d11"
+  },
+  "packet": {
+    "explanationPlan": {
+      "readerQuestions": [
+        {
+          "id": "scope",
+          "question": "What is Cursor Projects and who may find it relevant?"
+        },
+        {
+          "id": "mechanism",
+          "question": "What happens when the laptop closes or local testing is needed?"
+        },
+        {
+          "id": "boundary",
+          "question": "What does the release not promise?"
+        }
+      ],
+      "requiredTerms": [
+        {
+          "term": "coordinator",
+          "reason": "The term is necessary to explain who plans and delegates work."
+        }
+      ],
+      "plainAnswer": "Cursor Projects is a beta for longer AI-assisted jobs, where a coordinator plans and delegates work while finished work returns to the reader to check.",
+      "workedCase": "A reader building a personal website/app can see why a continuing Project differs from starting a new chat after each laptop session.",
+      "transferCase": "A reader coordinating a larger work project can ask whether its job has an inspectable result before relying on a continuing agent workflow.",
+      "usefulAction": "Use the article\u2019s practical question\u2014whether the job is bounded and inspectable\u2014rather than assuming a beta can finish everything.",
+      "formatSpecificStructure": "Dated release, plain coordinator definition, cloud/local mechanism, reader relevance and limits, then concise takeaway.",
+      "antiTemplateDecision": "No stock productivity promise, price speculation, or decorative analogy; the story stays with the stated handoff and review boundary.",
+      "causalSequence": [
+        "A Project retains context for a larger body of work.",
+        "The coordinator plans and delegates rather than writing code itself.",
+        "Cloud work can continue after the laptop closes, while machine-specific testing calls a local agent.",
+        "Finished work returns to the reader to check."
+      ],
+      "analogyPlan": [],
+      "humourPlan": {
+        "noneReason": "The release needs a plain mechanism and boundary in a short notice; humour would not teach either."
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "newsstand-component-independent-review.v1",
+  "componentId": "homepage-activity-20260911",
+  "reviewer": {
+    "id": "/root/weekly_recovery",
+    "role": "independent component reviewer",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "maker": "/root",
+  "reviewedAt": "2026-09-11T07:38:39-07:00",
+  "reviewInput": {
+    "path": "operations/product-stewards/newsstand/candidates/homepage-activity-20260911/review-input.json",
+    "sha256": "b9ae72282ff917bf6fdde54e926183f36ed04da91ea38d73c034ace897a0cae3"
+  },
+  "predecessorReview": {
+    "path": "operations/product-stewards/newsstand/evidence/homepage-activity-20260911/independent-review.json",
+    "sha256": "90a96e6a5fde170653068116cadbd4077f7748f57ecb73901690c8507d1594bc",
+    "verdict": "HOLD",
+    "defect": "The boxed Homepage action used a Daily-paper route and did not open the advertised activity."
+  },
+  "reviewedFiles": [
+    {
+      "path": "content/site/newsstand-home-preview-v1.js",
+      "sha256": "3669cc859642359a00d90b3eb49c15eb5b13c85981839d2353cb80afcdb88098"
+    },
+    {
+      "path": "content/site/newsstand-home-preview-v1.css",
+      "sha256": "be7588c4333ad6192caf86ea386df667e9326cea39181b2d2e7d04004e40d5d1"
+    },
+    {
+      "path": "content/newsstand.css",
+      "sha256": "8c8c363a4010177b3118cf489552ccc9e3fc31b65512c8ebbb20e6dce7be32f2"
+    },
+    {
+      "path": "scripts/build-newsstand-derivatives.mjs",
+      "sha256": "494ae51d7828f200d3794b6ab17d043ebd12e3c61a4fbdf558a9c5ccdfe7688f"
+    },
+    {
+      "path": "scripts/test-build-newsstand-derivatives.mjs",
+      "sha256": "9bd58eedd8d05f159e9ac8bf7667601168fac46cc33f4fe1566104832a52cd6d"
+    },
+    {
+      "path": "scripts/test-newsstand-home-preview.mjs",
+      "sha256": "7eecb5df7c71991e5813dbf7109d6c3e609219459c959392966faafc00e98cbb"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/candidates/homepage-activity-20260911/candidate-index.html",
+      "sha256": "58523deb9a687a19cc4b7aadafca2bb4fc9b59d92bf558380ad19327ce46479e"
+    }
+  ],
+  "visualEvidence": {
+    "candidateViewports": [
+      {
+        "path": "/private/tmp/home-activity-v2-1280.png",
+        "width": 1280,
+        "height": 900,
+        "sha256": "59aecd761a43ad9fec272b81cb11d98fd22f97f171f5a113c3b5202d1746c29a"
+      },
+      {
+        "path": "/private/tmp/home-activity-v2-800.png",
+        "width": 800,
+        "height": 900,
+        "sha256": "81a58729e0cb5d52b3ef6e636ed19bc0eebb198bba67d3dbc0e7c4b2fb286877"
+      },
+      {
+        "path": "/private/tmp/home-activity-v2-390.png",
+        "width": 390,
+        "height": 900,
+        "sha256": "bed92ab0b94e1843574301167f9b9d68ca41263193433950922dd62e5d98acce"
+      },
+      {
+        "path": "/private/tmp/home-activity-v2-320.png",
+        "width": 320,
+        "height": 900,
+        "sha256": "34fb195b2675f31e6bee50b16f7066f1d13e4b6eb7bcdacbb6babc2d631aa94f"
+      }
+    ],
+    "observations": [
+      "The repaired Open today’s activity action is readable and visually subordinate to the admitted activity at 1280, 800, 390 and 320 pixels.",
+      "The activity still follows all six existing Homepage entry choices, retains the exact admitted headline and text, and introduces no visible overlap or horizontal overflow.",
+      "The prior same-viewport review’s Daily typography, boxed-link and footer observations remain applicable because those reviewed CSS bytes are unchanged."
+    ]
+  },
+  "functionalEvidence": {
+    "journey": {
+      "entry": "Candidate Homepage using the exact local reviewed component and current public feed",
+      "action": "Click Open today’s activity",
+      "destination": "/newsstand?column=DAILY-2026-09-11-CURIOSITY-CURIOSITY-01-ASK-EXAMPLE",
+      "result": "At 1280, 800, 390 and 320 pixels, the NewsStand reader set #ns-paper-view data-paper=service and rendered one .ns-service-article whose data-column-id exactly matched the advertised activity ID.",
+      "pageErrors": 0
+    },
+    "passed": [
+      "The derivative emits the exact same-origin ?column=<recordId> route from the admitted current curiosity record.",
+      "The component test clicks the real Homepage-to-NewsStand journey and rejects the prior ?daily destination.",
+      "Stale-feed, yesterday, held, missing, external-url, failed-fetch and expired-open-tab cases remain suppressed.",
+      "The derivative test retains candidate, expired, ineligible, changed-text and unadmitted-desk rejection cases.",
+      "The preview writes no localStorage state and makes only the same-origin public-feed request."
+    ],
+    "predecessorDefectDisposition": "RESOLVED"
+  },
+  "limitations": [
+    "Native assistive-technology behavior was not reviewed; keyboard focus styling and DOM labeling were inspected in source and browser only.",
+    "The Homepage shell was the public page with the exact candidate JS and CSS injected and the local current public feed supplied; this is a private candidate journey, not public deployment verification.",
+    "No deployment or canonical data mutation was performed by this reviewer."
+  ],
+  "verdict": "PASS",
+  "rationale": "The successor resolves the sole blocking click-through defect on exact reviewed bytes. The boxed action opens the advertised service column at all four required widths, while the previously passing hierarchy, suppression, date-rollover, privacy and Daily-style scope remains intact."
+}

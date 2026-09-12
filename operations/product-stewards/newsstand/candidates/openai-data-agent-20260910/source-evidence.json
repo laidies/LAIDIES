@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "newsstand-source-evidence-v1",
+  "candidateId": "openai-data-agent-20260910",
+  "reviewedThrough": "2026-09-10",
+  "records": [
+    {
+      "id": "openai-data-agent",
+      "url": "https://openai.com/index/put-data-to-work/",
+      "publisher": "OpenAI",
+      "authority": "Primary for the September 10 release, product scope, connections, permissions, workflow and availability claims.",
+      "passages": [
+        "OpenAI dated the release September 10, 2026 and introduced the Data agent in ChatGPT Work.",
+        "OpenAI says it connects to approved sources including Amazon Redshift, Datadog, Google BigQuery, ClickHouse, Databricks, MongoDB and Snowflake, and can also use files and documents from Google Drive and SharePoint.",
+        "OpenAI says it uses an organization's business terms, metric definitions, custom calculations and data relationships from semantic layers and trusted sources to interpret data.",
+        "OpenAI says enterprise administrators choose which data connections and roles are available, while queries enforce the connected account's existing table, row and column permissions.",
+        "OpenAI says users can ask follow-up questions and review the evidence behind findings, then build, edit, share and refresh interactive dashboards.",
+        "OpenAI says the agent can recommend next steps, share findings through Slack or email, and carry out actions the user approves through connected tools.",
+        "OpenAI says the Data plugin appears in the Plugins directory in ChatGPT Work; administrators can install it, configure relevant data-source plugins and manage who can use them."
+      ],
+      "limitation": "Feature, internal-adoption and customer-result descriptions are vendor claims. The release supplies no public accuracy benchmark and no new standalone price."
+    },
+    {
+      "id": "openai-business-data",
+      "url": "https://openai.com/business-data/",
+      "publisher": "OpenAI",
+      "authority": "Primary for OpenAI's current business-data training, encryption and access-control statements.",
+      "passages": [
+        "OpenAI says it does not use data from its listed business products, including inputs and outputs, for training or improving models by default.",
+        "OpenAI says business data is encrypted at rest and in transit between customers, OpenAI and its service providers.",
+        "OpenAI lists role-based controls for ChatGPT Work, connected tools and workspace agents among Enterprise features."
+      ],
+      "limitation": "These are OpenAI's stated platform commitments. An organization still has to check its exact plan, retention, data residency, connected-source and employer-policy requirements."
+    },
+    {
+      "id": "openai-plugin-controls",
+      "url": "https://help.openai.com/en/articles/11509118-admin-controls-security-and-compliance-for-plugins-and-apps",
+      "publisher": "OpenAI Help Center",
+      "authority": "Primary current documentation for workspace plugin access, read/write action controls and approval settings.",
+      "passages": [
+        "OpenAI's help page says app access controls who can use a connected app, actions control what it can do, and permissions control when ChatGPT asks before using it.",
+        "Administrators can separately enable supported read and write actions and set whether future actions are enabled.",
+        "The documented permission choices include always ask, allow read actions, allow low-risk actions and, where supported for an individual app, allow all actions.",
+        "OpenAI says provider approval, OAuth scopes and ChatGPT action settings are separate checks."
+      ],
+      "limitation": "Exact options depend on workspace, role and app. This source does not establish which settings any reader's employer has chosen."
+    },
+    {
+      "id": "venturebeat-data-agent",
+      "url": "https://venturebeat.com/data/openais-new-data-agent-skips-the-one-thing-rivals-like-databricks-are-racing-to-publish-a-benchmark",
+      "publisher": "VentureBeat",
+      "authority": "Independent reporting based on an interview with OpenAI's enterprise technology lead; primary for what the reporter asked and what OpenAI disclosed about external evaluation.",
+      "passages": [
+        "VentureBeat reported on September 10 that the Data agent connects to enterprise data sources and turns findings into dashboards, recommendations and follow-up actions.",
+        "OpenAI told VentureBeat that the product stitches existing context together at use time rather than creating a new persistent context layer.",
+        "VentureBeat reported that OpenAI has not published a retrieval-accuracy or correctness benchmark for the external Data agent product.",
+        "The report says OpenAI described an internal comparison against its own data tools but did not provide a published number; VentureBeat characterized that as an internal comparison rather than an independently verified benchmark.",
+        "VentureBeat concluded that the shift does not remove the need for data engineering because access controls and audit trails still need maintenance."
+      ],
+      "limitation": "The article is reporting and analysis, not a hands-on evaluation of Data agent outputs or an independent product benchmark."
+    }
+  ]
+}

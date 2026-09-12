@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "newsstand-source-attempts-v1",
+  "candidateId": "papercut-campaign-20260911",
+  "checkedAt": "2026-09-11T08:24:00-07:00",
+  "attempts": [
+    {
+      "url": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf",
+      "method": "curl and web browsing layer",
+      "result": "HTTP 200; full primary source preserved and high-level passages inspected",
+      "sourcePath": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source/greynoise.html"
+    },
+    {
+      "url": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/",
+      "method": "curl and web browsing layer",
+      "result": "HTTP 200; full primary bulletin preserved and current September 10 status inspected",
+      "sourcePath": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source/papercut.html"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/",
+      "method": "curl then web browsing layer",
+      "result": "curl HTTP 403; complete article read through web browsing layer and exact high-level observations preserved",
+      "sourcePath": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source/bleepingcomputer-web-observation.json"
+    }
+  ],
+  "publicMutation": false
+}

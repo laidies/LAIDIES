@@ -1,0 +1,154 @@
+{
+  "attestations": {
+    "artifactFirst": true,
+    "independentFromMaker": true,
+    "completeTextRead": true
+  },
+  "claims": {
+    "release": {
+      "state": "supported",
+      "reason": "The OpenAI release capture states a September 10, 2026 launch of GPT-Live-1 in the API for developers, matching the article's dated release claim.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "openai-gpt-live-release"
+      ]
+    },
+    "yelp-integration": {
+      "state": "supported",
+      "reason": "The Yelp/Business Wire capture states Yelp integrated GPT-Live-1 into Yelp Host for restaurants and Hatch for service businesses, and the article correctly attributes this to Yelp's announcement.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "yelp-hatch-businesswire"
+      ]
+    },
+    "rollout-boundary": {
+      "state": "supported",
+      "reason": "The captured release provides no geographic rollout, caller or customer scope, so the article's absence claim about undisclosed rollout is borne out by the source evidence.",
+      "passages": [
+        "P003"
+      ],
+      "sourceIds": [
+        "yelp-hatch-businesswire"
+      ]
+    },
+    "voice-layer": {
+      "state": "supported",
+      "reason": "OpenAI's docs describe GPT-Live handling the spoken conversation while a backend agent looks up information, uses tools and completes tasks, including the full-duplex definition, matching the article's mechanism description.",
+      "passages": [
+        "P004"
+      ],
+      "sourceIds": [
+        "openai-gpt-live-docs",
+        "openai-gpt-live-release"
+      ]
+    },
+    "application-control": {
+      "state": "supported",
+      "reason": "The documentation capture states the application owns permissions, confirmations, private function execution and durable task state, which the article correctly attributes to OpenAI's documentation.",
+      "passages": [
+        "P004"
+      ],
+      "sourceIds": [
+        "openai-gpt-live-docs"
+      ]
+    },
+    "traditional-comparison": {
+      "state": "supported",
+      "reason": "The OpenAI release describes traditional voice agents stitching together speech-to-text, a reasoning model and text-to-speech, matching the article's separate listening, reasoning and speaking stages framing.",
+      "passages": [
+        "P005"
+      ],
+      "sourceIds": [
+        "openai-gpt-live-release"
+      ]
+    },
+    "yelp-testing": {
+      "state": "supported",
+      "reason": "The Yelp release capture reports improved call handling, fewer transfers and callers speaking in fuller sentences, and the article correctly frames these as company-reported observations rather than independent findings.",
+      "passages": [
+        "P006"
+      ],
+      "sourceIds": [
+        "yelp-hatch-businesswire"
+      ]
+    },
+    "evidence-limit": {
+      "state": "supported",
+      "reason": "The source capture itself notes the release provides no sample size, method, geographic rollout or independent evaluation, matching the article's stated evidentiary limit.",
+      "passages": [
+        "P006"
+      ],
+      "sourceIds": [
+        "yelp-hatch-businesswire"
+      ]
+    },
+    "price": {
+      "state": "supported",
+      "reason": "Both OpenAI captures state $0.05 per minute for the front-end voice layer with backend model and tool usage billed separately, and the article correctly labels it a developer price, not a caller fee.",
+      "passages": [
+        "P007"
+      ],
+      "sourceIds": [
+        "openai-gpt-live-release",
+        "openai-gpt-live-docs"
+      ]
+    },
+    "confirmation": {
+      "state": "supported",
+      "reason": "The docs' statement that the application owns confirmations and durable task state grounds the article's inference that a fluent voice is not itself the booking record, and no source claims proven transaction accuracy.",
+      "passages": [
+        "P008",
+        "P004"
+      ],
+      "sourceIds": [
+        "openai-gpt-live-docs",
+        "yelp-hatch-businesswire"
+      ]
+    }
+  },
+  "outcomes": {
+    "factualIntegrity": {
+      "state": "pass",
+      "reason": "Every material claim matches the captured source wording with correct attribution, and vendor claims are consistently labelled as company statements rather than independent facts.",
+      "passages": [
+        "P002",
+        "P006",
+        "P007"
+      ]
+    },
+    "freshnessReviewability": {
+      "state": "pass",
+      "reason": "The September 10 release date, same-day Yelp announcement and named checkable sources make the time-sensitive claims reviewable.",
+      "passages": [
+        "P002",
+        "P009"
+      ]
+    },
+    "datedChange": {
+      "state": "pass",
+      "reason": "The article dates the new release and integration and does not conflate prior Yelp Host history with the new GPT-Live-1 evidence, explicitly noting no rollout scope was disclosed.",
+      "passages": [
+        "P002",
+        "P003"
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "state": "pass",
+      "reason": "Concrete caller consequences and confirmation checks are given while uncertainty about transaction accuracy and rollout survives to the end, including the next evidence to watch for.",
+      "passages": [
+        "P008",
+        "P009",
+        "P006"
+      ]
+    }
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All ten material claims are supported by the supplied source captures with accurate attribution and preserved evidence boundaries, and all four outcome assessments pass; no defect or evidence gap was found."
+  },
+  "summary": "The artifact accurately reports the September 10 GPT-Live-1 API release and Yelp's same-day Host/Hatch integration, keeps the voice-layer/backend distinction faithful to OpenAI's documentation, correctly labels Yelp's testing results as company-reported with stated evidentiary limits, and states the developer price with its caller-fee caveat; every material claim is supported and all outcomes pass, so no new defect is registered."
+}

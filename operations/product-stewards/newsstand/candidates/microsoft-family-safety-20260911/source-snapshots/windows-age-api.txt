@@ -1,0 +1,194 @@
+Helping families and educators support safer experiences and healthier habits on Windows | Windows Experience Blog
+Skip to main content
+Skip to main content
+Windows Blogs
+Windows Experience
+Devices
+Windows Developer
+Microsoft Edge
+Windows Insider
+Microsoft 365
+Microsoft 365
+Azure
+Copilot
+Windows
+Surface
+XBOX
+Deals
+Small Business
+Support
+Windows Apps
+Outlook
+OneDrive
+Microsoft Teams
+OneNote
+Microsoft Edge
+Moving from Skype to Teams
+Computers
+Shop XBOX
+Accessories
+VR & mixed reality
+Certified Refurbished
+Trade-in for cash
+XBOX Game Pass Ultimate
+PC Game Pass
+XBOX games
+PC games
+Microsoft AI
+Microsoft Security
+Dynamics 365
+Microsoft 365 for business
+Microsoft Power Platform
+Windows 365
+Small Business
+Digital Sovereignty
+Azure
+Microsoft Developer
+Microsoft Learn
+Support for AI marketplace apps
+Microsoft Tech Community
+Microsoft Marketplace
+Software companies
+Visual Studio
+Microsoft Rewards
+Free downloads & security
+Education
+Gift cards
+Licensing
+Unlocked stories
+View Sitemap
+/ Windows Experience Blog
+Share on Facebook
+Share on X
+Share on LinkedIn
+Share on Threads
+Subscribe to RSS
+September 8, 2026
+Helping families and educators support safer experiences and healthier habits on Windows
+By
+Rob Mauceri, Distinguished Engineer, Windows Digital Safety
+Our children and teens are growing up in a digital world where apps, games, and AI-powered tools are part of how they learn, play, create, and connect. For parents and educators, that brings both opportunity and responsibility: digital experiences should help young people explore with confidence while supporting their wellbeing, building healthy habits, respecting their privacy, and providing protections that are appropriate for their age.
+At Microsoft, we believe safety should be easier for families to understand and easier for developers to build into experiences for children to use. On Windows, that starts with the account. Microsoft account is a trusted foundation through which Windows brings age-appropriate protections and parental choices into more of the digital experiences encountered by children and teens every day.
+A child’s account should help unlock safer, more age-appropriate experiences wherever they use Windows.
+This is the first in a series of posts on family safety on Windows. Over the coming months I’ll share what we’re building — in the account, in the platform, and in the tools we provide to parents, educators, and developers. As Pavan
+recently shared
+, Family is a key focus area in our commitment to improving Windows quality. We’ll build in the open: shipping new capabilities, listening closely to what families tell us, and refining as we learn.
+From account to safer experiences
+Every experience on Windows starts with identity, and for consumers, that foundation is the Microsoft account (MSA).
+MSA enables Windows to understand key context about the user in a consistent and privacy-conscious way:
+Whether the user is a child, teen, or adult
+Whether parental controls or consent apply
+Whether age verification has been completed
+This creates a simple, scalable model:
+User account → age signal → age-appropriate experience and controls
+Because this foundation is tied to the account, protections are designed to follow the user across Windows and apps, creating safer experiences consistently, not just in individual features. This enables product experiences to support a user’s stage of life. Protections are matched to children, teens, and adults.
+Extending safety across the ecosystem with the Windows Age APIs
+As experiences expand across apps, services, and AI, one challenge becomes clear: how can these experiences consistently understand and respect a user’s age?
+To address this, Windows is introducing a new platform capability: the
+Windows Age API
+.
+This API brings age awareness beyond the operating system by making it available across the entire Windows ecosystem so that apps and services can deliver age-appropriate experiences using the same trusted foundation. By making age awareness available as a platform capability, Windows helps developers build safeguards into experiences from the start rather than placing the burden on children and families to manage protections app by app.
+The Windows Age API offers the following capabilities:
+GetUserAgeRangeAsync
+: Provides non-personally identifiable age group categories for apps to utilize in providing safe and age-appropriate user experiences, while protecting the date of birth data and overall privacy of users. Age groupings available via the API include- under 10, 10-12, 13-15, 16-17, 18+.
+GetAgeVerificationStatusAsync
+: Provides verified age status for scenarios when self-reported age is not sufficient.
+CheckAgeStatusAsync:
+Extends the functionality of the legacy CheckUserAgeConsentGroupAsync API to offer child, minor, or adult classification globally and as defined by regional policies.
+These signals are designed to protect privacy:
+Apps receive only the age-related signal needed for the experience and not sensitive personal data such as full date of birth
+Users remain in control through consent and platform-level controls
+Age information is handled consistently at the platform level to reduce unnecessary sharing and fragmentation
+This enables a new level of consistency across Windows experiences. Apps can recognize when a user is under a certain age and adjust features accordingly, helping create safer, more appropriate interactions without requiring manual setup. This platform approach also helps make protections more consistent and accessible, so safer experiences do not depend on whether a family discovers or configures controls in each individual app.
+Just as importantly, this extends to emerging experiences, including AI, where applying age-appropriate safeguards is increasingly important as innovation continues to evolve.
+By making this a
+platform capability
+, Windows drives safety which is built-in and available across apps, services, and new scenarios.
+For more details, including developer guidance, check out the Windows Age API documentation found at
+https://aka.ms/windows-age-api
+.
+Building toward high-confidence age assurance
+In many cases, understanding age is not enough. Increasingly, certain experiences require high confidence that a user is an adult.
+To support this, Microsoft is expanding age assurance through the Microsoft account using Microsoft Age Verification (MAV), a centralized platform that enables users to verify their age once and use that status across Microsoft experiences. Developers can access this verified status through Windows Age APIs.
+Age verification is already available in Microsoft Storefronts in Singapore, Brazil, and Australia. As more regions around the world expand regulatory requirements for age verification, Microsoft will add support for those geographies and product scenarios.
+MAV creates a simple, consistent model:
+Verify once → use everywhere
+Verified status is stored with the Microsoft account and can be used across Windows and apps to enable appropriate experiences, helping reduce friction while improving safety.
+Making safety clearer from the start
+We’re also improving how parental controls are surfaced during device setup, so families can more easily understand available protections and make informed choices from the very beginning.
+In regions such as France and others, Windows is raising the visibility of parental controls and consent experiences during setup, designed to increase awareness of the available offerings and enabling early application by parents.
+Family Safety and Parental Controls
+With Family Safety built into Windows, parents can set up a child’s device and manage screen time, apps, and content in one place. Over the past six months, we’ve focused on making those everyday moments more dependable – faster parental approvals, clearer activity reporting, and more overall control – guided by what parents told us mattered most. You can read more about what’s improved and what’s coming next here:
+Listening to families. Improving Microsoft Family.
+Raising the bar for digital safety
+Digital safety must be built into the platform—not added on later.
+With Microsoft account as the foundation, and with investments like the Windows Age API expanded age assurance, and available parental controls, Windows is working to support a safer digital environment that is also age-appropriate, privacy-conscious, and easier for families to navigate.
+Our goal is to help create experiences where safety, privacy, and participation can work together across the Windows ecosystem.
+Availability
+The Windows Age APIs are broadly available to Windows Insiders now and will be available to all Windows users soon. The
+CheckAgeStatusAsync
+API will be available with a future update.
+Tags:
+Parental Controls
+Surface Pro
+Surface Laptop
+Surface Laptop Ultra
+Surface RTX Spark Dev Box
+Copilot for organizations
+Copilot for personal use
+Explore Microsoft products
+Windows 11 apps
+Account profile
+Download Center
+Microsoft Store support
+Returns
+Order tracking
+Certified Refurbished
+Microsoft Store Promise
+Flexible Payments
+Microsoft in education
+Devices for education
+Microsoft Teams for Education
+Microsoft 365 Education
+How to buy for your school
+Educator training and development
+Deals for students and parents
+AI for education
+Microsoft AI
+Microsoft Security
+Dynamics 365
+Microsoft 365
+Microsoft Power Platform
+Microsoft Teams
+Microsoft 365 Copilot
+Small Business
+Azure
+Microsoft Developer
+Microsoft Learn
+Support for AI marketplace apps
+Microsoft Tech Community
+Microsoft Marketplace
+Software companies
+Visual Studio
+Careers
+About Microsoft
+Company news
+Privacy at Microsoft
+Investors
+Diversity and inclusion
+Accessibility
+Sustainability
+Your Privacy Choices Opt-Out Icon
+Your Privacy Choices
+Your Privacy Choices Opt-Out Icon
+Your Privacy Choices
+Consumer Health Privacy
+Sitemap
+Contact Microsoft
+Privacy
+Manage cookies
+Terms of use
+Trademarks
+Safety & eco
+Recycling
+About our ads

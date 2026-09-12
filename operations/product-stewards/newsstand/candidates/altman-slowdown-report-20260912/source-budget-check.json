@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "laidies.newsstand-source-budget-check.v1",
+  "candidateId": "amodei-ai-pacing-20260912",
+  "scope": "Every visible visitor-facing field.",
+  "countingMethod": "All report-dependent wording is allocated; no editorial-synthesis exemption.",
+  "artifactBindings": {
+    "story": {
+      "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/story.json",
+      "sha256": "53ecbf2f87674e295840d33a64a648d83ea082b4d8374c0d449ae02b9f47c56d"
+    },
+    "article": {
+      "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/article.md",
+      "sha256": "314df576ed7bd2d528819489b7f3a60b8436692ef732839331fdc22914847162"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/altman-slowdown-report-20260912/rendered-article.html",
+      "sha256": "07315c521a1dea18f32e6cf8974f49491dabb8345255b96e529283932905c446"
+    }
+  },
+  "fields": [
+    {
+      "field": "headline",
+      "fragments": [
+        {
+          "text": "Anthropic’s chief calls for slower AI development—and outside safety checks.",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "dario-amodei-pace-frontier-2026-09",
+          "wordCount": 12
+        }
+      ]
+    },
+    {
+      "field": "the_story",
+      "fragments": [
+        {
+          "text": "Anthropic CEO Dario Amodei calls for slowing the pace of improving AI capabilities so safety work can keep up. His first step is one Anthropic says it will take itself: invite an outside evaluation team with ongoing access similar to employees who assess risk.\n\nAmodei says that team would have desks, badges, laptops, and mostly comparable access to relevant tools and workspaces. He says privacy, legal, and contract exceptions would remain.",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "dario-amodei-pace-frontier-2026-09",
+          "wordCount": 71
+        }
+      ]
+    },
+    {
+      "field": "laidies_read",
+      "fragments": [
+        {
+          "text": "Outside evaluators could check a company’s safety claims from inside the work, then say publicly what they found. Amodei says reviewers should be able to publish key findings without Anthropic editing them, with narrow redactions for security, legal, commercial, or third-party confidential information.",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "dario-amodei-pace-frontier-2026-09",
+          "wordCount": 44
+        }
+      ]
+    },
+    {
+      "field": "what_this_means",
+      "fragments": [
+        {
+          "text": "Anthropic’s stated evaluator commitment is one company’s step. Amodei’s wider proposal asks other companies and governments to coordinate. He has not announced an industry-wide agreement to slow development. If this develops, look for a named evaluator, published findings, or a specific cross-company commitment.",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "ap-amodei-pace-2026-09-12",
+          "wordCount": 46
+        }
+      ]
+    },
+    {
+      "field": "cocktail_party",
+      "fragments": [
+        {
+          "text": "“Anthropic says it will invite outside evaluators; Amodei is asking the rest of the industry and governments to join a wider proposal.”",
+          "kind": "SOURCE_DERIVED",
+          "sourceId": "dario-amodei-pace-frontier-2026-09",
+          "wordCount": 22
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "dario-amodei-pace-frontier-2026-09",
+      "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
+      "wordLimit": 200,
+      "limitOrigin": "Current browser source allowance.",
+      "allocations": [
+        {
+          "field": "headline",
+          "text": "Anthropic’s chief calls for slower AI development—and outside safety checks.",
+          "wordCount": 12,
+          "directQuoteWords": 0
+        },
+        {
+          "field": "the_story",
+          "text": "Anthropic CEO Dario Amodei calls for slowing the pace of improving AI capabilities so safety work can keep up. His first step is one Anthropic says it will take itself: invite an outside evaluation team with ongoing access similar to employees who assess risk.\n\nAmodei says that team would have desks, badges, laptops, and mostly comparable access to relevant tools and workspaces. He says privacy, legal, and contract exceptions would remain.",
+          "wordCount": 71,
+          "directQuoteWords": 0
+        },
+        {
+          "field": "laidies_read",
+          "text": "Outside evaluators could check a company’s safety claims from inside the work, then say publicly what they found. Amodei says reviewers should be able to publish key findings without Anthropic editing them, with narrow redactions for security, legal, commercial, or third-party confidential information.",
+          "wordCount": 44,
+          "directQuoteWords": 0
+        },
+        {
+          "field": "cocktail_party",
+          "text": "“Anthropic says it will invite outside evaluators; Amodei is asking the rest of the industry and governments to join a wider proposal.”",
+          "wordCount": 22,
+          "directQuoteWords": 0
+        }
+      ]
+    },
+    {
+      "id": "ap-amodei-pace-2026-09-12",
+      "url": "https://apnews.com/article/d59552edcb27892d8ee4d98a48397706",
+      "wordLimit": 100,
+      "limitOrigin": "Current browser source allowance.",
+      "allocations": [
+        {
+          "field": "what_this_means",
+          "text": "Anthropic’s stated evaluator commitment is one company’s step. Amodei’s wider proposal asks other companies and governments to coordinate. He has not announced an industry-wide agreement to slow development. If this develops, look for a named evaluator, published findings, or a specific cross-company commitment.",
+          "wordCount": 46,
+          "directQuoteWords": 0
+        }
+      ]
+    }
+  ],
+  "result": "PASS",
+  "totals": {
+    "dario-amodei-pace-frontier-2026-09": 149,
+    "ap-amodei-pace-2026-09-12": 46
+  },
+  "allVisitorFieldsAccountedFor": true
+}

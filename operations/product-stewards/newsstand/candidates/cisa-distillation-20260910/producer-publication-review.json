@@ -1,0 +1,704 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "cisa-distillation-20260910",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/weekly_recovery",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/weekly_recovery",
+    "principalId": "/root/weekly_recovery",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-10T20:42:30.000-07:00",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/publication-manifest.json",
+      "sha256": "2e022f342a29f1214604068a302ba3a1a9df5e1f0b9ce03beb0b478b59470478"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/review-text.json",
+      "sha256": "c1d3738dcbdd1b549edc865b69ac30b61b418f1ace92d0109ab4eac91a415c35"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/rendered-article.html",
+      "sha256": "6f60be4753922c0b5c1f295afbf3d6a4fdc2b3431c7cc797f354ef56fece062d"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/weekly_recovery",
+    "reviewedAt": "2026-09-10T19:36:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What does distillation mean, and what is actually proven in the U.S.-China dispute?",
+    "promisedPayoff": "Understand the ordinary method, alleged unauthorized boundary, denial and missing public evidence.",
+    "centralMentalModel": "Distillation is a method; permission, scale, access rules and evidence determine the disputed boundary.",
+    "dailyLifeConnection": "Reading a claim that one AI model copied another.",
+    "surfaceJob": "September 10 coverage of a September 8 advisory and September 9 response.",
+    "desiredReaderFeeling": "I can separate a government allegation from a proven finding."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies plainClarity evidence while keeping method, allegation, denial and evidence limit connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "is a normal way to train one AI system from many answers produced by another",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies readerValue evidence while keeping method, allegation, denial and evidence limit connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep the method and the accusation separate.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies laidiesVoice evidence while keeping method, allegation, denial and evidence limit connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The disputed line is permission.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies engagingEnjoyable evidence while keeping method, allegation, denial and evidence limit connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The method is like an apprentice studying many demonstrations from an expert.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies factualIntegrity evidence while keeping method, allegation, denial and evidence limit connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Neither government’s statement lets the public inspect the underlying account records.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies freshnessReviewability evidence while keeping method, allegation, denial and evidence limit connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On September 8, the FBI, National Security Agency and CISA",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies surfaceFit evidence while keeping method, allegation, denial and evidence limit connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "China’s Commerce Ministry rejected the allegations on September 9.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies datedChange evidence while keeping method, allegation, denial and evidence limit connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The agencies urged AI providers to strengthen detection, respond to suspected misuse and share intelligence.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies consequenceAndUncertainty evidence while keeping method, allegation, denial and evidence limit connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The public evidence does not yet resolve that dispute.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies dailyLifeConnection evidence while keeping method, allegation, denial and evidence limit connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "When a headline says one model copied another",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies communicationBenchmark evidence while keeping method, allegation, denial and evidence limit connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The student model learns patterns from the teacher model’s outputs rather than receiving the teacher’s original internal files.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies explainBack evidence while keeping method, allegation, denial and evidence limit connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The disputed line is permission.",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What is distillation and what is disputed here?",
+        "probeResponse": "A student model learns from outputs of a teacher model. The dispute is whether six companies gathered restricted outputs without authorization and at industrial scale.",
+        "expectedEvidence": "Teacher outputs, student learning and permission boundary."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies unseenTransfer evidence while keeping method, allegation, denial and evidence limit connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "permission, access rules and evidence determine the disputed boundary.",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Apply the mechanism to licensed model training.",
+        "probeResponse": "I would check what outputs the licence allowed, the scale and the training record before deciding whether the use was authorized.",
+        "expectedEvidence": "Same method, different permission and provenance."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies usefulAction evidence while keeping method, allegation, denial and evidence limit connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "What was learned from the other model, under what permission, and what public evidence supports the allegation?",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies analogyIntegrity evidence while keeping method, allegation, denial and evidence limit connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The comparison stops at the learning pattern",
+          "locator": "exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The complete article avoids glossaryAccumulation; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The complete article avoids templateRepetition; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The complete article avoids decorativeAnalogy; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The complete article avoids referenceConfetti; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The complete article avoids missingMechanism; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The complete article avoids genericAction; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The complete article avoids jargonBeforeMeaning; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The complete article avoids disconnectedSystem; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The complete article avoids factlessConfidence; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The complete article avoids staleUnreviewableClaims; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The complete article avoids corporateSludge; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The complete article avoids joylessInstruction; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The complete article avoids benchmarkNameDrop; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The complete article avoids curiosityWithoutPayoff; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The complete article avoids familiarExampleWithoutTechnicalReturn; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The complete article avoids communicationPastiche; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The complete article avoids entertainmentBeforeUnderstanding; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The complete article avoids mechanismCompressedBehindHook; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The complete article avoids prematureClickBeforeMechanism; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The complete article avoids inflatedTakeawayEnding; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The complete article avoids purposeTooNarrow; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The complete article avoids mechanismBeforeMotivation; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The complete article avoids workedExampleOvertakesBookPurpose; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The complete article avoids technicalExplainerVoice; one mechanism, disputed boundary and evidence limit remain connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/source-evidence.json",
+        "sha256": "2d1a019fb357fc4a35667a1e13be13b0210fd83ec69ef9f35feb319d511c499d"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "advisory-date",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "On September 8, the FBI, National Security Agency and CISA",
+            "locator": "the_story paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/source-evidence.json",
+          "sha256": "2d1a019fb357fc4a35667a1e13be13b0210fd83ec69ef9f35feb319d511c499d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The advisory is dated September 8, 2026 and was jointly released by CISA, NSA and the FBI.",
+            "locator": "cisa-aa26-251a passages"
+          }
+        ],
+        "scopeAndFreshness": "Advisory date and joint authorship."
+      },
+      {
+        "claimId": "six-company-allegation",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "accused six Chinese AI companies of using “industrial-scale” knowledge distillation",
+            "locator": "the_story paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/source-evidence.json",
+          "sha256": "2d1a019fb357fc4a35667a1e13be13b0210fd83ec69ef9f35feb319d511c499d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The advisory is dated September 8, 2026 and was jointly released by CISA, NSA and the FBI.",
+            "locator": "cisa-aa26-251a passages"
+          }
+        ],
+        "scopeAndFreshness": "Agency allegation, not an established finding."
+      },
+      {
+        "claimId": "named-companies",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "DeepSeek, Moonshot AI, Alibaba, MiniMax, StepFun and Z.AI",
+            "locator": "the_story paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/source-evidence.json",
+          "sha256": "2d1a019fb357fc4a35667a1e13be13b0210fd83ec69ef9f35feb319d511c499d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The advisory is dated September 8, 2026 and was jointly released by CISA, NSA and the FBI.",
+            "locator": "cisa-aa26-251a passages"
+          }
+        ],
+        "scopeAndFreshness": "Names in the advisory."
+      },
+      {
+        "claimId": "government-awareness-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "“likely with Chinese government awareness” is an agency assessment, not a public legal finding",
+            "locator": "the_story paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/source-evidence.json",
+          "sha256": "2d1a019fb357fc4a35667a1e13be13b0210fd83ec69ef9f35feb319d511c499d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The advisory is dated September 8, 2026 and was jointly released by CISA, NSA and the FBI.",
+            "locator": "cisa-aa26-251a passages"
+          }
+        ],
+        "scopeAndFreshness": "Explicit qualification of agency assessment."
+      },
+      {
+        "claimId": "china-denial",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "China’s Commerce Ministry rejected the allegations on September 9",
+            "locator": "the_story paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/source-evidence.json",
+          "sha256": "2d1a019fb357fc4a35667a1e13be13b0210fd83ec69ef9f35feb319d511c499d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "China’s Commerce Ministry said the U.S. industrial-scale distillation allegations lack factual and legal basis and politicize a normal technical and commercial issue.",
+            "locator": "mofcom-response passages"
+          },
+          {
+            "excerpt": "AP reported on September 9 that China’s Commerce Ministry dismissed the U.S. claims as groundless and accused the United States of pursuing an AI-industry monopoly.",
+            "locator": "ap-china-response passages"
+          }
+        ],
+        "scopeAndFreshness": "Official denial corroborated by AP reporting."
+      },
+      {
+        "claimId": "monopoly-response",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "accused the United States of protecting an AI monopoly",
+            "locator": "the_story paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/source-evidence.json",
+          "sha256": "2d1a019fb357fc4a35667a1e13be13b0210fd83ec69ef9f35feb319d511c499d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "China’s Commerce Ministry said the U.S. industrial-scale distillation allegations lack factual and legal basis and politicize a normal technical and commercial issue.",
+            "locator": "mofcom-response passages"
+          },
+          {
+            "excerpt": "AP reported on September 9 that China’s Commerce Ministry dismissed the U.S. claims as groundless and accused the United States of pursuing an AI-industry monopoly.",
+            "locator": "ap-china-response passages"
+          }
+        ],
+        "scopeAndFreshness": "Attributed Chinese government position."
+      },
+      {
+        "claimId": "company-response-gap",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "four of the named companies did not immediately respond",
+            "locator": "the_story paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/source-evidence.json",
+          "sha256": "2d1a019fb357fc4a35667a1e13be13b0210fd83ec69ef9f35feb319d511c499d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "AP reported on September 9 that China’s Commerce Ministry dismissed the U.S. claims as groundless and accused the United States of pursuing an AI-industry monopoly.",
+            "locator": "ap-china-response passages"
+          }
+        ],
+        "scopeAndFreshness": "AP outreach result at publication."
+      },
+      {
+        "claimId": "agency-response",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "strengthen detection, respond to suspected misuse and share intelligence",
+            "locator": "the_story paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/source-evidence.json",
+          "sha256": "2d1a019fb357fc4a35667a1e13be13b0210fd83ec69ef9f35feb319d511c499d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The advisory is dated September 8, 2026 and was jointly released by CISA, NSA and the FBI.",
+            "locator": "cisa-aa26-251a passages"
+          }
+        ],
+        "scopeAndFreshness": "High-level defensive recommendations, operational details omitted."
+      },
+      {
+        "claimId": "distillation-definition",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "a normal way to train one AI system from many answers produced by another",
+            "locator": "laidies_read paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/source-evidence.json",
+          "sha256": "2d1a019fb357fc4a35667a1e13be13b0210fd83ec69ef9f35feb319d511c499d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The advisory is dated September 8, 2026 and was jointly released by CISA, NSA and the FBI.",
+            "locator": "cisa-aa26-251a passages"
+          },
+          {
+            "excerpt": "China’s Commerce Ministry said the U.S. industrial-scale distillation allegations lack factual and legal basis and politicize a normal technical and commercial issue.",
+            "locator": "mofcom-response passages"
+          }
+        ],
+        "scopeAndFreshness": "Both sides recognize the method as ordinary; authorization dispute retained."
+      },
+      {
+        "claimId": "file-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "rather than receiving the teacher’s original internal files",
+            "locator": "laidies_read paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/source-evidence.json",
+          "sha256": "2d1a019fb357fc4a35667a1e13be13b0210fd83ec69ef9f35feb319d511c499d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The advisory is dated September 8, 2026 and was jointly released by CISA, NSA and the FBI.",
+            "locator": "cisa-aa26-251a passages"
+          }
+        ],
+        "scopeAndFreshness": "Mechanism explanation; does not claim file theft."
+      },
+      {
+        "claimId": "quantity-allegation",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "billions of pieces of output across millions of requests",
+            "locator": "laidies_read paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/source-evidence.json",
+          "sha256": "2d1a019fb357fc4a35667a1e13be13b0210fd83ec69ef9f35feb319d511c499d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The advisory is dated September 8, 2026 and was jointly released by CISA, NSA and the FBI.",
+            "locator": "cisa-aa26-251a passages"
+          }
+        ],
+        "scopeAndFreshness": "Agency quantity allegation."
+      },
+      {
+        "claimId": "permission-dispute",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "used unauthorized access and violated provider rules or regional limits",
+            "locator": "laidies_read paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/source-evidence.json",
+          "sha256": "2d1a019fb357fc4a35667a1e13be13b0210fd83ec69ef9f35feb319d511c499d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The advisory is dated September 8, 2026 and was jointly released by CISA, NSA and the FBI.",
+            "locator": "cisa-aa26-251a passages"
+          }
+        ],
+        "scopeAndFreshness": "Agency allegation, paired with denial."
+      },
+      {
+        "claimId": "scope-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "not evidence that every Chinese AI model was trained improperly",
+            "locator": "what_this_means paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/source-evidence.json",
+          "sha256": "2d1a019fb357fc4a35667a1e13be13b0210fd83ec69ef9f35feb319d511c499d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The advisory is dated September 8, 2026 and was jointly released by CISA, NSA and the FBI.",
+            "locator": "cisa-aa26-251a passages"
+          }
+        ],
+        "scopeAndFreshness": "Editorial scope limit to six named companies."
+      }
+    ],
+    "reviewedThrough": "2026-09-10",
+    "nextTrigger": "Reopen all three sources on publication day; redraft for new evidence, formal action, company response or corrected agency language.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate explains this September 8 advisory and September 9 denial."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No registered or new reusable defect after source and exact-prose review; independent review remains required."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "AI editorial assessment only; no human-comprehension evidence is claimed.",
+    "Public release remains separate."
+  ]
+}

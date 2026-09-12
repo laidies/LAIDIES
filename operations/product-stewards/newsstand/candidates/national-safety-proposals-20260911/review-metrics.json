@@ -1,0 +1,26 @@
+{
+  "proseReview": {
+    "reviewIssues": 0,
+    "reviewCycles": 1
+  },
+  "sourcePacket": {
+    "rounds": 1,
+    "gaps": 0,
+    "repaired": 0,
+    "preflight": "check-source-packet-preflight.mjs --calibrate",
+    "checkedClaims": 15,
+    "exactSourceExcerpts": 27
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "provenanceReview": {
+    "issues": 1,
+    "reviewCycles": 2,
+    "repair": "Corrected future source/story timestamps; public prose remained byte-identical; exact successor independent review required."
+  }
+}

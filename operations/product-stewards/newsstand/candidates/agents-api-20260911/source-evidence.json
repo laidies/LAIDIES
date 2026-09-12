@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "laidies.newsstand-source-evidence.v1",
+  "candidateId": "agents-api-20260911",
+  "checkedAt": "2026-09-11T17:55:34.232761Z",
+  "records": [
+    {
+      "id": "openai-agents-launch",
+      "url": "https://openai.com/index/introducing-the-agents-api/",
+      "publisher": "OpenAI",
+      "authority": "company-primary-announcement",
+      "accessedAt": "2026-09-11T17:55:34.232761Z",
+      "snapshot": {
+        "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source/launch-web-observation.json",
+        "sha256": "d1b53ac9dd7977ca4ef9f30b32aa637e23929a1e615d7861db440a2f41c603fb"
+      },
+      "passages": [
+        "September 10, 2026",
+        "Today, we’re introducing the Agents API in public beta, bringing that same harness and infrastructure that powers Codex to developers through a simple, flexible API.",
+        "OpenAI hosts and maintains the harness. You choose the agent’s compute environment: in an OpenAI-managed sandbox, on your own infrastructure, or with one of our sandbox partners.",
+        "Agents API is available in public beta today to all developers. There are no additional fees for using the Agents API – you simply pay for the tokens and tools your agents use, as outlined on our pricing page.",
+        "During the public beta, we’ll iterate quickly based on your feedback as we work toward general availability."
+      ],
+      "limitation": "Company announcement establishes release date, beta access, product role and pricing wording; it does not prove reliability, adoption or consumer availability."
+    },
+    {
+      "id": "openai-agents-overview",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/overview.md",
+      "publisher": "OpenAI Developers",
+      "authority": "company-primary-current-documentation",
+      "accessedAt": "2026-09-11T17:55:34.232761Z",
+      "snapshot": {
+        "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source/overview.md",
+        "sha256": "203f4190c1aec39699df57c092204cc37de4f32e62fdba99327e35f4a5493aae"
+      },
+      "passages": [
+        "The Agents API gives your application access to the Codex harness through an OpenAI-managed API.",
+        "OpenAI manages sessions, orchestration, context compaction, and recovery while your application provides tools and chooses its execution environment.",
+        "Running commands and code in a sandbox.\n- Applying relevant skills and instructions.\n- Connecting to external data through tools or MCP.\n- Steering the agent while it works.\n- Summarizing previous work to manage its context window.\n- Breaking work into subtasks and delegating to subagents.\n- Resuming a session where it left off.",
+        "Model usage is billed at the selected model's API rates. OpenAI tools use their standard rates, and OpenAI-hosted sandboxes use standard container rates.",
+        "The Agents API retains session state so you can continue work across turns without\n  rebuilding the conversation context.",
+        "The Agents API currently supports data residency only in the United States and\n  does not support Zero Data Retention (ZDR). Choosing a self-hosted sandbox does\n  not make the Agents API ZDR-eligible."
+      ],
+      "limitation": "Current developer documentation describes the product contract and data controls; it is not evidence that a particular app has adopted the API or completed tasks reliably."
+    },
+    {
+      "id": "openai-hosted-sandbox",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/environments/openai-hosted.md",
+      "publisher": "OpenAI Developers",
+      "authority": "company-primary-current-documentation",
+      "accessedAt": "2026-09-11T17:55:34.232761Z",
+      "snapshot": {
+        "path": "operations/product-stewards/newsstand/candidates/agents-api-20260911/source/openai-hosted.md",
+        "sha256": "60fc182bef2a56bfb5b1a3ace2d22e483f4cd20da94d16516750ca38c8a954a8"
+      },
+      "passages": [
+        "OpenAI-hosted sandboxes use standard container rates.\nModel usage is billed separately at the selected model's API rates.",
+        "A completed turn does not guarantee every tool succeeded. If the task fails or the\nstream ends before completion, inspect the saved session items."
+      ],
+      "limitation": "Hosted-sandbox documentation establishes billing and completion-status limits; it does not assess application-level safeguards or outcomes."
+    }
+  ],
+  "nextTrigger": "Reopen the launch and current Agents API documentation if publication slips beyond September 11, the beta terms or access change, or an actual consumer deployment is named."
+}

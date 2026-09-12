@@ -1,0 +1,60 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "primaryType": "health-science",
+  "overlays": [
+    "research-benchmark"
+  ],
+  "universalAnswers": {
+    "whatHappened": "Nature Medicine posted an accepted-article preview reporting CRISP’s comparison results on frozen-section pathology images during surgery.",
+    "plainLanguageIdentity": "Frozen sections give a pathologist a rapid tissue image while surgery continues; CRISP supplies a prediction for the pathologist to interpret.",
+    "evidenceBasis": "The accepted paper reports prospective observational comparisons with other models and a reader study including pathologists.",
+    "evidenceLimits": "The paper says a prospective interventional study is still needed to assess deployment and clinical outcomes.",
+    "readerRelevance": "The story shows why an AI comparison result in a difficult clinical task can be meaningful without being proof of better care.",
+    "affectedPeople": "The study involved adult surgical patients and pathology teams at three prospective-study centres; no personal care recommendation follows.",
+    "changesNow": "The accepted-article preview reports research; it does not establish routine clinical availability.",
+    "uncertainty": "The authors require prospective interventional study, more diverse validation and work on regulation, workflow integration and training.",
+    "readerAction": "Read the study as evidence about model and workflow performance under its stated conditions, not as medical advice or proof of better outcomes.",
+    "betterQuestion": "Did the study measure prediction performance, workflow support or an actual improvement in patient outcomes?"
+  },
+  "typeAnswers": {
+    "health-science": {
+      "aiRole": "CRISP divides slide images into patches, extracts numerical features, weights salient regions and produces slide-level predictions.",
+      "professionalRole": "A pathologist remains responsible for interpreting the tissue and informing the surgical team; the article describes CRISP as support.",
+      "evidenceLevel": "Accepted peer-reviewed research with retrospective tasks, a prospective observational study and a separate simulated deployment analysis; not an interventional trial or approval.",
+      "benefitClaim": "The article reports prediction and workflow measures. This candidate makes no treatment or patient-outcome benefit claim.",
+      "risksAndFalseResults": "The paper reports false positives associated mainly with rare benign tumours and false negatives mainly with rare malignant tumours with ambiguous morphology.",
+      "availability": "The paper does not establish routine clinical availability, local access or regulatory authorization.",
+      "readerBoundary": "This research explanation is not medical advice and is not a reason to change personal care."
+    },
+    "research-benchmark": {
+      "researchQuestion": "Can a frozen-section-specific imaging model support diagnostic and predictive tasks in intraoperative pathology?",
+      "method": "Development used 103,797 slides obtained primarily from ten centres; prospective observational evaluation enrolled 3,064 patients at three centres, including 2,071 at SYCC, with a separate 100-case simulation.",
+      "result": "The study measured model predictions and workflow-related analyses; the candidate does not turn those into a clinical-impact claim.",
+      "sponsorAndInterests": "The paper authors performed and reported the work; the candidate relies on the peer-reviewed accepted paper and journal record.",
+      "independentReplication": "No independent replication was verified for this candidate.",
+      "realWorldTransfer": "Prospective observation tests performance under real workflows, while the separate deployment/timing analysis was simulated. Neither proves better patient outcomes.",
+      "limitations": "Retrospective registration, no prospective intervention, population diversity, regulatory compliance, workflow integration and user training remain limits."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "CRISP analyses those images. In an observational study, meaning researchers watched normal care, it beat other AI models.",
+    "actualMeaningExact": "This was a comparison in a difficult setting: the image must be read quickly while surgery is underway.",
+    "mechanismExact": "CRISP gives a prediction; the pathologist still interprets the tissue and informs the surgical team.",
+    "familiarExampleExact": "During surgery, a pathologist — a specialist who examines tissue to help identify disease — may need an answer before the next step.",
+    "jargon": [
+      {
+        "term": "frozen section",
+        "plainMeaning": "A frozen section is tissue quickly frozen, sliced and examined during surgery."
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "A measured result is bounded by its task and conditions.",
+        "learningPayoff": "AI Fundamentals 101 chapter 12.3 explains why a test does not establish readiness for a different real-world job.",
+        "disposition": "link",
+        "destination": "/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed"
+      }
+    ]
+  }
+}

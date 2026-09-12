@@ -1,0 +1,132 @@
+{
+  "packet": {
+    "candidateId": "microsoft-capacity-20260912",
+    "reader": {
+      "humanQuestion": "What does Microsoft\u2019s reported 38-gigawatt 2032 plan measure, and is it electricity used now?",
+      "promisedPayoff": "Separate planned power capacity from energy consumed over time while showing that the roadmap covers AI-specific and other cloud computing.",
+      "priorKnowledge": "No knowledge of electrical units, data-centre infrastructure or cloud computing is assumed.",
+      "centralMentalModel": "Data centres are physical server facilities. Gigawatts describe power at a moment; energy consumption requires a period of time.",
+      "dailyLifeConnection": "A reader sees a huge infrastructure number and wants to know what it says about AI growth without mistaking it for a present electricity bill.",
+      "surfaceJob": "A concise September 12 explanation of Reuters\u2019 September 10 report and the visible Bloomberg roadmap excerpt.",
+      "desiredFeeling": "I can explain the reported plan, the unit and what the number does not establish."
+    },
+    "explanationPlan": {
+      "plainAnswer": "Microsoft reportedly plans more than triple its data-centre capacity by 2032. The gigawatt figure is planned power capacity, not energy already used.",
+      "causalSequence": [
+        "Physical data-centre facilities hold servers.",
+        "The facilities have a rated power capacity measured in gigawatts.",
+        "Actual energy use depends on how much power they draw and for how long."
+      ],
+      "workedCase": "The actual report compares about 12 gigawatts now with about 38 planned for 2032 and separates AI-specific capacity from the rest.",
+      "transferCase": "For another infrastructure headline, separate capacity at a moment from energy consumed over a day or year.",
+      "usefulAction": "Ask what the unit measures, whether the number is current or planned and what work the capacity covers.",
+      "formatSpecificStructure": "The Story; The LAiDIES Read; What This Means for You; Cocktail Party; Class Notes.",
+      "antiTemplateDecision": "Use the real capacity numbers and physical mechanism; no household analogy, cost forecast, product disclaimer or repeated blanket denial.",
+      "analogyPlan": [],
+      "humourPlan": {
+        "noneReason": "The unit distinction is concrete without an analogy."
+      },
+      "readerQuestions": [
+        {
+          "id": "news",
+          "question": "What capacity expansion was reported?"
+        },
+        {
+          "id": "mechanism",
+          "question": "What does a gigawatt of capacity mean?"
+        },
+        {
+          "id": "limit",
+          "question": "Why is capacity not the same as energy actually consumed?"
+        }
+      ],
+      "requiredTerms": [
+        {
+          "term": "data centre",
+          "reason": "The story concerns the physical facilities behind cloud and AI services."
+        },
+        {
+          "term": "gigawatt",
+          "reason": "The central number is otherwise easy to mistake for energy consumption."
+        }
+      ],
+      "presentationPlan": "Reuse the current approved NewsStand evidence illustration with the normal LAiDIES credit."
+    },
+    "reportingFrame": {
+      "schema": "laidies.newsstand-story-type-coverage.v1",
+      "primaryType": "company-business",
+      "overlays": [],
+      "universalAnswers": {
+        "whatHappened": "Reuters reported that Microsoft plans to expand data-centre capacity from about 12 gigawatts now to about 38 by 2032.",
+        "plainLanguageIdentity": "Data centres are physical buildings filled with servers for AI and other cloud work.",
+        "evidenceBasis": "Reuters supports the dated roadmap, AI-specific shares and nonresponse; Bloomberg\u2019s public excerpt supports the overall figures and facility scope.",
+        "evidenceLimits": "This is reported planning, not Microsoft confirmation, present electricity use, future energy consumption or a customer outcome.",
+        "readerRelevance": "The distinction lets a reader understand the scale of planned computing infrastructure without turning capacity into actual energy use.",
+        "affectedPeople": "The sources describe Microsoft infrastructure and do not establish a change for individual users or customers.",
+        "changesNow": "The news is the reported roadmap; the 38-gigawatt target is for 2032.",
+        "uncertainty": "Microsoft did not immediately comment, future utilization is unknown and the Bloomberg body remains paywalled.",
+        "readerAction": "When reading a data-centre number, ask whether it measures power capacity or energy actually consumed over time.",
+        "betterQuestion": "How much power capacity is planned, for when, and how much of it would actually be used?"
+      },
+      "typeAnswers": {
+        "company-business": {
+          "businessChange": "A reported roadmap would expand Microsoft\u2019s owned and leased data-centre capacity to about 38 gigawatts by 2032.",
+          "companyMotive": "The sources establish a capacity plan for AI and other cloud work but no direct Microsoft explanation of motive.",
+          "payer": "The article does not report a reader price or allocate infrastructure costs.",
+          "beneficiary": "The reported expansion would provide more physical capacity for Microsoft\u2019s AI and cloud computing.",
+          "incentives": "More capacity can support more computing; the sources do not establish utilization or customer outcomes.",
+          "customerEffectNow": "No new product, access, price or performance change is established.",
+          "financialContext": "The article uses capacity figures and omits spending forecasts because they are not needed to explain the roadmap."
+        }
+      },
+      "translation": {
+        "schema": "laidies.newsstand-reader-translation.v1",
+        "newsVersionExact": "Reuters reported on September 10 that Microsoft plans to expand its data-centre capacity from about 12 gigawatts now to about 38 gigawatts by 2032.",
+        "actualMeaningExact": "In this report, 38 gigawatts describes the capacity Microsoft plans to have online in 2032.",
+        "mechanismExact": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment.",
+        "familiarExampleExact": "It is not a reading of electricity Microsoft is consuming today, and it does not tell us how much energy those facilities would use over a day or year.",
+        "jargon": [
+          {
+            "term": "data centre",
+            "plainMeaning": "Data centres are physical buildings filled with servers."
+          },
+          {
+            "term": "gigawatt",
+            "plainMeaning": "A gigawatt measures power: the rate at which electricity can be supplied or used at a moment."
+          }
+        ],
+        "learningConnections": [
+          {
+            "concept": "physical infrastructure behind cloud computing and AI",
+            "learningPayoff": "AI Fundamentals 101 chapter 17.1 explains that data centres are physical buildings filled with servers.",
+            "disposition": "link",
+            "destination": "/library.html#ai-fundamentals-101::%40ch-17-17-1-whats-actually-inside"
+          }
+        ]
+      }
+    },
+    "sourceBoundary": "Reuters for the dated report and AI-specific shares; Bloomberg public excerpt for visible roadmap and facility scope; Library for the physical data-centre explanation."
+  },
+  "bindings": [
+    {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/source-evidence.json",
+      "sha256": "fa70fa29f1e03b2f23ee44f3d31bcb4e6d4f69fd4d47a388578d0d8060a4dcf7"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/claim-map.json",
+      "sha256": "aaff0bd7d044d0a7bd375eb984d9471a17162ce2cc98cbedd422c7dce08c73ff"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/source-budget-check.json",
+      "sha256": "1e3953cf270a4f6bbbac810d316597a9c5e77ad15db5eb5b9356a04120a30d60"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/story-type-coverage.json",
+      "sha256": "64233276021ceb693488a13881bfa9d2e9757fafd777cecac9d3151db56b5578"
+    }
+  ],
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/producer-contract.json",
+    "sha256": "a3a4709668711bf0c430b4c6e0be38c30022096593c468f61e6cb8488b7e0899"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "laidies-newsstand-crossword-review-floor-policy.v1",
+  "policyId": "newsstand-crossword02-zero-floor-2026-09-11",
+  "status": "ACTIVE",
+  "authorizedOn": "2026-09-11",
+  "reviewedNotBefore": "2026-09-11T18:55:00.000Z",
+  "surface": "NEWSSTAND_CROSSWORD",
+  "candidateId": "crossword-02-20260911",
+  "predecessorCandidateId": "crossword-discovery-20260907-final",
+  "predecessorReviews": {
+    "PRODUCER_SELF_REVIEW": {
+      "path": "operations/product-stewards/newsstand/candidates/crossword-discovery-20260907/final/producer-review.json",
+      "sha256": "40d1f5c8fd5c133afc7eb8bdaab3c4aec7b041ef987ba7fe8fe8718cddcdeaee"
+    },
+    "INDEPENDENT_SEMANTIC_ADMISSION": {
+      "path": "operations/product-stewards/newsstand/candidates/crossword-discovery-20260907/final/independent-review.json",
+      "sha256": "c34c0564cbb2d0f9338c30399d17c0201004aafc2dcedffe32d47c43d33073bf"
+    }
+  },
+  "allowedContentClasses": [
+    "INTERACTIVE"
+  ],
+  "allowedStages": [
+    "PRODUCER_SELF_REVIEW",
+    "INDEPENDENT_SEMANTIC_ADMISSION"
+  ],
+  "mode": "ALLOW_EQUAL_ZERO_ISSUES_ONE_CYCLE_SUCCESSOR_V1",
+  "scope": "Exact Puzzle02 successor only under Ali full NewsStand completion instruction. Zero current defects and all source, calibration, content and functional checks remain required. Prior receipts immutable."
+}

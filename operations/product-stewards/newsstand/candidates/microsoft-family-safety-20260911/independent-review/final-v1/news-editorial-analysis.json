@@ -1,0 +1,84 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "microsoft-family-safety-20260911",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "fd685493de2aeab2983893d705f8e487512ca2913b43e6ecea9aa23cc72ab8ae",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why doesn't the new Windows Age API automatically make every app on a child's PC safer today?",
+      "response": "Because three separate steps must each happen: the API is only running on Windows Insider preview builds, not general Windows; even where it runs, it only passes an age category or verification status from the account to an app; and the app's developer must then choose to request that signal and decide what experience follows. Until a developer acts on the signal, nothing in the app changes — and existing protections like screen-time requests still travel through Family Safety, a different path entirely.",
+      "expectedEvidence": "P004 states the APIs are Insider-only and not a universal age check; P006 states the developer decides what follows from the signal and that Family Safety remains the separate control path.",
+      "assessment": "The article supports this causal answer completely in ordinary language; every step of the chain is explicit in P004 and P006, so a reader can reconstruct it without outside knowledge."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using only the article's mechanism, what will and won't change for this family?",
+      "response": "The announcement means the game's developer chose to read the age category the Microsoft account can supply — say '10–12' — and may adjust its own content or features accordingly. It will not enforce screen-time limits: those live in the Family Safety layer, and a request for more time still goes through the Family Safety app. Also, unless the family's PC runs an Insider build or the API has since reached general Windows, the signal may not even be available yet; the parent should check general availability rather than assume it.",
+      "expectedEvidence": "P006 (developer decides what follows from the signal; screen time still goes through Family Safety), P004 (Insider-only, not universal), P009 (ask which layer a claim describes).",
+      "assessment": "The article's three-layer model resolves this novel scenario cleanly and prevents the exact misreading it warns against, confirming genuine transfer rather than headline recall."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The September 10 framework, September 8 Family Safety fixes, and the Insider-only Age API are presented as distinct dated events with their causal relationships explained.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Microsoft published a youth-safety framework on September 10. It says everyone must now sign in to use Copilot and that access is restricted below age 13, or an older age where local law requires it. For the updated Copilot app with a personal Microsoft account, the support page sets a minimum age of 13, or higher where regional rules require it. That page does not cover work, school or organizational accounts.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Some practical family controls are available now. In current Family Safety apps and on the web, Microsoft says requests for more screen time, app access and purchases are faster; activity reports cover more apps; wallet balances are fixed; and family-group membership is easier to manage. The company says usage-time accuracy still needs work and some families may still have problems.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A different part of the announcement is still a preview. Microsoft is testing Windows tools that pass an age category or verification status from an account to an app. The Windows Age APIs are available to Windows Insiders now, and one announced function is promised for a future update. They are not a universal age check running in every Windows app today.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'Age signal' and 'Windows Insider' each receive a plain definition in the sentence where they first matter; API brackets are spelled out.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The account supplies an <strong>age signal</strong>—an age category or verification status an account can pass to an app without giving it a full date of birth. Microsoft lists brackets from under 10 through 18 and over. The app developer still decides what experience follows from the signal. A request for more screen time still goes through Family Safety; the preview age signal is a separate path an app could use to change its own experience.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>A <strong>Windows Insider</strong> is a person using a preview version of Windows before a feature reaches the general public. Independent reporting from Windows Central confirms that the Family Safety changes update existing controls and that the age tools remain limited to Insiders. It does not test whether approvals are faster, reports are more accurate or young people are safer. Those remain Microsoft’s claims.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences land in a specific situation: managing a family account, checking the Copilot app version, and noting the work/school exclusion.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If you help manage a family account, the current step is concrete: update the Family Safety app or use its web page for the controls that exist now. For Copilot, check whether the person is using the updated personal-account app; Microsoft’s cited support page does not govern work or school accounts.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Microsoft published a youth-safety framework on September 10. It says everyone must now sign in to use Copilot and that access is restricted below age 13, or an older age where local law requires it. For the updated Copilot app with a personal Microsoft account, the support page sets a minimum age of 13, or higher where regional rules require it. That page does not cover work, school or organizational accounts.</p>",
+          "locator": "P002"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; all advice follows from cited Microsoft availability claims and page scope.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If you help manage a family account, the current step is concrete: update the Family Safety app or use its web page for the controls that exist now. For Copilot, check whether the person is using the updated personal-account app; Microsoft’s cited support page does not govern work or school accounts.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>Some practical family controls are available now. In current Family Safety apps and on the web, Microsoft says requests for more screen time, app access and purchases are faster; activity reports cover more apps; wallet balances are fixed; and family-group membership is easier to manage. The company says usage-time accuracy still needs work and some families may still have problems.</p>",
+          "locator": "P003"
+        }
+      ]
+    }
+  }
+}

@@ -11,6 +11,7 @@ import { validateStoryTypeCoverage } from "./validate-newsstand-story-type-cover
 import { applyStoryLineageTransaction } from "./newsstand-story-lineage.mjs";
 import { inspectPreparedDraft } from "./prepare-newsstand-draft.mjs";
 import { validateOvernightFreshness } from "./lib/newsstand-overnight-freshness.mjs";
+import { assertNewsstandEvidenceTime } from "./lib/newsstand-evidence-time.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const readerContract = createRequire(import.meta.url)("../content/newsstand-reader-contract.js");
@@ -30,6 +31,11 @@ const read = readCandidateBinding;
 // The complete record, not selected prose fields, is the review boundary. This
 // includes summaries, captions, destinations and any reader-template extras.
 export const candidateReviewText = story => `${stable(story)}\n`;
+export function assertCompleteCandidateReviewText(text, story) {
+  // Accept the two producer encodings without rewriting checksum-bound review bytes.
+  // Exact serialization comparison also rejects duplicate keys, omissions and added text.
+  if (text !== candidateReviewText(story) && text !== `${JSON.stringify(story, null, 2)}\n`) throw new Error("candidate sourceText is not the exact complete held story");
+}
 export function publishCandidateStory(story, timestamp) {
   return { ...structuredClone(story), status: "published", publishedAt: timestamp,
     sourceApproval: { status: "approved", record: `newsstand:source-approval:${story.id}` } };
@@ -130,7 +136,7 @@ export function validateOrdinaryStoryCandidate(candidate, { root = ROOT, admitte
   if (candidate.storySha256 !== sha256(stable(story))) throw new Error("ordinary candidate story hash mismatch");
   const sourceText = read(root, candidate.sourceText, "candidate sourceText");
   const claimMap = JSON.parse(read(root, candidate.claimMap, "candidate claimMap"));
-  if (sourceText !== candidateReviewText(story)) throw new Error("candidate sourceText is not the exact complete held story");
+  assertCompleteCandidateReviewText(sourceText, story);
   const producer = JSON.parse(read(root, candidate.reviewEvidence?.producer, "candidate producer receipt"));
   const contract = JSON.parse(read(root, candidate.producerContract, "candidate producer contract"));
   const preflight = inspectContentProducerContract(contract, { root });
@@ -157,7 +163,40 @@ export function validateOrdinaryStoryCandidate(candidate, { root = ROOT, admitte
   for (const source of story.sources) {
     const bound = candidate.sources.find(item => item.id === source.id && item.url === source.url);
     if (!bound || !/^https:\/\//.test(source.url) || source.accessedAt !== candidate.editionDate || !independent.factualReview.sourceBindings.some(item => stable(item) === stable(bound.evidence))) throw new Error("public source is not bound to independently checked source evidence");
-    read(root, bound.evidence, "public source evidence");
+    const evidenceRaw = read(root, bound.evidence, "public source evidence");
+    if (!admittedHistoricalBase) {
+      // Observation packages are JSON. Historical text receipts retain their
+      // existing exact-byte and semantic review checks.
+      let evidence;
+      try { evidence = JSON.parse(evidenceRaw); } catch { evidence = null; }
+      assertNewsstandEvidenceTime({ story, producer, independent, evidence: evidence ? [evidence] : [] }, now);
+    }
   }
   return { story: structuredClone(story), publicationBaseRaw, maker: producer.maker, reviewedAt: independent.reviewedAt };
+}
+
+// Keep direct invocation honest: importing this module and exiting is not a check.
+export function inspectOrdinaryCandidateCommand(args, { root = ROOT, now = new Date().toISOString() } = {}) {
+  const options = {};
+  for (let i = 0; i < args.length; i += 2) {
+    const key = args[i], value = args[i + 1];
+    if (!["--candidate", "--date"].includes(key) || options[key] || !value || value.startsWith("--")) {
+      throw new Error("Usage: --candidate <private-candidate.json> [--date YYYY-MM-DD]");
+    }
+    options[key] = value;
+  }
+  if (!options["--candidate"]) throw new Error("--candidate is required; no check was run");
+  if (options["--date"] && !/^\d{4}-\d{2}-\d{2}$/.test(options["--date"])) throw new Error("Invalid --date");
+  const absolute = path.resolve(root, options["--candidate"]);
+  const relative = path.relative(root, absolute);
+  if (!relative.startsWith("operations/product-stewards/newsstand/candidates/") || !fs.realpathSync(absolute).startsWith(`${fs.realpathSync(root)}${path.sep}`)) throw new Error("Candidate must be private repository input");
+  const binding = { path: relative, sha256: sha256(fs.readFileSync(absolute)) };
+  const result = loadOrdinaryStoryCandidate(binding, { root, date: options["--date"], now });
+  return { status: "PASS", candidateId: result.candidate.candidateId, candidateSha256: binding.sha256,
+    reviewedAt: result.reviewedAt, scope: "Exact private candidate validation; not issue admission or publication." };
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  try { console.log(JSON.stringify(inspectOrdinaryCandidateCommand(process.argv.slice(2)), null, 2)); }
+  catch (error) { console.error(JSON.stringify({ status: "REJECT", error: error.message })); process.exitCode = 1; }
 }

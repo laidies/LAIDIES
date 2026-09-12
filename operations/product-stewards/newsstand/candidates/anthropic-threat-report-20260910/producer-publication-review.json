@@ -1,0 +1,700 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "anthropic-threat-report-20260910",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/weekly_recovery",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/weekly_recovery",
+    "principalId": "/root/weekly_recovery",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-10T20:34:15.000-07:00",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/publication-manifest.json",
+      "sha256": "2e7fb40ae2d522edc14beda786fc64a1a95c25a96e5bee2d4cc345254824c7d1"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/review-text.json",
+      "sha256": "353107df989d4be967f72fe188847adf024468675d389836b510a278ef6231be"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/rendered-article.html",
+      "sha256": "dda529b905aa6ef543a0a61afc63cf3882052a9f59bd078957fb094ed52b0801"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/weekly_recovery",
+    "reviewedAt": "2026-09-10T19:36:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What did Anthropic actually observe, and what is still unproven?",
+    "promisedPayoff": "Separate observed misuse from inferred intent and real-world outcome.",
+    "centralMentalModel": "Provider visibility enables intervention but does not prove every off-platform fact.",
+    "dailyLifeConnection": "Reading a frightening AI weapon or surveillance headline.",
+    "surfaceJob": "Dated ordinary safety news prepared privately for overnight freshness.",
+    "desiredReaderFeeling": "I can take the risk seriously without overstating the evidence."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies plainClarity evidence and preserves the observation-intent-outcome boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The company describes cyber operations, surveillance, scams and risky biological research.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies readerValue evidence and preserves the observation-intent-outcome boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep four levels separate: an AI request, an operating workflow, a completed harmful system and real-world harm.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies laidiesVoice evidence and preserves the observation-intent-outcome boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Take the surveillance and biological risks seriously without upgrading the evidence.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies engagingEnjoyable evidence and preserves the observation-intent-outcome boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The intervention matters, but it is not a court finding about every motive and cannot stop the person going elsewhere.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies factualIntegrity evidence and preserves the observation-intent-outcome boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The public report establishes no completed biological weapon or attack",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies freshnessReviewability evidence and preserves the observation-intent-outcome boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies surfaceFit evidence and preserves the observation-intent-outcome boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Did the report observe a request, an operating workflow, a completed harmful system or real-world harm?",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies datedChange evidence and preserves the observation-intent-outcome boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies consequenceAndUncertainty evidence and preserves the observation-intent-outcome boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "cutting Claude access did not end the underlying project.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies dailyLifeConnection evidence and preserves the observation-intent-outcome boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "When the next headline says AI built a weapon or stopped a state operation",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies communicationBenchmark evidence and preserves the observation-intent-outcome boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Evidence at one level does not automatically prove the next.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies explainBack evidence and preserves the observation-intent-outcome boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "a provider can see patterns across accounts that the public cannot",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What can Anthropic prove from its report?",
+        "probeResponse": "It can report activity it observed and action on its service, but that does not prove every actor motive or off-platform outcome.",
+        "expectedEvidence": "Provider visibility, intervention and limits."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies unseenTransfer evidence and preserves the observation-intent-outcome boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "check whether the claim came from provider logs, independent investigators or a public authority.",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "How would you assess a claim that an AI company stopped surveillance?",
+        "probeResponse": "I would ask whether it only banned accounts, whether the system stopped and whether another model replaced it.",
+        "expectedEvidence": "Transfer of evidence levels to a different claim."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies usefulAction evidence and preserves the observation-intent-outcome boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ask: “Did the report observe a request, an operating workflow, a completed harmful system or real-world harm?”",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact article supplies analogyIntegrity evidence and preserves the observation-intent-outcome boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Think of a venue removing someone for dangerous conduct it sees",
+          "locator": "exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The complete article avoids glossaryAccumulation; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The complete article avoids templateRepetition; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The complete article avoids decorativeAnalogy; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The complete article avoids referenceConfetti; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The complete article avoids missingMechanism; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The complete article avoids genericAction; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The complete article avoids jargonBeforeMeaning; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The complete article avoids disconnectedSystem; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The complete article avoids factlessConfidence; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The complete article avoids staleUnreviewableClaims; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The complete article avoids corporateSludge; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The complete article avoids joylessInstruction; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The complete article avoids benchmarkNameDrop; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The complete article avoids curiosityWithoutPayoff; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The complete article avoids familiarExampleWithoutTechnicalReturn; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The complete article avoids communicationPastiche; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The complete article avoids entertainmentBeforeUnderstanding; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The complete article avoids mechanismCompressedBehindHook; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The complete article avoids prematureClickBeforeMechanism; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The complete article avoids inflatedTakeawayEnding; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The complete article avoids purposeTooNarrow; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The complete article avoids mechanismBeforeMotivation; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The complete article avoids workedExampleOvertakesBookPurpose; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The complete article avoids technicalExplainerVoice; its source, mechanism, uncertainty and reader question stay connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/source-evidence.json",
+        "sha256": "e6c034549afbe650b14b4e73d2fcaaa5e78840f63068949d5e28003a8376a1fa"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "publication",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Anthropic published a threat report on September 10",
+            "locator": "the_story paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/source-evidence.json",
+          "sha256": "e6c034549afbe650b14b4e73d2fcaaa5e78840f63068949d5e28003a8376a1fa"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic published the report on September 10, 2026 and says it identified and disrupted operations involving cyber activity, influence, surveillance, scams, biological misuse, conventional weapons development and illicit model distillation.",
+            "locator": "anthropic-september-threat-report passages"
+          }
+        ],
+        "scopeAndFreshness": "Primary release date."
+      },
+      {
+        "claimId": "period",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "between December 2025 and August 2026",
+            "locator": "the_story paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/source-evidence.json",
+          "sha256": "e6c034549afbe650b14b4e73d2fcaaa5e78840f63068949d5e28003a8376a1fa"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic published the report on September 10, 2026 and says it identified and disrupted operations involving cyber activity, influence, surveillance, scams, biological misuse, conventional weapons development and illicit model distillation.",
+            "locator": "anthropic-september-threat-report passages"
+          }
+        ],
+        "scopeAndFreshness": "Anthropic-defined reporting period."
+      },
+      {
+        "claimId": "response",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "banned linked accounts, strengthened safeguards and shared intelligence",
+            "locator": "the_story paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/source-evidence.json",
+          "sha256": "e6c034549afbe650b14b4e73d2fcaaa5e78840f63068949d5e28003a8376a1fa"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic published the report on September 10, 2026 and says it identified and disrupted operations involving cyber activity, influence, surveillance, scams, biological misuse, conventional weapons development and illicit model distillation.",
+            "locator": "anthropic-september-threat-report passages"
+          }
+        ],
+        "scopeAndFreshness": "Company response claim."
+      },
+      {
+        "claimId": "surveillance",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "actors linked to China, Iran and Mali used Claude",
+            "locator": "the_story paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/source-evidence.json",
+          "sha256": "e6c034549afbe650b14b4e73d2fcaaa5e78840f63068949d5e28003a8376a1fa"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic published the report on September 10, 2026 and says it identified and disrupted operations involving cyber activity, influence, surveillance, scams, biological misuse, conventional weapons development and illicit model distillation.",
+            "locator": "anthropic-september-threat-report passages"
+          },
+          {
+            "excerpt": "Axios reported that Anthropic banned every account it linked to the Mali, China and Iran surveillance cases.",
+            "locator": "axios-surveillance-report passages"
+          }
+        ],
+        "scopeAndFreshness": "Attributed provider finding with independent reporting of disclosure."
+      },
+      {
+        "claimId": "china-surveillance-consequence",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity",
+            "locator": "the_story paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/source-evidence.json",
+          "sha256": "e6c034549afbe650b14b4e73d2fcaaa5e78840f63068949d5e28003a8376a1fa"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic published the report on September 10, 2026 and says it identified and disrupted operations involving cyber activity, influence, surveillance, scams, biological misuse, conventional weapons development and illicit model distillation.",
+            "locator": "anthropic-september-threat-report passages"
+          }
+        ],
+        "scopeAndFreshness": "Attributed high-level consequence without operational surveillance instructions."
+      },
+      {
+        "claimId": "mali-continuation",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Mali system was ultimately deployed locally using other models",
+            "locator": "the_story paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/source-evidence.json",
+          "sha256": "e6c034549afbe650b14b4e73d2fcaaa5e78840f63068949d5e28003a8376a1fa"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Axios reported that Anthropic banned every account it linked to the Mali, China and Iran surveillance cases.",
+            "locator": "axios-surveillance-report passages"
+          }
+        ],
+        "scopeAndFreshness": "Axios reporting; no claim that Claude powered final deployment."
+      },
+      {
+        "claimId": "biology-cases",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "five biological-research cases",
+            "locator": "the_story paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/source-evidence.json",
+          "sha256": "e6c034549afbe650b14b4e73d2fcaaa5e78840f63068949d5e28003a8376a1fa"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic published the report on September 10, 2026 and says it identified and disrupted operations involving cyber activity, influence, surveillance, scams, biological misuse, conventional weapons development and illicit model distillation.",
+            "locator": "anthropic-september-threat-report passages"
+          }
+        ],
+        "scopeAndFreshness": "Company case-study count."
+      },
+      {
+        "claimId": "biology-uncertainty",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers",
+            "locator": "the_story paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/source-evidence.json",
+          "sha256": "e6c034549afbe650b14b4e73d2fcaaa5e78840f63068949d5e28003a8376a1fa"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic published the report on September 10, 2026 and says it identified and disrupted operations involving cyber activity, influence, surveillance, scams, biological misuse, conventional weapons development and illicit model distillation.",
+            "locator": "anthropic-september-threat-report passages"
+          }
+        ],
+        "scopeAndFreshness": "Careful restatement of Anthropic assessment, not proof of harm."
+      },
+      {
+        "claimId": "intent-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "does not assert that the scientists intended harm",
+            "locator": "the_story paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/source-evidence.json",
+          "sha256": "e6c034549afbe650b14b4e73d2fcaaa5e78840f63068949d5e28003a8376a1fa"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic published the report on September 10, 2026 and says it identified and disrupted operations involving cyber activity, influence, surveillance, scams, biological misuse, conventional weapons development and illicit model distillation.",
+            "locator": "anthropic-september-threat-report passages"
+          }
+        ],
+        "scopeAndFreshness": "Explicit report limitation."
+      },
+      {
+        "claimId": "outcome-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "no completed biological weapon or attack",
+            "locator": "the_story paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/source-evidence.json",
+          "sha256": "e6c034549afbe650b14b4e73d2fcaaa5e78840f63068949d5e28003a8376a1fa"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic published the report on September 10, 2026 and says it identified and disrupted operations involving cyber activity, influence, surveillance, scams, biological misuse, conventional weapons development and illicit model distillation.",
+            "locator": "anthropic-september-threat-report passages"
+          },
+          {
+            "excerpt": "The Associated Press reported on September 10 that Anthropic said it blocked misuse involving cyber operations, surveillance and biological research.",
+            "locator": "ap-anthropic-threat-report passages"
+          }
+        ],
+        "scopeAndFreshness": "Bounded absence in reviewed sources."
+      },
+      {
+        "claimId": "private-visibility",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "a provider can see patterns across accounts that the public cannot",
+            "locator": "laidies_read paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/source-evidence.json",
+          "sha256": "e6c034549afbe650b14b4e73d2fcaaa5e78840f63068949d5e28003a8376a1fa"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Anthropic published the report on September 10, 2026 and says it identified and disrupted operations involving cyber activity, influence, surveillance, scams, biological misuse, conventional weapons development and illicit model distillation.",
+            "locator": "anthropic-september-threat-report passages"
+          }
+        ],
+        "scopeAndFreshness": "Inference from private platform threat intelligence; public cannot inspect logs."
+      },
+      {
+        "claimId": "ap-attribution",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "AP’s reporting attributes the cases to Anthropic",
+            "locator": "laidies_read paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/source-evidence.json",
+          "sha256": "e6c034549afbe650b14b4e73d2fcaaa5e78840f63068949d5e28003a8376a1fa"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The Associated Press reported on September 10 that Anthropic said it blocked misuse involving cyber operations, surveillance and biological research.",
+            "locator": "ap-anthropic-threat-report passages"
+          }
+        ],
+        "scopeAndFreshness": "Independent report framing."
+      },
+      {
+        "claimId": "oversight-critique",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "John Thickstun also told AP that societal judgments about acceptable AI use need democratic or deliberative oversight",
+            "locator": "laidies_read paragraph 3"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910/source-evidence.json",
+          "sha256": "e6c034549afbe650b14b4e73d2fcaaa5e78840f63068949d5e28003a8376a1fa"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The Associated Press reported on September 10 that Anthropic said it blocked misuse involving cyber operations, surveillance and biological research.",
+            "locator": "ap-anthropic-threat-report passages"
+          }
+        ],
+        "scopeAndFreshness": "Attributed outside expert comment."
+      }
+    ],
+    "reviewedThrough": "2026-09-10",
+    "nextTrigger": "Reopen all three sources on publication day; redraft for changed report text, new independent evidence or corrected outcomes.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate reports this September Anthropic threat report."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No registered or new reusable defect after source and exact-prose review; independent review remains required."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "AI editorial assessment only; no human-comprehension evidence is claimed.",
+    "Public release remains separate."
+  ]
+}

@@ -1,0 +1,424 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "crossword-02-20260911",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "INTERACTIVE",
+  "surface": "NEWSSTAND_CROSSWORD",
+  "maker": "/root",
+  "reviewer": {
+    "id": "claude-fable-crossword02-v1",
+    "principalId": "anthropic:claude-fable-5:crossword02:v1",
+    "role": "Independent crossword content reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T19:01:22.679Z",
+  "verdict": "PASS",
+  "limitations": [
+    "Independent AI content review; no observed human comprehension or native screen-reader result.",
+    "Visual and interaction verification are separate.",
+    "Grid playability judged from word/coordinate data, not rendered interaction."
+  ],
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/review-text.md",
+      "sha256": "388cf83b6a685ed7562c41ef9fcbbbbef7ae609ede332a4ebbfea08f10ca05e4"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/publication-manifest.json",
+      "sha256": "895b3c7521b0b72cb668f796eda72bc59e6aef6505a5614ac5474117a4e0aefc"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:crossword02:v1",
+    "reviewedAt": "2026-09-11T19:01:22.679Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your chec",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt In real life."
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose ",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md We will begin with one decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "A familiar situation supplies the question before technical naming.",
+        "Specific limitations and useful actions remain after humour."
+      ],
+      "evidence": [
+        {
+          "excerpt": "who it's for, what you need from them, what you can't say out loud — then keep your judgme",
+          "locator": "content/episodes/episode-01.canon.md who it's for"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Can I recognise an AI idea in an ordinary situation and find more about it in SUNNYVAiLE?",
+    "promisedPayoff": "Recall ten connected answers, use optional hints, and learn why each answer fits.",
+    "centralMentalModel": "A clue connects a familiar situation to a term; its answer explanation supplies meaning and a useful distinction.",
+    "dailyLifeConnection": "Writing a message, checking an answer, finding information and recalling a VHS rewind.",
+    "surfaceJob": "Second untimed crossword: ten new terms, clue-list alternative, optional hints and full answer explanations. No advertising copy.",
+    "desiredReaderFeeling": "Curious and capable, not tested on insider vocabulary."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Every hint and explanation uses ordinary words before or alongside the term; no entry requires prior jargon to solve or understand.",
+      "artifactEvidence": [
+        "A text token can be a word, part of a word or punctuation. A token limit is therefore not a word limit"
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Each explanation adds a distinction beyond the definition (product vs model, token vs word, retrieved vs reliable, stored vs retrained).",
+      "artifactEvidence": [
+        "A chatbot using your document does not, by itself, prove the model has been retrained on it."
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Dry, earned humour with reader dignity intact; beginner reassurance appears without condescension.",
+      "artifactEvidence": [
+        "You do not need to disguise a beginner's question as an advanced one.",
+        "Kindness had machinery involved."
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Nostalgic surfaces (arcade tokens, VHS rewind, actor's prompt, hunting for the remote) do real clue work and each returns to the technical meaning.",
+      "artifactEvidence": [
+        "Arcades took these. Language models process text in pieces with the same name."
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "All ten explanations trace to bound Library snapshot passages; no claim exceeds its source. Authored everyday examples (invitation, label photo, venue opening time) are bounded and non-factual.",
+      "artifactEvidence": [
+        "SEARCH can bring retrieved information into an AI answer. It does not make every result reliable"
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "No dated statistics, model names or availability claims in the puzzle copy; hrefs carry heading locators that were live-observed on 2026-09-11.",
+      "artifactEvidence": [
+        "href: /library.html#ai-fundamentals-101::%40ch-4-4-2-what-a-token-actually-is"
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Untimed, hint-friendly framing stated up front; all eight grid crossings check (O/P/T/E/S/O-R/E-I/S) and all words fit the 12-cell grid; no advertising copy present.",
+      "artifactEvidence": [
+        "Ten clues. No timer. Hints welcome. Looking things up counts."
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Clues anchor in writing an invitation, uploading a photo, checking a venue time, returning a VHS tape — matching the brief's daily-life connection.",
+      "artifactEvidence": [
+        "If you want help reading a label, a clear photo may supply details a vague description leaves out."
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Comparable in economy and warmth to the positive episode exemplar's teaching lines; no pastiche of it.",
+      "artifactEvidence": [
+        "The link has arrived; the evidence may not have."
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Most explanations end in a specific, checkable reader move rather than a generic exhortation.",
+      "artifactEvidence": [
+        "compare the date, place and meaning with your original before sending it"
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "Correct-answer explanations teach past the definition; hints scaffold without spoiling; learnLabels state a concrete payoff per entry.",
+      "artifactEvidence": [
+        "learnLabel: See how text becomes pieces"
+      ]
+    },
+    "honestLimits": {
+      "verdict": "PASS",
+      "observation": "Limits are preserved in every technical entry: search does not guarantee reliability, output fluency is not accuracy, sources can be miscited, document use is not retraining.",
+      "artifactEvidence": [
+        "It names what came back, not how reliable it is."
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No benchmark, score or model-comparison names anywhere in the copy.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Voice is its own; no imitation of the episode exemplar's catchphrases or structure.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No filler, no 'leverage/unlock/transformative' language; sentences are short and concrete.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Each clue hook pays off in the explanation with a usable distinction.",
+      "artifactLocator": "review-text.md tokens/output/search explanations"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Analogic surfaces (arcade token, actor's prompt, VHS) are the clue mechanism itself and are cashed out technically.",
+      "artifactLocator": "review-text.md tokens/prompt/rewind"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Entries link to each other (models↔training, input↔output, source↔search) forming one system picture.",
+      "artifactLocator": "review-text.md models/training explanations"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Humour is one clause per entry; understanding carries the weight.",
+      "artifactLocator": "review-text.md rewind/search"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Every substantive statement traces to bound source snapshots; authored examples stay hypothetical.",
+      "artifactLocator": "review-text.md all ten explanations"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Each familiar example returns to the mechanism (token vs word limit, retrieval vs reliability).",
+      "artifactLocator": "review-text.md tokens/search"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Actions are specific: compare date/place/meaning, check the venue's own notice, check file format support.",
+      "artifactLocator": "review-text.md output/search/input"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Ten entries but no definition-stacking; each is a self-contained situation, not a glossary card.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Endings are modest and practical; no grand claims.",
+      "artifactLocator": "review-text.md jeeves/rewind explanations"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Clues and hints supply plain meaning before the term is confirmed by the answer.",
+      "artifactLocator": "review-text.md hints for all entries"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Warmth and dry jokes present throughout; reassurance in rewind and jeeves entries.",
+      "artifactLocator": "review-text.md rewind explanation"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Motivating everyday situation always precedes mechanism.",
+      "artifactLocator": "review-text.md all ten clues"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Mechanism gets full sentences in each explanation, not a compressed aside.",
+      "artifactLocator": "review-text.md training/models explanations"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Each entry names how the thing works, within crossword-appropriate depth, with a deeper link.",
+      "artifactLocator": "review-text.md training explanation"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Explanation text stands alone; the link is an optional deepening, not required for meaning.",
+      "artifactLocator": "review-text.md labels and learnLabels"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Terms are framed for general life use, not one narrow scenario.",
+      "artifactLocator": "review-text.md input/output/source"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Exactly one destination per entry, each verified live; no scattershot linking.",
+      "artifactLocator": "review-text.md hrefs, corroborated by live destination observation"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "No dated, numeric or availability claims that could silently go stale.",
+      "artifactLocator": "review-text.md all ten entries"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Second-person, situation-first voice; not textbook explainer register.",
+      "artifactLocator": "review-text.md prompt/output explanations"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Shared field structure is the puzzle format; sentence patterns vary across entries and do not read as a repeated template.",
+      "artifactLocator": "review-text.md compared explanations across all ten entries"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Examples stay one clause or one sentence; the term remains the subject.",
+      "artifactLocator": "review-text.md all ten explanations"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/crossword-02-20260911/source-evidence.txt",
+        "sha256": "3e9f51854fe6156a36ebdde48c5b6f940bfc17e0c83b8ff4ef99e456a266545f"
+      }
+    ],
+    "claimMap": [
+      {
+        "answer": "MODELS",
+        "candidateExcerpt": "A chatbot product adds other parts around a model, such as its interface and connected tools.",
+        "sourceExcerpt": "When you hear \"ChatGPT\" or \"Claude\" or \"Gemini\" — those are products built on top of specific models.",
+        "status": "VERIFIED"
+      },
+      {
+        "answer": "TOKENS",
+        "candidateExcerpt": "A text token can be a word, part of a word or punctuation. A token limit is therefore not a word limit",
+        "sourceExcerpt": "sometimes a whole word, sometimes part of a word, sometimes just a single character or a punctuation mark",
+        "status": "VERIFIED"
+      },
+      {
+        "answer": "PROMPT",
+        "candidateExcerpt": "There is no need to locate a secret incantation; the missing date is usually more useful.",
+        "sourceExcerpt": "The word \"prompt\" implies a single clever sentence that unlocks the AI's potential. The reality in 2026 is closer to writing a brief",
+        "status": "QUALIFIED"
+      },
+      {
+        "answer": "INPUT",
+        "candidateExcerpt": "It can include your instructions and, where supported, an image or other file. ... Check that the tool can use that format.",
+        "sourceExcerpt": "audio and video support varies by product, model, plan, mode and region. If your current tool supports the relevant format",
+        "status": "VERIFIED"
+      },
+      {
+        "answer": "OUTPUT",
+        "candidateExcerpt": "It names what came back, not how reliable it is. ... Fluency is not a fact-check.",
+        "sourceExcerpt": "Not all AI outputs deserve equal trust. ... Use AI as a starting point ... not as a final authority",
+        "status": "VERIFIED"
+      },
+      {
+        "answer": "TRAINING",
+        "candidateExcerpt": "That differs from supplying a document for the current answer. A chatbot using your document does not, by itself, prove the model has been retrained on it.",
+        "sourceExcerpt": "Training: Bake patterns into the weights. ... RAG: Retrieve selected information at answer time and inject it into context. It can use newer, specific or private material without retraining",
+        "status": "VERIFIED"
+      },
+      {
+        "answer": "SOURCE",
+        "candidateExcerpt": "A real document can still be cited for something it never says.",
+        "sourceExcerpt": "the output looked exactly like real legal research, passed a surface-level review, but crumbled on verification",
+        "status": "QUALIFIED"
+      },
+      {
+        "answer": "SEARCH",
+        "candidateExcerpt": "It does not make every result reliable or prove the final answer reflects the pages accurately.",
+        "sourceExcerpt": "You still need to check that it retrieved the right, current passages and represented them correctly.",
+        "status": "VERIFIED"
+      },
+      {
+        "answer": "REWIND",
+        "candidateExcerpt": "At Chick Flicks, you can revisit a LAiDIES episode instead.",
+        "sourceExcerpt": "\"id\": \"rewind\", \"href\": \"/chick-flicks.html\", \"title\": \"The Chick Flicks · LAiDIES · SUNNYVAiLE\"",
+        "status": "QUALIFIED"
+      },
+      {
+        "answer": "JEEVES",
+        "candidateExcerpt": "Miss JEEVES is the LIBRAiRY's AI-question service.",
+        "sourceExcerpt": "Miss Jeeves: the LIBRAiRY reference-desk guide. Never plain \"Jeeves\" or \"Ask Jeeves.\"",
+        "status": "QUALIFIED"
+      }
+    ],
+    "reviewedThrough": "2026-09-11",
+    "nextTrigger": "Linked lesson, canonical role, puzzle feedback or destination changes.",
+    "correctionOwner": "newsstand"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "priorComparable": {
+      "candidateId": "crossword-discovery-20260907-final",
+      "reviewIssues": 0,
+      "reviewCycles": 1
+    },
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "crossword-discovery-20260907-final"
+  },
+  "learningDisposition": {
+    "disposition": "NO_LEARNING_REQUIRED",
+    "rationale": "Zero current issues found. All ten claims traced to bound source snapshots or live destination observations; grid crossings independently verified; canon naming honoured (JEEVES appears only as a 'Miss ___' fill-in, never plain in prose, and no retired terms are used). Authored examples marked QUALIFIED are bounded and non-factual."
+  },
+  "reviewFloorPolicy": {
+    "path": "operations/product-stewards/newsstand/crossword-review-floor-policy.json",
+    "sha256": "2551c07b406b94ce202d38be82b69ede26dc1287f8b6ced2eefa823c2fbb7d27",
+    "policyId": "newsstand-crossword02-zero-floor-2026-09-11"
+  },
+  "gridVerification": {
+    "method": "Independent coordinate check of all ten words against the 12-cell grid",
+    "crossingsChecked": [
+      "PROMPT/OUTPUT at (2,0)=O",
+      "INPUT/OUTPUT at (2,3)=P",
+      "OUTPUT/TOKENS at (2,5)=T",
+      "TOKENS/JEEVES at (5,5)=E",
+      "JEEVES/SEARCH at (5,9)=S",
+      "SOURCE/MODELS at (7,1)=O",
+      "REWIND/MODELS at (7,3)=E",
+      "TOKENS/MODELS at (7,5)=S",
+      "SOURCE/TRAINING at (9,1)=R",
+      "REWIND/TRAINING at (9,3)=I"
+    ],
+    "result": "All crossings consistent; no word exceeds grid bounds; clue text in words[] matches clue text in prose copy verbatim."
+  }
+}

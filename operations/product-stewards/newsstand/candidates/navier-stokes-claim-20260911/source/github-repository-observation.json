@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "laidies.web-source-observation.v1",
+  "sourceId": "openai-lean-repository",
+  "url": "https://github.com/openai/NavierStokesAndEuler",
+  "capturedAt": "2026-09-11T09:07:24-07:00",
+  "method": "Direct source capture preserved in candidate directory; normalized passages copied exactly from the source evidence record.",
+  "authority": "Primary public repository for the existence and stated scope of the Lean formalizations.",
+  "limitation": "Repository presence and README claims do not establish that LAiDIES or the wider mathematical community independently reproduced or accepted the proof.",
+  "passages": [
+    "This repository contains Lean 4 formalizations of the results presented in “Finite time blowup for Navier–Stokes” and “Finite time blowup for the Euler equation” by OpenAI.",
+    "For every positive viscosity, we prove two results:",
+    "For instructions on checking the formalizations with Comparator, see the ComparatorChallenges README."
+  ],
+  "rawSource": {
+    "path": "operations/product-stewards/newsstand/candidates/navier-stokes-claim-20260911/source/github-readme.md",
+    "sha256": "25f3752edf6d674064b67f995691ddd15bffaf347822086cba3fbd5333781f49"
+  },
+  "completeRelevantSourceText": "# Finite time blowup for Navier–Stokes and Euler equations\n\nThis repository contains Lean 4 formalizations of the results presented in\n“[Finite time blowup for Navier–Stokes](https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf)” and\n“[Finite time blowup for the Euler equation](https://cdn.openai.com/pdf/315b36cd-ec98-4023-8342-93345194ece1/euler.pdf)” by OpenAI.\n\n- [Read the blog post](https://openai.com/index/navier-stokes-solution/)\n- [Read the Navier-Stokes paper](https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf)\n- [Read the Euler paper](https://cdn.openai.com/pdf/315b36cd-ec98-4023-8342-93345194ece1/euler.pdf)\n\n## Navier Stokes\n\nFor every positive viscosity, we prove two results:\n\n- **Whole space $\\mathbb{R}^3$:** There exist smooth initial data and forcing for\n  which no global smooth solution with uniformly bounded kinetic energy exists.\n- **Periodic torus $\\mathbb{R}^3/\\mathbb{Z}^3$:** There exist smooth periodic\n  initial data and forcing for which no global smooth solution exists.\n\nThese are alternatives [**(C)**](https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf#page=2) “Breakdown of Navier–Stokes solutions on ℝ³”\nand [**(D)**](https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf#page=2) “Breakdown of Navier–Stokes Solutions on ℝ³/ℤ³”\nin the Clay Mathematics Institute’s [official problem description](https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf)\nof the [Navier–Stokes existence and smoothness](https://www.claymath.org/millennium/navier-stokes-equation/)\n[Millennium Prize Problem](https://www.claymath.org/millennium-problems/).\n\n## Euler\n\nWe construct smooth, compactly supported, divergence-free initial velocity on\n$\\mathbb{R}^3$ whose solution to the unforced incompressible Euler equations\ndevelops a singularity in finite time. The velocity’s $C^1$ norm becomes unbounded\nnear that time, and the time integral of the vorticity’s $L^\\infty$ norm diverges.\n\n## Building the formalizations\n\nThe project uses Lean 4.34.0-rc2, Mathlib, and Lake. With\n[elan](https://github.com/leanprover/elan) installed, fetch the mathlib cache and build the formalizations with:\n\n```sh\nlake exe cache get\nlake build\n```\n\n## Independent proof checking\n\nFor instructions on checking the formalizations with Comparator, see the\n[ComparatorChallenges README](ComparatorChallenges/README.md).\n"
+}

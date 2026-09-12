@@ -1,3 +1,9 @@
+September12 freshness hardening: every sourceChecks row must carry its own actual checkedAt. The cycle checker rejects missing, future or older-than-24-hour observations even when the overall sweep timestamp is current. Preserve source failures as failures; refreshing the header is not source work.
+
+September12 latest clarification: sort promotional news by Vancouver publication day descending, then reviewed relevance within the day. Do not rank older dates above newer dates. Do not reuse MAiVEN/TRAiLBLAZER pictures as generic article art; exact rejected incidents illustration is blocked in shared storyIllustration for every story/snapshot.
+
+September12 relevance correction: before producing a story, record who it affects, the concrete reader consequence and intended prominence under the editorial promise. Before publication, update the reviewed order in content/newsstand-selection.js; place consequential public-interest news before familiar-tool changes and narrowly applicable discoveries. Reassess the complete recent pool, not only the newly appended article. Run node scripts/test-build-newsstand-derivatives.mjs and node scripts/build-newsstand-derivatives.mjs --check. The derivative builder rejects current Daily IDs without a placement. Front-page candidates still pass existing admission and five-day eligibility checks. Current Daily and feed.current share the order; chronological archives and historical issue snapshots retain their original ordering. Include changed selection and catch-up scripts in the scoped release and their SHA-versioned URLs in newsstand.html.
+
 # The Daily — cycle runbook (heartbeat and manual)
 
 ## September 10 — delivery check and recovery ownership
@@ -5,12 +11,17 @@
 At entry, immediately after compaction, and before ending a daytime run, read `CURRENT-CYCLE.md` and execute:
 
 ```sh
-node scripts/check-newsstand-cycle-completion.mjs --from 2026-09-09
+node scripts/check-newsstand-cycle-completion.mjs --from 2026-09-09 --coverage operations/product-stewards/newsstand/editorial-intake/coverage-progress.json
 ```
 
 At each scheduled entry, update `CURRENT-CYCLE.md` with the actual invocation date, active phase and exact next unmet step. After compaction this short record, the current heartbeat and live check restore the active task; historical user messages are not a new task.
 
 This fetches current public issue and story data. Exit 1 means dated delivery is incomplete; exit 2 means the observation is unverified. Neither permits a completed-publication or quiet claim. A service-only issue is explicitly reported as zero new news stories. A current Daily does not hide an overdue Wednesday Weekly. The check grants no editorial approval and does not substitute for source, issue admission, manifest or real-browser verification.
+
+September10 coverage correction: exit1 also means actionable intake remains even when dated delivery is present. Maintain the existing `editorial-intake/coverage-progress.json` as the current source sweep's disposition record, with exact event/source identity, publication or sufficient existing coverage, production next action, reasoned exclusion, or attempted evidence recovery plus retry. This is not another publication queue or an editorial approval. Read all newly discovered material provider announcements and the mainstream agenda before selecting; provider-name similarity is not duplication. The check rejects a covered event when the named public article does not cite its source. A positive source match is necessary, not proof that its reader question is adequately answered; the editor must inspect the actual treatment. After each story transaction, continue the next eligible story rather than ending at one published item. Before committing a coverage update, run the completion check against current public stories: `asOf` is the Vancouver edition date (YYYY-MM-DD), while `checkedAt` is an actual timestamp; each PUBLISHED/COVERED lead must name its exact published `storyId`, a matching source URL and a reader-question `coverageReason`. Exit1 with COVERAGE_WORK_REMAINS is a truthful open-work result; exit2 UNVERIFIED is an invalid record to repair, not a publication outcome. Source-only holds remain visible and do not block other ready work. Refresh a stale sweep with real source work, never by changing timestamps alone. A completed sweep does not certify exhaustive discovery; six-desk and complete AIDB procedures below still apply.
+
+September11 triage correction: a material product or API announcement may be reported from verified primary availability, scope and price with company claims attributed. Independent consumer adoption or measured effectiveness is required to claim those outcomes, not as a blanket prerequisite for covering the announcement. A developer-facing release is neither an automatic KEEP nor an automatic exclusion: explain its actual audience and concrete mechanism, and avoid implying that ordinary subscribers already receive it.
+
 
 The same existing heartbeat retains 07:00 publication and 20:00 preparation, with 10:00, 13:00 and 16:00 recovery checks. Recovery checks begin with the command above and current research/queue state; if delivery and the scheduled research phase are complete and no due source/recovery work exists, return without repeating research or reviews. Resume the exact next unmet step when work is due. Do not create another scheduler or overlapping producer.
 
@@ -1429,3 +1440,21 @@ copy. Do not overlay the stale profile/claims/receipt files during this release.
 Weekly procedure adoption was updated and read back after source d5e7fee5 was
 committed/pushed. Both hours, ACTIVE status, target task and unmuted meaningful
 notifications remain. A configured procedure is not an observed scheduled run.
+
+## Same-day activity addition after news publication — September11 repair
+
+Use the existing service-revision admission when adding an admitted same-date service to an empty desk. Freeze the exact current public `content/newsstand-stories.js` under NewsStand private evidence and verify both origins. Compose with `--service-revision-base <frozen.js>` and the already-admitted issue's unchanged `--service-predecessor <proof.json>` when present. The composer retains every ready desk and news snapshot, fills only empty desks, and produces browser-verifiable canonical JSON. The independent service-revision decision binds the exact previous issue and dual-origin published base. Promotion/projector reject changed news, carried records, source proof, frozen source bytes, or noncanonical envelope bytes. Do not reuse the previous-day carry proof as the new news projection base.
+
+The thirty admitted Try This Today activities are in the governed service bank. Selection consults dated column history, chooses unused unexpired entries, and does not automatically refresh their October10 expiry. A bank admission is not publication authority; materialize the exact selected record, independently admit the dated issue, project, release only scoped files and verify the live Daily. Homepage activity preview was subsequently implemented and publicly verified in `evidence/full-build-20260910/homepage-activity-release.json`; preserve that released integration.
+
+## Returning-reader asset freshness — September 11 repair
+
+The public NewsStand CSS and story-script responses can be cached for four hours. A new page deployment with unchanged asset URLs can therefore retain old styling or news in a returning reader’s browser. For every changed `content/newsstand.css`, `content/newsstand-design.css` or `content/newsstand-stories.js`, update its URL in the exact released `newsstand.html` to `?v=` followed by the first 16 hexadecimal characters of that asset’s SHA256. Include the HTML in the scoped release, binding the packaged assets rather than unrelated working-tree candidates. `scripts/check-newsstand-release-scope.mjs` rejects stale references, missing HTML and mismatched HTML bytes. Run `node scripts/test-newsstand-asset-versions.mjs` for the calibrated real-browser warm-cache regression: unchanged URLs must retain the old fixture; fingerprinted URLs must load the current CSS and story script without clearing the cache. This is cache-mechanism evidence; separately verify the actual live page. Archived evidence and rejected prototypes are not rewritten.
+
+### September11 direct candidate validation
+
+Run `node scripts/validate-newsstand-ordinary-story-candidate.mjs --candidate <private-candidate.json> --date YYYY-MM-DD`. It now invokes the complete bound candidate check and prints the checked identity; missing/invalid arguments and invalid packages return nonzero. Before this repair, the file was import-only and a direct invocation did no validation. Do not count its historical exit0 as a check. Existing composer/promotion paths already called the real validator and remain required. The ordinary-publication suite exercises a valid fixture, wrong-date/hash rejection and actual missing/invalid CLI invocations.
+
+### September11 provider-branch dispatch correction
+
+The project response reports `production_branch: homepage-redesign`; `main` creates a preview. Before dispatch, read the actual project `production_branch` and current canonical deployment; bind the chosen branch and expected provider base in the stage preparation. Pass that exact branch to Pages deploy. A successful upload or an immutable URL is not a production result. The NYC attempt7fcf5aa2 was correctly rejected as preview-only by public verification and the unchanged artifact was then released as production1a56058b. Require the returned deployment environment to be production and the custom-origin bytes/reader to match before recording public completion. Do not reuse a default branch from a compacted summary.

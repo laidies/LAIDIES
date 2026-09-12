@@ -553,18 +553,22 @@
   }
 
   function currentDailyStories(date, issue) {
-    if (issue && Array.isArray(issue.stories)) return issue.stories.map(currentCanonicalStory);
+    if (issue && Array.isArray(issue.stories)) {
+      var selected = issue.stories.map(currentCanonicalStory);
+      return date === data.publications.daily.editionDate && canRenderDaily() ? selected.sort(window.NewsstandSelection.compare) : selected;
+    }
     var publication = data.publications && data.publications.daily;
     var issueIds = publication && publication.issue && Array.isArray(publication.issue.storyIds)
       ? publication.issue.storyIds
       : [];
-    return issueIds.map(function (id) {
+    var selected = issueIds.map(function (id) {
       return sourceStories.find(function (story) {
         return story.id === id && dateOnly(story.publishedAt) === date;
       });
     }).filter(Boolean).map(function (story) {
       return JSON.parse(JSON.stringify(story));
     });
+    return canRenderDaily() ? selected.sort(window.NewsstandSelection.compare) : selected;
   }
 
   function canRenderDaily() {
@@ -755,9 +759,11 @@
   }
 
   function dailyDesk(label, status, headline, body, route, desk) {
-    var record = desk && desk.type !== "crossword" && readableColumn(desk.recordId || desk.id);
+    if (status !== "ready") return "";
+    var isActivity = desk && desk.type === "curiosity";
+    var record = desk && !isActivity && desk.type !== "crossword" && readableColumn(desk.recordId || desk.id);
     return [
-      '<section class="ns-daily-desk" data-desk-state="', escapeHTML(status), '">',
+      '<section class="ns-daily-desk', isActivity ? ' ns-daily-desk--activity' : '', '" data-desk-state="', escapeHTML(status), '">',
         '<p class="ns-daily-desk__label">', escapeHTML(label), '</p>',
         '<p class="ns-daily-desk__state">', escapeHTML(status === "ready" ? desk && desk.carriedFrom ? "Published " + formatDate(desk.carriedFrom.originalEditionDate) : "In this edition" : "No item today"), '</p>',
         '<h3>', escapeHTML(headline), '</h3>',
@@ -796,7 +802,9 @@
     var hasAdmittedServiceColumns = [tip, concept, historicalPromptoscope, career, reading,
       dearMissJeeves, behindBuild, aroundTown, whatsNew, legacyFiction, crossword, song,
       fact, townNote, curiosity].some(function (desk) { return desk && desk.state !== "empty"; });
-    var dailyStories = currentDailyStories(date, canonicalIssue);
+    var dailyStories = currentDailyStories(date, canonicalIssue).filter(function (story) {
+      return story && contract.accessDecision(data, story, { scope: "hash" }, new Date().toISOString()).canExpose;
+    });
     var lead = dailyStories[0];
     var html = [
       '<article class="ns-daily-issue" data-daily-date="', escapeHTML(date), '">',
@@ -812,6 +820,9 @@
             "There was no new lead story for this edition." :
             "No lead story was published in this edition."), '</p>',
           lead ? '<a href="#' + escapeHTML(lead.slug) + '">Read the full report →</a>' : '',
+          dailyStories.length > 1 ? '<nav class="ns-daily-more-news" aria-label="More news in this edition"><h4>Also in this edition</h4><ul>' + dailyStories.slice(1).map(function (story) {
+            return '<li><a href="#' + escapeHTML(story.slug) + '">' + escapeHTML(story.headline) + ' →</a></li>';
+          }).join('') + '</ul></nav>' : '',
         '</section>',
         quietIssue
           ? '<details class="ns-daily-quiet-desks"><summary>See today&rsquo;s columns.</summary><div class="ns-daily-service-grid">'
@@ -848,7 +859,7 @@
           dailyDesk("Town notes", townNote && townNote.state !== "empty" ? "ready" : "empty", townNote && townNote.state !== "empty" ? townNote.headline : "No town notes today.",
             townNote && townNote.state !== "empty" ? townNote.summary : "There were no town notes in this edition.", townNote && townNote.state !== "empty" ? townNote.destination : ""),
           dailyDesk("Try this today", curiosity && curiosity.state !== "empty" ? "ready" : "empty", curiosity && curiosity.state !== "empty" ? curiosity.headline : "No activity today.",
-            curiosity && curiosity.state !== "empty" ? curiosity.summary : "This edition did not include a Try This Today activity.", curiosity && curiosity.state !== "empty" ? curiosity.destination : ""),
+            curiosity && curiosity.state !== "empty" ? curiosity.summary : "This edition did not include a Try This Today activity.", curiosity && curiosity.state !== "empty" ? curiosity.destination : "", curiosity),
           currentDeskEra ? "" : dailyDesk("SUNNYVAiLE desk · archived fictional column", legacyFiction && legacyFiction.state !== "empty" ? "ready" : "empty", legacyFiction && legacyFiction.state !== "empty" ? legacyFiction.headline : "No fictional town story.",
             legacyFiction && legacyFiction.state !== "empty" ? legacyFiction.summary : "This archived edition did not include a fictional town story.", legacyFiction && legacyFiction.state !== "empty" ? legacyFiction.destination : ""),
         quietIssue ? '</div></details>' : '</div>',
@@ -861,7 +872,11 @@
     reader.hidden = false;
     rack.innerHTML = html;
     var serviceGrid = rack.querySelector(".ns-daily-service-grid");
-    if (serviceGrid && !hasAdmittedServiceColumns) serviceGrid.hidden = true;
+    if (serviceGrid && !hasAdmittedServiceColumns) {
+      serviceGrid.hidden = true;
+      var emptyDetails = serviceGrid.closest(".ns-daily-quiet-desks");
+      if (emptyDetails) emptyDetails.hidden = true;
+    }
     empty.hidden = true;
     document.getElementById("ns-reader-edition").textContent = "The Daily";
     document.getElementById("ns-reader-title").textContent = "Inside this paper.";

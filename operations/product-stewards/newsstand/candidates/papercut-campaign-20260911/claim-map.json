@@ -1,0 +1,298 @@
+[
+  {
+    "claimId": "scale",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "at least 440 PaperCut installations at 395 organizations in 48 countries",
+        "locator": "P002"
+      }
+    ],
+    "sourceIds": [
+      "greynoise-papercut-report"
+    ],
+    "scopeAndFreshness": "GreyNoise's observed campaign count, attributed in prose."
+  },
+  {
+    "claimId": "report-timeline",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "September 9 report describes a campaign that began on August 31",
+        "locator": "P002"
+      }
+    ],
+    "sourceIds": [
+      "greynoise-papercut-report"
+    ],
+    "scopeAndFreshness": "Report and campaign dates remain distinct from publication."
+  },
+  {
+    "claimId": "vendor-confirmation-limit",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "PaperCut confirms active exploitation and customer incidents, but it has not confirmed GreyNoise’s totals or AI attribution",
+        "locator": "P002"
+      }
+    ],
+    "sourceIds": [
+      "papercut-security-bulletin"
+    ],
+    "scopeAndFreshness": "Vendor confirmation and non-verification appear together."
+  },
+  {
+    "claimId": "papercut-identity",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "self-hosted software for managing an organization’s printing, copying and scanning",
+        "locator": "P003"
+      }
+    ],
+    "sourceIds": [
+      "greynoise-papercut-report"
+    ],
+    "scopeAndFreshness": "Plain product identity from the primary report."
+  },
+  {
+    "claimId": "server-directory",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "PaperCut can run on a server connected to the organization’s Windows directory",
+        "locator": "P003"
+      }
+    ],
+    "sourceIds": [
+      "greynoise-papercut-report"
+    ],
+    "scopeAndFreshness": "Plain translation of self-hosted, domain-joined deployment."
+  },
+  {
+    "claimId": "domain-admin-count",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "domain-administrator control at 12 organizations",
+        "locator": "P003"
+      }
+    ],
+    "sourceIds": [
+      "greynoise-papercut-report"
+    ],
+    "scopeAndFreshness": "GreyNoise's bounded access-level count."
+  },
+  {
+    "claimId": "domain-admin-meaning",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "a powerful permission that can manage connected Windows accounts and systems across an organization",
+        "locator": "P003"
+      }
+    ],
+    "sourceIds": [
+      "greynoise-papercut-report"
+    ],
+    "scopeAndFreshness": "Qualified plain-language definition; no exploitation method supplied."
+  },
+  {
+    "claimId": "coordination-tools",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "combined AI coordination with existing offensive tools and vulnerabilities in internet-facing PaperCut servers",
+        "locator": "P004"
+      }
+    ],
+    "sourceIds": [
+      "greynoise-papercut-report"
+    ],
+    "scopeAndFreshness": "Synthesis of the report's attributed mechanism."
+  },
+  {
+    "claimId": "harness-model",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "DeepSeek—not an OpenAI model—as the model powering the agents",
+        "locator": "P004"
+      }
+    ],
+    "sourceIds": [
+      "greynoise-papercut-report"
+    ],
+    "scopeAndFreshness": "Primary harness-versus-model distinction preserved exactly."
+  },
+  {
+    "claimId": "harness-meaning",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "the coordinating software around a model that starts, routes and monitors agent jobs",
+        "locator": "P004"
+      }
+    ],
+    "sourceIds": [
+      "greynoise-papercut-report"
+    ],
+    "scopeAndFreshness": "Qualified plain-language role definition."
+  },
+  {
+    "claimId": "agent-meaning",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "software that can plan and carry out several steps with tools instead of stopping at one answer",
+        "locator": "P004"
+      }
+    ],
+    "sourceIds": [
+      "greynoise-papercut-report"
+    ],
+    "scopeAndFreshness": "Qualified plain-language definition grounded in the multi-workflow report."
+  },
+  {
+    "claimId": "parallel-speed",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "at least 11 organizations were compromised in 26 seconds",
+        "locator": "P005"
+      }
+    ],
+    "sourceIds": [
+      "greynoise-papercut-report"
+    ],
+    "scopeAndFreshness": "GreyNoise's observed timing, attributed."
+  },
+  {
+    "claimId": "uneven-results",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "domain-administrator control reached only 12 organizations overall, and a web firewall stopped one attempt",
+        "locator": "P005"
+      }
+    ],
+    "sourceIds": [
+      "greynoise-papercut-report"
+    ],
+    "scopeAndFreshness": "Limits the speed claim with failed and narrower outcomes."
+  },
+  {
+    "claimId": "papercut-nonverification",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "has not independently verified GreyNoise’s indicators and did not receive them through customer reports",
+        "locator": "P006"
+      }
+    ],
+    "sourceIds": [
+      "papercut-security-bulletin"
+    ],
+    "scopeAndFreshness": "PaperCut's exact caveat retained."
+  },
+  {
+    "claimId": "bleeping-boundary",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "reported the figures as GreyNoise’s findings, not a separate count",
+        "locator": "P006"
+      }
+    ],
+    "sourceIds": [
+      "bleepingcomputer-papercut-report"
+    ],
+    "scopeAndFreshness": "Qualified absence statement from the complete independent article."
+  },
+  {
+    "claimId": "motive-outcome",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "actor’s motive is unknown; data theft or ransomware are possible later uses of access, not established outcomes",
+        "locator": "P006"
+      }
+    ],
+    "sourceIds": [
+      "greynoise-papercut-report",
+      "bleepingcomputer-papercut-report"
+    ],
+    "scopeAndFreshness": "Possibilities kept separate from observed outcomes."
+  },
+  {
+    "claimId": "maintenance-releases",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "maintenance releases 26.0.5, 25.0.13 and 24.1.10 on September 10",
+        "locator": "P007"
+      }
+    ],
+    "sourceIds": [
+      "papercut-security-bulletin"
+    ],
+    "scopeAndFreshness": "Current vendor release fact."
+  },
+  {
+    "claimId": "current-status",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "most application servers are patched or behind a firewall, while public unpatched servers remain targets",
+        "locator": "P007"
+      }
+    ],
+    "sourceIds": [
+      "papercut-security-bulletin"
+    ],
+    "scopeAndFreshness": "Attributed vendor status report, not an independent census."
+  },
+  {
+    "claimId": "reader-action",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "Ask the organization whether it runs PaperCut NG/MF and whether its application server has moved to a current maintenance release",
+        "locator": "P008"
+      }
+    ],
+    "sourceIds": [
+      "papercut-security-bulletin"
+    ],
+    "scopeAndFreshness": "Proportionate question follows vendor guidance without assuming reader administration."
+  },
+  {
+    "claimId": "admin-action",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "use the vendor bulletin and your organization’s incident-response process rather than acting on an unverified indicator alone",
+        "locator": "P008"
+      }
+    ],
+    "sourceIds": [
+      "papercut-security-bulletin"
+    ],
+    "scopeAndFreshness": "High-level vendor-directed response; no operational exploit instruction."
+  },
+  {
+    "claimId": "next-evidence",
+    "status": "QUALIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "independent confirmation of GreyNoise’s counts and attribution, plus verified consequences",
+        "locator": "P009"
+      }
+    ],
+    "sourceIds": [
+      "greynoise-papercut-report",
+      "papercut-security-bulletin"
+    ],
+    "scopeAndFreshness": "Next evidence follows the current uncertainty."
+  }
+]

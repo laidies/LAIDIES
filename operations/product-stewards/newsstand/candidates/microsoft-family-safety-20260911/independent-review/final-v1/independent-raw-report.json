@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "laidies-newsstand-combined-editorial-raw.v1",
+  "candidateId": "microsoft-family-safety-20260911",
+  "storySha256": "5c1e1c8b46b48ace25d683e7e536c249f5e03e01bcf2a0c991ff024e2b5d391d",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "verdict": "PASS",
+  "findings": {
+    "reader": "A well-scoped dated news article that answers what works now first, builds a genuinely useful account/product/control layer model, defines its two technical terms in context, keeps company claims attributed and the Insider-preview and unproved-outcome limits attached to the right sentences, and ends with a specific action plus a transferable next question. No failure families present; comprehension and transfer both verified.",
+    "facts": "Factual integrity is strong: dates, the Copilot sign-in and age rules, Family Safety fixes and their caveats, Insider-only API availability, the future CheckAgeStatusAsync function and the no-date-of-birth signal design all match the supplied source passages, with company claims attributed as such. One claim — that the app developer decides what follows from the signal — is a fair but non-verbatim inference from Microsoft's 'for apps to utilize' design and is marked qualified. All time-sensitive claims are dated and checkable."
+  },
+  "readerProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/independent-review/runtime-claude-fable-20260911-v1/article-editorial-provider.raw.json",
+    "sha256": "a84deb81f5eb81f3a341d0d10f2c0a97d4f740e28df3adbfde20b42c49342eed"
+  },
+  "factualProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/independent-review/runtime-claude-fable-20260911-v1/article-editorial-provider.raw.json",
+    "sha256": "a84deb81f5eb81f3a341d0d10f2c0a97d4f740e28df3adbfde20b42c49342eed"
+  },
+  "factualJudgment": {
+    "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/independent-review/runtime-claude-fable-20260911-v1/article-editorial-judgment.json",
+    "sha256": "a7d1d7f01e251e1992a97b88a954cd36f473f748f4982e3f7f4f438639dbc29d"
+  },
+  "calibration": {
+    "path": "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/calibration-result.json",
+    "sha256": "006b3ff3300c856daee21a482d77003064a03b79591a72c75026c2c07a042e10"
+  }
+}

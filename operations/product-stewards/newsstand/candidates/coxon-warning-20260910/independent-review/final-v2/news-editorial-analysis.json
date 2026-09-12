@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "coxon-warning-20260910",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "f2e43f661f24c567770e8eece59341c13787d29d894f9095b3948fcb411c1346",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "If Coxon himself says Anthropic is not cutting corners right now, why does he think resigning and warning the public was necessary?",
+      "response": "His concern is a feedback loop: when companies use today's AI to speed up building tomorrow's AI, development itself accelerates. Competitive pressure then shrinks the time available for safety research and public rulemaking, so a company that behaves carefully today could be forced into safety-versus-speed trade-offs later. He resigned to put that prediction on the record before the pressure arrives — but the sources give no timeline, speed or probability for the loop.",
+      "expectedEvidence": "An accurate answer must use the acceleration-compresses-safety-time causal chain from P008, preserve the 'No, not yet' boundary from P003, and keep the unknowns (timing, speed, probability) attached rather than treating the loop as established.",
+      "assessment": "The article supports this answer fully in ordinary language; P003, P007 and P008 together let a non-technical reader reconstruct the mechanism and its limits without distortion."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using this article's method, how should the reader weigh the 30 percent figure before repeating or acting on it?",
+      "response": "Apply the three questions from P009: Who estimated it? One executive with a commercial interest in security spending — so it is testimony plus forecast, like Hubinger's figure, not a measured breach rate. What method produced it? If no model, survey or incident count is disclosed, it is a personal forecast dressed in precise-sounding numbers. What evidence would change it? Published cryptography-migration timelines or documented attacks would. The keynote is a verified event; the breach is a forecast; the CEO's product roadmap, like Anthropic's RSP, is a self-authored framework, not independent proof. Treat the warning as worth scrutiny without promoting it into a finding.",
+      "expectedEvidence": "Correct transfer requires distinguishing the observed statement from the forecasted outcome, applying the who/method/what-would-change-it test from P009 and P012, and recognising a vendor's own framework as non-independent, mirroring P005.",
+      "assessment": "The article's mechanism transfers cleanly: every distinction needed for this novel scenario is explicitly taught, so the transfer succeeds without adding anything the article did not supply."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The resignation, the accusation, the interview clarification and the company response form a clear dated causal sequence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Jacob Coxon said in a post that he had resigned from Anthropic after three years working on AI pretraining at Anthropic and OpenAI. WIRED and ABC reported the resignation on September 9. Coxon accused both companies of racing toward increasingly self-improving AI and “gambling with our lives.” The resignation and statement are verified events. The outcome he fears is a forecast.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>In a direct interview, Coxon told WIRED that Anthropic takes safety more seriously than OpenAI in his experience. Asked whether Anthropic was already cutting corners, he answered, “No, not yet.” His warning is that competition could force future trade-offs between safety and speed.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Anthropic told WIRED it supports a lawful, verifiable way for the industry to pace powerful-model releases. Its current policy describes company risk reports and allows Anthropic to pause development. That framework is not independent proof that its safeguards work or an industry agreement.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Recursive self-improvement is defined at first use as 'using AI to help build the next AI systems', and 'personal forecast' is unpacked where the 10 percent figure appears.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Coxon proposed that OpenAI and Anthropic agree to limit <strong>recursive self-improvement</strong>, meaning using AI to help build the next AI systems. He named biological and cyber harm as possible risks, at a high level. The reviewed sources do not establish that either has happened.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>A second Anthropic researcher, Evan Hubinger, wrote separately that he personally thinks there is a greater than 10 percent chance AI could kill everyone within the next decade. “Personally” matters. The post supplies no calculation, model or survey, so this is a <strong>personal forecast</strong>—one person’s estimate about an uncertain future, not a measured past rate. It is not a company probability or a measured fatality rate.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is grounded in the recognizable situation of encountering a frightening percentage in AI coverage and deciding how much weight to give it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a frightening percentage appears in AI coverage, ask three connected questions: Who estimated it? What method produced it? What evidence would change it? A count of past events, a forecast from a disclosed model, a survey of experts and one person’s estimate can all use percentages, but they are different kinds of evidence.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "“Jacob Coxon resigned from Anthropic and warned that competition could make AI development outrun safety work. He says Anthropic is not cutting corners now, and Evan Hubinger’s greater-than-10-percent figure is Hubinger’s personal forecast—not a measured rate or company estimate.”",
+          "locator": "P011"
+        },
+        {
+          "excerpt": "A percentage can describe observed events or express a forecast. Ask who produced it, what method supports it and what evidence would change it before treating precision as proof.",
+          "locator": "P012"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or process details appear, and all advice follows directly from the evidence-type distinctions established in the text.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a frightening percentage appears in AI coverage, ask three connected questions: Who estimated it? What method produced it? What evidence would change it? A count of past events, a forecast from a disclosed model, a survey of experts and one person’s estimate can all use percentages, but they are different kinds of evidence.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>The public question is who can verify safety claims and set the pace when companies compete. Coxon’s slowdown is a proposal, Anthropic’s policy is its own framework, and no reviewed source establishes a binding agreement or present catastrophe. The warning deserves scrutiny without being promoted into a finding.</p>",
+          "locator": "P010"
+        }
+      ]
+    }
+  }
+}

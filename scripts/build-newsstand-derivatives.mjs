@@ -3,6 +3,7 @@
 // Deterministic public NewsStand feed and archive builder. Both derivatives
 // use one eligibility boundary and derive their timestamps from schema-2.
 import crypto from "node:crypto";
+import selection from "../content/newsstand-selection.js";
 import fs from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
@@ -97,6 +98,7 @@ export function buildDerivatives({ storyRaw, columns, issues }) {
   if (data.schemaVersion !== "2.0.0" || data.datasetStatus !== "published") reject("canonical dataset is not publishable schema-2");
   const currentIds = new Set();
   const dailyIssue = data.publications.daily && data.publications.daily.issue || {};
+  selection.assertReviewed(data.stories.filter(story => (dailyIssue.storyIds || []).includes(story.id)));
   [...(dailyIssue.storyIds || []), dailyIssue.frontPaigeStoryId].filter(Boolean).forEach((id) => currentIds.add(id));
   const weekly = data.publications.weekly;
   if (weekly && weekly.status === "current" && weekly.storyId) currentIds.add(weekly.storyId);
@@ -118,7 +120,7 @@ export function buildDerivatives({ storyRaw, columns, issues }) {
     expiresAt,
     sourceDatasetSha256: sha256(storyRaw),
     state: "current",
-    current: feedItems.filter((item) => item.current),
+    current: feedItems.filter((item) => item.current).sort(selection.compare),
     archive: feedItems
   };
 
@@ -155,6 +157,20 @@ export function buildDerivatives({ storyRaw, columns, issues }) {
         slug: null,
         destination: record.destination || null
       });
+    }
+  }
+  // Homepage activity uses the exact current Daily desk, never a bank candidate
+  // or an older carried activity relabelled as today's selection.
+  feed.dailyActivity = null;
+  const currentIssue = (issues.issues || []).find(issue => issue.editionDate === data.publications.daily.editionDate && issue.status === "complete" && issue.admission);
+  const activityDesk = currentIssue?.desks?.find(desk => desk.type === "curiosity" && desk.state === "ready");
+  if (activityDesk && currentIssue.serviceRecordIds.includes(activityDesk.recordId)) {
+    const record = columnsById.get(activityDesk.recordId);
+    if (record && ["APPROVED", "PUBLISHED", "CORRECTED"].includes(record.status) && record.publicEligibility === "ELIGIBLE" &&
+        record.editionDate === currentIssue.editionDate && !activityDesk.carriedFrom && record.freshness?.expiresAt >= currentIssue.editionDate &&
+        record.headline === activityDesk.headline && record.summary === activityDesk.summary) {
+      feed.dailyActivity = { id: record.id, editionDate: record.editionDate, headline: record.headline,
+        text: record.summary, url: `/newsstand?column=${encodeURIComponent(record.id)}`, status: "published" };
     }
   }
   const byId = new Map();

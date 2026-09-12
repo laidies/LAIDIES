@@ -1,0 +1,451 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "curiosity-29-check-invitation",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-curiosity-20260910",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/independent-batch-06.json",
+      "sha256": "c5faf92d943c8e75d94cfee23be285df9adf63fddc0972589db07ef676d500f0"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T06:06:14.831Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-29-check-invitation.md",
+      "sha256": "aa741ea01a69e74e8c581192c3d82190c78e809cdbb5e80bcc78cd7b469975e5"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-29-check-invitation.manifest.json",
+      "sha256": "2c9410978faf8d93e55e535dda749c462c263eccd79ef31ffdc0dd661cfd4dbe"
+    }
+  },
+  "calibration": {
+    "mode": "RECURRING_SERVICE_ARTIFACT_REJECTION_V1",
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "claude-fable-curiosity-20260910",
+    "reviewedAt": "2026-09-11T06:06:14.831Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "glossaryAccumulation",
+          "technicalExplainerVoice",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "CQX-BAD-001, AI system block"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check",
+            "locator": "CQX-BAD-001, AI system block"
+          },
+          {
+            "excerpt": "A toolbox contains different tools for different jobs.",
+            "locator": "CQX-BAD-001, Model types block"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "technicalExplainerVoice",
+          "joylessInstruction",
+          "workedExampleOvertakesBookPurpose"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Read the chapters in order to build the complete picture.",
+            "locator": "CQX-BAD-002, Introduction"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "CQX-BAD-002, The output is not the decision"
+          },
+          {
+            "excerpt": "It is a practical map, not a claim that every AI system is built identically.",
+            "locator": "CQX-BAD-002, The output is not the decision"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Concrete low-stakes first action with a built-in check on whether it helped",
+        "Warmth expressed through specificity of situation rather than empowerment language",
+        "Reader treated as smart and busy; no beginner/expert condescension",
+        "Short declarative sentences that land the point without filler"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Four days of dread, eleven minutes of work.",
+          "locator": "CQX-GOOD-EPISODE-001, narrative beat 9"
+        },
+        {
+          "excerpt": "Small sips. Big moves.",
+          "locator": "CQX-GOOD-EPISODE-001, quotables"
+        },
+        {
+          "excerpt": "private embarrassment becomes permission to start",
+          "locator": "CQX-GOOD-EPISODE-001, meta emotional beat"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Is our plan quietly excluding someone who will not say so in front of the group?",
+    "promisedPayoff": "Barriers surface privately in time to fix, without anyone being put on the spot.",
+    "centralMentalModel": "Barriers are properties of the plan to adjust, not personal circumstances to justify publicly.",
+    "dailyLifeConnection": "Ordinary group outings where cost, timing or access silently filters who comes.",
+    "surfaceJob": "Optional daily 'Try this today' practice item, standalone.",
+    "desiredReaderFeeling": "Considerate and capable, not performatively virtuous."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Ask, private channel, adjust, and the disclosure prohibition are each stated in one plain clause.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ask the people coming whether the time, cost or access arrangements create a problem",
+          "locator": "curiosity-29 body"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Names the three concrete barrier types and a mechanism that gets honest answers; directly usable before the next group plan.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give them a private way to answer.",
+          "locator": "curiosity-29 body"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, specific and dignity-preserving without empowerment language; the final prohibition is the sharpest and most Ali-like line.",
+      "artifactEvidence": [
+        {
+          "excerpt": "do not ask anyone to explain personal circumstances to the whole group",
+          "locator": "curiosity-29 body"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Plain and sincere; the register suits the sensitivity of the topic, and the rubric does not require comedy.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Check who the plan leaves out.",
+          "locator": "curiosity-29 heading"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "No factual claims; purely procedural advice with bounded promises ('Change what you can agree on').",
+      "artifactEvidence": [
+        {
+          "excerpt": "Change what you can agree on",
+          "locator": "curiosity-29 body"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Evergreen social practice, no dated dependencies.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Before finalising a shared outing",
+          "locator": "curiosity-29 body"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "One optional act; no spend or public exposure — the item actively protects against public exposure of others.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Give them a private way to answer.",
+          "locator": "curiosity-29 body"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "Reader performs the ask and adjustment on a real upcoming plan.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Before finalising a shared outing",
+          "locator": "curiosity-29 body"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "Private responses and the resulting agreed changes are the observable check; bounded honestly by 'what you can agree on'.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Change what you can agree on",
+          "locator": "curiosity-29 body"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Proportional: opens from a decision moment the reader controls and lands on a precise boundary; further dimensions rightly unused.",
+      "artifactEvidence": [
+        {
+          "excerpt": "whether the time, cost or access arrangements create a problem",
+          "locator": "curiosity-29 body"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Time/cost/access is a general barrier taxonomy transferring to meetings, events and family plans beyond the outing case.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the time, cost or access arrangements",
+          "locator": "curiosity-29 body"
+        }
+      ]
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "When a barrier cannot be removed, the item scopes action honestly to negotiable changes instead of promising universal accommodation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Change what you can agree on; do not ask anyone to explain",
+          "locator": "curiosity-29 body"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No names invoked.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitation.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No DEI-boilerplate phrasing; concrete barrier categories instead.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Heading question answered by the body.",
+      "artifactLocator": "curiosity-29 heading"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy used.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Self-contained.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No entertainment layer.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "No assertions beyond procedure.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "No decorative examples.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Specific: named barrier types, private channel, bounded adjustment.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No terminology.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on a concrete prohibition, not a moral.",
+      "artifactLocator": "curiosity-29 closing sentence"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Plain words; 'access arrangements' used in its ordinary sense.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Sincere register appropriate to the subject; warmth carried by the dignity protection.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The finalize-the-plan moment motivates the ask.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "No hook.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Why privacy works — people will not disclose circumstances publicly — is carried by the explicit prohibition.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "No reveal structure.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Pattern extends to other group plans.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No references.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "No dated or empirical claims.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Conversational register.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "No internal scaffold; cross-bank check pending.",
+      "artifactLocator": "curiosity-29 body"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No worked example.",
+      "artifactLocator": "curiosity-29 body"
+    }
+  },
+  "factualReview": {
+    "disposition": "NO_MATERIAL_CLAIMS",
+    "rationale": "Original social-practice suggestion; no product, statistical, effectiveness or reported-event claims.",
+    "claimScan": {
+      "observation": "Full prose scanned; procedural imperatives only, with promises bounded to what the group can agree.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Change what you can agree on",
+          "locator": "curiosity-29 body"
+        }
+      ]
+    },
+    "sourceBindings": [],
+    "claimMap": [],
+    "reviewedThrough": "2026-09-10",
+    "nextTrigger": "Any edit adding factual or effectiveness language, or reader feedback via newsstand-daily",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this original activity; pilot repair and full-bank maker inspection are preserved."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No new reusable defect found in this exact activity; conditional-result pilot repair applied before full bank."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "The check on whether the practice helped is the private responses and agreed changes; the prose does not name an explicit after-the-outing verification, which is acceptable at this scale but worth noting.",
+    "Explain-back assessed from prose only; reader testing pending.",
+    "Whole-bank repetition review pending the full thirty entries.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/curiosity-sampling-policy-20260910.json",
+      "sha256": "2d114ecc0a064628ed33f4157a87781672fb031581672f110645e50ad1b7abc5"
+    },
+    "policyId": "newsstand-curiosity-sampled-comprehension-20260910",
+    "serviceType": "curiosity",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-c5faf92d943c",
+    "sampleQueue": [
+      "curiosity-01-ask-example",
+      "curiosity-02-name-contribution",
+      "curiosity-03-compare-rewrite",
+      "curiosity-04-find-original",
+      "curiosity-05-invite-question",
+      "curiosity-06-ask-before-help",
+      "curiosity-07-small-feedback",
+      "curiosity-08-unseen-step",
+      "curiosity-09-change-one-detail",
+      "curiosity-10-share-opportunity",
+      "curiosity-11-check-assumption",
+      "curiosity-12-credit-introduction",
+      "curiosity-13-show-start",
+      "curiosity-14-separate-preference",
+      "curiosity-15-quiet-invite",
+      "curiosity-16-find-date",
+      "curiosity-17-ask-why-rule",
+      "curiosity-18-share-template",
+      "curiosity-19-let-finish",
+      "curiosity-20-name-unknown",
+      "curiosity-21-read-own-words",
+      "curiosity-22-ask-good-part",
+      "curiosity-23-test-directions",
+      "curiosity-24-check-added-detail",
+      "curiosity-25-share-question",
+      "curiosity-26-smaller-offer",
+      "curiosity-27-ask-evidence-change",
+      "curiosity-28-record-useful-fix",
+      "curiosity-29-check-invitation",
+      "curiosity-30-ask-follow-up"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

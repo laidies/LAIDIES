@@ -1,0 +1,57 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "primaryType": "model-tool-release",
+  "overlays": [],
+  "universalAnswers": {
+    "whatHappened": "OpenAI released GPT-Live-1 to developers through its API on September 10, and Yelp said it integrated the voice model into Yelp Host and Hatch.",
+    "plainLanguageIdentity": "OpenAI calls GPT-Live-1 a front-end voice layer that listens and speaks while a separate backend checks business data and completes tasks.",
+    "evidenceBasis": "OpenAI's September 10 release and current developer documentation were reopened on September 11; Yelp's complete company release was captured through its Business Wire syndication mirror.",
+    "evidenceLimits": "No reviewed independent evaluation establishes transaction accuracy, and Yelp disclosed no sample size, test method, rollout geography or customer coverage for its early observations.",
+    "readerRelevance": "A person may encounter the model while making a restaurant reservation, changing a food order or arranging a service appointment without ever using an API herself.",
+    "affectedPeople": "Callers, restaurant staff, service-business staff and developers or operators responsible for the voice system and its connected booking tools.",
+    "changesNow": "Developers can use GPT-Live-1 in the API, and Yelp says Yelp Host and Hatch have integrated it as the voice layer for restaurant and service-business calls.",
+    "uncertainty": "Which callers and customers receive the integration, and how often a spoken request becomes a correct lasting transaction, remain undisclosed.",
+    "readerAction": "After a reservation or repair call, repeat the important details and ask for confirmation of the actual record; ask for a person if the system cannot confirm it.",
+    "betterQuestion": "Did the connected booking system record the request correctly, and what evidence measures that outcome rather than only how natural the voice sounded?"
+  },
+  "typeAnswers": {
+    "model-tool-release": {
+      "productRange": "GPT-Live-1 is the front-end voice layer for applications; a separate backend model, business data and tools perform deeper reasoning and actions.",
+      "newCapabilities": "OpenAI says it listens and speaks at the same time and is designed to handle pauses, interruptions, changing directions and background noise more naturally.",
+      "bestFitTasks": "Phone conversations that change midway, including reservations, food orders, customer support and service appointments.",
+      "notFor": "It does not itself prove that a reservation or appointment was recorded, and it may be unnecessary for a simple menu lookup or email.",
+      "nearestAlternatives": "A traditional chained voice system passes speech through separate listening, reasoning and speaking stages; a person can still handle the call directly.",
+      "availability": "OpenAI says the model is available to developers in the API; Yelp says it is integrated into Yelp Host and Hatch but gives no caller, location or customer rollout list.",
+      "freePaidBoundary": "The release is an API product for developers, not a new setting every caller or ChatGPT account receives, and the caller's price is not established by the API rate.",
+      "costBoundary": "OpenAI lists $0.05 per minute for the front-end voice layer, with backend models and tools billed separately.",
+      "limitations": "Yelp's improved call-handling observations lack a disclosed sample, method and independent assessment; rollout and transaction accuracy remain unknown.",
+      "technicalExampleProportionality": "One changed restaurant reservation shows why smoother interruption handling and a confirmed booking are separate system results.",
+      "vendorEvidenceBoundary": "OpenAI and Yelp establish their release, architecture and adoption claims; no reviewed source independently establishes the claimed downstream improvement."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "OpenAI released GPT-Live-1 to developers through its API on September 10.",
+    "actualMeaningExact": "This is where someone who never opens an API may encounter the release: while making a reservation, changing a food order or arranging an appointment by phone.",
+    "mechanismExact": "A separate backend system still checks business information, applies rules and uses tools.",
+    "familiarExampleExact": "Imagine changing a reservation from four people to five while the voice is still replying.",
+    "jargon": [
+      {
+        "term": "front-end voice layer",
+        "plainMeaning": "the part that listens and speaks while a separate backend checks information and completes tasks"
+      },
+      {
+        "term": "full duplex",
+        "plainMeaning": "listening and speaking at the same time"
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "checking a fluent AI output against the result that matters",
+        "learningPayoff": "Working with AI 101 teaches how to check a confident output against the source or record that determines whether it is correct.",
+        "disposition": "link",
+        "destination": "/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it"
+      }
+    ]
+  }
+}

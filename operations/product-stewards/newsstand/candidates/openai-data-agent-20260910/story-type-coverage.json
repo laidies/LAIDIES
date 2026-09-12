@@ -1,0 +1,57 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "primaryType": "model-tool-release",
+  "overlays": [],
+  "universalAnswers": {
+    "whatHappened": "OpenAI released a Data agent in ChatGPT Work on September 10.",
+    "plainLanguageIdentity": "It is a workplace data tool that can connect an approved ChatGPT Work account to company data, investigate a question and build a dashboard.",
+    "evidenceBasis": "OpenAI's release and current business/plugin control pages, plus VentureBeat's same-day interview reporting.",
+    "evidenceLimits": "OpenAI has not published an external accuracy benchmark, and the independent report did not test the product's answers.",
+    "readerRelevance": "A plain-language dashboard can still inherit the company's permissions, metric definitions, source quality and errors.",
+    "affectedPeople": "Professionals and teams using ChatGPT Work with administrator-approved business data connections.",
+    "changesNow": "The Data plugin can be installed in ChatGPT Work and connected by administrators to supported data and BI tools.",
+    "uncertainty": "No public benchmark establishes how accurately the external product retrieves, joins or interprets data across customer systems.",
+    "readerAction": "Before sharing a result, check which sources and metric definition it used, compare one important figure with the trusted report, and keep sending or changing records behind approval.",
+    "betterQuestion": "Which data and definition produced this answer, and what happens if it is wrong?"
+  },
+  "typeAnswers": {
+    "model-tool-release": {
+      "productRange": "Data agent is a plugin inside ChatGPT Work, not a new general model or a replacement data warehouse.",
+      "newCapabilities": "It can combine approved company sources, investigate a question, build a dashboard, share findings and carry out approved connected actions.",
+      "bestFitTasks": "Exploring why a business metric changed, creating an initial dashboard and preparing a source-linked analysis for review.",
+      "notFor": "It is not independent proof that a number or causal explanation is correct, and OpenAI has not published an external correctness benchmark.",
+      "nearestAlternatives": "Existing BI tools and analysts can query the same governed data directly; Data agent adds a conversational route across several connected sources.",
+      "availability": "OpenAI lists Data in the Plugins directory in ChatGPT Work; administrators manage installation, data-source configuration and access.",
+      "freePaidBoundary": "The release is limited to ChatGPT Work and depends on workplace administrator and connector access; no consumer Free or Plus availability is announced.",
+      "costBoundary": "OpenAI announced no standalone Data agent price on the release page; connector, platform and ChatGPT Work costs are not resolved by that absence.",
+      "limitations": "Source quality, business definitions, existing permissions, action settings and the missing public benchmark remain important boundaries.",
+      "technicalExampleProportionality": "The article uses one sales metric example to show how a definition and source affect an answer, without teaching database administration.",
+      "vendorEvidenceBoundary": "Product capabilities and data commitments are attributed to OpenAI; VentureBeat establishes the missing external benchmark, not product accuracy."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "OpenAI released a Data agent in ChatGPT Work on September 10.",
+    "actualMeaningExact": "The useful change is that a colleague can ask a business question in ordinary language and receive a dashboard without first writing a database query.",
+    "mechanismExact": "The agent can only work with the sources its administrators connect and the records its account is already allowed to see.",
+    "familiarExampleExact": "Both dashboards can look polished and still answer different questions.",
+    "jargon": [
+      {
+        "term": "metric definition",
+        "plainMeaning": "the rule a company uses to decide what a number includes"
+      },
+      {
+        "term": "permission",
+        "plainMeaning": "which tables, rows and columns the connected account is allowed to see"
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "Checking an AI output against source and criteria",
+        "learningPayoff": "Practise checking a confident result against the source and definition that produced it.",
+        "disposition": "link",
+        "destination": "/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it"
+      }
+    ]
+  }
+}

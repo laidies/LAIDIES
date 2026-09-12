@@ -1,0 +1,893 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "microsoft-family-safety-20260911",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/weekly_recovery",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/weekly_recovery",
+    "principalId": "/root/weekly_recovery",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-11T07:30:57-07:00",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/publication-manifest.json",
+      "sha256": "5826aa2bbe5328923df3529cb449d9c7ec59d2549034fc24e47ec73a37246983"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/review-text.json",
+      "sha256": "fd685493de2aeab2983893d705f8e487512ca2913b43e6ecea9aa23cc72ab8ae"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/rendered-article.html",
+      "sha256": "e39e416cae11218aa324a8d49a74451048ad0c4806725d00d622203875f4ece5"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/weekly_recovery",
+    "reviewedAt": "2026-09-10T19:36:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What changed in Microsoft’s family protections, what works now and are Windows age checks universal?",
+    "promisedPayoff": "Separate current Copilot and Family Safety changes from an Insider-only age signal and from unproved safety outcomes.",
+    "centralMentalModel": "Account context, one product’s access rule, family controls and a preview app signal do different jobs.",
+    "dailyLifeConnection": "A person helping a young user manage Copilot, Windows apps, screen time or purchases.",
+    "surfaceJob": "September 11 explanation of the September 10 framework and September 8 product changes.",
+    "desiredReaderFeeling": "I know what can be used now and what remains a company claim or preview."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies plainClarity evidence while keeping product layers, availability and company claims distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The useful way to read this is as three separate layers",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies readerValue evidence while keeping product layers, availability and company claims distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Some practical family controls are available now",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies laidiesVoice evidence while keeping product layers, availability and company claims distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ask which layer it describes",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies engagingEnjoyable evidence while keeping product layers, availability and company claims distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A request for more screen time still goes through Family Safety",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies factualIntegrity evidence while keeping product layers, availability and company claims distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Those remain Microsoft’s claims",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies freshnessReviewability evidence while keeping product layers, availability and company claims distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The next evidence worth watching is general Windows availability and independent testing",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies surfaceFit evidence while keeping product layers, availability and company claims distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft updated family controls. Its wider Windows age signals are still in preview.",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies datedChange evidence while keeping product layers, availability and company claims distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft published a youth-safety framework on September 10",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies consequenceAndUncertainty evidence while keeping product layers, availability and company claims distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "They are not a universal age check running in every Windows app today",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies dailyLifeConnection evidence while keeping product layers, availability and company claims distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If you help manage a family account",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies communicationBenchmark evidence while keeping product layers, availability and company claims distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The account supplies an <strong>age signal</strong>—an age category or verification status an account can pass to an app without giving it a full date of birth",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies explainBack evidence while keeping product layers, availability and company claims distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Microsoft account can carry age information. Copilot can use that information to set its own access rules.",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Does the age signal itself set a screen-time limit?",
+        "probeResponse": "No. The account can supply an age category, but Family Safety or an app must connect that information to a control.",
+        "expectedEvidence": "Account signal and product control remain distinct.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies unseenTransfer evidence while keeping product layers, availability and company claims distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "a Windows signal an app may choose to use",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "If a game later receives a teen age category, what still has to happen?",
+        "probeResponse": "The game developer must decide which experience or control follows from the signal and test whether it works.",
+        "expectedEvidence": "The account-to-signal-to-app model transfers to a product absent from the story’s worked screen-time example.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies usefulAction evidence while keeping product layers, availability and company claims distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "update the Family Safety app or use its web page for the controls that exist now",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies analogyIntegrity evidence while keeping product layers, availability and company claims distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A request for more screen time still goes through Family Safety; the preview age signal is a separate path",
+          "locator": "exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The complete story avoids glossaryAccumulation; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The complete story avoids templateRepetition; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The complete story avoids decorativeAnalogy; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The complete story avoids referenceConfetti; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The complete story avoids missingMechanism; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The complete story avoids genericAction; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The complete story avoids jargonBeforeMeaning; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The complete story avoids disconnectedSystem; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The complete story avoids factlessConfidence; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The complete story avoids staleUnreviewableClaims; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The complete story avoids corporateSludge; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The complete story avoids joylessInstruction; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The complete story avoids benchmarkNameDrop; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The complete story avoids curiosityWithoutPayoff; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The complete story avoids familiarExampleWithoutTechnicalReturn; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The complete story avoids communicationPastiche; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The complete story avoids entertainmentBeforeUnderstanding; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The complete story avoids mechanismCompressedBehindHook; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The complete story avoids prematureClickBeforeMechanism; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The complete story avoids inflatedTakeawayEnding; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The complete story avoids purposeTooNarrow; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The complete story avoids mechanismBeforeMotivation; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The complete story avoids workedExampleOvertakesBookPurpose; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The complete story avoids technicalExplainerVoice; the dated changes, current availability, mechanism and evidence limits remain connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/source-evidence.json",
+        "sha256": "7126f44b59bc33927cb7494cb49eba3f81c5a388e3acf4cd3a5a7d31ffcf673d"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "framework-date",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Microsoft published a youth-safety framework on September 10",
+            "locator": "P001"
+          }
+        ],
+        "sourceIds": [
+          "microsoft-safe-participation-framework"
+        ],
+        "scopeAndFreshness": "Exact company publication date and bounded identity.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/source-evidence.json",
+          "sha256": "7126f44b59bc33927cb7494cb49eba3f81c5a388e3acf4cd3a5a7d31ffcf673d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Microsoft’s Safe Participation Framework serves as a foundation for our work today, and we expect it to continue evolving as technology, research, and societal expectations change. We do not claim to have all the answers.",
+            "locator": "https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/"
+          },
+          {
+            "excerpt": "All users must now sign in to use Copilot, and access is restricted for children under 13 (or older where required by local law).",
+            "locator": "https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/"
+          },
+          {
+            "excerpt": "We have also implemented measures to reduce exposure to harmful content, directing users to crisis support resources when self-harm risks are detected, and encouraging healthy use through transparency, break reminders, reporting tools, and guardrails to protect against delusional outputs.",
+            "locator": "https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/"
+          },
+          {
+            "excerpt": "Through our new Windows Age application programming interface (API), expanded age assurance capabilities, and enhanced family safety tools, Microsoft is helping establish a more consistent and privacy-conscious foundation for age-appropriate experiences across the broader ecosystem.",
+            "locator": "https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/"
+          }
+        ]
+      },
+      {
+        "claimId": "copilot-signin",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "everyone must now sign in to use Copilot",
+            "locator": "P001"
+          }
+        ],
+        "sourceIds": [
+          "microsoft-safe-participation-framework"
+        ],
+        "scopeAndFreshness": "Attributed to Microsoft's current framework.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/source-evidence.json",
+          "sha256": "7126f44b59bc33927cb7494cb49eba3f81c5a388e3acf4cd3a5a7d31ffcf673d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Microsoft’s Safe Participation Framework serves as a foundation for our work today, and we expect it to continue evolving as technology, research, and societal expectations change. We do not claim to have all the answers.",
+            "locator": "https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/"
+          },
+          {
+            "excerpt": "All users must now sign in to use Copilot, and access is restricted for children under 13 (or older where required by local law).",
+            "locator": "https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/"
+          },
+          {
+            "excerpt": "We have also implemented measures to reduce exposure to harmful content, directing users to crisis support resources when self-harm risks are detected, and encouraging healthy use through transparency, break reminders, reporting tools, and guardrails to protect against delusional outputs.",
+            "locator": "https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/"
+          },
+          {
+            "excerpt": "Through our new Windows Age application programming interface (API), expanded age assurance capabilities, and enhanced family safety tools, Microsoft is helping establish a more consistent and privacy-conscious foundation for age-appropriate experiences across the broader ecosystem.",
+            "locator": "https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/"
+          }
+        ]
+      },
+      {
+        "claimId": "copilot-age",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "the support page sets a minimum age of 13, or higher where regional rules require it",
+            "locator": "P001"
+          }
+        ],
+        "sourceIds": [
+          "microsoft-safe-participation-framework",
+          "microsoft-copilot-young-people-support"
+        ],
+        "scopeAndFreshness": "Applies to the updated personal-account Copilot support page; work and school accounts are excluded in the next sentence.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/source-evidence.json",
+          "sha256": "7126f44b59bc33927cb7494cb49eba3f81c5a388e3acf4cd3a5a7d31ffcf673d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Microsoft’s Safe Participation Framework serves as a foundation for our work today, and we expect it to continue evolving as technology, research, and societal expectations change. We do not claim to have all the answers.",
+            "locator": "https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/"
+          },
+          {
+            "excerpt": "All users must now sign in to use Copilot, and access is restricted for children under 13 (or older where required by local law).",
+            "locator": "https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/"
+          },
+          {
+            "excerpt": "We have also implemented measures to reduce exposure to harmful content, directing users to crisis support resources when self-harm risks are detected, and encouraging healthy use through transparency, break reminders, reporting tools, and guardrails to protect against delusional outputs.",
+            "locator": "https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/"
+          },
+          {
+            "excerpt": "Through our new Windows Age application programming interface (API), expanded age assurance capabilities, and enhanced family safety tools, Microsoft is helping establish a more consistent and privacy-conscious foundation for age-appropriate experiences across the broader ecosystem.",
+            "locator": "https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/"
+          },
+          {
+            "excerpt": "An updated version of the Microsoft Copilot app for web, desktop, and mobile devices is available as of August 18, 2026.",
+            "locator": "https://support.microsoft.com/en-us/privacy/microsoft-copilot/young-people"
+          },
+          {
+            "excerpt": "This article applies only when you sign in with a Microsoft account, such as a personal email address, when using the Microsoft Copilot app on web, desktop, or mobile.",
+            "locator": "https://support.microsoft.com/en-us/privacy/microsoft-copilot/young-people"
+          },
+          {
+            "excerpt": "This article does not apply when you sign in to the Microsoft Copilot app or use Copilot in Microsoft 365 apps with a work, school, or organizational (Microsoft Entra) account.",
+            "locator": "https://support.microsoft.com/en-us/privacy/microsoft-copilot/young-people"
+          },
+          {
+            "excerpt": "You must be at least 13 years old to use Copilot, and in some countries or regions, the minimum age may be higher depending on regional requirements.",
+            "locator": "https://support.microsoft.com/en-us/privacy/microsoft-copilot/young-people"
+          },
+          {
+            "excerpt": "Your parent or guardian may be able to manage how you use Copilot. They can use tools like Microsoft Family Safety or settings on your device.",
+            "locator": "https://support.microsoft.com/en-us/privacy/microsoft-copilot/young-people"
+          }
+        ]
+      },
+      {
+        "claimId": "family-fixes",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "requests for more screen time, app access and purchases are faster; activity reports cover more apps; wallet balances are fixed",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "microsoft-family-safety-fixes",
+          "windows-central-family-scope-report"
+        ],
+        "scopeAndFreshness": "Product changes remain company claims; independent reporting confirms their announced scope.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/source-evidence.json",
+          "sha256": "7126f44b59bc33927cb7494cb49eba3f81c5a388e3acf4cd3a5a7d31ffcf673d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Parental approvals for app access, screen time extensions, and purchases now happen faster than before, reducing wait times and frustration for parents and kids alike.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "Activity reporting now includes broader app coverage across all applications used on a child’s PC, providing a more complete and trustworthy view. Additional improvements to usage time accuracy are also on the way.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "Family funding balance was not reflecting proper updated balance but now this issue has been addressed, and parents can now easily manage the funds for their children.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "All of the above fixes are available in the latest versions of the Family Safety mobile app both iOS and Android. You can also access Family Safety on the web.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "While we have made important progress, some families may still run into issues.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "The first change Microsoft highlighted is not a new feature, but a speed boost to an existing one.",
+            "locator": "https://www.windowscentral.com/microsoft/windows-11/microsoft-fixes-sluggish-windows-11-parental-approvals-and-expands-age-verification"
+          },
+          {
+            "excerpt": "Microsoft has also made it easier for parents to keep track of web activity, app activity, and spending. Managing family groups has been improved as well, including options that make it simpler to add or remove members.",
+            "locator": "https://www.windowscentral.com/microsoft/windows-11/microsoft-fixes-sluggish-windows-11-parental-approvals-and-expands-age-verification"
+          },
+          {
+            "excerpt": "The new Windows Age APIs are available now to Windows Insiders and should ship to all Windows users soon.",
+            "locator": "https://www.windowscentral.com/microsoft/windows-11/microsoft-fixes-sluggish-windows-11-parental-approvals-and-expands-age-verification"
+          }
+        ]
+      },
+      {
+        "claimId": "remaining-family-limits",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "usage-time accuracy still needs work and some families may still have problems",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "microsoft-family-safety-fixes"
+        ],
+        "scopeAndFreshness": "Preserves Microsoft's own qualifications.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/source-evidence.json",
+          "sha256": "7126f44b59bc33927cb7494cb49eba3f81c5a388e3acf4cd3a5a7d31ffcf673d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Parental approvals for app access, screen time extensions, and purchases now happen faster than before, reducing wait times and frustration for parents and kids alike.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "Activity reporting now includes broader app coverage across all applications used on a child’s PC, providing a more complete and trustworthy view. Additional improvements to usage time accuracy are also on the way.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "Family funding balance was not reflecting proper updated balance but now this issue has been addressed, and parents can now easily manage the funds for their children.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "All of the above fixes are available in the latest versions of the Family Safety mobile app both iOS and Android. You can also access Family Safety on the web.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "While we have made important progress, some families may still run into issues.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          }
+        ]
+      },
+      {
+        "claimId": "age-api-preview",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The Windows Age APIs are available to Windows Insiders now",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "microsoft-windows-age-api",
+          "windows-central-family-scope-report"
+        ],
+        "scopeAndFreshness": "Current preview availability, not general rollout.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/source-evidence.json",
+          "sha256": "7126f44b59bc33927cb7494cb49eba3f81c5a388e3acf4cd3a5a7d31ffcf673d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "User account → age signal → age-appropriate experience and controls",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          },
+          {
+            "excerpt": "GetUserAgeRangeAsync: Provides non-personally identifiable age group categories for apps to utilize in providing safe and age-appropriate user experiences, while protecting the date of birth data and overall privacy of users. Age groupings available via the API include- under 10, 10-12, 13-15, 16-17, 18+.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          },
+          {
+            "excerpt": "Apps receive only the age-related signal needed for the experience and not sensitive personal data such as full date of birth.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          },
+          {
+            "excerpt": "The Windows Age APIs are broadly available to Windows Insiders now and will be available to all Windows users soon. The CheckAgeStatusAsync API will be available with a future update.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          },
+          {
+            "excerpt": "The first change Microsoft highlighted is not a new feature, but a speed boost to an existing one.",
+            "locator": "https://www.windowscentral.com/microsoft/windows-11/microsoft-fixes-sluggish-windows-11-parental-approvals-and-expands-age-verification"
+          },
+          {
+            "excerpt": "Microsoft has also made it easier for parents to keep track of web activity, app activity, and spending. Managing family groups has been improved as well, including options that make it simpler to add or remove members.",
+            "locator": "https://www.windowscentral.com/microsoft/windows-11/microsoft-fixes-sluggish-windows-11-parental-approvals-and-expands-age-verification"
+          },
+          {
+            "excerpt": "The new Windows Age APIs are available now to Windows Insiders and should ship to all Windows users soon.",
+            "locator": "https://www.windowscentral.com/microsoft/windows-11/microsoft-fixes-sluggish-windows-11-parental-approvals-and-expands-age-verification"
+          }
+        ]
+      },
+      {
+        "claimId": "future-function",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "one announced function is promised for a future update",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "microsoft-windows-age-api"
+        ],
+        "scopeAndFreshness": "CheckAgeStatusAsync is not represented as currently available.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/source-evidence.json",
+          "sha256": "7126f44b59bc33927cb7494cb49eba3f81c5a388e3acf4cd3a5a7d31ffcf673d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "User account → age signal → age-appropriate experience and controls",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          },
+          {
+            "excerpt": "GetUserAgeRangeAsync: Provides non-personally identifiable age group categories for apps to utilize in providing safe and age-appropriate user experiences, while protecting the date of birth data and overall privacy of users. Age groupings available via the API include- under 10, 10-12, 13-15, 16-17, 18+.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          },
+          {
+            "excerpt": "Apps receive only the age-related signal needed for the experience and not sensitive personal data such as full date of birth.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          },
+          {
+            "excerpt": "The Windows Age APIs are broadly available to Windows Insiders now and will be available to all Windows users soon. The CheckAgeStatusAsync API will be available with a future update.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          }
+        ]
+      },
+      {
+        "claimId": "age-signal",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "an age category or verification status an account can pass to an app without giving it a full date of birth",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "microsoft-windows-age-api"
+        ],
+        "scopeAndFreshness": "Plain-language synthesis of the exact age-range and privacy passages.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/source-evidence.json",
+          "sha256": "7126f44b59bc33927cb7494cb49eba3f81c5a388e3acf4cd3a5a7d31ffcf673d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "User account → age signal → age-appropriate experience and controls",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          },
+          {
+            "excerpt": "GetUserAgeRangeAsync: Provides non-personally identifiable age group categories for apps to utilize in providing safe and age-appropriate user experiences, while protecting the date of birth data and overall privacy of users. Age groupings available via the API include- under 10, 10-12, 13-15, 16-17, 18+.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          },
+          {
+            "excerpt": "Apps receive only the age-related signal needed for the experience and not sensitive personal data such as full date of birth.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          },
+          {
+            "excerpt": "The Windows Age APIs are broadly available to Windows Insiders now and will be available to all Windows users soon. The CheckAgeStatusAsync API will be available with a future update.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          }
+        ]
+      },
+      {
+        "claimId": "developer-choice",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The app developer still decides what experience follows from the signal",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "microsoft-windows-age-api"
+        ],
+        "scopeAndFreshness": "Inference from Microsoft presenting the signal for apps to use; it does not claim the signal itself supplies safeguards.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/source-evidence.json",
+          "sha256": "7126f44b59bc33927cb7494cb49eba3f81c5a388e3acf4cd3a5a7d31ffcf673d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "User account → age signal → age-appropriate experience and controls",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          },
+          {
+            "excerpt": "GetUserAgeRangeAsync: Provides non-personally identifiable age group categories for apps to utilize in providing safe and age-appropriate user experiences, while protecting the date of birth data and overall privacy of users. Age groupings available via the API include- under 10, 10-12, 13-15, 16-17, 18+.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          },
+          {
+            "excerpt": "Apps receive only the age-related signal needed for the experience and not sensitive personal data such as full date of birth.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          },
+          {
+            "excerpt": "The Windows Age APIs are broadly available to Windows Insiders now and will be available to all Windows users soon. The CheckAgeStatusAsync API will be available with a future update.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/"
+          }
+        ]
+      },
+      {
+        "claimId": "independent-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "It does not test whether approvals are faster, reports are more accurate or young people are safer",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "windows-central-family-scope-report",
+          "microsoft-family-safety-fixes"
+        ],
+        "scopeAndFreshness": "Absence statement limited to the reviewed independent report and company release.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/source-evidence.json",
+          "sha256": "7126f44b59bc33927cb7494cb49eba3f81c5a388e3acf4cd3a5a7d31ffcf673d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The first change Microsoft highlighted is not a new feature, but a speed boost to an existing one.",
+            "locator": "https://www.windowscentral.com/microsoft/windows-11/microsoft-fixes-sluggish-windows-11-parental-approvals-and-expands-age-verification"
+          },
+          {
+            "excerpt": "Microsoft has also made it easier for parents to keep track of web activity, app activity, and spending. Managing family groups has been improved as well, including options that make it simpler to add or remove members.",
+            "locator": "https://www.windowscentral.com/microsoft/windows-11/microsoft-fixes-sluggish-windows-11-parental-approvals-and-expands-age-verification"
+          },
+          {
+            "excerpt": "The new Windows Age APIs are available now to Windows Insiders and should ship to all Windows users soon.",
+            "locator": "https://www.windowscentral.com/microsoft/windows-11/microsoft-fixes-sluggish-windows-11-parental-approvals-and-expands-age-verification"
+          },
+          {
+            "excerpt": "Parental approvals for app access, screen time extensions, and purchases now happen faster than before, reducing wait times and frustration for parents and kids alike.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "Activity reporting now includes broader app coverage across all applications used on a child’s PC, providing a more complete and trustworthy view. Additional improvements to usage time accuracy are also on the way.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "Family funding balance was not reflecting proper updated balance but now this issue has been addressed, and parents can now easily manage the funds for their children.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "All of the above fixes are available in the latest versions of the Family Safety mobile app both iOS and Android. You can also access Family Safety on the web.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "While we have made important progress, some families may still run into issues.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          }
+        ]
+      },
+      {
+        "claimId": "current-action",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "update the Family Safety app or use its web page for the controls that exist now",
+            "locator": "P007"
+          }
+        ],
+        "sourceIds": [
+          "microsoft-family-safety-fixes"
+        ],
+        "scopeAndFreshness": "Directly follows Microsoft's availability instruction; no universal benefit is promised.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-family-safety-20260911/source-evidence.json",
+          "sha256": "7126f44b59bc33927cb7494cb49eba3f81c5a388e3acf4cd3a5a7d31ffcf673d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Parental approvals for app access, screen time extensions, and purchases now happen faster than before, reducing wait times and frustration for parents and kids alike.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "Activity reporting now includes broader app coverage across all applications used on a child’s PC, providing a more complete and trustworthy view. Additional improvements to usage time accuracy are also on the way.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "Family funding balance was not reflecting proper updated balance but now this issue has been addressed, and parents can now easily manage the funds for their children.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "All of the above fixes are available in the latest versions of the Family Safety mobile app both iOS and Android. You can also access Family Safety on the web.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          },
+          {
+            "excerpt": "While we have made important progress, some families may still run into issues.",
+            "locator": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/"
+          }
+        ]
+      }
+    ],
+    "reviewedThrough": "2026-09-11",
+    "nextTrigger": "Reopen all Microsoft pages on publication day; redraft for changed Copilot age or account rules, general Windows Age API availability, changed Family Safety availability, corrections or independent safety-outcome evidence.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No checksum-bound reviewed predecessor candidate covers Microsoft’s September 2026 Copilot, Family Safety and Windows age-signal changes together."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The producer found no unresolved current defect after separating the three product layers, preview scope and company-evidence boundary."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Public release remains separate."
+  ]
+}

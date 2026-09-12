@@ -1,0 +1,3306 @@
+{
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "reader": {
+        "type": "object",
+        "properties": {
+          "attestations": {
+            "type": "object",
+            "properties": {
+              "artifactFirst": {
+                "type": "boolean"
+              },
+              "independentFromMaker": {
+                "type": "boolean"
+              },
+              "completeTextRead": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "artifactFirst",
+              "independentFromMaker",
+              "completeTextRead"
+            ],
+            "additionalProperties": false
+          },
+          "reverseBrief": {
+            "type": "object",
+            "properties": {
+              "humanQuestion": {
+                "type": "string",
+                "minLength": 15
+              },
+              "promisedPayoff": {
+                "type": "string",
+                "minLength": 15
+              },
+              "centralMentalModel": {
+                "type": "string",
+                "minLength": 15
+              },
+              "dailyLifeConnection": {
+                "type": "string",
+                "minLength": 15
+              },
+              "surfaceJob": {
+                "type": "string",
+                "minLength": 15
+              },
+              "desiredReaderFeeling": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "humanQuestion",
+              "promisedPayoff",
+              "centralMentalModel",
+              "dailyLifeConnection",
+              "surfaceJob",
+              "desiredReaderFeeling"
+            ],
+            "additionalProperties": false
+          },
+          "outcomes": {
+            "type": "object",
+            "properties": {
+              "plainClarity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "readerValue": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "laidiesVoice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "engagingEnjoyable": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "surfaceFit": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "dailyLifeConnection": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "communicationBenchmark": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "explainBack": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "unseenTransfer": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "usefulAction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "analogyIntegrity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "plainClarity",
+              "readerValue",
+              "laidiesVoice",
+              "engagingEnjoyable",
+              "surfaceFit",
+              "dailyLifeConnection",
+              "communicationBenchmark",
+              "explainBack",
+              "unseenTransfer",
+              "usefulAction",
+              "analogyIntegrity"
+            ],
+            "additionalProperties": false
+          },
+          "newsChecks": {
+            "type": "object",
+            "properties": {
+              "incidentExplained": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "termsExplainedInContext": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "readerConsequenceSpecific": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "noInternalNotesOrInventedAdvice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "incidentExplained",
+              "termsExplainedInContext",
+              "readerConsequenceSpecific",
+              "noInternalNotesOrInventedAdvice"
+            ],
+            "additionalProperties": false
+          },
+          "families": {
+            "type": "object",
+            "properties": {
+              "glossaryAccumulation": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "templateRepetition": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "decorativeAnalogy": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "referenceConfetti": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "missingMechanism": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "genericAction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "jargonBeforeMeaning": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "disconnectedSystem": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "factlessConfidence": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "staleUnreviewableClaims": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "corporateSludge": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "joylessInstruction": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "benchmarkNameDrop": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "curiosityWithoutPayoff": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "familiarExampleWithoutTechnicalReturn": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "communicationPastiche": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "entertainmentBeforeUnderstanding": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "mechanismCompressedBehindHook": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "prematureClickBeforeMechanism": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "inflatedTakeawayEnding": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "purposeTooNarrow": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "mechanismBeforeMotivation": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "workedExampleOvertakesBookPurpose": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "technicalExplainerVoice": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "clear",
+                      "present",
+                      "uncertain"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 0,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "glossaryAccumulation",
+              "templateRepetition",
+              "decorativeAnalogy",
+              "referenceConfetti",
+              "missingMechanism",
+              "genericAction",
+              "jargonBeforeMeaning",
+              "disconnectedSystem",
+              "factlessConfidence",
+              "staleUnreviewableClaims",
+              "corporateSludge",
+              "joylessInstruction",
+              "benchmarkNameDrop",
+              "curiosityWithoutPayoff",
+              "familiarExampleWithoutTechnicalReturn",
+              "communicationPastiche",
+              "entertainmentBeforeUnderstanding",
+              "mechanismCompressedBehindHook",
+              "prematureClickBeforeMechanism",
+              "inflatedTakeawayEnding",
+              "purposeTooNarrow",
+              "mechanismBeforeMotivation",
+              "workedExampleOvertakesBookPurpose",
+              "technicalExplainerVoice"
+            ],
+            "additionalProperties": false
+          },
+          "explainBack": {
+            "type": "object",
+            "properties": {
+              "question": {
+                "type": "string",
+                "minLength": 15
+              },
+              "answer": {
+                "type": "string",
+                "minLength": 15
+              },
+              "expectedEvidence": {
+                "type": "string",
+                "minLength": 15
+              },
+              "assessment": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "question",
+              "answer",
+              "expectedEvidence",
+              "assessment"
+            ],
+            "additionalProperties": false
+          },
+          "unseenTransfer": {
+            "type": "object",
+            "properties": {
+              "scenario": {
+                "type": "string",
+                "minLength": 15
+              },
+              "question": {
+                "type": "string",
+                "minLength": 15
+              },
+              "answer": {
+                "type": "string",
+                "minLength": 15
+              },
+              "expectedEvidence": {
+                "type": "string",
+                "minLength": 15
+              },
+              "assessment": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "scenario",
+              "question",
+              "answer",
+              "expectedEvidence",
+              "assessment"
+            ],
+            "additionalProperties": false
+          },
+          "learningDisposition": {
+            "type": "object",
+            "properties": {
+              "disposition": {
+                "type": "string",
+                "enum": [
+                  "NO_NEW_DEFECT",
+                  "CANDIDATE_REPAIR_ONLY",
+                  "EVIDENCE_GAP"
+                ]
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "disposition",
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 15
+          }
+        },
+        "required": [
+          "attestations",
+          "reverseBrief",
+          "outcomes",
+          "newsChecks",
+          "families",
+          "explainBack",
+          "unseenTransfer",
+          "learningDisposition",
+          "summary"
+        ],
+        "additionalProperties": false
+      },
+      "facts": {
+        "type": "object",
+        "properties": {
+          "attestations": {
+            "type": "object",
+            "properties": {
+              "artifactFirst": {
+                "type": "boolean"
+              },
+              "independentFromMaker": {
+                "type": "boolean"
+              },
+              "completeTextRead": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "artifactFirst",
+              "independentFromMaker",
+              "completeTextRead"
+            ],
+            "additionalProperties": false
+          },
+          "claims": {
+            "type": "object",
+            "properties": {
+              "pilot-timing": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "prototype-purpose": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "eligibility-activity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "not-general-launch": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "calcareers-separate": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "life-event-example": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "search-mechanism": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "builder-model": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "agency-boundary": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "independent-limit": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "accuracy-warning": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "agency-check": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "conversation-use": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "information-sharing": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "sensitive-details": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "reader-use": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              },
+              "next-evidence": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "supported",
+                      "qualified",
+                      "hold",
+                      "contradicted"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  "sourceIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "california-governor-askca-release",
+                        "askca-pilot-page",
+                        "askca-about",
+                        "askca-conditions",
+                        "statescoop-askca-report"
+                      ]
+                    },
+                    "minItems": 1
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages",
+                  "sourceIds"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "pilot-timing",
+              "prototype-purpose",
+              "eligibility-activity",
+              "not-general-launch",
+              "calcareers-separate",
+              "life-event-example",
+              "search-mechanism",
+              "builder-model",
+              "agency-boundary",
+              "independent-limit",
+              "accuracy-warning",
+              "agency-check",
+              "conversation-use",
+              "information-sharing",
+              "sensitive-details",
+              "reader-use",
+              "next-evidence"
+            ],
+            "additionalProperties": false
+          },
+          "outcomes": {
+            "type": "object",
+            "properties": {
+              "factualIntegrity": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "freshnessReviewability": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "datedChange": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              },
+              "consequenceAndUncertainty": {
+                "type": "object",
+                "properties": {
+                  "state": {
+                    "type": "string",
+                    "enum": [
+                      "pass",
+                      "hold",
+                      "fail"
+                    ]
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 15
+                  },
+                  "passages": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "P001",
+                        "P002",
+                        "P003",
+                        "P004",
+                        "P005",
+                        "P006",
+                        "P007",
+                        "P008",
+                        "P009",
+                        "P010",
+                        "P011",
+                        "P012"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  }
+                },
+                "required": [
+                  "state",
+                  "reason",
+                  "passages"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "factualIntegrity",
+              "freshnessReviewability",
+              "datedChange",
+              "consequenceAndUncertainty"
+            ],
+            "additionalProperties": false
+          },
+          "learningDisposition": {
+            "type": "object",
+            "properties": {
+              "disposition": {
+                "type": "string",
+                "enum": [
+                  "NO_NEW_DEFECT",
+                  "CANDIDATE_REPAIR_ONLY",
+                  "EVIDENCE_GAP"
+                ]
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 15
+              }
+            },
+            "required": [
+              "disposition",
+              "rationale"
+            ],
+            "additionalProperties": false
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 15
+          }
+        },
+        "required": [
+          "attestations",
+          "claims",
+          "outcomes",
+          "learningDisposition",
+          "summary"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "reader",
+      "facts"
+    ],
+    "additionalProperties": false
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an independent editorial reviewer. Inspect the exact artifact before judging. Be specific, proportionate and honest. A real defect, insufficient evidence and an execution failure are different. Return final structured judgments only; never invent human observations."
+    },
+    {
+      "role": "user",
+      "content": "Read the COMPLETE ARTIFACT first:\n{\"aidb_credit\":null,\"badge\":\"THE LATEST\",\"bigPicture\":null,\"class_notes\":\"AI can sound certain while still needing a source check. <a href=\\\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\\\">Working with AI 101: Trusting the Output and Checking It</a> explains how to compare an answer with the record that decides it.\",\"closing_note\":null,\"cocktail_party\":\"“California opened AskCA pilot sign-ups, but participants are scheduled to try the chatbot in October. Its answers are a route to an agency, not the agency’s decision.”\",\"concepts\":[\"prototype\",\"pilot\",\"service navigation\",\"agency confirmation\"],\"correction\":null,\"correctionHistory\":[],\"edition\":\"daily\",\"headline\":\"California opened AskCA sign-ups. The government chatbot test starts in October\",\"heroVisual\":{\"alt\":\"Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.\",\"credit\":\"LAiDIES NewsStand evidence-checking illustration\",\"src\":\"/assets/newsstand/design-20260830/latest-checking.png\"},\"id\":\"askca-pilot-20260911\",\"laidies_read\":\"<p>The useful idea is a different front door into government. If you need help after a disaster but do not know which department owns the program, the assistant is meant to supply a starting route. The same design covers family services, starting a business and finding a state job.</p><p>The state says AskCA searches state, federal and county sources, then returns next steps and direct links. California built its knowledge base with Anthropic’s Claude model and says government specialists help shape responses. That makes AskCA a navigation layer. The responsible agency and its current records still determine eligibility, benefits, permits or other service outcomes.</p><p>StateScoop independently reported the announcement and prototype design, but supplied no measured accuracy or service outcome. California’s own About page says AskCA may not always get things right. Its conditions warn that answers may be wrong, outdated or unsuited to a person’s situation and tell users to double-check important information with the actual agency.</p><p>The state’s pages also draw a privacy boundary worth reading before volunteering. The About page says conversations are not used to train the model and staff review conversations for gaps and errors. The conditions say information sent may be used to improve services or forwarded to state employees who can help. They tell users not to enter Social Security numbers or private health information.</p>\",\"lastCheckedAt\":\"2026-09-11T16:29:30.440Z\",\"predecessorStoryIds\":[],\"publishedAt\":null,\"relationshipType\":null,\"retraction\":null,\"saint_lane\":null,\"slug\":\"askca-pilot-20260911\",\"sourceApproval\":{\"record\":\"newsstand:source-approval:askca-pilot-20260911\",\"status\":\"independent-review-required\"},\"sources\":[{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"california-governor-askca-release\",\"label\":\"Governor of California — AskCA announcement\",\"publisherType\":\"government-primary-announcement\",\"url\":\"https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"askca-pilot-page\",\"label\":\"AskCA — pilot participation page\",\"publisherType\":\"government-primary-product-page\",\"url\":\"https://ask.ca.gov/\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"askca-about\",\"label\":\"AskCA — About\",\"publisherType\":\"government-primary-product-page\",\"url\":\"https://ask.ca.gov/about\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"askca-conditions\",\"label\":\"AskCA — Conditions of use\",\"publisherType\":\"government-primary-terms\",\"url\":\"https://ask.ca.gov/conditions-of-use\"},{\"accessedAt\":\"2026-09-11\",\"approvalStatus\":\"reviewed\",\"id\":\"statescoop-askca-report\",\"label\":\"StateScoop — California launches AI assistant to help residents navigate state services\",\"publisherType\":\"independent-reporting\",\"url\":\"https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/\"}],\"status\":\"hold\",\"successorStoryIds\":[],\"tags\":[\"AskCA\",\"California\",\"public services\"],\"the_story\":\"<p>California opened sign-ups September 9 for an AskCA pilot; the current pilot page says hands-on testing begins in October. AskCA is a prototype designed to help people find and navigate California government services by starting with a life event instead of an agency name.</p><p>The invitation is limited to California residents age 18 or older. In October, participants will be able to chat with the assistant, rate its responses and complete surveys. A <strong>prototype</strong> is an early version still being tested and changed. A <strong>pilot</strong> is a limited test before any wider release. AskCA is not a generally available finished chatbot today.</p><p>The state also plans a separate September 30 CalCareers pilot that will use the same engine to match a person’s résumé with state-job classifications. That planned job tool is distinct from the broader AskCA participant test.</p>\",\"themes\":[\"government services\",\"pilot\"],\"thread\":null,\"thread_entry\":null,\"thread_subtitle\":null,\"updatedAt\":\"2026-09-11T16:29:30.440Z\",\"watch_fors\":null,\"what_this_means\":\"<p>What is open now is recruitment, not the finished assistant. If you are an eligible California resident and choose to volunteer, describe the situation without sensitive details. Treat AskCA’s answer as a route to the relevant service, then confirm important guidance with the state agency responsible for it.</p><p>The evidence to watch is whether the October pilot happens as planned and whether independent evaluation later shows that residents reach the right service and complete what they came to do.</p>\"}\n\n\nEXACT PASSAGE REFERENCES:\n[P001] California opened AskCA sign-ups. The government chatbot test starts in October\n\n[P002] California opened sign-ups September 9 for an AskCA pilot; the current pilot page says hands-on testing begins in October. AskCA is a prototype designed to help people find and navigate California government services by starting with a life event instead of an agency name.\n\n[P003] The invitation is limited to California residents age 18 or older. In October, participants will be able to chat with the assistant, rate its responses and complete surveys. A prototype is an early version still being tested and changed. A pilot is a limited test before any wider release. AskCA is not a generally available finished chatbot today.\n\n[P004] The state also plans a separate September 30 CalCareers pilot that will use the same engine to match a person’s résumé with state-job classifications. That planned job tool is distinct from the broader AskCA participant test.\n\n[P005] The useful idea is a different front door into government. If you need help after a disaster but do not know which department owns the program, the assistant is meant to supply a starting route. The same design covers family services, starting a business and finding a state job.\n\n[P006] The state says AskCA searches state, federal and county sources, then returns next steps and direct links. California built its knowledge base with Anthropic’s Claude model and says government specialists help shape responses. That makes AskCA a navigation layer. The responsible agency and its current records still determine eligibility, benefits, permits or other service outcomes.\n\n[P007] StateScoop independently reported the announcement and prototype design, but supplied no measured accuracy or service outcome. California’s own About page says AskCA may not always get things right. Its conditions warn that answers may be wrong, outdated or unsuited to a person’s situation and tell users to double-check important information with the actual agency.\n\n[P008] The state’s pages also draw a privacy boundary worth reading before volunteering. The About page says conversations are not used to train the model and staff review conversations for gaps and errors. The conditions say information sent may be used to improve services or forwarded to state employees who can help. They tell users not to enter Social Security numbers or private health information.\n\n[P009] What is open now is recruitment, not the finished assistant. If you are an eligible California resident and choose to volunteer, describe the situation without sensitive details. Treat AskCA’s answer as a route to the relevant service, then confirm important guidance with the state agency responsible for it.\n\n[P010] The evidence to watch is whether the October pilot happens as planned and whether independent evaluation later shows that residents reach the right service and complete what they came to do.\n\n[P011] “California opened AskCA pilot sign-ups, but participants are scheduled to try the chatbot in October. Its answers are a route to an agency, not the agency’s decision.”\n\n[P012] AI can sound certain while still needing a source check. Working with AI 101: Trusting the Output and Checking It explains how to compare an answer with the record that decides it.\n\nAssess this complete dated NEWS article for Can Californians use AskCA now, what is the October test supposed to do, and how much should a resident trust its guidance? Separate open recruitment from hands-on access and understand the navigation-to-agency boundary.. Check every material factual claim against the supplied source excerpts, retaining attribution and limits. Independently judge reader comprehension and editorial craft. Supply an actual causal explain-back and invent and solve a new transfer scenario absent from this article. These are AI editorial analyses, never observed humans. Do not inherit the maker's conclusions; none are supplied.\n\nRUBRIC AND EVIDENCE:\n{\"communicationAuthority\":{\"benchmarkId\":\"HANNAH_FRY_COMMUNICATION_LENS_V2\",\"benchmark\":{\"path\":\"operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md\",\"sha256\":\"7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3\"},\"mode\":\"PROPORTIONAL\",\"surfaceAdaptation\":\"Answer the availability question first, make the situation-to-sources-to-links-to-agency chain visible, and keep the state’s admitted error boundary beside its official-source design.\",\"imitationBoundary\":\"ADAPT_PRINCIPLES_NEVER_IMITATE_VOICE_OR_PERSONA\",\"dimensions\":{\"humanQuestion\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish recruitment from access, see how a life event becomes an official-service route, and preserve the final agency-decision and accuracy limits.\",\"plannedEvidence\":\"The story opens with September sign-up versus October use, follows one disaster-recovery route through official sources and links, and ends with the exact privacy and confirmation action from the state conditions.\"},\"usefulCuriosity\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish recruitment from access, see how a life event becomes an official-service route, and preserve the final agency-decision and accuracy limits.\",\"plannedEvidence\":\"The story opens with September sign-up versus October use, follows one disaster-recovery route through official sources and links, and ends with the exact privacy and confirmation action from the state conditions.\"},\"invisibleProcessConcrete\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish recruitment from access, see how a life event becomes an official-service route, and preserve the final agency-decision and accuracy limits.\",\"plannedEvidence\":\"The story opens with September sign-up versus October use, follows one disaster-recovery route through official sources and links, and ends with the exact privacy and confirmation action from the state conditions.\"},\"familiarTechnicalMovement\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish recruitment from access, see how a life event becomes an official-service route, and preserve the final agency-decision and accuracy limits.\",\"plannedEvidence\":\"The story opens with September sign-up versus October use, follows one disaster-recovery route through official sources and links, and ends with the exact privacy and confirmation action from the state conditions.\"},\"limitationsConsequences\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish recruitment from access, see how a life event becomes an official-service route, and preserve the final agency-decision and accuracy limits.\",\"plannedEvidence\":\"The story opens with September sign-up versus October use, follows one disaster-recovery route through official sources and links, and ends with the exact privacy and confirmation action from the state conditions.\"},\"humourSurprise\":{\"disposition\":\"NOT_APPLICABLE\",\"reason\":\"Help a beginner distinguish recruitment from access, see how a life event becomes an official-service route, and preserve the final agency-decision and accuracy limits.\",\"plannedEvidence\":\"The story opens with September sign-up versus October use, follows one disaster-recovery route through official sources and links, and ends with the exact privacy and confirmation action from the state conditions.\"},\"betterNextQuestion\":{\"disposition\":\"APPLY\",\"reason\":\"Help a beginner distinguish recruitment from access, see how a life event becomes an official-service route, and preserve the final agency-decision and accuracy limits.\",\"plannedEvidence\":\"The story opens with September sign-up versus October use, follows one disaster-recovery route through official sources and links, and ends with the exact privacy and confirmation action from the state conditions.\"}},\"explanationArc\":{\"mode\":\"PROPORTIONAL\",\"retainedMoves\":[\"dated pilot recruitment\",\"personal-life need\",\"official-source search\",\"next-step links\",\"agency confirmation\",\"precise participant action\"],\"adaptation\":\"Recruitment and October access lead; the navigation mechanism takes the centre; state claims and independent evidence stay distinct; the landing gives one source-backed action.\"},\"analogyChecks\":[],\"discoveryChecks\":[{\"question\":\"Can any Californian use the finished AskCA assistant today?\",\"answer\":\"No. Sign-ups are open to eligible adult California residents, and the current official page says pilot participants will explore it in October.\"},{\"question\":\"Does searching official sources guarantee AskCA is right?\",\"answer\":\"No. California’s own About and conditions pages say the prototype may be wrong or outdated and important information should be checked with the actual agency.\"},{\"question\":\"Is the September 30 CalCareers feature the same event as the AskCA October pilot?\",\"answer\":\"No. The state describes it as a separate first departmental pilot powered by the same engine.\"}]},\"failureDefinitions\":{\"glossaryAccumulation\":\"Separate definitions accumulate without connecting how the system works.\",\"templateRepetition\":\"Repeated paragraph scaffolds replace a developing explanation.\",\"decorativeAnalogy\":\"A familiar comparison adds flavour but fails to explain a specific causal mechanism.\",\"referenceConfetti\":\"Pop-culture or other references accumulate without a useful explanatory job.\",\"missingMechanism\":\"The reader gets labels or conclusions without the necessary causal steps.\",\"genericAction\":\"Advice such as verify or be careful lacks a concrete useful action for this case.\",\"jargonBeforeMeaning\":\"Necessary technical language is left unexplained in its first meaningful context.\",\"disconnectedSystem\":\"Parts are named separately without showing how information or effects move between them.\",\"factlessConfidence\":\"Certainty exceeds the evidence actually available.\",\"staleUnreviewableClaims\":\"A material time-sensitive claim cannot be traced and checked for its stated date.\",\"corporateSludge\":\"Vague corporate or motivational language obscures the concrete meaning.\",\"joylessInstruction\":\"The prose becomes a dry checklist or terminology manual with little human interest.\",\"benchmarkNameDrop\":\"Mentioning a communication benchmark or famous explainer substitutes for clear explanation.\",\"curiosityWithoutPayoff\":\"A hook raises curiosity but never delivers the promised explanation.\",\"familiarExampleWithoutTechnicalReturn\":\"A familiar example never reconnects to the actual technical mechanism.\",\"communicationPastiche\":\"Wording, persona or mannerisms imitate a communicator instead of original clear explanation.\",\"entertainmentBeforeUnderstanding\":\"Humour or spectacle gets in the way of understanding.\",\"mechanismCompressedBehindHook\":\"The hook occupies the piece while the causal explanation is rushed.\",\"prematureClickBeforeMechanism\":\"The conclusion or reveal is asserted before its explanation earns understanding.\",\"inflatedTakeawayEnding\":\"The ending inflates a bounded finding into a grand claim or moral.\",\"purposeTooNarrow\":\"The scope is narrower than the supplied reader job; one task becomes the whole purpose.\",\"mechanismBeforeMotivation\":\"Technical machinery begins before the artifact establishes the destination-level human reason for this knowledge. Stakes inside one worked example do not satisfy this when the destination promises broader cross-context orientation; the reader must first see why the knowledge matters beyond that example.\",\"workedExampleOvertakesBookPurpose\":\"One worked example crowds out the broader foundational orientation the book promises.\",\"technicalExplainerVoice\":\"The organising perspective is specialist taxonomy or workflow inspection instead of the reader orientation promised by the destination. Judge what the prose asks the reader to care about, not just friendly vocabulary: for a broad foundational opening, second-person warmth and a lived example do not clear this defect when tracing technical operations remains the main reason for learning, without the promised practical and civic orientation. In a bounded news report or how-to, explaining its specific mechanism can be exactly the right perspective.\"},\"outcomeDefinitions\":{\"plainClarity\":\"A smart reader without technical AI training can follow each sentence.\",\"readerValue\":\"The reader gains a useful understanding or decision beyond the headline.\",\"laidiesVoice\":\"Warm, candid, adult, conversational LAiDIES voice; no condescension or borrowed persona.\",\"engagingEnjoyable\":\"The human question and explanation sustain interest; humour is earned rather than mandatory.\",\"factualIntegrity\":\"Material claims are supported by the actual sources and correctly attributed.\",\"freshnessReviewability\":\"The event, reporting date and limitations make time-sensitive claims checkable.\",\"surfaceFit\":\"A dated news article answers what happened and why it matters within its proper scope.\",\"datedChange\":\"Old events are distinguished from newly reported evidence or responses.\",\"consequenceAndUncertainty\":\"Consequences are concrete and uncertainty survives the explanation.\",\"dailyLifeConnection\":\"A familiar work/life situation helps the professional reader understand the mechanism.\",\"communicationBenchmark\":\"Human purpose, concrete causality and a useful next question; no imitation of Hannah Fry.\",\"explainBack\":\"The mechanism supports an accurate answer to a causal question in ordinary language.\",\"unseenTransfer\":\"The mechanism can be applied to a genuinely new concrete situation absent from the article.\",\"usefulAction\":\"A specific proportionate action follows from the explanation where applicable.\",\"analogyIntegrity\":\"Each comparison maps the mechanism accurately and retains relevant limits.\"},\"newsCheckDefinitions\":{\"incidentExplained\":\"The actual incident and relevant causal sequence are understandable.\",\"termsExplainedInContext\":\"Necessary AI terms gain plain meaning at first meaningful use.\",\"readerConsequenceSpecific\":\"The consequence is grounded in a recognizable specific reader situation.\",\"noInternalNotesOrInventedAdvice\":\"No internal LAiDIES operating notes, commercially distinctive process details, or unsupported advice appear.\"},\"claims\":[{\"claimId\":\"pilot-timing\",\"claim\":\"California opened sign-ups September 9 for an AskCA pilot; the current pilot page says hands-on testing begins in October\",\"sourceIds\":[\"california-governor-askca-release\",\"askca-pilot-page\",\"statescoop-askca-report\"]},{\"claimId\":\"prototype-purpose\",\"claim\":\"AskCA is a prototype designed to help people find and navigate California government services by starting with a life event instead of an agency name\",\"sourceIds\":[\"california-governor-askca-release\",\"askca-pilot-page\",\"statescoop-askca-report\"]},{\"claimId\":\"eligibility-activity\",\"claim\":\"limited to California residents age 18 or older. In October, participants will be able to chat with the assistant, rate its responses and complete surveys\",\"sourceIds\":[\"askca-pilot-page\",\"california-governor-askca-release\"]},{\"claimId\":\"not-general-launch\",\"claim\":\"AskCA is not a generally available finished chatbot today\",\"sourceIds\":[\"askca-pilot-page\",\"askca-about\"]},{\"claimId\":\"calcareers-separate\",\"claim\":\"separate September 30 CalCareers pilot that will use the same engine to match a person’s résumé with state-job classifications\",\"sourceIds\":[\"california-governor-askca-release\",\"statescoop-askca-report\"]},{\"claimId\":\"life-event-example\",\"claim\":\"If you need help after a disaster but do not know which department owns the program, the assistant is meant to supply a starting route. The same design covers family services, starting a business and finding a state job\",\"sourceIds\":[\"california-governor-askca-release\",\"askca-about\"]},{\"claimId\":\"search-mechanism\",\"claim\":\"AskCA searches state, federal and county sources, then returns next steps and direct links\",\"sourceIds\":[\"askca-about\"]},{\"claimId\":\"builder-model\",\"claim\":\"California built its knowledge base with Anthropic’s Claude model and says government specialists help shape responses\",\"sourceIds\":[\"california-governor-askca-release\"]},{\"claimId\":\"agency-boundary\",\"claim\":\"The responsible agency and its current records still determine eligibility, benefits, permits or other service outcomes\",\"sourceIds\":[\"askca-about\",\"askca-conditions\"]},{\"claimId\":\"independent-limit\",\"claim\":\"StateScoop independently reported the announcement and prototype design, but supplied no measured accuracy or service outcome\",\"sourceIds\":[\"statescoop-askca-report\"]},{\"claimId\":\"accuracy-warning\",\"claim\":\"AskCA may not always get things right. Its conditions warn that answers may be wrong, outdated or unsuited to a person’s situation\",\"sourceIds\":[\"askca-about\",\"askca-conditions\"]},{\"claimId\":\"agency-check\",\"claim\":\"double-check important information with the actual agency\",\"sourceIds\":[\"askca-conditions\"]},{\"claimId\":\"conversation-use\",\"claim\":\"conversations are not used to train the model and staff review conversations for gaps and errors\",\"sourceIds\":[\"askca-about\"]},{\"claimId\":\"information-sharing\",\"claim\":\"information sent may be used to improve services or forwarded to state employees who can help\",\"sourceIds\":[\"askca-conditions\"]},{\"claimId\":\"sensitive-details\",\"claim\":\"not to enter Social Security numbers or private health information\",\"sourceIds\":[\"askca-conditions\"]},{\"claimId\":\"reader-use\",\"claim\":\"Treat AskCA’s answer as a route to the relevant service, then confirm important guidance with the state agency responsible for it\",\"sourceIds\":[\"askca-about\",\"askca-conditions\"]},{\"claimId\":\"next-evidence\",\"claim\":\"whether independent evaluation later shows that residents reach the right service and complete what they came to do\",\"sourceIds\":[\"statescoop-askca-report\"]}],\"sources\":[{\"id\":\"california-governor-askca-release\",\"url\":\"https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/\",\"authority\":\"Primary California announcement for the September 9 pilot invitation, intended service-navigation scope, builder and separate CalCareers plan.\",\"passages\":[\"California has developed AskCA, a new AI-powered tool to help Californians better connect with state services through a streamlined model designed around life events like finding a job, starting a business, or recovering from a disaster. The state is now seeking volunteers to help test and refine this new tool.\",\"Starting today, Californians can sign up to be part of the pilot.\",\"Testers must be 18 years or older and a California resident.\",\"The prototype was built by the Office of Data and Innovation to navigate people through life events including, for example:\",\"The California Office of Data and Innovation built AskCA’s knowledge base in collaboration with Anthropic’s Claude model, with security support from the California Department of Technology.\",\"CalHR is the first department to deploy the AskCA prototype in a live public service, powering a new AI‑driven job‑skills‑matching feature launching September 30 on CalCareers.ca.gov.\",\"Subject matter experts from across state government are continually helping to inform the responses to improve AskCA’s accuracy.\"],\"limitation\":\"Government announcement and planned dates; company/state descriptions are not independent accuracy, uptake or service-outcome evidence.\",\"source\":{\"url\":\"https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/\",\"passage\":\"Government, made easier. Governor Newsom introduces AskCA, a new AI-powered tool for Californians | Governor of California\\nGovernor of California\\nAbout\\nPriorities\\nNews\\nJoin the Administration\\nFirst Partner\\nContact\\nTo search the site, enter a search term\\nOfficial website of the State of California\\nCA.gov\\nResources for California\\nKey services\\nHealth insurance or Medi-Cal\\nBusiness licenses\\nFood & social assistance\\nFind a CA state job\\nVehicle registration\\nMore +\\nDigital vaccine record\\nTraffic tickets\\nBirth certificates\\nLottery numbers\\nUnemployment\\nView all CA.gov services\\nLess -\\nPopular topics\\nAbortion\\nBuilding California\\nClimate Action\\nGun Safety\\nMental health care for all\\nOpioids\\nBack to top\\nNews\\nSep 9, 2026\\nGovernment, made easier. Governor Newsom introduces AskCA, a new AI-powered tool for Californians\\nWhat you need to know:\\nDelivering on the Governor’s\\nMarch 2026 Executive Order on artificial intelligence\\n, California has developed AskCA, a new AI-powered tool to help Californians better connect with state services through a streamlined model designed around life events like finding a job, starting a business, or recovering from a disaster. The state is now seeking volunteers to help test and refine this new tool.\\nSACRAMENTO\\n– Governor Newsom today introduced AskCA, a new AI-powered digital assistant to help Californians better navigate state and local services. AskCA is designed to be a single entry point, guided by what Californians need, to make navigating state and local government programs easier than ever before. Starting today, Californians can sign up to be part of the pilot.  The new prototype came from California’s response to the devastating January 2025 Los Angeles wildfires.\\nWhen a Californian needs help, they shouldn’t have to become an expert in government to find it. We’re using the best technology California has to offer to make government more efficient, effective, and more engaged — meeting people where they are, making it easier to navigate services, and ultimately delivering stronger results worthy of their tax dollars.\\nGovernor Gavin Newsom\\nThe prototype was built by the Office of Data and Innovation to navigate people through life events including, for example:\\nFinding a job\\nStarting a business\\nFamily services\\nDisaster recovery\\n“With AskCA, the state is utilizing AI to deliver services faster, reduce administrative complexity, and connect people to the right resources without unnecessary barriers,”\\nsaid Nick Maduros\\nSecretary of the Government Operations Agency.\\n“By creating a single entry point for government services, we are removing steps in the process and improving efficiency for Californians.”\\n“For too many Californians, accessing government services seems like a maze. With AskCA, California is harnessing a culture of innovation to respond to the needs of the state’s 39 million residents to connect with services,”\\nsaid Daniel E. Ho, Stanford University, Director of Stanford RegLab, Stanford Institute for Human-Centered AI (HAI).\\n“Stanford RegLab is proud to partner with the state to pioneer a framework to rigorously learn, evaluate, and improve such a system through rapid technological change.”\\n“The real test of an effective government chatbot is launching one that serves the needs of its communities and earns their trust. We’re proud to be a part of that work in California,”\\nsaid Phillip Hunter, Lead Volunteer at U.S. Digital Response.\\n“Our U.S. Digital Response team developed the evaluation and testing methodology for AskCA that helps the state confirm the chatbot is pulling from legitimate government sources and giving residents accurate answers. Trust in a tool like this comes from testing it that rigorously, not from hoping it works.”\\nHelp us create AskCA\\nCalifornians are being invited to help refine AskCA’s responses. Starting today, the Office of Data and Innovation is looking for beta testers for the next phase of the project.  Testers must be 18 years or older and a California resident.  Learn more about the sign up process at\\nask.ca.gov\\n.\\nSubject matter experts from across state government are continually helping to inform the responses to improve AskCA’s accuracy. This ensures that answers provided are backed by verified sources, providing clear and actionable guidance rather than simple chat functionality.\\nReimagining the journey of Californians in need\\nThe prototype was researched and tested early with:\\n140+ fire recovery leaders and Altadena wildfire survivors\\nA dozen job seekers at a recent CalHR job fair\\nMore than 100 general user testers\\n“Californians should not have to understand how government is organized just to get basic help,”\\nsaid Director Jeffery Marino of the Office of Data and Innovation.\\n“This digital assistant moves from traditional web search to a vision of a service-integrated tool, explaining services, streamlining logins, and unifying department services into a single experience.”\\nKey partners supported AskCA in this bold effort. The California Office of Data and Innovation built AskCA’s knowledge base in collaboration with Anthropic’s Claude model, with security support from the California Department of Technology. Through its\\npartnership with the state, announced in July\\n, Anthropic also provides strategic guidance and technical assistance. Through the\\nCalifornia Innovation Council\\nand\\nEmerging Technology Accelerator\\n, U.S. Digital Response and Stanford’s RegLab help measure performance and improve the tool’s effectiveness, and a partnership with 211 further strengthens AskCA’s impact.\\nUse AskCA to help match skills to state jobs\\nCalHR is the first department to deploy the AskCA prototype in a live public service, powering a new AI‑driven job‑skills‑matching feature launching September 30 on CalCareers.ca.gov. Using the same engine behind California’s digital assistant, the tool helps job seekers understand how their experience aligns with state job classifications by allowing them to upload a resume and receive matching state roles — an approach early testers called especially helpful for those new to public service.\\n“CalHR is proud to be the first department to put the AskCA prototype into action to improve services for Californians,”\\nsaid CalHR Director Monica Erickson.\\n“By powering our new job skills matching feature, job seekers can better understand how their experience aligns with opportunities in state service. This pilot reflects our commitment to responsible innovation and to making CalCareers more accessible and supportive for everyone looking to serve California.”\\nCalHR will launch the feature as a pilot with full public access, allowing ongoing refinement while ensuring privacy; the tool does not store personal information or require a CalCareers account.\\nLeading in government efficiency\\nGovernor Newsom has made efficiency and innovation — with appropriate safeguards protecting privacy, safety, and civil liberties — a top priority since the start of his administration. Governor Newsom has:\\nEstablished the\\nOffice of Data Innovation\\n, a group of technology experts dedicated to supporting other state agencies, departments, and employees to utilize data, technology, and principles of human-centered design common in the private sector to improve the delivery of services to Californians.\\nOverhauled and\\nmodernized the Department of Motor Vehicles\\nto reduce wait times, expand online services, and improve customer service.\\nImplemented new cutting-edge technologies to fight wildfires, including cameras across the state and data modeling to improve incident reporting and to predict where wildfires might occur and where drones should be deployed.\\nIssued executive orders in\\n2023\\nand\\n2026\\ndirecting state agencies to responsibly implement Generative Artificial Intelligence (GenAI) into state government operations and help support the work of front-line employees, with the appropriate privacy, security, and civil liberties guardrails.\\nDeveloped a new AI tool, “\\nPoppy\\n,” specifically tailored for government use.\\nLaunched the\\nEmerging Technology Accelerator\\n, leveraging pro bono technical expertise from UC Berkeley, Stanford Institute for Human-Centered AI, Mozilla Foundation, Nava Labs, Tech Talent Project, and US Digital Response to modernize government service delivery.\\nLaunched the\\nBreakthrough\\nProject with industry executives to support efficiency initiatives. The Breakthrough Project has helped save $12 million through pooled IT contracts, digitized 40,000 water rights records, expanded access to the Golden Bear Pass Program, and saved hundreds of thousands of dollars by digitizing outdated printing processes.\\nExpedited the procurement process through an innovative\\nRequest for Innovative Ideas\\n(RFI2), which allows state agencies to quickly test technology through safe and secure environments.\\nImproving government services through engagement\\nLast year, Governor Newsom launched\\nEngaged California\\n, the first-of-its-kind digital platform that offers a virtual town hall setting to empower Californians to engage and share insights about a particular topic. The\\npilot project\\ninvolved people impacted by the Los Angeles wildfires. They aligned on a rebuilding and recovery process through a six-month conversation with 2,500 comments from Californians. The tool also solicited input on\\nefficiency ideas\\nfrom state government employees. Currently, the platform seeks to give Californians a\\nstronger voice in AI policy\\nand assess its impact on the state’s economy and workers. This is the first statewide use of the tool, open to every resident.\\nPress releases\\n,\\nRecent news\\n,\\nTop story\\nRecent news\\nGovernor Newsom proclaims Patriot Day\\nSep 11, 2026\\nNews SACRAMENTO – Governor Gavin Newsom today issued a proclamation declaring September 11, 2026, as “Patriot Day\\\" in the State of California.The text of the proclamation and a copy can be found below: PROCLAMATIONTwenty-five years ago, terror attacks in New York...\\nWhat they are saying: National leaders and lawmakers celebrate Governor Newsom’s signature on landmark child safety chatbot and social media laws\\nSep 10, 2026\\nNews SACRAMENTO –Today, Governor Gavin Newsom signed historic bipartisan legislation strengthening California’s nation-leading child safety chatbot and social media laws.The new landmark laws will create the nation's strongest companion chatbot regulations in the...\\nGovernor Newsom announces appointments 9.10.26\\nSep 10, 2026\\nNews What you need to know: Add what you need to know text here. SACRAMENTO – Governor Gavin Newsom today announced the following appointments:Melinda Grant, of Sacramento, has been appointed Undersecretary at the California Business and Consumer Services Agency....\\nNews\\nSep 9, 2026\\nGovernment, made easier. Governor Newsom introduces AskCA, a new AI-powered tool for Californians\\nWhat you need to know:\\nDelivering on the Governor’s\\nMarch 2026 Executive Order on artificial intelligence\\n, California has developed AskCA, a new AI-powered tool to help Californians better connect with state services through a streamlined model designed around life events like finding a job, starting a business, or recovering from a disaster. The state is now seeking volunteers to help test and refine this new tool.\\nSACRAMENTO\\n– Governor Newsom today introduced AskCA, a new AI-powered digital assistant to help Californians better navigate state and local services. AskCA is designed to be a single entry point, guided by what Californians need, to make navigating state and local government programs easier than ever before. Starting today, Californians can sign up to be part of the pilot.  The new prototype came from California’s response to the devastating January 2025 Los Angeles wildfires.\\nWhen a Californian needs help, they shouldn’t have to become an expert in government to find it. We’re using the best technology California has to offer to make government more efficient, effective, and more engaged — meeting people where they are, making it easier to navigate services, and ultimately delivering stronger results worthy of their tax dollars.\\nGovernor Gavin Newsom\\nThe prototype was built by the Office of Data and Innovation to navigate people through life events including, for example:\\nFinding a job\\nStarting a business\\nFamily services\\nDisaster recovery\\n“With AskCA, the state is utilizing AI to deliver services faster, reduce administrative complexity, and connect people to the right resources without unnecessary barriers,”\\nsaid Nick Maduros\\nSecretary of the Government Operations Agency.\\n“By creating a single entry point for government services, we are removing steps in the process and improving efficiency for Californians.”\\nHelp us create AskCA\\nCalifornians are being invited to help refine AskCA’s responses. Starting today, the Office of Data and Innovation is looking for beta testers for the next phase of the project.  Testers must be 18 years or older and a California resident.  Learn more about the sign up process at\\nask.ca.gov\\n.\\nSubject matter experts from across state government are continually helping to inform the responses to improve AskCA’s accuracy. This ensures that answers provided are backed by verified sources, providing clear and actionable guidance rather than simple chat functionality.\\nReimagining the journey of Californians in need\\nThe prototype was researched and tested early with:\\n140+ fire recovery leaders and Altadena wildfire survivors\\nA dozen job seekers at a recent CalHR job fair\\nMore than 100 general user testers\\n“Californians should not have to understand how government is organized just to get basic help,”\\nsaid Director Jeffery Marino of the Office of Data and Innovation.\\n“This digital assistant moves from traditional web search to a vision of a service-integrated tool, explaining services, streamlining logins, and unifying department services into a single experience.”\\nKey partners supported AskCA in this bold effort. The California Office of Data and Innovation built AskCA’s knowledge base in collaboration with Anthropic’s Claude model, with security support from the California Department of Technology. Through its\\npartnership with the state, announced in July\\n, Anthropic also provides strategic guidance and technical assistance. Through the\\nCalifornia Innovation Council\\nand\\nEmerging Technology Accelerator\\n, U.S. Digital Response and Stanford’s RegLab help measure performance and improve the tool’s effectiveness, and a partnership with 211 further strengthens AskCA’s impact.\\nUse AskCA to help match skills to state jobs\\nCalHR is the first department to deploy the AskCA prototype in a live public service, powering a new AI‑driven job‑skills‑matching feature launching September 30 on CalCareers.ca.gov. Using the same engine behind California’s digital assistant, the tool helps job seekers understand how their experience aligns with state job classifications by allowing them to upload a resume and receive matching state roles — an approach early testers called especially helpful for those new to public service.\\n“CalHR is proud to be the first department to put the AskCA prototype into action to improve services for Californians,”\\nsaid CalHR Director Monica Erickson.\\n“By powering our new job skills matching feature, job seekers can better understand how their experience aligns with opportunities in state service. This pilot reflects our commitment to responsible innovation and to making CalCareers more accessible and supportive for everyone looking to serve California.”\\nCalHR will launch the feature as a pilot with full public access, allowing ongoing refinement while ensuring privacy; the tool does not store personal information or require a CalCareers account.\\nPress releases\\n,\\nRecent news\\n,\\nTop story\\nRecent news\\nGovernor Newsom proclaims Patriot Day\\nSep 11, 2026\\nNews SACRAMENTO – Governor Gavin Newsom today issued a proclamation declaring September 11, 2026, as “Patriot Day\\\" in the State of California.The text of the proclamation and a copy can be found below: PROCLAMATIONTwenty-five years ago, terror attacks in New York...\\nWhat they are saying: National leaders and lawmakers celebrate Governor Newsom’s signature on landmark child safety chatbot and social media laws\\nSep 10, 2026\\nNews SACRAMENTO –Today, Governor Gavin Newsom signed historic bipartisan legislation strengthening California’s nation-leading child safety chatbot and social media laws.The new landmark laws will create the nation's strongest companion chatbot regulations in the...\\nGovernor Newsom announces appointments 9.10.26\\nSep 10, 2026\\nNews What you need to know: Add what you need to know text here. SACRAMENTO – Governor Gavin Newsom today announced the following appointments:Melinda Grant, of Sacramento, has been appointed Undersecretary at the California Business and Consumer Services Agency....\\nAbout\\nContact us\\nSign up for news updates\\nJoin the Administration\\nOrganizational chart\\nInitiatives\\nAbortion access\\nAccountability\\nBuilding California's future\\nClimate action\\nMental health for all\\nAwareness campaigns\\nHeat Ready\\nReady for Wildfire\\nRegister to Vote\\nSave Our Water\\nClemency & Parole\\nClemency\\nParole\\nRewards for unsolved cases\\nFooter Utility Links\\nConditions of Use\\nPrivacy Policy\\nAccessibility\\nWebsite Certification\\nSitemap\\nFooter Social Media Links\\nWebsite Publishing Information\\nPowered by: CAWeb Publishing Service\\n© Copyright\\n\",\"passageLocator\":\"https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/\",\"additionalPassage\":\"California has developed AskCA, a new AI-powered tool to help Californians better connect with state services through a streamlined model designed around life events like finding a job, starting a business, or recovering from a disaster. The state is now seeking volunteers to help test and refine this new tool.\\nStarting today, Californians can sign up to be part of the pilot.\\nTesters must be 18 years or older and a California resident.\\nThe prototype was built by the Office of Data and Innovation to navigate people through life events including, for example:\\nThe California Office of Data and Innovation built AskCA’s knowledge base in collaboration with Anthropic’s Claude model, with security support from the California Department of Technology.\\nCalHR is the first department to deploy the AskCA prototype in a live public service, powering a new AI‑driven job‑skills‑matching feature launching September 30 on CalCareers.ca.gov.\\nSubject matter experts from across state government are continually helping to inform the responses to improve AskCA’s accuracy.\\nAuthority: Primary California announcement for the September 9 pilot invitation, intended service-navigation scope, builder and separate CalCareers plan.\\nLimitation: Government announcement and planned dates; company/state descriptions are not independent accuracy, uptake or service-outcome evidence.\",\"additionalPassageLocator\":\"https://www.gov.ca.gov/2026/09/09/government-made-easier-governor-newsom-introduces-askca-a-new-ai-powered-tool-for-californians/\"}},{\"id\":\"askca-pilot-page\",\"url\":\"https://ask.ca.gov/\",\"authority\":\"Current official pilot page for who may participate and when the hands-on test occurs.\",\"passages\":[\"California is making a digital assistant to help people find and navigate state services. We want your help to make it the best it can be.\",\"Be 18 years or older\",\"Live in California\",\"In October, you can explore the digital assistant on your own. You will be able to chat with the AI and rate responses. You’ll get surveys to share your experience.\"],\"limitation\":\"Pilot recruitment page, not proof the assistant is generally available or effective.\",\"source\":{\"url\":\"https://ask.ca.gov/\",\"passage\":\"AskCA | California government AI assistant\\nSkip to main content\\nAbout\\nResearch participant rights\\nPrivacy policy\\nPrivacy notice on collections\\nConditions of use\\n© 2026 State of California\\nAskCA\\nCalifornia government AI assistant\\nPrototype\\nHelp shape the future\\nCalifornia is making a digital assistant to help people find and navigate state services. We want your help to make it the best it can be.\\nTo participate, you must:\\nBe 18 years or older\\nLive in California\\nSign up for pilot testing\\nParticipation details\\nIn October, you can explore the digital assistant on your own. You will be able to chat with the AI and rate responses. You’ll get surveys to share your experience.\\nOur\\nAbout page\\nhas more information about AskCA. Further details can be found here:\\nPrivacy policy\\nPrivacy notice on collections\\nConditions of use\\nDrop files here to add them to the chat\\n\",\"passageLocator\":\"https://ask.ca.gov/\",\"additionalPassage\":\"California is making a digital assistant to help people find and navigate state services. We want your help to make it the best it can be.\\nBe 18 years or older\\nLive in California\\nIn October, you can explore the digital assistant on your own. You will be able to chat with the AI and rate responses. You’ll get surveys to share your experience.\\nAuthority: Current official pilot page for who may participate and when the hands-on test occurs.\\nLimitation: Pilot recruitment page, not proof the assistant is generally available or effective.\",\"additionalPassageLocator\":\"https://ask.ca.gov/\"}},{\"id\":\"askca-about\",\"url\":\"https://ask.ca.gov/about\",\"authority\":\"Current official product description for the intended life-event interaction, source search, prototype status and admitted accuracy limit.\",\"passages\":[\"This is a prototype. By signing up for the pilot testing, your feedback will help us improve it. It may not always get things right — every question you ask helps us make it better.\",\"We're making it easier. Tell us what you're going through — whether that's finding a state job, recovering from a disaster, or having a child — and we'll help you find the right programs, services, and next steps.\",\"No government jargon. No personal information. Just tell us what you're dealing with.\",\"We pull from state, federal, and county sources in real time to find accurate answers.\",\"We give you clear next steps and direct links. You spend less time searching.\",\"We do NOT train the model based on your conversations.\",\"Our team reviews conversations to find gaps and catch errors.\"],\"limitation\":\"State description of intended design and practices; words such as accurate and trusted are not an independent performance guarantee.\",\"source\":{\"url\":\"https://ask.ca.gov/about\",\"passage\":\"AskCA | About\\nSkip to main content\\nAbout\\nResearch participant rights\\nPrivacy policy\\nPrivacy notice on collections\\nConditions of use\\n© 2026 State of California\\nAskCA\\nCalifornia government AI assistant\\nPrototype\\nSign up for pilot testing\\nAbout AskCA\\nWhat we're building\\nAskCA is an AI assistant that helps you with California government services. It's designed to make it easier to get the answers you need.\\nThis is a prototype. By signing up for the pilot testing, your feedback will help us improve it. It may not always get things right — every question you ask helps us make it better.\\nWhy AskCA?\\nCalifornia government is big. It has hundreds of agencies, departments, programs, and websites. When something happens in your life, you often have to figure out where to go for help. This can be overwhelming.\\nWe're making it easier. Tell us what you're going through — whether that's finding a state job, recovering from a disaster, or having a child — and we'll help you find the right programs, services, and next steps.\\nWhat AskCA can do\\nProvide trusted, helpful resources\\nExplain complex topics in plain language\\nAnswer in English and Spanish\\nHow it works\\nExplain your situation.\\nNo government jargon. No personal information. Just tell us what you're dealing with.\\nWe search official sources.\\nWe pull from state, federal, and county sources in real time to find accurate answers.\\nAskCA responds.\\nWe give you clear next steps and direct links. You spend less time searching.\\nTrust and safety\\nAs a public service, we take trust and safety seriously.\\nWe do NOT train the model based on your conversations.\\nOur team reviews conversations to find gaps and catch errors.\\nWe update the assistant often based on your feedback — when something isn't right, we fix it.\\nWe test for bias and accessibility so the assistant works for all Californians.\\nWe work with independent partners to evaluate quality, fairness, and safety.\\nYour privacy\\nWe will not share or sell your data.\\nWe remove personal information from conversation logs.\\nWe only collect what we need to improve the assistant.\\nFor full details, see the\\nprivacy policy\\n,\\nprivacy notice on collections\\n, and\\nconditions of use\\n.\\nSign up for pilot testing\\nDrop files here to add them to the chat\\n\",\"passageLocator\":\"https://ask.ca.gov/about\",\"additionalPassage\":\"This is a prototype. By signing up for the pilot testing, your feedback will help us improve it. It may not always get things right — every question you ask helps us make it better.\\nWe're making it easier. Tell us what you're going through — whether that's finding a state job, recovering from a disaster, or having a child — and we'll help you find the right programs, services, and next steps.\\nNo government jargon. No personal information. Just tell us what you're dealing with.\\nWe pull from state, federal, and county sources in real time to find accurate answers.\\nWe give you clear next steps and direct links. You spend less time searching.\\nWe do NOT train the model based on your conversations.\\nOur team reviews conversations to find gaps and catch errors.\\nAuthority: Current official product description for the intended life-event interaction, source search, prototype status and admitted accuracy limit.\\nLimitation: State description of intended design and practices; words such as accurate and trusted are not an independent performance guarantee.\",\"additionalPassageLocator\":\"https://ask.ca.gov/about\"}},{\"id\":\"askca-conditions\",\"url\":\"https://ask.ca.gov/conditions-of-use\",\"authority\":\"Current official conditions for accuracy, sensitive information and checking material answers.\",\"passages\":[\"ODI values, but does not guarantee, the accuracy of content on AskCA.\",\"The AI can make mistakes. It might give you information that is wrong, out of date, or not right for your specific situation. Always double-check important info with the actual state agency.\",\"Since this is an AI, please do not type in sensitive details including your Social Security number or private health information.\",\"We may use information you send us to improve our services or to respond to you.\",\"We may forward your information to other state employees who may be better able to help you.\"],\"limitation\":\"Terms state current rules and disclaimers; they do not measure how often errors occur or resolve every privacy scenario.\",\"source\":{\"url\":\"https://ask.ca.gov/conditions-of-use\",\"passage\":\"AskCA | Conditions of Use\\nSkip to main content\\nAbout\\nResearch participant rights\\nPrivacy policy\\nPrivacy notice on collections\\nConditions of use\\n© 2026 State of California\\nAskCA\\nCalifornia government AI assistant\\nPrototype\\nSign up for pilot testing\\nConditions of use\\nThis website was authored by the Office of Data and Innovation.\\nUpdated: March 23, 2026\\nWhen you visit an Office of Data and Innovation (ODI) website or Artificial Intelligence (AI) Assistant such as AskCA, you accept our conditions of use. If you do not agree with these conditions of use, please exit AskCA. The conditions of use are subject to change without notice. They reflect ODI’s current business practices.\\nThe AskCA AI assistant might have links to other websites. Those other websites will have their own privacy and use policies. You should review those policies as you access other sites\\nODI provides AskCA and its information as a public service. We monitor AskCA to ensure its operation and the functioning of its features. Anyone using AskCA consents to such monitoring.\\nUnauthorized attempts to modify any information stored on AskCA, to defeat or circumvent security features, or to use AskCA for other than its intended purposes are prohibited and may result in criminal prosecution.\\nIf you have any questions about privacy, read our\\nprivacy policy\\n.\\nInformation you send us\\nWe may use information you send us to improve our services or to respond to you.\\nWe may forward your information to other state employees who may be better able to help you. These employees may be part of a different state department. Except as required by law, we do not share information with non-state organizations.\\nWe share information you give us only if necessary. If we use your information for statistical reporting, trend data, or investigative actions, we will remove any identifying information.\\nSecurity and monitoring\\nODI, as developer and manager of this website, has taken steps to safeguard the integrity of this website infrastructure for our visitors’ safety. This includes, but is not limited to:\\nLimiting our data collection\\nMonitoring for resource availability and security risks, including unauthorized attempts to upload or change information\\nAuditing for security vulnerabilities and site performance and optimization\\nEncryption\\nIntegrating security measures\\nLinks to other sites\\nAskCA may have links to sites that the AI assistant surfaces that might be useful for you and which may provide services. When you visit another site, you are no longer on our site and are subject to the policies of the new site. We encourage you to review the policies of other sites before you visit them.\\nODI is not responsible for the content or accessibility of other websites or external documents we link. If you access another website through a link from AskCA, you do so at your own risk.\\nWe use this chatbot to quickly find government services without searching multiple websites. It is powered by Anthropic’s software, which collects and stores data. Anthropic must follow strict California state rules. Anthropic can’t sell or use your information for advertising. Your data is securely stored in United States data centers.\\nLimitation of liability\\nODI values, but does not guarantee, the accuracy of content on AskCA.\\nPlease keep the following in mind:\\nCheck the Facts:\\nThe AI can make mistakes. It might give you information that is wrong, out of date, or not right for your specific situation. Always double-check important info with the actual state agency.\\nNo Guarantees:\\nWe do not guarantee that the AI is 100% secure or that it will never have technical glitches.\\nUse at Your Own Risk:\\nWe are not providing any official warranties. This means we aren't responsible if the AI gives an unexpected answer or if the service gets interrupted.\\nDo not Type in Sensitive Details:\\nSince this is an AI, please do not type in sensitive details including your Social Security number or private health information.\\nWe welcome feedback on AskCA. You can report any errors or omissions by emailing us at\\ninfo@innovation.ca.gov\\n.\\nODI makes no claims, promises, or guarantees about the absolute accuracy, completeness, or adequacy of the contents of AskCA and expressly disclaims liability for errors and omissions in the contents of AskCA. No warranty of any kind, implied, expressed, or statutory, including, but not limited to, the warranties of non-infringement of third party rights, title, merchantability, fitness for a particular purpose, and freedom from computer virus, is given with respect to the contents of this website or its links to other internet resources. References or links in this website to any specific commercial products, processes, or services, or the use of any trade, firm, or corporation name are for the information and convenience of the public, and do not constitute endorsement, recommendation, or favoring by ODI or the State of California, or its employees or agents.\\nOwnership\\nIn general, information presented on AskCA, unless otherwise indicated, is in the public domain. You may distribute or copy it as permitted by law.\\nHowever, ODI uses copyrighted data (for example, images). These may require additional permissions before your use. You must get permission directly from the owning (or holding) sources to use any information on this website not owned or created by ODI.\\nODI has the unlimited right to use for any purpose, free of any charge, all information submitted via this site except those submissions made under separate legal contract. ODI is free to use, for any purpose, any ideas, concepts, or techniques contained in information provided through this site.\\nSign up for pilot testing\\nDrop files here to add them to the chat\\n\",\"passageLocator\":\"https://ask.ca.gov/conditions-of-use\",\"additionalPassage\":\"ODI values, but does not guarantee, the accuracy of content on AskCA.\\nThe AI can make mistakes. It might give you information that is wrong, out of date, or not right for your specific situation. Always double-check important info with the actual state agency.\\nSince this is an AI, please do not type in sensitive details including your Social Security number or private health information.\\nWe may use information you send us to improve our services or to respond to you.\\nWe may forward your information to other state employees who may be better able to help you.\\nAuthority: Current official conditions for accuracy, sensitive information and checking material answers.\\nLimitation: Terms state current rules and disclaimers; they do not measure how often errors occur or resolve every privacy scenario.\",\"additionalPassageLocator\":\"https://ask.ca.gov/conditions-of-use\"}},{\"id\":\"statescoop-askca-report\",\"url\":\"https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/\",\"authority\":\"Independent government-technology reporting that confirms the dated announcement, prototype identity and intended service-navigation use.\",\"passages\":[\"September 9, 2026\",\"AskCA is a prototype developed by the state’s Office of Data and Innovation to help Californians find resources based on life events, such as finding a job, starting a business, accessing family services and recovering from disasters.\",\"California’s next test will be whether AskCA can move beyond retrieval toward actually connecting residents with government services. The state is seeking Californians to beta test the tool, while CalHR plans to deploy its technology for AI-powered job matching starting Sept. 30.\"],\"limitation\":\"Independent reporting of the announcement and open effectiveness question; it supplies no measured AskCA accuracy or public-service outcome.\",\"source\":{\"url\":\"https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/\",\"passage\":\"California launches AI assistant to help residents navigate state services | StateScoop\\nSkip to main content\\nAdvertisement\\nStateScoop\\nAIScoop\\nFedScoop\\nDefenseScoop\\nCyberScoop\\nEdScoop\\nAdvertise\\nSearch for:\\nSearch\\nOpen navigation\\nTopics\\nBack\\nCybersecurity\\nModernization\\nAI\\nEmerging Tech\\nData & Analytics\\nDigital Services\\nSpecial Reports\\nEvents\\nPodcasts\\nVideos\\nInsights\\nAI\\nStateScoop 50\\nSubscribe to Newsletters\\nAdvertise\\nSwitch Site\\nStateScoop\\nAIScoop\\nFedScoop\\nDefenseScoop\\nCyberScoop\\nEdScoop\\nSubscribe\\nAdvertisement\\nSubscribe to our daily newsletter.\\nSubscribe\\nClose\\nAI\\nCalifornia launches AI assistant to help residents navigate state services\\nThe tool uses Anthropic’s Claude model and will rely on state subject matter experts to help validate responses from verified sources, rather than simply generate conversational answers like many commercial AI chatbots.\\nBy\\nSophia Fox-Sowell\\nSeptember 9, 2026\\nListen to this article\\n0:00\\nLearn more.\\nThis feature uses an automated voice, which may result in occasional errors in pronunciation, tone, or sentiment.\\nGov. Gavin Newsom speaks onstage during the NYT Climate Forward 2025 at The Times Center on September 24, 2025 in New York City. (Yana Paskova / Getty Images for NYT)\\nCalifornia is turning to artificial intelligence to help simplify how residents navigate state government with the launch of a new digital assistant designed to serve as a single point of entry for public services.\\nAnnounced Wednesday\\nby Gov. Gavin Newsom, AskCA is a prototype developed by the state’s Office of Data and Innovation to help Californians find resources based on life events, such as finding a job, starting a business, accessing family services and recovering from disasters.\\nThe tool uses Anthropic’s Claude large language model and will rely on state subject matter experts to help validate responses from verified sources, rather than simply generate conversational answers like many commercial AI chatbots. The Department of Technology will provide cybersecurity support.\\nAccording to the announcement, the new tool stems from the state’s response to the devastating\\nLos Angeles wildfires in 2025\\n, which destroyed more than 16,000 homes, businesses and other buildings. The state also launched an\\nAI-powered tool\\nlast year to expedite the process of approving building permits after the fires.\\nAdvertisement\\n“When a Californian needs help, they shouldn’t have to become an expert in government to find it,” Newsom said in a statement. “We’re using the best technology California has to offer to make government more efficient, effective, and more engaged — meeting people where they are, making it easier to navigate services, and ultimately delivering stronger results worthy of their tax dollars.”\\nThe new AI assistant builds on California’s broader effort to incorporate AI tools into government operations. In June, the state announced\\na discounted agreement\\nwith Anthropic that gives state and local agencies access to Claude for administrative work, information analysis and constituent services. The state has also developed\\nPoppy\\n, an AI assistant specifically for government employees.\\nThe Golden State is not the only state to experiment with AI-powered government services in recent years. Chatbots have become increasingly common on government websites, with states including Texas and Georgia using automated assistants to answer questions and help residents complete tasks.\\nNebraska\\nhas also expanded its use of AI tools after a DMV pilot generated more than 3,400 referrals to online services and reduced call volume by 20% in some areas.\\nLocal governments are also pushing the emerging technology further. Maricopa County, Arizona, and Washington, D.C., are connecting AI assistants with\\ngeographic information systems\\nto answer location-specific questions.\\nCalifornia’s next test will be whether AskCA can move beyond retrieval toward actually connecting residents with government services. The state is seeking Californians to beta test the tool, while CalHR plans to deploy its technology for AI-powered job matching starting Sept. 30.\\nAdvertisement\\nWritten by Sophia Fox-Sowell\\nSophia Fox-Sowell reports on artificial intelligence, cybersecurity and government regulation for StateScoop. She was previously a multimedia producer for CNET, where her coverage focused on private sector innovation in food production, climate change and space through podcasts and video content. She earned her bachelor’s in anthropology at Wagner College and master’s in media innovation from Northeastern University.\\nIn This Story\\nAI assistant\\nAnthropic\\nCalifornia\\nClaude\\nDigital Services\\nState & Local News\\nShare\\nFacebook\\nLinkedIn\\nTwitter\\nCopy Link\\nAdvertisement\\nAdvertisement\\nMore Like This\\nCenter for Internet Security launches AI cyber defense pilot for state and local governments\\nBy\\nSophia Fox-Sowell\\nReport calls for rebuilding federal education data infrastructure with states at the center\\nBy\\nSophia Fox-Sowell\\nIndiana taps its director of digital governance to also serve as chief privacy officer\\nBy\\nKeely Quinlan\\nAdvertisement\\nAdvertisement\\nMore Scoops\\nVirginia Governor Abigail Spanberger (D-VA) tours an apartment unit in the Wholey Legacy Homes apartment complex on August 13, 2026 in Arlington, Virginia. (Photo by Win McNamee/Getty Images)\\nVirginia forms digital service office, appoints former federal Medicare leader as new director\\nVirginia’s new digital services team comes after the state recently discovered millions in “bad state contracts” for IT projects that were never completed.\\nBy\\nKeely Quinlan\\nColorado Gov. Jared Polis announces the state’s new mobile driver’s license at Denver International Airport on Aug. 31, 2026. (Colorado Governor’s Office of Information Technology)\\nColorado launches mobile driver’s license for use at TSA checkpoints\\nBy\\nKeely Quinlan\\n(Getty Images)\\nAfter successful DMV pilot, Nebraska expands Tyler Technologies AI tools statewide\\nBy\\nSophia Fox-Sowell\\nCities are giving their AI chatbots a new dimension: geography\\nBy\\nKeely Quinlan\\nStates want ‘digital front doors,’ but funding and AI-powered fraud are interfering\\nBy\\nKeely Quinlan\\nCalifornia launches statewide helpline for same-day opioid treatment\\nBy\\nSophia Fox-Sowell\\nDelaware paired students with agencies in 3-day AI hackathon\\nBy\\nSophia Fox-Sowell\\nLatest Podcasts\\nU.S. Digital Response’s roadmap for better government digital services\\nThe magic of maps: the federal push to digitize mapping efforts in rural counties across the country\\nHow IT platform focus and governance help Orlando International Airport’s CIO protect public trust\\nHow Pennsylvania is modernizing its evaluation of the state’s senior care agencies\\nState\\nStates confront growing cyber gaps as critical infrastructure threats rise, report finds\\nNASCIO picks finalists for 2026 State IT Recognition Awards\\nMassachusetts' first heat resilience officer eyes data, technology for statewide response to extreme heat\\nStates push back on EEOC plan to end workforce demographic reporting\\nCity\\nSan Jose builds homelessness data dashboard to track city shelter performance\\n‘Technology is the easy part’: Washington, D.C., turned to collaboration, data governance for America 250\\nHow San José trained 1,000 city employees to build their own AI tools\\nDallas deploys new digital kiosks as FIFA World Cup kicks off\\nCybersecurity\\nRestoring State and Local Cybersecurity Grant Program tops NASCIO’s congressional priorities for upcoming year\\nAspen Institute pilots real-time EBT fraud blocking with states\\nEach California agency will get an AI cybersecurity officer\\nWith aid of AI, nonprofit will offer cybersecurity assistance to local governments\\nModernization\\nAging IT systems present significant public safety risks across Oregon correctional facilities, audit finds\\n'Trust-first' data-sharing can better connect young mothers to California benefits, report argues\\nNorth Carolina takes first steps to modernize state hiring practices in more than 60 years, starting with IT\\nOne year after devastating Texas floods, adoption of warning systems remains uneven\\nAdvertisement\\nAbout Us\\nFedScoop\\nDefenseScoop\\nCyberScoop\\nStateScoop\\nEdScoop\\nAIScoop\\nNewsletters\\nAdvertise with us\\nAd Specs\\n(202) 887-8001\\nhello@statescoop.com\\nFB\\nTW\\nLI\\nInstagram\\nYT\\nClose Ad\\nContinue to StateScoop\\n\",\"passageLocator\":\"https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/\",\"additionalPassage\":\"September 9, 2026\\nAskCA is a prototype developed by the state’s Office of Data and Innovation to help Californians find resources based on life events, such as finding a job, starting a business, accessing family services and recovering from disasters.\\nCalifornia’s next test will be whether AskCA can move beyond retrieval toward actually connecting residents with government services. The state is seeking Californians to beta test the tool, while CalHR plans to deploy its technology for AI-powered job matching starting Sept. 30.\\nAuthority: Independent government-technology reporting that confirms the dated announcement, prototype identity and intended service-navigation use.\\nLimitation: Independent reporting of the announcement and open effectiveness question; it supplies no measured AskCA accuracy or public-service outcome.\",\"additionalPassageLocator\":\"https://statescoop.com/california-launches-ai-assistant-to-help-residents-navigate-state-services/\"}}]}\n\nReturn reader and facts objects matching the supplied output schema. Give concise specific reasons with actual paragraph references. Clear failure-family judgments may use an empty reference list for absence across the whole artifact. Present/uncertain families and every outcome/claim require supporting paragraphs. Each fact must use source IDs belonging to that claim. Each reader/facts learningDisposition must be NO_NEW_DEFECT only if that part has no failed or uncertain assessment; otherwise use candidate repair or evidence gap. You are independent from artifact maker OpenAI /root. Attest truthfully to reading the complete artifact first and independence. Do not inspect earlier verdicts or diagnose paperwork."
+    }
+  ],
+  "response_format": {
+    "type": "json_object"
+  },
+  "max_completion_tokens": 8500,
+  "temperature": 0.05,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "laidies.newsstand-source-evidence.v1",
+  "candidateId": "microsoft-family-safety-20260911",
+  "reviewedThrough": "2026-09-11",
+  "records": [
+    {
+      "id": "microsoft-safe-participation-framework",
+      "url": "https://blogs.microsoft.com/on-the-issues/2026/09/10/safe-participation-framework-opportunity-and-safety-for-the-next-generation-in-the-age-of-ai/",
+      "authority": "Microsoft's September 10 primary announcement for its youth-safety framework and current Copilot account rule.",
+      "passages": [
+        "Microsoft’s Safe Participation Framework serves as a foundation for our work today, and we expect it to continue evolving as technology, research, and societal expectations change. We do not claim to have all the answers.",
+        "All users must now sign in to use Copilot, and access is restricted for children under 13 (or older where required by local law).",
+        "We have also implemented measures to reduce exposure to harmful content, directing users to crisis support resources when self-harm risks are detected, and encouraging healthy use through transparency, break reminders, reporting tools, and guardrails to protect against delusional outputs.",
+        "Through our new Windows Age application programming interface (API), expanded age assurance capabilities, and enhanced family safety tools, Microsoft is helping establish a more consistent and privacy-conscious foundation for age-appropriate experiences across the broader ecosystem."
+      ],
+      "limitation": "This is a company policy announcement. It establishes what Microsoft says it changed and intends, but it does not independently measure whether the protections work or describe one uniform rollout across every Copilot product and account type."
+    },
+    {
+      "id": "microsoft-copilot-young-people-support",
+      "url": "https://support.microsoft.com/en-us/privacy/microsoft-copilot/young-people",
+      "authority": "Current Microsoft support page for the updated personal-account Copilot experience and its age and account boundaries.",
+      "passages": [
+        "An updated version of the Microsoft Copilot app for web, desktop, and mobile devices is available as of August 18, 2026.",
+        "This article applies only when you sign in with a Microsoft account, such as a personal email address, when using the Microsoft Copilot app on web, desktop, or mobile.",
+        "This article does not apply when you sign in to the Microsoft Copilot app or use Copilot in Microsoft 365 apps with a work, school, or organizational (Microsoft Entra) account.",
+        "You must be at least 13 years old to use Copilot, and in some countries or regions, the minimum age may be higher depending on regional requirements.",
+        "Your parent or guardian may be able to manage how you use Copilot. They can use tools like Microsoft Family Safety or settings on your device."
+      ],
+      "limitation": "This page covers Microsoft's updated Copilot app for personal Microsoft accounts. It explicitly excludes work, school and organizational accounts and warns that an older app version follows different documentation."
+    },
+    {
+      "id": "microsoft-windows-age-api",
+      "url": "https://blogs.windows.com/windowsexperience/2026/09/08/helping-families-and-educators-support-safer-experiences-and-healthier-habits-on-windows/",
+      "authority": "Microsoft's September 8 primary explanation of how Windows account age signals are designed to reach apps and the exact preview availability.",
+      "passages": [
+        "User account → age signal → age-appropriate experience and controls",
+        "GetUserAgeRangeAsync: Provides non-personally identifiable age group categories for apps to utilize in providing safe and age-appropriate user experiences, while protecting the date of birth data and overall privacy of users. Age groupings available via the API include- under 10, 10-12, 13-15, 16-17, 18+.",
+        "Apps receive only the age-related signal needed for the experience and not sensitive personal data such as full date of birth.",
+        "The Windows Age APIs are broadly available to Windows Insiders now and will be available to all Windows users soon. The CheckAgeStatusAsync API will be available with a future update."
+      ],
+      "limitation": "The age APIs are a Windows Insider preview, not a universal current Windows control. Microsoft describes the intended privacy and safety design; this source does not prove how third-party apps will use the signal or that it reduces harm."
+    },
+    {
+      "id": "microsoft-family-safety-fixes",
+      "url": "https://blogs.windows.com/windowsexperience/2026/09/08/listening-to-families-improving-microsoft-family/",
+      "authority": "Microsoft's September 8 primary release for Family Safety fixes available in its current mobile apps and web experience.",
+      "passages": [
+        "Parental approvals for app access, screen time extensions, and purchases now happen faster than before, reducing wait times and frustration for parents and kids alike.",
+        "Activity reporting now includes broader app coverage across all applications used on a child’s PC, providing a more complete and trustworthy view. Additional improvements to usage time accuracy are also on the way.",
+        "Family funding balance was not reflecting proper updated balance but now this issue has been addressed, and parents can now easily manage the funds for their children.",
+        "All of the above fixes are available in the latest versions of the Family Safety mobile app both iOS and Android. You can also access Family Safety on the web.",
+        "While we have made important progress, some families may still run into issues."
+      ],
+      "limitation": "These are Microsoft's product descriptions and availability claims. The page supplies no independent performance test, quantified improvement or evidence that all earlier reporting and approval problems are resolved."
+    },
+    {
+      "id": "windows-central-family-scope-report",
+      "url": "https://www.windowscentral.com/microsoft/windows-11/microsoft-fixes-sluggish-windows-11-parental-approvals-and-expands-age-verification",
+      "authority": "Independent September 9 technical reporting that distinguishes updates to existing Family Safety controls from the Insider-only Windows Age API rollout.",
+      "passages": [
+        "The first change Microsoft highlighted is not a new feature, but a speed boost to an existing one.",
+        "Microsoft has also made it easier for parents to keep track of web activity, app activity, and spending. Managing family groups has been improved as well, including options that make it simpler to add or remove members.",
+        "The new Windows Age APIs are available now to Windows Insiders and should ship to all Windows users soon."
+      ],
+      "limitation": "This report independently confirms the product and rollout framing from Microsoft's pages. It does not independently test safety outcomes, approval speed, activity-report accuracy or privacy behavior."
+    }
+  ]
+}

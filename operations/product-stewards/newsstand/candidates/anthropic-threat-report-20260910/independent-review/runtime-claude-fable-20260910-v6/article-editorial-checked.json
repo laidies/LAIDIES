@@ -1,0 +1,921 @@
+{
+  "kind": "editorial",
+  "startedAt": "2026-09-11T03:34:19.332Z",
+  "replayedAt": null,
+  "completedAt": "2026-09-11T03:35:41.180Z",
+  "requestedModel": "claude-fable-5",
+  "providerModel": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "providerId": "384ee988-af63-4628-bbce-c73cc919f959",
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 10732,
+    "cache_read_input_tokens": 14446,
+    "output_tokens": 7209,
+    "output_tokens_details": {
+      "thinking_tokens": 689
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 10732,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 7209,
+        "cache_read_input_tokens": 14446,
+        "cache_creation_input_tokens": 10732,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 10732
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "attestations": {
+    "reader": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    },
+    "facts": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    }
+  },
+  "requestSha256": "85411a3a9e54d2632b1929adb9a915833456d756e49311326b58fc9624c72c5f",
+  "rawSha256": "ae0d9e42dc57a63d1ad397fa8117c377e28f2a9fbf4a5904226fd4dee691d37d",
+  "protocolSha256": "7d5c9426f84748a80fce818b4d4bb85a41666f70ba8cebb0a9c680e21151e837",
+  "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+  "reader": {
+    "families": {
+      "glossaryAccumulation": {
+        "state": "clear",
+        "reason": "Terms appear inside the working explanation, not as a stacked definition list.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "templateRepetition": {
+        "state": "clear",
+        "reason": "Paragraphs develop the argument progressively; no repeated scaffold.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "decorativeAnalogy": {
+        "state": "clear",
+        "reason": "The single venue analogy does causal work and reconnects to the Mali case.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "referenceConfetti": {
+        "state": "clear",
+        "reason": "No pop-culture or gratuitous references anywhere in the artifact.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "missingMechanism": {
+        "state": "clear",
+        "reason": "Visibility → investigation → bans → limits is a complete causal chain (P005–P006).",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "genericAction": {
+        "state": "clear",
+        "reason": "The action in P009 is a specific checkable question, not 'be careful'.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "jargonBeforeMeaning": {
+        "state": "clear",
+        "reason": "'Dual-use' and evidence-level terms are explained at first meaningful use.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "disconnectedSystem": {
+        "state": "clear",
+        "reason": "Provider, actors, other models and outside reporters are shown interacting, e.g. the Mali continuation.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "factlessConfidence": {
+        "state": "clear",
+        "reason": "Certainty is systematically capped: 'Anthropic says', 'does not assert', 'establishes no'.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "staleUnreviewableClaims": {
+        "state": "clear",
+        "reason": "Publication date, activity window and named sources make each time-sensitive claim traceable.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "corporateSludge": {
+        "state": "clear",
+        "reason": "Language is concrete throughout; no vague motivational filler.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "joylessInstruction": {
+        "state": "clear",
+        "reason": "The ladder framing is instructional but embedded in a lively real case, not a checklist manual.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "benchmarkNameDrop": {
+        "state": "clear",
+        "reason": "No benchmark or famous explainer is named or leaned on.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "curiosityWithoutPayoff": {
+        "state": "clear",
+        "reason": "The headline's promise about evidence limits is fully paid off in P004–P008.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "familiarExampleWithoutTechnicalReturn": {
+        "state": "clear",
+        "reason": "The venue analogy explicitly returns to the technical boundary via the Mali example.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "communicationPastiche": {
+        "state": "clear",
+        "reason": "Original plain voice; no imitated persona or mannerisms.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "entertainmentBeforeUnderstanding": {
+        "state": "clear",
+        "reason": "No humour or spectacle displaces the explanation.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "mechanismCompressedBehindHook": {
+        "state": "clear",
+        "reason": "The mechanism (P005–P007) gets more space than the headline hook.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "prematureClickBeforeMechanism": {
+        "state": "clear",
+        "reason": "The 'stops short' claim in P001 is earned step by step across P004–P007 before P008 concludes.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "inflatedTakeawayEnding": {
+        "state": "clear",
+        "reason": "The ending stays bounded: ask what was observed and who reported it, not a grand moral.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "purposeTooNarrow": {
+        "state": "clear",
+        "reason": "Covers the full reader job: incident, response, limits and transferable reading skill.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "mechanismBeforeMotivation": {
+        "state": "clear",
+        "reason": "The human stakes (state surveillance, bioweapon question) precede the evidence machinery.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "workedExampleOvertakesBookPurpose": {
+        "state": "clear",
+        "reason": "China and Mali examples serve the broader evidence-reading purpose rather than crowding it out.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      },
+      "technicalExplainerVoice": {
+        "state": "clear",
+        "reason": "This is a bounded news report; explaining its specific mechanism is the right organising perspective, and reader orientation is maintained.",
+        "passages": [],
+        "artifactEvidence": [],
+        "artifactLocator": "Complete artifact read; absence judgment"
+      }
+    },
+    "outcomes": {
+      "plainClarity": {
+        "state": "pass",
+        "reason": "Sentences are short and concrete; 'dual-use' is defined at first use in P004 and the ladder in P007 uses plain nouns.",
+        "passages": [
+          "P004",
+          "P007",
+          "P002"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "<p>Keep four levels separate: an AI request, an operating workflow, a completed harmful system and real-world harm. Evidence at one level does not automatically prove the next. AP’s reporting attributes the cases to Anthropic. Cornell researcher John Thickstun also told AP that societal judgments about acceptable AI use need democratic or deliberative oversight, not company decisions alone.</p>",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+            "locator": "P002"
+          }
+        ],
+        "artifactLocator": "P004, P007, P002"
+      },
+      "readerValue": {
+        "state": "pass",
+        "reason": "Beyond the headline, the reader gains the four-level evidence ladder and the provider-visibility limit, both reusable on future AI threat stories.",
+        "passages": [
+          "P005",
+          "P007",
+          "P009"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>The report matters because a provider can see patterns across accounts that the public cannot. That visibility lets Anthropic investigate activity on Claude, block accounts and change its service. It also creates a limit: outsiders cannot inspect the private logs, and Anthropic cannot see everything an actor does elsewhere.</p>",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "<p>Keep four levels separate: an AI request, an operating workflow, a completed harmful system and real-world harm. Evidence at one level does not automatically prove the next. AP’s reporting attributes the cases to Anthropic. Cornell researcher John Thickstun also told AP that societal judgments about acceptable AI use need democratic or deliberative oversight, not company decisions alone.</p>",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "<p>When the next headline says AI built a weapon or stopped a state operation, ask: “Did the report observe a request, an operating workflow, a completed harmful system or real-world harm?” Then check whether the claim came from provider logs, independent investigators or a public authority.</p>",
+            "locator": "P009"
+          }
+        ],
+        "artifactLocator": "P005, P007, P009"
+      },
+      "laidiesVoice": {
+        "state": "pass",
+        "reason": "Warm, candid, adult and direct ('Take the risks seriously without upgrading the evidence'); no condescension or borrowed persona.",
+        "passages": [
+          "P008",
+          "P006",
+          "P010"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Take the surveillance and biological risks seriously without upgrading the evidence. Anthropic's account bans and safeguards are concrete actions. Its actor attributions, conclusions about AI's added help and descriptions of intent still require scrutiny and, where possible, independent evidence.</p>",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "<p>Think of a venue removing someone for dangerous conduct it sees and preserving its records. The intervention matters, but it is not a court finding about every motive and cannot stop the person going elsewhere. Here, Axios's Mali example shows the same boundary: cutting Claude access did not end the underlying project.</p>",
+            "locator": "P006"
+          },
+          {
+            "excerpt": "“Anthropic says it disrupted serious Claude misuse in cyber, surveillance and biological research. The evidence supports company action, but it does not prove every actor's intent, a completed biological weapon or that banning one account ended the wider operation.”",
+            "locator": "P010"
+          }
+        ],
+        "artifactLocator": "P008, P006, P010"
+      },
+      "engagingEnjoyable": {
+        "state": "pass",
+        "reason": "The tension between real company action and unproven intent/outcome sustains interest; the venue analogy and Mali twist give narrative pull.",
+        "passages": [
+          "P006",
+          "P003",
+          "P004"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Think of a venue removing someone for dangerous conduct it sees and preserving its records. The intervention matters, but it is not a court finding about every motive and cannot stop the person going elsewhere. Here, Axios's Mali example shows the same boundary: cutting Claude access did not end the underlying project.</p>",
+            "locator": "P006"
+          },
+          {
+            "excerpt": "<p>In surveillance cases, Anthropic says actors linked to China, Iran and Mali used Claude. In one China-linked case, it says an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity. Axios reported that Anthropic banned every linked account it found. It also reported that the Mali system was ultimately deployed locally using other models.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P006, P003, P004"
+      },
+      "surfaceFit": {
+        "state": "pass",
+        "reason": "A dated news article: the September 10 report, its contents, company response and why it matters, all within scope.",
+        "passages": [
+          "P002",
+          "P003",
+          "P008"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>In surveillance cases, Anthropic says actors linked to China, Iran and Mali used Claude. In one China-linked case, it says an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity. Axios reported that Anthropic banned every linked account it found. It also reported that the Mali system was ultimately deployed locally using other models.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>Take the surveillance and biological risks seriously without upgrading the evidence. Anthropic's account bans and safeguards are concrete actions. Its actor attributions, conclusions about AI's added help and descriptions of intent still require scrutiny and, where possible, independent evidence.</p>",
+            "locator": "P008"
+          }
+        ],
+        "artifactLocator": "P002, P003, P008"
+      },
+      "dailyLifeConnection": {
+        "state": "pass",
+        "reason": "The venue-ejection comparison is a recognizable situation that carries the mechanism of visibility, intervention and its limit.",
+        "passages": [
+          "P006",
+          "P005"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Think of a venue removing someone for dangerous conduct it sees and preserving its records. The intervention matters, but it is not a court finding about every motive and cannot stop the person going elsewhere. Here, Axios's Mali example shows the same boundary: cutting Claude access did not end the underlying project.</p>",
+            "locator": "P006"
+          },
+          {
+            "excerpt": "<p>The report matters because a provider can see patterns across accounts that the public cannot. That visibility lets Anthropic investigate activity on Claude, block accounts and change its service. It also creates a limit: outsiders cannot inspect the private logs, and Anthropic cannot see everything an actor does elsewhere.</p>",
+            "locator": "P005"
+          }
+        ],
+        "artifactLocator": "P006, P005"
+      },
+      "communicationBenchmark": {
+        "state": "pass",
+        "reason": "Human question answered first, concrete causal mechanism (visibility → bans → limits), uncertainty retained, and a better next question supplied; no imitation of any communicator.",
+        "passages": [
+          "P005",
+          "P007",
+          "P009"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>The report matters because a provider can see patterns across accounts that the public cannot. That visibility lets Anthropic investigate activity on Claude, block accounts and change its service. It also creates a limit: outsiders cannot inspect the private logs, and Anthropic cannot see everything an actor does elsewhere.</p>",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "<p>Keep four levels separate: an AI request, an operating workflow, a completed harmful system and real-world harm. Evidence at one level does not automatically prove the next. AP’s reporting attributes the cases to Anthropic. Cornell researcher John Thickstun also told AP that societal judgments about acceptable AI use need democratic or deliberative oversight, not company decisions alone.</p>",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "<p>When the next headline says AI built a weapon or stopped a state operation, ask: “Did the report observe a request, an operating workflow, a completed harmful system or real-world harm?” Then check whether the claim came from provider logs, independent investigators or a public authority.</p>",
+            "locator": "P009"
+          }
+        ],
+        "artifactLocator": "P005, P007, P009"
+      },
+      "explainBack": {
+        "state": "pass",
+        "reason": "The mechanism supports an accurate ordinary-language answer to why banning accounts did not end the Mali operation; my explain-back below resolves using only P005–P006.",
+        "passages": [
+          "P005",
+          "P006",
+          "P003"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>The report matters because a provider can see patterns across accounts that the public cannot. That visibility lets Anthropic investigate activity on Claude, block accounts and change its service. It also creates a limit: outsiders cannot inspect the private logs, and Anthropic cannot see everything an actor does elsewhere.</p>",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "<p>Think of a venue removing someone for dangerous conduct it sees and preserving its records. The intervention matters, but it is not a court finding about every motive and cannot stop the person going elsewhere. Here, Axios's Mali example shows the same boundary: cutting Claude access did not end the underlying project.</p>",
+            "locator": "P006"
+          },
+          {
+            "excerpt": "<p>In surveillance cases, Anthropic says actors linked to China, Iran and Mali used Claude. In one China-linked case, it says an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity. Axios reported that Anthropic banned every linked account it found. It also reported that the Mali system was ultimately deployed locally using other models.</p>",
+            "locator": "P003"
+          }
+        ],
+        "artifactLocator": "P005, P006, P003"
+      },
+      "unseenTransfer": {
+        "state": "pass",
+        "reason": "The evidence ladder and provider-visibility limit apply cleanly to a novel scenario absent from the article; solved below.",
+        "passages": [
+          "P007",
+          "P011",
+          "P009"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Keep four levels separate: an AI request, an operating workflow, a completed harmful system and real-world harm. Evidence at one level does not automatically prove the next. AP’s reporting attributes the cases to Anthropic. Cornell researcher John Thickstun also told AP that societal judgments about acceptable AI use need democratic or deliberative oversight, not company decisions alone.</p>",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "Use this evidence order when you read an AI threat claim: observed request, operating workflow, completed harmful system, then real-world harm. One level is not proof of the next.",
+            "locator": "P011"
+          },
+          {
+            "excerpt": "<p>When the next headline says AI built a weapon or stopped a state operation, ask: “Did the report observe a request, an operating workflow, a completed harmful system or real-world harm?” Then check whether the claim came from provider logs, independent investigators or a public authority.</p>",
+            "locator": "P009"
+          }
+        ],
+        "artifactLocator": "P007, P011, P009"
+      },
+      "usefulAction": {
+        "state": "pass",
+        "reason": "P009 gives a specific, proportionate check: identify which evidence level the report observed and whether the claim came from provider logs, investigators or a public authority.",
+        "passages": [
+          "P009",
+          "P011"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>When the next headline says AI built a weapon or stopped a state operation, ask: “Did the report observe a request, an operating workflow, a completed harmful system or real-world harm?” Then check whether the claim came from provider logs, independent investigators or a public authority.</p>",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "Use this evidence order when you read an AI threat claim: observed request, operating workflow, completed harmful system, then real-world harm. One level is not proof of the next.",
+            "locator": "P011"
+          }
+        ],
+        "artifactLocator": "P009, P011"
+      },
+      "analogyIntegrity": {
+        "state": "pass",
+        "reason": "The venue analogy maps visibility, records, intervention and its limits accurately, and explicitly disclaims equating a ban with a court finding or full prevention.",
+        "passages": [
+          "P006"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Think of a venue removing someone for dangerous conduct it sees and preserving its records. The intervention matters, but it is not a court finding about every motive and cannot stop the person going elsewhere. Here, Axios's Mali example shows the same boundary: cutting Claude access did not end the underlying project.</p>",
+            "locator": "P006"
+          }
+        ],
+        "artifactLocator": "P006"
+      }
+    },
+    "newsChecks": {
+      "incidentExplained": {
+        "state": "pass",
+        "reason": "What was published, when, what misuse categories, what Anthropic did, and specific China and Mali cases are all causally traceable.",
+        "passages": [
+          "P002",
+          "P003",
+          "P004"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>In surveillance cases, Anthropic says actors linked to China, Iran and Mali used Claude. In one China-linked case, it says an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity. Axios reported that Anthropic banned every linked account it found. It also reported that the Mali system was ultimately deployed locally using other models.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P002, P003, P004"
+      },
+      "termsExplainedInContext": {
+        "state": "pass",
+        "reason": "'Dual-use' is defined at first meaningful use; 'operating workflow' and other ladder terms are given in plain nouns rather than jargon.",
+        "passages": [
+          "P004",
+          "P007"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "<p>Keep four levels separate: an AI request, an operating workflow, a completed harmful system and real-world harm. Evidence at one level does not automatically prove the next. AP’s reporting attributes the cases to Anthropic. Cornell researcher John Thickstun also told AP that societal judgments about acceptable AI use need democratic or deliberative oversight, not company decisions alone.</p>",
+            "locator": "P007"
+          }
+        ],
+        "artifactLocator": "P004, P007"
+      },
+      "readerConsequenceSpecific": {
+        "state": "pass",
+        "reason": "The consequence is grounded in the recognizable situation of reading the next AI-built-a-weapon headline and knowing what to ask.",
+        "passages": [
+          "P009",
+          "P008"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>When the next headline says AI built a weapon or stopped a state operation, ask: “Did the report observe a request, an operating workflow, a completed harmful system or real-world harm?” Then check whether the claim came from provider logs, independent investigators or a public authority.</p>",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "<p>Take the surveillance and biological risks seriously without upgrading the evidence. Anthropic's account bans and safeguards are concrete actions. Its actor attributions, conclusions about AI's added help and descriptions of intent still require scrutiny and, where possible, independent evidence.</p>",
+            "locator": "P008"
+          }
+        ],
+        "artifactLocator": "P009, P008"
+      },
+      "noInternalNotesOrInventedAdvice": {
+        "state": "pass",
+        "reason": "No internal operating notes or process details; the only advice (the evidence-level question) follows directly from sourced limits.",
+        "passages": [
+          "P009",
+          "P011",
+          "P008"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>When the next headline says AI built a weapon or stopped a state operation, ask: “Did the report observe a request, an operating workflow, a completed harmful system or real-world harm?” Then check whether the claim came from provider logs, independent investigators or a public authority.</p>",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "Use this evidence order when you read an AI threat claim: observed request, operating workflow, completed harmful system, then real-world harm. One level is not proof of the next.",
+            "locator": "P011"
+          },
+          {
+            "excerpt": "<p>Take the surveillance and biological risks seriously without upgrading the evidence. Anthropic's account bans and safeguards are concrete actions. Its actor attributions, conclusions about AI's added help and descriptions of intent still require scrutiny and, where possible, independent evidence.</p>",
+            "locator": "P008"
+          }
+        ],
+        "artifactLocator": "P009, P011, P008"
+      }
+    },
+    "explainBack": {
+      "question": "Why did banning every Claude account linked to the Mali surveillance system fail to stop that system from being deployed?",
+      "answer": "Anthropic's power comes from visibility into its own service: it can see account patterns, investigate and revoke access. But that visibility and control end at its own platform. The Mali actors kept their goal, data and workflow, and rebuilt the system locally on other models. The ban removed one tool, not the operation, so deployment continued outside Anthropic's reach.",
+      "expectedEvidence": "P005 (provider visibility and its limit), P006 (venue analogy: cannot stop the person going elsewhere), P003 (Axios: Mali system deployed locally with other models).",
+      "assessment": "The article's mechanism fully supports this causal answer in ordinary language; a reader relying only on P003, P005 and P006 can reconstruct it accurately."
+    },
+    "unseenTransfer": {
+      "scenario": "A payments company announces it detected and shut down 40 merchant accounts it says were run by an organized fraud ring using AI-generated storefronts, and a newspaper headline reads 'AI fraud ring dismantled'.",
+      "question": "Using the article's evidence ladder, what did the payments company actually establish, and does 'dismantled' hold up?",
+      "answer": "The company observed on-platform activity (suspicious transactions and storefronts — the request/workflow levels) and took a real action (account closures). It did not establish who runs the ring, whether the ring's whole system is destroyed, or real-world harm figures. Like the Mali case, the ring can re-register elsewhere or move to another processor, so 'dismantled' upgrades a provider-level intervention into an outcome-level claim the evidence does not support.",
+      "expectedEvidence": "Apply P011's four levels, P005's visibility limit, and P009's source check (provider logs vs. independent investigators vs. public authority such as prosecutors).",
+      "assessment": "The article's mechanism transfers cleanly to this unseen case; nothing in the artifact needed modification to resolve it, confirming genuine reusability."
+    },
+    "reverseBrief": {
+      "humanQuestion": "When an AI company says it caught bad actors misusing its model, what did it actually see, and what is still unproven?",
+      "promisedPayoff": "The reader learns to separate provider-observed activity from inferred intent and real-world outcome, and gets a reusable four-level evidence ladder.",
+      "centralMentalModel": "Evidence comes in levels — observed request, operating workflow, completed harmful system, real-world harm — and proof at one level does not carry to the next.",
+      "dailyLifeConnection": "A venue ejecting someone for dangerous conduct: the intervention is real, but it is not a court finding and cannot stop the person elsewhere.",
+      "surfaceJob": "A dated news article answering what Anthropic reported on September 10, what it did, and what the public evidence does and does not establish.",
+      "desiredReaderFeeling": "Informed and appropriately skeptical — able to take the risks seriously without inflating the evidence."
+    },
+    "verdict": "PASS",
+    "summary": "A disciplined, readable news piece: it answers what Anthropic reported, keeps every attribution and limit intact, and equips the reader with a genuinely transferable four-level evidence ladder. The venue analogy earns its place by carrying the Mali boundary case. No failure families present; all comprehension outcomes pass.",
+    "learningDisposition": {
+      "disposition": "NO_NEW_DEFECT",
+      "rationale": "All reader outcomes, news checks and failure families are pass/clear; explain-back and transfer both resolve using only the article's mechanism."
+    }
+  },
+  "facts": {
+    "outcomes": {
+      "factualIntegrity": {
+        "state": "pass",
+        "reason": "Every material claim traces to its assigned source excerpt with attribution and limits preserved; no claim exceeds its source.",
+        "passages": [
+          "P002",
+          "P004",
+          "P007"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "<p>Keep four levels separate: an AI request, an operating workflow, a completed harmful system and real-world harm. Evidence at one level does not automatically prove the next. AP’s reporting attributes the cases to Anthropic. Cornell researcher John Thickstun also told AP that societal judgments about acceptable AI use need democratic or deliberative oversight, not company decisions alone.</p>",
+            "locator": "P007"
+          }
+        ],
+        "artifactLocator": "P002, P004, P007"
+      },
+      "freshnessReviewability": {
+        "state": "pass",
+        "reason": "Publication date (September 10), activity window (December 2025–August 2026) and three dated, named sources make time-sensitive claims checkable.",
+        "passages": [
+          "P002",
+          "P003"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>In surveillance cases, Anthropic says actors linked to China, Iran and Mali used Claude. In one China-linked case, it says an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity. Axios reported that Anthropic banned every linked account it found. It also reported that the Mali system was ultimately deployed locally using other models.</p>",
+            "locator": "P003"
+          }
+        ],
+        "artifactLocator": "P002, P003"
+      },
+      "datedChange": {
+        "state": "pass",
+        "reason": "The article distinguishes the December 2025–August 2026 observed activity from the September 10 report, bans and new safeguards as the newly reported change.",
+        "passages": [
+          "P002",
+          "P004"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P002, P004"
+      },
+      "consequenceAndUncertainty": {
+        "state": "pass",
+        "reason": "Concrete consequences (bans, safeguards, Mali continuation) coexist with explicitly preserved uncertainty about intent, uplift and outcome throughout.",
+        "passages": [
+          "P004",
+          "P006",
+          "P008"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "<p>Think of a venue removing someone for dangerous conduct it sees and preserving its records. The intervention matters, but it is not a court finding about every motive and cannot stop the person going elsewhere. Here, Axios's Mali example shows the same boundary: cutting Claude access did not end the underlying project.</p>",
+            "locator": "P006"
+          },
+          {
+            "excerpt": "<p>Take the surveillance and biological risks seriously without upgrading the evidence. Anthropic's account bans and safeguards are concrete actions. Its actor attributions, conclusions about AI's added help and descriptions of intent still require scrutiny and, where possible, independent evidence.</p>",
+            "locator": "P008"
+          }
+        ],
+        "artifactLocator": "P004, P006, P008"
+      }
+    },
+    "claims": {
+      "publication": {
+        "state": "supported",
+        "reason": "Source excerpt states Anthropic published the report on September 10, 2026, matching P002 exactly.",
+        "passages": [
+          "P002"
+        ],
+        "sourceIds": [
+          "anthropic-september-threat-report"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+            "locator": "P002"
+          }
+        ],
+        "artifactLocator": "P002"
+      },
+      "period": {
+        "state": "supported",
+        "reason": "Source says cases cover activity from December 2025 through August 2026, matching P002's stated window.",
+        "passages": [
+          "P002"
+        ],
+        "sourceIds": [
+          "anthropic-september-threat-report"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+            "locator": "P002"
+          }
+        ],
+        "artifactLocator": "P002"
+      },
+      "response": {
+        "state": "supported",
+        "reason": "Source says Anthropic banned or disrupted linked accounts, strengthened safeguards and shared intelligence where appropriate; P002 mirrors this with attribution ('It says').",
+        "passages": [
+          "P002"
+        ],
+        "sourceIds": [
+          "anthropic-september-threat-report"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+            "locator": "P002"
+          }
+        ],
+        "artifactLocator": "P002"
+      },
+      "surveillance": {
+        "state": "supported",
+        "reason": "Both the Anthropic excerpt and Axios name China, Iran and Mali surveillance cases; P003 attributes the claim to Anthropic ('Anthropic says').",
+        "passages": [
+          "P003"
+        ],
+        "sourceIds": [
+          "anthropic-september-threat-report",
+          "axios-surveillance-report"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>In surveillance cases, Anthropic says actors linked to China, Iran and Mali used Claude. In one China-linked case, it says an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity. Axios reported that Anthropic banned every linked account it found. It also reported that the Mali system was ultimately deployed locally using other models.</p>",
+            "locator": "P003"
+          }
+        ],
+        "artifactLocator": "P003"
+      },
+      "china-surveillance-consequence": {
+        "state": "supported",
+        "reason": "Source excerpt: an office used Claude across thousands of investigations each month, combining bulk data to identify targets and scoring content for political sensitivity; P003 matches with 'it says' attribution.",
+        "passages": [
+          "P003"
+        ],
+        "sourceIds": [
+          "anthropic-september-threat-report"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>In surveillance cases, Anthropic says actors linked to China, Iran and Mali used Claude. In one China-linked case, it says an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity. Axios reported that Anthropic banned every linked account it found. It also reported that the Mali system was ultimately deployed locally using other models.</p>",
+            "locator": "P003"
+          }
+        ],
+        "artifactLocator": "P003"
+      },
+      "mali-continuation": {
+        "state": "supported",
+        "reason": "Axios excerpt states the Mali surveillance platform was ultimately deployed locally using other models after access was cut; P003 and P006 attribute this to Axios.",
+        "passages": [
+          "P003",
+          "P006"
+        ],
+        "sourceIds": [
+          "axios-surveillance-report"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>In surveillance cases, Anthropic says actors linked to China, Iran and Mali used Claude. In one China-linked case, it says an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity. Axios reported that Anthropic banned every linked account it found. It also reported that the Mali system was ultimately deployed locally using other models.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>Think of a venue removing someone for dangerous conduct it sees and preserving its records. The intervention matters, but it is not a court finding about every motive and cannot stop the person going elsewhere. Here, Axios's Mali example shows the same boundary: cutting Claude access did not end the underlying project.</p>",
+            "locator": "P006"
+          }
+        ],
+        "artifactLocator": "P003, P006"
+      },
+      "biology-cases": {
+        "state": "supported",
+        "reason": "Anthropic excerpt describes five biology case studies; P004 states five biological-research cases with company attribution.",
+        "passages": [
+          "P004"
+        ],
+        "sourceIds": [
+          "anthropic-september-threat-report"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P004"
+      },
+      "biology-uncertainty": {
+        "state": "supported",
+        "reason": "Source says evidence that models were below the meaningful-help threshold is no longer certain with current models, prompting stronger safeguards; P004 renders this accurately.",
+        "passages": [
+          "P004"
+        ],
+        "sourceIds": [
+          "anthropic-september-threat-report"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P004"
+      },
+      "intent-limit": {
+        "state": "supported",
+        "reason": "Source: Anthropic explicitly says it does not assert the scientists intended harm; P004 reproduces this limit verbatim in substance.",
+        "passages": [
+          "P004"
+        ],
+        "sourceIds": [
+          "anthropic-september-threat-report"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P004"
+      },
+      "outcome-limit": {
+        "state": "supported",
+        "reason": "Anthropic excerpt says blocked requests do not establish that a biological weapon was built or deployed, and AP's limitation notes it cannot prove completed weapons; P004's 'establishes no completed biological weapon or attack' matches.",
+        "passages": [
+          "P004"
+        ],
+        "sourceIds": [
+          "anthropic-september-threat-report",
+          "ap-anthropic-threat-report"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+            "locator": "P004"
+          }
+        ],
+        "artifactLocator": "P004"
+      },
+      "private-visibility": {
+        "state": "supported",
+        "reason": "The Anthropic source's stated limitation — internal visibility that public readers cannot independently inspect — supports P005's provider-visibility claim and its limit.",
+        "passages": [
+          "P005"
+        ],
+        "sourceIds": [
+          "anthropic-september-threat-report"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>The report matters because a provider can see patterns across accounts that the public cannot. That visibility lets Anthropic investigate activity on Claude, block accounts and change its service. It also creates a limit: outsiders cannot inspect the private logs, and Anthropic cannot see everything an actor does elsewhere.</p>",
+            "locator": "P005"
+          }
+        ],
+        "artifactLocator": "P005"
+      },
+      "ap-attribution": {
+        "state": "supported",
+        "reason": "AP excerpt says AP carefully attributes the underlying incident claims to Anthropic rather than presenting them as independently proven; P007 states this accurately.",
+        "passages": [
+          "P007"
+        ],
+        "sourceIds": [
+          "ap-anthropic-threat-report"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Keep four levels separate: an AI request, an operating workflow, a completed harmful system and real-world harm. Evidence at one level does not automatically prove the next. AP’s reporting attributes the cases to Anthropic. Cornell researcher John Thickstun also told AP that societal judgments about acceptable AI use need democratic or deliberative oversight, not company decisions alone.</p>",
+            "locator": "P007"
+          }
+        ],
+        "artifactLocator": "P007"
+      },
+      "oversight-critique": {
+        "state": "supported",
+        "reason": "AP excerpt: Cornell's John Thickstun told AP that acceptable-AI-use decisions involve societal value judgments needing democratic or deliberative oversight, not companies alone; P007 matches.",
+        "passages": [
+          "P007"
+        ],
+        "sourceIds": [
+          "ap-anthropic-threat-report"
+        ],
+        "artifactEvidence": [
+          {
+            "excerpt": "<p>Keep four levels separate: an AI request, an operating workflow, a completed harmful system and real-world harm. Evidence at one level does not automatically prove the next. AP’s reporting attributes the cases to Anthropic. Cornell researcher John Thickstun also told AP that societal judgments about acceptable AI use need democratic or deliberative oversight, not company decisions alone.</p>",
+            "locator": "P007"
+          }
+        ],
+        "artifactLocator": "P007"
+      }
+    },
+    "verdict": "PASS",
+    "summary": "All thirteen material claims are supported by the supplied source excerpts with correct attribution and preserved limits. The article never converts Anthropic's provider-level observations into independently proven facts, correctly credits Axios for the Mali continuation and AP for the oversight critique, and keeps the intent and bioweapon limits explicit. Factual integrity, freshness, dated change and uncertainty handling all pass.",
+    "learningDisposition": {
+      "disposition": "NO_NEW_DEFECT",
+      "rationale": "All thirteen claims are supported by their assigned sources and all four fact outcomes pass; no contradiction, overreach or evidence gap found."
+    }
+  },
+  "verdict": "PASS"
+}

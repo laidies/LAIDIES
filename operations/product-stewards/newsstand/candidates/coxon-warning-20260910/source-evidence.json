@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "newsstand-source-evidence-v1",
+  "candidateId": "coxon-warning-20260910",
+  "reviewedThrough": "2026-09-10",
+  "records": [
+    {
+      "id": "coxon-primary-post",
+      "url": "https://x.com/hilbertspaess/status/2097476196791709843",
+      "publisher": "Jacob Coxon",
+      "authority": "Primary September 9 resignation statement and Coxon's own allegation.",
+      "accessObservation": "Direct HTTPS retrieval returned HTTP 200 on September 10, 2026; the embedded metadata contained the full post and publication timestamp.",
+      "localEvidence": {"html":{"path":"operations/product-stewards/newsstand/candidates/coxon-warning-20260910/source-snapshots/x-coxon-attempt.html","sha256":"5ef7049578a570fd07e605c8919b7f444d75f7ee40d69f7c92e72624bacf8969"},"text":{"path":"operations/product-stewards/newsstand/candidates/coxon-warning-20260910/source-snapshots/x-coxon-attempt.txt","sha256":"265bf418f83113d4850cf30fb5bf18776a0294bb2e98241ae16db43426d5212c"}},
+      "passages": ["Published 2026-09-09T00:04:29.000Z.", "I resigned from Anthropic today. I spent the last three years doing pretraining research at both OpenAI and Anthropic. Neither company is acting responsibly. They are racing straight to self-improving superintelligence and gambling with our lives. More thoughts below."],
+      "limitation": "This establishes Coxon's resignation statement and stated experience. His claims about company responsibility, future systems and danger are his judgments, not independently measured findings."
+    },
+    {
+      "id": "hubinger-primary-post",
+      "url": "https://x.com/EvanHub/status/2097497037956891126",
+      "publisher": "Evan Hubinger",
+      "authority": "Primary September 9 statement of Hubinger's personal probability estimate and alignment concern.",
+      "accessObservation": "Direct HTTPS retrieval returned HTTP 200 on September 10, 2026; the embedded metadata contained the full post and publication timestamp.",
+      "localEvidence": {"html":{"path":"operations/product-stewards/newsstand/candidates/coxon-warning-20260910/source-snapshots/x-hubinger-attempt.html","sha256":"f3a61ed2b9c8034b5ee6398a153c9af0f7928ea673f2db277ff316960c284736"},"text":{"path":"operations/product-stewards/newsstand/candidates/coxon-warning-20260910/source-snapshots/x-hubinger-attempt.txt","sha256":"7e708230e4265db84e8efb68ff09b42e3051b704453c7c109e458a0af6932f7"}},
+      "passages": ["Published 2026-09-09T01:27:18.000Z.", "Jacob is correct here—we really do earnestly believe AI could kill all humans! I personally think it is >10% within the next decade. I believe Anthropic is trying its best, but we do not yet have a plan to solve alignment for superintelligence and are not clearly on track to."],
+      "limitation": "The greater-than-ten-percent figure is explicitly Hubinger's personal forecast. The post supplies no calculation, model, survey or consensus measurement."
+    },
+    {
+      "id": "wired-coxon-interview",
+      "url": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/",
+      "publisher": "WIRED",
+      "authority": "Independent September 9 reporting based on a direct, published interview with Coxon and a response from Anthropic.",
+      "accessObservation": "Direct HTTPS retrieval returned HTTP 200 on September 10, 2026; the complete article and interview text were preserved.",
+      "localEvidence": {"html":{"path":"operations/product-stewards/newsstand/candidates/coxon-warning-20260910/source-snapshots/wired-coxon-20260909.html","sha256":"5d08e120e11b04db2f0f03f199cfd0f58acc996afc4e0adfdd8c983f12fb6663"},"text":{"path":"operations/product-stewards/newsstand/candidates/coxon-warning-20260910/source-snapshots/wired-coxon-20260909.txt","sha256":"6cb211fbc08b5f0a15524d1a45bbdeeb43730cbdecedce1393a03f20064b0a3d"}},
+      "passages": [
+        "WIRED reports that Coxon worked on pretraining at Anthropic and previously worked at OpenAI.",
+        "Coxon told WIRED that possible threats could include AI-enabled biological threats or cyberweapons; WIRED did not establish either feared outcome as having occurred.",
+        "Coxon recommends that OpenAI and Anthropic coordinate on limiting recursive self-improvement—the use of AI to build new AI systems—and ultimately seeks international coordination.",
+        "Coxon said Anthropic operates more responsibly than OpenAI in his experience, but predicted that competition could force future trade-offs between rigor and safety.",
+        "Asked whether Anthropic was already cutting corners, Coxon answered: No, not yet. It's not cutting any corners.",
+        "Anthropic told WIRED that the industry would benefit from a lawful, verifiable way to work together to pace releases of powerful models.",
+        "OpenAI did not return WIRED's request for comment."
+      ],
+      "limitation": "The interview is direct testimony and reporting, not an independent audit of either company, proof of future self-improving systems or validation of a catastrophe probability."
+    },
+    {
+      "id": "abc-independent-reporting",
+      "url": "https://www.abc.net.au/news/2026-09-09/anthropic-researcher-coxon-quits-over-human-threat/107134164",
+      "publisher": "ABC News Australia",
+      "authority": "Independent September 9 confirmation and contextual reporting on the resignation and separate Hubinger statement.",
+      "accessObservation": "Direct HTTPS retrieval returned HTTP 200 on September 10, 2026.",
+      "localEvidence": {"html":{"path":"operations/product-stewards/newsstand/candidates/coxon-warning-20260910/source-snapshots/abc-coxon-20260909.html","sha256":"06b23d8ec33e14fd2f6782baa8d5cc09daa5c20fc244db80ab06e2bc489134dd"},"text":{"path":"operations/product-stewards/newsstand/candidates/coxon-warning-20260910/source-snapshots/abc-coxon-20260909.txt","sha256":"3e21448314391b5f203b38a9b76209d10e73fcb666524c33703e879d3b280f58"}},
+      "passages": ["ABC reported Coxon's September 9 resignation statement and his work at Anthropic and OpenAI.", "ABC separately reported Hubinger's personal greater-than-ten-percent estimate and his statement that Anthropic was trying its best."],
+      "limitation": "ABC confirms the public statements and context; it does not independently validate their future-risk estimates."
+    },
+    {
+      "id": "anthropic-rsp-current",
+      "url": "https://www.anthropic.com/responsible-scaling-policy",
+      "publisher": "Anthropic",
+      "authority": "Current primary company policy describing Anthropic's own risk-reporting and pause framework.",
+      "accessObservation": "Direct HTTPS retrieval returned HTTP 200 on September 10, 2026; current page last updated August 14 and version 3.4 effective July 8.",
+      "localEvidence": {"html":{"path":"operations/product-stewards/newsstand/candidates/coxon-warning-20260910/source-snapshots/anthropic-rsp-20260814.html","sha256":"7cb9fe594ecd923be2ae74bca2e21e4db62f7c1955459fd996212534e20ca7b3"},"text":{"path":"operations/product-stewards/newsstand/candidates/coxon-warning-20260910/source-snapshots/anthropic-rsp-20260814.txt","sha256":"fd6e2bec83187a7b688f7703b266b1a7fb4355d699038a1d23672d0639751757"}},
+      "passages": ["The page says Risk Reports describe how Anthropic sees its systems' risks and its preparedness, particularly catastrophic risks addressed by the policy.", "The July 8 version 3.4 update revises its automated-R&D threshold and external-review provisions.", "The page says Anthropic remains free to pause development when it deems a pause appropriate."],
+      "limitation": "This is Anthropic's own governance framework. It does not independently prove that safeguards work, settle Coxon's forecast or establish an industry-wide pacing agreement."
+    }
+  ],
+  "sourceBoundary": {
+    "verified": "The two primary posts, WIRED interview, ABC confirmation and current Anthropic policy were reopened on September 10.",
+    "notVerified": "No reviewed source establishes a measured fatality rate, a consensus probability, current self-improving superintelligence, a present Anthropic corner-cutting finding or that Coxon's feared biological or cyber outcomes occurred.",
+    "attemptedButExcluded": "Axios and AP returned HTTP 403 to direct retrieval. They are not needed for the candidate's claims and are not treated as proof."
+  }
+}

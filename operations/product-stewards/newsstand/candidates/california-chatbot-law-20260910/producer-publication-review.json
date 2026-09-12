@@ -1,0 +1,972 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "california-chatbot-law-20260910",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/weekly_recovery",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/weekly_recovery",
+    "principalId": "/root/weekly_recovery",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-11T00:20:00-07:00",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/publication-manifest.json",
+      "sha256": "ed92075dd38e4c58b582cc1acadfe65490d2a1e1d05ebfcdc2c4f8456716c836"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/review-text.json",
+      "sha256": "4659488627999a2f62c9f4065d693fab7b6379f6352d26aa31689d2fc7913732"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/rendered-article.html",
+      "sha256": "cba29c2ad9d4418194913ca81d5b70cc67df0e86c0dbc492f0826078760d3cf6"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/weekly_recovery",
+    "reviewedAt": "2026-09-10T19:36:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What changed at signing, when do the main child-chatbot safeguards begin and who do they cover?",
+    "promisedPayoff": "Separate signing, operative dates, concrete safeguards and later evidence.",
+    "centralMentalModel": "Signing creates the implementation clock; operative dates begin duties; later audits test compliance.",
+    "dailyLifeConnection": "A family sees a signing headline and wonders whether the child's app changed today.",
+    "surfaceJob": "September 11 explanation of the September 10 signing.",
+    "desiredReaderFeeling": "I know what is law, what starts later and what remains unproved."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The exact story supplies plainClarity evidence while keeping signing, implementation, coverage and outcomes distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the date a legal requirement begins to apply",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The exact story supplies readerValue evidence while keeping signing, implementation, coverage and outcomes distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new law does not switch on all its protections at signing",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The exact story supplies laidiesVoice evidence while keeping signing, implementation, coverage and outcomes distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Signing creates a legal commitment and an implementation clock",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The exact story supplies engagingEnjoyable evidence while keeping signing, implementation, coverage and outcomes distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Did every control appear overnight?",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact story supplies factualIntegrity evidence while keeping signing, implementation, coverage and outcomes distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "less than $500 million in prior-year revenue are exempt from that audit section until 2032",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The exact story supplies freshnessReviewability evidence while keeping signing, implementation, coverage and outcomes distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The legislative status page still showed the bill as presented to the Governor when checked",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The exact story supplies surfaceFit evidence while keeping signing, implementation, coverage and outcomes distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "California Governor Gavin Newsom signed Senate Bill 1119 on September 10",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The exact story supplies datedChange evidence while keeping signing, implementation, coverage and outcomes distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "signed Senate Bill 1119 on September 10",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The exact story supplies consequenceAndUncertainty evidence while keeping signing, implementation, coverage and outcomes distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It does not prove the protections are already operating or that they will prevent every harm",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The exact story supplies dailyLifeConnection evidence while keeping signing, implementation, coverage and outcomes distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "For a California family",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The exact story supplies communicationBenchmark evidence while keeping signing, implementation, coverage and outcomes distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Signing creates a legal commitment and an implementation clock",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The exact story supplies explainBack evidence while keeping signing, implementation, coverage and outcomes distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new law does not switch on all its protections at signing",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Did California's child-chatbot controls all begin at signing?",
+        "probeResponse": "No. Signing enacted the law, but the main cited safeguards begin to apply July 1, 2027.",
+        "expectedEvidence": "Signing and operative date remain distinct.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The exact story supplies unseenTransfer evidence while keeping signing, implementation, coverage and outcomes distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "What must the service build before July 1, 2027",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "How would you read a headline about another newly signed technology law?",
+        "probeResponse": "Check the signing date, when each duty begins, who and what it covers, and later evidence of enforcement or results.",
+        "expectedEvidence": "The timing-and-scope model transfers beyond this law.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The exact story supplies usefulAction evidence while keeping signing, implementation, coverage and outcomes distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "which rules apply to this child and product?",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The exact story supplies analogyIntegrity evidence while keeping signing, implementation, coverage and outcomes distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A signing date and an operative date do different jobs",
+          "locator": "exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The complete story avoids glossaryAccumulation; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The complete story avoids templateRepetition; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The complete story avoids decorativeAnalogy; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The complete story avoids referenceConfetti; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The complete story avoids missingMechanism; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The complete story avoids genericAction; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The complete story avoids jargonBeforeMeaning; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The complete story avoids disconnectedSystem; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The complete story avoids factlessConfidence; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The complete story avoids staleUnreviewableClaims; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The complete story avoids corporateSludge; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The complete story avoids joylessInstruction; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The complete story avoids benchmarkNameDrop; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The complete story avoids curiosityWithoutPayoff; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The complete story avoids familiarExampleWithoutTechnicalReturn; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The complete story avoids communicationPastiche; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The complete story avoids entertainmentBeforeUnderstanding; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The complete story avoids mechanismCompressedBehindHook; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The complete story avoids prematureClickBeforeMechanism; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The complete story avoids inflatedTakeawayEnding; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The complete story avoids purposeTooNarrow; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The complete story avoids mechanismBeforeMotivation; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The complete story avoids workedExampleOvertakesBookPurpose; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The complete story avoids technicalExplainerVoice; definitions, dates, conditions and evidence limits stay connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+        "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "signing",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "California Governor Gavin Newsom signed Senate Bill 1119 on September 10",
+            "locator": "P001"
+          }
+        ],
+        "sourceIds": [
+          "padilla-signing",
+          "ap-signing-report"
+        ],
+        "scopeAndFreshness": "Official sponsor confirmation and independent AP reporting agree on the event and date.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 10, 2026: Today, Governor Gavin Newsom signed into law Senate Bill 1119, Adam's Law.",
+            "locator": "https://sd18.senate.ca.gov/news/governor-newsom-signs-adams-law"
+          },
+          {
+            "excerpt": "The release lists risk assessments, crisis support, parent-controlled default settings, limits on harmful outputs, incident reporting, advertising limits and independent audits among the law's requirements.",
+            "locator": "https://sd18.senate.ca.gov/news/governor-newsom-signs-adams-law"
+          },
+          {
+            "excerpt": "AP reported that Newsom signed the child online-safety package on September 10, including the companion-chatbot safety law.",
+            "locator": "https://apnews.com/article/6063026d1b54a8537d639605c23aab80"
+          },
+          {
+            "excerpt": "AP reported that the chatbot law was inspired by Adam Raine's story and quoted Maria Raine on parents' need to understand AI-companion risks.",
+            "locator": "https://apnews.com/article/6063026d1b54a8537d639605c23aab80"
+          }
+        ]
+      },
+      {
+        "claimId": "scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The law sets child-safety requirements for operators that make companion chatbots available in California",
+            "locator": "P001"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "High-level statutory scope; later text names age, operator and product conditions.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "operative-date",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "the date a legal requirement begins to apply—on July 1, 2027",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "Exact operative date for the main cited sections.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "risk-assessment",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "must document a child-safety risk assessment and reasonable steps to reduce identified risks",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "Paraphrases Section 21812(a) without promising effectiveness.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "settings",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "no push notifications, a one-hour continuous-session limit and a two-hour daily limit",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "Concrete default settings for operators permitting child users.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "memory-exception",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "ordinarily off by default, with a qualified exception for users 16 or older when specified guardrails are in place",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "Preserves the qualified statutory exception.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "prohibited-behaviours",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "reasonable measures against listed behaviours including encouraging self-harm",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "Summarizes listed prevention duties without operational harmful detail.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "family-context",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "AP reported that the measure was inspired by Adam Raine’s story",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "ap-signing-report"
+        ],
+        "scopeAndFreshness": "Attributed family context, not proof of legal effectiveness.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "AP reported that Newsom signed the child online-safety package on September 10, including the companion-chatbot safety law.",
+            "locator": "https://apnews.com/article/6063026d1b54a8537d639605c23aab80"
+          },
+          {
+            "excerpt": "AP reported that the chatbot law was inspired by Adam Raine's story and quoted Maria Raine on parents' need to understand AI-companion risks.",
+            "locator": "https://apnews.com/article/6063026d1b54a8537d639605c23aab80"
+          }
+        ]
+      },
+      {
+        "claimId": "audit-timing",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "the first audit for January 1, 2029 or before an operator first makes a chatbot publicly available, whichever is later",
+            "locator": "P007"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "Reports the later-of timing in Section 21814.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "audit-exception",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "less than $500 million in prior-year revenue are exempt from that audit section until 2032",
+            "locator": "P007"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled"
+        ],
+        "scopeAndFreshness": "The exemption is limited to the audit section and is not described as exemption from the whole law.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          }
+        ]
+      },
+      {
+        "claimId": "status-lag",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The legislative status page still showed the bill as presented to the Governor when checked",
+            "locator": "P009"
+          }
+        ],
+        "sourceIds": [
+          "sb1119-enrolled",
+          "padilla-signing",
+          "ap-signing-report"
+        ],
+        "scopeAndFreshness": "Preserved public-record timing discrepancy; later official and independent sources establish signing.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-evidence.json",
+          "sha256": "5f3349dfab08580d26f65385220b5f6de86e026cde00036df72a0d830458f9c4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation.",
+            "locator": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119"
+          },
+          {
+            "excerpt": "September 10, 2026: Today, Governor Gavin Newsom signed into law Senate Bill 1119, Adam's Law.",
+            "locator": "https://sd18.senate.ca.gov/news/governor-newsom-signs-adams-law"
+          },
+          {
+            "excerpt": "The release lists risk assessments, crisis support, parent-controlled default settings, limits on harmful outputs, incident reporting, advertising limits and independent audits among the law's requirements.",
+            "locator": "https://sd18.senate.ca.gov/news/governor-newsom-signs-adams-law"
+          },
+          {
+            "excerpt": "AP reported that Newsom signed the child online-safety package on September 10, including the companion-chatbot safety law.",
+            "locator": "https://apnews.com/article/6063026d1b54a8537d639605c23aab80"
+          },
+          {
+            "excerpt": "AP reported that the chatbot law was inspired by Adam Raine's story and quoted Maria Raine on parents' need to understand AI-companion risks.",
+            "locator": "https://apnews.com/article/6063026d1b54a8537d639605c23aab80"
+          }
+        ]
+      }
+    ],
+    "reviewedThrough": "2026-09-11",
+    "nextTrigger": "Reopen signing and statutory records on publication day; redraft for chaptered text differences, implementation guidance, product changes, enforcement or audit results.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 1,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No checksum-bound reviewed predecessor candidate covers California's September 10 signing of SB 1119."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The successor removes the candidate-only claim-to-excerpt mismatch found in the first independent cycle; no new reusable defect remains. A fresh independent review is still required."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Public release remains separate."
+  ]
+}

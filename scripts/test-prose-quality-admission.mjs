@@ -20,7 +20,7 @@ try {
   const sourcePath = "evidence/source.md";
   const observationPaths = [1, 2, 3].map(index => `evidence/reader-observation-${index}.md`);
   write(badPath, "This glossary repeats labels. A random Cher reference decorates it. No connected mechanism or useful decision appears.\n");
-  write(goodPath, "Start with her real work problem. Follow the request through context and evidence. The result is a useful decision she can try elsewhere.\n");
+  write(goodPath, "Start with her real work problem. Follow the request through context and evidence. The result is a useful decision she can try elsewhere. It's a specific useful question.\n");
   const candidateBody = "Your manager asks whether the policy allows a promise. The product places your request and the current policy into context. The model drafts an answer, but the policy remains the evidence. Check the promised date against the policy before sending. Think of Elle Woods bringing the correct case file: the file supports the claim; the confidence does not. This works for a travel rule too: supply the current rule, then verify the consequential detail. The point feels practical, specific and a little fun—not like homework.\n";
   write(candidatePath, candidateBody);
   write(manifestPath, JSON.stringify({ schemaVersion: "laidies-content-artifact-manifest.v1", candidateId: "fixture", surface: "LIBRAIRY", contentClass: "EXPLANATION", reviewText: bind(candidatePath) }));
@@ -71,6 +71,12 @@ try {
   };
   const inspect = value => inspectProseQualityReview(value, { root }).errors;
   assert.deepEqual(inspect(receipt), [], "valid exact-prose review must match");
+  const quoteGlyph = structuredClone(receipt);
+  quoteGlyph.calibration.positive.evidence = [{ excerpt: "It’s a specific useful question.", locator: "good.txt:1" }];
+  assert.deepEqual(inspect(quoteGlyph), [], "voice exemplar accepts typographic apostrophe with identical wording");
+  const paraphrasedExemplar = structuredClone(quoteGlyph);
+  paraphrasedExemplar.calibration.positive.evidence[0].excerpt = "It’s a different useful question.";
+  assert.ok(inspect(paraphrasedExemplar).some(error => error.includes("does not occur")), "word substitutions are not quote typography");
   const quotedSource = 'The source says "permission depends on the project licence".';
   const sourcePacketPath = "evidence/news-source-packet.json";
   write(sourcePacketPath, JSON.stringify({
@@ -166,6 +172,17 @@ try {
     sampleQueue: ["concept-01-context"], correctionFeedbackStatus: "PENDING_RECURRING_REVIEWER_FEEDBACK"
   };
   assert.deepEqual(inspect(sampledService), [], "authorized NewsStand service profile may use pending batch sampling without fabricated human evidence");
+  const curiosityPolicyPath = "operations/product-stewards/newsstand/curiosity-sampling-policy-20260910.json";
+  write(curiosityPolicyPath, fs.readFileSync(path.resolve(curiosityPolicyPath), "utf8"));
+  const wrongCuriosityClass = structuredClone(sampledService);
+  wrongCuriosityClass.samplingOverride.policy = bind(curiosityPolicyPath);
+  wrongCuriosityClass.samplingOverride.policyId = "newsstand-curiosity-sampled-comprehension-20260910";
+  assert.ok(inspect(wrongCuriosityClass).some(error => error.includes("limited to curiosity PRACTICE")), "new inventory cannot waive other content classes");
+  const unregisteredPolicy = structuredClone(sampledService);
+  const arbitraryPolicyPath = "evidence/arbitrary-sampling-policy.json";
+  write(arbitraryPolicyPath, fs.readFileSync(path.join(root, samplingPolicyPath), "utf8"));
+  unregisteredPolicy.samplingOverride.policy = bind(arbitraryPolicyPath);
+  assert.ok(inspect(unregisteredPolicy).some(error => error.includes("canonical NewsStand sampling policy")), "arbitrary copied policies remain rejected");
   const serviceBlind = structuredClone(sampledService);
   serviceBlind.calibration.mode = "RECURRING_SERVICE_ARTIFACT_REJECTION_V1";
   serviceBlind.reviewedAt = "2026-09-05T20:00:00Z";

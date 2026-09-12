@@ -1,0 +1,22 @@
+{
+  "url": "https://openai.com/index/navier-stokes-solution/",
+  "title": "On the Navier–Stokes Millennium Prize Problem",
+  "publisher": "OpenAI",
+  "publicationDate": "2026-09-08",
+  "updateDate": "2026-09-10",
+  "observedAt": "2026-09-11T16:09:49.235Z",
+  "accessMethod": "web full-source reader; direct HTTP capture returned 403",
+  "passages": [
+    "We’re sharing a solution to the Navier–Stokes existence and smoothness problem, one of the Millennium Prize Problems. This proof, produced by an internal OpenAI system, shows that the dynamics of the Navier-Stokes equations for fluid motion can develop a singularity in finite time. We’re sharing both a writeup of the proof and a formalization in Lean.",
+    "The Navier–Stokes equations use Newton’s second law of motion (“F=ma”) to describe how fluids move. Importantly, they treat a fluid as a continuous medium rather than tracking individual molecules. These equations are used for aircraft design, weather forecasting, and the study of blood flow.",
+    "Our system produced an analytical proof and a Lean formalization that an initially smooth fluid at rest can develop a singularity in a finite time. The fluid has a smooth force applied to it, and its energy remains finite through the entire dynamics, from rest to the formation of the singularity. This resolves the Navier–Stokes Millennium Prize problem by establishing statement “C” (and also “D”) in the official Millennium Prize formulation.",
+    "The solution is a vortex, a spinning swirl of fluid, that spirals inward and gets increasingly elongated, like spaghetti. This central region shrinks while it speeds up in such a way that its energy still stays finite, as required by the laws of physics.",
+    "The group that produced the Navier–Stokes resolution involved on the order of 10,000 concurrent agents.",
+    "The agents arrived at their resolution on Saturday, September 5, about 88 hours after the first agents were launched. Lean formalization and verification took an additional 17 hours via GPT‑6 Astra.",
+    "We (the researchers and the agents) did not see any of their work through any means until they released it publicly — in particular, no specific user data was accessed in order to solve this problem.",
+    "Following an investigation, we have confirmed that Buckmaster’s Codex prompts over the two months preceding this announcement and paper on September 8, 2026, could not have influenced the system in any way, including through training. The OpenAI internal model used for this result was developed through large-scale reinforcement learning on top of a previously pretrained model. Our proofs also differ significantly.",
+    "Our goal in releasing this result is to report on the substantial progress of our AI models. We do not intend to claim the Millennium Prize for this result.",
+    "Update — September 10, 2026: We have updated “Concurrent work” with findings from our investigation into whether user inputs could have influenced this result."
+  ],
+  "limitation": "Company announcement and internal investigation statement. It does not independently establish the proof, the formalization, community acceptance or the absence of influence."
+}

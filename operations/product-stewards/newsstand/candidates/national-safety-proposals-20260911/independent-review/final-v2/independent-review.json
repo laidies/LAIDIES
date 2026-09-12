@@ -1,0 +1,1668 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "national-safety-proposals-20260911",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/weekly_recovery",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T16:02:11.390Z",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/publication-manifest.json",
+      "sha256": "e7d83a1a7701ad58dcfc2d74db4e8b15f04e0d096678031a2d9dadbbf5c06db0"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/review-text.json",
+      "sha256": "d04caed518c4e3d635eced7bc9aa880857cd07ea172dbba9678a04e24adc07fa"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/rendered-article.html",
+      "sha256": "5adc32e6cbaa9bdb7326afaf3e7d84581a99a48ff212d6eb6be5f2344f224d15"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "When headlines say AI safety rules are coming, what has actually been proposed and is any of it law yet?",
+    "promisedPayoff": "The reader can separate OpenAI's capability-based request from the Sanders-Casar pause-and-ban proposal and see that neither has changed federal law.",
+    "centralMentalModel": "Two proposed braking systems that trigger at different points: OpenAI's brake tightens as demonstrated capability rises while development continues; Sanders-Casar applies the brake before development proceeds, plus a permanent ban on a defined category.",
+    "dailyLifeConnection": "A reader who sees 'AI safety rules' headlines learns a four-question check — who is speaking, what legal vehicle, which systems, what trigger — usable on any future policy story.",
+    "surfaceJob": "A dated news article reporting the September 9 OpenAI policy push and the September 3 Sanders-Casar announcement, with legal-status framing first.",
+    "desiredReaderFeeling": "Grounded and unalarmed: informed about a real policy moment without believing any law has changed."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Terms like capability-based, frontier labs and superintelligence are defined at first meaningful use in ordinary language; sentences are short and concrete.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>These are two proposed braking systems. OpenAI’s is <strong>capability-based</strong>: rules become stronger as a system’s demonstrated abilities and risks increase. Development could continue under testing, independent review, cybersecurity and reporting duties, with shared safety bars for when work should slow or stop. OpenAI calls the small group building the most capable systems <strong>frontier labs</strong>.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The Sanders-Casar proposal would apply the brake earlier. It would pause advanced development until a regulator and its rules exist. Its permanent ban would cover the proposal’s category of <strong>superintelligence</strong>: systems that surpass human intelligence or can defeat important forms of human control, such as shutdown commands. That is the sponsors’ proposed definition, not a finding about today’s AI. OpenAI separately says fully autonomous AI improving successive generations of AI is not happening today.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader gains a mechanism comparison (where each brake triggers) and a reusable four-question classification tool for policy headlines.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The distinction matters because each plan puts the burden at a different point. OpenAI wants the largest labs to produce evidence, accept outside assessment and report incidents while development continues within safety limits. Sanders and Casar want advanced development stopped until public rules and review exist. Neither source supplies an enacted federal rule, and the lawmakers’ source does not supply a formal bill number.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>When a headline says AI safety rules are coming, check four things: who is speaking, whether the document is a company position, announced proposal, introduced bill or enacted law, which systems it would cover, and what event triggers testing, reporting, slowing or stopping. Here, the verified change is a public policy push. The law has not changed.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult tone without condescension or borrowed persona; the cocktail line is natural speech, not pastiche.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>These are two proposed braking systems. OpenAI’s is <strong>capability-based</strong>: rules become stronger as a system’s demonstrated abilities and risks increase. Development could continue under testing, independent review, cybersecurity and reporting duties, with shared safety bars for when work should slow or stop. OpenAI calls the small group building the most capable systems <strong>frontier labs</strong>.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "“OpenAI wants mandatory safety checks for the biggest AI labs. Sanders and Casar have announced a stronger pause-and-ban proposal. Both are proposals; neither changed federal law.”",
+          "locator": "P010"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The braking-system frame and the burden-of-proof contrast sustain interest in what could be a dry legislative status story; no forced humour.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>These are two proposed braking systems. OpenAI’s is <strong>capability-based</strong>: rules become stronger as a system’s demonstrated abilities and risks increase. Development could continue under testing, independent review, cybersecurity and reporting duties, with shared safety bars for when work should slow or stop. OpenAI calls the small group building the most capable systems <strong>frontier labs</strong>.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The distinction matters because each plan puts the burden at a different point. OpenAI wants the largest labs to produce evidence, accept outside assessment and report incidents while development continues within safety limits. Sanders and Casar want advanced development stopped until public rules and review exist. Neither source supplies an enacted federal rule, and the lawmakers’ source does not supply a formal bill number.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "It answers what happened on Sept 9 and Sept 3, why it matters, and stays within a bounded news scope with legal status answered first.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI asked Congress on September 9 to create mandatory national safety rules for the most capable AI systems. Its preferred framework includes common testing, independent assessments, cybersecurity protections and clear reporting of serious incidents. OpenAI says the rules should cover a handful of well-resourced laboratories developing the most capable systems, rather than startups and smaller developers far from that boundary.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>This is a company asking for legislation; it is not legislation. Reuters reported that Congress has yet to enact a federal AI framework. Nothing in OpenAI’s post creates a new legal requirement today.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Six days earlier, Senator Bernie Sanders and Representative Greg Casar announced a different proposal. Their office calls it forthcoming legislation. It would pause advanced AI development until a new federal regulator has established safety rules and a model-review process, then permanently ban development and deployment of what the sponsors call artificial superintelligence.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The 'when a headline says AI safety rules are coming' framing anchors the mechanism in the recognizable situation of reading news, matching the article's job.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a headline says AI safety rules are coming, check four things: who is speaking, whether the document is a company position, announced proposal, introduced bill or enacted law, which systems it would cover, and what event triggers testing, reporting, slowing or stopping. Here, the verified change is a public policy push. The law has not changed.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "“OpenAI wants mandatory safety checks for the biggest AI labs. Sanders and Casar have announced a stronger pause-and-ban proposal. Both are proposals; neither changed federal law.”",
+          "locator": "P010"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human purpose (is this law?), concrete causality (trigger points of each brake) and a better next question (the four checks) are all present without imitating any communicator's voice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The distinction matters because each plan puts the burden at a different point. OpenAI wants the largest labs to produce evidence, accept outside assessment and report incidents while development continues within safety limits. Sanders and Casar want advanced development stopped until public rules and review exist. Neither source supplies an enacted federal rule, and the lawmakers’ source does not supply a formal bill number.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>When a headline says AI safety rules are coming, check four things: who is speaking, whether the document is a company position, announced proposal, introduced bill or enacted law, which systems it would cover, and what event triggers testing, reporting, slowing or stopping. Here, the verified change is a public policy push. The law has not changed.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The article supports an accurate ordinary-language answer to why development continues under one plan and stops under the other; see explainBack below.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>These are two proposed braking systems. OpenAI’s is <strong>capability-based</strong>: rules become stronger as a system’s demonstrated abilities and risks increase. Development could continue under testing, independent review, cybersecurity and reporting duties, with shared safety bars for when work should slow or stop. OpenAI calls the small group building the most capable systems <strong>frontier labs</strong>.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The Sanders-Casar proposal would apply the brake earlier. It would pause advanced development until a regulator and its rules exist. Its permanent ban would cover the proposal’s category of <strong>superintelligence</strong>: systems that surpass human intelligence or can defeat important forms of human control, such as shutdown commands. That is the sponsors’ proposed definition, not a finding about today’s AI. OpenAI separately says fully autonomous AI improving successive generations of AI is not happening today.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>The distinction matters because each plan puts the burden at a different point. OpenAI wants the largest labs to produce evidence, accept outside assessment and report incidents while development continues within safety limits. Sanders and Casar want advanced development stopped until public rules and review exist. Neither source supplies an enacted federal rule, and the lawmakers’ source does not supply a formal bill number.</p>",
+          "locator": "P007"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why would AI development at the biggest labs be allowed to continue under OpenAI's proposal but be stopped under the Sanders-Casar proposal?",
+        "response": "Because each plan places the brake at a different point in the causal chain. OpenAI's rules are capability-based: duties like testing, independent review and incident reporting scale up as a system's demonstrated abilities and risks increase, so work continues unless shared safety bars say it should slow or stop. Sanders-Casar reverses the default: advanced development pauses first, until a new federal regulator exists and has written rules and a model-review process, and their defined category of superintelligence would be permanently banned regardless.",
+        "expectedEvidence": "An accurate answer must use P005's capability-scaling and safety bars, P006's pause-until-regulator-exists condition and permanent ban, and P007's burden-placement framing.",
+        "assessment": "The article fully supports this causal answer; P005–P007 supply every needed step in plain language, so a reader can reconstruct the contrast without outside knowledge."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The four-question tool in P009 transfers cleanly to a novel policy-headline scenario, as demonstrated in the transfer exercise below.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a headline says AI safety rules are coming, check four things: who is speaking, whether the document is a company position, announced proposal, introduced bill or enacted law, which systems it would cover, and what event triggers testing, reporting, slowing or stopping. Here, the verified change is a public policy push. The law has not changed.</p>",
+          "locator": "P009"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using this article's method, how should the reader classify the California headline and answer the friend?",
+        "response": "Apply the four checks from P009: who is speaking (a governor, not a legislature or court), what legal vehicle (an unveiled plan — a proposal, not an introduced bill or enacted law), which systems (only 'large models', so most developers may be outside scope), and what trigger (certification before launch — a pre-deployment gate, closer to Sanders-Casar's stop-first logic than OpenAI's scale-with-capability logic). Answer: no, nothing is required today; a plan was announced.",
+        "expectedEvidence": "Correct transfer uses P009's speaker/vehicle/coverage/trigger checklist and P007's burden-placement distinction to classify the new proposal's mechanism type.",
+        "assessment": "The article's tool handles this genuinely new scenario without strain, including correctly typing the mechanism as an earlier-trigger brake — the transfer succeeds."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The action is specific and proportionate: classify the document type, covered systems and trigger before believing a rules-are-coming headline; not generic 'be careful'.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a headline says AI safety rules are coming, check four things: who is speaking, whether the document is a company position, announced proposal, introduced bill or enacted law, which systems it would cover, and what event triggers testing, reporting, slowing or stopping. Here, the verified change is a public policy push. The law has not changed.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The single 'braking systems' comparison maps accurately: it captures trigger timing (earlier vs capability-scaled) and retains limits — both brakes are proposed, not installed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>These are two proposed braking systems. OpenAI’s is <strong>capability-based</strong>: rules become stronger as a system’s demonstrated abilities and risks increase. Development could continue under testing, independent review, cybersecurity and reporting duties, with shared safety bars for when work should slow or stop. OpenAI calls the small group building the most capable systems <strong>frontier labs</strong>.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The Sanders-Casar proposal would apply the brake earlier. It would pause advanced development until a regulator and its rules exist. Its permanent ban would cover the proposal’s category of <strong>superintelligence</strong>: systems that surpass human intelligence or can defeat important forms of human control, such as shutdown commands. That is the sponsors’ proposed definition, not a finding about today’s AI. OpenAI separately says fully autonomous AI improving successive generations of AI is not happening today.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>The distinction matters because each plan puts the burden at a different point. OpenAI wants the largest labs to produce evidence, accept outside assessment and report incidents while development continues within safety limits. Sanders and Casar want advanced development stopped until public rules and review exist. Neither source supplies an enacted federal rule, and the lawmakers’ source does not supply a formal bill number.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Fourteen of fifteen claims are directly supported with correct attribution and limits; the one qualified claim is a mild paraphrase that preserves the sponsors'-definition framing and misstates nothing.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI asked Congress on September 9 to create mandatory national safety rules for the most capable AI systems. Its preferred framework includes common testing, independent assessments, cybersecurity protections and clear reporting of serious incidents. OpenAI says the rules should cover a handful of well-resourced laboratories developing the most capable systems, rather than startups and smaller developers far from that boundary.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Six days earlier, Senator Bernie Sanders and Representative Greg Casar announced a different proposal. Their office calls it forthcoming legislation. It would pause advanced AI development until a new federal regulator has established safety rules and a model-review process, then permanently ban development and deployment of what the sponsors call artificial superintelligence.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The Sanders-Casar proposal would apply the brake earlier. It would pause advanced development until a regulator and its rules exist. Its permanent ban would cover the proposal’s category of <strong>superintelligence</strong>: systems that surpass human intelligence or can defeat important forms of human control, such as shutdown commands. That is the sponsors’ proposed definition, not a finding about today’s AI. OpenAI separately says fully autonomous AI improving successive generations of AI is not happening today.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Both events carry explicit dates (Sept 9, six days earlier = Sept 3), sources are identified with access dates, and the missing bill number is disclosed, making every time-sensitive claim checkable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI asked Congress on September 9 to create mandatory national safety rules for the most capable AI systems. Its preferred framework includes common testing, independent assessments, cybersecurity protections and clear reporting of serious incidents. OpenAI says the rules should cover a handful of well-resourced laboratories developing the most capable systems, rather than startups and smaller developers far from that boundary.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Six days earlier, Senator Bernie Sanders and Representative Greg Casar announced a different proposal. Their office calls it forthcoming legislation. It would pause advanced AI development until a new federal regulator has established safety rules and a model-review process, then permanently ban development and deployment of what the sponsors call artificial superintelligence.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The distinction matters because each plan puts the burden at a different point. OpenAI wants the largest labs to produce evidence, accept outside assessment and report incidents while development continues within safety limits. Sanders and Casar want advanced development stopped until public rules and review exist. Neither source supplies an enacted federal rule, and the lawmakers’ source does not supply a formal bill number.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The article clearly sequences the Sept 3 announcement against the Sept 9 policy push and distinguishes both from any enacted change, which it states has not occurred.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This is a company asking for legislation; it is not legislation. Reuters reported that Congress has yet to enact a federal AI framework. Nothing in OpenAI’s post creates a new legal requirement today.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Six days earlier, Senator Bernie Sanders and Representative Greg Casar announced a different proposal. Their office calls it forthcoming legislation. It would pause advanced AI development until a new federal regulator has established safety rules and a model-review process, then permanently ban development and deployment of what the sponsors call artificial superintelligence.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>When a headline says AI safety rules are coming, check four things: who is speaking, whether the document is a company position, announced proposal, introduced bill or enacted law, which systems it would cover, and what event triggers testing, reporting, slowing or stopping. Here, the verified change is a public policy push. The law has not changed.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (what labs must test, what assessors examine, which incidents get reported) yet uncertainty survives: effects are 'proposed, not current rights or protections' and no bill number exists.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The distinction matters because each plan puts the burden at a different point. OpenAI wants the largest labs to produce evidence, accept outside assessment and report incidents while development continues within safety limits. Sanders and Casar want advanced development stopped until public rules and review exist. Neither source supplies an enacted federal rule, and the lawmakers’ source does not supply a formal bill number.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>If either approach became law, it could change what the most capable labs must test before deployment, what independent assessors may examine and which serious incidents must be reported. Those effects remain proposed, not current rights or protections.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>When a headline says AI safety rules are coming, check four things: who is speaking, whether the document is a company position, announced proposal, introduced bill or enacted law, which systems it would cover, and what event triggers testing, reporting, slowing or stopping. Here, the verified change is a public policy push. The law has not changed.</p>",
+          "locator": "P009"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Each defined term is immediately put to work in the mechanism comparison rather than stacked as definitions.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Paragraphs develop the comparison progressively; no repeated scaffold.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The braking-system comparison does explanatory work about trigger timing; it is not decoration.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references appear anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Both proposals' causal machinery (what triggers duties, pause, ban) is spelled out, not just labelled.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The reading tool names four concrete checks specific to policy headlines, not vague vigilance.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Capability-based, frontier labs and superintelligence each get plain meaning at first meaningful use.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Speakers, legal vehicles, covered systems and triggers are held together for each proposal rather than named separately.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty is calibrated: proposals are repeatedly marked as proposed; the missing bill number is disclosed.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Sept 9 and Sept 3 events are dated, sourced and checkable; lastCheckedAt is supplied.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Language is concrete throughout; no motivational or vague corporate phrasing.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The burden-placement contrast gives the piece human interest beyond a checklist.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is mentioned in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's question — what is asked and is it law — is fully answered.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The braking frame returns to the actual mechanisms of duties, pause and ban.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitation of a communicator's voice, persona or mannerisms.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No humour or spectacle competes with the explanation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The mechanism comparison occupies the centre of the piece; there is no oversized hook.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The 'neither is law' conclusion is earned by evidence in P003, P004 and P007 before being restated.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending is deliberately deflationary: 'the verified change is a public policy push. The law has not changed.'",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers both proposals, their mechanisms, legal status and a transferable reading tool — the full supplied job.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human stake (is any of this law?) is established before mechanism detail begins.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Not applicable defect pattern found; neither proposal crowds out the comparative purpose.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "For a bounded news report, explaining these two specific mechanisms is exactly the right organising perspective, and it stays reader-oriented.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+        "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "openai-call",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI asked Congress on September 9 to create mandatory national safety rules for the most capable AI systems. Its preferred framework includes common testing, independent assessments, cybersecurity protections and clear reporting of serious incidents. OpenAI says the rules should cover a handful of well-resourced laboratories developing the most capable systems, rather than startups and smaller developers far from that boundary.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "openai-policy-window",
+          "reuters-openai-policy-report"
+        ],
+        "scopeAndFreshness": "OpenAI's Sept 9 post calls for 'mandatory, capability-based national regulation' and Reuters confirms the Wednesday (Sept 9) push for mandatory national requirements; attribution and date match.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+          "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The United States needs mandatory, capability-based national regulation that can evolve as the technology does.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Our Blueprint for Democratic Governance of Frontier AI lays out a path toward a durable federal framework: common testing and independent-assessment requirements, stronger cybersecurity protections, clear incident-reporting rules, greater national preparedness, and shared measures for tracking progress toward recursive self-improvement.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "A national framework should be strong but carefully targeted. Frontier safety requirements should apply to the handful of well-resourced laboratories developing the most capable systems—not to startups, small developers, or researchers operating nowhere near the frontier. Obligations should be proportionate to capabilities and risks.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Fully autonomous recursive self-improvement—in which AI systems independently drive successive generations of increasingly capable AI—is not happening today. We should not pursue it unless and until it can be done safely.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Governments should develop common ways to measure this progress, preserve meaningful human control, and establish shared safety bars for when and how development should slow or stop.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "We also support federal reporting requirements for other serious AI incidents and are working to define which incidents should be covered and what those requirements should entail.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Any industry-led standards would complement—not replace—mandatory federal safeguards and democratic oversight.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "OpenAI said on Wednesday it was pushing for mandatory national AI safety requirements in the United States on concern the technology could accelerate its own development, after some of its own AI agents went rogue.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          },
+          {
+            "excerpt": "The call marks a major push by OpenAI for binding national AI safety rules with Congress yet to enact a federal framework on AI law even as several U.S. states pass their own legislation.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          },
+          {
+            "excerpt": "OpenAI is urging Congress to adopt capability-based national AI safety requirements, including testing standards, independent assessments, cybersecurity protections and incident-reporting rules for the most advanced AI systems.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          },
+          {
+            "excerpt": "Fully autonomous recursive self-improvement — where AI is independent and would drive the next generations of AI — “is not happening today” and “we should not pursue it unless and until it can be done safely,” OpenAI said.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          }
+        ]
+      },
+      {
+        "claimId": "openai-requirements",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI asked Congress on September 9 to create mandatory national safety rules for the most capable AI systems. Its preferred framework includes common testing, independent assessments, cybersecurity protections and clear reporting of serious incidents. OpenAI says the rules should cover a handful of well-resourced laboratories developing the most capable systems, rather than startups and smaller developers far from that boundary.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "openai-policy-window",
+          "reuters-openai-policy-report"
+        ],
+        "scopeAndFreshness": "Both sources list common testing, independent assessments, cybersecurity protections and incident-reporting rules, matching the article's enumeration verbatim in substance.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+          "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The United States needs mandatory, capability-based national regulation that can evolve as the technology does.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Our Blueprint for Democratic Governance of Frontier AI lays out a path toward a durable federal framework: common testing and independent-assessment requirements, stronger cybersecurity protections, clear incident-reporting rules, greater national preparedness, and shared measures for tracking progress toward recursive self-improvement.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "A national framework should be strong but carefully targeted. Frontier safety requirements should apply to the handful of well-resourced laboratories developing the most capable systems—not to startups, small developers, or researchers operating nowhere near the frontier. Obligations should be proportionate to capabilities and risks.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Fully autonomous recursive self-improvement—in which AI systems independently drive successive generations of increasingly capable AI—is not happening today. We should not pursue it unless and until it can be done safely.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Governments should develop common ways to measure this progress, preserve meaningful human control, and establish shared safety bars for when and how development should slow or stop.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "We also support federal reporting requirements for other serious AI incidents and are working to define which incidents should be covered and what those requirements should entail.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Any industry-led standards would complement—not replace—mandatory federal safeguards and democratic oversight.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "OpenAI said on Wednesday it was pushing for mandatory national AI safety requirements in the United States on concern the technology could accelerate its own development, after some of its own AI agents went rogue.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          },
+          {
+            "excerpt": "The call marks a major push by OpenAI for binding national AI safety rules with Congress yet to enact a federal framework on AI law even as several U.S. states pass their own legislation.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          },
+          {
+            "excerpt": "OpenAI is urging Congress to adopt capability-based national AI safety requirements, including testing standards, independent assessments, cybersecurity protections and incident-reporting rules for the most advanced AI systems.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          },
+          {
+            "excerpt": "Fully autonomous recursive self-improvement — where AI is independent and would drive the next generations of AI — “is not happening today” and “we should not pursue it unless and until it can be done safely,” OpenAI said.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          }
+        ]
+      },
+      {
+        "claimId": "openai-scope",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI asked Congress on September 9 to create mandatory national safety rules for the most capable AI systems. Its preferred framework includes common testing, independent assessments, cybersecurity protections and clear reporting of serious incidents. OpenAI says the rules should cover a handful of well-resourced laboratories developing the most capable systems, rather than startups and smaller developers far from that boundary.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "openai-policy-window"
+        ],
+        "scopeAndFreshness": "OpenAI's post states requirements should apply to 'the handful of well-resourced laboratories developing the most capable systems—not to startups, small developers, or researchers'; the article mirrors scope and exclusions.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+          "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The United States needs mandatory, capability-based national regulation that can evolve as the technology does.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Our Blueprint for Democratic Governance of Frontier AI lays out a path toward a durable federal framework: common testing and independent-assessment requirements, stronger cybersecurity protections, clear incident-reporting rules, greater national preparedness, and shared measures for tracking progress toward recursive self-improvement.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "A national framework should be strong but carefully targeted. Frontier safety requirements should apply to the handful of well-resourced laboratories developing the most capable systems—not to startups, small developers, or researchers operating nowhere near the frontier. Obligations should be proportionate to capabilities and risks.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Fully autonomous recursive self-improvement—in which AI systems independently drive successive generations of increasingly capable AI—is not happening today. We should not pursue it unless and until it can be done safely.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Governments should develop common ways to measure this progress, preserve meaningful human control, and establish shared safety bars for when and how development should slow or stop.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "We also support federal reporting requirements for other serious AI incidents and are working to define which incidents should be covered and what those requirements should entail.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Any industry-led standards would complement—not replace—mandatory federal safeguards and democratic oversight.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          }
+        ]
+      },
+      {
+        "claimId": "federal-status",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>This is a company asking for legislation; it is not legislation. Reuters reported that Congress has yet to enact a federal AI framework. Nothing in OpenAI’s post creates a new legal requirement today.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "reuters-openai-policy-report"
+        ],
+        "scopeAndFreshness": "Reuters states Congress is 'yet to enact a federal framework on AI law'; the article attributes this to Reuters and draws the correct no-new-legal-requirement conclusion.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+          "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "OpenAI said on Wednesday it was pushing for mandatory national AI safety requirements in the United States on concern the technology could accelerate its own development, after some of its own AI agents went rogue.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          },
+          {
+            "excerpt": "The call marks a major push by OpenAI for binding national AI safety rules with Congress yet to enact a federal framework on AI law even as several U.S. states pass their own legislation.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          },
+          {
+            "excerpt": "OpenAI is urging Congress to adopt capability-based national AI safety requirements, including testing standards, independent assessments, cybersecurity protections and incident-reporting rules for the most advanced AI systems.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          },
+          {
+            "excerpt": "Fully autonomous recursive self-improvement — where AI is independent and would drive the next generations of AI — “is not happening today” and “we should not pursue it unless and until it can be done safely,” OpenAI said.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          }
+        ]
+      },
+      {
+        "claimId": "sponsors-status",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Six days earlier, Senator Bernie Sanders and Representative Greg Casar announced a different proposal. Their office calls it forthcoming legislation. It would pause advanced AI development until a new federal regulator has established safety rules and a model-review process, then permanently ban development and deployment of what the sponsors call artificial superintelligence.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "sanders-casar-announcement"
+        ],
+        "scopeAndFreshness": "The Sept 3 sponsor announcement expressly describes 'forthcoming legislation' by Sanders and Casar; 'six days earlier' correctly places Sept 3 relative to Sept 9.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+          "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "WASHINGTON, Sept. 3 — Sen. Bernie Sanders (I-Vt.) and Rep. Greg Casar (D-Texas) today announced the Ban Artificial Superintelligence Act, forthcoming legislation to stop AI oligarchs from building machines humans cannot control.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "The Ban Artificial Superintelligence Act would permanently ban the development and deployment of superintelligent AI and temporarily pause advanced AI development until a federal regulator has established safety rules. It would also direct the U.S. to pursue international agreements to prevent superintelligence from being developed anywhere in the world.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Banning AI superintelligence so no person or entity may develop or deploy Superintelligent AI systems that surpass human intelligence or have the capacity to overthrow human governments, or systems that have dangerous abilities like subverting shutdown commands.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Pausing advanced AI development until a new, federal AI regulatory body is up and running and has established clear rules and model review process to ensure safe and secure development and deployment of AI.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Establishing a new cabinet-level federal agency to safeguard the public from the dangers of artificial intelligence, including by enforcing a prohibition on artificial superintelligence.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          }
+        ]
+      },
+      {
+        "claimId": "pause-mechanism",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Six days earlier, Senator Bernie Sanders and Representative Greg Casar announced a different proposal. Their office calls it forthcoming legislation. It would pause advanced AI development until a new federal regulator has established safety rules and a model-review process, then permanently ban development and deployment of what the sponsors call artificial superintelligence.</p>",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "<p>The Sanders-Casar proposal would apply the brake earlier. It would pause advanced development until a regulator and its rules exist. Its permanent ban would cover the proposal’s category of <strong>superintelligence</strong>: systems that surpass human intelligence or can defeat important forms of human control, such as shutdown commands. That is the sponsors’ proposed definition, not a finding about today’s AI. OpenAI separately says fully autonomous AI improving successive generations of AI is not happening today.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "sanders-casar-announcement"
+        ],
+        "scopeAndFreshness": "The announcement describes pausing advanced AI development until a new federal regulatory body is running and has established clear rules and a model review process; the article states this accurately.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+          "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "WASHINGTON, Sept. 3 — Sen. Bernie Sanders (I-Vt.) and Rep. Greg Casar (D-Texas) today announced the Ban Artificial Superintelligence Act, forthcoming legislation to stop AI oligarchs from building machines humans cannot control.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "The Ban Artificial Superintelligence Act would permanently ban the development and deployment of superintelligent AI and temporarily pause advanced AI development until a federal regulator has established safety rules. It would also direct the U.S. to pursue international agreements to prevent superintelligence from being developed anywhere in the world.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Banning AI superintelligence so no person or entity may develop or deploy Superintelligent AI systems that surpass human intelligence or have the capacity to overthrow human governments, or systems that have dangerous abilities like subverting shutdown commands.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Pausing advanced AI development until a new, federal AI regulatory body is up and running and has established clear rules and model review process to ensure safe and secure development and deployment of AI.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Establishing a new cabinet-level federal agency to safeguard the public from the dangers of artificial intelligence, including by enforcing a prohibition on artificial superintelligence.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          }
+        ]
+      },
+      {
+        "claimId": "ban-mechanism",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Six days earlier, Senator Bernie Sanders and Representative Greg Casar announced a different proposal. Their office calls it forthcoming legislation. It would pause advanced AI development until a new federal regulator has established safety rules and a model-review process, then permanently ban development and deployment of what the sponsors call artificial superintelligence.</p>",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "<p>The Sanders-Casar proposal would apply the brake earlier. It would pause advanced development until a regulator and its rules exist. Its permanent ban would cover the proposal’s category of <strong>superintelligence</strong>: systems that surpass human intelligence or can defeat important forms of human control, such as shutdown commands. That is the sponsors’ proposed definition, not a finding about today’s AI. OpenAI separately says fully autonomous AI improving successive generations of AI is not happening today.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "sanders-casar-announcement"
+        ],
+        "scopeAndFreshness": "The announcement states the Act 'would permanently ban the development and deployment of superintelligent AI'; the article retains the conditional 'would' and the sponsors' attribution.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+          "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "WASHINGTON, Sept. 3 — Sen. Bernie Sanders (I-Vt.) and Rep. Greg Casar (D-Texas) today announced the Ban Artificial Superintelligence Act, forthcoming legislation to stop AI oligarchs from building machines humans cannot control.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "The Ban Artificial Superintelligence Act would permanently ban the development and deployment of superintelligent AI and temporarily pause advanced AI development until a federal regulator has established safety rules. It would also direct the U.S. to pursue international agreements to prevent superintelligence from being developed anywhere in the world.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Banning AI superintelligence so no person or entity may develop or deploy Superintelligent AI systems that surpass human intelligence or have the capacity to overthrow human governments, or systems that have dangerous abilities like subverting shutdown commands.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Pausing advanced AI development until a new, federal AI regulatory body is up and running and has established clear rules and model review process to ensure safe and secure development and deployment of AI.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Establishing a new cabinet-level federal agency to safeguard the public from the dangers of artificial intelligence, including by enforcing a prohibition on artificial superintelligence.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          }
+        ]
+      },
+      {
+        "claimId": "capability-meaning",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>These are two proposed braking systems. OpenAI’s is <strong>capability-based</strong>: rules become stronger as a system’s demonstrated abilities and risks increase. Development could continue under testing, independent review, cybersecurity and reporting duties, with shared safety bars for when work should slow or stop. OpenAI calls the small group building the most capable systems <strong>frontier labs</strong>.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "openai-policy-window"
+        ],
+        "scopeAndFreshness": "OpenAI's post says regulation should be 'capability-based' with 'obligations proportionate to capabilities and risks'; the article's gloss that rules strengthen as demonstrated abilities and risks increase is a faithful plain-language rendering.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+          "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The United States needs mandatory, capability-based national regulation that can evolve as the technology does.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Our Blueprint for Democratic Governance of Frontier AI lays out a path toward a durable federal framework: common testing and independent-assessment requirements, stronger cybersecurity protections, clear incident-reporting rules, greater national preparedness, and shared measures for tracking progress toward recursive self-improvement.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "A national framework should be strong but carefully targeted. Frontier safety requirements should apply to the handful of well-resourced laboratories developing the most capable systems—not to startups, small developers, or researchers operating nowhere near the frontier. Obligations should be proportionate to capabilities and risks.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Fully autonomous recursive self-improvement—in which AI systems independently drive successive generations of increasingly capable AI—is not happening today. We should not pursue it unless and until it can be done safely.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Governments should develop common ways to measure this progress, preserve meaningful human control, and establish shared safety bars for when and how development should slow or stop.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "We also support federal reporting requirements for other serious AI incidents and are working to define which incidents should be covered and what those requirements should entail.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Any industry-led standards would complement—not replace—mandatory federal safeguards and democratic oversight.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          }
+        ]
+      },
+      {
+        "claimId": "openai-brake",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>These are two proposed braking systems. OpenAI’s is <strong>capability-based</strong>: rules become stronger as a system’s demonstrated abilities and risks increase. Development could continue under testing, independent review, cybersecurity and reporting duties, with shared safety bars for when work should slow or stop. OpenAI calls the small group building the most capable systems <strong>frontier labs</strong>.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "openai-policy-window"
+        ],
+        "scopeAndFreshness": "OpenAI's post calls for 'shared safety bars for when and how development should slow or stop', which the article reproduces nearly verbatim with correct attribution.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+          "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The United States needs mandatory, capability-based national regulation that can evolve as the technology does.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Our Blueprint for Democratic Governance of Frontier AI lays out a path toward a durable federal framework: common testing and independent-assessment requirements, stronger cybersecurity protections, clear incident-reporting rules, greater national preparedness, and shared measures for tracking progress toward recursive self-improvement.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "A national framework should be strong but carefully targeted. Frontier safety requirements should apply to the handful of well-resourced laboratories developing the most capable systems—not to startups, small developers, or researchers operating nowhere near the frontier. Obligations should be proportionate to capabilities and risks.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Fully autonomous recursive self-improvement—in which AI systems independently drive successive generations of increasingly capable AI—is not happening today. We should not pursue it unless and until it can be done safely.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Governments should develop common ways to measure this progress, preserve meaningful human control, and establish shared safety bars for when and how development should slow or stop.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "We also support federal reporting requirements for other serious AI incidents and are working to define which incidents should be covered and what those requirements should entail.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Any industry-led standards would complement—not replace—mandatory federal safeguards and democratic oversight.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          }
+        ]
+      },
+      {
+        "claimId": "superintelligence-definition",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The Sanders-Casar proposal would apply the brake earlier. It would pause advanced development until a regulator and its rules exist. Its permanent ban would cover the proposal’s category of <strong>superintelligence</strong>: systems that surpass human intelligence or can defeat important forms of human control, such as shutdown commands. That is the sponsors’ proposed definition, not a finding about today’s AI. OpenAI separately says fully autonomous AI improving successive generations of AI is not happening today.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "sanders-casar-announcement"
+        ],
+        "scopeAndFreshness": "The source defines the banned category as systems that surpass human intelligence, can overthrow human governments, or subvert shutdown commands; the article compresses 'overthrow human governments' into 'defeat important forms of human control', a reasonable but slightly generalizing paraphrase, though it correctly flags this as the sponsors' proposed definition.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+          "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "WASHINGTON, Sept. 3 — Sen. Bernie Sanders (I-Vt.) and Rep. Greg Casar (D-Texas) today announced the Ban Artificial Superintelligence Act, forthcoming legislation to stop AI oligarchs from building machines humans cannot control.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "The Ban Artificial Superintelligence Act would permanently ban the development and deployment of superintelligent AI and temporarily pause advanced AI development until a federal regulator has established safety rules. It would also direct the U.S. to pursue international agreements to prevent superintelligence from being developed anywhere in the world.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Banning AI superintelligence so no person or entity may develop or deploy Superintelligent AI systems that surpass human intelligence or have the capacity to overthrow human governments, or systems that have dangerous abilities like subverting shutdown commands.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Pausing advanced AI development until a new, federal AI regulatory body is up and running and has established clear rules and model review process to ensure safe and secure development and deployment of AI.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Establishing a new cabinet-level federal agency to safeguard the public from the dangers of artificial intelligence, including by enforcing a prohibition on artificial superintelligence.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          }
+        ]
+      },
+      {
+        "claimId": "not-today",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The Sanders-Casar proposal would apply the brake earlier. It would pause advanced development until a regulator and its rules exist. Its permanent ban would cover the proposal’s category of <strong>superintelligence</strong>: systems that surpass human intelligence or can defeat important forms of human control, such as shutdown commands. That is the sponsors’ proposed definition, not a finding about today’s AI. OpenAI separately says fully autonomous AI improving successive generations of AI is not happening today.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "openai-policy-window",
+          "reuters-openai-policy-report"
+        ],
+        "scopeAndFreshness": "Both OpenAI's post and Reuters quote that fully autonomous recursive self-improvement 'is not happening today'; the article correctly attributes this to OpenAI as a separate claim.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+          "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The United States needs mandatory, capability-based national regulation that can evolve as the technology does.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Our Blueprint for Democratic Governance of Frontier AI lays out a path toward a durable federal framework: common testing and independent-assessment requirements, stronger cybersecurity protections, clear incident-reporting rules, greater national preparedness, and shared measures for tracking progress toward recursive self-improvement.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "A national framework should be strong but carefully targeted. Frontier safety requirements should apply to the handful of well-resourced laboratories developing the most capable systems—not to startups, small developers, or researchers operating nowhere near the frontier. Obligations should be proportionate to capabilities and risks.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Fully autonomous recursive self-improvement—in which AI systems independently drive successive generations of increasingly capable AI—is not happening today. We should not pursue it unless and until it can be done safely.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Governments should develop common ways to measure this progress, preserve meaningful human control, and establish shared safety bars for when and how development should slow or stop.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "We also support federal reporting requirements for other serious AI incidents and are working to define which incidents should be covered and what those requirements should entail.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Any industry-led standards would complement—not replace—mandatory federal safeguards and democratic oversight.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "OpenAI said on Wednesday it was pushing for mandatory national AI safety requirements in the United States on concern the technology could accelerate its own development, after some of its own AI agents went rogue.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          },
+          {
+            "excerpt": "The call marks a major push by OpenAI for binding national AI safety rules with Congress yet to enact a federal framework on AI law even as several U.S. states pass their own legislation.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          },
+          {
+            "excerpt": "OpenAI is urging Congress to adopt capability-based national AI safety requirements, including testing standards, independent assessments, cybersecurity protections and incident-reporting rules for the most advanced AI systems.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          },
+          {
+            "excerpt": "Fully autonomous recursive self-improvement — where AI is independent and would drive the next generations of AI — “is not happening today” and “we should not pursue it unless and until it can be done safely,” OpenAI said.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          }
+        ]
+      },
+      {
+        "claimId": "mechanism-comparison",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The distinction matters because each plan puts the burden at a different point. OpenAI wants the largest labs to produce evidence, accept outside assessment and report incidents while development continues within safety limits. Sanders and Casar want advanced development stopped until public rules and review exist. Neither source supplies an enacted federal rule, and the lawmakers’ source does not supply a formal bill number.</p>",
+            "locator": "P007"
+          }
+        ],
+        "sourceIds": [
+          "openai-policy-window",
+          "sanders-casar-announcement"
+        ],
+        "scopeAndFreshness": "The contrast — continuing development under evidence, assessment and reporting duties versus stopping advanced development until public rules and review exist — accurately synthesizes the two primary sources without distorting either.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+          "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The United States needs mandatory, capability-based national regulation that can evolve as the technology does.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Our Blueprint for Democratic Governance of Frontier AI lays out a path toward a durable federal framework: common testing and independent-assessment requirements, stronger cybersecurity protections, clear incident-reporting rules, greater national preparedness, and shared measures for tracking progress toward recursive self-improvement.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "A national framework should be strong but carefully targeted. Frontier safety requirements should apply to the handful of well-resourced laboratories developing the most capable systems—not to startups, small developers, or researchers operating nowhere near the frontier. Obligations should be proportionate to capabilities and risks.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Fully autonomous recursive self-improvement—in which AI systems independently drive successive generations of increasingly capable AI—is not happening today. We should not pursue it unless and until it can be done safely.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Governments should develop common ways to measure this progress, preserve meaningful human control, and establish shared safety bars for when and how development should slow or stop.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "We also support federal reporting requirements for other serious AI incidents and are working to define which incidents should be covered and what those requirements should entail.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Any industry-led standards would complement—not replace—mandatory federal safeguards and democratic oversight.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "WASHINGTON, Sept. 3 — Sen. Bernie Sanders (I-Vt.) and Rep. Greg Casar (D-Texas) today announced the Ban Artificial Superintelligence Act, forthcoming legislation to stop AI oligarchs from building machines humans cannot control.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "The Ban Artificial Superintelligence Act would permanently ban the development and deployment of superintelligent AI and temporarily pause advanced AI development until a federal regulator has established safety rules. It would also direct the U.S. to pursue international agreements to prevent superintelligence from being developed anywhere in the world.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Banning AI superintelligence so no person or entity may develop or deploy Superintelligent AI systems that surpass human intelligence or have the capacity to overthrow human governments, or systems that have dangerous abilities like subverting shutdown commands.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Pausing advanced AI development until a new, federal AI regulatory body is up and running and has established clear rules and model review process to ensure safe and secure development and deployment of AI.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Establishing a new cabinet-level federal agency to safeguard the public from the dangers of artificial intelligence, including by enforcing a prohibition on artificial superintelligence.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          }
+        ]
+      },
+      {
+        "claimId": "no-bill-number",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The distinction matters because each plan puts the burden at a different point. OpenAI wants the largest labs to produce evidence, accept outside assessment and report incidents while development continues within safety limits. Sanders and Casar want advanced development stopped until public rules and review exist. Neither source supplies an enacted federal rule, and the lawmakers’ source does not supply a formal bill number.</p>",
+            "locator": "P007"
+          }
+        ],
+        "sourceIds": [
+          "sanders-casar-announcement"
+        ],
+        "scopeAndFreshness": "The supplied sponsor-announcement excerpts contain no bill number and describe the legislation as forthcoming; the article's absence claim matches the source's own limitation.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+          "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "WASHINGTON, Sept. 3 — Sen. Bernie Sanders (I-Vt.) and Rep. Greg Casar (D-Texas) today announced the Ban Artificial Superintelligence Act, forthcoming legislation to stop AI oligarchs from building machines humans cannot control.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "The Ban Artificial Superintelligence Act would permanently ban the development and deployment of superintelligent AI and temporarily pause advanced AI development until a federal regulator has established safety rules. It would also direct the U.S. to pursue international agreements to prevent superintelligence from being developed anywhere in the world.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Banning AI superintelligence so no person or entity may develop or deploy Superintelligent AI systems that surpass human intelligence or have the capacity to overthrow human governments, or systems that have dangerous abilities like subverting shutdown commands.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Pausing advanced AI development until a new, federal AI regulatory body is up and running and has established clear rules and model review process to ensure safe and secure development and deployment of AI.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Establishing a new cabinet-level federal agency to safeguard the public from the dangers of artificial intelligence, including by enforcing a prohibition on artificial superintelligence.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          }
+        ]
+      },
+      {
+        "claimId": "conditional-effects",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>If either approach became law, it could change what the most capable labs must test before deployment, what independent assessors may examine and which serious incidents must be reported. Those effects remain proposed, not current rights or protections.</p>",
+            "locator": "P008"
+          }
+        ],
+        "sourceIds": [
+          "openai-policy-window",
+          "sanders-casar-announcement"
+        ],
+        "scopeAndFreshness": "The listed potential effects (testing before deployment, independent assessment, incident reporting) come directly from the proposals' stated elements, and the article keeps them expressly conditional on enactment.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+          "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The United States needs mandatory, capability-based national regulation that can evolve as the technology does.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Our Blueprint for Democratic Governance of Frontier AI lays out a path toward a durable federal framework: common testing and independent-assessment requirements, stronger cybersecurity protections, clear incident-reporting rules, greater national preparedness, and shared measures for tracking progress toward recursive self-improvement.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "A national framework should be strong but carefully targeted. Frontier safety requirements should apply to the handful of well-resourced laboratories developing the most capable systems—not to startups, small developers, or researchers operating nowhere near the frontier. Obligations should be proportionate to capabilities and risks.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Fully autonomous recursive self-improvement—in which AI systems independently drive successive generations of increasingly capable AI—is not happening today. We should not pursue it unless and until it can be done safely.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Governments should develop common ways to measure this progress, preserve meaningful human control, and establish shared safety bars for when and how development should slow or stop.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "We also support federal reporting requirements for other serious AI incidents and are working to define which incidents should be covered and what those requirements should entail.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Any industry-led standards would complement—not replace—mandatory federal safeguards and democratic oversight.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "WASHINGTON, Sept. 3 — Sen. Bernie Sanders (I-Vt.) and Rep. Greg Casar (D-Texas) today announced the Ban Artificial Superintelligence Act, forthcoming legislation to stop AI oligarchs from building machines humans cannot control.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "The Ban Artificial Superintelligence Act would permanently ban the development and deployment of superintelligent AI and temporarily pause advanced AI development until a federal regulator has established safety rules. It would also direct the U.S. to pursue international agreements to prevent superintelligence from being developed anywhere in the world.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Banning AI superintelligence so no person or entity may develop or deploy Superintelligent AI systems that surpass human intelligence or have the capacity to overthrow human governments, or systems that have dangerous abilities like subverting shutdown commands.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Pausing advanced AI development until a new, federal AI regulatory body is up and running and has established clear rules and model review process to ensure safe and secure development and deployment of AI.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Establishing a new cabinet-level federal agency to safeguard the public from the dangers of artificial intelligence, including by enforcing a prohibition on artificial superintelligence.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          }
+        ]
+      },
+      {
+        "claimId": "reading-tool",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>When a headline says AI safety rules are coming, check four things: who is speaking, whether the document is a company position, announced proposal, introduced bill or enacted law, which systems it would cover, and what event triggers testing, reporting, slowing or stopping. Here, the verified change is a public policy push. The law has not changed.</p>",
+            "locator": "P009"
+          }
+        ],
+        "sourceIds": [
+          "openai-policy-window",
+          "sanders-casar-announcement",
+          "reuters-openai-policy-report"
+        ],
+        "scopeAndFreshness": "The company-position / announced-proposal / introduced-bill / enacted-law taxonomy is grounded in the three sources' actual statuses (company post, forthcoming announcement, no enacted framework) and correctly classifies this story as a policy push only.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/source-evidence.json",
+          "sha256": "a5bd7cc052d28dffbf82249f374fd3e2f1c0d0e5dc05e96c6c9f647db6d67b6a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The United States needs mandatory, capability-based national regulation that can evolve as the technology does.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Our Blueprint for Democratic Governance of Frontier AI lays out a path toward a durable federal framework: common testing and independent-assessment requirements, stronger cybersecurity protections, clear incident-reporting rules, greater national preparedness, and shared measures for tracking progress toward recursive self-improvement.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "A national framework should be strong but carefully targeted. Frontier safety requirements should apply to the handful of well-resourced laboratories developing the most capable systems—not to startups, small developers, or researchers operating nowhere near the frontier. Obligations should be proportionate to capabilities and risks.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Fully autonomous recursive self-improvement—in which AI systems independently drive successive generations of increasingly capable AI—is not happening today. We should not pursue it unless and until it can be done safely.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Governments should develop common ways to measure this progress, preserve meaningful human control, and establish shared safety bars for when and how development should slow or stop.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "We also support federal reporting requirements for other serious AI incidents and are working to define which incidents should be covered and what those requirements should entail.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "Any industry-led standards would complement—not replace—mandatory federal safeguards and democratic oversight.",
+            "locator": "https://openai.com/index/ai-policy-window/"
+          },
+          {
+            "excerpt": "WASHINGTON, Sept. 3 — Sen. Bernie Sanders (I-Vt.) and Rep. Greg Casar (D-Texas) today announced the Ban Artificial Superintelligence Act, forthcoming legislation to stop AI oligarchs from building machines humans cannot control.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "The Ban Artificial Superintelligence Act would permanently ban the development and deployment of superintelligent AI and temporarily pause advanced AI development until a federal regulator has established safety rules. It would also direct the U.S. to pursue international agreements to prevent superintelligence from being developed anywhere in the world.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Banning AI superintelligence so no person or entity may develop or deploy Superintelligent AI systems that surpass human intelligence or have the capacity to overthrow human governments, or systems that have dangerous abilities like subverting shutdown commands.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Pausing advanced AI development until a new, federal AI regulatory body is up and running and has established clear rules and model review process to ensure safe and secure development and deployment of AI.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "Establishing a new cabinet-level federal agency to safeguard the public from the dangers of artificial intelligence, including by enforcing a prohibition on artificial superintelligence.",
+            "locator": "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"
+          },
+          {
+            "excerpt": "OpenAI said on Wednesday it was pushing for mandatory national AI safety requirements in the United States on concern the technology could accelerate its own development, after some of its own AI agents went rogue.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          },
+          {
+            "excerpt": "The call marks a major push by OpenAI for binding national AI safety rules with Congress yet to enact a federal framework on AI law even as several U.S. states pass their own legislation.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          },
+          {
+            "excerpt": "OpenAI is urging Congress to adopt capability-based national AI safety requirements, including testing standards, independent assessments, cybersecurity protections and incident-reporting rules for the most advanced AI systems.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          },
+          {
+            "excerpt": "Fully autonomous recursive self-improvement — where AI is independent and would drive the next generations of AI — “is not happening today” and “we should not pursue it unless and until it can be done safely,” OpenAI said.",
+            "locator": "https://www.investing.com/news/stock-market-news/openai-pushes-for-mandatory-national-ai-safety-requirements-4894770"
+          }
+        ]
+      }
+    ],
+    "reviewedThrough": "2026-09-11",
+    "nextTrigger": "Reopen all sources on publication day; redraft if formal bill text or number appears, Congress advances a federal framework, the White House signs a relevant law, OpenAI changes its requested scope, or credible reporting corrects these descriptions.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate compares this September 9 OpenAI request with the September 3 forthcoming Sanders-Casar proposal."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All reader outcomes and news checks pass, every failure family is clear, and both explain-back and transfer succeed on the article's own mechanism; no defect or uncertainty to log. No claim is contradicted or on hold and all four outcomes pass; the single qualified claim is a documented mild paraphrase, not a defect requiring repair."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "OpenAI’s preferred federal framework remains a company policy request; the Sanders-Casar plan remains expressly forthcoming legislation. Neither source establishes enacted federal duties, and political support and effectiveness remain unknown."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/independent-review/final-v2/news-editorial-analysis.json",
+      "sha256": "fd0bb10a2d472e1dbb951533d6a6d38ca57ae4cd312a8c36255d763ec8a2bd3b"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/national-safety-proposals-20260911/independent-review/final-v2/independent-raw-report.json",
+    "sha256": "1f26100a4db48adc38f0f69643b325d41d6a1d275391cfed30c219d299794e07"
+  }
+}

@@ -37,6 +37,17 @@ assert.throws(() => prepareServiceBankProposal({ date, bank, selections: { inven
 const forgedBehindBuild = structuredClone(behindBuildCandidate); const forged = forgedBehindBuild.items.find((entry) => entry.type === "behind_build");
 forged.status = "APPROVED"; forged.publicEligibility = "ELIGIBLE"; forged.reviewedContentSha256 = reviewedContentSha256(forged);
 assert.throws(() => prepareServiceBankProposal({ date, bank: forgedBehindBuild, root }), /approved eligibility requires producer/, "forged Behind the Build approval still fails its bound review chain");
+const curiosityBank = structuredClone(bank); curiosityBank.items.push(item("curiosity", "curiosity-one"));
+const curiosity = prepareServiceBankProposal({date, bank:curiosityBank, root});
+assert.equal(curiosity.records.find(entry=>entry.type === "curiosity").proposalState, "CANDIDATE_NOT_READY", "curiosity participates without bypassing review");
+assert.equal(first.records.some(entry=>entry.type === "curiosity"), false, "an absent optional curiosity bank remains absent");
+const curiosityHistory = {records:[{bankItemId:"curiosity-one",editionDate:"2026-08-30",type:"curiosity"}]};
+const exhaustedCuriosity = prepareServiceBankProposal({date,bank:curiosityBank,columns:curiosityHistory,root});
+assert.equal(exhaustedCuriosity.gaps.find(entry=>entry.type === "curiosity").reason,"NO_UNUSED_BANK_ITEM","curiosity cannot silently repeat an old entry");
+assert.throws(()=>prepareServiceBankProposal({date,bank:curiosityBank,columns:curiosityHistory,selections:{curiosity:"curiosity-one"},root}),/already used/);
+const forgedCuriosity = structuredClone(curiosityBank); const curiosityItem = forgedCuriosity.items.find(entry=>entry.type === "curiosity");
+curiosityItem.status="APPROVED"; curiosityItem.publicEligibility="ELIGIBLE"; curiosityItem.reviewedContentSha256=reviewedContentSha256(curiosityItem);
+assert.throws(()=>prepareServiceBankProposal({date,bank:forgedCuriosity,root}),/approved eligibility requires producer/,"curiosity still requires actual bound producer and independent evidence");
 const whatsNew = first.records.find((entry) => entry.type === "whats_new_sunnyvaile");
 assert.equal(whatsNew.record.eventDate, "2026-08-24", "What’s New fixtures keep their original event date");
 const datedBank = structuredClone(bank); const dated = datedBank.items.find((entry) => entry.type === "whats_new_sunnyvaile");

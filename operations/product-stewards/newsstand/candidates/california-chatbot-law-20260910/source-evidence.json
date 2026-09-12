@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "newsstand-source-evidence-v1",
+  "candidateId": "california-chatbot-law-20260910",
+  "reviewedThrough": "2026-09-11",
+  "records": [
+    {
+      "id": "padilla-signing",
+      "url": "https://sd18.senate.ca.gov/news/governor-newsom-signs-adams-law",
+      "publisher": "California State Senator Steve Padilla",
+      "authority": "Official sponsor confirmation that Governor Gavin Newsom signed SB 1119 on September 10.",
+      "accessObservation": "Direct HTTPS retrieval returned HTTP 200 on September 11, 2026.",
+      "localEvidence": {"html":{"path":"operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-snapshots/padilla-signing-20260910.html","sha256":"26a0620ca4739d1c7f262b9369de83482652195ccec3a924667da0e55013f7f7"},"text":{"path":"operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-snapshots/padilla-signing-20260910.txt","sha256":"33838ec862d9e8a2dab77e2a322011e0be0b126c6bb498e17a8d0586a330c684"}},
+      "passages": ["September 10, 2026: Today, Governor Gavin Newsom signed into law Senate Bill 1119, Adam's Law.", "The release lists risk assessments, crisis support, parent-controlled default settings, limits on harmful outputs, incident reporting, advertising limits and independent audits among the law's requirements."],
+      "limitation": "This is an official release from a bill author and contains advocacy claims about strength and expected effectiveness. It confirms signing; the enrolled text governs precise requirements and dates."
+    },
+    {
+      "id": "sb1119-enrolled",
+      "url": "https://leginfo.legislature.ca.gov/faces/billNavClient.xhtml?bill_id=202520260SB1119",
+      "publisher": "California Legislative Information",
+      "authority": "Primary enrolled bill text for definitions, duties, operative dates and audit exceptions.",
+      "accessObservation": "The enrolled text was reopened from the preserved September 11 retrieval.",
+      "localEvidence": {"html":{"path":"operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-snapshots/sb1119-enrolled.html","sha256":"8339746a9dd464c5fa4efefaf17473be80dbd05f78e699794ccf14e49a81ac32"},"text":{"path":"operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-snapshots/sb1119-enrolled.txt","sha256":"fc493d1df8cf9748953ef9df020f667eefb41e96d32879f2581bde8b5d24ad2e"}},
+      "passages": [
+        "Section 21812 requires a documented child-safety risk assessment before a new or substantially modified companion chatbot is made available in California and documented reasonable mitigation of identified risks.",
+        "For operators permitting child users, Section 21812 requires crisis-response protocols, age-appropriate notices, parent-controlled defaults that disable push notifications and ordinarily disable persistent conversational memory, and limits of one continuous hour and two total hours per day.",
+        "The persistent-memory default contains a qualified exception for users 16 or older when specified guardrails are implemented.",
+        "Section 21812 requires reasonable measures against listed behaviors including encouraging self-harm, sexual material, romantic interest, claims of sentience, emotional reliance, disproportionate praise and instructions to evade parental controls.",
+        "Sections 21812, 21812.5 and 21813 become operative July 1, 2027.",
+        "Section 21814 sets an initial child-safety audit deadline of January 1, 2029 or before first public availability, whichever is later, with later audits generally every two years.",
+        "Before January 1, 2032, the audit section does not apply to an operator with less than $500 million in prior-calendar-year gross revenue.",
+        "The enrolled text was dated September 8 and the preserved status/history pages still showed presented to the Governor on September 9 when checked; those lagging pages do not negate the later official signing confirmation."
+      ],
+      "limitation": "This is enrolled statutory text, not legal advice or proof that implementation will prevent harm. Exceptions and cross-references matter; the candidate reports only the cited high-level provisions."
+    },
+    {
+      "id": "ap-signing-report",
+      "url": "https://apnews.com/article/6063026d1b54a8537d639605c23aab80",
+      "publisher": "Associated Press",
+      "authority": "Independent September 10 reporting from the signing event and family context.",
+      "accessObservation": "Full article text was reopened through the web research layer on September 11; exact observations were preserved locally.",
+      "localEvidence": {"observation":{"path":"operations/product-stewards/newsstand/candidates/california-chatbot-law-20260910/source-snapshots/ap-web-observation.json","sha256":"afc26a269335927607c0515597371dad11d19d1a24a9147eb08b149e694e65f3"}},
+      "passages": ["AP reported that Newsom signed the child online-safety package on September 10, including the companion-chatbot safety law.", "AP reported that the chatbot law was inspired by Adam Raine's story and quoted Maria Raine on parents' need to understand AI-companion risks."],
+      "limitation": "AP confirms the event and context. It does not replace the statutory text or prove the safeguards' future effectiveness."
+    }
+  ],
+  "sourceBoundary": {
+    "verified": "Official sponsor confirmation and AP independently support the September 10 signing; the enrolled text supports the cited duties, dates and audit exception.",
+    "notVerified": "No claim is made that controls started on signing, that every chatbot or operator is covered identically, that audits begin immediately, or that the law guarantees safety.",
+    "statusLag": "The legislative status/history pages still lagged at presented to Governor during the check; they are preserved as a timing discrepancy, not treated as veto evidence."
+  }
+}

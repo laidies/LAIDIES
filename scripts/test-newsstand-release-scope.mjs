@@ -13,7 +13,11 @@ const checker = path.join(root, 'scripts/check-newsstand-release-scope.mjs');
 const registeredScopePath = path.join(root, 'operations/release-control/newsstand-production-scope.json');
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'laidies-newsstand-release-scope-'));
 const digest = value => crypto.createHash('sha256').update(value).digest('hex');
-const record = (filePath, value) => ({ path: filePath, bytes: Buffer.byteLength(value), sha256: digest(value) });
+const fixtureBytes = new Map();
+const record = (filePath, value) => {
+  fixtureBytes.set(digest(value), value);
+  return { path: filePath, bytes: Buffer.byteLength(value), sha256: digest(value) };
+};
 const storiesRaw = fs.readFileSync(path.join(root, 'content/newsstand-stories.js'), 'utf8');
 const parseStories = raw => {
   const context = { window: {} };
@@ -32,6 +36,9 @@ const addDailyStory = publishedAt => {
 let artifactNumber = 0;
 const manifest = (files, artifactStoriesRaw = storiesRaw) => {
   const artifactDirectory = path.join(temp, `artifact-${artifactNumber++}`);
+  fs.mkdirSync(artifactDirectory, { recursive: true });
+  const html = files.find(file => file.path === 'newsstand.html');
+  if (html) fs.writeFileSync(path.join(artifactDirectory, 'newsstand.html'), fixtureBytes.get(html.sha256));
   const stories = files.find(file => file.path === 'content/newsstand-stories.js');
   if (stories) {
     assert.equal(stories.sha256, digest(artifactStoriesRaw), 'scope fixtures must bind exact artifact dataset bytes');
@@ -78,11 +85,20 @@ const releaseNow = new Date().toISOString();
 const sameDayStoriesRaw = addDailyStory(releaseNow);
 const sameDayCandidate = write('same-day-daily.json', manifest([
   record('index.html', 'home-v1'),
-  record('newsstand.html', 'paper-v2'),
+  record('newsstand.html', `<script src="./content/newsstand-stories.js?v=${digest(sameDayStoriesRaw).slice(0, 16)}"></script>`),
   record('content/newsstand-stories.js', sameDayStoriesRaw),
 ], sameDayStoriesRaw));
 result = run(base, sameDayCandidate, scope);
 assert.equal(result.status, 0, result.stderr);
+
+const staleAssetCandidate = write('stale-asset-version.json', manifest([
+  record('index.html', 'home-v1'),
+  record('newsstand.html', '<script src="./content/newsstand-stories.js?v=20260909-astra-compact"></script>'),
+  record('content/newsstand-stories.js', sameDayStoriesRaw),
+], sameDayStoriesRaw));
+result = run(base, staleAssetCandidate, scope);
+assert.notEqual(result.status, 0);
+assert.match(result.stderr, /stale NewsStand asset URL/);
 
 const oldDailyStoriesRaw = addDailyStory(new Date(Date.now() - 48 * 60 * 60 * 1000).toISOString());
 const oldDailyCandidate = write('old-daily.json', manifest([

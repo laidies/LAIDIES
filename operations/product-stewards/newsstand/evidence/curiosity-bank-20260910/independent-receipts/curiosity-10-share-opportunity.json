@@ -1,0 +1,454 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "curiosity-10-share-opportunity",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-curiosity-20260910",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/independent-batch-02.json",
+      "sha256": "398c7e951dc4de7f212234cba7e429bdc29dd8a342ecef699d09b6a36ef677ac"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T05:45:22.773Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-10-share-opportunity.md",
+      "sha256": "61a0c1ef03c18b09595c5ccf7cbcf62c53c6bfad7957c2ca7792cdf59091a633"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-10-share-opportunity.manifest.json",
+      "sha256": "a1d8c062c9887fb34adb1214a75988b0a1e553d23a2d11c428ef02e53718001e"
+    }
+  },
+  "calibration": {
+    "mode": "RECURRING_SERVICE_ARTIFACT_REJECTION_V1",
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "claude-fable-curiosity-20260910",
+    "reviewedAt": "2026-09-11T05:45:22.773Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "technicalExplainerVoice",
+          "decorativeAnalogy",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "CQX-BAD-001 AI system block — the 'Where it stops / In real life' scaffold repeats identically for every term"
+          },
+          {
+            "excerpt": "A provider develops or operates an AI model, product or service.",
+            "locator": "CQX-BAD-001 Provider block — dictionary-definition voice with no reader stake"
+          },
+          {
+            "excerpt": "A toolbox contains different tools for different jobs.",
+            "locator": "CQX-BAD-001 Model types block — analogy adds nothing the plain sentence lacks; decoration, not teaching"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk or use the catalogue, calculator or scanner.",
+            "locator": "CQX-BAD-001 Tool block — invented character analogy bolted onto a glossary entry rather than carrying a mechanism"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "technicalExplainerVoice",
+          "joylessInstruction",
+          "workedExampleOvertakesBookPurpose",
+          "corporateSludge"
+        ],
+        "evidence": [
+          {
+            "excerpt": "It is the trained component that processes input and produces an output.",
+            "locator": "CQX-BAD-002 Introduction — textbook definition voice, no LAiDIES warmth or wit anywhere in the piece"
+          },
+          {
+            "excerpt": "Read the chapters in order to build the complete picture.",
+            "locator": "CQX-BAD-002 Introduction — corporate learning-module framing the writing lock explicitly bans"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run",
+            "locator": "CQX-BAD-002 closing — syllabus prose; the reader is processed through a curriculum, not guided"
+          },
+          {
+            "excerpt": "Imagine that you have two job offers.",
+            "locator": "CQX-BAD-002 Chapter 1 — one worked example carries the entire chapter structure end to end, crowding out the surface's stated reference job"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Plain mechanic leads and the joke garnishes it, never carries it",
+        "Dry, understated wit with a specific workplace truth underneath",
+        "Analogies that do two jobs (familiar plus teaching), used sparingly",
+        "Reader treated as smart and busy, never in training or in deficit"
+      ],
+      "evidence": [
+        {
+          "excerpt": "It's not a confidence problem. It's a physics problem.",
+          "locator": "CQX-GOOD-EPISODE-001 lesson one-liner — reframe that teaches while it lands"
+        },
+        {
+          "excerpt": "That's not imposter syndrome. That's pattern recognition.",
+          "locator": "CQX-GOOD-EPISODE-001 quotables — dry wit built on a specific factual beat, not decoration"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "How do I pass along an opportunity so it's actually useful and not a burden?",
+    "promisedPayoff": "A friend receives a decidable, current invitation instead of a bare link.",
+    "centralMentalModel": "A useful forward = the decision-relevant facts + why her specifically + a graceful exit + a currency check.",
+    "dailyLifeConnection": "Spotting an event, class, or opening a friend might want.",
+    "surfaceJob": "Optional 'Try this today' daily practice item.",
+    "desiredReaderFeeling": "Thoughtfully generous; confident the forward helps rather than obligates."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Exactly what to include and what to verify is spelled out.",
+      "artifactEvidence": [
+        {
+          "excerpt": "send the date, cost and reason you thought of her alongside the link",
+          "locator": "curiosity-10 body, sentence 1"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Upgrades a common low-value habit (bare-link forwarding) into a decidable, current invitation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "check that registration is still open",
+          "locator": "curiosity-10 final sentence"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The closer is textbook Ali dry wit: understated, factual, mildly deflating of enthusiasm-as-virtue.",
+      "artifactEvidence": [
+        {
+          "excerpt": "enthusiasm does not extend a deadline",
+          "locator": "curiosity-10 final sentence"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Warm premise plus a landed dry joke that serves the lesson.",
+      "artifactEvidence": [
+        {
+          "excerpt": "an event or opportunity a friend might genuinely want",
+          "locator": "curiosity-10 body, sentence 1"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "No claims beyond the reader's own verifiable check; the 'genuinely want' qualifier avoids obligation framing.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make it easy to decline",
+          "locator": "curiosity-10 body"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Evergreen practice; time-sensitivity of opportunities is handled inside the act itself via the registration check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Before forwarding, check that registration is still open",
+          "locator": "curiosity-10 final sentence"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "One situation, one act, one pre-send check; matches the brief's share-opportunity category with consent preserved.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Send the invitation with the useful bits.",
+          "locator": "curiosity-10 heading"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "Performed on the next opportunity the reader spots.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If you spot an event or opportunity",
+          "locator": "curiosity-10 body"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "The registration check gives a concrete pass/fail before sending; the decline-friendly framing tests whether the forward respected her choice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "check that registration is still open",
+          "locator": "curiosity-10 final sentence"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Proportional: everyday starting point, specific move, small landing joke that sharpens rather than decorates.",
+      "artifactEvidence": [
+        {
+          "excerpt": "enthusiasm does not extend a deadline",
+          "locator": "curiosity-10 landing"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The facts-plus-easy-exit-plus-currency-check pattern transfers to recommendations, referrals, and internal job postings.",
+      "artifactEvidence": [
+        {
+          "excerpt": "the date, cost and reason you thought of her",
+          "locator": "curiosity-10 body"
+        }
+      ]
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "Two built-in safety valves: the decline path for the friend and the closed-registration check that stops a useless send.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make it easy to decline",
+          "locator": "curiosity-10 body"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No filler.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "No unresolved hook.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy used.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Standalone by design.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The joke follows and reinforces the check.",
+      "artifactLocator": "curiosity-10 final sentence"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "No outcome promises.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Not applicable; no technical concept.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The forward's exact contents and pre-check are itemized.",
+      "artifactLocator": "curiosity-10 body"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No terms.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on a bounded dry fact, not a moral.",
+      "artifactLocator": "curiosity-10 final sentence"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Plain words.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Closing wit present and earned.",
+      "artifactLocator": "curiosity-10 final sentence"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Opens from the reader's generous impulse.",
+      "artifactLocator": "curiosity-10 sentence 1"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "No hook.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Why each element matters is carried by the decidability framing and the deadline line.",
+      "artifactLocator": "curiosity-10 body"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "No reveal.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Applies to any opportunity type.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Evergreen; time-sensitivity handled in the act.",
+      "artifactLocator": "curiosity-10 final sentence"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Conversational imperative.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Distinct structure from siblings.",
+      "artifactLocator": "curiosity-10 whole entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No extended example.",
+      "artifactLocator": "curiosity-10 whole entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "NO_MATERIAL_CLAIMS",
+    "rationale": "Original behavioural suggestion; no product, effectiveness, or reported-event claims. The only verifiable fact (registration status) is delegated to the reader as part of the act.",
+    "claimScan": {
+      "observation": "Full prose inspected; no obligation to spend or sign up is imposed — the cost is disclosed to the friend, and declining is explicitly protected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Make it easy to decline",
+          "locator": "curiosity-10 body"
+        }
+      ]
+    },
+    "reviewedThrough": "2026-09-10",
+    "nextTrigger": "Only on surface or brief change; evergreen.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this original activity; pilot repair and full-bank maker inspection are preserved."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No new reusable defect found in this exact activity; conditional-result pilot repair applied before full bank."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Explain-back assessed from prose only; sampled reader testing pending.",
+    "Rendered page not reviewed here.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/curiosity-sampling-policy-20260910.json",
+      "sha256": "2d114ecc0a064628ed33f4157a87781672fb031581672f110645e50ad1b7abc5"
+    },
+    "policyId": "newsstand-curiosity-sampled-comprehension-20260910",
+    "serviceType": "curiosity",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-398c7e951dc4",
+    "sampleQueue": [
+      "curiosity-01-ask-example",
+      "curiosity-02-name-contribution",
+      "curiosity-03-compare-rewrite",
+      "curiosity-04-find-original",
+      "curiosity-05-invite-question",
+      "curiosity-06-ask-before-help",
+      "curiosity-07-small-feedback",
+      "curiosity-08-unseen-step",
+      "curiosity-09-change-one-detail",
+      "curiosity-10-share-opportunity",
+      "curiosity-11-check-assumption",
+      "curiosity-12-credit-introduction",
+      "curiosity-13-show-start",
+      "curiosity-14-separate-preference",
+      "curiosity-15-quiet-invite",
+      "curiosity-16-find-date",
+      "curiosity-17-ask-why-rule",
+      "curiosity-18-share-template",
+      "curiosity-19-let-finish",
+      "curiosity-20-name-unknown",
+      "curiosity-21-read-own-words",
+      "curiosity-22-ask-good-part",
+      "curiosity-23-test-directions",
+      "curiosity-24-check-added-detail",
+      "curiosity-25-share-question",
+      "curiosity-26-smaller-offer",
+      "curiosity-27-ask-evidence-change",
+      "curiosity-28-record-useful-fix",
+      "curiosity-29-check-invitation",
+      "curiosity-30-ask-follow-up"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

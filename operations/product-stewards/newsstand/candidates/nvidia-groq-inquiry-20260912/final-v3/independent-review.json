@@ -1,0 +1,969 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "nvidia-groq-inquiry-20260912",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-12T19:18:31.071Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/review-text.json",
+      "sha256": "189aa43c2f4bf09dabc1ac2333995e1cf769eb8af4190f851500e76cbdb2e5fb"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/publication-manifest.json",
+      "sha256": "8ca9758f28df34820661a60db2d19069a972cb35be5078e67d3f2f5b72dc8285"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/rendered-article.html",
+      "sha256": "f9a304af55195d1ae2abf70d3e9aaa42873dc3aa1a4b594855bf59547e87cd38"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why would regulators look at an AI chip deal when Nvidia did not actually buy Groq?",
+    "promisedPayoff": "Understand what actually moved in the deal (a licence and senior people) and why an inquiry can exist without any takeover or any finding.",
+    "centralMentalModel": "Competition attention can follow access to technology plus movement of experienced people, not just ownership; an inquiry is a question, not a conclusion.",
+    "dailyLifeConnection": "Getting permission to use someone else's technology and hiring their senior people is a recognizable workplace pattern readers can grasp without antitrust training.",
+    "surfaceJob": "A dated news brief explaining what was reported on September 10, what the December deal actually was, and where the evidence stops.",
+    "desiredReaderFeeling": "Informed and calibrated: the reader knows what is established, what is reported, and what remains genuinely unanswered."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Every technical term is glossed at first meaningful use: non-exclusive licence in P004, inference in P005, inquiry-versus-finding in P003.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nvidia said the agreement promotes innovation, rewards entrepreneurs and benefits consumers. Groq and the department did not immediately respond to Reuters. An inquiry asks for answers; it is not a finding of wrongdoing.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Inference is the part that uses a trained AI model to produce an answer. So the competition question is not simply who owns Groq. It is what access to technology and the movement of experienced people changed, if anything, while Groq remained independent. The reporting does not answer that question.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader learns the deal's actual mechanism (licence plus hires, continued independence) and the precise evidential boundary of the inquiry.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Inference is the part that uses a trained AI model to produce an answer. So the competition question is not simply who owns Groq. It is what access to technology and the movement of experienced people changed, if anything, while Groq remained independent. The reporting does not answer that question.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>“Not a takeover” describes the deal’s form. It does not answer what the licence and hires changed in practice. For now, officials are reportedly asking that question, and no finding has been reported.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult register throughout; P005 and P006 speak directly and honestly about what is unknown without condescension or borrowed persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Inference is the part that uses a trained AI model to produce an answer. So the competition question is not simply who owns Groq. It is what access to technology and the movement of experienced people changed, if anything, while Groq remained independent. The reporting does not answer that question.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>“Not a takeover” describes the deal’s form. It does not answer what the licence and hires changed in practice. For now, officials are reportedly asking that question, and no finding has been reported.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The apparent paradox in P001 — no purchase, yet an inquiry — sustains genuine interest and is resolved by the mechanism in P004–P005 rather than by spectacle.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Inference is the part that uses a trained AI model to produce an answer. So the competition question is not simply who owns Groq. It is what access to technology and the movement of experienced people changed, if anything, while Groq remained independent. The reporting does not answer that question.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "A dated news article that answers what happened (P002), who responded (P003), and why it matters (P005–P006) within proper bounded scope.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Reuters reported on September 10 that the U.S. Justice Department is investigating whether Nvidia structured its December agreement with AI chip startup Groq to avoid antitrust scrutiny. The report, citing the New York Times and two people familiar with the matter, says the department opened the inquiry shortly after the deal and sent Nvidia a formal request for information.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Nvidia said the agreement promotes innovation, rewards entrepreneurs and benefits consumers. Groq and the department did not immediately respond to Reuters. An inquiry asks for answers; it is not a finding of wrongdoing.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>“Not a takeover” describes the deal’s form. It does not answer what the licence and hires changed in practice. For now, officials are reportedly asking that question, and no finding has been reported.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The mechanism is rendered in everyday workplace terms — permission to use technology and hiring senior people — which a professional reader recognizes without antitrust background.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“Nvidia got permission to use Groq’s technology and hired senior people, while Groq stayed independent. That can prompt a competition question without a takeover—but the reported inquiry is not a finding.”",
+          "locator": "P007"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human question (P001), concrete causality (P004–P005), and a genuinely better next question — what did the licence and hires change in practice (P006) — with no imitation of any communicator's voice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>Inference is the part that uses a trained AI model to produce an answer. So the competition question is not simply who owns Groq. It is what access to technology and the movement of experienced people changed, if anything, while Groq remained independent. The reporting does not answer that question.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>“Not a takeover” describes the deal’s form. It does not answer what the licence and hires changed in practice. For now, officials are reportedly asking that question, and no finding has been reported.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "P004 and P005 supply enough causal material to answer, in ordinary language, why access plus hires can prompt a competition question without ownership.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Inference is the part that uses a trained AI model to produce an answer. So the competition question is not simply who owns Groq. It is what access to technology and the movement of experienced people changed, if anything, while Groq remained independent. The reporting does not answer that question.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "“Nvidia got permission to use Groq’s technology and hired senior people, while Groq stayed independent. That can prompt a competition question without a takeover—but the reported inquiry is not a finding.”",
+          "locator": "P007"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why could Nvidia's deal with Groq draw competition attention even though Nvidia never bought Groq?",
+        "response": "Because two things reportedly moved even without ownership changing hands: Nvidia gained a non-exclusive licence — permission to use Groq's inference technology, which does not by itself stop Groq from using or licensing it — and Groq's founder, president and other team members joined Nvidia while Groq stayed independent with GroqCloud continuing. Reuters, citing the New York Times and two people familiar with the matter, reported the Justice Department is asking whether the agreement was structured to avoid antitrust scrutiny and sent a formal request for information. That is an inquiry — a set of questions — not a finding; what the licence and hires actually changed in practice remains unanswered by the reporting.",
+        "expectedEvidence": "A correct answer must name both moving parts (licence and senior hires), retain Groq's continued independence, preserve the Reuters/NYT attribution chain, and explicitly stop at inquiry-not-finding without supplying legal classification or market effects.",
+        "assessment": "The article's own material in P002–P006 fully supports this answer in ordinary language; the mechanism is complete and the evidence limits survive the retelling, so explain-back passes."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The licence-plus-hires-without-acquisition pattern in P004–P005 is general enough to apply to a new industry scenario while preserving the inquiry-versus-finding limit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Inference is the part that uses a trained AI model to produce an answer. So the competition question is not simply who owns Groq. It is what access to technology and the movement of experienced people changed, if anything, while Groq remained independent. The reporting does not answer that question.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>“Not a takeover” describes the deal’s form. It does not answer what the licence and hires changed in practice. For now, officials are reportedly asking that question, and no finding has been reported.</p>",
+          "locator": "P006"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using the article's mechanism, what should a careful reader conclude is stipulated, what is open, and why might such a deal draw competition attention without any acquisition?",
+        "response": "Stipulated by the scenario: the non-exclusive licence, the two senior hires, the startup's continued independence, and a reported inquiry with an information request. Open questions: what access to the technology and the movement of experienced people actually changed in practice, whether the deal's structure was chosen for any particular reason, and what, if anything, the authority will conclude. The same pattern as the article applies — technology access plus people movement can prompt a competition question even when the smaller company is not bought — but the reported inquiry is only a set of questions. I do not supply any legal classification, jurisdictional threshold, market effect or outcome, because neither the article's mechanism nor the scenario's stipulated facts establish them.",
+        "expectedEvidence": "A sound transfer keeps stipulated facts separate from open questions, reuses the licence-plus-hires mechanism from P004–P005, and preserves the inquiry-versus-finding boundary from P003 and P006 without inventing outcomes.",
+        "assessment": "The mechanism transfers cleanly to this new industry with all evidence limits intact, which demonstrates the article teaches a genuinely portable distinction rather than a one-off fact."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The proportionate action for a news reader is calibration: treat the reported inquiry as a question rather than a verdict, which P003 and P006 state explicitly.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nvidia said the agreement promotes innovation, rewards entrepreneurs and benefits consumers. Groq and the department did not immediately respond to Reuters. An inquiry asks for answers; it is not a finding of wrongdoing.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>“Not a takeover” describes the deal’s form. It does not answer what the licence and hires changed in practice. For now, officials are reportedly asking that question, and no finding has been reported.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No analogies are deployed; the mechanism is explained literally in P004–P005, so nothing overreaches or distorts the causal picture.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Inference is the part that uses a trained AI model to produce an answer. So the competition question is not simply who owns Groq. It is what access to technology and the movement of experienced people changed, if anything, while Groq remained independent. The reporting does not answer that question.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "All material claims in P002–P004 trace to the two supplied source excerpts with attribution preserved, including the Reuters-via-NYT chain and the company-announcement provenance of the deal details.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Reuters reported on September 10 that the U.S. Justice Department is investigating whether Nvidia structured its December agreement with AI chip startup Groq to avoid antitrust scrutiny. The report, citing the New York Times and two people familiar with the matter, says the department opened the inquiry shortly after the deal and sent Nvidia a formal request for information.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Nvidia said the agreement promotes innovation, rewards entrepreneurs and benefits consumers. Groq and the department did not immediately respond to Reuters. An inquiry asks for answers; it is not a finding of wrongdoing.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The September 10 report date, the December deal timing, and named traceable sources make every time-sensitive claim checkable; the artifact records a lastCheckedAt of 2026-09-12.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Reuters reported on September 10 that the U.S. Justice Department is investigating whether Nvidia structured its December agreement with AI chip startup Groq to avoid antitrust scrutiny. The report, citing the New York Times and two people familiar with the matter, says the department opened the inquiry shortly after the deal and sent Nvidia a formal request for information.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The December agreement (old event) is explicitly distinguished from the newly reported September 10 inquiry and the parties' responses, so the reader knows what is new.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Reuters reported on September 10 that the U.S. Justice Department is investigating whether Nvidia structured its December agreement with AI chip startup Groq to avoid antitrust scrutiny. The report, citing the New York Times and two people familiar with the matter, says the department opened the inquiry shortly after the deal and sent Nvidia a formal request for information.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Nvidia said the agreement promotes innovation, rewards entrepreneurs and benefits consumers. Groq and the department did not immediately respond to Reuters. An inquiry asks for answers; it is not a finding of wrongdoing.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The consequence is concrete (a formal information request; a question about what the licence and hires changed) and uncertainty survives fully: P005 says the reporting does not answer that question and P006 stresses no finding has been reported.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nvidia said the agreement promotes innovation, rewards entrepreneurs and benefits consumers. Groq and the department did not immediately respond to Reuters. An inquiry asks for answers; it is not a finding of wrongdoing.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Inference is the part that uses a trained AI model to produce an answer. So the competition question is not simply who owns Groq. It is what access to technology and the movement of experienced people changed, if anything, while Groq remained independent. The reporting does not answer that question.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>“Not a takeover” describes the deal’s form. It does not answer what the licence and hires changed in practice. For now, officials are reportedly asking that question, and no finding has been reported.</p>",
+          "locator": "P006"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Definitions in P004–P005 are each immediately put to work in the causal story rather than accumulating inertly.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Each paragraph does distinct work: report, responses, deal mechanism, open question; no repeated scaffold.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogies are used anywhere; explanation is literal throughout the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references appear; the only cross-reference (P008) has a stated explanatory job.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "P004–P005 supply the causal steps: licence grants access, hires move expertise, independence remains, hence the competition question.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "No vague 'be careful' advice; the reader's stance (inquiry is not a finding) is concrete and specific to this case.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Every technical term — non-exclusive licence, inference, inquiry — receives plain meaning at first meaningful use.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The parts (deal, hires, inquiry, responses) are explicitly connected: P005 ties technology access and people movement to the regulatory question.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty tracks evidence precisely; 'reportedly', 'not a finding', and 'the reporting does not answer that question' bound every claim.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Every time-sensitive claim carries a date (September 10 report, December deal) and a traceable named source.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Nvidia's promotional statement is quoted as a claim and attributed, not adopted; the article's own prose is concrete.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The paradox framing in P001 and the direct voice keep human interest; this is not a checklist.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is mentioned anywhere in the prose.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The hook in P001 is fully paid off by the mechanism in P004–P005 and the boundary in P006.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The everyday framing of permission and hiring returns directly to the technical substance of the licence and inference.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitated persona or borrowed mannerisms; the voice is original and plain.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "There is no humour or spectacle competing with the explanation; understanding leads throughout.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The hook is one headline sentence; the mechanism gets two full paragraphs (P004–P005) plus a limits paragraph (P006).",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "No conclusion is asserted at all — the article explicitly withholds any finding, so nothing precedes its explanation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "P006 ends by shrinking, not inflating: it stresses that officials are reportedly asking and no finding has been reported.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The article covers the full reader job: the deal's form, the mechanism of concern, the responses, and the evidential limit.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human question — how can a non-purchase draw an inquiry — is established in P001 before any mechanism appears.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Not applicable in force: this is a bounded news brief and no worked example crowds anything out.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "For a bounded news report, explaining this specific deal mechanism is exactly the right perspective; the organising lens is the reader's question, not specialist taxonomy.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/editorial-input.json",
+        "sha256": "ab2379efce49cc384fe55d3f28d97936d8cab46addaca4ea520bc935d7b1a31c"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "reported-inquiry",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Reuters reported on September 10 that the U.S. Justice Department is investigating whether Nvidia structured its December agreement with AI chip startup Groq to avoid antitrust scrutiny. The report, citing the New York Times and two people familiar with the matter, says the department opened the inquiry shortly after the deal and sent Nvidia a formal request for information.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/editorial-input.json",
+          "sha256": "ab2379efce49cc384fe55d3f28d97936d8cab46addaca4ea520bc935d7b1a31c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Reuters Last Updated: Sep 10, 2026, 07:03:39 PM IST\nThe U.S. Justice Department is investigating whether Nvidia structured its licensing deal with AI chip startup Groq to avoid antitrust scrutiny, the New York Times reported on Wednesday, citing two people familiar with the matter.\nThe Justice Department opened its investigation into the arrangement shortly after it was announced in December and has sent Nvidia a formal request for information, according to the NYT report.\n\"The Groq story is a prime example of the American system working as designed to promote innovation, reward entrepreneurs, and benefit consumers,\" an Nvidia spokesperson said in a statement.\nGroq and the U.S. Justice Department did not immediately respond to Reuters' requests for comment outside regular business hours.",
+            "locator": "https://economictimes.indiatimes.com/tech/artificial-intelligence/doj-probes-nvidias-licensing-deal-with-ai-startup-groq/articleshow/133994951.cms"
+          }
+        ],
+        "scopeAndFreshness": "P002 matches the Reuters excerpt: DOJ investigating whether Nvidia structured the Groq licensing deal to avoid antitrust scrutiny; the September 10 date matches the source's publication date and the article retains the reported framing."
+      },
+      {
+        "claimId": "inquiry-process",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Reuters reported on September 10 that the U.S. Justice Department is investigating whether Nvidia structured its December agreement with AI chip startup Groq to avoid antitrust scrutiny. The report, citing the New York Times and two people familiar with the matter, says the department opened the inquiry shortly after the deal and sent Nvidia a formal request for information.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/editorial-input.json",
+          "sha256": "ab2379efce49cc384fe55d3f28d97936d8cab46addaca4ea520bc935d7b1a31c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Reuters Last Updated: Sep 10, 2026, 07:03:39 PM IST\nThe U.S. Justice Department is investigating whether Nvidia structured its licensing deal with AI chip startup Groq to avoid antitrust scrutiny, the New York Times reported on Wednesday, citing two people familiar with the matter.\nThe Justice Department opened its investigation into the arrangement shortly after it was announced in December and has sent Nvidia a formal request for information, according to the NYT report.\n\"The Groq story is a prime example of the American system working as designed to promote innovation, reward entrepreneurs, and benefit consumers,\" an Nvidia spokesperson said in a statement.\nGroq and the U.S. Justice Department did not immediately respond to Reuters' requests for comment outside regular business hours.",
+            "locator": "https://economictimes.indiatimes.com/tech/artificial-intelligence/doj-probes-nvidias-licensing-deal-with-ai-startup-groq/articleshow/133994951.cms"
+          }
+        ],
+        "scopeAndFreshness": "The source states the department opened the investigation shortly after the December announcement and sent a formal request for information, per the NYT report citing two people familiar; P002 reproduces this with the attribution chain intact."
+      },
+      {
+        "claimId": "responses",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Nvidia said the agreement promotes innovation, rewards entrepreneurs and benefits consumers. Groq and the department did not immediately respond to Reuters. An inquiry asks for answers; it is not a finding of wrongdoing.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/editorial-input.json",
+          "sha256": "ab2379efce49cc384fe55d3f28d97936d8cab46addaca4ea520bc935d7b1a31c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Reuters Last Updated: Sep 10, 2026, 07:03:39 PM IST\nThe U.S. Justice Department is investigating whether Nvidia structured its licensing deal with AI chip startup Groq to avoid antitrust scrutiny, the New York Times reported on Wednesday, citing two people familiar with the matter.\nThe Justice Department opened its investigation into the arrangement shortly after it was announced in December and has sent Nvidia a formal request for information, according to the NYT report.\n\"The Groq story is a prime example of the American system working as designed to promote innovation, reward entrepreneurs, and benefit consumers,\" an Nvidia spokesperson said in a statement.\nGroq and the U.S. Justice Department did not immediately respond to Reuters' requests for comment outside regular business hours.",
+            "locator": "https://economictimes.indiatimes.com/tech/artificial-intelligence/doj-probes-nvidias-licensing-deal-with-ai-startup-groq/articleshow/133994951.cms"
+          }
+        ],
+        "scopeAndFreshness": "P003 fairly paraphrases the Nvidia spokesperson quote (innovation, entrepreneurs, consumers) as attributed speech and accurately reports that Groq and the department did not immediately respond to Reuters."
+      },
+      {
+        "claimId": "deal-structure",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/editorial-input.json",
+          "sha256": "ab2379efce49cc384fe55d3f28d97936d8cab46addaca4ea520bc935d7b1a31c"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Today, Groq announced that it has entered into a non-exclusive licensing agreement with Nvidia for Groq’s inference technology. The agreement reflects a shared focus on expanding access to high-performance, low cost inference.\nAs part of this agreement, Jonathan Ross, Groq’s Founder, Sunny Madra, Groq’s President, and other members of the Groq team will join Nvidia to help advance and scale the licensed technology.\nGroq will continue to operate as an independent company with Simon Edwards stepping into the role of Chief Executive Officer.\nGroqCloud will continue to operate without interruption.",
+            "locator": "https://groq.com/newsroom/groq-and-nvidia-enter-non-exclusive-inference-technology-licensing-agreement-to-accelerate-ai-inference-at-global-scale"
+          }
+        ],
+        "scopeAndFreshness": "Groq's announcement confirms the non-exclusive licence for inference technology, the founder (Jonathan Ross), president (Sunny Madra) and other team members joining Nvidia, continued independence under a new CEO, and GroqCloud continuing; the article's gloss of 'non-exclusive' in P004 is an accurate definitional aid that claims nothing beyond the term's plain meaning."
+      }
+    ],
+    "reviewedThrough": "2026-09-12",
+    "nextTrigger": "Any Justice Department, Nvidia, Groq, New York Times or Reuters update to the inquiry or agreement.",
+    "correctionOwner": "/root"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 1,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 2,
+    "reviewCycles": 3,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "This is the same candidate after a held independent-review transfer failure, not a successor to a separately admitted comparable candidate. V1 review history remains bound in review-metrics and repair-history."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Every reader outcome and news check passes and all failure families are clear; no defect or evidence gap was found in comprehension or craft."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=2; evidence gaps repaired=1; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/final-v3/news-editorial-analysis.json",
+      "sha256": "b0db0425609151a64ec2c6fa2617fc1c5014d394d0390595b4ec6645ca4f6b09"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/nvidia-groq-inquiry-20260912/final-v3/independent-raw-report.json",
+    "sha256": "062dfdfaa6df91726364c701e3f8a9b00f4c28d503be577a5efab954d073bb5c"
+  }
+}

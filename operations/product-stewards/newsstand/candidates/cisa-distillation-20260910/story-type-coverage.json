@@ -1,0 +1,56 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "primaryType": "safety-incident",
+  "overlays": [],
+  "universalAnswers": {
+    "whatHappened": "U.S. agencies issued a September 8 advisory accusing six Chinese AI companies of unauthorized industrial-scale distillation; China denied the claims on September 9.",
+    "plainLanguageIdentity": "Distillation trains one AI system using many outputs from another. It is a common technique; the dispute is about alleged unauthorized access, scale and extraction of restricted capabilities.",
+    "evidenceBasis": "The full CISA advisory, China Commerce Ministry response and AP reporting were reopened on September 10.",
+    "evidenceLimits": "The U.S. agencies did not publish enough underlying account evidence for outsiders to reproduce every attribution or quantity, and China’s denial does not resolve those allegations.",
+    "readerRelevance": "The dispute helps explain how newer models can learn from existing systems and why permission, provenance and evidence matter when governments label that learning theft or security abuse.",
+    "affectedPeople": "Users and organizations choosing AI models, the six named Chinese companies, U.S. model providers and the public affected by U.S.-China technology policy.",
+    "changesNow": "The U.S. advisory asks AI providers to tighten detection and information sharing; China says it may respond if the United States acts against the companies.",
+    "uncertainty": "The public record does not establish which alleged acts were independently verified, which rules or laws each act violated, or how much the alleged activity improved any model.",
+    "readerAction": "Ask whether a report describes ordinary authorized training or alleged unauthorized collection, and what evidence supports the difference.",
+    "betterQuestion": "What was learned from the other model, under what permission, and what public evidence supports the allegation?"
+  },
+  "typeAnswers": {
+    "safety-incident": {
+      "incident": "U.S. agencies allege six Chinese companies used unauthorized, industrial-scale distillation against U.S. frontier AI systems from at least late 2024; China denies the charge.",
+      "harm": "The agencies allege extraction of restricted proprietary capabilities and evasion of provider restrictions, affecting model-provider security and international technology competition.",
+      "affectedPeople": "The named companies and providers, customers relying on model provenance and security, and people affected by possible U.S.-China restrictions or countermeasures.",
+      "failedControl": "The advisory alleges providers could not reliably connect distributed high-volume use across accounts and routes; operational bypass details are omitted from the reader article.",
+      "responsibility": "AI providers control access and terms, companies control how they train models, governments make policy and enforcement claims, and independent institutions must test evidence and legal conclusions.",
+      "confirmedUnknown": "The advisory and response are confirmed public documents. The alleged conduct, quantities, government awareness, legal status and model-performance effects are disputed or not independently established in the public record.",
+      "remediation": "The agencies recommend stronger provider detection, response and cross-company information sharing; no completed enforcement action is established by these sources.",
+      "recurrenceRisk": "Distillation remains a normal technique and alleged unauthorized use can recur; clearer permissions, auditable provenance and independent evidence would improve accountability."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "On September 8, the FBI, National Security Agency and CISA accused six Chinese AI companies of using “industrial-scale” knowledge distillation",
+    "actualMeaningExact": "Distillation is a normal way to train one AI system from many answers produced by another",
+    "mechanismExact": "The student model learns patterns from the teacher model’s outputs rather than receiving the teacher’s original internal files",
+    "familiarExampleExact": "The method is like an apprentice studying many demonstrations from an expert",
+    "jargon": [
+      {
+        "term": "distillation",
+        "plainMeaning": "a normal way to train one AI system from many answers produced by another"
+      },
+      {
+        "term": "frontier model",
+        "plainMeaning": "one of the most capable AI systems currently available"
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "AI model training provenance and permission",
+        "learningPayoff": "The article itself supplies the directly relevant distinction because no governed LAiDIES lesson was identified for model distillation and authorization.",
+        "disposition": "gap",
+        "owner": "NewsStand and Learning ecosystem steward",
+        "trigger": "Add a direct link only when LAiDIES admits a lesson on AI training provenance or knowledge distillation.",
+        "recordPath": "operations/product-stewards/newsstand/candidates/cisa-distillation-20260910/learning-gap.json"
+      }
+    ]
+  }
+}

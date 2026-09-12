@@ -1,0 +1,8 @@
+#!/usr/bin/env node
+import fs from 'node:fs'; import crypto from 'node:crypto'; import { composeDailyEnvelope } from '../../../../../scripts/compose-daily-edition.mjs';
+const root=process.cwd(),dir='operations/product-stewards/newsstand/candidates/anthropic-threat-report-20260910',radarPath=`${root}/operations/agents/aidb-intelligence-desk/daily/2026-09-10.md`,candidatePath=`${dir}/independent-review/final-v7/ordinary-candidate.json`,output=`${dir}/same-day-envelope-2026-09-10-v1.json`;
+const raw=p=>fs.readFileSync(p,'utf8'),sha=b=>crypto.createHash('sha256').update(b).digest('hex'),binding=p=>({path:p,sha256:sha(fs.readFileSync(p))});
+const result=composeDailyEnvelope({date:'2026-09-10',radarRaw:raw(radarPath),radarPath,storiesRaw:raw('content/newsstand-stories.js'),columnsRaw:raw('content/daily-edition-columns.json'),candidateBinding:binding(candidatePath),enforceServicePredecessor:true,root,now:new Date().toISOString()});
+if(fs.existsSync(output)&&raw(output)!==result.canonical)throw Error('Preserve differing same-day envelope; use a successor filename');
+if(!fs.existsSync(output))fs.writeFileSync(output,result.canonical,{flag:'wx'});
+console.log(JSON.stringify({status:'PRIVATE_SUCCESSOR_ENVELOPE_READY',path:output,sha256:result.sha256,storyIds:result.envelope.storyIds,readyDesks:result.envelope.desks.filter(d=>d.state==='ready').length,canonicalWrite:result.envelope.canonicalWrite,deployActionTaken:result.envelope.deployActionTaken}));

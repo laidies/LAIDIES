@@ -10,7 +10,7 @@ import { inspectProseQualityReview } from "./check-prose-quality-admission.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const REGISTRY = "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json";
-const POLICY = "operations/product-stewards/newsstand/recurring-service-sampling-policy.json";
+const DEFAULT_POLICY = "operations/product-stewards/newsstand/recurring-service-sampling-policy.json";
 const DISCLOSURE = "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending.";
 const HASH = /^[a-f0-9]{64}$/;
 const sha256 = bytes => crypto.createHash("sha256").update(bytes).digest("hex");
@@ -45,12 +45,12 @@ function metadataFor(context, candidateId) {
   return missing.length ? { error: `metadata missing for ${candidateId}: ${missing.join(", ")}` } : { value: merged };
 }
 
-function samplingOverride(policy, candidate, reportBinding) {
+function samplingOverride(policy, candidate, reportBinding, policyPath) {
   const entry = (policy.entries || []).find(item => item?.id === candidate.candidateId);
   if (!entry || entry.contentClass !== candidate.contentClass || !policy.allowedContentClasses?.includes(candidate.contentClass)) return null;
   const queue = (policy.entries || []).map(item => item.id);
   return {
-    policy: { path: POLICY, sha256: sha256(fs.readFileSync(path.join(ROOT, POLICY))) },
+    policy: { path: policyPath, sha256: sha256(fs.readFileSync(path.join(ROOT, policyPath))) },
     policyId: policy.policyId,
     serviceType: entry.type,
     sampleStatus: "PENDING_BATCH_SAMPLE",
@@ -60,14 +60,26 @@ function samplingOverride(policy, candidate, reportBinding) {
   };
 }
 
-function receiptFor({ report, reportBinding, artifact, candidate, context, policy, reviewerPrincipal, maker }) {
+// Preserve the provider's explicit voice-only acceptance while encoding the
+// checker's PASS enum. HOLD/REJECT and all prose verdicts remain untouched.
+export function normalizePositiveCalibration(value) {
+  const result = clone(value);
+  if (result.verdict === "VOICE_BENCHMARK_ACCEPTED" &&
+      result.application === "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE") {
+    result.providerVerdict = result.verdict;
+    result.verdict = "PASS";
+  }
+  return result;
+}
+
+function receiptFor({ report, reportBinding, artifact, candidate, context, policy, policyPath, reviewerPrincipal, maker }) {
   const metadata = metadataFor(context, candidate.candidateId);
   if (metadata.error) return { candidateId: candidate.candidateId, errors: [metadata.error] };
   if (artifact.contentClass !== candidate.contentClass || !HASH.test(artifact.reviewedContentSha256 || "")) {
     return { candidateId: candidate.candidateId, errors: ["artifact binding contentClass or reviewedContentSha256 is invalid"] };
   }
   const limitations = clone(candidate.limitations || []);
-  const override = samplingOverride(policy, candidate, reportBinding);
+  const override = samplingOverride(policy, candidate, reportBinding, policyPath);
   if (override && !limitations.includes(DISCLOSURE)) limitations.push(DISCLOSURE);
   const receipt = {
     schemaVersion: "laidies-prose-quality-review.v1",
@@ -95,7 +107,7 @@ function receiptFor({ report, reportBinding, artifact, candidate, context, polic
       reviewerPrincipalId: reviewerPrincipal,
       reviewedAt: report.judgedAt,
       negatives: clone(report.judgment.calibration?.negatives || []),
-      positive: clone(report.judgment.calibration?.positive || {})
+      positive: normalizePositiveCalibration(report.judgment.calibration?.positive || {})
     },
     reverseBrief: clone(candidate.reverseBrief),
     outcomes: clone(candidate.outcomes),
@@ -120,7 +132,7 @@ function main() {
   }
   const { value: report, binding: reportBinding } = readJson(options.get("--input"), "input report");
   const { value: context } = readJson(options.get("--context"), "metadata context");
-  const { value: policy } = readJson(POLICY, "NewsStand sampling policy");
+  const { value: policy } = readJson(options.get("--policy") || DEFAULT_POLICY, "NewsStand sampling policy");
   if (report?.schemaVersion !== "laidies-service-bank-independent-judgment.v1" || report?.modelFamily !== "claude" ||
       !Array.isArray(report?.artifactBindings) || !Array.isArray(report?.judgment?.entries) || !report?.judgedAt) {
     fail("input is not a complete real Claude independent service-bank judgment");
@@ -131,7 +143,7 @@ function main() {
   const entriesById = new Map(report.judgment.entries.map(candidate => [candidate?.candidateId, candidate]));
   if (requestedIds?.some(id => !entriesById.has(id))) fail(`--ids includes unknown candidate ID(s): ${requestedIds.filter(id => !entriesById.has(id)).join(", ")}`);
   const selectedEntries = requestedIds ? requestedIds.map(id => entriesById.get(id)) : report.judgment.entries;
-  const results = selectedEntries.map(candidate => receiptFor({ report, reportBinding, artifact: artifacts.get(candidate?.candidateId) || {}, candidate, context, policy, reviewerPrincipal: options.get("--reviewer-principal"), maker: options.get("--maker") || "/root" }));
+  const results = selectedEntries.map(candidate => receiptFor({ report, reportBinding, artifact: artifacts.get(candidate?.candidateId) || {}, candidate, context, policy, policyPath: options.get("--policy") || DEFAULT_POLICY, reviewerPrincipal: options.get("--reviewer-principal"), maker: options.get("--maker") || "/root" }));
   const failures = results.filter(result => result.errors.length);
   if (options.get("--errors-output")) {
     const destination = path.resolve(ROOT, options.get("--errors-output"));
@@ -156,4 +168,4 @@ function main() {
   console.log(`SERVICE BANK JUDGMENT IMPORT PASS receipts=${results.length} report_sha256=${reportBinding.sha256}`);
 }
 
-main();
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main();

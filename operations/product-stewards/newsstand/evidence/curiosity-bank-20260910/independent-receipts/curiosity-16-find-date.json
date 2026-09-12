@@ -1,0 +1,458 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "curiosity-16-find-date",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-curiosity-20260910",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/independent-batch-04.json",
+      "sha256": "f62b35205fb5fcce794ea7dc337b868af6bea2daef2eca587ad2b588f854e358"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T05:57:42.929Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-16-find-date.md",
+      "sha256": "1f59529c2ae5fd1c228d64783f72c1f8ba8a47cb3ba8623dcbc8161069eab1b2"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-16-find-date.manifest.json",
+      "sha256": "0c8de200818a2da39a798f554d373eb58c2edc38d0bf51d3d2ef474e8ad6dba5"
+    }
+  },
+  "calibration": {
+    "mode": "RECURRING_SERVICE_ARTIFACT_REJECTION_V1",
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "claude-fable-curiosity-20260910",
+    "reviewedAt": "2026-09-11T05:57:42.929Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "glossaryAccumulation",
+          "technicalExplainerVoice",
+          "decorativeAnalogy",
+          "joylessInstruction",
+          "mechanismBeforeMotivation"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops: an AI system is software and machines, not a team of people",
+            "locator": "CQX-BAD-001 AI system section"
+          },
+          {
+            "excerpt": "In real life. A provider may set which models an app offers",
+            "locator": "CQX-BAD-001 Provider section"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey.",
+            "locator": "CQX-BAD-001 Provider section"
+          },
+          {
+            "excerpt": "This is the complete container around every other concept in this book.",
+            "locator": "CQX-BAD-001 AI system section"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Northstar pays $12,000 more per year and expects three days a week in the office.",
+            "locator": "CQX-BAD-002 Chapter 1, job-offer setup"
+          },
+          {
+            "excerpt": "the stage when a trained model produces an output from new input",
+            "locator": "CQX-BAD-002 'What the model did'"
+          },
+          {
+            "excerpt": "Before you rely on the result, ask four questions:",
+            "locator": "CQX-BAD-002 'The output is not the decision'"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "dry understated wit that lands the lesson without explaining the joke",
+        "concrete workplace specificity over generic empowerment",
+        "plain mechanic leading, garnish following",
+        "warmth toward a smart, busy reader",
+        "memorable compressed takeaway lines"
+      ],
+      "evidence": [
+        {
+          "excerpt": "It’s not a confidence problem. It’s a physics problem.",
+          "locator": "CQX-GOOD-EPISODE-001 lesson one-liner"
+        },
+        {
+          "excerpt": "That’s not imposter syndrome. That’s pattern recognition.",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 5"
+        },
+        {
+          "excerpt": "Four days of dread, eleven minutes of work.",
+          "locator": "CQX-GOOD-EPISODE-001 narrative beat 9"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "How do I pass along exciting news without accidentally misleading someone with old information?",
+    "promisedPayoff": "You can still share the good thing — just labelled with its own dates — and avoid sending a friend chasing something that already closed.",
+    "centralMentalModel": "Information ages; a date attached at the moment of sharing keeps an old story honest and still useful.",
+    "dailyLifeConnection": "Forwarding announcements, links and opportunities in chats and feeds, a near-daily act.",
+    "surfaceJob": "Optional Try-this-today daily practice entry, self-contained, no destination needed.",
+    "desiredReaderFeeling": "Careful without being killjoy; a small competence upgrade."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The act is stated in one plain imperative sentence with two concrete things to check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "check when it happened and when anything becomes available",
+          "locator": "curiosity-16-find-date body"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Prevents a real, common failure — sharing stale announcements — with near-zero effort cost.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Put those dates in your message if they differ",
+          "locator": "curiosity-16-find-date body"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The closing image is dry, specific and warm, not corporate or preachy; matches Ali's understated-wit benchmark without a forced joke.",
+      "artifactEvidence": [
+        {
+          "excerpt": "it just needs to arrive wearing its own year",
+          "locator": "curiosity-16-find-date closing line"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "One light personification ('wearing its own year') gives the tip charm proportionate to its size.",
+      "artifactEvidence": [
+        {
+          "excerpt": "An old story can still be useful; it just needs to arrive wearing its own year.",
+          "locator": "curiosity-16-find-date closing line"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Original advice; asserts no statistics, product capabilities, quotations or reported events.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Before passing along a promising announcement",
+          "locator": "curiosity-16-find-date body"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Evergreen behavioural advice with no dated claim; nothing in it can go stale except by bank-level repetition review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "An old story can still be useful",
+          "locator": "curiosity-16-find-date closing line"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Fits the optional daily-act brief: one situation, one act, no money, signup, public posting or insider knowledge.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Put those dates in your message if they differ",
+          "locator": "curiosity-16-find-date body"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "The reader performs an actual checking act on a real message today, not passive reading.",
+      "artifactEvidence": [
+        {
+          "excerpt": "check when it happened and when anything becomes available",
+          "locator": "curiosity-16-find-date body"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "The check yields a discoverable result: either the dates differ (and get added) or the news is confirmed current.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Put those dates in your message if they differ",
+          "locator": "curiosity-16-find-date body"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Proportional adaptation: opens from a lived situation (about to share news), lands a small precise action and a memorable landing line; hook and payoff match.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Before passing along a promising announcement",
+          "locator": "curiosity-16-find-date body"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The dated-information principle transfers beyond announcements to any forwarded claim or resource.",
+      "artifactEvidence": [
+        {
+          "excerpt": "An old story can still be useful; it just needs to arrive wearing its own year.",
+          "locator": "curiosity-16-find-date closing line"
+        }
+      ]
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "If the news turns out old, the entry gives the recovery: share it anyway with its year, rather than discarding or hiding it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "An old story can still be useful",
+          "locator": "curiosity-16-find-date closing line"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No benchmark or authority named.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitation of any named communicator.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Plain direct sentences, no filler.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "No hook is opened that goes unresolved.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "'Wearing its own year' carries the teaching, not decoration.",
+      "artifactLocator": "curiosity-16-find-date closing line"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Standalone practice item; no system claims made.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The act leads; the wit follows.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "No empirical claims asserted.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "No pop-culture example used.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Action names two specific dates to check and where to put them.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No terminology introduced.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ending stays proportionate to the tip.",
+      "artifactLocator": "curiosity-16-find-date closing line"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "No jargon present.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Closing line supplies real warmth.",
+      "artifactLocator": "curiosity-16-find-date closing line"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Motivation (not misleading others) is implicit in the opening situation.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "No hook competes with the instruction.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The why (old news misleads without its year) is stated.",
+      "artifactLocator": "curiosity-16-find-date closing line"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "No reveal structure used.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Principle generalises to any shared information.",
+      "artifactLocator": "curiosity-16-find-date closing line"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No references used.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "No dated or perishable claims.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Conversational imperative voice.",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Structure varies from the other four sampled entries; full-bank repetition unassessable here (see limitations).",
+      "artifactLocator": "curiosity-16-find-date body"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No worked example present.",
+      "artifactLocator": "curiosity-16-find-date body"
+    }
+  },
+  "factualReview": {
+    "disposition": "NO_MATERIAL_CLAIMS",
+    "rationale": "Original editorial activity suggestion per the bound brief; it makes no product-capability, effectiveness, quotation or reported-event claims, so no claim-to-source map is required.",
+    "claimScan": {
+      "observation": "Full prose scanned; the only assertions are behavioural advice and the truism that old stories can remain useful when dated, which asserts no empirical benefit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "An old story can still be useful; it just needs to arrive wearing its own year.",
+          "locator": "curiosity-16-find-date closing line"
+        }
+      ]
+    },
+    "sourceBindings": [],
+    "claimMap": [],
+    "reviewedThrough": "2026-09-10",
+    "nextTrigger": "Re-review when the full thirty-entry bank is assembled for repetition/tone, or if wording changes.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this original activity; pilot repair and full-bank maker inspection are preserved."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No new reusable defect found in this exact activity; conditional-result pilot repair applied before full bank."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Repetition and tone across the full thirty-entry bank cannot be assessed from this five-entry sample.",
+    "No reader testing performed or claimed; explain-back assessed from prose only.",
+    "Rendered page not reviewed.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/curiosity-sampling-policy-20260910.json",
+      "sha256": "2d114ecc0a064628ed33f4157a87781672fb031581672f110645e50ad1b7abc5"
+    },
+    "policyId": "newsstand-curiosity-sampled-comprehension-20260910",
+    "serviceType": "curiosity",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-f62b35205fb5",
+    "sampleQueue": [
+      "curiosity-01-ask-example",
+      "curiosity-02-name-contribution",
+      "curiosity-03-compare-rewrite",
+      "curiosity-04-find-original",
+      "curiosity-05-invite-question",
+      "curiosity-06-ask-before-help",
+      "curiosity-07-small-feedback",
+      "curiosity-08-unseen-step",
+      "curiosity-09-change-one-detail",
+      "curiosity-10-share-opportunity",
+      "curiosity-11-check-assumption",
+      "curiosity-12-credit-introduction",
+      "curiosity-13-show-start",
+      "curiosity-14-separate-preference",
+      "curiosity-15-quiet-invite",
+      "curiosity-16-find-date",
+      "curiosity-17-ask-why-rule",
+      "curiosity-18-share-template",
+      "curiosity-19-let-finish",
+      "curiosity-20-name-unknown",
+      "curiosity-21-read-own-words",
+      "curiosity-22-ask-good-part",
+      "curiosity-23-test-directions",
+      "curiosity-24-check-added-detail",
+      "curiosity-25-share-question",
+      "curiosity-26-smaller-offer",
+      "curiosity-27-ask-evidence-change",
+      "curiosity-28-record-useful-fix",
+      "curiosity-29-check-invitation",
+      "curiosity-30-ask-follow-up"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

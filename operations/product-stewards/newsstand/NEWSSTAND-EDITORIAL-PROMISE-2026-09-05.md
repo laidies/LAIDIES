@@ -1,5 +1,9 @@
 # NewsStand editorial promise
 
+## September 10 — full build and major-news coverage
+
+Ali authorizes completing and releasing the NewsStand build and correcting its outstanding issues. News selection must assess the important AI stories readers encounter in wider reporting, including safety, misuse and public-interest developments, alongside useful product news. A dated issue or one new story does not prove adequate coverage. There is no one-story-per-day cap; one-story transactions may run sequentially. Distinct events from the same organisation are not duplicates. A brief Weekly mention closes a Daily lead only when the actual reader question and material facts are adequately covered and discoverable. Every material lead needs publication, an exact sufficient existing treatment, a specific evidence hold with retry, or a reasoned editorial exclusion. No filler quota; no treating unresolved production/review as a quiet day.
+
 Status: DECIDED — Ali's direct September 5, 2026 ruling. Implementation is audited separately; this record is not proof that the workflow or public newspaper fulfils the promise.
 
 Authority: Ali's message in the NewsStand workflow audit task. This is the current NewsStand editorial-purpose source. It supplements the existing publication, source, correction, access and release controls. Where earlier NewsStand briefs conflict on reader purpose or Front PAiGE cadence, this ruling governs. It authorizes no publication or production rewrite in this audit.
@@ -203,3 +207,14 @@ Readers use AI for themselves as well as for work. Do not default to workplace s
 Add “See similar stories” at article endings, using editorially selected connections and original headlines/dates. Exclude self-links, duplicates, future publication, withheld/retracted/unapproved stories and unavailable destinations. Omit the section without a useful match; do not fill it from a shared vendor name or generic AI tag. New article preparation should check existing coverage for useful connections. Keep these distinct from correction/successor notices and do not imply separate security incidents are the same event.
 
 Ali rejected the obvious “not a depiction of the transaction” illustration disclaimer and noted the NVIDIA artwork differs from the established art style. Use a simple LAiDIES illustration credit where the image is clearly editorial. Her suggested direction for a future NVIDIA artwork revision is the recognizable Hugging Face emoji; the existing image is not replaced by this navigation repair.
+
+
+## September 12 — relevance before recency
+
+Ali approved prioritising major relevant stories readers hear about, then meaningful changes readers may encounter, then discoveries with an earned reader payoff. Verification qualifies a lead for consideration; it does not establish relevance. Before producing a candidate, name the affected reader, concrete consequence and intended placement. Niche product announcements cannot displace broader important coverage merely by being published last. Do not invent universal relevance for a service requiring an existing specialist account; HoneyBook is the corrective example.
+
+The front page and current Daily use an explicit editorial selection, preserving article text, URLs and dates. Recency breaks ties, and the existing five-day eligibility window prevents old featured selections lingering. Chronological archives and catch-up remain chronological. Reassess the order on each publishing cycle; a new Daily article without an editorial placement must fail the derivative build. Selection does not admit withheld content or override source, correction or retraction controls.
+
+
+### September 12 correction — chronology and rejected illustration
+Ali rejected the cross-date relevance ordering: The Latest must keep the newest Vancouver publication date first. Relevance determines order within each date. This supersedes older recommendations above that allowed a September10 story above September12. Keep prominence decisions before production, but do not hide newer dates below older ones. Ali also reiterates that MAiVEN/TRAiLBLAZER images must not be used as generic NewsStand illustration and rejects latest-anthropic-agentic-incidents-20260902.png. Suppress all exact reader reuses, including archived snapshots, while preserving reported text and dates.

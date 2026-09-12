@@ -19,7 +19,8 @@ const copy = relative => { const from = path.join(sourceRoot, relative), to = pa
 const readJson = relative => JSON.parse(fs.readFileSync(path.join(sourceRoot, relative), "utf8"));
 const contract = readJson(contractPath);
 const registry = readJson(registryPath);
-for (const relative of [contractPath, storyPath, observationsPath, registryPath, contract.communicationDesign.benchmark.path, ...contract.canonicalTruth.map(item => item.source.path), ...registry.positiveExemplars.map(item => item.path), ...registry.negativeExemplars.map(item => item.path)]) copy(relative);
+const selectedPositiveIds = new Set(contract.positiveExemplars.map(item => item.id));
+for (const relative of [contractPath, storyPath, observationsPath, registryPath, contract.communicationDesign.benchmark.path, ...contract.canonicalTruth.map(item => item.source.path), ...registry.positiveExemplars.filter(item => selectedPositiveIds.has(item.id)).map(item => item.path), ...registry.negativeExemplars.map(item => item.path)]) copy(relative);
 for (const relative of ["content/newsstand-reader-contract.js", "content/newsstand-big-picture-versions.js", "scripts/prepare-newsstand-draft.mjs", "scripts/check-content-producer-contract.mjs"]) copy(relative);
 
 const fixtureContract = JSON.parse(fs.readFileSync(path.join(root, contractPath), "utf8"));

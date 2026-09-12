@@ -1,0 +1,454 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "curiosity-08-unseen-step",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-curiosity-20260910",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/independent-batch-02.json",
+      "sha256": "398c7e951dc4de7f212234cba7e429bdc29dd8a342ecef699d09b6a36ef677ac"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T05:45:22.773Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-08-unseen-step.md",
+      "sha256": "410bb32b650159a338d600cf8b2a8836acc4f7abd3840e6e513a5fb905e8de32"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-08-unseen-step.manifest.json",
+      "sha256": "9e93fd83d734cbdefffd8e3c56c5d58deb5a041663e9b46be560bbb79b154bfc"
+    }
+  },
+  "calibration": {
+    "mode": "RECURRING_SERVICE_ARTIFACT_REJECTION_V1",
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "claude-fable-curiosity-20260910",
+    "reviewedAt": "2026-09-11T05:45:22.773Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "technicalExplainerVoice",
+          "decorativeAnalogy",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "CQX-BAD-001 AI system block — the 'Where it stops / In real life' scaffold repeats identically for every term"
+          },
+          {
+            "excerpt": "A provider develops or operates an AI model, product or service.",
+            "locator": "CQX-BAD-001 Provider block — dictionary-definition voice with no reader stake"
+          },
+          {
+            "excerpt": "A toolbox contains different tools for different jobs.",
+            "locator": "CQX-BAD-001 Model types block — analogy adds nothing the plain sentence lacks; decoration, not teaching"
+          },
+          {
+            "excerpt": "Miss Jeeves can answer from what is on her desk or use the catalogue, calculator or scanner.",
+            "locator": "CQX-BAD-001 Tool block — invented character analogy bolted onto a glossary entry rather than carrying a mechanism"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "technicalExplainerVoice",
+          "joylessInstruction",
+          "workedExampleOvertakesBookPurpose",
+          "corporateSludge"
+        ],
+        "evidence": [
+          {
+            "excerpt": "It is the trained component that processes input and produces an output.",
+            "locator": "CQX-BAD-002 Introduction — textbook definition voice, no LAiDIES warmth or wit anywhere in the piece"
+          },
+          {
+            "excerpt": "Read the chapters in order to build the complete picture.",
+            "locator": "CQX-BAD-002 Introduction — corporate learning-module framing the writing lock explicitly bans"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run",
+            "locator": "CQX-BAD-002 closing — syllabus prose; the reader is processed through a curriculum, not guided"
+          },
+          {
+            "excerpt": "Imagine that you have two job offers.",
+            "locator": "CQX-BAD-002 Chapter 1 — one worked example carries the entire chapter structure end to end, crowding out the surface's stated reference job"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "Plain mechanic leads and the joke garnishes it, never carries it",
+        "Dry, understated wit with a specific workplace truth underneath",
+        "Analogies that do two jobs (familiar plus teaching), used sparingly",
+        "Reader treated as smart and busy, never in training or in deficit"
+      ],
+      "evidence": [
+        {
+          "excerpt": "It's not a confidence problem. It's a physics problem.",
+          "locator": "CQX-GOOD-EPISODE-001 lesson one-liner — reframe that teaches while it lands"
+        },
+        {
+          "excerpt": "That's not imposter syndrome. That's pattern recognition.",
+          "locator": "CQX-GOOD-EPISODE-001 quotables — dry wit built on a specific factual beat, not decoration"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What do I do when instructions jump over the step I actually needed?",
+    "promisedPayoff": "You get the missing step made visible instead of silently blaming yourself.",
+    "centralMentalModel": "Gaps in instructions are the instructions' problem; make the invisible step observable, then report evidence.",
+    "dailyLifeConnection": "Any handover, IT walkthrough, or how-to that skips from 'open the file' to 'you are ready.'",
+    "surfaceJob": "Optional 'Try this today' daily practice item.",
+    "desiredReaderFeeling": "Entitled to ask; calm rather than embarrassed when stuck."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Situation and act are unambiguous, with a concrete instance of the gap.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ask what happens in between",
+          "locator": "curiosity-08 body, sentence 1"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Converts a stuck moment into a specific question plus an evidence-based report; broadly useful.",
+      "artifactEvidence": [
+        {
+          "excerpt": "say what you see instead of assuming you did it wrong",
+          "locator": "curiosity-08 final sentence"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The 'open the file' to 'you are ready' jump is a specific, seen-it truth; no patronizing framing — the instructions are at fault, not the reader.",
+      "artifactEvidence": [
+        {
+          "excerpt": "jump from “open the file” to “you are ready,”",
+          "locator": "curiosity-08 body, sentence 1"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Plainer than 06/10 but the recognizable absurd gap supplies the feel-seen beat; acceptable for the length.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ask what happens in between",
+          "locator": "curiosity-08 body"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "No claims about tools, products, or outcomes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Try that missing step yourself while the person is there",
+          "locator": "curiosity-08 body"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Evergreen; no dated or product-specific content.",
+      "artifactEvidence": [
+        {
+          "excerpt": "When instructions jump from",
+          "locator": "curiosity-08 body, sentence 1"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "One situation, one act, explicit check; the brief's clarification-question representative item.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask to see the missing step.",
+          "locator": "curiosity-08 heading"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "Live practice at the next unclear instruction.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Try that missing step yourself",
+          "locator": "curiosity-08 body"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "Immediate observable feedback: either you reach the next screen or you report exactly what you see.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If you still cannot get to the next screen",
+          "locator": "curiosity-08 final sentence"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Proportional: concrete shared starting point, invisible process (the skipped step) made observable, small landing; no inflation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "say what you see instead of assuming you did it wrong",
+          "locator": "curiosity-08 landing"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Report-what-you-observe-instead-of-self-blame transfers to debugging, support calls, and AI-tool troubleshooting alike.",
+      "artifactEvidence": [
+        {
+          "excerpt": "instead of assuming you did it wrong",
+          "locator": "curiosity-08 final sentence"
+        }
+      ]
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "Explicit failure branch is written into the entry itself.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If you still cannot get to the next screen, say what you see",
+          "locator": "curiosity-08 final sentence"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No filler.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "No unresolved hook.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy used.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Standalone by design.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Pure instruction-first.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "No outcome promises.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The example gap is the situation itself.",
+      "artifactLocator": "curiosity-08 sentence 1"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Act, condition ('if they have time'), and failure branch all specified.",
+      "artifactLocator": "curiosity-08 body"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No terms.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on the practical branch.",
+      "artifactLocator": "curiosity-08 final sentence"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Plain words.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Dry recognition humour in the absurd instruction gap; adequate for length.",
+      "artifactLocator": "curiosity-08 sentence 1"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Opens from the frustrating moment.",
+      "artifactLocator": "curiosity-08 sentence 1"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "No hook.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Why-it-works is implicit but sufficient for a practice item: observation replaces assumption.",
+      "artifactLocator": "curiosity-08 final sentence"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "No reveal.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Applies to any incomplete instructions.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Evergreen.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Conversational imperative.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Distinct structure from siblings.",
+      "artifactLocator": "curiosity-08 whole entry"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No extended example.",
+      "artifactLocator": "curiosity-08 whole entry"
+    }
+  },
+  "factualReview": {
+    "disposition": "NO_MATERIAL_CLAIMS",
+    "rationale": "Original behavioural suggestion; no product, effectiveness, or reported-event claims.",
+    "claimScan": {
+      "observation": "Full prose inspected; the entry asserts only what the reader should do and observe, with consent hedged.",
+      "artifactEvidence": [
+        {
+          "excerpt": "while the person is there, if they have time",
+          "locator": "curiosity-08 body"
+        }
+      ]
+    },
+    "reviewedThrough": "2026-09-10",
+    "nextTrigger": "Only on surface or brief change; evergreen.",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this original activity; pilot repair and full-bank maker inspection are preserved."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No new reusable defect found in this exact activity; conditional-result pilot repair applied before full bank."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Explain-back assessed from prose only; sampled reader testing pending.",
+    "Rendered page not reviewed here.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/curiosity-sampling-policy-20260910.json",
+      "sha256": "2d114ecc0a064628ed33f4157a87781672fb031581672f110645e50ad1b7abc5"
+    },
+    "policyId": "newsstand-curiosity-sampled-comprehension-20260910",
+    "serviceType": "curiosity",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-398c7e951dc4",
+    "sampleQueue": [
+      "curiosity-01-ask-example",
+      "curiosity-02-name-contribution",
+      "curiosity-03-compare-rewrite",
+      "curiosity-04-find-original",
+      "curiosity-05-invite-question",
+      "curiosity-06-ask-before-help",
+      "curiosity-07-small-feedback",
+      "curiosity-08-unseen-step",
+      "curiosity-09-change-one-detail",
+      "curiosity-10-share-opportunity",
+      "curiosity-11-check-assumption",
+      "curiosity-12-credit-introduction",
+      "curiosity-13-show-start",
+      "curiosity-14-separate-preference",
+      "curiosity-15-quiet-invite",
+      "curiosity-16-find-date",
+      "curiosity-17-ask-why-rule",
+      "curiosity-18-share-template",
+      "curiosity-19-let-finish",
+      "curiosity-20-name-unknown",
+      "curiosity-21-read-own-words",
+      "curiosity-22-ask-good-part",
+      "curiosity-23-test-directions",
+      "curiosity-24-check-added-detail",
+      "curiosity-25-share-question",
+      "curiosity-26-smaller-offer",
+      "curiosity-27-ask-evidence-change",
+      "curiosity-28-record-useful-fix",
+      "curiosity-29-check-invitation",
+      "curiosity-30-ask-follow-up"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

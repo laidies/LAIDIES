@@ -1,0 +1,475 @@
+{
+  "facts": {
+    "attestations": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    },
+    "claims": {
+      "proposal-status": {
+        "state": "supported",
+        "reason": "FR document is labelled 'ACTION: Proposed rule' removing the minor NSR public-participation minimum, and the EPA NSR index still lists it as a July 1 proposed rulemaking; the artifact's conditional framing ('could let') matches.",
+        "passages": [
+          "P001",
+          "P002"
+        ],
+        "sourceIds": [
+          "epa-proposed-rule",
+          "epa-current-status"
+        ]
+      },
+      "closed-deadline": {
+        "state": "supported",
+        "reason": "FR DATES section states 'Comments must be received on or before August 21, 2026,' matching the artifact's closed-deadline statement and its later warning that the deadline is not a current invitation.",
+        "passages": [
+          "P002",
+          "P010"
+        ],
+        "sourceIds": [
+          "epa-proposed-rule"
+        ]
+      },
+      "current-federal-floor": {
+        "state": "supported",
+        "reason": "40 CFR 51.161(b) as quoted in the proposal requires notice, public inspection and 'a 30-day period for submittal of public comment,' and EPA's own discussion confirms it interprets this as applying to minor NSR programs; the artifact states this floor accurately.",
+        "passages": [
+          "P002"
+        ],
+        "sourceIds": [
+          "epa-proposed-rule"
+        ]
+      },
+      "minor-definition": {
+        "state": "supported",
+        "reason": "The proposal defines new stationary sources as 'minor' if they lack potential to emit at or above major-source statutory thresholds; the artifact's emissions-category definition and its caution that 'minor' does not describe building size are consistent.",
+        "passages": [
+          "P003"
+        ],
+        "sourceIds": [
+          "epa-proposed-rule"
+        ]
+      },
+      "state-choice": {
+        "state": "supported",
+        "reason": "The proposal states agencies 'would be allowed to, but would not be required to, revise their existing SIP-approved minor NSR program public participation requirements,' exactly matching the artifact's state-choice claim.",
+        "passages": [
+          "P004"
+        ],
+        "sourceIds": [
+          "epa-proposed-rule"
+        ]
+      },
+      "existing-rules-retained": {
+        "state": "supported",
+        "reason": "The proposal states that if an agency chooses not to revise, 'those existing minor NSR public participation requirements would remain in the SIP and continue to apply,' which the artifact restates faithfully.",
+        "passages": [
+          "P004"
+        ],
+        "sourceIds": [
+          "epa-proposed-rule"
+        ]
+      },
+      "state-plan-process": {
+        "state": "supported",
+        "reason": "The proposal states any SIP amendments pursued 'would, if finalized, involve mandatory opportunities for public participation both at the State and local level and during the Agency review process,' matching the artifact's SIP-process claim.",
+        "passages": [
+          "P005"
+        ],
+        "sourceIds": [
+          "epa-proposed-rule"
+        ]
+      },
+      "major-unchanged": {
+        "state": "supported",
+        "reason": "The proposal states EPA 'is not proposing to revise the minimum Federal public participation requirements that apply to the permitting of new major sources or major modifications,' matching the artifact's boundary claim.",
+        "passages": [
+          "P005"
+        ],
+        "sourceIds": [
+          "epa-proposed-rule"
+        ]
+      },
+      "data-centre-permit-relevance": {
+        "state": "supported",
+        "reason": "EPA's data-centre resource page states stationary turbines and engines are common primary/backup power sources for data centres and that state and local agencies issue most data-centre air permits; the artifact attributes this to EPA correctly.",
+        "passages": [
+          "P006"
+        ],
+        "sourceIds": [
+          "epa-data-centre-resources"
+        ]
+      },
+      "pennsylvania-example": {
+        "state": "supported",
+        "reason": "PA DEP's notice describes Amazon's application for '280 natural gas-fired generator engines and three diesel-fired emergency generator engines,' matching the artifact's counts and fuel types exactly.",
+        "passages": [
+          "P006"
+        ],
+        "sourceIds": [
+          "pa-amazon-permit-example"
+        ]
+      },
+      "pennsylvania-comment": {
+        "state": "supported",
+        "reason": "The DEP notice announces a July 14 community meeting and a 30-day comment period on the Minor New Source Plan Approval application; the artifact reports both and correctly frames the process as historical.",
+        "passages": [
+          "P006",
+          "P007"
+        ],
+        "sourceIds": [
+          "pa-amazon-permit-example"
+        ]
+      },
+      "reported-dispute": {
+        "state": "supported",
+        "reason": "The September 3 AP report contains critics' fear that residents in states with weak requirements could lose notice, and EPA's response that 'states get to pick' their process; the artifact attributes both positions without adopting either, and the no-mandated-change point is corroborated by the proposal text.",
+        "passages": [
+          "P008"
+        ],
+        "sourceIds": [
+          "ap-independent-report",
+          "epa-proposed-rule"
+        ]
+      },
+      "resident-question": {
+        "state": "supported",
+        "reason": "The advice follows directly from sourced facts: the proposal's minor/major boundary and retained state rules justify asking which permit category and which current notice rule applies, and EPA's resource page establishes state/local agencies as the permit issuers to contact.",
+        "passages": [
+          "P009",
+          "P010"
+        ],
+        "sourceIds": [
+          "epa-proposed-rule",
+          "epa-data-centre-resources"
+        ]
+      }
+    },
+    "outcomes": {
+      "factualIntegrity": {
+        "state": "pass",
+        "reason": "All thirteen material claims trace to their assigned sources with attribution retained; the disputed characterisation is presented as reported positions (AP critics vs EPA response) rather than asserted fact.",
+        "passages": [
+          "P002",
+          "P004",
+          "P008"
+        ]
+      },
+      "freshnessReviewability": {
+        "state": "pass",
+        "reason": "Every time-sensitive claim carries its date (July 7 proposal, August 21 closed deadline, July Pennsylvania notice, September 3 AP report) and the current-status source lets a reader verify the action remains proposed.",
+        "passages": [
+          "P002",
+          "P006",
+          "P008"
+        ]
+      },
+      "datedChange": {
+        "state": "pass",
+        "reason": "The artifact explicitly labels the Pennsylvania process as historical with a past comment window, and separates the closed federal deadline from any future live local permit dates.",
+        "passages": [
+          "P007",
+          "P010"
+        ]
+      },
+      "consequenceAndUncertainty": {
+        "state": "pass",
+        "reason": "Consequences are concrete (loss of guaranteed notice in states that weaken rules) while uncertainty survives: the rule is still proposed, states may keep rules, and both sides of the dispute are retained.",
+        "passages": [
+          "P004",
+          "P008",
+          "P009"
+        ]
+      }
+    },
+    "learningDisposition": {
+      "disposition": "NO_NEW_DEFECT",
+      "rationale": "Every claim verified as supported against its assigned sources and all four factual outcomes pass; no defect or evidence gap surfaced in the factual review."
+    },
+    "summary": "All material claims check out against the Federal Register proposal, EPA status index, EPA data-centre page, Pennsylvania DEP notice and AP report, with attribution and limits preserved. The artifact correctly keeps the action proposed, the deadline closed, the current 30-day floor intact, state choice conditional, major permits out of scope, and the Pennsylvania example historical. Factual integrity, freshness, dated-change separation and consequence-with-uncertainty all pass."
+  },
+  "reader": {
+    "attestations": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    },
+    "reverseBrief": {
+      "humanQuestion": "Could a neighbour lose a guaranteed chance to learn about and comment on an air permit for a nearby data centre?",
+      "promisedPayoff": "The reader can separate a proposed federal floor change from current state rules and major-permit rules, and can locate the live local process for a specific project.",
+      "centralMentalModel": "A federal minimum (notice plus 30-day comment for minor-source permits) sits under state rules; the proposal would remove the minimum but state rules persist until a state chooses to revise them through its own public SIP process, and major permits are untouched.",
+      "dailyLifeConnection": "A resident near a proposed data centre with hundreds of backup engines needs to know whether they will get notice and a comment window before construction is authorised.",
+      "surfaceJob": "A dated news article answering what EPA proposed, its current legal status, and what a nearby resident should check today.",
+      "desiredReaderFeeling": "Alert but not alarmed: informed about what could change, reassured about what has not changed, and equipped with concrete questions to ask locally."
+    },
+    "outcomes": {
+      "plainClarity": {
+        "state": "pass",
+        "reason": "Each technical term (minor-source permit, state implementation plan, public-comment floor) is defined in plain language at first meaningful use; sentences carry one idea each.",
+        "passages": [
+          "P002",
+          "P003",
+          "P005"
+        ]
+      },
+      "readerValue": {
+        "state": "pass",
+        "reason": "Beyond the headline, the reader gains a usable decision framework: which permit category applies, which notice rule governs today, and where the live docket is.",
+        "passages": [
+          "P004",
+          "P009",
+          "P010"
+        ]
+      },
+      "laidiesVoice": {
+        "state": "pass",
+        "reason": "Warm, candid, adult register ('do not assume minor means unimportant') without condescension or a borrowed explainer persona; the cocktail-party line is conversational and accurate.",
+        "passages": [
+          "P009",
+          "P011"
+        ]
+      },
+      "engagingEnjoyable": {
+        "state": "pass",
+        "reason": "The 'Why is this in AI news?' pivot and the concrete 280-engine example sustain interest; the piece earns attention through stakes rather than forced humour, appropriate for the subject.",
+        "passages": [
+          "P006",
+          "P009"
+        ]
+      },
+      "surfaceFit": {
+        "state": "pass",
+        "reason": "As a dated news article it answers what happened (July 7 proposal), current status (still proposed, deadline closed) and why it matters, staying within bounded news scope.",
+        "passages": [
+          "P002",
+          "P008"
+        ]
+      },
+      "dailyLifeConnection": {
+        "state": "pass",
+        "reason": "The resident-near-a-project situation is recognisable and specific: a data centre proposed nearby, backup generators, and the question of whether you will hear about it before it is approved.",
+        "passages": [
+          "P006",
+          "P009"
+        ]
+      },
+      "communicationBenchmark": {
+        "state": "pass",
+        "reason": "Human purpose leads (will a neighbour lose a voice), causality is concrete (floor removed, state rules persist unless revised via public SIP process), and a better next question closes ('which permit, which rule, where is the docket'); no imitation of any communicator's persona.",
+        "passages": [
+          "P004",
+          "P005",
+          "P009"
+        ]
+      },
+      "explainBack": {
+        "state": "pass",
+        "reason": "The mechanism in P004-P005 supports an accurate ordinary-language answer to why comment rights would not vanish automatically on finalisation; I could construct that answer solely from the article.",
+        "passages": [
+          "P004",
+          "P005"
+        ]
+      },
+      "unseenTransfer": {
+        "state": "pass",
+        "reason": "The permit-category-plus-current-local-rule framework transfers cleanly to novel projects and states not mentioned in the article; my invented Georgia scenario resolves using only the article's mechanism.",
+        "passages": [
+          "P004",
+          "P009",
+          "P010"
+        ]
+      },
+      "usefulAction": {
+        "state": "pass",
+        "reason": "The action is specific and proportionate: identify the responsible air agency, ask minor-or-major, ask which notice rule applies today, and find the live docket, rather than generic 'stay informed' advice.",
+        "passages": [
+          "P009",
+          "P010"
+        ]
+      },
+      "analogyIntegrity": {
+        "state": "pass",
+        "reason": "The article uses no figurative analogies; its one comparison-like device, the 'floor' metaphor for the federal minimum, maps the mechanism accurately (a minimum states can exceed) and retains its limits.",
+        "passages": [
+          "P002",
+          "P004"
+        ]
+      }
+    },
+    "newsChecks": {
+      "incidentExplained": {
+        "state": "pass",
+        "reason": "The causal sequence is complete: EPA proposed on July 7 to remove the minor-source participation minimum, comment closed August 21, states would then choose, and existing rules persist until revised.",
+        "passages": [
+          "P002",
+          "P004",
+          "P005"
+        ]
+      },
+      "termsExplainedInContext": {
+        "state": "pass",
+        "reason": "Minor-source permit, state implementation plan, and the participation floor are each given plain meaning at first meaningful use, with the important caution that 'minor' is an emissions category not a size judgment.",
+        "passages": [
+          "P003",
+          "P005"
+        ]
+      },
+      "readerConsequenceSpecific": {
+        "state": "pass",
+        "reason": "The consequence is grounded in a recognizable situation: a resident near a proposed data centre with 280 backup engines and the specific question of whether notice and a comment window will exist.",
+        "passages": [
+          "P006",
+          "P009"
+        ]
+      },
+      "noInternalNotesOrInventedAdvice": {
+        "state": "pass",
+        "reason": "No internal operating notes or process details appear in the public prose; all advice follows directly from sourced facts about permit categories and current state rules.",
+        "passages": [
+          "P009",
+          "P011",
+          "P012"
+        ]
+      }
+    },
+    "families": {
+      "glossaryAccumulation": {
+        "state": "clear",
+        "reason": "Definitions are integrated into the causal explanation exactly where the mechanism needs them, not accumulated as a list.",
+        "passages": []
+      },
+      "templateRepetition": {
+        "state": "clear",
+        "reason": "Paragraphs vary in structure and each advances the explanation from status to mechanism to example to action; no repeated scaffold.",
+        "passages": []
+      },
+      "decorativeAnalogy": {
+        "state": "clear",
+        "reason": "No decorative comparisons; the 'floor' framing is a working legal metaphor that carries the mechanism accurately.",
+        "passages": []
+      },
+      "referenceConfetti": {
+        "state": "clear",
+        "reason": "No pop-culture or gratuitous references; every citation does explanatory work.",
+        "passages": []
+      },
+      "missingMechanism": {
+        "state": "clear",
+        "reason": "The causal chain from proposal to state discretion to persistence of existing rules to SIP-revision process is stated step by step.",
+        "passages": []
+      },
+      "genericAction": {
+        "state": "clear",
+        "reason": "Advice names the actor to find and three concrete questions to ask, not vague 'be careful' guidance.",
+        "passages": []
+      },
+      "jargonBeforeMeaning": {
+        "state": "clear",
+        "reason": "Minor-source permit and state implementation plan are each defined at or immediately after first use.",
+        "passages": []
+      },
+      "disconnectedSystem": {
+        "state": "clear",
+        "reason": "Federal floor, state rules, SIP process and local permits are explicitly connected, showing how a change at one level does or does not propagate.",
+        "passages": []
+      },
+      "factlessConfidence": {
+        "state": "clear",
+        "reason": "Certainty tracks evidence: the rule is consistently 'proposed,' effects are conditional, and the dispute is attributed rather than resolved.",
+        "passages": []
+      },
+      "staleUnreviewableClaims": {
+        "state": "clear",
+        "reason": "Every time-sensitive claim is dated (July 7, August 21, July 13-14, September 3) and traceable to a named primary or independent source.",
+        "passages": []
+      },
+      "corporateSludge": {
+        "state": "clear",
+        "reason": "Language is concrete throughout; no motivational or vague corporate phrasing obscures meaning.",
+        "passages": []
+      },
+      "joylessInstruction": {
+        "state": "clear",
+        "reason": "Though procedural in subject, the piece keeps human stakes (a neighbour's voice, 280 engines) in view rather than becoming a terminology manual.",
+        "passages": []
+      },
+      "benchmarkNameDrop": {
+        "state": "clear",
+        "reason": "No communication benchmark or famous explainer is mentioned anywhere in the artifact.",
+        "passages": []
+      },
+      "curiosityWithoutPayoff": {
+        "state": "clear",
+        "reason": "The 'Why is this in AI news?' hook is answered immediately with the generator and permitting facts.",
+        "passages": []
+      },
+      "familiarExampleWithoutTechnicalReturn": {
+        "state": "clear",
+        "reason": "The Pennsylvania example returns to the mechanism: it shows a minor-source application receiving a meeting and 30-day window under current rules, and is explicitly bounded as historical.",
+        "passages": []
+      },
+      "communicationPastiche": {
+        "state": "clear",
+        "reason": "The voice is original and consistent; no imitation of another communicator's wording or mannerisms.",
+        "passages": []
+      },
+      "entertainmentBeforeUnderstanding": {
+        "state": "clear",
+        "reason": "No humour or spectacle competes with the explanation; understanding leads throughout.",
+        "passages": []
+      },
+      "mechanismCompressedBehindHook": {
+        "state": "clear",
+        "reason": "The mechanism receives the bulk of the piece (P002, P004, P005); the hook is one sentence.",
+        "passages": []
+      },
+      "prematureClickBeforeMechanism": {
+        "state": "clear",
+        "reason": "The headline's conditional claim is immediately earned by the status and mechanism paragraphs before any conclusion is drawn.",
+        "passages": []
+      },
+      "inflatedTakeawayEnding": {
+        "state": "clear",
+        "reason": "The ending stays bounded: it directs readers to the live local process rather than inflating into a grand claim about democracy or AI.",
+        "passages": []
+      },
+      "purposeTooNarrow": {
+        "state": "clear",
+        "reason": "The piece covers the full supplied job: proposed federal change, current state and major-permit rules, and locating the live local process.",
+        "passages": []
+      },
+      "mechanismBeforeMotivation": {
+        "state": "clear",
+        "reason": "The human reason (residents' notice and comment rights near data centres) is established in the headline and first paragraph before regulatory machinery begins.",
+        "passages": []
+      },
+      "workedExampleOvertakesBookPurpose": {
+        "state": "clear",
+        "reason": "The Pennsylvania example occupies two short paragraphs and serves the broader orientation rather than crowding it out.",
+        "passages": []
+      },
+      "technicalExplainerVoice": {
+        "state": "clear",
+        "reason": "This is a bounded news report where explaining the specific permitting mechanism is the right perspective; the organising viewpoint remains the resident's, not a specialist taxonomy.",
+        "passages": []
+      }
+    },
+    "explainBack": {
+      "question": "If EPA finalizes this proposal next year, why would a neighbour in a state with strong notice rules not automatically lose their comment window on a new minor-source data-centre permit?",
+      "answer": "Because the proposal only removes the federal minimum EPA uses when approving state programs; it does not delete anything from a state's own rules. The state's existing public-participation requirements sit inside its EPA-approved state implementation plan and keep applying unless the state affirmatively revises that plan. Revision is optional, and if the state pursues it, the change itself must go through public participation at the state level and again during EPA review. So the neighbour loses the guarantee only after two further public steps that have not happened.",
+      "expectedEvidence": "P004 (state rules continue to apply unless revised, revision optional), P005 (SIP changes require public participation at state level and during EPA review), P002 (the change is to the federal minimum, still proposed).",
+      "assessment": "The article fully supports this answer: the two-step persistence mechanism is stated explicitly in P004 and P005 in ordinary language, so a careful reader can reconstruct it without outside knowledge."
+    },
+    "unseenTransfer": {
+      "scenario": "In mid-2027, after the rule is (hypothetically) finalized, a resident of a Georgia county hears a rumour that a logistics company will build a data-centre campus with 150 diesel backup generators two miles from her home. A neighbour tells her 'EPA killed public comment, so there's nothing you can do.'",
+      "question": "Using only this article's mechanism, what should she check to learn whether she is guaranteed notice and a comment route, and is her neighbour right?",
+      "answer": "Her neighbour is overstating. First she should find the state or local air agency that would issue the permit, since states and localities issue most data-centre air permits. Then she should ask whether the application is major or minor: if the generators' potential emissions reach major-source thresholds, federal major-permit participation requirements still apply unchanged. If it is minor, the governing question is what Georgia's current SIP-approved rules require today, because a finalized federal rule removes only the minimum; Georgia's existing notice rules persist unless Georgia has revised its plan through its own public process. She should then ask where the live notice or docket for this specific application would appear.",
+      "expectedEvidence": "P006 (states issue most data-centre permits; generator counts frame the category question), P005 (major permits unchanged; SIP revision has its own public process), P004 (existing state rules persist), P009-P010 (the three questions and live-docket step).",
+      "assessment": "The article's mechanism resolves this novel state-and-project scenario completely, including correcting the neighbour's overstatement, confirming genuine transfer beyond the Pennsylvania example."
+    },
+    "learningDisposition": {
+      "disposition": "NO_NEW_DEFECT",
+      "rationale": "All eleven reader outcomes and four news checks pass, all twenty-four failure families are clear, and both the explain-back and the invented transfer scenario resolved using only the artifact's mechanism; no defect or uncertain assessment remains."
+    },
+    "summary": "The article answers the resident's question in the correct causal order: legal status first, then the current federal floor, the state-choice mechanism, the untouched major-permit boundary, a properly bounded historical Pennsylvania example, and a concrete three-question local action. Terms are defined in context, dated events are separated from current rights, uncertainty survives the explanation, and the reported dispute stays attributed. The mechanism supports both an accurate causal explain-back and transfer to a new state and project. The tone is procedural but carries human stakes throughout; no failure families are present."
+  }
+}

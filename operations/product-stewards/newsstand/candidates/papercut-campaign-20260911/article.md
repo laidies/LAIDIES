@@ -1,0 +1,23 @@
+# Researchers say AI agents helped attack 395 organizations through PaperCut servers
+
+## The story
+
+GreyNoise says hundreds of AI agents helped an attacker compromise at least 440 PaperCut installations at 395 organizations in 48 countries. Its September 9 report describes a campaign that began on August 31. PaperCut confirms active exploitation and customer incidents, but it has not confirmed GreyNoise’s totals or AI attribution.
+
+PaperCut NG/MF is self-hosted software for managing an organization’s printing, copying and scanning. A person may only see a school or office printer, while PaperCut can run on a server connected to the organization’s Windows directory. GreyNoise says the attacker reached domain-administrator control at 12 organizations. Domain administrator means a powerful permission that can manage connected Windows accounts and systems across an organization.
+
+## The LAiDIES read
+
+GreyNoise says the actor combined AI coordination with existing offensive tools and vulnerabilities in internet-facing PaperCut servers. GreyNoise describes Codex as the harness coordinating the work and DeepSeek—not an OpenAI model—as the model powering the agents. A harness is the coordinating software around a model that starts, routes and monitors agent jobs. An AI agent is software that can plan and carry out several steps with tools instead of stopping at one answer.
+
+That division of labour is the AI change: many agent jobs could work in parallel, while the vulnerable server remained the opening. GreyNoise says that once the campaign launched, at least 11 organizations were compromised in 26 seconds. Results were uneven: domain-administrator control reached only 12 organizations overall, and a web firewall stopped one attempt.
+
+PaperCut’s September 10 bulletin says it has not independently verified GreyNoise’s indicators and did not receive them through customer reports. It does confirm active exploitation and customer incidents. BleepingComputer reported the figures as GreyNoise’s findings, not a separate count. GreyNoise says the actor’s motive is unknown; data theft or ransomware are possible later uses of access, not established outcomes.
+
+PaperCut published maintenance releases 26.0.5, 25.0.13 and 24.1.10 on September 10 and recommends them for all NG/MF customers. The company says most application servers are patched or behind a firewall, while public unpatched servers remain targets.
+
+## What this means for you
+
+If you use a printer but do not manage the system, this is not an update to install on your own laptop. Ask the organization whether it runs PaperCut NG/MF and whether its application server has moved to a current maintenance release. If you administer PaperCut, use the vendor bulletin and your organization’s incident-response process rather than acting on an unverified indicator alone.
+
+The next useful evidence is independent confirmation of GreyNoise’s counts and attribution, plus verified consequences at affected organizations. Ask how AI coordination changed the speed and scale around an existing software weakness.

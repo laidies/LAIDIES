@@ -1,0 +1,1627 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "papercut-campaign-20260911",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/weekly_recovery",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/weekly_recovery",
+    "principalId": "/root/weekly_recovery",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-11T08:33:10-07:00",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/publication-manifest.json",
+      "sha256": "e472c14ff7935df330516eb32613580a50b98845430c43d55bbfc1c90f81425e"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/review-text.json",
+      "sha256": "3248c6abf99433387c6e1c45e5a708191d8953f58a97c92394b429ee7183602e"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/rendered-article.html",
+      "sha256": "50fd59ed1708a1d1db1c3cccfc903106e13cba1a45bbe4aab2e2054deb725fcd"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/weekly_recovery",
+    "reviewedAt": "2026-09-10T19:36:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What did AI actually do in the PaperCut attacks, what was harmed and what is independently confirmed?",
+    "promisedPayoff": "See the coordinator-model-tools-server chain and separate GreyNoise's claims from PaperCut's confirmations.",
+    "centralMentalModel": "The vulnerable server was the opening; a harness coordinated agent jobs powered by a model and existing tools around it.",
+    "dailyLifeConnection": "The visible school or office printer can connect to a self-hosted management server and wider Windows directory.",
+    "surfaceJob": "September 11 explanation of GreyNoise's September 9 report and PaperCut's September 10 response.",
+    "desiredReaderFeeling": "I know what AI coordinated, what the vulnerable server enabled, what the vendor confirms and what remains uncertain."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies plainClarity evidence while keeping the AI roles, vulnerable server, reported consequences and vendor confirmation connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "PaperCut NG/MF is self-hosted software",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies readerValue evidence while keeping the AI roles, vulnerable server, reported consequences and vendor confirmation connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask the organization whether it runs PaperCut NG/MF",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies laidiesVoice evidence while keeping the AI roles, vulnerable server, reported consequences and vendor confirmation connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask how AI coordination changed",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies engagingEnjoyable evidence while keeping the AI roles, vulnerable server, reported consequences and vendor confirmation connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A person may only see a school or office printer",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies factualIntegrity evidence while keeping the AI roles, vulnerable server, reported consequences and vendor confirmation connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "has not independently verified GreyNoise’s indicators",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies freshnessReviewability evidence while keeping the AI roles, vulnerable server, reported consequences and vendor confirmation connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "September 10 bulletin",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies surfaceFit evidence while keeping the AI roles, vulnerable server, reported consequences and vendor confirmation connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Researchers say AI agents helped attack",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies datedChange evidence while keeping the AI roles, vulnerable server, reported consequences and vendor confirmation connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Its September 9 report describes a campaign that began on August 31",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies consequenceAndUncertainty evidence while keeping the AI roles, vulnerable server, reported consequences and vendor confirmation connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "motive is unknown",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies dailyLifeConnection evidence while keeping the AI roles, vulnerable server, reported consequences and vendor confirmation connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "school or office printer",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies communicationBenchmark evidence while keeping the AI roles, vulnerable server, reported consequences and vendor confirmation connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That division of labour is the AI change",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies explainBack evidence while keeping the AI roles, vulnerable server, reported consequences and vendor confirmation connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "DeepSeek—not an OpenAI model",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Did an OpenAI model power the attacking agents?",
+        "probeResponse": "No. GreyNoise says Codex was the coordinating harness and DeepSeek was the model powering the agents; existing tools acted on vulnerable PaperCut servers.",
+        "expectedEvidence": "The harness, model, tools and vulnerable server remain distinct.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies unseenTransfer evidence while keeping the AI roles, vulnerable server, reported consequences and vendor confirmation connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "AI coordination changed the speed and scale around an existing software weakness",
+          "locator": "exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "How should I read a later headline saying AI hacked another product?",
+        "probeResponse": "Separate the software opening from the model, coordinating harness and tools, then ask which outcomes the affected vendor independently confirms.",
+        "expectedEvidence": "The four-part mechanism and evidence boundary transfer beyond PaperCut.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies usefulAction evidence while keeping the AI roles, vulnerable server, reported consequences and vendor confirmation connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask the organization whether it runs PaperCut NG/MF",
+          "locator": "exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete story supplies analogyIntegrity evidence while keeping the AI roles, vulnerable server, reported consequences and vendor confirmation connected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "school or office printer",
+          "locator": "exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The complete story avoids glossaryAccumulation; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The complete story avoids templateRepetition; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The complete story avoids decorativeAnalogy; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The complete story avoids referenceConfetti; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The complete story avoids missingMechanism; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The complete story avoids genericAction; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The complete story avoids jargonBeforeMeaning; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The complete story avoids disconnectedSystem; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The complete story avoids factlessConfidence; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The complete story avoids staleUnreviewableClaims; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The complete story avoids corporateSludge; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The complete story avoids joylessInstruction; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The complete story avoids benchmarkNameDrop; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The complete story avoids curiosityWithoutPayoff; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The complete story avoids familiarExampleWithoutTechnicalReturn; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The complete story avoids communicationPastiche; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The complete story avoids entertainmentBeforeUnderstanding; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The complete story avoids mechanismCompressedBehindHook; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The complete story avoids prematureClickBeforeMechanism; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The complete story avoids inflatedTakeawayEnding; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The complete story avoids purposeTooNarrow; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The complete story avoids mechanismBeforeMotivation; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The complete story avoids workedExampleOvertakesBookPurpose; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The complete story avoids technicalExplainerVoice; the dated incident, mechanism, source boundary, current response and role-specific action remain connected.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+        "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "scale",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "at least 440 PaperCut installations at 395 organizations in 48 countries",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "greynoise-papercut-report"
+        ],
+        "scopeAndFreshness": "GreyNoise's observed campaign count, attributed in prose.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          }
+        ]
+      },
+      {
+        "claimId": "report-timeline",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "September 9 report describes a campaign that began on August 31",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "greynoise-papercut-report"
+        ],
+        "scopeAndFreshness": "Report and campaign dates remain distinct from publication.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          }
+        ]
+      },
+      {
+        "claimId": "vendor-confirmation-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "PaperCut confirms active exploitation and customer incidents, but it has not confirmed GreyNoise’s totals or AI attribution",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "papercut-security-bulletin"
+        ],
+        "scopeAndFreshness": "Vendor confirmation and non-verification appear together.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Last updated September 10, 2026",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "10 Sep 2026, 2:00pm (AEST) : Security maintenance releases published. These replace all emergency patches. Download links below.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "PaperCut Software security response team is investigating active exploitation of a vulnerability affecting PaperCut NG and PaperCut MF.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Security maintenance releases are now available and are the recommended build for all customers. We are aware of confirmed customer incidents and continue to treat this matter with the highest priority. We will update this security bulletin as verified information becomes available.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "PaperCut NG/MF 26.0.5, 25.0.13 and 24.1.10 are now available.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Third-party researchers have also published indicators of compromise, including this analysis from GreyNoise . We have not verified these independently and they do not come from reports made to us, so validate anything you act on against your own environment",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Reports of new compromises have slowed considerably over the past week, and the majority of customers now have their Application Server either behind a firewall or on a patched build.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Servers that remain publicly reachable and unpatched continue to be targeted, and post-compromise behaviour observed in the second wave has been more sophisticated than in the first days of this incident.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Mobility Print and Print Deploy server components are not affected and do not need to be updated.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Our client software (including the User Client, Print Deploy client, and Mobility Print installer) is not affected and does not require an update.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          }
+        ]
+      },
+      {
+        "claimId": "papercut-identity",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "self-hosted software for managing an organization’s printing, copying and scanning",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "greynoise-papercut-report"
+        ],
+        "scopeAndFreshness": "Plain product identity from the primary report.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          }
+        ]
+      },
+      {
+        "claimId": "server-directory",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "PaperCut can run on a server connected to the organization’s Windows directory",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "greynoise-papercut-report"
+        ],
+        "scopeAndFreshness": "Plain translation of self-hosted, domain-joined deployment.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          }
+        ]
+      },
+      {
+        "claimId": "domain-admin-count",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "domain-administrator control at 12 organizations",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "greynoise-papercut-report"
+        ],
+        "scopeAndFreshness": "GreyNoise's bounded access-level count.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          }
+        ]
+      },
+      {
+        "claimId": "domain-admin-meaning",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "a powerful permission that can manage connected Windows accounts and systems across an organization",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "greynoise-papercut-report"
+        ],
+        "scopeAndFreshness": "Qualified plain-language definition; no exploitation method supplied.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          }
+        ]
+      },
+      {
+        "claimId": "coordination-tools",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "combined AI coordination with existing offensive tools and vulnerabilities in internet-facing PaperCut servers",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "greynoise-papercut-report"
+        ],
+        "scopeAndFreshness": "Synthesis of the report's attributed mechanism.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          }
+        ]
+      },
+      {
+        "claimId": "harness-model",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "DeepSeek—not an OpenAI model—as the model powering the agents",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "greynoise-papercut-report"
+        ],
+        "scopeAndFreshness": "Primary harness-versus-model distinction preserved exactly.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          }
+        ]
+      },
+      {
+        "claimId": "harness-meaning",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "the coordinating software around a model that starts, routes and monitors agent jobs",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "greynoise-papercut-report"
+        ],
+        "scopeAndFreshness": "Qualified plain-language role definition.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          }
+        ]
+      },
+      {
+        "claimId": "agent-meaning",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "software that can plan and carry out several steps with tools instead of stopping at one answer",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "greynoise-papercut-report"
+        ],
+        "scopeAndFreshness": "Qualified plain-language definition grounded in the multi-workflow report.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          }
+        ]
+      },
+      {
+        "claimId": "parallel-speed",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "at least 11 organizations were compromised in 26 seconds",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "greynoise-papercut-report"
+        ],
+        "scopeAndFreshness": "GreyNoise's observed timing, attributed.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          }
+        ]
+      },
+      {
+        "claimId": "uneven-results",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "domain-administrator control reached only 12 organizations overall, and a web firewall stopped one attempt",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "greynoise-papercut-report"
+        ],
+        "scopeAndFreshness": "Limits the speed claim with failed and narrower outcomes.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          }
+        ]
+      },
+      {
+        "claimId": "papercut-nonverification",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "has not independently verified GreyNoise’s indicators and did not receive them through customer reports",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "papercut-security-bulletin"
+        ],
+        "scopeAndFreshness": "PaperCut's exact caveat retained.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Last updated September 10, 2026",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "10 Sep 2026, 2:00pm (AEST) : Security maintenance releases published. These replace all emergency patches. Download links below.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "PaperCut Software security response team is investigating active exploitation of a vulnerability affecting PaperCut NG and PaperCut MF.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Security maintenance releases are now available and are the recommended build for all customers. We are aware of confirmed customer incidents and continue to treat this matter with the highest priority. We will update this security bulletin as verified information becomes available.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "PaperCut NG/MF 26.0.5, 25.0.13 and 24.1.10 are now available.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Third-party researchers have also published indicators of compromise, including this analysis from GreyNoise . We have not verified these independently and they do not come from reports made to us, so validate anything you act on against your own environment",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Reports of new compromises have slowed considerably over the past week, and the majority of customers now have their Application Server either behind a firewall or on a patched build.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Servers that remain publicly reachable and unpatched continue to be targeted, and post-compromise behaviour observed in the second wave has been more sophisticated than in the first days of this incident.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Mobility Print and Print Deploy server components are not affected and do not need to be updated.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Our client software (including the User Client, Print Deploy client, and Mobility Print installer) is not affected and does not require an update.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          }
+        ]
+      },
+      {
+        "claimId": "bleeping-boundary",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "reported the figures as GreyNoise’s findings, not a separate count",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "bleepingcomputer-papercut-report"
+        ],
+        "scopeAndFreshness": "Qualified absence statement from the complete independent article.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 10, 2026",
+            "locator": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
+          },
+          {
+            "excerpt": "A threat actor, likely Russian-speaking, used hundreds of AI agents to develop and launch a global exploitation campaign targeting vulnerable PaperCut NG/MF servers.",
+            "locator": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
+          },
+          {
+            "excerpt": "Attack and threat intelligence company GreyNoise says the campaign began on August 31, combining OpenAI’s Codex and DeepSeek models with commodity offensive tools.",
+            "locator": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
+          },
+          {
+            "excerpt": "GreyNoise data indicates that the operation compromised at least 440 PaperCut instances linked to 395 distinct organizations across 48 countries.",
+            "locator": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
+          },
+          {
+            "excerpt": "The attacker harvested credentials from 280 victims, obtained operating system or domain secrets from 147, and obtained administrator privileges at 12 organizations.",
+            "locator": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
+          },
+          {
+            "excerpt": "GreyNoise could not determine the attacker’s campaign objective, but the access could be used for data theft or ransomware operations.",
+            "locator": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
+          },
+          {
+            "excerpt": "System administrators are advised to apply PaperCut’s emergency security updates addressing CVE-2026-81578 and CVE-2026-82078 immediately, and follow the vendor’s recommendations in this bulletin.",
+            "locator": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
+          }
+        ]
+      },
+      {
+        "claimId": "motive-outcome",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "actor’s motive is unknown; data theft or ransomware are possible later uses of access, not established outcomes",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "greynoise-papercut-report",
+          "bleepingcomputer-papercut-report"
+        ],
+        "scopeAndFreshness": "Possibilities kept separate from observed outcomes.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "September 10, 2026",
+            "locator": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
+          },
+          {
+            "excerpt": "A threat actor, likely Russian-speaking, used hundreds of AI agents to develop and launch a global exploitation campaign targeting vulnerable PaperCut NG/MF servers.",
+            "locator": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
+          },
+          {
+            "excerpt": "Attack and threat intelligence company GreyNoise says the campaign began on August 31, combining OpenAI’s Codex and DeepSeek models with commodity offensive tools.",
+            "locator": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
+          },
+          {
+            "excerpt": "GreyNoise data indicates that the operation compromised at least 440 PaperCut instances linked to 395 distinct organizations across 48 countries.",
+            "locator": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
+          },
+          {
+            "excerpt": "The attacker harvested credentials from 280 victims, obtained operating system or domain secrets from 147, and obtained administrator privileges at 12 organizations.",
+            "locator": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
+          },
+          {
+            "excerpt": "GreyNoise could not determine the attacker’s campaign objective, but the access could be used for data theft or ransomware operations.",
+            "locator": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
+          },
+          {
+            "excerpt": "System administrators are advised to apply PaperCut’s emergency security updates addressing CVE-2026-81578 and CVE-2026-82078 immediately, and follow the vendor’s recommendations in this bulletin.",
+            "locator": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/"
+          }
+        ]
+      },
+      {
+        "claimId": "maintenance-releases",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "maintenance releases 26.0.5, 25.0.13 and 24.1.10 on September 10",
+            "locator": "P007"
+          }
+        ],
+        "sourceIds": [
+          "papercut-security-bulletin"
+        ],
+        "scopeAndFreshness": "Current vendor release fact.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Last updated September 10, 2026",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "10 Sep 2026, 2:00pm (AEST) : Security maintenance releases published. These replace all emergency patches. Download links below.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "PaperCut Software security response team is investigating active exploitation of a vulnerability affecting PaperCut NG and PaperCut MF.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Security maintenance releases are now available and are the recommended build for all customers. We are aware of confirmed customer incidents and continue to treat this matter with the highest priority. We will update this security bulletin as verified information becomes available.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "PaperCut NG/MF 26.0.5, 25.0.13 and 24.1.10 are now available.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Third-party researchers have also published indicators of compromise, including this analysis from GreyNoise . We have not verified these independently and they do not come from reports made to us, so validate anything you act on against your own environment",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Reports of new compromises have slowed considerably over the past week, and the majority of customers now have their Application Server either behind a firewall or on a patched build.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Servers that remain publicly reachable and unpatched continue to be targeted, and post-compromise behaviour observed in the second wave has been more sophisticated than in the first days of this incident.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Mobility Print and Print Deploy server components are not affected and do not need to be updated.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Our client software (including the User Client, Print Deploy client, and Mobility Print installer) is not affected and does not require an update.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          }
+        ]
+      },
+      {
+        "claimId": "current-status",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "most application servers are patched or behind a firewall, while public unpatched servers remain targets",
+            "locator": "P007"
+          }
+        ],
+        "sourceIds": [
+          "papercut-security-bulletin"
+        ],
+        "scopeAndFreshness": "Attributed vendor status report, not an independent census.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Last updated September 10, 2026",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "10 Sep 2026, 2:00pm (AEST) : Security maintenance releases published. These replace all emergency patches. Download links below.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "PaperCut Software security response team is investigating active exploitation of a vulnerability affecting PaperCut NG and PaperCut MF.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Security maintenance releases are now available and are the recommended build for all customers. We are aware of confirmed customer incidents and continue to treat this matter with the highest priority. We will update this security bulletin as verified information becomes available.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "PaperCut NG/MF 26.0.5, 25.0.13 and 24.1.10 are now available.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Third-party researchers have also published indicators of compromise, including this analysis from GreyNoise . We have not verified these independently and they do not come from reports made to us, so validate anything you act on against your own environment",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Reports of new compromises have slowed considerably over the past week, and the majority of customers now have their Application Server either behind a firewall or on a patched build.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Servers that remain publicly reachable and unpatched continue to be targeted, and post-compromise behaviour observed in the second wave has been more sophisticated than in the first days of this incident.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Mobility Print and Print Deploy server components are not affected and do not need to be updated.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Our client software (including the User Client, Print Deploy client, and Mobility Print installer) is not affected and does not require an update.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          }
+        ]
+      },
+      {
+        "claimId": "reader-action",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Ask the organization whether it runs PaperCut NG/MF and whether its application server has moved to a current maintenance release",
+            "locator": "P008"
+          }
+        ],
+        "sourceIds": [
+          "papercut-security-bulletin"
+        ],
+        "scopeAndFreshness": "Proportionate question follows vendor guidance without assuming reader administration.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Last updated September 10, 2026",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "10 Sep 2026, 2:00pm (AEST) : Security maintenance releases published. These replace all emergency patches. Download links below.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "PaperCut Software security response team is investigating active exploitation of a vulnerability affecting PaperCut NG and PaperCut MF.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Security maintenance releases are now available and are the recommended build for all customers. We are aware of confirmed customer incidents and continue to treat this matter with the highest priority. We will update this security bulletin as verified information becomes available.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "PaperCut NG/MF 26.0.5, 25.0.13 and 24.1.10 are now available.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Third-party researchers have also published indicators of compromise, including this analysis from GreyNoise . We have not verified these independently and they do not come from reports made to us, so validate anything you act on against your own environment",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Reports of new compromises have slowed considerably over the past week, and the majority of customers now have their Application Server either behind a firewall or on a patched build.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Servers that remain publicly reachable and unpatched continue to be targeted, and post-compromise behaviour observed in the second wave has been more sophisticated than in the first days of this incident.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Mobility Print and Print Deploy server components are not affected and do not need to be updated.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Our client software (including the User Client, Print Deploy client, and Mobility Print installer) is not affected and does not require an update.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          }
+        ]
+      },
+      {
+        "claimId": "admin-action",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "use the vendor bulletin and your organization’s incident-response process rather than acting on an unverified indicator alone",
+            "locator": "P008"
+          }
+        ],
+        "sourceIds": [
+          "papercut-security-bulletin"
+        ],
+        "scopeAndFreshness": "High-level vendor-directed response; no operational exploit instruction.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Last updated September 10, 2026",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "10 Sep 2026, 2:00pm (AEST) : Security maintenance releases published. These replace all emergency patches. Download links below.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "PaperCut Software security response team is investigating active exploitation of a vulnerability affecting PaperCut NG and PaperCut MF.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Security maintenance releases are now available and are the recommended build for all customers. We are aware of confirmed customer incidents and continue to treat this matter with the highest priority. We will update this security bulletin as verified information becomes available.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "PaperCut NG/MF 26.0.5, 25.0.13 and 24.1.10 are now available.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Third-party researchers have also published indicators of compromise, including this analysis from GreyNoise . We have not verified these independently and they do not come from reports made to us, so validate anything you act on against your own environment",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Reports of new compromises have slowed considerably over the past week, and the majority of customers now have their Application Server either behind a firewall or on a patched build.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Servers that remain publicly reachable and unpatched continue to be targeted, and post-compromise behaviour observed in the second wave has been more sophisticated than in the first days of this incident.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Mobility Print and Print Deploy server components are not affected and do not need to be updated.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Our client software (including the User Client, Print Deploy client, and Mobility Print installer) is not affected and does not require an update.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          }
+        ]
+      },
+      {
+        "claimId": "next-evidence",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "independent confirmation of GreyNoise’s counts and attribution, plus verified consequences",
+            "locator": "P009"
+          }
+        ],
+        "sourceIds": [
+          "greynoise-papercut-report",
+          "papercut-security-bulletin"
+        ],
+        "scopeAndFreshness": "Next evidence follows the current uncertainty.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/papercut-campaign-20260911/source-evidence.json",
+          "sha256": "81fffd64276d93d6f7c2a261960218bb540165ec4f79ecf7112d9f62cd4606e2"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "September 9, 2026",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion.",
+            "locator": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf"
+          },
+          {
+            "excerpt": "Last updated September 10, 2026",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "10 Sep 2026, 2:00pm (AEST) : Security maintenance releases published. These replace all emergency patches. Download links below.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "PaperCut Software security response team is investigating active exploitation of a vulnerability affecting PaperCut NG and PaperCut MF.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Security maintenance releases are now available and are the recommended build for all customers. We are aware of confirmed customer incidents and continue to treat this matter with the highest priority. We will update this security bulletin as verified information becomes available.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "PaperCut NG/MF 26.0.5, 25.0.13 and 24.1.10 are now available.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Third-party researchers have also published indicators of compromise, including this analysis from GreyNoise . We have not verified these independently and they do not come from reports made to us, so validate anything you act on against your own environment",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Reports of new compromises have slowed considerably over the past week, and the majority of customers now have their Application Server either behind a firewall or on a patched build.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Servers that remain publicly reachable and unpatched continue to be targeted, and post-compromise behaviour observed in the second wave has been more sophisticated than in the first days of this incident.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Mobility Print and Print Deploy server components are not affected and do not need to be updated.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          },
+          {
+            "excerpt": "Our client software (including the User Client, Print Deploy client, and Mobility Print installer) is not affected and does not require an update.",
+            "locator": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/"
+          }
+        ]
+      }
+    ],
+    "reviewedThrough": "2026-09-11",
+    "nextTrigger": "Reopen GreyNoise, PaperCut and BleepingComputer on publication day; redraft for corrected counts or attribution, new verified victim effects, changed release guidance, a completed criminal outcome or a material independent investigation.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate reports this GreyNoise PaperCut campaign and vendor response."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The source-complete producer preflight found no unresolved defect after separating the AI roles, underlying vulnerability, reported harm, vendor confirmation and unknown motive."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Public release remains separate."
+  ]
+}

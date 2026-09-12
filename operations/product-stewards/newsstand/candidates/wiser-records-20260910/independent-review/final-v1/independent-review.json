@@ -1,0 +1,1271 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "wiser-records-20260910",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/weekly_recovery",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T05:29:14.857Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/review-text.json",
+      "sha256": "0212de56fb765c73e4cfa825f1669131f89c0642087eed80ac3b27449174d732"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/publication-manifest.json",
+      "sha256": "1ed9fbd65c9dcaa69779c4794e5c8fbddcfcd5d754ba1f8ccff8739b90ebaf83"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/rendered-article.html",
+      "sha256": "5a8ec3aa4cb1be05ba307eb211e919fe961a15e73f8129dd110c4ea3064ae8fc"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Did Medicare's AI pilot really deny 20,000 requests, and what do the new records actually show about how it is going?",
+    "promisedPayoff": "The reader learns the true numbers behind the viral claim, how an AI-assisted payment review actually works stage by stage, and what documented problems and retained safeguards coexist.",
+    "centralMentalModel": "A prior-authorization decision is a payment checkpoint with stages — vendor response, clinician review, decision letter, correction/resubmission/appeal — not a final AI verdict on care; totals of decisions must not be read as denials.",
+    "dailyLifeConnection": "Anyone helping an Original Medicare patient in the six pilot states can ask which stage a delayed request is in and what resubmission or appeal route exists.",
+    "surfaceJob": "A dated daily news article that corrects a widely shared number, explains the underlying mechanism and reports documented rollout problems with sourced limits.",
+    "desiredReaderFeeling": "Informed and steadied: concerned about real delays but equipped to distinguish processing counts from denials of care."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Terms like affirmation, non-affirmation, prior authorization and auto-affirm are defined in plain language at first meaningful use; sentences are short and readable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The cited March 30 table reports 20,397 total decisions for two vendors: 14,453 affirmations and 5,944 non-affirmations. An <strong>affirmation</strong> is an advance decision that the submitted request meets Medicare's requirements. A <strong>non-affirmation</strong> means the request was not approved at that decision point; it may later be corrected, resubmitted or appealed. The table does not report 20,000 final denials of care.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Other records still document trouble. Before the January launch, Innovaccer told CMS its system would not be fully functional and planned to auto-affirm—approve automatically—requests for 45 to 60 days while it finished testing. A March 30 report listed 123 Genzeon requests at least three days old, including one 83 days old. It divided them among vendor-response, decision-letter and correction stages, without identifying the oldest case’s stage.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p><strong>Prior authorization</strong> means a provider asks before treatment for assurance that Medicare will pay. In WISeR, a participating company uses AI and other technology to review whether documentation meets Medicare rules; CMS says a licensed clinician determines any recommendation not to pay.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader gains the affirmation/non-affirmation distinction, the stage taxonomy, and a usable question set for a delayed request.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The cited March 30 table reports 20,397 total decisions for two vendors: 14,453 affirmations and 5,944 non-affirmations. An <strong>affirmation</strong> is an advance decision that the submitted request meets Medicare's requirements. A <strong>non-affirmation</strong> means the request was not approved at that decision point; it may later be corrected, resubmitted or appealed. The table does not report 20,000 final denials of care.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The useful distinction is between a payment checkpoint and a treatment decision: a payment review can delay care, but it is not the same as an AI choosing a treatment. Providers can instead proceed to review after service and before payment.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>If you or someone you help uses Original Medicare in one of the six states and a selected request is delayed, ask the provider which stage it is in—vendor response, decision letter or correction—and what review, resubmission or appeal route is available. The records do not prove that AI caused every delay, every non-affirmation was improper or June conditions remained unchanged in September.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult tone — 'Other records still document trouble' concedes against its own correction; no condescension or borrowed persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Other records still document trouble. Before the January launch, Innovaccer told CMS its system would not be fully functional and planned to auto-affirm—approve automatically—requests for 45 to 60 days while it finished testing. A March 30 report listed 123 Genzeon requests at least three days old, including one 83 days old. It divided them among vendor-response, decision-letter and correction stages, without identifying the oldest case’s stage.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>If you or someone you help uses Original Medicare in one of the six states and a selected request is delayed, ask the provider which stage it is in—vendor response, decision letter or correction—and what review, resubmission or appeal route is available. The records do not prove that AI caused every delay, every non-affirmation was improper or June conditions remained unchanged in September.</p>",
+          "locator": "P010"
+        },
+        {
+          "excerpt": "A payment-review status is not a final care outcome. Track the stage, human decision and what happened after correction, resubmission or appeal.",
+          "locator": "P012"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The tension between a viral claim and the actual table sustains interest; the 83-day-old request gives the abstract problem human weight.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 8, the Electronic Frontier Foundation published internal Centers for Medicare &amp; Medicaid Services records about WISeR, Medicare’s AI-assisted prior-authorization pilot. The records show rollout problems, but they do not support EFF’s claim that two vendors denied more than 20,000 requests.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Other records still document trouble. Before the January launch, Innovaccer told CMS its system would not be fully functional and planned to auto-affirm—approve automatically—requests for 45 to 60 days while it finished testing. A March 30 report listed 123 Genzeon requests at least three days old, including one 83 days old. It divided them among vendor-response, decision-letter and correction stages, without identifying the oldest case’s stage.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“The records show aged requests and rollout trouble, but the cited table records 20,397 total decisions—not denials. It includes 14,453 affirmations and 5,944 non-affirmations.”",
+          "locator": "P011"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "A dated news article that answers what happened (September 8 release), what the records show, and why it matters within scope.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 8, the Electronic Frontier Foundation published internal Centers for Medicare &amp; Medicaid Services records about WISeR, Medicare’s AI-assisted prior-authorization pilot. The records show rollout problems, but they do not support EFF’s claim that two vendors denied more than 20,000 requests.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Other records still document trouble. Before the January launch, Innovaccer told CMS its system would not be fully functional and planned to auto-affirm—approve automatically—requests for 45 to 60 days while it finished testing. A March 30 report listed 123 Genzeon requests at least three days old, including one 83 days old. It divided them among vendor-response, decision-letter and correction stages, without identifying the oldest case’s stage.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>If you or someone you help uses Original Medicare in one of the six states and a selected request is delayed, ask the provider which stage it is in—vendor response, decision letter or correction—and what review, resubmission or appeal route is available. The records do not prove that AI caused every delay, every non-affirmation was improper or June conditions remained unchanged in September.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The stage-checking advice for a delayed request in the six states grounds the mechanism in a recognizable caregiving situation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If you or someone you help uses Original Medicare in one of the six states and a selected request is delayed, ask the provider which stage it is in—vendor response, decision letter or correction—and what review, resubmission or appeal route is available. The records do not prove that AI caused every delay, every non-affirmation was improper or June conditions remained unchanged in September.</p>",
+          "locator": "P010"
+        },
+        {
+          "excerpt": "<p>The pilot covers selected services in <strong>Original Medicare</strong>—the federal fee-for-service program, distinct from private Medicare Advantage plans—in Arizona, New Jersey, Ohio, Oklahoma, Texas and Washington. CMS says it excludes emergencies, inpatient-only services and services whose delay would pose substantial risk.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human purpose (is care being denied?), concrete causality (decision stages), and a better next question (which stage, what route) — with no imitation of any famous explainer.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The cited March 30 table reports 20,397 total decisions for two vendors: 14,453 affirmations and 5,944 non-affirmations. An <strong>affirmation</strong> is an advance decision that the submitted request meets Medicare's requirements. A <strong>non-affirmation</strong> means the request was not approved at that decision point; it may later be corrected, resubmitted or appealed. The table does not report 20,000 final denials of care.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The useful distinction is between a payment checkpoint and a treatment decision: a payment review can delay care, but it is not the same as an AI choosing a treatment. Providers can instead proceed to review after service and before payment.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>If you or someone you help uses Original Medicare in one of the six states and a selected request is delayed, ask the provider which stage it is in—vendor response, decision letter or correction—and what review, resubmission or appeal route is available. The records do not prove that AI caused every delay, every non-affirmation was improper or June conditions remained unchanged in September.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The mechanism in P003 and P005–P006 supports an accurate ordinary-language answer to why a non-affirmation is not a denial of care.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The cited March 30 table reports 20,397 total decisions for two vendors: 14,453 affirmations and 5,944 non-affirmations. An <strong>affirmation</strong> is an advance decision that the submitted request meets Medicare's requirements. A <strong>non-affirmation</strong> means the request was not approved at that decision point; it may later be corrected, resubmitted or appealed. The table does not report 20,000 final denials of care.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p><strong>Prior authorization</strong> means a provider asks before treatment for assurance that Medicare will pay. In WISeR, a participating company uses AI and other technology to review whether documentation meets Medicare rules; CMS says a licensed clinician determines any recommendation not to pay.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The useful distinction is between a payment checkpoint and a treatment decision: a payment review can delay care, but it is not the same as an AI choosing a treatment. Providers can instead proceed to review after service and before payment.</p>",
+          "locator": "P006"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why doesn't the record of 5,944 non-affirmations mean 5,944 Medicare patients were denied care?",
+        "response": "A non-affirmation is an early-stage payment decision, not a final outcome: it means the submitted paperwork did not satisfy Medicare's rules at that checkpoint. CMS says a licensed clinician, not the AI alone, determines any non-payment recommendation, and the request can still be corrected, resubmitted or appealed — the payment records themselves only count savings when none of those reversals happen. Providers can also skip prior authorization and be reviewed after the service is delivered but before payment.",
+        "expectedEvidence": "An accurate answer must cite the stage-based decision path (P003), the clinician determination (P005), and the post-service alternative (P006), while conceding delay still burdens patients (P004, P010).",
+        "assessment": "The article's mechanism fully supports this answer in ordinary language; every element of the explain-back is traceable to P003, P005 and P006, so the outcome passes."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The decisions-versus-denials and stage-tracking model transfers cleanly to any automated review pipeline reported by aggregate counts.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The cited March 30 table reports 20,397 total decisions for two vendors: 14,453 affirmations and 5,944 non-affirmations. An <strong>affirmation</strong> is an advance decision that the submitted request meets Medicare's requirements. A <strong>non-affirmation</strong> means the request was not approved at that decision point; it may later be corrected, resubmitted or appealed. The table does not report 20,000 final denials of care.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "A payment-review status is not a final care outcome. Track the stage, human decision and what happened after correction, resubmission or appeal.",
+          "locator": "P012"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using this article's mechanism, what should a reader check before accepting that 48,000 claims were rejected?",
+        "response": "First check whether the cited table counts total processed decisions or only adverse ones — the WISeR table labeled 20,397 'decisions' included 14,453 approvals. Second, check whether a 'rejection' at that stage is final or an intermediate status that can be corrected, resubmitted or appealed, and whether a human reviewer signs off on adverse outcomes. Third, look for separate evidence of real operational harm — aging queues, systems launched before they were functional — which can be true even when the headline number is wrong.",
+        "expectedEvidence": "Correct transfer applies the decisions-versus-denials distinction (P003), the intermediate-stage/appeal path (P003, P012), and the lesson that genuine rollout problems can coexist with an inflated number (P004).",
+        "assessment": "The article's mental model transfers cleanly and completely to this new automated-review context without needing any article-specific facts, so unseen transfer passes."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Specific, proportionate action: identify the request's stage (vendor response, decision letter, correction) and the available review, resubmission or appeal route.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If you or someone you help uses Original Medicare in one of the six states and a selected request is delayed, ask the provider which stage it is in—vendor response, decision letter or correction—and what review, resubmission or appeal route is available. The records do not prove that AI caused every delay, every non-affirmation was improper or June conditions remained unchanged in September.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The one comparison used — payment checkpoint versus treatment decision — maps the mechanism accurately and retains its limit that delay still matters.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The useful distinction is between a payment checkpoint and a treatment decision: a payment review can delay care, but it is not the same as an AI choosing a treatment. Providers can instead proceed to review after service and before payment.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "A payment-review status is not a final care outcome. Track the stage, human decision and what happened after correction, resubmission or appeal.",
+          "locator": "P012"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Every material claim — the count correction, aged-request table, Innovaccer letter, safeguards, KFF accounts — matches the supplied source excerpts with attribution retained (e.g., 'CMS says').",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The cited March 30 table reports 20,397 total decisions for two vendors: 14,453 affirmations and 5,944 non-affirmations. An <strong>affirmation</strong> is an advance decision that the submitted request meets Medicare's requirements. A <strong>non-affirmation</strong> means the request was not approved at that decision point; it may later be corrected, resubmitted or appealed. The table does not report 20,000 final denials of care.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Other records still document trouble. Before the January launch, Innovaccer told CMS its system would not be fully functional and planned to auto-affirm—approve automatically—requests for 45 to 60 days while it finished testing. A March 30 report listed 123 Genzeon requests at least three days old, including one 83 days old. It divided them among vendor-response, decision-letter and correction stages, without identifying the oldest case’s stage.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>CMS pays vendors a share of spending it considers averted, adjusted by quality scores. The payment guide reduces the multiplier to 95 or 90 percent for lower scores and requires quarterly audits. The records do not show how well those safeguards corrected poor decisions.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The September 8 release, March 30 table date, December 12 letter and June KFF reporting are all dated, and P010 explicitly warns June conditions may have changed by September.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 8, the Electronic Frontier Foundation published internal Centers for Medicare &amp; Medicaid Services records about WISeR, Medicare’s AI-assisted prior-authorization pilot. The records show rollout problems, but they do not support EFF’s claim that two vendors denied more than 20,000 requests.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Other records still document trouble. Before the January launch, Innovaccer told CMS its system would not be fully functional and planned to auto-affirm—approve automatically—requests for 45 to 60 days while it finished testing. A March 30 report listed 123 Genzeon requests at least three days old, including one 83 days old. It divided them among vendor-response, decision-letter and correction stages, without identifying the oldest case’s stage.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>If you or someone you help uses Original Medicare in one of the six states and a selected request is delayed, ask the provider which stage it is in—vendor response, decision letter or correction—and what review, resubmission or appeal route is available. The records do not prove that AI caused every delay, every non-affirmation was improper or June conditions remained unchanged in September.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The article distinguishes the new September records release from the June KFF background reporting and the pre-launch December 2025 vendor warning.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 8, the Electronic Frontier Foundation published internal Centers for Medicare &amp; Medicaid Services records about WISeR, Medicare’s AI-assisted prior-authorization pilot. The records show rollout problems, but they do not support EFF’s claim that two vendors denied more than 20,000 requests.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>KFF Health News reported in June that patients and providers described confusion, errors and long waits. Humata’s CEO said 88 percent of cases with supporting clinical data received an immediate yes; Zyter said it was working with stakeholders. Those accounts do not measure AI’s effect across WISeR.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>Other records still document trouble. Before the January launch, Innovaccer told CMS its system would not be fully functional and planned to auto-affirm—approve automatically—requests for 45 to 60 days while it finished testing. A March 30 report listed 123 Genzeon requests at least three days old, including one 83 days old. It divided them among vendor-response, decision-letter and correction stages, without identifying the oldest case’s stage.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Concrete consequences (delays, 83-day-old request, extra stages) sit beside explicit uncertainty about causation, propriety of non-affirmations and safeguard effectiveness.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Other records still document trouble. Before the January launch, Innovaccer told CMS its system would not be fully functional and planned to auto-affirm—approve automatically—requests for 45 to 60 days while it finished testing. A March 30 report listed 123 Genzeon requests at least three days old, including one 83 days old. It divided them among vendor-response, decision-letter and correction stages, without identifying the oldest case’s stage.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>CMS pays vendors a share of spending it considers averted, adjusted by quality scores. The payment guide reduces the multiplier to 95 or 90 percent for lower scores and requires quarterly audits. The records do not show how well those safeguards corrected poor decisions.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>If you or someone you help uses Original Medicare in one of the six states and a selected request is delayed, ask the provider which stage it is in—vendor response, decision letter or correction—and what review, resubmission or appeal route is available. The records do not prove that AI caused every delay, every non-affirmation was improper or June conditions remained unchanged in September.</p>",
+          "locator": "P010"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Definitions are woven into the causal sequence rather than listed; each term does work.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Paragraphs develop distinct threads — correction, problems, mechanism, safeguards, action — without repeated scaffolds.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The checkpoint-versus-treatment comparison explains a specific causal distinction rather than adding flavour.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references appear anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The reader gets the causal steps: AI/tech review, licensed clinician determination, decision letter, correction/resubmission/appeal.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Advice names the exact stages to ask about and the routes available; not a vague 'be careful'.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Every technical term is defined at or before its first meaningful use.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Vendors, clinicians, CMS payment incentives and audits are connected through how a request moves and how vendors are paid.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty is bounded throughout — 'CMS says', 'The records do not show/prove' — matching available evidence.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Every time-sensitive claim carries its date (September 8, March 30, December warning, June reporting) and source.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Prose is concrete and specific; no motivational or vague corporate language.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The dispute over the number and the 83-day-old request keep human stakes present; not a checklist.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is mentioned anywhere.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's promise is fully paid off with the exact table counts and mechanism.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The delayed-request scenario returns directly to the stage mechanism from the records.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Original plain explanation throughout; no imitated persona or mannerisms.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No humour or spectacle interferes; understanding leads throughout.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The correction leads but the mechanism receives full paragraphs (P003, P005, P006), not a rushed tail.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The correction asserted in the headline is immediately earned with the exact table breakdown.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending stays bounded, explicitly listing what the records do not prove.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers the correction, mechanism, documented problems, safeguards and reader action — the full supplied job.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human stakes — a viral denial claim about Medicare care — are established before the review machinery.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Not applicable structure; no single worked example crowds out the article's scope.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "This is a bounded news report where explaining the specific payment-review mechanism is exactly the right organising perspective, and it stays reader-oriented.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/editorial-input.json",
+        "sha256": "33a2a18f338d745370bd0ea88d59d3bcb2dc885e2c0e2403298e4702b4558248"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "records-release",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>On September 8, the Electronic Frontier Foundation published internal Centers for Medicare &amp; Medicaid Services records about WISeR, Medicare’s AI-assisted prior-authorization pilot. The records show rollout problems, but they do not support EFF’s claim that two vendors denied more than 20,000 requests.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/editorial-input.json",
+          "sha256": "33a2a18f338d745370bd0ea88d59d3bcb2dc885e2c0e2403298e4702b4558248"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "EFF published the article and linked records on September 8, 2026, describing them as contracts, internal status reports and provider complaints obtained from CMS through litigation. EFF writes: ‘Two companies alone denied over 20,000 prior authorization requests in the first 3 months of the program,’ citing page 322. EFF says CMS records show delays, technical failures, inappropriate denials and patient harm, and says further CMS production remains ongoing.",
+            "locator": "https://www.eff.org/deeplinks/2026/09/new-records-reveal-problems-medicares-ai-prior-authorization-experiment"
+          },
+          {
+            "excerpt": "September 8 source-release announcement and advocacy interpretation of records obtained through EFF's FOIA litigation. Limitation: EFF is an advocacy party in the litigation. Its claim of more than 20,000 denials is not supported by its cited page: page 322 reports 20,397 total decisions, including 14,453 affirmations and 5,944 non-affirmations. The candidate must use the primary table rather than repeat EFF's number.",
+            "locator": "https://www.eff.org/deeplinks/2026/09/new-records-reveal-problems-medicares-ai-prior-authorization-experiment"
+          }
+        ],
+        "scopeAndFreshness": "EFF published the records and article on September 8, 2026, obtained through FOIA litigation, matching P002's dated release claim."
+      },
+      {
+        "claimId": "eff-count-correction",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>On September 8, the Electronic Frontier Foundation published internal Centers for Medicare &amp; Medicaid Services records about WISeR, Medicare’s AI-assisted prior-authorization pilot. The records show rollout problems, but they do not support EFF’s claim that two vendors denied more than 20,000 requests.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>The cited March 30 table reports 20,397 total decisions for two vendors: 14,453 affirmations and 5,944 non-affirmations. An <strong>affirmation</strong> is an advance decision that the submitted request meets Medicare's requirements. A <strong>non-affirmation</strong> means the request was not approved at that decision point; it may later be corrected, resubmitted or appealed. The table does not report 20,000 final denials of care.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "New Medicare AI records show aged requests — not 20,000 denials.",
+            "locator": "P001"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/editorial-input.json",
+          "sha256": "33a2a18f338d745370bd0ea88d59d3bcb2dc885e2c0e2403298e4702b4558248"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "EFF published the article and linked records on September 8, 2026, describing them as contracts, internal status reports and provider complaints obtained from CMS through litigation. EFF writes: ‘Two companies alone denied over 20,000 prior authorization requests in the first 3 months of the program,’ citing page 322. EFF says CMS records show delays, technical failures, inappropriate denials and patient harm, and says further CMS production remains ongoing.",
+            "locator": "https://www.eff.org/deeplinks/2026/09/new-records-reveal-problems-medicares-ai-prior-authorization-experiment"
+          },
+          {
+            "excerpt": "September 8 source-release announcement and advocacy interpretation of records obtained through EFF's FOIA litigation. Limitation: EFF is an advocacy party in the litigation. Its claim of more than 20,000 denials is not supported by its cited page: page 322 reports 20,397 total decisions, including 14,453 affirmations and 5,944 non-affirmations. The candidate must use the primary table rather than repeat EFF's number.",
+            "locator": "https://www.eff.org/deeplinks/2026/09/new-records-reveal-problems-medicares-ai-prior-authorization-experiment"
+          },
+          {
+            "excerpt": "Page 322, Table 2 lists 20,397 year-to-date decisions received for Virtix and Zyter through the March 30, 2026 report: 6,096 for Virtix and 14,301 for Zyter. Page 322, Table 3 splits those 20,397 decisions into 14,453 affirmations and 5,944 non-affirmations. Virtix has 2,863 affirmations and 3,233 non-affirmations; Zyter has 11,590 affirmations and 2,711 non-affirmations. Page 22 says payment savings are calculated from non-affirmations not followed by an affirmed resubmission or a successfully appealed claim denial. It also says one series of non-affirmations for the same beneficiary, item or service, and provider within 120 days earns only one participant payment. Page 234 says that as of March 30 Genzeon had 123 prior-authorization requests aged three days or older, with the oldest 83 days. It separates them into 14 awaiting a model-participant response, 44 awaiting a decision letter and 65 awaiting correction for creation of a tracking number or dismissal. The page does not say which stage applied to the oldest request. In a December 12, 2025 letter on pages 216 and 217, Innovaccer said it would meet the January 5, 2026 go-live date without full functionality. It cited changing requirements, new integration expectations, unclear governance and insufficient end-to-end testing time, and planned to auto-affirm requests while completing a phased rollout. Page 217 says Innovaccer expected the initial auto-affirmation period to last approximately 45 to 60 days and described the approach as a way to avoid a backlog of unprocessed requests while it finished, validated and deployed the full rules-based solution. Page 99 sets quality multipliers at 100 percent for aggregate scores of 85 to 100 percent, 95 percent for scores of 60 to 84 percent and 90 percent below 60 percent. It also says CMS conducts quarterly audits of participant records for consistency with Original Medicare coverage criteria. Page 410 groups January requests for two vendors into one-to-five, six-to-ten and eleven-to-twenty-one-day buckets. Those buckets do not disclose an exact rate for responses inside or outside 72 hours.",
+            "locator": "https://www.eff.org/files/2026/09/07/combined_records_-_2nd_interim_release.pdf"
+          },
+          {
+            "excerpt": "Primary documents for the payment design, audit safeguard, pre-launch vendor warning and dated operational tables cited in the article. Limitation: The review was bounded to seven cited pages plus direct checks of the complete file's identity and page count, not a claim to have substantively reviewed every one of 443 pages. Operational tables are dated snapshots and some are cumulative; they must not be added together. Non-affirmation is not synonymous with a final denial of care.",
+            "locator": "https://www.eff.org/files/2026/09/07/combined_records_-_2nd_interim_release.pdf"
+          }
+        ],
+        "scopeAndFreshness": "EFF wrote two companies 'denied over 20,000' requests citing page 322, but that page reports 20,397 total decisions including 14,453 affirmations; the article's correction (P002, P003) matches the primary table."
+      },
+      {
+        "claimId": "exact-table-counts",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The cited March 30 table reports 20,397 total decisions for two vendors: 14,453 affirmations and 5,944 non-affirmations. An <strong>affirmation</strong> is an advance decision that the submitted request meets Medicare's requirements. A <strong>non-affirmation</strong> means the request was not approved at that decision point; it may later be corrected, resubmitted or appealed. The table does not report 20,000 final denials of care.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "“The records show aged requests and rollout trouble, but the cited table records 20,397 total decisions—not denials. It includes 14,453 affirmations and 5,944 non-affirmations.”",
+            "locator": "P011"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/editorial-input.json",
+          "sha256": "33a2a18f338d745370bd0ea88d59d3bcb2dc885e2c0e2403298e4702b4558248"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Page 322, Table 2 lists 20,397 year-to-date decisions received for Virtix and Zyter through the March 30, 2026 report: 6,096 for Virtix and 14,301 for Zyter. Page 322, Table 3 splits those 20,397 decisions into 14,453 affirmations and 5,944 non-affirmations. Virtix has 2,863 affirmations and 3,233 non-affirmations; Zyter has 11,590 affirmations and 2,711 non-affirmations. Page 22 says payment savings are calculated from non-affirmations not followed by an affirmed resubmission or a successfully appealed claim denial. It also says one series of non-affirmations for the same beneficiary, item or service, and provider within 120 days earns only one participant payment. Page 234 says that as of March 30 Genzeon had 123 prior-authorization requests aged three days or older, with the oldest 83 days. It separates them into 14 awaiting a model-participant response, 44 awaiting a decision letter and 65 awaiting correction for creation of a tracking number or dismissal. The page does not say which stage applied to the oldest request. In a December 12, 2025 letter on pages 216 and 217, Innovaccer said it would meet the January 5, 2026 go-live date without full functionality. It cited changing requirements, new integration expectations, unclear governance and insufficient end-to-end testing time, and planned to auto-affirm requests while completing a phased rollout. Page 217 says Innovaccer expected the initial auto-affirmation period to last approximately 45 to 60 days and described the approach as a way to avoid a backlog of unprocessed requests while it finished, validated and deployed the full rules-based solution. Page 99 sets quality multipliers at 100 percent for aggregate scores of 85 to 100 percent, 95 percent for scores of 60 to 84 percent and 90 percent below 60 percent. It also says CMS conducts quarterly audits of participant records for consistency with Original Medicare coverage criteria. Page 410 groups January requests for two vendors into one-to-five, six-to-ten and eleven-to-twenty-one-day buckets. Those buckets do not disclose an exact rate for responses inside or outside 72 hours.",
+            "locator": "https://www.eff.org/files/2026/09/07/combined_records_-_2nd_interim_release.pdf"
+          },
+          {
+            "excerpt": "Primary documents for the payment design, audit safeguard, pre-launch vendor warning and dated operational tables cited in the article. Limitation: The review was bounded to seven cited pages plus direct checks of the complete file's identity and page count, not a claim to have substantively reviewed every one of 443 pages. Operational tables are dated snapshots and some are cumulative; they must not be added together. Non-affirmation is not synonymous with a final denial of care.",
+            "locator": "https://www.eff.org/files/2026/09/07/combined_records_-_2nd_interim_release.pdf"
+          }
+        ],
+        "scopeAndFreshness": "Page 322 Table 3 splits 20,397 decisions into 14,453 affirmations and 5,944 non-affirmations for Virtix and Zyter, exactly as stated in P003 and P011."
+      },
+      {
+        "claimId": "nonaffirmation-path",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The cited March 30 table reports 20,397 total decisions for two vendors: 14,453 affirmations and 5,944 non-affirmations. An <strong>affirmation</strong> is an advance decision that the submitted request meets Medicare's requirements. A <strong>non-affirmation</strong> means the request was not approved at that decision point; it may later be corrected, resubmitted or appealed. The table does not report 20,000 final denials of care.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "A payment-review status is not a final care outcome. Track the stage, human decision and what happened after correction, resubmission or appeal.",
+            "locator": "P012"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/editorial-input.json",
+          "sha256": "33a2a18f338d745370bd0ea88d59d3bcb2dc885e2c0e2403298e4702b4558248"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Page 322, Table 2 lists 20,397 year-to-date decisions received for Virtix and Zyter through the March 30, 2026 report: 6,096 for Virtix and 14,301 for Zyter. Page 322, Table 3 splits those 20,397 decisions into 14,453 affirmations and 5,944 non-affirmations. Virtix has 2,863 affirmations and 3,233 non-affirmations; Zyter has 11,590 affirmations and 2,711 non-affirmations. Page 22 says payment savings are calculated from non-affirmations not followed by an affirmed resubmission or a successfully appealed claim denial. It also says one series of non-affirmations for the same beneficiary, item or service, and provider within 120 days earns only one participant payment. Page 234 says that as of March 30 Genzeon had 123 prior-authorization requests aged three days or older, with the oldest 83 days. It separates them into 14 awaiting a model-participant response, 44 awaiting a decision letter and 65 awaiting correction for creation of a tracking number or dismissal. The page does not say which stage applied to the oldest request. In a December 12, 2025 letter on pages 216 and 217, Innovaccer said it would meet the January 5, 2026 go-live date without full functionality. It cited changing requirements, new integration expectations, unclear governance and insufficient end-to-end testing time, and planned to auto-affirm requests while completing a phased rollout. Page 217 says Innovaccer expected the initial auto-affirmation period to last approximately 45 to 60 days and described the approach as a way to avoid a backlog of unprocessed requests while it finished, validated and deployed the full rules-based solution. Page 99 sets quality multipliers at 100 percent for aggregate scores of 85 to 100 percent, 95 percent for scores of 60 to 84 percent and 90 percent below 60 percent. It also says CMS conducts quarterly audits of participant records for consistency with Original Medicare coverage criteria. Page 410 groups January requests for two vendors into one-to-five, six-to-ten and eleven-to-twenty-one-day buckets. Those buckets do not disclose an exact rate for responses inside or outside 72 hours.",
+            "locator": "https://www.eff.org/files/2026/09/07/combined_records_-_2nd_interim_release.pdf"
+          },
+          {
+            "excerpt": "Primary documents for the payment design, audit safeguard, pre-launch vendor warning and dated operational tables cited in the article. Limitation: The review was bounded to seven cited pages plus direct checks of the complete file's identity and page count, not a claim to have substantively reviewed every one of 443 pages. Operational tables are dated snapshots and some are cumulative; they must not be added together. Non-affirmation is not synonymous with a final denial of care.",
+            "locator": "https://www.eff.org/files/2026/09/07/combined_records_-_2nd_interim_release.pdf"
+          }
+        ],
+        "scopeAndFreshness": "Page 22 describes non-affirmations followed by affirmed resubmission or successfully appealed claim denials, supporting P003's corrected/resubmitted/appealed path; the source limitation confirms non-affirmation is not a final denial."
+      },
+      {
+        "claimId": "innovaccer-launch",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Other records still document trouble. Before the January launch, Innovaccer told CMS its system would not be fully functional and planned to auto-affirm—approve automatically—requests for 45 to 60 days while it finished testing. A March 30 report listed 123 Genzeon requests at least three days old, including one 83 days old. It divided them among vendor-response, decision-letter and correction stages, without identifying the oldest case’s stage.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/editorial-input.json",
+          "sha256": "33a2a18f338d745370bd0ea88d59d3bcb2dc885e2c0e2403298e4702b4558248"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Page 322, Table 2 lists 20,397 year-to-date decisions received for Virtix and Zyter through the March 30, 2026 report: 6,096 for Virtix and 14,301 for Zyter. Page 322, Table 3 splits those 20,397 decisions into 14,453 affirmations and 5,944 non-affirmations. Virtix has 2,863 affirmations and 3,233 non-affirmations; Zyter has 11,590 affirmations and 2,711 non-affirmations. Page 22 says payment savings are calculated from non-affirmations not followed by an affirmed resubmission or a successfully appealed claim denial. It also says one series of non-affirmations for the same beneficiary, item or service, and provider within 120 days earns only one participant payment. Page 234 says that as of March 30 Genzeon had 123 prior-authorization requests aged three days or older, with the oldest 83 days. It separates them into 14 awaiting a model-participant response, 44 awaiting a decision letter and 65 awaiting correction for creation of a tracking number or dismissal. The page does not say which stage applied to the oldest request. In a December 12, 2025 letter on pages 216 and 217, Innovaccer said it would meet the January 5, 2026 go-live date without full functionality. It cited changing requirements, new integration expectations, unclear governance and insufficient end-to-end testing time, and planned to auto-affirm requests while completing a phased rollout. Page 217 says Innovaccer expected the initial auto-affirmation period to last approximately 45 to 60 days and described the approach as a way to avoid a backlog of unprocessed requests while it finished, validated and deployed the full rules-based solution. Page 99 sets quality multipliers at 100 percent for aggregate scores of 85 to 100 percent, 95 percent for scores of 60 to 84 percent and 90 percent below 60 percent. It also says CMS conducts quarterly audits of participant records for consistency with Original Medicare coverage criteria. Page 410 groups January requests for two vendors into one-to-five, six-to-ten and eleven-to-twenty-one-day buckets. Those buckets do not disclose an exact rate for responses inside or outside 72 hours.",
+            "locator": "https://www.eff.org/files/2026/09/07/combined_records_-_2nd_interim_release.pdf"
+          },
+          {
+            "excerpt": "Primary documents for the payment design, audit safeguard, pre-launch vendor warning and dated operational tables cited in the article. Limitation: The review was bounded to seven cited pages plus direct checks of the complete file's identity and page count, not a claim to have substantively reviewed every one of 443 pages. Operational tables are dated snapshots and some are cumulative; they must not be added together. Non-affirmation is not synonymous with a final denial of care.",
+            "locator": "https://www.eff.org/files/2026/09/07/combined_records_-_2nd_interim_release.pdf"
+          }
+        ],
+        "scopeAndFreshness": "Pages 216–217 show Innovaccer's December 12, 2025 letter warning of incomplete functionality and an approximately 45–60 day auto-affirmation period, matching P004."
+      },
+      {
+        "claimId": "genzeon-aged",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Other records still document trouble. Before the January launch, Innovaccer told CMS its system would not be fully functional and planned to auto-affirm—approve automatically—requests for 45 to 60 days while it finished testing. A March 30 report listed 123 Genzeon requests at least three days old, including one 83 days old. It divided them among vendor-response, decision-letter and correction stages, without identifying the oldest case’s stage.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/editorial-input.json",
+          "sha256": "33a2a18f338d745370bd0ea88d59d3bcb2dc885e2c0e2403298e4702b4558248"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Page 322, Table 2 lists 20,397 year-to-date decisions received for Virtix and Zyter through the March 30, 2026 report: 6,096 for Virtix and 14,301 for Zyter. Page 322, Table 3 splits those 20,397 decisions into 14,453 affirmations and 5,944 non-affirmations. Virtix has 2,863 affirmations and 3,233 non-affirmations; Zyter has 11,590 affirmations and 2,711 non-affirmations. Page 22 says payment savings are calculated from non-affirmations not followed by an affirmed resubmission or a successfully appealed claim denial. It also says one series of non-affirmations for the same beneficiary, item or service, and provider within 120 days earns only one participant payment. Page 234 says that as of March 30 Genzeon had 123 prior-authorization requests aged three days or older, with the oldest 83 days. It separates them into 14 awaiting a model-participant response, 44 awaiting a decision letter and 65 awaiting correction for creation of a tracking number or dismissal. The page does not say which stage applied to the oldest request. In a December 12, 2025 letter on pages 216 and 217, Innovaccer said it would meet the January 5, 2026 go-live date without full functionality. It cited changing requirements, new integration expectations, unclear governance and insufficient end-to-end testing time, and planned to auto-affirm requests while completing a phased rollout. Page 217 says Innovaccer expected the initial auto-affirmation period to last approximately 45 to 60 days and described the approach as a way to avoid a backlog of unprocessed requests while it finished, validated and deployed the full rules-based solution. Page 99 sets quality multipliers at 100 percent for aggregate scores of 85 to 100 percent, 95 percent for scores of 60 to 84 percent and 90 percent below 60 percent. It also says CMS conducts quarterly audits of participant records for consistency with Original Medicare coverage criteria. Page 410 groups January requests for two vendors into one-to-five, six-to-ten and eleven-to-twenty-one-day buckets. Those buckets do not disclose an exact rate for responses inside or outside 72 hours.",
+            "locator": "https://www.eff.org/files/2026/09/07/combined_records_-_2nd_interim_release.pdf"
+          },
+          {
+            "excerpt": "Primary documents for the payment design, audit safeguard, pre-launch vendor warning and dated operational tables cited in the article. Limitation: The review was bounded to seven cited pages plus direct checks of the complete file's identity and page count, not a claim to have substantively reviewed every one of 443 pages. Operational tables are dated snapshots and some are cumulative; they must not be added together. Non-affirmation is not synonymous with a final denial of care.",
+            "locator": "https://www.eff.org/files/2026/09/07/combined_records_-_2nd_interim_release.pdf"
+          }
+        ],
+        "scopeAndFreshness": "Page 234 lists 123 Genzeon requests aged three days or older, oldest 83 days, divided among vendor-response (14), decision-letter (44) and correction (65) stages without identifying the oldest case's stage — exactly as P004 reports including the limitation."
+      },
+      {
+        "claimId": "human-review-mechanism",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p><strong>Prior authorization</strong> means a provider asks before treatment for assurance that Medicare will pay. In WISeR, a participating company uses AI and other technology to review whether documentation meets Medicare rules; CMS says a licensed clinician determines any recommendation not to pay.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/editorial-input.json",
+          "sha256": "33a2a18f338d745370bd0ea88d59d3bcb2dc885e2c0e2403298e4702b4558248"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The WISeR Model helps protect American taxpayers by leveraging enhanced technologies, such as Artificial Intelligence (AI) and Machine Learning (ML), along with human clinical review, to ensure timely and appropriate Medicare payment for select items and services. WISeR will run for six performance years from January 1, 2026 to December 31, 2031 in six states: New Jersey, Ohio, Oklahoma, Texas, Arizona, and Washington. WISeR does not change Medicare coverage or payment policy. The model excludes inpatient-only services, emergency services, and services that would pose a substantial risk to patients if delayed. All recommendations for non-payment are determined by appropriately licensed clinicians who will apply standardized, transparent and evidence-based procedures to their review. WISeR does not apply to people with Medicare Advantage and will have no impact on them. Providers and suppliers for people with Original Medicare in selected regions will have the choice of submitting a prior authorization request for the model’s selected items and services or going through a post-service/pre-payment review. Model participants receive a percentage of the expenditures associated with averted wasteful, inappropriate care as a result of their reviews. That percentage is adjusted based on the participant’s performance on measures related to the process, including provider experience.",
+            "locator": "https://www.cms.gov/priorities/innovation/innovation-models/wiser"
+          },
+          {
+            "excerpt": "Current primary program description for WISeR scope, review mechanism, safeguards, participants and payment design. Limitation: This is CMS's current description of its own model and safeguards. It does not answer each problem in the released records or independently establish how well every vendor followed the requirements.",
+            "locator": "https://www.cms.gov/priorities/innovation/innovation-models/wiser"
+          }
+        ],
+        "scopeAndFreshness": "CMS's model page says all non-payment recommendations are determined by appropriately licensed clinicians; P005 correctly attributes this to CMS rather than asserting it independently."
+      },
+      {
+        "claimId": "postservice-route",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The useful distinction is between a payment checkpoint and a treatment decision: a payment review can delay care, but it is not the same as an AI choosing a treatment. Providers can instead proceed to review after service and before payment.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/editorial-input.json",
+          "sha256": "33a2a18f338d745370bd0ea88d59d3bcb2dc885e2c0e2403298e4702b4558248"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The WISeR Model helps protect American taxpayers by leveraging enhanced technologies, such as Artificial Intelligence (AI) and Machine Learning (ML), along with human clinical review, to ensure timely and appropriate Medicare payment for select items and services. WISeR will run for six performance years from January 1, 2026 to December 31, 2031 in six states: New Jersey, Ohio, Oklahoma, Texas, Arizona, and Washington. WISeR does not change Medicare coverage or payment policy. The model excludes inpatient-only services, emergency services, and services that would pose a substantial risk to patients if delayed. All recommendations for non-payment are determined by appropriately licensed clinicians who will apply standardized, transparent and evidence-based procedures to their review. WISeR does not apply to people with Medicare Advantage and will have no impact on them. Providers and suppliers for people with Original Medicare in selected regions will have the choice of submitting a prior authorization request for the model’s selected items and services or going through a post-service/pre-payment review. Model participants receive a percentage of the expenditures associated with averted wasteful, inappropriate care as a result of their reviews. That percentage is adjusted based on the participant’s performance on measures related to the process, including provider experience.",
+            "locator": "https://www.cms.gov/priorities/innovation/innovation-models/wiser"
+          },
+          {
+            "excerpt": "Current primary program description for WISeR scope, review mechanism, safeguards, participants and payment design. Limitation: This is CMS's current description of its own model and safeguards. It does not answer each problem in the released records or independently establish how well every vendor followed the requirements.",
+            "locator": "https://www.cms.gov/priorities/innovation/innovation-models/wiser"
+          }
+        ],
+        "scopeAndFreshness": "CMS says providers may choose prior authorization or a post-service/pre-payment review, matching P006's alternative route."
+      },
+      {
+        "claimId": "six-state-scope",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The pilot covers selected services in <strong>Original Medicare</strong>—the federal fee-for-service program, distinct from private Medicare Advantage plans—in Arizona, New Jersey, Ohio, Oklahoma, Texas and Washington. CMS says it excludes emergencies, inpatient-only services and services whose delay would pose substantial risk.</p>",
+            "locator": "P007"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/editorial-input.json",
+          "sha256": "33a2a18f338d745370bd0ea88d59d3bcb2dc885e2c0e2403298e4702b4558248"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The WISeR Model helps protect American taxpayers by leveraging enhanced technologies, such as Artificial Intelligence (AI) and Machine Learning (ML), along with human clinical review, to ensure timely and appropriate Medicare payment for select items and services. WISeR will run for six performance years from January 1, 2026 to December 31, 2031 in six states: New Jersey, Ohio, Oklahoma, Texas, Arizona, and Washington. WISeR does not change Medicare coverage or payment policy. The model excludes inpatient-only services, emergency services, and services that would pose a substantial risk to patients if delayed. All recommendations for non-payment are determined by appropriately licensed clinicians who will apply standardized, transparent and evidence-based procedures to their review. WISeR does not apply to people with Medicare Advantage and will have no impact on them. Providers and suppliers for people with Original Medicare in selected regions will have the choice of submitting a prior authorization request for the model’s selected items and services or going through a post-service/pre-payment review. Model participants receive a percentage of the expenditures associated with averted wasteful, inappropriate care as a result of their reviews. That percentage is adjusted based on the participant’s performance on measures related to the process, including provider experience.",
+            "locator": "https://www.cms.gov/priorities/innovation/innovation-models/wiser"
+          },
+          {
+            "excerpt": "Current primary program description for WISeR scope, review mechanism, safeguards, participants and payment design. Limitation: This is CMS's current description of its own model and safeguards. It does not answer each problem in the released records or independently establish how well every vendor followed the requirements.",
+            "locator": "https://www.cms.gov/priorities/innovation/innovation-models/wiser"
+          }
+        ],
+        "scopeAndFreshness": "CMS lists Arizona, New Jersey, Ohio, Oklahoma, Texas and Washington, and states WISeR does not apply to Medicare Advantage, matching P007's Original Medicare distinction."
+      },
+      {
+        "claimId": "service-exclusions",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The pilot covers selected services in <strong>Original Medicare</strong>—the federal fee-for-service program, distinct from private Medicare Advantage plans—in Arizona, New Jersey, Ohio, Oklahoma, Texas and Washington. CMS says it excludes emergencies, inpatient-only services and services whose delay would pose substantial risk.</p>",
+            "locator": "P007"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/editorial-input.json",
+          "sha256": "33a2a18f338d745370bd0ea88d59d3bcb2dc885e2c0e2403298e4702b4558248"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The WISeR Model helps protect American taxpayers by leveraging enhanced technologies, such as Artificial Intelligence (AI) and Machine Learning (ML), along with human clinical review, to ensure timely and appropriate Medicare payment for select items and services. WISeR will run for six performance years from January 1, 2026 to December 31, 2031 in six states: New Jersey, Ohio, Oklahoma, Texas, Arizona, and Washington. WISeR does not change Medicare coverage or payment policy. The model excludes inpatient-only services, emergency services, and services that would pose a substantial risk to patients if delayed. All recommendations for non-payment are determined by appropriately licensed clinicians who will apply standardized, transparent and evidence-based procedures to their review. WISeR does not apply to people with Medicare Advantage and will have no impact on them. Providers and suppliers for people with Original Medicare in selected regions will have the choice of submitting a prior authorization request for the model’s selected items and services or going through a post-service/pre-payment review. Model participants receive a percentage of the expenditures associated with averted wasteful, inappropriate care as a result of their reviews. That percentage is adjusted based on the participant’s performance on measures related to the process, including provider experience.",
+            "locator": "https://www.cms.gov/priorities/innovation/innovation-models/wiser"
+          },
+          {
+            "excerpt": "Current primary program description for WISeR scope, review mechanism, safeguards, participants and payment design. Limitation: This is CMS's current description of its own model and safeguards. It does not answer each problem in the released records or independently establish how well every vendor followed the requirements.",
+            "locator": "https://www.cms.gov/priorities/innovation/innovation-models/wiser"
+          }
+        ],
+        "scopeAndFreshness": "CMS excludes inpatient-only services, emergency services and services posing substantial risk if delayed, matching P007 and correctly attributed to CMS."
+      },
+      {
+        "claimId": "payment-audits",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>CMS pays vendors a share of spending it considers averted, adjusted by quality scores. The payment guide reduces the multiplier to 95 or 90 percent for lower scores and requires quarterly audits. The records do not show how well those safeguards corrected poor decisions.</p>",
+            "locator": "P008"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/editorial-input.json",
+          "sha256": "33a2a18f338d745370bd0ea88d59d3bcb2dc885e2c0e2403298e4702b4558248"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Page 322, Table 2 lists 20,397 year-to-date decisions received for Virtix and Zyter through the March 30, 2026 report: 6,096 for Virtix and 14,301 for Zyter. Page 322, Table 3 splits those 20,397 decisions into 14,453 affirmations and 5,944 non-affirmations. Virtix has 2,863 affirmations and 3,233 non-affirmations; Zyter has 11,590 affirmations and 2,711 non-affirmations. Page 22 says payment savings are calculated from non-affirmations not followed by an affirmed resubmission or a successfully appealed claim denial. It also says one series of non-affirmations for the same beneficiary, item or service, and provider within 120 days earns only one participant payment. Page 234 says that as of March 30 Genzeon had 123 prior-authorization requests aged three days or older, with the oldest 83 days. It separates them into 14 awaiting a model-participant response, 44 awaiting a decision letter and 65 awaiting correction for creation of a tracking number or dismissal. The page does not say which stage applied to the oldest request. In a December 12, 2025 letter on pages 216 and 217, Innovaccer said it would meet the January 5, 2026 go-live date without full functionality. It cited changing requirements, new integration expectations, unclear governance and insufficient end-to-end testing time, and planned to auto-affirm requests while completing a phased rollout. Page 217 says Innovaccer expected the initial auto-affirmation period to last approximately 45 to 60 days and described the approach as a way to avoid a backlog of unprocessed requests while it finished, validated and deployed the full rules-based solution. Page 99 sets quality multipliers at 100 percent for aggregate scores of 85 to 100 percent, 95 percent for scores of 60 to 84 percent and 90 percent below 60 percent. It also says CMS conducts quarterly audits of participant records for consistency with Original Medicare coverage criteria. Page 410 groups January requests for two vendors into one-to-five, six-to-ten and eleven-to-twenty-one-day buckets. Those buckets do not disclose an exact rate for responses inside or outside 72 hours.",
+            "locator": "https://www.eff.org/files/2026/09/07/combined_records_-_2nd_interim_release.pdf"
+          },
+          {
+            "excerpt": "Primary documents for the payment design, audit safeguard, pre-launch vendor warning and dated operational tables cited in the article. Limitation: The review was bounded to seven cited pages plus direct checks of the complete file's identity and page count, not a claim to have substantively reviewed every one of 443 pages. Operational tables are dated snapshots and some are cumulative; they must not be added together. Non-affirmation is not synonymous with a final denial of care.",
+            "locator": "https://www.eff.org/files/2026/09/07/combined_records_-_2nd_interim_release.pdf"
+          },
+          {
+            "excerpt": "The WISeR Model helps protect American taxpayers by leveraging enhanced technologies, such as Artificial Intelligence (AI) and Machine Learning (ML), along with human clinical review, to ensure timely and appropriate Medicare payment for select items and services. WISeR will run for six performance years from January 1, 2026 to December 31, 2031 in six states: New Jersey, Ohio, Oklahoma, Texas, Arizona, and Washington. WISeR does not change Medicare coverage or payment policy. The model excludes inpatient-only services, emergency services, and services that would pose a substantial risk to patients if delayed. All recommendations for non-payment are determined by appropriately licensed clinicians who will apply standardized, transparent and evidence-based procedures to their review. WISeR does not apply to people with Medicare Advantage and will have no impact on them. Providers and suppliers for people with Original Medicare in selected regions will have the choice of submitting a prior authorization request for the model’s selected items and services or going through a post-service/pre-payment review. Model participants receive a percentage of the expenditures associated with averted wasteful, inappropriate care as a result of their reviews. That percentage is adjusted based on the participant’s performance on measures related to the process, including provider experience.",
+            "locator": "https://www.cms.gov/priorities/innovation/innovation-models/wiser"
+          },
+          {
+            "excerpt": "Current primary program description for WISeR scope, review mechanism, safeguards, participants and payment design. Limitation: This is CMS's current description of its own model and safeguards. It does not answer each problem in the released records or independently establish how well every vendor followed the requirements.",
+            "locator": "https://www.cms.gov/priorities/innovation/innovation-models/wiser"
+          }
+        ],
+        "scopeAndFreshness": "Page 99 sets quality multipliers of 95 percent (scores 60–84) and 90 percent (below 60) and requires quarterly CMS audits; CMS confirms the shared-savings-with-performance-adjustment design; P008 also honestly notes the records don't show safeguard effectiveness."
+      },
+      {
+        "claimId": "kff-experiences",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>KFF Health News reported in June that patients and providers described confusion, errors and long waits. Humata’s CEO said 88 percent of cases with supporting clinical data received an immediate yes; Zyter said it was working with stakeholders. Those accounts do not measure AI’s effect across WISeR.</p>",
+            "locator": "P009"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/editorial-input.json",
+          "sha256": "33a2a18f338d745370bd0ea88d59d3bcb2dc885e2c0e2403298e4702b4558248"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "KFF reported on June 23 that patients, doctors and other health professionals it interviewed described confusion, errors, long waits and stress during WISeR's rollout. KFF reported that an Oklahoma Medicare beneficiary made an extra two-and-a-half-hour drive after learning his regular procedure needed preapproval and declined a proposed third trip that he understood was for paperwork. Humata CEO Jeremy Friese told KFF that its system gives an ‘immediate yes’ in 88 percent of cases for which clinical data supports an approval. Zyter CEO Sundar Subramanian told KFF that the company continuously monitors operations and works with stakeholders to address questions and improve provider experience. CMS official Abe Sutton told KFF that the model aims to reduce inappropriate care without delaying appropriate care and that payment backlogs were being resolved. KFF reported clinicians' suspicion of AI-generated errors, while Humata's CEO said he had not heard about AI hallucinations.",
+            "locator": "https://kffhealthnews.org/medicare/medicare-ai-prior-authorization-wiser-delays-errors/"
+          },
+          {
+            "excerpt": "Independent June 23 reporting for patient/provider experience, CMS and vendor responses, and program background before the September records release. Limitation: This is June background, not new September reporting. The reported experiences establish real concerns and attributed accounts, not that AI caused every delay, that every non-affirmation was wrong or that the same conditions continued unchanged through September.",
+            "locator": "https://kffhealthnews.org/medicare/medicare-ai-prior-authorization-wiser-delays-errors/"
+          }
+        ],
+        "scopeAndFreshness": "KFF's June 23 reporting describes patients and providers reporting confusion, errors, long waits and stress; P009 correctly dates and attributes it and notes it does not measure AI's overall effect."
+      },
+      {
+        "claimId": "vendor-responses",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>KFF Health News reported in June that patients and providers described confusion, errors and long waits. Humata’s CEO said 88 percent of cases with supporting clinical data received an immediate yes; Zyter said it was working with stakeholders. Those accounts do not measure AI’s effect across WISeR.</p>",
+            "locator": "P009"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/editorial-input.json",
+          "sha256": "33a2a18f338d745370bd0ea88d59d3bcb2dc885e2c0e2403298e4702b4558248"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "KFF reported on June 23 that patients, doctors and other health professionals it interviewed described confusion, errors, long waits and stress during WISeR's rollout. KFF reported that an Oklahoma Medicare beneficiary made an extra two-and-a-half-hour drive after learning his regular procedure needed preapproval and declined a proposed third trip that he understood was for paperwork. Humata CEO Jeremy Friese told KFF that its system gives an ‘immediate yes’ in 88 percent of cases for which clinical data supports an approval. Zyter CEO Sundar Subramanian told KFF that the company continuously monitors operations and works with stakeholders to address questions and improve provider experience. CMS official Abe Sutton told KFF that the model aims to reduce inappropriate care without delaying appropriate care and that payment backlogs were being resolved. KFF reported clinicians' suspicion of AI-generated errors, while Humata's CEO said he had not heard about AI hallucinations.",
+            "locator": "https://kffhealthnews.org/medicare/medicare-ai-prior-authorization-wiser-delays-errors/"
+          },
+          {
+            "excerpt": "Independent June 23 reporting for patient/provider experience, CMS and vendor responses, and program background before the September records release. Limitation: This is June background, not new September reporting. The reported experiences establish real concerns and attributed accounts, not that AI caused every delay, that every non-affirmation was wrong or that the same conditions continued unchanged through September.",
+            "locator": "https://kffhealthnews.org/medicare/medicare-ai-prior-authorization-wiser-delays-errors/"
+          }
+        ],
+        "scopeAndFreshness": "Humata CEO's 88 percent 'immediate yes' claim and Zyter's stakeholder-engagement statement both appear in KFF's reporting exactly as attributed in P009."
+      },
+      {
+        "claimId": "causal-limits",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>If you or someone you help uses Original Medicare in one of the six states and a selected request is delayed, ask the provider which stage it is in—vendor response, decision letter or correction—and what review, resubmission or appeal route is available. The records do not prove that AI caused every delay, every non-affirmation was improper or June conditions remained unchanged in September.</p>",
+            "locator": "P010"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/editorial-input.json",
+          "sha256": "33a2a18f338d745370bd0ea88d59d3bcb2dc885e2c0e2403298e4702b4558248"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Page 322, Table 2 lists 20,397 year-to-date decisions received for Virtix and Zyter through the March 30, 2026 report: 6,096 for Virtix and 14,301 for Zyter. Page 322, Table 3 splits those 20,397 decisions into 14,453 affirmations and 5,944 non-affirmations. Virtix has 2,863 affirmations and 3,233 non-affirmations; Zyter has 11,590 affirmations and 2,711 non-affirmations. Page 22 says payment savings are calculated from non-affirmations not followed by an affirmed resubmission or a successfully appealed claim denial. It also says one series of non-affirmations for the same beneficiary, item or service, and provider within 120 days earns only one participant payment. Page 234 says that as of March 30 Genzeon had 123 prior-authorization requests aged three days or older, with the oldest 83 days. It separates them into 14 awaiting a model-participant response, 44 awaiting a decision letter and 65 awaiting correction for creation of a tracking number or dismissal. The page does not say which stage applied to the oldest request. In a December 12, 2025 letter on pages 216 and 217, Innovaccer said it would meet the January 5, 2026 go-live date without full functionality. It cited changing requirements, new integration expectations, unclear governance and insufficient end-to-end testing time, and planned to auto-affirm requests while completing a phased rollout. Page 217 says Innovaccer expected the initial auto-affirmation period to last approximately 45 to 60 days and described the approach as a way to avoid a backlog of unprocessed requests while it finished, validated and deployed the full rules-based solution. Page 99 sets quality multipliers at 100 percent for aggregate scores of 85 to 100 percent, 95 percent for scores of 60 to 84 percent and 90 percent below 60 percent. It also says CMS conducts quarterly audits of participant records for consistency with Original Medicare coverage criteria. Page 410 groups January requests for two vendors into one-to-five, six-to-ten and eleven-to-twenty-one-day buckets. Those buckets do not disclose an exact rate for responses inside or outside 72 hours.",
+            "locator": "https://www.eff.org/files/2026/09/07/combined_records_-_2nd_interim_release.pdf"
+          },
+          {
+            "excerpt": "Primary documents for the payment design, audit safeguard, pre-launch vendor warning and dated operational tables cited in the article. Limitation: The review was bounded to seven cited pages plus direct checks of the complete file's identity and page count, not a claim to have substantively reviewed every one of 443 pages. Operational tables are dated snapshots and some are cumulative; they must not be added together. Non-affirmation is not synonymous with a final denial of care.",
+            "locator": "https://www.eff.org/files/2026/09/07/combined_records_-_2nd_interim_release.pdf"
+          },
+          {
+            "excerpt": "KFF reported on June 23 that patients, doctors and other health professionals it interviewed described confusion, errors, long waits and stress during WISeR's rollout. KFF reported that an Oklahoma Medicare beneficiary made an extra two-and-a-half-hour drive after learning his regular procedure needed preapproval and declined a proposed third trip that he understood was for paperwork. Humata CEO Jeremy Friese told KFF that its system gives an ‘immediate yes’ in 88 percent of cases for which clinical data supports an approval. Zyter CEO Sundar Subramanian told KFF that the company continuously monitors operations and works with stakeholders to address questions and improve provider experience. CMS official Abe Sutton told KFF that the model aims to reduce inappropriate care without delaying appropriate care and that payment backlogs were being resolved. KFF reported clinicians' suspicion of AI-generated errors, while Humata's CEO said he had not heard about AI hallucinations.",
+            "locator": "https://kffhealthnews.org/medicare/medicare-ai-prior-authorization-wiser-delays-errors/"
+          },
+          {
+            "excerpt": "Independent June 23 reporting for patient/provider experience, CMS and vendor responses, and program background before the September records release. Limitation: This is June background, not new September reporting. The reported experiences establish real concerns and attributed accounts, not that AI caused every delay, that every non-affirmation was wrong or that the same conditions continued unchanged through September.",
+            "locator": "https://kffhealthnews.org/medicare/medicare-ai-prior-authorization-wiser-delays-errors/"
+          }
+        ],
+        "scopeAndFreshness": "P010's three explicit limits mirror the source limitations: records don't prove AI caused every delay, that every non-affirmation was improper, or that June conditions persisted into September."
+      }
+    ],
+    "reviewedThrough": "2026-09-11",
+    "nextTrigger": "Reopen all sources on publication day; redraft for corrected records, new CMS performance data, a program change, audit or corrective action, or evidence changing the stated delays, scope or safeguards.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate reports the September 8 WISeR records release and corrects its central count."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All outcomes and news checks pass and all twenty-four failure families are clear; explain-back and transfer both succeed on the article's mechanism alone."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=1; evidence gaps repaired=0; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/independent-review/final-v1/news-editorial-analysis.json",
+      "sha256": "f2d11d255009ac64130fccddfe126552d8c0d382ac9c3e752cc0ba33e92d8d06"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/wiser-records-20260910/independent-review/final-v1/independent-raw-report.json",
+    "sha256": "d8b39880881ff499066add19ae1bd4febd20bcb62aff1448e158a1421ff0f187"
+  }
+}

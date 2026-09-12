@@ -78,6 +78,12 @@ function matchedSourceIds(evidence, sources) {
     .map((source) => source.id);
 }
 
+export function assertCurrentEditorialParagraphs(packet, expected) {
+  if (!isDeepStrictEqual(packet?.paragraphs, expected)) {
+    throw new Error('Editorial paragraphs differ from the current complete article; rebuild the packet before review.');
+  }
+}
+
 export function compactNewsstandEditorialInput(packet) {
   if (!packet || typeof packet !== 'object' || Array.isArray(packet)) {
     throw new Error('Editorial packet must be an object.');

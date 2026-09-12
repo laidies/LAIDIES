@@ -1,0 +1,953 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "microsoft-capacity-20260912",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-12T19:14:23.050Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/review-text.json",
+      "sha256": "3f1b6a0b7959305f4c9cd9737e753f4be8e18bbf647d4561ce0aad25f1e65ae4"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/publication-manifest.json",
+      "sha256": "7ba4e65de5218ef22b07939e30a0ba1fb38b41022aba5705e8575fd3c379c5cc"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/rendered-article.html",
+      "sha256": "c94f2abf2d7a0595c4b1f557871c5a380e899f7205f7a1cd87085f790011c512"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "When Microsoft reportedly plans 38 gigawatts of data-centre capacity by 2032, what does that number actually measure — and is it electricity being used now?",
+    "promisedPayoff": "The reader can distinguish planned power capacity (an instantaneous rate ceiling) from energy consumed over time, and knows the roadmap spans AI-specific and general cloud computing.",
+    "centralMentalModel": "A gigawatt is a rate: how much power infrastructure can support at a moment. Capacity planned for 2032 is not a reading of energy consumed today or over a year; consumption depends on how fully facilities run.",
+    "dailyLifeConnection": "The cocktail-party framing equips a professional reader to correct the common conflation of a capacity headline with current energy use in conversation or when reading coverage.",
+    "surfaceJob": "A dated daily news brief: report what Reuters/Bloomberg said on September 10, explain the unit, and mark what the report does and does not establish.",
+    "desiredReaderFeeling": "Calm, oriented confidence: the reader can restate the number precisely without either alarm or dismissal, and knows the claim's attribution limits."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Every technical term (data centre, gigawatt, capacity) is defined in plain language at first meaningful use; sentences are short and non-technical readers can follow the capacity/energy distinction.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Data centres are physical buildings filled with servers. They host the machinery that runs AI services and other cloud work.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>A gigawatt measures power: the rate at which electricity can be supplied or used at a moment. In this report, 38 gigawatts describes the capacity Microsoft plans to have online in 2032. It is not a reading of electricity Microsoft is consuming today, and it does not tell us how much energy those facilities would use over a day or year.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader gains the capacity-vs-energy distinction, the AI-vs-cloud split, and the owned/leased scope limit — all usable when reading similar coverage.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A gigawatt measures power: the rate at which electricity can be supplied or used at a moment. In this report, 38 gigawatts describes the capacity Microsoft plans to have online in 2032. It is not a reading of electricity Microsoft is consuming today, and it does not tell us how much energy those facilities would use over a day or year.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>About 2 gigawatts of the current capacity is centred on AI-specific chips. The report says about one-third of the planned 38 gigawatts would be AI-specific. The roadmap therefore covers AI and other cloud computing.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Bloomberg’s public excerpt says the roadmap counts facilities Microsoft owns or leases. It leaves out computing rented from outside providers such as CoreWeave.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult prose with no condescension or borrowed persona; explanations are direct declaratives that respect the reader.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Data centres are physical buildings filled with servers. They host the machinery that runs AI services and other cloud work.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>A gigawatt measures power: the rate at which electricity can be supplied or used at a moment. In this report, 38 gigawatts describes the capacity Microsoft plans to have online in 2032. It is not a reading of electricity Microsoft is consuming today, and it does not tell us how much energy those facilities would use over a day or year.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The reported expansion would build more of the physical infrastructure behind AI and other online services. It says Microsoft is planning room for much more computing. It does not show how fully those facilities will run or how much electricity they will consume over time.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Interest is sustained by resolving a genuine confusion (is 38 GW electricity used now?) rather than forced humour; the payoff arrives and is restated conversationally.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A gigawatt measures power: the rate at which electricity can be supplied or used at a moment. In this report, 38 gigawatts describes the capacity Microsoft plans to have online in 2032. It is not a reading of electricity Microsoft is consuming today, and it does not tell us how much energy those facilities would use over a day or year.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "“Microsoft is reportedly planning data centres with about 38 gigawatts of capacity by 2032, up from about 12 now. Capacity is how much power the infrastructure can support at a moment—not how much energy Microsoft is already using.”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "As a dated news article it answers what was reported, when, by whom, and why it matters, staying within the bounded scope of the September 10 report.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Reuters reported on September 10 that Microsoft plans to expand its data-centre capacity from about 12 gigawatts now to about 38 gigawatts by 2032. Reuters was summarizing Bloomberg reporting based on people familiar with the plans. Microsoft did not immediately respond to Reuters.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The reported expansion would build more of the physical infrastructure behind AI and other online services. It says Microsoft is planning room for much more computing. It does not show how fully those facilities will run or how much electricity they will consume over time.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The cocktail-party line gives the professional reader a ready-to-use conversational correction of the capacity/energy conflation they will meet in headlines and workplace chat.",
+      "artifactEvidence": [
+        {
+          "excerpt": "“Microsoft is reportedly planning data centres with about 38 gigawatts of capacity by 2032, up from about 12 now. Capacity is how much power the infrastructure can support at a moment—not how much energy Microsoft is already using.”",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>A gigawatt measures power: the rate at which electricity can be supplied or used at a moment. In this report, 38 gigawatts describes the capacity Microsoft plans to have online in 2032. It is not a reading of electricity Microsoft is consuming today, and it does not tell us how much energy those facilities would use over a day or year.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human question first, concrete physical grounding, one carrying technical distinction, and honest limits; no imitation of any communicator's persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Data centres are physical buildings filled with servers. They host the machinery that runs AI services and other cloud work.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>A gigawatt measures power: the rate at which electricity can be supplied or used at a moment. In this report, 38 gigawatts describes the capacity Microsoft plans to have online in 2032. It is not a reading of electricity Microsoft is consuming today, and it does not tell us how much energy those facilities would use over a day or year.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The reported expansion would build more of the physical infrastructure behind AI and other online services. It says Microsoft is planning room for much more computing. It does not show how fully those facilities will run or how much electricity they will consume over time.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "P005 and P007 supply the causal material needed to answer why 38 GW cannot yield a consumption figure: capacity is an instantaneous rate ceiling and utilization is unknown.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A gigawatt measures power: the rate at which electricity can be supplied or used at a moment. In this report, 38 gigawatts describes the capacity Microsoft plans to have online in 2032. It is not a reading of electricity Microsoft is consuming today, and it does not tell us how much energy those facilities would use over a day or year.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The reported expansion would build more of the physical infrastructure behind AI and other online services. It says Microsoft is planning room for much more computing. It does not show how fully those facilities will run or how much electricity they will consume over time.</p>",
+          "locator": "P007"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why can't we calculate how much electricity Microsoft will actually use from the reported 38-gigawatt figure?",
+        "response": "Because a gigawatt measures power — the maximum rate at which electricity can be supplied at a moment — while electricity used is energy: power actually drawn, accumulated over hours and years. The 38 GW is planned capacity for 2032, and the report gives no information about how fully or how often those facilities would run, so no consumption figure follows from it.",
+        "expectedEvidence": "An accurate answer must use the rate-vs-accumulation distinction in P005 and the utilization gap stated in P007, while keeping the 2032 planned status from P002.",
+        "assessment": "The article fully supports this answer: P005 defines the unit and denies the current-consumption reading, and P007 explicitly withholds utilization and consumption conclusions."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The rate-vs-cumulative-energy mechanism transfers cleanly to my invented local-data-centre scenario; the article's distinction resolves it without extra concepts.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A gigawatt measures power: the rate at which electricity can be supplied or used at a moment. In this report, 38 gigawatts describes the capacity Microsoft plans to have online in 2032. It is not a reading of electricity Microsoft is consuming today, and it does not tell us how much energy those facilities would use over a day or year.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The reported expansion would build more of the physical infrastructure behind AI and other online services. It says Microsoft is planning room for much more computing. It does not show how fully those facilities will run or how much electricity they will consume over time.</p>",
+          "locator": "P007"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using this article's mechanism, is the colleague's annual-consumption conclusion valid, and what would you actually need to know?",
+        "response": "No. One gigawatt is a ceiling on instantaneous draw, not an annual consumption figure. Yearly electricity use equals actual power drawn integrated over time, which depends on how fully the servers run, how much of the capacity is built out and energised, and load patterns — none of which the capacity figure supplies. You would need utilization data or metered consumption to make the homes comparison.",
+        "expectedEvidence": "Correct transfer applies P005's power-vs-energy distinction and P007's utilization caveat to a new local facility rather than Microsoft's roadmap.",
+        "assessment": "The mechanism transfers cleanly with no additional concepts required, demonstrating the article teaches a portable distinction, not just a fact about Microsoft."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Proportionate for a news brief: the reader gets a concrete interpretive action — restate capacity claims correctly and withhold consumption conclusions — plus a pointer to the fundamentals chapter.",
+      "artifactEvidence": [
+        {
+          "excerpt": "“Microsoft is reportedly planning data centres with about 38 gigawatts of capacity by 2032, up from about 12 now. Capacity is how much power the infrastructure can support at a moment—not how much energy Microsoft is already using.”",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<a href=\\\"/library.html#ai-fundamentals-101::%40ch-17-17-1-whats-actually-inside\\\">AI Fundamentals 101: Data Centres and Energy — What’s Actually Inside</a> explains that data centres are physical buildings filled with servers. It is the useful starting point for understanding what this reported capacity plan would build.",
+          "locator": "P009"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The article uses no analogies; all explanation is direct and literal, so nothing mismaps the mechanism or drops limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Data centres are physical buildings filled with servers. They host the machinery that runs AI services and other cloud work.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>A gigawatt measures power: the rate at which electricity can be supplied or used at a moment. In this report, 38 gigawatts describes the capacity Microsoft plans to have online in 2032. It is not a reading of electricity Microsoft is consuming today, and it does not tell us how much energy those facilities would use over a day or year.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Every material claim traces to the supplied passages with attribution and hedges retained; no figure, date, or scope detail exceeds the sources. The only variance — Bloomberg's 'more than 38' vs the article's 'about 38' — matches Reuters' own wording and is immaterial.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Reuters reported on September 10 that Microsoft plans to expand its data-centre capacity from about 12 gigawatts now to about 38 gigawatts by 2032. Reuters was summarizing Bloomberg reporting based on people familiar with the plans. Microsoft did not immediately respond to Reuters.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>About 2 gigawatts of the current capacity is centred on AI-specific chips. The report says about one-third of the planned 38 gigawatts would be AI-specific. The roadmap therefore covers AI and other cloud computing.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Bloomberg’s public excerpt says the roadmap counts facilities Microsoft owns or leases. It leaves out computing rented from outside providers such as CoreWeave.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The report date (September 10), attribution chain, and checkable source labels make the time-sensitive roadmap claim reviewable, and limits on the paywalled Bloomberg body are respected.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Reuters reported on September 10 that Microsoft plans to expand its data-centre capacity from about 12 gigawatts now to about 38 gigawatts by 2032. Reuters was summarizing Bloomberg reporting based on people familiar with the plans. Microsoft did not immediately respond to Reuters.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Bloomberg’s public excerpt says the roadmap counts facilities Microsoft owns or leases. It leaves out computing rented from outside providers such as CoreWeave.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The article concerns a single newly reported plan and clearly frames it as new September 10 reporting about a future 2032 target, with no conflation of old events and new evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Reuters reported on September 10 that Microsoft plans to expand its data-centre capacity from about 12 gigawatts now to about 38 gigawatts by 2032. Reuters was summarizing Bloomberg reporting based on people familiar with the plans. Microsoft did not immediately respond to Reuters.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A gigawatt measures power: the rate at which electricity can be supplied or used at a moment. In this report, 38 gigawatts describes the capacity Microsoft plans to have online in 2032. It is not a reading of electricity Microsoft is consuming today, and it does not tell us how much energy those facilities would use over a day or year.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (more physical infrastructure planned) and uncertainty survives: 'reportedly,' no Microsoft confirmation, and explicit denial that utilization or consumption can be inferred.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>Reuters reported on September 10 that Microsoft plans to expand its data-centre capacity from about 12 gigawatts now to about 38 gigawatts by 2032. Reuters was summarizing Bloomberg reporting based on people familiar with the plans. Microsoft did not immediately respond to Reuters.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The reported expansion would build more of the physical infrastructure behind AI and other online services. It says Microsoft is planning room for much more computing. It does not show how fully those facilities will run or how much electricity they will consume over time.</p>",
+          "locator": "P007"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Definitions in P004–P005 immediately connect back to the reported roadmap rather than accumulating as a list.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Paragraphs each do distinct work: report, split, definition, scope, implication; no repeated scaffold.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogies are used anywhere in the artifact; explanation is literal throughout.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Only functional references appear (CoreWeave as the sourced exclusion, the fundamentals chapter as a pointer).",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal step readers need — capacity is a rate, consumption depends on utilization over time — is explicitly supplied.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "No vague verify/be-careful advice; the interpretive guidance is specific to this number and claim.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Gigawatt and data centre are defined before or at first meaningful use; nothing is left unexplained.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Facilities, chips, capacity, and the roadmap are connected into one coherent picture of what would be built.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Hedges are preserved everywhere: reportedly, about, the report says, did not immediately respond.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Every time-sensitive claim carries a report date and traceable source; the article was checked on 2026-09-12.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No motivational or vague corporate language; prose is concrete and specific throughout.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Though sober, the piece is animated by a genuine reader confusion and resolves it; it is not a terminology checklist.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is mentioned anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The implicit hook (tripling capacity) is fully paid off with the unit explanation and evidence limits.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "No familiar example is deployed and abandoned; the conversational restatement returns directly to the mechanism.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The voice is plain LAiDIES house style with no imitated persona or mannerisms.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No humour or spectacle competes with the explanation; understanding leads throughout.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The explanation occupies the body of the piece; the headline does not crowd out the causal content.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The reveal (not current energy use) is asserted only after the unit and facility grounding earn it.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending explicitly bounds the finding — it does not show utilization or consumption — the opposite of inflation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers the full supplied job: capacity vs energy plus the AI-specific vs general cloud split.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The reported event and reader-facing question precede the technical unit explanation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Not applicable in force: this bounded news brief contains no worked example crowding out a broader purpose.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "For a bounded news report, explaining this specific mechanism is the right organising perspective, and it stays reader-oriented.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/editorial-input.json",
+        "sha256": "92c64ba9255a6b846e844fff75a6da96041de7f02550165803aa169ae9f33ee5"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "reported-roadmap",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Microsoft reportedly plans to more than triple its data-centre capacity by 2032.",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "<p>Reuters reported on September 10 that Microsoft plans to expand its data-centre capacity from about 12 gigawatts now to about 38 gigawatts by 2032. Reuters was summarizing Bloomberg reporting based on people familiar with the plans. Microsoft did not immediately respond to Reuters.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/editorial-input.json",
+          "sha256": "92c64ba9255a6b846e844fff75a6da96041de7f02550165803aa169ae9f33ee5"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Published Sep 10, 2026, 06:21 PM. Updated Sep 10, 2026, 06:24 PM.\nSept 10 (Reuters) - Microsoft plans to build out its data-center capacity to about 38 gigawatts by 2032, more than triple its current footprint, Bloomberg News reported on Thursday, citing people familiar with the matter.\nAccording to the report only about 2 gigawatts of the company’s current 12-gigawatt capacity is centered on AI-specific chips, a share expected to grow to about a third of the 38 gigawatts it plans to have online.\nMicrosoft did not immediately respond to a Reuters request for comment.\nTechnology companies have been pouring billions of dollars into data centers to power generative AI services such as ChatGPT and Copilot, which require huge amounts of computing power.",
+            "locator": "https://www.investing.com/news/stock-market-news/microsoft-plans-38-gigawatts-of-data-center-capacity-by-2032-bloomberg-news-reports-4897030"
+          },
+          {
+            "excerpt": "Microsoft Plans Data Center Push to Triple Its Computing Power (1). Sept. 11, 2026, 3:03 AM UTC.\nMicrosoft Corp. plans to more than triple its data center capacity.\nThe company’s globe-spanning network of data centers will have more than 38 gigawatts of capacity in 2032, up from about 12 gigawatts now, according to people familiar with the plans.\nThe road map includes company-owned and leased facilities and excludes computing power rented from so-called neoclouds like Coreweave Inc.",
+            "locator": "https://news.bloomberglaw.com/ip-law/microsoft-plans-data-center-push-to-triple-its-computing-power"
+          }
+        ],
+        "scopeAndFreshness": "Both source passages state the ~12 GW current to ~38 GW by 2032 expansion; Reuters dates its report September 10 and the article preserves 'about' and the reported framing."
+      },
+      {
+        "claimId": "attribution-response",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Reuters reported on September 10 that Microsoft plans to expand its data-centre capacity from about 12 gigawatts now to about 38 gigawatts by 2032. Reuters was summarizing Bloomberg reporting based on people familiar with the plans. Microsoft did not immediately respond to Reuters.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/editorial-input.json",
+          "sha256": "92c64ba9255a6b846e844fff75a6da96041de7f02550165803aa169ae9f33ee5"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Published Sep 10, 2026, 06:21 PM. Updated Sep 10, 2026, 06:24 PM.\nSept 10 (Reuters) - Microsoft plans to build out its data-center capacity to about 38 gigawatts by 2032, more than triple its current footprint, Bloomberg News reported on Thursday, citing people familiar with the matter.\nAccording to the report only about 2 gigawatts of the company’s current 12-gigawatt capacity is centered on AI-specific chips, a share expected to grow to about a third of the 38 gigawatts it plans to have online.\nMicrosoft did not immediately respond to a Reuters request for comment.\nTechnology companies have been pouring billions of dollars into data centers to power generative AI services such as ChatGPT and Copilot, which require huge amounts of computing power.",
+            "locator": "https://www.investing.com/news/stock-market-news/microsoft-plans-38-gigawatts-of-data-center-capacity-by-2032-bloomberg-news-reports-4897030"
+          }
+        ],
+        "scopeAndFreshness": "The Reuters passage explicitly cites Bloomberg News and people familiar with the matter, and states Microsoft did not immediately respond to a Reuters request for comment; the article mirrors this exactly."
+      },
+      {
+        "claimId": "ai-share",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>About 2 gigawatts of the current capacity is centred on AI-specific chips. The report says about one-third of the planned 38 gigawatts would be AI-specific. The roadmap therefore covers AI and other cloud computing.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/editorial-input.json",
+          "sha256": "92c64ba9255a6b846e844fff75a6da96041de7f02550165803aa169ae9f33ee5"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Published Sep 10, 2026, 06:21 PM. Updated Sep 10, 2026, 06:24 PM.\nSept 10 (Reuters) - Microsoft plans to build out its data-center capacity to about 38 gigawatts by 2032, more than triple its current footprint, Bloomberg News reported on Thursday, citing people familiar with the matter.\nAccording to the report only about 2 gigawatts of the company’s current 12-gigawatt capacity is centered on AI-specific chips, a share expected to grow to about a third of the 38 gigawatts it plans to have online.\nMicrosoft did not immediately respond to a Reuters request for comment.\nTechnology companies have been pouring billions of dollars into data centers to power generative AI services such as ChatGPT and Copilot, which require huge amounts of computing power.",
+            "locator": "https://www.investing.com/news/stock-market-news/microsoft-plans-38-gigawatts-of-data-center-capacity-by-2032-bloomberg-news-reports-4897030"
+          }
+        ],
+        "scopeAndFreshness": "Reuters states only about 2 GW of the current 12 GW is centred on AI-specific chips, expected to grow to about a third of the planned 38 GW; the article keeps 'the report says' attribution and the approximate framing."
+      },
+      {
+        "claimId": "facility-scope",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Bloomberg’s public excerpt says the roadmap counts facilities Microsoft owns or leases. It leaves out computing rented from outside providers such as CoreWeave.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/editorial-input.json",
+          "sha256": "92c64ba9255a6b846e844fff75a6da96041de7f02550165803aa169ae9f33ee5"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Microsoft Plans Data Center Push to Triple Its Computing Power (1). Sept. 11, 2026, 3:03 AM UTC.\nMicrosoft Corp. plans to more than triple its data center capacity.\nThe company’s globe-spanning network of data centers will have more than 38 gigawatts of capacity in 2032, up from about 12 gigawatts now, according to people familiar with the plans.\nThe road map includes company-owned and leased facilities and excludes computing power rented from so-called neoclouds like Coreweave Inc.",
+            "locator": "https://news.bloomberglaw.com/ip-law/microsoft-plans-data-center-push-to-triple-its-computing-power"
+          }
+        ],
+        "scopeAndFreshness": "The Bloomberg Law public excerpt states the road map includes company-owned and leased facilities and excludes computing rented from neoclouds like CoreWeave; the article correctly attributes this to the public excerpt only, matching the source limitation."
+      }
+    ],
+    "reviewedThrough": "2026-09-12",
+    "nextTrigger": "Any Microsoft confirmation, Bloomberg/Reuters correction or change to the capacity roadmap.",
+    "correctionOwner": "/root"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound candidate covers this reported Microsoft capacity roadmap."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All outcomes and news checks pass and every failure family is clear; no repair or evidence gap is indicated on the reader side."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=1; evidence gaps repaired=0; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/final-v3/news-editorial-analysis.json",
+      "sha256": "4fa356685f2ec4e0751aefa53b5362717acfbf63398a35a1f063dcae92877061"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/microsoft-capacity-20260912/final-v3/independent-raw-report.json",
+    "sha256": "908242f8fcdb742f06fb11c59a242e857bb4e161a45b485191510f7ba8f6dee1"
+  }
+}

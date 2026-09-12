@@ -1,0 +1,84 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "alphagenome-atlas-20260912",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "91a689314eed0ee5be56bdc81f01336f8c53242b7bcad7bccb4f27bf3e6b747f",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why does having every prediction precomputed in the Atlas speed up research, and why can a top-ranked score still not tell a patient what their DNA change means for them?",
+      "response": "Before the Atlas, a lab facing hundreds of candidate variants had to run the model's prediction for each one; now the answers for all roughly nine billion single-letter changes are already computed and can simply be looked up, so the slow step of generating predictions disappears and researchers jump straight to ranking which changes might matter. But the score only predicts a molecular effect — for example, that a change could alter how cells splice a gene message. Whether that effect really happens must be shown in an experiment, as with the epilepsy case where lab-grown cells confirmed some changes produced the longer message. And even a confirmed molecular effect is only one link in the evidence chain for a diagnosis, which also needs clinical context the score cannot supply.",
+      "expectedEvidence": "An accurate answer must include: lookup replaces per-variant computation (P002), the score's role is prioritization not proof (P003, P007), the lab check as the verifying step (P004), and the report's own statement that predictions are only part of the clinical evidence chain (P005).",
+      "assessment": "The article supports this answer fully; every element of the causal chain is present in P002–P005 in ordinary language, so a reader can reconstruct both the speed-up and the diagnosis boundary without outside knowledge."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, how should the group use the Atlas, and what may they conclude — and not conclude — from a variant that the Atlas ranks first?",
+      "response": "They should look up the precomputed predictions for all 400 variants instead of computing each afresh, and use the rankings to shortlist the few candidates predicted to disturb molecular function in heart-relevant contexts. A top-ranked variant is a research lead: the next step is an experiment, such as testing the surrounding DNA stretch in laboratory-grown heart cells to see whether the predicted molecular change actually occurs. Even if the experiment confirms it, they cannot tell family members that this variant is their diagnosis — a confirmed molecular effect is only part of the clinical evidence chain, and clinical genetics evaluation would still be needed before it could inform anyone's care.",
+      "expectedEvidence": "Correct application requires the lookup-not-recompute step (P002), shortlist logic under limited resources (P003), a prediction-then-cell-experiment sequence (P004), and the not-sufficient-for-diagnosis boundary (P005–P006).",
+      "assessment": "The article's mechanism resolves this genuinely new scenario completely; every step of the recommended workflow and its limits maps to the model the article teaches, confirming real transfer."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The dated release, what the resource is (precomputed predictions replacing fresh calculation), its scale, and the causal use sequence are all clear (P002–P004).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 8, Google DeepMind introduced AlphaGenome Atlas: a research resource where scientists can look up predicted molecular effects of every possible one-letter DNA change in the human genome, instead of calculating each prediction afresh. The Atlas includes about nine billion such changes.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>That can speed the first sorting step. A DNA variant is a difference in a DNA sequence. If a study has many variants to investigate, the Atlas can point researchers toward changes that may affect biology, so they can decide what to examine more closely.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>One research example shows the sequence. In a rare epilepsy case, the report ranked an overlooked DNA change at the top and predicted that it could change how cells assemble a gene message. Researchers then tested a nearby stretch of DNA in laboratory-grown cells. Some changes produced the longer message the prediction had highlighted.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'DNA variant' is defined at first meaningful use (P003); 'predicted molecular effects' is grounded as 'how cells assemble a gene message' (P004); no jargon left unexplained.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>That can speed the first sorting step. A DNA variant is a difference in a DNA sequence. If a study has many variants to investigate, the Atlas can point researchers toward changes that may affect biology, so they can decide what to examine more closely.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>One research example shows the sequence. In a rare epilepsy case, the report ranked an overlooked DNA change at the top and predicted that it could change how cells assemble a gene message. Researchers then tested a nearby stretch of DNA in laboratory-grown cells. Some changes produced the longer message the prediction had highlighted.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is anchored in a recognizable reader situation — reading a gene-prediction headline — with three specific questions to apply (P006).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The news is faster access to a research starting point. It does not replace testing a candidate in the relevant biological setting. When you read a gene-prediction headline, ask: what did it predict, what experiment followed, and what would still need to happen before it could inform someone’s care?</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>That is a research lead followed by a laboratory check—not a personal diagnosis. The report says Atlas and its ranking score predict molecular effects and are only part of the evidence needed for clinical diagnoses. It also calls for evaluation across diverse genetic ancestries.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or process details appear; the advice in P006 follows directly from the sourced limitation in P005 rather than being invented.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The news is faster access to a research starting point. It does not replace testing a candidate in the relevant biological setting. When you read a gene-prediction headline, ask: what did it predict, what experiment followed, and what would still need to happen before it could inform someone’s care?</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>That is a research lead followed by a laboratory check—not a personal diagnosis. The report says Atlas and its ranking score predict molecular effects and are only part of the evidence needed for clinical diagnoses. It also calls for evaluation across diverse genetic ancestries.</p>",
+          "locator": "P005"
+        }
+      ]
+    }
+  }
+}

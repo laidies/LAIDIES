@@ -1,0 +1,81 @@
+[
+  {
+    "claimId": "image",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "DeepSeek’s new model can understand pictures. Whether you see that depends on the app.",
+        "locator": "P001"
+      },
+      {
+        "excerpt": "<p>On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding. That means it can use a picture as part of what it receives, rather than working only from words. Vercel had made the model available through its AI Gateway a day earlier.</p>",
+        "locator": "P002"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/editorial-input.json",
+      "sha256": "1036d581fe1ccf064cb909a79f31f263b7b05e5eeaf103ed415ed660d38cd3f4"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "V4.1-Flash is now live on the DeepSeek API with native multimodal support. Set your model to deepseek-flash. V4-Flash & V4-Flash-Vision-Exp are retired. For compatibility, deepseek-v4-flash and deepseek-v4-flash-vision-exp temporarily route to V4.1-Flash. Starting at 04:00 UTC on Sept 14, 2026, all deepseek-v4-pro requests will route to V4.1-Flash at V4.1-Flash rates. This will continue until V4.1-Pro launches.",
+        "locator": "https://deepseek.com/en/news/deepseek-v4-1-flash/"
+      },
+      {
+        "excerpt": "News September 10, 2026. Introducing DeepSeek-V4.1-Flash: smarter, faster, more efficient. Introducing the smallest model in our new architecture family, with native visual understanding.",
+        "locator": "https://deepseek.com/en/news/deepseek-v4-1-flash/ — visible news date, headline and opening bullet"
+      },
+      {
+        "excerpt": "DeepSeek V4.1 Flash is now available on AI Gateway with native image understanding.",
+        "locator": "https://vercel.com/changelog/deepseek-v4-1-flash-now-available-on-ai-gateway"
+      }
+    ],
+    "scopeAndFreshness": "DeepSeek's own September 10 announcement headlines V4.1-Flash with native visual understanding, and Vercel's changelog independently describes native image understanding, matching P002's wording and date."
+  },
+  {
+    "claimId": "route",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>One technical change arrives September 14: requests sent under the older <code>deepseek-v4-pro</code> label are scheduled to route to V4.1-Flash until V4.1-Pro launches. For everyday use, the useful question is simpler: can this specific app accept my picture, and what does it say it can do with it?</p>",
+        "locator": "P004"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/editorial-input.json",
+      "sha256": "1036d581fe1ccf064cb909a79f31f263b7b05e5eeaf103ed415ed660d38cd3f4"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "V4.1-Flash is now live on the DeepSeek API with native multimodal support. Set your model to deepseek-flash. V4-Flash & V4-Flash-Vision-Exp are retired. For compatibility, deepseek-v4-flash and deepseek-v4-flash-vision-exp temporarily route to V4.1-Flash. Starting at 04:00 UTC on Sept 14, 2026, all deepseek-v4-pro requests will route to V4.1-Flash at V4.1-Flash rates. This will continue until V4.1-Pro launches.",
+        "locator": "https://deepseek.com/en/news/deepseek-v4-1-flash/"
+      },
+      {
+        "excerpt": "News September 10, 2026. Introducing DeepSeek-V4.1-Flash: smarter, faster, more efficient. Introducing the smallest model in our new architecture family, with native visual understanding.",
+        "locator": "https://deepseek.com/en/news/deepseek-v4-1-flash/ — visible news date, headline and opening bullet"
+      }
+    ],
+    "scopeAndFreshness": "The DeepSeek announcement states that starting Sept 14, 2026 all deepseek-v4-pro requests will route to V4.1-Flash until V4.1-Pro launches, exactly as P004 reports and framed as scheduled rather than done."
+  },
+  {
+    "claimId": "partner",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding. That means it can use a picture as part of what it receives, rather than working only from words. Vercel had made the model available through its AI Gateway a day earlier.</p>",
+        "locator": "P002"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/deepseek-flash-20260912/editorial-input.json",
+      "sha256": "1036d581fe1ccf064cb909a79f31f263b7b05e5eeaf103ed415ed660d38cd3f4"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "DeepSeek V4.1 Flash is now available on AI Gateway with native image understanding.",
+        "locator": "https://vercel.com/changelog/deepseek-v4-1-flash-now-available-on-ai-gateway"
+      }
+    ],
+    "scopeAndFreshness": "Vercel's changelog, published September 9 (one day before DeepSeek's September 10 announcement), confirms V4.1 Flash availability on AI Gateway, supporting the 'a day earlier' framing in P002."
+  }
+]

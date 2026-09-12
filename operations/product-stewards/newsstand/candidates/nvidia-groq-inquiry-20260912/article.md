@@ -1,0 +1,25 @@
+# Nvidia did not buy Groq. Its deal still drew a reported U.S. competition inquiry.
+
+## The Story
+
+Reuters reported on September 10 that the U.S. Justice Department is investigating whether Nvidia structured its December agreement with AI chip startup Groq to avoid antitrust scrutiny. The report, citing the New York Times and two people familiar with the matter, says the department opened the inquiry shortly after the deal and sent Nvidia a formal request for information.
+
+Nvidia said the agreement promotes innovation, rewards entrepreneurs and benefits consumers. Groq and the department did not immediately respond to Reuters. An inquiry asks for answers; it is not a finding of wrongdoing.
+
+## The LAiDIES Read
+
+Nvidia did not buy Groq outright. Groq’s announcement says Nvidia received a non-exclusive licence to use its inference technology. Non-exclusive means Nvidia can use the technology; it does not by itself stop Groq from using it or licensing it to others. Groq’s founder, president and other team members joined Nvidia, while Groq stayed independent and said GroqCloud would continue.
+
+Inference is the part that uses a trained AI model to produce an answer. So the competition question is not simply who owns Groq. It is what access to technology and the movement of experienced people changed, if anything, while Groq remained independent. The reporting does not answer that question.
+
+## What This Means for You
+
+“Not a takeover” describes the deal’s form. It does not answer what the licence and hires changed in practice. For now, officials are reportedly asking that question, and no finding has been reported.
+
+## Cocktail Party
+
+“Nvidia got permission to use Groq’s technology and hired senior people, while Groq stayed independent. That can prompt a competition question without a takeover—but the reported inquiry is not a finding.”
+
+## Class Notes
+
+<a href="/library.html#ai-fundamentals-101::%40ch-7-7-1-training-was-school-this-is-the-job">AI Fundamentals 101: Inference — When You Actually Ask It Something</a> explains inference as using a trained model to produce an answer. It shows why technology for that everyday running stage matters, without answering the separate competition question.

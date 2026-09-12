@@ -1,0 +1,20 @@
+{
+  "schema": "newsstand-cache-version-review-v1",
+  "reviewedAt": "2026-09-11T15:21:24.125565+00:00",
+  "reviewer": "/root/weekly_recovery",
+  "result": "PASS",
+  "issues": [],
+  "reviewedFiles": {
+    "scripts/lib/newsstand-asset-versions.mjs": "75a239343057c19628e3b06f99a9694e2fe4b0cabf2e30608f64d78e56a08748",
+    "scripts/check-newsstand-release-scope.mjs": "d43c1de04a4ced1267e7b97f32dcec773540a6ea290f84463a24b47563dbf1c1",
+    "scripts/test-newsstand-release-scope.mjs": "7293d17ab679c19fe2f895b14982cbf96e33927d4894b41a8123a528d1a2e360",
+    "scripts/test-newsstand-asset-versions.mjs": "ebee5724f4c29512a77083f0f32b0519d6d716a6bcf8d0b5b4dcd98302d0479a"
+  },
+  "independentChecks": [
+    "node scripts/test-newsstand-release-scope.mjs",
+    "node scripts/test-newsstand-asset-versions.mjs"
+  ],
+  "finding": "Changed critical assets require exact manifest-bound HTML and SHA16 URL versions; browser warm-cache control retains old assets while new fingerprints refetch current bytes.",
+  "limits": "Code and Chrome cache mechanism only; live deployment and native Safari VoiceOver not established by this review.",
+  "privateWorkPreserved": "Unstaged Puzzle02 changes remain separate; HTML fingerprints bind currently public/index assets."
+}

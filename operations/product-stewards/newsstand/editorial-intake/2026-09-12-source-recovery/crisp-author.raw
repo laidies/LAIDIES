@@ -1,0 +1,252 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>[Nature Medicine] A Clinically-Oriented Foundation Model for Intraoperative Pathology</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="description" content="Official website of SmartX Lab at HKUST." />
+        <meta name="theme-color" content="#8fc3e8" />
+        <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+        <link href=" https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css " rel="stylesheet" />
+        <link
+            href=" https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/fontawesome.min.css "
+            rel="stylesheet"
+        />
+
+        <link rel="shortcut icon" type="image/x-icon" href="/static/img/logo/favicon.ico" />
+        
+        <link rel="alternate" type="application/atom+xml" title="SmartX Lab News Feed" href="/news.xml" />
+        
+        <link href="/static/css/syntax.css" rel="stylesheet" />
+        <link href="/static/css/custom.css" rel="stylesheet" />
+        <link href="/static/css/bodyplot.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    </head>
+
+    <body>
+        <!-- Static navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light site-navbar">
+            <div class="site-navbar__identity">
+                <a class="site-navbar__logo-link" href="http://www.hkust.edu.hk">
+                    <img
+                        class="inline-block navb-icon"
+                        src="/static/img/logo/hkust_logo.png"
+                        alt="The Hong Kong University of Science and Technology logo"
+                    />
+                </a>
+                <a class="navbar-brand" href="/">SmartX Lab</a>
+            </div>
+            <button
+                type="button"
+                class="navbar-toggler"
+                data-toggle="collapse"
+                data-target="#navbarContent"
+                aria-controls="navbarContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarContent">
+                <ul class="navbar-nav ml-auto">
+                     
+                    <li class="nav-item">
+                        <a class="nav-link" href="/" alt="Home"> Home</a>
+                    </li>
+                      
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/news" alt="News">
+                            News<span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                      
+                    <li class="nav-item">
+                        <a class="nav-link" href="/research" alt="Research"> Research</a>
+                    </li>
+                      
+                    <li class="nav-item">
+                        <a class="nav-link" href="/showcase/demo_gallery" alt="Demo"> Demo</a>
+                    </li>
+                      
+                    <li class="nav-item">
+                        <a class="nav-link" href="/publications" alt="Publications"> Publications</a>
+                    </li>
+                      
+                    <li class="nav-item">
+                        <a class="nav-link" href="/members" alt="Members"> Members</a>
+                    </li>
+                      
+                    <li class="nav-item">
+                        <a class="nav-link" href="/recruitment" alt="Recruitment"> Recruitment</a>
+                    </li>
+                      
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact" alt="Contact"> Contact</a>
+                    </li>
+                     
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <!-- body -->
+        </div>
+    </body>
+</html>
+
+<div class="container post-content-shell px-0 max-width: 100%">
+    <div class="row justify-content-center">
+        <div class="col-12 col-lg-11 col-xl-10">
+            <div class="page header"><h1>[Nature Medicine] A Clinically-Oriented Foundation Model for Intraoperative Pathology</h1></div>
+            <p><img src="/static/img/news/2026_crisp/cover.png" alt="CRISP article published in Nature Medicine" style="width: 100%;" /></p>
+
+<p>Recently, Professor Hao Chen’s SmartX Lab team at the Hong Kong University of Science and Technology (HKUST) reported new work in <strong>AI-assisted intraoperative pathology</strong>. The study was conducted with Professor Muyan Cai and a multidisciplinary team from Sun Yat-sen University Cancer Center, Fudan University Shanghai Cancer Center, Tongji Hospital and other medical institutions.</p>
+
+<p>Published in <em>Nature Medicine</em>, the study introduces <strong>CRISP (Clinical Real-time Intraoperative Support for Pathology)</strong>, a foundation model developed for frozen-section whole-slide images. Frozen-section diagnosis guides time-critical decisions while a patient remains in surgery. Yet these images differ from routine paraffin sections and often contain freezing artefacts, folds, tears and staining variation.</p>
+
+<p>The team pretrained CRISP on <strong>103,797 slides</strong> from <strong>10 medical centres</strong> and evaluated it across <strong>98 retrospective tasks</strong> involving more than <strong>15,000 cases</strong>. These tasks covered common cancers, unseen anatomical sites, rare tumours and questions relevant to surgical decisions. A separate registered prospective observational study then assessed CRISP in <strong>3,064 consecutive patients</strong> across three centres.</p>
+
+<p>Within the prospective workflows, CRISP supported surgical decisions in <strong>92.6% of cases</strong>. Model-assisted triage was associated with an approximately <strong>35% reduction in pathologists’ diagnostic workload</strong>, while retaining <strong>79.0% of positive cases</strong> for review. The study also recorded <strong>105 avoided ancillary tests</strong> and <strong>87.5% accuracy</strong> in micrometastasis assessment. CRISP remained a clinical decision-support system under pathologist oversight, not an autonomous diagnostic system.</p>
+
+<p><img src="/static/img/news/2026_crisp/figure-1.png" alt="CRISP multicentre cohort, model development, evaluation, and prospective clinical workflow" style="width: 100%;" /></p>
+
+<p><strong>Figure 1 | Study cohorts and clinical workflow of CRISP.</strong> <strong>a to c,</strong> The multicentre frozen-section dataset comprises 103,797 slides from 10 medical centres and 25 anatomical sites. <strong>d and e,</strong> CRISP is pretrained on frozen-section whole-slide images and compared with pathology foundation models and specialist systems across retrospective tasks. <strong>f,</strong> Prospective observational validation examines real-time intraoperative diagnosis, human-AI collaboration, workload and clinical utility.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Frozen-section pathology provides diagnoses during surgery, when findings can alter the operative plan within minutes. Pathologists may need to determine malignancy, assess surgical margins, identify lymph-node metastases or advise whether more tissue should be removed.</p>
+
+<p>This speed creates a demanding diagnostic setting. Rapid preparation can introduce ice-crystal artefacts, tissue deformation, folds, tears, uneven staining and incomplete sampling. Pathologists must interpret these slides under time pressure and communicate their findings to the operating team.</p>
+
+<p>Most computational pathology foundation models are pretrained on formalin-fixed, paraffin-embedded tissue. Their transfer to frozen sections is uncertain because the image distributions and preparation artefacts differ. Retrospective benchmarks alone also cannot show how a model behaves within an active intraoperative workflow.</p>
+
+<p>CRISP addresses both gaps through frozen-section-specific pretraining and staged evaluation. The study progresses from broad retrospective testing to a distinct prospective observational assessment in real-time clinical workflows.</p>
+
+<h2 id="background">Background</h2>
+
+<p>Three barriers have constrained AI support for intraoperative pathology:</p>
+
+<ul>
+  <li><strong>Frozen sections differ from routine pathology.</strong> Rapid preparation introduces artefacts and visual distributions that are poorly represented in paraffin-section training data.</li>
+  <li><strong>The clinical questions are diverse.</strong> Intraoperative pathology includes benign-malignant differentiation, margin assessment, lymph-node evaluation and tumour subtyping across many anatomical sites.</li>
+  <li><strong>Retrospective performance does not establish prospective utility.</strong> Curated benchmarks cannot reproduce every time, preparation and workflow constraint encountered during surgery.</li>
+</ul>
+
+<p>The study therefore combines domain-specific pretraining, heterogeneous retrospective evaluation and prospective observational validation under clinical conditions.</p>
+
+<h2 id="method">Method</h2>
+
+<h3 id="a-multicentre-frozen-section-foundation-dataset">A multicentre frozen-section foundation dataset</h3>
+
+<p>The team collected <strong>103,797 frozen-section whole-slide images</strong> from <strong>10 medical centres</strong>, covering <strong>25 anatomical sites</strong>. The corpus spans variation in institutions, scanners, staining protocols, patient populations and tissue preparation.</p>
+
+<p>Data for pretraining, retrospective evaluation and prospective validation were separated. This staged design distinguishes representation learning and retrospective transfer from assessment in ongoing clinical workflows.</p>
+
+<h3 id="domain-specific-self-supervised-pretraining">Domain-specific self-supervised pretraining</h3>
+
+<p>CRISP learns visual representations from unlabelled frozen-section whole-slide images. Slides are divided into image patches so the model can capture morphological patterns across organs, diseases and institutions. The frozen encoder can then be paired with lightweight task-specific heads or multiple-instance learning pipelines.</p>
+
+<p>This design reduces the amount of labelled data needed for each application. It also allows the study to test whether one frozen-section representation transfers across common tasks and settings absent from pretraining.</p>
+
+<h3 id="evaluation-from-retrospective-benchmarks-to-prospective-care">Evaluation from retrospective benchmarks to prospective care</h3>
+
+<p>The evaluation strategy included three complementary levels:</p>
+
+<ol>
+  <li><strong>Retrospective task evaluation</strong> across common benign-malignant differentiation, intraoperative decision-making and other clinically relevant endpoints.</li>
+  <li><strong>Generalization analysis</strong> across independent centres, previously unseen anatomical sites and rare cancers.</li>
+  <li><strong>Prospective observational validation</strong> in consecutive intraoperative cases, assessing diagnostic performance, decision support, workload and ancillary testing.</li>
+</ol>
+
+<h2 id="broad-retrospective-validation">Broad Retrospective Validation</h2>
+
+<p>CRISP was evaluated across <strong>98 retrospective downstream tasks</strong> involving more than <strong>15,000 frozen-section cases</strong>. The benchmark included common diagnostic questions and distribution shifts across centres and anatomical sites. Comparators included specialist systems and pathology foundation models pretrained mainly on routine histology.</p>
+
+<p>Across common benign-malignant differentiation tasks, CRISP showed strong discrimination with limited task-specific adaptation. Analyses across institutions, tissue types and diagnostic categories also examined variation beyond aggregate performance. These retrospective results established broad transfer, while leaving prospective workflow performance as a separate question.</p>
+
+<p><img src="/static/img/news/2026_crisp/figure-2.png" alt="CRISP performance on common benign-malignant differentiation tasks" style="width: 100%;" /></p>
+
+<p><strong>Figure 2 | Performance on common benign-malignant differentiation tasks.</strong> CRISP is compared with specialist systems and pathology foundation models across internal, external and multicentre frozen-section cohorts. The evaluation examines discrimination under institutional and anatomical variation.</p>
+
+<h2 id="generalization-across-anatomical-sites-and-rare-cancers">Generalization Across Anatomical Sites and Rare Cancers</h2>
+
+<p>The next retrospective tests asked whether CRISP could transfer beyond the organs and disease distributions represented during pretraining. The evaluation included previously unseen anatomical sites and rare tumour categories, where task-specific datasets are often limited.</p>
+
+<p>CRISP transferred through both zero-shot-style feature use and supervised downstream adaptation. These findings support the reuse of frozen-section representations across organs and uncommon diagnoses within the evaluated datasets.</p>
+
+<p>Rare cancers nonetheless remain difficult because individual categories contain few cases and may require highly specialised criteria. The results don’t imply that one general model resolves this scarcity. They indicate that domain-specific pretraining can provide a useful starting representation when labelled data are limited.</p>
+
+<p><img src="/static/img/news/2026_crisp/figure-5.png" alt="CRISP generalization across anatomical sites and rare cancers" style="width: 100%;" /></p>
+
+<p><strong>Figure 3 | Generalization to unseen anatomical sites and rare cancers.</strong> The analyses assess transfer across organs, centres and low-frequency diagnostic categories, including settings outside the pretraining taxonomy.</p>
+
+<h2 id="prospective-clinical-validation">Prospective Clinical Validation</h2>
+
+<p>Retrospective evaluation established broad performance, but not behaviour during live surgical workflows. The researchers therefore conducted a registered prospective observational study of <strong>3,064 consecutive patients</strong> at three medical centres.</p>
+
+<p>The cohorts covered intraoperative thyroid, breast and central nervous system pathology. CRISP generated predictions while pathologists assessed the cases, and its output supported surgical decisions in <strong>92.6% of cases</strong>.</p>
+
+<p>In a model-assisted triage workflow, the reviewed subset retained <strong>79.0% of positive cases</strong> while pathologists’ diagnostic workload fell by approximately <strong>35%</strong>. The workflow also avoided <strong>105 ancillary tests</strong>. These are observational workflow findings and don’t establish effects on patient outcomes.</p>
+
+<p>For lymph-node assessment, CRISP achieved <strong>87.5% accuracy</strong> for micrometastases. The model’s role was to screen tissue and direct attention to areas requiring expert review, while pathologists retained diagnostic responsibility.</p>
+
+<p><img src="/static/img/news/2026_crisp/figure-6.png" alt="Prospective clinical validation and human-AI collaboration with CRISP" style="width: 100%;" /></p>
+
+<p><strong>Figure 4 | Prospective observational validation of CRISP.</strong> The multicentre study examines diagnostic performance, surgical decision support, model-assisted triage, workload, ancillary testing and lymph-node micrometastasis assessment in intraoperative workflows.</p>
+
+<h2 id="translational-potential">Translational Potential</h2>
+
+<p>CRISP brings together four elements relevant to clinical translation:</p>
+
+<ul>
+  <li><strong>Frozen-section-specific pretraining.</strong> The training corpus represents preparation artefacts and image distributions that differ from routine paraffin histology.</li>
+  <li><strong>Broad retrospective evaluation.</strong> One representation was tested across 98 tasks, multiple institutions, unseen anatomical sites and rare tumours.</li>
+  <li><strong>Prospective observational validation.</strong> Consecutive patients were assessed under clinical timing, preparation and workflow constraints.</li>
+  <li><strong>Human-AI collaboration.</strong> The study evaluated decision support and triage while preserving pathologist oversight.</li>
+</ul>
+
+<p>The evidence has clear limits. The prospective study was observational rather than interventional, so it doesn’t establish improved patient outcomes. Evaluation in further regions, scanners and institutional workflows is needed to assess transportability. Rare cancers and subtle lesions remain difficult, while artefacts, sampling limitations and unseen distributions can still cause errors. Deployment also requires digital slide preparation and computational infrastructure that may not be available in every operating theatre.</p>
+
+<p>CRISP should therefore remain a decision-support and triage tool under pathologist oversight. It is intended to assist time-critical review, not to issue autonomous diagnoses or replace clinical responsibility.</p>
+
+<hr />
+
+<h2 id="resources">Resources</h2>
+
+<p><strong>Paper |</strong> <a href="https://www.nature.com/articles/s41591-026-04703-0">A clinically-oriented foundation model for intraoperative pathology</a></p>
+
+<p><strong>Journal |</strong> <em>Nature Medicine</em> (2026)</p>
+
+<p><strong>DOI |</strong> <a href="https://doi.org/10.1038/s41591-026-04703-0">https://doi.org/10.1038/s41591-026-04703-0</a></p>
+
+<p><strong>Code |</strong> <a href="https://github.com/FT-ZHOU-ZZZ/CRISP">https://github.com/FT-ZHOU-ZZZ/CRISP</a></p>
+
+<p><strong>Model weights |</strong> <a href="https://huggingface.co/FTZhou/CRISP">https://huggingface.co/FTZhou/CRISP</a></p>
+
+<p><strong>Public dataset |</strong> <a href="https://huggingface.co/datasets/FTZhou/CRISP">https://huggingface.co/datasets/FTZhou/CRISP</a></p>
+
+<p><strong>Co-first authors |</strong> Zihan Zhao, Fengtao Zhou, and Ronggang Li</p>
+
+<p><strong>Corresponding authors |</strong> Hao Chen, The Hong Kong University of Science and Technology; Muyan Cai, Sun Yat-sen University Cancer Center</p>
+
+        </div>
+    </div>
+</div>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src=" https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js "></script>
+<script src=" https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js "></script>
+<script src=" https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/js/all.min.js "></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

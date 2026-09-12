@@ -1,0 +1,460 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "curiosity-03-compare-rewrite",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "PRACTICE",
+  "surface": "NEWSSTAND_RECURRING_SERVICE_COLUMNS",
+  "maker": "/root",
+  "reviewer": {
+    "id": "fable",
+    "principalId": "claude-fable-curiosity-20260910",
+    "role": "Independent Claude service-bank semantic judge",
+    "modelFamily": "claude",
+    "actualModels": [
+      "claude-haiku-4-5-20251001",
+      "claude-fable-5"
+    ],
+    "independentFromMaker": true,
+    "artifactFirst": true,
+    "reportBinding": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/independent-batch-01-r2.json",
+      "sha256": "df3c8a85810b2f4b3dad27bb3d60784fa1f47f88e43158590ed796359c9e5a86"
+    }
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-11T05:49:34.533Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-03-compare-rewrite.md",
+      "sha256": "394e2ee7207c2112c7e3e0cb4cefdadd754703d0b0acf84793460d438dad4d5f"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/evidence/curiosity-bank-20260910/curiosity-03-compare-rewrite.manifest.json",
+      "sha256": "e2de5e7ffa417cbed7ef70e749e117c4f9451e3011e4988f8d452a0880d5ee3b"
+    }
+  },
+  "calibration": {
+    "mode": "RECURRING_SERVICE_ARTIFACT_REJECTION_V1",
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "claude-fable-curiosity-20260910",
+    "reviewedAt": "2026-09-11T05:49:34.533Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "technicalExplainerVoice",
+          "mechanismBeforeMotivation",
+          "decorativeAnalogy"
+        ],
+        "evidence": [
+          {
+            "excerpt": "A provider develops or operates an AI model, product or service.",
+            "locator": "CQX-BAD-001 §Provider"
+          },
+          {
+            "excerpt": "Where it stops: an AI system is software and machines, not a team of people",
+            "locator": "CQX-BAD-001 §AI system"
+          },
+          {
+            "excerpt": "wardrobe computer in Clueless is a useful product analogy",
+            "locator": "CQX-BAD-001 §Product / app — analogy deployed as taxonomy decoration, and off-canon (Cher is make-it-yours, not product anatomy)"
+          },
+          {
+            "excerpt": "A toolbox contains different tools for different jobs.",
+            "locator": "CQX-BAD-001 §Model types — every section repeats the same definition/analogy/Where-it-stops/In-real-life scaffold with no human question opening it"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "technicalExplainerVoice",
+          "workedExampleOvertakesBookPurpose",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Imagine that you have two job offers.",
+            "locator": "CQX-BAD-002 §Chapter 1 — a single worked example carries the entire chapter and its map"
+          },
+          {
+            "excerpt": "Before you rely on the result, ask four questions:",
+            "locator": "CQX-BAD-002 §The output is not the decision — numbered-checklist explainer register, no warmth or wit anywhere in the piece"
+          },
+          {
+            "excerpt": "your goal → the product and available context → the trained model",
+            "locator": "CQX-BAD-002 closing map — sound mechanics, but generic AI-book voice that would fail the LAiDIES smell test"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "application": "VOICE_ONLY_NO_FACT_OR_FORMAT_INHERITANCE",
+      "strengthsRetained": [
+        "dry, understated wit with the facts arriving right behind it",
+        "specific everyday situations instead of abstractions",
+        "warmth and permission without empowerment sludge or deficit framing about women",
+        "plain mechanic stated first; analogy as garnish that carries teaching only when it earns it"
+      ],
+      "evidence": [
+        {
+          "excerpt": "It's not a confidence problem. It's a physics problem.",
+          "locator": "CQX-GOOD-EPISODE-001 §lesson"
+        },
+        {
+          "excerpt": "That's not imposter syndrome. That's pattern recognition.",
+          "locator": "CQX-GOOD-EPISODE-001 §narrative beat 5"
+        },
+        {
+          "excerpt": "It read everything. It's lived nothing. And it never says \"I don't know.\"",
+          "locator": "CQX-GOOD-EPISODE-001 §cocktail_party"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "How do I use an AI rewrite without letting it sand off my voice or slip in something I never said?",
+    "promisedPayoff": "A two-minute comparison that teaches her exactly which edits to accept and which to refuse.",
+    "centralMentalModel": "Compare and keep judgment: accept clarity, reject tone drift and invented facts.",
+    "dailyLifeConnection": "Any short message she has already written — email, note, post.",
+    "surfaceJob": "Optional Try this today daily entry; the brief's named low-risk AI comparison slot.",
+    "desiredReaderFeeling": "In charge of the tool, not audited by it."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Each step is one plain imperative; the accept/reject rule is stated in ordinary words.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep any change that makes your meaning clearer; reject anything that changes your tone or adds a fact.",
+          "locator": "curiosity-03 body"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Teaches a durable AI-editing judgment habit on a real artifact in minutes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask your AI tool for a plainer version, then compare the two.",
+          "locator": "curiosity-03 body"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Closing line is Ali-register dry wit that serves the lesson (you owe the machine nothing).",
+      "artifactEvidence": [
+        {
+          "excerpt": "You do not owe the machine a full acceptance speech.",
+          "locator": "curiosity-03 closing line"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "One earned joke, placed after the instruction, not instead of it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You do not owe the machine a full acceptance speech.",
+          "locator": "curiosity-03 closing line"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The only capability implication — that an AI tool can produce a plainer version — is generic, current, and immediately bounded by the compare-and-reject check; 'adds a fact' correctly treats invented content as rejectable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "reject anything that changes your tone or adds a fact",
+          "locator": "curiosity-03 body"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Tool-agnostic ('your AI tool'), no model names, prices, or dated behaviour; ages well per the Currency Rule.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask your AI tool for a plainer version",
+          "locator": "curiosity-03 body"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Explicitly low-risk and non-private; no purchase, signup, or public exposure required.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Choose a short, non-private message you have already written.",
+          "locator": "curiosity-03 body"
+        }
+      ]
+    },
+    "retrievalOrPractice": {
+      "verdict": "PASS",
+      "observation": "Hands-on practice with her own artifact plus an active comparison decision.",
+      "artifactEvidence": [
+        {
+          "excerpt": "then compare the two",
+          "locator": "curiosity-03 body"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "The side-by-side comparison and keep/reject decisions are the built-in helped-check: she sees exactly what the tool improved or damaged.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep any change that makes your meaning clearer",
+          "locator": "curiosity-03 body"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Proportional: concrete demonstration on her own material with the limitation (tone drift, added facts) retained inside the instruction.",
+      "artifactEvidence": [
+        {
+          "excerpt": "reject anything that changes your tone or adds a fact",
+          "locator": "curiosity-03 body"
+        }
+      ]
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The accept-clarity/reject-drift-and-invention rule transfers to every future AI-assisted edit, not just this message.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep any change that makes your meaning clearer",
+          "locator": "curiosity-03 body"
+        }
+      ]
+    },
+    "recoveryRoute": {
+      "verdict": "PASS",
+      "observation": "If the rewrite is bad, the route is explicit: reject it; her original stands. Nothing is lost by a failed attempt.",
+      "artifactEvidence": [
+        {
+          "excerpt": "reject anything that changes your tone or adds a fact",
+          "locator": "curiosity-03 body"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "curiosity-03"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "curiosity-03"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "None.",
+      "artifactLocator": "curiosity-03"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "No unresolved hook.",
+      "artifactLocator": "curiosity-03"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogy; 'acceptance speech' is a joke, not a load-bearing analogy.",
+      "artifactLocator": "curiosity-03"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Standalone practice.",
+      "artifactLocator": "curiosity-03"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Joke follows the complete instruction.",
+      "artifactLocator": "curiosity-03"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "No unsupported assertions; the entry teaches distrust of unsupported additions.",
+      "artifactLocator": "curiosity-03"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "No familiar-example device used.",
+      "artifactLocator": "curiosity-03"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Specific input, specific request, specific decision rule.",
+      "artifactLocator": "curiosity-03"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No terms defined.",
+      "artifactLocator": "curiosity-03"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Ends on a deflating joke, the opposite of inflation.",
+      "artifactLocator": "curiosity-03"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "'Hallucination' never appears; the behaviour is described plainly as 'adds a fact'.",
+      "artifactLocator": "curiosity-03"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Humour present and earned.",
+      "artifactLocator": "curiosity-03"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Task leads directly into use.",
+      "artifactLocator": "curiosity-03"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "No hook.",
+      "artifactLocator": "curiosity-03"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The decision rule itself is the mechanism, proportionate to a practice item.",
+      "artifactLocator": "curiosity-03"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Not applicable.",
+      "artifactLocator": "curiosity-03"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Rule generalizes to all AI-assisted editing.",
+      "artifactLocator": "curiosity-03"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No references.",
+      "artifactLocator": "curiosity-03"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Tool-agnostic and undated.",
+      "artifactLocator": "curiosity-03"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Conversational, second person.",
+      "artifactLocator": "curiosity-03"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "No scaffold.",
+      "artifactLocator": "curiosity-03"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No worked example.",
+      "artifactLocator": "curiosity-03"
+    }
+  },
+  "factualReview": {
+    "disposition": "NO_MATERIAL_CLAIMS",
+    "rationale": "Original activity suggestion. The generic implication that an AI tool can attempt a plainer rewrite is not a material product-capability claim about any named tool, and the entry itself instructs verifying and rejecting the output.",
+    "claimScan": {
+      "observation": "Full prose scanned; no named tools, statistics, effectiveness promises, or reported events. The AI is correctly referred to as 'it'/'the machine', never personified.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask your AI tool for a plainer version, then compare the two.",
+          "locator": "curiosity-03 body"
+        }
+      ]
+    },
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/curiosity-bank-20260910/brief.md",
+        "sha256": "67cee63f1b835013625b77d8f4aaf953ac0a353ed0a7137f5beb9d3b903a5050"
+      }
+    ],
+    "claimMap": [],
+    "reviewedThrough": "2026-09-10",
+    "nextTrigger": "Re-review if revised to name specific tools or claim specific tool behaviour",
+    "correctionOwner": "newsstand-daily"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First formal review of this original activity; pilot repair and full-bank maker inspection are preserved."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No new reusable defect found in this exact activity; conditional-result pilot repair applied before full bank."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Assessed from prose only; no reader testing observed.",
+    "Assumes the reader has access to some AI tool, which the brief's own representative check ('one low-risk AI comparison') anticipates.",
+    "No observed human-comprehension evidence is claimed for this entry; batch sampling is pending."
+  ],
+  "samplingOverride": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/curiosity-sampling-policy-20260910.json",
+      "sha256": "2d114ecc0a064628ed33f4157a87781672fb031581672f110645e50ad1b7abc5"
+    },
+    "policyId": "newsstand-curiosity-sampled-comprehension-20260910",
+    "serviceType": "curiosity",
+    "sampleStatus": "PENDING_BATCH_SAMPLE",
+    "batchId": "independent-service-bank-df3c8a85810b",
+    "sampleQueue": [
+      "curiosity-01-ask-example",
+      "curiosity-02-name-contribution",
+      "curiosity-03-compare-rewrite",
+      "curiosity-04-find-original",
+      "curiosity-05-invite-question",
+      "curiosity-06-ask-before-help",
+      "curiosity-07-small-feedback",
+      "curiosity-08-unseen-step",
+      "curiosity-09-change-one-detail",
+      "curiosity-10-share-opportunity",
+      "curiosity-11-check-assumption",
+      "curiosity-12-credit-introduction",
+      "curiosity-13-show-start",
+      "curiosity-14-separate-preference",
+      "curiosity-15-quiet-invite",
+      "curiosity-16-find-date",
+      "curiosity-17-ask-why-rule",
+      "curiosity-18-share-template",
+      "curiosity-19-let-finish",
+      "curiosity-20-name-unknown",
+      "curiosity-21-read-own-words",
+      "curiosity-22-ask-good-part",
+      "curiosity-23-test-directions",
+      "curiosity-24-check-added-detail",
+      "curiosity-25-share-question",
+      "curiosity-26-smaller-offer",
+      "curiosity-27-ask-evidence-change",
+      "curiosity-28-record-useful-fix",
+      "curiosity-29-check-invitation",
+      "curiosity-30-ask-follow-up"
+    ],
+    "correctionFeedbackStatus": "PENDING_RECURRING_REVIEWER_FEEDBACK"
+  }
+}

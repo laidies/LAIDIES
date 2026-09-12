@@ -1,0 +1,289 @@
+{
+  "checkedAt": "2026-09-12T16:30:33.981349+00:00",
+  "deploymentId": "2aeab7ef-77c8-413b-8bd5-4294d0feb6fb",
+  "preserved": 789,
+  "fileCount": 795,
+  "observations": [
+    {
+      "url": "https://2aeab7ef.laidies-sunnyvaile.pages.dev/newsstand.html",
+      "sha256": "f73be8df0872c8e2742cfac01f818608d8cd772204a6ed8561b876496c6bfa17",
+      "status": 200
+    },
+    {
+      "url": "https://2aeab7ef.laidies-sunnyvaile.pages.dev/content/newsstand-stories.js",
+      "sha256": "286cd34ef247b9e9d9f54b4fe5d73a9adc853cc98e355fc878b062711bdaf852",
+      "status": 200
+    },
+    {
+      "url": "https://2aeab7ef.laidies-sunnyvaile.pages.dev/content/newsstand-daily-issues.json",
+      "sha256": "ed1ffebbf36b2d631a8fbf78a182f8bde1dfcb763425740863fa99fcd5f0fc61",
+      "status": 200
+    },
+    {
+      "url": "https://2aeab7ef.laidies-sunnyvaile.pages.dev/content/daily-edition-columns.json",
+      "sha256": "28090ab6e7437ce66733d3f73f2d2c14c07c37807e46153aca3d0c134ae0870f",
+      "status": 200
+    },
+    {
+      "url": "https://2aeab7ef.laidies-sunnyvaile.pages.dev/content/newsstand-archive-index.json",
+      "sha256": "53afbdb40785bfe3cdaf24c2b608c45fe2bc669e5ac8101d5cdda770b408cd0a",
+      "status": 200
+    },
+    {
+      "url": "https://2aeab7ef.laidies-sunnyvaile.pages.dev/content/newsstand-public-feed.json",
+      "sha256": "708c9f7813356b0e3b85b6b0a4cc37dbe3de9949a2681e60ca2710854ccf258e",
+      "status": 200
+    },
+    {
+      "url": "https://laidies.ai/newsstand.html",
+      "sha256": "f73be8df0872c8e2742cfac01f818608d8cd772204a6ed8561b876496c6bfa17",
+      "status": 200
+    },
+    {
+      "url": "https://laidies.ai/content/newsstand-stories.js",
+      "sha256": "286cd34ef247b9e9d9f54b4fe5d73a9adc853cc98e355fc878b062711bdaf852",
+      "status": 200
+    },
+    {
+      "url": "https://laidies.ai/content/newsstand-daily-issues.json",
+      "sha256": "ed1ffebbf36b2d631a8fbf78a182f8bde1dfcb763425740863fa99fcd5f0fc61",
+      "status": 200
+    },
+    {
+      "url": "https://laidies.ai/content/daily-edition-columns.json",
+      "sha256": "28090ab6e7437ce66733d3f73f2d2c14c07c37807e46153aca3d0c134ae0870f",
+      "status": 200
+    },
+    {
+      "url": "https://laidies.ai/content/newsstand-archive-index.json",
+      "sha256": "53afbdb40785bfe3cdaf24c2b608c45fe2bc669e5ac8101d5cdda770b408cd0a",
+      "status": 200
+    },
+    {
+      "url": "https://laidies.ai/content/newsstand-public-feed.json",
+      "sha256": "708c9f7813356b0e3b85b6b0a4cc37dbe3de9949a2681e60ca2710854ccf258e",
+      "status": 200
+    }
+  ],
+  "sourceCommit": "b8a662b0",
+  "services": 5,
+  "newNewsStories": 0,
+  "browser": {
+    "command": "NEWSSTAND_PUBLIC_ORIGIN=https://laidies.ai NEWSSTAND_TEST_FIXTURE_ROOT=/private/tmp/laidies-newsstand-sep12-services/stage node scripts/test-newsstand-reader-browser.mjs",
+    "checks": 64,
+    "result": "PASS",
+    "desktop": 1440,
+    "mobile": [
+      390,
+      320
+    ],
+    "nativeAT": false
+  },
+  "scope": {
+    "schema": "laidies.newsstand-release-scope-receipt.v1",
+    "result": "PASS",
+    "baseIdentitySha256": "95b83dcad671e4efd9355c3424ed8d031984e36ca5cffa9bf31a7655f8aaecde",
+    "candidateIdentitySha256": "6955a45175a2649538192a8bb6f9dd838e7625a10d3d8c30e73f4faef04782c5",
+    "allowedArtifactPaths": [
+      "content/daily-edition-columns.json",
+      "content/newsstand-archive-index.json",
+      "content/newsstand-daily-issues.json",
+      "content/newsstand-public-feed.json",
+      "content/newsstand-stories.js",
+      "newsstand.html"
+    ],
+    "changes": [
+      {
+        "path": "content/daily-edition-columns.json",
+        "kind": "MODIFIED",
+        "before": {
+          "sha256": "aec7564eabfb95d1e79f8c6d4f21ccd9b58b8bfcd88785863b5ec6e0ba5b5cb8",
+          "bytes": 75089
+        },
+        "after": {
+          "sha256": "28090ab6e7437ce66733d3f73f2d2c14c07c37807e46153aca3d0c134ae0870f",
+          "bytes": 87891
+        }
+      },
+      {
+        "path": "content/newsstand-archive-index.json",
+        "kind": "MODIFIED",
+        "before": {
+          "sha256": "1e24696f4046a5dfcd1e4edd510e4bfb781af9614039b6cf04cf504dad9a287e",
+          "bytes": 48402
+        },
+        "after": {
+          "sha256": "53afbdb40785bfe3cdaf24c2b608c45fe2bc669e5ac8101d5cdda770b408cd0a",
+          "bytes": 50928
+        }
+      },
+      {
+        "path": "content/newsstand-daily-issues.json",
+        "kind": "MODIFIED",
+        "before": {
+          "sha256": "3d49b8509757e6033489455d69317fc6a434752c4c6a25a0896859efeb206a79",
+          "bytes": 257329
+        },
+        "after": {
+          "sha256": "ed1ffebbf36b2d631a8fbf78a182f8bde1dfcb763425740863fa99fcd5f0fc61",
+          "bytes": 262040
+        }
+      },
+      {
+        "path": "content/newsstand-public-feed.json",
+        "kind": "MODIFIED",
+        "before": {
+          "sha256": "132eeab43544387580e911b7b2839190e48416e371be62b4c9d076f790fa06fd",
+          "bytes": 56828
+        },
+        "after": {
+          "sha256": "708c9f7813356b0e3b85b6b0a4cc37dbe3de9949a2681e60ca2710854ccf258e",
+          "bytes": 43447
+        }
+      },
+      {
+        "path": "content/newsstand-stories.js",
+        "kind": "MODIFIED",
+        "before": {
+          "sha256": "269e220ee4159cc3b62a3ddf657227c663c0774a72d41eb18a98e9812ab28926",
+          "bytes": 348869
+        },
+        "after": {
+          "sha256": "286cd34ef247b9e9d9f54b4fe5d73a9adc853cc98e355fc878b062711bdaf852",
+          "bytes": 348492
+        }
+      },
+      {
+        "path": "newsstand.html",
+        "kind": "MODIFIED",
+        "before": {
+          "sha256": "92f5f235f854a859f687f8b5e3209a516271cf4a3d52917657d936381a820759",
+          "bytes": 111966
+        },
+        "after": {
+          "sha256": "f73be8df0872c8e2742cfac01f818608d8cd772204a6ed8561b876496c6bfa17",
+          "bytes": 111966
+        }
+      }
+    ]
+  },
+  "providerProvenance": {
+    "fetchedPaths": [
+      "404.html",
+      "about.html",
+      "assets/homepage/shortcuts/learn-illustration-20260911.png",
+      "blend-snap.html",
+      "bookfair.html",
+      "bronze-aige.html",
+      "chick-flicks.html",
+      "clubhouse-pass.html",
+      "clubhouse.html",
+      "community.html",
+      "community/ask-the-room.html",
+      "community/burn-book.html",
+      "community/chat-room-digest.html",
+      "community/comment-card.html",
+      "community/dear-laidies.html",
+      "community/laidy-spotlight.html",
+      "community/mix-cd-exchange.html",
+      "community/send-it-energy.html",
+      "community/try-on-debrief.html",
+      "community/wins.html",
+      "content/daily-edition-columns.json",
+      "content/library-books/rendered/verification-rulebook.html",
+      "content/maikeover-account.css",
+      "content/newsstand-archive-index.json",
+      "content/newsstand-crossword-contract.js",
+      "content/newsstand-crosswords.js",
+      "content/newsstand-daily-issues.json",
+      "content/newsstand-design.css",
+      "content/newsstand-public-feed.json",
+      "content/newsstand-stories.js",
+      "content/site/brand-polish.js",
+      "content/site/community-room.js",
+      "content/site/ksvl-player.js",
+      "content/site/maikeover-account-v1.js",
+      "content/site/maikeover-portraits-v1.js",
+      "content/site/newsstand-crossword-preview-v1.js",
+      "content/site/sv-back-nav.js",
+      "content/site/sv-global-header.js",
+      "content/site/sv-header-controls.js",
+      "content/site/sv-welcome-tour.js",
+      "content/site/sv-you-are-here.js",
+      "episodes.html",
+      "games/businesswomens-special.html",
+      "games/cocktail-fortune.html",
+      "games/dj-booth.html",
+      "games/dream-phone-game.html",
+      "games/dream-phone.html",
+      "games/fairy-godmother.html",
+      "games/fun-pack.html",
+      "games/girl-talk.html",
+      "games/madame-claio.html",
+      "games/trading-cards.html",
+      "grimoire.html",
+      "grimoire/chamber-of-receipts.html",
+      "grimoire/lore-closet.html",
+      "grimoire/potions-shelf.html",
+      "grimoire/verification-rulebook.html",
+      "handbook.html",
+      "index.html",
+      "issues/issue-01.html",
+      "issues/issue-02.html",
+      "issues/issue-03.html",
+      "issues/issue-04.html",
+      "issues/issue-trailer.html",
+      "ksvl-popup.html",
+      "laidies-card.html",
+      "learn.html",
+      "learn/class.html",
+      "learn/glossary.html",
+      "learn/quiz.html",
+      "library.html",
+      "luminairy.html",
+      "maikeover.html",
+      "mall.html",
+      "mall/as-seen-on-tv.html",
+      "mall/books-and-records.html",
+      "mall/claires.html",
+      "mall/food-court.html",
+      "mall/gizmos-and-gadgets.html",
+      "mall/hanger-management.html",
+      "mall/last-summer.html",
+      "mall/maiybe.html",
+      "mall/mall-kiosk.html",
+      "mall/pieces-of-flair.html",
+      "mall/rollin-with-my-homies.html",
+      "newsstand-crossword.html",
+      "newsstand.html",
+      "post-office.html",
+      "postcard.html",
+      "printable.html",
+      "privacy.html",
+      "radio.html",
+      "receipts.html",
+      "reference-closet.html",
+      "resident-card.html",
+      "sanctuary.html",
+      "shop.html",
+      "sorority-house.html",
+      "start-here.html",
+      "sunnyvaile-high.html",
+      "terms.html",
+      "this-week.html",
+      "town-hall.html",
+      "try-on.html",
+      "visitors-centre.html",
+      "watch.html"
+    ],
+    "retainedViaEqualProviderIdentity": 689,
+    "priorManifest": "/private/tmp/laidies-agent-web-release-20260911/candidate-manifest.json",
+    "priorProvider": "2e2e4163-26a3-44a9-936c-83902bd41ea9",
+    "currentProvider": "e413a1b0-f8aa-4892-9a8a-f8cc4eaaf4aa"
+  },
+  "limitations": [
+    "Not coverage completion",
+    "Not native screen-reader verification",
+    "No unattended full research-to-publication outcome yet"
+  ]
+}

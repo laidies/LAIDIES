@@ -1,0 +1,23 @@
+# Microsoft updated family controls. Its wider Windows age signals are still in preview.
+
+## The story
+
+Microsoft published a youth-safety framework on September 10. It says everyone must now sign in to use Copilot and that access is restricted below age 13, or an older age where local law requires it. For the updated Copilot app with a personal Microsoft account, the support page sets a minimum age of 13, or higher where regional rules require it. That page does not cover work, school or organizational accounts.
+
+Some practical family controls are available now. In current Family Safety apps and on the web, Microsoft says requests for more screen time, app access and purchases are faster; activity reports cover more apps; wallet balances are fixed; and family-group membership is easier to manage. The company says usage-time accuracy still needs work and some families may still have problems.
+
+A different part of the announcement is still a preview. Microsoft is testing Windows tools that pass an age category or verification status from an account to an app. The Windows Age APIs are available to Windows Insiders now, and one announced function is promised for a future update. They are not a universal age check running in every Windows app today.
+
+## The LAiDIES read
+
+The useful way to read this is as three separate layers. A Microsoft account can carry age information. Copilot can use that information to set its own access rules. Family Safety provides separate controls for screen time, apps, spending and activity reports.
+
+The account supplies an age signal—an age category or verification status an account can pass to an app without giving it a full date of birth. Microsoft lists brackets from under 10 through 18 and over. The app developer still decides what experience follows from the signal. A request for more screen time still goes through Family Safety; the preview age signal is a separate path an app could use to change its own experience.
+
+A Windows Insider is a person using a preview version of Windows before a feature reaches the general public. Independent reporting from Windows Central confirms that the Family Safety changes update existing controls and that the age tools remain limited to Insiders. It does not test whether approvals are faster, reports are more accurate or young people are safer. Those remain Microsoft’s claims.
+
+## What this means for you
+
+If you help manage a family account, the current step is concrete: update the Family Safety app or use its web page for the controls that exist now. For Copilot, check whether the person is using the updated personal-account app; Microsoft’s cited support page does not govern work or school accounts.
+
+When another age-safety headline arrives, ask which layer it describes: a rule inside one product, a family control you can use, or a Windows signal an app may choose to use. The next evidence worth watching is general Windows availability and independent testing of whether the changes actually reduce errors or harm.

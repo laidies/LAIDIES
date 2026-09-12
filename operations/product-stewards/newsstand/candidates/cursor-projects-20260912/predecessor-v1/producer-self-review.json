@@ -1,0 +1,534 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "cursor-projects-20260912",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/remaining_build_review",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/remaining_build_review",
+    "principalId": "/root/remaining_build_review",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-12T17:47:27.657Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/cursor-projects-20260912/publication-manifest.json",
+      "sha256": "12f797fd3dfaabd9a5f0c6d9b872438baa9cb43ad4d6210d6d6e77f513c3ec34"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/cursor-projects-20260912/review-text.json",
+      "sha256": "af2ac68968ebee79780189aec1ec8248747188639fd452a1a545ab39bf2c286b"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/cursor-projects-20260912/rendered-article.html",
+      "sha256": "cad6739fcd2248389ccdb1128d8476ea83e97af0adbd5fac7ef2c05104658502"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/remaining_build_review",
+    "reviewedAt": "2026-09-10T19:36:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    },
+    "reuseDisclosure": "This repair reused the candidate’s preserved calibration evidence; no calibration provider call was made during this repair. The current producer review is an exact reread of the repaired candidate only.",
+    "reusedAt": "2026-09-12T16:24:50.507Z"
+  },
+  "reverseBrief": {
+    "humanQuestion": "If I am building a personal site/app or coordinating a larger work project, what does Cursor Projects actually change, and what still needs my review?",
+    "promisedPayoff": "Explain the stated coordinator, cloud/local handoff, shared context, beta rollout, and lack of a quality guarantee.",
+    "centralMentalModel": "A Project is a continuing job folder: a coordinator plans and delegates, cloud work continues after the laptop closes, and local testing can use a local agent.",
+    "dailyLifeConnection": "A personal site/app build or a larger work project can involve several connected tasks and pauses between laptop sessions.",
+    "surfaceJob": "A short sourced NewsStand notice that makes the new beta’s mechanism and limits legible without telling every reader they need it.",
+    "desiredReaderFeeling": "Clear enough to judge whether the release is relevant, without overpromising."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate against exact Cursor release passages, beta status, and the no-quality-guarantee boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate against exact Cursor release passages, beta status, and the no-quality-guarantee boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate against exact Cursor release passages, beta status, and the no-quality-guarantee boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate against exact Cursor release passages, beta status, and the no-quality-guarantee boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate against exact Cursor release passages, beta status, and the no-quality-guarantee boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate against exact Cursor release passages, beta status, and the no-quality-guarantee boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate against exact Cursor release passages, beta status, and the no-quality-guarantee boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate against exact Cursor release passages, beta status, and the no-quality-guarantee boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate against exact Cursor release passages, beta status, and the no-quality-guarantee boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate against exact Cursor release passages, beta status, and the no-quality-guarantee boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate against exact Cursor release passages, beta status, and the no-quality-guarantee boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate against exact Cursor release passages, beta status, and the no-quality-guarantee boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What does the coordinator do after a reader closes her laptop?",
+        "probeResponse": "It delegates work to agents running in the cloud; if testing is needed on the reader’s machine, Cursor says it starts a local agent. Finished work returns for the reader to check.",
+        "expectedEvidence": "Cloud continuation, local testing, and reader checking are separate stated steps."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate against exact Cursor release passages, beta status, and the no-quality-guarantee boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "How would you assess another tool that says it can work while you are away?",
+        "probeResponse": "Ask where the work runs, what happens when local testing is needed, and who checks the result.",
+        "expectedEvidence": "A continuing AI job still needs an inspectable handoff."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate against exact Cursor release passages, beta status, and the no-quality-guarantee boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "I reread the complete current candidate against exact Cursor release passages, beta status, and the no-quality-guarantee boundary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "I reread the complete current candidate for this failure; it stays with one sourced coordinator/cloud/local mechanism and bounded reader question.",
+      "artifactLocator": "complete exact candidate prose"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/cursor-projects-20260912/source-evidence.json",
+        "sha256": "d70e24876e032b30452884bb96f1919a575134379a44e6b75e81af8829ef63c1"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "launch",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Cursor launched Projects in beta on September 10 for people building a personal website or app.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cursor-projects-20260912/source-evidence.json",
+          "sha256": "d70e24876e032b30452884bb96f1919a575134379a44e6b75e81af8829ef63c1"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Today we're launching Projects in Cursor. Projects lets you take on larger bodies of work, such as a feature, a migration, or a full app. It maintains context over months of work, delegates tasks to thousands of subagents, and performs recurring work without being prompted.",
+            "locator": "https://cursor.com/en-US/changelog/projects"
+          }
+        ],
+        "scopeAndFreshness": "Cursor primary changelog dated September 10, 2026 and reread at the recorded access time; vendor design and rollout claims only."
+      },
+      {
+        "claimId": "coordinator",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A coordinator is the agent that plans the job and sends pieces to other agents; Cursor says the other agents write the code.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cursor-projects-20260912/source-evidence.json",
+          "sha256": "d70e24876e032b30452884bb96f1919a575134379a44e6b75e81af8829ef63c1"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Access Projects from the left-hand nav. The coordinator agent in a project doesn't write code itself; it plans the work, delegates it to agents that implement it, and brings the finished work back to you to check. Coordinators create and manage agents on your behalf, running as many in parallel as the work needs.",
+            "locator": "https://cursor.com/en-US/changelog/projects"
+          }
+        ],
+        "scopeAndFreshness": "Cursor primary changelog dated September 10, 2026 and reread at the recorded access time; vendor design and rollout claims only."
+      },
+      {
+        "claimId": "cloud-local",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A Project runs on a computer in the cloud—online rather than on your laptop—so closing your laptop does not stop that part of the job. If testing is needed on your own computer, Cursor says the coordinator starts a local agent there.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cursor-projects-20260912/source-evidence.json",
+          "sha256": "d70e24876e032b30452884bb96f1919a575134379a44e6b75e81af8829ef63c1"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A Project runs on its own computer in the cloud, so closing your laptop doesn't stop it. When something needs testing on your machine, the coordinator spins up a local agent to run it there.",
+            "locator": "https://cursor.com/en-US/changelog/projects"
+          }
+        ],
+        "scopeAndFreshness": "Cursor primary changelog dated September 10, 2026 and reread at the recorded access time; vendor design and rollout claims only."
+      },
+      {
+        "claimId": "context",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A Project keeps the files and notes for one longer job.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cursor-projects-20260912/source-evidence.json",
+          "sha256": "d70e24876e032b30452884bb96f1919a575134379a44e6b75e81af8829ef63c1"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "You shouldn't have to onboard an agent every time you start a task. Each Project maintains a set of files that sync across every cloud and local machine its agents use. Agents add research and artifacts, along with what they learn about the codebase and how you prefer work to be done. If one agent figures out how to test a service, for example, every future agent can use those instructions. The shared context grows with the Project, making the coordinator more effective over time.",
+            "locator": "https://cursor.com/en-US/changelog/projects"
+          }
+        ],
+        "scopeAndFreshness": "Cursor primary changelog dated September 10, 2026 and reread at the recorded access time; vendor design and rollout claims only."
+      },
+      {
+        "claimId": "beta",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Projects are in beta and rolling out to all users.",
+            "locator": "exact candidate prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/cursor-projects-20260912/source-evidence.json",
+          "sha256": "d70e24876e032b30452884bb96f1919a575134379a44e6b75e81af8829ef63c1"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Projects are available in beta and rolling out to all users starting today.",
+            "locator": "https://cursor.com/en-US/changelog/projects"
+          }
+        ],
+        "scopeAndFreshness": "Cursor primary changelog dated September 10, 2026 and reread at the recorded access time; vendor design and rollout claims only."
+      }
+    ],
+    "reviewedThrough": "2026-09-12T17:47:27.657Z",
+    "nextTrigger": "Any Cursor revision to the Projects changelog or documentation affecting beta availability, coordinator behavior, cloud/local execution, or context.",
+    "correctionOwner": "/root/remaining_build_review"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate covers Cursor Projects beta."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No new reusable defect found in current producer self-review; independent review remains required."
+  },
+  "limitations": [
+    "Producer self-review is not independent admission.",
+    "No observed reader-comprehension evidence is claimed.",
+    "The vendor announcement does not establish output quality, permission scope, or effectiveness."
+  ],
+  "limits": [],
+  "producer": "/root/remaining_build_review",
+  "sourceBindings": [
+    {
+      "path": "operations/product-stewards/newsstand/candidates/cursor-projects-20260912/source-evidence.json",
+      "sha256": "d70e24876e032b30452884bb96f1919a575134379a44e6b75e81af8829ef63c1"
+    }
+  ]
+}

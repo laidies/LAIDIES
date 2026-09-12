@@ -1,0 +1,92 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "anthropic-threat-report-20260910",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "353107df989d4be967f72fe188847adf024468675d389836b510a278ef6231be",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why couldn't Anthropic's account bans actually stop the Mali surveillance project, even though the bans were real and complete?",
+      "response": "Anthropic can only see and control activity on its own service. Its cross-account visibility let it find and ban every linked account — a real intervention on real evidence. But that visibility ends at its own boundary: it cannot see or block what the same actors do with other or open models. So per Axios, the Mali platform was simply rebuilt and deployed locally using other models. The ban proves the misuse happened on Claude; it does not prove the operation ended.",
+      "expectedEvidence": "P005 (visibility enables action but stops at the provider boundary), P006 (venue analogy with its stated limits), P003 (Axios: Mali system deployed locally with other models after the bans).",
+      "assessment": "The article fully supports this causal answer: the mechanism, its limit, and the confirming real case are all explicitly present, so a reader can reconstruct the chain in ordinary language."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's evidence ladder, what did the provider actually establish, and does the headline's claim hold?",
+      "response": "The provider observed requests and an operating workflow on its own service — levels one and two of the ladder. Shutting accounts is a real intervention at that level. But 'dismantles international scam operation' asserts a real-world outcome (level four): that the ring itself is gone. The provider cannot see the ring's activity on other email services, self-hosted servers or messaging apps, so the operation may continue elsewhere — exactly as the Mali surveillance platform continued on other models. The headline over-claims; the correct claim is 'removed the operation from its platform.' A reader should ask whether any independent investigator or public authority confirmed the ring actually stopped.",
+      "expectedEvidence": "The article's four-level ladder (P007, P011), the provider-boundary limit (P005), and the Mali continuation precedent (P003, P006) all transfer directly without modification.",
+      "assessment": "Transfer succeeds: the mechanism applies cleanly to a domain absent from the article and yields a non-obvious, correct correction to the hypothetical headline."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The publication date, covered period, case categories, company actions, and the causal chain from account visibility to bans and safeguards are all laid out understandably.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>In surveillance cases, Anthropic says actors linked to China, Iran and Mali used Claude. In one China-linked case, it says an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity. Axios reported that Anthropic banned every linked account it found. It also reported that the Mali system was ultimately deployed locally using other models.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The report matters because a provider can see patterns across accounts that the public cannot. That visibility lets Anthropic investigate activity on Claude, block accounts and change its service. It also creates a limit: outsiders cannot inspect the private logs, and Anthropic cannot see everything an actor does elsewhere.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'Dual-use' is defined at first meaningful use; 'political-sensitivity scoring' and 'provider visibility' are conveyed through concrete description rather than left as jargon.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>In surveillance cases, Anthropic says actors linked to China, Iran and Mali used Claude. In one China-linked case, it says an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity. Axios reported that Anthropic banned every linked account it found. It also reported that the Mali system was ultimately deployed locally using other models.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The report matters because a provider can see patterns across accounts that the public cannot. That visibility lets Anthropic investigate activity on Claude, block accounts and change its service. It also creates a limit: outsiders cannot inspect the private logs, and Anthropic cannot see everything an actor does elsewhere.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is grounded in a recognizable situation: reading the next 'AI built a weapon' headline and knowing which evidence questions to ask before believing it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Take the surveillance and biological risks seriously without upgrading the evidence. Anthropic's account bans and safeguards are concrete actions. Its actor attributions, conclusions about AI's added help and descriptions of intent still require scrutiny and, where possible, independent evidence.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>When the next headline says AI built a weapon or stopped a state operation, ask: “Did the report observe a request, an operating workflow, a completed harmful system or real-world harm?” Then check whether the claim came from provider logs, independent investigators or a public authority.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal LAiDIES operating notes appear, and all advice follows directly from the sourced evidence limits rather than invention.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Take the surveillance and biological risks seriously without upgrading the evidence. Anthropic's account bans and safeguards are concrete actions. Its actor attributions, conclusions about AI's added help and descriptions of intent still require scrutiny and, where possible, independent evidence.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "<p>When the next headline says AI built a weapon or stopped a state operation, ask: “Did the report observe a request, an operating workflow, a completed harmful system or real-world harm?” Then check whether the claim came from provider logs, independent investigators or a public authority.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "Use this evidence order when you read an AI threat claim: observed request, operating workflow, completed harmful system, then real-world harm. One level is not proof of the next.",
+          "locator": "P011"
+        }
+      ]
+    }
+  }
+}

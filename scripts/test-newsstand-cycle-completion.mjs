@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {inspectCycle,parseStories} from './check-newsstand-cycle-completion.mjs';
+import {inspectCycle,parseStories,inspectCoverage} from './check-newsstand-cycle-completion.mjs';
 const story={id:'w',status:'published',edition:'weekly'};
 const stories={publications:{weekly:{editionDate:'2026-09-09',storyId:'w'}},stories:[story]};
 const issue=d=>({editionDate:d,status:'complete',disposition:'service_ready',storyIds:[],serviceRecordIds:['one']});
@@ -26,3 +26,24 @@ assert.throws(()=>parseStories("<html>Access denied</html>"));
 assert.throws(()=>parseStories(wrap()+"alert(1)"));
 assert.throws(()=>parseStories(wrap().replace("window.NEWSSTAND_DATA.stories;","evil();")));
 console.log("Both admitted publisher wrappers parsed without execution; access pages and executable suffixes rejected.");
+
+const coverage={schemaVersion:'newsstand-coverage-progress-v1',asOf:'2026-09-10',checkedAt:'2026-09-10T17:00:00Z',nextReviewAt:'2026-09-10T20:00:00Z',sourceChecks:[{url:'https://example.org/official',role:'PROVIDER',status:'CHECKED',assessment:'Release index read.'},{url:'https://example.org/news',role:'INDEPENDENT_REPORTING',status:'CHECKED',assessment:'Independent agenda read.'}],leads:[{id:'new-report',event:'New misuse report',sourceUrls:['https://example.org/new-report'],status:'IN_PRODUCTION',owner:'producer',nextAction:'Finish source-bound article.'}]};
+for (const source of coverage.sourceChecks) source.checkedAt=coverage.checkedAt;
+const cp={coverage,stories,now:input.now};
+// A successfully delivered service-only day must not conceal an actionable story.
+assert.equal(inspectCycle(input).status,'DATED_DELIVERY_PRESENT');
+assert.equal(inspectCoverage(cp).status,'COVERAGE_WORK_REMAINS');
+const clone=()=>structuredClone(cp);
+let c=clone();c.coverage.leads[0]={...c.coverage.leads[0],status:'COVERED',storyId:'w',coverageReason:'Same provider mentioned in Weekly.'};assert.throws(()=>inspectCoverage(c),/does not cite this event/);
+c=clone();c.coverage.leads[0]={...c.coverage.leads[0],status:'PUBLISHED',storyId:'missing',coverageReason:'Published.'};assert.throws(()=>inspectCoverage(c),/lacks published/);
+c=clone();c.coverage.sourceChecks.pop();assert.throws(()=>inspectCoverage(c),/independent/);
+c=clone();c.coverage.asOf='2026-09-09';assert.throws(()=>inspectCoverage(c),/stale/);
+c=clone();c.coverage.nextReviewAt=input.now;assert.throws(()=>inspectCoverage(c),/stale/);
+c=clone();c.coverage.leads[0].status='EVIDENCE_BLOCKED';assert.throws(()=>inspectCoverage(c),/actual attempt/);
+c=clone();c.coverage.leads[0]={...c.coverage.leads[0],status:'EVIDENCE_BLOCKED',attemptedRecovery:'Primary site and alternate publisher route unavailable.',missingInput:'Complete methods',nextCheckAt:'2026-09-10T19:00:00Z'};assert.equal(inspectCoverage(c).status,'COVERAGE_SOURCE_HOLDS');c.coverage.leads[0].nextCheckAt='2026-09-10T17:30:00Z';assert.equal(inspectCoverage(c).status,'COVERAGE_WORK_REMAINS');
+c=clone();c.coverage.leads[0].status='EXCLUDED';assert.throws(()=>inspectCoverage(c),/reasoned/);
+c=clone();c.stories.stories[0].sources=[{url:'https://example.org/new-report'}];c.coverage.leads[0]={...c.coverage.leads[0],status:'COVERED',storyId:'w',coverageReason:'This exact report and reader question are explained in the cited section.'};assert.equal(inspectCoverage(c).status,'INTAKE_DISPOSITIONED');
+console.log('Coverage calibration: delivered-but-unfinished, wrong-event Weekly, missing story, stale/one-sided sweep, hollow holds and exclusions rejected; actual dispositions remain distinct from discovery/quality approval.');
+
+for (const checkedAt of [undefined,'invalid','2026-09-09T16:00:00Z','2026-09-10T18:01:00Z']) { const bad=clone(); bad.coverage.sourceChecks[0].checkedAt=checkedAt; assert.throws(()=>inspectCoverage(bad),/source observation/); }
+console.log('Per-source freshness: missing, invalid, stale and future observations rejected even when the overall sweep date is fresh.');

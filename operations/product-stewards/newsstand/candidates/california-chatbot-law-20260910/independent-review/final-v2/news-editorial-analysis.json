@@ -1,0 +1,80 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "california-chatbot-law-20260910",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "4659488627999a2f62c9f4065d693fab7b6379f6352d26aa31689d2fc7913732",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why doesn't the September 10 signing mean a companion chatbot must already have the one-hour session limit and disabled push notifications today?",
+      "response": "Because signing enacts the law but the specific duty sections (21812, 21812.5, 21813) only become operative on July 1, 2027. Until that date the legal requirement does not yet apply, so an operator has an implementation window, not an immediate obligation; audits start on a still-later clock, January 1, 2029 or first public availability, whichever is later.",
+      "expectedEvidence": "An accurate answer must cite the operative-date concept (P003, P012), the specific defaults (P005), and the separate audit timetable (P008).",
+      "assessment": "The article supports this answer fully in ordinary language; a reader could reconstruct the causal chain from P003, P005, P008 and P012 without outside knowledge."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Is the startup violating the law today, and when would an audit apply to it?",
+      "response": "It is likely not yet violating the operative duties: the default-settings and session-limit requirements in Section 21812 do not apply until July 1, 2027, so today the company is inside its implementation window rather than in breach. And the audit section will not reach it soon: with under $500 million in prior-year revenue, the operator is exempt from that audit section until 2032, so no independent audit is due before then regardless of the general 2029 deadline.",
+      "expectedEvidence": "Correct application requires the operative date (P003), the default settings (P005), and the audit timing plus revenue exemption (P008).",
+      "assessment": "The article's mechanism handles this new scenario completely; both the timing and the exemption transfer cleanly, confirming genuine mechanism understanding rather than headline recall."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The signing event, the covered product, and the staged implementation sequence are all made understandable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>California Governor Gavin Newsom signed Senate Bill 1119 on September 10, according to an official release from bill author Senator Steve Padilla and reporting by the Associated Press. The law sets child-safety requirements for operators that make companion chatbots available in California.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A <strong>companion chatbot</strong> is an AI system designed to simulate a relationship or ongoing social interaction, rather than simply answer one isolated question. The new law does not switch on all its protections at signing. Its main child-safety sections become <strong>operative</strong>—the date a legal requirement begins to apply—on July 1, 2027.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Independent audits follow a different timetable. The enrolled text sets the first audit for January 1, 2029 or before an operator first makes a chatbot publicly available, whichever is later. Operators with less than $500 million in prior-year revenue are exempt from that audit section until 2032. Those limits matter when a headline says every chatbot now faces immediate independent review.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Companion chatbot, operative and persistent conversational memory are each defined at first meaningful use, not in a detached glossary.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A <strong>companion chatbot</strong> is an AI system designed to simulate a relationship or ongoing social interaction, rather than simply answer one isolated question. The new law does not switch on all its protections at signing. Its main child-safety sections become <strong>operative</strong>—the date a legal requirement begins to apply—on July 1, 2027.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The default settings include no push notifications, a one-hour continuous-session limit and a two-hour daily limit. <strong>Persistent conversational memory</strong>—using earlier conversations in later ones—is ordinarily off by default, with a qualified exception for users 16 or older when specified guardrails are in place.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are grounded in a specific California family deciding which rules apply to a given child and product.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For a California family, the useful question today is not “Did every control appear overnight?” It is “What must the service build before July 1, 2027, and which rules apply to this child and product?” The answer depends on age determination, whether the operator permits child users and the specific provision.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; advice is limited to sourced facts and observable future evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>For a California family, the useful question today is not “Did every control appear overnight?” It is “What must the service build before July 1, 2027, and which rules apply to this child and product?” The answer depends on age determination, whether the operator permits child users and the specific provision.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>The legislative status page still showed the bill as presented to the Governor when checked, even after the sponsor’s signing release and AP report. That is a lagging public record, not evidence of a veto. The next evidence to watch is the chaptered record, implementation guidance, product changes and eventually the required audits.</p>",
+          "locator": "P010"
+        }
+      ]
+    }
+  }
+}

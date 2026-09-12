@@ -1,0 +1,373 @@
+{
+  "kind": "facts",
+  "startedAt": "2026-09-11T03:33:08.060Z",
+  "replayedAt": null,
+  "completedAt": "2026-09-11T03:33:36.381Z",
+  "requestedModel": "claude-fable-5",
+  "providerModel": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "providerId": "38f65904-222e-4af8-bc33-add9de164d2f",
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 18350,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 2579,
+    "output_tokens_details": {
+      "thinking_tokens": 263
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 18350,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 2579,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 18350,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 18350
+        },
+        "type": "message"
+      }
+    ],
+    "speed": "standard"
+  },
+  "attestations": {
+    "artifactFirst": true,
+    "independentFromMaker": true,
+    "completeTextRead": true
+  },
+  "requestSha256": "1ae08a158e4eb3a9159d1ea4cc966ebff81ef88d58d68add0f5632da13d95d36",
+  "rawSha256": "1d6aa04856e4ef1fd1064117068417c071387790011385efc3c267a4fad0121a",
+  "protocolSha256": "7d5c9426f84748a80fce818b4d4bb85a41666f70ba8cebb0a9c680e21151e837",
+  "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+  "outcomes": {
+    "factualIntegrity": {
+      "state": "pass",
+      "reason": "All material claims match the supplied sources with correct attribution to Anthropic, AP or Axios and no upgrading of provider claims to proven fact.",
+      "passages": [
+        "P002",
+        "P003",
+        "P004"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>In surveillance cases, Anthropic says actors linked to China, Iran and Mali used Claude. In one China-linked case, it says an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity. Axios reported that Anthropic banned every linked account it found. It also reported that the Mali system was ultimately deployed locally using other models.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+          "locator": "P004"
+        }
+      ],
+      "artifactLocator": "P002, P003, P004"
+    },
+    "freshnessReviewability": {
+      "state": "pass",
+      "reason": "The article gives the September 10 publication date, the December 2025–August 2026 activity window and named checkable sources.",
+      "passages": [
+        "P002"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+          "locator": "P002"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "datedChange": {
+      "state": "pass",
+      "reason": "The article distinguishes the reported December 2025–August 2026 activity from the September 10 disclosure and newly added safeguards.",
+      "passages": [
+        "P002",
+        "P004"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+          "locator": "P004"
+        }
+      ],
+      "artifactLocator": "P002, P004"
+    },
+    "consequenceAndUncertainty": {
+      "state": "pass",
+      "reason": "Concrete consequences (bans, safeguards, Mali continuation) are paired with explicit unresolved uncertainty about intent, attribution and real-world outcome.",
+      "passages": [
+        "P004",
+        "P006",
+        "P008"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Think of a venue removing someone for dangerous conduct it sees and preserving its records. The intervention matters, but it is not a court finding about every motive and cannot stop the person going elsewhere. Here, Axios's Mali example shows the same boundary: cutting Claude access did not end the underlying project.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Take the surveillance and biological risks seriously without upgrading the evidence. Anthropic's account bans and safeguards are concrete actions. Its actor attributions, conclusions about AI's added help and descriptions of intent still require scrutiny and, where possible, independent evidence.</p>",
+          "locator": "P008"
+        }
+      ],
+      "artifactLocator": "P004, P006, P008"
+    }
+  },
+  "claims": {
+    "publication": {
+      "state": "supported",
+      "reason": "Anthropic source confirms the report was published September 10, 2026, matching the article's dated claim.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "anthropic-september-threat-report"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+          "locator": "P002"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "period": {
+      "state": "supported",
+      "reason": "Source states cases cover activity from December 2025 through August 2026, exactly as the article says.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "anthropic-september-threat-report"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+          "locator": "P002"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "response": {
+      "state": "supported",
+      "reason": "Source confirms Anthropic says it banned or disrupted linked accounts, strengthened safeguards and shared intelligence where appropriate, and the article attributes this to Anthropic.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "anthropic-september-threat-report"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic published a threat report on September 10 saying it identified and disrupted notable misuse of Claude between December 2025 and August 2026. The company describes cyber operations, surveillance, scams and risky biological research. It says it banned linked accounts, strengthened safeguards and shared intelligence where appropriate.</p>",
+          "locator": "P002"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "surveillance": {
+      "state": "supported",
+      "reason": "Both the Anthropic report and Axios support that actors linked to China, Iran and Mali used Claude, and the article frames this as Anthropic's account.",
+      "passages": [
+        "P003"
+      ],
+      "sourceIds": [
+        "anthropic-september-threat-report",
+        "axios-surveillance-report"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>In surveillance cases, Anthropic says actors linked to China, Iran and Mali used Claude. In one China-linked case, it says an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity. Axios reported that Anthropic banned every linked account it found. It also reported that the Mali system was ultimately deployed locally using other models.</p>",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    },
+    "china-surveillance-consequence": {
+      "state": "supported",
+      "reason": "Source confirms Anthropic says a China-linked office used Claude across thousands of investigations monthly combining bulk data and scoring political sensitivity; the article's 'used AI' phrasing is a harmless generalization and is properly attributed.",
+      "passages": [
+        "P003"
+      ],
+      "sourceIds": [
+        "anthropic-september-threat-report"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>In surveillance cases, Anthropic says actors linked to China, Iran and Mali used Claude. In one China-linked case, it says an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity. Axios reported that Anthropic banned every linked account it found. It also reported that the Mali system was ultimately deployed locally using other models.</p>",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    },
+    "mali-continuation": {
+      "state": "supported",
+      "reason": "Axios passage confirms the Mali platform was ultimately deployed locally using other models after Anthropic cut access, and the article correctly attributes this to Axios.",
+      "passages": [
+        "P003",
+        "P006"
+      ],
+      "sourceIds": [
+        "axios-surveillance-report"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>In surveillance cases, Anthropic says actors linked to China, Iran and Mali used Claude. In one China-linked case, it says an office used AI across thousands of investigations a month, combining records to identify targets and score content for political sensitivity. Axios reported that Anthropic banned every linked account it found. It also reported that the Mali system was ultimately deployed locally using other models.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Think of a venue removing someone for dangerous conduct it sees and preserving its records. The intervention matters, but it is not a court finding about every motive and cannot stop the person going elsewhere. Here, Axios's Mali example shows the same boundary: cutting Claude access did not end the underlying project.</p>",
+          "locator": "P006"
+        }
+      ],
+      "artifactLocator": "P003, P006"
+    },
+    "biology-cases": {
+      "state": "supported",
+      "reason": "Anthropic source describes five biology case studies, matching the article's attributed count.",
+      "passages": [
+        "P004"
+      ],
+      "sourceIds": [
+        "anthropic-september-threat-report"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+          "locator": "P004"
+        }
+      ],
+      "artifactLocator": "P004"
+    },
+    "biology-uncertainty": {
+      "state": "supported",
+      "reason": "Source states the earlier conclusion that models did not meaningfully help sophisticated biology experts is no longer certain with current models, prompting stronger safeguards, as the article states.",
+      "passages": [
+        "P004"
+      ],
+      "sourceIds": [
+        "anthropic-september-threat-report"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+          "locator": "P004"
+        }
+      ],
+      "artifactLocator": "P004"
+    },
+    "intent-limit": {
+      "state": "supported",
+      "reason": "Source confirms Anthropic explicitly says it does not assert the scientists intended harm and calls the work largely dual-use.",
+      "passages": [
+        "P004"
+      ],
+      "sourceIds": [
+        "anthropic-september-threat-report"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+          "locator": "P004"
+        }
+      ],
+      "artifactLocator": "P004"
+    },
+    "outcome-limit": {
+      "state": "supported",
+      "reason": "Anthropic passage says blocked requests do not establish a weapon was built or deployed, and AP cannot validate completed weapons; the article's 'establishes no completed biological weapon or attack' matches this limit.",
+      "passages": [
+        "P004"
+      ],
+      "sourceIds": [
+        "anthropic-september-threat-report",
+        "ap-anthropic-threat-report"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic also describes five biological-research cases. The company says stronger current models make it less certain that AI offers no meaningful help to sophisticated researchers, so it added safeguards. But Anthropic explicitly says it does not assert that the scientists intended harm. The public report establishes no completed biological weapon or attack, and calls the work largely <strong>dual-use</strong>: able to serve ordinary science and also be misused.</p>",
+          "locator": "P004"
+        }
+      ],
+      "artifactLocator": "P004"
+    },
+    "private-visibility": {
+      "state": "supported",
+      "reason": "The source limitation confirms the report rests on Anthropic internal visibility that public readers cannot inspect, supporting the article's mechanism claim and its stated limits.",
+      "passages": [
+        "P005"
+      ],
+      "sourceIds": [
+        "anthropic-september-threat-report"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The report matters because a provider can see patterns across accounts that the public cannot. That visibility lets Anthropic investigate activity on Claude, block accounts and change its service. It also creates a limit: outsiders cannot inspect the private logs, and Anthropic cannot see everything an actor does elsewhere.</p>",
+          "locator": "P005"
+        }
+      ],
+      "artifactLocator": "P005"
+    },
+    "ap-attribution": {
+      "state": "supported",
+      "reason": "AP passage confirms AP attributes the underlying incident claims to Anthropic rather than presenting them as independently proven.",
+      "passages": [
+        "P007"
+      ],
+      "sourceIds": [
+        "ap-anthropic-threat-report"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Keep four levels separate: an AI request, an operating workflow, a completed harmful system and real-world harm. Evidence at one level does not automatically prove the next. AP’s reporting attributes the cases to Anthropic. Cornell researcher John Thickstun also told AP that societal judgments about acceptable AI use need democratic or deliberative oversight, not company decisions alone.</p>",
+          "locator": "P007"
+        }
+      ],
+      "artifactLocator": "P007"
+    },
+    "oversight-critique": {
+      "state": "supported",
+      "reason": "AP passage confirms Cornell's John Thickstun told AP that acceptable-AI-use judgments involve societal values needing democratic or deliberative oversight, matching the article's paraphrase.",
+      "passages": [
+        "P007"
+      ],
+      "sourceIds": [
+        "ap-anthropic-threat-report"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Keep four levels separate: an AI request, an operating workflow, a completed harmful system and real-world harm. Evidence at one level does not automatically prove the next. AP’s reporting attributes the cases to Anthropic. Cornell researcher John Thickstun also told AP that societal judgments about acceptable AI use need democratic or deliberative oversight, not company decisions alone.</p>",
+          "locator": "P007"
+        }
+      ],
+      "artifactLocator": "P007"
+    }
+  },
+  "verdict": "PASS",
+  "summary": "All thirteen material claims check out against the Anthropic, AP and Axios evidence with careful attribution; the article preserves the evidence-ladder distinction between observed misuse, inferred intent and real-world outcome, and the only wording variance (P003 'used AI' vs source 'used Claude') is a harmless generalization. All outcome dimensions pass.",
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Every claim is supported by the supplied evidence with correct attribution and all four outcomes pass; no repair or evidence gap identified."
+  }
+}

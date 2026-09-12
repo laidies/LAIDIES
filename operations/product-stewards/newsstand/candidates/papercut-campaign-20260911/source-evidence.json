@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "laidies.newsstand-source-evidence.v1",
+  "candidateId": "papercut-campaign-20260911",
+  "reviewedThrough": "2026-09-11",
+  "records": [
+    {
+      "id": "greynoise-papercut-report",
+      "url": "https://www.greynoise.io/blog/ai-orchestrated-campaign-against-papercut-ng-mf",
+      "authority": "GreyNoise primary threat-research report for what its sensors and investigation observed, including its attribution, AI-tool distinction, victim count, timing, access level and uncertainty.",
+      "passages": [
+        "September 9, 2026",
+        "GreyNoise observes adversary activity through our Global Observation Grid (GOG), a network of sensors that draws attacker scanning and exploitation onto infrastructure we control. This lets us study adversary infrastructure, tooling, and tradecraft directly, without waiting for a victim investigation.",
+        "On 31 August 2026, a likely Russian-speaking malicious cyber actor (MCA) used 45.142.193.132 and artificial intelligence (AI) to develop, test, and use exploits for PaperCut NG/MF (",
+        "PaperCut is print management software that enables organizations to track, charge, and manage printing, copying, and scanning jobs for organizations. PaperCut offers cloud and self-hosted versions. PaperCut NG and MF are self-hosted Java web applications that by default run with SYSTEM-level privileges on Windows and are usually domain-joined and integrated with Active Directory.",
+        "Once the adversary achieved remote code execution (RCE) and credential harvesting in its self-hosted lab environment, they used hundreds of AI Agents powered by OpenAI’s Codex (harness), a DeepSeek model (not OpenAI models), and various publicly available offensive security tools to opportunistically compromise at least 440 instances of PaperCut MF/NG hosted by 395 identified victim organizations in 48 countries. There are other real victims that could not be attributed to a named organization.",
+        "The adversary went from an empty workspace to first achieving RCE against a real victim in just under four hours, first domain admin in an additional two hours, and once the full campaign launched, compromised at least 11 organizations in 26 seconds. In one instance, the adversary went from initial access to full domain administrator in seven minutes against a high school in the United States. However, the adversary did not experience success evenly across all victims. GreyNoise observed the adversary achieved domain admin against only 12 victim organizations.",
+        "In at least one instance of targeting a perceived vulnerable PaperCut instance, Cloudflare’s Web Application Firewall (WAF) defeated the adversary. Fundamental hardening of environments still matters against AI-enabled threats.",
+        "It is unclear if this actor is solely focused on access development to be handed off to other affiliated actors or if they will directly leverage their accesses to achieve follow-on objectives such as data theft or ransomware deployment. In the past, other intrusions involving exploitation of PaperCut have led to extortion."
+      ],
+      "limitation": "GreyNoise is the source of the specific campaign counts and AI attribution. PaperCut says it has not independently verified GreyNoise’s indicators and did not receive them from customer reports. The report does not establish motive or a completed data-theft or ransomware outcome."
+    },
+    {
+      "id": "papercut-security-bulletin",
+      "url": "https://www.papercut.com/kb/Main/security-bulletin-27-aug-2026-urgent-security-advisory/",
+      "authority": "PaperCut primary security bulletin for confirmed active exploitation, customer incidents, current maintenance releases, component scope and its explicit non-verification of GreyNoise findings.",
+      "passages": [
+        "Last updated September 10, 2026",
+        "10 Sep 2026, 2:00pm (AEST) : Security maintenance releases published. These replace all emergency patches. Download links below.",
+        "PaperCut Software security response team is investigating active exploitation of a vulnerability affecting PaperCut NG and PaperCut MF.",
+        "Security maintenance releases are now available and are the recommended build for all customers. We are aware of confirmed customer incidents and continue to treat this matter with the highest priority. We will update this security bulletin as verified information becomes available.",
+        "PaperCut NG/MF 26.0.5, 25.0.13 and 24.1.10 are now available.",
+        "Third-party researchers have also published indicators of compromise, including this analysis from GreyNoise . We have not verified these independently and they do not come from reports made to us, so validate anything you act on against your own environment",
+        "Reports of new compromises have slowed considerably over the past week, and the majority of customers now have their Application Server either behind a firewall or on a patched build.",
+        "Servers that remain publicly reachable and unpatched continue to be targeted, and post-compromise behaviour observed in the second wave has been more sophisticated than in the first days of this incident.",
+        "Mobility Print and Print Deploy server components are not affected and do not need to be updated.",
+        "Our client software (including the User Client, Print Deploy client, and Mobility Print installer) is not affected and does not require an update."
+      ],
+      "limitation": "PaperCut confirms exploitation and customer incidents but does not confirm GreyNoise’s specific campaign counts, AI attribution or indicators. Its majority-patched and slowing-compromise statements are vendor status reports, not an independent census."
+    },
+    {
+      "id": "bleepingcomputer-papercut-report",
+      "url": "https://www.bleepingcomputer.com/news/security/ai-powered-attack-exploited-papercut-flaws-to-hack-395-organizations/",
+      "authority": "BleepingComputer independent reporting on the GreyNoise report and PaperCut response.",
+      "passages": [
+        "September 10, 2026",
+        "A threat actor, likely Russian-speaking, used hundreds of AI agents to develop and launch a global exploitation campaign targeting vulnerable PaperCut NG/MF servers.",
+        "Attack and threat intelligence company GreyNoise says the campaign began on August 31, combining OpenAI’s Codex and DeepSeek models with commodity offensive tools.",
+        "GreyNoise data indicates that the operation compromised at least 440 PaperCut instances linked to 395 distinct organizations across 48 countries.",
+        "The attacker harvested credentials from 280 victims, obtained operating system or domain secrets from 147, and obtained administrator privileges at 12 organizations.",
+        "GreyNoise could not determine the attacker’s campaign objective, but the access could be used for data theft or ransomware operations.",
+        "System administrators are advised to apply PaperCut’s emergency security updates addressing CVE-2026-81578 and CVE-2026-82078 immediately, and follow the vendor’s recommendations in this bulletin."
+      ],
+      "limitation": "Independent reporting contextualizes and attributes the GreyNoise findings; it does not independently verify GreyNoise’s victim counts, AI attribution or campaign motive. Its Codex wording is less precise than GreyNoise’s explicit harness-versus-model distinction; the primary source governs that distinction."
+    }
+  ]
+}

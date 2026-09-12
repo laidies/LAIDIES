@@ -1,0 +1,81 @@
+{
+  "attestations": {
+    "artifactFirst": true,
+    "independentFromMaker": true,
+    "completeTextRead": true
+  },
+  "claims": {
+    "image": {
+      "state": "supported",
+      "reason": "DeepSeek's own September 10 announcement headlines V4.1-Flash with native visual understanding, and Vercel's changelog independently describes native image understanding, matching P002's wording and date.",
+      "passages": [
+        "P001",
+        "P002"
+      ],
+      "sourceIds": [
+        "deepseek-v41-flash-news",
+        "vercel-deepseek-v41-flash-20260909"
+      ]
+    },
+    "route": {
+      "state": "supported",
+      "reason": "The DeepSeek announcement states that starting Sept 14, 2026 all deepseek-v4-pro requests will route to V4.1-Flash until V4.1-Pro launches, exactly as P004 reports and framed as scheduled rather than done.",
+      "passages": [
+        "P004"
+      ],
+      "sourceIds": [
+        "deepseek-v41-flash-news"
+      ]
+    },
+    "partner": {
+      "state": "supported",
+      "reason": "Vercel's changelog, published September 9 (one day before DeepSeek's September 10 announcement), confirms V4.1 Flash availability on AI Gateway, supporting the 'a day earlier' framing in P002.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "vercel-deepseek-v41-flash-20260909"
+      ]
+    }
+  },
+  "outcomes": {
+    "factualIntegrity": {
+      "state": "pass",
+      "reason": "All three material claims match the supplied source passages in wording, dates and attribution, with no overreach beyond what the announcements say.",
+      "passages": [
+        "P002",
+        "P004"
+      ]
+    },
+    "freshnessReviewability": {
+      "state": "pass",
+      "reason": "The event date (Sept 10), partner date (Sept 9) and the scheduled Sept 14 change are all explicit and checkable against the cited announcements.",
+      "passages": [
+        "P002",
+        "P004"
+      ]
+    },
+    "datedChange": {
+      "state": "pass",
+      "reason": "The article cleanly separates the already-announced model launch from the upcoming Sept 14 routing change, which is presented as scheduled and conditional on V4.1-Pro's launch.",
+      "passages": [
+        "P002",
+        "P004"
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "state": "pass",
+      "reason": "The reader consequence is concrete (whether an app passes images to the model) and uncertainty survives, since the article correctly says the app's own update determines availability rather than claiming any app changed.",
+      "passages": [
+        "P003",
+        "P004",
+        "P001"
+      ]
+    }
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Every material claim is supported by the independently collected sources and all four outcome checks pass, respecting the sources' stated limitations about apps and routing."
+  },
+  "summary": "The artifact accurately reports DeepSeek's September 10 V4.1-Flash launch with native image understanding, Vercel's September 9 AI Gateway availability, and the scheduled September 14 deepseek-v4-pro routing change, while correctly holding the app-level consequence as dependent on each app maker's choices; no defects found."
+}

@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "gpt-live-downstream-20260911",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "8b2b628d43d8f24fe68cfd4c0592ea978d014989ef316790dc8dbb594a95f965",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can a GPT-Live-1 call sound perfectly handled and yet leave you with no reservation?",
+      "response": "Because the voice layer only manages the conversation — listening and speaking at once, absorbing interruptions — while a separate backend application checks availability, applies the business's rules and writes the booking record. If the backend never receives, validates or stores the request, the smooth conversation produced nothing durable; the application, not the voice, owns confirmations and the lasting record.",
+      "expectedEvidence": "P004 states the application owns permissions, confirmations and the lasting record; P005 shows the booking tool and availability data determining whether a table is recorded.",
+      "assessment": "The article's mechanism fully supports this causal answer in ordinary language; a nontechnical reader could reproduce it after one reading."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, what most likely went wrong and what should the caller have done on the call?",
+      "response": "The voice layer smoothly absorbed the mid-sentence dosage change, but the backend pharmacy system — which owns the durable refill record and must apply prescription rules — either never received the amended request as a tool action or rejected it under a rule the voice glossed over. Fluency masked a missing record. The caller should have asked the system to read back both medications, dosages and pickup times and to provide the confirmation numbers, and asked for a pharmacist if it could not.",
+      "expectedEvidence": "P004's rule that the application owns confirmations and the lasting record, plus P008's read-back-and-confirm routine, transfer directly to this new domain.",
+      "assessment": "The article's voice-versus-record model resolves this unseen case without any additional concepts, confirming genuine transferability."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The release, same-day integration, and the causal chain from voice layer to backend record are all laid out understandably.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI released GPT-Live-1 to developers through its API on September 10. The same day, Yelp said it had integrated the voice model into Yelp Host, which answers restaurant calls, and Hatch, which handles calls for service businesses such as repair companies.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Compared with a traditional voice system that passes speech through separate listening, reasoning and speaking stages, GPT-Live-1 is meant to keep the conversation moving more naturally. Imagine changing a reservation from four people to five while the voice is still replying. The voice layer can handle the interruption; the restaurant’s availability data and booking tool still determine whether a table is recorded.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Front-end voice layer, full duplex and the backend's role are each explained in plain terms at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Compared with a traditional voice system that passes speech through separate listening, reasoning and speaking stages, GPT-Live-1 is meant to keep the conversation moving more naturally. Imagine changing a reservation from four people to five while the voice is still replying. The voice layer can handle the interruption; the restaurant’s availability data and booking tool still determine whether a table is recorded.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences are grounded in specific caller situations: a reservation change, a repair appointment with address and arrival window.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This is where someone who never opens an API may encounter the release: while making a reservation, changing a food order or arranging an appointment by phone. It does not mean every restaurant, repair company or ChatGPT account changed. Yelp did not disclose which callers, locations or customers have received the new integration.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A smoother voice can make a call easier, but fluency is not a booking record. At the end of a restaurant call, repeat the date, time and party size and ask for the confirmation. For a repair appointment, check the address, service requested and arrival window. If the system cannot confirm the record, ask for a person.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; the confirmation advice follows directly from the documented fact that the application owns confirmations and records.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A <strong>front-end voice layer</strong> is the part that listens and speaks while a separate backend checks information and completes tasks. OpenAI calls listening and speaking at the same time <strong>full duplex</strong>. GPT-Live-1 can keep listening when a caller pauses, interrupts or changes direction. A separate backend system still checks business information, applies rules and uses tools. OpenAI’s documentation says the application—not the voice model—owns permissions, confirmations and the lasting record of a task.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>A smoother voice can make a call easier, but fluency is not a booking record. At the end of a restaurant call, repeat the date, time and party size and ask for the confirmation. For a repair appointment, check the address, service requested and arrival window. If the system cannot confirm the record, ask for a person.</p>",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "A fluent answer and a completed transaction are different results. <a href=\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\">Working with AI 101: Trusting the Output and Checking It</a> shows how to check the result that matters.",
+          "locator": "P011"
+        }
+      ]
+    }
+  }
+}

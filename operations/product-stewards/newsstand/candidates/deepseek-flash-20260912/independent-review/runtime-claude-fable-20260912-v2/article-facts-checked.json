@@ -1,0 +1,203 @@
+{
+  "kind": "facts",
+  "startedAt": "2026-09-12T18:50:00.715Z",
+  "replayedAt": null,
+  "completedAt": "2026-09-12T18:50:27.538Z",
+  "requestedModel": "claude-fable-5",
+  "providerModel": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "providerId": "50b3e751-67ca-4ae2-b331-3bbe601e8556",
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 7720,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 1581,
+    "output_tokens_details": {
+      "thinking_tokens": 450
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 7720,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 1581,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 7720,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 7720
+        },
+        "type": "message",
+        "model": null
+      }
+    ],
+    "speed": "standard"
+  },
+  "attestations": {
+    "artifactFirst": true,
+    "independentFromMaker": true,
+    "completeTextRead": true
+  },
+  "requestSha256": "e95c2822c741b14b4cb17752b9507c1de1c2c629d6a9b5c871e7da76e62dfba2",
+  "rawSha256": "a5950c062186efe3b4c1a33c159d3bdbb4e5ba59638406816450380b0058eb98",
+  "protocolSha256": "7d5c9426f84748a80fce818b4d4bb85a41666f70ba8cebb0a9c680e21151e837",
+  "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+  "outcomes": {
+    "factualIntegrity": {
+      "state": "pass",
+      "reason": "All three material claims match the supplied source passages in wording, dates and attribution, with no overreach beyond what the announcements say.",
+      "passages": [
+        "P002",
+        "P004"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding. That means it can use a picture as part of what it receives, rather than working only from words. Vercel had made the model available through its AI Gateway a day earlier.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>One technical change arrives September 14: requests sent under the older <code>deepseek-v4-pro</code> label are scheduled to route to V4.1-Flash until V4.1-Pro launches. For everyday use, the useful question is simpler: can this specific app accept my picture, and what does it say it can do with it?</p>",
+          "locator": "P004"
+        }
+      ],
+      "artifactLocator": "P002, P004"
+    },
+    "freshnessReviewability": {
+      "state": "pass",
+      "reason": "The event date (Sept 10), partner date (Sept 9) and the scheduled Sept 14 change are all explicit and checkable against the cited announcements.",
+      "passages": [
+        "P002",
+        "P004"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding. That means it can use a picture as part of what it receives, rather than working only from words. Vercel had made the model available through its AI Gateway a day earlier.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>One technical change arrives September 14: requests sent under the older <code>deepseek-v4-pro</code> label are scheduled to route to V4.1-Flash until V4.1-Pro launches. For everyday use, the useful question is simpler: can this specific app accept my picture, and what does it say it can do with it?</p>",
+          "locator": "P004"
+        }
+      ],
+      "artifactLocator": "P002, P004"
+    },
+    "datedChange": {
+      "state": "pass",
+      "reason": "The article cleanly separates the already-announced model launch from the upcoming Sept 14 routing change, which is presented as scheduled and conditional on V4.1-Pro's launch.",
+      "passages": [
+        "P002",
+        "P004"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding. That means it can use a picture as part of what it receives, rather than working only from words. Vercel had made the model available through its AI Gateway a day earlier.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>One technical change arrives September 14: requests sent under the older <code>deepseek-v4-pro</code> label are scheduled to route to V4.1-Flash until V4.1-Pro launches. For everyday use, the useful question is simpler: can this specific app accept my picture, and what does it say it can do with it?</p>",
+          "locator": "P004"
+        }
+      ],
+      "artifactLocator": "P002, P004"
+    },
+    "consequenceAndUncertainty": {
+      "state": "pass",
+      "reason": "The reader consequence is concrete (whether an app passes images to the model) and uncertainty survives, since the article correctly says the app's own update determines availability rather than claiming any app changed.",
+      "passages": [
+        "P003",
+        "P004",
+        "P001"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A model does the generating behind an app’s interface, and the app maker chooses which model to connect. Picture a photo app: if its maker connects it to V4.1-Flash and passes along the image, the model can consider the picture when it answers. The new ability is underneath; the app’s own update tells you what is available in the tool you use.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>One technical change arrives September 14: requests sent under the older <code>deepseek-v4-pro</code> label are scheduled to route to V4.1-Flash until V4.1-Pro launches. For everyday use, the useful question is simpler: can this specific app accept my picture, and what does it say it can do with it?</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "DeepSeek’s new model can understand pictures. Whether you see that depends on the app.",
+          "locator": "P001"
+        }
+      ],
+      "artifactLocator": "P003, P004, P001"
+    }
+  },
+  "claims": {
+    "image": {
+      "state": "supported",
+      "reason": "DeepSeek's own September 10 announcement headlines V4.1-Flash with native visual understanding, and Vercel's changelog independently describes native image understanding, matching P002's wording and date.",
+      "passages": [
+        "P001",
+        "P002"
+      ],
+      "sourceIds": [
+        "deepseek-v41-flash-news",
+        "vercel-deepseek-v41-flash-20260909"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "DeepSeek’s new model can understand pictures. Whether you see that depends on the app.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding. That means it can use a picture as part of what it receives, rather than working only from words. Vercel had made the model available through its AI Gateway a day earlier.</p>",
+          "locator": "P002"
+        }
+      ],
+      "artifactLocator": "P001, P002"
+    },
+    "route": {
+      "state": "supported",
+      "reason": "The DeepSeek announcement states that starting Sept 14, 2026 all deepseek-v4-pro requests will route to V4.1-Flash until V4.1-Pro launches, exactly as P004 reports and framed as scheduled rather than done.",
+      "passages": [
+        "P004"
+      ],
+      "sourceIds": [
+        "deepseek-v41-flash-news"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>One technical change arrives September 14: requests sent under the older <code>deepseek-v4-pro</code> label are scheduled to route to V4.1-Flash until V4.1-Pro launches. For everyday use, the useful question is simpler: can this specific app accept my picture, and what does it say it can do with it?</p>",
+          "locator": "P004"
+        }
+      ],
+      "artifactLocator": "P004"
+    },
+    "partner": {
+      "state": "supported",
+      "reason": "Vercel's changelog, published September 9 (one day before DeepSeek's September 10 announcement), confirms V4.1 Flash availability on AI Gateway, supporting the 'a day earlier' framing in P002.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "vercel-deepseek-v41-flash-20260909"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 10, DeepSeek introduced V4.1-Flash, a new model with native image understanding. That means it can use a picture as part of what it receives, rather than working only from words. Vercel had made the model available through its AI Gateway a day earlier.</p>",
+          "locator": "P002"
+        }
+      ],
+      "artifactLocator": "P002"
+    }
+  },
+  "verdict": "PASS",
+  "summary": "The artifact accurately reports DeepSeek's September 10 V4.1-Flash launch with native image understanding, Vercel's September 9 AI Gateway availability, and the scheduled September 14 deepseek-v4-pro routing change, while correctly holding the app-level consequence as dependent on each app maker's choices; no defects found.",
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Every material claim is supported by the independently collected sources and all four outcome checks pass, respecting the sources' stated limitations about apps and routing."
+  }
+}

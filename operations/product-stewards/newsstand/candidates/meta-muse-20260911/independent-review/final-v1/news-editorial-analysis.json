@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "meta-muse-20260911",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "087239778e4dc5a1111033cdb9d48b3d31fc84d6bd1172bb3e7e19a3134dda85",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can Muse read a saved recipe and build a grocery list without asking you anything, yet stop and wait before sending the dinner invitations?",
+      "response": "Because every proposed action passes through a control that sits outside the agent and checks it against the permission granted for that specific service. Reading saved content or doing read-only, previously allowed, low-risk work fits an existing grant, so it proceeds without interruption. Sending an email is a different, higher-consequence action under a different scope: unless you have granted send permission for the connected email service, the control refuses to let the action out, and Meta's design surfaces an approval prompt instead. The gate is per-service and per-scope, not a blanket yes or no to the agent.",
+      "expectedEvidence": "An accurate answer must cite the outside-the-agent control (P005), the scope taxonomy and the no-interruption path for read-only/low-risk actions (P006), and the read-versus-send email distinction (P004, P006), while retaining that prompts are Meta's design, not a correctness guarantee.",
+      "assessment": "The article fully supports this answer: P005 supplies the control, P006 supplies the scope logic and its limits, and P004 grounds it in the exact recipe-and-invitation task. The mechanism as written enables a correct causal explanation."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using only the mechanisms in the article, what should happen to the refund and the data export, and what residual risk remains?",
+      "response": "The hidden text is prompt injection—malicious instructions embedded in material the agent reads—which the article says remains an open problem, so Muse might genuinely attempt both actions. But the control outside the agent checks each proposed action against the permission for that service: her billing grant is read-only, so issuing a refund does not match the granted scope and cannot proceed; exporting records to a new external destination is not a previously allowed or low-risk action, so it should trigger an approval rather than pass silently. Residual risk remains real: prompts are Meta's design, not a guarantee of correct behaviour, the agent will make mistakes, and no independent testing has verified that the control classifies actions correctly. Her proportionate response is the article's own: keep the grant read-only, prefer task-limited permissions, and check the audit trail after the summarization task.",
+      "expectedEvidence": "The answer must combine the prompt-injection admission (P007), the outside control matching actions to per-service scope (P005, P006), the no-guarantee caveat (P006), and the audit-trail/revocation action (P009), without asserting the safeguard is proven.",
+      "assessment": "The transfer works: every step of the reasoning is licensed by mechanisms the article actually explains, and the uncertainty about untested safeguards survives into the conclusion. The article equips a reader for this genuinely new situation."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The launch event, date, availability routes, and what makes Muse different from a chatbot are laid out in causal order before the safety architecture.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Meta launched Muse, a <strong>personal AI agent</strong>, in the United States on September 8. It is rolling out through iOS, Android and muse.ai; Meta also says people can message it in WhatsApp. Most use is free, with subscriptions for more, but the reviewed launch material gives no exact limit or price.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Unlike a chatbot that stops after suggesting or drafting, Muse is designed to keep taking steps through a browser and connected services. Meta says it can continue after the app closes. AI glasses support, Shop Pay, 1Password support and a stronger privacy option are later plans.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A personal AI agent is software that can plan and take several actions toward a personal goal rather than only answer once. In Meta’s example, Muse could turn an Instagram recipe into a grocery list without email access; sending the dinner invitation requires connected email and permission to send.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'Personal AI agent' is defined at first meaningful use (P004) and 'prompt injection' is defined inline as malicious instructions hidden in material an agent reads (P007).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A personal AI agent is software that can plan and take several actions toward a personal goal rather than only answer once. In Meta’s example, Muse could turn an Instagram recipe into a grocery list without email access; sending the dinner invitation requires connected email and permission to send.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Meta’s safety post says the agent will make mistakes and that <strong>prompt injection</strong>—malicious instructions hidden in material an agent reads—remains an open problem. AP confirmed the launch and explained the agent-versus-chatbot distinction, but did not test Muse’s safeguards or reliability.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequences land in recognizable situations: connecting email with read-only versus send permission, and deciding access before connecting any service.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A personal AI agent is software that can plan and take several actions toward a personal goal rather than only answer once. In Meta’s example, Muse could turn an Instagram recipe into a grocery list without email access; sending the dinner invitation requires connected email and permission to send.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>A fresh approval does not appear before everything. Meta says a person can let Muse read email without letting it send. Permissions may be one-time, limited to a task or session, time-bounded or permanent; the control system chooses which options to offer. Previously allowed, read-only or low-risk actions may proceed without interruption. Email and purchase prompts are Meta’s design, not a guarantee that Muse always behaves correctly.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Before connecting a service, decide what this task needs: read access, action access or no access. If Muse offers a one-time or task-limited permission, use it when a lasting grant is unnecessary. Meta says its audit trail and connection settings let you inspect actions and change or remove access.</p>",
+          "locator": "P009"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; the advice in P009 is grounded in Meta's documented permission grants, audit trail and disconnect controls rather than invented.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Before connecting a service, decide what this task needs: read access, action access or no access. If Muse offers a one-time or task-limited permission, use it when a lasting grant is unnecessary. Meta says its audit trail and connection settings let you inspect actions and change or remove access.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>A fresh approval does not appear before everything. Meta says a person can let Muse read email without letting it send. Permissions may be one-time, limited to a task or session, time-bounded or permanent; the control system chooses which options to offer. Previously allowed, read-only or low-risk actions may proceed without interruption. Email and purchase prompts are Meta’s design, not a guarantee that Muse always behaves correctly.</p>",
+          "locator": "P006"
+        }
+      ]
+    }
+  }
+}
