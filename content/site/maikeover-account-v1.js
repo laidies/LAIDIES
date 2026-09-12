@@ -77,6 +77,7 @@
   }
   async function save(envelope, context) {
     await validateSession(context);
+    if (window.LAIDIESPortraitSelection) await window.LAIDIESPortraitSelection.validate(envelope);
     var result = await runtime.controller.claimLocalCard(envelope, crypto.randomUUID(), context.revision);
     if (!result.localPreserved) throw new Error('The browser copy changed during saving.');
     await refresh();

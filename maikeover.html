@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="content/maikeover-v2.css?v=20260902-card-text-fit-1">
   <link rel="stylesheet" href="/content/resident-card-getting-ready.css?v=20260906-1">
   <link rel="stylesheet" href="/content/resident-card-pop-backgrounds.css?v=20260906-1">
-  <link rel="stylesheet" href="/content/maikeover-account.css?v=20260912-photo-retry-1">
+  <link rel="stylesheet" href="/content/maikeover-account.css?v=20260912-photo-picker-1">
   <script src="/content/site/resident-card-contract-v1.js?v=20260906-pop-card-1"></script>
   <script src="/content/site/supabase-config.js?v=20260702-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
@@ -134,7 +134,7 @@
       <div class="mo-workspace">
       <h2 class="mo-drawer-heading">Create your portrait</h2>
       <p class="mo-drawer-help">Move through each numbered step. Your choices update the Card in the mirror as you go.</p>
-      <p class="mo-tool-status" id="moToolStatus" aria-live="polite">Describe yourself, use a photo or choose a 90s object for your Card image.</p>
+      <p class="mo-tool-status" id="moToolStatus" aria-live="polite">Use your photo for an era makeover, or choose a ready-made image for your Card.</p>
 
       <div class="mo-chair-grid" style="display:grid; grid-template-columns: 320px 1fr; gap:28px; align-items:start; margin-top:22px;">
 
@@ -169,27 +169,12 @@
             <a href="#mo-account" id="moPortraitSignIn">Verify your email to begin</a>
             <p class="mo-portrait-note">Your account includes two sets of three portraits each day.</p>
             <fieldset class="mo-portrait-modes"><legend>Start your portrait</legend>
-              <label><input type="radio" name="moPortraitMode" value="scratch" checked> Describe me</label>
-              <label><input type="radio" name="moPortraitMode" value="photo"> Use my photo</label>
-              <label><input type="radio" name="moPortraitMode" value="object"> Use a 90s object</label>
+              <label><input type="radio" name="moPortraitMode" value="photo" checked> Use my photo</label>
+              <label><input type="radio" name="moPortraitMode" value="object"> Choose an image</label>
             </fieldset>
-            <div id="moDescriptionPanel">
-              <label for="moDescribe">What should you look like?</label>
-              <p id="moDescribeHelp">Include your age, hair, skin tone, eyes, glasses and any features you want us to keep. Choose clothes and accessories below.</p>
-              <p id="moDescribeExample">For example: “A woman in her 40s with shoulder-length wavy brown hair, warm brown skin, brown eyes, round purple glasses and freckles.”</p>
-              <textarea id="moDescribe" maxlength="600" rows="3" aria-describedby="moDescribeHelp moDescribeExample" placeholder="Describe your look here"></textarea>
-            </div>
             <div id="moObjectPanel" hidden>
-              <label for="moObject">Which 90s object feels like you?</label>
-              <p>No face or photo needed. We’ll illustrate your object on a bold graphic-novel backdrop. This becomes your Card image.</p>
-              <select id="moObject">
-                <option value="cassette">Mixtape cassette</option>
-                <option value="flip-phone">Flip phone</option>
-                <option value="cd-player">Portable CD player</option>
-                <option value="floppy-disk">Floppy disk</option>
-                <option value="lava-lamp">Lava lamp</option>
-                <option value="roller-skate">Roller skate</option>
-              </select>
+              <p>Which 90s object feels like you? Pick a ready-made image for your Card. No photo, generation or portrait allowance needed.</p>
+              <div id="moReadyImages" class="mo-portrait-candidates" role="group" aria-label="Choose a ready-made Card image"></div>
             </div>
             <div id="moPhotoPanel" hidden>
               <label for="moPhoto">Your photo (JPG, PNG or WebP; up to 8 MB)</label>
@@ -198,7 +183,7 @@
               <p id="moPhotoConsentError" role="alert" hidden>Tick the permission box before making your portraits. Your selected photo is still here.</p>
             </div>
             <details class="mo-portrait-note"><summary>Where your image goes</summary>
-              <p>Your description, choices and optional resized photo go to OpenAI. OpenAI may retain API inputs and outputs in abuse-monitoring logs for up to 30 days, with limited exceptions. <a href="https://developers.openai.com/api/docs/guides/your-data" target="_blank" rel="noopener">OpenAI data controls</a>.</p>
+              <p>When you make portraits, your choices and resized photo go to OpenAI. Ready-made images do not go to OpenAI. OpenAI may retain API inputs and outputs in abuse-monitoring logs for up to 30 days, with limited exceptions. <a href="https://developers.openai.com/api/docs/guides/your-data" target="_blank" rel="noopener">OpenAI data controls</a>.</p>
               <p>LAiDIES does not store your source photo. The three results stay on this page until you leave. Only the portrait you choose is added to your Card; if you connect the Card to your account, that chosen portrait is stored privately with it.</p>
             </details>
 
@@ -658,10 +643,10 @@
       {l:'2010',p:'2010 era, smoky eyeliner suited to the original skin tone',d:'2010 · smoky eyeliner'}
     ];
     var A_FIT=[
-      {l:'keep my outfit',p:''},{l:'hot-pink blazer',p:'wearing a hot-pink blazer over a black top'},
+      {l:'keep my outfit',p:'keep the reference outfit unchanged, including its cut and colour; era styling must not replace it'},{l:'hot-pink blazer',p:'wearing a hot-pink blazer over a black top'},
       {l:'baby tee',p:'wearing a fitted Y2K baby tee'},{l:'denim jacket',p:'wearing a denim jacket'},
       {l:'halter top',p:'wearing a sparkly halter top'},{l:'satin tube top',p:'wearing a satin tube top'},
-      {l:'velour tracksuit',p:'wearing a velour tracksuit zip-up'},{l:'cardigan + cami',p:'wearing a cropped cardigan over a lace cami'},
+      {l:'velour tracksuit',p:'wearing a velour tracksuit zip-up'},{l:'cardigan + cami',p:'wearing a bright pink cropped knit cardigan over a white camisole with narrow lace trim, playful Mean Girls-inspired styling, not lingerie; retain the reference neckline coverage'},
       {l:'feather boa',p:'with a fluffy feather boa around the shoulders'}
     ];
     var A_ACC=[
@@ -679,7 +664,7 @@
       {l:'Blue cloud',p:'a classic 1990s school-portrait mottled blue and grey cloud studio backdrop'},
       {l:'Grey marble',p:'a classic 1990s school-portrait mottled grey studio backdrop'},
       {l:'Teal→purple',p:'a 1990s school-portrait smooth teal-to-purple gradient studio backdrop'},
-      {l:'Pink→lilac',p:'a 1990s school-portrait smooth pink-to-lilac gradient studio backdrop'},
+      {l:'Pink party curtain',p:'a real pink metallic fringe photo-booth curtain with a few hanging silver stars, softly out of focus behind the person; playful party snapshot, not an office or lockers'},
       {l:'Starfield',p:'a 1990s school-portrait starry-night studio backdrop'}
     ];
     var accOn2={}, eraIdx2=0, fitIdx2=0, bgIdx2=6; // default backdrop = Pink→lilac
@@ -782,6 +767,8 @@
         return;
       }
       var serialized = JSON.stringify(envelope);
+      try { if (window.LAIDIESPortraitSelection) await window.LAIDIESPortraitSelection.validate(envelope); }
+      catch (error) { announceCardSave(error.message, '#a83243'); return; }
       var before;
       try {
         // One versioned envelope is the only authoritative local card write.
@@ -1149,9 +1136,9 @@
 <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
 <script src="/content/site/identity-client-v1.js?v=20260905-email-code-1"></script>
 <script src="/content/site/resident-account-runtime-v1.js?v=20260829-provider-health-1"></script>
-<script defer src="/content/site/maikeover-account-v1.js?v=20260911-episode-opt-in-2"></script>
-<script defer src="/content/site/maikeover-portraits-v1.js?v=20260912-hair-choice-1"></script>
-<script defer src="/content/site/maikeover-v2.js?v=20260912-object-1"></script>
+<script defer src="/content/site/maikeover-account-v1.js?v=20260912-photo-picker-1"></script>
+<script defer src="/content/site/maikeover-portraits-v1.js?v=20260912-photo-picker-1"></script>
+<script defer src="/content/site/maikeover-v2.js?v=20260912-photo-picker-1"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260911-header-controls-2"></script>

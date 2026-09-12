@@ -4,6 +4,7 @@ import http from 'node:http';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
 import {createRequire} from 'node:module';
+
 // Run from the repository root. Uses installed playwright-core, or set
 // PLAYWRIGHT_CORE_PATH to an external playwright-core package directory.
 const require=createRequire(import.meta.url);
@@ -12,83 +13,91 @@ try { playwrightEntry=process.env.PLAYWRIGHT_CORE_PATH ? process.env.PLAYWRIGHT_
 catch { throw new Error('Install the repository dev dependencies or set PLAYWRIGHT_CORE_PATH to the playwright-core package directory. No browser/provider work has run.'); }
 const {chromium}=await import(pathToFileURL(playwrightEntry));
 const root=process.cwd();
+const shots=process.env.SHOTS || '/private/tmp/maikeover-photo-picker-review';
+fs.mkdirSync(shots,{recursive:true});
 const server=http.createServer((req,res)=>{
   const file=path.resolve(root,'.'+new URL(req.url,'http://local').pathname);
   if(!file.startsWith(root+'/')||!fs.existsSync(file)||fs.statSync(file).isDirectory())return res.writeHead(404).end();
-  const type={'.html':'text/html','.js':'text/javascript','.css':'text/css','.png':'image/png','.webp':'image/webp'}[path.extname(file)];
+  const type={'.html':'text/html','.js':'text/javascript','.css':'text/css','.png':'image/png','.webp':'image/webp','.jpg':'image/jpeg','.jpeg':'image/jpeg'}[path.extname(file)];
   res.setHeader('Content-Type',type||'application/octet-stream');fs.createReadStream(file).pipe(res);
 });
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
 const origin=`http://127.0.0.1:${server.address().port}`;
+const fixture=fs.readFileSync(path.join(root,'assets/puffies/usable-25-images/64-black-pink-cassette.png'));
+const fixtureBase64=fixture.toString('base64');
+const pngFile={name:'portrait.png',mimeType:'image/png',buffer:fixture};
 const browser=await chromium.launch({executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless:true});
+async function makeContext(signedIn, provider){
+  const context=await browser.newContext();
+  context.setDefaultTimeout(5000);
+  await context.addInitScript(({signedIn})=>{
+    window.__maikeoverTestSession={current:signedIn?{access_token:'test-token-a',user:{id:'test-user-a',email:'a@example.invalid'}}:null};
+    const client={auth:{getSession:async()=>({data:{session:window.__maikeoverTestSession.current}})}};
+    window.LAIDIESResidentAccountRuntime={get:async()=>({client})};
+  },{signedIn});
+  await context.route('**/*',async route=>{
+    const url=route.request().url();
+    if(url.includes('resident-account-runtime-v1.js'))return route.fulfill({contentType:'text/javascript',body:''});
+    if(url.startsWith('https://laidies-avatar.'))return provider(route);
+    return url.startsWith(origin)?route.continue():route.abort();
+  });
+  return context;
+}
 try{
- const context=await browser.newContext(); const payloads=[];
- await context.addInitScript(()=>{
-   const session={access_token:'test',user:{id:'test',email:'test@example.invalid'}};
-   const client={auth:{getSession:async()=>({data:{session}})}};
-   window.LAIDIESResidentAccountRuntime={get:async()=>({client})};
- });
- await context.route('**/*',async route=>{
-  const url=route.request().url();
-  if(url.includes('resident-account-runtime-v1.js'))return route.fulfill({contentType:'text/javascript',body:''});
-  if(url.startsWith('https://laidies-avatar.')){
-   payloads.push(JSON.parse(route.request().postData()));
-   return route.fulfill({status:200,headers:{'access-control-allow-origin':'*'},contentType:'application/json',body:JSON.stringify({images:['invalid-image']})});
-  }
-  return url.startsWith(origin)?route.continue():route.abort();
- });
- const page=await context.newPage(); await page.goto(origin+'/maikeover.html');
- await page.locator('[data-mo-tool="portrait"]').click();
- assert.match(await page.locator('#moDescribeExample').innerText(),/woman in her 40s/);
- await page.locator('#moDescribe').fill('private description must not leak into object request');
- await page.locator('[value="photo"][name="moPortraitMode"]').check();
- await page.locator('#moPhoto').setInputFiles({name:'test.png',mimeType:'image/png',buffer:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScL9wQAAAABJRU5ErkJggg==','base64')});
- await page.locator('#moMake').click();
- await page.waitForFunction(()=>document.querySelector('#moHairError').hidden===false);
- assert.equal(await page.locator('input[name="moHair"]:checked').count(),0,'no preselected hair choice');
- assert.equal(payloads.length,0,'missing hair choice sends no photo');
- assert.equal(await page.locator('#moPhoto').evaluate(el=>el.files.length),1,'missing hair choice retains photo');
- await page.locator('input[name="moHair"][value="keep"]').check();
- await page.locator('#moMake').click();
- await page.waitForFunction(()=>document.querySelector('#moPhotoConsentError').hidden===false);
- assert.equal(payloads.length,0,'no permission means no photo transmission');
- assert.equal(await page.locator('#moPhoto').evaluate(el=>el.files.length),1,'validation retains selected photo');
- assert.equal(await page.evaluate(()=>document.activeElement.id),'moPhotoConsent','focus reaches missed permission');
- await page.locator('#moPhotoConsent').check();
- assert.equal(await page.locator('#moPhotoConsentError').isVisible(),false);
- await page.locator('[value="object"][name="moPortraitMode"]').check();
- assert.equal(await page.locator('#moPhotoConsent').isChecked(),false);
- assert.equal(await page.locator('#moPortraitOptions').isVisible(),false);
- assert.equal(await page.locator('#moDescriptionPanel').isVisible(),false);
- await page.locator('[value="scratch"][name="moPortraitMode"]').check();
- await page.locator('input[name="moHair"][value="era"]').check();
- await page.locator('#moDescribe').fill('An adult with dark skin and shoulder-length locs.');
- await page.locator('#moMake').click();
- await page.waitForFunction(()=>document.querySelector('#moStatus').textContent.includes('could not be read'));
- assert.equal(payloads.at(-1).hair,'era');
- assert(!/chunky highlights|flippy hair|centre-parted hair/.test(payloads.at(-1).itemPrompt));
- payloads.length=0;
- await page.locator('[value="object"][name="moPortraitMode"]').check();
- await page.locator('#moObject').selectOption('cassette');
- await page.locator('#moMake').click();
- await page.waitForFunction(()=>document.querySelector('#moStatus').textContent.includes('could not be read'));
- assert.equal(payloads.length,1);assert.equal(payloads[0].object,'cassette');
- assert.deepEqual(Object.keys(payloads[0]).sort(),['object','requestId']);
- assert.equal(await page.locator('#moCands button').count(),0,'malformed raster rejected');
- for(const width of [390,800,1280]){
-  await page.setViewportSize({width,height:844});
-  await page.locator('.mo-portrait-modes').scrollIntoViewIfNeeded();
-  await page.waitForTimeout(150);
-  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
-  if(process.env.SHOTS)await page.screenshot({path:process.env.SHOTS+`/object-${width}.png`});
- }
- await page.locator('[value="scratch"][name="moPortraitMode"]').check();
- assert(await page.locator('#moPortraitOptions').isVisible());
- assert.equal(await page.locator('#moObjectPanel').isVisible(),false);
- await page.locator('[value="photo"][name="moPortraitMode"]').check();
- assert(await page.locator('#moPhotoPanel').isVisible());
- assert(await page.locator('#moPortraitOptions').isVisible());
- assert.equal(await page.locator('#moObjectPanel').isVisible(),false);
- assert.equal(await page.locator('#moDescriptionPanel').isVisible(),false);
- console.log('OBJECT MODE PASS: isolated request, discarded consent, visible example, restored human controls, invalid raster rejected, 390/800/1280 fit. Provider mocked; no saved account changes.');
+  const payloads=[]; let photoRequests=0;
+  const signedIn=await makeContext(true,async route=>{
+    payloads.push(JSON.parse(route.request().postData()||'{}')); photoRequests++;
+    if(photoRequests===1)return route.fulfill({status:503,headers:{'access-control-allow-origin':'*'},contentType:'application/json',body:JSON.stringify({error:'mock outage'})});
+    if(photoRequests===2)return route.fulfill({status:200,headers:{'access-control-allow-origin':'*'},contentType:'application/json',body:JSON.stringify({images:['deliberately-not-base64']})});
+    return route.fulfill({status:200,headers:{'access-control-allow-origin':'*'},contentType:'application/json',body:JSON.stringify({images:[fixtureBase64]})});
+  });
+  const page=await signedIn.newPage(); await page.goto(origin+'/maikeover.html'); await page.locator('[data-mo-tool="portrait"]').click();
+  await page.evaluate(()=>{ window.__maikeoverTestAccount={saves:0}; window.LAIDIESMaikeoverAccount={beforeSave:async()=>({id:window.__maikeoverTestSession.current.user.id}),validateSession:async()=>{},save:async()=>{window.__maikeoverTestAccount.saves++;}}; });
+  assert.equal(await page.locator('#moDescribe, #moDescriptionPanel, input[value="scratch"][name="moPortraitMode"]').count(),0,'description mode is absent');
+  assert.equal(await page.locator('input[name="moHair"]:checked').count(),0,'neither hair option is preselected');
+  await page.locator('#moPhoto').setInputFiles(pngFile); await page.locator('#moMake').click();
+  await page.waitForFunction(()=>!document.querySelector('#moHairError').hidden);
+  assert.equal(payloads.length,0,'missing hair choice makes no provider call'); assert.equal(await page.locator('#moPhoto').evaluate(el=>el.files.length),1,'missing hair choice retains the file');
+  await page.locator('input[name="moHair"][value="keep"]').check(); await page.locator('#moMake').click();
+  await page.waitForFunction(()=>!document.querySelector('#moPhotoConsentError').hidden);
+  assert.equal(payloads.length,0,'missing permission makes no provider call'); assert.equal(await page.locator('#moPhoto').evaluate(el=>el.files.length),1,'missing permission retains the file');
+  assert.equal(await page.evaluate(()=>document.activeElement.id),'moPhotoConsent','missing permission receives focus');
+  await page.locator('#moPhotoConsent').check(); await page.locator('#moMake').click();
+  await page.waitForFunction(()=>document.querySelector('#moStatus').textContent.includes('temporarily unavailable'));
+  assert.equal(payloads.length,1,'provider failure was mocked once'); assert.equal(payloads[0].hair,'keep','photo payload carries explicit hair');
+  assert.match(payloads[0].image,/^data:image\/jpeg;base64,/,'photo payload carries a resized raster'); assert.equal(await page.locator('#moPhoto').evaluate(el=>el.files.length),1,'provider failure retains the file');
+  await page.locator('#moMake').click(); await page.waitForFunction(()=>document.querySelector('#moStatus').textContent.includes('could not be read'));
+  assert.equal(await page.locator('#moCands button').count(),0,'deliberately malformed provider response creates no candidate');
+  assert.equal(await page.locator('#moPhoto').evaluate(el=>el.files.length),1,'malformed provider response retains the file');
+  await page.locator('#moMake').click(); await page.waitForFunction(()=>document.querySelectorAll('#moCands button').length===1);
+  const preview=`data:image/png;base64,${fixtureBase64}`;
+  assert.equal(await page.locator('#moCands img').getAttribute('src'),preview,'candidate preview preserves the full provider raster');
+  await page.evaluate(()=>{window.__maikeoverTestSession.current={access_token:'test-token-b',user:{id:'test-user-b',email:'b@example.invalid'}};});
+  await page.locator('#moCands button').click(); await page.waitForFunction(()=>document.querySelector('#moStatus').textContent.includes('sign-in changed'));
+  assert.equal(await page.locator('#moCands button').count(),0,'a delayed photo selection is discarded after an account change');
+  assert.equal(await page.locator('#moAvatar img').count(),0,'a stale photo candidate does not update the preview');
+  await page.evaluate(()=>{window.__maikeoverTestSession.current={access_token:'test-token-a',user:{id:'test-user-a',email:'a@example.invalid'}};});
+  await page.locator('#moPhoto').setInputFiles(pngFile); await page.locator('#moPhotoConsent').check(); await page.locator('#moMake').click(); await page.waitForFunction(()=>document.querySelectorAll('#moCands button').length===1);
+  await page.locator('#moCands button').click(); const saved=await page.locator('#moAvatar img').getAttribute('src');
+  assert.match(saved,/^data:image\/jpeg;base64,/,'selected candidate is saved as a safe JPEG raster'); assert(saved.length<=131095,'saved candidate obeys the Card byte limit');
+  await page.evaluate(()=>{window.__maikeoverTestSession.current={access_token:'test-token-b',user:{id:'test-user-b',email:'b@example.invalid'}};});
+  await page.locator('[data-mo-tool="finish"]').click();
+  await page.locator('#moSave').click(); await page.waitForFunction(()=>document.querySelector('#moSaveMsg').textContent.includes('different sign-in'));
+  assert.equal(await page.evaluate(()=>localStorage.getItem('laidies_resident_card_v1')),null,'stale selected photo cannot be written locally after an account change');
+  assert.equal(await page.evaluate(()=>window.__maikeoverTestAccount.saves),0,'stale selected photo cannot reach account save after an account change');
+  await page.evaluate(()=>{window.__maikeoverTestSession.current={access_token:'test-token-a',user:{id:'test-user-a',email:'a@example.invalid'}};});
+  await page.locator('[data-mo-tool="portrait"]').click();
+  await page.locator('[value="object"][name="moPortraitMode"]').check(); assert.equal(await page.locator('#moPortraitOptions').isVisible(),false,'object mode hides photo/hair controls'); assert(await page.locator('#moObjectPanel').isVisible(),'object picker is visible');
+  const beforeObjectCalls=payloads.length; await page.locator('#moReadyImages button').filter({hasText:'Mixtape cassette'}).click();
+  await page.waitForFunction(()=>document.querySelector('#moStatus').textContent.includes('Portrait selected'));
+  assert.equal(payloads.length,beforeObjectCalls,'ready-made picker never calls the provider'); const objectSaved=await page.locator('#moAvatar img').getAttribute('src');
+  assert.match(objectSaved,/^data:image\/jpeg;base64,/,'ready-made image becomes a safe raster'); assert(objectSaved.length<=131095,'ready-made saved raster obeys the Card byte limit');
+  for(const width of [390,800,1280]){ await page.setViewportSize({width,height:844}); await page.locator('.mo-portrait-modes').scrollIntoViewIfNeeded(); await page.waitForTimeout(100); assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`no horizontal overflow at ${width}px`); }
+  await page.setViewportSize({width:390,height:844}); await page.locator('#moReadyImages').scrollIntoViewIfNeeded(); await page.waitForTimeout(100); await page.screenshot({path:path.join(shots,'object-picker-390-viewport.png')});
+  await signedIn.close();
+  const signedOutPayloads=[]; const signedOut=await makeContext(false,async route=>{ signedOutPayloads.push(route.request().postData()); return route.fulfill({status:500,contentType:'application/json',body:'{}'}); });
+  const signedOutPage=await signedOut.newPage(); await signedOutPage.goto(origin+'/maikeover.html'); await signedOutPage.locator('[data-mo-tool="portrait"]').click(); await signedOutPage.locator('[value="object"][name="moPortraitMode"]').check(); await signedOutPage.locator('#moReadyImages button').filter({hasText:'Mixtape cassette'}).click();
+  await signedOutPage.waitForFunction(()=>document.querySelector('#moStatus').textContent.includes('Portrait selected'));
+  assert.equal(signedOutPayloads.length,0,'signed-out ready-made selection makes no provider request'); assert.match(await signedOutPage.locator('#moAvatar img').getAttribute('src'),/^data:image\/jpeg;base64,/,'signed-out ready-made selection updates the local preview'); await signedOut.close();
+  console.log(`OBJECT PHOTO PICKER PASS: description absent; hair/permission/provider failures retain the file; malformed provider output was not accepted; photo candidates are rejected on delayed account changes and before save; ready-made picker is local signed-in and signed-out; saved rasters <=131095; no overflow at 390/800/1280. Picker viewport: ${path.join(shots,'object-picker-390-viewport.png')}`);
 }finally{await browser.close();await new Promise(r=>server.close(r));}

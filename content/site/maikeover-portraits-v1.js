@@ -2,6 +2,14 @@
   "use strict";
   var API = "https://laidies-avatar.wednesday-laidies.workers.dev";
   var busy = false;
+  var selectedPhoto = null;
+  var READY_IMAGES = [
+    ["Mixtape cassette", "/assets/puffies/usable-25-images/64-black-pink-cassette.png"],
+    ["Flip phone", "/assets/puffies/usable-25/02-flip-phone-charm.png"],
+    ["Floppy disk", "/assets/puffies/usable-25-images/60-teal-floppy-disk.png"],
+    ["Lava lamp", "/assets/puffies/usable-25-images/63-blue-purple-lava-lamp.png"],
+    ["Roller skate", "/assets/puffies/usable-25-images/66-yellow-floral-roller-skate.png"]
+  ];
   var byId = function (id) { return document.getElementById(id); };
   function status(text) { byId("moStatus").textContent = text; }
 
@@ -28,9 +36,10 @@
     var mode = document.querySelector('input[name="moPortraitMode"]:checked').value;
     var photo = mode === "photo";
     byId("moPhotoPanel").hidden = !photo;
-    byId("moDescriptionPanel").hidden = mode !== "scratch";
     byId("moObjectPanel").hidden = mode !== "object";
     byId("moPortraitOptions").hidden = mode === "object";
+    byId("moMake").hidden = !photo;
+    byId("moCands").hidden = !photo;
     byId("moPhotoConsentError").hidden = true;
     byId("moPhotoConsent").removeAttribute("aria-invalid");
     if (!photo) { byId("moPhoto").value = ""; byId("moPhotoConsent").checked = false; }
@@ -77,7 +86,7 @@
       throw new Error("Use a JPG, PNG or WebP photo smaller than 8 MB.");
     }
     var url = URL.createObjectURL(file);
-    try { return await raster(url, 768, 1800000); }
+    try { return await raster(url, 1536, 1800000); }
     finally { URL.revokeObjectURL(url); }
   }
   async function boundedResponse(response) {
@@ -96,8 +105,9 @@
     parts.forEach(function (part) { bytes.set(part, offset); offset += part.length; });
     return JSON.parse(new TextDecoder().decode(bytes));
   }
-  function choose(data, button) {
-    byId("moCands").querySelectorAll("button").forEach(function (candidate) {
+  function choose(data, button, owner) {
+    selectedPhoto = owner ? {data: data, owner: owner} : null;
+    document.querySelectorAll("#moCands button, #moReadyImages button").forEach(function (candidate) {
       candidate.setAttribute("aria-pressed", candidate === button ? "true" : "false");
       var caption = candidate.querySelector("span");
       if (caption) caption.textContent = candidate === button ? "Selected for your Card" : candidate.getAttribute("aria-label");
@@ -105,6 +115,35 @@
     window.dispatchEvent(new CustomEvent("laidies:portrait-selected", { detail: { image: data } }));
     status("Portrait selected. Finish your choices, then save your Card to your account and open your Closet.");
   }
+  window.LAIDIESPortraitSelection = Object.freeze({
+    validate: async function (envelope) {
+      if (!selectedPhoto || envelope.fields.cardAvatarUrl !== selectedPhoto.data) return;
+      var current = await session();
+      if (!current || current.user.id !== selectedPhoto.owner) {
+        throw new Error("This portrait was made under a different sign-in. Sign back in to that account or choose another image before saving.");
+      }
+    }
+  });
+  READY_IMAGES.forEach(function (item) {
+    var button = document.createElement("button");
+    button.type = "button"; button.className = "mo-portrait-candidate";
+    button.setAttribute("aria-label", "Choose " + item[0]);
+    button.setAttribute("aria-pressed", "false");
+    var image = document.createElement("img"); image.src = item[1]; image.alt = item[0]; image.loading = "lazy";
+    var caption = document.createElement("span"); caption.textContent = item[0];
+    button.append(image, caption);
+    button.addEventListener("click", async function () {
+      if (busy) return;
+      busy = true;
+      try {
+        var data = await raster(item[1], 512, 131095);
+        if (!window.LAIDIESResidentCard.isSafeRasterPortrait(data)) throw new Error("That image could not be added. Your Card is unchanged.");
+        choose(data, button);
+      } catch (error) { status(error.message); }
+      finally { busy = false; }
+    });
+    byId("moReadyImages").appendChild(button);
+  });
   async function generate() {
     if (busy) return;
     busy = true;
@@ -115,6 +154,7 @@
       if (!current) { await showAccount(); throw new Error("Verify your email in the account step above before making portraits."); }
       var body = { requestId: crypto.randomUUID() };
       var mode = document.querySelector('input[name="moPortraitMode"]:checked').value;
+      if (mode !== "photo") return;
       if (mode !== "object") {
         var hair = document.querySelector('input[name="moHair"]:checked');
         byId("moHairError").hidden = !!hair;
@@ -125,16 +165,9 @@
         }
         body.hair = hair.value;
       }
-      var extras = mode === "object" ? "" : window.LAIDIESPortraitChoices.extras();
-      if (mode === "object") {
-        body.object = byId("moObject").value;
-      } else if (mode === "photo") {
-        body.image = await photoData(); body.traits = { extras: extras }; body.consent = true;
-      } else {
-        var description = byId("moDescribe").value.trim();
-        if (!description) throw new Error("Describe the person you would like in your portrait first.");
-        body.itemPrompt = description + ", " + extras;
-      }
+      // Validate the photo before resolving Random so a correction does not reroll it.
+      body.image = await photoData();
+      body.traits = { extras: window.LAIDIESPortraitChoices.extras() }; body.consent = true;
       var abort = new AbortController();
       timer = window.setTimeout(function () { abort.abort(); }, 180000);
       status("Making three portraits. This can take a couple of minutes. Please keep this page open; one click is enough.");
@@ -156,8 +189,9 @@
       for (var base64 of result.images) {
         if (typeof base64 !== "string" || base64.length > 8 * 1024 * 1024 || !/^[A-Za-z0-9+/]+={0,2}$/.test(base64)) continue;
         try {
-          var small = await raster("data:image/png;base64," + base64, 384, 131095);
-          if (window.LAIDIESResidentCard.isSafeRasterPortrait(small)) portraits.push(small);
+          var original = "data:image/png;base64," + base64;
+          var small = await raster(original, 512, 131095);
+          if (window.LAIDIESResidentCard.isSafeRasterPortrait(small)) portraits.push({saved: small, preview: original});
         } catch (_) { /* A malformed candidate cannot replace a valid Card. */ }
       }
       var after = await session();
@@ -168,12 +202,21 @@
         button.type = "button"; button.className = "mo-portrait-candidate";
         button.setAttribute("aria-label", "Choose portrait " + (index + 1));
         button.setAttribute("aria-pressed", "false");
-        var image = document.createElement("img"); image.src = data; image.alt = "Portrait option " + (index + 1);
+        var image = document.createElement("img"); image.src = data.preview; image.alt = "Portrait option " + (index + 1);
         button.appendChild(image);
         var caption = document.createElement("span");
         caption.textContent = "Choose portrait " + (index + 1);
         button.appendChild(caption);
-        button.addEventListener("click", function () { choose(data, button); });
+        button.addEventListener("click", async function () {
+          try {
+            var selecting = await session();
+            if (!selecting || selecting.user.id !== current.user.id) {
+              byId("moCands").replaceChildren();
+              throw new Error("Your sign-in changed. These portrait options have been cleared; your saved Card is unchanged.");
+            }
+            choose(data.saved, button, current.user.id);
+          } catch (error) { status(error.message); }
+        });
         return button;
       });
       byId("moCands").replaceChildren.apply(byId("moCands"), buttons);

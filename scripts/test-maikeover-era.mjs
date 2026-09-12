@@ -10,7 +10,7 @@ function run(code){
   vm.runInNewContext(code,context);
   const extras=()=>context.window.LAIDIESPortraitChoices.extras();
   assert.deepEqual(Array.from(nodes.moEra.children,c=>c.textContent),['Random','None','1990','1995','2000','2005','2010']);
-  for(const [value,year] of [[0,'1990'],[.21,'1995'],[.41,'year-2000'],[.61,'2005'],[.9999,'2010']]){
+  for(const [value,year] of [[0,'1990'],[.21,'1995'],[.41,'2000'],[.61,'2005'],[.9999,'2010']]){
     context.Math.random=()=>value;
     assert.ok(extras().startsWith(year),'Random must resolve to a dated era');
   }

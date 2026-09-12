@@ -18,7 +18,7 @@
 .mo-portrait-modes label,.mo-portrait-consent { display:flex!important; align-items:flex-start; gap:9px; color:var(--mo-ink)!important; font:700 14px/1.35 "Jost",sans-serif!important; letter-spacing:0!important; text-transform:none!important; }
 .mo-portrait-modes input,.mo-portrait-consent input { flex:0 0 auto; width:20px; height:20px; margin:0; accent-color:var(--mo-hot); }
 #moDescriptionPanel,#moPhotoPanel,#moObjectPanel { margin:14px 0 18px; }
-#moPortraitOptions[hidden],#moObjectPanel[hidden] { display:none!important; }
+#moPortraitOptions[hidden],#moObjectPanel[hidden],#moMake[hidden],#moCands[hidden] { display:none!important; }
 #moObject { width:100%; min-height:48px; padding:12px; color:var(--mo-ink); background:#fff1f8; border:2px solid #7137d6; border-radius:8px; font:600 16px/1.4 "Jost",sans-serif; }
 #moDescriptionPanel>label,#moPhotoPanel>label:first-child { display:block; margin-bottom:8px; color:var(--mo-ink)!important; font:800 14px/1.3 "Jost",sans-serif!important; letter-spacing:0!important; text-transform:none!important; }
 #moDescribe,#moPhoto { box-sizing:border-box; width:100%; min-height:48px; padding:12px 14px; color:var(--mo-ink); background:#fff; border:2px solid #8291a6; border-radius:8px; font:600 15px/1.45 "Jost",sans-serif; }
@@ -36,6 +36,8 @@ details.mo-portrait-note summary { cursor:pointer; font-weight:850; }
 .mo-portrait-candidates button { min-height:44px; padding:7px; overflow:hidden; color:var(--mo-ink); background:var(--mo-paper); border:3px solid var(--mo-ink); border-radius:10px; cursor:pointer; }
 .mo-portrait-candidates button[aria-pressed="true"] { border-color:var(--mo-hot); box-shadow:0 0 0 4px var(--mo-yellow); }
 .mo-portrait-candidates img { display:block; width:100%; aspect-ratio:1; object-fit:cover; border-radius:5px; }
+#moReadyImages { grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); }
+#moReadyImages img { object-fit:contain; }
 .mo-tool-tray { grid-template-columns:repeat(7,minmax(0,1fr)); }
 @media(max-width:900px) { .mo-tool-tray { grid-template-columns:repeat(3,minmax(0,1fr)); } }
 @media(max-width:600px) { .mo-portrait-candidates { grid-template-columns:1fr; } }

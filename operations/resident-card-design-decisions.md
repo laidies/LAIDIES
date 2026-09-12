@@ -1,5 +1,18 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Photographic flow implementation
+
+Ali approves the playful photographic direction represented by private image
+exec-22cd7010-00ba-4f93-ae7d-aa015e7381bb.png (pink cardigan/cami, side fringe,
+party backdrop), not the rejected corporate or illustrated portraits.
+Implement photo upload OR ready-made image selection; remove description mode.
+Keep outfit separate from era, including explicit keep-my-outfit instructions.
+Keep explicit unselected hair controls and identity/proportion protections.
+The existing Puffy objects are candidates for a ready-made picker only: their
+older limited catalogue admission does not itself admit this new use. Review
+the exact picker before release. Real API generation and Card/Closet tests
+remain release conditions; private image-tool examples are not API evidence.
+
 ## 2026-09-12 Explicit inclusive hair choice
 
 Ali requires Keep my hair versus Give my hair an era makeover, neither

@@ -1,5 +1,31 @@
 # Active work
 
+## 2026-09-12 Photographic upload and ready-image picker — RELEASE HOLD
+
+- Implemented photo upload or five local ready images; description UI removed.
+  Neither hair choice defaults. Missing consent/hair and provider failures retain
+  the photo. Delayed account changes reject candidate selection and saving.
+- Worker candidate uses gpt-image-2.5-sunburst/high photographic edits. Three
+  real private API trials performed; final e22aef83 preview returned all three
+  without unselected accessories. Independent pixel review accepts likeness,
+  clothing and backdrop; 2010 hair differentiation remains subtle.
+- Real email verification, generated-portrait account save and Closet exact
+  image comparison passed in trial AjLSOB. Original account Card restored with
+  revision guard and exact fields equality. Final KLtmAN trial did not save.
+- Worker, era and browser regression suites pass, including fail calibration,
+  malformed output, account races, local picker and 390/800/1280 overflow.
+  No fresh physical-phone or second-browser trial; only 2010 real API tested.
+- NOT DEPLOYED: uploaded private Worker versions have ALLOW_LOCALHOST=true;
+  never promote those versions directly. Production Pages and Worker untouched.
+- HOLD: existing Puffy catalogue assets have limited destination admission,
+  not MAiKEOVER use. Exact picker reviewed usable at 390px, but destination
+  admission and full applicable release review remain outstanding. Diverse
+  consented reference testing is also not established by one founder photo.
+- Private results: /private/tmp/maikeover-photo-api-trial-KLtmAN;
+  save/restore trial: /private/tmp/maikeover-photo-api-trial-AjLSOB.
+  Next: resolve five-image destination admission, complete remaining release
+  checks, fresh-check provider head and coordinate bounded Pages/Worker release.
+
 ## 2026-09-12 Inclusive explicit hair controls
 
 - VERIFIED LOCALLY: neither Keep my hair nor Era makeover is preselected.

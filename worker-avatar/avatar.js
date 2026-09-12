@@ -3,7 +3,7 @@ const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-
 const B64 = /^[A-Za-z0-9+/]+={0,2}$/;
 const PNG = [137,80,78,71,13,10,26,10];
 const OBJECTS = Object.freeze({ cassette: "a 1990s mixtape audio cassette", "flip-phone": "a late-1990s flip phone", "cd-player": "a 1990s portable CD player", "floppy-disk": "a 3.5-inch floppy disk", "lava-lamp": "a lava lamp", "roller-skate": "a quad roller skate" });
-const STYLE = "a detailed 1990s adult graphic-novel illustration, head and shoulders, expressive controlled ink contours, rich bold colour, smooth painted colour areas and selective hand-drawn shadow hatching. Natural human facial proportions, not a caricature. No pixel art, video-game sprites, dithering, stippled skin, anime eyes, plastic skin, text or watermark. The 1990s reference governs the illustration technique only: preserve the selected era, outfit, accessories and backdrop rather than imposing a single year or a fixed pink-purple palette.";
+const STYLE = "a playful photographic era makeover for a LAiDIES Resident Card. Real camera photograph, natural skin detail, believable studio lighting and crisp eyes. Head and upper chest framed at the same scale and camera angle as the reference; retain the original head-to-shoulder ratio. This is a fun dress-up photo booth, not a corporate headshot, fashion-model replacement or caricature. No illustration, ink outlines, painted skin, pixel art, video-game sprites, dithering, beauty filter, text or watermark. Follow the selected era, outfit and backdrop independently; an era is not a uniform outfit. Keep existing reference jewellery, but add accessories ONLY when explicitly selected. In particular, do not add hair clips, barrettes, bows, necklaces, earrings or handheld props just because they fit the era.";
 
 const body = (value, status = 200, headers = {}) => new Response(JSON.stringify(value), { status, headers: { "content-type": "application/json", ...headers } });
 function allowed(origin, env) {
@@ -96,7 +96,7 @@ function promptFor(data) {
   const hair = data.hair === "era"
     ? "The user explicitly chose an era hair makeover. Adapt arrangement to the selected era while retaining the person's hair texture, colour and hair identity, including curls, coils, braids, locs, twists, protective styles, wigs or shaved hair. Do not straighten, relax, loosen curls, bleach, add blonde highlights or replace protective styles. If no era is selected, keep their hair."
     : "Keep the reference or described hair unchanged: texture, colour, length, hairline and style, including curls, coils, braids, locs, twists, protective styles, wigs or shaved hair. Ignore era hair changes. Selected removable hair accessories may be added without changing the hair.";
-  return `${data.photo ? "Illustrate the person in the reference photo as" : data.prompt + ","} ${STYLE} Styling choices: ${data.extras}. Likeness takes priority over styling. ${identity} ${hair} Respect the described age and physical features without automatic beautification.`;
+  return `${data.photo ? "Edit the person in the reference photo into" : data.prompt + ","} ${STYLE} Styling choices: ${data.extras}. Likeness takes priority over styling. ${identity} ${hair} Era hair cues apply ONLY when an era hair makeover was selected: 1990 understated bob-like silhouette or tidy arrangement, never a big 80s perm; 1995 face-framing layers or a texture-preserving face-framing arrangement; 2000 playful parting or small pinned sections; 2005 side-swept arrangement; 2010 a pronounced diagonal side fringe or texture-preserving swept-front arrangement, playful teen-movie-inspired styling rather than business styling. Do not cut, straighten or recolour hair to force these cues. Respect the described age and physical features without automatic beautification.`;
 }
 function logProviderFailure(status) { console.warn(JSON.stringify({ event: "portrait-provider-failure", status })); }
 function logProviderException(error) {
@@ -107,9 +107,9 @@ async function generate(env, data, prompt, signal) {
   try {
     let result;
     if (data.photo) {
-      const form = new FormData(); form.set("model", "gpt-image-1"); form.set("image", new File([data.photo.data], "portrait", { type: data.photo.mime })); form.set("prompt", prompt); form.set("size", "1024x1024"); form.set("quality", "medium"); form.set("input_fidelity", "high");
+      const form = new FormData(); form.set("model", "gpt-image-2.5-sunburst"); form.set("image", new File([data.photo.data], "portrait", { type: data.photo.mime })); form.set("prompt", prompt); form.set("size", "1024x1024"); form.set("quality", "high");
       result = await fetch("https://api.openai.com/v1/images/edits", { method: "POST", headers: { authorization: `Bearer ${env.OPENAI_API_KEY}` }, body: form, signal });
-    } else result = await fetch("https://api.openai.com/v1/images/generations", { method: "POST", headers: { authorization: `Bearer ${env.OPENAI_API_KEY}`, "content-type": "application/json" }, body: JSON.stringify({ model: "gpt-image-1", prompt, size: "1024x1024", quality: "medium", n: 1 }), signal });
+    } else result = await fetch("https://api.openai.com/v1/images/generations", { method: "POST", headers: { authorization: `Bearer ${env.OPENAI_API_KEY}`, "content-type": "application/json" }, body: JSON.stringify({ model: "gpt-image-2.5-sunburst", prompt, size: "1024x1024", quality: "high", n: 1 }), signal });
     if (!result.ok) { logProviderFailure(result.status); return null; }
     const encoded = JSON.parse(await boundedText(result, MAX_OUTPUT + 4096))?.data?.[0]?.b64_json;
     return pngBase64(encoded) ? encoded : null;

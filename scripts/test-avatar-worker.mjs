@@ -40,10 +40,10 @@ let authUser = {id:USER};
 let providerPlan = null;
 const prompts = [];
 function checkStyle(prompt) {
-  assert.match(prompt, /1990s adult graphic-novel illustration/);
-  assert.match(prompt, /No pixel art/);
+  assert.match(prompt, /playful photographic era makeover/);
+  assert.match(prompt, /No illustration/);
   assert.doesNotMatch(prompt, /crisp fine pixels|highly detailed pixel-art/);
-  assert.match(prompt, /illustration technique only/);
+  assert.match(prompt, /original head-to-shoulder ratio/);
 }
 assert.throws(() => checkStyle('a highly detailed pixel-art character portrait, crisp fine pixels'), 'old pixel rule must fail');
 const originalFetch = globalThis.fetch;
@@ -51,6 +51,10 @@ globalThis.fetch = async (url, options) => {
   const href = String(url);
   if (href.includes("/auth/v1/user")) return Response.json(authUser);
   if (href.includes("api.openai.com")) {
+    const params = options.body instanceof FormData ? Object.fromEntries(options.body) : JSON.parse(options.body);
+    assert.equal(params.model, 'gpt-image-2.5-sunburst');
+    assert.equal(params.quality, 'high');
+    assert.equal(params.input_fidelity, undefined);
     const prompt = options.body instanceof FormData ? options.body.get('prompt') : JSON.parse(options.body).prompt;
     prompts.push(prompt);
     providerCalls += 1;
