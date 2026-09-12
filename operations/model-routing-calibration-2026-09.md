@@ -1,5 +1,7 @@
 # LAiDIES model-routing calibration — September 2026
 
+| PORTRAIT-RULES-20260912 | 2026-09-12 | Tier1 bounded Worker prompt trial | Foreground model/effort not exposed; inherited independent source review | Under15m; usage unavailable | Source tests pass; pixel quality unverified | Reviewer started before patch, reread exact diff; multipart string parsing corrected | Cheaper bounded implementation likely adequate | 4b20bfcd; Worker93223623 |
+
 | MAIKEOVER-PALETTE-20260912 | 2026-09-12 | Tier1 exact homepage wallpaper and bright headings | GPT6 foreground; inherited independent review; effort unavailable | 15–30m; usage unavailable | Maker repaired dark paragraph overrides before final review | Local asset imported byte-identical from homepage owner; release preserves Quiz | Cheaper bounded implementation likely adequate | 4167b515 |
 
 | MAIKEOVER-BOXES-20260912 | 2026-09-12 | Tier1 four portrait fieldset boxes | GPT6 foreground; inherited independent review lane; effort unavailable | 15–30m; usage unavailable | First visual review no blocker | Failed local-server tab replaced after server restart | Cheaper bounded implementation likely adequate | abb69466 |

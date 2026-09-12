@@ -1,5 +1,10 @@
 # Active work
 
+## 2026-09-12 Graphic-novel portrait rule trial
+
+- DEPLOYED: Worker version93223623-598c-4226-8fcf-10ef0b0bb73b, source4b20bfcd. Replaces pixel rule with 1990s adult graphic-novel illustration and explicit photo likeness/age preservation. Three results, model, quotas, account flow and384px browser conversion unchanged. No Pages deployment.
+- Verified deployed source includes new rules and omits old positive pixel instruction; live enabled health and unauthenticated401. Calibrated prompt tests and existing Worker safety tests pass; independent source review no blocker. No paid generation, photo transmission or saved Card replacement. Actual likeness/style improvement remains unverified pending generated pixels. Multipart verification initially assumed a File part; provider returned string, parser corrected and rerun successfully.
+
 ## 2026-09-12 Random versus None era
 
 - PUBLICLY VERIFIED: e3486af8-8635-4cd4-be35-559fac7993cd, source7d63a917. Random resolves one of five era prompts per generation request; None omits era styling. Actual live buttons/help and phone wrapping checked. Calibrated extracted-source tests cover all five random outcomes, None, explicit era and broken-random rejection; independent source review clear. No paid image generation run for this bounded prompt change. One HTML delta,794 other IDs preserved, dual origins exact. Stage/private/tmp/laidies-maikeover-boxes-uGjFbi/stage and adjacent manifest/verification. API auth check needed normal credential refresh after upload, then verification succeeded.
