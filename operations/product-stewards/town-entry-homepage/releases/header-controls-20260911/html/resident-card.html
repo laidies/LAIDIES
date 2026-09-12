@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Resident Card · MAiKEOVER on MAiN · LAiDIES</title>
+  <meta name="description" content="Sign in to keep your private LAiDIES Resident Card and supported SUNNYVAiLE progress available between browsers.">
+  <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg?v=20260902-ai-v2" sizes="any">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
+  <link rel="stylesheet" href="/content/resident-card-v2.css?v=20260726-local-contract-1">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260911-header-controls-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260830-portrait-1"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260911-header-controls-1"></script>
+  <link rel="stylesheet" href="/content/site/mini-player.css">
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init();
+  </script>
+  <style>
+    [hidden] {
+      display: none !important;
+    }
+    .rc-local-status {
+      align-items: start !important;
+    }
+    .rc-local-status::before {
+      content: "RESIDENT CARD · LOCAL COPY";
+    }
+    .rc-local-copy {
+      min-width: 0;
+    }
+    .rc-local-kicker {
+      margin: 0 0 .65rem;
+      color: var(--rc2-pink);
+      font-size: .72rem;
+      font-weight: 850;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .rc-local-title {
+      margin: 0;
+      color: var(--rc2-night);
+      font-family: "Anton", "Arial Narrow", sans-serif;
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      font-weight: 400;
+      line-height: .95;
+      text-transform: uppercase;
+    }
+    .rc-local-detail,
+    .rc-local-boundary {
+      max-width: 48rem;
+      color: #3b415b;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+    .rc-local-boundary {
+      margin-top: 1.2rem;
+      padding-left: 1rem;
+      border-left: 5px solid var(--rc2-cyan);
+    }
+    .rc-local-actions {
+      display: grid;
+      gap: .8rem;
+      align-self: center;
+    }
+    .rc-local-action {
+      box-sizing: border-box;
+      display: inline-flex;
+      min-height: 3.4rem;
+      align-items: center;
+      justify-content: center;
+      padding: .85rem 1.1rem;
+      border: 2px solid var(--rc2-night);
+      color: var(--rc2-cream);
+      background: var(--rc2-night);
+      box-shadow: 6px 6px 0 var(--rc2-cyan);
+      font-weight: 800;
+      text-align: center;
+      text-decoration: none;
+    }
+    .rc-local-action.secondary {
+      color: var(--rc2-night);
+      background: transparent;
+      box-shadow: none;
+    }
+    .rc-local-action:focus-visible {
+      outline: 4px solid var(--rc2-pink);
+      outline-offset: 4px;
+    }
+    .rc-account {
+      width: min(1180px, calc(100% - 2rem));
+      margin: 2rem auto 0;
+      padding: clamp(1.25rem, 4vw, 2.25rem);
+      border: 3px solid var(--rc2-night);
+      background: linear-gradient(150deg, #f6dfe4 0%, #e4d9f1 58%, #c9e5df 118%);
+      box-shadow: 9px 9px 0 var(--rc2-pink);
+    }
+    .rc-account h2 {
+      margin: 0 0 .5rem;
+      color: var(--rc2-night);
+      font-size: clamp(1.7rem, 4vw, 2.7rem);
+    }
+    .rc-account p { max-width: 52rem; line-height: 1.6; }
+    .rc-account-form {
+      display: flex;
+      max-width: 46rem;
+      gap: .7rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .rc-account-form input {
+      box-sizing: border-box;
+      flex: 1 1 17rem;
+      min-height: 3.25rem;
+      padding: .7rem .85rem;
+      border: 2px solid var(--rc2-night);
+      background: white;
+      color: var(--rc2-night);
+      font: inherit;
+    }
+    .rc-account button,
+    .rc-account .rc-account-link {
+      display: inline-flex;
+      min-height: 3.25rem;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: .75rem 1rem;
+      border: 2px solid var(--rc2-night);
+      color: white;
+      background: var(--rc2-night);
+      font: 800 .9rem/1 "Jost", sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .rc-account button.secondary { color: var(--rc2-night); background: transparent; }
+    .rc-account button:disabled { cursor: wait; opacity: .6; }
+    .rc-account-actions { display: flex; gap: .7rem; flex-wrap: wrap; margin-top: 1rem; }
+    #rcAccountStatus { padding-left: 1rem; border-left: 5px solid var(--rc2-cyan); }
+    #rcAccountStatus[data-tone="success"] { border-color: #13725f; }
+    #rcAccountStatus[data-tone="error"] { border-color: #b5204d; }
+    .rc-local-facts {
+      width: min(1180px, calc(100% - 2rem));
+      margin: 2rem auto 0;
+      padding: 1.5rem 0 0;
+      border-top: 2px solid var(--rc2-line);
+    }
+    .rc-local-facts h2 {
+      margin: 0 0 1rem;
+      color: var(--rc2-night);
+      font-size: 1.35rem;
+    }
+    .rc-local-facts ul {
+      margin: 0;
+      padding-left: 1.25rem;
+      color: #3b415b;
+      line-height: 1.7;
+    }
+    @media (max-width: 720px) {
+      .rc-form-card.rc-local-status {
+        grid-template-columns: 1fr !important;
+        padding: 3.5rem 1.25rem 2rem !important;
+      }
+      .rc-local-actions {
+        width: 100%;
+      }
+    }
+  </style>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+  <link rel="canonical" href="https://laidies.ai/resident-card" />
+  <meta property="og:url" content="https://laidies.ai/resident-card" />
+</head>
+<body>
+  <header class="sv-header"></header>
+
+  <main class="rc-page">
+    <section class="rc-arrival">
+      <div class="rc-arrival-copy">
+            <p class="rc-arrival__held">Vanity visual held · Resident Card controls remain available.</p>
+        <div class="sv-eyebrow">
+          <span class="sv-eyebrow-label">MAiN Street · No. 6 · SUNNYVAiLE</span>
+        </div>
+        <h1>Your Resident Card.</h1>
+        <p class="sv-lede">
+          Make a card at MAiKEOVER on MAiN. This browser keeps a local copy;
+          signing in lets supported browsers restore that Card and pick up
+          supported SUNNYVAiLE progress.
+        </p>
+        <p>
+          Your account copy stays private. Signing in does not publish the Card,
+          subscribe you to email or turn collectibles into a public balance.
+        </p>
+        <p class="rc-tour-crumb">Wednesday tour · Stop No. 6 · After class, before the Bronze.</p>
+      </div>
+    </section>
+
+    <section class="rc-form-card rc-local-status" aria-labelledby="rcLocalTitle">
+      <div class="rc-local-copy">
+        <p class="rc-local-kicker" id="rcLocalKicker">Checking this device…</p>
+        <h2 class="rc-local-title" id="rcLocalTitle">Looking for your card</h2>
+        <p class="rc-local-detail" id="rcLocalDetail" aria-live="polite" aria-atomic="true">
+          Checking this browser for a valid Resident Card.
+        </p>
+        <p class="rc-local-boundary" id="rcLocalBoundary">
+          Clearing site data or using private browsing can remove this local
+          copy. Sign in below to keep supported state with your account.
+        </p>
+      </div>
+      <div class="rc-local-actions">
+        <a class="rc-local-action" id="rcPrimaryAction" href="/maikeover.html">Make a local card</a>
+        <a class="rc-local-action secondary" id="rcClosetAction" href="/laidies-card.html" hidden>Open this device’s Closet</a>
+      </div>
+    </section>
+
+    <section class="rc-local-facts" aria-labelledby="rcFactsTitle">
+      <h2 id="rcFactsTitle">What belongs to what</h2>
+      <ul>
+        <li>The Resident Card keeps its selected card details locally and, when you explicitly claim it, in your private account.</li>
+        <li>Signed-in continuation currently synchronizes episode position, tour completion and the supported charms, trading-card and Puffy collections.</li>
+        <li>Private prompts, messages, drafts, Girl Talk choices and other free-form activity content stay out of continuation sync.</li>
+        <li>A local handle is a draft label only. It is not reserved and cannot sign posts, unlock rooms, publish a Card or authorize account data.</li>
+        <li>A verified account may keep and restore the private Card and supported continuation state. Public member Cards and public reward ownership remain separate features.</li>
+      </ul>
+    </section>
+
+    <section class="rc-account" aria-labelledby="rcAccountTitle">
+      <p class="rc-local-kicker">Private account continuation</p>
+      <h2 id="rcAccountTitle">Pick up where you left off.</h2>
+      <p id="rcAccountStatus" role="status" aria-live="polite" aria-atomic="true">Checking the private account service…</p>
+      <div id="rcAccountSignedOut" hidden>
+        <form class="rc-account-form" id="rcAccountForm">
+          <label class="sr-only" for="rcAccountEmail">Email address</label>
+          <input id="rcAccountEmail" type="email" autocomplete="email" required placeholder="you@example.com">
+          <button id="rcAccountEmailButton" type="submit">Email my sign-in link</button>
+        </form>
+        <p>No password. Requesting a link does not publish your Card or subscribe you to email. Only the supported continuation state listed above syncs.</p>
+      </div>
+      <div id="rcAccountSignedIn" hidden>
+        <p id="rcAccountIdentity"></p>
+        <div class="rc-account-actions" id="rcAccountClaim" hidden>
+          <button id="rcAccountClaimButton" type="button">Keep this local Card with my account</button>
+        </div>
+        <div class="rc-account-actions" id="rcAccountRestore" hidden>
+          <button id="rcAccountRestoreButton" type="button">Restore this Card to this browser</button>
+        </div>
+        <div class="rc-account-actions" id="rcAccountUpdate" hidden>
+          <p>This browser has a different saved Card. Updating replaces the private account copy with this browser's Card, including its portrait.</p>
+          <button id="rcAccountUpdateButton" type="button">Update my account with this browser's Card</button>
+        </div>
+        <p id="rcAccountNoCard" hidden><a href="/maikeover.html">Make a Card at MAiKEOVER →</a></p>
+        <div class="rc-account-actions">
+          <a class="rc-account-link" id="rcAccountContinue" href="/" hidden>Pick up where I left off</a>
+          <a class="rc-account-link" id="rcAccountCloset" href="/laidies-card.html" hidden>Open my Closet</a>
+          <a class="rc-account-link" href="/resident-referrals.html">Invite a friend</a>
+          <button class="secondary" id="rcAccountSignOut" type="button">Sign out</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="sv-ctas">
+      <a class="sv-cta" href="/maikeover.html">
+        <span>
+          <span class="sv-cta-label">Visit the parlor</span>
+          <span class="sv-cta-title">MAiKEOVER on MAiN →</span>
+        </span>
+      </a>
+      <a class="sv-cta" href="/">
+        <span>
+          <span class="sv-cta-label">Leave town</span>
+          <span class="sv-cta-title">← SUNNYVAiLE Homepage</span>
+        </span>
+      </a>
+    </div>
+  </main>
+
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · MAiKEOVER on MAiN · No. 6</footer>
+  <script src="/content/site/resident-card-contract-v1.js?v=20260906-pop-card-1"></script>
+  <script src="/content/site/resident-card-v2.js?v=20260726-repair-1"></script>
+  <script src="/content/site/supabase-config.js?v=20260702-1"></script>
+  <script src="/content/site/identity-client-v1.js?v=20260727-account-1"></script>
+  <script src="/content/site/resident-account-runtime-v1.js?v=20260829-provider-health-1"></script>
+  <script src="/content/site/resident-continuation-v1.js?v=20260830-ksvl-service-1"></script>
+  <script src="/content/site/resident-account-page-v1.js?v=20260830-portrait-1"></script>
+  <script defer src="/content/site/ksvl-player.js?v=20260911-header-controls-1"></script>
+</body>
+</html>

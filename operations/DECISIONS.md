@@ -1,5 +1,9 @@
 # LAiDIES decision router
 
+## 2026-09-11 — Sitewide controls belong in the header
+
+Ali: “any controls should be in the header. not floating on a page. this should apply site wide.” The purple circular Back arrow is the shared `sv-back-nav.js` rail, not a radio image. Persistent navigation and site utilities must mount inside the page header on desktop and phone; do not place them over artwork, beside the page, or at its bottom. Preserve return destinations and existing utility functions. Inventory shared rail/check-in/radio utilities before release, remove the rail's body-padding/hover layout shift, and verify header containment, accessible labels, keyboard use, touch targets and responsive fit. Controls intrinsic to an activity (for example card choices or carousel playback) stay with the content they operate. This new direct instruction supersedes the earlier shared bottom-radio placement: move playback controls into the header while preserving listening/continuation. It also covers map, welcome-tour and legacy community return utilities. Triggered dialogs and activity controls remain attached to their respective interaction. This is a layout correction, not authority to redesign imagery, copy, or product behaviour.
+
 ## 2026-09-11 — Discovery colour pairing correction
 
 Ali rejects dark purple and orange beside each other at Did you know and the needs section. The scoped blue/mint and pink-led replacement is recorded in `operations/homepage-decisions-20260827.md`; it does not recolour unrelated sections or alter wording/art.

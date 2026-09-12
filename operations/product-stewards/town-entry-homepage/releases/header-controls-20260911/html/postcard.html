@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Postcard from SUNNYVAiLE · The Post Office</title>
+  <meta name="description" content="Share a personal postcard and invitation link from the SUNNYVAiLE Post Office.">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/sunnyvaile-page.css?v=20260715-hero">
+  <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260911-header-controls-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
+  <style>
+    .pc-wrap { max-width: 760px; margin: 0 auto; }
+    .pc-eyebrow { font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); }
+    .pc-note-hd { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* postcard picker */
+    .pc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin: 18px 0 8px; }
+    .pc-thumb { position: relative; border: 2px solid rgba(75,33,72,0.14); border-radius: 12px; overflow: hidden; cursor: pointer; background: var(--cream); padding: 0; aspect-ratio: 3 / 2; transition: transform 150ms ease, border-color 150ms ease, box-shadow 150ms ease; }
+    .pc-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pc-thumb:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(75,33,72,0.14); }
+    .pc-thumb.is-picked { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,162,39,0.35); }
+    .pc-thumb .pc-caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 5px 8px; font-family: 'Jost', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: linear-gradient(0deg, rgba(52,20,70,0.82), transparent); }
+
+    /* composer note */
+    .pc-note { width: 100%; min-height: 92px; margin: 8px 0 4px; padding: 14px 16px; border: 1.5px solid rgba(75,33,72,0.2); border-radius: 12px; background: var(--cream); font-family: 'Jost', sans-serif; font-size: 15px; color: var(--plum-deep); resize: vertical; }
+    .pc-handlerow { display: flex; align-items: center; gap: 8px; margin: 6px 0 2px; font-size: 13px; color: var(--plum-soft); }
+    .pc-handlerow input { flex: 0 1 220px; padding: 8px 12px; border: 1.5px solid rgba(75,33,72,0.2); border-radius: 999px; font: inherit; background: var(--cream); color: var(--plum-deep); }
+    .pc-back-signature { margin: 8px 0 0; font-family: 'Dancing Script', cursive; font-size: clamp(17px, 2.2vw, 22px); color: var(--rose); overflow-wrap: anywhere; }
+
+    /* share buttons */
+    .pc-send-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 6px; }
+    .pc-btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px; border: 1.5px solid var(--plum-deep); background: var(--plum-deep); color: var(--cream); font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; text-decoration: none; }
+    .pc-btn.ghost { background: transparent; color: var(--plum-deep); }
+    .pc-btn.gold { background: var(--gold); color: var(--plum-deep); border-color: var(--gold); }
+    .pc-btn[disabled] { opacity: 0.4; cursor: not-allowed; }
+    .pc-btn[hidden] { display: none; }
+    .pc-status { min-height: 1.2em; margin: 4px 0 0; font-size: 13px; color: var(--rose); font-weight: 600; }
+    .pc-copy-fallback { margin-top: 12px; }
+    .pc-copy-fallback label { display: block; margin-bottom: 6px; font: 700 12px/1.2 'Jost', sans-serif; letter-spacing: 0.05em; text-transform: uppercase; color: var(--plum-deep); }
+    .pc-copy-fallback input { width: min(100%, 560px); padding: 9px 11px; border: 1.5px solid rgba(75,33,72,0.3); border-radius: 8px; color: var(--plum-deep); background: var(--cream); font: 500 14px/1.2 'Jost', sans-serif; }
+
+    /* reward strip */
+    .pc-reward { display: flex; gap: 14px; align-items: center; margin: 22px 0; padding: 18px 20px; border: 1.5px solid rgba(201,162,39,0.5); border-radius: 14px; background: linear-gradient(135deg, var(--blush) 0%, #f6e2c4 100%); }
+    .pc-reward .heart { flex: 0 0 auto; font-family: 'Playfair Display', serif; font-size: 30px; color: var(--rose); }
+    .pc-reward p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--plum-deep); }
+    .pc-reward strong { color: var(--rose); }
+
+    /* ---- two-sided postcard (front scene / back message) ---- */
+    .pc-card { perspective: 1400px; margin: 10px 0 6px; }
+    .pc-card-inner { position: relative; width: 100%; aspect-ratio: 3 / 2; transition: transform 0.7s cubic-bezier(0.2,0.7,0.2,1); transform-style: preserve-3d; }
+    .pc-card.is-flipped .pc-card-inner { transform: rotateY(180deg); }
+    .pc-face { position: absolute; inset: 0; -webkit-backface-visibility: hidden; backface-visibility: hidden; border-radius: 14px; overflow: hidden; border: 2px solid var(--gold); box-shadow: 0 14px 34px rgba(75,33,72,0.18); background: var(--cream); }
+    .pc-face--front { cursor: pointer; }
+    .pc-face--front img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pc-face--front img[hidden] { display: none; }
+    .pc-face--back { transform: rotateY(180deg); cursor: pointer; display: grid; grid-template-columns: 1.12fr 1fr; background: #fbf4ea; }
+    .pc-back-msg { padding: clamp(12px,2.2vw,22px); display: flex; flex-direction: column; gap: 7px; border-right: 2px dashed rgba(75,33,72,0.28); min-width: 0; }
+    .pc-back-post { margin: 0; font-family: 'Jost',sans-serif; font-size: clamp(8px,1.1vw,10px); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rose); }
+    .pc-back-post .ai { color: var(--rose); }
+    .pc-back-note { margin: 2px 0; font-family: 'Dancing Script', cursive; font-size: clamp(15px,2.5vw,24px); line-height: 1.22; color: var(--plum-deep); flex: 1; overflow: hidden; }
+    .pc-back-blurb { margin: 0; font-family: 'Jost',sans-serif; font-size: clamp(8.5px,1.2vw,12px); line-height: 1.4; color: var(--plum-soft); }
+    .pc-back-addr { position: relative; padding: clamp(12px,2.2vw,22px); display: flex; flex-direction: column; min-width: 0; }
+    .pc-stamp { position: absolute; top: clamp(10px,1.8vw,18px); right: clamp(10px,1.8vw,18px); width: clamp(40px,6.6vw,58px); aspect-ratio: 4 / 5; border-radius: 4px; background: linear-gradient(135deg,var(--blush),#f6e2c4); border: 2px solid #fff; box-shadow: 0 0 0 2px rgba(201,162,39,0.6), 0 2px 6px rgba(75,33,72,0.2); display: grid; place-items: center; font-family: 'Playfair Display',serif; font-size: clamp(17px,2.8vw,26px); color: var(--rose); }
+    .pc-postmark { position: absolute; top: clamp(26px,4.2vw,38px); right: clamp(40px,7.4vw,60px); width: clamp(44px,7.2vw,64px); height: clamp(44px,7.2vw,64px); border-radius: 50%; border: 1.5px solid rgba(155,63,95,0.5); color: rgba(155,63,95,0.72); font-family: 'Jost',sans-serif; font-size: clamp(6px,0.9vw,8px); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; display: grid; place-items: center; text-align: center; line-height: 1.15; transform: rotate(-8deg); pointer-events: none; }
+    .pc-addr-to { margin: clamp(50px,8.4vw,70px) 0 0; font-family: 'Jost',sans-serif; font-size: clamp(10px,1.35vw,13px); font-weight: 700; color: var(--plum-deep); }
+    .pc-addr-to span { font-weight: 400; color: var(--plum-soft); }
+    .pc-addr-why { margin: 5px 0 0; font-family: 'Jost',sans-serif; font-size: clamp(8.5px,1.2vw,12px); line-height: 1.38; color: var(--plum-soft); }
+    .pc-addr-do { margin: auto 0 0; padding-top: 8px; font-family: 'Jost',sans-serif; font-size: clamp(8.5px,1.25vw,12px); font-weight: 700; line-height: 1.35; color: var(--rose); }
+    .pc-flip-row { display: flex; justify-content: center; margin: 4px 0 10px; }
+    .pc-flip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 16px; border-radius: 999px; border: 1.5px solid rgba(75,33,72,0.3); background: var(--cream); color: var(--plum-deep); font-family: 'Jost',sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
+    .pc-flip:hover { border-color: var(--gold); }
+    .pc-postmark > span { display: block; text-align: center; }
+    .pc-postmark .ai { color: inherit !important; }
+    .pc-btn > span { min-width: 0; }
+    @media (prefers-reduced-motion: reduce) { .pc-card-inner { transition: none; } }
+    .pc-hidden { display: none !important; }
+  </style>
+  <link rel="stylesheet" href="/content/postcard-v2.css?v=20260724-1">
+  <script>
+    // Older postcard links included the writer's handle and message in the URL.
+    // Retire those values before analytics libraries initialise: a link may carry
+    // only the public card choice. The original request can still exist in a
+    // browser/CDN history, so do not generate or promise support for such URLs.
+    (function () {
+      var params = new URLSearchParams(location.search);
+      if (!params.has('from') && !params.has('note')) return;
+      var pc = params.get('pc');
+      var safeQuery = pc ? '?pc=' + encodeURIComponent(pc) : '';
+      history.replaceState(null, '', location.pathname + safeQuery + location.hash);
+    })();
+  </script>
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+<body class="svb-page pc-page">
+
+  <header class="sv-header"></header>
+
+  <main class="svb-main pc-main">
+    <div class="pc-wrap">
+
+      <!-- ============ COMPOSE MODE (default) ============ -->
+      <section id="pc-compose">
+        <div class="pc-arrival" aria-labelledby="pcComposeTitle">
+          <span class="pc-arrival__held" aria-hidden="true">Post Office counter visual held</span>
+        </div>
+
+        <header class="pc-title">
+          <p class="pc-eyebrow">The Post Office · Civic Square</p>
+          <h1 id="pcComposeTitle">Mail her something better than a link.</h1>
+          <p class="sv-lede">Pick a postcard from town, write the note only you would send, and Penny will prepare a link you can share through your own phone, text or email.</p>
+        </header>
+
+        <section class="pc-rack-field" aria-labelledby="pcRackTitle">
+          <div class="pc-rack-head">
+            <p class="pc-step">Stop 01 · The postcard rack</p>
+            <h2 class="pc-note-hd" id="pcRackTitle">Find the one that feels like her.</h2>
+            <p>Slide along the rack. The selected card follows you to the writing desk.</p>
+          </div>
+          <div class="pc-grid" id="pcGrid" aria-label="Choose a postcard"></div>
+          <p class="pc-status" id="pcSelectionBoundary" aria-live="polite">Checking postcard availability. No postcard has been selected.</p>
+          <noscript>
+            <p class="pc-status">The postcard artwork is being checked before it enters the public rack. No postcard has been selected or sent.</p>
+          </noscript>
+        </section>
+
+        <section class="pc-desk" aria-labelledby="pcDeskTitle">
+          <div class="pc-desk-copy">
+            <p class="pc-step">Stop 02 · Penny’s writing desk</p>
+            <h2 class="pc-note-hd" id="pcDeskTitle">Say the thing that makes her open it.</h2>
+            <p>The note appears on the back as you write. Keep it short enough to sound like you, not a campaign.</p>
+
+            <div class="pc-writing-sheet">
+              <label for="pcNote">Your note</label>
+              <textarea class="pc-note" id="pcNote" maxlength="240" placeholder="Come find me in SUNNYVAiLE — it's exactly your kind of place. xo"></textarea>
+              <div class="pc-handlerow">
+                <label for="pcHandle">Signed</label>
+                <span class="pc-at" aria-hidden="true">@</span>
+                <input id="pcHandle" type="text" placeholder="your-handle" aria-label="Your handle" maxlength="24">
+                <span class="pc-handle-help">so she knows who to thank</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pc-preview-station">
+            <div class="pc-preview-heading">
+              <p class="pc-step">Proof before mailing</p>
+              <p>Tap the card to check the back.</p>
+            </div>
+            <div class="pc-card" id="pcPrev">
+              <div class="pc-card-inner">
+                <div class="pc-face pc-face--front">
+                  <img id="pcPrevImg" alt="" hidden>
+                </div>
+                <div class="pc-face pc-face--back">
+                  <div class="pc-back-msg">
+                    <p class="pc-back-post">Postcard from SUNNYV<span class="ai">Ai</span>LE</p>
+                    <p class="pc-back-note" id="pcPrevNote">Come find me in SUNNYVAiLE.</p>
+                    <p class="pc-back-signature" id="pcPrevSignature" hidden></p>
+                    <p class="pc-back-blurb">A little internet town where smart, busy women learn AI — one Wednesday at a time.</p>
+                  </div>
+                  <div class="pc-back-addr">
+                    <div class="pc-stamp" aria-hidden="true">SV</div>
+                    <div class="pc-postmark" aria-hidden="true"><span>SUNNYV<span class="ai">Ai</span>LE · &rsquo;99</span></div>
+                    <p class="pc-addr-to">To: <span>your friend</span></p>
+                    <p class="pc-addr-why">She&rsquo;s getting this because you thought she&rsquo;d love it here.</p>
+                    <p class="pc-addr-do">The link brings her to this postcard and the SUNNYVAiLE front door.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pc-flip-row"><button class="pc-flip" id="pcPrevFlip" type="button">Check the other side</button></div>
+          </div>
+        </section>
+
+        <section class="pc-dispatch" aria-labelledby="pcDispatchTitle">
+          <div class="pc-dispatch-copy">
+            <p class="pc-step">Stop 03 · Outgoing mail</p>
+            <h2 class="pc-note-hd" id="pcDispatchTitle">Penny’s ready when you are.</h2>
+            <p>Share through your phone, open a ready-to-go text or email, or copy the invitation link.</p>
+          </div>
+          <div class="pc-send-row">
+            <button class="pc-btn gold" id="pcShare" type="button">Share the postcard →</button>
+            <a class="pc-btn ghost" id="pcText" href="sms:">Text it</a>
+            <a class="pc-btn ghost" id="pcEmail" href="mailto:">Email it</a>
+            <button class="pc-btn ghost" id="pcCopy" type="button">Copy link</button>
+          </div>
+          <p class="pc-status" id="pcStatus" role="status"></p>
+          <div class="pc-copy-fallback" id="pcCopyFallback" hidden>
+            <label for="pcCopyValue">Copy this public postcard link</label>
+            <input id="pcCopyValue" type="text" readonly>
+          </div>
+
+          <div class="pc-reward">
+            <p class="pc-reward-label">What this link can prove</p>
+            <p><strong>It opens your chosen postcard.</strong> Your note stays in the text, email or share message — not in the link. This page does not confirm that a message was sent, opened or joined, and it does not issue a reward.</p>
+          </div>
+        </section>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · Mailed from the Post Office at Civic Square</footer>
+
+  <script>
+  (function () {
+    'use strict';
+    // The verified catalogue is the only source for picker entries on both Post Office surfaces.
+    var CATALOG_URL = '/content/site/postcard-catalog.json';
+    var POSTCARDS = [];
+    var byId = {};
+
+    function esc(s){ return String(s||'').replace(/[<>&"]/g, function(c){return {'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;'}[c];}); }
+    function bindFlip(cardId, btnId) {
+      var card = document.getElementById(cardId); if (!card) return;
+      function toggle() { card.classList.toggle('is-flipped'); }
+      Array.prototype.forEach.call(card.querySelectorAll('.pc-face'), function (f) { f.addEventListener('click', toggle); });
+      var btn = document.getElementById(btnId); if (btn) btn.addEventListener('click', function (e) { e.preventDefault(); toggle(); });
+    }
+
+    var params = new URLSearchParams(location.search);
+
+    // Public links now contain only a postcard choice. Notes and writer handles
+    // belong in the user-controlled share message, never a URL or analytics
+    // surface, so every supported link opens the composition desk.
+    var picked = null;
+    loadCatalogue();
+
+    // ---------------- COMPOSE ----------------
+
+    function renderCompose() {
+      // ?pc=<id> lets the Post Office postcard rack hand a card straight to the
+      // desk. Falls back to the first card if the id is missing or unknown.
+      // Resolve the admitted query id before listeners use the shared selection.
+      picked = byId[params.get('pc')] ? params.get('pc') : POSTCARDS[0].id;
+
+      var grid = document.getElementById('pcGrid');
+      POSTCARDS.forEach(function (p) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'pc-thumb' + (p.id === picked ? ' is-picked' : '');
+        b.dataset.id = p.id;
+        b.setAttribute('aria-pressed', p.id === picked ? 'true' : 'false');
+        b.innerHTML = '<img src="' + p.publicPath + '" alt="' + esc(p.alt) + '" loading="lazy">'
+                    + '<span class="pc-caption">' + esc(p.composerLabel) + '</span>';
+        b.addEventListener('click', function () {
+          picked = p.id;
+          Array.prototype.forEach.call(grid.children, function (c) {
+            var isPicked = c.dataset.id === picked;
+            c.classList.toggle('is-picked', isPicked);
+            c.setAttribute('aria-pressed', isPicked ? 'true' : 'false');
+          });
+          var pv = document.getElementById('pcPrevImg'); if (pv) { pv.src = p.publicPath; pv.alt = p.alt; pv.hidden = false; }
+          status(p.composerLabel + ' selected.');
+        });
+        grid.appendChild(b);
+      });
+
+      // live two-sided preview
+      var pvImg = document.getElementById('pcPrevImg');
+      if (pvImg) { pvImg.src = (byId[picked] || POSTCARDS[0]).publicPath; pvImg.alt = (byId[picked] || POSTCARDS[0]).alt; pvImg.hidden = false; }
+      function updateLocalPreview() {
+        document.getElementById('pcPrevNote').textContent = note() || 'Come find me in SUNNYVAiLE.';
+        var signature = document.getElementById('pcPrevSignature');
+        var signed = handle();
+        signature.textContent = signed ? '— @' + signed : '';
+        signature.hidden = !signed;
+      }
+      document.getElementById('pcNote').addEventListener('input', updateLocalPreview);
+      document.getElementById('pcHandle').addEventListener('input', updateLocalPreview);
+      updateLocalPreview();
+      bindFlip('pcPrev', 'pcPrevFlip');
+
+      document.getElementById('pcShare').addEventListener('click', doShare);
+      document.getElementById('pcCopy').addEventListener('click', function () { doCopy(); });
+      document.getElementById('pcText').addEventListener('click', function (e) {
+        e.preventDefault();
+        status('Opening your text app. This page cannot confirm a send.');
+        location.href = smsHref();
+      });
+      document.getElementById('pcEmail').addEventListener('click', function (e) {
+        e.preventDefault();
+        status('Opening your email app. This page cannot confirm a send.');
+        location.href = mailHref();
+      });
+    }
+
+    function validCatalogue(payload) {
+      var seenIds = {}, seenFiles = {};
+      if (!payload || payload.schemaVersion !== '1.0.0' || payload.catalogId !== 'postcard-picker-v1' ||
+        typeof payload.preDispatchBoundary !== 'string' || !payload.preDispatchBoundary ||
+        !Array.isArray(payload.cards)) return null;
+      if (payload.visualState === 'HELD' && payload.cards.length === 0) return { held: true, cards: [] };
+      if (payload.visualState !== 'ACTIVE' || payload.cards.length !== 11) return null;
+      if (!payload.cards.every(function (p) {
+        if (!p || typeof p.id !== 'string' || !/^[a-z0-9-]+$/.test(p.id) || seenIds[p.id] ||
+          typeof p.file !== 'string' || !/^pc-[a-z0-9-]+\.png$/.test(p.file) || seenFiles[p.file] ||
+          typeof p.sha256 !== 'string' || !/^[a-f0-9]{64}$/.test(p.sha256) ||
+          typeof p.rackLabel !== 'string' || !p.rackLabel || typeof p.composerLabel !== 'string' || !p.composerLabel ||
+          typeof p.alt !== 'string' || !p.alt || typeof p.publicPath !== 'string' ||
+          !/^\/assets\/[A-Za-z0-9_.\/-]+\.(?:avif|jpe?g|png|webp)$/.test(p.publicPath)) return false;
+        seenIds[p.id] = true; seenFiles[p.file] = true; return true;
+      })) return null;
+      return { held: false, cards: payload.cards };
+    }
+
+    function catalogueHeld(boundary) {
+      var grid = document.getElementById('pcGrid');
+      grid.textContent = 'The postcard artwork is being checked before it enters the public rack.';
+      var preview = document.getElementById('pcPrevImg');
+      preview.removeAttribute('src'); preview.alt = ''; preview.hidden = true;
+      document.getElementById('pcSelectionBoundary').textContent = boundary;
+      status('Postcard artwork held. No postcard has been selected or sent.');
+      ['pcShare', 'pcCopy'].forEach(function (id) { var button = document.getElementById(id); button.disabled = true; });
+      ['pcText', 'pcEmail'].forEach(function (id) { var link = document.getElementById(id); link.hidden = true; link.setAttribute('aria-disabled', 'true'); });
+    }
+
+    function catalogueFailure() {
+      var grid = document.getElementById('pcGrid');
+      grid.textContent = 'The postcard catalogue could not be verified. No postcard has been selected or loaded.';
+      var preview = document.getElementById('pcPrevImg');
+      preview.removeAttribute('src'); preview.alt = ''; preview.hidden = true;
+      document.getElementById('pcSelectionBoundary').textContent = 'No postcard is selected. The local composer and share tools are unavailable until the catalogue can be verified.';
+      status('The postcard catalogue could not be verified.');
+      ['pcShare', 'pcCopy'].forEach(function (id) { var button = document.getElementById(id); button.disabled = true; });
+      ['pcText', 'pcEmail'].forEach(function (id) { var link = document.getElementById(id); link.hidden = true; link.setAttribute('aria-disabled', 'true'); });
+    }
+
+    function loadCatalogue() {
+      fetch(CATALOG_URL, { cache: 'no-store' })
+        .then(function (response) { if (!response.ok) throw new Error('catalogue unavailable'); return response.json(); })
+        .then(function (payload) {
+          var catalogue = validCatalogue(payload);
+          if (!catalogue) throw new Error('catalogue invalid');
+          if (catalogue.held) { catalogueHeld(payload.preDispatchBoundary); return; }
+          POSTCARDS = catalogue.cards; byId = {}; POSTCARDS.forEach(function (p) { byId[p.id] = p; });
+          document.getElementById('pcSelectionBoundary').textContent = payload.preDispatchBoundary;
+          renderCompose();
+        })
+        .catch(catalogueFailure);
+    }
+
+    function handle() {
+      return (document.getElementById('pcHandle').value || '')
+        .trim()
+        .replace(/^@+/, '')
+        .trim()
+        .slice(0, 24);
+    }
+    function note()   { return (document.getElementById('pcNote').value || '').trim(); }
+
+    function postcardURL() {
+      return location.origin + '/postcard.html?pc=' + encodeURIComponent(picked);
+    }
+    function messageText() {
+      var n = note();
+      var signed = handle();
+      var personal = n + (signed ? (n ? '\n' : '') + '— @' + signed : '');
+      return (personal ? personal + '\n\n' : '') +
+        'Come to SUNNYVAiLE — a little internet town where we learn AI one Wednesday at a time. Make your card here: ' + postcardURL();
+    }
+    function smsHref()  { return 'sms:?&body=' + encodeURIComponent(messageText()); }
+    function mailHref() { return 'mailto:?subject=' + encodeURIComponent('A postcard from SUNNYVAiLE') + '&body=' + encodeURIComponent(messageText()); }
+
+    function status(msg) { document.getElementById('pcStatus').textContent = msg || ''; }
+    function showCopyFallback(url, message) {
+      var fallback = document.getElementById('pcCopyFallback');
+      var value = document.getElementById('pcCopyValue');
+      value.value = url;
+      fallback.hidden = false;
+      status(message);
+    }
+    function hideCopyFallback() { document.getElementById('pcCopyFallback').hidden = true; }
+
+    function doShare() {
+      var data = { title: 'A postcard from SUNNYVAiLE', text: messageText() };
+      if (navigator.share) {
+        navigator.share(data).then(function(){ status('Share sheet closed. This page cannot confirm delivery.'); })
+          .catch(function(error){
+            if (error && error.name === 'AbortError') {
+              status('Share sheet closed without sending. Your postcard is still here; try Copy link, Text it or Email it.');
+            } else {
+              doCopy('We could not open the share sheet. Copy the link or use Text it or Email it instead.');
+            }
+          });
+      } else {
+        doCopy('This browser does not offer a share sheet. Copy the link or use Text it or Email it instead.');
+      }
+    }
+    function doCopy(context) {
+      var url = postcardURL();
+      hideCopyFallback();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function(){ status('Link copied.'); }, function(){
+          showCopyFallback(url, (context ? context + ' ' : '') + 'Automatic copying was not allowed. Copy the link below.');
+        });
+      } else {
+        showCopyFallback(url, (context ? context + ' ' : '') + 'Automatic copying is not available here. Copy the link below.');
+      }
+    }
+  })();
+  </script>
+
+  <script defer src="/content/site/ai-accent-autowrap.js?v=20260830-native-controls-1"></script>
+  <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+  <script defer src="/content/site/ksvl-player.js?v=20260911-header-controls-1"></script>
+</body>
+</html>

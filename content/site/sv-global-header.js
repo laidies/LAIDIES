@@ -1,3 +1,16 @@
+/* Shared utilities live in the header (Ali, 2026-09-11). */
+(function () {
+  if (document.querySelector('script[data-sv-header-controls]')) return;
+  var guard = document.createElement('style');
+  guard.id = 'sv-header-controls-pending';
+  guard.textContent = 'body > :is(.sv-side-rail,.sv-yah-chip,.svwt-chip,.svwt-offer,.svwt-paused,.ksvl-now-playing,#ksvl-resume-nudge,.wednesday-return,[data-laidies-context-return]) { visibility:hidden!important; }';
+  document.head.appendChild(guard);
+  var s = document.createElement('script');
+  s.src = '/content/site/sv-header-controls.js?v=20260911-1';
+  s.dataset.svHeaderControls = '1';
+  document.head.appendChild(s);
+})();
+
 /**
  * SUNNYVAiLE global header — ONE header for the whole town.
  *
@@ -31,7 +44,7 @@
   })();
 
   var JOIN_HREF = '/maikeover.html';
-  var SIGNIN_HREF = '/resident-card.html#rcAccountTitle';
+  var SIGNIN_HREF = '/maikeover.html#mo-account';
   var QUICK_LINKS = [
     { label: 'Latest Episode', href: '/chick-flicks.html' },
     { label: 'Look it up', href: '/library.html' },
@@ -198,7 +211,7 @@
     }).join('');
     panel.innerHTML =
       '<p class="svgh-panel-title">★ Around town</p>'
-      + '<div class="svgh-panel-account"><a class="svgh-panel-signin" href="/resident-card.html#rcAccountTitle">Sign in</a><a class="svgh-panel-join" href="/maikeover.html">Join the town</a></div>'
+      + '<div class="svgh-panel-account"><a class="svgh-panel-signin" href="/maikeover.html#mo-account">Sign in</a><a class="svgh-panel-join" href="/maikeover.html">Join the town</a></div>'
       + '<div class="svgh-panel-grid">' + essentials + '</div>'
       + '<p class="svgh-panel-title">★ Every building · M<span class="ai">Ai</span>N Street &amp; beyond</p>'
       + '<div class="svgh-panel-grid svgh-panel-grid--town"><span class="svgh-item" style="cursor:default;">Loading the map…</span></div>';
@@ -284,7 +297,7 @@
     // single wayfinder and the header now wears the homepage's gradient skin.)
 
     var btn = header.querySelector('.svgh-menu-btn');
-    function close() { panel.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); }
+    function close() { if (panel.contains(document.activeElement)) btn.focus(); panel.classList.remove('is-open'); btn.setAttribute('aria-expanded', 'false'); }
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
       var open = panel.classList.toggle('is-open');

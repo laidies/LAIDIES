@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Businesswomen's Special · The BRONZE AiGE · SUNNYVAiLE</title>
+  <meta name="description" content="The BRONZE AiGE's adult, alcohol-optional paper fortune teller. Choose a cocktail or equally complete spirit-free lane for a playful suggestion on this device.">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260911-header-controls-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260911-header-controls-1"></script>
+  <!-- Privacy-friendly analytics by Plausible -->
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+</head>
+<body>
+
+  <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/bronze-aige.html" style="color: var(--rose);">BRONZE AiGE</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/resident-card.html" class="sv-signin" style="color: var(--rose); font-weight: 600; border: 1.5px solid var(--rose); padding: 6px 14px; border-radius: 999px;">✉︎ Sign In</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <p style="margin: 4px 0 14px;"><a href="/bronze-aige.html" style="color: var(--rose); text-decoration: none; font-size: 14px; font-weight: 700;">← The BRONZE AiGE</a></p>
+
+    <div class="sv-eyebrow">
+      <span class="sv-eyebrow-label">★ Inside The BRONZE AiGE · Happy Hour from 4</span>
+    </div>
+
+    <h1>The Businesswomen's Special.</h1>
+
+    <p class="sv-lede">
+      The full pass-the-phone paper fortune teller. Pick the cocktail or equally complete spirit-free lane, pick a mood, and receive a playful suggestion on this device.
+    </p>
+    <p style="margin: -10px 0 24px; max-width: 70ch; color: var(--plum-soft); font-size: 14px; line-height: 1.55;">
+      This is The BRONZE AiGE&rsquo;s separate game, not a Mme CLAi-O reading, order, availability check, or health guidance. It is for adults; alcohol is only for people of legal drinking age where they are, and not drinking is the lowest-risk option. LAiDIES never requires or encourages drinking.
+    </p>
+
+    <div style="margin: 0 0 26px;">
+      <button type="button"
+	              aria-label="Listen to Businesswomen's Special by The Embeddings"
+	              aria-pressed="false"
+              data-src="/content/music/game-businesswomens-special.mp3"
+              style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: transparent; border: 1.5px solid var(--rose); border-radius: 999px; color: var(--plum); font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;">
+        <svg viewBox="0 0 24 24" style="width: 11px; height: 11px; fill: currentColor;" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+        ♪ The song — "Businesswomen's Special" by The Embeddings
+      </button>
+      <p id="bwsAudioStatus" role="status" aria-live="polite" aria-atomic="true" style="margin: 10px 0 0; font-size: 13px; font-weight: 700; color: var(--plum-soft);">Recorded track ready. It starts only when you choose Listen.</p>
+    </div>
+
+    <style>
+      .bws-cols { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 30px; align-items: start; margin: 8px 0 36px; }
+      @media (max-width: 900px) { .bws-cols { grid-template-columns: 1fr; } }
+      .bws-lane { flex: 1 1 0; padding: 14px 10px; border-radius: 12px; border: 2px solid var(--gold); background: var(--cream); font-family: inherit; cursor: pointer; text-align: center; color: var(--plum); transition: background 0.2s ease, border-color 0.2s ease; }
+      .bws-lane strong { display: block; font-size: 16px; }
+      .bws-lane span { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--plum-soft); }
+      .bws-lane.is-selected { background: var(--blush); border-color: var(--rose); box-shadow: 0 4px 14px rgba(75,33,72,0.15); }
+      .bws-mood { padding: 14px 8px; border-radius: 12px; border: 1.5px solid var(--gold); background: var(--cream); font-family: inherit; cursor: pointer; text-align: center; color: var(--plum); transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease; }
+      .bws-mood:hover { transform: translateY(-2px); }
+      .bws-mood .bws-mood-emoji { display: block; font-size: 20px; margin-bottom: 4px; }
+      .bws-mood strong { display: block; font-size: 14px; }
+      .bws-mood span { font-size: 11px; color: var(--plum-soft); }
+      .bws-mood.is-selected { background: var(--blush); border-color: var(--rose); }
+	      @media (max-width: 420px) {
+          h1 { font-size: 38px !important; overflow-wrap: anywhere; }
+          #bwsLanes { flex-direction: column; }
+          #bwsMoods { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+          .bws-lane, .bws-mood { min-width: 0; overflow-wrap: anywhere; }
+        }
+	      @media (prefers-reduced-motion: reduce) {
+          *, *::before, *::after {
+            animation: none !important;
+            transition: none !important;
+            scroll-behavior: auto !important;
+          }
+          .bws-mood:hover { transform: none; }
+        }
+      .bws-menu-rule { border: 0; border-top: 1.5px dashed var(--gold); margin: 16px 0; }
+      .bws-fortune-held { display: grid; place-items: center; width: 100%; max-width: 340px; aspect-ratio: 4 / 3; margin: 0 auto; padding: 28px; border: 2px dashed var(--gold); border-radius: 14px; background: linear-gradient(145deg, var(--plum-deep), var(--rose) 60%, var(--blush)); color: var(--cream); box-shadow: 0 10px 30px rgba(75,33,72,0.18), inset 0 0 0 8px rgba(255,253,251,.09); font-size: 13px; font-weight: 800; letter-spacing: .12em; line-height: 1.35; text-align: center; text-transform: uppercase; }
+      .bws-fortune-held[data-fortune-state="choosing"] { background: linear-gradient(145deg, var(--plum-deep), #6b42df 60%, var(--gold)); }
+      .bws-fortune-held[data-fortune-state="revealed"] { background: linear-gradient(145deg, var(--plum-deep), var(--rose) 60%, #75cfc3); }
+    </style>
+
+    <div class="bws-cols">
+
+      <!-- THE GAME -->
+      <section aria-label="The fortune teller">
+        <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">1 · Pick your lane</p>
+        <div id="bwsLanes" style="display: flex; gap: 12px; margin: 0 0 20px;">
+          <button type="button" class="bws-lane is-selected" data-lane="cocktail" aria-pressed="true" disabled><strong>Summon Spirits</strong><span>Cocktails</span></button>
+          <button type="button" class="bws-lane" data-lane="spiritFree" aria-pressed="false" disabled><strong>Ghostbusters</strong><span>Spirit-Free</span></button>
+        </div>
+
+        <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">2 · Pinch open a mood</p>
+        <div id="bwsMoods" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 0 0 14px;">
+          <button type="button" class="bws-mood" data-flap="0" disabled><span class="bws-mood-emoji">🫧</span><strong>Bubbles</strong><span>sparkly / easy</span></button>
+          <button type="button" class="bws-mood" data-flap="1" disabled><span class="bws-mood-emoji">🍋</span><strong>Citrus</strong><span>bright / tart</span></button>
+          <button type="button" class="bws-mood" data-flap="2" disabled><span class="bws-mood-emoji">🥂</span><strong>Classic</strong><span>polished / iconic</span></button>
+          <button type="button" class="bws-mood" data-flap="3" disabled><span class="bws-mood-emoji">🌙</span><strong>After Dark</strong><span>bitter / bold</span></button>
+        </div>
+
+        <div style="text-align: center; margin: 0 0 22px;">
+          <button type="button" id="bwsRandomBtn" disabled style="padding: 13px 28px; background: var(--plum-deep); color: var(--cream); border: 0; border-radius: 999px; font-family: inherit; font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer;">🎲 Let the teller decide</button>
+        </div>
+
+        <p style="margin: 0 0 8px; font-weight: 700; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--rose);">3 · The paper speaks</p>
+        <div style="text-align: center; margin: 0 0 18px;">
+          <div id="bwsFortuneFrame" class="bws-fortune-held" data-asset-status="held" data-fortune-state="ready">Paper fortune teller visual held · pick a lane and mood</div>
+        </div>
+
+        <div id="bwsResult" role="status" aria-live="polite" aria-atomic="true" tabindex="-1" style="display: none; padding: 26px 30px; background: var(--cream); border: 2px solid var(--gold); border-radius: 14px; box-shadow: 0 8px 26px rgba(75,33,72,0.12);">
+          <p id="bwsResultMood" style="margin: 0 0 6px; font-weight: 700; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose);"></p>
+          <h2 id="bwsResultName" style="margin: 0 0 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 34px; font-weight: 700; color: var(--plum-deep); line-height: 1.1;"></h2>
+          <p id="bwsResultVibe" style="margin: 0 0 16px; font-size: 15px; font-style: italic; color: var(--plum-soft); line-height: 1.5;"></p>
+          <p style="margin: 0 0 2px; font-weight: 700; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--plum-soft);">Order</p>
+          <p id="bwsResultOrder" style="margin: 0 0 14px; font-size: 15px; color: var(--plum); line-height: 1.55;"></p>
+          <p style="margin: 0 0 2px; font-weight: 700; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--plum-soft);">Garnish notes</p>
+          <p id="bwsResultNote" style="margin: 0 0 16px; font-size: 15px; color: var(--plum); line-height: 1.55;"></p>
+          <p style="margin: 0; font-size: 13px; color: var(--plum-soft);">Pass the phone — the next person can choose either lane. This is a suggestion only; nothing was ordered, served, or consumed. <a href="/bronze-aige.html#stamp" style="color: var(--rose); text-decoration: underline;">Optionally mark the week on this device →</a></p>
+        </div>
+        <p id="bwsSaveStatus" role="status" aria-live="polite" aria-atomic="true" style="min-height: 1.5em; margin: 12px 0 0; font-size: 13px; font-weight: 700; color: var(--plum-soft);">The private fortune menu is still loading. Until it is verified, nothing can be selected or saved.</p>
+
+        <p id="bwsBadge" style="display: none; margin: 14px 0 0; padding: 14px 18px; background: var(--blush); border-left: 4px solid var(--gold); border-radius: 8px; font-size: 14px; color: var(--plum);"><strong>All four corners opened in this session.</strong> This is a page-state celebration only—not a saved badge, account reward, or proof of drinking.</p>
+      </section>
+
+      <!-- THE MENU -->
+      <aside aria-label="Happy hour menu" style="padding: 24px 26px; background: var(--cream); border: 2px solid var(--gold); border-radius: 14px;">
+        <p style="margin: 0; text-align: center; font-weight: 800; font-size: 12px; letter-spacing: 0.26em; text-transform: uppercase; color: var(--plum-deep);">The BRONZE AiGE</p>
+        <p style="margin: 2px 0 0; text-align: center; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--plum-soft);">Happy Hour Menu · from 4</p>
+
+        <hr class="bws-menu-rule">
+
+        <p style="margin: 0 0 10px; font-weight: 700; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose);">☰ Tonight's Specials <span style="font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--plum-soft);">— conversation, order for the table</span></p>
+        <ul style="list-style: none; margin: 0; padding: 0; display: grid; gap: 10px;">
+          <li style="font-size: 14px; line-height: 1.5; color: var(--plum);"><strong>The One That Worked</strong> <span style="color: var(--rose);">· $0</span><br><span style="color: var(--plum-soft);">The thing you tried with AI this week that landed.</span></li>
+          <li style="font-size: 14px; line-height: 1.5; color: var(--plum);"><strong>The Disaster</strong> <span style="color: var(--rose);">· free refills</span><br><span style="color: var(--plum-soft);">The prompt that went sideways. Funnier out loud.</span></li>
+          <li style="font-size: 14px; line-height: 1.5; color: var(--plum);"><strong>The Hot Take</strong> <span style="color: var(--rose);">· market price</span><br><span style="color: var(--plum-soft);">The AI headline you're not buying.</span></li>
+          <li style="font-size: 14px; line-height: 1.5; color: var(--plum);"><strong>The Published-Episode Special</strong> <span style="color: var(--rose);">· evergreen conversation cue</span><br><span style="color: var(--plum-soft);">An idea from the latest published episode that you are still thinking about.</span></li>
+        </ul>
+
+        <hr class="bws-menu-rule">
+
+        <p style="margin: 0 0 6px; font-weight: 700; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose);">✦ The House Cocktail</p>
+        <p style="margin: 0 0 4px; font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; color: var(--plum);">Main Character Spritz</p>
+        <p style="margin: 0 0 8px; font-size: 13px; font-style: italic; color: var(--plum-soft);">Blanco tequila · Aperol · lemon · simple syrup · rocks · Prosecco · orange zest.</p>
+        <p style="margin: 0; font-size: 13px; line-height: 1.55; color: var(--plum);">A fictional menu cue for an adult, alcohol-optional social practice. It is not connected to a real venue, bartender, reservation, service, or product availability.</p>
+
+        <hr class="bws-menu-rule">
+
+        <p style="margin: 0; font-size: 12px; font-style: italic; color: var(--plum-soft); text-align: center;">Suggestions are dealt by the fortune teller. Cocktail and spirit-free have equal representation; nothing is served or checked for availability.</p>
+      </aside>
+
+    </div>
+
+    <p style="font-size: 14px; font-style: italic; color: var(--plum-soft); margin: 0 0 36px;">Named for the booth scene in <em>Romy and Michele's High School Reunion</em>. Some patrons get stained glass at The LUMINAiRY; Romy and Michele get a cocktail game.</p>
+
+    <div class="sv-ctas">
+      <a class="sv-cta sv-cta--primary" href="/bronze-aige.html">
+        <span>
+          <span class="sv-cta-label">Back at the bar</span>
+          <span class="sv-cta-title">The BRONZE AiGE →</span>
+        </span>
+        <span class="sv-cta-arrow">→</span>
+      </a>
+      <a class="sv-cta" href="/bronze-aige.html#call">
+        <span>
+          <span class="sv-cta-label">No table yet?</span>
+          <span class="sv-cta-title">Copy the invite · call a happy hour</span>
+        </span>
+        <span class="sv-cta-arrow">→</span>
+      </a>
+    </div>
+
+  </main>
+
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · The BRONZE AiGE</footer>
+
+  <script>
+    (function() {
+      'use strict';
+      import('/content/site/bws-data.js').then(function(module) {
+      var catalogue = module && module.default;
+      if (
+        !catalogue ||
+        !Object.isFrozen(catalogue) ||
+        typeof catalogue.getMenu !== 'function' ||
+        typeof catalogue.getFlaps !== 'function' ||
+        typeof catalogue.getItem !== 'function' ||
+        typeof catalogue.getMood !== 'function'
+      ) throw new Error('private-catalogue-invalid');
+      var teller = document.getElementById('bwsFortuneFrame');
+      var lanes = document.getElementById('bwsLanes');
+      var moods = document.getElementById('bwsMoods');
+      var randomBtn = document.getElementById('bwsRandomBtn');
+      var result = document.getElementById('bwsResult');
+      var rMood = document.getElementById('bwsResultMood');
+      var rName = document.getElementById('bwsResultName');
+      var rVibe = document.getElementById('bwsResultVibe');
+      var rOrder = document.getElementById('bwsResultOrder');
+      var rNote = document.getElementById('bwsResultNote');
+      var badge = document.getElementById('bwsBadge');
+      var saveStatus = document.getElementById('bwsSaveStatus');
+      if (!teller || !catalogue) return;
+      lanes.querySelectorAll('button').forEach(function(button) { button.disabled = false; });
+      moods.querySelectorAll('button').forEach(function(button) { button.disabled = false; });
+      randomBtn.disabled = false;
+      if (saveStatus) saveStatus.textContent = '';
+
+      var activeLane = 'cocktail';
+      var flapsUsed = {};
+      var flapsCount = 0;
+      var isAnimating = false;
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      lanes.addEventListener('click', function(e) {
+        var btn = e.target.closest('.bws-lane');
+        if (!btn) return;
+        activeLane = btn.getAttribute('data-lane');
+        lanes.querySelectorAll('.bws-lane').forEach(function(b) {
+          b.classList.remove('is-selected');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('is-selected');
+        btn.setAttribute('aria-pressed', 'true');
+      });
+
+      moods.addEventListener('click', function(e) {
+        var btn = e.target.closest('.bws-mood');
+        if (!btn || isAnimating) return;
+        select(Number(btn.getAttribute('data-flap')));
+      });
+
+      randomBtn.addEventListener('click', function() {
+        if (isAnimating) return;
+        var flap = Math.floor(Math.random() * 4);
+        var btns = moods.querySelectorAll('.bws-mood');
+        if (reduceMotion) { select(flap); return; }
+        isAnimating = true;
+        var n = 0;
+        var shuffle = setInterval(function() {
+          btns.forEach(function(b, i) { b.classList.toggle('is-selected', i === n % 4); });
+          n++;
+        }, 100);
+        setTimeout(function() {
+          clearInterval(shuffle);
+          isAnimating = false;
+          select(flap);
+        }, 700);
+      });
+
+      function select(flapIndex) {
+        isAnimating = true;
+        var btns = moods.querySelectorAll('.bws-mood');
+        btns.forEach(function(b, i) { b.classList.toggle('is-selected', i === flapIndex); });
+        if (!flapsUsed[flapIndex]) { flapsUsed[flapIndex] = true; flapsCount++; }
+        teller.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+
+        var menu = catalogue.getMenu(activeLane);
+        var flap = catalogue.getFlaps()[flapIndex];
+        var pool = flap.drinks[activeLane] || flap.drinks.cocktail;
+        var drink = menu[pool[Math.floor(Math.random() * pool.length)]];
+
+        // The text-first paper state marks a bounded selection; the result
+        // card below remains the authoritative suggestion.
+        result.style.display = 'none';
+        teller.dataset.fortuneState = 'choosing';
+        teller.textContent = 'Fortune teller is choosing…';
+        var totalMs = reduceMotion ? 0 : 1560;
+
+        setTimeout(function() {
+          rMood.textContent = flap.label + ' — ' + flap.description;
+          rName.textContent = drink.name;
+          rVibe.textContent = drink.vibe;
+          rOrder.textContent = drink.order;
+          rNote.textContent = drink.note;
+          result.style.display = 'block';
+          teller.dataset.fortuneState = 'revealed';
+          teller.textContent = 'Fortune dealt · see your suggestion';
+          if (flapsCount >= 4) badge.style.display = 'block';
+          isAnimating = false;
+          var saved = false;
+          try {
+            localStorage.setItem('laidies_bws_drink', JSON.stringify({
+              version: 2,
+              scope: 'device-local',
+              lane: activeLane, itemId: drink.id, moodId: flap.id,
+              savedAt: new Date().toISOString()
+            }));
+            var receipt = JSON.parse(localStorage.getItem('laidies_bws_drink') || 'null');
+            var stamp = receipt && Date.parse(receipt.savedAt);
+            saved = !!receipt &&
+              Object.keys(receipt).sort().join('|') === 'itemId|lane|moodId|savedAt|scope|version' &&
+              receipt.version === 2 &&
+              receipt.scope === 'device-local' &&
+              receipt.itemId === drink.id &&
+              receipt.moodId === flap.id &&
+              receipt.lane === activeLane &&
+              catalogue.getItem(receipt.lane, receipt.itemId) === drink &&
+              catalogue.getMood(receipt.moodId) === flap &&
+              Number.isFinite(stamp) &&
+              new Date(stamp).toISOString() === receipt.savedAt &&
+              stamp <= Date.now();
+          } catch(err) {}
+          if (saveStatus) {
+            saveStatus.textContent =
+              (activeLane === 'spiritFree' ? 'Spirit-free' : 'Cocktail') +
+              ' suggestion dealt. ' +
+              (saved
+                ? 'It is remembered on this device only.'
+                : 'This browser could not save it; the result remains on this page.');
+          }
+          result.focus({ preventScroll: true });
+          result.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
+        }, totalMs);
+      }
+      }).catch(function() {
+        var heldStatus = document.getElementById('bwsSaveStatus');
+        if (heldStatus) heldStatus.textContent =
+          'The private fortune menu could not be verified. Nothing was selected or saved.';
+      });
+    })();
+  </script>
+
+  <script>
+    (function() {
+      'use strict';
+        var button = document.querySelector('button[data-src="/content/music/game-businesswomens-special.mp3"]');
+        if (!button) return;
+        var activeAudio = null;
+        function announce(message) {
+          var status = document.getElementById('bwsAudioStatus');
+          if (status) status.textContent = message;
+        }
+        function stopActive(message) {
+          button.classList.remove('is-playing');
+          button.setAttribute('aria-pressed', 'false');
+          var audio = activeAudio;
+          activeAudio = null;
+          if (audio) { try { audio.pause(); } catch(e){} }
+          if (message) announce(message);
+        }
+        button.addEventListener('click', function(event) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          if (button.disabled) return;
+          var src = button.getAttribute('data-src'); if (!src) return;
+          if (activeAudio) { stopActive('Recorded track paused.'); return; }
+          stopActive();
+          var audio = new Audio(src); audio.preload = 'metadata';
+          audio.addEventListener('playing', function() {
+            if (activeAudio !== audio) return;
+            button.classList.add('is-playing');
+            button.setAttribute('aria-pressed', 'true');
+            announce('Recorded track active. Press the same control to pause.');
+          });
+          audio.addEventListener('pause', function() {
+            if (activeAudio === audio) stopActive('Recorded track paused.');
+          });
+          audio.addEventListener('ended', function() {
+            if (activeAudio === audio) stopActive('Recorded track ended.');
+          });
+          audio.addEventListener('error', function() {
+            if (activeAudio === audio) stopActive('The recorded track could not start. No track is active.');
+          });
+          activeAudio = audio;
+          button.setAttribute('aria-pressed', 'false');
+          announce('Recorded track starting. Nothing is marked as active yet.');
+          Promise.resolve(audio.play()).catch(function() {
+            if (activeAudio === audio) stopActive('Playback was blocked or failed. No track is active; choose Listen to try again.');
+          });
+        }, true);
+    })();
+  </script>
+
+    <script defer src="/content/site/ksvl-player.js?v=20260911-header-controls-1"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260830-native-controls-1"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260911-header-controls-1"></script>
+</body>
+</html>

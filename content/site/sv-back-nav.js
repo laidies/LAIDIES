@@ -1,3 +1,16 @@
+/* Shared utilities live in the header (Ali, 2026-09-11). */
+(function () {
+  if (document.querySelector('script[data-sv-header-controls]')) return;
+  var guard = document.createElement('style');
+  guard.id = 'sv-header-controls-pending';
+  guard.textContent = 'body > :is(.sv-side-rail,.sv-yah-chip,.svwt-chip,.svwt-offer,.svwt-paused,.ksvl-now-playing,#ksvl-resume-nudge,.wednesday-return,[data-laidies-context-return]) { visibility:hidden!important; }';
+  document.head.appendChild(guard);
+  var s = document.createElement('script');
+  s.src = '/content/site/sv-header-controls.js?v=20260911-1';
+  s.dataset.svHeaderControls = '1';
+  document.head.appendChild(s);
+})();
+
 /**
  * SUNNYVAiLE back-nav — right-rail item
  *
@@ -64,7 +77,7 @@
   };
 
   var label = hasInternalReturn
-    ? (TITLES[refURL.pathname] || 'the previous page')
+    ? (TITLES[refURL.pathname] || TITLES[refURL.pathname.replace(/\/$/, '') + '.html'] || 'the previous page')
     : 'SUNNYVAiLE home';
   var target = hasInternalReturn
     ? refURL.pathname + refURL.search + refURL.hash
@@ -184,7 +197,7 @@
       (hasInternalReturn ? 'Back to ' + label : 'SUNNYVAiLE home') +
       '</span>';
     a.addEventListener('click', function (e) {
-      if (hasInternalReturn && history.length > 1) {
+      if (hasInternalReturn && history.length > 1 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
         e.preventDefault();
         history.back();
       }

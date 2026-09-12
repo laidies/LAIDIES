@@ -1,0 +1,1286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Blend & Snap · LAiDIES · SUNNYVAiLE</title>
+  <meta name="description" content="The Blend & Snap at MAiN Street No. 4 — order the weekly pack menu and see exactly which review, practice, reference, card, and quiz pieces are ready.">
+  <meta property="og:title" content="The Blend & Snap · LAiDIES">
+  <meta property="og:description" content="Order your usual, check exactly what is ready in an episode's Study Pack menu, and follow the corkboard around town.">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/sunnyvaile-building-v2.css?v=20260723-1">
+  <style>
+    :root {
+      --bs-ink: #11183b;
+      --bs-midnight: #070f2b;
+      --bs-paper: #fffdfb;
+      --bs-pink: #f254a9;
+      --bs-purple: #7137d6;
+      --bs-cyan: #15bce0;
+      --bs-cobalt: #2457e6;
+      --bs-mint: #7de2c2;
+      --bs-coral: #ff7366;
+      --bs-orange: #ff9b3d;
+      --bs-lime: #b7e42b;
+      --bs-peri: #bcb8ff;
+      --bs-line: rgba(17,24,59,.17);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--bs-ink);
+      background: linear-gradient(155deg, #f3e0ec 0%, #f9e9e1 48%, #e9e6ff 100%);
+      background-attachment: fixed;
+      font-family: "Jost", sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input, textarea { font: inherit; }
+    a { color: inherit; }
+    .bs-main { width: 100%; overflow: hidden; }
+
+    .bs-hero {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1672 / 941;
+      min-height: 520px;
+      overflow: hidden;
+      background: var(--bs-midnight);
+      border-bottom: 8px solid var(--bs-pink);
+    }
+    .bs-hero__held {
+      display: grid;
+      width: min(100% - 48px, 920px);
+      min-height: 100%;
+      margin: 0 auto;
+      place-items: center;
+      padding: 42px;
+      border: 3px dashed rgba(255,253,251,.72);
+      border-radius: 18px;
+      color: var(--bs-paper);
+      background:
+        linear-gradient(145deg, rgba(113,55,214,.72), rgba(21,188,224,.34)),
+        repeating-linear-gradient(0deg, rgba(255,253,251,.12) 0 2px, transparent 2px 42px);
+      font-size: clamp(15px, 1.8vw, 23px);
+      font-weight: 800;
+      letter-spacing: .12em;
+      line-height: 1.35;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .bs-special-on-board {
+      position: absolute;
+      right: clamp(22px, 6vw, 84px);
+      bottom: clamp(22px, 6vw, 72px);
+      width: min(100% - 44px, 340px);
+      min-height: 88px;
+      padding: 14px 18px;
+      border: 3px solid var(--bs-paper);
+      border-radius: 12px;
+      background: var(--bs-pink);
+      color: var(--bs-midnight);
+      box-shadow: 7px 7px 0 var(--bs-cyan);
+      text-align: center;
+      cursor: pointer;
+    }
+    .bs-special-on-board strong {
+      display: block;
+      font-size: clamp(9px, 1.05vw, 17px);
+      font-weight: 800;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+    .bs-special-on-board span {
+      display: block;
+      margin-top: 4px;
+      font-size: clamp(7px, .72vw, 12px);
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .bs-special-on-board:hover,
+    .bs-special-on-board:focus-visible {
+      outline: 4px solid var(--bs-pink);
+      outline-offset: 4px;
+    }
+
+    .bs-state {
+      width: 100%;
+      color: var(--bs-paper);
+      background:
+        radial-gradient(circle at 12% 20%, rgba(113,55,214,.48), transparent 33%),
+        radial-gradient(circle at 89% 70%, rgba(21,188,224,.22), transparent 30%),
+        var(--bs-midnight);
+    }
+    .bs-state__inner {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: clamp(56px, 7vw, 92px) 0;
+    }
+    .bs-address,
+    .bs-kicker {
+      margin: 0 0 12px;
+      color: var(--bs-mint);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+    .bs-state h1 {
+      max-width: 990px;
+      margin: 0;
+      font-family: "Anton", Impact, sans-serif;
+      font-size: clamp(52px, 8vw, 106px);
+      font-weight: 400;
+      line-height: .91;
+      letter-spacing: .015em;
+      text-transform: uppercase;
+      text-shadow: 5px 5px 0 var(--bs-purple);
+    }
+    .bs-state__copy {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: rgba(255,253,251,.78);
+      font-size: clamp(18px, 2vw, 23px);
+    }
+    .bs-state__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-top: 28px;
+    }
+    .bs-theme {
+      min-height: 48px;
+      padding: 12px 18px;
+      border: 2px solid var(--bs-paper);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--bs-paper);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .bs-theme.is-playing { background: var(--bs-purple); }
+
+    .bs-usual {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 42px 0;
+      border-bottom: 3px solid var(--bs-midnight);
+    }
+    .bs-usual__head {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: 34px;
+      align-items: end;
+    }
+    .bs-usual h2,
+    .bs-counter h2,
+    .bs-noticeboard-head h2 {
+      margin: 0;
+      font-size: clamp(38px, 5vw, 66px);
+      line-height: .98;
+      letter-spacing: -.04em;
+    }
+    .bs-usual p { margin: 0; color: rgba(17,24,59,.73); font-size: 17px; }
+    .bs-drinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      margin-top: 26px;
+      border-top: 2px solid var(--bs-midnight);
+      border-bottom: 2px solid var(--bs-midnight);
+    }
+    .bs-drink {
+      flex: 1 1 210px;
+      min-height: 70px;
+      padding: 14px 20px;
+      border: 0;
+      border-right: 1px solid var(--bs-line);
+      background: transparent;
+      color: var(--bs-ink);
+      text-align: left;
+      cursor: pointer;
+    }
+    .bs-drink strong { display: block; font-size: 18px; }
+    .bs-drink span { display: block; margin-top: 2px; color: rgba(17,24,59,.62); font-size: 12px; }
+    .bs-drink:hover,
+    .bs-drink:focus-visible,
+    .bs-drink.is-selected {
+      background: linear-gradient(90deg, rgba(242,84,169,.18), rgba(125,226,194,.14));
+      outline: none;
+    }
+    .bs-drink.is-selected strong::after { content: " · the usual"; color: var(--bs-purple); }
+    .bs-memory-note {
+      margin: 14px 0 0 !important;
+      font-size: 13px !important;
+    }
+
+    .bs-counter {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: clamp(58px, 7vw, 92px) 0;
+    }
+    .bs-counter-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, .8fr);
+      gap: 34px;
+      align-items: end;
+    }
+    .bs-counter-head p {
+      margin: 0;
+      color: rgba(17,24,59,.72);
+      font-size: 17px;
+    }
+    .bs-mobile-order { display: none; }
+    .bs-menu-ledger {
+      margin-top: 32px;
+      border-top: 3px solid var(--bs-midnight);
+      border-bottom: 3px solid var(--bs-midnight);
+    }
+    .bs-menu-line {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 22px;
+      align-items: center;
+      min-height: 96px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--bs-line);
+    }
+    .bs-menu-line:last-child { border-bottom: 0; }
+    .bs-menu-line h3 { margin: 0; font-size: 22px; line-height: 1.1; }
+    .bs-menu-line p { margin: 5px 0 0; color: rgba(17,24,59,.67); font-size: 14px; }
+    .bs-menu-link {
+      font-weight: 800;
+      text-underline-offset: 4px;
+    }
+    .bs-component-status {
+      display: inline-block;
+      margin-top: 7px;
+      padding: 3px 8px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      color: var(--bs-purple);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .bs-component-status[data-status="held"],
+    .bs-component-status[data-status="unavailable"] { color: #934027; }
+    .bs-component-status[data-status="planned"] { color: #586073; }
+    .bs-menu-unavailable {
+      max-width: 320px;
+      color: rgba(17,24,59,.66);
+      font-size: 13px;
+      font-weight: 700;
+      text-align: right;
+    }
+    .bs-quiz-handoff {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 22px;
+      align-items: center;
+      padding: 18px 0;
+      border-top: 3px double var(--bs-purple);
+    }
+    .bs-quiz-handoff h3 { margin: 0; font-size: 18px; line-height: 1.1; }
+    .bs-quiz-handoff p { margin: 5px 0 0; color: rgba(17,24,59,.67); font-size: 14px; }
+    .bs-pack-fallback[hidden],
+    .bs-pack-retry[hidden] { display: none; }
+    .bs-pack-fallback,
+    .bs-pack-retry {
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: 800;
+      text-underline-offset: 4px;
+    }
+    .bs-pack-retry {
+      margin-left: 10px;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+      text-decoration: underline;
+      min-width: 44px;
+      min-height: 44px;
+      padding: 10px 12px;
+    }
+
+    .bs-receipt {
+      display: none;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, .55fr);
+      gap: 34px;
+      align-items: center;
+      margin-top: 28px;
+      padding: clamp(26px, 4vw, 48px);
+      border: 3px solid var(--bs-midnight);
+      border-radius: 8px;
+      background:
+        repeating-linear-gradient(0deg, rgba(17,24,59,.025) 0 2px, transparent 2px 7px),
+        var(--bs-paper);
+      box-shadow: 10px 10px 0 var(--bs-cyan);
+      scroll-margin-top: 90px;
+    }
+    .bs-receipt.is-open { display: grid; }
+    .bs-receipt__stamp {
+      margin: 0 0 8px;
+      color: var(--bs-purple);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    .bs-receipt h3 { margin: 0; font-size: clamp(30px, 4vw, 48px); line-height: 1; }
+    .bs-receipt p { margin: 14px 0 0; color: rgba(17,24,59,.7); }
+    .bs-receipt__actions { display: grid; gap: 11px; }
+    .bs-receipt__actions .svb-action { width: 100%; }
+    .bs-receipt__components {
+      display: grid;
+      gap: 8px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .bs-receipt__components li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding-top: 8px;
+      border-top: 1px solid var(--bs-line);
+    }
+    .bs-receipt__components a { font-weight: 800; text-underline-offset: 3px; }
+    .bs-receipt__quiz-handoff {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 3px double var(--bs-purple);
+    }
+    .bs-receipt__quiz-handoff h4 { margin: 0; font-size: 16px; }
+    .bs-receipt__quiz-handoff p { margin: 5px 0 0; }
+    .bs-receipt__quiz-handoff a { display: inline-block; margin-top: 8px; font-weight: 800; text-underline-offset: 3px; }
+
+    .bs-regulars {
+      margin-top: 24px;
+      border-top: 2px solid var(--bs-line);
+      border-bottom: 2px solid var(--bs-line);
+    }
+    .bs-regulars summary {
+      padding: 18px 0;
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+    .bs-regulars summary::-webkit-details-marker { display: none; }
+    .bs-regulars summary::after { content: "Open the back menu"; float: right; color: var(--bs-purple); font-size: 12px; text-transform: uppercase; letter-spacing: .1em; }
+    .bs-regulars[open] summary::after { content: "Close the back menu"; }
+    .bs-regulars__list { padding: 0 0 20px; }
+    .bs-regular {
+      display: grid;
+      grid-template-columns: 88px minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      width: 100%;
+      padding: 14px 0;
+      border-top: 1px solid var(--bs-line);
+      border-right: 0;
+      border-bottom: 0;
+      border-left: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .bs-regular__number {
+      color: var(--bs-pink);
+      font-family: "Anton", Impact, sans-serif;
+      font-size: 28px;
+      letter-spacing: .04em;
+    }
+    .bs-regular strong { display: block; }
+    .bs-regular span { color: rgba(17,24,59,.65); font-size: 13px; }
+    .bs-regular__go { color: var(--bs-purple) !important; font-weight: 800; }
+
+    .bs-noticeboard {
+      width: 100%;
+      padding: clamp(58px, 7vw, 92px) 0;
+      color: var(--bs-paper);
+      background:
+        radial-gradient(circle at 14% 20%, rgba(242,84,169,.25), transparent 30%),
+        var(--bs-midnight);
+    }
+    .bs-noticeboard-head,
+    .bs-board-wrap,
+    .bs-quiet {
+      width: min(1180px, calc(100% - 48px));
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .bs-noticeboard-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, .8fr);
+      gap: 34px;
+      align-items: end;
+    }
+    .bs-noticeboard-head .bs-kicker { color: var(--bs-mint); }
+    .bs-noticeboard-head p { margin: 0; color: rgba(255,253,251,.72); font-size: 17px; }
+    .bs-board-wrap {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 34px;
+      padding: 24px;
+      border: 4px solid var(--bs-cyan);
+      background:
+        repeating-linear-gradient(0deg, rgba(255,253,251,.12) 0 1px, transparent 1px 28px),
+        #7f4c36;
+      box-shadow: 10px 10px 0 var(--bs-purple);
+    }
+    .bs-notice {
+      display: grid;
+      min-height: 148px;
+      place-content: center;
+      padding: 18px;
+      border: 2px solid rgba(17,24,59,.7);
+      background: var(--bs-paper);
+      color: var(--bs-midnight);
+      cursor: pointer;
+      font-weight: 800;
+      line-height: 1.25;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 3px 4px 0 rgba(17,24,59,.32);
+    }
+    .bs-notice:hover,
+    .bs-notice:focus-visible {
+      outline: 5px solid var(--bs-lime);
+      outline-offset: 3px;
+    }
+    .bs-notice--study-pack {
+      z-index: 2;
+      display: grid;
+      place-content: center;
+      box-sizing: border-box;
+      padding: clamp(8px, 1.5vw, 18px);
+      background: #fff8c8;
+      color: var(--bs-midnight);
+      text-align: center;
+      text-decoration: none;
+      transform: rotate(-1.5deg);
+      box-shadow: 0 3px 0 rgba(17,24,59,.18);
+    }
+    .bs-notice--study-pack strong {
+      display: block;
+      font-family: Anton, Impact, sans-serif;
+      font-size: clamp(12px, 1.9vw, 26px);
+      line-height: 1;
+      letter-spacing: .02em;
+    }
+    .bs-notice--study-pack span {
+      display: block;
+      margin-top: .45em;
+      font-size: clamp(8px, 1.05vw, 14px);
+      font-weight: 800;
+      line-height: 1.15;
+    }
+    .bs-quiet {
+      margin-top: 32px;
+      padding: 22px 0;
+      border-top: 2px solid rgba(255,253,251,.26);
+      border-bottom: 2px solid rgba(255,253,251,.26);
+      color: rgba(255,253,251,.72);
+      font-size: 15px;
+    }
+    .bs-quiet strong { color: var(--bs-mint); }
+
+    footer {
+      padding: 34px 24px 110px;
+      color: rgba(17,24,59,.65);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 760px) {
+      body { background-attachment: scroll; }
+      .bs-hero {
+        min-height: 0;
+        aspect-ratio: 1 / 1.02;
+      }
+      .bs-hero__held {
+        width: calc(100% - 32px);
+        padding: 28px;
+        font-size: 13px;
+      }
+      .bs-special-on-board {
+        right: 16px;
+        bottom: 18px;
+        width: calc(100% - 32px);
+        min-height: 76px;
+      }
+      .bs-state__inner,
+      .bs-usual,
+      .bs-counter,
+      .bs-noticeboard-head,
+      .bs-board-wrap,
+      .bs-quiet {
+        width: min(100% - 32px, 1180px);
+      }
+      .bs-state h1 { font-size: clamp(52px, 18vw, 82px); }
+      .bs-state__actions { display: grid; grid-template-columns: 1fr; }
+      .bs-state__actions > * { width: 100%; }
+      .bs-usual__head,
+      .bs-counter-head,
+      .bs-receipt,
+      .bs-noticeboard-head {
+        grid-template-columns: 1fr;
+      }
+      .bs-drinks { display: grid; grid-template-columns: 1fr; }
+      .bs-drink { width: 100%; border-right: 0; border-bottom: 1px solid var(--bs-line); }
+      .bs-mobile-order {
+        display: block;
+        width: 100%;
+        margin: 26px 0 0;
+      }
+      .bs-menu-line,
+      .bs-quiz-handoff { grid-template-columns: 1fr; gap: 8px; }
+      .bs-menu-unavailable { max-width: none; text-align: left; }
+      .bs-receipt__components li { grid-template-columns: 1fr; }
+      .bs-receipt { box-shadow: 7px 7px 0 var(--bs-cyan); }
+      .bs-regular { grid-template-columns: 68px minmax(0, 1fr); }
+      .bs-regular__go { grid-column: 2; }
+      .bs-noticeboard-head { align-items: start; }
+      .bs-board-wrap {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 16px;
+        box-shadow: 7px 7px 0 var(--bs-purple);
+      }
+      .bs-notice { min-height: 92px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+  <script defer src="/content/site/sv-global-header.js?v=20260911-header-controls-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260911-header-controls-1"></script>
+  <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
+  <script defer src="/content/site/ksvl-player.js?v=20260911-header-controls-1"></script>
+  <script defer src="/content/site/ai-accent-autowrap.js?v=20260830-native-controls-1"></script>
+  <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+  <script>
+    window.plausible = window.plausible || function() {
+      (plausible.q = plausible.q || []).push(arguments);
+    };
+    plausible.init = plausible.init || function(i) { plausible.o = i || {}; };
+    plausible.init();
+  </script>
+</head>
+<body class="svb-page">
+  <header class="sv-header"></header>
+
+  <main class="bs-main">
+    <section class="bs-hero" aria-label="JoJo at the Blend & Snap counter">
+      <p class="bs-hero__held" role="status">JoJo counter visual held · the Study Pack menu remains open for ordering.</p>
+      <button class="bs-special-on-board" id="bsOrderHero" type="button">
+        <strong id="bsHeroSpecial">Episode pack menu</strong>
+        <span>Order at the counter</span>
+      </button>
+    </section>
+
+    <section class="bs-state" aria-labelledby="bs-title">
+      <div class="bs-state__inner">
+        <p class="bs-address">The Blend & Snap · No. 4 MAiN · Keeper: JoJo</p>
+        <h1 id="bs-title">The usual?</h1>
+        <p class="bs-state__copy" id="bsStateCopy">
+          First time in? Choose your coffee, then order the pack menu to see exactly what is ready. It is all on the house.
+        </p>
+        <div class="bs-state__actions">
+          <button class="svb-action" id="bsOrderState" type="button" disabled>Loading the episode menu</button>
+          <button class="bs-theme" type="button" data-src="/content/music/the-laidies-down-at-the-blend-and-snap.mp3">Listen to “Down at the Blend & Snap”</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="bs-usual" aria-labelledby="bs-usual-title">
+      <div class="bs-usual__head">
+        <div>
+          <p class="bs-kicker">JoJo remembers</p>
+          <h2 id="bs-usual-title">What are you having?</h2>
+        </div>
+        <p>
+          The first time, you spell out the order. Next time, the place knows it
+          because you built the context. That is the whole AI-memory lesson in one coffee.
+        </p>
+      </div>
+      <div class="bs-drinks" id="bsDrinks" aria-label="Choose your usual drink">
+        <button class="bs-drink" type="button" data-drink="Cortado"><strong>Cortado</strong><span>Short, direct, gets to the point.</span></button>
+        <button class="bs-drink" type="button" data-drink="Hazelnut mocha"><strong>Hazelnut mocha</strong><span>Detailed, warm, a little extra.</span></button>
+        <button class="bs-drink" type="button" data-drink="Chai latte"><strong>Chai latte</strong><span>Structured, spiced, impossible to rush.</span></button>
+      </div>
+      <p class="bs-memory-note" id="bsMemoryNote">Choose once. JoJo will remember on this device.</p>
+    </section>
+
+    <section class="bs-counter" id="the-study-pack" aria-labelledby="bs-counter-title">
+      <div class="bs-counter-head">
+        <div>
+          <p class="bs-kicker">Today's menu · all on the house</p>
+          <h2 id="bs-counter-title">Order at the counter.</h2>
+        </div>
+        <p>
+          The Special is the current episode&rsquo;s pack menu. Every piece keeps
+          its own status, so planned or held work never masquerades as ready.
+        </p>
+      </div>
+
+      <button class="svb-action bs-mobile-order" id="bsOrderMobile" type="button" disabled>Loading the Special</button>
+
+      <div class="bs-menu-ledger">
+        <div class="bs-menu-line">
+          <div>
+            <h3 id="bsSpecialName">Episode Study Pack menu</h3>
+            <p id="bsSpecialDesc" role="status" aria-live="polite" aria-atomic="true" aria-busy="true" tabindex="-1">JoJo is checking which pieces are actually ready.</p>
+            <a class="bs-pack-fallback" id="bsPackFallback" href="/chick-flicks.html" hidden>Browse released Episodes →</a>
+            <button class="bs-pack-retry" id="bsPackRetry" type="button" hidden>Try loading the menu again</button>
+          </div>
+          <button class="svb-action" id="bsOrderMenu" type="button" disabled>Loading the Special</button>
+        </div>
+        <div id="bsComponents" aria-live="polite"></div>
+        <div id="bsQuizHandoff" aria-live="polite"></div>
+      </div>
+
+      <article class="bs-receipt" id="bsReceipt" aria-live="polite">
+        <div>
+          <p class="bs-receipt__stamp">Order up · Study Pack</p>
+          <h3 id="bsReceiptTitle">Episode pack menu</h3>
+          <p id="bsReceiptCopy">JoJo is checking the menu.</p>
+          <ul class="bs-receipt__components" id="bsReceiptComponents"></ul>
+          <div class="bs-receipt__quiz-handoff" id="bsReceiptQuizHandoff"></div>
+        </div>
+        <div class="bs-receipt__actions">
+          <a class="svb-action" id="bsTakeEpisode" href="/chick-flicks.html">Read the Episode</a>
+          <button class="svb-action svb-action--paper" id="bsCloseReceipt" type="button">Leave it at the counter</button>
+        </div>
+      </article>
+
+      <details class="bs-regulars">
+        <summary>The Regulars · past episode pack menus</summary>
+        <div class="bs-regulars__list" id="bsRegulars">
+          <p>The back menu is being restocked.</p>
+        </div>
+      </details>
+    </section>
+
+    <section class="bs-noticeboard" aria-labelledby="bs-noticeboard-title">
+      <div class="bs-noticeboard-head">
+        <div>
+          <p class="bs-kicker">The Wednesday corkboard</p>
+          <h2 id="bs-noticeboard-title">Where everyone is going after coffee.</h2>
+        </div>
+        <p>
+          The flyers are the links. Pick the note that matches what you need and
+          follow it across town—no separate list of mystery buttons.
+        </p>
+      </div>
+
+      <div class="bs-board-wrap">
+        <a class="bs-notice bs-notice--study-pack" href="#the-study-pack" aria-label="Open the Study Pack menu and check current availability">
+          <strong>Study Pack menu</strong>
+          <span>Availability checked before every order</span>
+        </a>
+        <a class="bs-notice" href="/sunnyvaile-high.html" aria-label="Pop Quiz help at SUNNYVAiLE High">Pop Quiz help at SUNNYVAiLE High</a>
+        <a class="bs-notice" href="/chick-flicks.html" aria-label="Chick Flicks episode rewind club">Chick Flicks episode rewind club</a>
+        <a class="bs-notice" href="/bronze-aige.html" aria-label="BRONZE AiGE post-quiz debrief">BRONZE AiGE post-quiz debrief</a>
+        <a class="bs-notice" href="/radio.html" aria-label="KSVL earworm study session">KSVL earworm study session</a>
+        <a class="bs-notice" href="/luminairy.html" aria-label="LUMINAiRY field trip — meet a MAiVEN">LUMINAiRY field trip — meet a MAiVEN</a>
+        <a class="bs-notice" href="/sorority-house.html" aria-label="Delta LAi Nu Girl Talk — Resident Card required">Delta LAi Nu Girl Talk — Resident Card required</a>
+        <a class="bs-notice" href="/library.html" aria-label="LIBRAiRY citation rescue">LIBRAiRY citation rescue</a>
+      </div>
+
+      <p class="bs-quiet">
+        <strong>Just here for the coffee?</strong> That is allowed too. Third places
+        do not ask you to be productive. Any Try-On note or pack-menu memory offered
+        here stays on this device. Cards are labelled held or unavailable until
+        their collection authority is genuinely ready.
+      </p>
+    </section>
+  </main>
+
+  <footer>© LAiDIES · Filed from SUNNYVAiLE · The Blend & Snap</footer>
+
+  <script>
+    (function() {
+      "use strict";
+
+      var currentEpisode = null;
+      var currentPack = null;
+      var currentKey = "";
+      var receipt = document.getElementById("bsReceipt");
+      var orderButtons = ["bsOrderHero", "bsOrderState", "bsOrderMobile", "bsOrderMenu"];
+      var activeThemeButton = null;
+      var activeAudio = null;
+      var packsByEpisode = {};
+      var dataState = "loading";
+      var sessionUsual = "";
+      var lastOrderTrigger = null;
+      var activeLoadController = null;
+      var activeLoadId = 0;
+
+      function canUseStorage() {
+        try {
+          var probe = "laidies_bs_storage_probe";
+          localStorage.setItem(probe, "1");
+          localStorage.removeItem(probe);
+          return true;
+        } catch (error) {
+          return false;
+        }
+      }
+
+      var storageWritable = canUseStorage();
+
+      function getLocal(key) {
+        try { return localStorage.getItem(key) || ""; } catch (error) { return ""; }
+      }
+
+      function clearLocal(key) {
+        try { localStorage.removeItem(key); } catch (error) {}
+      }
+
+      function setLocal(key, value) {
+        try {
+          localStorage.setItem(key, value);
+          return true;
+        } catch (error) {
+          return false;
+        }
+      }
+
+      function getUsual() {
+        if (sessionUsual) return sessionUsual;
+        var saved = getLocal("laidies_bs_usual");
+        var isControlledDrink = Array.prototype.some.call(
+          document.querySelectorAll(".bs-drink"),
+          function(button) { return button.getAttribute("data-drink") === saved; }
+        );
+        if (!saved || isControlledDrink) return saved;
+        clearLocal("laidies_bs_usual");
+        return "";
+      }
+
+      function getLastOpenedPack() {
+        var saved = getLocal("laidies_bs_last_pack");
+        if (!saved) return "";
+        var isKnownPack = Object.keys(packsByEpisode).some(function(episodeNumber) {
+          var pack = packsByEpisode[episodeNumber];
+          return pack && String(pack.episodeSlug || pack.episodeNumber) === saved;
+        });
+        if (isKnownPack) return saved;
+        clearLocal("laidies_bs_last_pack");
+        return "";
+      }
+
+      function setOrderAvailability(enabled, label) {
+        orderButtons.forEach(function(id) {
+          var button = document.getElementById(id);
+          if (!button) return;
+          button.disabled = !enabled;
+          if (id !== "bsOrderHero") button.textContent = label;
+        });
+      }
+
+      function stateCopy() {
+        var usual = getUsual();
+        var title = document.getElementById("bs-title");
+        var copy = document.getElementById("bsStateCopy");
+
+        if (dataState !== "ready") {
+          title.textContent = usual ? "The usual?" : "First time in?";
+          copy.textContent = dataState === "loading"
+            ? "JoJo is checking the episode pack menu before taking an order."
+            : "The pack menu is unavailable right now, so JoJo is not guessing what is ready. Browse the released Episodes instead.";
+          return;
+        }
+
+        var pickedUp = getLastOpenedPack();
+
+        if (!usual) {
+          title.textContent = "First time in?";
+          copy.textContent = currentKey && pickedUp === currentKey
+            ? "This device already opened Episode " +
+              String(currentEpisode.number).padStart(2, "0") +
+              "'s pack menu. Choose a coffee if you want JoJo to remember a usual here too."
+            : "Choose your coffee, then order Episode " +
+              String(currentEpisode.number).padStart(2, "0") +
+              "'s pack menu to see exactly what is ready. It is all on the house.";
+          return;
+        }
+
+        title.textContent = "The usual?";
+        if (currentKey && pickedUp === currentKey) {
+          copy.textContent = usual + " is waiting. This device already opened Episode " +
+            String(currentEpisode.number).padStart(2, "0") +
+            "'s pack menu; open it again whenever you want.";
+        } else {
+          copy.textContent = usual + " is waiting. Episode " +
+            String(currentEpisode.number).padStart(2, "0") +
+            "'s pack menu is ready to order on this device.";
+        }
+      }
+
+      function componentActionLabel(component) {
+        if (component.id === "try_on") return "Open the Try-On →";
+        if (component.id === "cheat_sheet") return "Open the Cheat Sheet →";
+        if (component.id === "trading_cards") return "Open the Cards →";
+        return "Open →";
+      }
+
+      function renderQuizHandoff(handoff, container, receiptMode) {
+        container.replaceChildren();
+        var heading = document.createElement(receiptMode ? "h4" : "h3");
+        heading.textContent = "Check understanding next door";
+        var copy = document.createElement("p");
+        copy.textContent = handoff.label + " · " + handoff.job + ". " + handoff.publicNote;
+        container.append(heading, copy);
+        if (handoff.status === "available") {
+          var link = document.createElement("a");
+          link.href = handoff.route;
+          link.textContent = "Go to SUNNYVAiLE High →";
+          container.appendChild(link);
+        } else {
+          var status = document.createElement("span");
+          status.className = "bs-component-status";
+          status.dataset.status = handoff.status;
+          status.textContent = handoff.statusLabel;
+          container.appendChild(status);
+        }
+      }
+
+      function renderReceipt(pack) {
+        var episodeNumber = String(pack.episodeNumber).padStart(2, "0");
+        document.getElementById("bsReceiptTitle").textContent =
+          "Episode " + episodeNumber + " pack menu · " + pack.episodeTitle;
+        document.getElementById("bsReceiptCopy").textContent =
+          "The Episode explains. The Try-On practises. The Cheat Sheet stays close. Cards collect and reinforce. The Quiz checks understanding next door.";
+        document.getElementById("bsTakeEpisode").href = pack.episodeRoute;
+        document.getElementById("bsTakeEpisode").textContent =
+          "Read Episode " + episodeNumber;
+
+        var list = document.getElementById("bsReceiptComponents");
+        list.replaceChildren();
+        pack.components.forEach(function(component) {
+          var item = document.createElement("li");
+          var description = document.createElement("span");
+          var strong = document.createElement("strong");
+          strong.textContent = component.label;
+          description.appendChild(strong);
+          description.appendChild(document.createTextNode(" · " + component.job));
+          item.appendChild(description);
+          if (component.status === "available") {
+            var link = document.createElement("a");
+            link.href = component.route;
+            link.textContent = componentActionLabel(component);
+            item.appendChild(link);
+          } else {
+            var status = document.createElement("span");
+            status.className = "bs-component-status";
+            status.dataset.status = component.status;
+            status.textContent = component.statusLabel;
+            item.appendChild(status);
+          }
+          list.appendChild(item);
+        });
+        renderQuizHandoff(
+          pack.quizHandoff,
+          document.getElementById("bsReceiptQuizHandoff"),
+          true
+        );
+      }
+
+      function openReceipt(pack, trigger) {
+        if (!pack || dataState !== "ready") return;
+        lastOrderTrigger = trigger || document.activeElement;
+        renderReceipt(pack);
+        receipt.classList.add("is-open");
+        if (pack === currentPack) {
+          if (!setLocal("laidies_bs_last_pack", currentKey)) {
+            document.getElementById("bsMemoryNote").textContent =
+              "JoJo cannot remember pack pickup on this device right now. The menu still works.";
+          }
+          stateCopy();
+        }
+        receipt.scrollIntoView({
+          behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+          block: "start"
+        });
+        window.setTimeout(function() {
+          var heading = document.getElementById("bsReceiptTitle");
+          heading.setAttribute("tabindex", "-1");
+          heading.focus({ preventScroll: true });
+        }, 0);
+      }
+
+      function selectDrink(button) {
+        var drink = button.getAttribute("data-drink");
+        sessionUsual = drink;
+        var saved = setLocal("laidies_bs_usual", drink);
+        document.querySelectorAll(".bs-drink").forEach(function(item) {
+          item.classList.toggle("is-selected", item === button);
+        });
+        document.getElementById("bsMemoryNote").textContent =
+          saved
+            ? drink + " is now your usual on this device."
+            : "JoJo can hold " + drink + " for this visit, but this browser blocked device memory.";
+        stateCopy();
+      }
+
+      function escapeHTML(value) {
+        return String(value == null ? "" : value).replace(/[<>&"]/g, function(character) {
+          return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[character];
+        });
+      }
+
+      function isRealDate(value) {
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(value || "")) return false;
+        var parts = value.split("-").map(Number);
+        var parsed = new Date(Date.UTC(parts[0], parts[1] - 1, parts[2]));
+        return parsed.getUTCFullYear() === parts[0] &&
+          parsed.getUTCMonth() === parts[1] - 1 &&
+          parsed.getUTCDate() === parts[2];
+      }
+
+      function safeRoute(value) {
+        return typeof value === "string" &&
+          /^\/(?!\/)[A-Za-z0-9_./?=&%#-]+$/.test(value) &&
+          !value.includes("..");
+      }
+
+      function hasOnlyKeys(value, allowed) {
+        return value && Object.keys(value).every(function(key) {
+          return allowed.includes(key);
+        });
+      }
+
+      function validatePackManifest(manifest, episodes) {
+        var statuses = ["available", "held", "planned", "unavailable"];
+        var requiredComponents = ["study_sheet", "try_on", "cheat_sheet", "trading_cards"];
+        var manifestKeys = ["schemaVersion", "manifestId", "updatedAt", "freshThrough", "packs"];
+        var packKeys = ["episodeNumber", "episodeSlug", "episodeTitle", "episodeRoute", "components", "quizHandoff"];
+        var componentKeys = ["id", "job", "label", "status", "statusLabel", "publicNote", "route"];
+        var quizHandoffKeys = ["id", "job", "label", "status", "statusLabel", "publicNote", "route"];
+        var today = new Date().toISOString().slice(0, 10);
+        if (!manifest || manifest.schemaVersion !== "1.0.0" ||
+            manifest.manifestId !== "blend-snap-weekly-packs" ||
+            !hasOnlyKeys(manifest, manifestKeys) ||
+            !isRealDate(manifest.updatedAt) ||
+            !isRealDate(manifest.freshThrough) ||
+            manifest.updatedAt > manifest.freshThrough ||
+            manifest.updatedAt > today ||
+            !Array.isArray(manifest.packs)) {
+          throw new Error("pack manifest invalid");
+        }
+        var published = episodes.filter(function(episode) {
+          return episode.status === "published";
+        });
+        if (!published.length || manifest.packs.length !== published.length) {
+          throw new Error("published episode and pack inventory disagree");
+        }
+        var episodeByNumber = {};
+        published.forEach(function(episode) {
+          if (episodeByNumber[episode.number]) throw new Error("duplicate episode");
+          episodeByNumber[episode.number] = episode;
+        });
+        var seenPacks = {};
+        manifest.packs.forEach(function(pack) {
+          var requiredForPack = pack.episodeNumber === 1
+            ? ["try_on", "cheat_sheet", "trading_cards"]
+            : requiredComponents;
+          var episode = episodeByNumber[pack.episodeNumber];
+          var episodeRoute = "/" + String(episode && episode.issueUrl || "").replace(/^\//, "");
+          if (!episode || !hasOnlyKeys(pack, packKeys) ||
+              seenPacks[pack.episodeNumber] ||
+              pack.episodeSlug !== episode.slug ||
+              pack.episodeTitle !== episode.title ||
+              pack.episodeRoute !== episodeRoute ||
+              !safeRoute(pack.episodeRoute) ||
+              !Array.isArray(pack.components) ||
+              pack.components.length !== requiredForPack.length) {
+            throw new Error("pack does not match published episode");
+          }
+          var quizHandoff = pack.quizHandoff;
+          var expectedQuizRoute = "/learn/quiz.html?issue=" +
+            encodeURIComponent(pack.episodeNumber) +
+            "&from=blend-snap#quiz-start";
+          if (!quizHandoff || !hasOnlyKeys(quizHandoff, quizHandoffKeys) ||
+              quizHandoff.id !== "quiz" || !statuses.includes(quizHandoff.status) ||
+              !quizHandoff.label || !quizHandoff.job || !quizHandoff.statusLabel ||
+              !quizHandoff.publicNote ||
+              (quizHandoff.status === "available" &&
+                (!safeRoute(quizHandoff.route) || quizHandoff.route !== expectedQuizRoute)) ||
+              (quizHandoff.status !== "available" && quizHandoff.route !== null)) {
+            throw new Error("Quiz handoff contract invalid");
+          }
+          seenPacks[pack.episodeNumber] = true;
+          var ids = [];
+          pack.components.forEach(function(component) {
+            ids.push(component.id);
+            if (!hasOnlyKeys(component, componentKeys) ||
+                !requiredForPack.includes(component.id) ||
+                !statuses.includes(component.status) ||
+                !component.label || !component.job || !component.statusLabel ||
+                !component.publicNote ||
+                (component.status === "available" && !safeRoute(component.route)) ||
+                (component.status !== "available" && component.route !== null)) {
+              throw new Error("component status contract invalid");
+            }
+          });
+          if (new Set(ids).size !== requiredForPack.length) {
+            throw new Error("duplicate or missing component");
+          }
+        });
+        // Review dates schedule maintenance; explicit component status owns availability.
+        // Do not silently relabel the evidence as current or reopen held items.
+        if (manifest.freshThrough < today) {
+          console.warn("Blend & Snap menu review overdue: " + manifest.freshThrough +
+            ". Check existing component routes and statuses; no availability changed.");
+        }
+        return published.sort(function(a, b) {
+          return Number(b.number) - Number(a.number);
+        });
+      }
+
+      function renderMenuComponents(pack) {
+        var container = document.getElementById("bsComponents");
+        container.replaceChildren();
+        pack.components.forEach(function(component) {
+          var row = document.createElement("div");
+          row.className = "bs-menu-line";
+          var copy = document.createElement("div");
+          var heading = document.createElement("h3");
+          heading.textContent = component.label;
+          var job = document.createElement("p");
+          job.textContent = component.job + ".";
+          var status = document.createElement("span");
+          status.className = "bs-component-status";
+          status.dataset.status = component.status;
+          status.textContent = component.statusLabel;
+          copy.append(heading, job, status);
+          row.appendChild(copy);
+          if (component.status === "available") {
+            var link = document.createElement("a");
+            link.className = "bs-menu-link";
+            link.href = component.route;
+            link.textContent = componentActionLabel(component);
+            row.appendChild(link);
+          } else {
+            var note = document.createElement("span");
+            note.className = "bs-menu-unavailable";
+            note.textContent = component.publicNote;
+            row.appendChild(note);
+          }
+          container.appendChild(row);
+        });
+      }
+
+      function applyPackData(manifest, episodes) {
+        var sortedEpisodes = validatePackManifest(manifest, episodes);
+        manifest.packs.forEach(function(pack) {
+          packsByEpisode[pack.episodeNumber] = pack;
+        });
+        currentEpisode = sortedEpisodes[0];
+        currentPack = packsByEpisode[currentEpisode.number];
+        currentKey = String(currentEpisode.slug || currentEpisode.number);
+        dataState = "ready";
+
+        var episodeNumber = String(currentEpisode.number).padStart(2, "0");
+        var packPieces = currentPack.components.filter(function(component) {
+          return component.id !== "quiz";
+        });
+        var readyCount = packPieces.filter(function(component) {
+          return component.status === "available";
+        }).length;
+        document.getElementById("bsHeroSpecial").textContent =
+          "Episode " + episodeNumber + " pack menu";
+        document.getElementById("bsSpecialName").textContent =
+          "Episode " + episodeNumber + " Study Pack menu · " + currentEpisode.title;
+        document.getElementById("bsSpecialDesc").textContent =
+          readyCount + " of " + packPieces.length +
+          " pack pieces " + (readyCount === 1 ? "is" : "are") + " ready. " +
+          "The Quiz is listed separately because it checks understanding; it is not part of the Pack.";
+        document.getElementById("bsSpecialDesc").setAttribute("aria-busy", "false");
+        document.getElementById("bsPackFallback").hidden = true;
+        document.getElementById("bsPackRetry").hidden = true;
+        renderMenuComponents(currentPack);
+        renderQuizHandoff(
+          currentPack.quizHandoff,
+          document.getElementById("bsQuizHandoff"),
+          false
+        );
+        setOrderAvailability(true, "Order Episode " + episodeNumber + " pack menu");
+
+        var past = sortedEpisodes.slice(1);
+        var regulars = document.getElementById("bsRegulars");
+        if (!past.length) {
+          regulars.innerHTML = "<p>Season one is young. Past pack menus join here as Episodes stack up.</p>";
+        } else {
+          regulars.innerHTML = past.map(function(episode) {
+            return '<button class="bs-regular" type="button" data-pack-episode="' +
+              Number(episode.number) + '">' +
+              '<span class="bs-regular__number">EP ' + String(episode.number).padStart(2, "0") + "</span>" +
+              "<span><strong>" + escapeHTML(episode.title) + "</strong>" +
+              escapeHTML(episode.oneLineDescription || episode.lesson || "") + "</span>" +
+              '<span class="bs-regular__go">View pack menu →</span>' +
+            "</button>";
+          }).join("");
+          regulars.querySelectorAll("[data-pack-episode]").forEach(function(button) {
+            button.addEventListener("click", function() {
+              openReceipt(packsByEpisode[Number(button.dataset.packEpisode)], button);
+            });
+          });
+        }
+        stateCopy();
+      }
+
+      orderButtons.forEach(function(id) {
+        var button = document.getElementById(id);
+        if (button) button.addEventListener("click", function() {
+          openReceipt(currentPack, button);
+        });
+      });
+
+      document.getElementById("bsCloseReceipt").addEventListener("click", function() {
+        receipt.classList.remove("is-open");
+        if (lastOrderTrigger && typeof lastOrderTrigger.focus === "function") {
+          lastOrderTrigger.focus();
+        }
+      });
+
+      document.querySelectorAll(".bs-drink").forEach(function(button) {
+        button.addEventListener("click", function() { selectDrink(button); });
+      });
+
+      var savedDrink = getUsual();
+      if (savedDrink) {
+        document.querySelectorAll(".bs-drink").forEach(function(button) {
+          button.classList.toggle("is-selected", button.getAttribute("data-drink") === savedDrink);
+        });
+        document.getElementById("bsMemoryNote").textContent =
+          savedDrink + " is your usual on this device.";
+      } else if (!storageWritable) {
+        document.getElementById("bsMemoryNote").textContent =
+          "This browser blocked device memory. You can still choose a drink for this visit and order the menu.";
+      }
+
+      document.querySelectorAll(".bs-theme").forEach(function(button) {
+        button.addEventListener("click", function() {
+          if (activeThemeButton === button) {
+            activeAudio.pause();
+            button.classList.remove("is-playing");
+            button.textContent = "Listen to “Down at the Blend & Snap”";
+            activeThemeButton = null;
+            activeAudio = null;
+            return;
+          }
+          if (activeAudio) activeAudio.pause();
+          var audio = new Audio(button.getAttribute("data-src"));
+          audio.addEventListener("ended", function() {
+            button.classList.remove("is-playing");
+            button.textContent = "Listen to “Down at the Blend & Snap”";
+            activeThemeButton = null;
+            activeAudio = null;
+          });
+          audio.play().catch(function() {});
+          button.classList.add("is-playing");
+          button.textContent = "Pause “Down at the Blend & Snap”";
+          activeThemeButton = button;
+          activeAudio = audio;
+        });
+      });
+
+      function fetchJson(route, signal) {
+        return fetch(route, {
+          signal: signal,
+          cache: "no-store",
+          headers: { "cache-control": "no-cache" }
+        }).then(function(response) {
+          if (!response.ok) throw new Error("menu data unavailable");
+          return response.json();
+        });
+      }
+
+      function showPackFailure() {
+        dataState = "error";
+        currentEpisode = null;
+        currentPack = null;
+        currentKey = "";
+        setOrderAvailability(false, "Pack menu unavailable");
+        document.getElementById("bsHeroSpecial").textContent = "Pack menu unavailable";
+        document.getElementById("bsSpecialName").textContent =
+          "JoJo is not taking a pack order right now";
+        document.getElementById("bsSpecialDesc").textContent =
+          "The episode index and component manifest did not agree, were stale, or could not be loaded. Nothing is being presented as ready until both sources pass.";
+        document.getElementById("bsSpecialDesc").setAttribute("aria-busy", "false");
+        document.getElementById("bsPackFallback").hidden = false;
+        document.getElementById("bsPackRetry").hidden = false;
+        document.getElementById("bsComponents").replaceChildren();
+        document.getElementById("bsQuizHandoff").replaceChildren();
+        document.getElementById("bsReceiptQuizHandoff").replaceChildren();
+        document.getElementById("bsRegulars").innerHTML =
+          "<p>Past pack menus are unavailable until the same inventory check passes.</p>";
+        receipt.classList.remove("is-open");
+        stateCopy();
+        window.setTimeout(function() {
+          document.getElementById("bsPackRetry").focus({ preventScroll: true });
+        }, 0);
+      }
+
+      function loadPackData(userTriggered) {
+        if (activeLoadController) activeLoadController.abort();
+        activeLoadController = new AbortController();
+        var controller = activeLoadController;
+        var loadId = ++activeLoadId;
+        var deadline = window.setTimeout(function() {
+          controller.abort();
+        }, 8000);
+        dataState = "loading";
+        setOrderAvailability(false, "Loading the episode menu");
+        document.getElementById("bsSpecialDesc").textContent =
+          "JoJo is checking the episode index and component menu before taking an order.";
+        document.getElementById("bsSpecialDesc").setAttribute("aria-busy", "true");
+        document.getElementById("bsPackFallback").hidden = true;
+        document.getElementById("bsPackRetry").hidden = true;
+        stateCopy();
+        if (userTriggered) {
+          document.getElementById("bsSpecialDesc").focus({ preventScroll: true });
+        }
+        Promise.all([
+          fetchJson("/content/episode-index.json", controller.signal),
+          fetchJson("/content/blend-snap-weekly-packs.json", controller.signal)
+        ]).then(function(results) {
+          if (loadId !== activeLoadId) return;
+          applyPackData(results[1], results[0].episodes || []);
+        }).catch(function() {
+          if (loadId !== activeLoadId) return;
+          showPackFailure();
+        }).finally(function() {
+          window.clearTimeout(deadline);
+          if (loadId === activeLoadId) activeLoadController = null;
+        });
+      }
+
+      document.getElementById("bsPackRetry").addEventListener("click", function() {
+        loadPackData(true);
+      });
+
+      loadPackData(false);
+
+      stateCopy();
+    })();
+  </script>
+</body>
+</html>

@@ -1,3 +1,16 @@
+/* Shared utilities live in the header (Ali, 2026-09-11). */
+(function () {
+  if (document.querySelector('script[data-sv-header-controls]')) return;
+  var guard = document.createElement('style');
+  guard.id = 'sv-header-controls-pending';
+  guard.textContent = 'body > :is(.sv-side-rail,.sv-yah-chip,.svwt-chip,.svwt-offer,.svwt-paused,.ksvl-now-playing,#ksvl-resume-nudge,.wednesday-return,[data-laidies-context-return]) { visibility:hidden!important; }';
+  document.head.appendChild(guard);
+  var s = document.createElement('script');
+  s.src = '/content/site/sv-header-controls.js?v=20260911-1';
+  s.dataset.svHeaderControls = '1';
+  document.head.appendChild(s);
+})();
+
 /**
  * ★ YOU ARE HERE — mall-directory chip + full-map modal.
  *

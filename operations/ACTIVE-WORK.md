@@ -1,3 +1,7 @@
+## 2026-09-11 — Header controls — BUILDING
+
+Move the shared floating Back control and other persistent floating utilities into headers sitewide. Owner: current homepage correction thread. Preserve all existing service state and latest provider assets. New rule: `operations/DECISIONS.md`. Next: inventory current public shared scripts, implement bounded header mounting, verify responsive navigation, then preserve and release the exact delta. Homepage Learn/Useful-Fun image choices remain open and are not part of this correction.
+
 > **2026-09-11 — VERIFIED PUBLICLY: confirmed reference restoration 9de872a3 / source 1174ff2b. Navy cards, reference banner colours, clear pink title, lime image frames, exact user-confirmed laptop-and-notes desk and improved VHS crop. Verified public phone, middle and wide layouts plus both-origin bytes; 793 other assets and MAiKEOVER retained. Learn and Useful/Fun images remain OPEN. The floating arrow is Back navigation, unchanged. Record: releases/reference-return-20260911.**
 
 > **2026-09-11 — BUILDING: restore Ali-selected 8f133695 card/banner treatments with readable pink DYK title and lime image borders. Exact laptop-and-notes AI-question image now explicitly confirmed. Public4eb84a05 remains deployed but visual treatment REJECTED. Learn original and Useful/Fun art remain unresolved; no new generation. Floating arrow identified as shared back navigation, not radio overflow.**

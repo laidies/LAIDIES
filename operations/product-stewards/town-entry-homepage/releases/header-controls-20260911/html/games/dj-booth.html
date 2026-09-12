@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DJ SunnyV's Booth | LAiDIES · SUNNYVAiLE</title>
+    <meta name="description" content="Visit DJ SunnyV's Booth and listen to LAiDIES original songs with the KSVL player." />
+    <meta property="og:title" content="DJ SunnyV's Booth | LAiDIES" />
+    <meta property="og:description" content="Visit DJ SunnyV's Booth and listen to LAiDIES original songs with the KSVL player." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://laidies.ai/assets/house-dj-mixdesk-v3.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#b95d78" />
+    <link rel="icon" type="image/svg+xml" href="/approved-assets/brand-logos/laidies-favicon-final.svg?v=20260902-ai-v2" sizes="any" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="stylesheet" href="../styles.css?v=sticky-fix-2" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <style>
+      /* === DJ BOOTH — PEARL EDITORIAL SHELL === */
+      :root {
+        --dj-bg: #fbf6f5;
+        --dj-surface: #fffdfb;
+        --dj-card: #fffdfb;
+        --dj-pink: #b95d78;
+        --dj-pink-glow: rgba(185, 93, 120, 0.24);
+        --dj-pink-subtle: rgba(185, 93, 120, 0.12);
+        --dj-text: #4b2148;
+        --dj-muted: rgba(75, 33, 72, 0.66);
+        --dj-line: rgba(75, 33, 72, 0.16);
+      }
+
+      body {
+        background: var(--dj-bg) !important;
+        color: var(--dj-text);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* Soft editorial atmosphere */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        width: auto;
+        height: auto;
+        background: radial-gradient(ellipse at 18% 4%, rgba(200, 220, 224, 0.18) 0%, transparent 56%),
+                    radial-gradient(ellipse at 80% 80%, rgba(232, 197, 200, 0.14) 0%, transparent 42%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .site-header {
+        background: rgba(255, 253, 251, 0.96) !important;
+        border-bottom: 1px solid var(--dj-line) !important;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+        gap: 12px;
+        flex-wrap: wrap;
+        overflow: clip;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+      .site-header::before,
+      .site-header::after {
+        display: none !important;
+      }
+      .site-header > * {
+        min-width: 0;
+      }
+      .site-header .brand {
+        flex: 0 0 auto;
+      }
+      .site-header .nav {
+        flex: 1 1 620px;
+        min-width: 0;
+        max-width: 100%;
+        overflow: hidden;
+        justify-content: flex-end;
+        gap: 14px !important;
+      }
+      .site-header .nav a {
+        min-width: max-content;
+      }
+      .site-header .nav a { color: rgba(75, 33, 72, 0.78) !important; }
+      .site-header .nav a:hover { color: #6f263f !important; }
+
+      main { position: relative; z-index: 1; }
+
+      /* === HERO === */
+      .dj-hero {
+        position: relative;
+        width: 100%;
+        max-height: 340px;
+        overflow: hidden;
+        margin-bottom: 0;
+      }
+      .dj-hero img {
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
+        object-position: center 30%;
+        display: block;
+        filter: brightness(0.86) saturate(0.96);
+      }
+      .dj-hero::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 60%;
+        background: linear-gradient(to bottom, transparent, rgba(251, 246, 245, 0.98));
+        pointer-events: none;
+      }
+
+      /* === TITLE AREA === */
+      .dj-title-section {
+        text-align: center;
+        padding: 48px 24px 32px;
+        position: relative;
+      }
+      .dj-title-section .eyebrow {
+        color: var(--dj-pink) !important;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+        display: block;
+      }
+      .dj-title-section h1 {
+        font-family: 'Playfair Display', Didot, Georgia, serif;
+        font-size: clamp(2.2rem, 5vw, 3.6rem);
+        font-weight: 700;
+        color: var(--dj-text);
+        text-shadow: none;
+        margin: 0 0 12px;
+        line-height: 1.1;
+      }
+      .dj-title-section p {
+        color: var(--dj-muted);
+        font-size: 1rem;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      /* === PLAYER CONTAINER === */
+      .dj-player-container {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 0 24px 48px;
+      }
+
+      /* === VINYL + EQUALIZER ROW === */
+      .dj-visual-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        margin-bottom: 32px;
+      }
+
+      /* === SPINNING VINYL === */
+      .dj-vinyl-wrap {
+        position: relative;
+        width: 160px;
+        height: 160px;
+        flex-shrink: 0;
+      }
+      .dj-vinyl {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 0deg,
+          #111 0deg, #1a1a1a 30deg,
+          #0d0d0d 60deg, #222 90deg,
+          #111 120deg, #1a1a1a 150deg,
+          #0d0d0d 180deg, #222 210deg,
+          #111 240deg, #1a1a1a 270deg,
+          #0d0d0d 300deg, #222 330deg,
+          #111 360deg
+        );
+        box-shadow: 0 0 0 3px #333, 0 0 30px rgba(0,0,0,0.8), 0 0 60px rgba(185, 93, 120, 0.15);
+        animation: spin 2.5s linear infinite;
+        animation-play-state: paused;
+        position: relative;
+      }
+      .dj-vinyl::before {
+        content: '';
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 44px; height: 44px;
+        margin: -22px 0 0 -22px;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--dj-pink) 0%, #a01860 60%, #1a0c12 100%);
+        box-shadow: 0 0 12px var(--dj-pink-glow);
+      }
+      .dj-vinyl::after {
+        content: '';
+        position: absolute;
+        top: 50%; left: 50%;
+        width: 8px; height: 8px;
+        margin: -4px 0 0 -4px;
+        border-radius: 50%;
+        background: #fff;
+      }
+      /* Grooves */
+      .dj-vinyl-grooves {
+        position: absolute;
+        inset: 25px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.04);
+        box-shadow:
+          inset 0 0 0 8px rgba(255,255,255,0.02),
+          inset 0 0 0 16px rgba(255,255,255,0.015),
+          inset 0 0 0 24px rgba(255,255,255,0.02),
+          inset 0 0 0 32px rgba(255,255,255,0.015),
+          inset 0 0 0 40px rgba(255,255,255,0.02);
+        pointer-events: none;
+      }
+
+      .is-playing .dj-vinyl {
+        animation-play-state: running;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      /* === EQUALIZER === */
+      .dj-equalizer {
+        display: flex;
+        align-items: flex-end;
+        gap: 5px;
+        height: 80px;
+      }
+      .dj-eq-bar {
+        width: 8px;
+        background: linear-gradient(to top, var(--dj-pink), #ff6ec4);
+        border-radius: 4px;
+        animation: eqBounce var(--eq-speed, 0.8s) ease-in-out infinite alternate;
+        animation-play-state: paused;
+        opacity: 0.7;
+        box-shadow: 0 0 6px var(--dj-pink-glow);
+      }
+      .is-playing .dj-eq-bar {
+        animation-play-state: running;
+        opacity: 1;
+      }
+      .dj-eq-bar:nth-child(1) { height: 30%; --eq-speed: 0.6s; }
+      .dj-eq-bar:nth-child(2) { height: 60%; --eq-speed: 0.75s; }
+      .dj-eq-bar:nth-child(3) { height: 45%; --eq-speed: 0.5s; }
+      .dj-eq-bar:nth-child(4) { height: 80%; --eq-speed: 0.9s; }
+      .dj-eq-bar:nth-child(5) { height: 55%; --eq-speed: 0.65s; }
+      .dj-eq-bar:nth-child(6) { height: 70%; --eq-speed: 0.85s; }
+      .dj-eq-bar:nth-child(7) { height: 40%; --eq-speed: 0.55s; }
+
+      @keyframes eqBounce {
+        0% { transform: scaleY(0.3); }
+        100% { transform: scaleY(1); }
+      }
+
+      /* === NOW PLAYING === */
+      .dj-now-playing {
+        text-align: center;
+        margin-bottom: 28px;
+        min-height: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .dj-now-playing-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--dj-muted);
+        margin-bottom: 8px;
+      }
+      .dj-now-playing-title {
+        font-family: 'Playfair Display', Didot, Georgia, serif;
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+        font-weight: 700;
+        color: var(--dj-text);
+        text-shadow: 0 0 20px var(--dj-pink-glow), 0 0 40px rgba(185, 93, 120, 0.2);
+        margin: 0 0 6px;
+        transition: opacity 0.3s;
+      }
+      .dj-now-playing-ep {
+        display: inline-block;
+        background: var(--dj-pink);
+        color: #fff;
+        font-size: 0.65rem;
+        font-weight: 700;
+        padding: 3px 10px;
+        border-radius: 20px;
+        letter-spacing: 0.06em;
+        margin-bottom: 8px;
+      }
+      .dj-now-playing-desc {
+        font-size: 0.85rem;
+        color: var(--dj-muted);
+        font-style: italic;
+        margin: 0;
+      }
+
+      /* === CONTROLS === */
+      .dj-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+      .dj-controls button {
+        background: none;
+        border: none;
+        color: var(--dj-pink);
+        cursor: pointer;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        transition: background 0.2s, transform 0.15s, color 0.2s;
+        padding: 0;
+      }
+      .dj-controls button:hover {
+        background: var(--dj-pink-subtle);
+        transform: scale(1.08);
+      }
+      .dj-controls button:active {
+        transform: scale(0.95);
+      }
+      .dj-btn-prev, .dj-btn-next {
+        width: 48px; height: 48px;
+        font-size: 1.2rem;
+      }
+      .dj-btn-play {
+        width: 68px; height: 68px;
+        font-size: 1.6rem;
+        background: rgba(185, 93, 120, 0.2) !important;
+        border: 2px solid var(--dj-pink) !important;
+        box-shadow: 0 0 20px rgba(185, 93, 120, 0.3);
+      }
+      .dj-btn-play:hover {
+        background: rgba(185, 93, 120, 0.35) !important;
+        box-shadow: 0 0 30px var(--dj-pink-glow);
+      }
+      .dj-btn-repeat {
+        width: 44px; height: 44px;
+        font-size: 1rem;
+        color: var(--dj-muted);
+      }
+      .dj-btn-repeat.is-active {
+        color: var(--dj-pink);
+        text-shadow: 0 0 8px var(--dj-pink-glow);
+      }
+
+      /* === PROGRESS BAR === */
+      .dj-progress-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 36px;
+      }
+      .dj-progress-time {
+        font-size: 0.72rem;
+        color: var(--dj-muted);
+        font-variant-numeric: tabular-nums;
+        min-width: 36px;
+        font-family: 'JetBrains Mono', monospace;
+      }
+      .dj-progress-bar-wrap {
+        flex: 1;
+        position: relative;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      .dj-progress-bar-fill {
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        width: 0%;
+        background: linear-gradient(90deg, var(--dj-pink), #ff6ec4);
+        border-radius: 3px;
+        transition: width 0.1s linear;
+        box-shadow: 0 0 8px var(--dj-pink-glow);
+      }
+      .dj-progress-bar-wrap input[type="range"] {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        margin: 0;
+      }
+
+      /* === TRACK LIST === */
+      .dj-tracklist-section {
+        margin-bottom: 48px;
+      }
+      .dj-tracklist-section h2 {
+        font-family: 'Playfair Display', Didot, Georgia, serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--dj-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 16px;
+      }
+      .dj-track-card {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 18px;
+        background: var(--dj-card);
+        border: 1.5px solid rgba(185, 93, 120, 0.15);
+        border-radius: 12px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: background 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+        color: var(--dj-text);
+        text-decoration: none;
+      }
+      .dj-track-card:hover {
+        background: rgba(185, 93, 120, 0.06);
+        border-color: rgba(185, 93, 120, 0.4);
+        transform: translateX(4px);
+        box-shadow: 0 4px 20px rgba(185, 93, 120, 0.1);
+      }
+      .dj-track-card.is-active {
+        background: rgba(185, 93, 120, 0.1);
+        border-color: var(--dj-pink);
+        box-shadow: 0 0 20px rgba(185, 93, 120, 0.15), inset 0 0 20px rgba(185, 93, 120, 0.05);
+      }
+      .dj-track-card-number {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem;
+        color: var(--dj-muted);
+        min-width: 20px;
+      }
+      .dj-track-card.is-active .dj-track-card-number {
+        color: var(--dj-pink);
+      }
+      .dj-track-card-badge {
+        display: inline-block;
+        background: rgba(185, 93, 120, 0.15);
+        color: var(--dj-pink);
+        font-size: 0.6rem;
+        font-weight: 800;
+        padding: 3px 8px;
+        border-radius: 4px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .dj-track-card-info {
+        flex: 1;
+        min-width: 0;
+      }
+      .dj-track-card-title {
+        font-size: 0.92rem;
+        font-weight: 600;
+        margin-bottom: 3px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .dj-track-card-desc {
+        font-size: 0.75rem;
+        color: var(--dj-muted);
+        font-style: italic;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .dj-track-card-duration {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.7rem;
+        color: var(--dj-muted);
+        white-space: nowrap;
+      }
+
+      /* === SPOTIFY SECTION === */
+      .dj-spotify-section {
+        margin-bottom: 48px;
+        text-align: center;
+      }
+      .dj-spotify-section h2 {
+        font-family: 'Playfair Display', Didot, Georgia, serif;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--dj-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 20px;
+      }
+      .dj-spotify-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        justify-content: center;
+      }
+      .dj-spotify-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 24px;
+        background: var(--dj-card);
+        border: 1.5px solid rgba(185, 93, 120, 0.25);
+        border-radius: 50px;
+        color: var(--dj-text);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+      }
+      .dj-spotify-btn:hover {
+        background: rgba(185, 93, 120, 0.1);
+        border-color: var(--dj-pink);
+        box-shadow: 0 4px 24px rgba(185, 93, 120, 0.2);
+        transform: translateY(-2px);
+      }
+      .dj-spotify-btn svg {
+        width: 20px; height: 20px;
+        fill: #1DB954;
+      }
+
+      /* === BACK LINK === */
+      .dj-back-link {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .dj-back-link a {
+        color: var(--dj-pink);
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 10px 20px;
+        border: 1.5px solid var(--dj-line);
+        border-radius: 8px;
+        transition: background 0.2s, border-color 0.2s;
+      }
+      .dj-back-link a:hover {
+        background: var(--dj-pink-subtle);
+        border-color: rgba(185, 93, 120, 0.5);
+      }
+      a[data-wednesday-return] {
+        position: fixed !important;
+        top: 76px !important;
+        left: clamp(14px, 3vw, 26px) !important;
+        right: auto !important;
+        bottom: auto !important;
+        z-index: 120 !important;
+        display: inline-flex !important;
+        max-width: calc(100% - 28px);
+        margin: 0 !important;
+        padding: 10px 14px !important;
+        border: 1px solid rgba(185,93,120,.42) !important;
+        border-radius: 999px !important;
+        background: rgba(255, 253, 251, 0.92) !important;
+        color: var(--dj-text) !important;
+        font-weight: 850 !important;
+        text-decoration: none !important;
+        box-shadow: 0 12px 30px rgba(75,33,72,.12), 0 0 0 4px rgba(185,93,120,.08) !important;
+        backdrop-filter: blur(10px);
+      }
+      @media (max-width: 700px) {
+        a[data-wednesday-return] {
+          left: 14px !important;
+          right: auto !important;
+          top: 72px !important;
+          max-width: calc(100% - 28px);
+          justify-content: center;
+        }
+      }
+
+      /* === FOOTER OVERRIDE === */
+      .site-footer {
+        background: var(--dj-bg) !important;
+        border-top: 1px solid var(--dj-line) !important;
+        color: var(--dj-muted) !important;
+      }
+      .site-footer a { color: var(--dj-muted) !important; }
+      .site-footer a:hover { color: #6f263f !important; }
+
+      /* === RESPONSIVE === */
+      @media (max-width: 600px) {
+        .dj-visual-row { flex-direction: column; gap: 20px; }
+        .dj-vinyl-wrap { width: 120px; height: 120px; }
+        .dj-vinyl { width: 120px; height: 120px; }
+        .dj-vinyl::before { width: 34px; height: 34px; margin: -17px 0 0 -17px; }
+        .dj-vinyl-grooves { inset: 18px; }
+        .dj-hero img { height: 220px; }
+        .dj-equalizer { height: 50px; }
+        .dj-eq-bar { width: 6px; }
+        .dj-track-card { padding: 12px 14px; gap: 10px; }
+        .dj-spotify-buttons { flex-direction: column; align-items: center; }
+      }
+    </style>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa-J81NKM_EkuSbeYnuNCOTc.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+  <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
+  <script defer src="/content/site/sv-global-header.js?v=20260911-header-controls-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
+  <script defer src="/content/site/sv-welcome-tour.js?v=20260911-header-controls-1"></script>
+  <!-- Microsoft Clarity (heatmaps + session recordings) -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xnqcp37urd");
+  </script>
+  <link rel="canonical" href="https://laidies.ai/games/dj-booth" />
+  <meta property="og:url" content="https://laidies.ai/games/dj-booth" />
+</head>
+  <body>
+    <header class="sv-header">
+    <a class="brand" href="/">LAiDIES</a>
+    <nav>
+      <a href="/">This Week</a>
+      <a href="/chick-flicks.html">Episodes</a>
+      <a href="/library.html">LIBRAiRY</a>
+      <a href="/radio.html">KSVL</a>
+      <a href="/sorority-house.html">Sorority House</a>
+      <a href="/resident-card.html" class="sv-signin" style="color: #9b3f5f; font-weight: 600; border: 1.5px solid #9b3f5f; padding: 6px 14px; border-radius: 999px; text-decoration: none;">✉︎ Sign In</a>
+    </nav>
+  </header>
+
+    <main>
+      <!-- HERO -->
+      <div class="dj-hero">
+        <img src="../assets/house-dj-mixdesk-v3.png" alt="KSVL 99.9 mixing console with turntables, broadcast microphone and an illuminated ON AIR sign in DJ SunnyV's booth." />
+      </div>
+
+      <!-- TITLE -->
+      <section class="dj-title-section">
+        <span class="eyebrow">The soundcheck room</span>
+        <h1>DJ SunnyV&rsquo;s Booth</h1>
+        <p>Choose a LAiDIES original and listen here. Your place in the song stays on this device.</p>
+      </section>
+
+      <!-- PLAYER CONTAINER -->
+      <div class="dj-player-container" id="djApp">
+
+        <!-- VINYL + EQUALIZER -->
+        <div class="dj-visual-row" id="djVisualRow">
+          <div class="dj-vinyl-wrap">
+            <div class="dj-vinyl">
+              <div class="dj-vinyl-grooves"></div>
+            </div>
+          </div>
+          <div class="dj-equalizer">
+            <div class="dj-eq-bar"></div>
+            <div class="dj-eq-bar"></div>
+            <div class="dj-eq-bar"></div>
+            <div class="dj-eq-bar"></div>
+            <div class="dj-eq-bar"></div>
+            <div class="dj-eq-bar"></div>
+            <div class="dj-eq-bar"></div>
+          </div>
+        </div>
+
+        <!-- NOW PLAYING -->
+        <div class="dj-now-playing" id="djNowPlaying">
+          <span class="dj-now-playing-label">Soundcheck status</span>
+          <span class="dj-now-playing-ep" id="djNpEp" style="display:none;"></span>
+          <h2 class="dj-now-playing-title" id="djNpTitle">Choose a track to listen.</h2>
+          <p class="dj-now-playing-desc" id="djNpDesc" role="status" aria-live="polite" aria-atomic="true">LAiDIES original songs are ready to hear on KSVL.</p>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="dj-controls">
+          <button type="button" class="dj-btn-prev" id="djPrev" aria-label="Previous track" title="Previous track">&#9198;</button>
+          <button type="button" class="dj-btn-play" id="djPlay" aria-label="Listen to selected track" title="Start listening">&#9654;&#65039;</button>
+          <button type="button" class="dj-btn-next" id="djNext" aria-label="Next track" title="Next track">&#9197;</button>
+          <button type="button" class="dj-btn-repeat" id="djRepeat" aria-label="Repeat mode" title="Repeat mode">&#128257;</button>
+        </div>
+
+        <!-- PROGRESS -->
+        <div class="dj-progress-row">
+          <span class="dj-progress-time" id="djTime">0:00</span>
+          <div class="dj-progress-bar-wrap" id="djProgressWrap">
+            <div class="dj-progress-bar-fill" id="djProgressFill"></div>
+            <input type="range" id="djSeek" min="0" max="1000" value="0" step="1" aria-label="Seek in selected track" />
+          </div>
+          <span class="dj-progress-time" id="djDuration">0:00</span>
+        </div>
+
+        <!-- TRACK LIST -->
+        <section class="dj-tracklist-section">
+          <h2>Tracklist</h2>
+          <div id="djTracklist"></div>
+        </section>
+
+        <!-- SPOTIFY -->
+        <section class="dj-spotify-section">
+          <h2>External playlists are not connected</h2>
+          <p>No outbound playlist is being presented as part of the public KSVL catalogue. Each playlist and source needs its own registry-native provenance and rights decision.</p>
+          <div class="dj-spotify-buttons">
+            <a href="../chick-flicks.html" class="dj-spotify-btn">Open the episode shelf</a>
+            <a href="../library.html" class="dj-spotify-btn">Continue in the LIBRAiRY</a>
+          </div>
+        </section>
+
+        <!-- BACK LINK -->
+        
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <span class="footer-brand"><span class="wordmark" aria-label="LAiDIES trademark">LAiDIES</span><sup class="legal-mark">&trade;</sup></span>
+        <span class="footer-legal">&copy; 2026 Ali Eakin. All rights reserved.</span>
+      </p>
+      <div>
+        <a href="https://www.instagram.com/laidies.ai/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="../community.html">Join</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+      </div>
+    </footer>
+
+    <script>
+    (function() {
+      // The Booth owns presentation only. KSVL owns admission, sources,
+      // playback, retry, error state and one-audio coordination.
+      var tracks = [
+        {
+          id: "ep-01",
+          ep: "EP 1",
+          title: "On Wednesday We Do AI",
+          desc: "The anthem that started it all."
+        },
+        {
+          id: "ep-02",
+          ep: "EP 2",
+          title: "Tell Me What You Want",
+          desc: "When your prompt game is strong."
+        },
+        {
+          id: "ep-03",
+          ep: "EP 3",
+          title: "Don't Be Chutney on the Stand",
+          desc: "The receipts anthem for checking the alibi before the answer gets on the stand."
+        },
+        {
+          id: "the-library",
+          ep: "EP 4",
+          title: "The LIBRAiRY",
+          desc: "For when 'just use AI' finally comes with instructions."
+        },
+        {
+          id: "impossible",
+          ep: "BONUS",
+          title: "Impossible to Underestimate You",
+          desc: "For the woman who works with a mansplainer."
+        },
+        {
+          id: "debs-tomorrow",
+          ep: "BONUS",
+          title: "Tomorrow\u2019s Problem",
+          desc: "Deb\u2019s anthem for procrastinators everywhere."
+        },
+        {
+          id: "every-slaiyer-watcher",
+          ep: "BONUS",
+          title: "Every SLAiYER Needs a Watcher",
+          desc: "You're the SLAiYER. LAiDIES is the Watcher."
+        }
+      ];
+
+      // === ELEMENTS ===
+      var currentTrack = -1;
+      var isPlaying = false;
+      var availableIds = new Set();
+
+      var visualRow = document.getElementById("djVisualRow");
+      var playBtn = document.getElementById("djPlay");
+      var prevBtn = document.getElementById("djPrev");
+      var nextBtn = document.getElementById("djNext");
+      var repeatBtn = document.getElementById("djRepeat");
+      var seekBar = document.getElementById("djSeek");
+      var progressFill = document.getElementById("djProgressFill");
+      var timeEl = document.getElementById("djTime");
+      var durationEl = document.getElementById("djDuration");
+      var npTitle = document.getElementById("djNpTitle");
+      var npEp = document.getElementById("djNpEp");
+      var npDesc = document.getElementById("djNpDesc");
+      var tracklistEl = document.getElementById("djTracklist");
+
+      // === BUILD TRACKLIST ===
+      tracks.forEach(function(t, i) {
+        var card = document.createElement("div");
+        card.className = "dj-track-card";
+        card.setAttribute("data-track", i);
+        card.setAttribute("role", "button");
+        card.setAttribute("tabindex", "0");
+        card.innerHTML =
+          '<span class="dj-track-card-number">' + String(i + 1).padStart(2, "0") + '</span>' +
+          '<span class="dj-track-card-badge">' + t.ep + '</span>' +
+          '<div class="dj-track-card-info">' +
+            '<div class="dj-track-card-title">' + t.title + '</div>' +
+            '<div class="dj-track-card-desc">' + t.desc + '</div>' +
+          '</div>' +
+          '<span class="dj-track-card-duration" data-dur-idx="' + i + '"></span>';
+        card.addEventListener("click", function() { playTrack(i); });
+        card.addEventListener("keydown", function(e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); playTrack(i); } });
+        tracklistEl.appendChild(card);
+      });
+
+      // === HELPERS ===
+      function formatTime(s) {
+        if (!s || isNaN(s)) return "0:00";
+        var m = Math.floor(s / 60);
+        var sec = Math.floor(s % 60);
+        return m + ":" + (sec < 10 ? "0" : "") + sec;
+      }
+
+      function updatePlayState() {
+        if (isPlaying) {
+          visualRow.classList.add("is-playing");
+          playBtn.innerHTML = "&#9208;&#65039;";
+          playBtn.setAttribute("aria-label", "Pause");
+          playBtn.title = "Pause";
+        } else {
+          visualRow.classList.remove("is-playing");
+          playBtn.innerHTML = "&#9654;&#65039;";
+          playBtn.setAttribute("aria-label", "Start listening");
+          playBtn.title = "Start listening";
+        }
+      }
+
+      function setActiveCard(index) {
+        var cards = tracklistEl.querySelectorAll(".dj-track-card");
+        cards.forEach(function(c, i) {
+          c.classList.toggle("is-active", i === index);
+        });
+      }
+
+      function loadTrack(index) {
+        currentTrack = index;
+        var t = tracks[index];
+        npTitle.textContent = t.title;
+        npEp.textContent = t.ep;
+        npEp.style.display = "inline-block";
+        npDesc.textContent = t.desc;
+        setActiveCard(index);
+        progressFill.style.width = "0%";
+        seekBar.value = 0;
+        timeEl.textContent = "0:00";
+      }
+
+      function playTrack(index) {
+        if (index < 0 || index >= tracks.length) return;
+        loadTrack(index);
+        if (!availableIds.has(tracks[index].id) ||
+            typeof window.KSVL_playTrackById !== "function" ||
+            !window.KSVL_playTrackById(tracks[index].id)) {
+          isPlaying = false;
+          npDesc.textContent = "KSVL cannot start this track right now. Please choose another one or try again later.";
+          updatePlayState();
+          return;
+        }
+        isPlaying = true;
+        updatePlayState();
+      }
+
+      // === CONTROLS ===
+      playBtn.addEventListener("click", function() {
+        if (currentTrack === -1) { playTrack(0); return; }
+        var state = typeof window.KSVL_getPublicState === "function" ? window.KSVL_getPublicState() : null;
+        if (!state || state.trackId !== tracks[currentTrack].id) {
+          playTrack(currentTrack);
+          return;
+        }
+        window.KSVL_togglePlayback();
+        isPlaying = state.paused;
+        updatePlayState();
+      });
+
+      prevBtn.addEventListener("click", function() {
+        if (currentTrack === -1) { playTrack(0); return; }
+        var prev = currentTrack - 1;
+        if (prev < 0) prev = tracks.length - 1;
+        playTrack(prev);
+      });
+
+      nextBtn.addEventListener("click", function() {
+        var next = (currentTrack === -1 ? 0 : currentTrack + 1);
+        if (next >= tracks.length) next = 0;
+        playTrack(next);
+      });
+
+      repeatBtn.addEventListener("click", function() {
+        if (typeof window.KSVL_cycleRepeat !== "function") return;
+        var mode = window.KSVL_cycleRepeat();
+        repeatBtn.textContent = mode === "one" ? "\u{1F502}" : "\u{1F501}";
+        repeatBtn.title = mode === "off" ? "Repeat off" : (mode === "one" ? "Repeat one" : "Repeat all");
+        repeatBtn.setAttribute("aria-label", repeatBtn.title);
+        repeatBtn.classList.toggle("is-active", mode !== "off");
+      });
+
+      function syncFromKsvl() {
+        if (typeof window.KSVL_getPublicState !== "function") return;
+        var state = window.KSVL_getPublicState();
+        if (!state || !state.trackId) return;
+        var index = tracks.findIndex(function(track) { return track.id === state.trackId; });
+        if (index < 0) return;
+        if (currentTrack !== index) loadTrack(index);
+        isPlaying = !state.paused;
+        updatePlayState();
+        var pct = state.duration > 0 ? (state.currentTime / state.duration) * 100 : 0;
+        progressFill.style.width = pct + "%";
+        seekBar.value = Math.round((pct / 100) * 1000);
+        timeEl.textContent = formatTime(state.currentTime);
+        durationEl.textContent = formatTime(state.duration);
+        if (state.status) npDesc.textContent = state.status;
+        var durEl = document.querySelector('[data-dur-idx="' + currentTrack + '"]');
+        if (durEl && state.duration > 0) durEl.textContent = formatTime(state.duration);
+      }
+
+      seekBar.addEventListener("input", function() {
+        if (typeof window.KSVL_seekToRatio === "function") {
+          window.KSVL_seekToRatio(Number(seekBar.value) / 1000);
+          progressFill.style.width = (seekBar.value / 10) + "%";
+        }
+      });
+
+      function connectToKsvl() {
+        if (typeof window.KSVL_whenReady !== "function") {
+          document.addEventListener("DOMContentLoaded", connectToKsvl, { once: true });
+          return;
+        }
+        window.KSVL_whenReady().then(function(result) {
+          availableIds = new Set((result.tracks || []).map(function(track) { return track.id; }));
+          tracklistEl.querySelectorAll(".dj-track-card").forEach(function(card, index) {
+            card.setAttribute("aria-disabled", availableIds.has(tracks[index].id) ? "false" : "true");
+          });
+          if (!result.ready || !availableIds.size) {
+            npDesc.textContent = result.failure || "KSVL cannot start a track right now. Please try again later.";
+          }
+        });
+        window.setInterval(syncFromKsvl, 250);
+      }
+
+      function focusRitualTrack() {
+        var params = new URLSearchParams(window.location.search || "");
+        if (params.get("from") !== "this-week") return;
+        var issue = String(params.get("issue") || "").match(/\d+/);
+        var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
+        var app = document.getElementById("djApp");
+        if (app && !document.querySelector("[data-wednesday-return]")) {
+          var link = document.createElement("a");
+          link.dataset.wednesdayReturn = "true";
+          var group = /^(fun|connect|realworld|practice)$/.test(params.get("group") || "") ? params.get("group") : "";
+          var groupParam = group ? "&group=" + encodeURIComponent(group) : "";
+          var labels = {
+            fun: "Back to LAiDIES activities",
+            connect: "Back to Meet & Celebrate",
+            realworld: "Back to the Book of Receipts",
+            practice: "Back to Weekly Study Pack"
+          };
+          link.href = "../this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open" + groupParam + draftParam : "?bag=open" + groupParam + draftParam);
+          link.textContent = "\u2190 " + (labels[group] || "Back to the Bag");
+          link.style.cssText = "position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(185,93,120,.42);border-radius:999px;background:rgba(255,253,251,.92);color:#4b2148;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(75,33,72,.12),0 0 0 4px rgba(185,93,120,.08);backdrop-filter:blur(10px);";
+          app.insertAdjacentElement("beforebegin", link);
+        }
+        if (issue) {
+          var targetEp = "EP " + Number(issue[0]);
+          var targetIndex = tracks.findIndex(function(track) { return track.ep === targetEp; });
+          if (targetIndex >= 0) loadTrack(targetIndex);
+        }
+        window.setTimeout(function() {
+          (document.querySelector("[data-wednesday-return]") || app)?.scrollIntoView({ block: "start" });
+        }, 80);
+      }
+
+      focusRitualTrack();
+      connectToKsvl();
+
+    })();
+    </script>
+    <script>
+    (function() {
+      var params = new URLSearchParams(window.location.search || "");
+      if (params.get("from") !== "this-week" || document.querySelector("[data-wednesday-return]")) return;
+      var issue = String(params.get("issue") || "").match(/\d+/);
+      var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
+      var link = document.createElement("a");
+      link.dataset.wednesdayReturn = "true";
+      var group = /^(fun|connect|realworld|practice)$/.test(params.get("group") || "") ? params.get("group") : "";
+      var groupParam = group ? "&group=" + encodeURIComponent(group) : "";
+      var labels = {
+        fun: "Back to LAiDIES activities",
+        connect: "Back to Meet & Celebrate",
+        realworld: "Back to the Book of Receipts",
+        practice: "Back to Weekly Study Pack"
+      };
+      link.href = "../this-week.html" + (issue ? "?issue=" + encodeURIComponent(Number(issue[0])) + "&bag=open" + groupParam + draftParam : "?bag=open" + groupParam + draftParam);
+      link.textContent = "\u2190 " + (labels[group] || "Back to the Bag");
+      link.style.cssText = "position:fixed;top:76px;left:clamp(14px,3vw,26px);right:auto;bottom:auto;z-index:120;display:inline-flex;max-width:calc(100% - 28px);margin:0;padding:10px 14px;border:1px solid rgba(185,93,120,.42);border-radius:999px;background:rgba(255,253,251,.92);color:#4b2148;font-weight:850;text-decoration:none;box-shadow:0 12px 30px rgba(75,33,72,.12),0 0 0 4px rgba(185,93,120,.08);backdrop-filter:blur(10px);";
+      document.querySelector("main")?.prepend(link);
+    })();
+    </script>
+      <script src="../content/site/brand-polish.js?v=20260911-header-controls-1" defer></script>
+  <script defer src="/content/site/sv-back-nav.js?v=20260911-header-controls-1"></script>
+<script defer src="/content/site/ai-accent-autowrap.js?v=20260830-native-controls-1"></script>
+<script defer src="/content/site/ksvl-player.js?v=20260911-header-controls-1"></script>
+<script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
+<script defer src="/content/site/sv-you-are-here.js?v=20260911-header-controls-1"></script>
+</body>
+</html>

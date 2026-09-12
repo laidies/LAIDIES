@@ -1,10 +1,23 @@
+/* Shared utilities live in the header (Ali, 2026-09-11). */
+(function () {
+  if (document.querySelector('script[data-sv-header-controls]')) return;
+  var guard = document.createElement('style');
+  guard.id = 'sv-header-controls-pending';
+  guard.textContent = 'body > :is(.sv-side-rail,.sv-yah-chip,.svwt-chip,.svwt-offer,.svwt-paused,.ksvl-now-playing,#ksvl-resume-nudge,.wednesday-return,[data-laidies-context-return]) { visibility:hidden!important; }';
+  document.head.appendChild(guard);
+  var s = document.createElement('script');
+  s.src = '/content/site/sv-header-controls.js?v=20260911-1';
+  s.dataset.svHeaderControls = '1';
+  document.head.appendChild(s);
+})();
+
 (function () {
   function applyLAiDIESInlineWordmark(root) {
     var scope = root || document.body;
     if (!scope) return;
 
     var brandRegex = /\b(?:LAiDIES|LAIDIES|lAIdies|Laidies)\b/g;
-    var skipTags = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT", "CODE", "PRE", "SVG"]);
+    var skipTags = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT", "SELECT", "OPTION", "OPTGROUP", "CODE", "PRE", "SVG"]);
 
     function makeWordmark() {
       // Canonical wordmark: <span class="brand-word-inline"><span aria-hidden>L<span data-brand-ai>Ai</span>DIES</span></span>
@@ -25,6 +38,7 @@
     }
 
     scope.querySelectorAll(".wordmark").forEach(function (element) {
+      if (element.closest('select, option, optgroup, textarea, input')) return;
       var normalized = element.textContent.replace(/\s+/g, "").toLowerCase();
       if (normalized !== "laidies") return;
       var wordmark = makeWordmark();

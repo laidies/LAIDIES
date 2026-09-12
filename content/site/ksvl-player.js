@@ -1,3 +1,16 @@
+/* Shared utilities live in the header (Ali, 2026-09-11). */
+(function () {
+  if (document.querySelector('script[data-sv-header-controls]')) return;
+  var guard = document.createElement('style');
+  guard.id = 'sv-header-controls-pending';
+  guard.textContent = 'body > :is(.sv-side-rail,.sv-yah-chip,.svwt-chip,.svwt-offer,.svwt-paused,.ksvl-now-playing,#ksvl-resume-nudge,.wednesday-return,[data-laidies-context-return]) { visibility:hidden!important; }';
+  document.head.appendChild(guard);
+  var s = document.createElement('script');
+  s.src = '/content/site/sv-header-controls.js?v=20260911-1';
+  s.dataset.svHeaderControls = '1';
+  document.head.appendChild(s);
+})();
+
 /**
  * KSVL Mix CDs Player
  *
@@ -15,6 +28,9 @@
  */
 (function() {
   'use strict';
+  // Shared header and page-local loaders may race; never create a second deck.
+  if (window.__KSVL_CANONICAL_PLAYER__) return;
+  window.__KSVL_CANONICAL_PLAYER__ = true;
 
   var MUSIC = '/content/music/';
   // ---- Track library (single source of truth) ----
@@ -229,9 +245,10 @@
   }
 
   // The live control is a truthful catalogue shuffle while programme objects remain unadmitted.
-  var LIVE_MIX = { id: 'live', title: 'KSVL soundcheck', sub: 'Live broadcast coming later', color: 'gold', labelStyle: 'sharpie' };
+  var LIVE_MIX = { id: 'live', title: 'KSVL 99.9', sub: 'Live broadcast coming later', color: 'gold', labelStyle: 'sharpie' };
 
   function startLive() {
+    if (sendRemote('live')) return;
     if (!TRACKS.length) {
       announce('KSVL cannot start a track right now. Please try again later.', 'held');
       return;
@@ -255,10 +272,8 @@
     + '.ksvl-cd:focus .ksvl-cd-jewel { box-shadow: 0 0 0 3px var(--rose, #9b3f5f), 0 8px 20px rgba(75,33,72,0.28); }'
     + '.ksvl-cd-jewel { position: relative; aspect-ratio: 1 / 1; background: linear-gradient(135deg, rgba(255,253,251,0.98) 0%, rgba(250,242,246,0.98) 100%); border: 1px solid rgba(75,33,72,0.08); border-radius: 6px; box-shadow: 0 2px 6px rgba(75,33,72,0.08), 0 10px 24px rgba(75,33,72,0.14); overflow: hidden; padding: 14px; transition: box-shadow 0.24s ease, transform 0.24s ease; }'
     + '.ksvl-cd:hover .ksvl-cd-jewel { box-shadow: 0 4px 12px rgba(75,33,72,0.14), 0 16px 36px rgba(75,33,72,0.22); }'
-    + '.ksvl-cd-jewel::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(115deg, transparent 0 20px, rgba(255,255,255,0.35) 20px 22px); pointer-events: none; opacity: 0.4; z-index: 2; }'
     + '.ksvl-cd-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 8px; box-sizing: border-box; }'
-    + '.ksvl-cd-disc { position: absolute; inset: 0; margin: auto; width: 88%; height: 88%; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #f8eef2, #d8bfd0 45%, #a8779a 75%, #6b3a66); box-shadow: inset 0 0 6px rgba(0,0,0,0.15); }'
-    + '.ksvl-cd-disc::after { content: ""; position: absolute; inset: 0; margin: auto; width: 22%; height: 22%; border-radius: 50%; background: var(--cream, #fffdfb); box-shadow: inset 0 0 3px rgba(75,33,72,0.4); border: 2px solid rgba(75,33,72,0.15); }'
+    + '.ksvl-cd-disc { position: absolute; inset: 0; margin: auto; width: 88%; height: 88%; object-fit: contain; }'
     + '.ksvl-cd-sharpie { position: absolute; top: 18px; left: 18px; right: 18px; font-family: "Marker Felt", "Comic Sans MS", cursive; font-size: 18px; font-weight: 700; color: #221; transform: rotate(-4deg); text-shadow: 0 1px 0 rgba(255,255,255,0.5); line-height: 1.05; z-index: 2; }'
     + '.ksvl-cd-sharpie--track-count { font-family: "Jost", sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #442244; margin-top: 8px; transform: rotate(2deg); opacity: 0.7; }'
     + '.ksvl-cd-caption { padding: 14px 4px 0; display: flex; flex-direction: column; gap: 8px; }'
@@ -300,45 +315,120 @@
     + '.ksvl-cd-back-track-icon { flex-shrink: 0; width: 16px; height: 16px; border-radius: 999px; background: var(--gold, #c9a227); color: var(--cream, #fffdfb); display: inline-flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 800; }'
     + '.ksvl-cd-back-track:hover .ksvl-cd-back-track-icon { background: var(--rose, #9b3f5f); }'
     + '.ksvl-cd-back-track-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }'
-    /* Now Playing bar — the KSVL deck. Gold hairline top, spinning CD,
-       big gold play button, and a tiny label under every control so no
+    /* Now Playing bar — the KSVL deck. Bright wallpaper casing and mint/lime panels,
+       prominent tangerine play button, and a tiny label under every control so no
        button is ever a mystery. */
-    + '.ksvl-now-playing { position: fixed; left: 0; right: 0; bottom: 0; background: linear-gradient(160deg, #3a1838 0%, var(--plum, #4b2148) 55%, var(--rose, #9b3f5f) 100%); border-top: 2px solid var(--gold, #c9a227); color: var(--cream, #fffdfb); padding: 9px 20px 8px; display: none; align-items: center; gap: 16px; z-index: 9997; box-shadow: 0 -10px 30px rgba(26,8,24,0.4); font-family: "Jost", sans-serif; }'
+    + '.ksvl-now-playing { position: fixed; left: 0; right: 0; bottom: 0; background: linear-gradient(110deg, #15bce0 0%, #7de2c2 58%, #b7e42b 100%); border-top: 3px solid #7137d6; color: #202020; padding: 9px 20px 8px; display: none; align-items: center; gap: 16px; z-index: 9997; box-shadow: 0 -10px 30px rgba(7,15,43,0.4); font-family: "Jost", sans-serif; }'
     + '.ksvl-now-playing.is-visible { display: flex; }'
-    + '.ksvl-np-cd-mini { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgba(201,162,39,0.7); background: radial-gradient(circle at 30% 30%, #f8eef2, #d8bfd0 45%, #a8779a 75%, #6b3a66); box-shadow: inset 0 0 4px rgba(0,0,0,0.2), 0 2px 8px rgba(0,0,0,0.3); animation: ksvl-spin 5s linear infinite; position: relative; }'
-    + '.ksvl-np-cd-mini::after { content: ""; position: absolute; inset: 0; margin: auto; width: 30%; height: 30%; border-radius: 50%; background: var(--cream, #fffdfb); }'
-    + '.ksvl-np-cd-mini.is-paused { animation-play-state: paused; }'
     + '.ksvl-np-info { flex: 1; min-width: 0; }'
-    + '.ksvl-np-mix { display: flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold, #c9a227); margin-bottom: 2px; }'
+    + '.ksvl-np-mix { display: flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #492878; margin-bottom: 2px; }'
     + '.ksvl-now-playing.is-live .ksvl-np-mix::before { content: ""; flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: #ff4f4f; box-shadow: 0 0 6px rgba(255,79,79,0.9); animation: ksvl-np-onair 1.4s ease-in-out infinite; }'
     + '@keyframes ksvl-np-onair { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }'
     + '@media (prefers-reduced-motion: reduce) { .ksvl-now-playing.is-live .ksvl-np-mix::before { animation: none; } }'
     + '.ksvl-np-track { display: block; font-size: 15px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }'
     + '.ksvl-np-position { font-size: 11px; opacity: 0.7; }'
-    + '.ksvl-np-status { display: block; margin-top: 3px; min-height: 1.25em; font-size: 11px; line-height: 1.25; color: var(--cream, #fffdfb); }'
-    + '.ksvl-np-status[data-kind="error"], .ksvl-np-status[data-kind="held"] { color: #ffe6a8; }'
-    + '.ksvl-np-retry { margin-top: 6px; min-height: 44px; padding: 8px 14px; border: 1px solid var(--gold, #c9a227); border-radius: 999px; background: transparent; color: var(--cream, #fffdfb); font: 800 11px/1 "Jost", sans-serif; cursor: pointer; }'
+    + '.ksvl-np-status { display: block; margin-top: 3px; min-height: 1.25em; font-size: 11px; line-height: 1.25; color: #202020; }'
+    + '.ksvl-np-up-next { display: block; margin-top: 3px; font-size: 11px; line-height: 1.3; color: #202020; overflow-wrap: anywhere; } .ksvl-np-up-next[hidden] { display: none; }'
+    + '.ksvl-np-status[data-kind="routine"] { position: absolute; width: 1px; height: 1px; min-height: 0; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }'
+    + '.ksvl-np-storage-limit:not([hidden]) { display:block; margin-top:3px; font-size:11px; line-height:1.25; color:#492878; }'
+    + '.ksvl-np-status[data-kind="error"], .ksvl-np-status[data-kind="held"] { color: #492878; }'
+    + '.ksvl-np-retry { margin-top: 6px; min-height: 44px; padding: 8px 14px; border: 1px solid #492878; border-radius: 999px; background: transparent; color: #202020; font: 800 11px/1 "Jost", sans-serif; cursor: pointer; }'
     + '.ksvl-np-controls { display: flex; align-items: flex-start; flex-wrap: wrap; }'
     + '.ksvl-np-group { display: flex; align-items: flex-start; gap: 3px; }'
-    + '.ksvl-np-group + .ksvl-np-group { margin-left: 12px; padding-left: 14px; border-left: 1px solid rgba(255,253,251,0.18); }'
-    + '.ksvl-np-btn { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; gap: 3px; background: transparent; border: 0; color: var(--cream, #fffdfb); cursor: pointer; padding: 2px 3px; font-family: inherit; text-decoration: none; }'
+    + '.ksvl-np-group + .ksvl-np-group { margin-left: 12px; padding-left: 14px; border-left: 1px solid rgba(73,40,120,0.3); }'
+    + '.ksvl-np-btn { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; gap: 3px; background: transparent; border: 0; color: #202020; cursor: pointer; padding: 2px 3px; font-family: inherit; text-decoration: none; }'
     + '.ksvl-np-btn:focus { outline: none; }'
-    + '.ksvl-np-ico { display: inline-flex; align-items: center; justify-content: center; width: 33px; height: 33px; border-radius: 50%; background: rgba(255,253,251,0.14); border: 1.5px solid rgba(255,253,251,0.35); font-size: 13px; line-height: 1; transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease; text-shadow: 0 1px 2px rgba(0,0,0,0.3); }'
-    + '.ksvl-np-btn:hover .ksvl-np-ico, .ksvl-np-btn:focus-visible .ksvl-np-ico { background: rgba(255,253,251,0.28); border-color: var(--gold, #c9a227); transform: translateY(-1px); }'
-    + '.ksvl-np-volume, .ksvl-np-seek { min-height: 44px; accent-color: var(--gold, #c9a227); }'
+    + '.ksvl-now-playing :is(button,a,input):focus-visible { outline: 2px solid #492878; outline-offset: 3px; }'
+    + '.ksvl-np-ico { display: inline-flex; align-items: center; justify-content: center; width: 33px; height: 33px; border-radius: 50%; background: rgba(255,253,251,0.35); border: 1.5px solid #492878; font-size: 13px; line-height: 1; transition: background 0.15s ease, border-color 0.15s ease, transform 0.12s ease; text-shadow: none; }'
+    + '.ksvl-np-btn:hover .ksvl-np-ico, .ksvl-np-btn:focus-visible .ksvl-np-ico { background: rgba(255,253,251,0.28); border-color: #492878; transform: translateY(-1px); }'
+    + '.ksvl-np-sound { align-items: flex-end; }'
+    + '.ksvl-np-slider-field { display: flex; flex-direction: column; min-width: 0; color: #202020; }'
+    + '.ksvl-np-field-heading { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2px 8px; font: 700 11px/1.3 "Jost", sans-serif; }'
+    + '.ksvl-np-time { font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }'
+    + '.ksvl-np-slider-field:has(.ksvl-np-volume) { width: 92px; } .ksvl-np-slider-field:has(.ksvl-np-seek) { width: min(190px,24vw); }'
+    + '@media (max-width:620px) { .ksvl-np-slider-field:has(.ksvl-np-seek) { width:132px; } .ksvl-np-field-heading { min-height:31px; align-content:flex-start; } }'
+    + '.ksvl-np-volume, .ksvl-np-seek { min-height: 44px; accent-color: #e62a92; }'
     + '.ksvl-np-volume { width: 92px; } .ksvl-np-seek { width: min(190px, 24vw); }'
     + '.ksvl-np-lbl { font-size: 7.5px; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; opacity: 0.72; white-space: nowrap; }'
     + '.ksvl-np-btn:hover .ksvl-np-lbl { opacity: 1; }'
-    + '.ksvl-np-btn--play .ksvl-np-ico { width: 46px; height: 46px; background: var(--gold, #c9a227); border-color: var(--gold, #c9a227); color: #341446; font-size: 18px; text-shadow: none; box-shadow: 0 4px 12px rgba(0,0,0,0.32); }'
-    + '.ksvl-np-btn--play:hover .ksvl-np-ico { background: #fffdfb; border-color: #fffdfb; }'
-    + '.ksvl-np-btn--play .ksvl-np-lbl { color: var(--gold, #c9a227); opacity: 0.95; }'
+    + '.ksvl-np-btn--play .ksvl-np-ico { width: 46px; height: 46px; background: #ff9b3d; border-color: #492878; color: #202020; font-size: 18px; text-shadow: none; box-shadow: 0 4px 12px rgba(0,0,0,0.32); }'
+    + '.ksvl-np-btn--play:hover .ksvl-np-ico { background: #fffdfb; border-color: #202020; }'
+    + '.ksvl-np-btn--play .ksvl-np-lbl { color: #492878; opacity: 0.95; }'
     + '.ksvl-np-btn--toggle .ksvl-np-ico { opacity: 0.8; }'
-    + '.ksvl-np-btn--toggle.is-active .ksvl-np-ico { opacity: 1; background: rgba(201,162,39,0.35); border-color: var(--gold, #c9a227); }'
-    + '.ksvl-np-btn--toggle.is-active .ksvl-np-lbl { opacity: 1; color: var(--gold, #c9a227); }'
-    + '.ksvl-np-btn--stop:hover .ksvl-np-ico { border-color: #ff9db4; color: #ffb8c9; background: rgba(255,157,180,0.12); }'
+    + '.ksvl-np-btn--toggle.is-active .ksvl-np-ico { opacity: 1; background: rgba(113,55,214,0.18); border-color: #492878; }'
+    + '.ksvl-np-btn--toggle.is-active .ksvl-np-lbl { opacity: 1; color: #492878; }'
+    + '.ksvl-np-btn--stop:hover .ksvl-np-ico { border-color: #492878; color: #492878; background: rgba(113,55,214,0.18); }'
     + '@media (max-width: 860px) { .ksvl-np-lbl { display: none; } .ksvl-np-group + .ksvl-np-group { margin-left: 6px; padding-left: 8px; } }'
-    + '@media (max-width: 720px) { .ksvl-np-btn--toggle { display: none; } }'
-    + '@media (max-width: 620px) { .ksvl-np-info .ksvl-np-position { display: none; } .ksvl-now-playing { padding: 8px 12px; gap: 10px; flex-wrap: wrap; } .ksvl-np-info { flex: 1 1 calc(100% - 54px); } .ksvl-np-controls { flex: 1 1 100%; justify-content: center; } .ksvl-np-ico { width: 31px; height: 31px; } .ksvl-np-btn--play .ksvl-np-ico { width: 42px; height: 42px; } .ksvl-np-btn--link .ksvl-np-ico { display: none; } .ksvl-np-btn--link { display: none; } .ksvl-np-seek { width: 132px; } }';
+    + '@media (max-width: 620px) { .ksvl-np-info .ksvl-np-position { display: block; } .ksvl-now-playing { padding: 8px 12px; gap: 6px; flex-wrap: wrap; } .ksvl-np-info { flex: 1 1 calc(100% - 54px); } .ksvl-np-controls { flex: 1 1 100%; justify-content: center; gap: 4px; } .ksvl-np-group + .ksvl-np-group { margin: 0; padding: 0; border: 0; } .ksvl-np-ico { width: 31px; height: 31px; } .ksvl-np-btn--play .ksvl-np-ico { width: 42px; height: 42px; } .ksvl-np-seek { width: 132px; } }';
+
+  // Rewind artwork is a real image; CSS only frames readable working panels.
+  STYLE += '.ksvl-now-playing { box-sizing:border-box; background:#c195e9 url("/assets/homepage/rewind-wallpaper-20260906.webp") repeat center center / 380px 380px; border-top:3px solid #492878; padding:12px 16px; gap:12px; align-items:stretch; box-shadow:0 -4px 14px rgba(40,20,65,.2); }'
+    + '.ksvl-np-info { padding:12px 16px; border:2px solid #492878; border-radius:12px; background:#7de2c2; box-shadow:3px 3px 0 #492878; }'
+    + '.ksvl-np-track { font-size:19px; line-height:1.2; font-weight:800; white-space:normal; overflow-wrap:anywhere; } .ksvl-np-position { font-size:12px; opacity:1; } .ksvl-np-up-next { font-size:12px; margin-top:5px; line-height:1.3; }'
+    + '.ksvl-np-mix { font-size:10px; letter-spacing:.14em; margin-bottom:5px; } .ksvl-now-playing.is-live .ksvl-np-mix::before { display:none; }'
+    + '.ksvl-np-controls { padding:10px 12px; border:2px solid #492878; border-radius:12px; background:#b7e42b; box-shadow:3px 3px 0 #492878; gap:12px; align-items:center; flex-wrap:nowrap; }'
+    + '.ksvl-np-extras { display:flex; align-items:center; gap:10px; } .ksvl-np-group + .ksvl-np-group { margin:0; padding:0; border:0; }'
+    + '.ksvl-np-lbl { display:block; font-size:9px; letter-spacing:.04em; opacity:1; } .ksvl-np-ico { background:#7de2c2; border-width:2px; } .ksvl-np-btn--play .ksvl-np-ico { width:46px; height:46px; background:#ff9b3d; }'
+    + '.ksvl-np-more { display:none; min-height:44px; border:2px solid #492878; border-radius:8px; padding:7px 10px; background:#c195e9; color:#24152f; font:700 12px/1.2 Jost,sans-serif; cursor:pointer; }'
+    + '.ksvl-np-field-heading { min-height:0; font-size:11px; } .ksvl-np-progress-field { width:180px!important; } .ksvl-np-progress-field input { width:100%; margin-inline:0; }'
+    + '@media(max-width:1100px) { .ksvl-now-playing { flex-wrap:wrap; } .ksvl-np-info { flex:1 1 100%; } .ksvl-np-controls { flex:1 1 100%; justify-content:center; } }'
+    + '@media(max-width:620px) { .ksvl-now-playing { padding:8px; gap:7px; max-height:85dvh; overflow-y:auto; } .ksvl-np-info { padding:9px 12px; } .ksvl-np-track { font-size:17px; } .ksvl-np-info .ksvl-np-position { display:block; } .ksvl-np-mix { font-size:9px; margin-bottom:3px; } .ksvl-np-up-next { font-size:11px; margin-top:3px; }'
+    + '.ksvl-np-controls { display:grid; grid-template-columns:1fr auto; padding:7px 10px; gap:3px 8px; } .ksvl-np-deck { justify-content:flex-start; gap:8px; } .ksvl-np-more { display:block; } .ksvl-np-progress-field { grid-column:1 / -1; width:100%!important; } .ksvl-np-field-heading { min-height:0; flex-wrap:nowrap; } .ksvl-np-progress-field input { min-height:32px; }'
+    + '.ksvl-np-extras { display:none; grid-column:1 / -1; flex-wrap:wrap; justify-content:center; gap:6px 12px; padding-top:6px; border-top:1px solid #492878; } .ksvl-now-playing.is-expanded .ksvl-np-extras { display:flex; } .ksvl-np-extras .ksvl-np-slider-field { width:92px; } .ksvl-np-lbl { font-size:9px; } .ksvl-np-ico { width:30px; height:30px; } .ksvl-np-btn--play .ksvl-np-ico { width:38px; height:38px; } }';
+
+  // The sitewide default is a compact strip; full controls open on demand.
+  STYLE += '.ksvl-np-more { display:block; } .ksvl-np-extras { display:none; } .ksvl-now-playing.is-expanded .ksvl-np-extras { display:flex; }'
+    + '.ksvl-now-playing:not(.is-expanded) { padding:5px 10px; gap:8px; flex-wrap:nowrap; align-items:center; border-top-width:3px; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:1 1 0; min-width:0; padding:5px 10px; border:0; border-radius:6px; box-shadow:none; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-mix, .ksvl-now-playing:not(.is-expanded) .ksvl-np-up-next { display:none; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-track { display:block; font-size:12px; line-height:1.25; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-position { display:block; font-size:10px; line-height:1.3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { display:flex; flex:0 0 auto; gap:8px; padding:2px 6px; border:0; border-radius:6px; box-shadow:none; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-deck { gap:4px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-ico { width:28px; height:28px; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-btn--play .ksvl-np-ico { width:32px; height:32px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-lbl { font-size:8px; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-more { padding:4px 7px; font-size:11px; }'
+    + '@media(max-width:900px) { .ksvl-now-playing:not(.is-expanded) .ksvl-np-progress-field { display:none; } }'
+    + '@media(max-width:620px) { .ksvl-now-playing:not(.is-expanded) { padding:4px; gap:4px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-info { padding:6px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { gap:3px; padding:2px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-deck > :first-child, .ksvl-now-playing:not(.is-expanded) .ksvl-np-deck > :last-child { display:flex; } }';
+
+  STYLE += '.ksvl-now-playing:not(.is-expanded) { justify-content:center; background:#7de2c2; border-top:5px solid #c195e9; box-shadow:0 -2px 8px rgba(40,20,65,.16); }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-info, .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { background:transparent; border-radius:0; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:0 1 220px; margin-right:0; }'
+    + '@media(max-width:620px) { .ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:0 1 150px; } }';
+
+  STYLE += '.ksvl-np-title-text { display:inline-block; position:relative; } .ksvl-np-title-copy { display:none; position:absolute; left:calc(100% + 32px); top:0; white-space:nowrap; width:max-content; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-track { overflow:hidden; text-overflow:clip; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-track.has-overflow .ksvl-np-title-text { animation:ksvl-title-scroll var(--title-duration,14s) linear infinite; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-track.has-overflow .ksvl-np-title-copy { display:block; }'
+    + '@keyframes ksvl-title-scroll { from { transform:translateX(0); } to { transform:translateX(var(--title-travel,0px)); } }'
+    + '@media(prefers-reduced-motion:reduce) { .ksvl-np-title-text { animation:none!important; } .ksvl-np-title-copy { display:none!important; } }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-sound .ksvl-np-slider-field { width:80px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-volume { width:100%; }'
+    + '@media(max-width:620px) { .ksvl-now-playing:not(.is-expanded) { flex-wrap:wrap; gap:0; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:1 1 100%; display:flex; align-items:center; gap:10px; padding:2px 6px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-track { flex:1; min-width:0; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-position { max-width:40%; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { flex:1 1 100%; justify-content:center; gap:4px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-sound > .ksvl-np-btn { display:flex; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-sound .ksvl-np-slider-field { width:65px; } .ksvl-now-playing.is-expanded .ksvl-np-sound { grid-column:1 / -1; justify-content:center; } }';
+
+  // Preserve the illustrated identity; only phones need disclosure.
+  STYLE += '.ksvl-now-playing:not(.is-expanded) { background:#c195e9 url("/assets/homepage/rewind-wallpaper-20260906.webp") repeat center /380px 380px; border-top:3px solid #492878; }'
+    + '.ksvl-now-playing:not(.is-expanded) .ksvl-np-info { background:#7de2c2; border-radius:7px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { background:#b7e42b; border-radius:7px; }'
+    + '@media(min-width:621px) { .ksvl-now-playing { flex-wrap:nowrap; align-items:stretch; } .ksvl-np-more { display:none!important; } .ksvl-now-playing .ksvl-np-extras { display:flex; flex-wrap:wrap; justify-content:center; gap:6px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-info { flex:0 1 220px; display:flex; flex-direction:column; justify-content:center; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-controls { flex:0 1 auto; flex-wrap:wrap; justify-content:center; padding:4px 8px; gap:8px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-up-next { display:block; font-size:10px; margin-top:3px; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-progress-field { display:flex; width:150px!important; } }';
+
+  STYLE += '.ksvl-now-playing .ksvl-np-field-heading { justify-content:center; text-align:center; transform:translateY(9px); pointer-events:none; }'
+    + '.ksvl-now-playing .ksvl-np-time { display:block; text-align:center; font-size:9px; line-height:1; margin-top:-6px; } .ksvl-np-btn--play .ksvl-np-ico svg { display:block; flex:none; }';
+
+  STYLE += '@media(max-width:620px) { .ksvl-np-more { grid-column:2; grid-row:1; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-more { margin-left:auto; } }';
+
+  STYLE += '.ksvl-now-playing:not(.is-expanded) .ksvl-np-sound { display:contents; } .ksvl-now-playing:not(.is-expanded) .ksvl-np-ico { width:32px; height:32px; }';
+
+  STYLE += '.ksvl-now-playing, .ksvl-now-playing * { font-weight:400!important; } .ksvl-now-playing .ksvl-np-track, .ksvl-now-playing .ksvl-np-title-text, .ksvl-now-playing .ksvl-np-title-text * { font-weight:700!important; }';
+
+  STYLE += '.ksvl-now-playing .ksvl-np-controls, .ksvl-now-playing .ksvl-np-controls * { font-weight:700!important; }';
+
+  STYLE += '.ksvl-now-playing.is-finished .ksvl-np-up-next { display:block!important; }';
+
+  function updateTitleOverflow() {
+    if (!npTrack || !npTrack.firstElementChild) return;
+    var width = npTrack.firstElementChild.firstElementChild.getBoundingClientRect().width;
+    var overflow = width - npTrack.clientWidth;
+    npTrack.classList.toggle('has-overflow', overflow > 2);
+    npTrack.style.setProperty('--title-travel', -(width + 32) + 'px');
+    npTrack.style.setProperty('--title-duration', Math.max(8, (width + 32) / 30) + 's');
+  }
 
   function injectStyle() {
     if (document.getElementById('ksvl-mix-cds-style')) return;
@@ -367,6 +457,9 @@
     queue: [],
     index: 0,
     currentPart: 0,       // for multi-part tracks (intro+spot)
+    finished: false,
+    startTrackId: null,
+    nextChoice: null,     // reserve shuffle once for preview, preload and playback
     paused: false,
     shuffle: false,
     repeatMode: 'all',    // 'off' | 'all' | 'one'
@@ -386,13 +479,63 @@
   }
   function currentSrc() { var p = currentPart(); return p ? p.src : null; }
 
-  var np, npMini, npMix, npTrack, npPosition, npStatus, npRetry, npPlayBtn,
-    npShuffleBtn, npRepeatBtn, npMuteBtn, npVolume, npSeek;
+  // One resolver owns the actual next item, including multipart intros/spots.
+  function nextInFlow() {
+    var track = state.queue[state.index];
+    if (!track || state.finished) return null;
+    if (track.parts && state.currentPart < track.parts.length - 1) {
+      return {index: state.index, part: state.currentPart + 1, item: track.parts[state.currentPart + 1]};
+    }
+    if (state.signingOff || state.mixId === 'single') return null;
+    var index;
+    if (state.repeatMode === 'one') index = state.index;
+    else if (state.shuffle) {
+      var choice = state.nextChoice;
+      if (!choice || choice.queue !== state.queue || choice.from !== state.index) {
+        choice = {queue: state.queue, from: state.index, index: Math.floor(Math.random() * state.queue.length)};
+        state.nextChoice = choice;
+      }
+      index = choice.index;
+    } else if (state.repeatMode === 'off' && state.index >= state.queue.length - 1) return null;
+    else index = (state.index + 1) % state.queue.length;
+    var next = state.queue[index];
+    return next ? {index: index, part: 0, item: next.parts && next.parts.length ? next.parts[0] : next} : null;
+  }
 
-  function announce(message, kind) {
+  function nextTitle() {
+    var next = nextInFlow();
+    return next && next.item ? next.item.title || state.queue[next.index].title : '';
+  }
+
+  function updateUpNext() {
+    if (!npUpNext) return;
+    var title = remoteOwner ? remoteOwner.upNextTitle : nextTitle();
+    // Older remote players cannot promise a shuffled choice they have not made.
+    npUpNext.hidden = typeof title !== 'string';
+    npUpNext.textContent = typeof title !== 'string' ? '' : state.finished ? 'Finished' : title ? 'Up next: “' + title + '”' : 'Last song';
+  }
+
+
+  var np, npMix, npTrack, npPosition, npStatus, npUpNext, npRetry, npPlayBtn,
+    npShuffleBtn, npRepeatBtn, npMuteBtn, npVolume, npSeek, npTime, npStorageLimit;
+  var storageLimit = '';
+  function reportStorageLimit() {
+    storageLimit = 'Browser storage is unavailable. Music can play here, but may not follow you to another page or keep your position.';
+    if (npStorageLimit) { npStorageLimit.textContent = storageLimit; npStorageLimit.hidden = false; }
+  }
+  function checkContinuityStorage() {
+    try {
+      [localStorage, sessionStorage].forEach(function(storage) {
+        var key = 'laidies_ksvl_storage_probe_v2';
+        storage.setItem(key, '1'); storage.removeItem(key);
+      });
+    } catch (e) { reportStorageLimit(); }
+  }
+
+  function announce(message, kind, quiet) {
     ensureNowPlaying();
     npStatus.textContent = message || '';
-    npStatus.dataset.kind = kind || 'status';
+    npStatus.dataset.kind = quiet || kind === 'playing' ? 'routine' : kind || 'status';
     npRetry.hidden = kind !== 'error';
     if (kind === 'error') {
       window.requestAnimationFrame(function() { npRetry.focus(); });
@@ -401,6 +544,7 @@
   }
 
   function retryCurrent() {
+    if (sendRemote('retry')) return;
     if (!state.lastFailure || !state.queue.length) return;
     state.lastFailure = null;
     announce('Trying that track again…', 'loading');
@@ -421,7 +565,16 @@
   function setBtnIcon(btn, glyph) {
     if (!btn) return;
     var ico = btn.querySelector('.ksvl-np-ico');
-    if (ico) ico.textContent = glyph; else btn.textContent = glyph;
+    if (ico && btn.classList.contains('ksvl-np-btn--play')) {
+      ico.textContent = '';
+      var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('width', '20'); svg.setAttribute('height', '20');
+      svg.setAttribute('aria-hidden', 'true');
+      var shape = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      shape.setAttribute('d', glyph === '▶' ? 'M8 4 L21 12 L8 20 Z' : 'M6 5H10V19H6Z M14 5H18V19H14Z');
+      shape.setAttribute('fill', 'currentColor'); svg.appendChild(shape); ico.appendChild(svg);
+    } else if (ico) ico.textContent = glyph; else btn.textContent = glyph;
   }
   function setBtnLabel(btn, label) {
     if (!btn) return;
@@ -432,10 +585,10 @@
   function ensureNowPlaying() {
     if (np) return np;
     np = el('div', {class: 'ksvl-now-playing'});
-    npMini = el('div', {class: 'ksvl-np-cd-mini'});
     var info = el('div', {class: 'ksvl-np-info'});
     npMix = el('span', {class: 'ksvl-np-mix'});
     npTrack = el('span', {class: 'ksvl-np-track'});
+    if (typeof ResizeObserver === 'function') new ResizeObserver(updateTitleOverflow).observe(npTrack);
     npPosition = el('span', {class: 'ksvl-np-position'});
     npStatus = el('span', {
       class: 'ksvl-np-status',
@@ -454,23 +607,37 @@
     info.appendChild(npMix);
     info.appendChild(npTrack);
     info.appendChild(npPosition);
+    npUpNext = el('span', {class: 'ksvl-np-up-next'});
+    info.appendChild(npUpNext);
     info.appendChild(npStatus);
+    npStorageLimit = el('span', {class: 'ksvl-np-storage-limit', role: 'status', text: storageLimit});
+    npStorageLimit.hidden = !storageLimit;
+    info.appendChild(npStorageLimit);
     info.appendChild(npRetry);
     var controls = el('div', {class: 'ksvl-np-controls'});
     // Group 1 — the deck: shuffle · back · PLAY · next · repeat
-    var deck = el('div', {class: 'ksvl-np-group'});
+    var deck = el('div', {class: 'ksvl-np-group ksvl-np-deck'});
     npShuffleBtn = npButton('ksvl-np-btn--toggle', '🔀', 'Shuffle', {'aria-label': 'Shuffle · off', title: 'Shuffle', onclick: toggleShuffle});
     var prev = npButton('', '⏮', 'Back', {'aria-label': 'Previous track', title: 'Previous track', onclick: prevTrack});
     npPlayBtn = npButton('ksvl-np-btn--play', '⏸', 'Pause', {'aria-label': 'Pause', title: 'Listen / Pause', onclick: togglePlay});
     var next = npButton('', '⏭', 'Next', {'aria-label': 'Next track', title: 'Next track', onclick: nextTrack});
     npRepeatBtn = npButton('ksvl-np-btn--toggle is-active', '🔁', 'Repeat', {'aria-label': 'Repeat all', title: 'Repeat', onclick: cycleRepeat});
-    deck.appendChild(npShuffleBtn);
     deck.appendChild(prev);
     deck.appendChild(npPlayBtn);
     deck.appendChild(next);
-    deck.appendChild(npRepeatBtn);
     controls.appendChild(deck);
-    var sound = el('div', {class: 'ksvl-np-group'});
+    var more = el('button', {type: 'button', class: 'ksvl-np-more',
+      'aria-expanded': 'false', 'aria-controls': 'ksvl-np-extras', text: 'Expand',
+      onclick: function() {
+        var open = np.classList.toggle('is-expanded');
+        more.setAttribute('aria-expanded', String(open));
+        more.textContent = open ? 'Collapse' : 'Expand';
+      }
+    });
+    var extras = el('div', {class: 'ksvl-np-extras', id: 'ksvl-np-extras'});
+    var modes = el('div', {class: 'ksvl-np-group ksvl-np-modes'}, [npShuffleBtn, npRepeatBtn]);
+    extras.appendChild(modes);
+    var sound = el('div', {class: 'ksvl-np-group ksvl-np-sound'});
     npMuteBtn = npButton('', '🔊', 'Mute', {'aria-label': 'Mute', title: 'Mute', onclick: toggleMute});
     npVolume = el('input', {
       class: 'ksvl-np-volume',
@@ -489,26 +656,42 @@
       max: '1000',
       step: '1',
       value: '0',
-      'aria-label': 'Seek in current track',
+      'aria-label': 'Track progress',
       disabled: 'disabled'
     });
     npSeek.addEventListener('change', seekFromControl);
     sound.appendChild(npMuteBtn);
-    sound.appendChild(npVolume);
-    sound.appendChild(npSeek);
+    var volumeField = el('label', {class: 'ksvl-np-slider-field'}, [
+      el('span', {class: 'ksvl-np-field-heading', text: 'Volume'}), npVolume
+    ]);
+    npTime = el('span', {class: 'ksvl-np-time', text: '0:00 / —:—', 'aria-hidden': 'true'});
+    var progressField = el('label', {class: 'ksvl-np-slider-field'}, [
+      el('span', {class: 'ksvl-np-field-heading'}, [
+        el('span', {text: 'Track progress'})
+      ]), npSeek, npTime
+    ]);
+    sound.appendChild(volumeField);
+    progressField.classList.add('ksvl-np-progress-field');
+    controls.appendChild(progressField);
     controls.appendChild(sound);
+    controls.appendChild(more);
     // Group 2 — station: pop out · KSVL · stop
     var station = el('div', {class: 'ksvl-np-group'});
     if (!IS_POPUP) {
       station.appendChild(npButton('ksvl-np-btn--link', '⧉', 'Pop out', {'aria-label': 'Pop out the player — music continues while you browse', title: 'Pop out — music continues while you browse', onclick: popOutPlayer}));
     }
     station.appendChild(npButton('ksvl-np-btn--link', '📻', 'KSVL', {href: '/radio.html', 'aria-label': 'Go to KSVL Radio', title: 'Open KSVL Radio'}));
-    station.appendChild(npButton('ksvl-np-btn--stop', '✕', 'Stop', {'aria-label': 'Stop the music', title: 'Stop', onclick: stopPlayer}));
-    controls.appendChild(station);
-    np.appendChild(npMini);
+    station.appendChild(npButton('ksvl-np-btn--stop', '✕', 'Stop & close', {'aria-label': 'Stop music and close player', title: 'Stop music, close player and clear saved position', onclick: stopPlayer}));
+    extras.appendChild(station);
+    controls.appendChild(extras);
     np.appendChild(info);
     np.appendChild(controls);
     document.body.appendChild(np);
+    var spacer = el('div', {'aria-hidden': 'true', class: 'ksvl-player-space'});
+    document.body.appendChild(spacer);
+    if (typeof ResizeObserver === 'function') {
+      new ResizeObserver(function() { spacer.style.height = np.getBoundingClientRect().height + 'px'; }).observe(np);
+    }
     return np;
   }
 
@@ -531,7 +714,7 @@
     if (state.mixId === 'single') {
       label = 'Now listening';
     } else if (state.mixId === 'live') {
-      label = 'KSVL soundcheck · item ' + (state.index + 1);
+      label = 'KSVL 99.9 · Now playing';
     } else if (state.mixId && state.mixId.indexOf('album:') === 0) {
       var albumArtist = state.mixId.slice(6);
       label = albumArtist + ' · Track ' + (state.index + 1) + ' / ' + state.queue.length;
@@ -539,68 +722,109 @@
       label = (mix ? mix.title : 'KSVL') + ' · Track ' + (state.index + 1) + ' / ' + state.queue.length;
     }
     npMix.textContent = label;
+    updateUpNext();
     // Show the current part's label if this is a multi-part track (intro/spot pair).
     var displayTitle = (track.parts && part && part.title) ? part.title : track.title;
     var displayArtist = (track.parts && part && part.artist) ? part.artist : track.artist;
-    npTrack.textContent = displayTitle;
-    npPosition.textContent = ' · ' + displayArtist;
+    npTrack.title = displayTitle;
+    npPosition.title = displayArtist;
+    var titleText = ((track.parts && part && part.artist === 'DJ SunnyV') ? 'Now: ' : 'Song: ') + displayTitle;
+    if (!npTrack.firstElementChild || npTrack.firstElementChild.dataset.title !== titleText) {
+      npTrack.textContent = '';
+      npTrack.appendChild(el('span', {class:'ksvl-np-title-text', 'data-title':titleText}, [
+        el('span', {class:'ksvl-np-title-original', text:titleText}),
+        el('span', {class:'ksvl-np-title-copy', text:titleText, 'aria-hidden':'true'})
+      ]));
+    }
+    requestAnimationFrame(updateTitleOverflow);
+    npPosition.textContent = '';
+    npPosition.appendChild(el('span', {text: (track.parts && part && part.artist === 'DJ SunnyV') ? 'Host: ' : 'Band: '}));
+    npPosition.appendChild(document.createTextNode(displayArtist));
     setBtnIcon(npPlayBtn, state.paused ? '▶' : '⏸');
-    setBtnLabel(npPlayBtn, state.paused ? 'Resume' : 'Pause');
-    npPlayBtn.setAttribute('aria-label', state.paused ? 'Resume' : 'Pause');
-    if (state.paused) npMini.classList.add('is-paused');
-    else npMini.classList.remove('is-paused');
+    setBtnLabel(npPlayBtn, state.finished ? 'Play again' : state.paused ? 'Resume' : 'Pause');
+    npPlayBtn.setAttribute('aria-label', state.finished ? 'Play again' : state.paused ? 'Resume' : 'Pause');
+    np.classList.toggle('is-finished', !!state.finished);
+    npShuffleBtn.classList.toggle('is-active', state.shuffle);
+    npShuffleBtn.setAttribute('aria-label', state.shuffle ? 'Shuffle · on' : 'Shuffle · off');
+    npRepeatBtn.classList.toggle('is-active', state.repeatMode !== 'off');
+    npRepeatBtn.setAttribute('aria-label', state.repeatMode === 'off' ? 'Repeat off' : state.repeatMode === 'one' ? 'Repeat one' : 'Repeat all');
+    setBtnIcon(npRepeatBtn, state.repeatMode === 'one' ? '🔂' : '🔁');
     np.classList.toggle('is-live', state.mixId === 'live');
     np.classList.add('is-visible');
     updateCDPlayingClass();
     updateMediaSession(displayTitle, displayArtist);
+    if (!remoteOwner) saveState();
+  }
+
+  function formatTrackTime(value) {
+    if (!Number.isFinite(value) || value < 0) return '—:—';
+    var total = Math.floor(value);
+    var hours = Math.floor(total / 3600);
+    var minutes = Math.floor((total % 3600) / 60);
+    var seconds = String(total % 60).padStart(2, '0');
+    return hours ? hours + ':' + String(minutes).padStart(2, '0') + ':' + seconds : minutes + ':' + seconds;
   }
 
   function syncSoundControls() {
-    if (!state.audio) return;
+    var sound = remoteOwner ? {
+      muted: state.muted, volume: state.volume,
+      duration: remoteOwner.duration, currentTime: remoteOwner.playback.currentTime
+    } : state.audio;
+    if (!sound) return;
     if (npMuteBtn) {
-      setBtnIcon(npMuteBtn, state.audio.muted ? '🔇' : '🔊');
-      setBtnLabel(npMuteBtn, state.audio.muted ? 'Unmute' : 'Mute');
-      npMuteBtn.setAttribute('aria-label', state.audio.muted ? 'Unmute' : 'Mute');
+      setBtnIcon(npMuteBtn, sound.muted ? '🔇' : '🔊');
+      setBtnLabel(npMuteBtn, sound.muted ? 'Unmute' : 'Mute');
+      npMuteBtn.setAttribute('aria-label', sound.muted ? 'Unmute' : 'Mute');
     }
-    if (npVolume) npVolume.value = String(state.audio.volume);
+    if (npVolume) {
+      npVolume.value = String(sound.volume);
+      npVolume.setAttribute('aria-valuetext', Math.round(sound.volume * 100) + ' percent');
+    }
     if (npSeek) {
-      var duration = Number(state.audio.duration);
+      var duration = Number(sound.duration);
       npSeek.disabled = !Number.isFinite(duration) || duration <= 0;
+      var elapsed = formatTrackTime(Math.max(0, Number(sound.currentTime) || 0));
+      var total = npSeek.disabled ? '—:—' : formatTrackTime(duration);
+      if (npTime) npTime.textContent = elapsed + ' / ' + total;
+      npSeek.setAttribute('aria-valuetext', npSeek.disabled ? 'Track duration unavailable' : elapsed + ' of ' + total);
       npSeek.value = npSeek.disabled ? '0' :
-        String(Math.round((state.audio.currentTime / duration) * 1000));
+        String(Math.round((sound.currentTime / duration) * 1000));
     }
   }
 
   function toggleMute() {
+    if (sendRemote('mute')) return;
     if (!state.audio) return;
     state.audio.muted = !state.audio.muted;
     state.muted = state.audio.muted;
-    announce(state.audio.muted ? 'KSVL is muted.' : 'KSVL sound is on.', 'status');
+    announce(state.audio.muted ? 'KSVL is muted.' : 'KSVL sound is on.', 'status', true);
     syncSoundControls();
     saveState();
   }
 
   function setVolumeFromControl() {
     var value = Math.max(0, Math.min(1, Number(npVolume.value)));
+    if (sendRemote('volume', value)) return;
     state.volume = value;
     if (state.audio) {
       state.audio.volume = value;
       if (value > 0 && state.audio.muted) state.audio.muted = false;
       state.muted = state.audio.muted;
     }
-    announce('Volume ' + Math.round(value * 100) + ' percent on this device.', 'status');
+    announce('Volume ' + Math.round(value * 100) + ' percent on this device.', 'status', true);
     syncSoundControls();
     saveState();
   }
 
   function seekFromControl() {
+    if (sendRemote('seek', Number(npSeek.value) / 1000)) return;
     if (!state.audio || !Number.isFinite(state.audio.duration) || state.audio.duration <= 0) {
       announce('This track does not provide usable seek metadata.', 'error');
       return;
     }
     try {
       state.audio.currentTime = (Number(npSeek.value) / 1000) * state.audio.duration;
-      announce('Moved within ' + ((currentPart() || {}).title || 'the current track') + '.', 'status');
+      announce('Moved within ' + ((currentPart() || {}).title || 'the current track') + '.', 'status', true);
     } catch (error) {
       announce('The browser could not seek in this track. Playback position was not changed.', 'error');
     }
@@ -636,7 +860,10 @@
       state.audio = null;
     }
     // Also pause any other <audio> elements from other players (e.g. individual saint buttons)
-    document.querySelectorAll('audio').forEach(function(a) { try { a.pause(); } catch(e) {} });
+    document.querySelectorAll('audio, video').forEach(function(a) {
+      if (a.tagName === 'VIDEO' && a.muted) return;
+      try { a.pause(); } catch(e) {}
+    });
     // And stop any playing standalone ♪ song button (they use detached
     // Audio objects the selector above can't see).
     stopActiveThemeBtn();
@@ -671,20 +898,7 @@
           if (state.mutedAutoplay) { state.mutedAutoplay = false; try { state.audio.muted = false; } catch(e) {} }
           updateNowPlaying();
           hideResumeNudge();
-          // When no ♪ button is playing anymore (song ended or stopped),
-          // the station comes back — like the DJ waiting out a request.
-          // (.ksvl-cd is excluded: the active mix's CD keeps its class.)
-          var watch = setInterval(function() {
-            if (document.querySelector('button.is-playing:not(.ksvl-cd)')) return;
-            clearInterval(watch);
-            themeBtnActive = null;
-            if (state.paused && state.audio) {
-              state.audio.play().then(function() {
-                state.paused = false;
-                updateNowPlaying();
-              }).catch(function() {});
-            }
-          }, 600);
+          // A different listening choice never schedules a surprise KSVL resume.
         }
       }
       return r;
@@ -714,7 +928,7 @@
         + '@keyframes ksvlNudgePulse { 0%, 100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.05); } }'
         + '#' + NUDGE_ID + ' { position: fixed; left: 50%; bottom: 86px; transform: translateX(-50%); z-index: 9500;'
         + '  display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border-radius: 999px;'
-        + '  background: var(--gold, #c9a227); color: #341446; font: 800 12px/1 "Jost", sans-serif;'
+        + '  background: #b7e42b; color: #202020; font: 800 12px/1 "Jost", sans-serif;'
         + '  letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap;'
         + '  box-shadow: 0 8px 24px rgba(26, 8, 24, 0.35); cursor: pointer;'
         + '  animation: ksvlNudgePulse 1.5s ease-in-out infinite; }'
@@ -760,27 +974,163 @@
   // window keeps the audio alive no matter where the main window goes.
   // The popup heartbeats into localStorage so regular pages know not to
   // fight it for the audio.
-  var IS_POPUP = /ksvl-popup\.html$/.test(window.location.pathname);
-  var POPUP_BEAT_KEY = 'laidies_ksvl_popup_beat';
-  function popupActive() {
-    if (IS_POPUP) return false;
-    try { return (Date.now() - (+localStorage.getItem(POPUP_BEAT_KEY) || 0)) < 6000; } catch(e) { return false; }
+  var IS_POPUP = /\/ksvl-popup(?:\.html)?\/?$/.test(window.location.pathname);
+  var OWNER_KEY = 'laidies_ksvl_owner_v2';
+  var COMMAND_KEY = 'laidies_ksvl_command_v2';
+  var NAV_KEY = 'laidies_ksvl_navigation_v2';
+  var TRANSFER_KEY = 'laidies_ksvl_transfer_v2';
+  var ownerId = typeof crypto.randomUUID === 'function' ? crypto.randomUUID() :
+    Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
+  var ownsAudio = false, releaseAudioLock = null, acquiringAudio = null;
+  var remoteOwner = null, pageLeaving = false;
+
+  function readOwner() {
+    try {
+      var item = JSON.parse(localStorage.getItem(OWNER_KEY));
+      if (!item || typeof item.id !== 'string' || item.id.length > 80 ||
+          !Number.isFinite(item.at) || item.at > Date.now() || Date.now() - item.at > 15000 ||
+          typeof item.popup !== 'boolean' || !Number.isFinite(item.duration) ||
+          item.duration < 0 || item.duration > 86400 ||
+          !validateSavedState(item.playback) ||
+          (item.upNextTitle !== undefined && (typeof item.upNextTitle !== 'string' || item.upNextTitle.length > 500))) return null;
+      return item;
+    } catch (e) { return null; }
   }
-  if (IS_POPUP) {
-    try { localStorage.setItem(POPUP_BEAT_KEY, String(Date.now())); } catch(e) {}
-    setInterval(function() { try { localStorage.setItem(POPUP_BEAT_KEY, String(Date.now())); } catch(e) {} }, 2000);
-    window.addEventListener('pagehide', function() { try { localStorage.removeItem(POPUP_BEAT_KEY); } catch(e) {} });
+
+  function releaseOwnership() {
+    ownsAudio = false;
+    if (releaseAudioLock) { releaseAudioLock(); releaseAudioLock = null; }
+    try {
+      var item = JSON.parse(localStorage.getItem(OWNER_KEY));
+      if (item && item.id === ownerId) localStorage.removeItem(OWNER_KEY);
+    } catch (e) {}
   }
+
+  function acquireOwnership() {
+    if (ownsAudio) return Promise.resolve(true);
+    if (acquiringAudio) return acquiringAudio;
+    // The browser lock is the authority; the heartbeat supplies display state,
+    // never permission to steal a background tab's audio.
+    if (navigator.locks && navigator.locks.request) {
+      acquiringAudio = new Promise(function(resolve) {
+        navigator.locks.request('laidies-ksvl-audio-v2', {ifAvailable: true}, function(lock) {
+          if (!lock || pageLeaving) { resolve(false); return; }
+          ownsAudio = true;
+          remoteOwner = null;
+          resolve(true);
+          return new Promise(function(release) { releaseAudioLock = release; });
+        }).catch(function() { resolve(false); });
+      }).then(function(value) { acquiringAudio = null; return value; });
+      return acquiringAudio;
+    }
+    // Without Web Locks, only the visible page may own sound. Cross-window
+    // continuity is unavailable rather than permitted to create competing audio.
+    if (document.visibilityState === 'hidden') return Promise.resolve(false);
+    ownsAudio = true;
+    remoteOwner = null;
+    return Promise.resolve(true);
+  }
+
+  function followOwner() {
+    if (ownsAudio || pageLeaving) return false;
+    var item = readOwner();
+    if (!item || item.id === ownerId) {
+      if (remoteOwner) {
+        remoteOwner = null;
+        state.queue = []; state.mixId = null;
+        if (np) np.classList.remove('is-visible');
+        hydrateFromStorage(false);
+      }
+      return false;
+    }
+    remoteOwner = item;
+    restoreQueue(item.playback);
+    state.paused = item.playback.paused;
+    updateNowPlaying();
+    announce((item.popup ? 'Pop-out player' : 'Another town tab') +
+      (state.paused ? ' is paused. Resume here or in that window.' : ' is playing. These controls operate that player.'), 'status');
+    syncSoundControls();
+    return true;
+  }
+
+  function sendRemote(action, value) {
+    if (ownsAudio) return false;
+    var item = readOwner();
+    if (!item || item.id === ownerId) return false;
+    try {
+      localStorage.setItem(COMMAND_KEY, JSON.stringify({target: item.id,
+        at: Date.now(), nonce: Math.random().toString(36), action: action, value: value}));
+      followOwner();
+    } catch (e) { announce('The other player could not be reached. Use its own controls.', 'error'); }
+    return true;
+  }
+
+  window.addEventListener('storage', function(event) {
+    if (event.key === OWNER_KEY) { followOwner(); return; }
+    if (event.key !== COMMAND_KEY || !ownsAudio) return;
+    try {
+      var command = JSON.parse(event.newValue);
+      if (!command || command.target !== ownerId || !Number.isFinite(command.at) ||
+          command.at > Date.now() || Date.now() - command.at > 5000) return;
+      var value = command.value;
+      switch (command.action) {
+        case 'toggle': togglePlay(); break;
+        case 'pause': if (state.audio && !state.paused) togglePlay(); break;
+        case 'next': nextTrack(); break;
+        case 'previous': prevTrack(); break;
+        case 'stop': stopPlayer(); break;
+        case 'mute': toggleMute(); break;
+        case 'shuffle': toggleShuffle(); break;
+        case 'repeat': cycleRepeat(); break;
+        case 'retry': retryCurrent(); break;
+        case 'live': startLive(); break;
+        case 'track': if (typeof value === 'string') window.KSVL_playTrackById(value); break;
+        case 'mix': if (value && typeof value.id === 'string' && Number.isInteger(value.index)) startMix(value.id, value.index); break;
+        case 'album': if (value && typeof value.id === 'string' && Number.isInteger(value.index)) startAlbum(value.id, value.index); break;
+        case 'volume': if (Number.isFinite(value) && value >= 0 && value <= 1) { npVolume.value = String(value); setVolumeFromControl(); } break;
+        case 'seek': if (Number.isFinite(value) && value >= 0 && value <= 1) window.KSVL_seekToRatio(value); break;
+      }
+      saveState();
+    } catch (e) {}
+  });
+  setInterval(function() { if (ownsAudio) saveState(); else followOwner(); }, 1000);
+  document.addEventListener('play', function(event) {
+    var media = event.target;
+    if (!media || media === state.audio || media.muted || !/^(AUDIO|VIDEO)$/.test(media.tagName)) return;
+    if (!sendRemote('pause') && state.audio && !state.paused) togglePlay();
+  }, true);
+
   function popOutPlayer() {
-    saveState();
+    if (!(navigator.locks && navigator.locks.request)) {
+      announce('This browser cannot keep a separate player safely connected. Continue listening here.', 'status');
+      return;
+    }
+    if (remoteOwner) {
+      announce('The music is already controlled by another window. These controls remain connected to it.', 'status');
+      return;
+    }
+    if (!saveState()) return;
+    var transfer = ownerId + '-' + Date.now();
+    try { localStorage.setItem(TRANSFER_KEY, JSON.stringify({token: transfer, at: Date.now(), playing: !state.paused})); }
+    catch (e) { announce('Pop-out needs browser storage. Your music is still playing here.', 'status'); return; }
+    var popup = window.open('/ksvl-popup.html?transfer=' + encodeURIComponent(transfer), 'ksvlPopup', 'width=440,height=420,resizable=yes');
+    if (!popup) {
+      try { localStorage.removeItem(TRANSFER_KEY); } catch (e) {}
+      announce('The browser blocked the pop-out. Your music is still here.', 'status');
+      return;
+    }
+    ++playToken;
     stopExistingAudio();
-    state.queue = []; state.mixId = null; state.paused = false;
-    if (np) { np.remove(); np = null; }
-    window.open('/ksvl-popup.html', 'ksvlPopup', 'width=440,height=320,resizable=yes');
+    releaseOwnership();
+    state.queue = []; state.mixId = null; state.paused = true;
+    announce('Opening the pop-out player. Its controls will also appear here.', 'status');
   }
 
   var playToken = 0;
   function playIndex(i) {
+    state.restoring = false;
+    state.finished = false;
+    state.nextChoice = null;
     state.index = ((i % state.queue.length) + state.queue.length) % state.queue.length;
     state.currentPart = 0;
     if (window.plausible) { try { window.plausible('KSVL play', { props: { track: (state.queue[state.index] || {}).title || '' } }); } catch (e) {} }
@@ -790,6 +1140,17 @@
   // Play the current part (or the whole track if no parts). Handles intro→spot flow.
   function playCurrentPart() {
     var myToken = ++playToken;
+    acquireOwnership().then(function(acquired) {
+      if (myToken !== playToken || pageLeaving) return;
+      if (!acquired) {
+        if (!followOwner()) announce('Another town window owns the music. Return to that player or choose Resume after it closes.', 'status');
+        return;
+      }
+      playOwnedPart(myToken);
+    });
+  }
+
+  function playOwnedPart(myToken) {
     stopExistingAudio();
     var track = state.queue[state.index];
     var part = currentPart();
@@ -825,7 +1186,7 @@
         state.currentPart++;
         playCurrentPart();
       } else {
-        announce(displayTitle + ' ended.', 'status');
+        announce(displayTitle + ' ended.', 'status', true);
         advanceOnEnded();
       }
     });
@@ -864,17 +1225,28 @@
     audio.addEventListener('pause', function() {
       if (myToken !== playToken || audio.ended) return;
       state.paused = true;
-      announce(displayTitle + ' is paused.', 'status');
+      announce(displayTitle + ' is paused.', 'status', true);
       updateNowPlaying();
     });
     state.audio = audio;
     if (state.restoring) {
+      var restoration = state.restoring;
       state.restoring = false;
-      state.paused = true;
-      announce('Saved KSVL position restored on this device. Choose Resume to continue; sound will not start automatically.', 'status');
-      updateNowPlaying();
-      syncSoundControls();
-      return;
+      var seekRestored = function() {
+        if (myToken !== playToken || state.audio !== audio) return;
+        try { if (Number.isFinite(audio.duration)) audio.currentTime = Math.min(restoration.time, Math.max(0, audio.duration - 0.5)); } catch (e) {}
+        syncSoundControls();
+        saveState();
+      };
+      if (audio.readyState >= 1) seekRestored();
+      else audio.addEventListener('loadedmetadata', seekRestored, {once: true});
+      if (!restoration.play) {
+        state.paused = true;
+        announce(state.finished ? 'Finished. Press Play again to restart this playlist.' : 'Pick up where you left off. Press Resume to keep listening.', 'status', true);
+        updateNowPlaying();
+        syncSoundControls();
+        return;
+      }
     }
     state.paused = true;
     announce('Starting ' + displayTitle + '…', 'loading');
@@ -901,21 +1273,10 @@
 
   // Preload whatever plays next in the flow: next part of current track, or first part of next track.
   function preloadNextInFlow() {
-    var track = state.queue[state.index];
-    var nextSrc = null;
-    if (track && track.parts && state.currentPart < track.parts.length - 1) {
-      nextSrc = track.parts[state.currentPart + 1].src;
-    } else {
-      var nextIdx;
-      if (state.repeatMode === 'one') { nextIdx = state.index; }
-      else if (state.shuffle) { return; /* shuffle picks at runtime */ }
-      else if (state.repeatMode === 'off' && state.index >= state.queue.length - 1) { return; }
-      else { nextIdx = (state.index + 1) % state.queue.length; }
-      var nextTrack = state.queue[nextIdx];
-      if (!nextTrack) return;
-      nextSrc = nextTrack.parts ? nextTrack.parts[0].src : nextTrack.src;
-    }
-    if (!nextSrc) return;
+    var upcoming = nextInFlow();
+    var nextSrc = upcoming && upcoming.item.src;
+    if (nextSrc && nextSrc === state.preloadedSrc) return;
+    if (!nextSrc) { state.preloadedAudio = null; state.preloadedSrc = null; return; }
     var next = new Audio(nextSrc);
     next.preload = 'auto';
     state.preloadedAudio = next;
@@ -924,32 +1285,59 @@
 
   function advanceOnEnded() {
     if (state.signingOff) { realStopPlayer(); return; }
-    if (state.mixId === 'single') { realStopPlayer(); return; }
-    if (state.repeatMode === 'one') { playIndex(state.index); return; }
-    if (state.shuffle) { playIndex(Math.floor(Math.random() * state.queue.length)); return; }
-    if (state.repeatMode === 'off' && state.index >= state.queue.length - 1) { stopPlayer(); return; }
-    playIndex(state.index + 1);
+    if (state.mixId === 'single') { finishPlaylist(); return; }
+    var next = nextInFlow();
+    if (!next) { finishPlaylist(); return; }
+    playIndex(next.index);
+  }
+
+  function finishPlaylist() {
+    state.finished = true;
+    state.paused = true;
+    state.nextChoice = null;
+    state.preloadedAudio = null; state.preloadedSrc = null;
+    if (state.audio) state.audio.pause();
+    announce('Finished. Press Play again to restart this playlist.', 'status', true);
+    updateNowPlaying();
+    syncSoundControls();
+    saveState();
+  }
+
+  function catalogueStartingWith(trackId) {
+    var index = TRACKS.findIndex(function(track) { return track.id === trackId; });
+    return index < 0 ? [] : TRACKS.slice(index).concat(TRACKS.slice(0, index));
   }
 
   function toggleShuffle() {
+    if (sendRemote('shuffle')) return;
     state.shuffle = !state.shuffle;
+    state.nextChoice = null;
     if (npShuffleBtn) {
       npShuffleBtn.classList.toggle('is-active', state.shuffle);
       npShuffleBtn.setAttribute('aria-label', state.shuffle ? 'Shuffle · on' : 'Shuffle · off');
     }
+    updateUpNext();
+    preloadNextInFlow();
+    saveState();
   }
 
   function cycleRepeat() {
+    if (sendRemote('repeat')) return;
     state.repeatMode = state.repeatMode === 'off' ? 'all' : (state.repeatMode === 'all' ? 'one' : 'off');
+    state.nextChoice = null;
     if (npRepeatBtn) {
       npRepeatBtn.classList.toggle('is-active', state.repeatMode !== 'off');
       setBtnIcon(npRepeatBtn, state.repeatMode === 'one' ? '🔂' : '🔁');
       npRepeatBtn.setAttribute('aria-label', state.repeatMode === 'off' ? 'Repeat off' : (state.repeatMode === 'one' ? 'Repeat one' : 'Repeat all'));
       npRepeatBtn.setAttribute('title', 'Repeat: ' + state.repeatMode);
     }
+    updateUpNext();
+    preloadNextInFlow();
+    saveState();
   }
 
   function startMix(mixId, startTrackIndex) {
+    if (sendRemote('mix', {id: mixId, index: startTrackIndex || 0})) return;
     var mix = MIXES.filter(function(m) { return m.id === mixId; })[0];
     if (!mix) return;
     var queue = tracksForMix(mixId);
@@ -968,6 +1356,7 @@
     return TRACKS.filter(function(t) { return t.artist === artist; });
   }
   function startAlbum(artist, startTrackIndex) {
+    if (sendRemote('album', {id: artist, index: startTrackIndex || 0})) return;
     var queue = tracksForArtist(artist);
     if (!queue.length) return;
     state.mixId = 'album:' + artist;
@@ -981,16 +1370,20 @@
   window.KSVL_startAlbum = startAlbum;
   window.KSVL_tracksForArtist = tracksForArtist;
 
-  // Play a SINGLE track through the KSVL deck. A song plays as itself — NOT the
-  // station rotation — but still gets the persistent Now-Playing bar + pop-out,
-  // so a specific song and the radio share one player. Used by the ♪ song chips.
+  // Page song choices start the complete admitted catalogue at the chosen song.
+  // Keep the entry point name for existing page callers; playback defaults to one pass.
   function startSingle(track) {
     if (!track || !track.src || !isAdmittedSource(track.src)) {
       announce('That track cannot start right now. Please choose another one.', 'held');
       return false;
     }
-    state.mixId = 'single';
-    state.queue = [{ id: track.id || '', title: track.title || 'LAiDIES', artist: track.artist || 'LAiDIES', src: track.src }];
+    // External theme callers pass a URL; resolve it back to the canonical ID.
+    track = TRACKS.filter(function(item) { return item.src === track.src; })[0];
+    if (!track) return false;
+    if (sendRemote('track', track.id)) return true;
+    state.mixId = 'catalogue';
+    state.startTrackId = track.id;
+    state.queue = catalogueStartingWith(track.id);
     state.index = 0;
     state.currentPart = 0;
     state.shuffle = false;
@@ -1017,7 +1410,7 @@
     });
   };
   window.KSVL_togglePlayback = function() {
-    if (!state.audio) return false;
+    if (!state.audio && !remoteOwner) return false;
     togglePlay();
     return true;
   };
@@ -1026,13 +1419,15 @@
     return state.repeatMode;
   };
   window.KSVL_seekToRatio = function(ratio) {
+    if (!Number.isFinite(Number(ratio))) return false;
+    if (sendRemote('seek', Math.max(0, Math.min(1, Number(ratio))))) return true;
     if (!state.audio || !Number.isFinite(state.audio.duration) || state.audio.duration <= 0) {
       announce('This track does not provide usable seek metadata.', 'error');
       return false;
     }
     try {
       state.audio.currentTime = Math.max(0, Math.min(1, Number(ratio))) * state.audio.duration;
-      announce('Moved within ' + ((currentPart() || {}).title || 'the current track') + '.', 'status');
+      announce('Moved within ' + ((currentPart() || {}).title || 'the current track') + '.', 'status', true);
       syncSoundControls();
       return true;
     } catch (error) {
@@ -1049,18 +1444,24 @@
       artist: track.artist || '',
       paused: !!state.paused,
       repeatMode: state.repeatMode,
-      currentTime: state.audio && Number.isFinite(state.audio.currentTime) ? state.audio.currentTime : 0,
-      duration: state.audio && Number.isFinite(state.audio.duration) ? state.audio.duration : 0,
+      currentTime: remoteOwner ? remoteOwner.playback.currentTime : state.audio && Number.isFinite(state.audio.currentTime) ? state.audio.currentTime : 0,
+      duration: remoteOwner ? remoteOwner.duration : state.audio && Number.isFinite(state.audio.duration) ? state.audio.duration : 0,
       status: npStatus ? npStatus.textContent : '',
       partTitle: part && part.title ? part.title : ''
     } : null;
   };
 
-  function nextTrack() { if (state.queue.length) playIndex(state.index + 1); }
-  function prevTrack() { if (state.queue.length) playIndex(state.index - 1); }
+  function nextTrack() { if (!sendRemote('next') && state.queue.length) playIndex(state.index + 1); }
+
+  function prevTrack() { if (!sendRemote('previous') && state.queue.length) playIndex(state.index - 1); }
 
   function togglePlay() {
-    if (!state.audio) return;
+    if (sendRemote('toggle')) return;
+    if (state.finished && state.queue.length) { playIndex(0); return; }
+    if (!state.audio) {
+      if (state.queue.length) { state.restoring = false; playCurrentPart(); }
+      return;
+    }
     if (state.paused) {
       announce('Starting ' + ((currentPart() || {}).title || 'this track') + '…', 'loading');
       state.audio.play().then(function() {
@@ -1076,24 +1477,28 @@
     } else {
       state.audio.pause();
       state.paused = true;
-      announce(((currentPart() || {}).title || 'This track') + ' is paused.', 'status');
+      announce(((currentPart() || {}).title || 'This track') + ' is paused.', 'status', true);
       updateNowPlaying();
     }
   }
 
   // Immediate hard-stop. Used after signoff finishes or if user double-taps Stop.
   function realStopPlayer() {
+    ++playToken;
     stopExistingAudio();
     state.mixId = null; state.queue = []; state.index = 0; state.currentPart = 0; state.paused = false;
     state.signingOff = false;
+    state.finished = false; state.startTrackId = null;
     state.preloadedAudio = null; state.preloadedSrc = null;
     if (np) np.classList.remove('is-visible');
     document.querySelectorAll('.ksvl-cd').forEach(function(cd) { cd.classList.remove('is-playing'); });
     try { localStorage.removeItem('laidies_ksvl_player_state_v1'); } catch(e) {}
+    releaseOwnership();
   }
 
   // Programme objects remain held; Stop therefore ends the admitted catalogue directly.
   function stopPlayer() {
+    if (sendRemote('stop')) return;
     realStopPlayer();
   }
 
@@ -1107,7 +1512,7 @@
     if (mix.image) {
       jewel.appendChild(el('img', {class: 'ksvl-cd-image', src: mix.image, alt: '', loading: 'lazy'}));
     } else {
-      jewel.appendChild(el('div', {class: 'ksvl-cd-disc'}));
+      jewel.appendChild(el('img', {class: 'ksvl-cd-disc', src: '/assets/ksvl/player-cd-silver-v1.png', alt: '', loading: 'lazy'}));
     }
     var sharpie = el('div', {class: 'ksvl-cd-sharpie', text: mix.title});
     var tc = el('div', {class: 'ksvl-cd-sharpie ksvl-cd-sharpie--track-count', text: trackCount + ' Tracks'});
@@ -1166,16 +1571,24 @@
       tabindex: '0',
       'aria-label': 'Flip ' + mix.title + ' CD to see the tracklist'
     }, [front, back]);
+    function flipCD(flipped) {
+      flipContainer.classList.toggle('is-flipped', flipped);
+      flipContainer.setAttribute('aria-expanded', String(flipped));
+      front.inert = flipped; back.inert = !flipped;
+      front.setAttribute('aria-hidden', String(flipped));
+      back.setAttribute('aria-hidden', String(!flipped));
+    }
+    flipCD(false);
     flipContainer.addEventListener('click', function(e) {
       if (e.target.closest('button')) return;
-      flipContainer.classList.toggle('is-flipped');
+      flipCD(!flipContainer.classList.contains('is-flipped'));
     });
     flipContainer.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flipContainer.classList.toggle('is-flipped'); }
+      if (e.target === flipContainer && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); flipCD(!flipContainer.classList.contains('is-flipped')); }
     });
     flipBackBtn.addEventListener('click', function(e) {
       e.stopPropagation();
-      flipContainer.classList.remove('is-flipped');
+      flipCD(false);
     });
 
     var caption = el('div', {class: 'ksvl-cd-caption'}, [
@@ -1188,6 +1601,7 @@
 
   function mount() {
     injectStyle();
+    checkContinuityStorage();
     var mountEl = document.getElementById('ksvl-mix-cds');
     if (mountEl) {
       var rack = el('div', {class: 'ksvl-mix-rack'}, [
@@ -1209,7 +1623,7 @@
     // Always try to hydrate saved playback — the persistent bar follows the visitor
     // across every page, so any page can pick up where they left off.
     // Unless the pop-out player window is live: it owns the audio.
-    if (!popupActive()) hydrateFromStorage();
+    if (!followOwner()) hydrateFromStorage(consumeContinuation());
     if (!TRACKS.length && (mountEl || IS_POPUP)) {
       announce(catalogFailure ||
         'KSVL cannot start a track right now. Please try again later.', 'held');
@@ -1225,18 +1639,14 @@
     return (item && item.id) ? item.id : null;
   }
 
-  function saveState() {
-    try {
-      // A page that never owned playback must NOT clobber the stored state —
-      // another window (the pop-out) or the previous page may own it.
-      // Deliberate stops clear the key explicitly in realStopPlayer().
-      if (!state.mixId || !state.queue.length) { return; }
-      if (!activeRegistryId) { localStorage.removeItem(LS_KEY); return; }
+  function buildSavedState() {
+      if (!state.mixId || !state.queue.length || !activeRegistryId) return null;
       var ctx = null, extra = {};
       if (state.mixId.indexOf('album:') === 0) { ctx = 'album'; extra.artist = state.mixId.slice(6); }
       else if (MIXES.some(function(m){ return m.id === state.mixId; })) { ctx = 'mix'; extra.mixId = state.mixId; }
-      else if (state.mixId === 'single') { return; }
-      else { localStorage.removeItem(LS_KEY); return; }
+      else if (state.mixId === 'catalogue') { ctx = 'catalogue'; extra.startTrackId = state.startTrackId; }
+      else if (state.mixId === 'single' || state.mixId === 'live') { ctx = state.mixId; }
+      else { return null; }
       var track = state.queue[state.index];
       var currentTime = 0;
       try { if (state.audio && !isNaN(state.audio.currentTime)) currentTime = state.audio.currentTime; } catch(e) {}
@@ -1246,6 +1656,7 @@
         ctx: ctx,
         trackId: trackIdFor(track),
         currentTime: currentTime,
+        finished: !!state.finished,
         paused: !!state.paused,
         shuffle: !!state.shuffle,
         repeatMode: state.repeatMode || 'all',
@@ -1254,8 +1665,20 @@
         savedAt: (new Date()).valueOf()
       };
       Object.keys(extra).forEach(function(k){ payload[k] = extra[k]; });
+      return payload;
+  }
+
+  function saveState() {
+    if (!ownsAudio || remoteOwner) return false;
+    try {
+      var payload = buildSavedState();
+      if (!payload) return false;
       localStorage.setItem(LS_KEY, JSON.stringify(payload));
-    } catch(e) { /* localStorage quota / disabled — silently ignore */ }
+      localStorage.setItem(OWNER_KEY, JSON.stringify({id: ownerId, at: Date.now(), popup: IS_POPUP,
+        duration: state.audio && Number.isFinite(state.audio.duration) ? state.audio.duration : 0,
+        playback: payload, upNextTitle: nextTitle()}));
+      return true;
+    } catch(e) { reportStorageLimit(); return false; }
   }
 
   function readSavedState() {
@@ -1266,17 +1689,26 @@
     try {
       var raw = localStorage.getItem(LS_KEY);
       if (!raw) return null;
-      var s = JSON.parse(raw);
+      var s = validateSavedState(JSON.parse(raw));
+      return s || discard();
+    } catch(e) { return discard(); }
+  }
+
+  function validateSavedState(s) {
       var baseKeys = ['v','registryId','ctx','trackId','currentTime','paused','shuffle','repeatMode','volume','muted','savedAt'];
-      var expectedKeys = s && s.ctx === 'mix' ? baseKeys.concat('mixId') :
-        (s && s.ctx === 'album' ? baseKeys.concat('artist') : []);
+      if (s && Object.prototype.hasOwnProperty.call(s, 'finished')) baseKeys.push('finished');
+      var expectedKeys = s && s.ctx === 'catalogue' ? baseKeys.concat('startTrackId') : s && s.ctx === 'mix' ? baseKeys.concat('mixId') :
+        (s && s.ctx === 'album' ? baseKeys.concat('artist') :
+          (s && ['live','single'].includes(s.ctx) ? baseKeys : []));
       var now = Date.now();
       if (!s || !expectedKeys.length ||
           Object.keys(s).sort().join('|') !== expectedKeys.sort().join('|') ||
           s.v !== 1 || s.registryId !== activeRegistryId ||
-          !['mix','album'].includes(s.ctx) ||
+          !['mix','album','live','single','catalogue'].includes(s.ctx) ||
           typeof s.trackId !== 'string' || !s.trackId ||
-          !Number.isFinite(s.currentTime) || s.currentTime < 0 ||
+          !Number.isFinite(s.currentTime) || s.currentTime < 0 || s.currentTime > 86400 ||
+          (s.finished !== undefined && (typeof s.finished !== 'boolean' || (s.finished && !s.paused))) ||
+          (s.ctx === 'catalogue' && (typeof s.startTrackId !== 'string' || !TRACKS.some(function(t) { return t.id === s.startTrackId; }))) ||
           typeof s.paused !== 'boolean' || typeof s.shuffle !== 'boolean' ||
           !['off','all','one'].includes(s.repeatMode) ||
           !Number.isFinite(s.volume) || s.volume < 0 || s.volume > 1 ||
@@ -1285,23 +1717,23 @@
           s.savedAt < now - STATE_TTL_MS ||
           (s.ctx === 'mix' && !MIXES.some(function(m) { return m.id === s.mixId; })) ||
           (s.ctx === 'album' && (typeof s.artist !== 'string' || !s.artist.trim()))) {
-        return discard();
+        return null;
       }
+      if (!queueForSaved(s).some(function(track) { return track.id === s.trackId; })) return null;
       return s;
-    } catch(e) { return discard(); }
   }
 
-  function hydrateFromStorage() {
-    var s = readSavedState();
-    if (!s) return;
-    // Build the queue for the saved context.
-    var queue = null;
-    if (s.ctx === 'mix') { queue = tracksForMix(s.mixId); }
-    else if (s.ctx === 'album') { queue = tracksForArtist(s.artist); }
-    if (!queue || !queue.length) {
-      try { localStorage.removeItem(LS_KEY); } catch (error) {}
-      return;
-    }
+  function queueForSaved(s) {
+    if (s.ctx === 'catalogue') return catalogueStartingWith(s.startTrackId);
+    if (s.ctx === 'mix') return tracksForMix(s.mixId);
+    if (s.ctx === 'album') return tracksForArtist(s.artist);
+    if (s.ctx === 'live') return TRACKS.slice();
+    if (s.ctx === 'single') return TRACKS.filter(function(track) { return track.id === s.trackId; });
+    return [];
+  }
+
+  function restoreQueue(s) {
+    var queue = queueForSaved(s);
     // Find the saved track in the queue.
     var trackIdx = -1;
     if (s.trackId) {
@@ -1312,8 +1744,10 @@
       return;
     }
     // Rehydrate state — station opener is added at queue[0], real tracks start at 1.
-    state.mixId = (s.ctx === 'album') ? ('album:' + s.artist) : s.mixId;
-    state.queue = queue.map(wrapWithIntro);
+    state.mixId = (s.ctx === 'album') ? ('album:' + s.artist) : (s.ctx === 'mix' ? s.mixId : s.ctx);
+    state.queue = s.ctx === 'catalogue' ? queue : queue.map(wrapWithIntro);
+    state.startTrackId = s.ctx === 'catalogue' ? s.startTrackId : null;
+    state.finished = !!s.finished;
     state.index = trackIdx;
     state.currentPart = 0;
     state.shuffle = !!s.shuffle;
@@ -1325,31 +1759,64 @@
       npRepeatBtn.classList.toggle('is-active', state.repeatMode !== 'off');
       setBtnIcon(npRepeatBtn, state.repeatMode === 'one' ? '🔂' : '🔁');
     }
-    // Play through the current track, seeking on canplay to the saved position.
-    state.restoring = true;
+  }
+
+  function hydrateFromStorage(continuePlaying) {
+    var s = readSavedState();
+    if (!s) return;
+    restoreQueue(s);
+    state.restoring = {time: s.currentTime, play: !!continuePlaying && !s.paused && !s.finished};
     playCurrentPart();
-    var seekTo = +s.currentTime || 0;
-    var wasPaused = !!s.paused;
-    var attemptSeek = function() {
-      if (!state.audio) return;
-      try { if (seekTo > 0 && !isNaN(state.audio.duration)) state.audio.currentTime = Math.min(seekTo, Math.max(0, state.audio.duration - 0.5)); } catch(e) {}
-      if (wasPaused) {
-        try { state.audio.pause(); } catch(e) {}
-        state.paused = true;
-        updateNowPlaying();
+  }
+
+  function normalPath(path) { return path.replace(/\.html$/, '').replace(/\/$/, '') || '/'; }
+  function consumeContinuation() {
+    try {
+      if (IS_POPUP) {
+        var transfer = JSON.parse(localStorage.getItem(TRANSFER_KEY));
+        var token = new URLSearchParams(location.search).get('transfer');
+        if (token && transfer && transfer.token === token && Date.now() - transfer.at >= 0 && Date.now() - transfer.at < 15000) {
+          localStorage.removeItem(TRANSFER_KEY);
+          return transfer.playing === true;
+        }
+        return false;
       }
-    };
-    if (state.audio) {
-      if (state.audio.readyState >= 1 /* HAVE_METADATA */) attemptSeek();
-      else state.audio.addEventListener('loadedmetadata', attemptSeek, { once: true });
-    }
+      var navigation = JSON.parse(sessionStorage.getItem(NAV_KEY));
+      sessionStorage.removeItem(NAV_KEY);
+      return !!(navigation && navigation.playing === true && Date.now() - navigation.at >= 0 &&
+        Date.now() - navigation.at < 15000 && navigation.to === normalPath(location.pathname));
+    } catch (e) { return false; }
   }
 
   function bindPersistenceHooks() {
     // Save aggressively — the exact unload event varies by browser + platform.
     window.addEventListener('beforeunload', saveState);
-    window.addEventListener('pagehide', saveState);
-    document.addEventListener('visibilitychange', function() { if (document.visibilityState === 'hidden') saveState(); });
+    document.addEventListener('click', function(event) {
+      var link = event.target.closest && event.target.closest('a[href]');
+      if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey ||
+          link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
+      var target = new URL(link.href, location.href);
+      if (target.origin !== location.origin || (target.pathname === location.pathname && target.search === location.search)) return;
+      try { sessionStorage.setItem(NAV_KEY, JSON.stringify({at: Date.now(), to: normalPath(target.pathname), playing: ownsAudio && !!state.audio && !state.paused})); } catch (e) { reportStorageLimit(); }
+      saveState();
+    });
+    window.addEventListener('pagehide', function() {
+      saveState(); pageLeaving = true; ++playToken;
+      stopExistingAudio(); releaseOwnership();
+    });
+    window.addEventListener('pageshow', function(event) {
+      if (!event.persisted) return;
+      pageLeaving = false;
+      if (!followOwner()) hydrateFromStorage(false);
+    });
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'hidden') {
+        saveState();
+        if (!(navigator.locks && navigator.locks.request)) {
+          ++playToken; stopExistingAudio(); state.paused = true; releaseOwnership();
+        }
+      }
+    });
     // Periodic save while playing, so a browser crash doesn't lose position.
     setInterval(function() { if (state.audio && !state.paused) saveState(); }, 5000);
   }

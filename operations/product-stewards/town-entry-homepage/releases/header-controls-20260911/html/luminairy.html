@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The LUMINAiRY · LAiDIES · SUNNYVAiLE</title>
+  <meta name="description" content="Enter the three wings of the LAiDIES LUMINAiRY: PATRON SAiNT teaching cards, sourced MAiVEN history, present-day TRAiLBLAZER profiles, and Saint songs.">
+  <link rel="canonical" href="https://laidies.ai/luminairy">
+  <meta property="og:url" content="https://laidies.ai/luminairy">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/sunnyvaile-page.css?v=20260715-hero">
+  <link rel="stylesheet" href="/content/luminairy-v2.css?v=20260829-mobile-heading-1">
+  <script defer src="/content/site/sv-global-header.js?v=20260911-header-controls-1"></script>
+  <script defer src="/content/site/sv-nav-auth.js?v=20260729-1"></script>
+  <script defer src="/content/site/luminairy-claim-gate.js?v=20260902-r5"></script>
+  <script defer src="/content/site/luminairy-app.js?v=20260824-search-scope-v1"></script>
+</head>
+<body>
+  <header class="sv-header"></header>
+
+  <main id="mainContent">
+    <section class="lum-hero" aria-labelledby="lumTitle">
+      <div class="lum-hero__media" aria-hidden="true">
+        <img id="lumNaveImage" src="/assets/building-interiors/luminairy-nave.jpg" alt="">
+      </div>
+      <div class="lum-hero__copy">
+        <p class="lum-kicker">Lantern Hill · SUNNYVAiLE</p>
+        <h1 id="lumTitle">The <span>LUMINAiRY</span></h1>
+        <p class="lum-hero__body">The LUMINAiRY is where LAiDIES brings together cultural touchstones, computing history, and present-day practitioners to make AI easier to understand, question, and use. Enter PATRON SAiNTS for memorable working habits, MAiVENS for the history and ideas behind computing, or TRAiLBLAZERS for the people shaping AI now.</p>
+        <a class="lum-hero__action" href="#archiveTitle">Choose a wing <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <noscript>
+      <section class="lum-error">
+        <h2>JavaScript is needed to open the archive</h2>
+        <p>The profile data remains in <a href="/content/luminairy-profiles.json">the readable LUMINAiRY profile file</a>.</p>
+      </section>
+    </noscript>
+
+    <section class="lum-local" aria-labelledby="localTitle">
+      <div>
+        <p class="lum-kicker">Your local votive</p>
+        <h2 id="localTitle">Choose one from each wing.</h2>
+        <p id="lumLocalStatus">Selections stay in this browser on this device. They are not an account, public identity, reward, or cross-device record.</p>
+        <a class="lum-closet-door" href="/laidies-card.html#covenSection">See these local choices in Your Luminaries <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="lum-local__picks" aria-live="polite" aria-atomic="true">
+        <div><span>SAiNT</span><strong data-pick-output="saints">No candle lit</strong></div>
+        <div><span>MAiVEN</span><strong data-pick-output="mavens">No candle lit</strong></div>
+        <div><span>TRAiLBLAZER</span><strong data-pick-output="trailblazers">No candle lit</strong></div>
+      </div>
+    </section>
+
+    <section class="lum-archive" aria-labelledby="archiveTitle">
+      <header class="lum-archive__head">
+        <div>
+          <p class="lum-kicker">The three wings</p>
+          <h2 id="archiveTitle">Meet the three wings.</h2>
+        </div>
+      </header>
+
+      <div class="lum-tabs" role="tablist" aria-label="LUMINAiRY wings">
+        <button id="tab-saints" class="lum-tab lum-tab--saints" type="button" role="tab" aria-selected="true" aria-controls="lumPanel" data-wing="saints">
+          <span class="lum-tab__art" aria-hidden="true"><img class="lum-tab__image" src="/assets/sunnyvaile-interiors/luminairy-saints-wing-door-v2-no-heart.png" alt=""></span>
+          <span class="lum-tab__copy"><span>★ Wing I · 13 cards</span><strong>PATRON SAiNTS</strong><small>Memorable practice</small><em>Enter the pink wing →</em></span>
+        </button>
+        <button id="tab-mavens" class="lum-tab lum-tab--mavens" type="button" role="tab" aria-selected="false" aria-controls="lumPanel" tabindex="-1" data-wing="mavens">
+          <span class="lum-tab__art" aria-hidden="true"><img class="lum-tab__image" src="/assets/sunnyvaile-interiors/luminairy-maivens-wing-door.jpg" alt=""></span>
+          <span class="lum-tab__copy"><span>✦ Wing II · 23 profiles</span><strong>MAiVENS</strong><small>History and critique</small><em>Enter the sapphire wing →</em></span>
+        </button>
+        <button id="tab-trailblazers" class="lum-tab lum-tab--trailblazers" type="button" role="tab" aria-selected="false" aria-controls="lumPanel" tabindex="-1" data-wing="trailblazers">
+          <span class="lum-tab__art" aria-hidden="true"><img class="lum-tab__image" src="/assets/sunnyvaile-interiors/luminairy-trailblazers-wing-door.jpg" alt=""></span>
+          <span class="lum-tab__copy"><span>◆ Wing III · 7 profiles</span><strong>TRAiLBLAZERS</strong><small>Present-day practice</small><em>Enter the golden wing →</em></span>
+        </button>
+      </div>
+
+      <div class="lum-panel" id="lumPanel" role="tabpanel" tabindex="0" aria-labelledby="tab-saints">
+        <div class="lum-panel__intro">
+          <div>
+            <p class="lum-kicker" id="lumWingKicker">PATRON SAiNTS · pink wing</p>
+            <h2 id="lumWingTitle">Borrow the move, not the mythology.</h2>
+            <p id="lumWingDescription">These are explicit LAiDIES teaching devices inspired by real people or fictional characters. They are not endorsements, biographies, or claims that the source would teach AI this way.</p>
+          </div>
+          <button class="lum-playlist" id="lumPlaylist" type="button">
+            <span aria-hidden="true">▶</span>
+            <span>Play the available songs</span>
+          </button>
+        </div>
+        <label class="lum-search">
+          <span id="lumSearchLabel">Search PATRON SAiNT cards</span>
+          <input id="lumSearch" type="search" autocomplete="off" placeholder="Try a name, role, or lesson…">
+        </label>
+        <p class="lum-result-status" id="lumResultStatus" role="status" aria-live="polite"></p>
+        <div class="lum-grid" id="lumGrid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <audio id="lumAudio" preload="none"></audio>
+  <div class="lum-audio-status" id="lumAudioStatus" role="status" aria-live="assertive" hidden></div>
+
+  <footer class="lum-footer">© LAiDIES · Filed from SUNNYVAiLE · The LUMINAiRY at Lantern Hill · <a href="/town-hall.html#town-hall-feedback">Corrections</a></footer>
+  <script defer src="/content/site/sv-back-nav.js?v=20260911-header-controls-1"></script>
+</body>
+</html>
