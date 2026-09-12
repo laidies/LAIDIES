@@ -44,6 +44,12 @@ try{
  await page.locator('[value="photo"][name="moPortraitMode"]').check();
  await page.locator('#moPhoto').setInputFiles({name:'test.png',mimeType:'image/png',buffer:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScL9wQAAAABJRU5ErkJggg==','base64')});
  await page.locator('#moMake').click();
+ await page.waitForFunction(()=>document.querySelector('#moHairError').hidden===false);
+ assert.equal(await page.locator('input[name="moHair"]:checked').count(),0,'no preselected hair choice');
+ assert.equal(payloads.length,0,'missing hair choice sends no photo');
+ assert.equal(await page.locator('#moPhoto').evaluate(el=>el.files.length),1,'missing hair choice retains photo');
+ await page.locator('input[name="moHair"][value="keep"]').check();
+ await page.locator('#moMake').click();
  await page.waitForFunction(()=>document.querySelector('#moPhotoConsentError').hidden===false);
  assert.equal(payloads.length,0,'no permission means no photo transmission');
  assert.equal(await page.locator('#moPhoto').evaluate(el=>el.files.length),1,'validation retains selected photo');
@@ -54,6 +60,15 @@ try{
  assert.equal(await page.locator('#moPhotoConsent').isChecked(),false);
  assert.equal(await page.locator('#moPortraitOptions').isVisible(),false);
  assert.equal(await page.locator('#moDescriptionPanel').isVisible(),false);
+ await page.locator('[value="scratch"][name="moPortraitMode"]').check();
+ await page.locator('input[name="moHair"][value="era"]').check();
+ await page.locator('#moDescribe').fill('An adult with dark skin and shoulder-length locs.');
+ await page.locator('#moMake').click();
+ await page.waitForFunction(()=>document.querySelector('#moStatus').textContent.includes('could not be read'));
+ assert.equal(payloads.at(-1).hair,'era');
+ assert(!/chunky highlights|flippy hair|centre-parted hair/.test(payloads.at(-1).itemPrompt));
+ payloads.length=0;
+ await page.locator('[value="object"][name="moPortraitMode"]').check();
  await page.locator('#moObject').selectOption('cassette');
  await page.locator('#moMake').click();
  await page.waitForFunction(()=>document.querySelector('#moStatus').textContent.includes('could not be read'));

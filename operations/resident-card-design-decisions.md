@@ -1,5 +1,15 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Explicit inclusive hair choice
+
+Ali requires Keep my hair versus Give my hair an era makeover, neither
+preselected. Era styling must preserve texture, colour and hair identity,
+including curls, coils, braids, locs, twists and protective styles. Never infer
+hair choices from ethnicity. Preserve skin tone, face, age and body proportions.
+Do not ship automatic straightening, lightening or blonde highlights. Prompt
+tests are not representation-quality evidence; diverse consented portrait
+testing remains required. This supersedes the proposed keep-hair UI default.
+
 ## 2026-09-12 Five-era photographic examples
 
 Ali requests examples for 1990, 1995, 2000, 2005 and 2010, with changes to

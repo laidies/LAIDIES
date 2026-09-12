@@ -99,10 +99,25 @@ try {
   assert.equal(photo.status, 200, "bounded photo decode accepts a valid PNG without callback-array allocation");
   prompts.slice(-3).forEach(prompt => {
     checkStyle(prompt);
-    assert.match(prompt, /preserve the reference person's apparent age/);
-    assert.match(prompt, /Do not make them younger/);
+    assert.match(prompt, /Preserve the reference or described skin tone and undertone, apparent age/);
+    assert.match(prompt, /Do not lighten skin/);
+    assert.match(prompt, /Keep the reference or described hair unchanged/);
     assert.match(prompt, /Likeness takes priority over styling/);
   });
+  function checkHair(prompt) {
+    assert.match(prompt,/Preserve body proportions/);
+    assert.match(prompt,/Never infer hair preferences from ethnicity/);
+    assert.match(prompt,/retaining the person's hair texture, colour/);
+    assert.match(prompt,/Do not straighten, relax, loosen curls, bleach/);
+  }
+  assert.throws(()=>checkHair('Make every person blonde with straight hair'),'calibration rejects unprotected prompt');
+  for (const photoMode of [false,true]) {
+    const body={...valid(700),hair:'era'};
+    if(photoMode){body.itemPrompt='';body.image=`data:image/png;base64,${PHOTO_PNG}`;body.consent=true;}
+    assert.equal((await worker.fetch(post(body),{...env,PORTRAIT_USAGE:new Usage()})).status,200);
+    prompts.slice(-3).forEach(checkHair);
+  }
+  assert.equal((await worker.fetch(post({...valid(701),hair:'automatic'}),env)).status,400);
   providerPlan = ["throw", "throw", "throw"];
   const beforeObjects = providerCalls;
   for (const [index, object] of ["cassette", "flip-phone", "cd-player", "floppy-disk", "lava-lamp", "roller-skate"].entries()) {

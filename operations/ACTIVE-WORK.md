@@ -1,5 +1,21 @@
 # Active work
 
+## 2026-09-12 Inclusive explicit hair controls
+
+- VERIFIED LOCALLY: neither Keep my hair nor Era makeover is preselected.
+  Both human modes require a choice; missing choice retains photo and focuses
+  the control. Object mode bypasses hair controls and sends only object data.
+- Server keep/era instructions protect texture/colour, skin tone, face, age
+  and body proportions. Removed automatic straight-hair/highlight era presets.
+  Legacy clients without hair field preserve hair; invalid enums reject.
+- Worker mock suite and real local-browser controls pass (390/800/1280);
+  calibrated unsafe prompt rejected. Initial stale assertion updated; browser
+  test mode-switch setup repaired. Historical backup copies left untouched.
+- NOT DEPLOYED. No real generation, diverse likeness review or account-save
+  trial. Model/style remains incumbent; private photographic examples were
+  not silently installed. Next: preview design and real representation tests,
+  then coordinated bounded Pages/Worker release.
+
 ## 2026-09-12 Five-era private comparison
 
 - Generated five photographic examples from original reference; revised 1990

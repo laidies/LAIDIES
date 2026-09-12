@@ -15009,3 +15009,8 @@ while remaining falsely unfinished in the launch record.
   provider quality. Built-in result was accidentally serialized as base64 in
   tool output; retain result internally and render with generatedImage instead.
   Behind the Build angle: a convincing makeover is not yet a reliable product.
+- 2026-09-12 Hair identity: era presets silently included straight hairstyles
+  and highlights. Separate explicit keep/era choice from era makeup; enforce
+  texture/colour preservation server-side too. Calibrated prompt test rejects
+  unprotected instructions; actual model fairness remains unverified.
+  Behind the Build: a nostalgic preset must not become a universal face/hair.

@@ -115,6 +115,16 @@
       if (!current) { await showAccount(); throw new Error("Verify your email in the account step above before making portraits."); }
       var body = { requestId: crypto.randomUUID() };
       var mode = document.querySelector('input[name="moPortraitMode"]:checked').value;
+      if (mode !== "object") {
+        var hair = document.querySelector('input[name="moHair"]:checked');
+        byId("moHairError").hidden = !!hair;
+        if (!hair) {
+          byId("moHairGroup").scrollIntoView({ block: "center" });
+          document.querySelector('input[name="moHair"]').focus({ preventScroll: true });
+          throw new Error("Choose whether to keep your hair or give it an era makeover. Your choices have not been cleared.");
+        }
+        body.hair = hair.value;
+      }
       var extras = mode === "object" ? "" : window.LAIDIESPortraitChoices.extras();
       if (mode === "object") {
         body.object = byId("moObject").value;
@@ -179,6 +189,9 @@
       busy = false; byId("moMake").disabled = false;
     }
   }
+  document.querySelectorAll('input[name="moHair"]').forEach(function (input) {
+    input.addEventListener("change", function () { byId("moHairError").hidden = true; });
+  });
   byId("moMake").addEventListener("click", generate);
   byId("moPhotoConsent").addEventListener("change", function () {
     byId("moPhotoConsentError").hidden = true;

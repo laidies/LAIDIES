@@ -63,9 +63,11 @@ function input(value) {
   const prompt = typeof value.itemPrompt === "string" ? value.itemPrompt.trim() : "";
   const extras = value.traits && typeof value.traits === "object" && !Array.isArray(value.traits) ? value.traits.extras : "";
   const photo = image(value.image);
+  if (value.hair !== undefined && !["keep", "era"].includes(value.hair)) return null;
+  const hair = value.hair || "keep"; // Older clients may not send the new choice; never infer a makeover.
   const object = typeof value.object === "string" && Object.hasOwn(OBJECTS, value.object) ? value.object : "";
   if ((value.object !== undefined && !object) || prompt.length > 2000 || typeof extras !== "string" || extras.length > 2000 || (prompt ? 1 : 0) + (photo ? 1 : 0) + (object ? 1 : 0) !== 1 || (photo && value.consent !== true) || (object && (value.image !== undefined || extras))) return null;
-  return { requestId: value.requestId, prompt, extras, photo, object };
+  return { requestId: value.requestId, prompt, extras, photo, object, hair };
 }
 async function user(request, env) {
   const token = request.headers.get("authorization")?.match(/^Bearer\s+(.+)$/i)?.[1] || "";
@@ -89,7 +91,13 @@ async function reserve(db, requestId, userHash, day, now, owner) {
     return await db.prepare("SELECT request_id FROM portrait_usage WHERE request_id=?").bind(requestId).first() ? "replay" : "limited";
   } catch { return "unavailable"; }
 }
-function promptFor(data) { return data.photo ? `Illustrate the person in the reference photo as ${STYLE} Styling choices: ${data.extras}. Likeness takes priority over styling: preserve the reference person's apparent age, face shape, jaw and chin, eye size and spacing, nose shape, lip shape, skin tone and distinctive features. Do not make them younger, enlarge their eyes, slim their face, reshape their nose or lips, or substitute an idealized model face. Change only the requested clothing, accessories and setting; keep the same recognizable person.`.trim() : `${data.prompt}, ${data.extras}, ${STYLE} Respect the described age and physical features without automatic beautification.`.trim(); }
+function promptFor(data) {
+  const identity = "Preserve the reference or described skin tone and undertone, apparent age, face shape, jaw and chin, eye size and spacing, nose shape, lip shape and distinctive features. Preserve body proportions, shoulder width, neck and torso; never enlarge or slim the body. Do not lighten skin, change ethnicity, make them younger, enlarge their eyes, slim their face or substitute an idealized model face. Never infer hair preferences from ethnicity.";
+  const hair = data.hair === "era"
+    ? "The user explicitly chose an era hair makeover. Adapt arrangement to the selected era while retaining the person's hair texture, colour and hair identity, including curls, coils, braids, locs, twists, protective styles, wigs or shaved hair. Do not straighten, relax, loosen curls, bleach, add blonde highlights or replace protective styles. If no era is selected, keep their hair."
+    : "Keep the reference or described hair unchanged: texture, colour, length, hairline and style, including curls, coils, braids, locs, twists, protective styles, wigs or shaved hair. Ignore era hair changes. Selected removable hair accessories may be added without changing the hair.";
+  return `${data.photo ? "Illustrate the person in the reference photo as" : data.prompt + ","} ${STYLE} Styling choices: ${data.extras}. Likeness takes priority over styling. ${identity} ${hair} Respect the described age and physical features without automatic beautification.`;
+}
 function logProviderFailure(status) { console.warn(JSON.stringify({ event: "portrait-provider-failure", status })); }
 function logProviderException(error) {
   const name = String(error && error.name || "Error").replace(/[^A-Za-z0-9_.-]/g, "").slice(0, 64) || "Error";

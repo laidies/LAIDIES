@@ -203,6 +203,13 @@
             </details>
 
             <div id="moPortraitOptions">
+            <fieldset class="mo-style-section" id="moHairGroup">
+            <legend>Your hair</legend>
+            <p id="moHairHelp">Choose what happens to your hair. An era makeover keeps your hair texture and colour, including curls, coils, braids, locs and twists.</p>
+            <label><input type="radio" name="moHair" value="keep" aria-describedby="moHairHelp"> Keep my hair</label>
+            <label><input type="radio" name="moHair" value="era" aria-describedby="moHairHelp"> Give my hair an era makeover</label>
+            <p id="moHairError" role="alert" hidden>Choose one hair option before making your portraits. Your choices have not been cleared.</p>
+            </fieldset>
             <fieldset class="mo-style-section"><legend>The Era’s Tour</legend>
             <p>Choose one era.</p>
             <div class="mo-chips" id="moEra"></div>
@@ -644,11 +651,11 @@
     var A_ERA=[
       {l:'Random',p:'',random:true,d:'We’ll randomly choose one of the five eras when you make your portraits.'},
       {l:'None',p:'',d:'No era styling — just your look.'},
-      {l:'1990',p:'1990 hair and makeup — matte lip, centre-parted hair, minimal natural makeup, muted early-90s colour grade',d:'Matte lip · centre part · minimal makeup'},
-      {l:'1995',p:'1995 hair and makeup — frosted lip, soft waves, a little shimmer, mid-90s colour grade',d:'Frosted lip · soft waves · shimmer'},
-      {l:'2000',p:'year-2000 Y2K hair and makeup — glossy frosted lip, sleek flippy hair, shimmer, bright Y2K colour grade',d:'Glossy frosted lip · flippy hair · shimmer'},
-      {l:'2005',p:'2005 hair and makeup — side-swept bang, chunky highlights, glossy lip, mid-2000s colour grade',d:'Side bang · chunky highlights · glossy lip'},
-      {l:'2010',p:'2010 hair and makeup — side-swept bangs, soft glam, warm indie-sleaze colour grade',d:'Side-swept bangs · soft glam'}
+      {l:'1990',p:'1990 era, minimal makeup and matte lip suited to the original skin tone',d:'1990 · matte lip · minimal makeup'},
+      {l:'1995',p:'1995 era, brown-rose lip suited to the original skin tone',d:'1995 · brown-rose lip'},
+      {l:'2000',p:'2000 Y2K era, glossy lip and shimmer suited to the original skin tone',d:'2000 · glossy lip · shimmer'},
+      {l:'2005',p:'2005 era, glossy lip and defined eyeliner suited to the original skin tone',d:'2005 · glossy lip · eyeliner'},
+      {l:'2010',p:'2010 era, smoky eyeliner suited to the original skin tone',d:'2010 · smoky eyeliner'}
     ];
     var A_FIT=[
       {l:'keep my outfit',p:''},{l:'hot-pink blazer',p:'wearing a hot-pink blazer over a black top'},
@@ -1143,7 +1150,7 @@
 <script src="/content/site/identity-client-v1.js?v=20260905-email-code-1"></script>
 <script src="/content/site/resident-account-runtime-v1.js?v=20260829-provider-health-1"></script>
 <script defer src="/content/site/maikeover-account-v1.js?v=20260911-episode-opt-in-2"></script>
-<script defer src="/content/site/maikeover-portraits-v1.js?v=20260912-photo-retry-1"></script>
+<script defer src="/content/site/maikeover-portraits-v1.js?v=20260912-hair-choice-1"></script>
 <script defer src="/content/site/maikeover-v2.js?v=20260912-object-1"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
