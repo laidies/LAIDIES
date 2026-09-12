@@ -14902,3 +14902,27 @@ while remaining falsely unfinished in the launch record.
   four days after admission—and why the fix was not adding one row to a table.
 - **Status:** Internal research and first chapter successor produced; complete
   manuscripts, account tests and public release remain HOLD.
+
+## LIBRARY-COPYABLE-WORKFLOW-MUST-MATCH-ITS-PROMISE-20260912 — The exact prompt is part of the lesson
+
+- **Finding:** Both complete guides correctly explained their product surfaces,
+  yet their central “copy this” workflows initially contradicted those lessons.
+  The ChatGPT Work route promised files but requested only text. The Claude route
+  promised four files while hiding notes inside the deck, changing an email name,
+  adding a fifth apparent deliverable and later omitting notes from a Cowork
+  preservation rule. Independent successor review held both manuscripts.
+- **Prevention:** For every practical workflow, trace the same named deliverables
+  through the reader promise, source brief, exact prompt, complete sample output,
+  verification, repair and downstream transfer. A file-producing surface must
+  request exact filenames and formats; a text-only fallback must return complete
+  named sections and never imply a saved artifact. Search every dependent
+  occurrence before successor review.
+- **Evidence:** Final ChatGPT manuscript SHA-256
+  `b23714b491abee97d168b6e5d5b10b5dca54bc15a6056d4491a9db345b76caec`,
+  final Claude manuscript SHA-256
+  `90864c49b6f59fb6196277c32ed4a3c0c2a9373db80b69735b11930cc6fa65d1`,
+  and `operations/product-stewards/library/TWO-GUIDE-FACT-AND-PROSE-REVIEW-2026-09-12.md`.
+- **Possible Behind the Build angle:** The guides taught readers to check every
+  dependent file—and then failed to do it themselves.
+- **Status:** Both candidate defects repaired and independently rechecked PASS;
+  formal admission, rendered-book review and unfamiliar-human testing remain HOLD.

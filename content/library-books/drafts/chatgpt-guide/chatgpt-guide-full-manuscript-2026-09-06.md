@@ -2,7 +2,7 @@
 
 ## How to set it up, choose the right model and turn a conversation into finished work
 
-**Working manuscript — checked September 6, 2026**
+**Working manuscript — checked September 12, 2026**
 
 ChatGPT changes quickly. The durable method in this book is to give it a clear job, the right source material, sensible boundaries and a result you can inspect. Model names, effort choices, plan access and button locations are dated because they can change.
 
@@ -84,17 +84,17 @@ Treat its completion message as a colleague saying, “I’ve finished.” Usefu
 
 The core loop, ordinary chat, clear briefs, pasted context, targeted corrections and human review apply to both. If your account does not show a model or effort picker, use the model provided and make the task smaller when necessary.
 
-**Free route or limit:** Work in one bounded chunk. Paste only the material needed, request the complete text, copy it into your own document and inspect it there. Limits and available tools can vary.
+**Free route or limit:** Work in one bounded chunk. Paste only the material needed, request the complete text and inspect the result. ChatGPT currently includes Work and Codex across Free and paid plans, but Free has tighter usage, model, tool and client limits.
 
-**Paid difference or extension:** An eligible paid account may offer more model choices, higher usage, larger jobs, Projects, Work, connectors or file-making tools. Exact access varies by plan, account, administrator, device, region and rollout.
+**Paid difference or extension:** A paid account may provide more models, higher limits, credits, cloud integrations and administrative controls. Exact access still varies by plan, account, administrator, device, region and rollout.
 
-**No equivalent:** If a paid surface can operate a local application or continue a cloud job while your computer is off, ordinary Free Chat is not the same capability. The Free route is to have ChatGPT prepare the content or instructions while you perform the real action yourself.
+**No equivalent:** A prompt cannot unlock a model, tool, client, permission or quota that the account does not provide.
 
 ---
 
 # 2. Chat, Projects, Work and Codex
 
-Four labels can appear near one another and still answer different questions. Choose the place where the job should happen before worrying about the strongest model.
+Four labels can appear near one another and still answer different questions. First choose **Chat, Work or Codex** for how the job should run. Then decide whether a Chat or Work chat belongs in a **Project**, where related chats can share files, instructions and sources. A Project is a container, not a fourth execution mode.
 
 ## Chat: think, ask, draft and refine
 
@@ -343,9 +343,9 @@ A **context file** supplies information for the job: the brief, spreadsheet, pol
 
 A **rule** states something that should remain true: which source wins, where outputs go, what may never be overwritten, or what “finished” means.
 
-A **Skill** packages a repeated workflow or specialized body of guidance so an action-capable system can load it when relevant. Build one only after the workflow has worked manually. A Skill does not grant permission, make a source accurate or guarantee execution.
+A **Skill** packages reusable instructions and supporting resources for a specific workflow. ChatGPT or Codex can load a matching Skill, or you can invoke one explicitly where supported—`@` in ChatGPT and `$` in Codex. Build one only after the workflow has worked manually. A Skill does not grant permission, make a source accurate or guarantee execution.
 
-For ordinary Chat, a saved recipe note may do the whole job:
+For a simple or still-changing workflow, a saved recipe note may do the whole job:
 
 ```text
 PROPOSAL RECIPE
@@ -472,7 +472,7 @@ Prompting improves the conditions for good work. Inspection decides whether the 
 
 # 6. Choose Luna, Terra, Sol or Astra
 
-As of September 6, 2026, the practical OpenAI model ladder in the source guidance has four names. Your account may show some, all or none of them. Use the labels you actually have. If there is no picker, skip this chapter's shopping trip and use the supplied model.
+As of September 12, 2026, the practical OpenAI model ladder in the source guidance has four names. Your account may show some, all or none of them. Use the labels you actually have. If there is no picker, skip this chapter's shopping trip and use the supplied model.
 
 ## Luna: quick, clear, repeated work
 
@@ -531,7 +531,7 @@ Verification: run the named formula reconciliation and source-link check once.
 After they pass, do not add broader reviews unless a failure or new change
 justifies them. Do not create new tests for unchanged material.
 
-Finish: deliver the three named files, the source map and unresolved decisions.
+Finish: deliver the named files, the source map and unresolved decisions.
 Do not publish, send or expand into implementation.
 ```
 
@@ -545,7 +545,7 @@ Do not compare models by giving each a different prompt, different tools and dif
 
 ## App choices and API choices are different
 
-In eligible ChatGPT Power accounts, current documented choices may include Terra Light, Sol Light, Sol Medium, Astra Light, Astra Medium and Astra Extra High. Options vary by plan, account, client and rollout.
+In eligible ChatGPT Power accounts, current documented choices may include Terra Light, Sol Light, Sol Medium, Astra Light, Astra Medium and Astra Extra High. Options vary by plan, account, client and rollout. Those are the simplified Power choices. To pair a specific model with an effort such as Terra + Medium, open **Advanced** if your plan and client provide it; otherwise use the closest available default.
 
 The Astra API uses a different list: `low`, `medium`, `high`, `xhigh` and `max`, and it does not support `none`. API access and billing are separate from a ChatGPT subscription. “Pro” execution in an API is not the same thing as a ChatGPT Pro plan.
 
@@ -657,7 +657,7 @@ Audience
 Executive leadership team.
 
 Recommendation
-Start October 15 with the Customer Success team. Review results on January 20.
+Start October 15 with the Customer Success team. End the pilot January 15. Review results on January 20.
 
 Approved scope
 - 12 participating employees
@@ -684,8 +684,8 @@ Metric,Current,Target,Status
 Median first-response time,19.4 hours,12 hours,Final
 Reopened cases,14.8%,12%,Final
 Administrative time,9.5 hours/week,7 hours/week,Final
-Estimated pilot cost,$16,750 CAD,,Final
-Possible annual saving,$210,000 CAD,,Draft
+Estimated pilot cost,"$16,750 CAD",,Final
+Possible annual saving,"$210,000 CAD",,Draft
 ```
 
 **File 3: `rough-notes.md`**
@@ -717,11 +717,16 @@ Turn the three supplied sources into a leadership-ready proposal for the
 Western client-response pilot.
 
 Outputs
-1. A six-slide presentation outline with slide titles and complete slide copy.
-2. Speaker notes for each slide, no more than 120 words per slide.
-3. A one-page executive summary, no more than 550 words.
-4. An email draft from the project lead to the executive leadership team asking
-   for the decision. Do not send it.
+1. `western-pilot-presentation.pptx`: six slides with titles and complete slide copy.
+2. `western-pilot-speaker-notes.docx`: notes for each slide, no more than 120 words per slide.
+3. `western-pilot-executive-summary.docx`: a one-page summary, no more than 550 words.
+4. `western-pilot-review-request-email.md`: an email draft from the project lead to the executive leadership team asking for the decision. Mark it DRAFT and do not send it.
+
+Surface handling
+- In Work, if file creation is available, create those four named files and also
+  return their complete text for inspection.
+- In Chat, or if a required file type cannot be created, return four complete
+  sections under those filenames. Do not imply that a download or saved file exists.
 
 Source authority
 - approved-brief.md controls the decision, recommendation, scope, dates,
@@ -751,7 +756,8 @@ appears. Confirm that the recommendation and decision request agree across all
 four outputs.
 
 Done when
-Return the four complete outputs and source-check table. Stop there.
+Return the four complete named outputs and source-check table. If files were
+created, list their exact paths. Stop there.
 ```
 
 Notice what this prompt does not include: “You are a world-renowned management consultant.” The job, audience, sources and finish line do more useful work than imaginary awards.
@@ -761,7 +767,7 @@ Notice what this prompt does not include: “You are a world-renowned management
 Do not begin by debating whether Slide 2 should be punchier. Inspect the facts first.
 
 1. Does every output ask for the same decision?
-2. Are October 15 and January 20 correct everywhere?
+2. Are the October 15 start, January 15 end and January 20 review correct everywhere?
 3. Are the 12 employees, three measures and $18,000 ceiling consistent?
 4. Is the estimated cost $16,750 CAD and clearly an estimate?
 5. Did any Draft number or rough-note idea become a promise?
@@ -785,8 +791,8 @@ monthly clinics in every region. approved-brief.md prohibits guaranteed savings
 and expansion beyond the Western region. Remove both claims from the
 presentation, speaker notes, one-page summary and email.
 
-Preserve the approved Western three-month pilot, October 15 start, January 20
-review, 12 employees, three success measures and $16,750 CAD estimated cost.
+Preserve the approved Western three-month pilot, October 15 start, January 15
+end, January 20 review, 12 employees, three success measures and $16,750 CAD estimated cost.
 Rerun the source-check table for every commitment and number. Return the four
 complete corrected outputs. Stop there.
 ```
@@ -801,7 +807,7 @@ A sound six-slide structure might be:
 2. **Why this matters now** — current response time, reopened cases and administrative burden.
 3. **What the pilot changes** — 12 employees, two existing tools, weekly check-in, unchanged service hours.
 4. **How success will be judged** — the three approved measures and targets.
-5. **Cost, timing and boundaries** — $16,750 estimate, $18,000 ceiling, October 15 to January 20, no expansion promise.
+5. **Cost, timing and boundaries** — $16,750 estimate, $18,000 ceiling, October 15 to January 15, January 20 review, no expansion promise.
 6. **The decision and next checkpoint** — go/no-go now and results review on January 20.
 
 The speaker notes should explain the logic and uncertainty. The one-page summary should let a leader make the decision without the deck. The email should state the request, link or attach the materials and leave sending to the human owner.
@@ -810,11 +816,11 @@ The speaker notes should explain the logic and uncertainty. The one-page summary
 
 **Applies to both:** Use the same sources, authority order, brief, check and targeted repair.
 
-**Free route or limit:** Paste the three short sources into Chat. Request one output at a time if the full job hits a usage or length limit. Carry the same source authority into each prompt. Ask for a final reconciliation table, then copy the content into your presentation and document software. Check the actual files after formatting.
+**Free route or limit:** Use Chat or Work within the account's current limits. If the full job hits a usage or length limit, request one output at a time and carry the same source authority into each prompt. Ask for a final reconciliation table. If your client cannot create the needed file type, copy the complete content into your presentation and document software and inspect the actual files after formatting.
 
 **Paid difference or extension:** In an eligible Project or Work task, supply the files once and ask for coordinated, reviewable artifacts. Specify file types and output names. Inspect each actual file, not only the summary.
 
-**No equivalent:** If Work can create files or operate an application in your environment, Free Chat does not become that tool because you asked assertively. Its honest route is complete content plus manual file creation.
+**No equivalent:** A prompt cannot unlock an unavailable model, tool, client, permission or quota. If the current Free client cannot create or operate the needed artifact, use complete content plus manual file creation.
 
 ## What travels to your work
 
@@ -917,6 +923,8 @@ Do not confuse an integrity check with a quality review. A file can open success
 
 A model generates and reasons. A tool lets it do something: search the web, read a drive, create an image, calculate, operate a browser or work with files. A permission defines what that tool may reach or change. A Skill supplies reusable instructions or knowledge. These are separate layers.
 
+On desktop, start with **Ask for approval** in the permissions control below the composer. It allows routine work inside the current workspace and pauses before going beyond it. **Full access** can edit any file and use the network without approval; use it only when the job requires that reach.
+
 Before connecting anything, ask whether the job requires it. If you need one public webpage, you may not need your whole browser history. If you need one folder, do not grant an entire drive by reflex.
 
 Write permissions by consequence:
@@ -947,7 +955,7 @@ Test it on harmless sample data. Check that it triggers for the intended job and
 
 ## When a saved note is better
 
-If you use ordinary Chat, keep the recipe in a note. Paste only the part needed. This is not a consolation prize; it is transparent and easy to edit. Automatic loading is convenient only when the loaded instruction is current and relevant.
+If the workflow is simple or still changing, keep the recipe in a note and paste only the part needed. This is transparent and easy to edit. Automatic loading is convenient only when the loaded instruction is current, stable and relevant.
 
 ---
 
@@ -1010,13 +1018,13 @@ For Astra, state whether it should delegate, how far testing should go and when 
 
 ## Free and paid boundary
 
-**Applies to both:** A Free Chat user can prepare the brief, paste a small code excerpt and ask for an explanation or proposed patch, while keeping the same safety and verification logic.
+**Applies to both:** Codex is currently included across ChatGPT Free and paid plans. In either route, use the same safety and verification logic and work only with code you are permitted to share or change.
 
-**Free route or limit:** Apply and test the change in your authorized development process. Never paste secrets, customer data or proprietary code contrary to policy.
+**Free route or limit:** Use Codex within the account's current model, usage, client and tool limits. Never paste secrets, customer data or proprietary code contrary to policy.
 
-**Paid difference or extension:** Where Codex is included and configured, it can work in the real project environment, edit files and run allowed commands or tests.
+**Paid difference or extension:** Paid plans may provide higher limits, more models, credits or organizational controls for Codex work.
 
-**No equivalent:** Conversational advice about code is not equivalent to changing and testing the real application.
+**No equivalent:** A prompt cannot grant repository access, permissions, a client or a model that the account and environment do not provide. Conversational advice about code is still not equivalent to changing and testing the real application.
 
 ---
 
@@ -1138,7 +1146,7 @@ Free is a real route through this book. It is not a promise of identical models,
 
 ## What paying may change
 
-Depending on the plan, account and rollout, paying may provide more usage, additional models and effort controls, larger or longer tasks, Projects, Work, Codex, file tools, connectors, local or cloud execution and administrative controls.
+Work and Codex are currently included across ChatGPT Free and paid plans. Depending on the paid plan, account and rollout, paying may provide more usage, additional models and effort controls, larger or longer tasks, credits, cloud integrations and administrative controls.
 
 Those are meaningful differences when they remove your actual bottleneck. They are wasted if you upgrade before knowing whether the problem is capacity, access, context or a vague brief.
 
@@ -1155,9 +1163,9 @@ Those are meaningful differences when they remove your actual bottleneck. They a
 - limits repeatedly interrupt valuable work even after you scope it sensibly;
 - a larger context or stronger model fixes a demonstrated quality gap;
 - creating and revising the actual files removes substantial manual work;
-- a Project or recurring workflow saves repeated setup;
+- a continuing Project or recurring workflow saves repeated setup and the paid plan removes a demonstrated capacity limit;
 - your approved workplace plan provides needed privacy, administration or connectors;
-- Codex or Work can operate in the real environment you are authorized to use.
+- higher limits, models, credits or controls materially improve Work or Codex in the real environment you are authorized to use.
 
 ## Do not upgrade because
 
@@ -1282,11 +1290,12 @@ Save the templates you actually use. Delete the ones you do not. A personal prom
 
 # 17. What is current, what is tested and what needs rechecking
 
-This manuscript was prepared against official OpenAI documentation and the LAiDIES research record checked on September 6, 2026.
+This manuscript was prepared against official OpenAI documentation and the LAiDIES research record refreshed on September 12, 2026.
 
 ## Current official product claims used here
 
-- Chat, Work and Codex are different working surfaces; Projects group continuing chats, files, instructions and sources.
+- Chat, Work and Codex are different working surfaces; Projects group continuing Chat or Work chats, files, instructions and sources.
+- ChatGPT Work and Codex are currently included across Free, Go, Plus, Pro, Business, Edu and Enterprise plans; limits, models, tools, integrations and controls differ.
 - Current documented OpenAI model roles include Luna for quick economical work, Terra for balanced everyday work, Sol for demanding professional work and Astra for the hardest end-to-end work.
 - Eligible account choices can vary by plan, client, administrator and rollout.
 - Current eligible ChatGPT Power options may include Terra Light, Sol Light, Sol Medium, Astra Light, Astra Medium and Astra Extra High. Max and Ultra are specialist choices where offered.
@@ -1295,7 +1304,7 @@ This manuscript was prepared against official OpenAI documentation and the LAiDI
 
 ## What was not observed
 
-This manuscript does not claim that LAiDIES signed into and tested representative Free, paid and Enterprise accounts on September 6. Exact picker labels, Astra visibility, effort defaults, usage displays, local/cloud execution and administrator controls still require representative account observation before public release.
+This manuscript does not claim that LAiDIES signed into and tested representative Free, paid and Enterprise accounts on September 12. Exact picker labels, Astra visibility, effort defaults, usage displays, local/cloud execution and administrator controls still require representative account observation before public release.
 
 The leadership proposal is a constructed teaching case. It has not been run across every model and effort named here. Model guidance is a dated editorial route grounded in official documentation, not a universal benchmark.
 
@@ -1312,6 +1321,8 @@ Reopen the official sources whenever model names, effort labels, defaults, plan 
 - [ChatGPT models](https://learn.chatgpt.com/docs/models)
 - [ChatGPT pricing](https://learn.chatgpt.com/docs/pricing)
 - [Settings reference](https://learn.chatgpt.com/docs/reference/settings)
+- [Permission modes](https://learn.chatgpt.com/docs/permission-modes)
+- [Skills and plugins](https://learn.chatgpt.com/docs/skills-and-plugins)
 - [Artifacts and files](https://learn.chatgpt.com/docs/artifacts-viewer)
 - [Codex best practices](https://learn.chatgpt.com/guides/best-practices)
 - [OpenAI model guidance, including GPT-6 Astra](https://developers.openai.com/api/docs/guides/latest-model)

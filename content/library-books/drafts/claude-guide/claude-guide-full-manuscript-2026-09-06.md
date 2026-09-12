@@ -2,7 +2,7 @@
 title: The Claude Guide
 subtitle: From a useful conversation to finished, checked work
 status: First complete manuscript draft — not published
-currentness_checked: 2026-09-06
+currentness_checked: 2026-09-12
 audience: Nontechnical adult readers using Claude Free, paid Claude plans, or a workplace account
 ---
 
@@ -12,7 +12,7 @@ Claude can help you turn a messy stack of notes, documents and numbers into work
 
 You do not need to learn a secret language. You need to know five things: what job you are giving Claude, which material controls the answer, what Claude is allowed to reach, what must be true when it finishes, and what you will inspect before anyone relies on the result.
 
-The product changes quickly. The durable method in this book should survive a moved button or a renamed model. The model and plan details are dated **September 6, 2026** and linked in the source appendix. Recheck them before paying, changing a workplace process or using sensitive material.
+The product changes quickly. The durable method in this book should survive a moved button or a renamed model. The model and plan details are dated **September 12, 2026** and linked in the source appendix. Recheck them before paying, changing a workplace process or using sensitive material.
 
 ## The quickest useful start
 
@@ -62,7 +62,7 @@ The central proposal is a **constructed teaching example**. Its source material 
 
 # 1. Get into Claude without making the first chat carry your whole life
 
-As of September 6, 2026, Anthropic says adults in supported locations can create a Claude account at [claude.ai](https://claude.ai) with an email address. Claude is also available through official desktop and mobile apps. The exact sign-in choices, identity checks and screen layout can vary by platform, region and organization. This guide does not claim a fresh hands-on test of account creation; it reports the current official route.
+As of September 12, 2026, Anthropic says adults in supported locations can create a Claude account at [claude.ai](https://claude.ai) with an email address. Claude is also available through official desktop and mobile apps. The exact sign-in choices, identity checks and screen layout can vary by platform, region and organization. This guide does not claim a fresh hands-on test of account creation; it reports the current official route.
 
 After signing in, start with the ordinary chat box. Type what you need in natural language. The plus control in a chat may expose files, web search or other enabled tools. If a control named in this guide is missing, do not assume you failed. It can depend on your plan, app version, region, workplace policy, rollout and the particular model in use.
 
@@ -121,7 +121,7 @@ Training choice, retention, chat history and memory answer different questions:
 - **History:** does the conversation appear in your normal account list?
 - **Memory:** may Claude carry selected context into later work?
 
-Turning one off does not prove the others are off. Fable 5.1 adds a model-specific retention boundary discussed in Chapter 4: it is a Covered Model whose inputs and outputs require 30-day retention on every surface where it is offered, unless Anthropic expressly authorizes an eligible organization arrangement.
+Turning one off does not prove the others are off. Fable 5.1 adds a model-specific retention boundary discussed in Chapter 3: it is a Covered Model whose inputs and outputs require 30-day retention on every surface where it is offered, unless Anthropic expressly authorizes an eligible organization arrangement.
 
 ## Capabilities and connected services
 
@@ -160,7 +160,7 @@ It is the core Free route. A good Chat job can be substantial. “Free” does n
 
 ## Projects
 
-A Project keeps a continuing job's chats, instructions and knowledge together. Anthropic's August research documentation stated up to five Projects on Free and unlimited Projects on Pro, with workplace controls able to vary access. Current Projects can use retrieval when the knowledge set grows: Claude searches for relevant portions rather than placing every byte in every response.
+A Project keeps a continuing job's chats, instructions and knowledge together. Anthropic's current official pages conflict: its Projects help page says Free users can create up to five Projects, while its pricing comparison marks Projects unavailable on Free. Check the actual account before relying on a Project. If Projects are unavailable, use Chat with the same compact authority block and supplied files. Enhanced retrieval-augmented generation (RAG) access is also plan-dependent; this guide never makes it necessary to complete the Free workflow.
 
 Use a Project for a proposal that will be revised over several days, a recurring monthly report or a maintained source pack. Give it one job. A Project called “Everything About My Company Since 2012” is not context management; it is a storage unit with no aisle signs.
 
@@ -178,7 +178,7 @@ There is no documented Free Research equivalent. The Free route is a smaller sea
 
 ## Cowork
 
-Cowork is a paid beta for multi-step computer work. Current official documentation says its agent loop and code execution run in Anthropic cloud sandboxes by default. The desktop app provides a granted route when a task needs local files, a browser or computer access. Pure cloud work may continue after the laptop closes; local-device reach cannot continue once that route is unavailable.
+Cowork can run either a cloud session or a local Desktop session, depending on the surface, account and organization settings. In a cloud session, the agent loop and code execution run on Anthropic's servers; granted local-file access still depends on the connected device remaining available. In a local session, the agent loop runs on your computer and code runs in an isolated local virtual machine. Only cloud work can continue after the laptop closes. Check the session type before deciding what data or folders to grant.
 
 Use Cowork when the work genuinely needs several actions across files or supported services. Connect one copied folder, state what may change, name the output location and prohibit deletion unless deletion is the reviewed job. A conversational request is not a technical permission boundary; inspect the product's actual approval request.
 
@@ -203,7 +203,7 @@ API use is billed separately from a Claude subscription. It exposes model IDs, e
 | Your actual need | Smallest sensible place | Free route | Paid difference | No equivalent |
 |---|---|---|---|---|
 | Discuss, draft or analyze supplied material | Chat | Yes, within limits | More capacity/models may help | — |
-| Reuse one source set and instructions | Project | Up to the current Free allowance | More Projects and capacity | — |
+| Reuse one source set and instructions | Project | Official pages currently conflict; check the account | More continuing capacity may apply | Chat with the same authority block if unavailable |
 | Make an editable document or small interactive output | Artifact/file creation in Chat | Where enabled | Extra storage/integrations may apply | — |
 | Investigate a broad current question | Web search in Chat | Smaller manual search | Research can run a wider multi-step investigation | Research itself is paid-only |
 | Change a bounded set of files through several steps | Chat plan plus manual actions | Manual | Cowork can execute granted actions | No Free Cowork |
@@ -239,7 +239,7 @@ anyone, spending money, changing account settings, publishing or expanding the
 job. Never include individual staff names or comments in the outputs.
 ```
 
-Then use the product's real permission controls as well. Instructions guide behavior; they do not replace enforced access limits.
+Then use the product's real permission controls as well. Instructions guide behaviour; they do not replace enforced access limits.
 
 ## Door four: who approves the real-world decision?
 
@@ -257,7 +257,7 @@ This matters before the model picker. If the material cannot tolerate that reten
 
 # 4. Choose a model for the work in front of you
 
-Model names change faster than the method. As of September 6, 2026, the current family relevant to this guide is Sonnet 5, Haiku 4.5, Opus 5, Fable 5.1 and invitation-only Mythos 5.1. What your app shows can differ by plan, organization, region, rollout and product version.
+Model names change faster than the method. As of September 12, 2026, the current family relevant to this guide is Sonnet 5, Haiku 4.5, Opus 5, Fable 5.1 and invitation-only Mythos 5.1. What your app shows can differ by plan, organization, region, rollout and product version.
 
 The model is the trained component producing the response. The surface is where you work. Effort controls how much reasoning the model applies. The plan controls entitlement and capacity. Tools determine what it can retrieve or do. Keep those five labels separate in any comparison.
 
@@ -265,7 +265,7 @@ The model is the trained component producing the response. The surface is where 
 
 Anthropic's June 30 announcement says Sonnet 5 is the default model on Free and Pro and is available across all plans. It is the sensible starting point for the proposal in this book: the work involves several source files and connected outputs, but no evidence says it requires a specialist frontier route.
 
-Use Sonnet 5 for everyday professional writing, analysis, file creation, coding and tool work. Anthropic says its lower-effort behavior can be literal: when revising, name every file and section that must change rather than assuming one instruction will spread everywhere.
+Use Sonnet 5 for everyday professional writing, analysis, file creation, coding and tool work. Anthropic says its lower-effort behaviour can be literal: when revising, name every file and section that must change rather than assuming one instruction will spread everywhere.
 
 Recipe:
 
@@ -321,7 +321,7 @@ Anthropic launched Fable 5.1 on September 1, 2026 for demanding reasoning and lo
 
 Fable 5.1 is not “the good model” while everything else is a compromise. It is a specialist, expensive route with a 30-day Covered Model retention rule. Use it after the work earns it.
 
-Anthropic's current prompt guidance describes several behaviors to watch: at Low it may search less unless search is explicit; during tool loops it may provide fewer progress messages; it may add adjacent work, write densely or rewrite a whole file when a targeted edit was wanted. At xhigh or Max, long requested outputs may need enough output room and a sharp finish line.
+Anthropic's current prompt guidance describes several behaviours to watch: at Low it may search less unless search is explicit; during tool loops it may provide fewer progress messages; it may add adjacent work, write densely or rewrite a whole file when a targeted edit was wanted. At xhigh or Max, long requested outputs may need enough output room and a sharp finish line.
 
 Fable control block:
 
@@ -411,10 +411,11 @@ Measures
 - Manager assessment at the end of week eight.
 
 Required proposal pack
-- Six-slide presentation with concise speaker notes.
-- One-page leadership summary.
-- Email draft requesting review; mark it DRAFT.
-- State unresolved implementation questions.
+- `focus-friday-presentation`: exactly six slides.
+- `focus-friday-speaker-notes`: six matching note sections.
+- `focus-friday-one-page-summary`: one-page leadership summary.
+- `focus-friday-review-request-email`: under 180 words and marked DRAFT.
+- State unresolved implementation questions inside the relevant deliverables.
 
 Boundaries
 - Do not include individual staff names, comments or performance data.
@@ -491,15 +492,18 @@ publish, announce, change calendars or describe the pilot as approved.
 ```text
 Create the complete Focus Friday proposal pack from the three supplied files.
 
-First, read approved-brief.md, metrics.csv and rough-notes.md. Follow the Project
-authority order. Do not browse. Do not use or request private participant data.
+First, read approved-brief.md, metrics.csv and rough-notes.md. Use this authority
+order whether you are working in Chat or a Project: approved-brief.md controls
+scope, promises, budget, measures and required outputs; metrics.csv controls
+numeric inputs; rough-notes.md contains unapproved ideas and questions only and
+cannot create a commitment. Do not browse. Do not use or request private
+participant data.
 
-Produce:
-1. A six-slide presentation. For each slide, give the title, on-slide text and
-   concise speaker notes.
-2. A one-page leadership summary with the decision requested, pilot design,
-   evidence, budget, measures, risks and unresolved questions.
-3. A review-request email under 180 words, clearly marked DRAFT.
+Produce four files:
+1. `focus-friday-presentation`: exactly six slides, each with a title and complete on-slide text.
+2. `focus-friday-speaker-notes`: six matching note sections, one for each slide.
+3. `focus-friday-one-page-summary`: a one-page leadership summary with the decision requested, pilot design, evidence, budget, measures, risks and unresolved questions.
+4. `focus-friday-review-request-email`: a review-request email under 180 words, clearly marked DRAFT.
 
 Calculate the budget from the approved brief. Show subtotal, 10% reserve, total
 and remaining amount under the CAD 1,200 maximum. Treat the spreadsheet's 216
@@ -539,10 +543,6 @@ The following is the complete target output for the constructed case. It is not 
 - Purpose: test whether reducing recurring internal meetings creates more room for priority work
 - Decision today: approve a bounded pilot, not a permanent policy
 
-**Speaker notes**
-
-We are asking for approval to run an eight-week internal pilot across three teams. During the Friday afternoon block, recurring internal meetings would not be scheduled. Client emergencies, safety incidents and legal deadlines remain exceptions, and managers can move genuinely necessary work. This is not a four-day workweek or a company-wide policy. The pilot gives us a defined period in which to measure what changes before making any larger decision.
-
 ### Slide 2 — Why test this now
 
 **On-slide text**
@@ -550,10 +550,6 @@ We are asking for approval to run an eight-week internal pilot across three team
 - 24 people across the three pilot teams
 - 216 estimated person-hours currently scheduled in recurring Friday meetings over eight weeks
 - Estimate describes meeting time, not guaranteed productivity
-
-**Speaker notes**
-
-The aggregate schedule data shows 216 person-hours currently assigned to recurring Friday meetings during an eight-week period: 96 in Operations, 60 in Marketing and 60 in Support. Removing a meeting does not guarantee that the time becomes useful output. The pilot is designed to test that question rather than claim the answer in advance.
 
 ### Slide 3 — Pilot design and exceptions
 
@@ -564,10 +560,6 @@ The aggregate schedule data shows 216 person-hours currently assigned to recurri
 - Preserve client, safety and legal exceptions
 - Managers retain judgment for genuinely necessary work
 
-**Speaker notes**
-
-The protected block is a scheduling rule, not a ban on necessary work. We need clear guidance so an exception remains an exception rather than swallowing the pilot. One unresolved implementation question is who owns that guidance and how teams record exceptions without creating a surveillance exercise.
-
 ### Slide 4 — What we will measure
 
 **On-slide text**
@@ -576,10 +568,6 @@ The protected block is a scheduling rule, not a ban on necessary work. We need c
 - Employee-reported ability to complete priority work
 - Client or operational exceptions
 - Manager assessment after week eight
-
-**Speaker notes**
-
-These measures let us see both the intended change and its possible costs. We will count meeting hours, ask employees whether the block helped them complete priority work, record client or operational exceptions at an aggregate level, and collect manager assessment at the end. We will not use individual performance data or promise a productivity percentage.
 
 ### Slide 5 — Budget within the approved maximum
 
@@ -595,10 +583,6 @@ These measures let us see both the intended change and its possible costs. We wi
 | Total | 1,122 |
 | Remaining under CAD 1,200 maximum | 78 |
 
-**Speaker notes**
-
-The three listed costs total CAD 1,020. The brief requires one 10% reserve on that subtotal, or CAD 102, bringing the total to CAD 1,122. That leaves CAD 78 under the approved maximum. The reserve is included once; it is not applied separately to each line and then again to the total.
-
 ### Slide 6 — Approval, safeguards and open questions
 
 **On-slide text**
@@ -613,13 +597,31 @@ The three listed costs total CAD 1,020. The brief requires one 10% reserve on th
 - Name the owner of calendar exception guidance.
 - Decide whether Customer Success should be considered only after this pilot.
 
-**Speaker notes**
-
-The decision is whether to approve this bounded pilot. A start date still needs confirmation. The rough notes mention October 9, a future company-wide policy and adding Customer Success, but none is approved. If leadership approves the pilot, the implementation owner should confirm the date and exception guidance before any announcement or calendar change.
-
 ## `focus-friday-speaker-notes.md`
 
-The presentation above includes complete notes beside each slide. If your presentation software needs a separate file, copy the six note sections into a document with the slide numbers unchanged. Check that the title on every note matches the slide. A beautifully designed deck with notes attached to the wrong slide is still wrong.
+### Slide 1 — Decision requested: approve an eight-week Focus Friday pilot
+
+We are asking for approval to run an eight-week internal pilot across three teams. During the Friday afternoon block, recurring internal meetings would not be scheduled. Client emergencies, safety incidents and legal deadlines remain exceptions, and managers can move genuinely necessary work. This is not a four-day workweek or a company-wide policy. The pilot gives us a defined period in which to measure what changes before making any larger decision.
+
+### Slide 2 — Why test this now
+
+The aggregate schedule data shows 216 person-hours currently assigned to recurring Friday meetings during an eight-week period: 96 in Operations, 60 in Marketing and 60 in Support. Removing a meeting does not guarantee that the time becomes useful output. The pilot is designed to test that question rather than claim the answer in advance.
+
+### Slide 3 — Pilot design and exceptions
+
+The protected block is a scheduling rule, not a ban on necessary work. We need clear guidance so an exception remains an exception rather than swallowing the pilot. One unresolved implementation question is who owns that guidance and how teams record exceptions without creating a surveillance exercise.
+
+### Slide 4 — What we will measure
+
+These measures let us see both the intended change and its possible costs. We will count meeting hours, ask employees whether the block helped them complete priority work, record client or operational exceptions at an aggregate level, and collect manager assessment at the end. We will not use individual performance data or promise a productivity percentage.
+
+### Slide 5 — Budget within the approved maximum
+
+The three listed costs total CAD 1,020. The brief requires one 10% reserve on that subtotal, or CAD 102, bringing the total to CAD 1,122. That leaves CAD 78 under the approved maximum. The reserve is included once; it is not applied separately to each line and then again to the total.
+
+### Slide 6 — Approval, safeguards and open questions
+
+The decision is whether to approve this bounded pilot. A start date still needs confirmation. The rough notes mention October 9, a future company-wide policy and adding Customer Success, but none is approved. If leadership approves the pilot, the implementation owner should confirm the date and exception guidance before any announcement or calendar change.
 
 ## `focus-friday-one-page-summary.md`
 
@@ -655,7 +657,7 @@ The protected block could be weakened by unclear exceptions or could move meetin
 - Name the owner of exception guidance.
 - Keep Customer Success outside the initial scope; consider it only after pilot evidence and a separate decision.
 
-## `focus-friday-review-email.md`
+## `focus-friday-review-request-email.md`
 
 ```text
 DRAFT — NOT SENT
@@ -682,7 +684,7 @@ Thank you,
 [Name]
 ```
 
-## `focus-friday-evidence-table.md`
+## Verification receipt returned in Chat—not a fifth deliverable
 
 | Claim or check | Source or calculation | Result |
 |---|---|---|
@@ -776,7 +778,7 @@ This is source control in ordinary language: change the bad claim, update its de
 
 **Applies to both:** use the same three redacted sources, authority order, acceptance checks and targeted repair.
 
-**Free route or limit:** use Sonnet 5 in Chat or one of the current Free Projects. Request complete text first. If file creation is enabled, ask for a presentation and document, but save the text locally too. If you hit a limit, finish one named deliverable per fresh chat, paste the compact authority block into each and reconcile the four outputs manually.
+**Free route or limit:** use Sonnet 5 in Chat or a Project if the account actually provides one. Anthropic's official Project pages currently conflict, so do not make a Project necessary. Request complete text first. If file creation is enabled, ask for the four files, but save the text locally too. If you hit a limit, finish one named deliverable per fresh chat, paste the compact authority block into each and reconcile the four outputs manually.
 
 **Paid difference or extension:** a paid Project may support more continuing work; extra models and capacity may reduce interruption. Use Cowork only if creating and organizing files across a granted folder removes a real bottleneck. Research is unnecessary here because browsing would introduce sources outside the approved pack.
 
@@ -837,7 +839,7 @@ Test the approved values: 600, 300, 120, 10%, maximum 1200. Expected total:
 
 Then test zero, blank, negative and over-budget values. Download the source where available. A colourful calculator that accepts `banana` as a budget and displays `NaN` in leadership plum is not finished.
 
-**Applies to both:** bounded Project context, source labels, clean filenames and output inspection. **Free route or limit:** use up to the documented Free Project allowance and enabled Artifacts/file creation. **Paid difference or extension:** additional Project capacity and paid Artifact storage or integration may help continuing work. **No equivalent:** when shared storage or a paid integration is required, a local exported copy is an alternative deliverable, not feature parity.
+**Applies to both:** bounded context, source labels, clean filenames and output inspection. **Free route or limit:** use Chat, or a Project only if the account provides it, plus enabled Artifacts or file creation. Official Project pages currently conflict. **Paid difference or extension:** Project capacity and paid Artifact storage or integration may help continuing work. **No equivalent:** when a Project, shared storage or a paid integration is unavailable, a Chat with the same compact authority block and a local exported copy is an alternative workflow, not feature parity.
 
 # 9. Web search and Research: find the receipt, then read it
 
@@ -898,8 +900,9 @@ Starting folder:
 ```text
 /Focus-Friday-review-copy/
   focus-friday-presentation.pptx
+  focus-friday-speaker-notes.docx
   focus-friday-one-page-summary.docx
-  focus-friday-review-email.md
+  focus-friday-review-request-email.md
   approved-brief.md
   metrics-redacted.csv
 ```
@@ -909,8 +912,9 @@ Desired output:
 ```text
 /Focus-Friday-review-output/
   01-presentation.pptx
-  02-one-page-summary.docx
-  03-email-draft.md
+  02-speaker-notes.docx
+  03-one-page-summary.docx
+  04-review-request-email-draft.md
   evidence/
     approved-brief.md
     metrics-redacted.csv
@@ -923,8 +927,8 @@ Exact Cowork brief:
 Work only in the connected folder /Focus-Friday-review-copy and create a new
 sibling folder /Focus-Friday-review-output.
 
-Copy and rename the five listed files into the structure below. Do not alter
-the contents of the presentation, summary, email, brief or CSV. Create
+Copy and rename the six listed files into the structure below. Do not alter
+the contents of the presentation, speaker notes, summary, email, brief or CSV. Create
 MANIFEST.md listing every source filename, destination filename, file size and
 whether the copy completed. Do not delete, move or overwrite the originals.
 
@@ -941,7 +945,7 @@ Review the proposed operations before approval. Afterward, open the output folde
 
 ## Cloud and local reach
 
-Current Cowork runs in cloud sandboxes by default. When it needs local files or computer control, the desktop app provides a connected route you grant. Closing the laptop can leave cloud-only work running; it removes access that depends on the local device. Treat this as a data-processing and permission decision.
+Cowork can run as a cloud session or a local Desktop session. In a cloud session, the agent loop and code execution run on Anthropic's servers; local-file access still depends on the connected device. In a local session, the loop runs on your computer and code runs in an isolated local virtual machine. Only cloud work can continue after the laptop closes. Check the session type and granted reach before proceeding; this is a data-processing and permission decision.
 
 ## Safe autonomy
 
@@ -1030,7 +1034,7 @@ Subagents share or receive capabilities according to the product setup. They are
 
 ## Context and compaction
 
-Context is the material available to the current response: prompts, files, instructions, tool results and conversation history. As it fills, performance can degrade and Claude Code may compact earlier work into a summary. Fable 5.1 guidance specifically notes compaction summaries and long-task behavior.
+Context is the material available to the current response: prompts, files, instructions, tool results and conversation history. As it fills, performance can degrade and Claude Code may compact earlier work into a summary. Fable 5.1 guidance specifically notes compaction summaries and long-task behaviour.
 
 Before compaction or a handoff, preserve:
 
@@ -1108,23 +1112,7 @@ API terms and retention can differ from consumer plans. Covered Models retain th
 
 **Applies to both Free and paid app users:** the source hierarchy and verification method transfer. **Paid difference or extension:** the API is separately billed developer infrastructure with exact model and parameter control. **No equivalent:** a Claude subscription is not API credit, and Free Chat is not a programmatic integration.
 
-# 13. What the one LAiDIES Claude test did—and did not—show
-
-LAiDIES ran one bounded workshop fixture on August 31, 2026 in Claude Code 2.1.225 using Sonnet 5 at Medium and High effort, authenticated through an existing Max subscription. Skills, memories, hooks and MCP were disabled. Only a writing tool was supplied; the complete source pack was pasted into the prompt. It was not a Free, Chat, Cowork, Fable, Opus or API test.
-
-Both runs chose the eligible venue, calculated the correct CAD 529.10 total and created the required agenda and invitation. High used more reported output tokens—8,177 versus 6,400—and slightly more elapsed time—76.7 seconds versus 71.8—without changing the core decision.
-
-Medium introduced an unsupported claim that dietary-needs collection was “not planned or budgeted” when the source said only that needs had not been collected. A later targeted repair improved the work but left residual attribution and causal wording. LAiDIES stopped rather than running retries until the evidence looked tidy.
-
-That test shows three narrow things:
-
-1. More effort did not materially improve this particular decision.
-2. A correct total can sit beside an invented policy.
-3. A targeted repair can improve the answer without making it perfect.
-
-It does **not** prove Medium is generally better than High, Sonnet is better than another model, paid Claude is unreliable, or the proposal example in this book was tested. The source-policy lesson transfers, but the internal test scenario is not the reader-facing example.
-
-# 14. Verification: make “done” observable
+# 13. Verification: make “done” observable
 
 Claude responds well to a finish line it can check. You respond well to evidence you can inspect. Those are related but not identical.
 
@@ -1183,7 +1171,7 @@ Addy Osmani's January 2026 specification method reinforces the goal, context, co
 
 Anthropic engineering's context guidance recommends the smallest high-signal material and concrete examples, with more context added after a failure shows it is needed. That is an engineering method to test, not proof that fewer files always win. The deciding question is whether the necessary truth is present and easy to distinguish from noise.
 
-# 15. Troubleshooting without starting over
+# 14. Troubleshooting without starting over
 
 ## “Claude cannot see my file”
 
@@ -1245,7 +1233,7 @@ Anthropic documents that safeguards can block or route some protected cyber, bio
 
 Open Settings → Memory and inspect the relevant topic. Edit or delete a topic if that is enough. Pause stops use and new memory while retaining existing memories. Reset permanently deletes all memories, including Project memories, and cannot be undone. Choose the smallest correction.
 
-# 16. Recovery: leave yourself a way back
+# 15. Recovery: leave yourself a way back
 
 Before a consequential job, preserve the original and choose an output path. After each accepted stage, save the exact result outside the chat. A conversation is not your archive.
 
@@ -1272,11 +1260,11 @@ messages, publication or adjacent improvements.
 
 Stopping is not laziness. It prevents a finished proposal from becoming a surprise rebrand, a connector audit and six new folders because the model noticed spare afternoon.
 
-# 17. Quick chooser
+# 16. Quick chooser
 
 ## I have only Claude Free
 
-Start with Sonnet 5 in Chat. Use one bounded source pack. Use a Free Project when the job continues across chats. Use web search for current facts and inspect the links. Use file creation or Artifacts where enabled; otherwise request complete text. Save work outside Claude before limits interrupt you.
+Start with Sonnet 5 in Chat. Use one bounded source pack. Use a Project only if the account provides one; Anthropic's current official pages conflict on Free access. Use web search for current facts and inspect the links. Use file creation or Artifacts where enabled; otherwise request complete text. Save work outside Claude before limits interrupt you.
 
 You do not have a documented Free equivalent for Research, Cowork or Claude Code. Manual handling is honest and often adequate.
 
@@ -1316,15 +1304,15 @@ Use the surface default or lowest plausible setting first. Low for narrow, check
 
 First ask whether it should enter the service. Use the approved workplace environment and policy. Minimize and redact. Check training, retention, memory, history and connector permissions separately. Do not use Fable 5.1 or Mythos 5.1 without accepting the current Covered Model retention boundary.
 
-# 18. Compact index: where each thing belongs
+# 17. Compact index: where each thing belongs
 
 | Thing | Meaning | Put it here | Do not confuse it with |
 |---|---|---|---|
 | Chat | One conversation with supplied context and tools | Questions, drafting, analysis, files, narrow search | Automatic access to your computer |
-| Project | Continuing chats, instructions and knowledge for one job | Repeated proposal, monthly report, maintained source set | A guarantee every file was read |
+| Project | Continuing chats, instructions and knowledge for one job, where available | Repeated proposal, monthly report, maintained source set | A guarantee every file was read or a confirmed Free entitlement |
 | Artifact | Separate editable or interactive output | Document, code, diagram, calculator | Published or production-ready work |
 | Research | Paid multi-step investigation | Broad current-source question | Truth or a Free feature |
-| Cowork | Paid multi-step computer work | Bounded multi-file or connected action job | Claude Code or local-only execution |
+| Cowork | Paid multi-step computer work in a cloud or local Desktop session | Bounded multi-file or connected action job | Claude Code or guaranteed cloud continuation |
 | Claude Code | Repository/file/command agent | Existing website, app or technical workspace | Better general writing |
 | API | Programmatic Claude access | Repeated software integration | Included subscription usage |
 | Model | Trained component producing output | Task-fit selection when exposed | Surface, plan or permission |
@@ -1338,29 +1326,29 @@ First ask whether it should enter the service. Use the approved workplace enviro
 | Context | Material available now | Only what the current job needs | Everything ever stored in the account |
 | Compaction | Summary of older context | Continuity for a long task | The real source files |
 
-# 19. Dated current-source appendix
+# 18. Dated current-source appendix
 
-The product facts below were checked from official sources on or before **September 6, 2026**. Practitioner methods are labelled separately. Recheck model, plan, pricing, permissions, data controls and UI labels before publication or a consequential purchase.
+The product facts below were checked from official sources on or before **September 12, 2026**. Practitioner methods are labelled separately. Recheck model, plan, pricing, permissions, data controls and UI labels before publication or a consequential purchase.
 
 ## Official Anthropic product and model sources
 
 - [Get started with Claude](https://support.claude.com/en/articles/8114491-get-started-with-claude) — access surfaces, supported locations and age requirement; dated June 2, 2026.
 - [Plans and pricing](https://claude.com/pricing) and [Choose a Claude plan](https://support.claude.com/en/articles/11049762-choose-a-claude-plan) — current plan structure, capacity framing and pricing. Prices can change and are not recommendations.
 - [Introducing Claude Sonnet 5](https://www.anthropic.com/news/claude-sonnet-5) — Sonnet 5 availability across plans and Free/Pro default at launch; June 30, 2026.
-- [Models overview](https://platform.claude.com/docs/en/models/overview) — Fable 5.1, Opus 5, Sonnet 5 and Haiku 4.5 roles, specifications and API availability; checked September 6, 2026.
+- [Models overview](https://platform.claude.com/docs/en/models/overview) — Fable 5.1, Opus 5, Sonnet 5 and Haiku 4.5 roles, specifications and API availability; checked September 12, 2026.
 - [Claude Platform release notes](https://platform.claude.com/docs/en/release-notes/overview) and [Mythos 5.1](https://platform.claude.com/docs/en/models/mythos-5-1/overview) — Mythos 5.1 Project Glasswing invitation-only boundary; September 1, 2026.
-- [Effort](https://platform.claude.com/docs/en/build-with-claude/effort) — supported Low, Medium, High, xhigh and Max controls, defaults and distinction from hard budgets; checked September 6, 2026.
-- [Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices), [Prompting Fable 5.1](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1), and the current Sonnet 5 and Opus 5 prompting guides — model-specific behavior, long context, structure, targeted edits, progress and verification; checked September 6, 2026.
+- [Effort](https://platform.claude.com/docs/en/build-with-claude/effort) and [model, effort and thinking settings](https://support.claude.com/en/articles/8664678-change-the-model-effort-and-thinking-settings) — supported Low, Medium, High, xhigh and Max controls, defaults, app settings and distinction from hard budgets; checked September 12, 2026.
+- [Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices), [Prompting Fable 5.1](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1), [Prompting Sonnet 5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5) and [Prompting Opus 5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5) — model-specific behaviour, long context, structure, targeted edits, progress and verification; checked September 12, 2026.
 - [Fable models on your plan](https://support.claude.com/en/articles/15424964-claude-fable-models-on-your-plan) — paid-only Fable 5.1 access, weekly allowance and usage-credit rules; updated the week of September 6, 2026.
-- [Covered Models](https://support.claude.com/en/articles/15425695-covered-models) and [data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models) — Fable 5.1/Mythos 5.1 designation and 30-day retention requirement; checked September 6, 2026.
-- [Fable fallback behavior](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1) — protected-domain model routing boundary; checked September 6, 2026.
+- [Covered Models](https://support.claude.com/en/articles/15425695-covered-models) and [data retention practices for Covered Models](https://support.claude.com/en/articles/15425996-data-retention-practices-for-covered-models) — Fable 5.1/Mythos 5.1 designation and 30-day retention requirement; checked September 12, 2026.
+- [Fable fallback behaviour](https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1) — protected-domain model routing boundary; checked September 12, 2026.
 - [Memory and chat search](https://support.claude.com/en/articles/11817273-use-claude-s-chat-search-and-memory-to-build-on-previous-context) — current memory defaults, topics, Project separation, sensitive-topic control, pause/reset and Incognito boundary; checked September 6, 2026.
 - [Personalization features](https://support.claude.com/en/articles/10185728-understanding-claude-s-personalization-features) — profile instructions, Project instructions and Styles; dated July 10, 2026.
 - [Incognito chats](https://support.claude.com/en/articles/12260368-use-incognito-chats) — history, memory, training, retention and organization-export limits; dated July 16, 2026 in the research packet.
-- [Create and edit files](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude) and [Artifacts](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them) — file creation, downloads, Artifact behavior and account boundaries.
+- [Create and edit files](https://support.claude.com/en/articles/12111783-create-and-edit-files-with-claude) and [Artifacts](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them) — file creation, downloads, Artifact behaviour and account boundaries.
 - [Projects](https://support.claude.com/en/articles/9517075-what-are-projects), [manage Projects](https://support.claude.com/en/articles/9519177-how-can-i-create-and-manage-projects) and [Project RAG](https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects) — Project access, management, memory and retrieval.
 - [Web search](https://support.claude.com/en/articles/10684626-enable-and-use-web-search) and [Research](https://support.claude.com/en/articles/11088861-use-research-on-claude) — search controls, Free context cost and paid Research boundary.
-- [Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) and [Cowork architecture](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview) — paid beta, cloud execution, desktop-mediated local reach and permissions.
+- [Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) and [Cowork architecture](https://support.claude.com/en/articles/14479288-claude-cowork-architecture-overview) — paid beta, cloud and local Desktop sessions, local-file dependencies and permissions; checked September 12, 2026.
 - [Claude Code features](https://code.claude.com/docs/en/features-overview), [best practices](https://code.claude.com/docs/en/best-practices), [memory](https://code.claude.com/docs/en/memory), [Skills](https://code.claude.com/docs/en/skills) and [permission modes](https://code.claude.com/docs/en/permission-modes) — repository work, instructions, extensions, verification, context and permission boundaries.
 - [Custom remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp), [connector surfaces](https://support.claude.com/en/articles/11725091-when-to-use-desktop-and-web-connectors) and [Google Workspace connectors](https://support.claude.com/en/articles/10166901-use-google-workspace-connectors) — access, plan, network, permission and privacy distinctions.
 - [Usage-limit best practices](https://support.claude.com/en/articles/9797557-usage-limit-best-practices) and [usage credits](https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans) — variable capacity, caching, separate credit spending and current Settings route.
@@ -1376,11 +1364,13 @@ The product facts below were checked from official sources on or before **Septem
 
 ## LAiDIES evidence and its limit
 
-The preserved August 31, 2026 Sonnet 5 workshop run supports only the bounded observations in Chapter 13. The central Focus Friday proposal is constructed teaching material. No Claude Free account, paid Chat, Research, Cowork, Fable 5.1, Opus 5, Mythos 5.1, current picker/default, connector, ordinary Artifact or API workflow was tested for this manuscript.
+The preserved August 31, 2026 Sonnet 5 workshop run was an internal Claude Code fixture, not a reader exercise. Medium and High reached the same core venue decision and correct CAD 529.10 total; High used more reported output tokens and time. Medium also invented a policy implication from an unknown, and a targeted repair left residual wording. That evidence supports only three bounded cautions: more effort did not improve that decision, a correct calculation can sit beside an unsupported claim, and a repair can help without fully fixing the result. The catering scenario is intentionally kept out of the reader-facing chapters because it distracts from the mechanism this guide now teaches through the Focus Friday example.
+
+The central Focus Friday proposal is constructed teaching material. No Claude Free account, paid Chat, Research, Cowork, Fable 5.1, Opus 5, Mythos 5.1, current picker/default, connector, ordinary Artifact or API workflow was tested for this manuscript.
 
 ## Recheck triggers
 
-Reopen the affected official source when any model name, default, effort level, plan entitlement, price, context limit, Project allowance, permission system, connector, Skill location, retention rule, fallback behavior or Settings label changes. Recheck all volatile cards immediately before this manuscript enters formal review or publication.
+Reopen the affected official source when any model name, default, effort level, plan entitlement, price, context limit, Project allowance, permission system, connector, Skill location, retention rule, fallback behaviour or Settings label changes. Recheck all volatile cards immediately before this manuscript enters formal review or publication.
 
 # A final working rule
 
