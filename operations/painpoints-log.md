@@ -1,5 +1,14 @@
 # LAiDIES build learning ledger
 
+- **2026-09-12 Shared Card parity:** Copying a Card container was insufficient:
+  its pseudo-element finish and typography also need one shared definition.
+  Compare every finish across both routes at phone/desktop sizes; assert readable
+  facts and containment. Provider predecessor drift caught newer header references;
+  retain exact reviewed differences before bounded upload. Real two-browser
+  photo/object saves passed and original Card was revision-guard restored.
+  Behind the Build: parity means the same saved object and visible presentation,
+  not two similarly named components. Do not mistake source tests for live journeys.
+
 - **2026-09-12 Photographic API proof:** A private image-tool example did not prove the website provider could reproduce its styling. Three real API trials exposed vague black wardrobe defaults and unsolicited hair clips; explicit pink/white wardrobe and no-unselected-accessory rules corrected the final inspected set. A delayed account change after generation could attach a candidate to another account; candidate-click and pre-save identity guards now have browser regression coverage. Email-code test runners need an open input session, not a closed pipe; avoid immediate resend after a runner failure. Real save/Closet tests must restore the original Card with a revision guard. Behind the Build: test the actual generator and the complete saved-object journey, not the prompt alone. Only 2010/founder likeness was tested; do not generalize to all eras or hair identities.
 
 - **2026-09-12 Owner testing limits:** Founder testing needs a server-authenticated exception, not a client flag or erased quota history. Keep duplicate protection and separate owner usage from visitor-day capacity. Tests reject other/unconfirmed identities and replay while admitting owner requests beyond normal caps. Behind the Build: unlimited owner testing must not exhaust visitors' allowance.
