@@ -1,5 +1,20 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Five-era photographic examples
+
+Ali requests examples for 1990, 1995, 2000, 2005 and 2010, with changes to
+appearance as well as backdrop. First 1990 perm/power-blazer trial reads too
+80s and is rejected; replace with understated bob/denim direction. Subsequent
+"much better" feedback is positive but does not identify or approve all five.
+Examples remain private built-in image-tool tests, not deployed model results.
+
+## 2026-09-12 Photographic pilot needs more era personality
+
+Ali judges the photographic likeness pretty close, but not playful or visibly
+90s enough; the background specifically needs correction. Test a background-only
+successor while preserving the current person's appearance. No live change or
+approval of the complete photographic generator follows from this feedback.
+
 ## 2026-09-12 Private photographic era pilot
 
 Ali authorizes one photographic 1995 makeover test using her supplied original

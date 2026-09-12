@@ -1,5 +1,14 @@
 # Active work
 
+## 2026-09-12 Five-era private comparison
+
+- Generated five photographic examples from original reference; revised 1990
+  after Ali rejected perm/padded blazer as too 80s. 1995 layered hair/choker,
+  2000 zigzag part/clips, 2005 highlights/velour, 2010 statement necklace.
+  Files remain private in the existing generated_images thread directory.
+- No site/Worker/account/Card changes. Era differentiation and resemblance
+  inspected visually; no claim of API reproduction or universal era accuracy.
+
 ## 2026-09-12 Private photographic 1995 pilot
 
 - GENERATED privately using the built-in image tool, not the deployed Worker.
