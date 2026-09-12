@@ -101,6 +101,22 @@ try {
     assert.match(prompt, /Likeness takes priority over styling/);
   });
   providerPlan = ["throw", "throw", "throw"];
+  const beforeObjects = providerCalls;
+  for (const [index, object] of ["cassette", "flip-phone", "cd-player", "floppy-disk", "lava-lamp", "roller-skate"].entries()) {
+    providerPlan = null;
+    const result = await worker.fetch(post({requestId:requestId(200+index),object}), {...env,PORTRAIT_USAGE:new Usage()});
+    assert.equal(result.status,200);
+    prompts.slice(-3).forEach(prompt => {
+      assert.match(prompt,/Object only: no person, face, body, hands/);
+      assert.doesNotMatch(prompt,/head and shoulders|reference person|described age/);
+    });
+  }
+  assert.equal(providerCalls-beforeObjects,18);
+  for (const bad of [{object:"unknown"},{object:"cassette",itemPrompt:"a woman"},{object:"cassette",image:"bad"},{object:"cassette",traits:{extras:"a pink blazer"}}]) {
+    assert.equal((await worker.fetch(post({requestId:requestId(300),...bad}),env)).status,400);
+  }
+  assert.equal(providerCalls-beforeObjects,18,'invalid object requests never call provider');
+  providerPlan = ["throw", "throw", "throw"];
   const timeout = await worker.fetch(post(valid(10)), { ...env, PORTRAIT_USAGE: new Usage() });
   assert.equal(timeout.status, 502, "all timed-out candidates fail without provider detail leakage");
   providerPlan = null;

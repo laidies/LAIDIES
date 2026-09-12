@@ -1,5 +1,14 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Description guidance and object alternative
+
+Ali requests a visible example description for people not uploading a photo,
+plus an explicit 90s-object image option for people who do not want a likeness.
+Objects are object-only, not people holding props, and use the same Card save.
+Keep photo consent and generation limits intact. Closet versus MAiKEOVER Card
+field discrepancies are CAPTURED, not fixed: Ali explicitly sequences that
+reconciliation after signup and image work.
+
 ## 2026-09-12 Portrait illustration and likeness correction
 
 Ali approves trying 90s adult graphic-novel illustration instead of the old

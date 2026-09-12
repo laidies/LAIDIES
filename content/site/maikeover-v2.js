@@ -2,7 +2,7 @@
   "use strict";
 
   var toolCopy = {
-    portrait: "Describe yourself or use a photo, then choose your favourite portrait.",
+    portrait: "Describe yourself, use a photo or choose a 90s object for your Card image.",
     backdrop: "Pick the finish for your Card.",
     soundtrack: "Pick your song.",
     saint: "Pick your Patron Saint.",

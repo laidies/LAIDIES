@@ -2,6 +2,7 @@ const MAX_JSON = 3_000_000, MAX_IMAGE = 2_000_000, MAX_OUTPUT = 8_000_000;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 const B64 = /^[A-Za-z0-9+/]+={0,2}$/;
 const PNG = [137,80,78,71,13,10,26,10];
+const OBJECTS = Object.freeze({ cassette: "a 1990s mixtape audio cassette", "flip-phone": "a late-1990s flip phone", "cd-player": "a 1990s portable CD player", "floppy-disk": "a 3.5-inch floppy disk", "lava-lamp": "a lava lamp", "roller-skate": "a quad roller skate" });
 const STYLE = "a detailed 1990s adult graphic-novel illustration, head and shoulders, expressive controlled ink contours, rich bold colour, smooth painted colour areas and selective hand-drawn shadow hatching. Natural human facial proportions, not a caricature. No pixel art, video-game sprites, dithering, stippled skin, anime eyes, plastic skin, text or watermark. The 1990s reference governs the illustration technique only: preserve the selected era, outfit, accessories and backdrop rather than imposing a single year or a fixed pink-purple palette.";
 
 const body = (value, status = 200, headers = {}) => new Response(JSON.stringify(value), { status, headers: { "content-type": "application/json", ...headers } });
@@ -62,8 +63,9 @@ function input(value) {
   const prompt = typeof value.itemPrompt === "string" ? value.itemPrompt.trim() : "";
   const extras = value.traits && typeof value.traits === "object" && !Array.isArray(value.traits) ? value.traits.extras : "";
   const photo = image(value.image);
-  if (prompt.length > 2000 || typeof extras !== "string" || extras.length > 2000 || (prompt ? 1 : 0) + (photo ? 1 : 0) !== 1 || (photo && value.consent !== true)) return null;
-  return { requestId: value.requestId, prompt, extras, photo };
+  const object = typeof value.object === "string" && Object.hasOwn(OBJECTS, value.object) ? value.object : "";
+  if ((value.object !== undefined && !object) || prompt.length > 2000 || typeof extras !== "string" || extras.length > 2000 || (prompt ? 1 : 0) + (photo ? 1 : 0) + (object ? 1 : 0) !== 1 || (photo && value.consent !== true) || (object && (value.image !== undefined || extras))) return null;
+  return { requestId: value.requestId, prompt, extras, photo, object };
 }
 async function user(request, env) {
   const token = request.headers.get("authorization")?.match(/^Bearer\s+(.+)$/i)?.[1] || "";
@@ -119,7 +121,7 @@ export default { async fetch(request, env) {
   if (reserved === "unavailable") return fail("service-unavailable",503,origin,env);
   if (reserved === "replay") return fail("request-already-used",409,origin,env);
   if (reserved === "limited") return fail("quota-exhausted",429,origin,env);
-  const prompt=promptFor(data), deadline=AbortSignal.timeout(165000);
+  const prompt=data.object ? `Create a detailed 1990s adult graphic-novel illustration of ${OBJECTS[data.object]}. One recognizable object, fully visible and centered with generous margins, expressive ink contours, rich bold colour and smooth painted areas. Use a simple purple and bright pink geometric backdrop with restrained yellow accents. Object only: no person, face, body, hands or human features. No pixel art, video-game sprites, dithering, text, lettering, logos or watermark.` : promptFor(data), deadline=AbortSignal.timeout(165000);
   const images=(await Promise.all([0,1,2].map(() => generate(env,data,prompt,deadline)))).filter(Boolean);
   return images.length ? body({images,requested:3,completed:images.length},200,cors(origin,env)) : body({images:[],requested:3,completed:0,error:"generation-failed"},502,cors(origin,env));
 } };

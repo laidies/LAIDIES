@@ -25,9 +25,12 @@
     }
   }
   function setMode() {
-    var photo = document.querySelector('input[name="moPortraitMode"]:checked').value === "photo";
+    var mode = document.querySelector('input[name="moPortraitMode"]:checked').value;
+    var photo = mode === "photo";
     byId("moPhotoPanel").hidden = !photo;
-    byId("moDescriptionPanel").hidden = photo;
+    byId("moDescriptionPanel").hidden = mode !== "scratch";
+    byId("moObjectPanel").hidden = mode !== "object";
+    byId("moPortraitOptions").hidden = mode === "object";
     if (!photo) { byId("moPhoto").value = ""; byId("moPhotoConsent").checked = false; }
   }
   function loadImage(url) {
@@ -102,10 +105,12 @@
     try {
       var current = await session();
       if (!current) { await showAccount(); throw new Error("Verify your email in the account step above before making portraits."); }
-      var extras = window.LAIDIESPortraitChoices.extras();
       var body = { requestId: crypto.randomUUID() };
-      var photo = document.querySelector('input[name="moPortraitMode"]:checked').value === "photo";
-      if (photo) {
+      var mode = document.querySelector('input[name="moPortraitMode"]:checked').value;
+      var extras = mode === "object" ? "" : window.LAIDIESPortraitChoices.extras();
+      if (mode === "object") {
+        body.object = byId("moObject").value;
+      } else if (mode === "photo") {
         body.image = await photoData(); body.traits = { extras: extras }; body.consent = true;
       } else {
         var description = byId("moDescribe").value.trim();

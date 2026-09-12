@@ -17,7 +17,9 @@
 .mo-portrait-modes legend { padding:0 8px; color:var(--mo-ink); font:800 14px/1 "Jost",sans-serif; }
 .mo-portrait-modes label,.mo-portrait-consent { display:flex!important; align-items:flex-start; gap:9px; color:var(--mo-ink)!important; font:700 14px/1.35 "Jost",sans-serif!important; letter-spacing:0!important; text-transform:none!important; }
 .mo-portrait-modes input,.mo-portrait-consent input { flex:0 0 auto; width:20px; height:20px; margin:0; accent-color:var(--mo-hot); }
-#moDescriptionPanel,#moPhotoPanel { margin:14px 0 18px; }
+#moDescriptionPanel,#moPhotoPanel,#moObjectPanel { margin:14px 0 18px; }
+#moPortraitOptions[hidden],#moObjectPanel[hidden] { display:none!important; }
+#moObject { width:100%; min-height:48px; padding:12px; color:var(--mo-ink); background:#fff1f8; border:2px solid #7137d6; border-radius:8px; font:600 16px/1.4 "Jost",sans-serif; }
 #moDescriptionPanel>label,#moPhotoPanel>label:first-child { display:block; margin-bottom:8px; color:var(--mo-ink)!important; font:800 14px/1.3 "Jost",sans-serif!important; letter-spacing:0!important; text-transform:none!important; }
 #moDescribe,#moPhoto { box-sizing:border-box; width:100%; min-height:48px; padding:12px 14px; color:var(--mo-ink); background:#fff; border:2px solid #8291a6; border-radius:8px; font:600 15px/1.45 "Jost",sans-serif; }
 #moDescribe { resize:vertical; }
