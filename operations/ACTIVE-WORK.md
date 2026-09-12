@@ -1328,3 +1328,5 @@ objective; every open lane keeps its own checkpoint.
 
 
 > 2026-09-12 — External School courses: research shortlist prepared in isolated branch research/school-external-courses-20260912; operations/school-external-courses-20260912.md. Eight candidates with provider-attributed instructors, prerequisites, advertised access and proposed levels. Full lesson/accessibility/exercise review remains open. No public change or replacement of existing foreground. Ali approved level meanings and lab/comparable practitioner sourcing.
+
+> 2026-09-12 — School shortlist filter updated: free courses only, two-hour default; longer exceptions require Ali. Current official Academy estimates establish Foundations 4h and Creative Work 5h. Both removed from standard selection; Foundations flagged as a possible exception. Short DLAI candidates held for full free-path and effort verification. No public change.

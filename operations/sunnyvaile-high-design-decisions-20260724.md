@@ -89,3 +89,17 @@ placements below remain research recommendations pending lesson review.
 
 Research: `operations/school-external-courses-20260912.md`.
 No public listing or course admission is authorized by this research request.
+
+
+## 2026-09-12 — Free courses, two-hour default
+
+**DECIDED — Ali:** Only free courses. Default maximum duration is two hours.
+If a longer course merits inclusion, flag it to Ali individually; no automatic
+exception. Preserve the four approved levels and instructor-authority criteria.
+
+Operational interpretation: required learning content and exercises must be
+accessible without payment; optional paid certificates do not disqualify an
+otherwise complete free course. Required paid tools and expiring trials do not
+establish a free learning path. Unknown duration or cost remains held. Use total
+estimated course effort where available and identify video-only runtimes as
+such; never promise completion in two hours from video length alone.
