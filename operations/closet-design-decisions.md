@@ -1,5 +1,15 @@
 # Closet / Town Wallet construction — 2026-07-24
 
+## 2026-09-12 Shared Resident Card supersession
+
+Ali requires parity with MAiKEOVER. Closet now displays the same portrait, name,
+local handle, server number, movie, TV, song, saint, carrying and selected finish.
+This supersedes the older flip-card presentation and its extra display fields;
+underlying saved fields and other Closet shelves are not deleted. The existing
+shared save/projection contract remains authoritative. Public handle reservation
+is not implied by local handle display. Ten finishes are compared at phone and
+desktop widths in scripts/test-maikeover-closet-parity.mjs.
+
 ## Source diagnosis
 
 `laidies-card.html` already contained one of the most useful systems in the

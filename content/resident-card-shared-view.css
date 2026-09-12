@@ -1,0 +1,20 @@
+/* Shared standalone Resident Card view. Live text remains deterministic. */
+.resident-card-shared-view { position:relative; width:min(100%,720px); aspect-ratio:1.8047; margin:0 auto; }
+.resident-card-shared-view .mo-mirror-mount { position:absolute; inset:0; width:100%; height:100%; }
+.mo-mirror-mount #moCard { container-type:inline-size; }
+.resident-card-shared-view #residentNo { color:#fff !important; }
+
+/* Crop only the Card plane from the active v6 vanity; no salon scene enters Closet. */
+.mo-mirror-mount #moCard:is([data-finish="classic"],[data-finish="pinklilac"],[data-finish="peach"],[data-finish="mint"],[data-finish="lavender"],[data-finish="holo"]) { background:url('/assets/building-interiors/maikeover/maikeover-vanity-resident-card-candidate-v6.png') 54.6% 45.9% / 266.24% 270.4% no-repeat !important; }
+.resident-card-shared-view #moCard[data-finish="gettingready"],.resident-card-shared-view #moCard:is([data-finish="skates"],[data-finish="boombox"],[data-finish="computer"]) { background:transparent !important; }
+.resident-card-shared-view #moCard[data-finish="gettingready"] #residentNo,.resident-card-shared-view #moCard:is([data-finish="skates"],[data-finish="boombox"],[data-finish="computer"]) #residentNo { color:#24112e !important; text-shadow:none; }
+.mo-mirror-mount #moCard > div:first-child { font-size:clamp(10px,2.6cqw,14px) !important; }
+.mo-mirror-mount #moCard .mo-card-ai { font-size:1em; line-height:inherit; vertical-align:baseline; }
+@media(max-width:700px) {
+  .mo-room__canvas { width:calc(100% - 24px); aspect-ratio:1.8047; margin:20px auto; }
+  .mo-room__canvas .mo-room__backdrop { display:none; }
+  .mo-room__canvas .mo-mirror-mount { inset:0; width:100%; height:100%; }
+  .mo-mirror-mount #moName { font-size:22px !important; }
+  .mo-mirror-mount #moHandle { font-size:12px !important; }
+  .mo-mirror-mount #moHandle + div { font-size:12px !important; line-height:1.2 !important; }
+}

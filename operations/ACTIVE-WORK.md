@@ -1,5 +1,20 @@
 # Active work
 
+## 2026-09-12 MAiKEOVER / Closet parity — RELEASING
+
+- Latest authority: finish working and live, with Closet parity.
+- Thirteen admitted ready-image choices; five new object PNGs independently
+  reviewed at 390px. Existing approved assets and photographic prompt preserved.
+- Shared Card presentation in maker and Closet: all ten finishes, portrait,
+  fields and number compare at 390/1280; 12px facts and overflow checks pass.
+  Obsolete flip-card presentation removed; stored data preserved.
+- Scoped account, photo-retention, picker, lifecycle, number and Worker tests pass.
+- Next: provider-preserving release with ALLOW_LOCALHOST=false, live generation,
+  two-browser save/Closet/maker return and guarded original Card restoration.
+- Supersedes prior picker admission HOLD: approved thirteen choices are recorded
+  in active asset registry. Diverse likeness and physical-phone coverage remain
+  limitations, not completed claims.
+
 ## 2026-09-12 Photographic upload and ready-image picker — RELEASE HOLD
 
 - Implemented photo upload or five local ready images; description UI removed.

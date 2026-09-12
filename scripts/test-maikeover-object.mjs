@@ -92,8 +92,21 @@ try{
   await page.waitForFunction(()=>document.querySelector('#moStatus').textContent.includes('Portrait selected'));
   assert.equal(payloads.length,beforeObjectCalls,'ready-made picker never calls the provider'); const objectSaved=await page.locator('#moAvatar img').getAttribute('src');
   assert.match(objectSaved,/^data:image\/jpeg;base64,/,'ready-made image becomes a safe raster'); assert(objectSaved.length<=131095,'ready-made saved raster obeys the Card byte limit');
+  assert.equal(await page.locator('#moReadyImages button').count(),13,'all thirteen approved choices are present');
+  for(const button of await page.locator('#moReadyImages button').all()) {
+    const before=await page.locator('#moAvatar img').getAttribute('src');
+    if((await button.getAttribute('aria-label')).includes('Mixtape cassette')) continue;
+    await button.click();
+    await page.waitForFunction(old=>document.querySelector('#moAvatar img')?.src!==old,before,{timeout:20000}).catch(async error=>{throw new Error((await button.innerText())+': '+await page.locator('#moStatus').innerText()+'; '+error.message);});
+    assert((await page.locator('#moAvatar img').getAttribute('src')).length<=131095,'each ready image fits shared Card storage');
+  }
+  assert.equal(payloads.length,beforeObjectCalls,'all thirteen ready images remain local');
   for(const width of [390,800,1280]){ await page.setViewportSize({width,height:844}); await page.locator('.mo-portrait-modes').scrollIntoViewIfNeeded(); await page.waitForTimeout(100); assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`no horizontal overflow at ${width}px`); }
   await page.setViewportSize({width:390,height:844}); await page.locator('#moReadyImages').scrollIntoViewIfNeeded(); await page.waitForTimeout(100); await page.screenshot({path:path.join(shots,'object-picker-390-viewport.png')});
+  for(const [index,label] of ['Choose Platform sandal','Choose Portable CD player'].entries()) {
+    await page.getByRole('button',{name:label,exact:true}).scrollIntoViewIfNeeded();
+    await page.screenshot({path:path.join(shots,'object-picker-390-new-'+index+'.png')});
+  }
   await signedIn.close();
   const signedOutPayloads=[]; const signedOut=await makeContext(false,async route=>{ signedOutPayloads.push(route.request().postData()); return route.fulfill({status:500,contentType:'application/json',body:'{}'}); });
   const signedOutPage=await signedOut.newPage(); await signedOutPage.goto(origin+'/maikeover.html'); await signedOutPage.locator('[data-mo-tool="portrait"]').click(); await signedOutPage.locator('[value="object"][name="moPortraitMode"]').check(); await signedOutPage.locator('#moReadyImages button').filter({hasText:'Mixtape cassette'}).click();

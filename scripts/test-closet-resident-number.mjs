@@ -78,13 +78,13 @@ function accountState(number) {
 }
 
 function assertBoth(document, value, verified) {
-  for (const id of ['residentNo', 'residentNoBack']) {
+  for (const id of ['residentNo']) {
     assert.equal(document.getElementById(id).textContent, value, id + ' text');
     assert.equal(document.getElementById(id).dataset.verifiedNumber || '', verified, id + ' verified dataset');
   }
 }
 
-// A verified account number paints both faces, and the real private renderer retains it.
+// A verified account number paints the shared single Card, and its renderer retains it.
 {
   const { document } = await runBridge(bridgeSource, { state: accountState(1047) });
   assertBoth(document, 'No. 1047', '1047');
@@ -123,4 +123,4 @@ function assertBoth(document, value, verified) {
   assert.throws(() => assertBoth(document, 'No. 1047', '1047'), /residentNo/);
 }
 
-console.log('CLOSET RESIDENT NUMBER PASS: verified owner number paints both faces; private/public/invalid boundaries hold; calibrated old bridge fails.');
+console.log('CLOSET RESIDENT NUMBER PASS: verified owner number paints the shared Card; private/public/invalid boundaries hold; calibrated old bridge fails.');

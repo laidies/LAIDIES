@@ -1,5 +1,17 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Thirteen-image picker and complete parity release
+
+Ali approves extending the ready-made avatar picker to cassette, flip phone,
+floppy disk, lava lamp, roller skate, platform sandal, jelly shoes, tiny
+backpack, butterfly hair clip, glitter lip gloss, portable CD player, digital
+pet and smiley-face keyring. This is explicit narrow MAiKEOVER avatar use,
+including the same saved avatar in Closet, not a new reward or entitlement.
+Preserve the approved photographic hairstyle. Complete and publicly verify
+both input paths and identical Card fields/design through Closet and maker
+return before reporting live completion. Reuse suitable unchanged catalogue
+art; create matching missing objects rather than importing fortune settings.
+
 ## 2026-09-12 Photographic flow implementation
 
 Ali approves the playful photographic direction represented by private image

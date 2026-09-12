@@ -937,6 +937,8 @@
     .public-mode-banner strong { color: var(--rose); }
   </style>
   <link rel="stylesheet" href="/content/closet-v2.css?v=20260724-1" />
+  <link rel="stylesheet" href="/content/maikeover-v2.css?v=20260902-card-text-fit-1">
+  <link rel="stylesheet" href="/content/resident-card-shared-view.css?v=20260912-closet-parity-1">
   <link rel="stylesheet" href="/content/resident-card-getting-ready.css?v=20260906-1">
   <link rel="stylesheet" href="/content/resident-card-pop-backgrounds.css?v=20260906-1">
   <style>
@@ -985,7 +987,7 @@
   </div>
 
   <!-- ==============================================
-       SECTION 1: RESIDENCE CARD (with flip)
+       SECTION 1: RESIDENT CARD
        ============================================== -->
   <section class="passport-section" id="sectionCard">
     <p class="passport-section-eyebrow">★ <a href="/sorority-house.html" style="color: inherit; text-decoration: none;">Delta L<span class="ai">Ai</span> Nu</a> · Your Closet · Your Card</p>
@@ -996,66 +998,24 @@
     <div class="wallet-shell">
       <div class="wallet-label" aria-hidden="true">★ THE TOWN WALLET · SUNNYVAiLE · est. 1999</div>
 
-    <div class="card-viewport">
-      <div class="card-flip" id="cardFlip">
-
-        <!-- FRONT -->
-        <div class="card-face card-face--front card-front">
-          <button class="card-flip-toggle" type="button" onclick="document.getElementById('cardFlip').classList.add('is-flipped')">Flip →</button>
-          <div class="card-corner-header">
-            <span>★ SUNNYVAiLE Resident Card</span>
-            <span class="resident-no" id="residentNo">No. NEW</span>
+    <div class="resident-card-shared-view" aria-label="Your saved Resident Card">
+      <div class="mo-mirror-mount">
+        <div id="moCard" data-closet-shared-card>
+          <div style="display:flex; justify-content:space-between; align-items:center; font-family:'Jost',sans-serif; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--rose); font-weight:700; margin-bottom:14px;">
+            <span>★ SUNNYV<span class="mo-card-ai">Ai</span>LE Resident</span>
+            <span id="residentNo" style="font-family:monospace;">No. NEW</span>
           </div>
-          <div class="card-front-body">
-            <div class="card-avatar" id="cardAvatar"></div>
-            <div class="card-info">
-              <p class="card-name" id="cardName">Your Name</p>
-              <p class="card-archetype" id="cardArchetype">Your Archetype</p>
-              <div class="card-facts">
-                <div class="card-fact"><span class="fact-icon">♪</span><span id="cardSong">Pick your favorite LAiDIES song</span></div>
-                <div class="card-fact"><span class="fact-icon">✿</span><span id="cardActivity">Pick your favorite SUNNYVAiLE activity</span></div>
-                <div class="card-fact"><span class="fact-icon">★</span><span id="cardSaintLine">Devoted to ______</span></div>
-                <div class="card-fact" id="cardMovieRow" hidden><span class="fact-icon">✦</span><span id="cardMovie"></span></div>
-                <div class="card-fact" id="cardTvRow" hidden><span class="fact-icon">✦</span><span id="cardTv"></span></div>
-                <div class="card-fact" id="cardCarryRow" hidden><span class="fact-icon">✦</span><span id="cardCarry"></span></div>
-                <div class="card-fact" id="cardEpisodeRow" hidden><span class="fact-icon">✦</span><span id="cardEpisode"></span></div>
-                <div class="card-fact" id="cardStorefrontRow" hidden><span class="fact-icon">✦</span><span id="cardStorefront"></span></div>
-                <div class="card-fact" id="cardCharacterRow" hidden><span class="fact-icon">✦</span><span id="cardCharacter"></span></div>
-                <div class="card-fact" id="cardCocktailRow" hidden><span class="fact-icon">✦</span><span id="cardCocktail"></span></div>
-              </div>
-              <p class="card-motto" id="cardMotto" hidden></p>
-              <div class="card-footer-line">
-                ★ Population: <span>women just like you</span>
-              </div>
-            </div>
+          <div id="moAvatar" aria-label="Your Resident Card portrait"></div>
+          <div id="moName" style="font-family:'Playfair Display',Georgia,serif; font-size:24px; font-weight:700; color:var(--plum); margin:14px 0 2px;">Your Name</div>
+          <div id="moHandle" style="font-family:'Jost',sans-serif; font-size:13px; color:var(--rose); font-weight:600; margin-bottom:12px;">@yourhandle</div>
+          <div id="cardFacts" style="font-family:'Jost',sans-serif; font-size:14px; color:var(--plum); line-height:1.7;">
+            <div><strong>Era movie ·</strong> <span id="cardMovie">—</span></div>
+            <div><strong>Era TV ·</strong> <span id="cardTv">—</span></div>
+            <div><strong>Song ·</strong> <span id="cardSong">—</span></div>
+            <div><strong>Patron Saint ·</strong> <span id="cardSaint">—</span></div>
+            <div><strong>Carrying ·</strong> <span id="cardCarry">—</span></div>
           </div>
         </div>
-
-        <!-- BACK -->
-        <div class="card-face card-face--back card-back">
-          <button class="card-flip-toggle" type="button" onclick="document.getElementById('cardFlip').classList.remove('is-flipped')">← Flip</button>
-          <div class="card-corner-header">
-            <span>★ Card Back</span>
-            <span class="resident-no" id="residentNoBack">No. NEW</span>
-          </div>
-          <div class="card-back-body">
-            <div>
-              <p class="card-back-block-label">Favorite Quote</p>
-              <blockquote class="card-favorite-quote" id="cardQuote">
-                "Pick a quote you live by."
-                <span class="card-quote-attrib" id="cardQuoteAttrib"></span>
-              </blockquote>
-            </div>
-            <div class="card-devotion">
-              <div class="card-devotion-halo" id="cardSaintHalo">★</div>
-              <div class="card-devotion-text">
-                <strong>PATRON SAiNT</strong>
-                <span id="cardSaint">— pick your saint —</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
 
@@ -1828,52 +1788,27 @@
   function updateCardFromProfile(profile) {
     if (!profile) return;
     window.__laidiesLastProfile = profile;
-    document.getElementById('cardName').textContent = profile.display_name || 'SUNNYVAiLE Resident';
-    // Archetype retired — hide the subtitle unless a legacy value exists.
-    var archEl = document.getElementById('cardArchetype');
-    var archVal = ARCHETYPES[profile.card_archetype] || profile.card_role || '';
-    if (archVal) { archEl.textContent = archVal; archEl.hidden = false; }
-    else { archEl.hidden = true; }
-    // Label tables are slug-keyed; Town Character cards carry free text —
-    // fall back to the raw value so their fields render.
-    document.getElementById('cardSong').textContent =
-      SONG_LABEL[profile.favorite_song] || profile.favorite_song || 'No song picked yet';
-    document.getElementById('cardActivity').textContent =
-      ACTIVITY_LABEL[profile.favorite_activity] || profile.favorite_activity || 'No activity picked yet';
-    if (profile.favorite_saint) {
-      var saintName = SAINT_LABEL[profile.favorite_saint] || profile.favorite_saint;
-      document.getElementById('cardSaintLine').textContent = 'Devoted to ' + saintName;
-      document.getElementById('cardSaint').textContent = saintName + ' — PATRON SAiNT';
-      document.getElementById('cardSaintHalo').textContent = saintName.split(' ').map(function(s){return s[0];}).join('');
-    }
-    if (profile.card_motto) {
-      document.getElementById('cardMotto').textContent = '"' + profile.card_motto + '"';
-      document.getElementById('cardMotto').hidden = false;
-    }
-    // v2 favourites — each row shows only when picked
-    var fav = function (rowId, spanId, text) {
-      var row = document.getElementById(rowId);
-      var span = document.getElementById(spanId);
-      if (!row || !span) return;
-      if (text) { span.textContent = text; row.hidden = false; }
-      else { row.hidden = true; }
-    };
-    fav('cardMovieRow', 'cardMovie', profile.favorite_movie ? ('Era movie · ' + profile.favorite_movie) : null);
-    fav('cardTvRow', 'cardTv', profile.favorite_tvshow ? ('Era TV · ' + profile.favorite_tvshow) : null);
-    fav('cardCarryRow', 'cardCarry', profile.card_carry ? ('Carrying · ' + profile.card_carry) : null);
-    var epVal = profile.favorite_episode;
-    fav('cardEpisodeRow', 'cardEpisode', epVal ? (EPISODE_LABEL[epVal] || (/^\d{2}$/.test(epVal) ? 'Episode ' + epVal : epVal)) : null);
-    var sfVal = profile.favorite_storefront;
-    fav('cardStorefrontRow', 'cardStorefront', sfVal ? (STOREFRONT_LABEL[sfVal] ? 'Local at ' + STOREFRONT_LABEL[sfVal] : sfVal) : null);
-    fav('cardCharacterRow', 'cardCharacter', profile.favorite_character ? (CHARACTER_LABEL[profile.favorite_character] || profile.favorite_character) : null);
-    fav('cardCocktailRow', 'cardCocktail', profile.favorite_cocktail || null);
-    if (profile.favorite_quote) {
-      document.getElementById('cardQuote').firstChild.textContent = '"' + profile.favorite_quote + '"';
-    }
+    document.getElementById('moName').textContent = profile.display_name || 'SUNNYVAiLE Resident';
     var number = Number(isPublicMode ? profile.resident_number : document.getElementById('residentNo').dataset.verifiedNumber);
-    var num = Number.isSafeInteger(number) && number > 0 ? String(number).padStart(4, '0') : 'NEW';
-    document.getElementById('residentNo').textContent = 'No. ' + num;
-    document.getElementById('residentNoBack').textContent = 'No. ' + num;
+    // MAiKEOVER owns the Card schema. The Closet displays exactly its six
+    // shared choices, with the same empty-state mark, rather than legacy rows.
+    document.getElementById('cardMovie').textContent = profile.favorite_movie || '—';
+    document.getElementById('cardTv').textContent = profile.favorite_tvshow || '—';
+    document.getElementById('cardSong').textContent = SONG_LABEL[profile.favorite_song] || profile.favorite_song || '—';
+    document.getElementById('cardSaint').textContent = SAINT_LABEL[profile.favorite_saint] || profile.favorite_saint || '—';
+    document.getElementById('cardCarry').textContent = profile.card_carry || '—';
+    var handle = window.LAIDIESResidentCard
+      ? window.LAIDIESResidentCard.readHandle(localStorage)
+      : '';
+    document.getElementById('moHandle').textContent = handle ? '@' + handle : '@yourhandle';
+    document.getElementById('residentNo').textContent = residentNumberText(number);
+  }
+
+  function residentNumberText(value) {
+    var number = Number(value);
+    return Number.isInteger(number) && number > 0 && Number.isSafeInteger(number)
+      ? 'No. ' + String(number).padStart(4, '0')
+      : 'No. NEW';
   }
 
   var editBtn = document.getElementById('editCardBtn');
@@ -2216,7 +2151,7 @@
   }
 
   function updateAvatar(profile) {
-    var el = document.getElementById('cardAvatar');
+    var el = document.getElementById('moAvatar');
     if (!el || !profile) return;
     var contract = window.LAIDIESResidentCard;
     if (contract && contract.replaceWithSafeImage(
@@ -2254,11 +2189,10 @@
     var finish = (p && p.card_bg) || 'classic';
     if (!Object.prototype.hasOwnProperty.call(CARD_BG, finish)) finish = 'classic';
     var bg = CARD_BG[finish];
-    var faces = document.querySelectorAll('.card-face--front, .card-face--back');
-    for (var i = 0; i < faces.length; i++) {
-      faces[i].dataset.finish = finish;
-      faces[i].style.background = bg;
-    }
+    var card = document.getElementById('moCard');
+    if (!card) return;
+    card.dataset.finish = finish;
+    card.style.background = bg;
   }
 
   function renderProfile(p) {

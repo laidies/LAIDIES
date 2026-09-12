@@ -8,7 +8,15 @@
     ["Flip phone", "/assets/puffies/usable-25/02-flip-phone-charm.png"],
     ["Floppy disk", "/assets/puffies/usable-25-images/60-teal-floppy-disk.png"],
     ["Lava lamp", "/assets/puffies/usable-25-images/63-blue-purple-lava-lamp.png"],
-    ["Roller skate", "/assets/puffies/usable-25-images/66-yellow-floral-roller-skate.png"]
+    ["Roller skate", "/assets/puffies/usable-25-images/66-yellow-floral-roller-skate.png"],
+    ["Platform sandal", "/assets/maikeover/ready-images/platform-sandal.png"],
+    ["Jelly shoes", "/assets/maikeover/ready-images/jelly-shoes.png"],
+    ["Tiny backpack", "/assets/maikeover/ready-images/tiny-backpack.png"],
+    ["Butterfly hair clip", "/assets/puffies/usable-25-images/71-iridescent-butterfly-clip.png"],
+    ["Glitter lip gloss", "/assets/puffies/usable-25-images/56-clear-lip-gloss.png"],
+    ["Portable CD player", "/assets/maikeover/ready-images/portable-cd-player.png"],
+    ["Digital pet", "/assets/puffies/usable-25-images/69-pink-digital-pet-keychain.png"],
+    ["Smiley-face keyring", "/assets/maikeover/ready-images/smiley-keyring.png"]
   ];
   var byId = function (id) { return document.getElementById(id); };
   function status(text) { byId("moStatus").textContent = text; }
