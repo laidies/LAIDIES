@@ -38,3 +38,6 @@ VERIFIED PUBLICLY: production3d9a4501, sourcecb958c15. Bright lime women title; 
 
 
 - 2026-09-11 — Learn exterior replacement and six-card complete-image framing VERIFIED PUBLICLY f42275fd/source e025022d. Existing AI Fundamentals book selected; original icon not recovered. Same-row alignment, full images and copy/routes verified at three widths on both origins; 792 other assets retained. Useful/Fun artwork remains unresolved. Evidence: releases/shortcut-framing-20260911 under town-entry-homepage.
+
+
+- 2026-09-11 — Bright, equal-panel shortcuts VERIFIED PUBLICLY 4eb84a05/source56dbd2cf. Restore earlier Miss Jeeves AI-question portrait, replace rejected Learn book-on-dark with a new learning illustration, and use equal filled 3:2 panels over mint/sky/pink cards. Both origins 390/960/1440 verified; 792 static assets preserved. Prior visual verdict superseded. Useful/Fun art remains separately unresolved. Evidence: releases/bright-shortcuts-20260911 under town-entry-homepage.
