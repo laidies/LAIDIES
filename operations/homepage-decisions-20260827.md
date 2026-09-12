@@ -1,3 +1,13 @@
+## 2026-09-11 — Restore the explicitly selected 8f133695 cards and banner
+
+Ali supplies screenshots of preview 8f133695 and prefers its navy shortcut cards, coloured headings/borders, pink-to-coral needs background, and dark blue patterned Did you know banner. This supersedes the later bright card surfaces and royal-blue/mint discovery pairing. Restore those specific treatments from current production; do not roll back current content, services or the rest of the homepage. Improve Did you know title readability and give every thumbnail the previously requested lime border. Keep the title clear of the question mark.
+
+Ali explicitly confirms that the laptop-and-notes desk visible in her reference is the exact AI-question image to restore: `assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png`. This latest explicit image identification supersedes the earlier desk exclusion for that slot. The Miss Jeeves shortcut substitution was wrong; her separate question panel is unaffected. Preserve the current AI-question route and copy.
+
+The Library exterior remains excluded from Learn. The generated `learn-illustration-20260911.png`, the bright-card design, and the proposed cardless layout are rejected. Do not select them again or describe their internal admissions as owner acceptance. Original Learn art remains unidentified; no new generation is authorized by this recovery. Existing Useful/Fun slot exclusion remains unresolved.
+
+Ali clarifies that her narrow radio screenshot calls attention to the circular left-arrow control, not the radio image/panel. Verified live: shared `sv-back-nav.js` creates a fixed desktop return link, currently pointing to `/radio` and labelled Back to the previous page. Identification is complete; no arrow removal or replacement has been agreed.
+
 ## 2026-09-11 — Reject book-on-dark Learn card and unequal image fill
 
 Ali rejects the AI Fundamentals book on the dark card, rejects the pumpkins/flowers writing-desk image for the AI-question shortcut, and reiterates that the earlier AI-question picture was good. Recover that earlier picture rather than treating the current FAiRY desk as approved for this job. The prior Learn-book/framing visual admission is superseded by this explicit rejection.

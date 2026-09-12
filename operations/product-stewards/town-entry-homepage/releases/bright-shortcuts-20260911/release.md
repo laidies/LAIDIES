@@ -1,3 +1,5 @@
+> **SUPERSEDED BY OWNER REJECTION, September11:** Ali rejects this visual successor and confirms that Miss Jeeves was not the requested shortcut image. Public deployment is historical fact, not acceptance. Follow homepage-decisions latest reference-return entry.
+
 # Bright, equally filled shortcut cards — September 11, 2026
 
 Status: VERIFIED PUBLICLY at https://laidies.ai/#today and https://4eb84a05.laidies-sunnyvaile.pages.dev/#today; source 56dbd2cf committed and pushed before deployment; independent Terra/Medium source and pixel review ACCEPT for exact candidate a96515427903a2498f0417b76ead0afa52b71d3ad57c21086885d434261aba3e. Ali rejects the dark cards, unequal picture fill, Learn book on dark backing and garden desk for AI questions. Prior framing visual admission is superseded. Deployed successor 4eb84a05-9a4d-4699-a57c-9cfc0ae6d36c.

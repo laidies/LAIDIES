@@ -1,0 +1,46 @@
+--- production/index.html
++++ candidate/index.html
+@@ -1139,30 +1139,10 @@
+ .dyk-slim h2::after{width:64px;height:64px;top:28px}
+ @media(max-width:700px){.dyk-slim h2{padding-top:50px}.dyk-slim h2::before{width:32px;height:40px;top:20px}.dyk-slim h2::after{width:44px;height:44px;top:20px}}
+ </style>
+-<style id="discovery-palette-pink-blue">
+-.did-you-know.dyk-slim{background:linear-gradient(120deg,#1949c3,#234bd0)}
+-.did-you-know.dyk-slim::before{mix-blend-mode:multiply}
+-.did-you-know.dyk-slim .dyk-copy :is(h3,.dyk-title){color:var(--hp-mint)}
+-.did-you-know.dyk-slim .dyk-cta{color:var(--hp-lime)}
+-.did-you-know.dyk-slim :is(.dyk-arrow,.dyk-pause){background:var(--hp-pink);color:var(--hp-ink);border-color:var(--hp-ink)}
+-#today.intent{background:linear-gradient(180deg,var(--hp-pink) 0%,var(--hp-pink) 45%,var(--hp-coral) 100%)}
+-#today.intent>div:first-child .eyebrow{color:var(--hp-ink)}
+-#today.intent #intent-title{color:#073482}
+-</style>
+-<style id="shortcut-full-image-frames">
+-#today .intent-grid-5{grid-auto-rows:auto}
+-#today .intent-grid-5 a,#today .intent-grid-5 a:last-child{display:flex;flex-direction:column;align-items:stretch;height:100%;grid-column:auto}
+-#today .intent-grid-5 a img{width:100%;min-width:0;height:auto;aspect-ratio:3/2;object-fit:contain;object-position:center;contain:none;align-self:auto;order:1;padding:12px;background:transparent}
+-#today .intent-grid-5 a>div{order:2;min-height:0;padding:18px;justify-content:flex-start}</style>
+-<style id="bright-equal-shortcut-panels">
+-#today .intent-grid-5{grid-auto-rows:auto}
+-#today .intent-grid-5 a,#today .intent-grid-5 a:last-child{display:flex;flex-direction:column;align-items:stretch;height:100%;grid-column:auto;background:var(--hp-mint);border:3px solid var(--hp-ink)}
+-#today .intent-grid-5 a:nth-child(3n + 2){background:var(--hp-sky)}
+-#today .intent-grid-5 a:nth-child(3n){background:var(--hp-pink)}
+-#today .intent-grid-5 a img{display:block;width:100%;min-width:0;height:auto;aspect-ratio:3/2;object-fit:cover;object-position:center;contain:none;align-self:auto;order:1;padding:0;background:transparent;border-bottom:3px solid var(--hp-ink)}
+-#today .intent-grid-5 a>div{order:2;min-height:0;padding:22px;justify-content:flex-start;background:transparent}
+-#today .intent-grid-5 a :is(strong,span){color:var(--hp-ink);text-shadow:none;-webkit-text-stroke:0}
+-#today .intent-grid-5 a:nth-child(2) img{object-position:center top;background:var(--hp-pink)}
++<style id="reference-thumbnail-border">
++@media(min-width:761px) and (max-width:1100px){#today .intent-grid-5 a:nth-child(2) img{object-position:left center}#today .intent-grid-5 a:nth-child(4) img{object-position:30% center}}
++#today.intent{background:linear-gradient(125deg,var(--hp-pink) 0%,var(--hp-coral) 54%,var(--hp-orange) 118%)}
++.dyk-slim .dyk-media{outline:2px solid var(--hp-lime);outline-offset:0}
+ </style>
+ </head>
+ <body>
+@@ -1266,7 +1246,7 @@
+       <div><p class="eyebrow">Come for the whole story or one useful thing</p><h2 id="intent-title">What brought you to town today?</h2><p>You do not need to learn the town before you can use it.</p></div>
+       <div class="intent-grid intent-grid-5">
+         <a href="/learn.html"><img decoding="async" src="assets/homepage/shortcuts/learn-illustration-20260911.png" alt="Books, notes and a retro computer for learning and practising AI"><div><strong>I want to learn</strong><span>Find learning resources, including books, tips, explanations, and guides.</span></div></a>
+-        <a href="#reference"><img decoding="async" src="assets/homepage/characters/miss-jeeves-question-desk-cutout-v2.png" alt="Miss Jeeves at her AI question desk"><div><strong>I have an AI question</strong><span>Ask Miss Jeeves anything about AI: why something is happening, what a headline means, which tool or model fits, or how to do a task.</span></div></a>
++        <a href="#reference"><img decoding="async" src="assets/homepage/activity-landscapes-20260831/fairy-writing-desk.png" alt="A laptop and notes on a colourful writing desk"><div><strong>I have an AI question</strong><span>Ask Miss Jeeves anything about AI: why something is happening, what a headline means, which tool or model fits, or how to do a task.</span></div></a>
+         <a href="/newsstand.html" data-intent-news><img decoding="async" src="assets/town-characters/scenes/paige-newsstand-current-palette-20260823.png" alt="PAiGE at the SUNNYVAiLE NewsStand"><div><strong data-intent-news-title>I want today&rsquo;s headline explained</strong><span data-intent-news-summary>See current released reporting and what it means in real life.</span></div></a>
+         <a href="#this-week" data-intent-episode data-latest-episode-link><img decoding="async" src="assets/homepage/original-restoration-20260829/chick-flicks-postcard.webp" alt="The Chick Flicks video rental store"><div><strong data-intent-episode-title>Continue or catch the latest episode</strong><span data-intent-episode-summary>Episode 04: The Founding Mothers.</span></div></a>
+         <a href="/radio.html"><img decoding="async" src="assets/building-interiors/ksvl-sticker-banner.jpg" alt="KSVL 99.9, SUNNYVAiLE's radio station"><div><strong>I want something to listen to</strong><span>Tune into KSVL 99.9 for LAiDIES original songs and Rewind Era radio.</span></div></a>

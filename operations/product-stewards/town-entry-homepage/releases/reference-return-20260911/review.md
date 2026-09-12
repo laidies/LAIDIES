@@ -1,0 +1,5 @@
+# Scoped restoration review
+
+Terra/Medium, independent source and actual CUA browser inspection: ScopedAccept. Examined 960x900 and390x844; foreground additionally examined1440x1000. Restored navy card surfaces, reference pink/coral needs ground, dark patterned DYK banner, distinct pink title above mark/burst, and lime thumbnail borders. No horizontal overflow. All six image panels match within layout rows. Latest crop amendment accepted at960: desk anchors left to retain laptop/notes; Chick Flicks anchors30% to retain foreground VHS labels. Candidate SHA256: 136c68ebf1160d02a3e1ab9a2ceb881bbfe4c2c2c00864e04250eaacb22f89df.
+
+This is not acceptance of the whole image task. The existing Learn image is rejected and retained only pending selection; Useful/Fun art remains unresolved. Narrow cards necessarily crop landscapes; these two focal-point adjustments improve the identified subjects rather than claiming complete source pixels. No new illustration is generated or selected here. Sitewide floating Back control was identified from live DOM/source and was not modified.
