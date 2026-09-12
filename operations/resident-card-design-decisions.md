@@ -1,5 +1,11 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Random and None are distinct era choices
+
+Ali requests Random in place of Any: choose one of the five dated era prompts
+per portrait request and show the result. None separately omits era styling.
+Keep all five explicit era choices and other portrait settings unchanged.
+
 ## 2026-09-12 No isolated text strips or reddish/black form text
 
 Ali rejects separate blocks behind each instruction and the reddish heading

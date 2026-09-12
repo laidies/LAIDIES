@@ -626,7 +626,8 @@
 
     // ---- avatar option pickers (these feed the generation prompt) ----
     var A_ERA=[
-      {l:'any',p:'',d:'No era styling — just your look.'},
+      {l:'Random',p:'',random:true,d:'We’ll randomly choose one of the five eras when you make your portraits.'},
+      {l:'None',p:'',d:'No era styling — just your look.'},
       {l:'1990',p:'1990 hair and makeup — matte lip, centre-parted hair, minimal natural makeup, muted early-90s colour grade',d:'Matte lip · centre part · minimal makeup'},
       {l:'1995',p:'1995 hair and makeup — frosted lip, soft waves, a little shimmer, mid-90s colour grade',d:'Frosted lip · soft waves · shimmer'},
       {l:'2000',p:'year-2000 Y2K hair and makeup — glossy frosted lip, sleek flippy hair, shimmer, bright Y2K colour grade',d:'Glossy frosted lip · flippy hair · shimmer'},
@@ -683,7 +684,13 @@
 
     window.LAIDIESPortraitChoices = Object.freeze({
       extras: function () {
-        var extras = [A_ERA[eraIdx2].p, A_FIT[fitIdx2].p, A_BG[bgIdx2].p];
+        var era = A_ERA[eraIdx2];
+        if (era.random) {
+          var eras = A_ERA.filter(function (item) { return !!item.p; });
+          era = eras[Math.floor(Math.random() * eras.length)];
+          $('moEraDesc').textContent = 'Random pick: ' + era.l + ' — ' + era.d;
+        }
+        var extras = [era.p, A_FIT[fitIdx2].p, A_BG[bgIdx2].p];
         A_ACC.forEach(function (item, index) {
           if (!accOn2[index]) return;
           var name = $('moNameNeck').value.trim().replace(/[^a-zA-Z '-]/g, '').slice(0, 30);
