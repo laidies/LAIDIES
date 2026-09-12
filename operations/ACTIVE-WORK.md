@@ -1,5 +1,10 @@
 # Active work
 
+## 2026-09-12 Photo validation retry
+
+- DEPLOYED and UI verified: source71e763ff, Pages70f7d9d1-8271-495e-9141-11d8c1393b7f. Three paths,792 other IDs preserved; dual origins exact. Input/private/tmp/laidies-maikeover-boxes-uhQA7O/stage and adjacent verification. Local browser proves missing permission retains file, sends nothing and focuses inline error. Live390px confirms clear unchecked permission label and no overflow. Independent source review no blocker. Success clears; failure retains by source review. No real generation or account save tested.
+- Image-quality trial rejected by Ali: odd gaze/eyes in first, second poor likeness, third closest but not approved. No further model/prompt change in this release. Controlled reference-to-output test needed; Closet discrepancy remains deferred.
+
 ## 2026-09-12 Object alternative and example description
 
 - DEPLOYED / UI VERIFIED PUBLICLY: source782b891f, Pagesb94b608f-8043-4b33-bf36-f15a4ce95d64, Worker59a5c7cd-5404-4bd3-8300-f05009317a06. Six allowlisted object choices bypass human styling; visible description example. Four static paths changed,791 unrelated IDs retained; dual-origin bytes exact. Input/private/tmp/laidies-maikeover-boxes-xCFjDj/stage and adjacent manifest/verification.

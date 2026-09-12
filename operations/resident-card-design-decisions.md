@@ -1,5 +1,14 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Graphic-novel trial rejected on likeness
+
+Ali's new three-image screenshot rejects the trial: first has odd eyes, second
+is substantially unlike the reference, third closest but not accepted. The
+prompt delivery checks remain valid but do not admit image quality. Do not
+claim style wording solved likeness or publish another prompt experiment as
+a proven improvement. Next proof must compare actual outputs to the supplied
+reference before asking Ali to spend another review cycle.
+
 ## 2026-09-12 Photo retry and explicit permission
 
 Ali rejects losing a selected photo after a missing-checkbox/validation error.

@@ -1,5 +1,7 @@
 # LAiDIES model-routing calibration — September 2026
 
+| PHOTO-RETRY-20260912 | 2026-09-12 | Tier1 bounded validation UX | Foreground model/effort unavailable; inherited source review | Under15m; usage unavailable | Retention/focus mocked browser and live label pass | No implementation detour; user reported separate likeness failure, captured | Cheaper bounded route likely adequate | 71e763ff;70f7d9d1 |
+
 | PORTRAIT-OBJECT-20260912 | 2026-09-12 | Tier1 object input through Worker and Card preview | Foreground model/effort unavailable; inherited read-only source/pixel review | Under30m; usage unavailable | Source/UI verified; image quality unverified | Test fixture syntax repaired, dependency entry clarified; existing stale portrait browser suite not claimed passed | Cheaper bounded implementation likely adequate | 782b891f; b94b608f |
 
 | PORTRAIT-RULES-20260912 | 2026-09-12 | Tier1 bounded Worker prompt trial | Foreground model/effort not exposed; inherited independent source review | Under15m; usage unavailable | Source tests pass; pixel quality unverified | Reviewer started before patch, reread exact diff; multipart string parsing corrected | Cheaper bounded implementation likely adequate | 4b20bfcd; Worker93223623 |
