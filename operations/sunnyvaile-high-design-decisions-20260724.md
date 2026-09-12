@@ -56,3 +56,36 @@ High's distinct teaching job.
 - no new person, keeper, mascot, or room illustration was invented;
 - the existing Report Card, quiz storage, Yearbook calculation, Book Fair
   schedule, and localStorage keys are preserved.
+
+
+## 2026-09-12 — Four class levels
+
+**DECIDED — Ali:** The School can offer Freshman, Sophomore, Junior and Senior
+level classes, in the context of external classes while LAiDIES builds its own
+course. These four level names are settled; exact placement criteria and
+individual course assignments remain to be specified and reviewed.
+
+Recommended interpretation, not an additional owner ruling: levels describe
+class prerequisites and depth, not a fixed label for a person or compulsory
+annual progression. A learner can choose different levels for different topics.
+Proposed progression: Freshman — foundations; Sophomore — guided practical use;
+Junior — multi-step projects and evaluation; Senior — advanced building,
+automation and agents. Each class still states its actual prerequisites.
+
+No catalogue, page or public course classification changed. Next action when
+School planning resumes: apply the four levels to a small vetted selection,
+using course evidence rather than provider marketing or topic names alone.
+
+
+## 2026-09-12 — Level meanings and external instructor authority
+
+**DECIDED — Ali:** Accept the preceding proposed progression and freedom to
+choose class levels by topic. Research external courses from engineers and
+employees at AI labs, or people with comparable functions and authority.
+Named academic collaborators and technical/product builders qualify when their
+role is explicit. Provider attribution is evidence of the advertised teaching
+role, not proof of current employment or teaching quality. Individual course
+placements below remain research recommendations pending lesson review.
+
+Research: `operations/school-external-courses-20260912.md`.
+No public listing or course admission is authorized by this research request.

@@ -1325,3 +1325,6 @@ objective; every open lane keeps its own checkpoint.
 - **Correction:** embedded `Ai` letters in SUNNYVAiLE and SAiNTS inherit their surrounding phrase colour instead of switching to the older shared burgundy. The full LUMINAiRY title is the one raspberry accent and uses the current page token `#f357a0`.
 - **Verified result:** desktop, 390 × 844 and 320 × 760 preserve title visibility, Matron's approved crop and zero horizontal overflow.
 - **Truth boundary:** local integration only; no push, deployment or public verification.
+
+
+> 2026-09-12 — External School courses: research shortlist prepared in isolated branch research/school-external-courses-20260912; operations/school-external-courses-20260912.md. Eight candidates with provider-attributed instructors, prerequisites, advertised access and proposed levels. Full lesson/accessibility/exercise review remains open. No public change or replacement of existing foreground. Ali approved level meanings and lab/comparable practitioner sourcing.

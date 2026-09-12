@@ -921,3 +921,41 @@ The public title remains a taste decision after the first editorial bank is
 strong enough to judge. The feature belongs in the complete Daily newspaper;
 the Homepage Daily Buzz may show only today's compact item and a small route to
 the paper.
+
+
+## 2026-09-12 — External classes in SUNNYVAiLE High
+
+**Status:** CAPTURED. **Triage:** MERGE into the existing School/classes planning;
+no change to the current build foreground and no publication authorization.
+
+Ali proposes offering external classes in the School while LAiDIES builds its
+own course. Example: https://x.com/iiiichigo_chan/status/2098509063399317831?s=12
+
+The exact post was read in a browser on 2026-09-12. It advertises a roughly
+one-hour Claude Code agent-harness lesson, covering CLAUDE.md, Plan Mode, skills,
+subagents and the Agent SDK. The post's claimed Anthropic attribution, original
+video provenance, price comparison and lesson quality are not verified here.
+Based on the listed topics, this is a candidate for deeper technical learning,
+not an assumed first class for an AI beginner.
+
+Proposed smallest useful implementation: a short curated external selection in
+the existing School catalogue, naming the actual provider and clearly stating
+that learning takes place on its site. Each entry should explain the useful
+outcome, assumed knowledge, duration, real access/tool costs, captions and date
+checked. Review the actual lesson and original provider before recommending it.
+The selection can complement LAiDIES classes after its own course is ready.
+These are recommendations for scoping, not settled public copy or design.
+
+Related existing work: operations/product-stewards/idea-inbox/handoff-trusted-free-ai-course-owner-rulings-2026-08-07.md
+concerns curriculum benchmarking; this new idea adds visitor-facing external
+course discovery rather than silently treating benchmark research as admission.
+
+Next trigger: School/classes planning resumes or Ali asks to build the selection.
+Start with one provider-verified course and assess the actual learner journey.
+No page, class register, course content or live site was changed by this capture.
+
+
+**2026-09-12 follow-up — DECIDED:** Ali names four class levels: Freshman,
+Sophomore, Junior and Senior. Governing record:
+`operations/sunnyvaile-high-design-decisions-20260724.md`, “Four class levels”.
+External-course vetting and live implementation remain open.

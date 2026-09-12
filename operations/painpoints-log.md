@@ -14751,3 +14751,7 @@ At the 700px breakpoint, the grid stretched the heading across spare column widt
 ### Resident benefits described as storage states instead of visitor value — 2026-09-07
 
 Ali again found that the homepage failed to explain what a Resident Card gives her. The prior comparison named “supported collections” but omitted the concrete Card-gated ten-Puffy Library bookmarking feature. Prevention: begin feature invitations with actual useful outcomes and named objects, then explain account differences; verify the real public journey before simplifying the promise. Current local Card→Puffy book/chapter save→Closet journey was observed. A generic continuation allowlist conflicts with public Puffy local-only language, so the homepage deliberately does not promise Puffy sync. Possible Behind the Build angle: testing what a membership actually changes before writing its benefits. Source 92f3f8e9.
+
+
+## 2026-09-12 — External School course discovery
+Provider Beginner labels can still require Python or deep learning. Prevention: assign School level from actual prerequisites, distinguish instructor attribution from current employment, and separate free tuition from tools/certificates. Browser recovered course pages when web fetch failed. Existing iCloud lock preserved; exact conversation additions recovered in isolated branch. Behind the Build angle: how to judge whether an AI course is beginner-friendly.
