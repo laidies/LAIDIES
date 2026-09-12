@@ -1,5 +1,11 @@
 # Active work
 
+## 2026-09-12 Object alternative and example description
+
+- DEPLOYED / UI VERIFIED PUBLICLY: source782b891f, Pagesb94b608f-8043-4b33-bf36-f15a4ce95d64, Worker59a5c7cd-5404-4bd3-8300-f05009317a06. Six allowlisted object choices bypass human styling; visible description example. Four static paths changed,791 unrelated IDs retained; dual-origin bytes exact. Input/private/tmp/laidies-maikeover-boxes-xCFjDj/stage and adjacent manifest/verification.
+- Actual live390px controls pass: object selection, hidden human settings, restored photo settings, description example and no overflow. Local mocked browser additionally proves object-only payload and malformed-raster rejection; Worker tests cover all six and invalid/mixed inputs. Independent source and390/800/1280 review no product blocker; test dependency setup clarified and photo-return assertion added. No real image generation, account save or newsletter test in this addition; object art and revised portrait likeness remain unverified.
+- NEXT: Finish real signup/image quality proof, then reconcile the user-reported Closet/MAiKEOVER Card field discrepancy. Do not independently remodel Closet before that sequence.
+
 ## 2026-09-12 Graphic-novel portrait rule trial
 
 - DEPLOYED: Worker version93223623-598c-4226-8fcf-10ef0b0bb73b, source4b20bfcd. Replaces pixel rule with 1990s adult graphic-novel illustration and explicit photo likeness/age preservation. Three results, model, quotas, account flow and384px browser conversion unchanged. No Pages deployment.

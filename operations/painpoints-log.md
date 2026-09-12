@@ -1,5 +1,7 @@
 # LAiDIES build learning ledger
 
+- **2026-09-12 Object versus human input:** A prop alternative needs a separate allowlisted backend prompt and request, not an object word appended to head-and-shoulders styling. Hide irrelevant human settings and never send retained description/photo data in object mode. Test both return paths and reject mixed inputs before provider calls. Behind the Build: privacy and intuitive controls share the same input-boundary design.
+
 - **2026-09-12 Portrait style drift:** Live generation still explicitly requested crisp pixel art after the site moved away from video-game styling. Replace the central rule for both input modes and test outgoing prompts, not UI labels. Calibration rejects the old instruction. Prompt assertions prove instruction delivery, not identity or visual quality; generated pixels remain a separate check. Behind the Build: an old hidden prompt can outlive a visible redesign.
 
 - **2026-09-12 Era semantics:** Any was incorrectly synonymous with no styling. Random must resolve a dated prompt; None must omit it. Test actual prompt construction for both image and description callers rather than merely button labels. Behind the Build: an ambiguous default can silently reverse user intent.
