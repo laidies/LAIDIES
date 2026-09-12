@@ -1,0 +1,50 @@
+--- a/learn/quiz.html
++++ b/learn/quiz.html
+@@ -76,11 +76,7 @@
+       object-fit: contain;
+     }
+     .quiz-return-link {
+-      position: fixed;
+-      bottom: calc(16px + env(safe-area-inset-bottom));
+-      left: clamp(14px, 3vw, 26px);
+-      right: auto;
+-      z-index: 90;
++      position: static;
+       display: inline-flex;
+       align-items: center;
+       justify-content: center;
+@@ -98,6 +94,13 @@
+         0 12px 30px rgba(75, 33, 72, 0.12),
+         0 0 0 4px rgba(143, 47, 78, 0.08);
+     }
++    /* The shared header manager reveals the original return link in the header. */
++    main > .quiz-return-link { visibility: hidden; }
++    .sv-header-utilities .quiz-return-link { box-shadow: none; }
++    .sv-header-utilities .quiz-return-link:focus-visible {
++      outline: 3px solid #7137d6;
++      outline-offset: 3px;
++    }
+     .quiz-return-link:hover,
+     .quiz-return-link:focus-visible {
+       color: #7a2742;
+@@ -160,11 +163,8 @@
+       .site-nav.is-open { display: flex; }
+       .hamburger-btn { display: block; }
+       .quiz-return-link {
+-        left: 14px;
+-        right: 14px;
+-        bottom: calc(12px + env(safe-area-inset-bottom));
+         width: auto;
+-        max-width: calc(100% - 28px);
++        max-width: 100%;
+         justify-content: center;
+       }
+     }
+@@ -1087,6 +1087,7 @@
+     </div>
+   </footer>
+ 
++  <script defer src="/content/site/sv-header-controls.js?v=20260912-quiz-return-1" data-sv-header-controls></script>
+   <script src="../content/site/supabase-config.js"></script>
+   <script src="../content/site/site-data.js?v=quizzes-complete-20260712"></script>
+   <script src="../script.js?v=20260830-native-controls-1"></script>

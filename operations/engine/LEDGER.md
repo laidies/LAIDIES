@@ -46,3 +46,7 @@ VERIFIED PUBLICLY: production3d9a4501, sourcecb958c15. Bright lime women title; 
 
 ## 2026-09-11 — Sitewide persistent controls belong in headers
 Public e413a1b0/source d17c43a7 replaces floating shared utility placement. Test cold state with no active player/tour as well as active utility state: menu mounting must not depend on widget existence. Exact outcomes/remaining defects: `operations/product-stewards/town-entry-homepage/releases/header-controls-20260911/release.md`.
+
+## 2026-09-12 — Quiz return omitted from header release
+
+The header-only rule includes runtime-inserted Quiz returns. Two-path local correction prepared; cached loader ordering repaired after independent rejection. Mac locked: actual browser verification and publication remain pending. Exact source-only state and resume: `operations/product-stewards/town-entry-homepage/releases/header-controls-20260912/review.md`.

@@ -1,3 +1,7 @@
+## 2026-09-12 — Header controls: Quiz exception — BUILT LOCALLY / verification pending
+
+Shared header release e413a1b0 remains public, but the legacy Quiz return link was missed. The bounded two-public-path correction is prepared and source-reviewed in `operations/product-stewards/town-entry-homepage/releases/header-controls-20260912/`. Browser testing is blocked by the locked Mac; no new deployment. Resume actual phone/middle/wide header placement and Back/keyboard journeys after unlock, then scoped visual review and provider-preserving release. Sitewide completion is not claimed. Homepage art and Resident Card open work remain unchanged.
+
 ## 2026-09-11 — Header controls — VERIFIED PUBLICLY
 
 Production e413a1b0 / source d17c43a7. Shared Back, map, tour, radio and legacy return utilities are mounted in headers. Cold-state menus work without any active widget. Actual public Back/radio/tour/menu checks and exact184origin comparisons recorded in `operations/product-stewards/town-entry-homepage/releases/header-controls-20260911/release.md`;703 untouched assets retained. Sitewide rule recorded in DECISIONS.md. No MAiKEOVER Back added. Separate OPEN: KSVL first-click catalogue-readiness race (Retry succeeds), Visitor tour recognition on extensionless route, Homepage Learn/Useful-Fun image choices and prior Resident Card explanation reconciliation. No claim that those are complete.

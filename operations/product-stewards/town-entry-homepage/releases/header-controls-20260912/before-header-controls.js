@@ -6,7 +6,7 @@
   'use strict';
   if (window.svHeaderControls) return;
   var HEADER = '.sv-controls-header,.sv-header,.site-header,header.topbar,.back-bar,.issue-site-nav,.preview-ribbon,.sticky-back,.back-nav,.site-nav';
-  var CONTROL = '.sv-side-rail,.sv-yah-chip,.svwt-chip,.svwt-offer,.svwt-paused,.ksvl-now-playing,#ksvl-resume-nudge,.wednesday-return,.quiz-return-link,[data-laidies-context-return]';
+  var CONTROL = '.sv-side-rail,.sv-yah-chip,.svwt-chip,.svwt-offer,.svwt-paused,.ksvl-now-playing,#ksvl-resume-nudge,.wednesday-return,[data-laidies-context-return]';
   var MENU = '#svghPanel,#mobile-nav,#laidiesUnifiedMenu';
   var host;
   var watchedHeaders = new WeakSet();
@@ -25,7 +25,7 @@
     .sv-header-utilities { box-sizing:border-box; display:flex; flex:1 1 100%; grid-column:1 / -1!important; width:100%; min-width:0; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px 14px; }
     .sv-header-utilities [hidden] { display:none!important; }
     .sv-header-utilities[hidden] { display:none!important; }
-    .sv-header-utilities :is(.sv-side-rail,.sv-yah-chip,.svwt-chip,.svwt-offer,.svwt-paused,.ksvl-now-playing,#ksvl-resume-nudge,.wednesday-return,.quiz-return-link,[data-laidies-context-return]) { position:static!important; inset:auto!important; transform:none!important; float:none!important; margin:0!important; box-sizing:border-box; max-width:100%!important; z-index:auto!important; }
+    .sv-header-utilities :is(.sv-side-rail,.sv-yah-chip,.svwt-chip,.svwt-offer,.svwt-paused,.ksvl-now-playing,#ksvl-resume-nudge,.wednesday-return,[data-laidies-context-return]) { position:static!important; inset:auto!important; transform:none!important; float:none!important; margin:0!important; box-sizing:border-box; max-width:100%!important; z-index:auto!important; }
     .sv-header-utilities .sv-side-rail { display:flex; flex-direction:row; flex-wrap:wrap; width:auto; padding:0; gap:8px; }
     body.sv-has-rail,body.sv-has-rail:has(.sv-rail-item:hover),body.sv-has-rail:has(.sv-rail-item:focus-visible) { padding-right:0; }
     .sv-header-utilities .sv-rail-item { min-height:44px; min-width:44px; max-width:100%; padding:8px 13px; gap:7px; border:1.5px solid currentColor; border-radius:999px; background:transparent; color:#4b2148!important; box-shadow:none; backdrop-filter:none; justify-content:flex-start; transition:none; }
@@ -103,7 +103,7 @@
     if (!nodes.length && !(document.querySelector(HEADER) && document.querySelector(MENU))) return;
     var dest = headerHost();
     function rank(node) {
-      if (node.matches('.sv-side-rail,[data-laidies-context-return],.wednesday-return,.quiz-return-link')) return 0;
+      if (node.matches('.sv-side-rail,[data-laidies-context-return],.wednesday-return')) return 0;
       if (node.matches('.sv-yah-chip')) return 1;
       if (node.matches('.svwt-chip,.svwt-offer,.svwt-paused')) return 2;
       if (node.matches('.ksvl-now-playing')) return 3;
@@ -133,7 +133,7 @@
       if (dest.children[i] !== node) dest.insertBefore(node, dest.children[i] || null);
     });
     // Keep explicit legacy return context rather than presenting two Back links.
-    var contextual = dest.querySelector('[data-laidies-context-return],.wednesday-return,.quiz-return-link');
+    var contextual = dest.querySelector('[data-laidies-context-return],.wednesday-return');
     var railBack = dest.querySelector('.sv-rail-item--back');
     if (railBack) railBack.hidden = Boolean(contextual);
     document.body.classList.remove('sv-has-rail');
