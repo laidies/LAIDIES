@@ -1,5 +1,7 @@
 # LAiDIES build learning ledger
 
+- **2026-09-12 Era semantics:** Any was incorrectly synonymous with no styling. Random must resolve a dated prompt; None must omit it. Test actual prompt construction for both image and description callers rather than merely button labels. Behind the Build: an ambiguous default can silently reverse user intent.
+
 - **2026-09-12 Instruction strips rejected:** Individual background strips solved local contrast but violated Ali's visual grammar. Keep instructions within the existing continuous workspace instead. New guard rejects the known strip treatment and reddish hex. A screenshot taken immediately after viewport resize was scaled incorrectly; settle viewport in a separate call and save the exact inspected buffer. Independent review caught this evidence defect before release. Behind the Build: solving contrast without inventing a new visual language.
 
 - **2026-09-12 Rejected dark panels:** Exact homepage color borrowing did not authorize switching the whole form to dark surfaces. Ali rejected that interpretation. Preserve light surfaces when asked for bright headings; do not expand a bounded color request into an unrequested theme switch. Acknowledging a requested fix is not execution: finish authorized work before final response. Behind the Build: a correct reference can still be applied to the wrong design role.

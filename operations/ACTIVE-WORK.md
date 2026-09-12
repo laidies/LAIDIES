@@ -1,5 +1,9 @@
 # Active work
 
+## 2026-09-12 Random versus None era
+
+- PUBLICLY VERIFIED: e3486af8-8635-4cd4-be35-559fac7993cd, source7d63a917. Random resolves one of five era prompts per generation request; None omits era styling. Actual live buttons/help and phone wrapping checked. Calibrated extracted-source tests cover all five random outcomes, None, explicit era and broken-random rejection; independent source review clear. No paid image generation run for this bounded prompt change. One HTML delta,794 other IDs preserved, dual origins exact. Stage/private/tmp/laidies-maikeover-boxes-uGjFbi/stage and adjacent manifest/verification. API auth check needed normal credential refresh after upload, then verification succeeded.
+
 ## 2026-09-12 Integrated purple maker workspace
 
 - PUBLICLY VERIFIED: source4d4d2aac, deployment890fe270-6eb8-4397-acaf-7b604bf03e30. Removed individual heading/help/status backing strips; intro shares continuous light form workspace. Reddish and near-black form typography replaced by homepage purple. Wallpaper and controls retained. Actual next/previous/selection pass; independent desktop and corrected390x844 pixel review clear. Dual-origin two-file bytes exact,793 unrelated IDs preserved. Stage/private/tmp/laidies-maikeover-boxes-m8YILQ/stage and adjacent manifest/verification. Guard rejects reintroduced strips. No auth/backend/art changes; public appearance remains subject to Ali's judgment.
