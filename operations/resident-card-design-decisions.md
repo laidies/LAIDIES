@@ -1,5 +1,13 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Private photographic era pilot
+
+Ali authorizes one photographic 1995 makeover test using her supplied original
+photo after the graphic-novel likeness failures. Preserve face and apparent age;
+change era hair, makeup, wardrobe and backdrop. This is a private image-tool
+direction test, not a live model migration or proof of the website pipeline.
+Review the full-resolution output before considering other years or release.
+
 ## 2026-09-12 Owner portrait quota exemption
 
 Ali confirms wednesday.laidies@gmail.com and requests no portrait daily limits

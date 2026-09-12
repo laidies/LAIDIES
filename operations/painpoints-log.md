@@ -15002,3 +15002,10 @@ while remaining falsely unfinished in the launch record.
 - **Possible Behind the Build angle:** How a page can use the right swatches
   and still look off-brand when the colour roles are wrong.
 - **Publication status:** LOCAL CORRECTION / PUBLIC RELEASE NOT PERFORMED.
+- 2026-09-12 private portrait pilot: photographic edit retains substantially
+  more likeness than the rejected illustrated trials, but still subtly slims
+  the jaw/enlarges eyes. Prevention: compare actual reference/output pixels;
+  never equate a prompt check or a separate image-tool success with deployed
+  provider quality. Built-in result was accidentally serialized as base64 in
+  tool output; retain result internally and render with generatedImage instead.
+  Behind the Build angle: a convincing makeover is not yet a reliable product.

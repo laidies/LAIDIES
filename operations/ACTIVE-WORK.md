@@ -1,5 +1,18 @@
 # Active work
 
+## 2026-09-12 Private photographic 1995 pilot
+
+- GENERATED privately using the built-in image tool, not the deployed Worker.
+  Original: /Users/alisoneakin/Downloads/36BFB045-6DA6-43BB-82DF-138A5023EDC1.PNG.
+  Result: /Users/alisoneakin/.codex/generated_images/01a061a7-782c-7243-8f13-1a7ffe4e91f8/exec-0021875d-aa69-4e65-8b4d-6571ce0ec310.png.
+- Foreground and independent actual-pixel comparison find substantially closer
+  photographic likeness, but subtle eye enlargement and jaw slimming remain.
+  Requested denim, lipstick and studio backdrop present; centre part is not
+  unambiguous to foreground. Candidate remains subject to Ali's likeness judgment.
+- No website, account, saved Card or provider configuration changed. No live
+  generator/model parity or five-era consistency demonstrated. Await direction
+  on this one photographic proof before expansion or deployment.
+
 ## 2026-09-12 Owner portrait daily limits removed
 
 - DEPLOYED Worker d1349778-2261-4af2-87ff-5d0006351e16, source9ba22f5d. Exact confirmed Supabase owner email exempt from daily caps; owner usage isolated under owner:day, normal visitor2/global20 and replay unchanged. Live Worker source verified; calibrated other/unconfirmed rejection and22 mocked owner requests pass. No usage records erased, no real image generated, no Pages deployment. Standard public two-set explanatory copy remains unchanged; backend owner exception applies immediately.
