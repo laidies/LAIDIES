@@ -1,5 +1,11 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Dark/blue panel rejection
+
+Ali rejects the dark and blue surface changes. Remove those panels; retain the
+homepage wallpaper and enclosed groups, with bright pink titles on light pink
+surfaces. Do the authorized correction before reporting completion.
+
 ## 2026-09-12 Homepage wallpaper and bright group headings
 
 Ali requests the actual current homepage background and bright group titles,

@@ -1,8 +1,8 @@
 /* Inline account and portrait controls; existing scene and Card art stay unchanged. */
-.mo-account { padding:32px max(5%,calc((100% - 1320px)/2)); background:linear-gradient(120deg,#2051cf,#234bd0); color:#dbe7ff; border-bottom:4px solid var(--mo-ink); scroll-margin-top:90px; }
-.mo-account h2 { color:var(--mo-yellow); }
-.mo-account p,.mo-account [role="status"],.mo-exit p { color:#dbe7ff!important; }
-.mo-exit h2 { color:var(--mo-yellow); }
+.mo-account { padding:32px max(5%,calc((100% - 1320px)/2)); background:#f8e6fa; color:var(--mo-ink); border-bottom:4px solid var(--mo-ink); scroll-margin-top:90px; }
+.mo-account h2 { color:#b51c68; }
+.mo-account p,.mo-account [role="status"],.mo-exit p { color:var(--mo-ink)!important; }
+.mo-exit h2 { color:#b51c68; }
 .mo-account form { max-width:600px; }
 .mo-account label { display:block; font-weight:800; }
 .mo-account input { box-sizing:border-box; width:100%; padding:12px; margin:8px 0; color:var(--mo-ink); background:#fff; font:inherit; border:2px solid var(--mo-ink); border-radius:8px; }
@@ -37,19 +37,19 @@ details.mo-portrait-note summary { cursor:pointer; font-weight:850; }
 
 /* Restore the approved working-area colour roles, without changing Card art. */
 body.mo-v3 { --mo-ink:#07142f; --mo-hot:#f254a9; --mo-purple:#7137d6; --mo-blue:#2457e6; --mo-yellow:#ffed54; --mo-workbench:#c195e9 url('/assets/homepage/rewind-wallpaper-20260906.webp') repeat 0 0 / 680px 680px; background:var(--mo-workbench); }
-.mo-controls { color:#dbe7ff; background:linear-gradient(135deg,#182e77,#070f2b); }
-.mo-masthead__copy { background:linear-gradient(120deg,#7137d6,#2457e6); }
+.mo-controls { color:var(--mo-ink); background:#f8e6fa; }
+.mo-masthead__copy { background:linear-gradient(120deg,#f254a9,#c195e9); }
 .mo-card-explainer { background:linear-gradient(125deg,#f254a9,#ff7366); }
-.mo-drawer-heading,.mo-tool-status,.mo-drawer-help { width:fit-content; padding:10px 16px; color:var(--mo-yellow); background:#182e77; }
-.mo-exit { background:linear-gradient(120deg,#7137d6,#2457e6); }
-.mo-controls label,.mo-controls .mo-sub,.mo-controls a { color:#dbe7ff!important; }
-.mo-controls .mo-portrait-intro { color:var(--mo-yellow)!important; }
-.mo-controls .mo-portrait-modes legend { color:var(--mo-yellow); }
-.mo-controls .mo-portrait-modes label { color:#dbe7ff!important; border-color:#7de2c2; }
+.mo-drawer-heading,.mo-tool-status,.mo-drawer-help { width:fit-content; padding:10px 16px; color:#b51c68; background:#f8e6fa; }
+.mo-exit { color:var(--mo-ink); background:#f8e6fa; }
+.mo-controls label,.mo-controls .mo-sub,.mo-controls a { color:var(--mo-ink)!important; }
+.mo-controls .mo-portrait-intro { color:#b51c68!important; }
+.mo-controls .mo-portrait-modes legend { color:#7137d6; }
+.mo-controls .mo-portrait-modes label { color:var(--mo-ink)!important; border-color:#7137d6; }
 .mo-controls .mo-portrait-modes label:has(input:checked) { color:var(--mo-ink)!important; }
-.mo-controls #moDescriptionPanel>label,.mo-controls #moPhotoPanel>label:first-child { color:#dbe7ff!important; }
-.mo-controls .mo-portrait-note:not(details) { color:#dbe7ff; }
-.mo-controls p,.mo-controls #moStatus { color:#dbe7ff!important; font-size:16px!important; line-height:1.5!important; }
+.mo-controls #moDescriptionPanel>label,.mo-controls #moPhotoPanel>label:first-child { color:var(--mo-ink)!important; }
+.mo-controls .mo-portrait-note:not(details) { color:var(--mo-ink); }
+.mo-controls p,.mo-controls #moStatus { color:var(--mo-ink)!important; font-size:16px!important; line-height:1.5!important; }
 .mo-controls details.mo-portrait-note p { color:var(--mo-ink)!important; }
 .mo-controls .mo-portrait-intro { margin:0 0 18px; font:800 clamp(22px,3vw,32px)/1.2 "Jost",sans-serif!important; }
 .mo-portrait-modes { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0; border:0; background:none; }
@@ -58,10 +58,10 @@ body.mo-v3 { --mo-ink:#07142f; --mo-hot:#f254a9; --mo-purple:#7137d6; --mo-blue:
 .mo-portrait-modes label:has(input:checked) { background:var(--mo-yellow); box-shadow:4px 4px 0 var(--mo-hot); }
 .mo-portrait-modes label:focus-within { outline:3px solid var(--mo-ink); outline-offset:3px; }
 #moPortraitOptions { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin:32px 0; }
-.mo-style-section { min-width:0; margin:0; padding:22px; border:3px solid #7de2c2; border-radius:12px; background:linear-gradient(120deg,#2051cf,#234bd0); box-shadow:5px 5px 0 var(--mo-purple); }
-.mo-style-section legend { float:left; width:100%; box-sizing:border-box; margin:0 0 12px; padding:0; color:var(--mo-yellow); font:800 21px/1.2 "Jost",sans-serif; }
+.mo-style-section { min-width:0; margin:0; padding:22px; border:3px solid #7137d6; border-radius:12px; background:#fff1f8; box-shadow:5px 5px 0 var(--mo-hot); }
+.mo-style-section legend { float:left; width:100%; box-sizing:border-box; margin:0 0 12px; padding:0; color:#b51c68; font:800 21px/1.2 "Jost",sans-serif; }
 .mo-style-section p { clear:both; margin:0 0 14px; }
-.mo-portrait-studio .mo-style-section .chip { min-height:44px; padding:10px 13px; color:#dbe7ff; background:#182e77; border:2px solid #7de2c2; font-size:15px; }
+.mo-portrait-studio .mo-style-section .chip { min-height:44px; padding:10px 13px; color:var(--mo-ink); background:transparent; border:2px solid #7137d6; font-size:15px; }
 .mo-portrait-studio .mo-style-section .chip.on { color:var(--mo-ink); background:var(--mo-yellow); }
 .mo-style-section .chip.on { background:var(--mo-yellow); box-shadow:3px 3px 0 var(--mo-hot); font-weight:800; }
 .mo-portrait-candidates:empty { display:none; }
@@ -69,7 +69,7 @@ body.mo-v3 { --mo-ink:#07142f; --mo-hot:#f254a9; --mo-purple:#7137d6; --mo-blue:
 .mo-portrait-candidates img { border-radius:0; }
 .mo-portrait-candidate span { display:block; padding:12px 0 4px; font:800 16px/1.3 "Jost",sans-serif; }
 .mo-portrait-candidate[aria-pressed="true"] { background:var(--mo-yellow); }
-.mo-portrait-action:focus-visible,.mo-style-section button:focus-visible { outline:3px solid var(--mo-yellow); outline-offset:4px; }
+.mo-portrait-action:focus-visible,.mo-style-section button:focus-visible { outline:3px solid #7137d6; outline-offset:4px; }
 @media(max-width:700px) {
   #moPortraitOptions { grid-template-columns:1fr; gap:24px; }
   .mo-portrait-modes { grid-template-columns:1fr; }
