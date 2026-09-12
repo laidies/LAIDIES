@@ -1,5 +1,7 @@
 # LAiDIES model-routing calibration — September 2026
 
+| MAIKEOVER-BOXES-20260912 | 2026-09-12 | Tier1 four portrait fieldset boxes | GPT6 foreground; inherited independent review lane; effort unavailable | 15–30m; usage unavailable | First visual review no blocker | Failed local-server tab replaced after server restart | Cheaper bounded implementation likely adequate | abb69466 |
+
 | MAIKEOVER-FOLLOWUP-20260911 | 2026-09-11 | Tier1 portrait controls and episode-email request | GPT6 foreground; inherited auth_review independent lane | >60m; task usage unavailable | Local source/pixels admitted after repair | Fixed800 header overflow and background-auth stale copy; extension upload failed, native picker succeeded but session expired | Bounded source/test lane suited cheaper route; provider/browser integration remained foreground | operations/releases/maikeover-followup-20260911.md |
 
 **Status:** ACTIVE

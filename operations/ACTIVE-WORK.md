@@ -1,5 +1,9 @@
 # Active work
 
+## 2026-09-12 MAiKEOVER boxed portrait groups
+
+- PUBLICLY VERIFIED: four enclosed fieldsets replace title/rule styling. Source abb69466; production 2c35b124-6a8e-424a-b6bf-fe65a841e005. Desktop/390px pixel review and 320/800px overflow checks passed; live selection still works. Two static paths changed, 793 unrelated IDs preserved, no removals; immutable and custom-origin bytes match. Input /private/tmp/laidies-maikeover-boxes-vf7C8a/stage, adjacent manifest/base/preserve/verification JSON. Art and account/portrait logic unchanged. Scoped calibrated followup guard passed; known unrelated whole-site asset hook skipped, not claimed passed.
+
 ## 2026-09-11 MAiKEOVER portrait and subscription follow-up
 
 - Status: PUBLICLY VERIFIED for bounded portrait/layout journey; sourceb30ca472, deployment33df7a32. Own source: /Users/alisoneakin/Projects/laidies-maikeover-release-20260902.
