@@ -1,0 +1,5 @@
+# Independent Terra/Medium review
+
+ACCEPT. Candidate SHA256 a96515427903a2498f0417b76ead0afa52b71d3ad57c21086885d434261aba3e; Learn image SHA256 4ba6cd77d040c57d096729e2ddeef9f4a3ea5290ef7ef73f40e9c54b95a4fb0e.
+
+Reviewer independently rejected the actual incumbent: dark cards, unequal contained-image occupancy, book-on-dark and garden desk. Actual candidate 390/960/1440 top/bottom renders have equal filled panels, bright card surfaces, readable Jost, no primary subject/label clipping, and intact Paige and Chick Flicks. Miss Jeeves retains her entire head against the pink field. New Learn art reads as a coherent adult learning desk; no invented lettering, anatomy or science-lab symbols. Source delta is only scoped CSS plus first two src/alt changes. Existing copy/routes and cards 3–6 source art are retained. Eight-width geometry checks agree with visible result. The new Learn art is admitted for this slot as NEW, not recovered original. Useful/Fun remains separately unresolved; this review does not admit that artwork selection.
