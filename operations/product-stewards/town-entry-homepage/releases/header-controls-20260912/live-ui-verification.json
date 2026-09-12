@@ -1,0 +1,55 @@
+{
+  "deployment": "cd1ff76a-7da8-4baa-ad78-dcdf9b2dfb9b",
+  "source_commit": "1ffcbe175eb49eddfeda09d9996fb411576a30e2",
+  "method": "Actual CUA rendered viewport inspection and interaction; screenshots emitted in tools, not saved as files",
+  "checks": [
+    {
+      "origin": "https://laidies.ai",
+      "width": 390,
+      "return": "Back to Blend & Snap",
+      "count": 1,
+      "inside_header": true,
+      "position": "static",
+      "height_px": 44,
+      "horizontal_overflow": false,
+      "keyboard": "Menu then Tab focuses return, visible 3px outline; Enter reached rendered Blend & Snap counter/menu",
+      "destination": "https://laidies.ai/blend-snap#the-study-pack"
+    },
+    {
+      "origin": "https://laidies.ai",
+      "width": 960,
+      "return": "Back to Weekly Study Pack",
+      "count": 1,
+      "inside_header": true,
+      "position": "static",
+      "height_px": 44,
+      "horizontal_overflow": false
+    },
+    {
+      "origin": "https://cd1ff76a.laidies-sunnyvaile.pages.dev",
+      "width": 1440,
+      "return": "Back to Weekly Study Pack",
+      "count": 1,
+      "inside_header": true,
+      "position": "static",
+      "height_px": 44,
+      "horizontal_overflow": false
+    }
+  ],
+  "existing_destination_defect": {
+    "status": "OPEN",
+    "href": "this-week.html?issue=4&bag=open&group=practice",
+    "redirect": "/this-week.html / 301",
+    "observed_destination": "https://cd1ff76a.laidies-sunnyvaile.pages.dev/?issue=4&bag=open&group=practice",
+    "visible_bag": false,
+    "open_dialog": false,
+    "scope": "Redirect and href unchanged; repair belongs to Weekly/Blend & Snap route owner"
+  },
+  "viewport_override_reset": true,
+  "not_tested": [
+    "Authenticated account",
+    "Cross-device continuation",
+    "Full Quiz editorial audit",
+    "Manager download failure fallback"
+  ]
+}

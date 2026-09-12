@@ -49,4 +49,4 @@ Public e413a1b0/source d17c43a7 replaces floating shared utility placement. Test
 
 ## 2026-09-12 — Quiz return omitted from header release
 
-The header-only rule includes runtime-inserted Quiz returns. Two-path local correction prepared; cached loader ordering repaired after independent rejection. Mac locked: actual browser verification and publication remain pending. Exact source-only state and resume: `operations/product-stewards/town-entry-homepage/releases/header-controls-20260912/review.md`.
+The header-only rule includes runtime-inserted Quiz returns. Released cd1ff76a/source 1ffcbe17 after fixing cached-loader ordering and header reconstruction deleting relocated nodes. Actual public phone/middle/wide placement and phone keyboard return to Blend & Snap verified. 792 unrelated provider identities preserved. Existing Weekly return redirects to homepage without a visible bag: OPEN with Weekly/Blend & Snap route owner, not certified as functional. Exact scope and evidence: `operations/product-stewards/town-entry-homepage/releases/header-controls-20260912/review.md`.

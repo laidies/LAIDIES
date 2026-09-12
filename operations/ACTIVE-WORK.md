@@ -1,6 +1,8 @@
-## 2026-09-12 — Header controls: Quiz exception — VERIFIED LOCALLY / release ready
+## 2026-09-12 — Header controls: Quiz exception — VERIFIED PUBLICLY
 
-Three-path correction preserves the Quiz return through header rebuilding and removes its floating placement. Maker320/390/960/1440 and independent320/960 rendered review accepted, including real return journeys. Foreground completed visible keyboard focus and Enter; MAiKEOVER320 Menu/Escape still works. Receiving production2c35b124, preserving newer NewsStand and MAiKEOVER changes. Exact packet: `operations/product-stewards/town-entry-homepage/releases/header-controls-20260912/`. Next: provider-preserving release and custom/immutable verification. No claim that artwork or Resident Card open work is complete.
+Production cd1ff76a-7da8-4baa-ad78-dcdf9b2dfb9b / source 1ffcbe175eb49eddfeda09d9996fb411576a30e2. Three-path correction keeps the Quiz return visible inside the header through rebuilding. Custom 390/960 and immutable 1440 actual renders verified; phone keyboard focus and Enter reached rendered Blend & Snap. Exactly three provider paths changed, 792 unrelated identities preserved, six custom/immutable byte comparisons exact. Record: `operations/product-stewards/town-entry-homepage/releases/header-controls-20260912/review.md`.
+
+Separate OPEN — Weekly/Blend & Snap route owner: Weekly return retains its href but existing `/this-week.html / 301` sends it to the homepage with no visible Study Pack bag. This release fixes placement only. Next: reconcile the approved Weekly destination and verify the actual rendered handoff before claiming that route works. Homepage Learn/Useful-Fun artwork and Resident Card reconciliation remain open.
 
 ## 2026-09-11 — Header controls — VERIFIED PUBLICLY
 
