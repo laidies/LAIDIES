@@ -7,6 +7,7 @@
   if (window.svHeaderControls) return;
   var HEADER = '.sv-controls-header,.sv-header,.site-header,header.topbar,.back-bar,.issue-site-nav,.preview-ribbon,.sticky-back,.back-nav,.site-nav';
   var CONTROL = '.sv-side-rail,.sv-yah-chip,.svwt-chip,.svwt-offer,.svwt-paused,.ksvl-now-playing,#ksvl-resume-nudge,.wednesday-return,[data-laidies-context-return]';
+  var MENU = '#svghPanel,#mobile-nav,#laidiesUnifiedMenu';
   var host;
   var watchedHeaders = new WeakSet();
   var queued = false;
@@ -99,7 +100,7 @@
     queued = false;
     if (!document.body) return;
     var nodes = Array.from(document.querySelectorAll(CONTROL));
-    if (!nodes.length) return;
+    if (!nodes.length && !(document.querySelector(HEADER) && document.querySelector(MENU))) return;
     var dest = headerHost();
     function rank(node) {
       if (node.matches('.sv-side-rail,[data-laidies-context-return],.wednesday-return')) return 0;
@@ -153,7 +154,7 @@
       var relevant = records.some(function (record) {
         if (record.type === 'attributes') return record.target.matches(CONTROL);
         return Array.from(record.addedNodes).some(function (node) {
-          return node.nodeType === 1 && (node.matches(CONTROL + ',' + HEADER) || node.querySelector(CONTROL));
+          return node.nodeType === 1 && (node.matches(CONTROL + ',' + HEADER + ',' + MENU) || node.querySelector(CONTROL + ',' + MENU));
         }) || Array.from(record.removedNodes).some(function (node) {
           return node.nodeType === 1 && node.matches(CONTROL);
         });
