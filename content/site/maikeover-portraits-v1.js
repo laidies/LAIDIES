@@ -88,6 +88,8 @@
   function choose(data, button) {
     byId("moCands").querySelectorAll("button").forEach(function (candidate) {
       candidate.setAttribute("aria-pressed", candidate === button ? "true" : "false");
+      var caption = candidate.querySelector("span");
+      if (caption) caption.textContent = candidate === button ? "Selected for your Card" : candidate.getAttribute("aria-label");
     });
     window.dispatchEvent(new CustomEvent("laidies:portrait-selected", { detail: { image: data } }));
     status("Portrait selected. Finish your choices, then save your Card to your account and open your Closet.");
@@ -145,6 +147,9 @@
         button.setAttribute("aria-pressed", "false");
         var image = document.createElement("img"); image.src = data; image.alt = "Portrait option " + (index + 1);
         button.appendChild(image);
+        var caption = document.createElement("span");
+        caption.textContent = "Choose portrait " + (index + 1);
+        button.appendChild(caption);
         button.addEventListener("click", function () { choose(data, button); });
         return button;
       });

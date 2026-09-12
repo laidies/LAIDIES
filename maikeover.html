@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="content/maikeover-v2.css?v=20260902-card-text-fit-1">
   <link rel="stylesheet" href="/content/resident-card-getting-ready.css?v=20260906-1">
   <link rel="stylesheet" href="/content/resident-card-pop-backgrounds.css?v=20260906-1">
-  <link rel="stylesheet" href="/content/maikeover-account.css?v=20260911-1">
+  <link rel="stylesheet" href="/content/maikeover-account.css?v=20260911-portrait-2">
   <script src="/content/site/resident-card-contract-v1.js?v=20260906-pop-card-1"></script>
   <script src="/content/site/supabase-config.js?v=20260702-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
@@ -99,6 +99,14 @@
         <a href="#mo-maker">Continue to your Card →</a>
         <button id="moAccountRestore" type="button" hidden>Restore my saved Card in this browser</button>
         <button id="moAccountSignOut" type="button">Sign out</button>
+        <form id="moEpisodeEmails" action="https://buttondown.com/api/emails/embed-subscribe/laidies" method="post" target="_blank" rel="noopener">
+          <label class="mo-email-consent"><input id="moEpisodeConsent" type="checkbox" required> Email me when a new LAiDIES episode goes live—about once a week.</label>
+          <label for="moEpisodeEmail">Email for episode updates</label>
+          <input id="moEpisodeEmail" name="email" type="email" autocomplete="email" required maxlength="254">
+          <input type="hidden" name="embed" value="1">
+          <button type="submit">Get episode emails</button>
+          <p>Optional—your Card works either way. Buttondown opens in a new tab to confirm your request. Unsubscribe through any newsletter email. <a href="/privacy.html">Privacy</a>.</p>
+        </form>
       </div>
     </section>
   <section class="mo-room" id="mo-maker" aria-labelledby="moMakerTitle">
@@ -154,9 +162,8 @@
         <div class="mo-controls" style="display:flex; flex-direction:column; gap:22px;">
 
           <!-- Avatar -->
-          <div>
-            <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Your avatar</label>
-            <p>Describe yourself or use a photo, then choose an era, outfit and up to four accessories. We’ll make three portraits for you to choose from.</p>
+          <div class="mo-portrait-studio">
+            <p class="mo-portrait-intro">Your look. Your era. Your Resident Card.</p>
             <p id="moPortraitAuth" role="status">Checking portrait sign-in…</p>
             <a href="#mo-account" id="moPortraitSignIn">Verify your email to begin</a>
             <p class="mo-portrait-note">Your account includes two sets of three portraits each day.</p>
@@ -179,19 +186,24 @@
             </details>
 
             <div id="moPortraitOptions">
-            <div class="mo-sub">The Era's Tour — pick one</div>
+            <fieldset class="mo-style-section"><legend>The Era’s Tour</legend>
+            <p>Choose one era.</p>
             <div class="mo-chips" id="moEra"></div>
             <p id="moEraDesc" style="margin:0 0 6px; font-size:12px; color:var(--plum-soft);"></p>
-
-            <div class="mo-sub">Outfit — pick one</div>
+            </fieldset>
+            <fieldset class="mo-style-section"><legend>Your outfit</legend>
+            <p>Choose one outfit.</p>
             <div class="mo-chips" id="moFit"></div>
-
-            <div class="mo-sub">Accessories — pick a few</div>
+            </fieldset>
+            <fieldset class="mo-style-section"><legend>The finishing touches</legend>
+            <p>Choose up to four accessories.</p>
             <div class="mo-chips" id="moAcc"></div>
             <input type="text" id="moNameNeck" placeholder="First name (only if you pick the name necklace)" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:9px 11px; font:14px 'Jost',sans-serif; margin-top:6px;">
-
-            <div class="mo-sub">Backdrop behind you — pick one</div>
+            </fieldset>
+            <fieldset class="mo-style-section"><legend>Behind you</legend>
+            <p>Choose a portrait backdrop. Your Card background is the next step.</p>
             <div class="mo-chips" id="moBackdrop"></div>
+            </fieldset>
             </div>
 
             <button type="button" id="moMake" class="mo-portrait-action">Make 3 portraits</button>
@@ -1105,12 +1117,11 @@
 <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
 <script src="/content/site/identity-client-v1.js?v=20260905-email-code-1"></script>
 <script src="/content/site/resident-account-runtime-v1.js?v=20260829-provider-health-1"></script>
-<script defer src="/content/site/maikeover-account-v1.js?v=20260905-email-code-1"></script>
-<script defer src="/content/site/maikeover-portraits-v1.js?v=20260905-onboarding-1"></script>
+<script defer src="/content/site/maikeover-account-v1.js?v=20260911-episode-opt-in-2"></script>
+<script defer src="/content/site/maikeover-portraits-v1.js?v=20260911-portrait-2"></script>
 <script defer src="/content/site/maikeover-v2.js?v=20260911-signup-3"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
 <script defer src="/content/site/sv-you-are-here.js?v=20260705-2"></script>
-  <script defer src="/content/site/sv-back-nav.js?v=svbn-2026-08-29-v3-f3347a06b810"></script>
 </body>
 </html>

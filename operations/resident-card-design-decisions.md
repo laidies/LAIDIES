@@ -1,5 +1,16 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-11 Portrait usability and episode email follow-up
+
+Ali approves removing the floating back/home arrow and its reserved layout space
+from MAiKEOVER, clearer portrait mode/style/result sections using the existing
+approved palette, and an unchecked weekly episode-email opt-in with unsubscribe
+support. Preserve the approved Card and salon raster bytes and existing account
+identity. Verify photo generation/save/Closet continuity, email-delivery limits
+and supported collection syncing separately; do not call an untested path live.
+Subscription intent is separate from account verification and must not become
+a successful subscription claim until the newsletter provider confirms it.
+
 ## 2026-09-10 Verified inline signup and one edit journey
 
 Ali's authorization to finish the full journey is implemented and live. MAiKEOVER owns email verification, portrait creation and account Card save; Closet's Edit my Card returns to this maker, not the old device-only drawer. A positive number comes only from verified owner state; sign-out clears it to No.NEW. New and returning real email flows, actual portrait generation, account save, Closet, independent-browser restore and email-link return were verified. Exact release/provider/test boundaries: operations/releases/maikeover-signup-20260911/README.md. Retain approved background raster bytes; this functional release is not a new palette/art decision.

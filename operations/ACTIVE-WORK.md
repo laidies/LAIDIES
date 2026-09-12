@@ -1,5 +1,13 @@
 # Active work
 
+## 2026-09-11 MAiKEOVER portrait and subscription follow-up
+
+- Status: BUILDING; five-file release prepared, not yet public. Own source: /Users/alisoneakin/Projects/laidies-maikeover-release-20260902.
+- Bounded changes: remove floating back arrow; grouped readable portrait controls; explicit unchecked Buttondown episode-email request; current-live Privacy correction; session-expiry display refresh.
+- Local checks: account/event expiry, signout, portrait preview and calibrated followup guards pass. Independent source and 800/390 pixel review found no blocker. Approved art preserved.
+- Remaining: deploy exact overlay, verify public UI; real upload generation was blocked by expired session before any image transmission; actual newsletter confirmation/unsubscribe and physical-phone code suggestions remain unverified. Earlier description portrait/save/Closet/browser2 evidence remains separately recorded.
+- Input: /private/tmp/laidies-maikeover-followup-HzkPXB/stage and adjacent manifest/preserve/base JSON; base4eb84a05, 789 unrelated provider IDs retained.
+
 ## 2026-09-10 Complete MAiKEOVER signup journey
 
 - **Status:** PUBLICLY VERIFIED for bounded signup/Card journey. Deployed5a3ea5f4-2564-4dbe-af6f-7403731d5950; source804dab5f. Newer coordinated NewsStand bases preserved.

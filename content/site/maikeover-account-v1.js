@@ -2,6 +2,8 @@
   'use strict';
   var runtime, state, pendingEmail = '', nextSendAt = 0, requesting = false, verifying = false;
   var pendingKey = 'laidies_maikeover_pending_email_v1';
+  var newsletterUser = null;
+  var watchingAuth = false;
   try {
     var pending = JSON.parse(window.sessionStorage.getItem(pendingKey) || 'null');
     if (pending && typeof pending.email === 'string' && pending.email.length <= 254 &&
@@ -15,9 +17,26 @@
   function message(text) { el('moAccountStatus').textContent = text; }
   async function refresh() {
     runtime = await window.LAIDIESResidentAccountRuntime.get();
+    if (!watchingAuth && runtime.client.auth.onAuthStateChange) {
+      watchingAuth = true;
+      runtime.client.auth.onAuthStateChange(function (event) {
+        if (event === 'SIGNED_OUT' || event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
+          // Leave Supabase's auth callback before reading its session again.
+          window.setTimeout(function () { refresh().catch(unavailable); }, 0);
+        }
+      });
+    }
     state = await runtime.getState();
     if (state.error) throw state.error;
     var signed = !!state.session;
+    var nextUser = signed ? state.session.user.id : null;
+    if (nextUser !== newsletterUser) {
+      var newsletterEmail = el('moEpisodeEmail');
+      var newsletterConsent = el('moEpisodeConsent');
+      if (newsletterEmail) newsletterEmail.value = signed ? state.session.user.email || '' : '';
+      if (newsletterConsent) newsletterConsent.checked = false;
+      newsletterUser = nextUser;
+    }
     if (signed) { pendingEmail = ''; clearPending(); el('moAccountCode').value = ''; }
     el('moAccountForm').hidden = signed || !!pendingEmail;
     el('moAccountCodeForm').hidden = signed || !pendingEmail;

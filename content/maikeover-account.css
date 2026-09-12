@@ -6,6 +6,10 @@
 .mo-account input { box-sizing:border-box; width:100%; padding:12px; margin:8px 0; font:inherit; border:2px solid var(--mo-ink); border-radius:8px; }
 .mo-account button,.mo-account a { display:inline-block; padding:12px 16px; margin:6px 8px 6px 0; border:2px solid var(--mo-ink); border-radius:8px; background:var(--mo-yellow); color:var(--mo-ink); font:800 15px 'Jost',sans-serif; }
 .mo-account [hidden] { display:none!important; }
+#moEpisodeEmails { margin-top:24px; padding-top:24px; border-top:2px solid var(--mo-ink); }
+.mo-account .mo-email-consent { display:flex; align-items:flex-start; gap:12px; }
+.mo-account .mo-email-consent input { width:22px; height:22px; flex:0 0 22px; margin:3px 0; }
+#moEpisodeEmails p a { padding:0; margin:0; border:0; background:none; text-decoration:underline; }
 .mo-portrait-modes { display:flex; flex-wrap:wrap; gap:10px 22px; margin:18px 0; padding:16px 18px; border:2px solid var(--mo-ink); background:var(--mo-paper); }
 .mo-portrait-modes legend { padding:0 8px; color:var(--mo-ink); font:800 14px/1 "Jost",sans-serif; }
 .mo-portrait-modes label,.mo-portrait-consent { display:flex!important; align-items:flex-start; gap:9px; color:var(--mo-ink)!important; font:700 14px/1.35 "Jost",sans-serif!important; letter-spacing:0!important; text-transform:none!important; }
@@ -28,3 +32,35 @@ details.mo-portrait-note summary { cursor:pointer; font-weight:850; }
 .mo-tool-tray { grid-template-columns:repeat(7,minmax(0,1fr)); }
 @media(max-width:900px) { .mo-tool-tray { grid-template-columns:repeat(3,minmax(0,1fr)); } }
 @media(max-width:600px) { .mo-portrait-candidates { grid-template-columns:1fr; } }
+
+/* Restore the approved working-area colour roles, without changing Card art. */
+body.mo-v3 { --mo-ink:#07142f; --mo-hot:#ef4d9c; --mo-purple:#b75cc4; --mo-blue:#6c7cd1; --mo-workbench:linear-gradient(125deg,#ef4d9c 0%,#b75cc4 48%,#6c7cd1 100%); }
+.mo-controls { background:linear-gradient(125deg,#f2c6e5,#c7d7f5); }
+.mo-controls label,.mo-controls .mo-sub,.mo-controls a { color:var(--mo-ink)!important; }
+.mo-controls p,.mo-controls #moStatus { font-size:16px!important; line-height:1.5!important; }
+.mo-controls .mo-portrait-intro { margin:0 0 18px; font:800 clamp(22px,3vw,32px)/1.2 "Jost",sans-serif!important; }
+.mo-portrait-modes { display:grid; grid-template-columns:1fr 1fr; gap:12px; padding:0; border:0; background:none; }
+.mo-portrait-modes legend { padding:0; margin-bottom:12px; font-size:18px; }
+.mo-portrait-modes label { align-items:center; min-height:64px; padding:14px 18px; border:2px solid var(--mo-ink); cursor:pointer; }
+.mo-portrait-modes label:has(input:checked) { background:var(--mo-yellow); box-shadow:4px 4px 0 var(--mo-hot); }
+.mo-portrait-modes label:focus-within { outline:3px solid var(--mo-ink); outline-offset:3px; }
+#moPortraitOptions { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin:32px 0; }
+.mo-style-section { min-width:0; margin:0; padding:16px 0 0; border:0; border-top:2px solid var(--mo-ink); }
+.mo-style-section legend { padding:0 14px 0 0; color:var(--mo-ink); font:800 21px/1.2 "Jost",sans-serif; }
+.mo-style-section p { margin:0 0 14px; }
+.mo-portrait-studio .mo-style-section .chip { min-height:44px; padding:10px 13px; color:var(--mo-ink); background:transparent; border:2px solid var(--mo-ink); font-size:15px; }
+.mo-style-section .chip.on { background:var(--mo-yellow); box-shadow:3px 3px 0 var(--mo-hot); font-weight:800; }
+.mo-portrait-candidates:empty { display:none; }
+.mo-portrait-candidates button { border-radius:0; padding:10px; background:transparent; }
+.mo-portrait-candidates img { border-radius:0; }
+.mo-portrait-candidate span { display:block; padding:12px 0 4px; font:800 16px/1.3 "Jost",sans-serif; }
+.mo-portrait-candidate[aria-pressed="true"] { background:var(--mo-yellow); }
+.mo-portrait-action:focus-visible,.mo-style-section button:focus-visible { outline:3px solid var(--mo-ink); outline-offset:4px; }
+@media(max-width:700px) {
+  #moPortraitOptions { grid-template-columns:1fr; gap:24px; }
+  .mo-portrait-modes { grid-template-columns:1fr; }
+}
+/* Keep the existing Menu available before the full desktop links stop fitting. */
+@media(min-width:761px) and (max-width:1000px) {
+  body.mo-v3 .svgh-nav .svgh-quick { display:none!important; }
+}
