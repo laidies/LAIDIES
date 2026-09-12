@@ -12,7 +12,7 @@ function inspect(text) {
   assert.match(text,/name="email" type="email"/);
   assert.match(text,/Buttondown opens in a new tab to confirm your request/);
   assert.equal((text.match(/class="mo-style-section"/g)||[]).length,4);
-  assert.match(text,/maikeover-account.css\?v=20260912-group-boxes-1/);
+  assert.match(text,/maikeover-account.css\?v=20260912-home-palette-1/);
   assert.match(text,/maikeover-portraits-v1.js\?v=20260911-portrait-2/);
 }
 assert.throws(()=>inspect(html.replace('id="moEpisodeConsent"','checked id="moEpisodeConsent"')));

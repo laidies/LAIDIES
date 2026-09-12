@@ -1,5 +1,12 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Homepage wallpaper and bright group headings
+
+Ali requests the actual current homepage background and bright group titles,
+rejecting the muted portrait palette. Reuse rewind-wallpaper-20260906.webp at
+680px repeat and current homepage blue panels/yellow heading accents. Preserve
+enclosed groups, artwork and account/Card behavior.
+
 ## 2026-09-12 Portrait choices belong in boxes
 
 Ali replaces the title-and-rule treatment with a distinct enclosed box for each
