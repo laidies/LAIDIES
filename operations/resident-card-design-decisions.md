@@ -1,5 +1,11 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Portrait choices belong in boxes
+
+Ali replaces the title-and-rule treatment with a distinct enclosed box for each
+portrait choice group. Preserve existing palette, choices, artwork and behavior.
+Use full borders, internal heading spacing and responsive single-column boxes.
+
 ## 2026-09-11 Portrait usability and episode email follow-up
 
 Ali approves removing the floating back/home arrow and its reserved layout space

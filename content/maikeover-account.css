@@ -45,9 +45,9 @@ body.mo-v3 { --mo-ink:#07142f; --mo-hot:#ef4d9c; --mo-purple:#b75cc4; --mo-blue:
 .mo-portrait-modes label:has(input:checked) { background:var(--mo-yellow); box-shadow:4px 4px 0 var(--mo-hot); }
 .mo-portrait-modes label:focus-within { outline:3px solid var(--mo-ink); outline-offset:3px; }
 #moPortraitOptions { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin:32px 0; }
-.mo-style-section { min-width:0; margin:0; padding:16px 0 0; border:0; border-top:2px solid var(--mo-ink); }
-.mo-style-section legend { padding:0 14px 0 0; color:var(--mo-ink); font:800 21px/1.2 "Jost",sans-serif; }
-.mo-style-section p { margin:0 0 14px; }
+.mo-style-section { min-width:0; margin:0; padding:22px; border:3px solid var(--mo-ink); border-radius:12px; background:#c7d7f5; box-shadow:5px 5px 0 var(--mo-purple); }
+.mo-style-section legend { float:left; width:100%; box-sizing:border-box; margin:0 0 12px; padding:0; color:var(--mo-ink); font:800 21px/1.2 "Jost",sans-serif; }
+.mo-style-section p { clear:both; margin:0 0 14px; }
 .mo-portrait-studio .mo-style-section .chip { min-height:44px; padding:10px 13px; color:var(--mo-ink); background:transparent; border:2px solid var(--mo-ink); font-size:15px; }
 .mo-style-section .chip.on { background:var(--mo-yellow); box-shadow:3px 3px 0 var(--mo-hot); font-weight:800; }
 .mo-portrait-candidates:empty { display:none; }
