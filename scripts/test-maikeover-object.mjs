@@ -42,7 +42,14 @@ try{
  assert.match(await page.locator('#moDescribeExample').innerText(),/woman in her 40s/);
  await page.locator('#moDescribe').fill('private description must not leak into object request');
  await page.locator('[value="photo"][name="moPortraitMode"]').check();
+ await page.locator('#moPhoto').setInputFiles({name:'test.png',mimeType:'image/png',buffer:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIHWP4z8DwHwAFgAI/ScL9wQAAAABJRU5ErkJggg==','base64')});
+ await page.locator('#moMake').click();
+ await page.waitForFunction(()=>document.querySelector('#moPhotoConsentError').hidden===false);
+ assert.equal(payloads.length,0,'no permission means no photo transmission');
+ assert.equal(await page.locator('#moPhoto').evaluate(el=>el.files.length),1,'validation retains selected photo');
+ assert.equal(await page.evaluate(()=>document.activeElement.id),'moPhotoConsent','focus reaches missed permission');
  await page.locator('#moPhotoConsent').check();
+ assert.equal(await page.locator('#moPhotoConsentError').isVisible(),false);
  await page.locator('[value="object"][name="moPortraitMode"]').check();
  assert.equal(await page.locator('#moPhotoConsent').isChecked(),false);
  assert.equal(await page.locator('#moPortraitOptions').isVisible(),false);

@@ -31,6 +31,8 @@
     byId("moDescriptionPanel").hidden = mode !== "scratch";
     byId("moObjectPanel").hidden = mode !== "object";
     byId("moPortraitOptions").hidden = mode === "object";
+    byId("moPhotoConsentError").hidden = true;
+    byId("moPhotoConsent").removeAttribute("aria-invalid");
     if (!photo) { byId("moPhoto").value = ""; byId("moPhotoConsent").checked = false; }
   }
   function loadImage(url) {
@@ -64,7 +66,13 @@
   async function photoData() {
     var file = byId("moPhoto").files[0];
     if (!file) throw new Error("Choose a photo first.");
-    if (!byId("moPhotoConsent").checked) throw new Error("Confirm permission to send this photo before generating.");
+    if (!byId("moPhotoConsent").checked) {
+      byId("moPhotoConsentError").hidden = false;
+      byId("moPhotoConsent").setAttribute("aria-invalid", "true");
+      byId("moPhotoConsent").scrollIntoView({block:"center"});
+      byId("moPhotoConsent").focus({preventScroll:true});
+      throw new Error("Tick the photo permission box. Your selected photo is still here.");
+    }
     if (!/^image\/(jpeg|png|webp)$/.test(file.type) || file.size > 8 * 1024 * 1024) {
       throw new Error("Use a JPG, PNG or WebP photo smaller than 8 MB.");
     }
@@ -159,6 +167,7 @@
         return button;
       });
       byId("moCands").replaceChildren.apply(byId("moCands"), buttons);
+      byId("moPhoto").value = ""; byId("moPhotoConsent").checked = false;
       status(portraits.length + " of 3 portraits ready. Choose one to preview it; your saved Card has not changed.");
       buttons[0].focus();
     } catch (error) {
@@ -167,11 +176,14 @@
         : error.message || "Portrait generation did not finish. Your saved Card is unchanged.");
     } finally {
       window.clearTimeout(timer);
-      byId("moPhoto").value = ""; byId("moPhotoConsent").checked = false;
       busy = false; byId("moMake").disabled = false;
     }
   }
   byId("moMake").addEventListener("click", generate);
+  byId("moPhotoConsent").addEventListener("change", function () {
+    byId("moPhotoConsentError").hidden = true;
+    byId("moPhotoConsent").removeAttribute("aria-invalid");
+  });
   byId("moClearPortrait").addEventListener("click", function () {
     if (busy) return;
     byId("moCands").replaceChildren();

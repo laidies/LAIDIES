@@ -174,11 +174,9 @@ try {
   await page.locator("#moPhoto").setInputFiles({ name: "synthetic.png", mimeType: "image/png", buffer: fixture });
   const callsBeforeConsent = good.calls();
   await page.locator("#moMake").click();
-  await waitForStatus(page, "Confirm permission");
+  await waitForStatus(page, "Tick the photo permission box");
   check(good.calls() === callsBeforeConsent, "#moPhoto without #moPhotoConsent reached the API");
-  // The rejected attempt deliberately clears sensitive input, so a consented
-  // retry requires the visitor to choose the local file again.
-  await page.locator("#moPhoto").setInputFiles({ name: "synthetic.png", mimeType: "image/png", buffer: fixture });
+  check(await page.locator("#moPhoto").evaluate(input=>input.files.length) === 1, "missing consent discarded the selected photo");
   await page.locator("#moPhotoConsent").check();
   await page.locator("#moMake").click();
   await waitForStatus(page, "portraits ready");

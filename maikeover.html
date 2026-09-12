@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="content/maikeover-v2.css?v=20260902-card-text-fit-1">
   <link rel="stylesheet" href="/content/resident-card-getting-ready.css?v=20260906-1">
   <link rel="stylesheet" href="/content/resident-card-pop-backgrounds.css?v=20260906-1">
-  <link rel="stylesheet" href="/content/maikeover-account.css?v=20260912-object-1">
+  <link rel="stylesheet" href="/content/maikeover-account.css?v=20260912-photo-retry-1">
   <script src="/content/site/resident-card-contract-v1.js?v=20260906-pop-card-1"></script>
   <script src="/content/site/supabase-config.js?v=20260702-1"></script>
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
@@ -194,7 +194,8 @@
             <div id="moPhotoPanel" hidden>
               <label for="moPhoto">Your photo (JPG, PNG or WebP; up to 8 MB)</label>
               <input id="moPhoto" type="file" accept="image/jpeg,image/png,image/webp">
-              <label class="mo-portrait-consent"><input type="checkbox" id="moPhotoConsent">This is my photo, or I have permission to use it. I agree to send it to OpenAI to make these portraits.</label>
+              <label class="mo-portrait-consent"><input type="checkbox" id="moPhotoConsent" aria-describedby="moPhotoConsentError"><span><strong>Required: give permission to use this photo</strong><br>I own this photo or have permission to use it, and I agree to send it to OpenAI to create my portraits.</span></label>
+              <p id="moPhotoConsentError" role="alert" hidden>Tick the permission box before making your portraits. Your selected photo is still here.</p>
             </div>
             <details class="mo-portrait-note"><summary>Where your image goes</summary>
               <p>Your description, choices and optional resized photo go to OpenAI. OpenAI may retain API inputs and outputs in abuse-monitoring logs for up to 30 days, with limited exceptions. <a href="https://developers.openai.com/api/docs/guides/your-data" target="_blank" rel="noopener">OpenAI data controls</a>.</p>
@@ -1142,7 +1143,7 @@
 <script src="/content/site/identity-client-v1.js?v=20260905-email-code-1"></script>
 <script src="/content/site/resident-account-runtime-v1.js?v=20260829-provider-health-1"></script>
 <script defer src="/content/site/maikeover-account-v1.js?v=20260911-episode-opt-in-2"></script>
-<script defer src="/content/site/maikeover-portraits-v1.js?v=20260912-object-1"></script>
+<script defer src="/content/site/maikeover-portraits-v1.js?v=20260912-photo-retry-1"></script>
 <script defer src="/content/site/maikeover-v2.js?v=20260912-object-1"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
 <script defer src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>

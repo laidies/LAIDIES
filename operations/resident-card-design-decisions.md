@@ -1,5 +1,13 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Photo retry and explicit permission
+
+Ali rejects losing a selected photo after a missing-checkbox/validation error.
+Keep the local selection during corrections and service failures; clear after
+successful generation or switching away from photo mode. Make permission an
+explicit required action and focus its inline error when missed. Never infer
+consent or send the photo before permission is checked.
+
 ## 2026-09-12 Description guidance and object alternative
 
 Ali requests a visible example description for people not uploading a photo,
