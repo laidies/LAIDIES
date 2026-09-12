@@ -8,7 +8,7 @@ not a permanent label for the learner. The selection seeks lab employees or
 comparable firsthand technical/academic authority. Roles below are the course
 provider's attribution, not independently refreshed employment records.
 
-## Recommended candidates
+## Discovery candidates — subject to the stricter filter below
 
 | Proposed level | Course and original provider | Instructor authority | Useful outcome and prerequisites | Time and access |
 |---|---|---|---|---|
@@ -21,7 +21,7 @@ provider's attribution, not independently refreshed employment records.
 | Senior | [How Diffusion Models Work](https://www.deeplearning.ai/courses/diffusion-models) | Sharon Zhou, listed on the course page as AMD Vice President of AI | Build and train an image-generation model. Python and TensorFlow/PyTorch knowledge useful; this is model-building, not an image-prompting class. | Header says 36m; body says about an hour. Practical work adds time. Limited-time free access advertised; PRO assessment separate. |
 | Senior | [Hugging Face Audio Course](https://huggingface.co/learn/audio-course/chapter0/introduction) | Team includes Sanchit Gandhi, ML Research Engineer; Matthijs Hollemans, ML Engineer; Vaibhav Srivastav, ML Developer Advocate Engineer | Speech recognition, music classification and speech generation. Requires deep-learning background and transformer familiarity. | Multi-unit self-paced course; total hours not stated. Public/free materials. [Setup page](https://huggingface.co/learn/audio-course/chapter0/get_ready) says free HF account and free Colab suffice. Exercises not run. |
 
-## First review order
+## Original review order — superseded by the free/two-hour filter
 
 Start with Foundations, Creative Work and Replit for immediate audience usefulness;
 then Claude Code as the closest provider-identified counterpart to Ali's example.
@@ -58,3 +58,30 @@ an isolated branch, preserving the iCloud checkout and its existing Git lock.
 Original iCloud notes remain uncommitted there. This branch does not merge or
 replace concurrent work. Next action: inspect one complete priority course and
 its learner access journey before drafting a School listing.
+
+
+## Updated filter — free and no more than two hours
+
+Ali's latest rule supersedes the original priority order. No course is admitted
+solely from the earlier free-access advertisement and duration badge.
+
+- **Longer exception candidate: AI Fluency: Framework & Foundations — 4 hours.**
+  The [current Claude Academy page](https://academy.claude.com/courses/ai-fluency-framework-foundations)
+  states 14 lessons and 4 hr. Worth flagging for its transferable delegation,
+  evaluation and responsibility skills, pending full lesson review. Not included
+  in the standard two-hour selection without Ali's exception.
+- **Longer, lower-priority candidate: AI Fluency for Creative Work — 5 hours.**
+  The [current Claude Academy page](https://academy.claude.com/courses/ai-fluency-for-creative-work)
+  states 8 lessons and 5 hr. Potential specialist relevance, but park outside
+  the standard selection. These exact provider estimates replace earlier unknowns.
+- **Hugging Face Audio — park.** Multi-unit deep-learning curriculum; total
+  duration is not verified and it has not established a two-hour path.
+- **Replit (1h34m), developer prompting (1h30m), Claude Code (2h), evaluation
+  (50m), diffusion (36m header/about an hour body): hold for cost and effort
+  checks.** Advertised short duration qualifies them for further inspection,
+  not admission. Confirm a complete free content/exercise route and required
+  tool costs. Practical work can exceed the listed runtime, especially Claude
+  Code at the limit. Optional paid certification can be clearly excluded.
+
+No paid course or longer exception has been approved or published. Recommended
+exception to surface now: Foundations, not the full technical audio curriculum.
