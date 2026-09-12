@@ -43,3 +43,6 @@ VERIFIED PUBLICLY: production3d9a4501, sourcecb958c15. Bright lime women title; 
 - 2026-09-11 — Bright, equal-panel shortcuts VERIFIED PUBLICLY 4eb84a05/source56dbd2cf. Restore earlier Miss Jeeves AI-question portrait, replace rejected Learn book-on-dark with a new learning illustration, and use equal filled 3:2 panels over mint/sky/pink cards. Both origins 390/960/1440 verified; 792 static assets preserved. Prior visual verdict superseded. Useful/Fun art remains separately unresolved. Evidence: releases/bright-shortcuts-20260911 under town-entry-homepage.
 
 2026-09-11 | Homepage reference return | VERIFIED PUBLICLY: 9de872a3 / source 1174ff2b | Desk confirmed by Ali; navy cards, banner and lime frames restored. Crop correction verified live. 793 other assets retained. Learn and Useful/Fun artwork OPEN.
+
+## 2026-09-11 — Sitewide persistent controls belong in headers
+Public e413a1b0/source d17c43a7 replaces floating shared utility placement. Test cold state with no active player/tour as well as active utility state: menu mounting must not depend on widget existence. Exact outcomes/remaining defects: `operations/product-stewards/town-entry-homepage/releases/header-controls-20260911/release.md`.

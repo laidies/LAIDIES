@@ -14,7 +14,7 @@ Integrity: all8 JS parse. Calibrated boundary guard passes seven current-public 
 
 Limitations: no authenticated account/portrait save, cross-device login, external community submission, every tour stop, or every embedded-book state was exercised. These services are preserved outside the declared delta; their correctness is not inferred from this layout work. Dormant check-in is not surfaced. Remaining Homepage Learn/Useful-Fun image choices are a separate open task.
 
-Release state: LOCAL REVIEWED; awaiting commit, provider preservation and actual public verification.
+Release state: VERIFIED PUBLICLY at e413a1b0 / d17c43a7 after the cold-state menu correction below. See release.md and final verification JSON.
 
 Public verification of fa462c6a exposed a missed cold state: when no radio/tour/map widget existed, the header placement function returned before mounting a standalone menu. MAiKEOVER's Menu stayed appended at body end and Tab went to Get my Card. The earlier local check had retained player state, so it did not cover this condition; that cold-state verdict is invalid. Repaired manager now detects existing header+menu independently and observes newly added menus. Foreground real320 test: menu nested in header, Tab→Sign in, Escape→Menu, no Back/overflow/empty row. Independent reviewer inspected the actual320 render and exact3-line logic delta, scoped ACCEPT; independent keypress not available, foreground completed it. Manager SHA9fadfa06a782aead00ec310a6f8cc4f529b8a0a56bc3f7144ac2d5aeee1edb86. Cache references are advanced to version2 for the successor.
 

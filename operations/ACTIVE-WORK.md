@@ -1,6 +1,6 @@
-## 2026-09-11 — Header controls — BUILDING
+## 2026-09-11 — Header controls — VERIFIED PUBLICLY
 
-Move the shared floating Back control and other persistent floating utilities into headers sitewide. Owner: current homepage correction thread. Preserve all existing service state and latest provider assets. New rule: `operations/DECISIONS.md`. Next: inventory current public shared scripts, implement bounded header mounting, verify responsive navigation, then preserve and release the exact delta. Homepage Learn/Useful-Fun image choices remain open and are not part of this correction.
+Production e413a1b0 / source d17c43a7. Shared Back, map, tour, radio and legacy return utilities are mounted in headers. Cold-state menus work without any active widget. Actual public Back/radio/tour/menu checks and exact184origin comparisons recorded in `operations/product-stewards/town-entry-homepage/releases/header-controls-20260911/release.md`;703 untouched assets retained. Sitewide rule recorded in DECISIONS.md. No MAiKEOVER Back added. Separate OPEN: KSVL first-click catalogue-readiness race (Retry succeeds), Visitor tour recognition on extensionless route, Homepage Learn/Useful-Fun image choices and prior Resident Card explanation reconciliation. No claim that those are complete.
 
 > **2026-09-11 — VERIFIED PUBLICLY: confirmed reference restoration 9de872a3 / source 1174ff2b. Navy cards, reference banner colours, clear pink title, lime image frames, exact user-confirmed laptop-and-notes desk and improved VHS crop. Verified public phone, middle and wide layouts plus both-origin bytes; 793 other assets and MAiKEOVER retained. Learn and Useful/Fun images remain OPEN. The floating arrow is Back navigation, unchanged. Record: releases/reference-return-20260911.**
 
