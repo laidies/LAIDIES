@@ -39,7 +39,7 @@ LAiDIES is a cohesive, useful learning town for professional women from the Rewi
 
 - Ali's latest direct ruling wins. Otherwise, durable routed repository authority outranks chat summaries. Read the Canon Index, then DECISIONS, then the exact product dossier before making a product choice.
 - Planned, local, rendered, reviewed, admitted, released, deployed and publicly verified are different states. Never promote one into another.
-- Ali owns public voice, material product choices, deployment/publication and spend. A local pass does not use that authority.
+- Ali grants standing authorization for assigned work through integration, deployment/publication and live verification. Status, review and commit are checkpoints: perform the next required step. Only new spending needs approval; ask for direction only when a material missing decision cannot be resolved after independent work. Specific rejected content stays rejected; preserve quality checks and repair failures.
 - One writer owns an exact file lane at a time. Preserve dirty work and active locks. Capture a new idea, then continue the active build unless Ali explicitly switches it.
 
 ## Produce before review
@@ -55,7 +55,7 @@ LAiDIES is a cohesive, useful learning town for professional women from the Rewi
 
 - Test the real continuous desktop/mobile experience and its visitor states. Do not infer function from a route load or a screenshot.
 - Visual/media review starts from exact rendered pixels or decoded frames at intended size. Preserve approved work and compare successors against it.
-- No direct deploy, publication, purchase, provider choice, public messaging or claim of completion without the named release owner and exact live verification.
+- Carry in-scope release through the named release owner and exact live verification under standing authorization. Do not stop for routine Ali approval. Verify cost before chargeable actions; no new charge or financial commitment without approval. Genuine external waits must name attempted recovery, exhausted independent work and the resume trigger.
 
 ## Retrieve, do not preload
 
