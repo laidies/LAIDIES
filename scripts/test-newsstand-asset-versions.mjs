@@ -7,8 +7,8 @@ import path from 'node:path';
 import { checkNewsstandAssetVersions, NEWSSTAND_VERSIONED_ASSETS as assets } from './lib/newsstand-asset-versions.mjs';
 
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
-const old = ['h1{text-transform:uppercase}', 'h1{font-size:44px}', 'window.fixtureEdition="old";', 'window.fixtureSelection="old";', 'window.fixtureCatchup="old";'];
-const current = ['h1{text-transform:none}', 'h1{font-size:28px}', 'window.fixtureEdition="current";', 'window.fixtureSelection="current";', 'window.fixtureCatchup="current";'];
+const old = ['h1{text-transform:uppercase}', 'h1{font-size:44px}', 'window.fixtureEdition="old";', 'window.fixtureSelection="old";', 'window.fixtureCatchup="old";', 'window.fixtureGate="old";'];
+const current = ['h1{text-transform:none}', 'h1{font-size:28px}', 'window.fixtureEdition="current";', 'window.fixtureSelection="current";', 'window.fixtureCatchup="current";', 'window.fixtureGate="current";'];
 const html = versioned => `<html><head>${assets.map((file, index) => {
   const url = `/${file}?v=${versioned ? sha(current[index]).slice(0, 16) : 'old-fixed-version'}`;
   return file.endsWith('.css') ? `<link rel="stylesheet" href="${url}">` : `<script src="${url}"></script>`;
@@ -53,13 +53,14 @@ try {
     await page.goto(base + '/unchanged-url');
     assert.equal(await page.evaluate(() => window.fixtureEdition), 'old', 'negative control must retain the cached edition');
     assert.equal(await page.locator('h1').evaluate(n => getComputedStyle(n).textTransform), 'uppercase');
+    assert.equal(await page.evaluate(() => window.fixtureGate), 'old', 'unchanged gate URL keeps outdated trust cached');
     await page.goto(base + '/fixed');
     assert.equal(await page.evaluate(() => window.fixtureEdition), 'current');
     assert.equal(await page.locator('h1').evaluate(n => getComputedStyle(n).textTransform), 'none');
     assert.equal(await page.locator('h1').evaluate(n => getComputedStyle(n).fontSize), '28px');
-    assert.deepEqual(await page.evaluate(() => [window.fixtureSelection, window.fixtureCatchup]), ['current', 'current']);
+    assert.deepEqual(await page.evaluate(() => [window.fixtureSelection, window.fixtureCatchup, window.fixtureGate]), ['current', 'current', 'current']);
     assert.equal(requests.length, assets.length * 2, 'old URLs remain cached; each new fingerprint requests its current asset once');
-    console.log('NEWSSTAND ASSET CACHE PASS: five stale URLs rejected; forged/missing HTML rejected; real warm-cache negative control stayed old; fingerprinted CSS, story, selection and catch-up scripts refreshed without clearing cache.');
+    console.log('NEWSSTAND ASSET CACHE PASS: six stale URLs rejected; forged/missing HTML rejected; real warm-cache negative control stayed old; fingerprinted CSS, story, selection catch-up and admission gate scripts refreshed without clearing cache.');
   } finally {
     await browser?.close();
     await new Promise(resolve => server.close(resolve));

@@ -1,0 +1,28 @@
+{
+  "reviewedAt": "2026-09-13T16:51:20Z",
+  "reviewer": "independent:/root/crossword_row_review",
+  "scope": "Read-only review of the pending crossword ARIA row repair; no public or canonical files were written by this reviewer.",
+  "candidate": {
+    "path": "newsstand-crossword.html",
+    "sha256": "9358ef53bb78463ca2c7b13e2cc1881edee6c8bf4609a367a300928c29d0da4d",
+    "delta": "Adds .cw-row display:contents and replaces the one-level cell append loop with sequential ARIA row wrappers and grid-cell column indices. No clue, answer, help, interaction, destination, or visual CSS rule was changed."
+  },
+  "independentChecks": [
+    {
+      "command": "node operations/product-stewards/newsstand/evidence/voiceover-navigation-20260913/test-crossword-row-tree.mjs",
+      "result": "pass",
+      "evidence": "Chrome CDP exposed Puzzle 01 as 15 direct AX rows with 15 grid cells each, and Puzzle 02 as 12 direct AX rows with 12 cells each. Both DOM grids retained every cell, sequential DOM row and column indices, their 468.56px rendered grid width, and no horizontal page overflow at 1280px. Exact per-cell x/y/width/height arrays matched the HEAD baseline for each puzzle. Candidate typing and an adjacent ArrowRight move also passed for both puzzles."
+    },
+    {
+      "command": "git diff --numstat -- newsstand-crossword.html",
+      "result": "2 additions, 1 deletion",
+      "evidence": "The diff is limited to the row wrapper CSS and grid construction loop."
+    }
+  ],
+  "finding": "ACCEPT_FOR_RELEASE: the bounded repair restores a real grid row hierarchy in Chrome's accessibility tree while preserving the rendered grid geometry and all cells for both published puzzle sizes. This directly addresses the prior flat 144-column announcement for Puzzle 02.",
+  "limits": [
+    "Chrome CDP does not surface aria-rowindex or aria-colindex as AX properties even though the candidate DOM contains them. The structural AX rows are confirmed; spoken index wording must therefore rely on the separate native VoiceOver evidence.",
+    "The existing scripts/test-newsstand-crossword-browser.mjs failed before candidate assessment because it expects Puzzle 01 clue copy while the current default is Puzzle 02. That stale assertion is an existing test defect, not evidence that this row-only repair changed clues. It remains to be corrected separately."
+  ],
+  "releaseCondition": "Deploy only this pending crossword HTML delta and preserve the existing published provider manifest."
+}

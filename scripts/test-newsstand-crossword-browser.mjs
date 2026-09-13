@@ -22,7 +22,7 @@ const browser=await chromium.launch({headless:true,executablePath:chrome});
 try{
   for(const width of [1280,390,320]){
     const page=await browser.newPage({viewport:{width,height:900}});const errors=[];page.on('pageerror',error=>errors.push(error.message));
-    await page.goto(origin+'/newsstand-crossword.html',{waitUntil:'networkidle'});
+    await page.goto(origin+'/newsstand-crossword.html?puzzle=puzzle-01',{waitUntil:'networkidle'});
     assert.equal(await page.locator('#cw-grid-wrap').isVisible(),width>760,`${width}: grid default follows screen size`);
     assert.equal(await page.locator('#cw-linear').isVisible(),width<=760,`${width}: phone starts with clue list`);
     const gridClues=await page.locator('.cw-clue').count();assert.equal(gridClues,10,`${width}: grid exposes every clue`);

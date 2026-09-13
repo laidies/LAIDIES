@@ -775,10 +775,15 @@
         }
 
         function archiveItemSearchText(item) {
+          var story = item.kind === "story" && item.status !== "retracted"
+            ? stories.find(function (candidate) { return "story:" + candidate.id === item.id; })
+            : null;
+          var searchableStory = story && contract.accessDecision(data, story, { scope: "search" }, now).canExpose
+            ? storySearchText(story) : "";
           return [
             item.headline, item.summary, item.edition, item.desk,
             item.editionDate, (item.themes || []).join(" "),
-            (item.concepts || []).join(" "), item.status
+            (item.concepts || []).join(" "), item.status, searchableStory
           ].join(" ").toLowerCase();
         }
 
@@ -841,12 +846,27 @@
           var concepts = archiveTerms(items.flatMap(function (item) { return item.concepts || []; }));
           var theme = document.getElementById("ns-archive-theme");
           var concept = document.getElementById("ns-archive-concept");
+          var selectedTheme = theme.value;
+          var selectedConcept = concept.value;
           theme.innerHTML = '<option value="">All themes</option>' + themes.map(function (value) {
             return '<option value="' + escapeAttribute(value) + '">' + escapeHTML(value) + "</option>";
           }).join("");
           concept.innerHTML = '<option value="">All concepts</option>' + concepts.map(function (value) {
             return '<option value="' + escapeAttribute(value) + '">' + escapeHTML(value) + "</option>";
           }).join("");
+          if (Array.prototype.some.call(theme.options, function (option) { return option.value === selectedTheme; })) theme.value = selectedTheme;
+          if (Array.prototype.some.call(concept.options, function (option) { return option.value === selectedConcept; })) concept.value = selectedConcept;
+        }
+
+        function refreshActiveArchiveReader() {
+          if (location.hash || reader.hidden) return;
+          var preservedScrollY = window.scrollY;
+          if (selectedEdition === "search") {
+            renderSearch(null, { scroll: false, focus: false, skipHistory: true, skipMeasurement: true });
+          } else if (selectedEdition === "archive") {
+            renderArchive(null, { scroll: false, focus: false, skipHistory: true });
+          }
+          if (window.scrollY !== preservedScrollY) window.scrollTo(0, preservedScrollY);
         }
 
         function renderFrontStory(story) {
@@ -1398,6 +1418,7 @@
               archiveIndex = value;
               populateArchiveFilters();
               renderTopicButtons();
+              refreshActiveArchiveReader();
               window.dispatchEvent(new CustomEvent("newsstand:archive-ready", { detail: { count: value.items.length } }));
             })
             .catch(function () {
@@ -2059,7 +2080,7 @@
     <script defer src="./content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="./content/site/ksvl-player.js?v=20260911-header-controls-2"></script>
     <script defer src="./content/site/ksvl-theme-buttons.js?v=20260905-dynamic-1"></script>
-    <script defer src="./content/site/luminairy-claim-gate.js?v=20260902-1"></script>
+    <script defer src="./content/site/luminairy-claim-gate.js?v=e9a9105b51d8e4df"></script>
     <script defer src="./content/site/newsstand-luminairy.js?v=20260906-masthead-language-1"></script>
     <script defer src="./content/site/newsstand-catchup-v1.js?v=70737c34915b54f9"></script>
     <script defer src="./content/newsstand-crossword-contract.js?v=733ac0e9e4698d47"></script>

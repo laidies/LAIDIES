@@ -8,6 +8,7 @@ export const NEWSSTAND_VERSIONED_ASSETS = [
   'content/newsstand-stories.js',
   'content/newsstand-selection.js',
   'content/site/newsstand-catchup-v1.js',
+  'content/site/luminairy-claim-gate.js',
 ];
 
 export function checkNewsstandAssetVersions(candidate, changedPaths) {
