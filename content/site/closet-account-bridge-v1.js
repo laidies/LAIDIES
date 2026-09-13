@@ -38,11 +38,11 @@
 
   function renderVerifiedHandle(profile) {
     var handle = profile && profile.card_username;
-    if (!/^[a-z0-9_]{3,24}$/.test(String(handle || ''))) return false;
+    handle = /^[a-z0-9_]{3,24}$/.test(String(handle || '')) ? handle : '';
     var node = document.getElementById("moHandle");
     if (!node) return false;
     node.dataset.accountHandle = handle;
-    node.textContent = "@" + handle;
+    node.textContent = handle ? "@" + handle : "@yourhandle";
     return true;
   }
 

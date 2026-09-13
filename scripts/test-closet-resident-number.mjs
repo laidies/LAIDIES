@@ -41,7 +41,7 @@ function rendererSource() {
 }
 
 function installRenderer(document) {
-  const context = { document, window: {} };
+  const context = { document, localStorage: {}, window: { LAIDIESResidentCard: { readHandle: () => 'stale_handle' } } };
   vm.runInNewContext(rendererSource(), context, { filename: 'extracted-closet-renderer.js' });
   return context.updateCardFromProfile;
 }
@@ -90,6 +90,7 @@ function assertBoth(document, value, verified) {
   assertBoth(document, 'No. 1047', '1047');
   installRenderer(document)({});
   assertBoth(document, 'No. 1047', '1047');
+  assert.equal(document.getElementById('moHandle').textContent, '@yourhandle', 'verified empty account handle overrides stale browser cache');
 }
 
 // Signed-out mode never claims a private server number; the renderer keeps No. NEW.

@@ -1800,7 +1800,9 @@
     var handleNode = document.getElementById('moHandle');
     var handle = isPublicMode
       ? profile.card_username
-      : handleNode && handleNode.dataset.accountHandle ||
+      : handleNode && Object.prototype.hasOwnProperty.call(handleNode.dataset, 'accountHandle')
+        ? handleNode.dataset.accountHandle
+        :
         (window.LAIDIESResidentCard
           ? window.LAIDIESResidentCard.readHandle(localStorage)
           : '');
@@ -2654,7 +2656,7 @@
   init();
 })();
 </script>
-  <script src="/content/site/closet-account-bridge-v1.js?v=20260912-handle-1"></script>
+  <script src="/content/site/closet-account-bridge-v1.js?v=20260912-handle-2"></script>
   <script src="/content/site/resident-necklaces-v1.js?v=20260831-1"></script>
   <script src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
   <script src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>
