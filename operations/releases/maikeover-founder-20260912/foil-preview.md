@@ -1,5 +1,9 @@
 # Holographic foil — local preview only
 
+Ali approved the restored-foil preview with "ok". Release authorized for this
+exact unaltered texture, uppercase FOUNDER and enlarged number. Earlier preview
+holds below are superseded only for this accepted version.
+
 Latest correction: Ali rejected the pale veil changing the background. Removed
 the overlay entirely; original foil bytes and enlarged uppercase lettering kept.
 Preview: /private/tmp/founder-foil-restored-preview.png. Not published.
