@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "chatgpt-pets-20260913",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "8c083a139e73f7aaa9d8b326c26f934b823dae2b51dfd4a9b5687dc9eb7d4c21",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why might ChatGPT give a weaker answer when I ask it something from the floating pet controls than when I ask the same thing inside my project?",
+      "response": "Because a chat started from the floating controls begins outside any project, it cannot see the files and instructions saved in that project. ChatGPT can only use the context the surrounding product hands to the chat, and the floating panel hands it nothing from your project. The pet itself changes nothing either way — it is appearance only. To get the project's files and instructions into the conversation, you must start the chat from that project in the main app.",
+      "expectedEvidence": "An accurate answer must cite the context boundary (floating-controls chats are outside a project, P006), the general principle that a chat only uses supplied context (P009), and the appearance-only role of the pet (P003).",
+      "assessment": "The article fully supports this answer: P006 states the boundary and the remedy, P009 supplies the causal principle, and P003 rules out the pet as a variable. A reader relying only on this artifact can reconstruct the causal chain correctly."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why did the taglines ignore the style guide, and would choosing a pet instead of Mini help?",
+      "response": "The taglines ignored the guide because her quick chat started from the floating controls, which begin outside any project — the style guide and briefs were never part of the chat's context, so the model could not use them. Switching from Mini to a pet would change nothing: OpenAI states a pet changes appearance only, not how ChatGPT completes tasks. The fix is to open her project in the main app and start the tagline chat there, so the guide and briefs are supplied as context.",
+      "expectedEvidence": "The answer must apply the project-context boundary (P006), the context-determines-output principle (P009), and the appearance-only limit rebutting the pet suggestion (P003).",
+      "assessment": "The article's mechanism resolves this novel scenario completely, including debunking the pet-quality misconception — evidence the explanation transfers beyond its own example."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The September 11 update, what it added, and how the controls behave are explained as a clear sequence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI’s September 11 desktop update added a quick chat to the floating Pets controls on macOS and Windows. OpenAI calls that small new chat Quick Chat. The useful part is the small control panel: you can type or speak a new request while another app is open, then use its bell to see whether a chat is running, needs your input, is ready, or is blocked.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks. If you want the floating controls without an animal, choose Mini in Settings &gt; Pets; Mini means the floating controls without a pet.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Quick Chat, Mini, Needs input, and Ready are each given plain meaning at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI’s September 11 desktop update added a quick chat to the floating Pets controls on macOS and Windows. OpenAI calls that small new chat Quick Chat. The useful part is the small control panel: you can type or speak a new request while another app is open, then use its bell to see whether a chat is running, needs your input, is ready, or is blocked.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks. If you want the floating controls without an animal, choose Mini in Settings &gt; Pets; Mini means the floating controls without a pet.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The status is useful when you have stepped away from the main window: <strong>Needs input</strong> means the chat needs your answer, approval, or another decision. <strong>Ready</strong> means it has finished with unread activity. Those labels describe the chat’s progress; the pet is simply the visible companion beside them.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The birthday-dinner grocery list and the lost-project-files consequence are recognizable, specific reader situations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Say you are planning a birthday dinner in a notes app and want ChatGPT to suggest a grocery list. Paste the meal details into a quick chat from the floating controls while you use another app. That is a convenience feature. It is not a new assistant, and it does not make the grocery list more accurate.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Choose a pet if you like having it on screen, or Mini if you only want the controls. One important limit: a chat started from those floating controls is outside a project. If you need the files and instructions saved in a project, start the chat from that project in the main app instead.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; all advice follows directly from documented product behaviour with attribution retained.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks. If you want the floating controls without an animal, choose Mini in Settings &gt; Pets; Mini means the floating controls without a pet.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Choose a pet if you like having it on screen, or Mini if you only want the controls. One important limit: a chat started from those floating controls is outside a project. If you need the files and instructions saved in a project, start the chat from that project in the main app instead.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>On the web, a pet can appear inside supported ChatGPT Work chats, but OpenAI says it does not have the desktop floating overlay or activity tray. Pets may also depend on your account and workspace being allowed to use them.</p>",
+          "locator": "P007"
+        }
+      ]
+    }
+  }
+}

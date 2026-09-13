@@ -529,6 +529,8 @@
     var rack = document.getElementById("ns-rack");
     if (!reader || !rack) return false;
     var record = readableColumn(id);
+    reader.classList.remove("ns-reader--story");
+    document.body.classList.remove("ns-story-open");
     reader.hidden = false;
     rack.innerHTML = record ? columnBodyHTML(record) :
       '<article class="ns-service-article"><p>This column is not available. You can return to the paper for the current columns.</p></article>';

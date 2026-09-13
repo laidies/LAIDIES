@@ -19,6 +19,7 @@ const READER_SCALE_ONLY = process.argv.includes("--reader-scale-only");
 const TOWN_LAYOUT = process.argv.includes('--town-layout-only');
 const CALIBRATE_TOWN = process.argv.includes('--calibrate-town-layout');
 const ZOOM = process.argv.includes('--zoom-200');
+const MEASUREMENT_BROWSER = process.argv.includes('--measurement-browser');
 const FIXTURE_ROOT = process.env.NEWSSTAND_TEST_FIXTURE_ROOT;
 const inputFile = relative => FIXTURE_ROOT && fs.existsSync(path.join(FIXTURE_ROOT,relative)) ? path.join(FIXTURE_ROOT,relative) : path.join(ROOT,relative);
 const dataContext = { window: {} };
@@ -49,6 +50,8 @@ const READER_DAILY = CURRENT_DAILY || DATA.stories.filter(item => item.edition =
   ['published', 'corrected'].includes(item.status) && item.sourceApproval?.status === 'approved' && item.id !== FRONT.id)
   .sort((a, b) => String(b.publishedAt).localeCompare(String(a.publishedAt)))[0];
 assert.ok(READER_DAILY, 'An admitted news story is required for the reader regression journey');
+const LEARNING_STORY = DATA.stories.find(story => /href=["']\/?library\.html(?:#|["'])/.test(story.class_notes || ""));
+assert.ok(LEARNING_STORY, 'A NewsStand story with an approved Library class-note route is required for measurement coverage');
 const BIG_PICTURE = DATA.stories.filter(item => item.edition==='big-picture'&&['published','corrected'].includes(item.status)&&item.sourceApproval?.status==='approved').sort((a,b)=>String(b.updatedAt).localeCompare(String(a.updatedAt)))[0];
 const ARCHIVE = JSON.parse(fs.readFileSync(inputFile('content/newsstand-archive-index.json'), 'utf8'));
 const readerContractContext = { module: { exports: {} } };
@@ -92,17 +95,27 @@ if (!fs.existsSync(CHROME)) {
 
 function mime(file) {
   return ({
-    ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8",
+    ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".mjs": "text/javascript; charset=utf-8",
     ".css": "text/css; charset=utf-8", ".json": "application/json; charset=utf-8",
     ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".mp3": "audio/mpeg"
   })[path.extname(file)] || "application/octet-stream";
 }
 
 const fixedClock = `<script>(()=>{const NativeDate=Date;const fixed=${JSON.stringify(FIXED_NOW)};function FixedDate(...args){if(!(this instanceof FixedDate))return new NativeDate(fixed).toString();return new NativeDate(...(args.length?args:[fixed]));}FixedDate.prototype=NativeDate.prototype;Object.setPrototypeOf(FixedDate,NativeDate);FixedDate.now=()=>new NativeDate(fixed).getTime();window.Date=FixedDate;})();</script>`;
+const measurementRequests = [];
 const server = http.createServer((request, response) => {
   const requestUrl = new URL(request.url, "http://127.0.0.1");
   const relative = requestUrl.pathname === "/" ? "newsstand.html" : requestUrl.pathname.replace(/^\/+/, "");
   const file = path.resolve(inputFile(relative));
+  if (MEASUREMENT_BROWSER && requestUrl.pathname === "/__measurement-event") {
+    let body = "";
+    request.on("data", chunk => { body += chunk; });
+    request.on("end", () => {
+      measurementRequests.push({ headers: request.headers, body });
+      response.writeHead(202); response.end();
+    });
+    return;
+  }
   if (!(file.startsWith(ROOT + path.sep) || FIXTURE_ROOT && file.startsWith(FIXTURE_ROOT + path.sep)) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
     response.writeHead(404); response.end("Not found"); return;
   }
@@ -128,6 +141,12 @@ const server = http.createServer((request, response) => {
       "state.lastPublication = {",
       "state.lastVisit = {"
     );
+    response.writeHead(200, { "content-type": "text/javascript; charset=utf-8" }); response.end(body); return;
+  }
+  if (MEASUREMENT_BROWSER && requestUrl.pathname === "/content/site/newsstand-measurement-v1.mjs") {
+    const body = fs.readFileSync(file, "utf8")
+      .replace('const ENDPOINT = "https://plausible.io/api/event";', 'const ENDPOINT = "/__measurement-event";')
+      .replace('return Boolean(locationLike && locationLike.protocol === "https:" && locationLike.hostname === "laidies.ai");', 'return Boolean(locationLike);');
     response.writeHead(200, { "content-type": "text/javascript; charset=utf-8" }); response.end(body); return;
   }
   response.writeHead(200, { "content-type": mime(file) }); fs.createReadStream(file).pipe(response);
@@ -309,6 +328,43 @@ try {
     console.log("NEWSSTAND BROWSER CALIBRATION PASS known-bad missing one-newspaper surface rejected");
     desktop.close();
     process.exitCode = 0;
+  } else if (MEASUREMENT_BROWSER) {
+    for (let attempt = 0; attempt < 40; attempt += 1) {
+      if (await value(desktop, "!!window.NewsStandMeasurement")) break;
+      await sleep(50);
+    }
+    check(await value(desktop, "!!window.NewsStandMeasurement"), true, "measurement module loads with an executable module MIME type");
+    check(measurementRequests.length, 0, "initial non-story view emits no outcome");
+    await act(desktop, "document.querySelector('[data-open-edition=weekly]').removeAttribute('data-lead-slug');document.querySelector('[data-open-edition=weekly]').click()");
+    for (let attempt = 0; attempt < 40 && measurementRequests.length < 1; attempt += 1) await sleep(50);
+    check(measurementRequests.length, 1, "explicit paper action reaches the intercepted local transport");
+    const paperRequest = measurementRequests[0];
+    check(JSON.parse(paperRequest.body), { name: "NewsStand paper available", url: "https://laidies.ai/newsstand", domain: "wearelaidies.com" }, "paper event has only its fixed Plausible payload");
+    check(paperRequest.headers["content-type"].startsWith("text/plain"), true, "browser transport uses simple text/plain content type");
+    check(Object.hasOwn(paperRequest.headers, "referer"), false, "browser transport suppresses HTTP referrer");
+    const beforeStory = measurementRequests.length;
+    await act(desktop, `location.hash = ${JSON.stringify(LEARNING_STORY.slug)}`);
+    for (let attempt = 0; attempt < 40 && measurementRequests.length < beforeStory + 1; attempt += 1) await sleep(50);
+    check(measurementRequests.length, beforeStory + 1, "new direct story route emits one rendered-story outcome");
+    const learningLink = `document.querySelector('.ns-article__notes a[href^="/library.html"]')`;
+    check(await value(desktop, `!!${learningLink}`), true, "approved Library class-note route is rendered");
+    const beforeLearning = measurementRequests.length;
+    await act(desktop, `${learningLink}.addEventListener('click', event => event.preventDefault(), { once: true });${learningLink}.click()`);
+    for (let attempt = 0; attempt < 40 && measurementRequests.length < beforeLearning + 1; attempt += 1) await sleep(50);
+    check(measurementRequests.length, beforeLearning + 1, "approved Library class-note activation emits learning outcome");
+    check(JSON.parse(measurementRequests.at(-1).body).name, "NewsStand learning opened", "learning activation cannot expose the destination");
+    const beforeNonLearning = measurementRequests.length;
+    await act(desktop, "document.querySelector('.ns-article__notes').insertAdjacentHTML('beforeend', '<a id=ns-not-learning href=/issues/issue-03.html>Episode</a>');document.querySelector('#ns-not-learning').addEventListener('click', event => event.preventDefault(), { once: true });document.querySelector('#ns-not-learning').click()");
+    await sleep(250);
+    check(measurementRequests.length, beforeNonLearning, "non-Library class-note route does not emit a learning outcome");
+    await act(desktop, "history.back()");
+    await sleep(250);
+    const beforeRestoredStory = measurementRequests.length;
+    await act(desktop, "history.forward()");
+    await sleep(350);
+    check(measurementRequests.length, beforeRestoredStory, "restored hash history does not re-emit story or learning outcomes");
+    console.log(`NEWSSTAND MEASUREMENT BROWSER PASS checks=${checks} intercepted=${measurementRequests.length} explicit-paper/library/history`);
+    desktop.close();
   } else {
     check(await value(desktop, "({contract:typeof window.NewsstandContract,data:!!window.NEWSSTAND_DATA,contractScript:Array.from(document.scripts).find((item)=>item.src.includes('newsstand-reader-contract'))?.src||null})"), { contract: "object", data: true, contractScript: new URL(CONTRACT_SRC, siteOrigin + '/').href }, "reader contract and canonical dataset load before interaction");
     check(await value(desktop, "window.NewsstandContract.validate(window.NEWSSTAND_DATA)"), [], "canonical browser dataset satisfies the reader contract");
@@ -423,6 +479,12 @@ try {
     await act(currentDaily, "window.nsSourceLink = document.querySelector('.ns-article__sources a[href^=\"https://\"]'); window.nsSourceHref = window.nsSourceLink.href; window.nsSourceLink.href = '#missing-source';");
     check(await value(currentDaily, sourceLinksExpression), false, 'calibration: missing admitted source link is rejected');
     await act(currentDaily, 'window.nsSourceLink.href = window.nsSourceHref');
+    const approvedHeroExpression = `(() => {
+      const hero = document.querySelector('.ns-article__hero img, img.ns-article__hero');
+      return ${JSON.stringify(READER_DAILY.heroVisual || null)} ? !!hero &&
+        new URL(hero.src, location.href).pathname === ${JSON.stringify(READER_DAILY.heroVisual?.src || '')} : !hero;
+    })()`;
+    check(await value(currentDaily, approvedHeroExpression), true, 'current approved artwork survives immutable Daily snapshot reconciliation');
     const currentDailyScale = await value(currentDaily, readerScaleExpression);
     check(currentDailyScale.pass, true, `current Daily story uses compact newspaper scale (${JSON.stringify(currentDailyScale)})`);
     currentDaily.close();

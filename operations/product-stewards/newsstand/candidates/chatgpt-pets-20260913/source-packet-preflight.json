@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "laidies.newsstand-source-packet-preflight.v1",
+  "candidateId": "chatgpt-pets-20260913",
+  "checkedAt": "2026-09-13T14:20:00Z",
+  "method": "Official documentation establishes feature scope; native runtime was not tested.",
+  "claims": [
+    {
+      "claimId": "quick-chat-release-date",
+      "supports": [
+        {
+          "sourceId": "openai-changelog-2026-09-11",
+          "passage": "OpenAI dated the quick-chat Pets and Appshots desktop update September 11, 2026."
+        }
+      ]
+    },
+    {
+      "claimId": "pet-appearance-limit",
+      "supports": [
+        {
+          "sourceId": "openai-pets-docs",
+          "passage": "Pets are optional animated companions and selecting one changes appearance, not how ChatGPT completes tasks."
+        }
+      ]
+    },
+    {
+      "claimId": "controls-context-boundary",
+      "supports": [
+        {
+          "sourceId": "openai-pets-docs",
+          "passage": "A quick chat started from the controls is outside a project."
+        }
+      ]
+    }
+  ],
+  "runtimeVerification": {
+    "status": "NOT_TESTED",
+    "reason": "Native ChatGPT desktop-app inspection was unavailable in this production lane. No alternate UI route was used to bypass that block.",
+    "effect": "The candidate reports only source-supported behaviour. Any reader journey or account-specific availability claim needs separate runtime evidence."
+  }
+}

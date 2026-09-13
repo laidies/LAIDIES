@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-12T22:39:12.758Z",
+  "updatedAt": "2026-09-13T15:32:24.332Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -840,8 +840,8 @@
       "producerPrincipal": "/root/remaining_build_review",
       "sourceIdentitySha256": "df059db2295e74bc2414d8a2b0e5ff48916ffe243e17b3c162ee2f031fa4df6c",
       "artifactSha256": "47d102259170ff4d40caaf74715d2b3358103244db14fe24f0347b7459a6b20f",
-      "status": "READY_FOR_ADMISSION",
-      "active": true,
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
       "consequencePriority": 0,
       "firstSeenAt": "2026-09-12T22:35:30.726Z",
       "lastReviewedAt": "2026-09-12T22:38:08.148Z",
@@ -863,7 +863,7 @@
         }
       ],
       "unresolvedDefects": [],
-      "nextAction": "COMPOSE_AND_ADMIT_EXACT_ARTIFACT",
+      "nextAction": "MONITOR_CORRECTIONS",
       "terminalDisposition": null,
       "assembledCandidate": {
         "path": "operations/product-stewards/newsstand/candidates/crisp-pathology-20260912/admitted-v3/ordinary-candidate.json",
@@ -882,7 +882,80 @@
           "sha256": "acb2eae49f3d3c9731ef7048ce0d331aab0e30aeda4dbc67ecc0d893798d59c6"
         }
       },
-      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval."
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "97f6b0a3-a398-4f35-a630-33d4e605f1d9",
+        "immutableUrl": "https://97f6b0a3.laidies-sunnyvaile.pages.dev/newsstand#crisp-pathology-20260912",
+        "customUrl": "https://laidies.ai/newsstand#crisp-pathology-20260912",
+        "artifactIdentitySha256": "c238f0be7f8e18650210e31978ad4c3ca0f38b663c58581cf5c7af39522aeb40",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-12T22:48:17.525981+00:00",
+        "sourceReceipt": "operations/product-stewards/newsstand/evidence/crisp-20260912/release.json",
+        "reconciliationNote": "Historical actual release/journey evidence reconciled on Sep12 evening; no new publication or new journey asserted."
+      }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "chatgpt-pets-20260913",
+      "producerPrincipal": "/root/evening_sources",
+      "sourceIdentitySha256": "0f344ea7aa12b6a9fff47e77cbcf90b08278aa930c82bd55944c6c0245937206",
+      "artifactSha256": "8c083a139e73f7aaa9d8b326c26f934b823dae2b51dfd4a9b5687dc9eb7d4c21",
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-13T14:20:00Z",
+      "lastReviewedAt": "2026-09-13T15:01:21.329Z",
+      "attempts": [
+        {
+          "artifactSha256": "8c083a139e73f7aaa9d8b326c26f934b823dae2b51dfd4a9b5687dc9eb7d4c21",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-13T15:01:21.329Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/admitted-v4/independent-review.json",
+            "sha256": "52caa7f99d30748e7ee5faf674b714994d1425ce4fe017800e7792d8227561d2"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/admitted-v4/independent-raw-report.json",
+            "sha256": "4aaaf5edce715d715181cde8ad68eac75cfd952cab4e30b1233c581fb133f1ed"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "MONITOR_CORRECTIONS",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/admitted-v4/ordinary-candidate.json",
+        "sha256": "ce70c474f8aee5f8236d6af04b357bb1e7831c9905d63320014e293db62ad465"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "0f344ea7aa12b6a9fff47e77cbcf90b08278aa930c82bd55944c6c0245937206",
+        "artifactSha256": "8c083a139e73f7aaa9d8b326c26f934b823dae2b51dfd4a9b5687dc9eb7d4c21",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/admitted-v4/independent-review.json",
+          "sha256": "52caa7f99d30748e7ee5faf674b714994d1425ce4fe017800e7792d8227561d2"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/admitted-v4/independent-raw-report.json",
+          "sha256": "4aaaf5edce715d715181cde8ad68eac75cfd952cab4e30b1233c581fb133f1ed"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "6536f842-c14a-4ddf-b42b-d98a9a31f384",
+        "immutableUrl": "https://6536f842.laidies-sunnyvaile.pages.dev/newsstand#chatgpt-pets-20260913",
+        "customUrl": "https://laidies.ai/newsstand#chatgpt-pets-20260913",
+        "artifactIdentitySha256": "24a4ab65483c7e885c55fd938840ee0630ad38d97231a59b6fed0b5aad769c3f",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-13T15:32:24.332Z",
+        "sourceReceipt": "operations/product-stewards/newsstand/evidence/pets-20260913/release.json"
+      }
     }
   ]
 }

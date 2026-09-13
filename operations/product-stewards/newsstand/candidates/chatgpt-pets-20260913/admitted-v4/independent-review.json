@@ -1,0 +1,948 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "chatgpt-pets-20260913",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/evening_sources",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-13T15:01:21.329Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/review-text.json",
+      "sha256": "8c083a139e73f7aaa9d8b326c26f934b823dae2b51dfd4a9b5687dc9eb7d4c21"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/publication-manifest.json",
+      "sha256": "017832e65607c290cec1125f201c0d0cd4a07aebed5fa368ab3112c987ac0178"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/rendered-article.html",
+      "sha256": "bc859dbe4b877861576f234bb18114c48e7ab4928298e905349c5ec2520d3d1b"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "OpenAI shipped animated 'pets' on the desktop — is this a real capability I should care about, or just decoration?",
+    "promisedPayoff": "You will know exactly what the pet does (appearance only), what the floating controls actually give you (quick chat plus status tray), and the one limit that matters (chats started there are outside a project).",
+    "centralMentalModel": "Separate the visible decoration from the action: the pet is skin; the capability is starting and following a chat from a floating panel; the constraint is that context depends on where the chat starts.",
+    "dailyLifeConnection": "Planning a birthday dinner in a notes app and pasting meal details into a quick chat without switching windows.",
+    "surfaceJob": "A dated daily news item explaining a September 11 desktop update for smart professional women without technical AI training.",
+    "desiredReaderFeeling": "Calm, un-hyped competence: she can choose pet or Mini deliberately and knows when to start a chat from a project instead."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Every sentence is plain; terms like Quick Chat, Mini, and the status labels are defined at first meaningful use with no unexplained jargon.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI’s September 11 desktop update added a quick chat to the floating Pets controls on macOS and Windows. OpenAI calls that small new chat Quick Chat. The useful part is the small control panel: you can type or speak a new request while another app is open, then use its bell to see whether a chat is running, needs your input, is ready, or is blocked.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks. If you want the floating controls without an animal, choose Mini in Settings &gt; Pets; Mini means the floating controls without a pet.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The status is useful when you have stepped away from the main window: <strong>Needs input</strong> means the chat needs your answer, approval, or another decision. <strong>Ready</strong> means it has finished with unread activity. Those labels describe the chat’s progress; the pet is simply the visible companion beside them.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader gains a decision (pet vs Mini), the project-context boundary, and the platform/availability limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks. If you want the floating controls without an animal, choose Mini in Settings &gt; Pets; Mini means the floating controls without a pet.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Choose a pet if you like having it on screen, or Mini if you only want the controls. One important limit: a chat started from those floating controls is outside a project. If you need the files and instructions saved in a project, start the chat from that project in the main app instead.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>On the web, a pet can appear inside supported ChatGPT Work chats, but OpenAI says it does not have the desktop floating overlay or activity tray. Pets may also depend on your account and workspace being allowed to use them.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult and direct ('optional desktop scenery', 'the pet does not make ChatGPT smarter') without condescension or borrowed persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Say you are planning a birthday dinner in a notes app and want ChatGPT to suggest a grocery list. Paste the meal details into a quick chat from the floating controls while you use another app. That is a convenience feature. It is not a new assistant, and it does not make the grocery list more accurate.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“A ChatGPT pet is optional desktop scenery around quick-chat controls. The controls can be handy; the pet does not make ChatGPT smarter.”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The headline question is genuinely live, the birthday-dinner scene is concrete, and the deflation of the pet to scenery is a quietly satisfying payoff.",
+      "artifactEvidence": [
+        {
+          "excerpt": "What does a ChatGPT pet actually do?",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>Say you are planning a birthday dinner in a notes app and want ChatGPT to suggest a grocery list. Paste the meal details into a quick chat from the floating controls while you use another app. That is a convenience feature. It is not a new assistant, and it does not make the grocery list more accurate.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“A ChatGPT pet is optional desktop scenery around quick-chat controls. The controls can be handy; the pet does not make ChatGPT smarter.”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "A dated news article that states what shipped, when, on which platforms, and why it matters, staying within the update's proper scope.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI’s September 11 desktop update added a quick chat to the floating Pets controls on macOS and Windows. OpenAI calls that small new chat Quick Chat. The useful part is the small control panel: you can type or speak a new request while another app is open, then use its bell to see whether a chat is running, needs your input, is ready, or is blocked.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Choose a pet if you like having it on screen, or Mini if you only want the controls. One important limit: a chat started from those floating controls is outside a project. If you need the files and instructions saved in a project, start the chat from that project in the main app instead.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>On the web, a pet can appear inside supported ChatGPT Work chats, but OpenAI says it does not have the desktop floating overlay or activity tray. Pets may also depend on your account and workspace being allowed to use them.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The notes-app birthday dinner scenario shows exactly how the quick chat is used mid-task and what it does not improve.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Say you are planning a birthday dinner in a notes app and want ChatGPT to suggest a grocery list. Paste the meal details into a quick chat from the floating controls while you use another app. That is a convenience feature. It is not a new assistant, and it does not make the grocery list more accurate.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The status is useful when you have stepped away from the main window: <strong>Needs input</strong> means the chat needs your answer, approval, or another decision. <strong>Ready</strong> means it has finished with unread activity. Those labels describe the chat’s progress; the pet is simply the visible companion beside them.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human question first, causal separation of decoration from capability, limits preserved, and a better next question about where context comes from; no imitation of any explainer.",
+      "artifactEvidence": [
+        {
+          "excerpt": "What does a ChatGPT pet actually do?",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>Choose a pet if you like having it on screen, or Mini if you only want the controls. One important limit: a chat started from those floating controls is outside a project. If you need the files and instructions saved in a project, start the chat from that project in the main app instead.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "When a new interface looks magical, separate the visible decoration from the action it actually gives you. Here, the action is starting and following a chat; the limit is where that chat gets its context. <a href=\\\"/library.html#working-with-ai-101::%401-3-whats-actually-determining-the-output\\\">Working with AI 101: What’s Actually Determining the Output</a> explains why a chat can only use the context the surrounding product gives it.",
+          "locator": "P009"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The article's context-boundary mechanism lets a reader accurately explain why a floating-controls chat cannot see project files.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Choose a pet if you like having it on screen, or Mini if you only want the controls. One important limit: a chat started from those floating controls is outside a project. If you need the files and instructions saved in a project, start the chat from that project in the main app instead.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "When a new interface looks magical, separate the visible decoration from the action it actually gives you. Here, the action is starting and following a chat; the limit is where that chat gets its context. <a href=\\\"/library.html#working-with-ai-101::%401-3-whats-actually-determining-the-output\\\">Working with AI 101: What’s Actually Determining the Output</a> explains why a chat can only use the context the surrounding product gives it.",
+          "locator": "P009"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why might ChatGPT give a weaker answer when I ask it something from the floating pet controls than when I ask the same thing inside my project?",
+        "response": "Because a chat started from the floating controls begins outside any project, it cannot see the files and instructions saved in that project. ChatGPT can only use the context the surrounding product hands to the chat, and the floating panel hands it nothing from your project. The pet itself changes nothing either way — it is appearance only. To get the project's files and instructions into the conversation, you must start the chat from that project in the main app.",
+        "expectedEvidence": "An accurate answer must cite the context boundary (floating-controls chats are outside a project, P006), the general principle that a chat only uses supplied context (P009), and the appearance-only role of the pet (P003).",
+        "assessment": "The article fully supports this answer: P006 states the boundary and the remedy, P009 supplies the causal principle, and P003 rules out the pet as a variable. A reader relying only on this artifact can reconstruct the causal chain correctly."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The decoration-versus-action model and the where-the-chat-starts rule transfer cleanly to new situations not in the article.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks. If you want the floating controls without an animal, choose Mini in Settings &gt; Pets; Mini means the floating controls without a pet.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Choose a pet if you like having it on screen, or Mini if you only want the controls. One important limit: a chat started from those floating controls is outside a project. If you need the files and instructions saved in a project, start the chat from that project in the main app instead.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "When a new interface looks magical, separate the visible decoration from the action it actually gives you. Here, the action is starting and following a chat; the limit is where that chat gets its context. <a href=\\\"/library.html#working-with-ai-101::%401-3-whats-actually-determining-the-output\\\">Working with AI 101: What’s Actually Determining the Output</a> explains why a chat can only use the context the surrounding product gives it.",
+          "locator": "P009"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why did the taglines ignore the style guide, and would choosing a pet instead of Mini help?",
+        "response": "The taglines ignored the guide because her quick chat started from the floating controls, which begin outside any project — the style guide and briefs were never part of the chat's context, so the model could not use them. Switching from Mini to a pet would change nothing: OpenAI states a pet changes appearance only, not how ChatGPT completes tasks. The fix is to open her project in the main app and start the tagline chat there, so the guide and briefs are supplied as context.",
+        "expectedEvidence": "The answer must apply the project-context boundary (P006), the context-determines-output principle (P009), and the appearance-only limit rebutting the pet suggestion (P003).",
+        "assessment": "The article's mechanism resolves this novel scenario completely, including debunking the pet-quality misconception — evidence the explanation transfers beyond its own example."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Specific, proportionate actions: choose Mini in Settings > Pets if you want controls only, and start from the project in the main app when you need its files.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks. If you want the floating controls without an animal, choose Mini in Settings &gt; Pets; Mini means the floating controls without a pet.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Choose a pet if you like having it on screen, or Mini if you only want the controls. One important limit: a chat started from those floating controls is outside a project. If you need the files and instructions saved in a project, start the chat from that project in the main app instead.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The 'scenery'/'companion' framing maps accurately to the documented appearance-only role and carries no false capability claims.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks. If you want the floating controls without an animal, choose Mini in Settings &gt; Pets; Mini means the floating controls without a pet.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The status is useful when you have stepped away from the main window: <strong>Needs input</strong> means the chat needs your answer, approval, or another decision. <strong>Ready</strong> means it has finished with unread activity. Those labels describe the chat’s progress; the pet is simply the visible companion beside them.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "“A ChatGPT pet is optional desktop scenery around quick-chat controls. The controls can be handy; the pet does not make ChatGPT smarter.”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "All material claims — release date and platforms, appearance-only limit, project boundary, status meanings, web-pet limitation, and availability caveat — trace to the supplied primary source excerpts with attribution retained.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI’s September 11 desktop update added a quick chat to the floating Pets controls on macOS and Windows. OpenAI calls that small new chat Quick Chat. The useful part is the small control panel: you can type or speak a new request while another app is open, then use its bell to see whether a chat is running, needs your input, is ready, or is blocked.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Choose a pet if you like having it on screen, or Mini if you only want the controls. One important limit: a chat started from those floating controls is outside a project. If you need the files and instructions saved in a project, start the chat from that project in the main app instead.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>On the web, a pet can appear inside supported ChatGPT Work chats, but OpenAI says it does not have the desktop floating overlay or activity tray. Pets may also depend on your account and workspace being allowed to use them.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The change is pegged to September 11, both sources carry 2026-09-13 access dates, and the maker-source limitation is respected via attribution and hedged availability language.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI’s September 11 desktop update added a quick chat to the floating Pets controls on macOS and Windows. OpenAI calls that small new chat Quick Chat. The useful part is the small control panel: you can type or speak a new request while another app is open, then use its bell to see whether a chat is running, needs your input, is ready, or is blocked.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>On the web, a pet can appear inside supported ChatGPT Work chats, but OpenAI says it does not have the desktop floating overlay or activity tray. Pets may also depend on your account and workspace being allowed to use them.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The new quick-chat capability from the September 11 update is clearly distinguished from the pre-existing pet appearance framework it was added to.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>OpenAI’s September 11 desktop update added a quick chat to the floating Pets controls on macOS and Windows. OpenAI calls that small new chat Quick Chat. The useful part is the small control panel: you can type or speak a new request while another app is open, then use its bell to see whether a chat is running, needs your input, is ready, or is blocked.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks. If you want the floating controls without an animal, choose Mini in Settings &gt; Pets; Mini means the floating controls without a pet.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (lost project context, no accuracy gain) and uncertainty survives: availability 'may also depend' on account and workspace, and no usefulness claim exceeds the maker sources.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Say you are planning a birthday dinner in a notes app and want ChatGPT to suggest a grocery list. Paste the meal details into a quick chat from the floating controls while you use another app. That is a convenience feature. It is not a new assistant, and it does not make the grocery list more accurate.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Choose a pet if you like having it on screen, or Mini if you only want the controls. One important limit: a chat started from those floating controls is outside a project. If you need the files and instructions saved in a project, start the chat from that project in the main app instead.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>On the web, a pet can appear inside supported ChatGPT Work chats, but OpenAI says it does not have the desktop floating overlay or activity tray. Pets may also depend on your account and workspace being allowed to use them.</p>",
+          "locator": "P007"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Terms are introduced inside the working explanation, not as stacked standalone definitions.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Paragraphs each do distinct work: change, scope, scenario, limits, action; no repeated scaffold.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The scenery comparison does causal work, distinguishing appearance from task completion.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references; the single class-notes link serves the context lesson.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal chain — where a chat starts determines what context it has — is explicitly given.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Actions are concrete: choose Mini in Settings > Pets; start from the project in the main app.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Quick Chat, Mini, and status labels are all defined at first meaningful appearance.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Panel, bell, statuses, pet, and project context are connected into one working picture.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Claims stay within the sources and use attribution ('OpenAI says') and hedges ('may also depend').",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The change is pegged to September 11 with dated, accessed primary sources.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Language is concrete throughout; no vague corporate or motivational filler.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The birthday-dinner scene and dry wit keep the piece human rather than a checklist.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline question is answered directly and completely in the body.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The grocery-list example returns to the technical point: convenience, not accuracy, and context boundaries.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The voice is original LAiDIES prose; no imitated persona or mannerisms.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No humour or spectacle displaces the explanation; the tone stays informative.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The explanation, not the hook, occupies the bulk of the piece.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The 'scenery not smarts' conclusion arrives after the controls and limits are explained.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending is a bounded, proportionate lesson about decoration versus action, not a grand moral.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Change, scope, dos and don'ts, limits, and next action are all covered per the reader job.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human question (what does the pet actually do?) precedes the machinery.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The single scenario stays proportionate to the news item's bounded purpose.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "For a bounded news report, explaining this specific mechanism from the reader's perspective is exactly right.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/editorial-input.json",
+        "sha256": "9f1031d9bdefbe854b0147ad64e689ff0e0de4c98588c3f67d84166e2bcb9193"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "quick-chat-release-date",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>OpenAI’s September 11 desktop update added a quick chat to the floating Pets controls on macOS and Windows. OpenAI calls that small new chat Quick Chat. The useful part is the small control panel: you can type or speak a new request while another app is open, then use its bell to see whether a chat is running, needs your input, is ready, or is blocked.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/editorial-input.json",
+          "sha256": "9f1031d9bdefbe854b0147ad64e689ff0e0de4c98588c3f67d84166e2bcb9193"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "2026-09-11\n\nQuick chats with Pets and Appshots on Windows 26.908\n\nChat while you work\n\nKeep ChatGPT close while you work in other apps. In the ChatGPT desktop app on macOS and Windows, you can now type a quick chat from the floating Pets controls and press Enter to send it. Use @ to add context and $ to choose a skill. Select the bell icon to follow progress in your threads, then select a thread to open the full conversation.\n\nChoose a companion or show just the controls in Settings > Pets.",
+            "locator": "https://learn.chatgpt.com/docs/changelog"
+          }
+        ],
+        "scopeAndFreshness": "The changelog entry dated 2026-09-11 states you can now type a quick chat from the floating Pets controls in the ChatGPT desktop app on macOS and Windows, matching the article's dated claim exactly."
+      },
+      {
+        "claimId": "pet-appearance-limit",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks. If you want the floating controls without an animal, choose Mini in Settings &gt; Pets; Mini means the floating controls without a pet.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/editorial-input.json",
+          "sha256": "9f1031d9bdefbe854b0147ad64e689ff0e0de4c98588c3f67d84166e2bcb9193"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Pets are optional animated companions for following work. Where a pet appears and what it shows depend on the interface you use. Choosing a pet changes its appearance, not how ChatGPT completes tasks.\n\nIn the ChatGPT desktop app on macOS and Windows, a pet can float above other app windows. Use the controls below it to start a chat by typing or speaking, and follow activity while you work in other apps.\n\nChoose a built-in or custom pet, or select Mini to show the chat controls without a pet.\n\nA chat started from these controls is outside a project. To use a project's context, start the chat from that project in the main app.\n\n| Status | Meaning |\n| **Running** | A chat is actively working. |\n| **Needs input** | A chat needs your approval, answer, or another decision. |\n| **Ready** | A chat has completed and has unread activity. |\n| **Blocked** | A chat failed or encountered a system error. |",
+            "locator": "https://learn.chatgpt.com/docs/pets"
+          },
+          {
+            "excerpt": "If Pets are available for your account and workspace, open Settings > Personalization > Pet > Select pet. Choose a built-in pet, or choose Default to use ChatGPT without a pet.\n\nA web pet appears inside supported ChatGPT Work chats. It doesn't provide the desktop app's floating overlay, activity tray, or /pet command.",
+            "locator": "https://learn.chatgpt.com/docs/pets"
+          }
+        ],
+        "scopeAndFreshness": "The Pets docs state verbatim that 'Choosing a pet changes its appearance, not how ChatGPT completes tasks'; the article renders this near-verbatim with correct 'OpenAI says' attribution."
+      },
+      {
+        "claimId": "controls-context-boundary",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Choose a pet if you like having it on screen, or Mini if you only want the controls. One important limit: a chat started from those floating controls is outside a project. If you need the files and instructions saved in a project, start the chat from that project in the main app instead.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/editorial-input.json",
+          "sha256": "9f1031d9bdefbe854b0147ad64e689ff0e0de4c98588c3f67d84166e2bcb9193"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Pets are optional animated companions for following work. Where a pet appears and what it shows depend on the interface you use. Choosing a pet changes its appearance, not how ChatGPT completes tasks.\n\nIn the ChatGPT desktop app on macOS and Windows, a pet can float above other app windows. Use the controls below it to start a chat by typing or speaking, and follow activity while you work in other apps.\n\nChoose a built-in or custom pet, or select Mini to show the chat controls without a pet.\n\nA chat started from these controls is outside a project. To use a project's context, start the chat from that project in the main app.\n\n| Status | Meaning |\n| **Running** | A chat is actively working. |\n| **Needs input** | A chat needs your approval, answer, or another decision. |\n| **Ready** | A chat has completed and has unread activity. |\n| **Blocked** | A chat failed or encountered a system error. |",
+            "locator": "https://learn.chatgpt.com/docs/pets"
+          },
+          {
+            "excerpt": "If Pets are available for your account and workspace, open Settings > Personalization > Pet > Select pet. Choose a built-in pet, or choose Default to use ChatGPT without a pet.\n\nA web pet appears inside supported ChatGPT Work chats. It doesn't provide the desktop app's floating overlay, activity tray, or /pet command.",
+            "locator": "https://learn.chatgpt.com/docs/pets"
+          }
+        ],
+        "scopeAndFreshness": "The Pets docs state 'A chat started from these controls is outside a project' and direct users to start from the project in the main app to use its context; the article reproduces both the limit and the remedy accurately."
+      }
+    ],
+    "reviewedThrough": "2026-09-13",
+    "nextTrigger": "Any OpenAI change to the Pets documentation or the September 11 changelog entry, including platforms, controls, project-context, or availability language.",
+    "correctionOwner": "/root/evening_sources"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate answers the pets-versus-controls reader question."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All outcomes and news checks pass and every failure family is clear; no reusable defect pattern was observed in this artifact."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=4; evidence gaps repaired=2; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/admitted-v4/news-editorial-analysis.json",
+      "sha256": "a2275c1b3ca12ce46a685ca5236514b278db12955b48c0b80d10095eaac9e021"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/chatgpt-pets-20260913/admitted-v4/independent-raw-report.json",
+    "sha256": "4aaaf5edce715d715181cde8ad68eac75cfd952cab4e30b1233c581fb133f1ed"
+  }
+}

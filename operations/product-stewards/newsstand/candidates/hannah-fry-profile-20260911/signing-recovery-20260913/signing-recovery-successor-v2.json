@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "laidies-luminairy-signing-recovery-successor.v1",
+  "supersedes": {
+    "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/signing-recovery-20260913/signing-recovery-receipt.json",
+    "sha256": "f480575e2ea15d1d74f6b7370c5d9e14ebed69e5d67447ce4358176f43fe10e9"
+  },
+  "checkedAt": "2026-09-13T15:29:17.831Z",
+  "status": "HOLD_SUPPORTED_KEYCHAIN_AUTHORITY_UNAVAILABLE",
+  "officialFindings": [
+    {
+      "url": "https://developer.apple.com/documentation/security/errsecmissingentitlement",
+      "finding": "errSecMissingEntitlement means a required entitlement is missing; keychain access groups are determined by signed app entitlements."
+    },
+    {
+      "url": "https://developer.apple.com/documentation/xcode/creating-distribution-signed-code-for-the-mac",
+      "finding": "Apple identifies keychain-access-groups as a restricted entitlement requiring a provisioning profile."
+    },
+    {
+      "url": "https://developer.apple.com/documentation/security/importing-an-identity",
+      "finding": "PKCS#12 is password-protected private-key transport; this recovery does not create or retain such a file because it would violate the no-private-material-outside-Keychain constraint."
+    }
+  ],
+  "attempts": [
+    {
+      "method": "ad-hoc-signed sandboxed local helper with one application-group entitlement",
+      "codeSignature": "AD_HOC_VALID",
+      "result": "FAIL",
+      "observedExitCode": 133,
+      "publicJwkCreated": false,
+      "signatureCreated": false,
+      "privateMaterialLogged": false
+    },
+    {
+      "method": "classic login-Keychain private-key import",
+      "result": "NOT_ATTEMPTED",
+      "reason": "Apple documents private-key import as PKCS#12 password-protected transport. Creating a PKCS#12 import path would require a private-key container/password outside Keychain, contrary to this assigned no-export/no-temp/no-user-secret boundary."
+    }
+  ],
+  "requiredSupportedInput": "A user-provided, properly provisioned macOS signing helper identity (Apple Developer team signing certificate plus provisioning profile that authorizes its keychain access group), or an already-authorized local signing app/keychain authority. No paid service is assumed, but this host does not expose either credential or authorization.",
+  "result": {
+    "keyId": null,
+    "publicJwk": null,
+    "signature": null,
+    "storageMetadata": null,
+    "tamperTests": "NOT_RUN_NO_SIGNER"
+  },
+  "scope": {
+    "privateOutputOnly": true,
+    "canonicalWrites": false,
+    "publicWrites": false,
+    "deployment": false,
+    "trustListChanged": false
+  }
+}

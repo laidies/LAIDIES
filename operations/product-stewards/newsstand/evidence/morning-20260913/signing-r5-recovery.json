@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "luminairy-signing-r5-recovery-audit-v1",
+  "auditedAt": "2026-09-13T14:53:08Z",
+  "scope": {
+    "mode": "read-only bounded metadata audit",
+    "target": "Documented signer path, owner, or recovery route for the historic r3, r4, and r5 LUMINAiRY authorities, with particular attention to the September 7 renewal commit.",
+    "excluded": [
+      "credential-store searches",
+      "private-key bytes or public-key coordinates",
+      "key generation, rotation, or signing",
+      "validator or gate changes",
+      "canonical and public writes"
+    ]
+  },
+  "targetHistory": {
+    "ownerThread": {
+      "id": "01a0308b-140d-7263-aebd-00aa52264775",
+      "title": "Complete patron profiles",
+      "inspection": "Reviewed the accessible owner-history page. It showed the historical temporary worktree reference but no signer location, individual signer, or recovery route. A bounded older-page request failed, so no unreturned turns are claimed as inspected."
+    },
+    "renewalCommit": {
+      "sha": "7fa88bad32b8700dd2bec31ab3966bc8c02b4fe6",
+      "subject": "Complete LUMINAiRY teaching chains",
+      "committedAt": "2026-09-07T14:23:12-07:00",
+      "metadataObservation": "The commit contains a signing build script and September 7 receipt records; it does not document a private-key filesystem path, secure-store reference, signer identity, or recovery owner."
+    }
+  },
+  "keyIdentityFindings": [
+    {
+      "keyId": "luminairy-editorial-offline-r3-20260823",
+      "status": "NO_NEW_DOCUMENTED_RECOVERY_ROUTE",
+      "evidence": "The prior bounded audit receipt records r3 as a public verification identity only. This renewal-commit review found no r3 signer-path, owner, or recovery metadata."
+    },
+    {
+      "keyId": "luminairy-editorial-offline-r4-20260902",
+      "status": "NO_NEW_DOCUMENTED_RECOVERY_ROUTE",
+      "evidence": "The prior bounded audit receipt records r4 as a public verification identity only. This renewal-commit review found no r4 signer-path, owner, or recovery metadata."
+    },
+    {
+      "keyId": "luminairy-editorial-offline-r5-20260902",
+      "status": "UNSIGNED_REQUEST_ONLY; NO_DOCUMENTED_RECOVERY_ROUTE",
+      "evidence": "operations/product-stewards/luminairy/cher-dionne-v12-offline-signing-request-2026-09-05.json in the renewal commit identifies r5 in an unsigned receipt and names only an authorized offline editorial signer. Its signature is null and its instruction requires an independently verified P-256 signature; it gives no path, individual owner, or recovery route."
+    },
+    {
+      "keyId": "luminairy-editorial-offline-r6-20260905",
+      "status": "SEPTEMBER_7_RENEWAL_VERIFIER_ID_ONLY",
+      "evidence": "The commit's content/luminairy-editorial-receipts.json identifies r6 as the receipt keyId, while the receipt identifiers are r7-dated. This establishes the signed release's verifier identity and receipt lineage, not access to the r6 private signer or a recovery route."
+    }
+  ],
+  "scriptInterface": {
+    "path": "commit:7fa88bad32b8700dd2bec31ab3966bc8c02b4fe6:scripts/build-luminairy-signed-profile-release.mjs",
+    "documentedInputs": [
+      "LUMINAIRY_PRIVATE_KEY",
+      "LUMINAIRY_KEY_ID"
+    ],
+    "finding": "The script expects a private-key path via its environment interface and a key ID, but contains no documented value, owner, secure location, or recovery procedure. Environment values were not read."
+  },
+  "roleMetadata": {
+    "source": "commit:7fa88bad32b8700dd2bec31ab3966bc8c02b4fe6:operations/product-stewards/luminairy/OPERATING-SPEC.md",
+    "finding": "The operating specification keeps the private signing authority outside the public candidate and names only role-level building, research, and independent review responsibilities. It does not assign a signer or recovery custodian."
+  },
+  "temporaryPath": {
+    "path": "/private/tmp/laidies-luminairy-reconcile.ruEIHR",
+    "existsAtAudit": false,
+    "finding": "Absent; no material was read from it."
+  },
+  "recoveryDecision": {
+    "status": "HOLD_NO_DOCUMENTED_SIGNER_RECOVERY_ROUTE",
+    "documentedSignerPath": null,
+    "documentedIndividualOwner": null,
+    "nextAction": "Obtain an authorized offline signer or approved recovery-route reference from the authority holder before attempting any new signature. Do not infer one from the r5 unsigned request, the r6 verifier identity, commit authorship, or review roles.",
+    "exactQuestionIfNeeded": "Which authorized offline signer or secure recovery location controls the LUMINAiRY receipt authority needed for this release? Please provide the owner or approved recovery route only; do not paste key material."
+  },
+  "integrity": {
+    "privateKeyBytesRead": false,
+    "credentialStoresScanned": false,
+    "keysGeneratedOrRotated": false,
+    "signaturesProduced": false,
+    "publicOrCanonicalFilesChanged": false
+  }
+}

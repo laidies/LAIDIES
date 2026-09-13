@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-09-13T15:53:07.252Z",
+  "script": "scripts/validate-luminairy-claims.mjs",
+  "scriptSha256": "55557117fb8e40c09df87ae7458ce8febffcaffcc5f7acca6ea9e4b34999a774",
+  "frozenBase": {
+    "root": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/live-base-20260913",
+    "result": "PASS",
+    "mode": "explicit claims-only; complete page dependencies are absent from frozen five-file fixture"
+  },
+  "integration": {
+    "root": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913",
+    "successorAuthority": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/successor-profile-authority-v2.json",
+    "result": "PASS",
+    "mode": "explicit claims-only; authority inputs and all five declared public-file hashes verified",
+    "successorAuthoritySha256": "28eda00ec153b1f12e258e9305950345b3f6459faea39f1feb648809085368b7"
+  },
+  "negative": {
+    "case": "integration without LUMINAIRY_SUCCESSOR_AUTHORITY_PATH",
+    "result": "PASS fail-closed",
+    "exitCode": 1,
+    "error": "Hannah Fry r7 receipt requires an explicit successor authority",
+    "output": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/validator-missing-authority.out",
+    "historicResourceAdmission": {
+      "result": "PASS fail-closed",
+      "exitCode": 1,
+      "error": "Hannah Fry historic resource admission profile mismatch",
+      "output": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/validator-tampered-historic-resource.out"
+    }
+  },
+  "scope": "No CSS, image, or song test was silently skipped: claims-only mode was explicitly selected because both frozen fixtures contain only the five integration files. Runtime gate validation separately ran valid 43-profile and two tampered inputs.",
+  "historicResourceRecord": {
+    "path": "/Users/alisoneakin/Projects/laidies-maikeover-release-20260902/operations/product-stewards/luminairy/hannah-fry-resource-links-2026-09-02.json",
+    "profileAdmissionSha256": "1638a86a2329121796d159ad169c95a7c030934d2049e190b2a59a837a0c0287",
+    "result": "PASS: v2 authority exact field matches preserved record"
+  }
+}

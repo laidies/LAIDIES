@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "laidies.luminairy-private-integration-independent-review.v2",
+  "reviewedAt": "2026-09-13T15:53:07.253Z",
+  "reviewer": "/root/evening_sources",
+  "supersedes": {
+    "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/integration-admission-review.json",
+    "sha256": "16d75853d399442ee3da24d54c8eea157d0494b59c642926ea95cbb667ebd149"
+  },
+  "decision": "PASS_PRIVATE_INTEGRATION_READY_FOR_ROOT_ADMISSION",
+  "scope": "Private five-file Hannah Fry successor integration only. No canonical, public, or deployment write.",
+  "checks": {
+    "boundedDiff": {
+      "result": "PASS",
+      "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/five-file-comparison.json",
+      "sha256": "07e6a67756e0fb5941d9f0f1d195d34935f388b6fb41ddb0f47942182c0c0f5a"
+    },
+    "runtimeGate": {
+      "result": "PASS",
+      "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/runtime-gate-results.json",
+      "sha256": "fca70ee424ecb5e5e23a02b697d60c71a1598951ae6bf8c75cab29f62bb07034",
+      "validAll43": "PASS",
+      "tamperedProfile": "PASS fail-closed",
+      "tamperedSignature": "PASS fail-closed"
+    },
+    "validator": {
+      "result": "PASS",
+      "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/review/validator-results.json",
+      "sha256": "0705af702438802a41935f0cef3af8a513db274bbd245a1c74a1c08b7a7e987d",
+      "frozenBase": "PASS",
+      "integration": "PASS",
+      "missingSuccessorAuthority": "PASS fail-closed",
+      "tamperedHistoricResourceAdmission": "PASS fail-closed"
+    }
+  },
+  "authority": {
+    "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/integration-20260913/successor-profile-authority-v2.json",
+    "sha256": "28eda00ec153b1f12e258e9305950345b3f6459faea39f1feb648809085368b7",
+    "historicResourceAdmissionProfileSha256": "1638a86a2329121796d159ad169c95a7c030934d2049e190b2a59a837a0c0287",
+    "finding": "The v2 authority separately binds the revised profile, fresh prose evidence/review, historic source/resource digests, and the prior resource-record admission profile hash. The old resource record remains historical evidence; it is not misrepresented as the new prose source."
+  },
+  "metadataAssessment": "claims.generatedOn and manifest root keyId remain frozen-manifest provenance/default metadata. Hannah’s new receipt names r7 and reviewedOn 2026-09-13, so the retained root keyId does not validate that receipt.",
+  "independence": "Reviewer is distinct from the root integration maker. Reviewer is the r7 signing custodian; deterministic signature validation is independently rerun, so this is not a second approval of the signing act.",
+  "limitations": [
+    "Claims-only validator mode was explicitly selected because both frozen fixtures contain only the five integration files; page CSS, image, and song checks were not run from absent fixture dependencies.",
+    "This private review is not a publication or live verification."
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "newsstand-selection-independent-admission-v1",
+  "reviewedAt": "2026-09-13T15:22:43Z",
+  "reviewer": {
+    "principalId": "/root/evening_aidb",
+    "role": "Independent NewsStand selection reviewer"
+  },
+  "verdict": "PASS",
+  "scope": "Selection placement and matching HTML cache fingerprints for chatgpt-pets-20260913 only.",
+  "bindings": {
+    "selection": {
+      "path": "content/newsstand-selection.js",
+      "sha256": "2372e8572f91bfb44f7c14d897c3906ce0ba669f120847df99dd1c4ded84a268",
+      "htmlFingerprint": "2372e8572f91bfb4"
+    },
+    "stories": {
+      "path": "content/newsstand-stories.js",
+      "sha256": "e40258a2cb2a122a75283717c3383cc38c4eab50a26694801b1bf181ed0a76a4",
+      "htmlFingerprint": "e40258a2cb2a122a"
+    },
+    "html": {
+      "path": "newsstand.html",
+      "selectionReference": "./content/newsstand-selection.js?v=2372e8572f91bfb4",
+      "storiesReference": "./content/newsstand-stories.js?v=e40258a2cb2a122a"
+    }
+  },
+  "observations": [
+    "The exact diff changes only the review date and inserts chatgpt-pets-20260913 immediately after chatgpt-images-2-5-2026-09-08; it changes neither any existing selection ID nor the comparator implementation.",
+    "Date-first Vancouver ordering is unchanged. The published Pets story has 2026-09-13T15:19:49Z and sorts above all September 12 stories.",
+    "Within a same-day comparison, the Pets position remains below the existing higher-priority safety/rights block and above the listed niche/developer-product IDs microsoft-family-safety-20260911, gpt-live-downstream-20260911, meta-muse-20260911, askca-pilot-20260911, deepseek-flash-20260912, alphagenome-atlas-20260912, crisp-pathology-20260912, navier-stokes-claim-20260911, cursor-projects-20260912, openai-data-agent-20260910, agents-api-20260911 and honeybook-plugin-20260912.",
+    "A reconstructed selection list without the Pets ID rejected the released daily story with: NewsStand reader relevance and placement required before release: chatgpt-pets-20260913."
+  ],
+  "verification": {
+    "selectionTest": "PASS: scripts/test-newsstand-selection.mjs",
+    "derivativesCheck": "PASS: scripts/build-newsstand-derivatives.mjs --check; current=4 archive=76",
+    "olderComparatorUnchanged": true,
+    "publicFilesEditedByReviewer": false
+  },
+  "limitations": "This private admission does not publish, deploy, or live-verify the selected story."
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "aidb-private-source-capture-v1",
+  "runAt": "2026-09-13T14:02:37Z",
+  "captureMethod": "Direct public HTTP fetches; hashes identify locally observed response bytes and are not transcript identities unless explicitly labelled transcriptSha256.",
+  "checks": [
+    {"role":"website_index","url":"https://aidailybrief.ai/agent.json","status":"CHECKED","httpStatus":200,"checkedAt":"2026-09-13T14:02:37Z","sha256":"d4d50aa08807ff1b7be2656867d52f5befc28224385bbcf765ab67a4d943b3f4","observation":"Latest listed edition is 2026-09-13; no 2026-09-12 edition appears."},
+    {"role":"expected_edition_page","url":"https://aidailybrief.ai/e/2026-09-12","status":"ABSENT","httpStatus":404,"checkedAt":"2026-09-13T14:02:37Z"},
+    {"role":"expected_edition_json","url":"https://aidailybrief.ai/e/2026-09-12.json","status":"ABSENT","httpStatus":404,"checkedAt":"2026-09-13T14:02:37Z"},
+    {"role":"expected_edition_transcript","url":"https://aidailybrief.ai/e/2026-09-12/transcript.md","status":"ABSENT","httpStatus":404,"checkedAt":"2026-09-13T14:02:37Z"},
+    {"role":"edition_page","url":"https://aidailybrief.ai/e/2026-09-13","status":"CHECKED","httpStatus":200,"checkedAt":"2026-09-13T14:02:37Z","sha256":"e183135dbd19b2b6f570cd7196733d8d4fe1e7207b1950dfb3580c16278084f5"},
+    {"role":"edition_json","url":"https://aidailybrief.ai/e/2026-09-13.json","status":"CHECKED","httpStatus":200,"checkedAt":"2026-09-13T14:02:37Z","jsonSha256":"211cd14f8eb38f38fcd7a19cb8e54632093b73ffca1a041fddfc05c6bd341752","itemCount":23},
+    {"role":"edition_transcript","url":"https://aidailybrief.ai/e/2026-09-13/transcript.md","status":"CHECKED","httpStatus":200,"checkedAt":"2026-09-13T14:02:37Z","transcriptSha256":"ed2661a829e7d649d68d00199bcfc4865a2759efd7c5f69d9484e5762a67fbb8","fullTranscriptRead":true},
+    {"role":"publisher_podcast_listing","url":"https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614","status":"CHECKED","httpStatus":200,"checkedAt":"2026-09-13T14:02:37Z","sha256":"df183b8fba4f658a0c74a29dd7f05dfd4978c3bf3fa10f7e6a57409d6800006e","observation":"Lists a Sep13 episode with the same title, but this receipt does not merge channels without explicit publisher identity evidence."},
+    {"role":"publisher_newsletter","url":"https://aidailybrief.beehiiv.com/","status":"BLOCKED","httpStatus":403,"checkedAt":"2026-09-13T14:02:37Z","sha256":"8314b79e6646de6d0c0cca75f095acf56686e4f8a301e75ddffcb349711541aa","missingInput":"Accessible rolling-seven-day publisher newsletter index and any full source documents."},
+    {"role":"mollick_feed","url":"https://www.oneusefulthing.org/feed","status":"CHECKED","httpStatus":200,"checkedAt":"2026-09-13T14:04:45Z","sha256":"903ba60783a58cfe3e77df464dca061920a1b93f6489251b1037b38073f0c7fc","observation":"Latest item remains Aug31 'Agency and Agents', already MERGE/WATCH in the Sep3 and Sep4 AIDB records."},
+    {"role":"mollick_archive","url":"https://www.oneusefulthing.org/archive","status":"CHECKED","httpStatus":200,"checkedAt":"2026-09-13T14:04:45Z","sha256":"6d6b4d46ceef43c4f70beae7c677e115b2b19195e3431c957d78f0cab3701633","observation":"Archive agrees that no later post than the feed's Aug31 item was exposed."},
+    {"role":"allie_resources","url":"https://www.alliekmiller.com/resources","status":"CHECKED","httpStatus":200,"checkedAt":"2026-09-13T14:04:45Z","sha256":"dcb76dc397a3470a57d02f53dd14c872da8863ec86e2302ed28ce7caf8ba0b4f","observation":"Governed route is accessible but exposes undated resources and commercial links; no date-verifiable new event or independent evidence."},
+    {"role":"raw_host_alias_test","url":"https://aidailybrief.ai/e/2026-09-07","status":"PARTIAL","httpStatus":200,"checkedAt":"2026-09-13T14:04:45Z","observation":"Direct 200 with no redirect header; does not prove identity with the distinct www cursor URL."},
+    {"role":"raw_host_alias_test","url":"https://www.aidailybrief.ai/e/2026-09-07","status":"PARTIAL","httpStatus":200,"checkedAt":"2026-09-13T14:04:45Z","observation":"Direct 200 with no redirect header; no raw-URL normalization performed."},
+    {"role":"raw_host_alias_test","url":"https://aidailybrief.ai/e/2026-09-08","status":"PARTIAL","httpStatus":200,"checkedAt":"2026-09-13T14:04:45Z","observation":"Direct 200 with no redirect header; does not prove identity with the distinct www cursor URL."},
+    {"role":"raw_host_alias_test","url":"https://www.aidailybrief.ai/e/2026-09-08","status":"PARTIAL","httpStatus":200,"checkedAt":"2026-09-13T14:04:45Z","observation":"Direct 200 with no redirect header; no raw-URL normalization performed."}
+  ],
+  "retryAt":"2026-09-13T17:00:00Z"
+}

@@ -5,6 +5,7 @@ import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { buildDerivatives } from "./build-newsstand-derivatives.mjs";
+import selection from "../content/newsstand-selection.js";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const storyRaw = fs.readFileSync(path.join(ROOT, "content/newsstand-stories.js"), "utf8");
@@ -65,6 +66,20 @@ const added = structuredClone(unranked.stories.find(story => story.id === 'honey
 added.id = 'new-unreviewed-niche-announcement'; added.slug = added.id;
 unranked.stories.push(added); unranked.publications.daily.issue.storyIds.push(added.id);
 assert.throws(() => buildDerivatives({storyRaw: `window.NEWSSTAND_DATA=${JSON.stringify(unranked)};`, columns, issues}), /reader relevance and placement required/);
-assert.equal(first.feed.current[0].id, 'amodei-ai-pacing-20260912');
-assert.equal(first.feed.archive[0].id, 'honeybook-plugin-20260912', 'archive remains chronological');
+const currentDailyIssue = canonical.publications.daily.issue;
+const currentDailyStories = canonical.stories
+  .filter((story) => (currentDailyIssue.storyIds || []).includes(story.id))
+  .sort(selection.compare);
+if (currentDailyStories.length) {
+  assert.equal(first.feed.current[0].id, currentDailyStories[0].id,
+    "current lead must follow the canonical Daily issue's date-first reviewed selection");
+}
+const serviceOnly = structuredClone(canonical);
+serviceOnly.publications.daily.issue.storyIds = [];
+const serviceOnlyResult = buildDerivatives({ storyRaw: `window.NEWSSTAND_DATA=${JSON.stringify(serviceOnly)};`, columns, issues });
+assert.equal(serviceOnlyResult.feed.current.some(item => item.edition === "daily" && item.id !== serviceOnly.publications.daily.issue.frontPaigeStoryId), false,
+  "a service-only Daily issue must not invent an ordinary Daily lead");
+for (let i = 1; i < first.feed.archive.length; i++) {
+  assert.ok(Date.parse(first.feed.archive[i-1].publishedAt) >= Date.parse(first.feed.archive[i].publishedAt), 'archive remains chronological');
+}
 console.log('RELEVANCE: unreviewed new announcement rejected; current lead and chronological archive verified');

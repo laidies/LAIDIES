@@ -331,6 +331,16 @@ assert.doesNotMatch(catchup, /This edition is from the archive|No Weekly is read
 assert.match(html, /function renderArchive\(invoker, viewOptions\)/, "the all-issues route needs a dedicated deterministic renderer");
 assert.match(html, /function reconcileHistoricalDailySnapshot\(snapshot\)/, "historical Daily snapshots need a fail-closed schema reconciliation path");
 assert.match(html, /sameSources[\s\S]*?samePublishedBytes[\s\S]*?&& sameSources/, "snapshot reconciliation must prove published copy and source fields are unchanged before adding current metadata");
+// Exercise the real reconciliation function, including mismatched evidence.
+const reconcileCode = html.slice(html.indexOf('function reconcileHistoricalDailySnapshot('), html.indexOf('window.addEventListener("newsstand:daily-snapshots-admitted"'));
+const artStory = { id: 'art-test', edition: 'daily', status: 'published', headline: 'Original', sources: [{id:'source', url:'https://example.com/original'}], heroVisual: {src:'/approved.png'} };
+const artContext = {stories: [artStory]};
+vm.runInNewContext(reconcileCode, artContext);
+const artSnapshot = JSON.parse(JSON.stringify({...artStory, heroVisual:{src:'/old.png'}}));
+assert.equal(artContext.reconcileHistoricalDailySnapshot(artSnapshot).heroVisual.src, '/approved.png');
+assert.equal(artSnapshot.heroVisual.src, '/old.png', 'snapshot remains immutable');
+assert.equal(artContext.reconcileHistoricalDailySnapshot({...artSnapshot, headline:'Changed'}).heroVisual.src, '/old.png', 'changed text cannot inherit art');
+assert.equal(artContext.reconcileHistoricalDailySnapshot({...artSnapshot, sources:[{id:'source',url:'https://example.com/changed'}]}).heroVisual.src, '/old.png', 'changed source cannot inherit art');
 assert.match(html, /function renderTopicButtons\(\)/, "the archive must derive its browse-by-topic controls from eligible stories");
 assert.match(html, /function defaultSearchHint\(\)/, "search suggestions must come from the eligible archive rather than stale examples");
 assert.doesNotMatch(html, /Try [“\"]agents[”\"].*[“\"]policy[”\"].*[“\"]Slack[”\"]/s, "the page cannot suggest searches that return no eligible issue");
@@ -372,7 +382,8 @@ assert.match(html, /function restoreHashlessView\(\)/);
 assert.match(html, /data-ns-restoration/, "history restoration must expose an observable settled state");
 assert.match(html, /newsstand:history-restored/, "history restoration must emit an observable event");
 assert.doesNotMatch(html, /window\.setTimeout\(function \(\) \{ window\.scrollTo/, "history restoration must not rely on a timing guess");
-assert.match(html, /if \(location\.hash\) renderHash\(true, lastInvoker\);\s*else restoreHashlessView\(\);/);
+assert.match(html, /window\.addEventListener\("hashchange", function \(\) \{\s*if \(location\.hash\) \{[\s\S]*?var restored = !pendingStoryView && history\.state && history\.state\.nsStory === restoredSlug;\s*renderHash\(true, lastInvoker, \{ skipMeasurement: Boolean\(restored\) \}\);\s*\}\s*else restoreHashlessView\(\);/,
+  "hash-history restoration must suppress duplicate measurement only for an already-restored story and still restore the hashless view");
 assert.match(html, /rack\.innerHTML = "";\s*empty\.hidden = true;/);
 assert.doesNotMatch(html, /story\.edition === "wednesday"/);
 assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);

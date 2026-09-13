@@ -1,3 +1,5 @@
+September13 NewsStand execution: Ali’s standing completion authorization covers non-chargeable signing recovery. Root’s earlier no-rotation hold was not an Ali rejection. Independently signed r7 Hannah successor preserves all existing trusted keys and42otherprofiles; protected macOS login-Keychain custody, no private-key export, and actual runtime tamper rejection are recorded in the Hannah candidate. No claim of per-sign user presence. Public receipt: operations/product-stewards/newsstand/evidence/hannah-release-20260913/release.json.
+
 September12 clarification superseding cross-date relevance ordering: The Latest is newest Vancouver publication date first; editorial relevance orders stories within each date. Ali reiterates no MAiVEN/TRAiLBLAZER images as generic NewsStand art and explicitly rejects latest-anthropic-agentic-incidents-20260902.png. Remove that exact artwork from all reader reuse, including historical snapshots; do not substitute a person image without applicable approval.
 
 September 12 — NewsStand relevance before recency: Ali approves major relevant news first, changes readers may encounter second, and niche discoveries only with a clear audience payoff. Publication time must not automatically determine promotional prominence. Preserve chronological archives and original articles. Apply before production and at front-page/current Daily selection; see the editorial promise, September 12 relevance.
@@ -451,3 +453,7 @@ A source-check timestamp is an observed event, not a planned time or an estimate
 
 ## 2026-09-12 — NewsStand draft bindings checked before paid review
 The writer input's optional research bindings must be an array of exact path/SHA-256 records, matching ordinary-candidate admission. Object-shaped maps must fail in producer preparation before editorial review. `scripts/test-newsstand-writer-bindings.mjs` accepts the actual Microsoft/Groq inputs and rejects reconstructed malformed predecessors. This is input integrity, not editorial approval.
+
+
+## 2026-09-12 — NewsStand illustration updates preserve admitted editions
+Never mutate an admitted Daily snapshot to refresh an illustration. Preserve exact envelope bytes. The existing historical reconciliation may inherit current canonical hero art only when its protected published text, dates and source identities still match. Run the full service-population browser check after art releases; image-only visual checks cannot detect dropped columns. Source9672fe1e; live repair c0efbcbf.

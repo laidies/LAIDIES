@@ -31,6 +31,7 @@
       };
       plausible.init();
     </script>
+    <script>window.NewsStandMeasurementQueue = window.NewsStandMeasurementQueue || [];</script>
     <link rel="canonical" href="https://laidies.ai/newsstand" />
   <meta property="og:url" content="https://laidies.ai/newsstand" />
 </head>
@@ -340,8 +341,8 @@
 
     <script src="./content/newsstand-big-picture-versions.js?v=20260905-1"></script>
     <script src="./content/newsstand-reader-contract.js?v=20260906-weekly-1"></script>
-    <script src="./content/newsstand-selection.js?v=3aefb62113568e42"></script>
-    <script src="./content/newsstand-stories.js?v=4340e9b107f35715"></script>
+    <script src="./content/newsstand-selection.js?v=2372e8572f91bfb4"></script>
+    <script src="./content/newsstand-stories.js?v=e40258a2cb2a122a"></script>
     <script src="./content/newsstand-big-picture-tracking.js?v=20260824-1"></script>
     <script>
       (function () {
@@ -443,6 +444,9 @@
           if (!samePublishedBytes) return snapshot;
           return Object.assign({}, snapshot, {
             status: canonical.status,
+            // Keep the admitted edition immutable; apply current art only when
+            // its story text, dates and sources still match this snapshot.
+            heroVisual: canonical.heroVisual || null,
             sourceApproval: canonical.sourceApproval,
             correction: canonical.correction || null,
             correctionHistory: canonical.correctionHistory || [],
@@ -475,12 +479,29 @@
         var pendingStoryView = null;
         var restorationSequence = 0;
         var activeHistoryRestoration = null;
+        var measurementSequence = 0;
         if ("scrollRestoration" in history) history.scrollRestoration = "manual";
         var reader = document.getElementById("paper-counter");
         var paperView = document.getElementById("ns-paper-view");
         var rack = document.getElementById("ns-rack");
         var empty = document.getElementById("ns-empty");
         var searchInput = document.getElementById("ns-search-input");
+
+        function measure(kind, transition) {
+          var event = { kind: kind };
+          if (transition) event.transition = transition;
+          if (window.NewsStandMeasurement && typeof window.NewsStandMeasurement.record === "function") {
+            window.NewsStandMeasurement.record(event);
+          } else {
+            window.NewsStandMeasurementQueue = window.NewsStandMeasurementQueue || [];
+            window.NewsStandMeasurementQueue.push(event);
+          }
+        }
+
+        function renderedMeasurementTransition() {
+          measurementSequence += 1;
+          return "ns-render-" + measurementSequence;
+        }
 
         function visiblePublicationControl(edition) {
           var selector = edition
@@ -1231,6 +1252,7 @@
               invoker: invoker
             });
             if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
+            if (!viewOptions.skipHistory && !viewOptions.skipMeasurement) measure("paper_unavailable", renderedMeasurementTransition());
             return;
           }
           var publication = data.publications[edition];
@@ -1248,6 +1270,7 @@
             invoker: invoker
           });
           if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
+          if (!viewOptions.skipHistory && !viewOptions.skipMeasurement) measure("paper_available", renderedMeasurementTransition());
         }
 
         function renderSearch(invoker, viewOptions) {
@@ -1275,6 +1298,7 @@
               invoker: invoker || searchInput
             });
             if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
+            if (viewOptions.explicitSearch) measure("search_unavailable");
             return;
           }
           var matches = filteredArchiveItems(query);
@@ -1289,6 +1313,7 @@
             invoker: invoker || searchInput
           });
           if (!viewOptions.skipHistory) persistHashlessView(captureReaderView(null));
+          if (viewOptions.explicitSearch) measure(matches.length ? "search_results" : "search_empty");
         }
 
         function renderArchive(invoker, viewOptions) {
@@ -1382,7 +1407,8 @@
             });
         }
 
-        function renderHash(scroll, invoker) {
+        function renderHash(scroll, invoker, viewOptions) {
+          viewOptions = viewOptions || {};
           var route = (location.hash || "").replace(/^#/, "").trim().split("?");
           var slug = route[0];
           var versionId = new URLSearchParams(route.slice(1).join("?")).get("version");
@@ -1442,6 +1468,9 @@
             invoker: invoker,
             story: decision.canExpose
           });
+          if (!viewOptions.skipMeasurement && decision.canExpose) measure("story_opened", renderedMeasurementTransition());
+          if (!viewOptions.skipMeasurement && rack.querySelector(".ns-story-notice--corrected")) measure("correction_viewed", renderedMeasurementTransition());
+          if (!viewOptions.skipMeasurement && rack.querySelector(".ns-story-notice--retracted")) measure("retraction_viewed", renderedMeasurementTransition());
           if (decision.canExpose && versionId === null) {
             var publicationView = {
               key: "story:" + story.slug,
@@ -1956,11 +1985,11 @@
         searchInput.addEventListener("keydown", function (event) {
           if (event.key === "Enter") {
             event.preventDefault();
-            renderSearch(searchInput);
+            renderSearch(searchInput, { explicitSearch: true });
           }
         });
         document.getElementById("ns-search-button").addEventListener("click", function () {
-          renderSearch(this);
+          renderSearch(this, { explicitSearch: true });
         });
         document.getElementById("ns-browse-all").addEventListener("click", function () {
           renderArchive(this);
@@ -1994,6 +2023,10 @@
           persistHashlessView(pendingStoryView);
         });
         rack.addEventListener("click", function (event) {
+          var source = event.target.closest(".ns-article__sources a");
+          if (source) measure("source_opened");
+          var learning = event.target.closest(".ns-article__book-links a, .ns-article__notes a");
+          if (learning && /^\/?library\.html(?:#|$)/.test(learning.getAttribute("href") || "")) measure("learning_opened");
           var link = event.target.closest(".ns-front-story");
           if (link) {
             var slug = (link.getAttribute("href") || "").replace(/^#/, "");
@@ -2007,7 +2040,11 @@
           }
         });
         window.addEventListener("hashchange", function () {
-          if (location.hash) renderHash(true, lastInvoker);
+          if (location.hash) {
+            var restoredSlug = location.hash.replace(/^#/, "").trim().split("?")[0];
+            var restored = !pendingStoryView && history.state && history.state.nsStory === restoredSlug;
+            renderHash(true, lastInvoker, { skipMeasurement: Boolean(restored) });
+          }
           else restoreHashlessView();
         });
 
@@ -2017,13 +2054,14 @@
         else persistHashlessView({ type: "closed", scrollY: window.scrollY });
       })();
     </script>
+    <script type="module" src="./content/site/newsstand-measurement-v1.mjs?v=20260912-1"></script>
     <script src="./content/site/brand-polish.js?v=20260911-header-controls-2" defer></script>
     <script defer src="./content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="./content/site/ksvl-player.js?v=20260911-header-controls-2"></script>
     <script defer src="./content/site/ksvl-theme-buttons.js?v=20260905-dynamic-1"></script>
     <script defer src="./content/site/luminairy-claim-gate.js?v=20260902-1"></script>
     <script defer src="./content/site/newsstand-luminairy.js?v=20260906-masthead-language-1"></script>
-    <script defer src="./content/site/newsstand-catchup-v1.js?v=c8f563823815ffcc"></script>
+    <script defer src="./content/site/newsstand-catchup-v1.js?v=70737c34915b54f9"></script>
     <script defer src="./content/newsstand-crossword-contract.js?v=733ac0e9e4698d47"></script>
     <script defer src="./content/newsstand-crosswords.js?v=51636d40c6cf992c"></script>
     <script defer src="./content/site/newsstand-crossword-preview-v1.js?v=ee6bf419e669b9f4"></script>

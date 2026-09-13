@@ -27,6 +27,14 @@ const parse = raw => { const c = { window: {} }; vm.runInNewContext(raw, c); ret
 const sourceBase = fs.readFileSync(path.join(SOURCE, 'content/newsstand-stories.js'), 'utf8');
 let base = sourceBase;
 const dataset = parse(base);
+// Derivative building enforces the real editorial-placement list. Remove one
+// listed daily ID from this disposable base, then admit a synthetic candidate
+// with that same ID. This exercises the real placement guard without changing
+// production selection data or asking a made-up ID to bypass it.
+const fixtureStoryId = 'openai-data-agent-20260910';
+const fixtureStoryTemplate = structuredClone(dataset.stories.find(story => story.id === fixtureStoryId));
+assert.ok(fixtureStoryTemplate, 'fixture needs a real placed Daily story template');
+dataset.stories = dataset.stories.filter(story => story.id !== fixtureStoryId);
 const fixtureWeekly = dataset.stories.find(story => story.edition === 'weekly' && ['published', 'corrected'].includes(story.status) && story.sourceApproval?.status === 'approved' && story.publishedAt.slice(0, 10) <= date);
 assert.ok(fixtureWeekly, 'fixture needs an admitted non-future Weekly');
 dataset.publications.weekly = { ...dataset.publications.weekly, storyId: fixtureWeekly.id, editionDate: '2026-08-26', publishedAt: fixtureWeekly.publishedAt, updatedAt: fixtureWeekly.updatedAt, lastCheckedAt: fixtureWeekly.lastCheckedAt, status: 'current' };
@@ -42,7 +50,7 @@ put('content/newsstand-stories.js', base);
 put('content/daily-edition-columns.json', columnsRaw);
 put('content/luminairy-profiles.json', fs.readFileSync(path.join(SOURCE, 'content/luminairy-profiles.json'), 'utf8'));
 const radarPath = `operations/product-stewards/newsstand/editorial-intake/${date}.md`;
-const radarRaw = `${date}\n- **NewsStand:** REVIEW CANDIDATE fixture-current-news.\n`;
+const radarRaw = `${date}\n- **NewsStand:** REVIEW CANDIDATE ${fixtureStoryId}.\n`;
 put(radarPath, radarRaw);
 const sourceBinding = put(`${prefix}/source.txt`, 'Synthetic authority: This fixture changes one setting, not every product.\n');
 const bad = put(`${prefix}/bad.txt`, 'Synthetic bad prose gives labels without explaining the change.\n');
@@ -50,7 +58,7 @@ const good = put(`${prefix}/good.txt`, 'Synthetic good prose explains a dated ch
 const registry = { schemaVersion: 'laidies-content-quality-exemplars.v1', negativeExemplars: [{ id: 'BAD', ...bad, incidentId: 'fixture', appliesTo: ['NEWS'], failureFamilies: ['missingMechanism'] }], positiveExemplars: [{ id: 'GOOD', ...good, useFor: ['NEWS'] }] };
 const registryBinding = put('operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json', registry);
 const benchmark = put('operations/product-stewards/learning-content-ecosystem/HANNAH-FRY-COMMUNICATION-BENCHMARK.md', 'Synthetic benchmark fixture, not editorial evidence.\n');
-const story = { ...structuredClone(dataset.stories.find(story => story.edition === 'daily' && !story.id.startsWith('front-paige-'))), id: 'fixture-current-news', slug: 'fixture-current-news', status: 'hold', publishedAt: null, updatedAt: `${date}T20:00:00Z`, lastCheckedAt: `${date}T20:00:00Z`, sourceApproval: { status: 'independent-review-required', record: 'newsstand:source-approval:fixture-current-news' }, headline: 'Synthetic current news fixture', the_story: 'This fixture changes one setting, not every product.', heroVisual: { src: '/assets/newsstand/design-20260830/latest-checking.png', alt: 'Synthetic fixture image for publication-gate coverage.', credit: 'Synthetic test fixture' }, correction: null, retraction: null, bigPicture: null, correctionHistory: [], predecessorStoryIds: [], successorStoryIds: [], sources: [{ id: 'fixture-source', url: 'https://example.test/fixture', label: 'Synthetic primary evidence', accessedAt: date, approvalStatus: 'reviewed', publisherType: 'primary-document' }] };
+const story = { ...fixtureStoryTemplate, id: fixtureStoryId, slug: fixtureStoryId, status: 'hold', publishedAt: null, updatedAt: `${date}T20:00:00Z`, lastCheckedAt: `${date}T20:00:00Z`, sourceApproval: { status: 'independent-review-required', record: `newsstand:source-approval:${fixtureStoryId}` }, headline: 'Synthetic current news fixture', the_story: 'This fixture changes one setting, not every product.', heroVisual: { src: '/assets/newsstand/design-20260830/latest-checking.png', alt: 'Synthetic fixture image for publication-gate coverage.', credit: 'Synthetic test fixture' }, correction: null, retraction: null, bigPicture: null, correctionHistory: [], predecessorStoryIds: [], successorStoryIds: [], sources: [{ id: 'fixture-source', url: 'https://example.test/fixture', label: 'Synthetic primary evidence', accessedAt: date, approvalStatus: 'reviewed', publisherType: 'primary-document' }] };
 const reviewText = put(`${prefix}/review.txt`, candidateReviewText(story));
 const rendered = put(`${prefix}/render.html`, '<p>UNAPPROVED SYNTHETIC TEST ONLY</p>');
 const manifest = put(`${prefix}/manifest.json`, { schemaVersion: 'laidies-content-artifact-manifest.v1', candidateId: story.id, contentClass: 'NEWS', surface: 'NEWSSTAND_DAILY', reviewText, rendered });
@@ -179,7 +187,7 @@ const overnightCandidate=prepareOvernightCandidate(morningRecordBinding,{root,no
 assert.deepEqual(overnightCandidate.story,candidate.story,'overnight preparation must not change prose or original dates');
 const overnightBinding=put(`${prefix}/overnight-candidate.json`,overnightCandidate);
 const morningRadarPath=`operations/product-stewards/newsstand/editorial-intake/${morningDate}.md`;
-const morningRadar=`${morningDate}\n- **NewsStand:** REVIEW CANDIDATE fixture-current-news.\n`;
+const morningRadar=`${morningDate}\n- **NewsStand:** REVIEW CANDIDATE ${fixtureStoryId}.\n`;
 put(morningRadarPath,morningRadar);
 const morningEnvelope=composeDailyEnvelope({root,date:morningDate,now:morningNow,radarPath:path.join(root,morningRadarPath),radarRaw:morningRadar,storiesRaw:base,columnsRaw,candidateBinding:overnightBinding});
 const morningDecision={schemaVersion:'daily-issue-admission-v1',decision:'ACCEPT_LOCAL_CANONICAL_WRITE',editionDate:morningDate,envelopeSha256:morningEnvelope.sha256,reviewedBy:'independent-fixture-judge',reviewerRole:'independent NewsStand issue judge',reviewedAt:`${morningDate}T14:05:00Z`};
@@ -262,6 +270,7 @@ put('scripts/lib/newsstand-overnight-freshness.mjs', fs.readFileSync(path.join(S
 put('scripts/lib/newsstand-evidence-time.mjs', fs.readFileSync(path.join(SOURCE, 'scripts/lib/newsstand-evidence-time.mjs'), 'utf8'));
 put('content/newsstand-big-picture-versions.js', fs.readFileSync(path.join(SOURCE, 'content/newsstand-big-picture-versions.js'), 'utf8'));
 put('content/newsstand-reader-contract.js', fs.readFileSync(path.join(SOURCE, 'content/newsstand-reader-contract.js'), 'utf8'));
+put('content/newsstand-selection.js', fs.readFileSync(path.join(SOURCE, 'content/newsstand-selection.js'), 'utf8'));
 const envelopePath = `operations/product-stewards/newsstand/release-pipeline-v1/daily-issues-private/${date}-fixture-revision.json`;
 const decisionPath = `operations/product-stewards/newsstand/evidence/${date}-fixture-admission.json`;
 put('content/newsstand-daily-issues.json', originalStore);

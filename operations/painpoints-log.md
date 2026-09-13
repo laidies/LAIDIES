@@ -16163,3 +16163,13 @@ Ali rejected putting September10 above September12 and identified a previously r
 
 ## 2026-09-12 — NewsStand full-build freshness reconciliation
 A fresh overall coverage timestamp could conceal missing or stale per-source observations. New negative fixtures reproduced that acceptance; the checker now validates each source timestamp. An older CRISP main-paper hold also survived after the paper was captured: reconciled to actual producer repair. Prevention: bind source observations individually and reconcile source recovery with candidate state. Behind the Build angle: a green date is not evidence that the underlying work happened. No public prose produced for this angle.
+
+
+## 2026-09-12 — Image-only release hid Daily services
+The CRISP image change mutated an admitted snapshot and invalidated its envelope; a narrow image check missed three hidden service columns. The full live reader suite reproduced the failure. Restore exact snapshots, apply guarded current presentation art, and require the service-population browser check for art releases. Positive and changed-text/source negative tests now cover reconciliation. Behind the Build angle: one small visible edit can invalidate a larger saved publication. This records a lesson, not a public draft.
+
+## 2026-09-12 — Published recovery still queued
+Evening selection found CRISP READY_FOR_ADMISSION and active despite its actual verified release. Reconciled the queue using the exact historical release and reader evidence; no repeat publication. Release closeout must reconcile an existing recovery item before reporting completion. Separately, root rejected the claimed three exact AIDB duplicates: two differ by www hostname, and the exact September10 processed entry lacks a transcript hash. Do not describe inventory counts as distinct unread episodes or normalize identities without evidence.
+
+## 2026-09-13 — NewsStand publication fixture drift
+Historical admitted snapshots can differ from later presentation art. The publication test wrongly assumed current mutable stories were the original admission. Repaired only its disposable current-issue clone, preserving direct missing/old-service and overwrite guards. Rejected catch-all replayable-issue selection because it could hide regressions. Ordinary-publication fixture now exercises the actual placement guard with a known placed ID in its isolated dataset; hash-navigation assertion follows the measured-history option. All three focused tests pass; no production guard weakened.

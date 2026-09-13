@@ -1,0 +1,47 @@
+{
+  "schema": "aidb-private-sweep-v1",
+  "run": {"vancouver":"2026-09-13 07:00","checkedAt":"2026-09-13T14:02:37Z","tier":"Tier 2","authority":"AIDB is scout-only; this record creates no public claim or shared state change."},
+  "outcome": "COMPLETE_NEW_WEBSITE_EDITION_REVIEW_WITH_CHANNEL_HOLDS",
+  "newWebsiteEdition": {
+    "identity":"https://aidailybrief.ai/e/2026-09-13",
+    "title":"10 Ways to Think Bigger with Opportunity AI",
+    "jsonIdentity":"https://aidailybrief.ai/e/2026-09-13.json",
+    "transcriptIdentity":"https://aidailybrief.ai/e/2026-09-13/transcript.md",
+    "itemCount":23,
+    "fullTranscriptRead":true,
+    "itemReview":"operations/product-stewards/newsstand/editorial-intake/2026-09-13-0700-aidb-2026-09-13-item-review.json",
+    "result":"23 of 23 items dispositioned; zero eligible reader-story leads; one source-evidence hold; 22 editorial/hypothetical/self-reference non-leads."
+  },
+  "expectedDates": {
+    "2026-09-12":{"page":404,"json":404,"transcript":404,"result":"No website release established."},
+    "2026-09-13":{"page":200,"json":200,"transcript":200,"result":"Complete website edition recovered and fully reviewed."}
+  },
+  "channelReconciliation": [
+    {"channel":"AIDB website index","url":"https://aidailybrief.ai/agent.json","checkedAt":"2026-09-13T14:02:37Z","status":"CHECKED","observation":"Lists Sep13 as latest and no Sep12 edition."},
+    {"channel":"publisher-linked podcast","url":"https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614","checkedAt":"2026-09-13T14:02:37Z","status":"PARTIAL","observation":"Lists a Sep13 episode titled '10 Ways to Think Bigger with Opportunity AI' at https://podcasts.apple.com/us/podcast/10-ways-to-think-bigger-with-opportunity-ai/id1680633614?i=1000789330156. It is retained as a separate raw channel identity: no explicit publisher identity proof or publisher full content was recovered, so it was not merged with the website edition or item-reviewed."},
+    {"channel":"publisher newsletter","url":"https://aidailybrief.beehiiv.com/","checkedAt":"2026-09-13T14:02:37Z","status":"BLOCKED","observation":"HTTP 403 Cloudflare challenge prevented rolling-seven-day enumeration. Existing and potential new newsletter identities remain separate holds."},
+    {"channel":"Ethan Mollick / One Useful Thing","urls":["https://www.oneusefulthing.org/feed","https://www.oneusefulthing.org/archive"],"checkedAt":"2026-09-13T14:04:45Z","status":"CHECKED","observation":"Latest exposed item remains Aug31 'Agency and Agents', already recorded as MERGE/WATCH; no new story."},
+    {"channel":"Allie K. Miller","url":"https://www.alliekmiller.com/resources","checkedAt":"2026-09-13T14:04:45Z","status":"CHECKED","observation":"Accessible governed route exposes undated resource and commercial links only; no date-verifiable new event or independently corroborated product evidence."}
+  ],
+  "priorInventoryAndCursor": {
+    "inventory":"operations/agents/aidb-intelligence-desk/daily/2026-09-12-morning/inventory.json",
+    "cursor":"operations/agents/aidb-intelligence-desk/edition-cursor.json",
+    "incompleteRawIdentityRows":12,
+    "reconciliation":"The inventory has not caught up with the cursor's Sep6 transcript-bound, 25-item completion. It therefore contains one stale bookkeeping row, eleven unresolved raw-source records, and does not prove twelve distinct unresolved episodes.",
+    "categories": [
+      {"count":1,"kind":"STALE_INVENTORY_BOOKKEEPING","identity":"https://aidailybrief.ai/e/2026-09-06","evidence":"Cursor now has the exact URL plus transcript SHA, JSON SHA and the Sep6 25-item reconciliation receipt."},
+      {"count":1,"kind":"EXACT_CURSOR_URL_NOT_TRANSCRIPT_BOUND","identity":"https://aidailybrief.ai/e/2026-09-10","evidence":"Cursor carries a JSON hash and 25-item ledger but no transcript SHA."},
+      {"count":2,"kind":"POTENTIAL_HOST_ALIASES_PENDING_PROOF","identities":["https://aidailybrief.ai/e/2026-09-07","https://aidailybrief.ai/e/2026-09-08"],"evidence":"Cursor stores distinct www URLs. Both raw and www routes returned direct HTTP 200 without redirect headers; this is not alias proof and no normalization was made."},
+      {"count":8,"kind":"OTHER_RAW_SOURCE_IDENTITY_HOLDS","evidence":"Five Beehiiv notes, Sep4 Beehiiv plus Apple, and Sep11 Beehiiv plus Apple require accessible publisher content and explicit identity/fidelity proof."}
+    ]
+  },
+  "sourceCapture":"operations/product-stewards/newsstand/editorial-intake/2026-09-13-0700-aidb-source-checks.json",
+  "eligibleReaderStories":[],
+  "heldItems":[
+    {"identity":"Sep13 item coders-retreat-to-sol","reason":"No primary source for claims about OpenCode users or spend."},
+    {"identity":"Sep13 Apple episode listing","reason":"Separate raw channel identity pending explicit publisher identity and full-content fidelity evidence."},
+    {"identity":"Beehiiv rolling window","reason":"Public index blocked by Cloudflare challenge."}
+  ],
+  "nextAction":"Retry the blocked Beehiiv index and expected Sep12/any newly listed website endpoints at 2026-09-13T17:00:00Z. Preserve raw URL identities and do not mutate the shared cursor or coverage from this receipt.",
+  "mutations":{"sharedCursor":false,"coverage":false,"publicWrite":false,"spend":false}
+}

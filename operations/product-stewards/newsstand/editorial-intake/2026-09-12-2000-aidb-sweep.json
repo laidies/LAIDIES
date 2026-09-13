@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "newsstand-aidb-evening-sweep-v1",
+  "checkedAt": "2026-09-13T03:05:13Z",
+  "vancouverRunDate": "2026-09-12",
+  "scope": "AIDB release discovery and source reconciliation only. This receipt does not mutate the shared AIDB cursor or NewsStand coverage progress, and it grants no editorial or publication authority.",
+  "result": "HOLD_AIDB_RELEASE_REVIEW",
+  "quietAllowed": false,
+  "aidbSeptember12": {
+    "expectedEditionUrl": "https://aidailybrief.ai/e/2026-09-12",
+    "expectedJsonUrl": "https://aidailybrief.ai/e/2026-09-12.json",
+    "expectedTranscriptUrl": "https://aidailybrief.ai/e/2026-09-12/transcript.md",
+    "observedAt": "2026-09-13T03:04:23Z",
+    "pageStatus": 404,
+    "jsonStatus": 404,
+    "transcriptStatus": 404,
+    "assessment": "No September 12 release was established. The latest complete website release still exposed by agent.json is September 11; its existing transcript-bound 23-item review remains the only complete current website review."
+  },
+  "channelChecks": [
+    {
+      "channel": "website",
+      "url": "https://aidailybrief.ai/agent.json",
+      "status": "CHECKED",
+      "checkedAt": "2026-09-13T03:04:39Z",
+      "rollingSevenDayReleaseIdentities": [
+        "https://aidailybrief.ai/e/2026-09-11",
+        "https://aidailybrief.ai/e/2026-09-10",
+        "https://aidailybrief.ai/e/2026-09-09",
+        "https://aidailybrief.ai/e/2026-09-08",
+        "https://aidailybrief.ai/e/2026-09-07",
+        "https://aidailybrief.ai/e/2026-09-06"
+      ],
+      "observedLatest": "2026-09-11 What to Use the Latest AI Tools For",
+      "assessment": "The website index contains no September 12 entry. It is an enumeration result, not proof that each listed release is complete or reconciled."
+    },
+    {
+      "channel": "publisher-linked podcast listing",
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "status": "CHECKED",
+      "checkedAt": "2026-09-13T03:04:24Z",
+      "rollingSevenDayReleaseIdentities": [
+        "https://podcasts.apple.com/us/podcast/what-to-use-the-latest-ai-tools-for/id1680633614?i=1000789087942",
+        "https://podcasts.apple.com/us/podcast/anthropic-researcher-says-ai-has-over-a-10-chance/id1680633614?i=1000788915511",
+        "https://podcasts.apple.com/us/podcast/ai-model-month-is-off-to-a-blistering-start/id1680633614?i=1000788749711",
+        "https://podcasts.apple.com/us/podcast/why-gpt-6-astra-is-so-significant-and-so-confounding/id1680633614?i=1000788555819",
+        "https://podcasts.apple.com/us/podcast/the-multiplayer-ai-sprint-build-your-teams-first/id1680633614?i=1000788297404",
+        "https://podcasts.apple.com/us/podcast/how-to-build-an-ai-native-company-today/id1680633614?i=1000788131301",
+        "https://podcasts.apple.com/us/podcast/how-ai-changed-this-summer/id1680633614?i=1000787915312"
+      ],
+      "observedLatest": "2026-09-11 What to Use the Latest AI Tools For",
+      "assessment": "No September 12 audio release was exposed. Same-date, similar-title website and podcast entries are not merged here because no explicit publisher identity evidence was recovered."
+    },
+    {
+      "channel": "publisher newsletter",
+      "url": "https://aidailybrief.beehiiv.com/",
+      "status": "UNAVAILABLE",
+      "checkedAt": "2026-09-13T03:04:23Z",
+      "httpStatus": 403,
+      "assessment": "Cloudflare challenge prevented rolling-seven-day enumeration. No substitute route was used. Previously recorded older newsletter identities remain unresolved rather than being inferred complete."
+    }
+  ],
+  "reconciliation": {
+    "cursorRead": "operations/agents/aidb-intelligence-desk/edition-cursor.json",
+    "priorCompleteWebsiteRelease": {
+      "editionDate": "2026-09-11",
+      "url": "https://aidailybrief.ai/e/2026-09-11",
+      "reviewLedger": "operations/agents/aidb-intelligence-desk/daily/2026-09-12-morning/sep11-item-review.json",
+      "status": "COMPLETE_ITEM_REVIEW_RETAINS_OPEN_RESEARCH_AND_PRODUCTION"
+    },
+    "selectionAgainstExistingInventory": "HOLD_AIDB_RELEASE_REVIEW",
+    "selectionReason": "All 12 selector-pending raw identities remain unresolved. One September 10 URL exactly matches a cursor row but lacks cursor transcript identity; September 7 and 8 differ from their processed records only by host and remain unproven aliases. Podcast/newsletter reconciliation remains PARTIAL. No cursor advance is allowed."
+  },
+  "pendingIdentityAudit": {
+    "existingSelectorPendingCount": 12,
+    "exactProcessedUrlWithoutTranscriptIdentity": "https://aidailybrief.ai/e/2026-09-10",
+    "exactProcessedUrlWithoutTranscriptIdentityCount": 1,
+    "potentialHostAliasesPendingProof": [
+      {
+        "pendingUrl": "https://aidailybrief.ai/e/2026-09-08",
+        "processedUrl": "https://www.aidailybrief.ai/e/2026-09-08"
+      },
+      {
+        "pendingUrl": "https://aidailybrief.ai/e/2026-09-07",
+        "processedUrl": "https://www.aidailybrief.ai/e/2026-09-07"
+      }
+    ],
+    "potentialHostAliasCount": 2,
+    "otherUnresolvedSourceIdentityCount": 9,
+    "settledIdentityCount": 0,
+    "assessment": "The September 11 23-item review settles only https://aidailybrief.ai/e/2026-09-11. September 10's identical URL has an item-disposition ledger and JSON hash, but the cursor lacks a transcript hash, so it is not transcript-bound complete. September 7 and 8 have raw host mismatches and cannot be treated as aliases without redirect or publisher identity evidence. The remaining nine are Apple/newsletter or September 6 source-identity holds. These categories are source-identity holds, not proof of 12 distinct unreviewed episodes."
+  },
+  "unresolvedOlderReleases": [
+    {
+      "editionDate": "2026-09-04",
+      "identities": [
+        "https://aidailybrief.beehiiv.com/p/how-ai-changed-this-summer",
+        "https://podcasts.apple.com/us/podcast/how-ai-changed-this-summer/id1680633614?i=1000787915312"
+      ],
+      "hold": "Publisher notes are not a transcript; exact cross-channel identity and full-episode fidelity remain unresolved."
+    },
+    {
+      "editionDates": [
+        "2026-09-03",
+        "2026-09-02",
+        "2026-09-01"
+      ],
+      "identities": [
+        "https://aidailybrief.beehiiv.com/p/agentic-loops-for-knowledge-workers",
+        "https://aidailybrief.beehiiv.com/p/why-fable-5-1-is-worth-the-upgrade",
+        "https://aidailybrief.beehiiv.com/p/openclaw-2-0-shows-where-ai-agents-are-going-next",
+        "https://aidailybrief.beehiiv.com/p/how-to-navigate-the-next-wave-of-ai-competition"
+      ],
+      "hold": "Exact publisher links were previously retained, but this run could not reopen the newsletter and cannot turn title/date similarity into an alias or complete review."
+    }
+  ],
+  "otherGovernedScoutChecks": [
+    {
+      "source": "Ethan Mollick / One Useful Thing",
+      "archiveUrl": "https://www.oneusefulthing.org/archive",
+      "feedUrl": "https://www.oneusefulthing.org/feed",
+      "status": "CHECKED",
+      "checkedAt": "2026-09-13T03:04:39Z",
+      "latestCanonicalItem": "https://www.oneusefulthing.org/p/agency-and-agents",
+      "publishedAt": "2026-08-31T00:24:35Z",
+      "assessment": "No newer canonical feed item was observed; retain WATCH/MERGE treatment and do not create a separate NewsStand item."
+    },
+    {
+      "source": "Allie K. Miller",
+      "url": "https://www.alliekmiller.com/resources",
+      "status": "CHECKED",
+      "checkedAt": "2026-09-13T03:04:42Z",
+      "assessment": "The governed public resource route was accessible. It exposes undated commercial/resource links, including a tool-list and email-course routes; no date-verifiable new item or independent product evidence was found, so no candidate is created."
+    }
+  ],
+  "nextAction": "At the next due research run, reopen the three September 12 AIDB endpoints, enumerate the publisher newsletter if its public index is accessible, and reconcile each retained Apple/newsletter identity only with explicit publisher identity evidence and complete content. Preserve the cursor and coverage record until then.",
+  "publicWrite": false,
+  "sharedCursorMutation": false,
+  "coverageProgressMutation": false,
+  "rootReconciliation": {
+    "inventory": "operations/product-stewards/newsstand/editorial-intake/2026-09-12-2000-aidb-inventory.json",
+    "completedAfterInitialSweep": "https://aidailybrief.ai/e/2026-09-06",
+    "ledger": "operations/product-stewards/newsstand/editorial-intake/2026-09-12-2000-aidb-sep6-reconciliation.json",
+    "sharedCursorUpdatedForExactSep6": true,
+    "remainingIncompleteInventoryRows": 11,
+    "boundary": "One exact full transcript review reconciled. Existing channel checks retained with original timestamps; no new channel enumeration or aliases inferred. Original pendingIdentityAudit describes the morning inventory before this root reconciliation."
+  }
+}

@@ -1,8 +1,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-12T22:42:56Z",
-  "lastCheckedAt": "2026-09-12T22:42:56Z",
+  "generatedAt": "2026-09-13T15:19:49Z",
+  "lastCheckedAt": "2026-09-13T15:19:49Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -16,7 +16,7 @@ window.NEWSSTAND_DATA = {
     },
     "daily": {
       "edition": "daily",
-      "editionDate": "2026-09-12",
+      "editionDate": "2026-09-13",
       "editorialTimeZone": "America/Vancouver",
       "issue": {
         "status": "complete",
@@ -24,31 +24,23 @@ window.NEWSSTAND_DATA = {
         "frontPaigeStoryId": "front-paige-accountable-systems-2026-08-24",
         "weeklyStoryId": "weekly-control-layers-20260909",
         "storyIds": [
-          "pro-signup-pause-20260912",
-          "amodei-ai-pacing-20260912",
-          "cursor-projects-20260912",
-          "alphagenome-atlas-20260912",
-          "deepseek-flash-20260912",
-          "microsoft-capacity-20260912",
-          "nvidia-groq-inquiry-20260912",
-          "honeybook-plugin-20260912",
-          "crisp-pathology-20260912"
+          "chatgpt-pets-20260913"
         ],
         "serviceRecordIds": [
-          "DAILY-2026-09-12-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
-          "DAILY-2026-09-12-CAREER-LIFE-CORNER-02-PRIORITIES",
+          "DAILY-2026-09-13-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
+          "DAILY-2026-09-13-CAREER-LIFE-CORNER-02-PRIORITIES",
           "DAILY-2026-09-09-CONCEPT-WEEK-CONCEPT-02-TOKEN",
-          "DAILY-2026-09-12-DEAR-MISS-JEEVES-JEEVES-02-CITATION",
-          "DAILY-2026-09-12-CURIOSITY-CURIOSITY-02-NAME-CONTRIBUTION"
+          "DAILY-2026-09-13-DEAR-MISS-JEEVES-JEEVES-02-CITATION",
+          "DAILY-2026-09-13-CURIOSITY-CURIOSITY-03-COMPARE-REWRITE"
         ]
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-12T22:42:56Z",
-      "updatedAt": "2026-09-12T22:42:56Z",
-      "lastCheckedAt": "2026-09-12T22:42:56Z",
+      "publishedAt": "2026-09-13T15:19:49Z",
+      "updatedAt": "2026-09-13T15:19:49Z",
+      "lastCheckedAt": "2026-09-13T15:19:49Z",
       "maxAgeHours": 36,
-      "note": "The Daily for 2026-09-12."
+      "note": "The Daily for 2026-09-13."
     },
     "weekly": {
       "edition": "weekly",
@@ -4866,8 +4858,8 @@ window.NEWSSTAND_DATA = {
       "thread_entry": null,
       "headline": "CRISP matched a senior specialist during fast surgery checks.",
       "heroVisual": {
-        "src": "/assets/newsstand/design-20260830/latest-checking.png",
-        "alt": "Illustration of a magnifying glass examining the evidence behind an AI headline in a newspaper.",
+        "src": "/assets/newsstand/crisp-pathology-20260912.png",
+        "alt": "Illustration of a microscope examining a tissue slide beside a screen showing enlarged pink and purple tissue structures.",
         "credit": "Illustration: LAiDIES"
       },
       "the_story": "<p>During surgery, a pathologist — a specialist who examines tissue to identify disease — may need an answer before the next step. A frozen section is tissue quickly frozen, sliced and examined during surgery. Usual preparation preserves tissue in chemicals and wax, giving it a different appearance.</p><p>Most existing AI learned from usual preserved slides, whose look differs from frozen tissue. CRISP was trained for frozen images. In an observational study — researchers watched normal care — it beat other AI models. A reader study, comparing answers with specialists, found it matched the senior specialist overall.</p>",
@@ -4909,6 +4901,76 @@ window.NEWSSTAND_DATA = {
         "CRISP",
         "pathology",
         "medical AI"
+      ],
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "chatgpt-pets-20260913",
+      "slug": "chatgpt-pets-20260913",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-13T15:19:49Z",
+      "updatedAt": "2026-09-13T14:20:00Z",
+      "lastCheckedAt": "2026-09-13T14:20:00Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:chatgpt-pets-20260913"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "What does a ChatGPT pet actually do?",
+      "heroVisual": {
+        "src": "/assets/newsstand/chatgpt-pets-20260913.png",
+        "alt": "Editorial illustration of a pixel-art cat above a blank chat bar on a laptop at home.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>OpenAI’s September 11 desktop update added a quick chat to the floating Pets controls on macOS and Windows. OpenAI calls that small new chat Quick Chat. The useful part is the small control panel: you can type or speak a new request while another app is open, then use its bell to see whether a chat is running, needs your input, is ready, or is blocked.</p><p>The pet is optional animated appearance around that panel. OpenAI says choosing one changes its appearance, not how ChatGPT completes tasks. If you want the floating controls without an animal, choose Mini in Settings &gt; Pets; Mini means the floating controls without a pet.</p>",
+      "laidies_read": "<p>Say you are planning a birthday dinner in a notes app and want ChatGPT to suggest a grocery list. Paste the meal details into a quick chat from the floating controls while you use another app. That is a convenience feature. It is not a new assistant, and it does not make the grocery list more accurate.</p><p>The status is useful when you have stepped away from the main window: <strong>Needs input</strong> means the chat needs your answer, approval, or another decision. <strong>Ready</strong> means it has finished with unread activity. Those labels describe the chat’s progress; the pet is simply the visible companion beside them.</p>",
+      "what_this_means": "<p>Choose a pet if you like having it on screen, or Mini if you only want the controls. One important limit: a chat started from those floating controls is outside a project. If you need the files and instructions saved in a project, start the chat from that project in the main app instead.</p><p>On the web, a pet can appear inside supported ChatGPT Work chats, but OpenAI says it does not have the desktop floating overlay or activity tray. Pets may also depend on your account and workspace being allowed to use them.</p>",
+      "cocktail_party": "“A ChatGPT pet is optional desktop scenery around quick-chat controls. The controls can be handy; the pet does not make ChatGPT smarter.”",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "When a new interface looks magical, separate the visible decoration from the action it actually gives you. Here, the action is starting and following a chat; the limit is where that chat gets its context. <a href=\"/library.html#working-with-ai-101::%401-3-whats-actually-determining-the-output\">Working with AI 101: What’s Actually Determining the Output</a> explains why a chat can only use the context the surrounding product gives it.",
+      "sources": [
+        {
+          "id": "openai-pets-docs",
+          "label": "OpenAI — Pets",
+          "url": "https://learn.chatgpt.com/docs/pets",
+          "publisherType": "primary-product-documentation",
+          "accessedAt": "2026-09-13",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "openai-changelog-2026-09-11",
+          "label": "OpenAI — ChatGPT & Codex changelog, September 11, 2026",
+          "url": "https://learn.chatgpt.com/docs/changelog",
+          "publisherType": "primary-product-changelog",
+          "accessedAt": "2026-09-13",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "consumer products",
+        "desktop controls"
+      ],
+      "concepts": [
+        "quick chat",
+        "project context"
+      ],
+      "tags": [
+        "ChatGPT",
+        "Pets",
+        "desktop app"
       ],
       "saint_lane": null,
       "badge": "THE LATEST"

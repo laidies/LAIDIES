@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "laidies-luminairy-signing-recovery-successor.v1",
+  "supersedes": [
+    {
+      "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/signing-recovery-20260913/signing-recovery-receipt.json",
+      "sha256": "f480575e2ea15d1d74f6b7370c5d9e14ebed69e5d67447ce4358176f43fe10e9"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/signing-recovery-20260913/signing-recovery-successor-v2.json",
+      "sha256": "53c8bdb568c5c7c4f0df780ad0232f3c7add66e81528a36560921bb9cbc56786"
+    }
+  ],
+  "checkedAt": "2026-09-13T15:36:23.798Z",
+  "status": "PASS_PRIVATE_CLASSIC_LOGIN_KEYCHAIN_P256_SIGNING_READY",
+  "route": {
+    "api": "SecKeyGeneratePair with permanent P-256 key and kSecUseKeychain login Keychain",
+    "officialBasis": "Apple TN3137 documents file-based Keychain defaulting and ACL model; SecKeyGeneratePair documents permanent keys in the default Keychain.",
+    "dataProtectionAttributesUsed": false,
+    "accessGroupUsed": false,
+    "secureEnclaveUsed": false
+  },
+  "candidate": {
+    "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/final-v10/profile-candidate.json",
+    "sha256": "e0f413fea85c6ca00152e122812f46f84acd1db4b951d023bea12a244eb8273e",
+    "profileSha256": "bf98fd6a85fc452c57780c0d8d6cd505e45781185a062b766e155021f336f708"
+  },
+  "publicKey": {
+    "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/signing-recovery-20260913/public-key-r7.json",
+    "sha256": "72c2df495d4709cf8ce0177284bc80c1c6da91d75a3e2554f3f8c62f570ae285",
+    "keyId": "luminairy-editorial-offline-r7-20260913",
+    "publicJwk": {
+      "crv": "P-256",
+      "kty": "EC",
+      "x": "fRtk0R-l92fVzpT0IZnKSR94xey0OenkRUO-gEjG9TA",
+      "y": "idZvxdnzVzsuCz33khsumZU8824MD64buI33tcFs-6Q"
+    }
+  },
+  "receipt": {
+    "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/signing-recovery-20260913/hannah-r7-receipt.json",
+    "sha256": "8f0675da14e4742e63bb60b366d6eaa53113e54415c1c51122462b292d4f093d",
+    "payloadSha256": "5da776beef2bfa76967da80e52c11a615bd8c2cfb5b240773dfdc6c4def24586",
+    "signature": "hW8el7oRj62OC1lz2KrpC5CKx4t3WE3CC3lp3rmAvb9nsjIciu1v5wQCdlcaEhkFOEibjdf+JynuWjxYhi34ag=="
+  },
+  "verification": {
+    "path": "operations/product-stewards/newsstand/candidates/hannah-fry-profile-20260911/signing-recovery-20260913/signature-verification-v3.json",
+    "sha256": "e1ba040c6395ab69b5aa144fdcbe99e8c0ed15de0b8507bc08b1a02386e3a0c0"
+  },
+  "storageRecoveryMetadata": {
+    "kind": "macos-classic-login-keychain",
+    "applicationTag": "com.laidies.luminairy.signing.r7.20260913.hannah-fry",
+    "keychain": "login.keychain-db",
+    "privateKeyMaterial": "not exported, logged, or written",
+    "recoveryMetadata": "Recovery depends on access to this macOS login Keychain and its user-account recovery/backup path; no standalone private-key copy was created."
+  },
+  "priorFailuresPreserved": true,
+  "scope": {
+    "canonicalWrites": false,
+    "publicWrites": false,
+    "deployActionTaken": false,
+    "existingTrustAndSignaturesModified": false
+  }
+}
