@@ -1,5 +1,11 @@
 # LAiDIES build learning ledger
 
+- **2026-09-12 Account handle clearing:** A verified empty account handle must
+  override stale local cache, not fall through via logical OR. Live cleanup in
+  two browsers exposed this after successful save parity; added renderer test.
+  Use explicit verified-value presence, including empty values. Behind the Build:
+  deleting a value is a real state, not the absence of information.
+
 - **2026-09-12 Shared Card parity:** Copying a Card container was insufficient:
   its pseudo-element finish and typography also need one shared definition.
   Compare every finish across both routes at phone/desktop sizes; assert readable

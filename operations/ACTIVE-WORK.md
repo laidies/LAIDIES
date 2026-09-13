@@ -1,5 +1,20 @@
 # Active work
 
+## 2026-09-12 MAiKEOVER account handles and founder number — PUBLICLY VERIFIED
+
+- Production SQL now atomically reserves a unique handle with the Card save;
+  authenticated-only, exact retries, collisions and revision conflicts tested.
+- Owner verified account assigned Resident0001; other resident rows and Cards
+  retained. Handle remains unchosen, not an invented founder identity.
+- Actual live save with temporary handle, Closet and second-browser maker/Closet
+  showed identical handle, number, portrait and five favourites. Temporary handle
+  cleared in SQL; no portrait or preference was intentionally changed.
+- Cleanup exposed Closet fallback to stale browser handle. Fixed and regression
+  tested in4bad11ce; livebb20d85f verified in both browsers and maker return.
+- No physical-phone test. Prior photo/picker parity evidence remains scoped as
+  recorded below; public shareable Closet addresses are not enabled.
+- Record: operations/releases/maikeover-handles-20260912/README.md.
+
 ## 2026-09-12 MAiKEOVER / Closet parity — PUBLICLY VERIFIED
 
 - Latest authority: finish working and live, with Closet parity.

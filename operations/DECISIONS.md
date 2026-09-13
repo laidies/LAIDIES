@@ -1,5 +1,12 @@
 # LAiDIES decision router
 
+## 2026-09-12 — Verified empty identity values are authoritative
+
+For account-backed Card rendering, a verified empty handle overrides stale
+browser cache just as a nonempty handle does. Test save, second-browser restore
+and clearing, not only initial creation. See operations/resident-card-design-decisions.md
+and operations/releases/maikeover-handles-20260912/README.md.
+
 ## 2026-09-10 — Complete signup belongs in MAiKEOVER
 
 Ali authorizes full inline signup/sign-in and public release after real email,
