@@ -2,6 +2,9 @@
 
 ## 2026-09-12 Founder visual correction
 
+Latest explicit correction: no star. Centre LAiDIES Founder vertically within
+the existing header band, rather than positioning its top edge by percentage.
+
 Ali rejected the generic small pill. Replace it with integrated header lettering
 on the existing Card artwork, beside the resident number. Preserve owner checks
 and all profile data. This is a typographic designation, not new decorative art.

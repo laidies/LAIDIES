@@ -1,8 +1,8 @@
 /* Shared standalone Resident Card view. Live text remains deterministic. */
-.mo-mirror-mount #moCard .resident-founder-badge { position:absolute; z-index:3; left:5.5%; top:2.8%; max-width:68%; color:#fffdfb; font:900 clamp(12px,3.1cqw,22px)/1.15 'Jost',sans-serif; letter-spacing:.035em; text-transform:none; white-space:nowrap; }
+.mo-mirror-mount #moCard .resident-founder-badge { position:absolute; z-index:3; left:5.5%; top:0; height:13%; display:flex; align-items:center; max-width:68%; color:#fffdfb; font:900 clamp(12px,3.1cqw,22px)/1 'Jost',sans-serif; letter-spacing:.035em; text-transform:none; white-space:nowrap; }
 .mo-mirror-mount #moCard .resident-founder-badge[hidden] { display:none; }
 .mo-mirror-mount #moCard:has(.resident-founder-badge:not([hidden])) > div:first-child > span:first-child { visibility:hidden; }
-.mo-mirror-mount #moCard:is([data-finish="gettingready"],[data-finish="skates"],[data-finish="boombox"],[data-finish="computer"]) .resident-founder-badge { color:#4b168c; }
+.mo-mirror-mount #moCard:is([data-finish="gettingready"],[data-finish="skates"],[data-finish="boombox"],[data-finish="computer"]) .resident-founder-badge { top:1.5%; height:12.5%; color:#4b168c; }
 .resident-card-shared-view { position:relative; width:min(100%,720px); aspect-ratio:1.8047; margin:0 auto; }
 .resident-card-shared-view .mo-mirror-mount { position:absolute; inset:0; width:100%; height:100%; }
 .mo-mirror-mount #moCard { container-type:inline-size; }
