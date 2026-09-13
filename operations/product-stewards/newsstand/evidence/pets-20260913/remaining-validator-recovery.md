@@ -26,3 +26,7 @@ That is enough to validate that candidate through its own current gate; it is no
 ## Decision needed from root
 
 No decision is needed to keep the currently required candidate, promotion, publication, derivative, and reader-contract gates in force.  The only material choice is whether to fund a separate historical-provenance recovery programme.  It must define a governed publisher-type contract and a multi-candidate-per-issue proof format before the migrated validator can become an authoritative whole-dataset release gate.  It should not change public stories merely to turn this audit green.
+
+## September13 final-envelope recovery
+
+The NVIDIA final correction envelope was recovered and root-compared to the stored public story: `release-pipeline-v1/daily-issues-private/2026-09-06-nvidia-callout-clarity.json`, envelope SHA-256 `9cc335727d72540f5171811cd828a2e33d9da93ffd3fe5d40a2674cbc33b42b8`. Its story snapshot exactly matches all current story fields (stable story SHA-256 `d34de46f6f5c5269da73a578a144f4ccab0310dc19f3a2bd25c3bf4468243937`). `evidence/nvidia-callout-clarity-20260907-admission.json` accepts that envelope and binds `evidence/stories/nvidia-callout-clarity-20260907.json`. The earlier table overstates the missing final-envelope evidence. No matching final ordinary candidate was found in the scoped candidate/private-issue/evidence search; the newer resolver still needs correction-chain support or a valid successor candidate. No historical approval, source or public story was changed.

@@ -1,0 +1,267 @@
+{
+  "schema": "aidb-newsletter-reconciliation.v1",
+  "recordedAt": "2026-09-13T17:20:33Z",
+  "scope": "Private source-identity reconciliation only. No publication, shared cursor, archive, or public-page change is made by this record.",
+  "inputs": {
+    "recoveryCapture": {
+      "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1000-captures/newsletter-recovery.txt",
+      "sha256": "7e754c47cac147e567e9bdc7609faff3cb979c8742847f5ec53a13904536796c",
+      "observedLimitation": "The capture contains rendered full text for the September 11 and September 10 newsletter pages, but only the search-result-style headers and line totals for September 9 (113 lines) and September 8 (150 lines). It is not a podcast audio or transcript capture."
+    },
+    "inventory": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-0700-aidb-inventory.json",
+    "existingReviews": [
+      "operations/agents/aidb-intelligence-desk/daily/2026-09-12-morning/sep11-item-review.json",
+      "operations/agents/aidb-intelligence-desk/daily/2026-09-10-aidb-september-9-review.json",
+      "operations/agents/aidb-intelligence-desk/daily/2026-09-09-aidb-september-8-review.json"
+    ],
+    "recoveredFullPages": [
+      {
+        "url": "https://aidailybrief.beehiiv.com/p/ai-model-month-is-off-to-a-blistering-start",
+        "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1000-captures/ai-model-month-is-off-to-a-blistering-start.html",
+        "sha256": "72f4321aa3017953ee4e4c703704df80a3aaa64b3a8728767959762688e621c6",
+        "capturedAt": "2026-09-13T17:20:33Z",
+        "method": "normal public HTTPS GET; complete response body retained"
+      },
+      {
+        "url": "https://aidailybrief.beehiiv.com/p/why-chatgpt-6-astra-is-so-significant-and-so-confounding",
+        "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1000-captures/why-chatgpt-6-astra-is-so-significant-and-so-confounding.html",
+        "sha256": "c652ee509c028d2374d307cafbb1cf344e601647109467f114e7de3ff1684519",
+        "capturedAt": "2026-09-13T17:20:33Z",
+        "method": "normal public HTTPS GET; complete response body retained"
+      },
+      {
+        "url": "https://aidailybrief.beehiiv.com/p/anthropic-researcher-says-ai-has-over-a-10-chance-of-killing-all-humans",
+        "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1000-captures/anthropic-researcher-says-ai-has-over-a-10-chance-of-killing-all-humans.html",
+        "sha256": "dedf3a63f30216ce4d37c7bb593dbbfcf3b8c98c2427e8ae491f7f5a0c8246a4",
+        "capturedAt": "2026-09-13T17:20:33Z",
+        "method": "normal public HTTPS GET after normal web open verified rendered lines 100\u2013143; complete response body retained"
+      }
+    ]
+  },
+  "recoveredPublisherPages": [
+    {
+      "editionDate": "2026-09-11",
+      "title": "What to Use the Latest AI Tools For",
+      "publisherNotesUrl": "https://aidailybrief.beehiiv.com/p/what-to-use-the-latest-ai-tools-for",
+      "exactPublisherEpisodeUrl": "https://open.spotify.com/episode/1qSaMC0f5Z4Pctl66BwjGK?si=924d81b444ed4d06",
+      "captureCoverage": "Rendered notes text is present in the recovery capture; the Spotify target itself was recovered from the public page HTML, not retained as an exact href in the capture text.",
+      "knownRecords": [
+        {
+          "url": "https://aidailybrief.ai/e/2026-09-11",
+          "status": "COMPLETE_TRANSCRIPT_REVIEW",
+          "itemCount": 23,
+          "reviewLedger": "operations/agents/aidb-intelligence-desk/daily/2026-09-12-morning/sep11-item-review.json"
+        },
+        {
+          "url": "https://podcasts.apple.com/us/podcast/what-to-use-the-latest-ai-tools-for/id1680633614?i=1000789087942",
+          "status": "SEPARATE_RAW_IDENTITY"
+        },
+        {
+          "url": "https://aidailybrief.beehiiv.com/p/what-to-use-the-latest-ai-tools-for",
+          "status": "ALREADY_IN_INVENTORY_AS_UNPROVEN_ALIAS"
+        }
+      ],
+      "contentOverlapVerified": "The completed September 11 review already marks the Anthropic distillation, Moonshot relay, and chikungunya items COVERED by the published Anthropic misuse story.",
+      "disposition": "HOLD_CROSS_CHANNEL_ALIAS_UNBOUND",
+      "reason": "The exact Spotify identifier is now known for the newsletter page, but no matching Spotify identifier is present in the reviewed website-edition record. Matching date/title alone is insufficient to merge the publisher notes with the transcript review."
+    },
+    {
+      "editionDate": "2026-09-10",
+      "title": "Anthropic Researcher Says AI Has Over a 10% Chance of Killing All Humans",
+      "publisherNotesUrl": "https://aidailybrief.beehiiv.com/p/anthropic-researcher-says-ai-has-over-a-10-chance-of-killing-all-humans",
+      "exactPublisherEpisodeUrl": "https://open.spotify.com/episode/4xD9AhlhIpzg6phdhS65qJ?si=aad79d54a41a4bf6",
+      "captureCoverage": "Rendered notes text, including lines 100\u2013143, was read through a normal public web open. Complete public-page HTML is retained in inputs.recoveredFullPages; it is not podcast audio/transcript.",
+      "knownRecords": [
+        {
+          "url": "https://aidailybrief.ai/e/2026-09-10",
+          "status": "INCOMPLETE",
+          "inventoryReason": "Current release enumerated; no complete transcript-bound review reconciled at this URL."
+        }
+      ],
+      "disposition": "HOLD_NEW_UNRECONCILED_PUBLISHER_NOTES",
+      "reason": "This is a new exact publisher-notes/Spotify identity in the inventory window. It cannot be declared a duplicate of the incomplete September 10 website edition, and its claims require primary-source review before any editorial use.",
+      "missingFullPagePortions": "None for the newsletter page after retained complete HTML. Audio/transcript remains outside this source packet."
+    },
+    {
+      "editionDate": "2026-09-09",
+      "title": "AI Model Month Is Off to a Blistering Start",
+      "publisherNotesUrl": "https://aidailybrief.beehiiv.com/p/ai-model-month-is-off-to-a-blistering-start",
+      "exactPublisherEpisodeUrl": "https://open.spotify.com/episode/52SCESoZaWPr1It0V84k7q?si=TePInuJZTJiNwfu9qeoWEQ",
+      "captureCoverage": "Complete public-page HTML is now retained at the exact capture path and hash in inputs.recoveredFullPages; rendered-page reading confirms the previously missing notes body. It is still not podcast audio/transcript.",
+      "knownRecords": [
+        {
+          "url": "https://aidailybrief.ai/e/2026-09-09",
+          "status": "COMPLETE_TRANSCRIPT_REVIEW",
+          "itemCount": 23,
+          "reviewLedger": "operations/agents/aidb-intelligence-desk/daily/2026-09-10-aidb-september-9-review.json"
+        }
+      ],
+      "disposition": "HOLD_CROSS_CHANNEL_ALIAS_UNBOUND",
+      "reason": "The exact Spotify identifier binds this Beehiiv page to a podcast target, but no exact Spotify identifier is stored for the reviewed website edition. Date alignment does not prove an identical episode or permit duplicate suppression.",
+      "missingFullPagePortions": "None for the newsletter page after this capture. Audio/transcript remains outside this source packet."
+    },
+    {
+      "editionDate": "2026-09-08",
+      "title": "Why ChatGPT-6 Astra is So Significant and So Confounding",
+      "publisherNotesUrl": "https://aidailybrief.beehiiv.com/p/why-chatgpt-6-astra-is-so-significant-and-so-confounding",
+      "exactPublisherEpisodeUrl": "https://open.spotify.com/episode/5mYjQeYWF9BBzR51bkaraJ?si=e4fd007789c7468b",
+      "captureCoverage": "Complete public-page HTML is now retained at the exact capture path and hash in inputs.recoveredFullPages; rendered-page reading confirms the previously missing notes body. It is still not podcast audio/transcript.",
+      "knownRecords": [
+        {
+          "url": "https://www.aidailybrief.ai/e/2026-09-08",
+          "status": "COMPLETE_TRANSCRIPT_REVIEW",
+          "itemCount": 24,
+          "reviewLedger": "operations/agents/aidb-intelligence-desk/daily/2026-09-09-aidb-september-8-review.json"
+        }
+      ],
+      "contentOverlapVerified": "The completed September 8 review already routes Astra launch-delay and computer-use items to existing coverage, but this is not a full-page newsletter comparison.",
+      "disposition": "HOLD_CROSS_CHANNEL_ALIAS_UNBOUND",
+      "reason": "The exact Spotify target is distinct evidence for the Beehiiv page only. No stored exact target binds it to the completed website transcript; date/title similarity is deliberately not used as identity proof.",
+      "missingFullPagePortions": "None for the newsletter page after this capture. Audio/transcript remains outside this source packet."
+    }
+  ],
+  "summary": {
+    "knownMatchedEvents": [
+      "September 11 notes contain Anthropic misuse topics already marked COVERED in the completed September 11 review; this is content overlap, not an identity merge.",
+      "September 8 notes title aligns with a completed Astra-era website review; existing review overlap is documented, but identity remains unbound."
+    ],
+    "explicitUncertainty": [
+      "No exact Spotify target stored in existing website-edition review records matches any recovered Spotify episode ID.",
+      "None of these findings establishes publication suitability, changes an archive cursor, or authorizes duplicate suppression.",
+      "Newsletter-page bodies for September 8 and September 9 are now retained as exact public HTML captures, but neither is a podcast audio/transcript capture."
+    ],
+    "newSourceIdentities": [
+      "September 10 publisher notes and Spotify episode 4xD9AhlhIpzg6phdhS65qJ are a distinct unreconciled source identity."
+    ]
+  },
+  "mutations": {
+    "publicContent": false,
+    "sharedCursor": false,
+    "inventory": false,
+    "notes": "This reconciliation is intentionally additive and private."
+  },
+  "eventLevelDisposition": {
+    "method": "Visible newsletter events were compared to coverage-progress.json and the named complete item reviews. A matching subject is recorded as coverage only when that record supplies an exact event route; no row merges channel identities.",
+    "september9": [
+      {
+        "event": "OpenAI Navier-Stokes claim and alleged research-scooping dispute",
+        "disposition": "COVERED",
+        "coverageProgressLead": "openai-maths-claim-20260908",
+        "storyId": "navier-stokes-claim-20260911"
+      },
+      {
+        "event": "Anthropic Claude Max subscription class action",
+        "disposition": "HOLD",
+        "evidence": "September 9 complete review item 7 already holds it pending complaint, docket and Anthropic response."
+      },
+      {
+        "event": "ElevenLabs CFO hire and possible IPO",
+        "disposition": "DECLINE_EXISTING",
+        "reason": "Exact September9 complete review item8 declines CFO/IPO exploration for lack of distinct reader consequence; not an unassessed new lead."
+      },
+      {
+        "event": "Cognition $2B valuation / Devin independence framing",
+        "disposition": "DECLINE_EXISTING",
+        "reason": "Exact September9 review item9 declines financing/acquisition-rumour story for lack of reader consequence. SWE2 is a different event and does not establish this disposition."
+      },
+      {
+        "event": "Gemini 3.8 Flash",
+        "disposition": "MERGE_EXISTING",
+        "reason": "Exact September9 review item10 routes the Flash announcement to existing model-release candidate; benchmark-method and per-task-cost questions remain held separately."
+      },
+      {
+        "event": "Meta consumer Muse agent",
+        "disposition": "COVERED",
+        "coverageProgressLead": "meta-muse-20260908",
+        "storyId": "meta-muse-20260911",
+        "reason": "Consumer agent coverage only. MuSpark model-cost and benchmark claims remain separate holds under September9 items14\u201317; not closed by this story."
+      },
+      {
+        "event": "ChatGPT Images 2.5",
+        "disposition": "COVERED",
+        "storyId": "chatgpt-images-2-5-2026-09-08"
+      }
+    ],
+    "september8": [
+      {
+        "event": "GPT-6 Astra launch, delay, access, computer use and early reviews",
+        "disposition": "COVERED_OR_EXISTING_HOLD",
+        "evidence": "September 8 complete review routes launch delay and computer-use claims to existing Astra coverage, preserves discrete availability and benchmark questions as holds."
+      },
+      {
+        "event": "Astra 3D/game and browser/computer-use demonstrations",
+        "disposition": "NO_NEW_EVENT",
+        "reason": "Visible newsletter examples are secondary demonstrations of the same Astra capability family; no separate primary event or reader-safe claim was established here."
+      }
+    ],
+    "september10": {
+      "reviewedAgainst": "operations/agents/aidb-intelligence-desk/daily/2026-09-11-aidb-september-10-review.json (COMPLETE_25_OF_25_DISPOSITIONED) plus current coverage-progress.json",
+      "events": [
+        {
+          "newsletterVisibleEvent": "Jacob Coxon resignation, Hubinger personal 10% estimate, and media amplification",
+          "disposition": "MERGE",
+          "exactCoverageProgressLead": "anthropic-researcher-resignation-20260909",
+          "storyId": "coxon-warning-20260910",
+          "reviewItems": [
+            "anthropic-resignation-goes-viral",
+            "racing-to-superintelligence-gambling-with-our-lives",
+            "hubinger-ten-percent",
+            "x-to-anderson-cooper"
+          ],
+          "reason": "The completed Sep10 review already merges these into the published story, which distinguishes the resignation, personal forecast, and present-model risk."
+        },
+        {
+          "newsletterVisibleEvent": "Politician reactions and Sanders/Casar superintelligence proposal claims",
+          "disposition": "COVERED_WITH_STATUS_BOUNDARY",
+          "exactCoverageProgressLead": "sanders-casar-proposal-20260903",
+          "storyId": "national-safety-proposals-20260911",
+          "reviewItem": "hating-ai-plays",
+          "reason": "The source review keeps policy status for a current-text/status check. It is not treated as enacted or as a new Sep10 proposal merely because the newsletter discusses reactions."
+        },
+        {
+          "newsletterVisibleEvent": "OpenAI Hugging Face incident as a safety-debate catalyst",
+          "disposition": "MERGE",
+          "exactCoverageProgressLead": "senate-hugging-face-inquiry-20260910",
+          "storyId": "senate-hugging-face-inquiry-20260910",
+          "reviewItem": "hugging-face-primed-the-pump",
+          "reason": "The incident and Senate follow-up are already published. The proposed psychological effect is newsletter interpretation, not an independently measured event."
+        },
+        {
+          "newsletterVisibleEvent": "Doom/media incentives, coordination-operation claims, political-control backlash, p(doom)/p(boom) arguments",
+          "disposition": "WATCH_OR_DECLINE_AS_ATTRIBUTED_COMMENTARY",
+          "reviewItems": [
+            "resist-the-outrage",
+            "doom-drum-is-a-decade-old",
+            "risk-narratives-were-getting-specific",
+            "doom-is-a-better-business-model",
+            "astroturf-theory-vs-occams-razor",
+            "the-control-backlash",
+            "p-boom-not-just-p-doom",
+            "the-middle-space"
+          ],
+          "reason": "The exact Sep10 review records these as attributed interpretation or declines unsupported coordination/motive assertions; no standalone event is created."
+        },
+        {
+          "newsletterVisibleEvent": "Calls for labs to coordinate/pacing-the-frontier",
+          "disposition": "WATCH_NO_RETROACTIVE_MERGE",
+          "relatedPublishedStory": "amodei-ai-pacing-20260912",
+          "reason": "The Sep10 newsletter argues for coordination. The later Sep12 Amodei proposal is a different dated primary event and is not backfilled into this newsletter item."
+        }
+      ],
+      "tailRecovery": "Normal web open read lines 100\u2013143, covering the p(boom), specificity, coordination, and closing sections. The complete page body is retained at the capture path above."
+    },
+    "september11": "Previously complete review remains authoritative for the event-level record; this reconciliation adds exact newsletter/Spotify identity evidence without reopening it."
+  },
+  "rootReview": {
+    "at": "2026-09-13T17:25:53.752946+00:00",
+    "corrections": [
+      "ElevenLabs and Cognition matched exact existing declined events, not new unassessed or same-provider SWE2 exclusion",
+      "Gemini matched existing MERGE record",
+      "MuSpark model claims separated from Muse consumer-agent story"
+    ],
+    "limits": [
+      "Newsletter events reconciled against exact existing reviews; cross-channel audio/transcript identity remains unbound. No publication or duplicate suppression authorized by identity alone."
+    ],
+    "september10Reconciled": true
+  }
+}
