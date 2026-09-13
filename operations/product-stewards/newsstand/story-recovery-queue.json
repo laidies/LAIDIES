@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-13T15:32:24.332Z",
+  "updatedAt": "2026-09-13T23:52:29.722Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -955,6 +955,66 @@
         "readerJourneyPassed": true,
         "verifiedAt": "2026-09-13T15:32:24.332Z",
         "sourceReceipt": "operations/product-stewards/newsstand/evidence/pets-20260913/release.json"
+      }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "trump-ai-safeguards-20260913",
+      "producerPrincipal": "/root/crossword_row_review",
+      "sourceIdentitySha256": "e95c75a79c89458e4cbf4e3f90fc71f07ba7f4195beb9a765b359f20b01c323f",
+      "artifactSha256": "b0bb79f117dfb0f6aa426b9e3774f3a65576763147c5bfd7e5422f71b1429dd6",
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-13T16:04:32-07:00",
+      "lastReviewedAt": "2026-09-13T23:36:09.459Z",
+      "attempts": [
+        {
+          "artifactSha256": "b0bb79f117dfb0f6aa426b9e3774f3a65576763147c5bfd7e5422f71b1429dd6",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-13T23:36:09.459Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/successor-v2/admitted-v2/independent-review.json",
+            "sha256": "7d29575440d22c9827cd3a3043005c8e37cf7ded4e0541c83d466c888ba2096c"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/successor-v2/admitted-v2/independent-raw-report.json",
+            "sha256": "7396b7710ca7f80e57b5ab98cc0757a1dfba5f2f203d6fe9468c2121c3299288"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "MONITOR_CORRECTIONS",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/successor-v2/admitted-v2/ordinary-candidate.json",
+        "sha256": "346416177dae838ba31cd184852fb925f4f4e2ad0c9f98e517c81340c8ac1478"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "e95c75a79c89458e4cbf4e3f90fc71f07ba7f4195beb9a765b359f20b01c323f",
+        "artifactSha256": "b0bb79f117dfb0f6aa426b9e3774f3a65576763147c5bfd7e5422f71b1429dd6",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/successor-v2/admitted-v2/independent-review.json",
+          "sha256": "7d29575440d22c9827cd3a3043005c8e37cf7ded4e0541c83d466c888ba2096c"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/successor-v2/admitted-v2/independent-raw-report.json",
+          "sha256": "7396b7710ca7f80e57b5ab98cc0757a1dfba5f2f203d6fe9468c2121c3299288"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "b5288045-dc58-411b-833d-f44945f409b9",
+        "immutableUrl": "https://b5288045.laidies-sunnyvaile.pages.dev",
+        "customUrl": "https://laidies.ai/newsstand#trump-ai-safeguards-20260913",
+        "artifactIdentitySha256": "90edc8323931968d7d784a82467d713a91efcc739f5d8bcf031db1b3db9433de",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-13T23:52:03.874797+00:00"
       }
     }
   ]

@@ -1,0 +1,192 @@
+{
+  "schema": "newsstand-scout-sweep.v1",
+  "checkedAt": "2026-09-13T23:03:06Z",
+  "writtenAt": "2026-09-13T23:04:53Z",
+  "scope": "Tier 2 private scheduled recovery. This record does not publish, alter a shared cursor, alter coverage progress, merge cross-channel identities from title/date, or invoke provider review.",
+  "priorRecords": [
+    "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1300-scout-sweep.json",
+    "operations/product-stewards/newsstand/editorial-intake/2026-09-13-0700-aidb-source-checks.json",
+    "operations/product-stewards/newsstand/editorial-intake/2026-09-13-0700-aidb-2026-09-13-item-review.json",
+    "operations/agents/aidb-intelligence-desk/edition-cursor.json"
+  ],
+  "captureDirectory": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures",
+  "captureManifest": {
+    "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/fetch-results.json",
+    "sha256": "6acd98868c98f5466280bd59005207e64387f6dacc88b41d4b0461bd26849155"
+  },
+  "sourceChecks": [
+    {
+      "role": "AIDB_website_index",
+      "url": "https://aidailybrief.ai/agent.json",
+      "checkedAt": "2026-09-13T23:02:59Z",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://aidailybrief.ai/agent.json",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/agent.json",
+      "captureSha256": "be24a1d63d01ebcca0363c9599c3cfa1d2c0be257d9582ebdf5bd6e3e9d15409",
+      "captureBytes": 65241,
+      "comparisonTo1300": "raw response differs only in generated timestamp; canonicalized editions array is exact match (3ca36f239e513763cf9de8789eafdacf16b751f40f0ac36d60526f6c3f449902)",
+      "observation": "Index lists 87 editions, led by Sep13. It lists no Sep12 edition.",
+      "disposition": "UNCHANGED_COMPLETE_CURRENT_EDITION",
+      "generatedAt": "2026-09-13T22:34:50.546Z",
+      "stableEditionListSha256": "3ca36f239e513763cf9de8789eafdacf16b751f40f0ac36d60526f6c3f449902"
+    },
+    {
+      "role": "AIDB_Sep13_JSON",
+      "url": "https://aidailybrief.ai/e/2026-09-13.json",
+      "checkedAt": "2026-09-13T23:02:59Z",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://aidailybrief.ai/e/2026-09-13.json",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/sep13.json",
+      "captureSha256": "211cd14f8eb38f38fcd7a19cb8e54632093b73ffca1a041fddfc05c6bd341752",
+      "captureBytes": 18449,
+      "comparisonTo1300": "exact match",
+      "observation": "Exact existing completed edition JSON; its 23 items remain covered by the 07:00 item review, so no item is reclassified.",
+      "disposition": "UNCHANGED_COMPLETE_CURRENT_EDITION"
+    },
+    {
+      "role": "AIDB_Sep13_transcript",
+      "url": "https://aidailybrief.ai/e/2026-09-13/transcript.md",
+      "checkedAt": "2026-09-13T23:03:00Z",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://aidailybrief.ai/e/2026-09-13/transcript.md",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/sep13-transcript.md",
+      "captureSha256": "ed2661a829e7d649d68d00199bcfc4865a2759efd7c5f69d9484e5762a67fbb8",
+      "captureBytes": 32165,
+      "comparisonTo1300": "exact match",
+      "observation": "Exact existing completed transcript; no new material appears.",
+      "disposition": "UNCHANGED_COMPLETE_CURRENT_EDITION"
+    },
+    {
+      "role": "AIDB_Sep12_JSON",
+      "url": "https://aidailybrief.ai/e/2026-09-12.json",
+      "checkedAt": "2026-09-13T23:03:00Z",
+      "accessResult": "MISSING",
+      "httpStatus": 404,
+      "effectiveUrl": "https://aidailybrief.ai/e/2026-09-12.json",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/sep12.json",
+      "captureSha256": "50ca884c766133300eb9eb634279d4b6a417cc6d6465fb7008d39960e8c43eca",
+      "captureBytes": 69,
+      "comparisonTo1300": "exact same 404 response bytes",
+      "observation": "Expected complete Sep12 JSON remains unavailable at the official endpoint.",
+      "disposition": "HOLD_AIDB_SOURCE_COVERAGE",
+      "missingInput": "Public Sep12 edition JSON or publisher-linked complete-content source.",
+      "nextRetryAt": "2026-09-14T03:00:00Z"
+    },
+    {
+      "role": "AIDB_Sep12_transcript",
+      "url": "https://aidailybrief.ai/e/2026-09-12/transcript.md",
+      "checkedAt": "2026-09-13T23:03:00Z",
+      "accessResult": "MISSING",
+      "httpStatus": 404,
+      "effectiveUrl": "https://aidailybrief.ai/e/2026-09-12/transcript.md",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/sep12-transcript.md",
+      "captureSha256": "88dbac475df4d46c7f4b24b1a73b1dde87f2ff9d5313fb8cc2780ea72d3bf034",
+      "captureBytes": 167,
+      "comparisonTo1300": "exact same 404 response bytes",
+      "observation": "Expected Sep12 transcript remains unavailable at the official endpoint.",
+      "disposition": "HOLD_AIDB_SOURCE_COVERAGE",
+      "missingInput": "Public Sep12 transcript or other legitimate complete-content source.",
+      "nextRetryAt": "2026-09-14T03:00:00Z"
+    },
+    {
+      "role": "AIDB_Apple_index",
+      "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "checkedAt": "2026-09-13T23:03:00Z",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/apple-index.html",
+      "captureSha256": "3f2a12556cfb6ece7d5b25373602f517fbe63b208e7aa1e944e62ecf332aa33c",
+      "captureBytes": 658268,
+      "comparisonTo1300": "raw bytes differ; extracted episode identity list matches the prior capture",
+      "observation": "Latest raw Apple identity remains 2026-09-13 / 10 Ways to Think Bigger with Opportunity AI / podcast item 1000789330156. The separately checked AIDB Sep13 JSON/transcript are unchanged; title/date coincidence alone does not merge channels.",
+      "disposition": "UNCHANGED_SEPARATE_RAW_IDENTITY",
+      "latestEpisode": {
+        "date": "2026-09-13",
+        "title": "10 Ways to Think Bigger with Opportunity AI",
+        "url": "https://podcasts.apple.com/us/podcast/10-ways-to-think-bigger-with-opportunity-ai/id1680633614?i=1000789330156"
+      }
+    },
+    {
+      "role": "AIDB_Beehiiv_index",
+      "url": "https://aidailybrief.beehiiv.com/",
+      "checkedAt": "2026-09-13T23:03:03Z",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://aidailybrief.beehiiv.com/",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/beehiiv-index.html",
+      "captureSha256": "59e63a73a067b7ffdfdc693bb9a5828fe1a40a9baee3a45ba68718a3393e5513",
+      "captureBytes": 312479,
+      "comparisonTo1300": "raw bytes differ; extracted publisher-note cards are the same 12 slug identities as the prior capture",
+      "observation": "No Sep13 Beehiiv card. Latest card is dated Sep12 and is the existing publisher note for the Sep11 edition; it is not a new complete AIDB edition.",
+      "disposition": "UNCHANGED_CHANNEL_RECONCILIATION_HOLD",
+      "latestCard": {
+        "publishedDate": "2026-09-12",
+        "title": "What to Use the Latest AI Tools For",
+        "episodeDate": "2026-09-11",
+        "url": "https://aidailybrief.beehiiv.com/p/what-to-use-the-latest-ai-tools-for"
+      },
+      "nextRetryAt": "2026-09-14T03:00:00Z"
+    },
+    {
+      "role": "Ethan_Mollick_feed",
+      "url": "https://www.oneusefulthing.org/feed",
+      "checkedAt": "2026-09-13T23:03:05Z",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://www.oneusefulthing.org/feed",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/mollick-feed.xml",
+      "captureSha256": "9513396bddf3beba7e1a61bd4f767995299942e698f7a6bb88575713da393a1b",
+      "captureBytes": 922443,
+      "comparisonTo1300": "raw bytes differ; feed item identity sequence has the same newest entry",
+      "observation": "Newest feed item remains Agency and Agents, published 2026-08-31T00:24:35Z, at the same canonical URL and already recorded as MERGE/WATCH in prior AIDB work.",
+      "disposition": "UNCHANGED_NO_NEW_EVENT",
+      "latestItem": {
+        "title": "Agency and Agents",
+        "publishedAt": "2026-08-31T00:24:35Z",
+        "url": "https://www.oneusefulthing.org/p/agency-and-agents"
+      }
+    },
+    {
+      "role": "Allie_K_Miller_resources",
+      "url": "https://www.alliekmiller.com/resources",
+      "checkedAt": "2026-09-13T23:03:06Z",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://www.alliekmiller.com/resources",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/allie-resources.html",
+      "captureSha256": "dcb76dc397a3470a57d02f53dd14c872da8863ec86e2302ed28ce7caf8ba0b4f",
+      "captureBytes": 421163,
+      "comparisonTo1300": "exact match",
+      "observation": "Route remains the same undated resources/commercial-links page. It supplies no date-verifiable independently corroborated event.",
+      "disposition": "UNCHANGED_NO_EVENT"
+    }
+  ],
+  "editionAssessment": {
+    "newCompleteEditionFound": false,
+    "reason": "Sep13 JSON and transcript exactly match the already completely dispositioned 23-item edition; the index exposes no Sep12 edition and both expected Sep12 machine-readable sources return 404.",
+    "existingCompleteEditionReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-0700-aidb-2026-09-13-item-review.json",
+    "existingReviewCounts": {
+      "itemsDispositioned": 23,
+      "eligibleLeads": 0,
+      "primaryEvidenceHolds": 1,
+      "noReaderLead": 22
+    }
+  },
+  "newOrChangedEvents": [],
+  "newEligibleLeads": [],
+  "remainingHolds": [
+    "A complete Sep12 AIDB source pair is still absent. Reopen the two official endpoints at 2026-09-14T03:00:00Z.",
+    "Apple and Beehiiv remain separately captured raw channels; no identity merge is asserted without an exact binding."
+  ],
+  "nextRetryAt": "2026-09-14T03:00:00Z",
+  "mutations": {
+    "publicContent": false,
+    "sharedCursor": false,
+    "coverageProgress": false,
+    "providerReview": false
+  }
+}

@@ -6,6 +6,7 @@
   "use strict";
   // Reviewed September 13. Newest Vancouver date first; relevance within each day.
   var order = [
+  "trump-ai-safeguards-20260913",
   "take-it-down-sentencing-20260910",
   "anthropic-threat-report-20260910",
   "amodei-ai-pacing-20260912",

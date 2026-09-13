@@ -1,8 +1,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-13T20:57:21Z",
-  "lastCheckedAt": "2026-09-13T20:57:21Z",
+  "generatedAt": "2026-09-13T23:46:44Z",
+  "lastCheckedAt": "2026-09-13T23:46:44Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -25,7 +25,8 @@ window.NEWSSTAND_DATA = {
         "weeklyStoryId": "weekly-control-layers-20260909",
         "storyIds": [
           "chatgpt-pets-20260913",
-          "gemini-windows-20260913"
+          "gemini-windows-20260913",
+          "trump-ai-safeguards-20260913"
         ],
         "serviceRecordIds": [
           "DAILY-2026-09-13-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
@@ -37,9 +38,9 @@ window.NEWSSTAND_DATA = {
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-13T20:57:21Z",
-      "updatedAt": "2026-09-13T20:57:21Z",
-      "lastCheckedAt": "2026-09-13T20:57:21Z",
+      "publishedAt": "2026-09-13T23:46:44Z",
+      "updatedAt": "2026-09-13T23:46:44Z",
+      "lastCheckedAt": "2026-09-13T23:46:44Z",
       "maxAgeHours": 36,
       "note": "The Daily for 2026-09-13."
     },
@@ -3645,7 +3646,9 @@ window.NEWSSTAND_DATA = {
       "correctionHistory": [],
       "retraction": null,
       "predecessorStoryIds": [],
-      "successorStoryIds": [],
+      "successorStoryIds": [
+        "trump-ai-safeguards-20260913"
+      ],
       "relationshipType": null,
       "bigPicture": null,
       "thread": null,
@@ -4351,7 +4354,9 @@ window.NEWSSTAND_DATA = {
       "correctionHistory": [],
       "retraction": null,
       "predecessorStoryIds": [],
-      "successorStoryIds": [],
+      "successorStoryIds": [
+        "trump-ai-safeguards-20260913"
+      ],
       "relationshipType": null,
       "bigPicture": null,
       "thread": null,
@@ -5067,6 +5072,88 @@ window.NEWSSTAND_DATA = {
       "thread_subtitle": null,
       "thread_entry": null,
       "aidb_credit": null,
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "trump-ai-safeguards-20260913",
+      "slug": "trump-ai-safeguards-20260913",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-13T23:46:44Z",
+      "updatedAt": "2026-09-13T16:15:00-07:00",
+      "lastCheckedAt": "2026-09-13T16:04:32-07:00",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:trump-ai-safeguards-20260913"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [
+        "national-safety-proposals-20260911",
+        "amodei-ai-pacing-20260912"
+      ],
+      "successorStoryIds": [],
+      "relationshipType": "FOLLOW_UP",
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "Trump backs the AI race as calls to slow it grow",
+      "heroVisual": {
+        "src": "/assets/newsstand/trump-ai-pace-and-checking-20260913.png",
+        "alt": "Editorial illustration of an abstract AI computing module beside a magnifying inspection lens examining geometric marks.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>On September 13, the Associated Press reported that President Trump played down checking AI development while stressing competition with China. He later said he was not downplaying risk, expected AI to bring more good than bad, and acknowledged some regulation without giving specifics. The report described possible White House and congressional meetings.</p>",
+      "laidies_read": "<p>This is a disagreement about pace, not a switch in the rules of the AI products you use. Anthropic, the maker of Claude, has proposed slowing capability gains enough for safety work to catch up. Its concrete idea is embedded third-party evaluators: independent reviewers working inside an AI company, with access to check safety work and report findings. That is Anthropic’s proposal and stated commitment, not a federal requirement.</p>",
+      "what_this_means": "<p>For now, the verified change is an argument over how quickly AI should move and who should check it. When a headline says “guardrails,” ask whether it names a company commitment, a proposal or a government action—and what would actually be checked.</p>",
+      "cocktail_party": "“The debate is no longer only ‘slow down or not?’ It is also: who gets to check the safety work?”",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "Follow the related <a href=\"/newsstand.html#amodei-ai-pacing-20260912\">pacing story</a> and <a href=\"/newsstand.html#anthropic-threat-report-20260910\">Anthropic threat report</a>. In AI products, “guardrails” can also mean technical controls; <a href=\"/library.html#ai-fundamentals-101::%40ch-11-11-2-guardrails-the-runtime-safety-net\">AI Fundamentals 101: Guardrails, the Runtime Safety Net</a> explains that separate meaning.",
+      "sources": [
+        {
+          "id": "ap-trump-remarks-20260913",
+          "label": "Associated Press — Trump and AI guardrails",
+          "url": "https://apnews.com/article/9df0ebb4c1b0619aa0f88057b5a1092d",
+          "publisherType": "reporting-or-primary",
+          "accessedAt": "2026-09-13",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "dario-pacing-202609",
+          "label": "Dario Amodei — We Must Pace the Frontier",
+          "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
+          "publisherType": "primary",
+          "accessedAt": "2026-09-13",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "library-guardrails-runtime",
+          "label": "LAiDIES — Guardrails: The Runtime Safety Net",
+          "url": "https://laidies.ai/library.html#ai-fundamentals-101::%40ch-11-11-2-guardrails-the-runtime-safety-net",
+          "publisherType": "laidies",
+          "accessedAt": "2026-09-13",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "AI governance",
+        "public discussion"
+      ],
+      "concepts": [
+        "guardrails",
+        "policy action"
+      ],
+      "tags": [
+        "AI policy",
+        "Trump",
+        "Congress",
+        "guardrails"
+      ],
       "saint_lane": null,
       "badge": "THE LATEST"
     }

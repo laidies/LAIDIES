@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "trump-ai-safeguards-20260913-art-v1",
+  "surface": "NewsStand candidate illustration: AI policy remarks versus formal rule explainer",
+  "mediaClass": "STILL",
+  "status": "READY_TO_RENDER",
+  "registry": {
+    "path": "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/operations/product-stewards/learning-content-ecosystem/visual-media-quality-exemplars.json",
+    "sha256": "5aeb36e8a5a442870e322f07b1a6d730069c16d5892564da303233bbc33a294d",
+    "positiveExemplarId": "VQX-GOOD-STILL-001",
+    "patternApplied": "Detailed adult editorial pop-art grammar with clear objects and print texture.",
+    "limitObserved": "Style authority only; no person, town character, place, pose or composition may be copied."
+  },
+  "intent": {
+    "placement": "Hero for held September 13 NewsStand policy story.",
+    "scenePurpose": "Shows that a spoken political position and a formal rule are different kinds of thing.",
+    "viewerUnderstanding": "A microphone and loose speech sheet represent remarks; a separate blank formal document represents the type of specific written action the AP report did not describe.",
+    "visualJob": "EXPLAIN"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/article.md",
+    "sha256": "eab546744b93d8becbb3c69cf346a0790f243a837c5f93fd94a45661fb487021",
+    "kind": "TEXT",
+    "locator": "The LAiDIES Read",
+    "exactTextOrSilentPurpose": "A statement or planned meeting is different from a named policy action."
+  },
+  "truth": {
+    "destinationStyleAuthority": {
+      "path": "/Users/alisoneakin/Projects/laidies-current-visual-references-20260906/assets/homepage/approved-references/women-ai-pop-art-approved-20260830.png",
+      "sha256": "0742816929be694e0e9fcfa11c3ae047173814e6112419176a71a994273828a5",
+      "rule": "Use only adult editorial pop-art grammar, palette and print texture; do not copy people, pose, clothing or composition."
+    },
+    "location": {
+      "notApplicableReason": "Neutral press setting, not a named LAiDIES location.",
+      "rule": "Do not add a town place, government building or identifying symbol."
+    },
+    "era": {
+      "notApplicableReason": "Contemporary generic objects only.",
+      "rule": "No retro props or historical scene."
+    },
+    "wardrobeAndAccessories": {
+      "notApplicableReason": "No people, bodies, hands, clothing or accessories.",
+      "rule": "Do not add people."
+    },
+    "physicalReality": {
+      "rule": "Podium supports microphone; papers rest or move plausibly; no impossible objects."
+    },
+    "requiredVisualFacts": [
+      "One neutral podium and microphone.",
+      "One loose speech sheet distinct from one blank formal document with generic round seal shape.",
+      "Detailed adult editorial pop-art rendering with deep ink, cyan, coral, yellow and light paper.",
+      "No readable text.",
+      "No people, flags, government buildings, party marks, company logos or brands."
+    ],
+    "prohibitedContradictions": [
+      "No politician or generic woman character.",
+      "No MAiVEN or TRAiLBLAZER image/person reuse.",
+      "No enacted-law claim, executive-order visual, signed document, gavel or courtroom.",
+      "No readable letters, fake labels, watermark or pseudo-text.",
+      "No alarmist fire, race imagery or geopolitical flags."
+    ]
+  },
+  "references": [
+    {
+      "path": "/Users/alisoneakin/Projects/laidies-current-visual-references-20260906/assets/homepage/approved-references/women-ai-pop-art-approved-20260830.png",
+      "sha256": "0742816929be694e0e9fcfa11c3ae047173814e6112419176a71a994273828a5",
+      "role": "Style-only authority."
+    },
+    {
+      "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/art/render-prompt.txt",
+      "sha256": "09f207fd6eeede3ae18ec30fc2ab2c8258814a416cb5dbf48618a47056742544",
+      "role": "Bound render instruction; not style authority."
+    }
+  ],
+  "characters": [],
+  "objectMap": [
+    {
+      "id": "podium-microphone",
+      "visualJob": "Represents a public statement.",
+      "relationToCompanion": "Maps to the reported remarks."
+    },
+    {
+      "id": "loose-speech-sheet",
+      "visualJob": "Makes the spoken/temporary side visible.",
+      "relationToCompanion": "Does not claim policy action."
+    },
+    {
+      "id": "blank-formal-document",
+      "visualJob": "Represents a separate formal action category.",
+      "relationToCompanion": "Must remain blank and unexecuted, because article does not report an enacted rule."
+    }
+  ],
+  "renderPlan": {
+    "tool": "built-in image generation",
+    "output": "art/trump-policy-remarks-v1.png",
+    "promptBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/trump-ai-safeguards-20260913/art/render-prompt.txt",
+      "sha256": "09f207fd6eeede3ae18ec30fc2ab2c8258814a416cb5dbf48618a47056742544"
+    },
+    "requiredChecks": [
+      "Maker pixel inspection at full size",
+      "No generated text",
+      "Object and semantics inspection",
+      "Independent visual admission before use"
+    ]
+  }
+}

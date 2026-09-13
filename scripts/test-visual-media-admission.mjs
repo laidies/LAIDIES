@@ -57,6 +57,9 @@ try {
   const valid = inspectVisualMediaReview(base,{root});
   if(valid.errors.length) throw new Error(`valid visual review failed:\n${valid.errors.join("\n")}`);
   const selfResult=inspectVisualMediaReview(self,{root}); if(selfResult.errors.length) throw new Error(`valid producer review failed:\n${selfResult.errors.join("\n")}`);
+  const futureReview=clone(self); futureReview.reviewer.reviewedAt="2099-01-01T00:00:00Z";
+  if (!inspectVisualMediaReview(futureReview,{root}).errors.some(error=>error.includes("future"))) throw new Error("future producer review false-PASS");
+  expectReject("future_independent_review",value=>{value.reviewer.reviewedAt="2099-01-01T00:00:00Z";});
   expectReject("phantom_limb_pass",value=>{value.visibleDefects=["A phantom hand is visible beside the laptop."];});
   expectReject("impossible_laptop_pass",value=>{value.visibleDefects=["The laptop display is rendered on the exterior lid."];});
   expectReject("gibberish_text_pass",value=>{value.visibleDefects=["Unrelated invented lettering is visible on the screen."];});

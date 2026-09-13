@@ -27,6 +27,7 @@ export function inspectVisualMediaReview(record, { root = process.cwd() } = {}) 
   if (!new Set(["PASS","HOLD","REJECT"]).has(record?.verdict)) errors.push("verdict is invalid");
   if (!record?.reviewer?.principalId || !record?.reviewer?.reviewedAt || record?.reviewer?.artifactFirst !== true || record?.reviewer?.viewedAtIntendedSize !== true) errors.push("reviewer identity, time and artifact-first real-size review are required");
   if (!Number.isFinite(Date.parse(record?.reviewer?.reviewedAt || ""))) errors.push("reviewer.reviewedAt must be a valid timestamp");
+  else if (Date.parse(record.reviewer.reviewedAt) > Date.now()) errors.push("reviewer.reviewedAt cannot be in the future");
   if (!bind(root, record?.producerContract, "producerContract", errors)) return { errors };
   let contract;
   try { contract = JSON.parse(fs.readFileSync(resolve(root, record.producerContract.path), "utf8")); } catch { errors.push("producerContract is invalid JSON"); return { errors }; }

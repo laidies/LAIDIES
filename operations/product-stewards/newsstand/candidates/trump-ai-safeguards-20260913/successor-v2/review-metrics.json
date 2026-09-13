@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "laidies.newsstand-review-metrics.v1",
+  "candidateId": "trump-ai-safeguards-20260913",
+  "proseReview": {
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "note": "One actual combined qualified Claude editorial review of the final frozen prose returned PASS."
+  },
+  "evidencePacket": {
+    "rounds": 1,
+    "gaps": 0,
+    "note": "The final source packet was complete before the single qualified review; earlier predecessor HOLD work remains preserved outside this successor package."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "history": [
+    {
+      "stage": "producer",
+      "verdict": "PASS",
+      "note": "The final prose and source packet were reviewed before dispatch."
+    },
+    {
+      "stage": "independent",
+      "verdict": "PASS",
+      "note": "Actual combined Claude reader and factual review in bounded-claude-v1 passed."
+    }
+  ]
+}
