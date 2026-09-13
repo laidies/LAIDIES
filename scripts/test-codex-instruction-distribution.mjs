@@ -30,7 +30,7 @@ try {
   assert.ok(Buffer.byteLength(entry) < 8192, 'automatic entry must remain a bounded map');
   assert.doesNotMatch(entry, /Public meaning-bearing prose is never produced from/,
     'detailed prose policy must not be automatically inlined');
-  for (const policy of ['working-rules', 'model-routing', 'teaching-production', 'production-design', 'episode-media']) {
+  for (const policy of ['working-rules', 'model-routing', 'teaching-production', 'production-design', 'episode-media', 'standing-authorization']) {
     assert.ok(entry.includes(`rules/${policy}.md`), `entry must route ${policy}`);
     const file = path.join(checkout, contract, 'rules', `${policy}.md`);
     const contents = fs.readFileSync(file, 'utf8');
