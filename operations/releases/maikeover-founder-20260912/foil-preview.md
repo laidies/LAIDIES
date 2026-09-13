@@ -1,5 +1,9 @@
 # Holographic foil — local preview only
 
+Latest correction: Ali rejected the pale veil changing the background. Removed
+the overlay entirely; original foil bytes and enlarged uppercase lettering kept.
+Preview: /private/tmp/founder-foil-restored-preview.png. Not published.
+
 Readability revision: exact LAiDIES FOUNDER casing; larger bold NO. 0001;
 light neutral veil beneath text eases foil interference without boxed labels.
 Desktop and phone preview captures: /private/tmp/founder-foil-readable-preview.png
