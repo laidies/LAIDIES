@@ -2,476 +2,80 @@
      Source: Website-homepage/operations/codex-contract/AGENTS.template.md
      Rebuild: ./Website-homepage/operations/codex-contract/build-agents-md.sh -->
 
-# CODEX SCOPE CONTRACT — read this before doing anything
-
-## READ THIS FIRST — canon, then the decisions router
-
-1. `operations/voice/laidies-canon-index.md` — **the Canon Index.** The single
-   source of truth for names, retired names, saint lanes, status labels,
-   overloaded words and backlog. It has instructed for weeks that every agent brief start
-   with it; nothing pointed at it until now. Read it first.
-   ⚠ An **older, superseded copy** lives at `Website/operations/voice/` — never
-   read or edit that one. The live copy is under `Website-homepage/`.
-2. `operations/DECISIONS.md` — the router: authority order, per-area decision
-   docs, and the process/tooling decisions that post-date the Canon Index.
-
-For art or visual work, next open `operations/reference/README.md` and only the
-relevant current view. Choose matching-new-art versus exact-image reuse; check
-its bound source and destination scope before selecting any image. Do not
-choose by filename, folder age or an old approval label.
-
-The Canon Index is not product-architecture authority. For LIBRAiRY architecture,
-read the current Library source routed by `DECISIONS.md`; never recover a layout,
-palette or interaction from the Canon Index or an older evidence packet.
-
-**Read both before any material task and search them before asking her
-anything.** If you are about to ask a question, propose a direction,
-or pick a name, colour, format or tool — check the register first. Ali having
-to repeat a decision she already made is the single most expensive failure in
-this operation, and it is the one this file exists to prevent.
-
-When she makes a new decision, add it to the register **in the same task**,
-before you do anything else with it. A decision that lives only in a chat
-transcript will be lost and she will have to make it again.
-
-You do **production work** for LAiDIES / SUNNYVAiLE: generate images, produce and
-export video, and create the working and output files that work needs. **Do what
-the active brief or task asks for** — you don't need a special allowance for each
-new output type.
-
-## Video pipeline — which tool does which job
-- **Canva creates the animation.** Image-to-video from an approved still. CapCut's
-  own animation was rejected; do not generate motion there.
-- **CapCut assembles.** Import the Canva clips, cut, sequence, and export the final
-  video.
-- Animate **one** approved still per shot. Generating many variants produces drift.
-- A loop must have zero net travel, or it plays once and jumps.
-
-## Where things go
-- Save deliverables to the delivery path the brief names — images and video clips
-  land beside their source frames (e.g. `ep04-scene-NN-*.mp4`).
-- Use only the reference / source frames the brief names; treat named off-limits
-  files as radioactive.
-
-## FULL ACCESS — updated 2026-07-24 (Ali: "full access to everything, remove all controls")
-The earlier hard prohibitions are **removed**. You have **full access**: run git (commit, push,
-branch, etc.), edit the site's HTML/CSS/JS/canon/docs, and create/move/manage files as the task
-needs. You do not need a special allowance for any of it.
-
-⚠ **One caution — advice, NOT a prohibition — kept only because it cost a real day of work:**
-On 2026-07-04 a `git reset` destroyed a full day of **uncommitted** work and needed forensic
-recovery. So: **commit before any destructive git** (`reset --hard`, `checkout -- .`, `clean`,
-`stash`). Commit and push freely (those are safe); just don't run a history-/tree-wiping command
-over uncommitted work. That's the only git caution — everything else is fair game.
-
-## Workflow
-Read the brief/task → do the work → save to the named delivery path → report what
-you made and any concerns.
-
-**Commit discipline is part of completion.** A task that changed repository
-files may not report `COMPLETE`, `PASS` or a completed handoff while those exact
-paths are only uncommitted. Stage only the task-owned paths, inspect the staged
-diff, commit them intentionally and bind the exact commit in the handoff. If a
-path must remain uncommitted, the work remains `HOLD` or `BLOCKED` and names its
-owner, reason and next trigger. Read-only work records
-`NO_REPOSITORY_MUTATION`. Never sweep unrelated dirty paths into a commit.
-
-## PARALLEL WORK — mandatory
-
-Subagents are enabled (`features.multi_agent`), capped at 2 concurrent threads.
-Serial execution of genuinely independent work is a defect, not caution.
-
-**Write safety.** Concurrent threads share one working tree with full access, so:
-- Subagents are **read / analysis lanes by default**. Research, inventory, search,
-  extraction, verification, review.
-- **Exactly one thread writes to any given file path.** Never two.
-- Writes to shared or canonical files — `operations/ACTIVE-WORK.md`,
-  `operations/engine/LEDGER.md`, `operations/painpoints-log.md`, canon and
-  index files — happen in the **foreground thread only**.
-- If a lane must write, name the exact paths it owns in its brief, and give no
-  other lane those paths.
-
-**Every spawn needs a brief.** A subagent inherits none of this conversation. It
-starts blind. A brief that omits any of these produces unusable output that the
-foreground then redoes — which looks like parallelism not helping, when the real
-fault is the handoff:
-
-1. the goal, in one line;
-2. the exact input paths it may read;
-3. the delivery path, or "return findings only, write nothing";
-4. the acceptance conditions — how it knows it is done;
-5. what is off-limits;
-6. the model and reasoning effort it should run at;
-7. the return format.
-
-**Merge is a step, not an assumption.** After lanes return, the foreground thread
-reconciles: check the lanes against each other for contradictions, check each
-against the **original brief and the real artifact** — never against the lane's own
-summary of itself — and resolve conflicts before anything is shown to Ali.
-
-**One painpoints entry per task.** Subagents never append to
-`operations/painpoints-log.md`. They return learnings to the foreground, which
-writes a single consolidated entry at the end. Parallel appends to one file
-interleave and lose content.
-
-## HOW MUCH PROCESS — decide this before you start
-
-The gates below are expensive. Applying them to everything is why work takes
-too long and produces internal reviews nobody reads. Scale them to what a
-mistake would actually cost:
-
-- **Tier 1 — visitor-facing, published, or hard to undo.** Episode video and
-  art, building pages, published copy and teaching content, deploys, anything
-  carrying Ali's name in public. **Full gates below apply.**
-- **Tier 2 — internal work products.** Research, inventory, audits, refactors,
-  ops docs, scripts, tooling. Do the work, verify it runs, report what you
-  found. **No receipts, no admission gate, no evidence artifacts.**
-- **Tier 3 — mechanical.** Renames, path fixes, data transforms, formatting.
-  **Just do it and say what changed.**
-
-State the tier in one word when you start. If you can't tell, it's Tier 2.
-Generating a Tier 1 evidence trail for Tier 2 work is not caution — it is
-waste, and it buries the signal Ali actually needs to see.
-
-## A GATE THAT CANNOT FAIL IS NOT A GATE
-
-Before trusting any validator, QC script or review step, **prove it can fail**:
-feed it a deliberately bad input and confirm it reports failure. Record that
-the calibration was done.
-
-- If a check has never once failed, it is not evidence. Either calibrate it or
-  delete it. Do not keep generating its output.
-- **Integrity receipts are not reviews.** Checksums, durations, codecs,
-  geometry, "no state was changed" — these prove a file is intact, not that it
-  is good. Never label mechanical verification as review, approval, or PASS on
-  quality. Call it an integrity receipt and say what it does not cover.
-- The only checks worth building are ones that could plausibly reject the thing
-  in front of you.
-
-## FIX IT EVERYWHERE, NOT JUST HERE
-
-A fix applied to the one instance in front of you is **not done**. Before
-closing any task that corrects a defect, rule or standard:
-
-1. search the repository for every other place the same pattern occurs;
-2. fix them in the same task, or list them explicitly as remaining;
-3. if the fix is a rule, add it to `operations/DECISIONS.md` so it binds
-   future work instead of being rediscovered.
-
-Ep4's motion QC was fixed in July and the same fail-open bug stayed live in
-every other episode's QC because this step did not happen. That is the failure
-mode this rule exists to stop.
-
-## PROSE AND TEACHING PRODUCTION — Tier 1 only
-
-Public meaning-bearing prose is never produced from a topic prompt plus a final
-review. Before drafting, the producer must create and pass an exact
-`laidies-content-producer-contract.v1` record using
-`scripts/check-content-producer-contract.mjs`. The contract binds the reader's
-real question and payoff, prior knowledge, canonical truth and freshness
-sources, applicable positive exemplars, every registered known-bad defect, the
-causal teaching sequence, daily-life connection, worked and unseen transfer
-cases, useful action, and any earned analogy or humour job.
-
-The producer reads the exact prose in full and records a separate
-`PRODUCER_SELF_REVIEW` with `scripts/check-prose-quality-admission.mjs` before an
-independent review is requested. A known defect, missing mechanism, decorative
-analogy, generic action, disconnected glossary, jargon before meaning,
-unreviewable claim or prose that leaves no useful reader change stops the work
-inside production. The producer repairs its brief, examples or method before
-creating another candidate; it may not spend a reviewer cycle rediscovering a
-requirement the system already knew.
-
-Only after that producer pass does an independent reviewer inspect the same
-checksum-bound prose, beginning with the artifact rather than maker receipts.
-The reviewer must judge plain clarity, connected mechanism, daily-life
-interaction, explain-back, unseen transfer, useful action, factual integrity,
-freshness reviewability, surface fit, LAiDIES voice and whether the experience
-is genuinely engaging and enjoyable. LAiDIES or Rewind Era analogies and humour
-belong only when they perform a named teaching job and preserve the mechanism;
-otherwise use a faithful everyday example or none.
-
-Material learning producers also bind the current Hannah Fry communication
-benchmark before drafting. Adapt the communication mechanics—not her voice,
-persona or a talk template—to the destination's job: human reason, useful
-curiosity, concrete visibility for an invisible process, accurate movement
-between familiar experience and technical abstraction, retained limitations
-and consequences, and a better next question. Name-dropping the benchmark,
-adding a hook without explanatory payoff or using a familiar example that
-never reconnects to the mechanism fails production.
-
-Every rejection updates the shared exemplar/defect registry and the producer
-preflight before a successor is made. Targets are zero repeated known defects,
-zero objective defects first found by reviewers, fewer total review issues and
-no increase in review cycles. A validator that does not read the exact prose
-may report integrity only and cannot admit, release or call content good.
-
-The producer contract and both reviews bind the exact current exemplar/defect
-registry SHA and consume every registered negative exemplar; adding a learned
-failure invalidates stale contracts automatically. The content manifest must
-name the exact reviewed prose bytes and any rendered derivative, and producer,
-independent-review and work-order release bindings must all match. Factual
-review maps exact candidate claims to exact source excerpts, while explain-back
-and transfer observations bind their evidence files. Different display names
-do not prove reviewer independence: the reviewer principal, artifact-first
-attestation and calibration identity must agree. Against a preceding
-comparable candidate, both review issues and review cycles must decrease; equal
-counts do not satisfy the ratchet.
-
-Every verdict must disposition the learning result. PASS records no new
-reusable defect. HOLD/REJECT records an evidence gap, candidate-only repair or
-a checksum-bound pending reusable learning. Learning-owner admission—not
-feedback alone—adds a reusable defect to the shared registry, which then
-invalidates stale producer contracts before the next draft.
-
-Material explanatory NewsStand content includes explain-back and unseen
-transfer, with the same bound observation rule as other teaching. Every
-successor review names its predecessor and supplies the prior comparable;
-omitting comparison cannot reset the ratchet.
-
-## END-TO-END PRODUCTION DESIGN — Tier 1 only
-
-LAiDIES is one cohesive learning town for professional women from the Rewind
-Era. Visual/Brand craft, usefulness, function, UX, intuitiveness and accuracy
-are non-compensable: failure in one cannot be scored around by strength in
-another. Preserve the LAiDIES magic and world-building while making every job
-obvious and easy. Boring, flat, generic, incohesive or AI-slop output fails
-before review. Teaching must be current and correct; stale claims, weak or
-misleading analogies/examples, decorative references that do not teach and
-explanations that increase confusion all fail.
-
-Before producing anything, design the whole path from source inputs to the
-visitor-visible result. Work in dependency order so downstream polish is not
-built on unapproved or incomplete foundations. At minimum:
-
-1. identify the real user goal and the final acceptance conditions;
-2. inventory the governing canon, approved references, retired/off-limits
-   material, required inputs and unresolved decisions;
-3. order the work by dependency and identify the cheapest representative
-   proof that can expose a wrong approach before full production;
-4. convert every objective requirement that can be checked mechanically into
-   a validator or build guard at the earliest stage where it can fail;
-5. require subjective review only for genuinely qualitative judgment, after
-   objective failures have already been removed;
-6. make the producer record artifact-bound evidence for each requirement, and
-   make the reviewer independently inspect the real output against the
-   original brief and references—not the producer's checklist language;
-7. stop before expensive downstream work when an upstream gate fails; and
-8. preserve approved work and prove any successor retained it unless an exact
-   supersession was approved.
-
-If Ali or a verified visitor outcome rejects something that passed internal
-review, the evaluator failed. Invalidate the verdicts, reproduce the missed
-defect, add the smallest fail-closed guard, update the responsible skill or
-review contract, then forward-test the revised reviewer on the known-bad
-artifact without telling it the expected defect. Do not call the incident
-learned until that reviewer rejects the old artifact unaided. For visual work,
-the reviewer sees same-viewport incumbent/candidate renders before maker
-receipts, lists visible regressions and locked-decision violations first, and
-cannot score around either.
-
-For public images and animation, generation is also prevention-first. Before
-rendering, bind the exact destination/location style authority, accompanying
-text or narration, scene and teaching job, canon characters and places,
-identity/likeness references, era, age, wardrobe/accessories, required objects,
-prohibited contradictions, text plan and motion class. Consume the complete
-current visual known-bad registry. Generated text is forbidden by default;
-use a deterministic editable layer unless purpose-built lettering is itself
-the asset and is checked character-for-character. The maker then inspects the
-exact rendered pixels at intended size for identity, anatomy, physics, object
-orientation, period truth, text, semantic usefulness and narration alignment.
-Animation additionally requires decoded occurrence evidence, meaningful change,
-timing/continuity and the correct loop/transition/one-shot classification.
-Only after zero visible known/objective defects may a role-distinct visual judge
-inspect the same exact artifact. A prompt, filename, cue label, checksum,
-contact-sheet presence or self-authored `PASS` cannot prove what the pixels show.
-
-Quality must ratchet upward. Before producing a candidate, search the governing
-decisions, rejection register and relevant painpoints; encode every applicable
-known failure in the maker preflight or an objective guard. Repeated known
-defects and objective defects first discovered by reviewers both have a target
-of zero. Track total review issues and review cycles against the preceding
-comparable candidate; they must trend down until first-pass acceptance is the
-norm. A repeated defect stops production and repairs the producer/checker before
-another review is commissioned. Review is judgment of genuinely new quality,
-not a recurring discovery service for requirements the system already knew.
-
-For Tier 1 work, prove the highest-risk experience/visual/technical mechanism
-with the smallest representative artifact before building the full candidate.
-Then require maker inspection of the real continuous desktop/mobile result
-against the incumbent. A candidate with any known defect, objective failure or
-visible maker-found issue remains internal repair and may not consume an
-independent review cycle. The reviewer is not the maker's QA department.
-
-Instructions are not complete merely because they describe the desired
-result. They must make bypass difficult: name required inputs and outputs,
-define failure states, bind exact files/checksums where identity matters, say
-which command proves compliance and prevent build/release when evidence is
-missing. A self-authored `PASS`, prose assurance, file-exists check, sampled
-spot check or technically valid export is never proof that the result meets
-the brief.
-
-For a building-page visual, the earliest concept is already a review artifact.
-Do not display, attach, link or open a generated image, mockup, screenshot,
-prototype or coded direction for Ali until its exact bytes have passed the
-repository's design-review admission gate. The gate applies before visual
-options are presented, not only after implementation. A failed concept remains
-internal repair and must not consume Ali's review time.
-
-This rule applies to the entire LAiDIES operation: product and UX design,
-writing, research, teaching, images, animation, video, audio, code, data,
-content pipelines, social assets, releases and operational systems. Do not
-defer a preventable failure to Ali or to a final release review.
-
-## MINIMUM SUFFICIENT WORK — mandatory
-
-Meet the LAiDIES quality bar with the smallest complete workflow that reliably
-achieves the user outcome. Do not add audits, proofs, artifacts, abstractions,
-documentation, tools, variants or review loops merely because they are
-possible. Before each material step, ask whether it changes a decision,
-prevents a plausible failure, satisfies a release requirement or improves the
-real visitor result. If not, omit it.
-
-Reuse durable verified facts and approved assets. Do not re-prove settled
-authorship, ownership, identity, canon or technical facts unless the relevant
-bytes changed, the evidence expired, a contradiction appeared or the next
-action genuinely depends on renewed proof. Scope regression testing to the
-changed surface plus its real downstream dependencies. Prefer one
-representative pilot over many speculative variants, one authoritative record
-over duplicate reports, and one bounded correction over a full rebuild.
-
-Quality and efficiency are joint acceptance criteria. Never save time by
-skipping accuracy, freshness, LAiDIES voice, teaching quality, accessibility,
-canon, privacy, security or visible-output review. Never protect those
-standards with work that cannot affect the outcome. Record why any unusually
-expensive or broad step is necessary before doing it, and stop when the
-acceptance conditions are met.
-
-## ADAPTIVE MODEL + CREDIT ROUTING — mandatory
-
-Use the least expensive model/reasoning configuration that can reliably meet
-the task's quality and risk bar. The project `.codex/config.toml` sets the
-foreground starting model to **GPT-6 Astra / Medium**, planning to **High**,
-subagents to **GPT-5.6 Terra / Medium**, 2 concurrent threads, and Fast mode off.
-
-- Use **Luna / Low** for high-volume work with clear success criteria:
-  extraction, classification, mechanical transformation, structured summaries,
-  repeatable edits. It is the cheapest and should carry this whole category.
-- Use **Terra / Low or Medium** for bounded reading, search, inventory,
-  reporting, routine implementation, tests and monitoring that still need
-  judgment.
-- Use **Sol / Medium or High** for demanding professional work where Astra is
-  unlikely to change the decision or reduce rework enough to justify its higher
-  usage. Sol remains an active value route, not a deprecated fallback.
-- Use **Astra / Medium** for the hardest cross-domain, end-to-end work where
-  stronger reasoning, computer use, long-context instruction handling or
-  multi-surface synthesis can materially improve the outcome.
-- Use **Astra / High, Extra High, Max or Ultra only as a bounded exception**
-  when the task is unusually ambiguous, consequential or resistant to a lower
-  setting. State the reason before the expensive work.
-- Start at the lowest effort that produces a satisfactory result and escalate
-  only on evidence. Effort levels do not map across model generations — retest
-  familiar tasks lower than you expect.
-- Keep **Fast mode off** unless Ali explicitly says latency matters more than
-  credit use.
-- Do not make Ali route ordinary work manually. Apply this policy
-  automatically. If the whole active foreground needs a different main-chat
-  setting that cannot be changed from inside the task, give Ali one concise
-  switch recommendation before incurring the expensive work.
-- A composer/model-picker choice for the active chat can override project
-  defaults. After unusually difficult work, step new tasks back down to the
-  project baseline.
-
-The project default is a starting point, not a universal assignment. Before
-material work, classify the task by ambiguity, consequence, modalities, context
-load, tool depth and cost of a wrong answer. Use the cheapest model likely to
-clear the actual acceptance conditions. Prefer a bounded Luna or Terra lane
-when the foreground model is more capable than the work requires. Escalate only
-when the lower route fails, the task crosses several systems, or stronger
-judgment could plausibly prevent a costly review cycle. Do not make Ali manage
-routine routing.
-
-## ASTRA-SPECIFIC CONTROL — mandatory when Astra is active
-
-Astra follows long instruction stacks closely and can be more sensitive to
-conflicts. Apply the authority order in `operations/DECISIONS.md` and Ali's latest
-direct instruction. If a conflict forces a pause, leaves work unfinished or
-changes course, name the exact file and rule; do not silently invent a narrower
-scope.
-
-Inspect the existing architecture, tools and approved assets before proposing a
-new mechanism. Do not implement novel infrastructure merely because Astra can
-devise it. First show why the current mechanism cannot meet the goal. If the new
-approach materially changes scope, cost, reversibility or an Ali-owned product
-decision, complete all independent preparation and present that one decision
-before implementation.
-
-## MODEL-ROUTING CALIBRATION — active through 2026-09-19
-
-At the end of each completed Tier 1 or material Tier 2 task, append one row to
-`operations/model-routing-calibration-2026-09.md`. Record the actual model/effort,
-route reason, time band, task-specific usage only when available, first-pass
-result, material corrections or detours and whether a cheaper route was likely.
-Exclude simple questions, one-step maintenance and waiting. Do not infer task
-cost from account-wide usage. Review after 12–20 comparable real tasks; do not
-create synthetic benchmark work merely to fill the table.
-
-## CONTINUITY + IDEA INTAKE — mandatory
-
-Before material work, read:
-
-- `operations/CODEX-WORKING-AGREEMENT.md`
-- `operations/ACTIVE-WORK.md`
-- `operations/engine/LEDGER.md`
-
-Ali may share new ideas while work is underway. Capture them in the appropriate
-durable source and continue the active task by default. Do not silently switch
-or abandon BUILDING work. A switch requires a checkpoint with completed work,
-open work, verification and the exact resume action.
-
-Use the fixed status meanings in the working agreement. Never treat
-CAPTURED/DECIDED/SPECIFIED as built, or local code as publicly verified.
-Update the active-work record and decision/idea sources before ending material
-work or handing it to another task.
-
-Teach while building: explain the mechanism, evidence, trade-offs and reusable
-AI/product skill in plain technical language. Do not dumb concepts down or
-assume Ali wants only a summary.
-
-LAiDIES must practise what it teaches. Verify facts/current product claims,
-separate evidence from inference, use good briefs, label intentionally bad
-prompts, test the real result, protect private information and report
-limitations honestly.
-
-At the end of every material task, scan for meaningful failures, surprises,
-non-obvious fixes or reusable successes. Append qualifying learnings to
-`operations/painpoints-log.md` in the same task and record the prevention rule
-plus a possible public Behind the Build angle. Before similar work, search the
-ledger and reuse its relevant rules.
-
-## EPISODE VISUAL SYSTEM — mandatory read
-
-Before creating or editing any episode/trailer visual, transition, recurring
-ident, speech bubble, emphasis frame, comic spread, trading-card insert,
-landscape, or background, read:
-
-`operations/episode-visual-system-lock.md`
-
-The exact master people-rendering style is:
-
-`assets/episodes/ep-04/pixel/ep04-heroine-face-lock-approved-ali.png`
-
-That image governs how every person is drawn. Character-specific references
-govern identity.
-
-**Real historical women require a bound likeness reference.** Before rendering
-Ada Lovelace, Grace Hopper, Karen Sparck Jones, the ENIAC Six or any other real
-person, confirm that `operations/reference/real-people/<person>/` contains at
-least one actual image file. If it is empty, **stop and say so** — do not
-generate a face from the name. An empty reference directory is the single
-mechanical cause of likenesses that don't match, and the guidance that says
-"references govern identity" is unenforceable without them. Run:
-
-    node scripts/check-real-person-references.mjs The saved category libraries govern bubbles, lettering, page
-layout, cards, and environments. Do not substitute a generic comic style, a
-generated group portrait, a retired wordmark, or an old welcome-back candidate.
+# LAiDIES task entry
+
+This is the entry map. Detailed rules remain binding in the routed files below.
+Retrieve complete applicable sections, not entire historical manuals. This reading
+rule supersedes older blanket-reading directions; it does not waive their requirements.
+Paths in routed policy files are relative to the site repository root.
+
+## Start with the task and current authority
+
+- State the goal, acceptance conditions and scope in three lines; proceed unless Ali corrects you.
+- Ali's latest direct ruling wins. Consult `operations/voice/laidies-canon-index.md`
+  for names/status, then `operations/DECISIONS.md` §1 Authority order and the
+  applicable decision entries. Canon is not Library architecture authority.
+  Never use the superseded `Website/operations/voice/` copy.
+- Find the relevant current objective/owner in `operations/ACTIVE-WORK.md` and
+  applicable decisions in `operations/engine/LEDGER.md`. Read the relevant status,
+  re-entry and completion sections of `operations/CODEX-WORKING-AGREEMENT.md`.
+  Preserve the governing objective; supporting work does not replace it.
+- Search before asking Ali to repeat a decision. The existing
+  `scripts/query-laidies-context.mjs` locates decisions/canon/lessons/product
+  sources; excerpts are previews, so read the complete matching source section.
+  Missing, conflicting or truncated authority must be resolved before dependent work.
+
+## Always apply
+
+- Carry the assigned job through completion, including going live and live verification
+  when in scope. Status reports, reviews and commits are checkpoints: do the next step.
+- Ali grants standing authorization for required work. Only new spending needs approval;
+  ask for direction only when a material missing decision cannot be resolved. Finish
+  independent work first. Failed quality checks mean repair and continue. This supersedes
+  older routine approval stops; specific rejections and task scope remain binding.
+- Read `operations/codex-contract/rules/standing-authorization.md` for cost,
+  external dependencies and truthful release records.
+
+- Choose Tier 1 for public/visitor-facing or hard-to-undo work; Tier 2 for internal
+  work; Tier 3 for mechanical work. State the tier. Scale process to consequences.
+- Do authorized work without routine permission. Preserve dirty bytes;
+  commit before destructive git. Stage/commit only owned paths before completion.
+  Exactly one writer per path; only the foreground writes shared/canonical records.
+- Use bounded parallel lanes only when independent; hand each lane the goal,
+  exact inputs, output paths, acceptance, exclusions, model/effort and return format.
+- Use the smallest complete workflow. Reuse approved assets and current mechanisms.
+  Never trade accuracy, voice, accessibility, canon, privacy or security for speed.
+- Verify real results. Calibrate checks with bad input; integrity is not quality.
+  Review real artifacts against the brief; never call a self-written PASS evidence.
+- Distinguish captured, specified, built locally, committed, previewed and publicly
+  verified. Verify public claims at the live URL. Report skipped steps and limits.
+- Lead reports with outcome, meaning, owner and any actual decision Ali must make.
+  Read-only work records NO_REPOSITORY_MUTATION; chat does not replace required receipts.
+
+## Load details when the work requires them
+
+Read all routes matching the task before the relevant action; re-route if scope changes.
+If a named policy/section is missing, stop the dependent action and report the gap.
+Do not read every policy by default or substitute this map for applicable details.
+
+| Trigger | Required route |
+|---|---|
+| Authority, file/git work, delegation, validation, defect repair or material closeout | `operations/codex-contract/rules/working-rules.md`: read the matching complete sections (READ THIS FIRST, FULL ACCESS, Workflow, PARALLEL WORK, HOW MUCH PROCESS, A GATE THAT CANNOT FAIL, FIX IT EVERYWHERE, MINIMUM SUFFICIENT WORK, CONTINUITY + IDEA INTAKE). |
+| Model choice/delegation; Astra; material completion through 2026-09-19 | `operations/codex-contract/rules/model-routing.md`: ADAPTIVE MODEL + CREDIT ROUTING; ASTRA-SPECIFIC CONTROL when applicable; MODEL-ROUTING CALIBRATION on material completion. Baseline GPT-6 Astra / Medium; use the cheapest adequate route, Fast off. |
+| Public meaning-bearing prose or teaching, including edits | `operations/codex-contract/rules/teaching-production.md` in full before drafting; exact producer contract, self-review and independent admission remain required. |
+| Tier 1 production, public product/UI/code/content, visuals or release | `operations/codex-contract/rules/production-design.md` in full; load the area's sources through DECISIONS §4. Use standing authorization for in-scope release; all quality checks still apply. |
+| Art or page visuals | First `operations/reference/README.md` and its current destination view, plus `operations/design-artwork-rule.md`; preserve approved originals and apply the design route above. No concept may be shown before required design admission. |
+| Any animation/video production or image/video delivery | `operations/codex-contract/rules/episode-media.md`: Video pipeline and Where things go. Preserve named source/delivery paths and off-limits material. |
+| Episode/trailer visual or real-person depiction | `operations/codex-contract/rules/episode-media.md` in full and `operations/episode-visual-system-lock.md`; bind approved stills/identity references. Empty real-person reference directory stops rendering. |
+| Reader-tip scan or surfacing | `operations/agents/aidb-intelligence-desk/sources/reader-tip-monitor-contract.md` in full; obey scope, current state, exit handling and exact-owner receipts. |
+
+## Close the loop
+
+Fix equivalent occurrences or name what remains. Record new decisions in DECISIONS
+in the same task. Capture ideas without abandoning active work; update the relevant
+active-work record and qualifying painpoints once per material task. Preserve all
+content, visual and release gates; only the amount of unrelated reading changes.
+
+This file is generated. Edit `operations/codex-contract/AGENTS.template.md`, then run
+`bash operations/codex-contract/build-agents-md.sh`. Check with `--check` and
+`node scripts/test-codex-instruction-distribution.mjs`.

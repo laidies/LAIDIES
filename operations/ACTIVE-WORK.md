@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-12 — Standing authorization / IMPLEMENTING.** This task owns the entry-map policy and exact-release authorization update. Continue assigned work through live verification; only new spending or irreducible direction requires Ali. Quality checks remain. Native continuation and remote controller adoption must be reported separately.
+
 > **2026-09-06 — Operating integration / BUILDING: read-only Learning map pilot.**
 > Owner `01a077d0-0775-7af2-b631-c311573f0e0e`; isolated
 > `/Users/alisoneakin/Projects/laidies-learning-map-20260906`, branch

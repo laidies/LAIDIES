@@ -85,6 +85,27 @@ result = run(process.execPath, [approvalChecker, approvalPath], repositoryRoot);
 assert.notEqual(result.status, 0);
 assert.match(result.stderr, /confirmation/);
 
+const standingReceipt = {
+  schema: 'laidies.production-release-authority.v2', authority: 'ali-standing-authorization-2026-09-12',
+  baseCommit: 'd'.repeat(40), task: 'Assigned homepage correction', executedBy: 'release-agent', newMonetaryCost: false,
+  sourceCommit: 'a'.repeat(40), artifactIdentitySha256: identity,
+  decision: 'RELEASE_UNDER_STANDING_AUTHORITY', publicUrl: 'https://laidies.ai/',
+  recordedAt: '2026-09-12T20:00:00Z', confirmation: `RELEASE ${identity} FOR PRODUCTION`,
+};
+fs.writeFileSync(approvalPath, JSON.stringify(standingReceipt));
+result = run(process.execPath, [approvalChecker, approvalPath], repositoryRoot);
+assert.equal(result.status, 0, result.stderr);
+for (const patch of [
+  { baseCommit: 'unknown' }, { baseCommit: undefined }, { authority: 'invented' }, { task: '' }, { executedBy: '' },
+  { newMonetaryCost: true }, { newMonetaryCost: undefined },
+  { approvedBy: 'Ali' }, { artifactIdentitySha256: 'c'.repeat(64) },
+  { sourceCommit: 'unknown' }, { confirmation: 'RELEASE SOMETHING ELSE' },
+]) {
+  fs.writeFileSync(approvalPath, JSON.stringify({ ...standingReceipt, ...patch }));
+  result = run(process.execPath, [approvalChecker, approvalPath], repositoryRoot);
+  assert.notEqual(result.status, 0, `must reject ${JSON.stringify(patch)}`);
+}
+
 const workflow = fs.readFileSync(workflowPath, 'utf8');
 const builderSource = fs.readFileSync(builder, 'utf8');
 assert.doesNotThrow(() => assertWorkflowContextIsDispatchable(workflow));
@@ -140,7 +161,10 @@ for (const dependency of protectedBuilderDependencies) {
   assert.ok(workflow.includes(dependency), `workflow does not protect builder dependency ${dependency}`);
 }
 assert.doesNotMatch(workflow, /^\s*push:/m);
-assert.match(workflow, /PRODUCTION_APPROVER_LOGIN/);
+assert.doesNotMatch(workflow, /PRODUCTION_APPROVER_LOGIN/);
+assert.match(workflow, /test "\$NO_NEW_COST" = "true"/);
+assert.match(workflow, /ali-standing-authorization-2026-09-12/);
+assert.match(workflow, /--arg task "\$ASSIGNED_TASK"/);
 assert.match(workflow, /PRODUCTION_CONTROLLER_SHA/);
 assert.match(workflow, /environment:\n\s+name: production/);
 assert.match(workflow, /PROJECT_NAME: laidies-sunnyvaile/);
@@ -160,4 +184,4 @@ assert.match(workflow, /https:\/\/laidies\.ai\/\$\{artifact_path\}/);
 assert.doesNotMatch(workflow, /actions\/deploy-pages@/);
 assert.match(workflow, /operations\/ACTIVE-WORK\.md/);
 
-console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · invalid job-level runner context rejected · in-repository workflow output rejected · unsafe redirect verification rejected · missing deploy-scope transfer rejected · missing API verification rejected · in-repository builder output rejected · altered approval rejected · manual Ali-bound Cloudflare workflow, new-identity provider verification and exact four-book scope guard bound');
+console.log('PRODUCTION RELEASE CONTROLLER CALIBRATION: PASS · invalid job-level runner context rejected · in-repository workflow output rejected · unsafe redirect verification rejected · missing deploy-scope transfer rejected · missing API verification rejected · in-repository builder output rejected · altered approval rejected · standing-authorized Cloudflare workflow (spend and forged approval rejected), new-identity provider verification and exact four-book scope guard bound');

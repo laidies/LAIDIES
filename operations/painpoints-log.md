@@ -525,3 +525,7 @@ name and bind the principal, task, isolated lane, exact scope and exact current
 inputs; product ownership alone can never establish active assignment or
 drafting authority. Behind the Build angle: why naming the department is not
 the same thing as handing the work to someone.
+
+## 2026-09-12 — Status reports must not end unfinished jobs
+
+Repeated permission stops conflicted with Ali's intended autonomy. Standing authorization now covers required work through live verification; money is the approval boundary. Quality failures require repair. Release receipts distinguish delegated authority from personal artifact approval. Prevention: test the executable release gate as well as instruction text. Native automatic continuation is a separate capability, not proven by a policy file. Behind the Build: why giving an AI permission and making it persist are different problems.

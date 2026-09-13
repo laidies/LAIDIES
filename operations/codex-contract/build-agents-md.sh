@@ -14,6 +14,14 @@ fi
 
 [ -f "$TEMPLATE" ] || { echo "FAIL: template not found at $TEMPLATE" >&2; exit 1; }
 
+# The automatic entry stays a map; missing policy routes fail before any writes.
+[ "$(wc -c < "$TEMPLATE")" -le 8192 ] || { echo "FAIL: entry map exceeds 8192 bytes" >&2; exit 1; }
+while IFS= read -r policy; do
+  [ -s "$SITE_ROOT/operations/codex-contract/rules/$policy" ] || {
+    echo "FAIL: missing routed policy $policy" >&2; exit 1;
+  }
+done < <(sed -nE 's|.*\{\{OPS\}\}/codex-contract/rules/([a-z-]+\.md).*|\1|p' "$TEMPLATE" | sort -u)
+
 BANNER="<!-- GENERATED FILE — DO NOT EDIT.
      Source: Website-homepage/operations/codex-contract/AGENTS.template.md
      Rebuild: ./Website-homepage/operations/codex-contract/build-agents-md.sh -->"
