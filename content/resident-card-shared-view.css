@@ -1,4 +1,7 @@
 /* Shared standalone Resident Card view. Live text remains deterministic. */
+.mo-mirror-mount #moCard .resident-founder-badge { position:absolute; z-index:3; left:5.5%; bottom:5%; padding:.24em .65em; border:1px solid #7137d6; border-radius:1em; background:#fce3f2; color:#7137d6; font:800 clamp(11px,2.3cqw,15px)/1.2 'Jost',sans-serif; letter-spacing:.025em; white-space:nowrap; }
+.mo-mirror-mount #moCard .resident-founder-badge[hidden] { display:none; }
+.mo-mirror-mount #moCard:is([data-finish="gettingready"],[data-finish="skates"],[data-finish="boombox"],[data-finish="computer"]) .resident-founder-badge { left:18%; bottom:5%; }
 .resident-card-shared-view { position:relative; width:min(100%,720px); aspect-ratio:1.8047; margin:0 auto; }
 .resident-card-shared-view .mo-mirror-mount { position:absolute; inset:0; width:100%; height:100%; }
 .mo-mirror-mount #moCard { container-type:inline-size; }

@@ -5,6 +5,7 @@
   var newsletterUser = null;
   var watchingAuth = false;
   var activeUserId = null;
+  var badgeAuthGeneration = 0;
   try {
     var pending = JSON.parse(window.sessionStorage.getItem(pendingKey) || 'null');
     if (pending && typeof pending.email === 'string' && pending.email.length <= 254 &&
@@ -44,15 +45,21 @@
       watchingAuth = true;
       runtime.client.auth.onAuthStateChange(function (event) {
         if (event === 'SIGNED_OUT' || event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
+          badgeAuthGeneration += 1;
+          var badge = el('residentFounderBadge');
+          if (badge) badge.hidden = true;
           // Leave Supabase's auth callback before reading its session again.
           window.setTimeout(function () { refresh().catch(unavailable); }, 0);
         }
       });
     }
+    var badgeGeneration = badgeAuthGeneration;
     state = await runtime.getState();
     if (state.error) throw state.error;
     var signed = !!state.session;
     var nextUser = signed ? state.session.user.id : null;
+    var founderBadge = el('residentFounderBadge');
+    if (founderBadge) founderBadge.hidden = badgeGeneration !== badgeAuthGeneration || nextUser !== '3b899784-7e33-4a0e-8439-be6ed1a65ef0';
     var accountChanged = nextUser !== activeUserId;
     activeUserId = nextUser;
     if (nextUser !== newsletterUser) {
@@ -83,6 +90,8 @@
     return state;
   }
   function unavailable() {
+    var founderBadge = el('residentFounderBadge');
+    if (founderBadge) founderBadge.hidden = true;
     el('moAccountForm').hidden = true;
     el('moAccountReady').hidden = true;
     el('moAccountCodeForm').hidden = true;

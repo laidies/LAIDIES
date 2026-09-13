@@ -77,6 +77,15 @@ function accountState(number) {
   };
 }
 
+{
+  const founder = accountState(1);
+  founder.session.user.id = '3b899784-7e33-4a0e-8439-be6ed1a65ef0';
+  const {document} = await runBridge(bridgeSource,{state:founder});
+  assert.equal(document.getElementById('residentFounderBadge').hidden,false);
+  const other = await runBridge(bridgeSource,{state:accountState(1)});
+  assert.equal(other.document.getElementById('residentFounderBadge').hidden,true,'number1 does not confer founder badge');
+}
+
 function assertBoth(document, value, verified) {
   for (const id of ['residentNo']) {
     assert.equal(document.getElementById(id).textContent, value, id + ' text');

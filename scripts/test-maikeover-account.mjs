@@ -32,6 +32,16 @@ const window={LAIDIESResidentAccountRuntime:{get:async()=>runtime}, dispatchEven
 vm.runInNewContext(source,{window,document:{getElementById:node},CustomEvent:class{},crypto:{randomUUID:()=> 'test-id'}});
 await new Promise(setImmediate);
 assert.equal(node('moAccountForm').hidden,false);
+assert.equal(node('residentFounderBadge').hidden,true);
+current={session:{user:{id:'3b899784-7e33-4a0e-8439-be6ed1a65ef0'}}};
+await events.focus(); await new Promise(setImmediate);
+assert.equal(node('residentFounderBadge').hidden,false,'verified founder badge visible');
+current={session:{user:{id:'other'}}};
+await events.focus(); await new Promise(setImmediate);
+assert.equal(node('residentFounderBadge').hidden,true,'account switch hides badge');
+current={session:null};
+await events.focus(); await new Promise(setImmediate);
+assert.equal(node('residentFounderBadge').hidden,true,'signed out hides badge');
 node('moAccountEmail').value='test@example.com';
 await node('moAccountForm').handlers.submit({preventDefault(){}});
 assert.deepEqual(requested,[['test@example.com','/maikeover.html']]);

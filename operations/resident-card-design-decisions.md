@@ -1,5 +1,12 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Founder identification
+
+Ali requests to see her Founder badge. Add the exact label "★ LAiDIES Founder"
+to her verified account Card in MAiKEOVER and Closet. It is a non-editable
+identity label, not a reward or permission. Hide for signed-out, other-account,
+unverified and public-query states. Preserve Card art, portrait and fields.
+
 ## 2026-09-12 Complete remaining identity items
 
 Ali authorizes account-backed unique handles across MAiKEOVER and Closet and

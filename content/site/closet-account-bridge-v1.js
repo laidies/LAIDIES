@@ -51,6 +51,16 @@
     if (params.has("u") || params.has("member")) return;
     try {
       var runtime = await window.LAIDIESResidentAccountRuntime.get();
+      var founderRevoked = false;
+      if (runtime.client && runtime.client.auth && runtime.client.auth.onAuthStateChange) {
+        runtime.client.auth.onAuthStateChange(function (event, session) {
+          if (event === 'SIGNED_OUT' || !session || session.user.id !== '3b899784-7e33-4a0e-8439-be6ed1a65ef0') {
+            founderRevoked = true;
+            var badge = document.getElementById('residentFounderBadge');
+            if (badge) badge.hidden = true;
+          }
+        });
+      }
       var state = await runtime.getState();
       if (state.error) throw state.error;
       if (!state.session) {
@@ -110,6 +120,8 @@
       // A server handle belongs to this Card only after the remote Card and
       // browser envelope match. Until then a local draft remains just that.
       renderVerifiedHandle(state.remote.profile);
+      var founderBadge = document.getElementById('residentFounderBadge');
+      if (founderBadge) founderBadge.hidden = founderRevoked || state.session.user.id !== '3b899784-7e33-4a0e-8439-be6ed1a65ef0';
       setPersistence(
         "Account-backed view: this Closet restored the verified private Card saved with your signed-in account.",
         "account"
