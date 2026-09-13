@@ -22,6 +22,33 @@ and continue; if external access is unavailable, exhaust permitted recovery and
 independent work, then report the exact dependency and resume trigger. Never
 invent an approval record, successful test, paid allowance or live result.
 
+## 2026-09-07 — Cross-chat decorative artwork enforcement
+
+Read `operations/design-artwork-rule.md` before building or reviewing page visuals.
+Preserve functional CSS and exact approved artwork. Implemented page admission
+requires current implementation-source bindings; image-only concepts retain pixel
+review without invented code bindings. The scanner rejects known Chick Flicks
+signatures only. It cannot establish complete source coverage or artwork quality;
+independent review must inspect the real page and Ali’s applicable decisions.
+
+
+## 2026-09-07 — Material intelligence findings require deterministic surfacing and owner receipt
+
+Ali observed that the reader-tip monitor appeared to produce nothing. The 7 September
+run had actually recorded a material `HOLD` and partial source access, but its completed
+heartbeat contained no visible message and no receiving-owner receipt. A notification
+instruction in an automation prompt is therefore not evidence of delivery.
+
+Every material practitioner/source finding now creates a checksum-bound outbox entry
+with its evidence, accountable owner and real task or lane. `HOLD`, `MERGE` and `CREATE`
+cannot validate without that route; `PARTIAL` and `INACCESSIBLE` checks create operational
+alerts. A deterministic renderer returns exit `2` while any entry lacks an append-only,
+checksum-bound owner receipt, and that output must be the heartbeat's visible final
+message. Only exit `0` permits silence. Owner acceptance is intake only and cannot
+authorize drafting, production, publication, retirement, spending or a shared-truth
+change. `DISCARD` and ordinary `DUPLICATE` remain quiet tombstones.
+
+
 ## 2026-09-06 — Recover accepted AI Fundamentals source identity
 
 The August 16 decision in original commit

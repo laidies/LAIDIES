@@ -2,6 +2,42 @@
 
 > **2026-09-12 — Standing authorization / IMPLEMENTING.** This task owns the entry-map policy and exact-release authorization update. Continue assigned work through live verification; only new spending or irreducible direction requires Ali. Quality checks remain. Native continuation and remote controller adoption must be reported separately.
 
+> **2026-09-07 — Artwork-rule routing / LOCAL VERIFIED, INTEGRATION PENDING.** Control Room owns
+> isolated `laidies-artwork-rule-routing-20260907`. Imports only the guard from
+> source `4272e2def3896401a054427d2849446c6c0cd5b2` and its bounded admission
+> changes; preserves unrelated shared edits. Implemented pages require declared
+> source bindings; image-only concepts retain existing review. Known-signature
+> calibration is not full artwork enforcement. Chick Flicks graphics repair and
+> public release remain with their owner; LCWO-002 and the wider operating audit
+> remain open. Scoped signature/binding/CLI/admission wiring tests pass. The older
+> full admission suite cannot start because current main lacks
+> `operations/control-room/review-inbox.html`; no full-suite pass is claimed.
+> Next: commit and existing cloud integration checks.
+
+> **2026-09-07 — Reader-tip intelligence surfacing: MERGED / AUTOMATION DELIVERY VERIFIED.**
+> Owner: Learning System task `019f9f7f-9e4c-72d2-8882-447bcbe01691` with the
+> AIDB Intelligence Desk as scan owner. Isolated worktree
+> `/Users/alisoneakin/Projects/laidies-reader-tip-surfacing-20260907`, branch
+> `task/reader-tip-surfacing-20260907`. The 7 September heartbeat stored a material
+> finding but returned no visible message. The repaired state machine now creates
+> checksum-bound outbox entries for material findings and source-access failures,
+> rejects stale scan writes, renders a mandatory decision card while any entry lacks
+> an append-only exact-owner receipt, and preserves no-production/no-publication
+> authority. Calibrated negative and transition tests pass. PR126 merged as
+> `924f5befa739757b6e447903a4fbaae6324401b8`. The active Monday 09:00 heartbeat now
+> targets dedicated task `01a07d7e-611f-7883-ad3f-de2bc08dfab8`; a read-only proof
+> returned four visible pending cards after the former Corner Office destination again
+> returned an empty response. Learning has now recorded exact-owner `HELD` receipts for
+> the premortem and Google Code Wiki cards: the premortem's named mirror-bank target is
+> absent from current integrated authority, while Code Wiki lacks representative
+> nontechnical-reader transfer evidence. Two AIDB-owned cards remain pending. LCWO-002
+> still lacks the real Library producer principal/task and remains unresolved. No content,
+> public site, deployment, spending or social account changed. Next trigger: AIDB
+> dispositions the remaining two cards; the mirror-bank authority is recovered or an
+> exact current treatment is named; a representative reader completes the bounded Code
+> Wiki test; or the next scheduled scan creates a new finding/access result.
+
+
 > **2026-09-06 — Operating integration / BUILDING: read-only Learning map pilot.**
 > Owner `01a077d0-0775-7af2-b631-c311573f0e0e`; isolated
 > `/Users/alisoneakin/Projects/laidies-learning-map-20260906`, branch

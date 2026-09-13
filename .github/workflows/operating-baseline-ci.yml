@@ -43,6 +43,8 @@ jobs:
         run: npm run test:content-execution
       - name: Episode gate package and argument calibration
         run: node scripts/test-episode-gate.mjs
+      - name: Decorative artwork signature calibration
+        run: node scripts/test-decorative-artwork-rule.mjs
       - name: Active asset revocation calibration
         run: node scripts/test-active-asset-admission.mjs
       - name: GitHub Pages release-boundary calibration
