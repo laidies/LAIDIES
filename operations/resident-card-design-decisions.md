@@ -1,5 +1,14 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Founder visual correction
+
+Ali rejected the generic small pill. Replace it with integrated header lettering
+on the existing Card artwork, beside the resident number. Preserve owner checks
+and all profile data. This is a typographic designation, not new decorative art.
+The prior test Card screenshot was not Ali's selected portrait or favourites and
+must not be represented as such. Her requested handle is ali; this visual-only
+change does not set or overwrite identity fields.
+
 ## 2026-09-12 Founder identification
 
 Ali requests to see her Founder badge. Add the exact label "★ LAiDIES Founder"
