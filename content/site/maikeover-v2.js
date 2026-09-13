@@ -8,7 +8,7 @@
     saint: "Pick your Patron Saint.",
     era: "Pick your movie and television favourites.",
     carrying: "Pick what you’re carrying.",
-    finish: "Add your name, save your Card to your account, then open your Closet."
+    finish: "Add your name and handle, save your Card to your account, then open your Closet."
   };
 
   var toolLabels = {
