@@ -1,0 +1,1055 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "gemini-windows-20260913",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/crossword_row_review",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-13T20:39:46.177Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/gemini-windows-20260913/review-text.json",
+      "sha256": "fcd137887aacd2393632e093bfd1871a9b383587890ab452515bdc846b8cdd8d"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/gemini-windows-20260913/publication-manifest.json",
+      "sha256": "b7dd63400a03ab054682c817d3d3d06d39b30d7f5c7b1cc9ad8ed81a4a0039c9"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/gemini-windows-20260913/rendered-article.html",
+      "sha256": "0858fb8ff7cbc31840937ac147d7b6e977807b885d54b65c321063281a8631f8"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Does the new Windows app change what Gemini actually is, who can use it, and what it can see on my computer?",
+    "promisedPayoff": "Understanding that the app is a faster route to the same tool, with the same account controls and opt-in connections.",
+    "centralMentalModel": "Two doors into the same shop: the desktop app changes the route into Gemini, not the tool itself or its permissions.",
+    "dailyLifeConnection": "Revising a school-volunteer email by pasting a draft and asking for a warmer version, then checking before sending (P003).",
+    "surfaceJob": "A dated news article reporting the September 10 Windows release, its requirements, account conditions and remaining limits.",
+    "desiredReaderFeeling": "Calm and informed: no pressure to switch, clear on what to check before trying the app."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Every sentence is plain: the shortcut, requirements and account conditions are stated in ordinary language with no unexplained jargon.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google announced the Windows app on September 10; it is available globally for Windows 10 and 11. Press <strong>Alt + Space</strong> to open it beside the app you are using. It brings Gemini’s quick answers, drafting and brainstorming into a window beside an active app.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Think of browser Gemini and the Windows app as two doors into the same shop. The new door may save a few steps; it does not make Gemini a different kind of tool.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline the reader learns requirements, admin gating on managed accounts, and that connections are opt-in decisions.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>You can choose to upload an image or connect Google apps such as Gmail and Drive. Read what you are connecting and only share material you are comfortable using with the service.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>If browser Gemini already suits you, nothing requires a switch. Try the app if the shortcut would make a small drafting or brainstorming task easier to start. Before you do, check the account you are using and decide what information you want to upload or connect.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult tone; 'nothing requires a switch' respects the reader's judgment without condescension or borrowed persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Think of browser Gemini and the Windows app as two doors into the same shop. The new door may save a few steps; it does not make Gemini a different kind of tool.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>If browser Gemini already suits you, nothing requires a switch. Try the app if the shortcut would make a small drafting or brainstorming task easier to start. Before you do, check the account you are using and decide what information you want to upload or connect.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The two-doors image and the 'faster doorway' quote sustain interest proportionate to a short news item; no forced humour.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Think of browser Gemini and the Windows app as two doors into the same shop. The new door may save a few steps; it does not make Gemini a different kind of tool.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“Gemini on Windows is mostly a faster doorway: Alt + Space opens it beside what you are doing. It is not proof that Gemini can automatically see your screen, files or every app.”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Answers what happened (dated release), what changed and what did not, within proper news scope for the stated reader job.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google announced the Windows app on September 10; it is available globally for Windows 10 and 11. Press <strong>Alt + Space</strong> to open it beside the app you are using. It brings Gemini’s quick answers, drafting and brainstorming into a window beside an active app.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>If browser Gemini already suits you, nothing requires a switch. Try the app if the shortcut would make a small drafting or brainstorming task easier to start. Before you do, check the account you are using and decide what information you want to upload or connect.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The school-volunteer email revision is a recognizable professional-life task that shows exactly what the closer window buys.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>That is the practical difference from the browser: the shortcut and window are closer to the task. If you are revising a school-volunteer email, you could paste the draft and ask for a warmer version that keeps the date and request unchanged. You still check it before sending.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Starts from a human question (does the app change the tool?), delivers the route-vs-function mechanism, lands on a concrete next check; no imitation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Think of browser Gemini and the Windows app as two doors into the same shop. The new door may save a few steps; it does not make Gemini a different kind of tool.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>If browser Gemini already suits you, nothing requires a switch. Try the app if the shortcut would make a small drafting or brainstorming task easier to start. Before you do, check the account you are using and decide what information you want to upload or connect.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "A desktop app changes the route into a tool. It does not erase account controls, feature limits or the need to decide what information to share. For help checking an AI draft without rewriting the whole thing, see <a href=\\\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\\\">Working with AI 101: Trusting the Output (And Checking It)</a>.",
+          "locator": "P009"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The route-vs-tool and opt-in-connection mechanism supports an accurate causal answer about why installation does not grant automatic access.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Think of browser Gemini and the Windows app as two doors into the same shop. The new door may save a few steps; it does not make Gemini a different kind of tool.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>You can choose to upload an image or connect Google apps such as Gmail and Drive. Read what you are connecting and only share material you are comfortable using with the service.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "“Gemini on Windows is mostly a faster doorway: Alt + Space opens it beside what you are doing. It is not proof that Gemini can automatically see your screen, files or every app.”",
+          "locator": "P008"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why doesn't installing the Gemini Windows app mean Gemini can automatically see my screen, files or email?",
+        "response": "Because the app only changes the route into the same online service. Gemini still receives only what you explicitly give it: text you paste, an image you choose to upload, or Google apps like Gmail and Drive that you deliberately connect. On a work or school account, an administrator additionally gates whether the app works at all — so installation alone grants no new access to your content.",
+        "expectedEvidence": "P004 (same shop, new door), P006 (uploads and connections are chosen), P005 (admin enablement), P008 (explicit denial of automatic screen/file access).",
+        "assessment": "The article fully supports this causal answer; the mechanism of opt-in sharing and admin gating is stated, not merely implied."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The mechanism (new route, same account controls and explicit sharing decisions) transfers cleanly to other desktop-app situations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Think of browser Gemini and the Windows app as two doors into the same shop. The new door may save a few steps; it does not make Gemini a different kind of tool.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>You can choose to upload an image or connect Google apps such as Gmail and Drive. Read what you are connecting and only share material you are comfortable using with the service.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "A desktop app changes the route into a tool. It does not erase account controls, feature limits or the need to decide what information to share. For help checking an AI draft without rewriting the whole thing, see <a href=\\\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\\\">Working with AI 101: Trusting the Output (And Checking It)</a>.",
+          "locator": "P009"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using this article's mechanism, does the desktop version change what the assistant can access, and what should she actually check?",
+        "response": "No — a desktop app changes the route into the tool, not its permissions. The assistant still only sees what she pastes, uploads or explicitly connects, and on a company-managed account her IT administrator controls whether and how it is enabled. Instead of deleting files, she should check which account the app is signed into, review any connection prompts before accepting them, and share only material she is comfortable sending to the service.",
+        "expectedEvidence": "The route-vs-tool model (P004, P009), opt-in uploads and connections (P006), and administrator control on managed accounts (P005).",
+        "assessment": "The article's mechanism resolves this new situation completely; the transfer requires no facts beyond what the article teaches."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Specific proportionate actions: check which account you are using, decide what to upload or connect, verify drafts before sending.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>That is the practical difference from the browser: the shortcut and window are closer to the task. If you are revising a school-volunteer email, you could paste the draft and ask for a warmer version that keeps the date and request unchanged. You still check it before sending.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>You can choose to upload an image or connect Google apps such as Gmail and Drive. Read what you are connecting and only share material you are comfortable using with the service.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>If browser Gemini already suits you, nothing requires a switch. Try the app if the shortcut would make a small drafting or brainstorming task easier to start. Before you do, check the account you are using and decide what information you want to upload or connect.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The two-doors analogy maps the actual mechanism (route changes, tool and permissions do not) and P008 states its limit explicitly.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Think of browser Gemini and the Windows app as two doors into the same shop. The new door may save a few steps; it does not make Gemini a different kind of tool.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“Gemini on Windows is mostly a faster doorway: Alt + Space opens it beside what you are doing. It is not proof that Gemini can automatically see your screen, files or every app.”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Every material claim is traceable to the supplied vendor passages with correct attribution and no overstated capability.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google announced the Windows app on September 10; it is available globally for Windows 10 and 11. Press <strong>Alt + Space</strong> to open it beside the app you are using. It brings Gemini’s quick answers, drafting and brainstorming into a window beside an active app.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>You can choose to upload an image or connect Google apps such as Gmail and Drive. Read what you are connecting and only share material you are comfortable using with the service.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The September 10 announcement date, named vendor sources and lastCheckedAt timestamp make the time-sensitive availability claims checkable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google announced the Windows app on September 10; it is available globally for Windows 10 and 11. Press <strong>Alt + Space</strong> to open it beside the app you are using. It brings Gemini’s quick answers, drafting and brainstorming into a window beside an active app.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "This is a single fresh product release clearly dated to September 10 with no conflation of older events and newly reported evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google announced the Windows app on September 10; it is available globally for Windows 10 and 11. Press <strong>Alt + Space</strong> to open it beside the app you are using. It brings Gemini’s quick answers, drafting and brainstorming into a window beside an active app.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Think of browser Gemini and the Windows app as two doors into the same shop. The new door may save a few steps; it does not make Gemini a different kind of tool.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The article gives concrete consequences and preserves uncertainty by rejecting automatic-access assumptions, requiring output checking and flagging remaining account controls.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>That is the practical difference from the browser: the shortcut and window are closer to the task. If you are revising a school-volunteer email, you could paste the draft and ask for a warmer version that keeps the date and request unchanged. You still check it before sending.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Gemini on Windows is mostly a faster doorway: Alt + Space opens it beside what you are doing. It is not proof that Gemini can automatically see your screen, files or every app.”",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "A desktop app changes the route into a tool. It does not erase account controls, feature limits or the need to decide what information to share. For help checking an AI draft without rewriting the whole thing, see <a href=\\\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\\\">Working with AI 101: Trusting the Output (And Checking It)</a>.",
+          "locator": "P009"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No definition lists; terms appear inside the working explanation of accounts and connections.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Paragraphs develop distinct points (release, difference, model, requirements, choices) without repeated scaffolds.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The two-doors analogy does causal work: it explains route change versus function change and is bounded by P008.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal core (app changes access route; account and connection controls remain the gates) is present and explicit.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Actions are concrete for this case: check the account in use, decide uploads/connections, verify the draft before sending.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Managed account, administrator and connected apps are each explained at first meaningful use.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "App, account, administrator and connected services are shown in relation: who gates what and how information gets shared.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Claims stay within Google's stated scope; P008 explicitly declines the automatic-access inference.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The announcement is dated September 10, sources carry access dates, and lastCheckedAt is recorded.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No vendor-promotional or motivational filler; requirements and choices are stated plainly.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The doorway/shop imagery and conversational framing keep the short piece humane, not a checklist.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline question (what does the app change?) is answered directly with the route-vs-tool distinction.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The volunteer-email example returns to the mechanism: window beside the task, and checking output before sending.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Original plain voice throughout; no imitation of a communicator's persona or mannerisms.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No spectacle; the light imagery serves the distinction rather than displacing it.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "There is no oversized hook; the explanation of what changed and what remains occupies most of the piece.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "As dated news the direct answer comes first appropriately, and the supporting conditions immediately follow.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending is modest and bounded: try it only if the shortcut helps, and check account and connections first.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Covers function, eligibility, requirements, admin gating and connection choices — the full supplied reader job.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human reason (a faster route to an existing tool, and what to check) precedes any technical detail.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The single email example is brief and illustrative; it does not crowd out the article's scope.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The organising perspective is the reader's decision (switch or not, what to share), not specialist taxonomy; right scope for bounded news.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/gemini-windows-20260913/editorial-input.json",
+        "sha256": "d5297d938448de0cb855bb5e49b02ea5671a2d88da3b356f672a1f81f5d28b9a"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "windows-release",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Google announced the Windows app on September 10; it is available globally for Windows 10 and 11. Press <strong>Alt + Space</strong> to open it beside the app you are using. It brings Gemini’s quick answers, drafting and brainstorming into a window beside an active app.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-windows-20260913/editorial-input.json",
+          "sha256": "d5297d938448de0cb855bb5e49b02ea5671a2d88da3b356f672a1f81f5d28b9a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The app is available today globally for Windows 10 and 11.\n\n<meta property=\"article:published_time\" content=\"2026-09-10\" />",
+            "locator": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-windows/"
+          },
+          {
+            "excerpt": "Authority: Google primary announcement for the Windows Gemini app availability and stated feature scope.\nLimitation: A Google announcement establishes released scope, not answer accuracy, reader benefit or every account’s current availability.",
+            "locator": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-windows/"
+          }
+        ],
+        "scopeAndFreshness": "The Google blog passage states global availability for Windows 10 and 11 and its published_time metadata is 2026-09-10, matching the article's date and scope."
+      },
+      {
+        "claimId": "shortcut-and-scope",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Google announced the Windows app on September 10; it is available globally for Windows 10 and 11. Press <strong>Alt + Space</strong> to open it beside the app you are using. It brings Gemini’s quick answers, drafting and brainstorming into a window beside an active app.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-windows-20260913/editorial-input.json",
+          "sha256": "d5297d938448de0cb855bb5e49b02ea5671a2d88da3b356f672a1f81f5d28b9a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "You can get quick answers, draft messages and brainstorm ideas right alongside your active applications.\n\nThe Gemini app is now available on Windows. Press Alt + Space to summon Gemini instantly from anywhere on your PC whenever you need it.\n\nYou can connect to Google apps like Gmail and Google Drive to summarise documents and find information quickly, generate custom images with Nano Banana and dive into in-depth research on any topic.\n\nThe app is available on Windows 10 or later.",
+            "locator": "https://gemini.google/release-notes/"
+          },
+          {
+            "excerpt": "Authority: Google release notes for the Windows app release and described desktop connections.\nLimitation: Release notes describe stated features; they do not establish automatic access to a screen, files or every connected service.",
+            "locator": "https://gemini.google/release-notes/"
+          }
+        ],
+        "scopeAndFreshness": "Release notes describe quick answers, drafting and brainstorming alongside active applications via Alt + Space, matching the article's stated scope without exaggeration."
+      },
+      {
+        "claimId": "requirements",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-windows-20260913/editorial-input.json",
+          "sha256": "d5297d938448de0cb855bb5e49b02ea5671a2d88da3b356f672a1f81f5d28b9a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A personal Google Account or a work or school Google Account with access to Gemini turned on by your administrator.\n\nA PC running <strong>Windows 10 or later</strong>.\n\n<strong>8 GB of RAM or more</strong>.\n\nAt least <strong>200 MB of available disk space</strong> for installation.\n\nA stable internet connection.\n\nFor quick access to Gemini, you can use the keyboard shortcut <strong>Alt + Space</strong>.\n\nAnalyze images: Upload images and ask Gemini questions about their content.",
+            "locator": "https://support.google.com/gemini/answer/18263854?hl=en-GB"
+          },
+          {
+            "excerpt": "Authority: Google Gemini Help for Windows installation requirements and account eligibility.\nLimitation: Help documentation describes supported requirements and functions; it does not prove local installation or unrestricted enterprise access.",
+            "locator": "https://support.google.com/gemini/answer/18263854?hl=en-GB"
+          }
+        ],
+        "scopeAndFreshness": "The Help source lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and a stable internet connection, matching all four stated requirements."
+      },
+      {
+        "claimId": "account-admin",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-windows-20260913/editorial-input.json",
+          "sha256": "d5297d938448de0cb855bb5e49b02ea5671a2d88da3b356f672a1f81f5d28b9a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A personal Google Account or a work or school Google Account with access to Gemini turned on by your administrator.\n\nA PC running <strong>Windows 10 or later</strong>.\n\n<strong>8 GB of RAM or more</strong>.\n\nAt least <strong>200 MB of available disk space</strong> for installation.\n\nA stable internet connection.\n\nFor quick access to Gemini, you can use the keyboard shortcut <strong>Alt + Space</strong>.\n\nAnalyze images: Upload images and ask Gemini questions about their content.",
+            "locator": "https://support.google.com/gemini/answer/18263854?hl=en-GB"
+          },
+          {
+            "excerpt": "Authority: Google Gemini Help for Windows installation requirements and account eligibility.\nLimitation: Help documentation describes supported requirements and functions; it does not prove local installation or unrestricted enterprise access.",
+            "locator": "https://support.google.com/gemini/answer/18263854?hl=en-GB"
+          },
+          {
+            "excerpt": "The Alt + Space keyboard shortcut brings Gemini over active work for quick tasks, like fact-checking a document or brainstorming presentation titles.\n\nUsers can ask Gemini to draft project summaries using information pulled directly from Google Workspace apps like Gmail and Google Drive.\n\nAvailable to all Google Workspace customers, Workspace Individual subscribers, and users with personal Google accounts",
+            "locator": "https://workspaceupdates.googleblog.com/2026/09/the-gemini-desktop-app-is-now-available-for-Windows.html"
+          },
+          {
+            "excerpt": "Authority: Google Workspace primary update for availability and administration in managed accounts.\nLimitation: The update describes Google’s product scope; organisation policy and account access remain account-specific.",
+            "locator": "https://workspaceupdates.googleblog.com/2026/09/the-gemini-desktop-app-is-now-available-for-Windows.html"
+          }
+        ],
+        "scopeAndFreshness": "Help documentation requires a personal Google Account or a work/school account with Gemini turned on by the administrator, exactly as the article states."
+      },
+      {
+        "claimId": "admin-limit",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Google lists Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-windows-20260913/editorial-input.json",
+          "sha256": "d5297d938448de0cb855bb5e49b02ea5671a2d88da3b356f672a1f81f5d28b9a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A personal Google Account or a work or school Google Account with access to Gemini turned on by your administrator.\n\nA PC running <strong>Windows 10 or later</strong>.\n\n<strong>8 GB of RAM or more</strong>.\n\nAt least <strong>200 MB of available disk space</strong> for installation.\n\nA stable internet connection.\n\nFor quick access to Gemini, you can use the keyboard shortcut <strong>Alt + Space</strong>.\n\nAnalyze images: Upload images and ask Gemini questions about their content.",
+            "locator": "https://support.google.com/gemini/answer/18263854?hl=en-GB"
+          },
+          {
+            "excerpt": "Authority: Google Gemini Help for Windows installation requirements and account eligibility.\nLimitation: Help documentation describes supported requirements and functions; it does not prove local installation or unrestricted enterprise access.",
+            "locator": "https://support.google.com/gemini/answer/18263854?hl=en-GB"
+          },
+          {
+            "excerpt": "The Alt + Space keyboard shortcut brings Gemini over active work for quick tasks, like fact-checking a document or brainstorming presentation titles.\n\nUsers can ask Gemini to draft project summaries using information pulled directly from Google Workspace apps like Gmail and Google Drive.\n\nAvailable to all Google Workspace customers, Workspace Individual subscribers, and users with personal Google accounts",
+            "locator": "https://workspaceupdates.googleblog.com/2026/09/the-gemini-desktop-app-is-now-available-for-Windows.html"
+          },
+          {
+            "excerpt": "Authority: Google Workspace primary update for availability and administration in managed accounts.\nLimitation: The update describes Google’s product scope; organisation policy and account access remain account-specific.",
+            "locator": "https://workspaceupdates.googleblog.com/2026/09/the-gemini-desktop-app-is-now-available-for-Windows.html"
+          }
+        ],
+        "scopeAndFreshness": "The administrator-enablement wording in Help and the Workspace update's account-specific availability limitation directly support that the administrator controls availability on managed accounts."
+      },
+      {
+        "claimId": "connected-apps",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>You can choose to upload an image or connect Google apps such as Gmail and Drive. Read what you are connecting and only share material you are comfortable using with the service.</p>",
+            "locator": "P006"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-windows-20260913/editorial-input.json",
+          "sha256": "d5297d938448de0cb855bb5e49b02ea5671a2d88da3b356f672a1f81f5d28b9a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A personal Google Account or a work or school Google Account with access to Gemini turned on by your administrator.\n\nA PC running <strong>Windows 10 or later</strong>.\n\n<strong>8 GB of RAM or more</strong>.\n\nAt least <strong>200 MB of available disk space</strong> for installation.\n\nA stable internet connection.\n\nFor quick access to Gemini, you can use the keyboard shortcut <strong>Alt + Space</strong>.\n\nAnalyze images: Upload images and ask Gemini questions about their content.",
+            "locator": "https://support.google.com/gemini/answer/18263854?hl=en-GB"
+          },
+          {
+            "excerpt": "Authority: Google Gemini Help for Windows installation requirements and account eligibility.\nLimitation: Help documentation describes supported requirements and functions; it does not prove local installation or unrestricted enterprise access.",
+            "locator": "https://support.google.com/gemini/answer/18263854?hl=en-GB"
+          },
+          {
+            "excerpt": "You can get quick answers, draft messages and brainstorm ideas right alongside your active applications.\n\nThe Gemini app is now available on Windows. Press Alt + Space to summon Gemini instantly from anywhere on your PC whenever you need it.\n\nYou can connect to Google apps like Gmail and Google Drive to summarise documents and find information quickly, generate custom images with Nano Banana and dive into in-depth research on any topic.\n\nThe app is available on Windows 10 or later.",
+            "locator": "https://gemini.google/release-notes/"
+          },
+          {
+            "excerpt": "Authority: Google release notes for the Windows app release and described desktop connections.\nLimitation: Release notes describe stated features; they do not establish automatic access to a screen, files or every connected service.",
+            "locator": "https://gemini.google/release-notes/"
+          },
+          {
+            "excerpt": "The Alt + Space keyboard shortcut brings Gemini over active work for quick tasks, like fact-checking a document or brainstorming presentation titles.\n\nUsers can ask Gemini to draft project summaries using information pulled directly from Google Workspace apps like Gmail and Google Drive.\n\nAvailable to all Google Workspace customers, Workspace Individual subscribers, and users with personal Google accounts",
+            "locator": "https://workspaceupdates.googleblog.com/2026/09/the-gemini-desktop-app-is-now-available-for-Windows.html"
+          },
+          {
+            "excerpt": "Authority: Google Workspace primary update for availability and administration in managed accounts.\nLimitation: The update describes Google’s product scope; organisation policy and account access remain account-specific.",
+            "locator": "https://workspaceupdates.googleblog.com/2026/09/the-gemini-desktop-app-is-now-available-for-Windows.html"
+          }
+        ],
+        "scopeAndFreshness": "Help documents image upload and release notes describe optionally connecting Google apps like Gmail and Drive, matching the article's opt-in framing."
+      }
+    ],
+    "reviewedThrough": "2026-09-13",
+    "nextTrigger": "Reopen Google primary materials before any public publication and repair for changed availability, requirements or account controls.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 1,
+    "reviewCycles": 3,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No existing candidate is bound to this September 10 Windows Gemini release."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All reader outcomes and news checks pass and every failure family is clear; no new reusable defect pattern was observed in this artifact."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=4; evidence gaps repaired=1; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/gemini-windows-20260913/admitted-v1/news-editorial-analysis.json",
+      "sha256": "f8715553b495119b60dbf1839ac8a0be48d788eefc5a329f84f414a9124f8c02"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/gemini-windows-20260913/admitted-v1/independent-raw-report.json",
+    "sha256": "853b486304e6ab1389f34483d4cff36b5fbc53e230c70c9aed3f03c38940e9ab"
+  }
+}

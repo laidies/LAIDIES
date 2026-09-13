@@ -1,8 +1,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-13T15:19:49Z",
-  "lastCheckedAt": "2026-09-13T15:19:49Z",
+  "generatedAt": "2026-09-13T20:57:21Z",
+  "lastCheckedAt": "2026-09-13T20:57:21Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -24,7 +24,8 @@ window.NEWSSTAND_DATA = {
         "frontPaigeStoryId": "front-paige-accountable-systems-2026-08-24",
         "weeklyStoryId": "weekly-control-layers-20260909",
         "storyIds": [
-          "chatgpt-pets-20260913"
+          "chatgpt-pets-20260913",
+          "gemini-windows-20260913"
         ],
         "serviceRecordIds": [
           "DAILY-2026-09-13-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
@@ -36,9 +37,9 @@ window.NEWSSTAND_DATA = {
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-13T15:19:49Z",
-      "updatedAt": "2026-09-13T15:19:49Z",
-      "lastCheckedAt": "2026-09-13T15:19:49Z",
+      "publishedAt": "2026-09-13T20:57:21Z",
+      "updatedAt": "2026-09-13T20:57:21Z",
+      "lastCheckedAt": "2026-09-13T20:57:21Z",
       "maxAgeHours": 36,
       "note": "The Daily for 2026-09-13."
     },
@@ -4972,6 +4973,100 @@ window.NEWSSTAND_DATA = {
         "Pets",
         "desktop app"
       ],
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "gemini-windows-20260913",
+      "slug": "gemini-windows-20260913",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-13T20:57:21Z",
+      "updatedAt": "2026-09-13T20:10:00Z",
+      "lastCheckedAt": "2026-09-13T20:10:00Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:gemini-windows-20260913"
+      },
+      "headline": "Gemini comes to Windows with an Alt + Space shortcut",
+      "heroVisual": {
+        "src": "/assets/newsstand/gemini-windows-shortcut-20260913.png",
+        "alt": "Editorial illustration of the Alt and Space keys highlighted on a computer keyboard.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>Google announced the Windows app on September 10; it is available globally for Windows 10 and 11. Press <strong>Alt + Space</strong> to open it beside the app you are using. It brings Gemini’s quick answers, drafting and brainstorming into a window beside an active app.</p><p>Compared with Gemini in the browser, the difference is the shortcut and window beside the task. If you are revising a school-volunteer email, you could paste the draft and ask for a warmer version that keeps the date and request unchanged. You still check it before sending.</p>",
+      "laidies_read": "<p>Think of browser Gemini and the Windows app as two doors into the same shop. The new door may save a few steps; it does not make Gemini a different kind of tool.</p><p>Google says the app requires Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access. You also need a personal Google Account, or a work or school account with Gemini enabled by its administrator. On a managed account, that administrator controls availability.</p><p>You can choose to upload an image or connect Google apps such as Gmail and Drive. Read what you are connecting and only share material you are comfortable using with the service.</p>",
+      "what_this_means": "<p>If browser Gemini already suits you, the Windows app is unnecessary. It is best suited to a small task, such as starting a simple email draft or brainstorming, when you do not want to open a tab. Google has not stated in these release notes whether the Windows app is free, paid, or included in a plan.</p><p>Before you switch, check the account you are using and decide what information you want to upload or connect.</p>",
+      "cocktail_party": "“Gemini on Windows is mostly a faster doorway: Alt + Space opens it beside what you are doing. It is not proof that Gemini can automatically see your screen, files or every app.”",
+      "class_notes": "A desktop app changes the route into a tool. It does not erase account controls, feature limits or the need to decide what information to share. For help checking an AI draft without rewriting the whole thing, see <a href=\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\">Working with AI 101: Trusting the Output (And Checking It)</a>.",
+      "sources": [
+        {
+          "id": "google-windows-blog",
+          "label": "Google — The Gemini app is now available for Windows",
+          "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-windows/",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-13",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "gemini-windows-help",
+          "label": "Gemini Apps Help — Use the Gemini app for Windows",
+          "url": "https://support.google.com/gemini/answer/18263854?hl=en-GB",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-13",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "workspace-windows-update",
+          "label": "Google Workspace Updates — Gemini desktop app for Windows",
+          "url": "https://workspaceupdates.googleblog.com/2026/09/the-gemini-desktop-app-is-now-available-for-Windows.html",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-13",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "gemini-release-notes",
+          "label": "Gemini release notes — Windows app",
+          "url": "https://gemini.google/release-notes/",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-13",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "library-checking",
+          "label": "LAiDIES — Trusting the Output (And Checking It)",
+          "url": "https://laidies.ai/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it",
+          "publisherType": "laidies",
+          "accessedAt": "2026-09-13",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "themes": [
+        "consumer products",
+        "desktop controls"
+      ],
+      "concepts": [
+        "context",
+        "permissions",
+        "connected apps"
+      ],
+      "tags": [
+        "Gemini",
+        "Windows",
+        "Google",
+        "desktop app"
+      ],
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "aidb_credit": null,
       "saint_lane": null,
       "badge": "THE LATEST"
     }

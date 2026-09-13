@@ -23,6 +23,7 @@
   "nvidia-groq-inquiry-20260912",
   "pro-signup-pause-20260912",
   "chatgpt-images-2-5-2026-09-08",
+  "gemini-windows-20260913",
   "chatgpt-pets-20260913",
   "microsoft-family-safety-20260911",
   "gpt-live-downstream-20260911",

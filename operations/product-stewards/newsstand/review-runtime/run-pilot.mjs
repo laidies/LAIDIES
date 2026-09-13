@@ -6,6 +6,7 @@ import {spawn} from 'node:child_process';
 import assert from 'node:assert/strict';
 import {sha,paragraphs,storyParagraphs,requestFor,normalize} from './protocol.mjs';
 import {inspectPreparedDraft} from '../../../../scripts/prepare-newsstand-draft.mjs';
+import {inspectContentProducerContract} from '../../../../scripts/check-content-producer-contract.mjs';
 import {inspectProseQualityReview} from '../../../../scripts/check-prose-quality-admission.mjs';
 import {validateStoryTypeCoverage} from '../../../../scripts/validate-newsstand-story-type-coverage.mjs';
 import {resolveNewsstandEditorialPacket,assertCurrentEditorialParagraphs} from '../../../../scripts/compact-newsstand-editorial-input.mjs';
@@ -17,12 +18,30 @@ const providerRoute=process.argv[3]||'gemma';
 assert.ok(['gemma','claude'].includes(providerRoute),'Use explicit gemma or claude route');
 const effort=option('--effort')||'medium';assert.ok(['medium','high'].includes(effort),'Unsupported effort');
 const resume=process.argv.includes('--resume');
+const preflightOnly=process.argv.includes('--preflight-only');
 const out=privateDirectory(option('--output')||dir+(providerRoute==='claude'?'bounded-claude-v2/':'bounded-pilot-v2/'));
 const read=p=>fs.readFileSync(p,'utf8');
 const json=p=>JSON.parse(read(p));
 const registryPath='operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json';
 const registry=json(registryPath);
 const policyPath='operations/product-stewards/newsstand/ordinary-news-editorial-policy.json';
+async function assertArticlePreReviewPackage(candidateDir){
+ const {validateModelReleaseUtility,validateOrdinaryDailyLength}=await import('../../../../scripts/validate-newsstand-ordinary-story-candidate.mjs');
+ const story=json(candidateDir+'story.json');
+ const input=json(candidateDir+'writer-input-current.json');
+ const observations=json(candidateDir+'producer-observations.json');
+ const contractPath=candidateDir+'producer-contract.json';
+ const errors=[];
+ for(const error of validateModelReleaseUtility(story))errors.push(`ordinary reader utility: ${error}`);
+ for(const error of validateOrdinaryDailyLength(story))errors.push(`ordinary reader length: ${error}`);
+ let contract;
+ try{contract=json(contractPath);const contractCheck=inspectContentProducerContract(contract,{root});for(const error of contractCheck.errors)errors.push(`producer contract: ${error}`);if(contract.status!=='READY_TO_DRAFT')errors.push('producer contract: status must be READY_TO_DRAFT')}catch(error){errors.push(`producer contract: cannot read ${contractPath} (${String(error.message||error)})`)}
+ const expectedBinding={path:contractPath,sha256:fs.existsSync(contractPath)?sha(read(contractPath)):null};
+ if(!input?.producerContract||input.producerContract.path!==expectedBinding.path||input.producerContract.sha256!==expectedBinding.sha256)errors.push('writer input: producerContract must bind the exact current producer contract');
+ if(contract&&JSON.stringify(input?.packet?.explanationPlan)!==JSON.stringify(contract.draftArchitecture))errors.push('writer input: explanationPlan differs from producer contract draftArchitecture');
+ for(const error of inspectPreparedDraft(story,input,observations).errors)errors.push(`prepared draft: ${error}`);
+ assert.deepEqual(errors,[],`Repair pre-review package before calling the independent editor:\n- ${errors.join('\n- ')}`);
+}
 const calibrationMode='ORDINARY_NEWS_BLIND_REJECTION_V1';
 function assessCalibration(item,positive,actual){
  const known=item.failureFamilies||[];
@@ -134,6 +153,8 @@ if(mode==='reconcile-calibration'){
  const calibration=json(calibrationDir+'calibration-result.json');assert.equal(calibration.status,'CALIBRATION_PASSED','Calibrate before article assessment');assert.equal(calibration.registrySha256,sha(read(registryPath)));assert.equal(calibration.protocolSha256,protocolSha256,'Calibration protocol changed');assert.equal(calibration.providerRoute,providerRoute,'Calibration provider changed');
  assert.equal(calibration.effort||'medium',effort,'Calibration effort changed');
  assert.equal(calibration.mode,calibrationMode,'Calibration rule changed');assert.equal(calibration.policy?.sha256,sha(read(policyPath)),'Calibration policy changed');
+ await assertArticlePreReviewPackage(dir);
+ if(preflightOnly){console.log(JSON.stringify({status:'PRE_REVIEW_PASS',candidateDir:dir,scope:'Validation-only pre-review gate; no provider request, editorial judgment, admission or publication.'}));process.exit(0)}
  const producer=json(dir+'producer-publication-review.json');assert.equal(producer.verdict,'PASS','Producer must finish its own repairs first');assert.deepEqual(inspectProseQualityReview(producer,{root}).errors,[],'Producer review is not valid');
  assert.deepEqual(inspectPreparedDraft(json(dir+'story.json'),json(dir+'writer-input-current.json'),json(dir+'producer-observations.json')).errors,[],'Prepared draft has unresolved producer gaps');
  if(fs.existsSync(dir+'editorial-input.json')){

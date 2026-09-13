@@ -16173,3 +16173,7 @@ Evening selection found CRISP READY_FOR_ADMISSION and active despite its actual 
 
 ## 2026-09-13 — NewsStand publication fixture drift
 Historical admitted snapshots can differ from later presentation art. The publication test wrongly assumed current mutable stories were the original admission. Repaired only its disposable current-issue clone, preserving direct missing/old-service and overwrite guards. Rejected catch-all replayable-issue selection because it could hide regressions. Ordinary-publication fixture now exercises the actual placement guard with a known placed ID in its isolated dataset; hash-navigation assertion follows the measured-history option. All three focused tests pass; no production guard weakened.
+
+
+## 2026-09-13 — NewsStand checks arrived after editorial review
+Gemini publication needed avoidable repeat reviews because utility/length requirements and inherited producer-contract bindings were checked only during assembly. Commit387de106 adds an aggregate pre-review gate plus a validation-only mode in the existing runtime. Bad utility, length, contract-binding and architecture fixtures fail together before a provider request; the actual final Gemini candidate passes without requesting another review. Preserve original failed reviews and source captures. Exact published article and source bindings remain independently admitted; no quality check was weakened. This is a recorded operating lesson, not a commissioned Behind the Build draft.

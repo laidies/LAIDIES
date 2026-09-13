@@ -1,0 +1,88 @@
+{
+  "schema": "laidies.newsstand-selection-admission.v1",
+  "decision": "ACCEPT_SELECTION_SUCCESSOR",
+  "reviewedAt": "2026-09-13T21:01:27Z",
+  "reviewedBy": "/root/evening_sources",
+  "reviewerRole": "independent NewsStand selection reviewer",
+  "scope": "Gemini Windows story selection projection after published issue admission",
+  "predecessorFrozenBase": {
+    "path": "operations/product-stewards/newsstand/evidence/gemini-windows-20260913/base",
+    "deploymentId": "08da08d8-54e1-4de6-a6ee-ab15f469e8a9",
+    "selectionPath": "content/newsstand-selection.js",
+    "selectionSha256": "2372e8572f91bfb44f7c14d897c3906ce0ba669f120847df99dd1c4ded84a268",
+    "htmlSelectionFingerprint": "2372e8572f91bfb4",
+    "htmlStoriesFingerprint": "e40258a2cb2a122a"
+  },
+  "currentBindings": {
+    "selection": {
+      "path": "content/newsstand-selection.js",
+      "sha256": "0f489491e159fe053140c9c63b27e48c5f432cbf178c64088fe97fda5c8ca714",
+      "htmlFingerprint": "0f489491e159fe05"
+    },
+    "stories": {
+      "path": "content/newsstand-stories.js",
+      "sha256": "0800063ad653aa8afd879dd8682a1c6776a6c678bf2101ec3513f7857672dd84",
+      "htmlFingerprint": "0800063ad653aa8a"
+    },
+    "html": {
+      "path": "newsstand.html",
+      "sha256": "98e19ad309432a9bb5ccbcdf28c98ff23ab6b7a2b82c79fbdea070ce593e44ec"
+    },
+    "dailyIssues": {
+      "path": "content/newsstand-daily-issues.json",
+      "sha256": "fe4cc559ce5510378a6c61b59d2fb361b64ca884be9c3ec8bcfc2924c1069f01"
+    },
+    "geminiArtwork": {
+      "path": "assets/newsstand/gemini-windows-shortcut-20260913.png",
+      "sha256": "1abf1fa4c4fffbcadf581217e86d56c236c1c03153217540aad49c6823450692",
+      "pixelDimensions": "1672x941"
+    }
+  },
+  "deltaReview": {
+    "frozenSelectionDiff": "one added priority-array entry only",
+    "addedStoryId": "gemini-windows-20260913",
+    "insertedImmediatelyBefore": "chatgpt-pets-20260913",
+    "placementBlock": "familiar-tool entries",
+    "comparator": "unchanged: Vancouver local calendar date descending; reviewed priority within a date; then publishedAt descending and id ascending",
+    "priorityPreservation": "all predecessor priority entries remain in their prior relative order",
+    "noOtherSelectionLogicChange": true
+  },
+  "publishedStoryInspection": {
+    "id": "gemini-windows-20260913",
+    "status": "published",
+    "publishedAt": "2026-09-13T20:57:21Z",
+    "sourceApproval": "approved",
+    "heroVisual": {
+      "src": "/assets/newsstand/gemini-windows-shortcut-20260913.png",
+      "alt": "Editorial illustration of the Alt and Space keys highlighted on a computer keyboard.",
+      "credit": "Illustration: LAiDIES"
+    },
+    "sameDayOrderObserved": [
+      "gemini-windows-20260913",
+      "chatgpt-pets-20260913"
+    ]
+  },
+  "checks": [
+    {
+      "command": "node scripts/test-newsstand-selection.mjs",
+      "result": "PASS: current editorial order, archive/stale original order, known-bad archived reorder detected; newest Vancouver date and rejected-image calibrations passed"
+    },
+    {
+      "command": "node scripts/build-newsstand-derivatives.mjs --check",
+      "result": "PASS: current=5 archive=77 source_sha256=0800063ad653aa8afd879dd8682a1c6776a6c678bf2101ec3513f7857672dd84"
+    },
+    {
+      "command": "node scripts/test-newsstand-reader-browser.mjs",
+      "result": "PASS: checks=68 desktop=1440 mobile=390,320 archive Daily Big-Picture crossword keyboard"
+    },
+    {
+      "command": "direct file/hash inspection",
+      "result": "PASS: newsstand.html selection/stories fingerprint query values exactly equal the first 16 hexadecimal characters of the current selected file hashes; Gemini hero path resolves to the inspected 1672x941 asset"
+    }
+  ],
+  "verdict": "PASS",
+  "limitations": [
+    "This is a read-only independent admission; no public, canonical, or projection file was changed by this reviewer.",
+    "Publisher idempotence and publisher CHECK were reported completed by the projection owner and were not rerun in this review."
+  ]
+}

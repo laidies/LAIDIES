@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "gemini-windows-20260913-art-v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "verdict": "PASS",
+  "reviewer": {
+    "principalId": "/root/evening_sources",
+    "reviewedAt": "2026-09-13T20:19:30.490286+00:00",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true
+  },
+  "producerContract": {
+    "path": "/Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/candidates/gemini-windows-art-20260913/art/producer-contract.json",
+    "sha256": "e8a09574b7a970c61c78581e83ff3c72e62e77af9498cc4e62318792d2209970"
+  },
+  "artifact": {
+    "path": "/Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/candidates/gemini-windows-art-20260913/art/_rough/gemini-windows-v2.png",
+    "sha256": "96d00aebc151717d31816c4084a03d8c3609230c550643d9d43c8fd325ce289f",
+    "kind": "STILL"
+  },
+  "companion": {
+    "path": "/Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/candidates/gemini-windows-20260913/story.json",
+    "sha256": "a6e224bc222dddb660269257189b12fb542d4a34bf0253a979aaf8402547bc67",
+    "kind": "TEXT",
+    "locator": "the_story, second paragraph",
+    "exactTextOrSilentPurpose": "That is the practical difference from the browser: the shortcut and window are closer to the task."
+  },
+  "renderedEvidence": {
+    "path": "/Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/candidates/gemini-windows-art-20260913/art/rendered-sizes.png",
+    "sha256": "0299b1c8bec96615a8835de0b51c6e57dffef7647c07a42439259901649cf32d"
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "PASS",
+      "observation": "A smaller blank panel is visibly separate from a larger blank task shape inside the laptop screen; it represents a desktop window beside a task without showing an autonomous agent or actual Gemini UI.",
+      "artifactLocator": "Full pixels; 720px and 360px proof."
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "Ink edges, halftone texture and cyan/coral/deep-ink/light-paper palette follow the style-only authority; the quiet desk serves the editorial explanation.",
+      "artifactLocator": "Full pixels and 720px proof."
+    },
+    {
+      "id": "characterAndTownIdentity",
+      "result": "PASS",
+      "observation": "No person, named character, real animal, place or LAiDIES identity appears.",
+      "artifactLocator": "Full pixels."
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "The laptop has a connected hinge, keyboard, trackpad, screen plane, desk support and consistent three-quarter perspective.",
+      "artifactLocator": "Full pixels; 720px proof."
+    },
+    {
+      "id": "textIntegrity",
+      "result": "PASS",
+      "observation": "No readable words, letter-shaped keyboard marks, logos, badges, arrows, app icons or fake controls appear. The two screen panels are blank.",
+      "artifactLocator": "Full pixels and 720px proof."
+    },
+    {
+      "id": "periodWardrobeAndProps",
+      "result": "PASS",
+      "observation": "Only a contemporary unbranded laptop, neutral desk and neutral window light are shown; there is no wardrobe, historical prop or novelty device.",
+      "artifactLocator": "Full pixels."
+    },
+    {
+      "id": "objectPurpose",
+      "result": "PASS",
+      "observation": "The laptop, one task shape and one smaller assistant panel each have the narrow job of showing a desktop window beside a task. No decorative character or unrelated prop remains.",
+      "artifactLocator": "Full pixels."
+    },
+    {
+      "id": "renderedSizeLegibility",
+      "result": "PASS",
+      "observation": "At 720px and 360px widths, the laptop and distinct two-panel relationship remain legible; no cropped interface claim or text is introduced.",
+      "artifactLocator": "rendered-sizes.png."
+    }
+  ],
+  "visibleDefects": [],
+  "learningDisposition": {
+    "kind": "NO_NEW_DEFECT"
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "gemini-windows-20260913-art-v1",
+    "predecessor": {
+      "path": "/Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/candidates/gemini-windows-art-20260913/art/rejected-v1.json",
+      "sha256": "dda7a247191295edae02c43bc195bf01a3dbb324f44fe98b4c154bdf14580385"
+    },
+    "priorComparable": {
+      "reviewIssues": 2,
+      "reviewCycles": 1
+    },
+    "change": "v2 removes v1 faux text lines, glowing keyboard symbol and panel orb."
+  },
+  "limitations": [
+    "Producer self-review is not independent visual admission.",
+    "The drawing is an explanatory unbranded desktop-window illustration, not an authenticated Gemini interface screenshot.",
+    "Private rough state only: no public asset, story mutation or release is authorized by this record."
+  ],
+  "ratchet": {
+    "reviewIssues": 0,
+    "reviewCycles": 0
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "gemini-windows-20260913-art-v6",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "verdict": "PASS",
+  "reviewer": {
+    "principalId": "/root/evening_sources",
+    "reviewedAt": "2026-09-13T20:50:51.426245+00:00",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true
+  },
+  "producerContract": {
+    "path": "/Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/candidates/gemini-windows-art-20260913/art/final-contract-v6.json",
+    "sha256": "7b9c0b209459493b38f6941865ef4cd176de502f9a1e95bd7bee5a710525615f"
+  },
+  "artifact": {
+    "path": "/Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/candidates/gemini-windows-art-20260913/art/_rough/gemini-windows-v3.png",
+    "sha256": "1abf1fa4c4fffbcadf581217e86d56c236c1c03153217540aad49c6823450692",
+    "kind": "STILL"
+  },
+  "companion": {
+    "path": "/Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/candidates/gemini-windows-20260913/article.md",
+    "sha256": "cf795306e99b35237b20e210777aebf2d08a3a457340380e3e55b0e82e46b0e2",
+    "kind": "TEXT",
+    "locator": "The story, second paragraph",
+    "exactTextOrSilentPurpose": "Compared with Gemini in the browser, the difference is the shortcut and window beside the task."
+  },
+  "renderedEvidence": {
+    "path": "/Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/candidates/gemini-windows-art-20260913/art/rendered-v3-sizes.png",
+    "sha256": "2a177b4a61f024dd34270049f88da283e085948b119272a2408d910877ba5011"
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "PASS",
+      "observation": "The exact Alt and Space labels make the documented shortcut legible, while the four-point editorial motif identifies the Gemini subject without inventing a screen or interface.",
+      "artifactLocator": "Full pixels and 360px rendered proof."
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "Bright cyan/tangerine/deep-ink contrast, black outlines, dense halftone and light-paper ground match the bound adult editorial reference more closely than v2.",
+      "artifactLocator": "Full pixels and 720px rendered proof."
+    },
+    {
+      "id": "characterAndTownIdentity",
+      "result": "PASS",
+      "observation": "No person, named character, real animal, place or LAiDIES identity appears.",
+      "artifactLocator": "Full pixels."
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "The key rows, keycap spacing, long spacebar, Alt key, shadows and keyboard edge read as one plausible physical keyboard.",
+      "artifactLocator": "Full pixels and 720px rendered proof."
+    },
+    {
+      "id": "textIntegrity",
+      "result": "PASS",
+      "observation": "The only visible strings are deterministic, exact labels Alt and Space. Both were inspected character-for-character against the bound approved copy: A-l-t and S-p-a-c-e. No generated text, logo, fake UI, icon, badge or arrow is present.",
+      "artifactLocator": "Full pixels and 360px rendered proof."
+    },
+    {
+      "id": "periodWardrobeAndProps",
+      "result": "PASS",
+      "observation": "The composition contains only contemporary keyboard hardware and an editorial motif; no wardrobe, historical prop or novelty device appears.",
+      "artifactLocator": "Full pixels."
+    },
+    {
+      "id": "objectPurpose",
+      "result": "PASS",
+      "observation": "The Alt key, Space key and one four-point motif each explain the shortcut/product relationship; no decorative person, pane or unrelated prop remains.",
+      "artifactLocator": "Full pixels."
+    },
+    {
+      "id": "renderedSizeLegibility",
+      "result": "PASS",
+      "observation": "At 720px and 360px, the Alt and Space labels and four-point motif remain readable as the dominant shortcut cue.",
+      "artifactLocator": "rendered-v3-sizes.png."
+    }
+  ],
+  "visibleDefects": [],
+  "learningDisposition": {
+    "kind": "NO_NEW_DEFECT"
+  },
+  "lineage": {
+    "kind": "SUCCESSOR",
+    "predecessorCandidateId": "gemini-windows-20260913-art-v2",
+    "predecessor": {
+      "path": "/Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/candidates/gemini-windows-art-20260913/art/v2-rejection-observation.md",
+      "sha256": "d8dee843f999b2cec1fce72eb9fd8cc52b6c0bfbb4b8672864ba9e05e24cd02a"
+    },
+    "priorComparable": {
+      "reviewIssues": 3,
+      "reviewCycles": 1
+    },
+    "change": "v3 replaces v2 generic laptop/panes with exact deterministic Alt and Space labels and a four-point editorial Gemini motif."
+  },
+  "ratchet": {
+    "reviewIssues": 0,
+    "reviewCycles": 0
+  },
+  "limitations": [
+    "Producer self-review is not independent visual admission.",
+    "The four-point motif is an editorial product cue, not a claim to reproduce the live Gemini interface.",
+    "Private rough state only: no public asset, story mutation or release is authorized by this record."
+  ],
+  "rebindReason": "V6 has fresh independent article review. The final companion sentence still limits the image meaning to a browser comparison: the shortcut and window beside the task. The admitted v3 pixels and deterministic Alt/Space labels are unchanged."
+}

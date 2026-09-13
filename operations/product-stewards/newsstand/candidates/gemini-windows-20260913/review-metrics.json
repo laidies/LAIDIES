@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "laidies.newsstand-review-metrics.v1",
+  "candidateId": "gemini-windows-20260913",
+  "proseReview": {
+    "reviewIssues": 1,
+    "reviewCycles": 5,
+    "note": "Five complete reader reviews: v1, v2, v3, v5 and v6. v4 reused v3 reader judgment because its prose was unchanged. The one reader-facing repair was stale “available today” wording found in v1."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 2,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "reviewIssues": 1,
+    "reviewCycles": 5,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW",
+    "note": "The source-mapping defect repeated in v2 and v3 after v1. v4 repaired the source IDs; v5 and v6 were fresh reviews after subsequent necessary copy repairs."
+  },
+  "history": [
+    {
+      "stage": "editorial-review-v1",
+      "verdict": "HOLD",
+      "mode": "fresh combined review",
+      "findings": [
+        "Replace stale “available today” wording with the September 10 announcement date.",
+        "Assign gemini-windows-help to admin-limit and connected-apps claims."
+      ]
+    },
+    {
+      "stage": "editorial-review-v2",
+      "verdict": "HOLD",
+      "mode": "fresh combined review",
+      "findings": [
+        "Reader passed. The two help-source claim mappings remained absent."
+      ],
+      "note": "The interim vendor-verbatim prose was not used for publication."
+    },
+    {
+      "stage": "editorial-review-v3",
+      "verdict": "HOLD",
+      "mode": "fresh combined review",
+      "findings": [
+        "Reader passed. Facts reported the same two claim-mapping gaps as EVIDENCE_GAP."
+      ]
+    },
+    {
+      "stage": "editorial-review-v4",
+      "verdict": "PASS",
+      "mode": "facts reassessment with v3 reader reuse",
+      "findings": [
+        "Both missing help-source assignments were repaired without prose change."
+      ]
+    },
+    {
+      "stage": "editorial-review-v5",
+      "verdict": "PASS",
+      "mode": "fresh combined review",
+      "findings": [
+        "The interim post-evidence-repair prose and all six mapped claims passed."
+      ]
+    },
+    {
+      "stage": "editorial-review-v6",
+      "verdict": "PASS",
+      "mode": "fresh combined review",
+      "findings": [
+        "Final copy added explicit task fit and Google attribution required by the ordinary-candidate reader contract; the full final article and all six mapped claims passed."
+      ]
+    }
+  ],
+  "evidencePacket": {
+    "rounds": 6,
+    "gaps": 2,
+    "checkedClaims": 6,
+    "suppliedSourcePassages": 16,
+    "note": "Six factual assessments occurred across v1–v6. Two distinct source-to-claim mappings were missing and repaired: admin-limit and connected-apps. The final v6 assessment supported all six claims."
+  }
+}

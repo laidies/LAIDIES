@@ -115,4 +115,35 @@ try {
   fs.rmSync(preflightDirectory, { recursive: true });
 }
 
+const utilityPreflightDirectory = fs.mkdtempSync("operations/product-stewards/newsstand/candidates/utility-preflight-test-");
+try {
+  const badStory = structuredClone(actualStory);
+  badStory.headline = "Gemini news";
+  const badInput = JSON.parse(fs.readFileSync(`${producerRepair}/writer-input-current.json`, "utf8"));
+  badInput.producerContract = { path: "wrong-contract.json", sha256: "0".repeat(64) };
+  badInput.packet.explanationPlan = { changed: true };
+  for (const [name, value] of [["story.json", badStory], ["story-type-coverage.json", actualCoverage], ["producer-contract.json", JSON.parse(fs.readFileSync(`${producerRepair}/producer-contract.json`, "utf8"))], ["writer-input-current.json", badInput], ["producer-observations.json", JSON.parse(fs.readFileSync(`${producerRepair}/producer-observations.json`, "utf8"))]]) fs.writeFileSync(path.join(utilityPreflightDirectory, name), JSON.stringify(value));
+  const result = spawnSync(process.execPath, ["operations/product-stewards/newsstand/review-runtime/run-pilot.mjs", "article", "claude", "--candidate-dir", utilityPreflightDirectory, "--output", `${utilityPreflightDirectory}/output`, "--calibration", "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905"], { encoding: "utf8" });
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /ordinary reader utility: model release does not explain who can access it or what access costs/);
+  assert.match(result.stderr, /ordinary reader length: ordinary Daily reader copy is/);
+  assert.match(result.stderr, /writer input: producerContract must bind the exact current producer contract/);
+  assert.match(result.stderr, /writer input: explanationPlan differs from producer contract draftArchitecture/);
+  assert.equal(fs.existsSync(path.join(utilityPreflightDirectory, "output", "article-editorial-request.json")), false, "utility and binding defects must fail before a provider request is created");
+} finally {
+  fs.rmSync(utilityPreflightDirectory, { recursive: true });
+}
+
+
+const finalCandidate = "operations/product-stewards/newsstand/candidates/gemini-windows-20260913";
+const positiveOutput = fs.mkdtempSync("operations/product-stewards/newsstand/candidates/utility-preflight-positive-");
+try {
+  const result = spawnSync(process.execPath, ["operations/product-stewards/newsstand/review-runtime/run-pilot.mjs", "article", "claude", "--candidate-dir", finalCandidate, "--output", positiveOutput, "--calibration", "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905", "--preflight-only"], { encoding: "utf8" });
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(result.stdout, /"status":"PRE_REVIEW_PASS"/);
+  assert.equal(fs.existsSync(path.join(positiveOutput, "article-editorial-request.json")), false, "preflight-only must not create a provider request");
+} finally {
+  fs.rmSync(positiveOutput, { recursive: true });
+}
+
 console.log("NEWSSTAND STORY TYPE COVERAGE PASS types=7 universal=1 mixed_overlays=1 wrong_template=1 astra_omissions=6 translation=1 jargon_in_prose=1 inline_formatting=1 block_boundaries=1 actual_producer_repair=1 learning_link=1 placeholders=1 duplicate_filler=1");
