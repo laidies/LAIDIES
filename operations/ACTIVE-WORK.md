@@ -1,5 +1,13 @@
 # Active work
 
+## 2026-09-12 Founder badge — PUBLICLY VERIFIED
+
+- Owner-account-only LAiDIES Founder label live in maker and Closet; NO. 0001.
+- Existing Card fields, portrait and artwork unchanged. Signed-out/non-owner
+  guards and async sign-out regression pass; independent visual review accepted.
+- Production 34bbd1e5; five-path delta, 799 unrelated identities preserved.
+- Record: operations/releases/maikeover-founder-20260912/README.md.
+
 ## 2026-09-12 MAiKEOVER account handles and founder number — PUBLICLY VERIFIED
 
 - Production SQL now atomically reserves a unique handle with the Card save;

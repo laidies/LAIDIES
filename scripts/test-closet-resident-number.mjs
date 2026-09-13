@@ -46,16 +46,18 @@ function installRenderer(document) {
   return context.updateCardFromProfile;
 }
 
-async function runBridge(source, { search = '', state, localCard = { state: 'saved', envelope: {} } }) {
+async function runBridge(source, { search = '', state, revokeDuringRead = false, localCard = { state: 'saved', envelope: {} } }) {
   const document = makeDocument();
   let runtimeGets = 0;
+  let authChanged;
   const window = {
     location: { search },
     LAIDIESResidentAccountRuntime: {
       async get() {
         runtimeGets += 1;
         return {
-          async getState() { return state; },
+          client: {auth: {onAuthStateChange(fn) {authChanged=fn;}}},
+          async getState() { if(revokeDuringRead) authChanged('SIGNED_OUT',null); return state; },
           localCard() { return localCard; },
           writeLocalEnvelope() { throw new Error('unexpected restore'); },
         };
@@ -84,6 +86,10 @@ function accountState(number) {
   assert.equal(document.getElementById('residentFounderBadge').hidden,false);
   const other = await runBridge(bridgeSource,{state:accountState(1)});
   assert.equal(other.document.getElementById('residentFounderBadge').hidden,true,'number1 does not confer founder badge');
+  const revoked = await runBridge(bridgeSource,{state:founder,revokeDuringRead:true});
+  assert.equal(revoked.document.getElementById('residentFounderBadge').hidden,true,'stale founder response cannot undo signout');
+  const bad = await runBridge(bridgeSource.replace('founderRevoked || ',''),{state:founder,revokeDuringRead:true});
+  assert.equal(bad.document.getElementById('residentFounderBadge').hidden,false,'calibration exposes stale-response defect');
 }
 
 function assertBoth(document, value, verified) {

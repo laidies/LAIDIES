@@ -1,5 +1,10 @@
 # LAiDIES build learning ledger
 
+- **2026-09-12 Founder badge:** An async account read can finish after sign-out.
+  Hide immediately and reject stale identity responses before showing account
+  labels. Independent review caught the race; a deliberately broken guard proves
+  the regression test detects it. A resident number is not identity authority.
+
 - **2026-09-12 Account handle clearing:** A verified empty account handle must
   override stale local cache, not fall through via logical OR. Live cleanup in
   two browsers exposed this after successful save parity; added renderer test.
