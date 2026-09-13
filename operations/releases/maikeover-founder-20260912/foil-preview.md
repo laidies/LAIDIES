@@ -1,5 +1,10 @@
 # Holographic foil — local preview only
 
+Readability revision: exact LAiDIES FOUNDER casing; larger bold NO. 0001;
+light neutral veil beneath text eases foil interference without boxed labels.
+Desktop and phone preview captures: /private/tmp/founder-foil-readable-preview.png
+and /private/tmp/founder-foil-readable-phone.png. Still not published.
+
 Ali rejected the gradient as not holographic and requested a proper texture
 preview before publication. Do not deploy this candidate without her verdict.
 Asset: assets/resident-card/founder-holographic-foil-preview.png.
