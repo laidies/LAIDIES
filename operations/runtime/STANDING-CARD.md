@@ -1,10 +1,10 @@
 # LAiDIES standing card
 
 <!-- GENERATED FILE. Run: node scripts/build-standing-card.mjs -->
-decisions-sha256: 2af681f1d3dec40062ff1b5c6740c29bb96903e89f9978c413ffcdb2d0a88a03
+decisions-sha256: f54199a9ef836bda43b52af2ed73d994a4756a366ed55f969c33565184da9d9f
 lessons-sha256: 769f2a243497a39d291ce1a0294cde96ffe03229150855c0b62f60736c1a827c
 canon-sha256: e093f3ecd7c221f8cee12c1620123632fdb8e4bd0d7016fe734fffb6c9da0fe4
-agreement-sha256: 0d43a67723a6975b81205f6686d1e4d9f72ffceaed75b4ecdb6a4253a7956560
+agreement-sha256: 5c6749ce15282a37cefa8b9eed1f0d0a2ee09d76bcc08b55fae1390c2f1a5700
 
 ## The job
 
@@ -14,7 +14,7 @@ LAiDIES is a cohesive, useful learning town for professional women from the Rewi
 
 - Ali's latest direct ruling wins. Otherwise, durable routed repository authority outranks chat summaries. Read the Canon Index, then DECISIONS, then the exact product dossier before making a product choice.
 - Planned, local, rendered, reviewed, admitted, released, deployed and publicly verified are different states. Never promote one into another.
-- Ali owns public voice, material product choices, deployment/publication and spend. A local pass does not use that authority.
+- Ali grants standing authorization for assigned work through integration, deployment/publication and live verification. Status, review and commit are checkpoints: perform the next required step. Only new spending needs approval; ask for direction only when a material missing decision cannot be resolved after independent work. Specific rejected content stays rejected; preserve quality checks and repair failures.
 - One writer owns an exact file lane at a time. Preserve dirty work and active locks. Capture a new idea, then continue the active build unless Ali explicitly switches it.
 
 ## Produce before review
@@ -30,7 +30,7 @@ LAiDIES is a cohesive, useful learning town for professional women from the Rewi
 
 - Test the real continuous desktop/mobile experience and its visitor states. Do not infer function from a route load or a screenshot.
 - Visual/media review starts from exact rendered pixels or decoded frames at intended size. Preserve approved work and compare successors against it.
-- No direct deploy, publication, purchase, provider choice, public messaging or claim of completion without the named release owner and exact live verification.
+- Carry in-scope release through the named release owner and exact live verification under standing authorization. Do not stop for routine Ali approval. Verify cost before chargeable actions; no new charge or financial commitment without approval. Genuine external waits must name attempted recovery, exhausted independent work and the resume trigger.
 
 ## Retrieve, do not preload
 

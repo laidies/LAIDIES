@@ -1,5 +1,7 @@
 # Active work
 
+> **2026-09-12 — Standing authorization / IMPLEMENTING.** This task owns the entry-map policy and exact-release authorization update. Continue assigned work through live verification; only new spending or irreducible direction requires Ali. Quality checks remain. Native continuation and remote controller adoption must be reported separately.
+
 > **2026-09-07 — Artwork-rule routing / LOCAL VERIFIED, INTEGRATION PENDING.** Control Room owns
 > isolated `laidies-artwork-rule-routing-20260907`. Imports only the guard from
 > source `4272e2def3896401a054427d2849446c6c0cd5b2` and its bounded admission

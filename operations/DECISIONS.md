@@ -1,5 +1,27 @@
 # DECISIONS — where every settled decision lives
 
+## 2026-09-12 — Standing authorization and completion through live verification
+
+Ali explicitly authorizes agents to carry assigned jobs through all required work,
+including commit, push, integration, publication/deployment and live verification
+when those are part of the job. Status reports, reviews, local completion and
+handoffs are progress checkpoints, not permission stops. Continue to the next
+required step until the assigned acceptance conditions are met.
+
+Only an action that incurs a new monetary charge or financial commitment requires
+Ali's approval. Existing authorized allowances may be used within their limits;
+unknown cost is not zero cost. Finish independent work before requesting a specific
+amount, purpose and limit. Ask for direction only when a material missing decision
+cannot be resolved from the brief, current decisions or reasonable judgment.
+
+This ruling supersedes older routine Ali approval, preview-before-permission,
+per-artifact release permission and reversible-only autonomy restrictions.
+It does not reverse a specific rejection, expand an audit into publication, waive
+quality/security/factual checks or authorize unrelated work. Repair failed checks
+and continue; if external access is unavailable, exhaust permitted recovery and
+independent work, then report the exact dependency and resume trigger. Never
+invent an approval record, successful test, paid allowance or live result.
+
 ## 2026-09-07 — Cross-chat decorative artwork enforcement
 
 Read `operations/design-artwork-rule.md` before building or reviewing page visuals.

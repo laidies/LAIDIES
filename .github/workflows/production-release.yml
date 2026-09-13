@@ -15,8 +15,17 @@ on:
         description: Exact prepared candidate public-artifact identity
         required: true
         type: string
+      task:
+        description: Assigned job requiring this exact release
+        required: true
+        type: string
+      no_new_cost:
+        description: Verified that this release incurs no new monetary charge or commitment
+        required: true
+        default: false
+        type: boolean
       approval_confirmation:
-        description: APPROVE <artifact identity> FOR PRODUCTION
+        description: RELEASE <artifact identity> FOR PRODUCTION
         required: true
         type: string
 
@@ -36,7 +45,8 @@ jobs:
       BASE_COMMIT: ${{ inputs.base_commit }}
       EXPECTED_IDENTITY: ${{ inputs.artifact_identity_sha256 }}
       APPROVAL_CONFIRMATION: ${{ inputs.approval_confirmation }}
-      APPROVER_LOGIN: ${{ vars.PRODUCTION_APPROVER_LOGIN }}
+      ASSIGNED_TASK: ${{ inputs.task }}
+      NO_NEW_COST: ${{ inputs.no_new_cost }}
       CONTROLLER_SHA: ${{ vars.PRODUCTION_CONTROLLER_SHA }}
       ARTIFACT_DIR: /tmp/laidies-candidate-site
       RECEIPT_DIR: ${{ github.workspace }}/.release/receipt
@@ -51,7 +61,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - name: Verify immutable source, controller and Ali-bound dispatch
+      - name: Verify immutable source, controller and standing-authority dispatch
         shell: bash
         run: |
           set -euo pipefail
@@ -59,8 +69,9 @@ jobs:
           [[ "$BASE_COMMIT" =~ ^[a-f0-9]{40}$ ]]
           [[ "$EXPECTED_IDENTITY" =~ ^[a-f0-9]{64}$ ]]
           [[ "$CONTROLLER_SHA" =~ ^[a-f0-9]{40}$ ]]
-          test "$GITHUB_ACTOR" = "$APPROVER_LOGIN"
-          test "$APPROVAL_CONFIRMATION" = "APPROVE $EXPECTED_IDENTITY FOR PRODUCTION"
+          test -n "$ASSIGNED_TASK"
+          test "$NO_NEW_COST" = "true"
+          test "$APPROVAL_CONFIRMATION" = "RELEASE $EXPECTED_IDENTITY FOR PRODUCTION"
           test "$(git rev-parse HEAD)" = "$SOURCE_COMMIT"
           test -z "$(git status --porcelain)"
           git cat-file -e "$BASE_COMMIT^{commit}"
@@ -163,7 +174,7 @@ jobs:
             "$RELEASE_SCOPE_PATH" \
             "$RECEIPT_DIR/production-scope-receipt.json"
           cp "$RELEASE_SCOPE_PATH" "$RECEIPT_DIR/release-scope.json"
-      - name: Bind exact artifact and approval
+      - name: Bind exact artifact and standing authorization
         shell: bash
         run: |
           set -euo pipefail
@@ -171,9 +182,11 @@ jobs:
             --arg sourceCommit "$SOURCE_COMMIT" \
             --arg baseCommit "$BASE_COMMIT" \
             --arg artifactIdentitySha256 "$EXPECTED_IDENTITY" \
-            --arg approvedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --arg recordedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --arg task "$ASSIGNED_TASK" \
+            --arg executedBy "$GITHUB_ACTOR" \
             --arg confirmation "$APPROVAL_CONFIRMATION" \
-            '{schema:"laidies.production-release-approval.v1",sourceCommit:$sourceCommit,baseCommit:$baseCommit,artifactIdentitySha256:$artifactIdentitySha256,approvedBy:"Ali",decision:"APPROVE_PRODUCTION_RELEASE",publicUrl:"https://laidies.ai/",approvedAt:$approvedAt,confirmation:$confirmation}' \
+            '{schema:"laidies.production-release-authority.v2",authority:"ali-standing-authorization-2026-09-12",task:$task,executedBy:$executedBy,newMonetaryCost:false,sourceCommit:$sourceCommit,baseCommit:$baseCommit,artifactIdentitySha256:$artifactIdentitySha256,decision:"RELEASE_UNDER_STANDING_AUTHORITY",publicUrl:"https://laidies.ai/",recordedAt:$recordedAt,confirmation:$confirmation}' \
             > "$RECEIPT_DIR/approval.json"
           node scripts/check-production-release-approval.mjs "$RECEIPT_DIR/approval.json"
       - uses: actions/upload-artifact@v4

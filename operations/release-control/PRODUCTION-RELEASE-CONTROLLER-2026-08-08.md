@@ -1,5 +1,18 @@
 # Production release controller — 2026-08-08
 
+## Current authority — 2026-09-12
+
+The historical approval/configuration requirements below are superseded by
+`operations/codex-contract/rules/standing-authorization.md`. For an assigned release,
+use the existing exact source/base/artifact inputs plus `task`, verified
+`no_new_cost: true`, and `approval_confirmation: RELEASE <artifact identity> FOR PRODUCTION`.
+The task and cost fields are executor attestations; verify them before dispatch.
+No new charge is authorized by this route. Repository dispatch access, protected
+controller matching, artifact scope and all release/live checks remain required.
+The standing receipt records the actual executor, not a fabricated personal Ali
+approval. `PRODUCTION_APPROVER_LOGIN` is no longer used. Historical source defects
+and outcome claims below describe their stated August snapshot, not current health.
+
 Status: **BUILDING — CONTROLLER CALIBRATED; CURRENT SOURCE NOT RELEASEABLE**
 Owner: Control Room / release integration
 Evidence time: 2026-08-08 13:55 PDT
