@@ -9,6 +9,7 @@ function node(id) {
   return nodes.get(id);
 }
 let current = {session:null}, session=null, claimed=[], restored=[], requested=[], rejectSave=false, confirm=true, rejectCode=true, authChanged;
+const localHandles = new Map();
 const runtime = {
   getState: async()=>current,
   client:{auth:{getSession:async()=>({data:{session}}),onAuthStateChange:fn=>{authChanged=fn;}}},
@@ -16,13 +17,18 @@ const runtime = {
   controller:{
     requestEmailCode:async(email,path)=>requested.push([email,path]),
     verifyEmailCode:async(email,code)=>{if(rejectCode) throw Error('expired'); session={user:{id:'a'}};current={session,remote:null};},
-    claimLocalCard:async(doc,key,revision)=>{if(rejectSave) throw Error('network'); claimed.push([doc,revision]); return {localPreserved:true};},
+    claimLocalCard:async(doc,key,revision,handle)=>{
+      if(rejectSave) throw Error('network');
+      claimed.push([doc,revision,handle]);
+      return {localPreserved:true,remote:{profile:{card_username:handle}}};
+    },
     signOut:async()=>{session=null;current={session:null};}
   }
 };
 let reloads=0, events={};
 const window={LAIDIESResidentAccountRuntime:{get:async()=>runtime}, dispatchEvent(){},addEventListener:(name,fn)=>{events[name]=fn;},
-  setTimeout, confirm:()=>confirm, location:{pathname:'/maikeover.html',reload(){reloads++;}}};
+  setTimeout, confirm:()=>confirm, location:{pathname:'/maikeover.html',reload(){reloads++;}},
+  localStorage:{getItem:key=>localHandles.get(key)||null,setItem:(key,value)=>localHandles.set(key,String(value)),removeItem:key=>localHandles.delete(key)}};
 vm.runInNewContext(source,{window,document:{getElementById:node},CustomEvent:class{},crypto:{randomUUID:()=> 'test-id'}});
 await new Promise(setImmediate);
 assert.equal(node('moAccountForm').hidden,false);
@@ -60,9 +66,15 @@ assert.equal(node('moEpisodeEmail').value,'other@example.com','newsletter email 
 session={user:{id:'a'}};current={session,remote:null};
 const first=await window.LAIDIESMaikeoverAccount.beforeSave();
 assert.equal(first.userId,'a');assert.equal(first.revision,null);
-await window.LAIDIESMaikeoverAccount.save({fields:{displayName:'Test'}},first);
+await assert.rejects(
+  window.LAIDIESMaikeoverAccount.save({fields:{displayName:'Test'}},first,'bad-handle'),
+  /Choose a handle/
+);
+await window.LAIDIESMaikeoverAccount.save({fields:{displayName:'Test'}},first,'test_handle');
 assert.equal(claimed.length,1);
-current={session,remote:{card:{revision:'r1',document:{fields:{displayName:'Saved'}}}}};
+assert.equal(claimed[0][2],'test_handle');
+assert.equal(localHandles.get('laidies_card_username'),'test_handle');
+current={session,remote:{card:{revision:'r1',document:{fields:{displayName:'Saved'}}},profile:{card_username:'saved_handle'}}};
 confirm=false;
 assert.equal(await window.LAIDIESMaikeoverAccount.beforeSave(),null);
 await node('moAccountRestore').handlers.click.call(node('moAccountRestore'));
@@ -84,7 +96,8 @@ const saveButton={disabled:false,addEventListener:(_,fn)=>{pageHandler=fn;}};
 vm.runInNewContext(html.slice(handlerStart,handlerEnd), {
   $:id=>id==='moSave'?saveButton:{style:{}},
   window:{LAIDIESMaikeoverAccount:{beforeSave:async()=>update,
-    validateSession:window.LAIDIESMaikeoverAccount.validateSession}},
+    validateSession:window.LAIDIESMaikeoverAccount.validateSession},
+    LAIDIESMaikeoverHandle:{value:()=> 'test_handle',valid:()=>true}},
   localStorage:{setItem(){writes++;}},
   announceCardSave:message=>notices.push(message)
 });
@@ -94,10 +107,11 @@ assert.equal(saveButton.disabled,false);
 assert.match(notices[0],/sign-in changed/);
 session=current.session;
 rejectSave=true;
-await assert.rejects(window.LAIDIESMaikeoverAccount.save({},update),/network/);
+await assert.rejects(window.LAIDIESMaikeoverAccount.save({},update,'test_handle'),/network/);
 rejectSave=false;
 await node('moAccountRestore').handlers.click.call(node('moAccountRestore'));
 assert.equal(restored.length,1);assert.equal(reloads,1);
+assert.equal(localHandles.get('laidies_card_username'),'saved_handle','confirmed restore refreshes the local fallback from the account');
 await node('moAccountSignOut').handlers.click.call(node('moAccountSignOut'));
 assert.equal(node('moAccountForm').hidden,false);
 assert.equal(node('moEpisodeConsent').checked,false,'signout clears subscription intent');

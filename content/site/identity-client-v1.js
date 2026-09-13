@@ -177,7 +177,7 @@
       return getState();
     }
 
-    async function claimLocalCard(envelope, idempotencyKey, expectedRevision) {
+    async function claimLocalCard(envelope, idempotencyKey, expectedRevision, handle) {
       var before = readLocalCard();
       if (!before || before.state !== "saved" ||
           !envelope || !sameDocument(before.envelope, envelope)) {
@@ -185,11 +185,15 @@
       }
       var session = await getSession();
       if (!session) throw new Error("authentication-required");
-      var mutation = await mutationRpc("claim_resident_card_v1", {
+      var withHandle = handle !== undefined;
+      if (withHandle && !/^[a-z0-9_]{3,24}$/.test(handle)) throw new TypeError("Use 3–24 lowercase letters, numbers or underscores for your handle.");
+      var args = {
         p_document: envelope,
         p_idempotency_key: idempotencyKey,
         p_expected_revision: expectedRevision || null
-      });
+      };
+      if (withHandle) args.p_card_username = handle;
+      var mutation = await mutationRpc(withHandle ? "claim_resident_card_with_handle_v1" : "claim_resident_card_v1", args);
       if (mutation.error) throw mutation.error;
       var verified = await client.rpc("get_my_resident_state_v1");
       if (verified.error ||
@@ -197,7 +201,8 @@
           verified.data.state !== STATES.ACCOUNT_BACKED ||
           !verified.data.card ||
           verified.data.card.revision !== mutation.data.revision ||
-          !sameDocument(verified.data.card.document, envelope)) {
+          !sameDocument(verified.data.card.document, envelope) ||
+          (withHandle && (!verified.data.profile || verified.data.profile.card_username !== handle))) {
         throw new Error("remote-read-after-write-failed");
       }
       var after = readLocalCard();

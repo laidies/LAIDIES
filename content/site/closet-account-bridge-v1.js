@@ -36,6 +36,16 @@
     }
   }
 
+  function renderVerifiedHandle(profile) {
+    var handle = profile && profile.card_username;
+    if (!/^[a-z0-9_]{3,24}$/.test(String(handle || ''))) return false;
+    var node = document.getElementById("moHandle");
+    if (!node) return false;
+    node.dataset.accountHandle = handle;
+    node.textContent = "@" + handle;
+    return true;
+  }
+
   async function init() {
     var params = new URLSearchParams(window.location.search);
     if (params.has("u") || params.has("member")) return;
@@ -97,6 +107,9 @@
         window.location.reload();
         return;
       }
+      // A server handle belongs to this Card only after the remote Card and
+      // browser envelope match. Until then a local draft remains just that.
+      renderVerifiedHandle(state.remote.profile);
       setPersistence(
         "Account-backed view: this Closet restored the verified private Card saved with your signed-in account.",
         "account"

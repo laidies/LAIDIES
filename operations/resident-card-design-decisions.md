@@ -1,5 +1,13 @@
 # Resident Card construction — 2026-07-24
 
+## 2026-09-12 Complete remaining identity items
+
+Ali authorizes account-backed unique handles across MAiKEOVER and Closet and
+assigning her confirmed account resident0001. Use existing profile uniqueness;
+save handle and Card atomically, without changing visibility or unrelated data.
+Do not invent Ali's handle. Preserve all other residents and fail if0001 belongs
+to another account. No browser-issued number or local-only identity claim.
+
 ## 2026-09-12 Thirteen-image picker and complete parity release
 
 Ali approves extending the ready-made avatar picker to cassette, flip phone,

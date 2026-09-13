@@ -1725,7 +1725,7 @@
 
 <script src="content/site/supabase-config.js"></script>
 <script src="/content/site/resident-card-contract-v1.js?v=20260906-pop-card-1"></script>
-<script src="/content/site/identity-client-v1.js?v=20260727-account-1"></script>
+<script src="/content/site/identity-client-v1.js?v=20260912-handle-1"></script>
 <script src="/content/site/resident-account-runtime-v1.js?v=20260829-provider-health-1"></script>
 <script>
 (function() {
@@ -1797,9 +1797,13 @@
     document.getElementById('cardSong').textContent = SONG_LABEL[profile.favorite_song] || profile.favorite_song || '—';
     document.getElementById('cardSaint').textContent = SAINT_LABEL[profile.favorite_saint] || profile.favorite_saint || '—';
     document.getElementById('cardCarry').textContent = profile.card_carry || '—';
-    var handle = window.LAIDIESResidentCard
-      ? window.LAIDIESResidentCard.readHandle(localStorage)
-      : '';
+    var handleNode = document.getElementById('moHandle');
+    var handle = isPublicMode
+      ? profile.card_username
+      : handleNode && handleNode.dataset.accountHandle ||
+        (window.LAIDIESResidentCard
+          ? window.LAIDIESResidentCard.readHandle(localStorage)
+          : '');
     document.getElementById('moHandle').textContent = handle ? '@' + handle : '@yourhandle';
     document.getElementById('residentNo').textContent = residentNumberText(number);
   }
@@ -2650,7 +2654,7 @@
   init();
 })();
 </script>
-  <script src="/content/site/closet-account-bridge-v1.js?v=20260911-signup-2"></script>
+  <script src="/content/site/closet-account-bridge-v1.js?v=20260912-handle-1"></script>
   <script src="/content/site/resident-necklaces-v1.js?v=20260831-1"></script>
   <script src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
   <script src="/content/site/sunnyvaile-directory.js?v=20260713-1"></script>

@@ -4,6 +4,7 @@
   var pendingKey = 'laidies_maikeover_pending_email_v1';
   var newsletterUser = null;
   var watchingAuth = false;
+  var activeUserId = null;
   try {
     var pending = JSON.parse(window.sessionStorage.getItem(pendingKey) || 'null');
     if (pending && typeof pending.email === 'string' && pending.email.length <= 254 &&
@@ -15,6 +16,28 @@
   function clearPending() { try { window.sessionStorage.removeItem(pendingKey); } catch (_) {} }
   var el = function (id) { return document.getElementById(id); };
   function message(text) { el('moAccountStatus').textContent = text; }
+  function normalizeHandle(value) {
+    return String(value == null ? '' : value).trim().toLowerCase().replace(/^@+/, '');
+  }
+  function validHandle(value) {
+    return /^[a-z0-9_]{3,24}$/.test(value);
+  }
+  function syncLocalHandle(value) {
+    var handle = normalizeHandle(value);
+    try {
+      if (validHandle(handle)) {
+        window.localStorage.setItem('laidies_card_username', handle);
+      } else {
+        window.localStorage.removeItem('laidies_card_username');
+      }
+    } catch (_) {}
+  }
+  function hydrateHandle(profile, force) {
+    var maker = window.LAIDIESMaikeoverHandle;
+    if (maker && typeof maker.hydrate === 'function') {
+      maker.hydrate(profile && profile.card_username || '', force === true);
+    }
+  }
   async function refresh() {
     runtime = await window.LAIDIESResidentAccountRuntime.get();
     if (!watchingAuth && runtime.client.auth.onAuthStateChange) {
@@ -30,6 +53,8 @@
     if (state.error) throw state.error;
     var signed = !!state.session;
     var nextUser = signed ? state.session.user.id : null;
+    var accountChanged = nextUser !== activeUserId;
+    activeUserId = nextUser;
     if (nextUser !== newsletterUser) {
       var newsletterEmail = el('moEpisodeEmail');
       var newsletterConsent = el('moEpisodeConsent');
@@ -38,6 +63,12 @@
       newsletterUser = nextUser;
     }
     if (signed) { pendingEmail = ''; clearPending(); el('moAccountCode').value = ''; }
+    if (signed && state.remote && state.remote.profile) {
+      // The account record is authoritative when a resident first arrives or
+      // deliberately changes accounts. Later refreshes must not erase a
+      // handle she is actively typing in the maker.
+      hydrateHandle(state.remote.profile, accountChanged);
+    }
     el('moAccountForm').hidden = signed || !!pendingEmail;
     el('moAccountCodeForm').hidden = signed || !pendingEmail;
     el('moAccountReady').hidden = !signed;
@@ -75,15 +106,41 @@
       throw new Error('Your sign-in changed. Sign in again before saving.');
     }
   }
-  async function save(envelope, context) {
+  async function save(envelope, context, requestedHandle) {
     await validateSession(context);
     if (window.LAIDIESPortraitSelection) await window.LAIDIESPortraitSelection.validate(envelope);
-    var result = await runtime.controller.claimLocalCard(envelope, crypto.randomUUID(), context.revision);
+    var handle = normalizeHandle(requestedHandle);
+    if (!validHandle(handle)) {
+      throw new TypeError('Choose a handle with 3–24 lowercase letters, numbers or underscores.');
+    }
+    var result;
+    try {
+      result = await runtime.controller.claimLocalCard(
+        envelope, crypto.randomUUID(), context.revision, handle
+      );
+    } catch (error) {
+      if (error && (error.code === '23505' || error.message === 'card-username-not-available')) {
+        throw new Error('That handle was just claimed. Pick another and try Save my Card again.');
+      }
+      throw error;
+    }
     if (!result.localPreserved) throw new Error('The browser copy changed during saving.');
+    if (!result.remote || !result.remote.profile ||
+        result.remote.profile.card_username !== handle) {
+      throw new Error('The account did not confirm your handle. Your browser draft is still here.');
+    }
+    syncLocalHandle(handle);
+    hydrateHandle(result.remote.profile, true);
     await refresh();
     window.dispatchEvent(new CustomEvent('laidies:continuation-ready'));
   }
-  window.LAIDIESMaikeoverAccount = Object.freeze({beforeSave:beforeSave, validateSession:validateSession, save:save});
+  window.LAIDIESMaikeoverAccount = Object.freeze({
+    beforeSave:beforeSave,
+    normalizeHandle:normalizeHandle,
+    validHandle:validHandle,
+    validateSession:validateSession,
+    save:save
+  });
   async function sendCode() {
     if (requesting || verifying) return;
     if (Date.now() < nextSendAt) {
@@ -149,6 +206,8 @@
       var session = await runtime.client.auth.getSession();
       if (session.error || !session.data.session || session.data.session.user.id !== current.session.user.id) throw new Error('Your sign-in changed.');
       runtime.writeLocalEnvelope(remote.document);
+      syncLocalHandle(current.remote && current.remote.profile && current.remote.profile.card_username);
+      hydrateHandle(current.remote && current.remote.profile, true);
       window.location.reload();
     } catch (error) { message('Your Card could not be restored. ' + error.message); }
     finally { this.disabled = false; }

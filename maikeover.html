@@ -406,8 +406,9 @@
 
           <!-- Handle -->
           <div>
-            <label style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Your @handle</label>
-            <p style="margin:0; font-size:14px; color:var(--plum-soft);">Your local Card can use a draft handle (<span id="moHandleNote" style="color:var(--rose);font-weight:700;">no draft handle</span>). A draft handle is local only. It is not reserved, public or available on another device. Your account uses your verified email.</p>
+            <label for="moHandleInput" style="display:block; font-family:'Jost',sans-serif; font-weight:700; color:var(--rose); font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:8px;">★ Your @handle</label>
+            <input type="text" id="moHandleInput" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="25" placeholder="yourhandle" aria-describedby="moHandleHelp" style="width:100%; box-sizing:border-box; background:var(--cream); border:1.5px solid var(--line); color:var(--plum); border-radius:10px; padding:11px; font:16px 'Jost',sans-serif;">
+            <p id="moHandleHelp" style="margin:6px 0 0; font-size:14px; color:var(--plum-soft);">Required to save your Card: 3–24 lowercase letters, numbers or underscores. Your verified account keeps it with your Card on every device.</p>
           </div>
 
           <!-- Save -->
@@ -577,9 +578,7 @@
       $('moCard').dataset.finish = state.bg;
       $('moCard').style.background = 'transparent';
       var nm = $('moNameInput').value.trim(); $('moName').textContent = nm || 'Your Name';
-      var handle = window.LAIDIESResidentCard
-        ? window.LAIDIESResidentCard.readHandle(localStorage)
-        : '';
+      var handle = $('moHandleInput').value.trim();
       $('moHandle').textContent = handle ? ('@'+handle) : '@yourhandle';
       $('moMovie').textContent = $('moMovieSel').value || '—';
       $('moTv').textContent = $('moTvSel').value || '—';
@@ -715,6 +714,42 @@
       renderPreview();
     });
 
+    function normalizeHandle(value) {
+      return String(value == null ? '' : value).trim().toLowerCase().replace(/^@+/, '');
+    }
+    function validHandle(value) {
+      return /^[a-z0-9_]{3,24}$/.test(value);
+    }
+    var handleInput = $('moHandleInput');
+    var handleDirty = false;
+    handleInput.addEventListener('input', function () {
+      var normalized = normalizeHandle(handleInput.value);
+      if (handleInput.value !== normalized) handleInput.value = normalized;
+      handleDirty = true;
+      renderPreview();
+    });
+    window.LAIDIESMaikeoverHandle = Object.freeze({
+      hydrate: function (value, force) {
+        var normalized = normalizeHandle(value);
+        if (!validHandle(normalized)) {
+          // A forced account switch/restore must not leave the preceding
+          // resident's handle visible. A routine refresh still protects a
+          // draft she has not chosen to save yet.
+          if (!force) return;
+          handleInput.value = '';
+          handleDirty = false;
+          renderPreview();
+          return;
+        }
+        if (handleDirty && !force) return;
+        handleInput.value = normalized;
+        handleDirty = false;
+        renderPreview();
+      },
+      value: function () { return normalizeHandle(handleInput.value); },
+      valid: validHandle
+    });
+
     // ---- save ----
     function announceCardSave(message, color) {
       var result = $('moSaveMsg');
@@ -731,6 +766,12 @@
       try {
       if (!window.LAIDIESMaikeoverAccount) {
         announceCardSave('The account connection is still loading. Please try again shortly.', '#a83243');
+        return;
+      }
+      var handle = window.LAIDIESMaikeoverHandle.value();
+      if (!window.LAIDIESMaikeoverHandle.valid(handle)) {
+        announceCardSave('Choose a handle with 3–24 lowercase letters, numbers or underscores before saving your Card.', '#a83243');
+        handleInput.focus();
         return;
       }
       var accountContext;
@@ -806,7 +847,7 @@
       $('moSave').disabled = true;
       $('moSeeCloset').style.display='none';
       try {
-        await window.LAIDIESMaikeoverAccount.save(envelope, accountContext);
+        await window.LAIDIESMaikeoverAccount.save(envelope, accountContext, handle);
         announceCardSave('Your Resident Card is saved to your account. Open your Closet below.', '#2c7d3c');
         $('moSeeCloset').style.display='inline';
       } catch (error) {
@@ -834,7 +875,7 @@
       if(fields.tvshow) $('moTvSel').value=fields.tvshow;
       if(fields.displayName) $('moNameInput').value=fields.displayName;
       if(fields.carry) $('moCarrySel').value=fields.carry;
-      var h=lsGet('laidies_card_username'); if(h) $('moHandleNote').textContent='@'+h;
+      var h=lsGet('laidies_card_username'); if(h) window.LAIDIESMaikeoverHandle.hydrate(h, false);
       renderPreview();
     })();
   })();
@@ -1135,9 +1176,9 @@
   <script defer src="/content/site/sv-tour-checkin.js?v=20260716-8stops"></script>
     <script defer src="/content/site/ksvl-player.js?v=20260911-header-controls-2"></script>
 <script defer src="/content/site/charm-hunt.js?v=20260716-coords"></script>
-<script src="/content/site/identity-client-v1.js?v=20260905-email-code-1"></script>
+<script src="/content/site/identity-client-v1.js?v=20260912-handle-1"></script>
 <script src="/content/site/resident-account-runtime-v1.js?v=20260829-provider-health-1"></script>
-<script defer src="/content/site/maikeover-account-v1.js?v=20260912-photo-picker-1"></script>
+<script defer src="/content/site/maikeover-account-v1.js?v=20260912-handle-1"></script>
 <script defer src="/content/site/maikeover-portraits-v1.js?v=20260912-photo-picker-1"></script>
 <script defer src="/content/site/maikeover-v2.js?v=20260912-photo-picker-1"></script>
 <script defer src="/content/site/ai-accent-autowrap.js?v=20260712-inline"></script>
