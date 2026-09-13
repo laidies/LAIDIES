@@ -3,6 +3,13 @@
 .mo-mirror-mount #moCard .resident-founder-badge[hidden] { display:none; }
 .mo-mirror-mount #moCard:has(.resident-founder-badge:not([hidden])) > div:first-child > span:first-child { visibility:hidden; }
 .mo-mirror-mount #moCard:is([data-finish="gettingready"],[data-finish="skates"],[data-finish="boombox"],[data-finish="computer"]) .resident-founder-badge { top:1.5%; height:12.5%; color:#4b168c; }
+.mo-mirror-mount #moCard:has(.resident-founder-badge:not([hidden])) > div:first-child {
+  left:1.5%; right:1.5%; top:1.5%; height:12.5%; padding:0 4%; box-sizing:border-box;
+  background:linear-gradient(90deg,#b7e42b 0%,#b7e42b 42%,transparent 53%,transparent 76%,#b7e42b 86%),url('/assets/homepage/rewind-wallpaper-20260906.webp') center / auto 800%;
+  border-bottom:2px solid #7137d6; align-items:center!important; text-shadow:none;
+}
+.mo-mirror-mount #moCard:has(.resident-founder-badge:not([hidden])) .resident-founder-badge { top:1.5%; height:12.5%; color:#7137d6; }
+.mo-mirror-mount #moCard:has(.resident-founder-badge:not([hidden])) :is(#residentNo,#moResidentNo) { color:#7137d6!important; text-shadow:none; }
 .resident-card-shared-view { position:relative; width:min(100%,720px); aspect-ratio:1.8047; margin:0 auto; }
 .resident-card-shared-view .mo-mirror-mount { position:absolute; inset:0; width:100%; height:100%; }
 .mo-mirror-mount #moCard { container-type:inline-size; }

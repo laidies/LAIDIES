@@ -2,6 +2,11 @@
 
 ## 2026-09-12 Founder visual correction
 
+Colour follow-up: replace subdued purple/plain cyan with active electric purple
+on lime; reuse exact homepage rewind wallpaper, cropped large enough for the CD
+to read, in the header centre. No new artwork or account data. Tiny tiled crop
+failed review; large crop passed. Owner-only styling; ordinary Cards unchanged.
+
 Latest explicit correction: no star. Centre LAiDIES Founder vertically within
 the existing header band, rather than positioning its top edge by percentage.
 
