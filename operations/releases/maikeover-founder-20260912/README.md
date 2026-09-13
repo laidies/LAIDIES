@@ -1,5 +1,20 @@
 # Founder badge — publicly verified
 
+## Correction after Ali's rejection
+
+The pill treatment and prior visual acceptance were rejected. The screenshot's
+test portrait/selections were not Ali's; do not present that identity as hers.
+Replaced pill with header-integrated type; no account data/auth changes.
+Production 2c89f225-1852-4c73-8e3a-8f7946f90f69, source 0ac21492.
+Three paths: shared CSS plus its cache version in both HTML consumers.
+801 other paths retained; zero removals; dual-origin exact verification in
+/private/tmp/laidies-maikeover-parity-QotaR5/verification.json.
+Phone-sized and desktop Card checked; independent bounded visual review passed.
+Live header screenshot: /private/tmp/founder-header-live.png. Existing identity
+test passed. No physical-phone test or profile restoration performed. Repo-wide
+hooks skipped for this bounded commit due previously recorded unrelated missing
+assets; no claim of full-site validation. Wrangler skill used for bounded release.
+
 Owner-only `★ LAiDIES Founder` badge is live in MAiKEOVER and Closet.
 Verified authenticated owner shows NO. 0001. Existing Card data and art retained.
 
