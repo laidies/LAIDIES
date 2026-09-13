@@ -2,6 +2,10 @@
 
 ## 2026-09-12 Founder visual correction
 
+Latest ruling supersedes lime/artwork below: Ali requests iridescent; green and
+purple clash and the artwork is unclear. Use a restrained pink/lilac/icy-blue
+gradient surface, no wallpaper or star, with centred readable lettering.
+
 Colour follow-up: replace subdued purple/plain cyan with active electric purple
 on lime; reuse exact homepage rewind wallpaper, cropped large enough for the CD
 to read, in the header centre. No new artwork or account data. Tiny tiled crop
