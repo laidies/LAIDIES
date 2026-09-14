@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "laidies-newsstand-late-scout-source-checks.v1",
+  "editionDate": "2026-09-14",
+  "checkedAt": "2026-09-14T23:02:12Z",
+  "reviewerId": "/root/puzzle_visual_reconcile",
+  "scope": "One normal-web refresh of the due Reuters, AIDB September 14, AIDB September 12 and Beehiiv endpoints. No coverage mutation.",
+  "transportBoundary": "Each named endpoint was requested once through normal web open. A nonretryable response was not retried and no alternate transport, mirror, proxy, credential, cookie injection or URL rewriting was used.",
+  "checks": [
+    {
+      "url": "https://www.reuters.com/technology/artificial-intelligence/",
+      "role": "INDEPENDENT_REPORTING",
+      "accessResult": "BLOCKED_NONRETRYABLE",
+      "exactResponse": "URL https://www.reuters.com/technology/artificial-intelligence/ cannot be opened (non-retryable error)",
+      "disposition": "SOURCE_ACCESS_HOLD",
+      "missingInput": "Accessible Reuters AI index or full Reuters reporting for a distinct event.",
+      "nextRecoveryStep": "Wait for a later normal endpoint recovery or use distinct legitimate independent reporting for a specifically identified event; do not repeat this blocked transport."
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-14.json",
+      "role": "AIDB_Sep14_JSON",
+      "accessResult": "BLOCKED_NONRETRYABLE",
+      "exactResponse": "URL https://aidailybrief.ai/e/2026-09-14.json is not safe to open (non-retryable error)",
+      "disposition": "HOLD_AIDB_RELEASE_REVIEW",
+      "missingInput": "A public complete September 14 edition; the recovered Beehiiv index still showed September 12 as its latest archive entry.",
+      "nextRecoveryStep": "Wait for an official September 14 edition to appear in an allowed publisher channel; do not retry this nonretryable URL."
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-14/transcript.md",
+      "role": "AIDB_Sep14_transcript",
+      "accessResult": "BLOCKED_NONRETRYABLE",
+      "exactResponse": "URL https://aidailybrief.ai/e/2026-09-14/transcript.md is not safe to open (non-retryable error)",
+      "disposition": "HOLD_AIDB_RELEASE_REVIEW",
+      "missingInput": "A public complete September 14 transcript or publisher-linked complete-content source.",
+      "nextRecoveryStep": "Wait for an official September 14 transcript or complete publisher post; do not retry this nonretryable URL."
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-12.json",
+      "role": "AIDB_Sep12_JSON",
+      "accessResult": "BLOCKED_NONRETRYABLE",
+      "exactResponse": "URL https://aidailybrief.ai/e/2026-09-12.json is not safe to open (non-retryable error)",
+      "disposition": "ENDPOINT_BLOCK_RETAINED_CHANNEL_CONTENT_RECOVERED",
+      "missingInput": "The exact JSON remains inaccessible. The separate official Beehiiv post now supplies the complete publisher content for this edition identity.",
+      "nextRecoveryStep": "Use the recovered publisher post for item reconciliation; do not retry this nonretryable JSON endpoint."
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-12/transcript.md",
+      "role": "AIDB_Sep12_transcript",
+      "accessResult": "BLOCKED_NONRETRYABLE",
+      "exactResponse": "URL https://aidailybrief.ai/e/2026-09-12/transcript.md is not safe to open (non-retryable error)",
+      "disposition": "ENDPOINT_BLOCK_RETAINED_CHANNEL_CONTENT_RECOVERED",
+      "missingInput": "The exact transcript remains inaccessible. The separate official Beehiiv post now supplies complete written episode content.",
+      "nextRecoveryStep": "Use the recovered publisher post for item reconciliation; do not retry this nonretryable transcript endpoint."
+    },
+    {
+      "url": "https://aidailybrief.beehiiv.com/",
+      "role": "AIDB_Beehiiv_index",
+      "accessResult": "CHECKED",
+      "responseMetadata": {
+        "title": "The AI Daily Brief",
+        "contentType": "text/html",
+        "totalLines": 64
+      },
+      "observed": "The official archive loaded and showed a September 12 post for the September 11 episode as the newest entry; no September 14 entry was present.",
+      "followedPublisherLink": {
+        "url": "https://aidailybrief.beehiiv.com/p/what-to-use-the-latest-ai-tools-for",
+        "accessResult": "CHECKED",
+        "responseMetadata": {
+          "title": "What to Use the Latest AI Tools For",
+          "episodeDate": "2026-09-11",
+          "contentType": "text/html",
+          "totalLines": 145
+        },
+        "exactRelevantExcerpts": [
+          "Devin Voice launch, powered by GPT-Live and SWE-2",
+          "Grok Bot is now more powerful for sales teams."
+        ],
+        "observation": "The complete publisher post identifies Devin Voice and reports Grok Bot integrations with Salesforce, HubSpot, Gong, Clay and Granola, while linking both claims to exact X posts.",
+        "limitation": "AIDB is a scouting source, not primary authority. Both linked exact X posts remained blocked in the independent source refresh, so neither item is eligible for story production from this evidence alone."
+      },
+      "disposition": "SEP12_PUBLISHER_CONTENT_RECOVERED_NO_ELIGIBLE_STORY",
+      "missingInput": "Accessible exact primary Devin Voice and Grok Bot announcements for factual admission; a September 14 publisher edition remains absent.",
+      "nextRecoveryStep": "Reconcile the recovered September 12 item list against existing dispositions, retaining Devin Voice and Grok Bot as primary-evidence holds."
+    }
+  ],
+  "outcome": {
+    "sep12PublisherContentRecovered": true,
+    "sep14EditionAvailable": false,
+    "reutersRecovered": false,
+    "newEligibleStories": [],
+    "unchangedPrimaryEvidenceHolds": [
+      "devin-voice-20260911",
+      "grokbot-sales-integrations"
+    ],
+    "coverageUpdatedByThisLane": false,
+    "providerReviewSpend": false,
+    "publicWrite": false
+  }
+}

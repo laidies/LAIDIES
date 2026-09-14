@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewerPrincipalId": "/root/daily_cycle_check",
+  "completedAt": "2026-09-14T22:23:59Z",
+  "method": "Independent artifact-first calibration. I inspected the Gemini v2 rough image and the approved destination reference myself. The saved root calibration is a format reference only; none of its judgments or principal are inherited.",
+  "formatReference": {
+    "path": "operations/product-stewards/newsstand/candidates/gemini-windows-art-20260913/art/root-calibration.json",
+    "sha256": "9466060059ba59fe79e543867e84066f2f20e5415ae18a58a5466d140ae05632"
+  },
+  "actualCalibrationArtifacts": [
+    {
+      "path": "operations/product-stewards/newsstand/candidates/gemini-windows-art-20260913/art/_rough/gemini-windows-v2.png",
+      "sha256": "96d00aebc151717d31816c4084a03d8c3609230c550643d9d43c8fd325ce289f",
+      "verdict": "REJECT",
+      "reasons": [
+        "VQX-BAD-001: the muted laptop scene visibly drifts from the detailed, deep-ink adult editorial pop-art reference.",
+        "VQX-BAD-007 and VQX-BAD-008: its large blank panes do not explain the documented Alt+Space shortcut, so the subject and dominant objects lack the required teaching job."
+      ]
+    }
+  ],
+  "calibrationBoundary": "This calibration proves this reviewer rejects observed style and semantic/object-purpose failure. It does not claim unseen checks, human review, or that the Gemini artifact tests every failure family."
+}

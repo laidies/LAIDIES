@@ -1,0 +1,563 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "brain-implant-speech-gestures-20260914",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/evening_sources",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/evening_sources",
+    "principalId": "/root/evening_sources",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-14T22:30:00Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/publication-manifest.json",
+      "sha256": "0a148c7821489fdd2ea6782a2ab8bfcedad9204e68f06044046e8c8e5df34455"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/review-text.json",
+      "sha256": "e4d8fe3339635d37e56bb6e8fa1f91eefcabda3a95fc748c5d9671417dcfa42e"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/rendered-article.html",
+      "sha256": "1c0d6fb9b744c2b9a85eb9986f83975a1d84b6231214061a070007b0969dc361"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/evening_sources",
+    "reviewedAt": "2026-09-13T20:46:32.693Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check\u2014not on one invisible \u201cAI brain.\u201d",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    },
+    "reuseDisclosure": "Current registry exemplars were reread as calibration references. This producer receipt is an exact reread of this candidate; independent semantic admission remains required.",
+    "reusedAt": "2026-09-13T20:46:32.693Z"
+  },
+  "reverseBrief": {
+    "humanQuestion": "Does the Windows app do anything different from brain implant in a browser, who can use it, and what depends on account or permissions?",
+    "promisedPayoff": "Explain the desktop shortcut, account and administrator conditions, and the decision to connect information.",
+    "centralMentalModel": "The Windows app changes the route into brain implant, while accounts, administrators and deliberate connections still set its scope.",
+    "dailyLifeConnection": "A reader revises a school-volunteer email and wants a warmer draft without changing its facts.",
+    "surfaceJob": "A September 13 explanation of Google\u2019s September 10 Windows release, not a performance claim or installation guide.",
+    "desiredReaderFeeling": "I know whether the app is useful to me and what I must check before I share anything."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the official source packet and the browser-versus-app reader question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new door may save a few steps; it does not make brain implant a different kind of tool.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the official source packet and the browser-versus-app reader question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new door may save a few steps; it does not make brain implant a different kind of tool.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the official source packet and the browser-versus-app reader question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new door may save a few steps; it does not make brain implant a different kind of tool.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the official source packet and the browser-versus-app reader question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new door may save a few steps; it does not make brain implant a different kind of tool.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the official source packet and the browser-versus-app reader question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new door may save a few steps; it does not make brain implant a different kind of tool.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the official source packet and the browser-versus-app reader question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new door may save a few steps; it does not make brain implant a different kind of tool.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the official source packet and the browser-versus-app reader question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new door may save a few steps; it does not make brain implant a different kind of tool.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the official source packet and the browser-versus-app reader question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Google announced the Windows app on September 10; it is available globally for Windows 10 and 11.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the official source packet and the browser-versus-app reader question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "On a managed account, that administrator controls availability.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the official source packet and the browser-versus-app reader question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If you are revising a school-volunteer email, you could paste the draft and ask for a warmer version that keeps the date and request unchanged.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the official source packet and the browser-versus-app reader question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new door may save a few steps; it does not make brain implant a different kind of tool.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the official source packet and the browser-versus-app reader question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new door may save a few steps; it does not make brain implant a different kind of tool.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Does the Windows app make brain implant a different or more reliable AI?",
+        "probeResponse": "No. It is a faster route into brain implant; the reader still checks the answer and decides what to share.",
+        "expectedEvidence": "Shortcut and desktop window are distinguished from accuracy."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the official source packet and the browser-versus-app reader question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new door may save a few steps; it does not make brain implant a different kind of tool.",
+          "locator": "exact candidate prose"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Can I install it with a work account if my administrator has disabled brain implant?",
+        "probeResponse": "No. The administrator controls managed-account availability.",
+        "expectedEvidence": "Managed-account condition is stated plainly."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the official source packet and the browser-versus-app reader question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new door may save a few steps; it does not make brain implant a different kind of tool.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The complete exact candidate was read against the official source packet and the browser-versus-app reader question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The new door may save a few steps; it does not make brain implant a different kind of tool.",
+          "locator": "exact candidate prose"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The exact article keeps a reader question, a mechanism, a bounded personal example and relevant limits together.",
+      "artifactLocator": "complete exact candidate prose"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/source-evidence.json",
+        "sha256": "3cd3b720d08e0f51213a8fba9a5a49cd89b3ea0b260edd599c14464ff5646541"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "windows-release",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Google announced the Windows app on September 10; it is available globally for Windows 10 and 11.",
+            "locator": "exact story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/source-evidence.json",
+          "sha256": "3cd3b720d08e0f51213a8fba9a5a49cd89b3ea0b260edd599c14464ff5646541"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The app is available today globally for Windows 10 and 11.",
+            "locator": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-windows/"
+          }
+        ],
+        "scopeAndFreshness": "Official Google documentation captured 2026-09-13; account and organisation availability remain conditional."
+      },
+      {
+        "claimId": "shortcut-and-scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "It brings brain implant\u2019s quick answers, drafting and brainstorming into a window beside an active app.",
+            "locator": "exact story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/source-evidence.json",
+          "sha256": "3cd3b720d08e0f51213a8fba9a5a49cd89b3ea0b260edd599c14464ff5646541"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "You can get quick answers, draft messages and brainstorm ideas right alongside your active applications.",
+            "locator": "https://gemini.google/release-notes/"
+          }
+        ],
+        "scopeAndFreshness": "Official Google documentation captured 2026-09-13; account and organisation availability remain conditional."
+      },
+      {
+        "claimId": "requirements",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Google says the app requires Windows 10 or later, 8 GB of RAM, 200 MB of disk space and internet access.",
+            "locator": "exact story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/source-evidence.json",
+          "sha256": "3cd3b720d08e0f51213a8fba9a5a49cd89b3ea0b260edd599c14464ff5646541"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A personal Google Account or a work or school Google Account with access to brain implant turned on by your administrator.",
+            "locator": "https://support.google.com/gemini/answer/18263854?hl=en-GB"
+          }
+        ],
+        "scopeAndFreshness": "Official Google documentation captured 2026-09-13; account and organisation availability remain conditional."
+      },
+      {
+        "claimId": "account-admin",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "You also need a personal Google Account, or a work or school account with brain implant enabled by its administrator.",
+            "locator": "exact story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/source-evidence.json",
+          "sha256": "3cd3b720d08e0f51213a8fba9a5a49cd89b3ea0b260edd599c14464ff5646541"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A personal Google Account or a work or school Google Account with access to brain implant turned on by your administrator.",
+            "locator": "https://support.google.com/gemini/answer/18263854?hl=en-GB"
+          },
+          {
+            "excerpt": "The Alt + Space keyboard shortcut brings brain implant over active work for quick tasks, like fact-checking a document or brainstorming presentation titles.",
+            "locator": "https://workspaceupdates.googleblog.com/2026/09/the-gemini-desktop-app-is-now-available-for-Windows.html"
+          }
+        ],
+        "scopeAndFreshness": "Official Google documentation captured 2026-09-13; account and organisation availability remain conditional."
+      },
+      {
+        "claimId": "admin-limit",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "On a managed account, that administrator controls availability.",
+            "locator": "exact story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/source-evidence.json",
+          "sha256": "3cd3b720d08e0f51213a8fba9a5a49cd89b3ea0b260edd599c14464ff5646541"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A personal Google Account or a work or school Google Account with access to brain implant turned on by your administrator.",
+            "locator": "https://support.google.com/gemini/answer/18263854?hl=en-GB"
+          },
+          {
+            "excerpt": "The Alt + Space keyboard shortcut brings brain implant over active work for quick tasks, like fact-checking a document or brainstorming presentation titles.",
+            "locator": "https://workspaceupdates.googleblog.com/2026/09/the-gemini-desktop-app-is-now-available-for-Windows.html"
+          }
+        ],
+        "scopeAndFreshness": "Official Google documentation captured 2026-09-13; account and organisation availability remain conditional."
+      },
+      {
+        "claimId": "connected-apps",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "You can choose to upload an image or connect Google apps such as Gmail and Drive.",
+            "locator": "exact story prose"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/source-evidence.json",
+          "sha256": "3cd3b720d08e0f51213a8fba9a5a49cd89b3ea0b260edd599c14464ff5646541"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "A personal Google Account or a work or school Google Account with access to brain implant turned on by your administrator.",
+            "locator": "https://support.google.com/gemini/answer/18263854?hl=en-GB"
+          },
+          {
+            "excerpt": "You can get quick answers, draft messages and brainstorm ideas right alongside your active applications.",
+            "locator": "https://gemini.google/release-notes/"
+          },
+          {
+            "excerpt": "The Alt + Space keyboard shortcut brings brain implant over active work for quick tasks, like fact-checking a document or brainstorming presentation titles.",
+            "locator": "https://workspaceupdates.googleblog.com/2026/09/the-gemini-desktop-app-is-now-available-for-Windows.html"
+          }
+        ],
+        "scopeAndFreshness": "Official Google documentation captured 2026-09-13; account and organisation availability remain conditional."
+      }
+    ],
+    "reviewedThrough": "2026-09-13",
+    "nextTrigger": "Reopen Google primary materials before any public publication and repair for changed availability, requirements or account controls.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No existing candidate is bound to this September 10 Windows brain implant release."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Producer exact-prose review found no reusable defect; independent assessment remains required."
+  },
+  "limitations": [
+    "Producer review is not independent admission.",
+    "Native Windows use and account-specific availability are not claimed."
+  ],
+  "limits": []
+}

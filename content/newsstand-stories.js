@@ -1,8 +1,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-13T23:46:44Z",
-  "lastCheckedAt": "2026-09-13T23:46:44Z",
+  "generatedAt": "2026-09-14T23:03:17.295Z",
+  "lastCheckedAt": "2026-09-14T23:03:17.295Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -16,7 +16,7 @@ window.NEWSSTAND_DATA = {
     },
     "daily": {
       "edition": "daily",
-      "editionDate": "2026-09-13",
+      "editionDate": "2026-09-14",
       "editorialTimeZone": "America/Vancouver",
       "issue": {
         "status": "complete",
@@ -24,25 +24,25 @@ window.NEWSSTAND_DATA = {
         "frontPaigeStoryId": "front-paige-accountable-systems-2026-08-24",
         "weeklyStoryId": "weekly-control-layers-20260909",
         "storyIds": [
-          "chatgpt-pets-20260913",
-          "gemini-windows-20260913",
-          "trump-ai-safeguards-20260913"
+          "trump-ai-guardrails-response-20260914",
+          "brain-implant-speech-gestures-20260914",
+          "protein-data-20260914"
         ],
         "serviceRecordIds": [
-          "DAILY-2026-09-13-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
-          "DAILY-2026-09-13-CAREER-LIFE-CORNER-02-PRIORITIES",
+          "DAILY-2026-09-14-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
+          "DAILY-2026-09-14-CAREER-LIFE-CORNER-02-PRIORITIES",
           "DAILY-2026-09-09-CONCEPT-WEEK-CONCEPT-02-TOKEN",
-          "DAILY-2026-09-13-DEAR-MISS-JEEVES-JEEVES-02-CITATION",
-          "DAILY-2026-09-13-CURIOSITY-CURIOSITY-03-COMPARE-REWRITE"
+          "DAILY-2026-09-14-DEAR-MISS-JEEVES-JEEVES-02-CITATION",
+          "DAILY-2026-09-14-CURIOSITY-CURIOSITY-04-FIND-ORIGINAL"
         ]
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-13T23:46:44Z",
-      "updatedAt": "2026-09-13T23:46:44Z",
-      "lastCheckedAt": "2026-09-13T23:46:44Z",
+      "publishedAt": "2026-09-14T23:03:17.295Z",
+      "updatedAt": "2026-09-14T23:03:17.295Z",
+      "lastCheckedAt": "2026-09-14T23:03:17.295Z",
       "maxAgeHours": 36,
-      "note": "The Daily for 2026-09-13."
+      "note": "The Daily for 2026-09-14."
     },
     "weekly": {
       "edition": "weekly",
@@ -4355,7 +4355,8 @@ window.NEWSSTAND_DATA = {
       "retraction": null,
       "predecessorStoryIds": [],
       "successorStoryIds": [
-        "trump-ai-safeguards-20260913"
+        "trump-ai-safeguards-20260913",
+        "trump-ai-guardrails-response-20260914"
       ],
       "relationshipType": null,
       "bigPicture": null,
@@ -5094,7 +5095,9 @@ window.NEWSSTAND_DATA = {
         "national-safety-proposals-20260911",
         "amodei-ai-pacing-20260912"
       ],
-      "successorStoryIds": [],
+      "successorStoryIds": [
+        "trump-ai-guardrails-response-20260914"
+      ],
       "relationshipType": "FOLLOW_UP",
       "bigPicture": null,
       "thread": null,
@@ -5154,6 +5157,204 @@ window.NEWSSTAND_DATA = {
         "Congress",
         "guardrails"
       ],
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "trump-ai-guardrails-response-20260914",
+      "slug": "trump-ai-guardrails-response-20260914",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-14T22:47:45Z",
+      "updatedAt": "2026-09-14T22:23:00Z",
+      "lastCheckedAt": "2026-09-14T22:05:00Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:trump-ai-guardrails-response-20260914"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [
+        "trump-ai-safeguards-20260913",
+        "amodei-ai-pacing-20260912"
+      ],
+      "successorStoryIds": [],
+      "relationshipType": "FOLLOW_UP",
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "Trump says AI needs a strong president, not more limits",
+      "heroVisual": {
+        "src": "/assets/newsstand/trump-public-discussion-20260914.png",
+        "alt": "Editorial illustration of an abstract AI computing module between two blank opposing speech-bubble forms.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>On September 14, the Associated Press reported that President Trump used social-media posts to dismiss warnings that AI could take over the world or harm humanity. He said a strong president was the only control AI needed and said limits on AI and data centres helped China. Vice President JD Vance separately said the administration was concerned about AI but wanted to regulate it smartly.</p><p>This is a sharper statement in the public argument over AI oversight. It is separate from the September 13 remarks we covered yesterday. The AP report does not identify a new federal rule, a change to an AI product, or a scheduled White House meeting.</p>",
+      "laidies_read": "<p>In this story, <strong>government oversight</strong> means rules, agencies or other public controls over what companies must do. A post can signal what a leader wants; it does not itself create those controls or remove them. That is why the useful next question is not simply “Are there guardrails?” It is: what action followed, who carries it out, and what does it cover?</p>",
+      "what_this_means": "<p>Nothing in this report changes the settings or everyday use of an AI tool today. It gives you a clearer way to read the next headline: separate a public position from the thing that could make it real—a bill, executive action, agency action, or a completed meeting with announced steps.</p>",
+      "cocktail_party": "“A loud statement about AI is still a statement. The interesting part is whether somebody brings paperwork.”",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "Yesterday’s <a href=\"/newsstand.html#trump-ai-safeguards-20260913\">AI pace story</a> and the related <a href=\"/newsstand.html#amodei-ai-pacing-20260912\">Anthropic pacing story</a> provide the surrounding debate. In a product, “guardrails” can mean <strong>technical guardrails</strong>: built-in product controls that guide or limit an AI system’s behaviour. <a href=\"/library.html#ai-fundamentals-101::%40ch-11-11-2-guardrails-the-runtime-safety-net\">AI Fundamentals 101: Guardrails: The Runtime Safety Net</a> explains that technical meaning; it is separate from government oversight in this article.",
+      "sources": [
+        {
+          "label": "Associated Press, September 14, 2026",
+          "url": "https://apnews.com/article/trump-ai-guardrails-data-centers-b85df16775ff7e9611a456b061a0e4b9",
+          "id": "ap-trump-guardrails-response-20260914",
+          "accessedAt": "2026-09-14",
+          "approvalStatus": "reviewed",
+          "publisherType": "reporting"
+        }
+      ],
+      "themes": [
+        "policy",
+        "ai-safety"
+      ],
+      "concepts": [
+        "guardrails",
+        "governance"
+      ],
+      "tags": [
+        "policy",
+        "guardrails",
+        "Trump",
+        "AI safety"
+      ],
+      "display": {
+        "section": "Top stories",
+        "position": 0
+      }
+    },
+    {
+      "id": "brain-implant-speech-gestures-20260914",
+      "slug": "brain-implant-speech-gestures-20260914",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-14T22:58:54.374Z",
+      "updatedAt": "2026-09-14T22:13:00Z",
+      "lastCheckedAt": "2026-09-14T22:13:00Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:brain-implant-speech-gestures-20260914"
+      },
+      "headline": "An AI brain implant decoded speech and gestures. It is still a lab demonstration.",
+      "heroVisual": {
+        "src": "/assets/newsstand/brain-interface-20260914.png",
+        "alt": "Editorial illustration of a brain model linked by cable to a decoder, speech waveform and hand symbol.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>Researchers tested a thin sensor array placed on the brain’s motor cortex. It recorded activity while three people with severe paralysis attempted trained words and upper-body gestures.</p><p>Two decoders matched those patterns to a limited set of phrases and gestures. The system showed decoded words as text and moved a personalized digital avatar. In the study, two participants used speech and gesture decoders at the same time.</p>",
+      "laidies_read": "<p>Signals for speech and gesture overlap. Models trained only on separate attempts did not fully handle attempts to do both together. Training on both separate and combined attempts improved the result.</p><p>A brain-computer interface turns recorded brain activity into commands for another device. Here the device was a wired research system connected to external processing equipment. A decoder is trained to recognize patterns for a limited set of intended words or gestures; it does not read free-form thoughts.</p>",
+      "what_this_means": "<p>This peer-reviewed proof of concept is not an available treatment or proof of better health outcomes. The study involved three participants, limited trained expressions and an avatar demonstration. Larger groups, broader repertoires and more testing are still needed.</p><p>For the next health-AI headline, ask who used the system, what it did, and whether it was tested in ordinary care.</p>",
+      "cocktail_party": "“An implant translated a small trained set of attempted words and gestures into an avatar. That is a real research step, but it is not a device people can book next week.”",
+      "class_notes": "<a href=\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains why a result describes the task and conditions tested, not every future use.",
+      "sources": [
+        {
+          "id": "nature-neuroscience-primary-20260914",
+          "label": "Nature Neuroscience — Simultaneous speech and gesture decoding for multimodal communication in paralysis",
+          "url": "https://www.nature.com/articles/s41593-026-02446-2",
+          "publisherType": "primary-peer-reviewed-open-access-paper",
+          "accessedAt": "2026-09-14",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "nih-release-20260914",
+          "label": "NIH — Neuroprosthesis for paralysis enables simultaneous speech and body language",
+          "url": "https://www.nih.gov/news-events/news-releases/neuroprosthesis-paralysis-enables-simultaneous-speech-body-language",
+          "publisherType": "official-funder-release",
+          "accessedAt": "2026-09-14",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "themes": [
+        "health and medicine",
+        "accessibility",
+        "research"
+      ],
+      "concepts": [
+        "brain-computer interface",
+        "decoder",
+        "proof of concept"
+      ],
+      "tags": [
+        "brain-computer interface",
+        "paralysis",
+        "medical AI"
+      ],
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "aidb_credit": null,
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "protein-data-20260914",
+      "slug": "protein-data-20260914",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-14T23:03:17.295Z",
+      "updatedAt": "2026-09-14T22:10:27.274Z",
+      "lastCheckedAt": "2026-09-14T22:10:27.274Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:protein-data-20260914"
+      },
+      "headline": "Drug companies pooled private protein data to improve an AI model",
+      "heroVisual": {
+        "src": "/assets/newsstand/protein-data-20260914.png",
+        "alt": "Editorial illustration of protein-structure data pooled into a research AI model.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>Nature reports that five drug companies used 20,167 private protein structures to fine-tune a research AI model based on OpenFold3. On a held-out test, the reported model predicted more protein–molecule structures accurately than comparable models trained on public data alone. This is a research-model comparison, not an announcement of a new drug.</p>",
+      "laidies_read": "<p>A protein model is an AI system that predicts how proteins and other molecules might fit together. A held-out test uses examples kept separate from training. The report says the extra data helped on that test, but the model is not public and the described study has not been peer reviewed.</p>",
+      "what_this_means": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+      "cocktail_party": "“Private protein data gave one research model a better test score. That could guide lab work; it has not put a new medicine in anyone’s hand.”",
+      "class_notes": "<a href=\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains why a score describes a specific test, not every use that may follow.",
+      "sources": [
+        {
+          "id": "nature-aisb-protein-models-20260914",
+          "label": "Nature — Drug firms’ secret data supercharge AI protein models",
+          "url": "https://www.nature.com/articles/d41586-026-02882-x",
+          "publisherType": "independent-science-reporting",
+          "accessedAt": "2026-09-14",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "themes": [
+        "health and medicine",
+        "research"
+      ],
+      "concepts": [
+        "protein model",
+        "held-out test",
+        "research stages"
+      ],
+      "tags": [
+        "drug discovery",
+        "proteins",
+        "medical AI"
+      ],
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "aidb_credit": null,
       "saint_lane": null,
       "badge": "THE LATEST"
     }

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "laidies-newsstand-producer-self-review.v1",
+  "candidateId": "trump-ai-guardrails-response-20260914",
+  "reviewedAt": "2026-09-14T22:24:00Z",
+  "artifact": {
+    "storyPath": "operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914/story.json",
+    "storySha256": "3b7f78351270917e9e9a8e6873708cf2d39e0269c30854ec1f01e3158e82d3eb",
+    "articlePath": "operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914/article.md",
+    "articleSha256": "7fdb81c4c404deb0b3b6f0bedf0045f739efff073880bb99d98a22bf51000e25"
+  },
+  "verdict": "PASS_WITH_ART_GATE",
+  "scope": "Producer review only; no independent editor judgment, admission, publication, image approval, or claim of live availability.",
+  "checks": {
+    "datedEvent": "PASS",
+    "sourceScope": "PASS",
+    "policyVsProductGuardrails": "PASS",
+    "repeatPriorStory": "PASS",
+    "sourceBudget": "PASS",
+    "exactLearningLink": "PASS",
+    "visualRequirement": "HOLD_PENDING_SEPARATE_ART_WORKFLOW",
+    "headlineEventSpecificity": "PASS",
+    "qualificationInBody": "PASS"
+  },
+  "findings": [],
+  "remainingGates": [
+    "A separately produced and admitted visual is required before the article pre-review gate can pass.",
+    "Qualified independent editorial review is not run by this artifact."
+  ],
+  "supersedes": {
+    "path": "operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914/prose-predecessor-v1/producer-self-review.json",
+    "reason": "Headline repaired to report the actual September 14 statement; qualification added to body."
+  }
+}

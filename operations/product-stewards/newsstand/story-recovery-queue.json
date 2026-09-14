@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-13T23:52:29.722Z",
+  "updatedAt": "2026-09-14T23:32:53.516Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -1015,6 +1015,186 @@
         "customAndImmutableMatch": true,
         "readerJourneyPassed": true,
         "verifiedAt": "2026-09-13T23:52:03.874797+00:00"
+      }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "trump-ai-guardrails-response-20260914",
+      "producerPrincipal": "/root/crossword_row_review",
+      "sourceIdentitySha256": "6c007aca6c73d409a391756d463d2158ef56f7527a65d121b112cf1dadf2e493",
+      "artifactSha256": "6b992b32da226dfa7e39a6cd461ffd12538529a67e4ea5fccb0cb4df3579dbb9",
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-14T22:05:00Z",
+      "lastReviewedAt": "2026-09-14T22:40:39.729Z",
+      "attempts": [
+        {
+          "artifactSha256": "6b992b32da226dfa7e39a6cd461ffd12538529a67e4ea5fccb0cb4df3579dbb9",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-14T22:40:39.729Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914/admitted-v3-final/independent-review.json",
+            "sha256": "f0ce0871f216b960684597a9675d4bfb9f2c45b2d9c9ab140b922bd308728af0"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914/admitted-v3-final/independent-raw-report.json",
+            "sha256": "0fe37e44162a084c7a08cca03ab573aba78df86af839bc7f1efd84c179667b02"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "MONITOR_CORRECTIONS",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914/admitted-v3-final/ordinary-candidate.json",
+        "sha256": "ba71c84ee5a0fdd5a0212d2e9862f3c2d8c37e8885c1d47f4cef309ececbe040"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "6c007aca6c73d409a391756d463d2158ef56f7527a65d121b112cf1dadf2e493",
+        "artifactSha256": "6b992b32da226dfa7e39a6cd461ffd12538529a67e4ea5fccb0cb4df3579dbb9",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914/admitted-v3-final/independent-review.json",
+          "sha256": "f0ce0871f216b960684597a9675d4bfb9f2c45b2d9c9ab140b922bd308728af0"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914/admitted-v3-final/independent-raw-report.json",
+          "sha256": "0fe37e44162a084c7a08cca03ab573aba78df86af839bc7f1efd84c179667b02"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "6f903222-d296-4736-9e71-e19d419fee1f",
+        "immutableUrl": "https://6f903222.laidies-sunnyvaile.pages.dev/newsstand#trump-ai-guardrails-response-20260914",
+        "customUrl": "https://laidies.ai/newsstand#trump-ai-guardrails-response-20260914",
+        "artifactIdentitySha256": "14aec537243566a263427cb3c7e4e0a3f2d4a360048fdaae127f315c02289d5b",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-14T23:32:53.516Z"
+      }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "brain-implant-speech-gestures-20260914",
+      "producerPrincipal": "/root/puzzle_visual_reconcile",
+      "sourceIdentitySha256": "1c665e809122cc052f204b1ccab03b3e1b01fac224e690697202ad3374bc515b",
+      "artifactSha256": "5382bfa90efb5dce15284f9bac4c651399f904504d59ec9e0d896320a29d9255",
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-14T22:13:00Z",
+      "lastReviewedAt": "2026-09-14T22:43:33.853Z",
+      "attempts": [
+        {
+          "artifactSha256": "5382bfa90efb5dce15284f9bac4c651399f904504d59ec9e0d896320a29d9255",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-14T22:43:33.853Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/admitted-v1-after-trump/independent-review.json",
+            "sha256": "7c0bd142620af7687d5f5f5603685b9276b77688f48838a0c2c73b5b65e95e90"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/admitted-v1-after-trump/independent-raw-report.json",
+            "sha256": "ad7e889c3f262a683988e87c5450eecb4c01c1b43ef2fc141d757bd92eeb0895"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "MONITOR_CORRECTIONS",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/admitted-v1-after-trump/ordinary-candidate.json",
+        "sha256": "818ce57b6888720bfde12e1e6139b06272fe77fa724ffa39ccc572046123c0d7"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "1c665e809122cc052f204b1ccab03b3e1b01fac224e690697202ad3374bc515b",
+        "artifactSha256": "5382bfa90efb5dce15284f9bac4c651399f904504d59ec9e0d896320a29d9255",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/admitted-v1-after-trump/independent-review.json",
+          "sha256": "7c0bd142620af7687d5f5f5603685b9276b77688f48838a0c2c73b5b65e95e90"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/admitted-v1-after-trump/independent-raw-report.json",
+          "sha256": "ad7e889c3f262a683988e87c5450eecb4c01c1b43ef2fc141d757bd92eeb0895"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "6f903222-d296-4736-9e71-e19d419fee1f",
+        "immutableUrl": "https://6f903222.laidies-sunnyvaile.pages.dev/newsstand#brain-implant-speech-gestures-20260914",
+        "customUrl": "https://laidies.ai/newsstand#brain-implant-speech-gestures-20260914",
+        "artifactIdentitySha256": "14aec537243566a263427cb3c7e4e0a3f2d4a360048fdaae127f315c02289d5b",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-14T23:32:53.516Z"
+      }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "protein-data-20260914",
+      "producerPrincipal": "/root/daily_cycle_check",
+      "sourceIdentitySha256": "07fdb86bef7b1c23df4bc96dbf146b17413446baae5fecf23b9471196c83e3d1",
+      "artifactSha256": "240d885d16c5d5d6c264afeccd96e2ac38835e530e95098e33a01ddee704ebb5",
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-14T22:10:27.274Z",
+      "lastReviewedAt": "2026-09-14T22:55:04.541Z",
+      "attempts": [
+        {
+          "artifactSha256": "240d885d16c5d5d6c264afeccd96e2ac38835e530e95098e33a01ddee704ebb5",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-14T22:55:04.541Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/admitted-v1-after-brain/independent-review.json",
+            "sha256": "dccd65acacc974064b9d45cdb9d0271bdbbde0de7320c35057c7846c6a7b4dcc"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/admitted-v1-after-brain/independent-raw-report.json",
+            "sha256": "4049c70a1f3f081ea5fae2fa567bc54b0aeb28ffd0a45ebcaf7f8e2f3c7f2f75"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "MONITOR_CORRECTIONS",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/admitted-v1-after-brain/ordinary-candidate.json",
+        "sha256": "c8806c7435fb438a8b99d1b50fe4146dfb2c9440b42503a82700f4e1440c08da"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "07fdb86bef7b1c23df4bc96dbf146b17413446baae5fecf23b9471196c83e3d1",
+        "artifactSha256": "240d885d16c5d5d6c264afeccd96e2ac38835e530e95098e33a01ddee704ebb5",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/admitted-v1-after-brain/independent-review.json",
+          "sha256": "dccd65acacc974064b9d45cdb9d0271bdbbde0de7320c35057c7846c6a7b4dcc"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/admitted-v1-after-brain/independent-raw-report.json",
+          "sha256": "4049c70a1f3f081ea5fae2fa567bc54b0aeb28ffd0a45ebcaf7f8e2f3c7f2f75"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "6f903222-d296-4736-9e71-e19d419fee1f",
+        "immutableUrl": "https://6f903222.laidies-sunnyvaile.pages.dev/newsstand#protein-data-20260914",
+        "customUrl": "https://laidies.ai/newsstand#protein-data-20260914",
+        "artifactIdentitySha256": "14aec537243566a263427cb3c7e4e0a3f2d4a360048fdaae127f315c02289d5b",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-14T23:32:53.516Z"
       }
     }
   ]

@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "newsstand-nature-new-leads-v1",
+  "checkedAt": "2026-09-14T22:15:00Z",
+  "scope": "Three distinct 14 September 2026 Nature machine-learning leads reported by the permitted normal web route.",
+  "transport": "Normal web search and one normal-web open per newly identified original URL. No direct network client, proxy, URL rewrite, cookie injection, or retry after a safety block was used.",
+  "safetyBoundary": {
+    "knownPreviouslyBlockedUrlsNotRequested": [
+      "https://www.nature.com/articles/s41586-026-11001-9",
+      "https://www.nature.com/articles/d41586-026-02845-2"
+    ],
+    "newPageAccess": "The normal-web open supplied a cookies_not_supported landing-page redirect, but its normal-web search result supplied source text. This is recorded as limited normal-web access, not a bypass or recovery of either previously blocked item."
+  },
+  "coverageComparison": {
+    "searchedFiles": [
+      "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+      "content/newsstand-stories.js"
+    ],
+    "exactEventMatches": [],
+    "relatedExistingStory": {
+      "id": "crisp-pathology-20260912",
+      "difference": "CRISP concerns intraoperative image interpretation during surgery. It is not the scTransMIL single-cell-transcriptomics research event."
+    }
+  },
+  "leads": [
+    {
+      "id": "nature-multifunctional-bci-20260914",
+      "title": "Multifunctional brain implant translates speech and gestures in real time",
+      "url": "https://www.nature.com/articles/d41586-026-02895-6",
+      "sourceType": "Nature News reporting on a Nature Neuroscience study",
+      "publishedDate": "2026-09-14",
+      "checkedAt": "2026-09-14T22:05:55Z",
+      "accessResult": "LIMITED_NORMAL_WEB_ACCESS",
+      "evidence": [
+        "Nature identifies a surgically implanted neural device that uses AI to decode intended words and gestures simultaneously.",
+        "The reporting says the proof of concept involved two participants and identifies the underlying Nature Neuroscience study as DOI 10.1038/s41593-026-02446-2.",
+        "The report frames it as a step toward multifunctional BCIs; it does not establish routine availability or broad clinical benefit."
+      ],
+      "readerRelevance": "Potentially useful as a clear accessibility-and-health-AI example: the reader-facing consequence is research toward richer communication for people with severe paralysis, not a product a reader can use now.",
+      "disposition": "KEEP_FOR_SOURCE_BOUND_RESEARCH",
+      "editorialLimit": "If developed, distinguish a two-participant proof of concept from a treatment, consumer feature, or established day-to-day device. Obtain and inspect the cited primary study before any clinical-performance claims.",
+      "nextAction": "Root may decide whether to open a separate research candidate; source research has not drafted public prose."
+    },
+    {
+      "id": "nature-aisb-protein-models-20260914",
+      "title": "Drug firms’ secret data supercharge AI protein models",
+      "url": "https://www.nature.com/articles/d41586-026-02882-x",
+      "sourceType": "Nature News reporting on the AI Structural Biology Network effort",
+      "publishedDate": "2026-09-14",
+      "checkedAt": "2026-09-14T22:05:55Z",
+      "accessResult": "LIMITED_NORMAL_WEB_ACCESS",
+      "evidence": [
+        "Nature reports that five drug companies fine-tuned OpenFold3 with 20,167 proprietary protein-ligand structures.",
+        "The report says the model was tested on 1,056 held-out structures, is not publicly available, and the described study has not been peer reviewed.",
+        "Nature presents this as evidence about pooled proprietary data and protein-model performance, not a new approved drug or patient treatment."
+      ],
+      "readerRelevance": "It explains why a headline about AI drug discovery may not mean a new medicine: data access can change research-model benchmarks while the model and resulting treatments remain unavailable.",
+      "disposition": "KEEP_FOR_SOURCE_BOUND_RESEARCH",
+      "editorialLimit": "Its unpublished and unavailable status is part of the story, not a reason to erase it. Any candidate must say the reported benchmark concerns a proprietary research model, not a released medicine, public tool, or patient result.",
+      "nextAction": "Assess whether the data-access mechanism can carry a beginner-facing drug-discovery explanation without treating a benchmark as a treatment story."
+    },
+    {
+      "id": "nature-sctransmil-20260914",
+      "title": "scTransMIL bridges patient-level disease states and single-cell transcriptomics for cancer screening and heterogeneity inference",
+      "url": "https://www.nature.com/articles/s41467-026-77538-5",
+      "sourceType": "Nature Communications primary research article",
+      "publishedDate": "2026-09-14",
+      "checkedAt": "2026-09-14T22:05:55Z",
+      "accessResult": "LIMITED_NORMAL_WEB_ACCESS",
+      "evidence": [
+        "The article describes a transformer multi-instance-learning framework linking single-cell transcriptomic profiles with sample-level labels.",
+        "Its abstract reports prediction of sample-level cancer phenotypes, including tissue of origin for metastatic tumours, and identification of tumour-associated cell populations.",
+        "Nature Communications labels this an early citable accepted version that remains subject to edits before the Version of Record; the accessible material does not describe clinical deployment or patient outcomes."
+      ],
+      "readerRelevance": "The research may help readers understand a laboratory AI approach to cancer biology, but it does not show a test a patient can request or improved care.",
+      "disposition": "EXCLUDE_FROM_ORDINARY_NEWS_CANDIDATE",
+      "exclusionReason": "Not excluded because it is research or lacks clinical deployment. The accessible paper supplies a computational-method event, but this narrow single-cell analysis has no distinct beginner decision or direct reader payoff beyond the already-covered lesson that research performance is not patient care. Keep it separate from CRISP; reconsider on a clinical or independently contextualized follow-up."
+    }
+  ],
+  "eligibleLeadIds": [
+    "nature-multifunctional-bci-20260914",
+    "nature-aisb-protein-models-20260914"
+  ],
+  "heldLeadIds": [],
+  "noPublicDrafting": "true",
+  "captures": [
+    {
+      "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-nature-new-leads-captures/normal-web-observations.json",
+      "sha256": "00a607ff2f5288c5180756df4c98082ae09e0a6090e2cab6dcdd8857796f9a5d",
+      "bytes": 1489
+    },
+    {
+      "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-nature-new-leads-captures/primary-study-normal-web.raw.json",
+      "sha256": "f8523f853d3563be868aecb5cc798ae354132d993d00c1f87ffddf36ebd391d7",
+      "bytes": 39225,
+      "kind": "EXACT_RAW_NORMAL_WEB_TOOL_OUTPUT"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-nature-new-leads-captures/primary-and-nih-normal-web-open.raw.json",
+      "sha256": "292969532bb0ca38d8f60e80b40c1c50383ecf3663f9f689b060b88ea97a133e",
+      "bytes": 8151,
+      "kind": "EXACT_RAW_NORMAL_WEB_TOOL_OUTPUT"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-nature-new-leads-captures/protein-and-sctransmil-normal-web.raw.json",
+      "sha256": "23ac0d92d4c872568e472ae6133a4c83e1042bc844184ddbfb8dfe67643c5b49",
+      "bytes": 37368,
+      "kind": "EXACT_RAW_NORMAL_WEB_TOOL_OUTPUT"
+    }
+  ],
+  "rawEvidenceRepair": "Initial compact observations remain as provenance only. Exact normal-web tool outputs for the cited primary paper and NIH release are now separately captured and bound; these are the source passages for any candidate evidence packet.",
+  "excludedLeadIds": [
+    "nature-sctransmil-20260914"
+  ],
+  "reassessment": "Unpublished/unavailable status and lack of clinical deployment are editorial limitations, not automatic publication blockers. Protein-model reporting remains a source-bound research KEEP; scTransMIL is excluded only for insufficient distinct ordinary-reader payoff."
+}

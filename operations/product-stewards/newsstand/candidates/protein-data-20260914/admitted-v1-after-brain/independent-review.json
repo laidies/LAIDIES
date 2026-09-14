@@ -1,0 +1,911 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "protein-data-20260914",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/daily_cycle_check",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-14T22:55:04.541Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/review-text.json",
+      "sha256": "240d885d16c5d5d6c264afeccd96e2ac38835e530e95098e33a01ddee704ebb5"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/publication-manifest.json",
+      "sha256": "620fc6f730fd7713d0a681ac2784b5bb653393eb77e31d3d2c2c969fbcfbda67"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/rendered-article.html",
+      "sha256": "71ea976dc8a638e11ca0368aff6312c839c58dd471447c57584dd2493646fbc0"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Does a stronger AI protein-model score mean a new medicine is on its way?",
+    "promisedPayoff": "The reader learns exactly what changed (a research model got better on a held-out test after private-data fine-tuning) and why that is not a drug or treatment claim.",
+    "centralMentalModel": "Pooled private training data can raise a model's benchmark score, but a benchmark measures prediction quality on a specific test, not treatment benefit; drug and patient stages come later and are absent here.",
+    "dailyLifeConnection": "Readers who see health-AI headlines can sort future claims into model, tested drug, or patient outcome before reacting.",
+    "surfaceJob": "A dated daily news article explaining a single reported research event and its proper limits.",
+    "desiredReaderFeeling": "Informed and calm: interested in the research change, immune to medicine-around-the-corner hype."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Every technical term (protein model, held-out test, fine-tune context, benchmark vs clinical trial) is defined in plain language at first meaningful use; sentences are short and concrete.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nature reports that five drug companies used 20,167 private protein structures to fine-tune a research AI model based on OpenFold3. On a held-out test, the reported model predicted more protein–molecule structures accurately than comparable models trained on public data alone. This is a research-model comparison, not an announcement of a new drug.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A protein model is an AI system that predicts how proteins and other molecules might fit together. A held-out test uses examples kept separate from training. The report says the extra data helped on that test, but the model is not public and the described study has not been peer reviewed.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader gains a reusable three-way sorting rule (model vs tested drug vs patient outcome) for future health-AI headlines.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“Private protein data gave one research model a better test score. That could guide lab work; it has not put a new medicine in anyone’s hand.”",
+          "locator": "P005"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult tone; the cocktail-party line is conversational without condescension or borrowed persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A protein model is an AI system that predicts how proteins and other molecules might fit together. A held-out test uses examples kept separate from training. The report says the extra data helped on that test, but the model is not public and the described study has not been peer reviewed.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Private protein data gave one research model a better test score. That could guide lab work; it has not put a new medicine in anyone’s hand.”",
+          "locator": "P005"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The rivalry-free framing sustains interest through the human question of whether a medicine is coming; direct language suits the health-research boundary, and no forced humour intrudes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nature reports that five drug companies used 20,167 private protein structures to fine-tune a research AI model based on OpenFold3. On a held-out test, the reported model predicted more protein–molecule structures accurately than comparable models trained on public data alone. This is a research-model comparison, not an announcement of a new drug.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“Private protein data gave one research model a better test score. That could guide lab work; it has not put a new medicine in anyone’s hand.”",
+          "locator": "P005"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "It answers what happened (private-data fine-tuning, held-out test result) and why it matters (benchmark, not medicine) within a bounded daily news scope.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Drug companies pooled private protein data to improve an AI model",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>Nature reports that five drug companies used 20,167 private protein structures to fine-tune a research AI model based on OpenFold3. On a held-out test, the reported model predicted more protein–molecule structures accurately than comparable models trained on public data alone. This is a research-model comparison, not an announcement of a new drug.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The reader is given a concrete habit for a familiar situation: reading a later health-AI headline and asking which stage it reports.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“Private protein data gave one research model a better test score. That could guide lab work; it has not put a new medicine in anyone’s hand.”",
+          "locator": "P005"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human purpose leads, causality is concrete (private data → fine-tuning → better test score), a better next question is supplied, and no communicator's voice is imitated.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nature reports that five drug companies used 20,167 private protein structures to fine-tune a research AI model based on OpenFold3. On a held-out test, the reported model predicted more protein–molecule structures accurately than comparable models trained on public data alone. This is a research-model comparison, not an announcement of a new drug.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The mechanism in P002–P003 supports an accurate ordinary-language answer to why more private structures improved the held-out score without implying treatment benefit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nature reports that five drug companies used 20,167 private protein structures to fine-tune a research AI model based on OpenFold3. On a held-out test, the reported model predicted more protein–molecule structures accurately than comparable models trained on public data alone. This is a research-model comparison, not an announcement of a new drug.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A protein model is an AI system that predicts how proteins and other molecules might fit together. A held-out test uses examples kept separate from training. The report says the extra data helped on that test, but the model is not public and the described study has not been peer reviewed.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+          "locator": "P004"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why did fine-tuning on the companies' private protein structures make the model score better on the held-out test, and why doesn't that mean a medicine is coming?",
+        "response": "The five companies contributed 20,167 protein–molecule structures that public datasets lack, so the model saw more real examples of how proteins and molecules fit together. When tested on examples kept out of training, it predicted more structures accurately than models trained only on public data. But that score only measures prediction quality on that test; making a medicine still requires designing a compound, testing it in labs and clinical trials, and showing patient benefit — none of which this report contains.",
+        "expectedEvidence": "An accurate answer should cite the private data as the training input, the held-out test as the measurement, and name the missing downstream stages (public model, peer review, tested drug, patient outcome).",
+        "assessment": "The artifact fully supports this answer: P002 gives the data-to-test chain, P003 defines the held-out test and the not-public/not-peer-reviewed limits, and P004 names the missing stages. Explain-back succeeds."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The benchmark-vs-real-world-stage distinction transfers cleanly to new situations, as demonstrated in the transfer scenario below.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A protein model is an AI system that predicts how proteins and other molecules might fit together. A held-out test uses examples kept separate from training. The report says the extra data helped on that test, but the model is not public and the described study has not been peer reviewed.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+          "locator": "P004"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using this article's mental model, how should a reader classify the startup's claim and what should they look for next?",
+        "response": "This is a model-benchmark claim, the first of the article's three categories. The extra hospital scans plausibly improved the test score the same way pooled private protein data did, but a 94% held-out score does not show the tool helps real patients. The reader should look for whether the model is available and independently reviewed, whether a prospective clinical study exists, and whether any patient outcome (faster correct diagnosis, better recovery) is reported — before accepting 'transform pneumonia care'.",
+        "expectedEvidence": "A correct transfer applies the model/tested-intervention/patient-outcome sorting from P004 and the not-public/not-peer-reviewed caution from P003 to a domain absent from the article.",
+        "assessment": "The article's mechanism transfers cleanly and completely to this new medical-imaging case with no missing pieces; unseenTransfer passes on P003–P004."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The action is specific and proportionate: when a later headline appears, check whether it reports a model, a tested drug, or a patient outcome.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No analogies are used; the benchmark/clinical-trial contrast is a literal comparison that maps accurately and retains its limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Every material claim — five companies, 20,167 structures, OpenFold3 base, held-out evaluation, model not public, study not peer reviewed — matches the supplied Nature excerpts with attribution intact; no claim exceeds the source.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nature reports that five drug companies used 20,167 private protein structures to fine-tune a research AI model based on OpenFold3. On a held-out test, the reported model predicted more protein–molecule structures accurately than comparable models trained on public data alone. This is a research-model comparison, not an announcement of a new drug.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A protein model is an AI system that predicts how proteins and other molecules might fit together. A held-out test uses examples kept separate from training. The report says the extra data helped on that test, but the model is not public and the described study has not been peer reviewed.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The claims are tied to a specific, dated Nature article (accessed 2026-09-14) with a URL, and the artifact's caveats make the time-sensitive claims checkable against that report.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nature reports that five drug companies used 20,167 private protein structures to fine-tune a research AI model based on OpenFold3. On a held-out test, the reported model predicted more protein–molecule structures accurately than comparable models trained on public data alone. This is a research-model comparison, not an announcement of a new drug.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A protein model is an AI system that predicts how proteins and other molecules might fit together. A held-out test uses examples kept separate from training. The report says the extra data helped on that test, but the model is not public and the described study has not been peer reviewed.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The newly reported evidence (private-data fine-tuning and the held-out result) is clearly framed as the new event, distinguished from prior public-data models and from any future drug or clinical developments.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nature reports that five drug companies used 20,167 private protein structures to fine-tune a research AI model based on OpenFold3. On a held-out test, the reported model predicted more protein–molecule structures accurately than comparable models trained on public data alone. This is a research-model comparison, not an announcement of a new drug.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequence is concrete (better test score could guide lab work) while uncertainty survives: model unavailable, study unreviewed, no drug or patient outcome established.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A protein model is an AI system that predicts how proteins and other molecules might fit together. A held-out test uses examples kept separate from training. The report says the extra data helped on that test, but the model is not public and the described study has not been peer reviewed.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“Private protein data gave one research model a better test score. That could guide lab work; it has not put a new medicine in anyone’s hand.”",
+          "locator": "P005"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Two definitions in P003 are immediately connected to how the reported result works; no term list accumulates.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Each section performs a distinct job (event, mechanism, distinction, takeaway) with no repeated scaffolds.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No analogies are used anywhere in the artifact.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The single Nature source and one class-notes link both do explanatory work; no gratuitous references.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal chain from pooled private data to fine-tuning to held-out test improvement is present and complete for the scope.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The advised action is concrete: classify a later headline as model, tested drug, or patient outcome.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Held-out test and protein model appear in P002 but are defined in the immediately following P003; fine-tune is used in ordinary sense with context.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Data, model, test, and downstream drug stages are explicitly linked in sequence.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Every claim is attributed to Nature and hedged appropriately; not-public and not-peer-reviewed caveats survive.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The event is dated, sourced to a specific Nature article accessed 2026-09-14, and checkable.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Language is plain and specific throughout; no vague motivational phrasing.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The prose remains conversational and question-driven, not a checklist or terminology manual.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is mentioned; explanation stands on its own.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's promise is fully paid off with the mechanism and the limits.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The headline-reading habit in P004 returns directly to the technical distinction between benchmark and clinical evidence.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No borrowed persona or mannerisms; original plain explanation throughout.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No humour or spectacle competes with the explanation; the piece is direct as fits health research.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "There is no oversized hook; the mechanism occupies the body proportionately.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The 'not a new drug' conclusion in P002 is immediately earned by the mechanism and distinction in P003–P004.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending deliberately deflates rather than inflates: a better test score, not a medicine in hand.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Scope matches the reader job exactly: the event plus the benchmark-vs-medicine boundary.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human stake (is a medicine coming?) frames the piece from the headline and story onward.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Not applicable structure; the single event is the proper subject of a bounded news report.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "For a bounded news report, explaining this specific mechanism is the right perspective, and the organising lens remains reader orientation, not specialist taxonomy.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/editorial-input.json",
+        "sha256": "e10df80f89ee57480dde2e6a5c71fcee80b3ce3dfeca7c0d9cc9fda19f913e3b"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "private-data-model-event",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Nature reports that five drug companies used 20,167 private protein structures to fine-tune a research AI model based on OpenFold3. On a held-out test, the reported model predicted more protein–molecule structures accurately than comparable models trained on public data alone. This is a research-model comparison, not an announcement of a new drug.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/editorial-input.json",
+          "sha256": "e10df80f89ee57480dde2e6a5c71fcee80b3ce3dfeca7c0d9cc9fda19f913e3b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The reported consortium fine-tuned OpenFold3 on 20,167 proprietary protein-ligand structures from five companies. Nature reports a 1,056-structure held-out evaluation, says the model is not public, and says the described study has not been peer reviewed.",
+            "locator": "https://www.nature.com/articles/d41586-026-02882-x"
+          },
+          {
+            "excerpt": "This is reporting on an unavailable, unreviewed research model. It establishes neither a new drug nor patient benefit.",
+            "locator": "https://www.nature.com/articles/d41586-026-02882-x"
+          }
+        ],
+        "scopeAndFreshness": "P002's claim that five drug companies used 20,167 private protein structures to fine-tune an OpenFold3-based research model matches the source excerpt ('fine-tuned OpenFold3 on 20,167 proprietary protein-ligand structures from five companies'), with attribution to Nature retained; the held-out evaluation claim also aligns with the excerpt's 1,056-structure held-out evaluation."
+      },
+      {
+        "claimId": "benchmark-not-medicine",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Nature reports that five drug companies used 20,167 private protein structures to fine-tune a research AI model based on OpenFold3. On a held-out test, the reported model predicted more protein–molecule structures accurately than comparable models trained on public data alone. This is a research-model comparison, not an announcement of a new drug.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>A protein model is an AI system that predicts how proteins and other molecules might fit together. A held-out test uses examples kept separate from training. The report says the extra data helped on that test, but the model is not public and the described study has not been peer reviewed.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/editorial-input.json",
+          "sha256": "e10df80f89ee57480dde2e6a5c71fcee80b3ce3dfeca7c0d9cc9fda19f913e3b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "The reported consortium fine-tuned OpenFold3 on 20,167 proprietary protein-ligand structures from five companies. Nature reports a 1,056-structure held-out evaluation, says the model is not public, and says the described study has not been peer reviewed.",
+            "locator": "https://www.nature.com/articles/d41586-026-02882-x"
+          },
+          {
+            "excerpt": "This is reporting on an unavailable, unreviewed research model. It establishes neither a new drug nor patient benefit.",
+            "locator": "https://www.nature.com/articles/d41586-026-02882-x"
+          }
+        ],
+        "scopeAndFreshness": "P002's 'not an announcement of a new drug' and P004–P005's benchmark-vs-treatment framing are supported by the source limitation ('establishes neither a new drug nor patient benefit') and by the excerpt noting the model is not public and the study not peer reviewed, which P003 faithfully carries."
+      }
+    ],
+    "reviewedThrough": "2026-09-14",
+    "nextTrigger": "Public model, peer-reviewed study, clinical evidence or patient outcome.",
+    "correctionOwner": "/root"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 3,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "This is the first producer publication review for the separate September 14 protein-data candidate; it has no comparable prior candidate review."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All reader outcomes and news checks pass and all twenty-four failure families are clear; there is no failed or uncertain assessment to seed a repair."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=3; evidence gaps repaired=1; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/admitted-v1-after-brain/news-editorial-analysis.json",
+      "sha256": "5596d9f700875e708a5cd3346ba4ff4800699b712e1c398bbbeb5638292890ac"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/admitted-v1-after-brain/independent-raw-report.json",
+    "sha256": "4049c70a1f3f081ea5fae2fa567bc54b0aeb28ffd0a45ebcaf7f8e2f3c7f2f75"
+  }
+}

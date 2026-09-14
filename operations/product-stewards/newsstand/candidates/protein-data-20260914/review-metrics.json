@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "laidies.newsstand-review-metrics.v1",
+  "candidateId": "protein-data-20260914",
+  "proseReview": {
+    "reviewIssues": 0,
+    "reviewCycles": 3
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 3,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "history": [
+    {
+      "stage": "producer-package",
+      "verdict": "PASS",
+      "note": "Candidate-local exact-prose package review after correcting the event headline, Nature bindings and research-stage explanation."
+    },
+    {
+      "stage": "independent-editorial-v4",
+      "verdict": "PASS",
+      "note": "Actual combined Claude editorial judgment completed 2026-09-14T22:39:33.202Z: reader PASS and facts PASS on review text SHA 94db7dfb."
+    },
+    {
+      "stage": "independent-editorial-v5",
+      "verdict": "PASS",
+      "note": "Actual combined Claude editorial judgment completed 2026-09-14T22:42:28.186Z: reader PASS and facts PASS on the unchanged review text SHA 94db7dfb."
+    },
+    {
+      "stage": "independent-editorial-v6",
+      "verdict": "PASS",
+      "note": "Actual combined Claude editorial judgment completed 2026-09-14T22:55:04.541Z after root caught and repaired the future invented story timestamps; reader PASS and facts PASS on corrected review text SHA 240d885d."
+    }
+  ],
+  "evidencePacket": {
+    "rounds": 3,
+    "gaps": 1,
+    "checkedClaims": 2,
+    "suppliedSourcePassages": 2,
+    "note": "Three completed actual Claude editorial calls (v4, v5 and v6) each found zero prose or factual issues. Root caught one evidence/metadata gap after v5: future invented updatedAt and lastCheckedAt values. v6 reviewed the source-capture-timestamp-corrected bytes. Each packet supplied one identified Nature source with two passages and a stated limitation."
+  }
+}

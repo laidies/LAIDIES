@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-09-14T23:31:33.893162+00:00",
+  "reviewer": "/root/daily_cycle_check",
+  "mode": "read-only",
+  "confirmed": {
+    "configuredHoursVancouver": [
+      7,
+      10,
+      13,
+      16,
+      20
+    ],
+    "status": "ACTIVE",
+    "morningExpected": "2026-09-14T14:00:00Z",
+    "firstRecordedRecovery": "2026-09-14T20:46:36Z",
+    "morningInvocationReceiptFound": false
+  },
+  "evidence": [
+    "operations/product-stewards/newsstand/CURRENT-CYCLE.md",
+    "/Users/alisoneakin/.codex/automations/daily-allie-k-miller-and-ethan-mollick-source-check/automation.toml",
+    "operations/product-stewards/newsstand/evidence/morning-20260914/release.json"
+  ],
+  "conclusion": "Morning overdue confirmed; records do not distinguish missed dispatch, failed task wake, or unrecorded invocation. Existing schedule and recovery instruction already correct. No speculative scheduler change made.",
+  "remaining": "Observe actual next scheduled dispatch and publication receipt; runtime dispatch telemetry needed to establish missed morning cause."
+}

@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "newsstand-ordinary-story-candidate-v2",
+  "candidateStatus": "READY_FOR_ISSUE_ADMISSION",
+  "candidateId": "protein-data-20260914",
+  "editionDate": "2026-09-14",
+  "story": {
+    "id": "protein-data-20260914",
+    "slug": "protein-data-20260914",
+    "edition": "daily",
+    "status": "hold",
+    "publishedAt": null,
+    "updatedAt": "2026-09-14T22:10:27.274Z",
+    "lastCheckedAt": "2026-09-14T22:10:27.274Z",
+    "sourceApproval": {
+      "record": "newsstand:source-approval:protein-data-20260914",
+      "status": "independent-review-required"
+    },
+    "headline": "Drug companies pooled private protein data to improve an AI model",
+    "heroVisual": {
+      "src": "/assets/newsstand/protein-data-20260914.png",
+      "alt": "Editorial illustration of protein-structure data pooled into a research AI model.",
+      "credit": "Illustration: LAiDIES"
+    },
+    "the_story": "<p>Nature reports that five drug companies used 20,167 private protein structures to fine-tune a research AI model based on OpenFold3. On a held-out test, the reported model predicted more protein–molecule structures accurately than comparable models trained on public data alone. This is a research-model comparison, not an announcement of a new drug.</p>",
+    "laidies_read": "<p>A protein model is an AI system that predicts how proteins and other molecules might fit together. A held-out test uses examples kept separate from training. The report says the extra data helped on that test, but the model is not public and the described study has not been peer reviewed.</p>",
+    "what_this_means": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+    "cocktail_party": "“Private protein data gave one research model a better test score. That could guide lab work; it has not put a new medicine in anyone’s hand.”",
+    "class_notes": "<a href=\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains why a score describes a specific test, not every use that may follow.",
+    "sources": [
+      {
+        "id": "nature-aisb-protein-models-20260914",
+        "label": "Nature — Drug firms’ secret data supercharge AI protein models",
+        "url": "https://www.nature.com/articles/d41586-026-02882-x",
+        "publisherType": "independent-science-reporting",
+        "accessedAt": "2026-09-14",
+        "approvalStatus": "reviewed"
+      }
+    ],
+    "themes": [
+      "health and medicine",
+      "research"
+    ],
+    "concepts": [
+      "protein model",
+      "held-out test",
+      "research stages"
+    ],
+    "tags": [
+      "drug discovery",
+      "proteins",
+      "medical AI"
+    ],
+    "correction": null,
+    "correctionHistory": [],
+    "retraction": null,
+    "predecessorStoryIds": [],
+    "successorStoryIds": [],
+    "relationshipType": null,
+    "bigPicture": null,
+    "thread": null,
+    "thread_subtitle": null,
+    "thread_entry": null,
+    "aidb_credit": null,
+    "saint_lane": null,
+    "badge": "THE LATEST"
+  },
+  "storyTypeCoverage": {
+    "schema": "laidies.newsstand-story-type-coverage.v1",
+    "candidateId": "protein-data-20260914",
+    "primaryType": "research-benchmark",
+    "overlays": [],
+    "universalAnswers": {
+      "whatHappened": "Nature reported that five drug companies pooled 20,167 private protein-ligand structures to fine-tune a research AI model.",
+      "plainLanguageIdentity": "A reported research-model comparison rather than a medicine, trial, approval or patient outcome.",
+      "evidenceBasis": "One complete captured Nature report with the stated consortium numbers and limitations.",
+      "evidenceLimits": "The model is not public and the described study has not been peer reviewed.",
+      "readerRelevance": "Readers can separate a better model test result from a claim that a treatment works.",
+      "affectedPeople": "No patient group, prescription, product user or care change is identified.",
+      "changesNow": "No medicine, clinical result or public model release is reported.",
+      "uncertainty": "Whether this reported benchmark will lead to validated drugs remains unknown.",
+      "readerAction": "Ask whether an AI-drug headline describes a model, a tested drug or a patient outcome.",
+      "betterQuestion": "What stage of evidence does this headline actually report?"
+    },
+    "typeAnswers": {
+      "research-benchmark": {
+        "researchQuestion": "The report asks whether private protein-ligand structures can improve predictions on held-out structures.",
+        "method": "The consortium fine-tuned an OpenFold3-based model and compared prediction accuracy on examples kept outside training.",
+        "result": "Nature reports the private-data model predicted more held-out protein-molecule structures accurately than public-data comparisons.",
+        "sponsorAndInterests": "Five drug companies supplied proprietary structures and therefore have a direct research interest in the reported model improvement.",
+        "independentReplication": "Nature reports the described study has not been peer reviewed, so no independent replication is established here.",
+        "realWorldTransfer": "A held-out structure benchmark can guide research but does not establish a treatment works in people.",
+        "limitations": "The model is not public, the study is unreviewed and no clinical or patient outcome is reported."
+      }
+    },
+    "translation": {
+      "schema": "laidies.newsstand-reader-translation.v1",
+      "newsVersionExact": "This is a research-model comparison, not an announcement of a new drug.",
+      "actualMeaningExact": "A model benchmark asks whether a system makes better predictions.",
+      "mechanismExact": "A held-out test uses examples kept separate from training.",
+      "familiarExampleExact": "Ask whether a later headline reports a model, a tested drug, or a patient outcome.",
+      "jargon": [
+        {
+          "term": "held-out test",
+          "plainMeaning": "examples kept separate from training"
+        }
+      ],
+      "learningConnections": [
+        {
+          "concept": "limits of model benchmarks",
+          "learningPayoff": "AI Fundamentals 101 explains why a score describes a specific test rather than every later use.",
+          "disposition": "link",
+          "destination": "/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed"
+        }
+      ]
+    }
+  },
+  "storySha256": "dd6b26e564c981516de5aae14a4796eb369c788968556897961b75a9bd9f2949",
+  "publicationBase": {
+    "path": "operations/product-stewards/newsstand/evidence/news-20260914/after-brain/newsstand-stories.js",
+    "sha256": "da7412c59a4eff1431597e6a8f40f9f13cccdf4a453ed55a4906fb1fff61adf9"
+  },
+  "sourceText": {
+    "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/review-text.json",
+    "sha256": "240d885d16c5d5d6c264afeccd96e2ac38835e530e95098e33a01ddee704ebb5"
+  },
+  "claimMap": {
+    "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/admitted-v1-after-brain/publication-claim-map.json",
+    "sha256": "aed79a3826b5b1260ee6f4112e92a72ae38abeae801b78e2b4c25785edc71b58"
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/producer-contract.json",
+    "sha256": "20ee79ad03912b3858df16f51119fad05306972f90b6a694c271cb6b875e174d"
+  },
+  "draftPreparation": {
+    "writerInput": {
+      "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/writer-input-current.json",
+      "sha256": "06d6d70b9dfb385f4c73beba79eeff88c8c8d537537dd8d0050b66932eed6412"
+    },
+    "observations": {
+      "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/producer-observations.json",
+      "sha256": "2e3de41e0ebcd63a08dcbf691957b02d0d4d31931da4dc507020635e33206389"
+    }
+  },
+  "sources": [
+    {
+      "id": "nature-aisb-protein-models-20260914",
+      "url": "https://www.nature.com/articles/d41586-026-02882-x",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/editorial-input.json",
+        "sha256": "e10df80f89ee57480dde2e6a5c71fcee80b3ce3dfeca7c0d9cc9fda19f913e3b"
+      }
+    }
+  ],
+  "reviewEvidence": {
+    "producer": {
+      "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/producer-publication-review.json",
+      "sha256": "647dabeb6a02501b30193c56ca44af88a05e53372e17e14bbdd4202522cdec84"
+    },
+    "independent": {
+      "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/admitted-v1-after-brain/independent-review.json",
+      "sha256": "dccd65acacc974064b9d45cdb9d0271bdbbde0de7320c35057c7846c6a7b4dcc"
+    },
+    "independentRawReport": {
+      "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/admitted-v1-after-brain/independent-raw-report.json",
+      "sha256": "4049c70a1f3f081ea5fae2fa567bc54b0aeb28ffd0a45ebcaf7f8e2f3c7f2f75"
+    }
+  },
+  "lineage": null
+}

@@ -1,0 +1,738 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "brain-implant-speech-gestures-20260914",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/puzzle_visual_reconcile",
+  "reviewer": {
+    "id": "/root/puzzle_visual_reconcile",
+    "principalId": "/root/puzzle_visual_reconcile",
+    "role": "Producer exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-14T22:41:33.493Z",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/publication-manifest.json",
+      "sha256": "144588e4b1c5b3c5fbf182502b1d7bbdc8f028d36f20171825183f1ee8594dcb"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/review-text.json",
+      "sha256": "5382bfa90efb5dce15284f9bac4c651399f904504d59ec9e0d896320a29d9255"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/rendered-article.html",
+      "sha256": "1c0d6fb9b744c2b9a85eb9986f83975a1d84b6231214061a070007b0969dc361"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/puzzle_visual_reconcile",
+    "reviewedAt": "2026-09-14T22:41:33.493Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "present",
+            "observation": "The opening proceeds as a sequence of standalone term entries rather than one developing reader explanation.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "The same definition, analogy, 'In real life' and role-summary scaffold repeats for each term.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "decorativeAnalogy": {
+            "state": "present",
+            "observation": "Workplace team, taxi, wardrobe computer, Walkman, toolbox, collage and librarian comparisons accumulate faster than the mechanism develops.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "referenceConfetti": {
+            "state": "present",
+            "observation": "Cher, Walkman and Miss Jeeves references pile up across adjacent entries instead of serving one necessary teaching job.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "missingMechanism": {
+            "state": "present",
+            "observation": "The entries name components but do not follow one request through the causal system in connected steps.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "genericAction": {
+            "state": "present",
+            "observation": "The text says the distinction tells the reader what to fix without showing a concrete diagnosis and repair.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "jargonBeforeMeaning": {
+            "state": "present",
+            "observation": "Technical labels lead each entry before the reader has a connected reason to understand how they change the result.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "disconnectedSystem": {
+            "state": "present",
+            "observation": "Each component is summarized separately and the handoffs among input, product, model, tools and output remain underdeveloped.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "joylessInstruction": {
+            "state": "present",
+            "observation": "The repeated taxonomy reads as a dry terminology manual despite occasional pop-culture comparisons.",
+            "artifactLocator": "complete registered exemplar"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This is the complete container around every other concept in this book.",
+            "locator": "registered CQX-BAD-001"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "A single job-offer decision becomes the organising purpose for a broad foundational book opening.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The opening moves into system mechanics before establishing the promised wider practical and civic reasons to understand AI.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The Northstar-versus-Juniper example occupies most of the opening and crowds out the book's broader reader transformation.",
+            "artifactLocator": "complete registered exemplar"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective becomes tracing technical operations rather than orienting the reader across the full public and workplace purpose.",
+            "artifactLocator": "complete registered exemplar"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "registered CQX-BAD-002"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One origin-versus-truth distinction develops through the article and supports a concrete check.",
+        "The evidence limit remains beside the label claim rather than being deferred to a disclaimer."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "registered CQX-GOOD-NEWS-002"
+        },
+        {
+          "excerpt": "The transport operator’s service notice is what you need to check the closure.",
+          "locator": "registered CQX-GOOD-NEWS-002"
+        }
+      ]
+    },
+    "reuseDisclosure": "This producer independently reread the two current registered negatives and active NEWS positive before rereading the complete brain-interface story. No prior producer principal, timestamp or verdict was inherited.",
+    "reusedAt": "2026-09-14T22:41:33.493Z"
+  },
+  "reverseBrief": {
+    "humanQuestion": "Did an AI brain implant let people communicate more naturally, and what does the research actually show?",
+    "promisedPayoff": "Understand what the implant decoded, who tested it, and why this is a research step rather than an available treatment.",
+    "centralMentalModel": "The implant records brain signals; separately trained decoders turn a limited set of attempted phrases and gestures into on-screen text and avatar movement. That is a tested proof of concept, not normal conversation on demand.",
+    "dailyLifeConnection": "When a health-AI headline promises communication restored, a reader can ask who used it, what signals were decoded, and whether the system was tested beyond a lab demonstration.",
+    "surfaceJob": "A short dated research-news explanation of a peer-reviewed brain-computer-interface study.",
+    "desiredReaderFeeling": "I can separate a striking demonstration from an available medical option without dismissing why it matters."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The two technical terms receive ordinary-language meanings in the same paragraph where they explain the system.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A brain-computer interface turns recorded brain activity into commands for another device.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The story turns a striking demonstration into a usable three-part question for later medical-AI claims.",
+      "artifactEvidence": [
+        {
+          "excerpt": "For the next health-AI headline, ask who used the system, what it did, and whether it was tested in ordinary care.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The tone is candid, adult and respectful, with one dry availability line and no disability-themed humour.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is a real research step, but it is not a device people can book next week.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The personalized avatar gives the mechanism a concrete human output without turning the research into spectacle.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The system showed decoded words as text and moved a personalized digital avatar.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The prose keeps the participant count, trained task, wired hardware and proof-of-concept limit aligned with the supplied sources.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This peer-reviewed proof of concept is not an available treatment or proof of better health outcomes.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The story identifies the exact study scope and its source metadata carries the September 14 check date.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The study involved three participants, limited trained expressions and an avatar demonstration.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The headline answers what happened and immediately limits the result to a laboratory demonstration.",
+      "artifactEvidence": [
+        {
+          "excerpt": "An AI brain implant decoded speech and gestures. It is still a lab demonstration.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The story reports one newly published peer-reviewed demonstration and does not present an older capability as a new clinical treatment.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This peer-reviewed proof of concept is not an available treatment or proof of better health outcomes.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The possible communication value is retained beside the small cohort, restricted repertoire and additional-testing limits.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Larger groups, broader repertoires and more testing are still needed.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The transfer is a familiar act of reading a health-AI headline and deciding whether its promise has outrun the study.",
+      "artifactEvidence": [
+        {
+          "excerpt": "For the next health-AI headline, ask who used the system, what it did, and whether it was tested in ordinary care.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The story starts with the human communication question, makes the signal-to-decoder path visible, retains limits and ends with a better next question.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Signals for speech and gesture overlap. Models trained only on separate attempts did not fully handle attempts to do both together.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The complete prose supports an ordinary-language account from recorded motor-cortex activity through trained decoders to text and avatar movement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Training on both separate and combined attempts improved the result.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "How did the laboratory system turn an attempted greeting and gesture into visible communication?",
+        "probeResponse": "The implant recorded motor-cortex activity, the trained speech and gesture decoders matched those patterns to the study's limited set, and the system displayed text while moving the avatar.",
+        "expectedEvidence": "Recorded brain activity, trained limited decoders and the text-plus-avatar output must remain connected."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The same evidence questions transfer to a future implant headline without claiming this study settles that new case.",
+      "artifactEvidence": [
+        {
+          "excerpt": "For the next health-AI headline, ask who used the system, what it did, and whether it was tested in ordinary care.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "A later headline says a wireless implant restored everyday conversation for hundreds of people. What would you check?",
+        "probeResponse": "I would check the participant count, whether the communication was free-form or trained, whether the wireless system was actually tested, and whether ordinary-care outcomes were measured.",
+        "expectedEvidence": "The new case must be tested against cohort, task, hardware and clinical-setting evidence rather than inherited from this result."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The action names the person, tested function and care setting to inspect rather than saying only to be careful.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ask who used the system, what it did, and whether it was tested in ordinary care",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No analogy is used; the article explains the actual mechanism directly and therefore introduces no analogy mismatch.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A decoder is trained to recognize patterns for a limited set of intended words or gestures; it does not read free-form thoughts.",
+          "locator": "complete exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The two necessary terms are explained inside one causal paragraph instead of accumulating as detached definitions.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The sections advance from result to mechanism, limit and reader action without repeating one paragraph scaffold.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The article uses no analogy, so no decorative comparison displaces the mechanism.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The article contains no pop-culture or famous-person reference.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The prose connects recorded brain activity, trained decoders, displayed text and avatar movement.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The final action asks who used the system, what it did and whether ordinary care was tested.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Brain-computer interface and decoder are defined in ordinary language at first meaningful use.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Input signals, decoder training and visible output are linked in sequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The article names the cohort, limited expressions, wired apparatus and further-testing need beside the result.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The dated story binds the September 14 paper and NIH release and names the trigger for renewed checking.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Concrete study actions replace promotional claims or institutional slogans.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The human question and avatar example carry interest while the tone remains respectful.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The public article does not name Hannah Fry or any communication benchmark.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The opening question is answered with the participant, implant, decoder and avatar sequence.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The health-headline transfer returns directly to cohort, tested function and care-setting evidence.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The article uses original LAiDIES wording and does not imitate a named communicator.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No joke or spectacle precedes the explanation.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The mechanism receives two full paragraphs before the implications section.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The limitation follows the signal-and-training explanation rather than replacing it.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending limits the finding to a real research step and rejects near-term consumer availability.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The bounded research-news purpose is fully served by explaining this specific study and its limits.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The first paragraph starts from expressive communication for people who cannot speak or move easily before naming the technical parts.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "This is a short dated news story rather than a foundational book opening, and no worked example crowds out its purpose.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The organising question is what the result means for a reader, while technical detail serves that decision.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/editorial-input.json",
+        "sha256": "b01cdd75cef1817d215c23beb33009f6f7aa2187bc89cf64d7a849ec80d980f4"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "participants-and-recording-task",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "three people with severe paralysis attempted trained words and upper-body gestures",
+            "locator": "the_story paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/editorial-input.json",
+          "sha256": "b01cdd75cef1817d215c23beb33009f6f7aa2187bc89cf64d7a849ec80d980f4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "three chronically implanted participants with severe paralysis",
+            "locator": "https://www.nature.com/articles/s41593-026-02446-2"
+          },
+          {
+            "excerpt": "Scientists at the University of California, San Francisco, used machine learning to decipher the unique brain activity that underpins concurrent speech and physical gesture in three patients.",
+            "locator": "https://www.nih.gov/news-events/news-releases/neuroprosthesis-paralysis-enables-simultaneous-speech-body-language"
+          }
+        ],
+        "scopeAndFreshness": "The study reports three participants for the broader decoding work; the simultaneous avatar result is separately limited to two."
+      },
+      {
+        "claimId": "sensor-location",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "a thin sensor array placed on the brain’s motor cortex",
+            "locator": "the_story paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/editorial-input.json",
+          "sha256": "b01cdd75cef1817d215c23beb33009f6f7aa2187bc89cf64d7a849ec80d980f4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "a thin strip of sensors called an electrocorticography (ECoG) array onto the motor cortex",
+            "locator": "https://www.nih.gov/news-events/news-releases/neuroprosthesis-paralysis-enables-simultaneous-speech-body-language"
+          }
+        ],
+        "scopeAndFreshness": "This describes the implanted ECoG research hardware used by the UCSF team."
+      },
+      {
+        "claimId": "parallel-decoders-and-avatar",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Two decoders matched those patterns to a limited set of phrases and gestures.",
+            "locator": "the_story paragraph 2"
+          },
+          {
+            "excerpt": "The system showed decoded words as text and moved a personalized digital avatar.",
+            "locator": "the_story paragraph 2"
+          },
+          {
+            "excerpt": "two participants used speech and gesture decoders at the same time",
+            "locator": "the_story paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/editorial-input.json",
+          "sha256": "b01cdd75cef1817d215c23beb33009f6f7aa2187bc89cf64d7a849ec80d980f4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Using parallel speech and gesture decoders, we then enabled participants to control a personalized virtual avatar by attempting speech and gestures simultaneously or in isolation.",
+            "locator": "https://www.nature.com/articles/s41593-026-02446-2"
+          },
+          {
+            "excerpt": "Their BCI successfully translated the thoughts of two participants into commands that dictated the expressions of a full-body virtual avatar.",
+            "locator": "https://www.nih.gov/news-events/news-releases/neuroprosthesis-paralysis-enables-simultaneous-speech-body-language"
+          }
+        ],
+        "scopeAndFreshness": "The article keeps the two-person simultaneous avatar result distinct from the three-person study scope."
+      },
+      {
+        "claimId": "overlap-and-training",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Signals for speech and gesture overlap.",
+            "locator": "laidies_read paragraph 1"
+          },
+          {
+            "excerpt": "Models trained only on separate attempts did not fully handle attempts to do both together.",
+            "locator": "laidies_read paragraph 1"
+          },
+          {
+            "excerpt": "Training on both separate and combined attempts improved the result.",
+            "locator": "laidies_read paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/editorial-input.json",
+          "sha256": "b01cdd75cef1817d215c23beb33009f6f7aa2187bc89cf64d7a849ec80d980f4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Different effectors recruit distinct, yet partially overlapping, spatial patterns across the SMC.",
+            "locator": "https://www.nature.com/articles/s41593-026-02446-2"
+          },
+          {
+            "excerpt": "models trained only on isolated behaviors did not automatically generalize to simultaneous speech-and-gesture attempts, incorporating both isolated and simultaneous trials during training improved performance across contexts",
+            "locator": "https://www.nature.com/articles/s41593-026-02446-2"
+          },
+          {
+            "excerpt": "decoders were more successful at deciphering signals from mixed expressions if they had previously been trained on data acquired while participants performed simultaneous rather than isolated speech and gestures",
+            "locator": "https://www.nih.gov/news-events/news-releases/neuroprosthesis-paralysis-enables-simultaneous-speech-body-language"
+          }
+        ],
+        "scopeAndFreshness": "The improvement applies to the study tasks and training contexts, not clinical communication generally."
+      },
+      {
+        "claimId": "bci-and-decoder-meaning",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "A brain-computer interface turns recorded brain activity into commands for another device.",
+            "locator": "laidies_read paragraph 2"
+          },
+          {
+            "excerpt": "A decoder is trained to recognize patterns for a limited set of intended words or gestures",
+            "locator": "laidies_read paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/editorial-input.json",
+          "sha256": "b01cdd75cef1817d215c23beb33009f6f7aa2187bc89cf64d7a849ec80d980f4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Brain–computer interfaces (BCIs) aim to restore these functions by translating neural activity into commands for external devices",
+            "locator": "https://www.nature.com/articles/s41593-026-02446-2"
+          },
+          {
+            "excerpt": "Computer models, called decoders, then translated their brain signals into computer commands",
+            "locator": "https://www.nih.gov/news-events/news-releases/neuroprosthesis-paralysis-enables-simultaneous-speech-body-language"
+          }
+        ],
+        "scopeAndFreshness": "These are plain-language descriptions of the mechanism used in this study."
+      },
+      {
+        "claimId": "restricted-not-free-form",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "limited set of intended words or gestures",
+            "locator": "laidies_read paragraph 2"
+          },
+          {
+            "excerpt": "it does not read free-form thoughts",
+            "locator": "laidies_read paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/editorial-input.json",
+          "sha256": "b01cdd75cef1817d215c23beb33009f6f7aa2187bc89cf64d7a849ec80d980f4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "restricted vocabularies",
+            "locator": "https://www.nature.com/articles/s41593-026-02446-2"
+          },
+          {
+            "excerpt": "attempted to verbalize specific phrases or perform common gestures such as a hand wave or thumbs-up sign",
+            "locator": "https://www.nih.gov/news-events/news-releases/neuroprosthesis-paralysis-enables-simultaneous-speech-body-language"
+          }
+        ],
+        "scopeAndFreshness": "The free-form-thought sentence is an explicit boundary inferred from the trained restricted tasks, not a separate experimental result."
+      },
+      {
+        "claimId": "wired-research-system",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "a wired research system connected to external processing equipment",
+            "locator": "laidies_read paragraph 2"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/editorial-input.json",
+          "sha256": "b01cdd75cef1817d215c23beb33009f6f7aa2187bc89cf64d7a849ec80d980f4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "a wired system connecting implanted sensors to external processing units",
+            "locator": "https://www.nih.gov/news-events/news-releases/neuroprosthesis-paralysis-enables-simultaneous-speech-body-language"
+          }
+        ],
+        "scopeAndFreshness": "This describes the tested system; the announced future wireless test is not reported as completed."
+      },
+      {
+        "claimId": "proof-of-concept-not-treatment",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "This peer-reviewed proof of concept is not an available treatment or proof of better health outcomes.",
+            "locator": "what_this_means paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/editorial-input.json",
+          "sha256": "b01cdd75cef1817d215c23beb33009f6f7aa2187bc89cf64d7a849ec80d980f4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Together, these results form a key proof of concept toward a unified BCI",
+            "locator": "https://www.nature.com/articles/s41593-026-02446-2"
+          },
+          {
+            "excerpt": "the BCI used in this study entailed a wired system connecting implanted sensors to external processing units",
+            "locator": "https://www.nih.gov/news-events/news-releases/neuroprosthesis-paralysis-enables-simultaneous-speech-body-language"
+          }
+        ],
+        "scopeAndFreshness": "The sources establish a peer-reviewed proof of concept and research apparatus; the treatment and health-outcome limits are cautious conclusions from that scope."
+      },
+      {
+        "claimId": "future-testing-needed",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Larger groups, broader repertoires and more testing are still needed.",
+            "locator": "what_this_means paragraph 1"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/brain-implant-speech-gestures-20260914/editorial-input.json",
+          "sha256": "b01cdd75cef1817d215c23beb33009f6f7aa2187bc89cf64d7a849ec80d980f4"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "the authors call for larger cohorts, larger repertoires and other recording methods",
+            "locator": "https://www.nature.com/articles/s41593-026-02446-2"
+          }
+        ],
+        "scopeAndFreshness": "The paper's discussion names cohort, repertoire and generalization work that remains."
+      }
+    ],
+    "reviewedThrough": "2026-09-14",
+    "nextTrigger": "Reopen the paper and current clinical record for a correction, larger-cohort result, wireless-system result, clinical trial, authorization or evidence of patient outcomes.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 3,
+    "reviewIssues": 3,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "No prior checksum-bound NewsStand candidate reports this September 14 simultaneous speech-and-gesture BCI study."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The copied Gemini review, stale manifest bindings and unrelated discovery checks were detected and repaired before independent dispatch; they are preserved as rejected candidate-local records rather than added as a new shared defect."
+  },
+  "verdict": "PASS",
+  "limits": [],
+  "limitations": [
+    "Producer review is not independent admission.",
+    "AI editorial analysis only; no observed human-comprehension evidence is claimed.",
+    "The visual has a separate final PASS; this receipt reviews prose and factual bindings only.",
+    "Public issue admission and release remain separate."
+  ]
+}

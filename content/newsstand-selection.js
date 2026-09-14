@@ -4,8 +4,11 @@
   if (root) root.NewsstandSelection = api;
 })(typeof window !== "undefined" ? window : null, function () {
   "use strict";
-  // Reviewed September 13. Newest Vancouver date first; relevance within each day.
+  // Reviewed September 14. Newest Vancouver date first; relevance within each day.
   var order = [
+  "trump-ai-guardrails-response-20260914",
+  "brain-implant-speech-gestures-20260914",
+  "protein-data-20260914",
   "trump-ai-safeguards-20260913",
   "take-it-down-sentencing-20260910",
   "anthropic-threat-report-20260910",

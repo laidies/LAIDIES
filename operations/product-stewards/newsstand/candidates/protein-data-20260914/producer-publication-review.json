@@ -1,0 +1,459 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "protein-data-20260914",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/daily_cycle_check",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/daily_cycle_check",
+    "principalId": "/root/daily_cycle_check",
+    "role": "Candidate-local producer package exact prose read-through",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-14T22:53:49.405Z",
+  "verdict": "PASS",
+  "limitations": [
+    "Producer package review only; independent semantic admission remains pending.",
+    "Nature reports an unavailable, unreviewed research model."
+  ],
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/publication-manifest.json",
+      "sha256": "620fc6f730fd7713d0a681ac2784b5bb653393eb77e31d3d2c2c969fbcfbda67"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/review-text.json",
+      "sha256": "240d885d16c5d5d6c264afeccd96e2ac38835e530e95098e33a01ddee704ebb5"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/rendered-article.html",
+      "sha256": "71ea976dc8a638e11ca0368aff6312c839c58dd471447c57584dd2493646fbc0"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/daily_cycle_check",
+    "reviewedAt": "2026-09-14T22:53:49.405Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "Chapter 1 — Meet the parts of ",
+            "locator": "registered exemplar"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "You ask an AI product to compare two job offers.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction carries the article."
+      ],
+      "evidence": [
+        {
+          "excerpt": "Europe’s AI transparency rules started August 2. Here’s when you should expect a label.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Does a stronger AI protein-model score mean a new medicine is on its way?",
+    "promisedPayoff": "Understand what changed in the research model and why a benchmark is not a drug or treatment claim.",
+    "centralMentalModel": "More private training examples can improve a model’s test predictions, but the model’s benchmark is one research stage before a drug is tested or used in care.",
+    "dailyLifeConnection": "A reader can read a drug-discovery AI headline without confusing a lab model comparison with a prescription or clinical result.",
+    "surfaceJob": "A short dated research-news explanation of a reported AI Structural Biology Network model comparison.",
+    "desiredReaderFeeling": "I can identify the real research development and the missing steps before calling it a medical breakthrough."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Exact candidate read-through found the stated research-stage distinction clear and bound to the Nature limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a research-model comparison, not an announcement of a new drug.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Exact candidate read-through found the stated research-stage distinction clear and bound to the Nature limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a research-model comparison, not an announcement of a new drug.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Exact candidate read-through found the stated research-stage distinction clear and bound to the Nature limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a research-model comparison, not an announcement of a new drug.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Exact candidate read-through found the stated research-stage distinction clear and bound to the Nature limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a research-model comparison, not an announcement of a new drug.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Exact candidate read-through found the stated research-stage distinction clear and bound to the Nature limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a research-model comparison, not an announcement of a new drug.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Exact candidate read-through found the stated research-stage distinction clear and bound to the Nature limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a research-model comparison, not an announcement of a new drug.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Exact candidate read-through found the stated research-stage distinction clear and bound to the Nature limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a research-model comparison, not an announcement of a new drug.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "Exact candidate read-through found the stated research-stage distinction clear and bound to the Nature limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a research-model comparison, not an announcement of a new drug.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Exact candidate read-through found the stated research-stage distinction clear and bound to the Nature limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a research-model comparison, not an announcement of a new drug.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Exact candidate read-through found the stated research-stage distinction clear and bound to the Nature limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a research-model comparison, not an announcement of a new drug.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Exact candidate read-through found the stated research-stage distinction clear and bound to the Nature limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a research-model comparison, not an announcement of a new drug.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Exact candidate read-through found the stated research-stage distinction clear and bound to the Nature limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a research-model comparison, not an announcement of a new drug.",
+          "locator": "review-text.json"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Explain the report without calling it a medicine.",
+        "probeResponse": "Private protein-ligand structures gave the research model more examples to learn from. Its reported improvement is on a separate test, which can guide research but does not show a medicine helps anyone.",
+        "expectedEvidence": "A model test is distinct from a treatment outcome."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Exact candidate read-through found the stated research-stage distinction clear and bound to the Nature limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a research-model comparison, not an announcement of a new drug.",
+          "locator": "review-text.json"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Apply the evidence-stage distinction to another AI-health headline.",
+        "probeResponse": "For an AI cancer-screening headline, distinguish a model score on stored images from a study showing doctors used it successfully and from a patient outcome.",
+        "expectedEvidence": "A different health-AI scenario preserves the model, trial and outcome distinction."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Exact candidate read-through found the stated research-stage distinction clear and bound to the Nature limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a research-model comparison, not an announcement of a new drug.",
+          "locator": "review-text.json"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Exact candidate read-through found the stated research-stage distinction clear and bound to the Nature limitations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a research-model comparison, not an announcement of a new drug.",
+          "locator": "review-text.json"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Not present in the exact candidate.",
+      "artifactLocator": "review-text.json"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "reviewedThrough": "2026-09-14",
+    "nextTrigger": "Public model, peer-reviewed study, clinical evidence or patient outcome.",
+    "correctionOwner": "/root",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-nature-new-leads-captures/protein-and-sctransmil-normal-web.raw.json",
+        "sha256": "23ac0d92d4c872568e472ae6133a4c83e1042bc844184ddbfb8dfe67643c5b49"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "private-data-model-event",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "five drug companies used 20,167 private protein structures",
+            "locator": "the_story"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-nature-new-leads-captures/protein-and-sctransmil-normal-web.raw.json",
+          "sha256": "23ac0d92d4c872568e472ae6133a4c83e1042bc844184ddbfb8dfe67643c5b49"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "additional 20,167 structures",
+            "locator": "Nature raw capture"
+          }
+        ],
+        "scopeAndFreshness": "Nature reporting dated September 14, 2026."
+      },
+      {
+        "claimId": "benchmark-not-medicine",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "not an announcement of a new drug",
+            "locator": "the_story"
+          },
+          {
+            "excerpt": "model is not public and the described study has not been peer reviewed",
+            "locator": "laidies_read"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-14-nature-new-leads-captures/protein-and-sctransmil-normal-web.raw.json",
+          "sha256": "23ac0d92d4c872568e472ae6133a4c83e1042bc844184ddbfb8dfe67643c5b49"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "has not been peer-reviewed, and the model is not publicly available",
+            "locator": "Nature raw capture"
+          }
+        ],
+        "scopeAndFreshness": "Source supports model limits; candidate makes no drug or patient outcome claim."
+      }
+    ]
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Producer package review found no current reusable defect; independent semantic review remains required."
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "This is the first producer publication review for the separate September 14 protein-data candidate; it has no comparable prior candidate review."
+  }
+}

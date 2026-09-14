@@ -1,0 +1,197 @@
+{
+  "kind": "facts",
+  "startedAt": "2026-09-14T22:35:52.357Z",
+  "replayedAt": null,
+  "completedAt": "2026-09-14T22:36:13.182Z",
+  "requestedModel": "claude-fable-5",
+  "providerModel": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "providerId": "704491d9-eb74-42fb-ab1f-9d92f05f4342",
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 8364,
+    "cache_read_input_tokens": 2302,
+    "output_tokens": 1799,
+    "output_tokens_details": {
+      "thinking_tokens": 718
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 8364,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 1799,
+        "cache_read_input_tokens": 2302,
+        "cache_creation_input_tokens": 8364,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 8364
+        },
+        "type": "message",
+        "model": null
+      }
+    ],
+    "speed": "standard"
+  },
+  "attestations": {
+    "artifactFirst": true,
+    "independentFromMaker": true,
+    "completeTextRead": true
+  },
+  "requestSha256": "2a9e1ae00adbe403651420ced4eaa217ad05c78ae7269cd228a879757caaa7c2",
+  "rawSha256": "20bd19be9b9c35eaaeaa6800551b5f216de4de4e6e290d23042f4f3d9bfc5a76",
+  "protocolSha256": "7d5c9426f84748a80fce818b4d4bb85a41666f70ba8cebb0a9c680e21151e837",
+  "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+  "outcomes": {
+    "factualIntegrity": {
+      "state": "pass",
+      "reason": "All three material claims are accurate paraphrases of the supplied AP passages with correct attribution to Trump, Vance and the AP report.",
+      "passages": [
+        "P002",
+        "P003"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 14, the Associated Press reported that President Trump used social-media posts to dismiss warnings that AI could take over the world or harm humanity. He said a strong president was the only control AI needed and said limits on AI and data centres helped China. Vice President JD Vance separately said the administration was concerned about AI but wanted to regulate it smartly.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>This is a sharper statement in the public argument over AI oversight. It is separate from the September 13 remarks we covered yesterday. The AP report does not identify a new federal rule, a change to an AI product, or a scheduled White House meeting.</p>",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P002, P003"
+    },
+    "freshnessReviewability": {
+      "state": "pass",
+      "reason": "The article dates the reporting to September 14, names the AP as the source, and its statement-versus-action limits make the time-sensitive claims checkable against the snapshot.",
+      "passages": [
+        "P002",
+        "P003"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 14, the Associated Press reported that President Trump used social-media posts to dismiss warnings that AI could take over the world or harm humanity. He said a strong president was the only control AI needed and said limits on AI and data centres helped China. Vice President JD Vance separately said the administration was concerned about AI but wanted to regulate it smartly.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>This is a sharper statement in the public argument over AI oversight. It is separate from the September 13 remarks we covered yesterday. The AP report does not identify a new federal rule, a change to an AI product, or a scheduled White House meeting.</p>",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P002, P003"
+    },
+    "datedChange": {
+      "state": "pass",
+      "reason": "The piece explicitly separates the September 14 posts from the September 13 remarks covered previously and links the predecessor stories for context.",
+      "passages": [
+        "P003",
+        "P007"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This is a sharper statement in the public argument over AI oversight. It is separate from the September 13 remarks we covered yesterday. The AP report does not identify a new federal rule, a change to an AI product, or a scheduled White House meeting.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "Yesterday’s <a href=\\\"/newsstand.html#trump-ai-safeguards-20260913\\\">AI pace story</a> and the related <a href=\\\"/newsstand.html#amodei-ai-pacing-20260912\\\">Anthropic pacing story</a> provide the surrounding debate. In a product, “guardrails” can mean <strong>technical guardrails</strong>: built-in product controls that guide or limit an AI system’s behaviour. <a href=\\\"/library.html#ai-fundamentals-101::%40ch-11-11-2-guardrails-the-runtime-safety-net\\\">AI Fundamentals 101: Guardrails: The Runtime Safety Net</a> explains that technical meaning; it is separate from government oversight in this article.",
+          "locator": "P007"
+        }
+      ],
+      "artifactLocator": "P003, P007"
+    },
+    "consequenceAndUncertainty": {
+      "state": "pass",
+      "reason": "It concretely states nothing changes a reader's AI tool today and preserves uncertainty by framing what enacted action would be needed to make the position real, without forecasting policy.",
+      "passages": [
+        "P004",
+        "P005"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>In this story, <strong>government oversight</strong> means rules, agencies or other public controls over what companies must do. A post can signal what a leader wants; it does not itself create those controls or remove them. That is why the useful next question is not simply “Are there guardrails?” It is: what action followed, who carries it out, and what does it cover?</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Nothing in this report changes the settings or everyday use of an AI tool today. It gives you a clearer way to read the next headline: separate a public position from the thing that could make it real—a bill, executive action, agency action, or a completed meeting with announced steps.</p>",
+          "locator": "P005"
+        }
+      ],
+      "artifactLocator": "P004, P005"
+    }
+  },
+  "claims": {
+    "posts-and-claims": {
+      "state": "supported",
+      "reason": "The AP snapshot shows Trump's heated social-media posts rejecting destructive-AI warnings, the strong-president 'guardrails' quote, and the anti-AI/data-centre 'conspiracy' claim benefiting China, which the article paraphrases faithfully.",
+      "passages": [
+        "P001",
+        "P002"
+      ],
+      "sourceIds": [
+        "ap-trump-guardrails-response-20260914"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Trump says AI needs a strong president, not more limits",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>On September 14, the Associated Press reported that President Trump used social-media posts to dismiss warnings that AI could take over the world or harm humanity. He said a strong president was the only control AI needed and said limits on AI and data centres helped China. Vice President JD Vance separately said the administration was concerned about AI but wanted to regulate it smartly.</p>",
+          "locator": "P002"
+        }
+      ],
+      "artifactLocator": "P001, P002"
+    },
+    "administration-qualification": {
+      "state": "supported",
+      "reason": "The source passage directly reports Vance saying the administration is concerned about AI but wants to regulate the technology smartly, matching the article's attribution.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "ap-trump-guardrails-response-20260914"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>On September 14, the Associated Press reported that President Trump used social-media posts to dismiss warnings that AI could take over the world or harm humanity. He said a strong president was the only control AI needed and said limits on AI and data centres helped China. Vice President JD Vance separately said the administration was concerned about AI but wanted to regulate it smartly.</p>",
+          "locator": "P002"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "no-reported-action": {
+      "state": "supported",
+      "reason": "The snapshot identifies no rule or product change, and the Johnson passage explicitly says the possible White House sit-down has yet to be scheduled, so the article's precise 'no scheduled meeting' wording holds.",
+      "passages": [
+        "P003"
+      ],
+      "sourceIds": [
+        "ap-trump-guardrails-response-20260914"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This is a sharper statement in the public argument over AI oversight. It is separate from the September 13 remarks we covered yesterday. The AP report does not identify a new federal rule, a change to an AI product, or a scheduled White House meeting.</p>",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P003"
+    }
+  },
+  "verdict": "PASS",
+  "summary": "The follow-up accurately reports the AP-covered Trump posts, the Vance qualification, and the absence of any enacted rule, product change or scheduled meeting; it cleanly separates statements from actions, dates the events, and keeps uncertainty intact, so no defects were found.",
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Every claim is supported by the independent AP snapshot and all four outcomes pass, with no new reusable failure pattern observed in the artifact."
+  }
+}

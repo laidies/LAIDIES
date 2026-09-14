@@ -1,0 +1,76 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "protein-data-20260914",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "240d885d16c5d5d6c264afeccd96e2ac38835e530e95098e33a01ddee704ebb5",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why did fine-tuning on the companies' private protein structures make the model score better on the held-out test, and why doesn't that mean a medicine is coming?",
+      "response": "The five companies contributed 20,167 protein–molecule structures that public datasets lack, so the model saw more real examples of how proteins and molecules fit together. When tested on examples kept out of training, it predicted more structures accurately than models trained only on public data. But that score only measures prediction quality on that test; making a medicine still requires designing a compound, testing it in labs and clinical trials, and showing patient benefit — none of which this report contains.",
+      "expectedEvidence": "An accurate answer should cite the private data as the training input, the held-out test as the measurement, and name the missing downstream stages (public model, peer review, tested drug, patient outcome).",
+      "assessment": "The artifact fully supports this answer: P002 gives the data-to-test chain, P003 defines the held-out test and the not-public/not-peer-reviewed limits, and P004 names the missing stages. Explain-back succeeds."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using this article's mental model, how should a reader classify the startup's claim and what should they look for next?",
+      "response": "This is a model-benchmark claim, the first of the article's three categories. The extra hospital scans plausibly improved the test score the same way pooled private protein data did, but a 94% held-out score does not show the tool helps real patients. The reader should look for whether the model is available and independently reviewed, whether a prospective clinical study exists, and whether any patient outcome (faster correct diagnosis, better recovery) is reported — before accepting 'transform pneumonia care'.",
+      "expectedEvidence": "A correct transfer applies the model/tested-intervention/patient-outcome sorting from P004 and the not-public/not-peer-reviewed caution from P003 to a domain absent from the article.",
+      "assessment": "The article's mechanism transfers cleanly and completely to this new medical-imaging case with no missing pieces; unseenTransfer passes on P003–P004."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The causal sequence is complete: five companies pooled 20,167 private structures, fine-tuned an OpenFold3-based model, and it beat public-data models on a held-out test.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Nature reports that five drug companies used 20,167 private protein structures to fine-tune a research AI model based on OpenFold3. On a held-out test, the reported model predicted more protein–molecule structures accurately than comparable models trained on public data alone. This is a research-model comparison, not an announcement of a new drug.</p>",
+          "locator": "P002"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Protein model, held-out test, and benchmark vs clinical trial are all given plain meaning at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A protein model is an AI system that predicts how proteins and other molecules might fit together. A held-out test uses examples kept separate from training. The report says the extra data helped on that test, but the model is not public and the described study has not been peer reviewed.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is grounded in the recognizable situation of reading future health-AI headlines and sorting them by evidence stage.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“Private protein data gave one research model a better test score. That could guide lab work; it has not put a new medicine in anyone’s hand.”",
+          "locator": "P005"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or process details appear; the class-notes link is a normal reader-facing reference, and advice stays within evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A model benchmark asks whether a system makes better predictions. A clinical trial asks whether a treatment helps people. This report is the first kind. Ask whether a later headline reports a model, a tested drug, or a patient outcome.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<a href=\\\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\\\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains why a score describes a specific test, not every use that may follow.",
+          "locator": "P006"
+        }
+      ]
+    }
+  }
+}

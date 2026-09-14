@@ -1,0 +1,79 @@
+{
+  "attestations": {
+    "artifactFirst": true,
+    "independentFromMaker": true,
+    "completeTextRead": true
+  },
+  "claims": {
+    "posts-and-claims": {
+      "state": "supported",
+      "reason": "The AP snapshot shows Trump's heated social-media posts rejecting destructive-AI warnings, the strong-president 'guardrails' quote, and the anti-AI/data-centre 'conspiracy' claim benefiting China, which the article paraphrases faithfully.",
+      "passages": [
+        "P001",
+        "P002"
+      ],
+      "sourceIds": [
+        "ap-trump-guardrails-response-20260914"
+      ]
+    },
+    "administration-qualification": {
+      "state": "supported",
+      "reason": "The source passage directly reports Vance saying the administration is concerned about AI but wants to regulate the technology smartly, matching the article's attribution.",
+      "passages": [
+        "P002"
+      ],
+      "sourceIds": [
+        "ap-trump-guardrails-response-20260914"
+      ]
+    },
+    "no-reported-action": {
+      "state": "supported",
+      "reason": "The snapshot identifies no rule or product change, and the Johnson passage explicitly says the possible White House sit-down has yet to be scheduled, so the article's precise 'no scheduled meeting' wording holds.",
+      "passages": [
+        "P003"
+      ],
+      "sourceIds": [
+        "ap-trump-guardrails-response-20260914"
+      ]
+    }
+  },
+  "outcomes": {
+    "factualIntegrity": {
+      "state": "pass",
+      "reason": "All three material claims are accurate paraphrases of the supplied AP passages with correct attribution to Trump, Vance and the AP report.",
+      "passages": [
+        "P002",
+        "P003"
+      ]
+    },
+    "freshnessReviewability": {
+      "state": "pass",
+      "reason": "The article dates the reporting to September 14, names the AP as the source, and its statement-versus-action limits make the time-sensitive claims checkable against the snapshot.",
+      "passages": [
+        "P002",
+        "P003"
+      ]
+    },
+    "datedChange": {
+      "state": "pass",
+      "reason": "The piece explicitly separates the September 14 posts from the September 13 remarks covered previously and links the predecessor stories for context.",
+      "passages": [
+        "P003",
+        "P007"
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "state": "pass",
+      "reason": "It concretely states nothing changes a reader's AI tool today and preserves uncertainty by framing what enacted action would be needed to make the position real, without forecasting policy.",
+      "passages": [
+        "P004",
+        "P005"
+      ]
+    }
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Every claim is supported by the independent AP snapshot and all four outcomes pass, with no new reusable failure pattern observed in the artifact."
+  },
+  "summary": "The follow-up accurately reports the AP-covered Trump posts, the Vance qualification, and the absence of any enacted rule, product change or scheduled meeting; it cleanly separates statements from actions, dates the events, and keeps uncertainty intact, so no defects were found."
+}

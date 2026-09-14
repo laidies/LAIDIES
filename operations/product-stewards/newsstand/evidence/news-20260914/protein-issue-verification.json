@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "daily-issue-news-revision-verification-v1",
+  "admission": {
+    "path": "operations/product-stewards/newsstand/evidence/news-20260914/protein-issue-admission.json",
+    "sha256": "78723b1d8b8d39ab9019a5494b3fcfabb0563b532ad6715998fa91fc672c4c95"
+  },
+  "verification": {
+    "scope": "Private issue admission only. No canonical promotion, release or deployment action occurred.",
+    "candidate": {
+      "path": "operations/product-stewards/newsstand/candidates/protein-data-20260914/admitted-v1-after-brain/ordinary-candidate.json",
+      "sha256": "c8806c7435fb438a8b99d1b50fe4146dfb2c9440b42503a82700f4e1440c08da",
+      "candidateId": "protein-data-20260914",
+      "storySha256": "dd6b26e564c981516de5aae14a4796eb369c788968556897961b75a9bd9f2949",
+      "storySnapshotSha256": "dd6b26e564c981516de5aae14a4796eb369c788968556897961b75a9bd9f2949",
+      "exactSnapshotMatch": true,
+      "validation": "PASS: node scripts/validate-newsstand-ordinary-story-candidate.mjs --candidate <path>"
+    },
+    "priorStories": {
+      "trumpPreservedExactly": true,
+      "trumpStorySha256": "c238c7d7b112bdfdd9a9bdffa23c83f27a48caf00299f2119904d30611927c74",
+      "brainAdmission": {
+        "path": "operations/product-stewards/newsstand/evidence/news-20260914/brain-issue-admission.json",
+        "sha256": "6d266a00cfcb8af6047fc4ab42b14d3ca82350f8e3082a119a8d165115bf236b",
+        "reviewedAt": "2026-09-14T22:58:54.374Z"
+      },
+      "brainSourceStorySha256": "d86eef0ab3a5a66306c96d180c107582ff02adba2952f4019ef32e0984d5924f",
+      "brainExpectedPublishedStorySha256": "0ddbfd135aea6e5346791f6865f9a5c1d12990bd3c37910a19f0355cb854a5eb",
+      "brainActualStorySha256": "0ddbfd135aea6e5346791f6865f9a5c1d12990bd3c37910a19f0355cb854a5eb",
+      "brainExactPublicationTransform": true
+    },
+    "preservation": {
+      "otherEnvelopeFieldsPreservedExactly": true,
+      "servicesDesksPreservedExactly": true,
+      "deskCount": 13,
+      "readyCount": 5,
+      "readyRecordIds": [
+        "DAILY-2026-09-14-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
+        "DAILY-2026-09-14-CAREER-LIFE-CORNER-02-PRIORITIES",
+        "DAILY-2026-09-09-CONCEPT-WEEK-CONCEPT-02-TOKEN",
+        "DAILY-2026-09-14-DEAR-MISS-JEEVES-JEEVES-02-CITATION",
+        "DAILY-2026-09-14-CURIOSITY-CURIOSITY-04-FIND-ORIGINAL"
+      ],
+      "readyDeskTypes": [
+        "paige_tip",
+        "career_life",
+        "concept_week",
+        "dear_miss_jeeves",
+        "curiosity"
+      ],
+      "storyIdsExact": true
+    },
+    "sourceIdentity": {
+      "candidateBindingMatches": true,
+      "projectedStoriesSha256": "da7412c59a4eff1431597e6a8f40f9f13cccdf4a453ed55a4906fb1fff61adf9",
+      "candidatePublicationBaseMatches": true
+    }
+  }
+}
