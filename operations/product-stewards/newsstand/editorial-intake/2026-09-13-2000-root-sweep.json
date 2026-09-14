@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "laidies-newsstand-source-sweep.v1",
+  "invokedAt": "2026-09-14T03:00:54.457Z",
+  "checkedAt": "2026-09-14T03:08:46.745700+00:00",
+  "scope": "Tier2 September13 20:00 next-day private preparation; source observations not exhaustive discovery.",
+  "sourceChecks": [
+    {
+      "url": "https://openai.com/news/",
+      "role": "PROVIDER",
+      "checkedAt": "2026-09-14T03:03:03Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
+      "status": "CHECKED",
+      "assessment": "Latest shown dated entry September11 storage engineering; no new displayed announcement since16:00.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/providers-1.json"
+    },
+    {
+      "url": "https://www.anthropic.com/news",
+      "role": "PROVIDER",
+      "checkedAt": "2026-09-14T03:03:03Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
+      "status": "CHECKED",
+      "assessment": "September10 misuse remains latest dated newsroom item; existing coverage.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/providers-1.json"
+    },
+    {
+      "url": "https://deepmind.google/blog/",
+      "role": "PROVIDER",
+      "checkedAt": "2026-09-14T03:03:03Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
+      "status": "CHECKED",
+      "assessment": "Same September titles as16:00: Gemini3.8, Atlas, WeatherNext3, cyber defence and video. No new title observed.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/providers-2.json"
+    },
+    {
+      "url": "https://ai.google.dev/gemini-api/docs/changelog",
+      "role": "PROVIDER",
+      "checkedAt": "2026-09-14T03:03:03Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
+      "status": "CHECKED",
+      "assessment": "Latest dated changelog remains September3 Lyria3.5.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/providers-excerpts.json"
+    },
+    {
+      "url": "https://gemini.google/release-notes/",
+      "role": "PROVIDER",
+      "checkedAt": "2026-09-14T03:06:25Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
+      "status": "CHECKED",
+      "assessment": "September10 Windows app remains latest entry; already published.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/gemini-top.json"
+    },
+    {
+      "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
+      "role": "PRIMARY_COMMENTARY",
+      "checkedAt": "2026-09-14T03:03:03Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
+      "status": "CHECKED",
+      "assessment": "Existing embedded evaluators and pacing statement; no distinct new event observed.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/providers-excerpts.json"
+    },
+    {
+      "url": "https://x.com/cognition/status/2098142686486356185",
+      "role": "PRIMARY_DEVELOPER",
+      "checkedAt": "2026-09-14T03:03:03Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
+      "status": "BLOCKED",
+      "assessment": "Normal web open returned Internal Error; factual source hold remains.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/providers-2.json",
+      "missingInput": "Accessible legitimate original evidence; do not bypass a safety block.",
+      "nextCheckAt": "2026-09-14T14:00:00Z"
+    },
+    {
+      "url": "https://x.com/bot/status/2098183353665261979",
+      "role": "PRIMARY_DEVELOPER",
+      "checkedAt": "2026-09-14T03:03:03Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
+      "status": "BLOCKED",
+      "assessment": "Normal web open returned Internal Error; factual source hold remains.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/providers-2.json",
+      "missingInput": "Accessible legitimate original evidence; do not bypass a safety block.",
+      "nextCheckAt": "2026-09-14T14:00:00Z"
+    },
+    {
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "role": "INDEPENDENT_REPORTING",
+      "checkedAt": "2026-09-14T03:06:25Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
+      "status": "CHECKED",
+      "assessment": "Root normal web open and index excerpt succeeds despite separate directHTTP403. Same lead Trump, followed by Amodei/misuse/Senate coverage already published. No distinct new event observed.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/ap-and-institution.json"
+    },
+    {
+      "url": "https://www.aais.pku.edu.cn/info/1355/20361.htm",
+      "role": "RESEARCH_INSTITUTION",
+      "checkedAt": "2026-09-14T03:06:25Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
+      "status": "CHECKED",
+      "assessment": "September12 institutional account identifies the September9 ProteinTalks paper and preclinical/retrospective experiments. Useful original institutional context, not independent full-paper clinical review.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/pku-institution-body.json"
+    }
+  ],
+  "nextReviewAt": "2026-09-14T14:00:00Z",
+  "sourceSafetyReconciliation": {
+    "inadmissibleCaptures": [
+      "2026-09-13-2000-independent-captures/nature-proteintalks.html",
+      "2026-09-13-2000-independent-captures/nature-breast-cancer-news.html"
+    ],
+    "reason": "Independent lane used urllib automatic redirects after recorded non-retryable tool safety blocks. Root rejected recovery, no use in publication or source admission. Lane acknowledged exact transport. Preserve records; no further fetch of blocked URLs or proxies.",
+    "legitimateAlternative": "Peking University original institutional report separately found/read through normal web. Full medical evidence admission remains incomplete."
+  },
+  "limits": [
+    "No public write; no future issue created.",
+    "Route check passed desks6/sources8 after initial opens, not before; this ordering deviation is recorded."
+  ]
+}

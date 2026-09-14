@@ -1,239 +1,279 @@
 {
   "schemaVersion": "newsstand-coverage-progress-v1",
   "asOf": "2026-09-13",
-  "checkedAt": "2026-09-13T23:14:04.381Z",
-  "nextReviewAt": "2026-09-14T03:00:00Z",
-  "sourceAudit": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-sweep.json",
+  "checkedAt": "2026-09-14T03:10:30.279277+00:00",
+  "nextReviewAt": "2026-09-14T14:00:00Z",
+  "sourceAudit": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-sweep.json",
   "sourceChecks": [
     {
       "url": "https://openai.com/news/",
       "role": "PROVIDER",
-      "checkedAt": "2026-09-13T23:03:04Z",
+      "checkedAt": "2026-09-14T03:03:03Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
       "status": "CHECKED",
-      "assessment": "Latest displayed dated entry is September11 storage engineering; no newer displayed item.",
-      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/providers-1.json"
+      "assessment": "Latest shown dated entry September11 storage engineering; no new displayed announcement since16:00.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/providers-1.json"
     },
     {
       "url": "https://www.anthropic.com/news",
       "role": "PROVIDER",
-      "checkedAt": "2026-09-13T23:03:04Z",
+      "checkedAt": "2026-09-14T03:03:03Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
       "status": "CHECKED",
-      "assessment": "September10 misuse report remains latest dated newsroom item; exact event already published.",
-      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/providers-1.json"
+      "assessment": "September10 misuse remains latest dated newsroom item; existing coverage.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/providers-1.json"
     },
     {
       "url": "https://deepmind.google/blog/",
       "role": "PROVIDER",
-      "checkedAt": "2026-09-13T23:03:04Z",
+      "checkedAt": "2026-09-14T03:03:03Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
       "status": "CHECKED",
-      "assessment": "September entries remain Gemini3.8Flash/Cyber, AlphaGenome Atlas, WeatherNext3, proactive cyber defence and agentic video. No new displayed title relative to13:00.",
-      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/providers-1.json"
+      "assessment": "Same September titles as16:00: Gemini3.8, Atlas, WeatherNext3, cyber defence and video. No new title observed.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/providers-2.json"
     },
     {
       "url": "https://ai.google.dev/gemini-api/docs/changelog",
       "role": "PROVIDER",
-      "checkedAt": "2026-09-13T23:03:04Z",
+      "checkedAt": "2026-09-14T03:03:03Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
       "status": "CHECKED",
-      "assessment": "Latest dated entry remains September3 Lyria3.5 public preview.",
-      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/providers-1.json"
+      "assessment": "Latest dated changelog remains September3 Lyria3.5.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/providers-excerpts.json"
     },
     {
       "url": "https://apnews.com/hub/artificial-intelligence",
       "role": "INDEPENDENT_REPORTING",
-      "checkedAt": "2026-09-13T23:14:04.381Z",
+      "checkedAt": "2026-09-14T03:06:25Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
       "status": "CHECKED",
-      "assessment": "The September 13 Trump report remains the material lead; its article now opened as full reporting.",
-      "observationWindow": "2026-09-13T23:11:42Z through 2026-09-13T23:14:04.381Z",
-      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-independent-sweep.json",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/independent-index-excerpts.json",
-      "timestampMeaning": "Observed completion window endpoint, not a claimed individual network-request instant."
+      "assessment": "Root normal web open and index excerpt succeeds despite separate directHTTP403. Same lead Trump, followed by Amodei/misuse/Senate coverage already published. No distinct new event observed.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/ap-and-institution.json"
     },
     {
       "url": "https://www.reuters.com/technology/artificial-intelligence/",
       "role": "INDEPENDENT_REPORTING",
-      "checkedAt": "2026-09-13T23:04:32Z",
+      "checkedAt": "2026-09-14T03:02:02Z",
       "status": "BLOCKED",
-      "assessment": "Still inaccessible through normal open; no no-news conclusion.",
-      "missingInput": "This cannot support a no-news conclusion. It remains a source-access hold.",
-      "nextCheckAt": "2026-09-14T03:00:00Z",
-      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
-      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-independent-sweep.json"
+      "assessment": "Normal direct index request returned HTTP 401. No Reuters event or no-news conclusion is inferred.",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-sweep.json",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/reuters-ai.html",
+      "missingInput": "Accessible Reuters AI index or full article text.",
+      "nextCheckAt": "2026-09-14T14:00:00Z"
     },
     {
       "url": "https://www.ftc.gov/news-events/news/press-releases",
       "role": "REGULATOR",
-      "checkedAt": "2026-09-13T23:14:04.381Z",
+      "checkedAt": "2026-09-14T03:02:05Z",
       "status": "CHECKED",
-      "assessment": "No newly identified AI release since the 13:00 sweep.",
-      "observationWindow": "2026-09-13T23:11:42Z through 2026-09-13T23:14:04.381Z",
-      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-independent-sweep.json",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/independent-index-excerpts.json",
-      "timestampMeaning": "Observed completion window endpoint, not a claimed individual network-request instant."
+      "assessment": "Latest press-release entries are Sep10 budget, Sep9 obsolete-policy withdrawal and Sep8 payment-processor enforcement. The index exposes no newly identified AI action.",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-sweep.json",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/ftc-press.html"
     },
     {
       "url": "https://www.eff.org/issues/ai",
       "role": "ADVOCACY",
-      "checkedAt": "2026-09-13T23:14:04.381Z",
+      "checkedAt": "2026-09-14T03:02:05Z",
       "status": "CHECKED",
-      "assessment": "No newly identified AI item since 13:00; do not reopen the already-published WISeR event.",
-      "observationWindow": "2026-09-13T23:11:42Z through 2026-09-13T23:14:04.381Z",
-      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-independent-sweep.json",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/independent-index-excerpts.json",
-      "timestampMeaning": "Observed completion window endpoint, not a claimed individual network-request instant."
+      "assessment": "Latest visible AI update remains EFF\u2019s Sep8 Medicare prior-authorization records post; it is not a new current item in this window, and the already-published WISeR event was not duplicated.",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-sweep.json",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/eff-ai.html"
     },
     {
       "url": "https://www.nature.com/subjects/machine-learning",
       "role": "RESEARCH",
-      "checkedAt": "2026-09-13T23:14:04.381Z",
+      "checkedAt": "2026-09-14T03:02:03Z",
       "status": "CHECKED",
-      "assessment": "No newly identified material beyond the September 10 entries already reconciled at 13:00.",
-      "observationWindow": "2026-09-13T23:11:42Z through 2026-09-13T23:14:04.381Z",
-      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-independent-sweep.json",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/independent-index-excerpts.json",
-      "timestampMeaning": "Observed completion window endpoint, not a claimed individual network-request instant."
+      "assessment": "The visible September 11 Briefing Chat is duplicate context for the published AlphaGenome Atlas event. CRISP is already published and PathSegmentor is excluded. The Sep9 breast-cancer report points to the separately recovered full report and paper below.",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-sweep.json",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/nature-ml.html"
     },
     {
       "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/",
       "role": "INDEPENDENT_REPORTING",
-      "checkedAt": "2026-09-13T23:14:04.381Z",
+      "checkedAt": "2026-09-14T03:02:06Z",
       "status": "CHECKED",
-      "assessment": "No newly identified material. September 11 Anthropic misuse and September 10 PaperCut remain already-published events.",
-      "observationWindow": "2026-09-13T23:11:42Z through 2026-09-13T23:14:04.381Z",
-      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-independent-sweep.json",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/independent-index-excerpts.json",
-      "timestampMeaning": "Observed completion window endpoint, not a claimed individual network-request instant."
+      "assessment": "The visible leading AI-category titles remain the Anthropic Android-app-secret and PaperCut attack reports, both previously covered events; no new separately reviewed event was identified from this index.",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-sweep.json",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/bleeping-ai.html"
     },
     {
       "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
-      "role": "PROVIDER",
-      "checkedAt": "2026-09-13T23:04:32Z",
+      "role": "PRIMARY_COMMENTARY",
+      "checkedAt": "2026-09-14T03:03:03Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
       "status": "CHECKED",
-      "assessment": "Direct statement accessible; embedded evaluator commitment and proposed coordination correspond to existing pacing story. No new distinct event identified.",
-      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/dario.json"
+      "assessment": "Existing embedded evaluators and pacing statement; no distinct new event observed.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/providers-excerpts.json"
     },
     {
       "url": "https://www.nature.com/articles/s41586-026-11001-9",
       "role": "RESEARCH",
-      "checkedAt": "2026-09-13T23:04:32Z",
+      "checkedAt": "2026-09-14T03:02:06Z",
       "status": "BLOCKED",
-      "assessment": "No recovery.",
-      "missingInput": "proteintalks-20260909 remains EVIDENCE_BLOCKED: main methods/results and independent expert interpretation are still missing.",
-      "nextCheckAt": "2026-09-14T03:00:00Z",
-      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
-      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-independent-sweep.json"
+      "assessment": "Alternate urllib capture after prior safety block is not admissible recovery. Do not retry blocked URLs via another route.",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-sweep.json",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/nature-proteintalks.html",
+      "missingInput": "Legitimate distinct author/institutional methods or user-supplied full study; current institutional report does not finish medical evidence admission.",
+      "nextCheckAt": "2026-09-14T14:00:00Z"
     },
     {
       "url": "https://x.com/cognition/status/2098142686486356185",
-      "role": "PROVIDER",
-      "checkedAt": "2026-09-13T23:03:04Z",
+      "role": "PRIMARY_DEVELOPER",
+      "checkedAt": "2026-09-14T03:03:03Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
       "status": "BLOCKED",
-      "assessment": "Exact source returned internal error; no source text recovered.",
-      "missingInput": "This is in the EVIDENCE_BLOCKED devin-voice-20260911 recovery family. It does not reopen the separately EXCLUDED cognition-swe2-20260910 lead.",
-      "nextCheckAt": "2026-09-14T03:00:00Z",
-      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/providers-2.json"
+      "assessment": "Normal web open returned Internal Error; factual source hold remains.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/providers-2.json",
+      "missingInput": "Accessible legitimate original evidence; do not bypass a safety block.",
+      "nextCheckAt": "2026-09-14T14:00:00Z"
     },
     {
       "url": "https://x.com/bot/status/2098183353665261979",
-      "role": "PROVIDER",
-      "checkedAt": "2026-09-13T23:03:04Z",
+      "role": "PRIMARY_DEVELOPER",
+      "checkedAt": "2026-09-14T03:03:03Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
       "status": "BLOCKED",
-      "assessment": "Exact source returned internal error; no source text recovered.",
-      "missingInput": "grokbot-sales-integrations remains EVIDENCE_BLOCKED pending a dated accessible primary announcement.",
-      "nextCheckAt": "2026-09-14T03:00:00Z",
-      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/providers-2.json"
+      "assessment": "Normal web open returned Internal Error; factual source hold remains.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/providers-2.json",
+      "missingInput": "Accessible legitimate original evidence; do not bypass a safety block.",
+      "nextCheckAt": "2026-09-14T14:00:00Z"
     },
     {
       "url": "https://www.nature.com/articles/d41586-026-02845-2",
-      "role": "RESEARCH",
-      "checkedAt": "2026-09-13T23:04:32Z",
+      "role": "RESEARCH_REPORTING",
+      "checkedAt": "2026-09-14T03:02:39Z",
       "status": "BLOCKED",
-      "assessment": "No recovery. The page still cannot support clinical implications or merge the held paper identities.",
-      "missingInput": "Full report and underlying study methods/results; no clinical implication inferred from teaser.",
-      "nextCheckAt": "2026-09-14T03:00:00Z",
-      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
-      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-independent-sweep.json"
+      "assessment": "Alternate urllib capture after prior safety block is not admissible recovery. Do not retry blocked URLs via another route.",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-sweep.json",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/nature-breast-cancer-news.html",
+      "missingInput": "Legitimate distinct author/institutional methods or user-supplied full study; current institutional report does not finish medical evidence admission.",
+      "nextCheckAt": "2026-09-14T14:00:00Z"
     },
     {
       "url": "https://aidailybrief.ai/agent.json",
       "role": "SCOUT",
-      "checkedAt": "2026-09-13T23:02:59Z",
+      "checkedAt": "2026-09-14T03:04:13Z",
       "status": "CHECKED",
-      "assessment": "Index lists 87 editions, led by Sep13. It lists no Sep12 edition.",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/agent.json",
-      "captureSha256": "be24a1d63d01ebcca0363c9599c3cfa1d2c0be257d9582ebdf5bd6e3e9d15409",
-      "accessResult": "CHECKED"
+      "assessment": "Latest listed edition remains 2026-09-13. The index lists neither Sep12 nor Sep14.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-captures/agent-json.body",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-sweep.json"
     },
     {
       "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
       "role": "SCOUT",
-      "checkedAt": "2026-09-13T23:03:00Z",
+      "checkedAt": "2026-09-14T03:04:16Z",
       "status": "BLOCKED",
-      "assessment": "Latest raw Apple identity remains 2026-09-13 / 10 Ways to Think Bigger with Opportunity AI / podcast item 1000789330156. The separately checked AIDB Sep13 JSON/transcript are unchanged; title/date coincidence alone does not merge channels.",
-      "missingInput": "Complete recovered newsletter and podcast channel identity reconciliation",
-      "nextCheckAt": "2026-09-14T03:00:00Z",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/apple-index.html",
-      "captureSha256": "3f2a12556cfb6ece7d5b25373602f517fbe63b208e7aa1e944e62ecf332aa33c",
-      "accessResult": "CHECKED"
+      "assessment": "Index accessible; raw latest podcast identity unchanged but exact full-content channel binding remains unavailable.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-captures/apple-index.body",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-sweep.json",
+      "missingInput": "Exact publisher-linked full edition/transcript identity; do not infer from date/title.",
+      "nextCheckAt": "2026-09-14T14:00:00Z"
     },
     {
       "url": "https://aidailybrief.beehiiv.com/",
       "role": "SCOUT",
-      "checkedAt": "2026-09-13T23:03:03Z",
+      "checkedAt": "2026-09-14T03:04:16Z",
       "status": "BLOCKED",
-      "assessment": "No Sep13 Beehiiv card. Latest card is dated Sep12 and is the existing publisher note for the Sep11 edition; it is not a new complete AIDB edition.",
-      "missingInput": "Complete recovered newsletter and podcast channel identity reconciliation",
-      "nextCheckAt": "2026-09-14T03:00:00Z",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/beehiiv-index.html",
-      "captureSha256": "59e63a73a067b7ffdfdc693bb9a5828fe1a40a9baee3a45ba68718a3393e5513",
-      "accessResult": "CHECKED"
+      "assessment": "access changed from 200 index capture to 403; no publisher cards could be inspected in this run.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-captures/beehiiv-index.body",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-sweep.json",
+      "missingInput": "An accessible publisher index or publisher-linked complete-content source; no channel identity is inferred from date or title.",
+      "nextCheckAt": "2026-09-14T14:00:00Z"
     },
     {
       "url": "https://www.oneusefulthing.org/feed",
       "role": "SCOUT",
-      "checkedAt": "2026-09-13T23:03:05Z",
+      "checkedAt": "2026-09-14T03:04:17Z",
       "status": "CHECKED",
-      "assessment": "Newest feed item remains Agency and Agents, published 2026-08-31T00:24:35Z, at the same canonical URL and already recorded as MERGE/WATCH in prior AIDB work.",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/mollick-feed.xml",
-      "captureSha256": "9513396bddf3beba7e1a61bd4f767995299942e698f7a6bb88575713da393a1b",
-      "accessResult": "CHECKED"
+      "assessment": "raw XML differs but newest item identity remains unchanged.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-captures/mollick-feed.body",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-sweep.json"
     },
     {
       "url": "https://www.alliekmiller.com/resources",
       "role": "SCOUT",
-      "checkedAt": "2026-09-13T23:03:06Z",
+      "checkedAt": "2026-09-14T03:04:17Z",
       "status": "CHECKED",
-      "assessment": "Route remains the same undated resources/commercial-links page. It supplies no date-verifiable independently corroborated event.",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/allie-resources.html",
-      "captureSha256": "dcb76dc397a3470a57d02f53dd14c872da8863ec86e2302ed28ce7caf8ba0b4f",
-      "accessResult": "CHECKED"
+      "assessment": "Same undated resources/commercial-links page; no date-verifiable independently corroborated event is supplied.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-captures/allie-resources.body",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-sweep.json"
     },
     {
       "url": "https://aidailybrief.ai/e/2026-09-12.json",
       "role": "SCOUT",
-      "checkedAt": "2026-09-13T23:03:00Z",
+      "checkedAt": "2026-09-14T03:04:14Z",
       "status": "BLOCKED",
-      "assessment": "Expected complete Sep12 JSON remains unavailable at the official endpoint.",
-      "missingInput": "September12 full edition if it is released.",
-      "nextCheckAt": "2026-09-14T03:00:00Z",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-captures/sep12.json",
-      "captureSha256": "50ca884c766133300eb9eb634279d4b6a417cc6d6465fb7008d39960e8c43eca",
-      "accessResult": "MISSING"
+      "assessment": "exact same 404 response bytes",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-captures/sep12-json.body",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-sweep.json",
+      "missingInput": "Public Sep12 edition JSON or a publisher-linked complete-content source.",
+      "nextCheckAt": "2026-09-14T14:00:00Z"
     },
     {
       "url": "https://gemini.google/release-notes/",
       "role": "PROVIDER",
-      "checkedAt": "2026-09-13T23:03:04Z",
+      "checkedAt": "2026-09-14T03:06:25Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
       "status": "CHECKED",
-      "assessment": "September10 Windows app remains latest dated entry, already published as gemini-windows-20260913.",
-      "observationWindow": "2026-09-13T23:00:53Z through 2026-09-13T23:04:32Z",
-      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-captures/providers-2.json"
+      "assessment": "September10 Windows app remains latest entry; already published.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/gemini-top.json"
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-13.json",
+      "role": "SCOUT",
+      "checkedAt": "2026-09-14T03:04:14Z",
+      "status": "CHECKED",
+      "assessment": "Same completed edition; its 23 items were already individually dispositioned, so no item was reclassified.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-captures/sep13-json.body",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-sweep.json"
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-13/transcript.md",
+      "role": "SCOUT",
+      "checkedAt": "2026-09-14T03:04:14Z",
+      "status": "CHECKED",
+      "assessment": "Same complete transcript backing the already processed Sep13 edition.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-captures/sep13-transcript.body",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-sweep.json"
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-12/transcript.md",
+      "role": "SCOUT",
+      "checkedAt": "2026-09-14T03:04:14Z",
+      "status": "BLOCKED",
+      "assessment": "exact same 404 response bytes",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-captures/sep12-transcript.body",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-sweep.json",
+      "missingInput": "Public Sep12 transcript or another legitimate complete-content source.",
+      "nextCheckAt": "2026-09-14T14:00:00Z"
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-14.json",
+      "role": "SCOUT",
+      "checkedAt": "2026-09-14T03:04:14Z",
+      "status": "CHECKED",
+      "assessment": "404 is recorded only as no machine-readable Sep14 endpoint at the UTC observation time; it is not treated as an overdue Vancouver edition.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-captures/sep14-json.body",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-sweep.json"
+    },
+    {
+      "url": "https://aidailybrief.ai/e/2026-09-14/transcript.md",
+      "role": "SCOUT",
+      "checkedAt": "2026-09-14T03:04:15Z",
+      "status": "CHECKED",
+      "assessment": "404 is recorded only as no Sep14 transcript endpoint at the UTC observation time; it is not treated as an overdue Vancouver edition.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-captures/sep14-transcript.body",
+      "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-sweep.json"
+    },
+    {
+      "url": "https://www.aais.pku.edu.cn/info/1355/20361.htm",
+      "role": "RESEARCH_INSTITUTION",
+      "checkedAt": "2026-09-14T03:06:25Z",
+      "timestampMeaning": "Root observation completion, within invocation03:00:54UTC through recorded checkedAt; not a claimed individual request instant.",
+      "status": "CHECKED",
+      "assessment": "September12 institutional account identifies the September9 ProteinTalks paper and preclinical/retrospective experiments. Useful original institutional context, not independent full-paper clinical review.",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-captures/pku-institution-body.json"
     }
   ],
   "leads": [
@@ -334,12 +374,13 @@
         "https://www.nature.com/articles/s41586-026-11001-9"
       ],
       "status": "EVIDENCE_BLOCKED",
-      "attemptedRecovery": "September13 16:00 normal source check did not recover the missing full evidence; exact observations in current source audits.",
-      "missingInput": "Main methods/results and independent expert interpretation.",
-      "nextCheckAt": "2026-09-14T03:00:00Z",
+      "attemptedRecovery": "Alternate-route Nature capture rejected by root after transport admission; no factual promotion. Root separately found/read original Peking University institutional report with normal web tool.",
+      "missingInput": "Admissible full medical methods/results and independent clinical-limit verification. Do not retry safety-blocked Nature URLs or mirrors; seek legitimate distinct source material.",
+      "nextCheckAt": "2026-09-14T14:00:00Z",
       "owner": "/root",
       "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-sweep.json",
-      "nextAction": "Retry legitimate full-paper recovery; assess a research-stage report without implying clinical benefit."
+      "nextAction": "Continue single ProteinTalks candidate only when missing scientific evidence becomes admissible; both intake records are one family.",
+      "candidatePath": "operations/product-stewards/newsstand/candidates/proteintalks-20260914/research-hold.json"
     },
     {
       "id": "senate-hugging-face-inquiry-20260910",
@@ -717,9 +758,9 @@
       "sourceUrls": [
         "https://aidailybrief.beehiiv.com/p/what-to-use-the-latest-ai-tools-for"
       ],
-      "attemptedRecovery": "September13 16:00 normal source check did not recover the missing full evidence; exact observations in current source audits.",
+      "attemptedRecovery": "Exact X post normal web open returned Internal Error again in20:00 sweep.",
       "missingInput": "Exact dated primary announcement; current feature documentation does not establish launch date.",
-      "nextCheckAt": "2026-09-14T03:00:00Z",
+      "nextCheckAt": "2026-09-14T14:00:00Z",
       "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-sweep.json"
     },
     {
@@ -752,9 +793,9 @@
       "sourceUrls": [
         "https://aidailybrief.beehiiv.com/p/what-to-use-the-latest-ai-tools-for"
       ],
-      "attemptedRecovery": "September13 16:00 normal source check did not recover the missing full evidence; exact observations in current source audits.",
+      "attemptedRecovery": "Exact X post normal web open returned Internal Error again in20:00 sweep.",
       "missingInput": "Exact dated primary announcement; current feature documentation does not establish launch date.",
-      "nextCheckAt": "2026-09-14T03:00:00Z",
+      "nextCheckAt": "2026-09-14T14:00:00Z",
       "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-sweep.json"
     },
     {
@@ -792,12 +833,13 @@
         "https://www.nature.com/articles/d41586-026-02845-2"
       ],
       "status": "EVIDENCE_BLOCKED",
-      "attemptedRecovery": "September13 16:00 normal source check did not recover the missing full evidence; exact observations in current source audits.",
-      "missingInput": "Accessible full Nature report plus the underlying study and independent expert interpretation sufficient to distinguish research-stage prediction from patient care.",
-      "nextCheckAt": "2026-09-14T03:00:00Z",
+      "attemptedRecovery": "Alternate-route Nature capture rejected by root after transport admission; no factual promotion. Root separately found/read original Peking University institutional report with normal web tool.",
+      "missingInput": "Admissible full medical methods/results and independent clinical-limit verification. Do not retry safety-blocked Nature URLs or mirrors; seek legitimate distinct source material.",
+      "nextCheckAt": "2026-09-14T14:00:00Z",
       "owner": "/root",
       "sourceReview": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-sweep.json",
-      "nextAction": "Recover full report and underlying study without bypassing the unsafe redirect; assess research-stage limits and distinct reader relevance."
+      "nextAction": "Continue single ProteinTalks candidate only when missing scientific evidence becomes admissible; both intake records are one family.",
+      "candidatePath": "operations/product-stewards/newsstand/candidates/proteintalks-20260914/research-hold.json"
     },
     {
       "id": "trump-ai-safeguards-20260913",
@@ -832,10 +874,10 @@
       "releaseReceipt": "operations/product-stewards/newsstand/evidence/gemini-windows-20260913/release.json"
     }
   ],
-  "reviewScope": "September13 16:00 actual source sweep reconciled; recovered Trump reporting published after independent admission. Source observation timestamps retained; publication does not refresh source checks. Named holds next03:00UTC. Not exhaustive discovery.",
+  "reviewScope": "Actual September13 20:00 private next-day preparation. No newly eligible material event. ProteinTalks and breast-cancer report route to one named private hold with new institutional context; unsafe alternate-route paper capture rejected. Sep13AIDB exact23-item review reused only after actual hash comparison. No exhaustive discovery claim.",
   "sourceAudits": [
-    "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-sweep.json",
-    "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-scout-sweep.json",
-    "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-independent-sweep.json"
+    "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-root-sweep.json",
+    "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-sweep.json",
+    "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-scout-sweep.json"
   ]
 }

@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "laidies-newsstand-independent-sweep.v1",
+  "checkedAt": "2026-09-14T03:02:39Z",
+  "writtenAt": "2026-09-14T03:03:59Z",
+  "tier": "TIER_2",
+  "scope": "Private next-day source research only. No publication, shared coverage-progress/cursor update, candidate creation, provider review, or public mutation. Normal direct opens only; no unsafe redirect or safety-block bypass.",
+  "priorRecords": [
+    "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+    "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-independent-sweep.json",
+    "operations/product-stewards/newsstand/editorial-intake/2026-09-13-1600-root-sweep.json"
+  ],
+  "captureDirectory": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures",
+  "captureManifest": {
+    "path": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/fetch-results.json",
+    "sha256": "5f3cb565056b0d95fee7db5081bcd0e84d61f5c894de521f9946ac4fba0ec4ed"
+  },
+  "sourceChecks": [
+    {
+      "sourceId": "ap-ai-hub",
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "role": "INDEPENDENT_REPORTING",
+      "checkedAt": "2026-09-14T03:02:01Z",
+      "accessResult": "BLOCKED",
+      "httpStatus": 403,
+      "effectiveUrl": "https://apnews.com/hub/artificial-intelligence",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/ap-ai.html",
+      "captureSha256": "d8f8f520eca5ed8cf1ad0f60dece0064c256b0e816800443d5abb43253cd2f22",
+      "captureBytes": 5695,
+      "comparisonToPrior": "Earlier independent sweep had the Trump reporting recovery; this direct request did not recover index content.",
+      "observation": "Normal direct index request returned HTTP 403. This does not establish that there was no new AP material. The earlier Sep13 Trump event is already published and was not reopened from a snippet.",
+      "eventDisposition": "SOURCE_ACCESS_HOLD",
+      "missingInput": "Accessible AP AI index or full independently sourced reporting for any new event.",
+      "nextRetryAt": "2026-09-14T14:00:00Z"
+    },
+    {
+      "sourceId": "reuters-ai-index",
+      "url": "https://www.reuters.com/technology/artificial-intelligence/",
+      "role": "INDEPENDENT_REPORTING",
+      "checkedAt": "2026-09-14T03:02:02Z",
+      "accessResult": "BLOCKED",
+      "httpStatus": 401,
+      "effectiveUrl": "https://www.reuters.com/technology/artificial-intelligence/",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/reuters-ai.html",
+      "captureSha256": "97662a547b41da00a5ac1df5d3baea860b1a510dbcf67403969e005bac6a9818",
+      "captureBytes": 771,
+      "comparisonToPrior": "Still source-access blocked; prior sweep recorded an internal source error.",
+      "observation": "Normal direct index request returned HTTP 401. No Reuters event or no-news conclusion is inferred.",
+      "eventDisposition": "SOURCE_ACCESS_HOLD",
+      "missingInput": "Accessible Reuters AI index or full article text.",
+      "nextRetryAt": "2026-09-14T14:00:00Z"
+    },
+    {
+      "sourceId": "nature-machine-learning-index",
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "role": "RESEARCH",
+      "checkedAt": "2026-09-14T03:02:03Z",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://www.nature.com/subjects/machine-learning?error=cookies_not_supported&code=67b30eef-0df1-4b2e-9c43-50d97ac89d34",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/nature-ml.html",
+      "captureSha256": "a21a30b538f1671ff7a87230744047cb066fdb44aa0eb40742f439d633ca576d",
+      "captureBytes": 146790,
+      "comparisonToPrior": "Same event set as earlier Nature index review; recovery changes the evidence status of the existing Sep9 ProteinTalks/breast-cancer family, not its event identity.",
+      "observation": "The visible September 11 Briefing Chat is duplicate context for the published AlphaGenome Atlas event. CRISP is already published and PathSegmentor is excluded. The Sep9 breast-cancer report points to the separately recovered full report and paper below.",
+      "eventDisposition": "INDEX_RECONCILED"
+    },
+    {
+      "sourceId": "proteintalks-20260909",
+      "url": "https://www.nature.com/articles/s41586-026-11001-9",
+      "role": "RESEARCH",
+      "checkedAt": "2026-09-14T03:02:06Z",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://www.nature.com/articles/s41586-026-11001-9?error=cookies_not_supported&code=01c6afaf-345b-4dee-8522-c2c6640bae67",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/nature-proteintalks.html",
+      "captureSha256": "79c12e409ea2b3e93aa6bcef2f3d2138433fa3f898b0b2c0d5e35d1a9d9a63d8",
+      "captureBytes": 511237,
+      "comparisonToPrior": "Prior exact fetches were recorded as blocked or no-full-text. This capture is a material recovery.",
+      "observation": "Full Nature paper page is readable enough to inspect title, publication date, abstract, data/code sections and extended-data headings. The abstract reports ProteinTalks was trained on more than 38 million temporal protein-abundance measurements and evaluated drug-response prediction, combinations, resistance-associated proteins, patient-response stratification and patient organoids/clinical biopsies. This is research evidence, not proof a treatment choice improves patient outcomes.",
+      "eventDisposition": "RECOVERED_EXISTING_EVIDENCE_BLOCKED_LEAD",
+      "sourceFacts": {
+        "publishedDate": "2026-09-09",
+        "title": "An operational perturbation proteomics-based virtual cell model",
+        "readerConsequence": "Research suggests a way to predict drug response; it does not make this a patient-ready treatment selector."
+      },
+      "requiredNextAction": "Root must reconcile this recovery with the held event and decide whether its dated research window and medical-claim limits justify a new producer lane. Do not revive the prior hold unchanged or infer clinical benefit."
+    },
+    {
+      "sourceId": "nature-breast-cancer-drug-prediction-20260909",
+      "url": "https://www.nature.com/articles/d41586-026-02845-2",
+      "role": "RESEARCH_REPORTING",
+      "checkedAt": "2026-09-14T03:02:39Z",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://www.nature.com/articles/d41586-026-02845-2?error=cookies_not_supported&code=bd93f931-3253-455c-9d37-2e40ec4b67df",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/nature-breast-cancer-news.html",
+      "captureSha256": "30f44cb59224e783bb514a399f21fcc1aedc714491357e28d87dd8fb0fd27267",
+      "captureBytes": 236572,
+      "comparisonToPrior": "Prior exact source attempts were held behind cookie/unsafe-redirection failures. This is a material recovery and is the same event family as ProteinTalks, not a separate story.",
+      "observation": "Full Nature news report is readable. It identifies the study as a Sep9 Nature publication; reports a model trained on more than 38 million protein measurements from 18 breast-cancer cell lines (16 TNBC), its 88% cellular-response prediction accuracy for 81 held-out drugs, and an analysis of biopsies from 501 people with TNBC that predicted the clinical outcomes of treatments received. It frames personalized care as a possibility, not demonstrated treatment improvement.",
+      "eventDisposition": "RECOVERED_EXISTING_EVIDENCE_BLOCKED_LEAD",
+      "sourceFacts": {
+        "publishedDate": "2026-09-09",
+        "title": "AI model predicts which breast-cancer drugs work best",
+        "independentContext": "Nature reports an external systems-biology comment on the scale and importance of time-course data."
+      },
+      "requiredNextAction": "Reconcile with ProteinTalks as one paper/report event family; if considered, make the research-stage and clinical-outcome limits explicit."
+    },
+    {
+      "sourceId": "eff-ai",
+      "url": "https://www.eff.org/issues/ai",
+      "role": "ADVOCACY",
+      "checkedAt": "2026-09-14T03:02:05Z",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://www.eff.org/issues/ai",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/eff-ai.html",
+      "captureSha256": "9c0da7e9afc1c1f82248e0880ef75ff090343c3c37335b5539b8bc17ee92287f",
+      "captureBytes": 57608,
+      "comparisonToPrior": "No newer dated AI update relative to prior source review.",
+      "observation": "Latest visible AI update remains EFF\u2019s Sep8 Medicare prior-authorization records post; it is not a new current item in this window, and the already-published WISeR event was not duplicated.",
+      "eventDisposition": "NO_NEW_LEAD"
+    },
+    {
+      "sourceId": "ftc-press-releases",
+      "url": "https://www.ftc.gov/news-events/news/press-releases",
+      "role": "REGULATOR",
+      "checkedAt": "2026-09-14T03:02:05Z",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://www.ftc.gov/news-events/news/press-releases",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/ftc-press.html",
+      "captureSha256": "8d81893f2554118ee42823524160461ed6fec7fda974cf7ffc445b7f8aa2792f",
+      "captureBytes": 1038221,
+      "comparisonToPrior": "No newer AI-specific press release relative to prior source review.",
+      "observation": "Latest press-release entries are Sep10 budget, Sep9 obsolete-policy withdrawal and Sep8 payment-processor enforcement. The index exposes no newly identified AI action.",
+      "eventDisposition": "NO_NEW_AI_LEAD"
+    },
+    {
+      "sourceId": "bleepingcomputer-ai",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+      "role": "INDEPENDENT_REPORTING",
+      "checkedAt": "2026-09-14T03:02:06Z",
+      "accessResult": "CHECKED",
+      "httpStatus": 200,
+      "effectiveUrl": "https://www.bleepingcomputer.com/news/artificial-intelligence/",
+      "capture": "operations/product-stewards/newsstand/editorial-intake/2026-09-13-2000-independent-captures/bleeping-ai.html",
+      "captureSha256": "5c1982f186b9c74237c7715974fc372454564b12496ae4a2f5204435362cc13a",
+      "captureBytes": 97011,
+      "comparisonToPrior": "No lead-title change relative to the earlier source review.",
+      "observation": "The visible leading AI-category titles remain the Anthropic Android-app-secret and PaperCut attack reports, both previously covered events; no new separately reviewed event was identified from this index.",
+      "eventDisposition": "NO_NEW_DISTINCT_LEAD"
+    }
+  ],
+  "distinctEligibleLeads": [
+    {
+      "eventId": "proteintalks-20260909",
+      "status": "RECOVERED_EVIDENCE_REASSESSMENT_REQUIRED",
+      "eventIdentity": "One Sep9 Nature paper/report family: ProteinTalks virtual-cell model and Nature breast-cancer report. Do not split it into title/date aliases.",
+      "primarySource": "https://www.nature.com/articles/s41586-026-11001-9",
+      "independentReporting": "https://www.nature.com/articles/d41586-026-02845-2",
+      "whyNow": "Both exact sources were actually readable in this sweep after prior evidence blocks.",
+      "readerConsequence": "It is a research-stage signal about predicting drug response in TNBC, not evidence that patients receive better treatment or should use it clinically.",
+      "proposedDisposition": "ROOT_RECONCILIATION_THEN_ELIGIBILITY_DECISION"
+    }
+  ],
+  "holds": [
+    {
+      "sourceId": "ap-ai-hub",
+      "missingInput": "Accessible index or full new reporting",
+      "nextRetryAt": "2026-09-14T14:00:00Z"
+    },
+    {
+      "sourceId": "reuters-ai-index",
+      "missingInput": "Accessible index or full new reporting",
+      "nextRetryAt": "2026-09-14T14:00:00Z"
+    }
+  ],
+  "nextRetryAt": "2026-09-14T14:00:00Z",
+  "mutations": {
+    "publicContent": false,
+    "sharedState": false,
+    "newProducer": false,
+    "providerReview": false
+  }
+}
