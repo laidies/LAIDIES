@@ -983,25 +983,6 @@
     Date.now().toString(36) + '-' + Math.random().toString(36).slice(2);
   var ownsAudio = false, releaseAudioLock = null, acquiringAudio = null;
   var remoteOwner = null, pageLeaving = false;
-  // A same-tab navigation can load its successor before this page releases its
-  // Web Lock. Keep only the already-validated intent until that transient owner
-  // disappears; it never grants permission while a fresh owner remains.
-  var pendingNavigationContinuationUntil = 0;
-
-  function takePendingNavigationContinuation() {
-    var continuePlaying = pendingNavigationContinuationUntil > Date.now();
-    pendingNavigationContinuationUntil = 0;
-    return continuePlaying;
-  }
-
-  function cancelPendingNavigationContinuation() {
-    pendingNavigationContinuationUntil = 0;
-  }
-
-  function beginNavigationHandoff(continuationUntil) {
-    pendingNavigationContinuationUntil = continuationUntil;
-    if (!followOwner()) hydrateFromStorage(takePendingNavigationContinuation());
-  }
 
   function readOwner() {
     try {
@@ -1058,12 +1039,11 @@
         remoteOwner = null;
         state.queue = []; state.mixId = null;
         if (np) np.classList.remove('is-visible');
-        hydrateFromStorage(takePendingNavigationContinuation());
+        hydrateFromStorage(false);
       }
       return false;
     }
     remoteOwner = item;
-    if (item.playback.paused) cancelPendingNavigationContinuation();
     restoreQueue(item.playback);
     state.paused = item.playback.paused;
     updateNowPlaying();
@@ -1078,8 +1058,6 @@
     var item = readOwner();
     if (!item || item.id === ownerId) return false;
     try {
-      if (action === 'pause' || action === 'stop' ||
-          (action === 'toggle' && item.playback && !item.playback.paused)) cancelPendingNavigationContinuation();
       localStorage.setItem(COMMAND_KEY, JSON.stringify({target: item.id,
         at: Date.now(), nonce: Math.random().toString(36), action: action, value: value}));
       followOwner();
@@ -1165,13 +1143,7 @@
     acquireOwnership().then(function(acquired) {
       if (myToken !== playToken || pageLeaving) return;
       if (!acquired) {
-        if (!followOwner()) {
-          // Preserve the restored track as an honest Resume state when the lock
-          // becomes unavailable without a visible remote owner.
-          state.paused = true;
-          updateNowPlaying();
-          announce('Another town window owns the music. Return to that player or choose Resume after it closes.', 'status');
-        }
+        if (!followOwner()) announce('Another town window owns the music. Return to that player or choose Resume after it closes.', 'status');
         return;
       }
       playOwnedPart(myToken);
@@ -1651,7 +1623,7 @@
     // Always try to hydrate saved playback — the persistent bar follows the visitor
     // across every page, so any page can pick up where they left off.
     // Unless the pop-out player window is live: it owns the audio.
-    beginNavigationHandoff(consumeContinuation());
+    if (!followOwner()) hydrateFromStorage(consumeContinuation());
     if (!TRACKS.length && (mountEl || IS_POPUP)) {
       announce(catalogFailure ||
         'KSVL cannot start a track right now. Please try again later.', 'held');
@@ -1805,16 +1777,15 @@
         var token = new URLSearchParams(location.search).get('transfer');
         if (token && transfer && transfer.token === token && Date.now() - transfer.at >= 0 && Date.now() - transfer.at < 15000) {
           localStorage.removeItem(TRANSFER_KEY);
-          return transfer.playing === true ? transfer.at + 15000 : 0;
+          return transfer.playing === true;
         }
-        return 0;
+        return false;
       }
       var navigation = JSON.parse(sessionStorage.getItem(NAV_KEY));
       sessionStorage.removeItem(NAV_KEY);
-      if (!(navigation && navigation.playing === true && Date.now() - navigation.at >= 0 &&
-        Date.now() - navigation.at < 15000 && navigation.to === normalPath(location.pathname))) return 0;
-      return navigation.at + 15000;
-    } catch (e) { return 0; }
+      return !!(navigation && navigation.playing === true && Date.now() - navigation.at >= 0 &&
+        Date.now() - navigation.at < 15000 && navigation.to === normalPath(location.pathname));
+    } catch (e) { return false; }
   }
 
   function bindPersistenceHooks() {

@@ -1,0 +1,65 @@
+{
+  "schema": "laidies.radio-navigation-test-result.v1",
+  "status": "PASS",
+  "executedAt": "2026-09-15T04:16:31.595Z",
+  "immutableBaseline": {
+    "origin": "https://2c4746f7.laidies-sunnyvaile.pages.dev/content/site/ksvl-player.js",
+    "path": "operations/live-user-journeys-20260914/radio-navigation/baseline.js",
+    "sha256": "950619273a605ff22120077f0412cd6f82a28868f24f4640c646b1525abad4f6"
+  },
+  "candidate": {
+    "path": "content/site/ksvl-player.js",
+    "sha256": "e04ed425ba9e04859530aa2034a4bf794ed912d98724f5477083a33d40f09bcf"
+  },
+  "checks": [
+    {
+      "name": "baseline versus candidate predecessor race",
+      "result": "PASS",
+      "evidence": "baseline actual followOwner hydrates false; candidate actual followOwner hydrates true once"
+    },
+    {
+      "name": "startup ordering and paused saved state",
+      "result": "PASS",
+      "evidence": "actual beginNavigationHandoff retains playing predecessor, cancels already-paused predecessor, and consumes once with no owner"
+    },
+    {
+      "name": "cold and expired continuation",
+      "result": "PASS",
+      "evidence": "actual followOwner hydrates paused"
+    },
+    {
+      "name": "current remote owner",
+      "result": "PASS",
+      "evidence": "actual followOwner does not hydrate or interrupt"
+    },
+    {
+      "name": "explicit remote cancellation",
+      "result": "PASS",
+      "evidence": "actual sendRemote pause clears pending autoplay before release"
+    },
+    {
+      "name": "failed lock acquisition",
+      "result": "PASS",
+      "evidence": "actual playCurrentPart preserves restored queue in Resume state"
+    },
+    {
+      "name": "normal continuation validation",
+      "result": "PASS",
+      "evidence": "actual consumeContinuation accepts fresh exact path and rejects expired wrong path paused malformed"
+    },
+    {
+      "name": "popup continuation validation",
+      "result": "PASS",
+      "evidence": "actual consumeContinuation accepts fresh matching playing transfer and rejects expired wrong token paused"
+    },
+    {
+      "name": "syntax and whitespace",
+      "result": "PASS",
+      "evidence": "node --check and git diff --check"
+    }
+  ],
+  "limits": [
+    "No browser run by this lane; root owns the one local-preview interaction.",
+    "No persistent competing Web Lock can be bypassed; the candidate preserves it."
+  ]
+}

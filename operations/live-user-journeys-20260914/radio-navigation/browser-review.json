@@ -1,0 +1,31 @@
+{
+  "recordedAt": "2026-09-15T04:24:59.776017+00:00",
+  "candidateSha256": "e04ed425ba9e04859530aa2034a4bf794ed912d98724f5477083a33d40f09bcf",
+  "environment": "Chrome local proxy port4318; production content with candidate player override",
+  "observed": [
+    "Playing Radio to Library preserves song and advances playback; exact final candidate Wednesdays in SUNNYVAiLE 0:59/4:03 with Pause and enabled seek after navigation.",
+    "Intentional pause before navigation remains paused with Resume and saved position2:12/3:38.",
+    "Popout plays while main page navigates to Library and controls it, progress3:07/3:38.",
+    "Own local playback stopped and popup closed.",
+    "IAB actual width390: Radio Listen then LIBRAiRY link continued Welcome to SUNNYVAiLE; expanded controls show0:36/3:38, Pause and enabled seek."
+  ],
+  "limits": [
+    "Chrome override remained1200; mobile test instead used IAB with measured innerWidth390.",
+    "No production deployment yet."
+  ],
+  "independentSourceReview": {
+    "reviewer": "/root/authority_context",
+    "verdict": "PASS",
+    "scope": "Final candidate source SHA and8 functional regression tests",
+    "notes": "Fresh-owner authority, one-shot15s intent, pause/stop cancellation, popout transfer, safe Resume preserved."
+  },
+  "independentCacheReview": {
+    "reviewer": "/root/authority_context",
+    "verdict": "PASS after correction; assembly conditional on committed sources",
+    "scope": "74overlays/134URL references, only intended transformations; bare pathname guard preserved;75release paths include player. No communitySSO content.",
+    "baseRecordCorrections": [
+      "clubhouse.html",
+      "sanctuary.html"
+    ]
+  }
+}
