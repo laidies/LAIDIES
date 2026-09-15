@@ -4,8 +4,6 @@
   var runtime = null;
   var state = null;
   var continuationState = null;
-  var communityReturn = null;
-  var communityReturnModule = null;
 
   function byId(id) {
     return document.getElementById(id);
@@ -57,9 +55,7 @@
 
     if (!signedIn) {
       setStatus(
-        communityReturn
-          ? "Use your LAiDIES Resident account to join the conversation. Your Resident Card is optional."
-          : local && local.state === "saved"
+        local && local.state === "saved"
           ? "Your local Card is still safe in this browser. Sign in to keep a private account-backed copy."
           : "Sign in by email to restore an account-backed Card or create one after MAiKEOVER.",
         "neutral"
@@ -88,10 +84,6 @@
     if (state.error) throw state.error;
     if (window.LAIDIESResidentContinuationV1) continuationState = await window.LAIDIESResidentContinuationV1.syncWith(runtime);
     render();
-    if (state.session && communityReturn) {
-      communityReturnModule.consumeCommunityReturn(window.localStorage);
-      window.location.replace(communityReturn);
-    }
   }
 
   async function requestLink(event) {
@@ -99,16 +91,14 @@
     var email = byId("rcAccountEmail");
     var button = byId("rcAccountEmailButton");
     button.disabled = true;
-    setStatus("Requesting your LAiDIES sign-in link…", "neutral");
+    setStatus("Requesting your private sign-in link…", "neutral");
     try {
       await runtime.controller.requestMagicLink(
         email.value,
         window.location.pathname
       );
       setStatus(
-        communityReturn
-          ? "Check your email for the LAiDIES sign-in link. It will bring you back to the conversation."
-          : "Check your email for the LAiDIES sign-in link. The link returns to this Resident Card desk.",
+        "Check your email for the LAiDIES sign-in link. The link returns to this Resident Card desk.",
         "success"
       );
       email.value = "";
@@ -191,9 +181,6 @@
     var signOutButton = byId("rcAccountSignOut");
     if (signOutButton) signOutButton.addEventListener("click", signOut);
     try {
-      communityReturnModule = await import('/content/site/community-return.mjs');
-      communityReturn = communityReturnModule.prepareCommunityReturn(window.location, window.localStorage);
-      if (communityReturn) byId("rcAccountTitle").textContent = "Sign in with LAiDIES.";
       runtime = await window.LAIDIESResidentAccountRuntime.get();
       await refresh();
     } catch (error) {

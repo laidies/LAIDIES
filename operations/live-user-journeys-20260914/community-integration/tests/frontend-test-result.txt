@@ -1,0 +1,31 @@
+✔ specific room and house selection survive Resident sign-in (0.671583ms)
+✔ external, credentialed, arbitrary and encoded escape redirects fail closed (0.065666ms)
+✔ only permitted room query fields and harmless fragments are retained (0.516375ms)
+✔ ordinary account visit never redirects using an old saved room (0.062084ms)
+✔ expired or malformed stored returns are ignored (0.070375ms)
+✔ signed-out visitor never requests an assertion (0.88875ms)
+✔ provider attributes are set before mount and cleared on Resident logout (12.43525ms)
+✔ logout before provider readiness stays hidden, waits for loaded, then confirms logout before detach (0.775791ms)
+✔ asynchronous provider logout finishes before the iframe detaches (2.837667ms)
+✔ unconfirmed provider logout blocks new signed assertions (0.198417ms)
+✔ late assertion cannot revive a signed-out or switched account (1.528333ms)
+✔ late JSON decode is also rejected after logout (0.196875ms)
+✔ same-account token refresh preserves the mounted comment draft (0.216042ms)
+✔ server status 401 exposes no attach function (0.141917ms)
+✔ server status 409 exposes no attach function (0.106334ms)
+✔ server status 503 exposes no attach function (0.085042ms)
+✔ malformed assertion and network errors do not mount a provider (0.163292ms)
+✔ a stale Hyvor session is cleared before the signed assertion mounts (0.154125ms)
+✔ sign-out during the preflight never mounts the signed assertion (0.110625ms)
+✔ Community rooms mount the Resident SSO UI without stale Hyvor-login copy (4.152291ms)
+✔ Resident account and house preserve existing boundaries while adding SSO entry (1.15125ms)
+✔ Every existing frontend baseline capture is byte-bound to the immutable Pages manifest (4.802375ms)
+✔ Resident account cache reference advances with the SSO return script (0.368542ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 52.449708

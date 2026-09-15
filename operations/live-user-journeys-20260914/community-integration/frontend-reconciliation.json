@@ -1,0 +1,84 @@
+{
+  "schema": "laidies.community-frontend-reconciliation.v1",
+  "status": "BUILDING_LOCAL_INTEGRATION",
+  "reviewedAt": "2026-09-15T04:05:52.177Z",
+  "baseline": {
+    "kind": "verified immutable Cloudflare Pages deployment",
+    "origin": "https://2c4746f7.laidies-sunnyvaile.pages.dev",
+    "verifiedAt": "2026-09-15T04:04:59.049Z",
+    "manifest": "operations/live-user-journeys-20260914/community-integration/live-base-verification/manifest.json",
+    "capturedPaths": 12,
+    "additiveModules404": [
+      "content/site/community-account-ui.mjs",
+      "content/site/community-account.css",
+      "content/site/community-return.mjs",
+      "content/site/community-session.mjs"
+    ],
+    "sha256": {
+      "content/site/community-room.js": "2fde056a7e152c4f856a5b0061faa029c8f7864fcdb911c97e5048f44d3a8ecf",
+      "content/site/resident-account-page-v1.js": "f89867eafcbaad00efcaa66807ad44ec63b01cf01f6124f62d24276339c16032",
+      "content/site/sorority-house-v2.js": "9ab4140c47afbaf622c5b4de312109f602be20bc40d42ac92a05e3e5cbd686ba",
+      "community/ask-the-room.html": "92f05a8ad78b666f698b7d287bc36f25092b05095e913b1f7ceab44c54696f41",
+      "community/burn-book.html": "a0dacc1dcd36bcb712e2d8f07fe63da33be6260be514b1b48e3f0d05efa1f9f0",
+      "community/dear-laidies.html": "0fc7bf02bb228c724e367d3151ab67f452a76878f2b2e6a9870b715d389ffa7d",
+      "community/mix-cd-exchange.html": "0348df88c8a6150457d80bdc9d3d569603335caa442cdb394c884995b5092801",
+      "community/send-it-energy.html": "a72d61b61ae8cbcc84b78eb458f7633a2eefffb7b442bc2ee3d31b325794a58b",
+      "community/try-on-debrief.html": "d648148d9deb5463ae90f02c43ffe8a213af56c4110e84a50a4bf1066f31e58a",
+      "community/wins.html": "b8ea78bf077c41d6d8c75cd4441e4ef039485a4e81a61b4b6cb603c4cd46453e",
+      "resident-card.html": "02c9f1b13ea2409bfb2df39ead6d0268c4a05effae0d8843a287f7ca502c034a",
+      "sorority-house.html": "83ef992da4fc9831cbe2842e875e8a444b4f942b3426c86f61b44cf5b5d8c902"
+    }
+  },
+  "candidate": {
+    "commit": "08fbb77253d81314457890f9a1316500a71d2922",
+    "source": "/Users/alisoneakin/Projects/laidies-community-signin-20260907",
+    "baseParent": "08fbb77253d81314457890f9a1316500a71d2922^",
+    "method": "three-way candidate delta applied to verified immutable bytes; additive modules copied exactly from candidate"
+  },
+  "integratedSha256": {
+    "content/site/community-account-ui.mjs": "5f29ee28ef16bb94d5d891c3f82105f5f19c25146745829e89046bac40a8437b",
+    "content/site/community-account.css": "b065462ba6c7a10ea73f0de3748961796b86ba96b1ce41b70f924f96b5055bb5",
+    "content/site/community-return.mjs": "d9987504f30e1cf3e48bd62b27b5b471e825d6c047ba4413db6336d4064148b4",
+    "content/site/community-session.mjs": "21667de01d549f00ee0aeb5e44cb6cfc191494a7346ba2fa2481c27e62246528",
+    "content/site/community-room.js": "b5b5304f0d8fdbaf5dad60629d08879a4397950252f5a87d2891465ff469482b",
+    "content/site/resident-account-page-v1.js": "94c5ef55e4a900d41c0d707729e50610b6b9a1da56d05f0fe336df59dd37baf8",
+    "content/site/sorority-house-v2.js": "4e151bc00d8c916f17178b1990af5b283dd7e28d267a860a2613ca9be8141d11",
+    "community/ask-the-room.html": "989f067a762426a9f149f0829b9bebffbb2fbb30aa63eb88db0d9794f8494ba3",
+    "community/burn-book.html": "1cfb1dfd753ee9fb63182cfb922aa6af92f1f56ff1ed6bbb043061d47f607a22",
+    "community/dear-laidies.html": "9153a80c8ce2532cd1c11c285aae088bf67220f779ec3c1f30b43c9b04e42454",
+    "community/mix-cd-exchange.html": "50442a09a64b79705b461f10b540b5e7b8e179c143fced4943f00a8babf7c353",
+    "community/send-it-energy.html": "1a52c199d250d5d8f2ddf6519341c508d5474a278fb6c7c5e5ad13323899e1e7",
+    "community/try-on-debrief.html": "166d85c1daa0b30c57e03eafd60943bd1280e111318289f35a240d7653fb0b56",
+    "community/wins.html": "1f337594fa663dd4deb7ce6da2ed722d6f49548a59fa83dbfbaea5cf983fa018",
+    "resident-card.html": "fbe353759990636e8cbfbfaae5d306c775735eed6e3084d3ddb9fec342979c2a",
+    "sorority-house.html": "da542d9f3a928948d74434c31af779870e1cbc9f0084ddc32b270b1b5019dc81"
+  },
+  "publicProse": {
+    "status": "REUSED_CANDIDATE_ONLY",
+    "inventory": [
+      "Seven room status paragraphs replace separate Hyvor sign-in wording with existing Resident account wording.",
+      "Burn Book boundary sentence replaces optional Hyvor sign-in wording with existing Resident sign-in wording.",
+      "Sorority House description, account labels and boundary text use exact candidate wording."
+    ],
+    "newProse": false
+  },
+  "preservation": {
+    "verifiedImmutableBaseline": true,
+    "currentHeaderCacheReferencesRetained": true,
+    "residentAccountCacheVersion": "resident-account-page-v1.js?v=20260914-community-sso-1",
+    "reason": "required to load the SSO-return-aware account script instead of a cached live script",
+    "workerTouched": false,
+    "providerTouched": false,
+    "releaseTouched": false
+  },
+  "verification": {
+    "nodeSyntax": "PASS",
+    "tests": "23/23 node --test (includes immutable manifest byte bindings and cache revision)",
+    "browser": "NOT_RUN: requested scope excludes public browser mutation",
+    "actualProvider": "NOT_RUN: SSO remains disabled pending paired cutover",
+    "diffCheck": "PASS"
+  },
+  "knownGaps": [
+    "Real provider SSO acceptance, email callback/return, retained-comment continuity and provider logout remain required before production."
+  ]
+}

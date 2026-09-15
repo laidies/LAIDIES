@@ -16,7 +16,7 @@
 
   var FIXTURE_ID = "sorority-community-p0-1";
   var LOCAL_HOST = /^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/i;
-  var APPROVED_HOST = /^(?:(?:www\.)?laidies\.ai|community-resident-signin\.laidies-sunnyvaile\.pages\.dev)$/i;
+  var APPROVED_HOST = /^(www\.)?laidies\.ai$/i;
   var PROVIDER_SRC = "https://talk.hyvor.com/embed/embed.js";
   var providerPromise = null;
 
@@ -46,8 +46,8 @@
         body: "This copy of the page is not an approved LAiDIES community host, so the external provider was not contacted."
       },
       "signed-out": {
-        title: "Sign in with your LAiDIES Resident account to participate.",
-        body: "Use the same LAiDIES sign-in you use elsewhere in town. Opening or signing in does not prove a comment was submitted, published or moderated."
+        title: "Hyvor sign-in is required to participate.",
+        body: "Reading availability and sign-in are controlled by Hyvor. Opening or signing in does not prove a comment was submitted, published or moderated."
       },
       held: {
         title: "A contribution may be held by the provider.",
@@ -55,11 +55,11 @@
       },
       loading: {
         title: "Loading the external discussion…",
-        body: "LAiDIES provides your sign-in; Hyvor hosts comments and moderation. A visible frame is not a receipt that any contribution was accepted."
+        body: "Hyvor controls sign-in, submission, publication and moderation. A visible frame is not a receipt that any contribution was accepted."
       },
       ready: {
         title: "External discussion frame available.",
-        body: "LAiDIES provides your sign-in; Hyvor hosts comments and moderation. LAiDIES cannot confirm a post, review, reply or moderation outcome from this page."
+        body: "Hyvor controls sign-in, submission, publication and moderation. LAiDIES cannot confirm a post, review, reply or moderation outcome from this page."
       }
     };
     return copies[state] || copies.unavailable;
@@ -94,11 +94,14 @@
     root.querySelectorAll("hyvor-talk-comments").forEach(function (node) {
       node.remove();
     });
-
+    document
+      .querySelectorAll('script[src*="talk.hyvor.com/embed/embed.js"]')
+      .forEach(function (node) {
+        node.remove();
+      });
   }
 
   function loadProviderScript() {
-    if (window.customElements && window.customElements.get("hyvor-talk-comments")) return Promise.resolve();
     if (providerPromise) return providerPromise;
     providerPromise = new Promise(function (resolve, reject) {
       var existing = document.querySelector('script[data-community-hyvor="true"]');
@@ -113,38 +116,63 @@
       script.src = PROVIDER_SRC;
       script.dataset.communityHyvor = "true";
       script.addEventListener("load", resolve, { once: true });
-      script.addEventListener("error", function (error) { providerPromise = null; script.remove(); reject(error); }, { once: true });
+      script.addEventListener("error", reject, { once: true });
       document.head.appendChild(script);
     });
     return providerPromise;
   }
 
-  async function mount(options) {
+  function mount(options) {
     var mountNode = options && options.mount;
     var pageId = options && options.pageId;
     var roomHref = (options && options.roomHref) || "";
     if (!mountNode || !pageId) return;
-    var version = (mountNode.communityMountVersion || 0) + 1;
-    mountNode.communityMountVersion = version;
-    var current = function () { return mountNode.isConnected && mountNode.communityMountVersion === version; };
-    if (mountNode.communityAccount) {
-      var clean = await mountNode.communityAccount.dispose();
-      if (!current()) return;
-      if (!clean) { mountNode.innerHTML = boundaryMarkup("unavailable", roomHref); return; }
-    }
+
     removeProviderNodes(mountNode);
     var state = fixtureState();
     if (!state && LOCAL_HOST.test(window.location.hostname)) state = "local-preview";
-    if (!state && !APPROVED_HOST.test(window.location.hostname)) state = "unsupported-host";
-    if (state) { mountNode.innerHTML = boundaryMarkup(state, roomHref); return; }
-    mountNode.innerHTML = boundaryMarkup("loading", roomHref);
-    try {
-      var account = await import("/content/site/community-account-ui.mjs");
-      if (!current()) return;
-      await account.mountCommunity({ mount: mountNode, pageId: pageId, loadProvider: loadProviderScript, isCurrent: current });
-    } catch (_) {
-      if (current()) mountNode.innerHTML = boundaryMarkup("unavailable", roomHref);
+    if (!state && !APPROVED_HOST.test(window.location.hostname)) {
+      state = "unsupported-host";
     }
+    if (state) {
+      mountNode.innerHTML = boundaryMarkup(state, roomHref);
+      return;
+    }
+
+    mountNode.innerHTML = boundaryMarkup("loading", roomHref);
+    var comments = document.createElement("hyvor-talk-comments");
+    comments.setAttribute("website-id", "15519");
+    comments.setAttribute("page-id", pageId);
+    mountNode.appendChild(comments);
+
+    var settled = false;
+    var unavailableTimer = window.setTimeout(function () {
+      if (settled) return;
+      settled = true;
+      removeProviderNodes(mountNode);
+      mountNode.innerHTML = boundaryMarkup("unavailable", roomHref);
+    }, 10000);
+
+    loadProviderScript()
+      .then(function () {
+        return window.customElements
+          ? window.customElements.whenDefined("hyvor-talk-comments")
+          : Promise.resolve();
+      })
+      .then(function () {
+        if (settled) return;
+        settled = true;
+        window.clearTimeout(unavailableTimer);
+        var status = mountNode.querySelector("[data-community-state]");
+        if (status) status.outerHTML = boundaryMarkup("ready", roomHref);
+      })
+      .catch(function () {
+        if (settled) return;
+        settled = true;
+        window.clearTimeout(unavailableTimer);
+        removeProviderNodes(mountNode);
+        mountNode.innerHTML = boundaryMarkup("unavailable", roomHref);
+      });
   }
 
   function bindReturnNavigation() {

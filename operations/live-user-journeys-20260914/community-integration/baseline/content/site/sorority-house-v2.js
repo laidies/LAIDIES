@@ -140,14 +140,14 @@
 
     if (hasLocalCard) {
       title.textContent = "Welcome back" + (handle ? ", @" + handle : "") + ".";
-      body.textContent = "This device remembers your Resident Card. Sign in with your LAiDIES account to join a conversation. Every room is open to explore.";
-      if (residentState) residentState.textContent = "Resident Card on this device";
-      if (doorState) doorState.textContent = "Explore the rooms · join with LAiDIES";
+      body.textContent = "This device remembers your local Resident Card. It is not a Hyvor sign-in or cross-device community identity. Every room is still open to explore.";
+      if (residentState) residentState.textContent = "Local card on this device · not community sign-in";
+      if (doorState) doorState.textContent = "Rooms discoverable · Hyvor controls participation";
     } else {
       title.textContent = "Come in and look around.";
-      body.textContent = "Every wing and room is open to explore. Use your LAiDIES Resident sign-in to join the conversations, hosted by Hyvor.";
-      if (residentState) residentState.textContent = "Visitors welcome";
-      if (doorState) doorState.textContent = "One LAiDIES sign-in to join";
+      body.textContent = "Every wing and room is discoverable. Discussion is hosted by Hyvor, which controls its own sign-in, publication and moderation.";
+      if (residentState) residentState.textContent = "No community identity assumed";
+      if (doorState) doorState.textContent = "Rooms discoverable · external participation separate";
     }
   }
 
