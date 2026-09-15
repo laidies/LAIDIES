@@ -1,0 +1,70 @@
+{
+  "schema": "laidies.radio-history-return-independent-review.v1",
+  "reviewedAt": "2026-09-14T22:55:00-07:00",
+  "verdict": "PASS_PRIVATE_CANDIDATES",
+  "baseline": {
+    "player": {
+      "path": "operations/live-user-journeys-20260914/radio-navigation/history-return/live-ksvl-player.js",
+      "sha256": "e3ca6c917c12000ecbab8d4d2c46e814ba882475c52ac21f79235d3d8357d003"
+    },
+    "backNavigation": {
+      "path": "operations/live-user-journeys-20260914/radio-navigation/history-return/live-sv-back-nav.js",
+      "sha256": "5e377b8eae94fb2ca3eb9465aa0a1e547ad49e51a2c1b774cd588d62dd4a78e7"
+    }
+  },
+  "candidates": {
+    "player": {
+      "path": "operations/live-user-journeys-20260914/radio-navigation/history-return/player-candidate.js",
+      "sha256": "e7c1e77da2ff348c65ae3396461ed51fa78cf7011f41adda321d391dec3260ac"
+    },
+    "backNavigation": {
+      "path": "operations/live-user-journeys-20260914/radio-navigation/history-return/back-nav-candidate.js",
+      "sha256": "66903da0681c97686de5f73fcd2910650d352e351d8508017f334b675f78414c"
+    }
+  },
+  "lifecycleReview": {
+    "eventSource": "PASS: the back rail dispatches only after it has established a same-origin referrer and only for an unmodified primary-button history.back action; its detail is the parsed referrer pathname, not an arbitrary href.",
+    "eventValidation": "PASS for product flow: player accepts only a nonempty slash-leading pathname, normalizes it, and consumeContinuation requires it to equal the actual returned pathname. The custom event is not a security boundary against arbitrary same-page scripts.",
+    "nonBfcache": "PASS: ordinary mount already calls beginNavigationHandoff(consumeContinuation()), so the one-use handoff is handled on a full document reload.",
+    "bfcache": "PASS: persisted pageshow uses beginNavigationHandoff(consumeContinuation()). The executed harness proves a current owner consumes the original record into pending storage, retains it through ownership, and exposes that original intent once after release.",
+    "expiredFutureWrongPath": "PASS by source inspection: consumeContinuation rejects missing, expired, future, nonplaying, and destination-mismatched records, then removes the record.",
+    "wrongOrigin": "PASS for generated event path: sv-back-nav only enables internal return when refURL.origin equals location.origin. The player stores no origin because it receives only the already-validated pathname.",
+    "otherOwner": "PASS: beginNavigationHandoff follows a current owner rather than hydrating or starting local audio; it preserves pending validated intent for later release.",
+    "deliberatePause": "PASS: record state has playing false for paused/non-owned audio, and consumeContinuation refuses it; no autoplay follows a deliberate pause.",
+    "nativeBack": "PASS: a browser-native Back action does not dispatch the custom return event. An existing forward-navigation record targets the forward destination and fails the returned-path comparison, leaving restoration paused."
+  },
+  "validation": {
+    "syntax": "PASS",
+    "test": {
+      "path": "operations/live-user-journeys-20260914/radio-navigation/history-return/history-return.test.mjs",
+      "sha256": "05f17e83a1cead28cc7bd49b7d7b029cbc8aad8142270ca93456a665a286c378",
+      "result": "PASS",
+      "cases": 7
+    }
+  },
+  "inventoryVerification": {
+    "path": "operations/live-user-journeys-20260914/history-return/cache-inventory.json",
+    "result": "PASS_NO_CORRECTION_NEEDED",
+    "actualTextFilesScanned": 171,
+    "fullManifest": "/private/tmp/laidies-radio-followers-20260915-qXtSmr/candidate-manifest.json",
+    "note": "The earlier chat summary saying 300 was wrong. The evidence file already correctly records 171: 92 HTML, 79 JS, and 1 MJS public text asset."
+  },
+  "notPerformed": [
+    "No public source integration, commit, deployment, or browser exercise."
+  ],
+  "cacheReview": {
+    "result": "PASS",
+    "manifest": "operations/live-user-journeys-20260914/radio-navigation/history-return/cache-refresh/manifest.json",
+    "baselineDirectory": "operations/live-user-journeys-20260914/radio-navigation/history-return/cache-refresh/baseline",
+    "overlayDirectory": "operations/live-user-journeys-20260914/radio-navigation/history-return/cache-refresh/overlay",
+    "production": {
+      "deployment": "cbfee731-af06-4944-a35e-6e7a7841c8b2",
+      "immutableOrigin": "https://cbfee731.laidies-sunnyvaile.pages.dev",
+      "fullManifest": "/private/tmp/laidies-radio-followers-20260915-qXtSmr/candidate-manifest.json",
+      "identitySha256": "93bd7edb353d680423c001ef49bbf3bad92165a3434ea739f7166ae1a96e1cba"
+    },
+    "paths": 84,
+    "targetUrlReplacements": 175,
+    "verification": "PASS: re-fetched every immutable route and matched it to both captured baseline bytes and full-manifest SHA. For every overlay, applied its declared before\u2192after URL substitutions to the baseline and obtained byte-for-byte equality; overlay SHA and byte count matched. The 84 manifest paths equal the corrected actual-reference inventory."
+  }
+}

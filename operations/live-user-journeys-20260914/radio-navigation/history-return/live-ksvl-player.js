@@ -1834,20 +1834,6 @@
   }
 
   function bindPersistenceHooks() {
-    function recordNavigationContinuation(pathname) {
-      if (typeof pathname !== 'string' || !pathname || pathname.indexOf('/') !== 0) return;
-      try {
-        sessionStorage.setItem(NAV_KEY, JSON.stringify({
-          at: Date.now(), to: normalPath(pathname), playing: ownsAudio && !!state.audio && !state.paused
-        }));
-      } catch (e) { reportStorageLimit(); }
-    }
-    // The shared return rail uses history.back(), so its prevented anchor click
-    // cannot reach the ordinary document link listener below.
-    window.addEventListener('laidies:ksvl-history-return', function(event) {
-      recordNavigationContinuation(event && event.detail && event.detail.pathname);
-      saveState();
-    });
     // Save aggressively — the exact unload event varies by browser + platform.
     window.addEventListener('beforeunload', saveState);
     document.addEventListener('click', function(event) {
@@ -1856,7 +1842,7 @@
           link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
       var target = new URL(link.href, location.href);
       if (target.origin !== location.origin || (target.pathname === location.pathname && target.search === location.search)) return;
-      recordNavigationContinuation(target.pathname);
+      try { sessionStorage.setItem(NAV_KEY, JSON.stringify({at: Date.now(), to: normalPath(target.pathname), playing: ownsAudio && !!state.audio && !state.paused})); } catch (e) { reportStorageLimit(); }
       saveState();
     });
     window.addEventListener('pagehide', function() {
@@ -1866,7 +1852,7 @@
     window.addEventListener('pageshow', function(event) {
       if (!event.persisted) return;
       pageLeaving = false;
-      beginNavigationHandoff(consumeContinuation());
+      if (!followOwner()) hydrateFromStorage(false);
     });
     document.addEventListener('visibilitychange', function() {
       if (document.visibilityState === 'hidden') {

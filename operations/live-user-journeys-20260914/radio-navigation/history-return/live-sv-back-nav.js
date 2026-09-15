@@ -199,9 +199,6 @@
     a.addEventListener('click', function (e) {
       if (hasInternalReturn && history.length > 1 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
         e.preventDefault();
-        // Tell an already-mounted player about this specific history destination
-        // before returning through bfcache; ordinary links use its click listener.
-        try { window.dispatchEvent(new CustomEvent('laidies:ksvl-history-return', {detail: {pathname: refURL.pathname}})); } catch (error) {}
         history.back();
       }
     });

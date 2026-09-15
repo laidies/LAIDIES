@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-09-15T05:58:22.832Z",
+  "candidatePlayer": "e7c1e77da2ff348c65ae3396461ed51fa78cf7011f41adda321d391dec3260ac",
+  "candidateBackNav": "66903da0681c97686de5f73fcd2910650d352e351d8508017f334b675f78414c",
+  "testOrigin": "http://127.0.0.1:4333",
+  "desktop": {
+    "forward": "Radio0:19 toLibrary0:24",
+    "historyReturn": "Radio stillplaying0:34",
+    "deliberatePause": "Pausedreturn0:35",
+    "result": "PASS"
+  },
+  "phone": {
+    "width": 390,
+    "scrollWidth": 390,
+    "roundTrip": "Radio LIBRAiRY toLibrary BacktoKSVL toRadio; Nowlistening onbothreceivers",
+    "result": "PASS",
+    "metricsCleared": true
+  },
+  "transport": {
+    "initialPreviewFailure": "Immutableaudioorigin ignoredRange and playposition reset duringseek",
+    "rangeProbe": {
+      "request": "bytes=100000-100100",
+      "immutable": {
+        "status": 200,
+        "bytes": 5004460
+      },
+      "customDomain": {
+        "status": 206,
+        "bytes": 101,
+        "contentRange": "bytes 100000-100100/5004460"
+      }
+    },
+    "correctedPreview": "CandidateJS andimmutableHTML with Range-forwarded laidies.ai MP3",
+    "audioSha256": "16001caf14d9a7945854a8231a2d819dc5d83947725192e1bae494326697e514",
+    "audioMatchesFullManifest": true
+  },
+  "cleanup": "Allownedhistorytesttabsclosed; browsermetricscleared",
+  "limits": [
+    "Localcandidateacceptance; publicverificationstillrequired",
+    "No forcedWebLock takeover"
+  ]
+}
