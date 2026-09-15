@@ -1,0 +1,38 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import cp from 'node:child_process';
+import assert from 'node:assert/strict';
+const root=process.cwd(), account='8597916c7f6ae726febf653c337a47d6',project='laidies-sunnyvaile';
+const expectedBase='bbd8bfef-739e-444c-804d-022d06599cc7';
+const priorPath='/private/tmp/laidies-community-production-20260915-J8BNWq/candidate-manifest.json';
+const paths=['index.html','fun-connect.html'];
+const workerSha='ac0588d23def411c62e2936121b85a8702f01ba0d3c6f4893a3b0f281b34e230';
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const identity=m=>{m.files.sort((a,b)=>a.path.localeCompare(b.path,'en'));m.fileCount=m.files.length;m.totalBytes=m.files.reduce((n,r)=>n+r.bytes,0);m.identitySha256=sha(m.files.map(r=>`${r.sha256}  ${r.path}\n`).join(''));};
+const token=fs.readFileSync('/Users/alisoneakin/Library/Preferences/.wrangler/config/default.toml','utf8').match(/oauth_token\s*=\s*"([^"]+)"/)[1];
+const api=`https://api.cloudflare.com/client/v4/accounts/${account}/pages/projects/${project}`;
+async function get(s=''){const r=await fetch(api+s,{headers:{Authorization:`Bearer ${token}`}}),j=await r.json();assert(j.success,'Provider request failed');return j.result;}
+const provider=await get(),head=provider.canonical_deployment;if(process.argv[2]==='head'){console.log(head.id);process.exit();}
+const files=(await get(`/deployments/${head.id}/files`)).files;
+if(process.argv[2]==='verify'){
+ const dir=process.argv[3];assert(dir,'Usage: verify <release-dir>');const manifest=JSON.parse(fs.readFileSync(path.join(dir,'manifest.json'))),base=JSON.parse(fs.readFileSync(path.join(dir,'base.json'))),candidate=JSON.parse(fs.readFileSync(path.join(dir,'candidate-manifest.json')));
+ const changed=Object.keys(files).filter(p=>files[p]!==base[p]).sort(),removed=Object.keys(base).filter(p=>!files[p]).sort();
+ assert.deepEqual(changed,paths.map(p=>'/'+p));assert.deepEqual(removed,[]);assert.equal(Object.keys(files).length-changed.length,manifest.preservedStaticFiles);assert.equal(sha(JSON.stringify(provider.deployment_configs.production)),manifest.productionConfigSha256,'Production configuration changed');
+ const checks=[];for(const origin of [head.url,'https://laidies.ai'])for(const p of paths){const r=await fetch(origin+'/'+p.replace(/\.html$/,'')+'?v=community-activation-prose-20260915');assert(r.ok,p+' unavailable');let b=Buffer.from(await r.arrayBuffer());if(origin==='https://laidies.ai')b=Buffer.from(b.toString().replace(/<script type="module" src="https:\/\/static\.cloudflareinsights\.com\/beacon\.min\.js[^]*?<\/script>\n/g,''));assert.equal(sha(b),candidate.files.find(x=>x.path===p).sha256,'Public bytes differ '+origin+'/'+p);checks.push({origin,path:p,sha256:sha(b)});}
+ const result={deployment:head.id,url:head.url,providerChanged:changed,removed,preservedStaticFiles:manifest.preservedStaticFiles,pagesProductionConfigUnchanged:true,controls:manifest.controls,customDomainAnalyticsNormalization:true,checks,verifiedAt:new Date().toISOString()};fs.writeFileSync(path.join(dir,'verification.json'),JSON.stringify(result,null,2));console.log(JSON.stringify({deployment:head.id,changed:changed.length,preserved:manifest.preservedStaticFiles,checks:checks.length}));process.exit();
+}
+assert.equal(head.id,expectedBase,'Production advanced; reconcile before release');
+const prior=JSON.parse(fs.readFileSync(priorPath));assert.equal(prior.baseDeploymentId,'d3c44d5a-2a8c-4923-9de2-f0a2dc9928b9');assert.equal(prior.identitySha256,'bf03adef3e4dcd20519122a5100fdcad50a5571e1e37ebe1a60deb239434201f');
+const base=structuredClone(prior);base.baseDeploymentId=head.id;base.artifactDirectory=head.url;
+for(const p of paths){const row=base.files.find(x=>x.path===p);assert(row,'Prior manifest lacks '+p);const r=await fetch(head.url+'/'+p);assert(r.ok,p+' immutable baseline unavailable');const b=Buffer.from(await r.arrayBuffer());assert.equal(sha(b),row.sha256,'Immutable baseline drift '+p);}
+const workerRow=base.files.find(x=>x.path==='_worker.js'),redirectRow=base.files.find(x=>x.path==='_redirects');assert.equal(workerRow.sha256,workerSha);assert(redirectRow);
+const priorStage=path.join(path.dirname(priorPath),'stage'),worker=fs.readFileSync(path.join(priorStage,'_worker.js')),redirects=fs.readFileSync(path.join(priorStage,'_redirects'));assert.equal(sha(worker),workerSha);assert.equal(sha(redirects),redirectRow.sha256);identity(base);assert.equal(base.identitySha256,prior.identitySha256);
+const source=cp.execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),candidate=structuredClone(base),dir=fs.mkdtempSync('/private/tmp/laidies-activation-prose-20260915-'),stage=path.join(dir,'stage');fs.mkdirSync(stage);
+const delta=[];for(const p of paths){const committed=Buffer.from(cp.execFileSync('git',['show',`${source}:${p}`])),b=fs.readFileSync(path.join(root,p));assert.equal(sha(b),sha(committed),'Working source must equal committed '+p);fs.writeFileSync(path.join(stage,p),b);const before=base.files.find(x=>x.path===p),row={path:p,bytes:b.length,sha256:sha(b)};Object.assign(candidate.files.find(x=>x.path===p),row);delta.push({path:p,operation:'MODIFY',baseSha256:before.sha256,candidateSha256:row.sha256,bytes:row.bytes});}
+fs.writeFileSync(path.join(stage,'_worker.js'),worker);fs.writeFileSync(path.join(stage,'_redirects'),redirects);candidate.artifactDirectory=stage;candidate.createdAt=new Date().toISOString();identity(candidate);
+const preserve={...files};for(const p of paths)delete preserve['/'+p];assert.equal(Object.keys(preserve).length,815);
+const controls={worker:sha(worker),redirects:sha(redirects)},scope={schema:'laidies.production-scope.v2',project,productionBranch:'homepage-redesign',baseCommit:'c0be4203d963ab63fb2895eaa8763f4c54d88ba3',baseArtifactIdentitySha256:base.identitySha256,candidateArtifactIdentitySha256:candidate.identitySha256,allowedChanges:delta,preservedPaths:base.files.filter(x=>!paths.includes(x.path)).map(x=>({path:x.path,sha256:x.sha256})),verificationPaths:paths,removedPaths:[]};
+const authority={schema:'laidies.production-release-authority.v2',sourceCommit:source,baseCommit:'c0be4203d963ab63fb2895eaa8763f4c54d88ba3',artifactIdentitySha256:candidate.identitySha256,authority:'ali-standing-authorization-2026-09-12',task:'Repair four admitted community invitations in index.html and fun-connect.html so they name the existing LAiDIES Resident sign-in, optional Resident Card, and Hyvor’s public-room role. Preserve all other provider artifacts, reviewed Worker and redirects.',executedBy:'/root/release_discovery',newMonetaryCost:false,costBasis:'Existing authenticated Cloudflare Pages deployment; no purchase, service, AI call, plan change, or new credential.',decision:'RELEASE_UNDER_STANDING_AUTHORITY',publicUrl:'https://laidies.ai/',recordedAt:new Date().toISOString(),confirmation:`RELEASE ${candidate.identitySha256} FOR PRODUCTION`,providerBase:head.id,releaseDirectory:dir};
+const manifest={base:head.id,source,stage,delta,controls,preservedStaticFiles:815,productionConfigSha256:sha(JSON.stringify(provider.deployment_configs.production)),providerGuard:{expectedBase,priorIdentitySha256:prior.identitySha256,workerSha},admission:{path:'operations/live-user-journeys-20260914/community-integration/activation-prose/validation-root/independent-review.json',verdict:'PASS'}};
+for(const [name,value]of Object.entries({'base.json':files,'preserve.json':preserve,'base-manifest.json':base,'candidate-manifest.json':candidate,'scope.json':scope,'manifest.json':manifest,'release-authority.json':authority}))fs.writeFileSync(path.join(dir,name),JSON.stringify(value,null,2));console.log(dir);
