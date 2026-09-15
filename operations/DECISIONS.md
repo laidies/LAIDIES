@@ -379,3 +379,7 @@ Ali also requested a small rotating “Did you know?” banner directly under th
 
 ## 2026-09-08 — KSVL booth permanently retired
 Ali rejects the dark-wood/cottagecore KSVL booth family. The governing paths, hashes, retained sticker collage and no-reselection rule are in `operations/homepage-decisions-20260827.md` (2026-09-08 retirement) and `operations/assets/active-asset-registry.json`. Retirement overrides any stale ACTIVE selection. Historical episode maps remain evidence only and cannot authorize reuse.
+
+## 2026-09-14 — Independent live review proceeds to working public experiences
+
+Ali's direct ruling in task01a0a2ff-4231-77f2-ade2-a0568467d91e: “as much as possible i don't want coming soon, i want us to fix it so its live and up to date.” Carry the ranked live audit into bounded, complete public repairs. Complete real capability rather than replacing gaps with placeholder copy. Preserve current approved work and verify actual visitor journeys. This authorization does not make missing functionality complete or waive required quality evidence. Delivery record: `operations/live-user-journeys-20260914/TASK.md`.
