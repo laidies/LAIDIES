@@ -34,3 +34,6 @@ Production is now 21eb9750-6b17-423e-a880-3986dcf3de7e. Use /private/tmp/laidies
 
 ## Current community candidate after Resident Card correction
 Reconciled to production f3eb0db3-2020-4174-82c7-2bf0f535dea4 using /private/tmp/laidies-public-note-20260915-IeKIMa/candidate-manifest.json. Current assembler guard, archive and public-note-rebase evidence match. All12 existing immutable baselines match;4 additive paths remain404. Nine receiving HTML files retain current20260915-history-return-1 header/player references, and the combined Resident candidate retains the public note deletion. Guarded local assembly /private/tmp/laidies-community-preview-20260915-v6A71m passes with16 frontend delta paths and reviewed community Worker. No new preview or production community activation occurred. Public-name choice remains pending; do not repeat sign-in or mutate the profile to evade it.
+
+
+September15 unlocked-Mac checkpoint: production now d3c44d5a-2a8c-4923-9de2-f0a2dc9928b9. Reconcile current full provider manifest before deploying community; do not reuse f3eb as current. Public-name choice still pending. Radio existing-session desktop/390px remote-owner journeys now pass; evidence in ../radio-navigation/unlocked-mac-verification.json.

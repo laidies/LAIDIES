@@ -1,0 +1,31 @@
+{
+  "verifiedAt": "2026-09-15T15:24:52.956389+00:00",
+  "publicOrigin": "https://laidies.ai",
+  "currentDeployment": "d3c44d5a-2a8c-4923-9de2-f0a2dc9928b9",
+  "playerSha256": "e7c1e77da2ff348c65ae3396461ed51fa78cf7011f41adda321d391dec3260ac",
+  "backNavSha256": "66903da0681c97686de5f73fcd2910650d352e351d8508017f334b675f78414c",
+  "sourceChecks": "Both public scripts return200 and equal reviewed local source.",
+  "owner": {
+    "browserProfile": "Chrome LAIDIES",
+    "page": "/newsstand#chatgpt-pets-20260913",
+    "evidence": "Native Chrome marks the selected NewsStand tab Audio playing; fresh Radio reports another town tab playing; final native NewsStand reports paused1:25.",
+    "loadedOwnerScriptVersion": "Not inspected; do not infer it."
+  },
+  "desktop": {
+    "resume": "Remote Resume changes paused0:24 to playing; observed0:30",
+    "library": "Playing0:39",
+    "sharedBack": "Playing0:44",
+    "deliberatePause": "Pause at1:06; forward and back retain Resume"
+  },
+  "phone": {
+    "width": 390,
+    "scrollWidth": 390,
+    "journey": "Resume, LIBRAiRY, shared Back to KSVL RAiDIO all retain playing status. Expanded player shows1:25.",
+    "cleanup": "Emulation cleared; task Radio tab closed; existing NewsStand player confirmed paused1:25; no user tab closed."
+  },
+  "limitations": [
+    "Physical phone and subjective audible output not tested.",
+    "No claim of exact causal mechanism for lock-screen/background throttling.",
+    "No community name or profile mutation; no SSO activation; no deployment this turn."
+  ]
+}
