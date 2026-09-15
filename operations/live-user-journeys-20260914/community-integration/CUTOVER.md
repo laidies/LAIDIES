@@ -18,3 +18,6 @@ If the paired activation fails, turn Hyvor SSO off, restore prior guest setting,
 
 ## Limits
 The broader goal stays ACTIVE. Main-domain radio ownership failure still needs an independent browser test; the Mac was locked and automatic unlock failed. The immutable deployment's desktop/phone radio journeys pass. Do not describe all listening or community work as publicly verified.
+
+## Production base advanced after preview
+Independent Activities release eef9ed0c-8ad6-410c-9c41-5ce0ea3d2c78 is live and verified. Its full current manifest is /private/tmp/laidies-fun-route-20260915-mkDbDz/candidate-manifest.json. Existing prepare-community-preview.mjs intentionally still rejects a production head other than e431; reconcile the current base before running it again or assembling production. Preserve the new fun-connect.html bytes. At community activation, review/update the now-obsolete separate-sign-in descriptions on Fun Connect, homepage activities and Girl Talk equivalent surfaces, with current teaching admission, after actual SSO acceptance.
