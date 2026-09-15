@@ -14,7 +14,7 @@
     "artifactFirst": true
   },
   "reviewMode": "EXACT_PROSE_IN_FULL",
-  "reviewedAt": "2026-09-15T05:33:00.000Z",
+  "reviewedAt": "2026-09-15T18:03:38.024Z",
   "artifact": {
     "reviewText": {
       "path": "content/review-text.json",
@@ -28,7 +28,7 @@
   "calibration": {
     "registrySha256": "e02cfa8221ae19b2121f7628cd3d04f66988bdec9938b23993ab29e3a0da98de",
     "reviewerPrincipalId": "root",
-    "reviewedAt": "2026-09-15T05:32:30.000Z",
+    "reviewedAt": "2026-09-15T04:48:30.432022+00:00",
     "negatives": [
       {
         "exemplarId": "CQX-BAD-001",
@@ -99,6 +99,12 @@
           "locator": "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json CQX-GOOD-INVITATION-ALI-001"
         }
       ]
+    },
+    "reusedCalibration": {
+      "status": "REUSED_VALID_CALIBRATION",
+      "sourceCandidateId": "COMMUNITY-RESIDENT-ROOM-SIGNIN-20260914",
+      "sourceReviewPath": "operations/live-user-journeys-20260914/community-integration/prose-admission/validation-root/independent-review.json",
+      "reason": "The same current copied registry and all three negative exemplars are unchanged. Root independently reviewed the four exact candidate strings at the current reviewedAt time; this record does not claim a new negative-exemplar calibration at that earlier time."
     }
   },
   "reverseBrief": {
@@ -426,5 +432,10 @@
   "limitations": [
     "Root reviewed the exact four strings as accurate for scope, optional Card status, and the existing Resident sign-in.",
     "No public deployment or live browser verification is claimed by this admission record."
-  ]
+  ],
+  "reviewBasis": {
+    "actualRootReview": "Root independently reviewed the four exact candidate strings and passed accurate scope, optional Resident Card wording, and the existing LAiDIES Resident sign-in/Hyvor statements.",
+    "reviewedArtifactHash": "5643f3a92fd95550a71b477a8b16237b64bccca967f99e96b488fb0158f85bea",
+    "hashChangeExplanation": "The review-text hash changed from faf32c8a… to 5643f3a9… only because integration metadata changed status, publicEditsApplied, and provenance.integration after the exact four reviewed strings were applied. The four before/after strings are unchanged."
+  }
 }
