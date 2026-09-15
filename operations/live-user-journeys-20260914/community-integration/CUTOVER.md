@@ -30,3 +30,7 @@ Currentproduction is cbfee731-af06-4944-a35e-6e7a7841c8b2; fullmanifest /private
 
 ## Current production after history-return repair
 Production is now 21eb9750-6b17-423e-a880-3986dcf3de7e. Use /private/tmp/laidies-radio-history-20260915-OiDUKK/candidate-manifest.json as the full current baseline after rechecking provider head. Reconcile the nine community/account/house HTML files to the current header, player and back-nav references (20260915-history-return-1); preserve the Activities correction and both radio repairs. The old eef assembly guard should stop until this rebase is complete. Public-name selection and actual Hyvor identity acceptance remain pending.
+
+
+## Current community candidate after Resident Card correction
+Reconciled to production f3eb0db3-2020-4174-82c7-2bf0f535dea4 using /private/tmp/laidies-public-note-20260915-IeKIMa/candidate-manifest.json. Current assembler guard, archive and public-note-rebase evidence match. All12 existing immutable baselines match;4 additive paths remain404. Nine receiving HTML files retain current20260915-history-return-1 header/player references, and the combined Resident candidate retains the public note deletion. Guarded local assembly /private/tmp/laidies-community-preview-20260915-v6A71m passes with16 frontend delta paths and reviewed community Worker. No new preview or production community activation occurred. Public-name choice remains pending; do not repeat sign-in or mutate the profile to evade it.
