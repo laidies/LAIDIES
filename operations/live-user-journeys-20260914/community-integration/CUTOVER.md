@@ -24,3 +24,6 @@ Independent Activities release eef9ed0c-8ad6-410c-9c41-5ce0ea3d2c78 is live and 
 
 ## eef9 reconciliation complete
 The current prepare-community-preview script now binds eef9 and activities-rebase/rebase-evidence.json;12 existing immutable baselines and4 absent additions verified. Local assembly passed at /private/tmp/laidies-community-preview-20260915-1OpxDh. No community runtime bytes changed and no additional preview deployed. If the next radio repair advances production, recheck/reconcile again before activation.
+
+## Radio follower release advanced production
+Currentproduction is cbfee731-af06-4944-a35e-6e7a7841c8b2; fullmanifest /private/tmp/laidies-radio-followers-20260915-qXtSmr/candidate-manifest.json. Existing eefguard willstop asintended. Reconcile currentnine community/account/houseHTML cachetokens to20260915-passive-follower-1 beforeanotherpreview orproductionassembly. Preserve the Activities correction andnewplayer. The publicdisplay-namechoice isstillpending.
