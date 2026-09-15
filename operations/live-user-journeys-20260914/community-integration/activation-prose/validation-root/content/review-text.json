@@ -1,0 +1,52 @@
+{
+  "schema": "laidies.activation-prose-review-text.v1",
+  "status": "INTEGRATED_PENDING_RELEASE",
+  "provenance": {
+    "rule": "Each before string was fetched from the named immutable deployment. Each after string is newly drafted, constrained by the admitted community room single Resident sign-in and Hyvor-hosting/moderation copy; no public source file was edited.",
+    "approvedCommunityContract": {
+      "path": "operations/community-room-design-decisions.md",
+      "sha256": "d8103ddeaeff63e2c95eccf9a4f77d3d95b75ad7308741057f7133de97c215a4"
+    },
+    "integration": "Exact four admitted strings were applied only to index.html and fun-connect.html after fresh bbd8bfef immutable-baseline verification."
+  },
+  "scope": {
+    "allowedPublicFiles": [
+      "index.html",
+      "fun-connect.html"
+    ],
+    "excludedPublicFiles": [
+      "games/girl-talk.html"
+    ],
+    "publicEditsApplied": true
+  },
+  "changes": [
+    {
+      "file": "index.html",
+      "locator": "line 1417, Girl Talk activity paragraph",
+      "before": "Truth or dare for LAiDIES, with optional community-room inspiration. Open to browse; live conversation uses Hyvor’s separate sign-in when available.",
+      "after": "Truth or dare for LAiDIES, with optional community-room inspiration. Open to browse; use your LAiDIES Resident sign-in to join a conversation. Hyvor hosts and moderates comments."
+    },
+    {
+      "file": "fun-connect.html",
+      "locator": "line 65, Delta LAi Nu community introduction",
+      "before": "Ask a question, share what worked, debrief a Try-On, celebrate a win or trade a little cultural memory. Browse the house first; joining a live conversation uses the community service’s separate sign-in when it is available.",
+      "after": "Ask a question, share what worked, debrief a Try-On, celebrate a win or trade a little cultural memory. Browse the house first; use your LAiDIES Resident sign-in to join a conversation. Hyvor hosts and moderates comments."
+    },
+    {
+      "file": "fun-connect.html",
+      "locator": "line 66, Delta LAi Nu introduction",
+      "before": "The house brings the community rooms, Girl Talk and your Closet together in one place. A Resident Card is your local town ID; it is not a community login.",
+      "after": "The house brings the community rooms, Girl Talk and your Closet together in one place. A Resident Card is optional."
+    },
+    {
+      "file": "fun-connect.html",
+      "locator": "line 78, community boundary",
+      "before": "Community boundary: Room publication, moderation and sign-in belong to the community service. Opening a room does not guarantee that posting is currently available.",
+      "after": "Community boundary: Community rooms are public. Hyvor hosts and moderates comments; use its reporting controls for a comment that needs attention."
+    }
+  ],
+  "liveEvidence": {
+    "path": "content/live-evidence.json",
+    "sha256": "d4e44965bc652eba37867d2476e374fa60d1d29b188c7e3cc1076bdc4dc1aff3"
+  }
+}

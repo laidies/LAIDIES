@@ -1,0 +1,430 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "COMMUNITY-ACTIVATION-SINGLE-RESIDENT-SIGNIN-20260915",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "MICROCOPY",
+  "surface": "Homepage Girl Talk activity and Fun Connect community invitations",
+  "maker": "release_discovery",
+  "reviewer": {
+    "id": "root-astra-activation-prose-review",
+    "principalId": "root",
+    "role": "independent semantic reviewer",
+    "modelFamily": "gpt-6-astra",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-15T05:33:00.000Z",
+  "artifact": {
+    "reviewText": {
+      "path": "content/review-text.json",
+      "sha256": "5643f3a92fd95550a71b477a8b16237b64bccca967f99e96b488fb0158f85bea"
+    },
+    "manifest": {
+      "path": "content/manifest.json",
+      "sha256": "3cdfa5edffdd9af58be6bf3ffc422207f12544a7e8794cc63af5f5e7efed423f"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e02cfa8221ae19b2121f7628cd3d04f66988bdec9938b23993ab29e3a0da98de",
+    "reviewerPrincipalId": "root",
+    "reviewedAt": "2026-09-15T05:32:30.000Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "You ask an AI product to compare",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "The article had sourced facts",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/front-paige-data-centre-policy-memo-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-INVITATION-ALI-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "plain adult-facing invitation",
+        "specific useful action without filler"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Remember Dream Phone -- that incredible game from the 90s",
+          "locator": "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json CQX-GOOD-INVITATION-ALI-001"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Which sign-in do I use to join a community conversation?",
+    "promisedPayoff": "The invitations name the existing LAiDIES Resident sign-in and Hyvor’s role plainly.",
+    "priorKnowledge": "The visitor can browse Girl Talk and the community house before joining a room.",
+    "centralMentalModel": "LAiDIES authenticates the Resident account; Hyvor hosts and moderates public comments.",
+    "dailyLifeConnection": "A visitor can use the same LAiDIES Resident sign-in across town instead of being sent to a separate community login.",
+    "surfaceJob": "Repair four stale invitation and boundary strings without changing routes, controls, or room behaviour.",
+    "desiredFeeling": "I know which account to use and what kind of conversation I am entering.",
+    "desiredReaderFeeling": "I know which account to use and what kind of conversation I am entering."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The invitation names the account once; the boundary identifies public rooms and the reporting action in plain terms.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Truth or dare for LAiDIES, with optional community-room inspiration. Open to browse; use your LAiDIES Resident sign-in to join a conversation. Hyvor hosts and moderates comments.",
+          "locator": "content/review-text.json changes[0].after"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The bounded revision retains existing routes and names the account or provider role without a new promise.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask a question, share what worked, debrief a Try-On, celebrate a win or trade a little cultural memory. Browse the house first; use your LAiDIES Resident sign-in to join a conversation. Hyvor hosts and moderates comments.",
+          "locator": "content/review-text.json changes[1].after"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The bounded revision retains existing routes and names the account or provider role without a new promise.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The house brings the community rooms, Girl Talk and your Closet together in one place. A Resident Card is optional.",
+          "locator": "content/review-text.json changes[2].after"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The bounded revision retains existing routes and names the account or provider role without a new promise.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Community boundary: Community rooms are public. Hyvor hosts and moderates comments; use its reporting controls for a comment that needs attention.",
+          "locator": "content/review-text.json changes[3].after"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The bounded revision retains existing routes and names the account or provider role without a new promise.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Community boundary: Community rooms are public. Hyvor hosts and moderates comments; use its reporting controls for a comment that needs attention.",
+          "locator": "content/review-text.json changes[3].after"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "All four before strings and three source-file hashes are bound to immutable deployment d3c44d5a.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Community boundary: Community rooms are public. Hyvor hosts and moderates comments; use its reporting controls for a comment that needs attention.",
+          "locator": "content/review-text.json changes[3].after"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The replacements fit the activity card, house introduction, and hub boundary without adding controls or a room-only warning to the hub.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Community boundary: Community rooms are public. Hyvor hosts and moderates comments; use its reporting controls for a comment that needs attention.",
+          "locator": "content/review-text.json changes[3].after"
+        }
+      ]
+    },
+    "truthfulPromise": {
+      "verdict": "PASS",
+      "observation": "The copy names the existing authentication and Hyvor’s hosting/moderation role without claiming availability, publication, or a result.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Community boundary: Community rooms are public. Hyvor hosts and moderates comments; use its reporting controls for a comment that needs attention.",
+          "locator": "content/review-text.json changes[3].after"
+        }
+      ]
+    },
+    "clearAction": {
+      "verdict": "PASS",
+      "observation": "“Use your LAiDIES Resident sign-in to join a conversation” identifies one direct next action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Community boundary: Community rooms are public. Hyvor hosts and moderates comments; use its reporting controls for a comment that needs attention.",
+          "locator": "content/review-text.json changes[3].after"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "The four short revisions name an existing account, a concrete action, or public-room safety guidance; they add no technical process, generic encouragement, or unsupported promise.",
+      "artifactLocator": "content/review-text.json changes"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "rationale": "The account and provider-role claims are bound to the admitted community prose inventory.",
+    "sourceBindings": [
+      {
+        "path": "content/approved-community-prose.json",
+        "sha256": "3f3c87771e527fd75751d374a428672fc614b986ba27db53372361311c18001f"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "RESIDENT_SIGNIN_FOR_CONVERSATION",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "use your LAiDIES Resident sign-in to join a conversation",
+            "locator": "content/review-text.json changes[0].after"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/approved-community-prose.json",
+          "sha256": "3f3c87771e527fd75751d374a428672fc614b986ba27db53372361311c18001f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Use your LAiDIES Resident account to join the conversation.",
+            "locator": "content/approved-community-prose.json interactiveSignIn"
+          }
+        ],
+        "scopeAndFreshness": "Bound to the admitted community integration prose; re-review if the account handoff changes."
+      },
+      {
+        "claimId": "HYVOR_HOSTS_AND_MODERATES",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Hyvor hosts and moderates comments.",
+            "locator": "content/review-text.json changes[0].after"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/approved-community-prose.json",
+          "sha256": "3f3c87771e527fd75751d374a428672fc614b986ba27db53372361311c18001f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "LAiDIES handles sign-in. Hyvor hosts and moderates comments.",
+            "locator": "content/approved-community-prose.json changedRoomStatusMessages"
+          }
+        ],
+        "scopeAndFreshness": "Bound to the admitted community integration prose; re-review if provider responsibility changes."
+      }
+    ],
+    "reviewedThrough": "2026-09-15T05:16:00.000Z",
+    "nextTrigger": "Any change to sign-in ownership, provider responsibility, or public-room policy.",
+    "correctionOwner": "Community integration owner"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First independent semantic admission for the homepage and Fun Connect single-sign-in correction."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The immutable live copy still directs visitors to a separate community sign-in although the admitted community contract uses the LAiDIES Resident sign-in."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Root reviewed the exact four strings as accurate for scope, optional Card status, and the existing Resident sign-in.",
+    "No public deployment or live browser verification is claimed by this admission record."
+  ]
+}
