@@ -21,3 +21,6 @@ The broader goal stays ACTIVE. Main-domain radio ownership failure still needs a
 
 ## Production base advanced after preview
 Independent Activities release eef9ed0c-8ad6-410c-9c41-5ce0ea3d2c78 is live and verified. Its full current manifest is /private/tmp/laidies-fun-route-20260915-mkDbDz/candidate-manifest.json. Existing prepare-community-preview.mjs intentionally still rejects a production head other than e431; reconcile the current base before running it again or assembling production. Preserve the new fun-connect.html bytes. At community activation, review/update the now-obsolete separate-sign-in descriptions on Fun Connect, homepage activities and Girl Talk equivalent surfaces, with current teaching admission, after actual SSO acceptance.
+
+## eef9 reconciliation complete
+The current prepare-community-preview script now binds eef9 and activities-rebase/rebase-evidence.json;12 existing immutable baselines and4 absent additions verified. Local assembly passed at /private/tmp/laidies-community-preview-20260915-1OpxDh. No community runtime bytes changed and no additional preview deployed. If the next radio repair advances production, recheck/reconcile again before activation.

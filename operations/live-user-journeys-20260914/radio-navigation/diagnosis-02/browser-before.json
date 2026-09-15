@@ -1,0 +1,28 @@
+{
+  "at": "2026-09-15T05:31:59.691Z",
+  "sourceSha256": "e04ed425ba9e04859530aa2034a4bf794ed912d98724f5477083a33d40f09bcf",
+  "publicReproduction": {
+    "profile": "Chrome LAIDIES",
+    "origin": "https://laidies.ai",
+    "start": "Radio Now listening0:05/3:38",
+    "navigation": "Look it up to /library",
+    "result": "Another town tab is paused0:00; Resume cannot acquire held audio lock"
+  },
+  "controlledReproduction": {
+    "origin": "http://127.0.0.1:4329",
+    "browser": "IAB",
+    "ownedTabs": 2,
+    "predecessor": "Radio playing0:06",
+    "passiveFollower": "Library follows playing owner0:11",
+    "action": "predecessor clicks Look it up",
+    "successor": "Library follows paused owner0:11",
+    "formerPassiveFollower": "Pick up where you left off. Press Resume0:11",
+    "verdict": "FAIL: unrelated follower claimed released audio lock for a paused restoration"
+  },
+  "nativeAccess": "Mac remains locked; browser extensions and IAB usable",
+  "notDone": [
+    "No forced lock takeover",
+    "No other user windows closed",
+    "No public code change"
+  ]
+}
