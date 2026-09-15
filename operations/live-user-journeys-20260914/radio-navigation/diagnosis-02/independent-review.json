@@ -1,0 +1,51 @@
+{
+  "schema": "laidies.radio-passive-follower-independent-review.v1",
+  "reviewedAt": "2026-09-14T22:00:00-07:00",
+  "verdict": "PASS_PRIVATE_CANDIDATE_AND_CACHE; RELEASE_GUARD_CORRECTLY_BLOCKS_UNINTEGRATED_SOURCE",
+  "candidate": {
+    "path": "operations/live-user-journeys-20260914/radio-navigation/diagnosis-02/candidate.js",
+    "sha256": "e3ca6c917c12000ecbab8d4d2c46e814ba882475c52ac21f79235d3d8357d003",
+    "baselinePath": "content/site/ksvl-player.js",
+    "baselineSha256": "e04ed425ba9e04859530aa2034a4bf794ed912d98724f5477083a33d40f09bcf",
+    "syntax": "PASS",
+    "stateTransitions": {
+      "passiveRestoredFollower": "PASS: hydrate retains saved queue/time, presents paused Resume state, and does not call ownership acquisition unless validated continuation requests play.",
+      "deliberatePause": "PASS: a remote paused owner cancels pending continuation; its later follower state remains paused.",
+      "explicitResume": "PASS: Resume changes restoring.play before acquisition, so the saved position is consumed only after explicit intent.",
+      "muteAndVolume": "PASS: passive mute now changes state.muted and announces from it without audio; restored controls expose saved mute/volume and disabled seek metadata.",
+      "nextPrevious": "PASS: remote owner commands remain forwarded; without an owner, an explicit next/previous invokes normal local play intent.",
+      "competingAudio": "PASS: the exercised two-follower race leaves the passive page lock-free and permits the successor to acquire the released lock.",
+      "popoutAndOldOwner": "PASS by source inspection: active remote/popup ownership remains authoritative through readOwner/sendRemote; the candidate does not alter popout transfer or lock release paths."
+    },
+    "executedHarness": {
+      "path": "operations/live-user-journeys-20260914/radio-navigation/diagnosis-02/two-follower.test.mjs",
+      "sha256": "5f9df6a8164d086964e11cbf82fef7eaeaeceb46491f428605b66e24a944db3f",
+      "result": "PASS",
+      "cases": 4
+    }
+  },
+  "cacheRefresh": {
+    "result": "PASS",
+    "manifest": "operations/live-user-journeys-20260914/radio-navigation/diagnosis-02/cache-refresh/manifest.json",
+    "origin": "https://eef9ed0c.laidies-sunnyvaile.pages.dev",
+    "paths": 74,
+    "replacements": 134,
+    "verification": "Each current immutable source was re-fetched; every overlay hash and replacement count matched; reverse substitution reproduced the source byte-for-byte. This includes the shared-header loader."
+  },
+  "releaseAssembly": {
+    "script": "operations/live-user-journeys-20260914/prepare-radio-followers-release.mjs",
+    "result": "PASS_GUARD_PRESENT",
+    "checks": [
+      "Pins provider head to eef9ed0c-8ad6-410c-9c41-5ce0ea3d2c78.",
+      "Fails closed unless public content/site/ksvl-player.js equals the reviewed private candidate.",
+      "Uses 75 delta paths: player plus 74 cache-refresh rows.",
+      "Carries the archived worker and redirects with identity checks, and preserves all other base-manifest paths, including fun-connect.html.",
+      "Preserves the established custom-domain analytics and postcard email-protection normalizations in post-release verification."
+    ],
+    "currentEligibility": "BLOCKED_AS_INTENDED: public player remains baseline SHA e04ed425ba9e04859530aa2034a4bf794ed912d98724f5477083a33d40f09bcf, so the new source-equality assertion currently fails. Integrating and committing the reviewed candidate is required before assembly."
+  },
+  "notPerformed": [
+    "No public source edit, commit, deployment, or browser test.",
+    "No release assembly while the candidate is intentionally not integrated into the public source."
+  ]
+}
