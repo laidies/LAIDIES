@@ -1,0 +1,393 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "RESIDENT-CARD-INTERNAL-NOTE-DELETION-20260915",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "MICROCOPY",
+  "surface": "Resident Card arrival",
+  "maker": "release_discovery",
+  "reviewer": {
+    "id": "root-astra-resident-note-review",
+    "principalId": "root",
+    "role": "independent semantic reviewer",
+    "modelFamily": "gpt-6-astra",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-15T06:15:00.261479+00:00",
+  "artifact": {
+    "reviewText": {
+      "path": "content/review-text.json",
+      "sha256": "d5188971325ebdada1c9606803db01293532e28f5e0d5b5c99ac84828a990244"
+    },
+    "manifest": {
+      "path": "content/manifest.json",
+      "sha256": "7cca3bde4b23b2983daeb0362f2df2b184ddc43bc8b2b62ed718ce13b7ba0177"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e02cfa8221ae19b2121f7628cd3d04f66988bdec9938b23993ab29e3a0da98de",
+    "reviewerPrincipalId": "root",
+    "reviewedAt": "2026-09-15T06:15:00.261479+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "You ask an AI product to compare",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "The article had sourced facts",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/front-paige-data-centre-policy-memo-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-INVITATION-ALI-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "concrete invitation",
+        "adult warmth without a generic slogan"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Use the example for its shared memory",
+          "locator": "operations/voice/laidies-writing-lock.md"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Why is this internal note public?",
+    "promisedPayoff": "The note is removed without replacement copy.",
+    "centralMentalModel": "Internal production status is not visitor-facing content.",
+    "dailyLifeConnection": "Resident Card visitors should see the Card, not a build hold.",
+    "surfaceJob": "Delete the exposed internal note.",
+    "desiredReaderFeeling": "Nothing internal is presented as their Card experience."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Removing the internal hold leaves the existing Your Resident Card heading and explanation intact.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Vanity visual held",
+          "locator": "content/review-text.json change[0].before"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Visitors can focus on making or restoring their Card without interpreting production status.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Vanity visual held",
+          "locator": "content/review-text.json change[0].before"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The writing lock explicitly rejects this exact production note; no replacement voice is introduced.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Vanity visual held",
+          "locator": "content/review-text.json change[0].before"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The deletion removes a distracting build note; it does not claim the wider Card experience has been redesigned or improved.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Vanity visual held",
+          "locator": "content/review-text.json change[0].before"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "No factual claim is added. The availability and privacy explanation stays intact.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Vanity visual held",
+          "locator": "content/review-text.json change[0].before"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The deletion is exact and independently comparable with the current immutable page.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Vanity visual held",
+          "locator": "content/review-text.json change[0].before"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Only a standalone paragraph is removed. The heading, account mount, links and controls are retained.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Vanity visual held",
+          "locator": "content/review-text.json change[0].before"
+        }
+      ]
+    },
+    "truthfulPromise": {
+      "verdict": "PASS",
+      "observation": "No restored visual or new capability is promised.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Vanity visual held",
+          "locator": "content/review-text.json change[0].before"
+        }
+      ]
+    },
+    "clearAction": {
+      "verdict": "PASS",
+      "observation": "All existing create, restore, Closet and sign-out actions retain their wording and destinations.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Vanity visual held",
+          "locator": "content/review-text.json change[0].before"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "The deletion-only artifact adds no sentence, claim, action, destination, or instructional pattern.",
+      "artifactLocator": "content/review-text.json"
+    }
+  },
+  "factualReview": {
+    "disposition": "NO_MATERIAL_CLAIMS",
+    "rationale": "Deletion-only removal makes no new public claim.",
+    "claimScan": {
+      "observation": "The artifact binds one removal and no replacement prose.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Vanity visual held",
+          "locator": "content/review-text.json change[0].before"
+        }
+      ]
+    },
+    "reviewedThrough": "2026-09-15T06:15:00.261479+00:00",
+    "nextTrigger": "Any proposal to add replacement Resident Card copy.",
+    "correctionOwner": "Resident Card producer"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 1,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First valid admission for this deletion. An unrelated copied review packet was rejected and repaired before this review; it was not a public prose predecessor."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The public internal-note defect is already prohibited by the writing lock. Stale copied review metadata was repaired; no new reusable content rule is proposed."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Admission covers deletion of one standalone internal note only.",
+    "Live baseline browser shows the note and functioning signed-in account controls. Deployment and post-release verification remain required.",
+    "No restoration of held art, community activation or rewards implementation is claimed."
+  ],
+  "priorPacketRepair": {
+    "issue": "Copied metadata described the unrelated Fun card.",
+    "disposition": "Rejected and repaired before this exact deletion admission.",
+    "currentCandidateDefects": 0
+  }
+}
