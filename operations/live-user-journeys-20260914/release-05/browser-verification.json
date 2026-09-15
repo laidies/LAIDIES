@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-09-15T06:05:50.604Z",
+  "deployment": "21eb9750-6b17-423e-a880-3986dcf3de7e",
+  "source": "49080176ff970216ffbfafe1d67c55c108a47a1e",
+  "immutableOrigin": "https://21eb9750.laidies-sunnyvaile.pages.dev",
+  "desktop": {
+    "before": "Radio playing at 0:23",
+    "roundTrip": "Look it up to Library, then Back to KSVL",
+    "after": "Radio playing at 0:35",
+    "result": "PASS"
+  },
+  "phone": {
+    "width": 390,
+    "scrollWidth": 390,
+    "roundTrip": "Radio LIBRAiRY link to Library, then Back to KSVL",
+    "state": "Now listening on both receiving pages",
+    "result": "PASS",
+    "emulationCleared": true
+  },
+  "customDomain": {
+    "origin": "https://laidies.ai",
+    "normalControls": "Stop and Listen recovered playback to 0:03",
+    "follower": "New Library tab followed playing at 0:23",
+    "afterNavigation": "Both new test tabs followed a different paused owner at 0:24",
+    "result": "UNRESOLVED_EXISTING_SESSION_OWNER",
+    "limits": "The other owner was not identified or closed. No Web Lock was forced."
+  },
+  "cleanup": "All owned browser test tabs closed; phone metrics cleared",
+  "scope": "History return is deployed and passes isolated desktop/phone journeys. Existing main-site session acceptance remains open."
+}

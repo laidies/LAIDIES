@@ -27,3 +27,6 @@ The current prepare-community-preview script now binds eef9 and activities-rebas
 
 ## Radio follower release advanced production
 Currentproduction is cbfee731-af06-4944-a35e-6e7a7841c8b2; fullmanifest /private/tmp/laidies-radio-followers-20260915-qXtSmr/candidate-manifest.json. Existing eefguard willstop asintended. Reconcile currentnine community/account/houseHTML cachetokens to20260915-passive-follower-1 beforeanotherpreview orproductionassembly. Preserve the Activities correction andnewplayer. The publicdisplay-namechoice isstillpending.
+
+## Current production after history-return repair
+Production is now 21eb9750-6b17-423e-a880-3986dcf3de7e. Use /private/tmp/laidies-radio-history-20260915-OiDUKK/candidate-manifest.json as the full current baseline after rechecking provider head. Reconcile the nine community/account/house HTML files to the current header, player and back-nav references (20260915-history-return-1); preserve the Activities correction and both radio repairs. The old eef assembly guard should stop until this rebase is complete. Public-name selection and actual Hyvor identity acceptance remain pending.

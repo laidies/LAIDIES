@@ -1,0 +1,35 @@
+{
+  "schema": "laidies.radio-history-return-verification-review.v1",
+  "reviewedAt": "2026-09-15T06:10:00-07:00",
+  "verdict": "PASS",
+  "production": {
+    "deployment": "21eb9750-6b17-423e-a880-3986dcf3de7e",
+    "immutableOrigin": "https://21eb9750.laidies-sunnyvaile.pages.dev",
+    "verification": "/private/tmp/laidies-radio-history-20260915-OiDUKK/verification.json",
+    "verificationSha256": "96e79e162435d047fee119fddeb93776a62d4c9439123a9a1626dd558b8bcb56",
+    "checks": 172,
+    "changedPaths": 86,
+    "preservedPaths": 725
+  },
+  "normalizer": {
+    "script": "operations/live-user-journeys-20260914/prepare-radio-history-release.mjs",
+    "scriptSha256": "662dbfc27b0f1a05cbe829b37629c5119302c9eeb865db5721e1e05ef56226ed",
+    "result": "PASS",
+    "scope": "On the custom domain and HTML only, it first removes the established analytics transport injection. It then matches only a Cloudflare email-protection href with the exact /cdn-cgi/l/email-protection# prefix and a hexadecimal payload, XOR-decodes that payload into a mailto href, and removes the exact Cloudflare decoder tag only if at least one protected href was transformed. The final SHA equality assertion still applies to the complete normalized response.",
+    "overbreadth": "No broad HTML region, arbitrary href, or hash mismatch is ignored. The normalizer does not apply at the immutable origin, to JavaScript, or to pages without a matching protected href."
+  },
+  "protectedMailtoEvidence": {
+    "customDomainProtectedReferences": 84,
+    "byPath": {
+      "grimoire/chamber-of-receipts.html": 28,
+      "grimoire/verification-rulebook.html": 28,
+      "receipts.html": 28
+    },
+    "chamberCapture": "/private/tmp/history-chamber-custom.html",
+    "chamberCaptureSha256": "e947f8330adcaaf43a5f052326decef579928783b8c6dd7a6af126590bc71d78",
+    "chamberIndependentCheck": "PASS: one decoder tag and 28 protected hrefs were present; exact XOR normalization removed that tag and produced a byte-for-byte match to the immutable chamber response."
+  },
+  "limitations": [
+    "This reviews the verifier repair and its evidence only; it does not replace browser journey verification."
+  ]
+}

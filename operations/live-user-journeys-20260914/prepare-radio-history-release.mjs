@@ -32,7 +32,15 @@ if(process.argv[2]==='verify'){
   if(origin==='https://laidies.ai'&&d.path.endsWith('.html')) b=Buffer.from(b.toString().replace(/<script type="module" src="https:\/\/static\.cloudflareinsights\.com\/beacon\.min\.js[^]*?<\/script>\n/g,''));
   // Observed custom-domain email protection rewrites the empty postcard mailto link and injects its decoder.
   if(origin==='https://laidies.ai'&&d.path==='postcard.html') b=Buffer.from(b.toString().replace(/id="pcEmail" href="\/cdn-cgi\/l\/email-protection#[a-f0-9]+"/g,'id="pcEmail" href="mailto:"').replace('<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>',''));
-  assert.equal(sha(b),d.sha256,'public bytes differ '+origin+actualPath);checks.push({origin,path:d.path,sha256:sha(b)});
+  // Observed Cloudflare email protection on the added Rulebook routes. Decode only
+  // protected mailto hrefs; the final full-source hash must still match exactly.
+  let protectedMailtoCount=0;
+  if(origin==='https://laidies.ai'&&d.path.endsWith('.html')) {
+   let html=b.toString().replace(/href="\/cdn-cgi\/l\/email-protection#([a-f0-9]+)"/g,(_match,hex)=>{const encoded=Buffer.from(hex,'hex');assert(encoded.length>=1);const decoded=Buffer.from([...encoded.subarray(1)].map(v=>v^encoded[0])).toString('utf8');protectedMailtoCount++;return 'href="mailto:'+decoded+'"';});
+   if(protectedMailtoCount) html=html.replace('<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>','');
+   b=Buffer.from(html);
+  }
+  assert.equal(sha(b),d.sha256,'public bytes differ '+origin+actualPath);checks.push({origin,path:d.path,sha256:sha(b),protectedMailtoCount});
  }
  const result={deployment:head.id,url:head.url,providerChanged:changed,removed,preserved:Object.keys(files).length-changed.length,checks,customDomainAnalyticsNormalization:true,workerEvidence:'carried validated archive; not freshly downloaded from provider',controls:m.controls,verifiedAt:new Date().toISOString()};
  fs.writeFileSync(dir+'/verification.json',JSON.stringify(result,null,2));console.log(JSON.stringify({deployment:head.id,changed:changed.length,preserved:result.preserved,checks:checks.length}));process.exit();
