@@ -1,12 +1,12 @@
 # Community activation: prepared work and remaining evidence
 
 ## Current truth
-The production community is unchanged. Hyvor site15519 remains SSO off and guest commenting on. Preview4ce49a9c contains the repaired Worker and persistent boundary;32 dual-preview byte checks and799 preserved static identities pass. All71 focused tests pass. Real email sign-in returns to the selected room. The authenticated assertion endpoint now correctly asks the existing account for a public profile name (409); its Card name is a separate value.
+The production community is unchanged. Hyvor site15519 remains SSO off and guest commenting on. Preview58834727 contains the repaired Worker and persistent boundary;32 dual-preview byte checks and799 preserved static identities pass. All71 focused tests pass. Real email sign-in returns to the selected room. The authenticated assertion endpoint now correctly asks the existing account for a public profile name (409); its Card name is a separate value.
 
-Ali has been asked which public name to save. Do not infer a submitted answer from the preselected choice. No profile/Card mutation or comment/reaction has occurred. Final receiving HTML cache keys have been independently reviewed but are not yet in this preview.
+Ali has been asked which public name to save. Do not infer a submitted answer from the preselected choice. No profile/Card mutation or comment/reaction has occurred. Final receiving HTML cache keys are independently reviewed and verified in this preview.
 
 ## Next sequence
-1. Commit the final cache-reference delta and publish a refreshed named preview. Verify exact16 frontend assets and preserved production identities again.
+1. Refreshed named preview is complete at 58834727;16 frontend assets match on both preview origins and799 production static assets remain preserved. Reconcile the production base after any independent release before the next assembly.
 2. After Ali supplies the public-name decision, save that name through the existing room form. Confirm API200 without logging the signed assertion. A provider rejection while SSO is still off is expected and is not acceptance.
 3. Recheck production head. Assemble only the16 community frontend paths plus reviewed Worker against the latest full provider manifest. Preserve every other asset and redirects. Record source/base/artifact identity and validate scope/standing authority. Do not reuse a stale base after another independent release.
 4. Perform paired activation: deploy the exact production candidate, then enable existing keyed stateless SSO at Hyvor15519 using the previously prepared key. Never regenerate it, use keyless mode, create a new provider or buy a plan. Set login return to https://laidies.ai/resident-card?community_return=$PATH_ENCODED#rcAccountTitle and disable guest commenting. Verify saved provider values.

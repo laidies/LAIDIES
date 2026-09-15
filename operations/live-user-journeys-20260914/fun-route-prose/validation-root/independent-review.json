@@ -1,0 +1,406 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "FUN-CONNECT-ACTIVITIES-ROUTE-MICROCOPY-20260915",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "MICROCOPY",
+  "surface": "Fun Connect / All games and tools card",
+  "maker": "release_discovery",
+  "reviewer": {
+    "id": "root-astra-fun-review",
+    "principalId": "root",
+    "role": "independent semantic reviewer",
+    "modelFamily": "gpt-6-astra",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-15T05:16:55.741320+00:00",
+  "artifact": {
+    "reviewText": {
+      "path": "content/review-text.json",
+      "sha256": "164b12accae4021e60586c773dc7b843b60230da72002083ef186660def07097"
+    },
+    "manifest": {
+      "path": "content/manifest.json",
+      "sha256": "88c2853017d6774ae987615a5ad6475186e103da6aac490284a9543ded951201"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e02cfa8221ae19b2121f7628cd3d04f66988bdec9938b23993ab29e3a0da98de",
+    "reviewerPrincipalId": "root",
+    "reviewedAt": "2026-09-15T05:16:55.740951+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "You ask an AI product to compare",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "The article had sourced facts",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/front-paige-data-centre-policy-memo-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-INVITATION-ALI-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "An invitation names a real available activity.",
+        "Practical usefulness stays visible without forcing a nostalgic joke into a navigation label."
+      ],
+      "evidence": [
+        {
+          "excerpt": "Use the example for its shared memory",
+          "locator": "operations/voice/laidies-writing-lock.md"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Where does this card take me?",
+    "promisedPayoff": "The three card strings name the homepage activities receiver.",
+    "centralMentalModel": "The existing link redirects to the homepage #activities section.",
+    "dailyLifeConnection": "A visitor can judge the destination before clicking.",
+    "surfaceJob": "Make the card promise match its receiver.",
+    "desiredReaderFeeling": "Clear about what opens."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Homepage activities tells the visitor that this route returns to a section of the homepage. The old all-games catalogue claim is removed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Homepage activities",
+          "locator": "content/review-text.json change"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The description gives a modest reason to browse and does not list tools missing from the receiving section.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Find useful things to do around town.",
+          "locator": "content/review-text.json change"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Around town fits the established setting. The brief card uses ordinary words and leaves the distinctive character invitations to their own cards.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Explore activities",
+          "locator": "content/review-text.json change"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The invitation is short and welcoming. It does not add instructions or a joke that would distract from selecting an activity.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Find useful things to do around town.",
+          "locator": "content/review-text.json change"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The existing href returns301 to /#activities; the bound section contains practical and playful actions. The new title and CTA match that evidence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Homepage activities",
+          "locator": "content/review-text.json change"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The promise no longer depends on a numeric count or an absent named game. Recheck if the redirect or activities section changes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Explore activities",
+          "locator": "content/review-text.json change"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The three replacement strings are shorter than their predecessors and fit the existing title, paragraph and link. No layout change is proposed.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Find useful things to do around town.",
+          "locator": "content/review-text.json change"
+        }
+      ]
+    },
+    "truthfulPromise": {
+      "verdict": "PASS",
+      "observation": "The complete card now promises homepage activities, removing both the comprehensive catalogue title and the separate-pack implication.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Homepage activities",
+          "locator": "content/review-text.json change"
+        }
+      ]
+    },
+    "clearAction": {
+      "verdict": "PASS",
+      "observation": "Explore activities names what the unchanged link opens. The adjacent title tells the visitor where those activities are.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Explore activities",
+          "locator": "content/review-text.json change"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "The one-sentence receiver correction contains no instance of this failure family.",
+      "artifactLocator": "content/review-text.json"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "content/live-route-evidence.json",
+        "sha256": "ddbde382efbe8f87389aef7c97fdb9481917802a7a554824c87da86a31e99e5e"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "SIX_ACTIVITIES_RECEIVER",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Homepage activities",
+            "locator": "content/review-text.json change[0].after"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/live-route-evidence.json",
+          "sha256": "ddbde382efbe8f87389aef7c97fdb9481917802a7a554824c87da86a31e99e5e"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "FAiRY Godmother",
+            "locator": "content/live-route-evidence.json receipts[2].activityCards"
+          }
+        ],
+        "scopeAndFreshness": "Immutable e431 route capture, updated 2026-09-15T05:15:28.035Z; recheck if route or #activities changes."
+      }
+    ],
+    "reviewedThrough": "2026-09-15T05:15:28.035Z",
+    "nextTrigger": "Any fun-pack redirect or #activities section change.",
+    "correctionOwner": "Fun Connect producer"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 1,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First completed independent admission after root held the preserved comprehensive-catalogue title and unclear CTA."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The mismatch is a one-off receiver-description repair, not a newly admitted reusable defect."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Independent review covers the three exact strings and bound receiving-route evidence.",
+    "Public HTML integration and live desktop/phone click verification remain required."
+  ]
+}
