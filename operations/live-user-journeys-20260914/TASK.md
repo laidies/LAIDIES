@@ -19,3 +19,6 @@ Audit evidence: /Users/alisoneakin/Documents/Codex/laidies-live-audit-20260914/a
 
 ## Current status
 Implementation started. No fixes deployed yet. Audit is heuristic desktop/mobile inspection, not exhaustive functional or accessibility certification.
+
+## First release boundary
+Navigation repairs proceed independently. Full Episode04 field-trip presentation is retained at field-trip-prose/try-on-candidate.html, committed, and locally tested. It is not in the first release: observed-reader evidence required by check-prose-quality-admission.mjs is requested and pending. Navigation-only try-on.html changes its return URL and removes the proven transport-injected analytics duplicate. No new teaching prose in this release.

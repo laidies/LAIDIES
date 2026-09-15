@@ -761,7 +761,8 @@
 .room-card .brand-word-inline [data-brand-ai],
 .anthem-charm-reveal .brand-word-inline [data-brand-ai]{color:#f6a5c0!important}
 
-      </style>
+        .desk-note[hidden], .tryon-portal-note > div[hidden], #communityLink[hidden] { display: none !important; }
+  </style>
   <link rel="stylesheet" href="/content/try-on-v2.css?v=20260724-1" />
   <script defer src="/content/site/sv-gold-icons.js?v=20260705-1"></script>
   <script defer src="/content/site/sv-global-header.js?v=20260911-header-controls-2"></script>
@@ -1020,6 +1021,10 @@
       4: {
         pad: "04",
         title: "The Founding Mothers",
+        lede: "A field trip after Episode 04. Meet one MAiVEN whose name is new to you, then keep the one sentence you want to pass on.",
+        saveTitle: "Your discovery note",
+        notesLabel: "The one sentence to pass on",
+        notesPlaceholder: "Her name: …  What I want to remember: …  The sentence I want to send: …",
         exerciseTitle: "Go meet a MAiVEN.",
         instruction: "No homework this week — a field trip. The episode only had time to introduce a handful of the women who built this field. The quiet wing holds the rest.",
         steps: [
@@ -1199,6 +1204,22 @@
         }
       }
       if (receiptSaveFields) receiptSaveFields.hidden = !config.showReceiptFields;
+      if (issue === 4) {
+        communityLink.hidden = true;
+        document.querySelector('.desk-note').hidden = true;
+        document.querySelector('.tryon-portal-note > div').hidden = true;
+        document.querySelector('.save-card .step-kicker').textContent = "Keep the discovery";
+        document.getElementById('saveButton').textContent = "Save discovery note";
+        tryonRating.parentElement.hidden = true;
+        var visit = document.createElement('a');
+        visit.className = 'button'; visit.href = '/luminairy.html#mavens';
+        visit.textContent = 'Meet the MAiVENS →';
+        tryonSteps.insertAdjacentElement('afterend', visit);
+        var next = document.createElement('a');
+        next.className = 'button secondary'; next.href = '/learn/quiz.html?issue=4&from=blend-snap#quiz-start';
+        next.textContent = 'Next: take the Episode 04 Quiz →';
+        document.querySelector('.tryon-form .button-row').appendChild(next);
+      }
       var draftParam = params.get("draft") === "1" ? "&draft=1" : "";
       var fromBlendSnap = params.get("from") === "blend-snap";
       var returnHref = fromBlendSnap ? "/blend-snap.html?issue=" + issue + "#the-study-pack" : "/";
@@ -1251,7 +1272,7 @@
       var hasSavedContent = Boolean(record.notes || record.answerToCheck || record.receiptsChecked || record.saferVersion);
       if (record.savedAt && hasSavedContent && saveStatus) {
         saveStatus.hidden = false;
-        saveStatus.textContent = "Saved to this device for now.";
+        saveStatus.textContent = issue === 4 ? "Saved on this device for now." : "Saved to this device for now.";
       }
     }
 
@@ -1288,7 +1309,7 @@
       if (saveStatus) {
         saveStatus.hidden = false;
         saveStatus.textContent = saved
-          ? "Saved to this device for now."
+          ? (issue === 4 ? "Saved on this device for now." : "Saved to this device for now.")
           : "Could not save on this device. Your text is still on this page; copy it before leaving.";
       }
     }
