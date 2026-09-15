@@ -3,7 +3,7 @@ function applyLAiDIESInlineWordmark(root) {
   if (!scope) return;
 
   const brandRegex = /\b(?:LAiDIES|LAIDIES|lAIdies|Laidies)\b/g;
-  const skipTags = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT", "CODE", "PRE", "SVG"]);
+  const skipTags = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT", "SELECT", "OPTION", "OPTGROUP", "CODE", "PRE", "SVG"]);
 
   function makeWordmark() {
     // Canonical wordmark: <span class="brand-word-inline"><span aria-hidden>L<span data-brand-ai>Ai</span>DIES</span></span>
@@ -24,6 +24,7 @@ function applyLAiDIESInlineWordmark(root) {
   }
 
   scope.querySelectorAll(".wordmark").forEach((element) => {
+    if (element.closest('select, option, optgroup, textarea, input')) return;
     const normalized = element.textContent.replace(/\s+/g, "").toLowerCase();
     if (normalized !== "laidies") return;
     const wordmark = makeWordmark();
@@ -90,7 +91,7 @@ if (document.readyState === "loading") {
   if (!currentScript?.src) return;
   window.__laidiesBrandPolishRequested = true;
   const polishScript = document.createElement("script");
-  polishScript.src = new URL("content/site/brand-polish.js?v=wm1", currentScript.src).toString();
+  polishScript.src = new URL("content/site/brand-polish.js?v=20260830-native-controls-1", currentScript.src).toString();
   polishScript.defer = true;
   document.head.appendChild(polishScript);
 })();
@@ -4945,7 +4946,7 @@ function renderQuizResult(score, quiz, reward, coreScore = score, persistenceSco
 
   const message = document.createElement("p");
   message.textContent = persistenceScope === "device"
-    ? `${reward.title}. ${reward.message} This playful score and sticker are saved on this browser/device; cross-device progress is not verified.`
+    ? `${reward.title}. ${reward.message} This playful score and sticker are saved in this browser. Sign in to carry supported progress between browsers.`
     : `${reward.title}. ${reward.message} Browser storage is unavailable, so this result lasts only for this open session and will not survive reload.`;
 
   card.append(scoreLine, ratingLine, message);
@@ -5374,6 +5375,7 @@ function gradeQuiz() {
 renderQuiz();
 renderQuizProgress();
 hydrateQuizDataFromFile();
+window.addEventListener("laidies:continuation-change", renderQuizProgress);
 
 quizIssueSelect?.addEventListener("change", () => {
   activeQuizKey = quizIssueSelect.value;
