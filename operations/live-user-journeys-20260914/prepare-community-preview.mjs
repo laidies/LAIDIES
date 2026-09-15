@@ -34,7 +34,7 @@ for(const p of owned){
  if(existing)Object.assign(candidate.files.find(r=>r.path===p),row);else candidate.files.push(row);
 }
 const workerPath=packet+'/backend/bundled-worker.js';
-const worker=fs.readFileSync(workerPath);assert.equal(sha(worker),'4a5006dab6202b7156851d1481479a5a6441ff1096ccd14b7f0cf6e4f7204c5e','Reviewed bundle identity mismatch');assert.equal(sha(cp.execFileSync('git',['show',source+':'+workerPath])),sha(worker),'Worker must be committed');
+const worker=fs.readFileSync(workerPath);assert.equal(sha(worker),'ac0588d23def411c62e2936121b85a8702f01ba0d3c6f4893a3b0f281b34e230','Reviewed bundle identity mismatch');assert.equal(sha(cp.execFileSync('git',['show',source+':'+workerPath])),sha(worker),'Worker must be committed');
 assert.equal(sha(fs.readFileSync(packet+'/backend/provider-worker.mjs')),'397e39d596d63a54a4cb82f42c569899d28a0f6ad540a743d2575b0b0a26b4b9');
 fs.writeFileSync(stage+'/_worker.js',worker);Object.assign(candidate.files.find(r=>r.path==='_worker.js'),{sha256:sha(worker),bytes:worker.length});
 const redirects=fs.readFileSync(archive+'/stage/_redirects');assert.equal(sha(redirects),'10a2d4b97f08f725289df0e10c093e239378a8ffb1b11fd4e46cb12550d4d43b');fs.writeFileSync(stage+'/_redirects',redirects);

@@ -1,0 +1,33 @@
+{
+  "deployment": "d8570cd0",
+  "alias": "https://community-resident-signin.laidies-sunnyvaile.pages.dev",
+  "source": "ec3329b1",
+  "recordedAt": "2026-09-15T05:05:11.238606+00:00",
+  "observations": [
+    {
+      "journey": "Signed out room to Resident sign-in",
+      "result": "PASS",
+      "details": "Room link retains /community/ask-the-room; account title and optional Card language render."
+    },
+    {
+      "journey": "Real requested email return",
+      "result": "PASS_AFTER_PROVIDER_CONFIGURATION_REPAIR",
+      "details": "First link used provider fallback localhost:8220 because exact preview return was absent. Added only exact preview /resident-card allowlist entry. Second requested email link returned to preview Resident page and then selected room. Existing test Resident used; no profile/Card mutation."
+    },
+    {
+      "journey": "Authenticated community assertion",
+      "result": "FAIL",
+      "details": "503 resident_service_unavailable captured from actual response. Local real workerd at provider compatibility date 2026-07-24 reproduces unsupported redirect:error exception. redirect:manual request reaches upstream with no-store preserved."
+    },
+    {
+      "journey": "Persistent room boundary",
+      "result": "FAIL",
+      "details": "Account mount replaced loading/boundary children. Bounded sibling mount repair with race tests and independent code review complete locally; not present in this preview."
+    }
+  ],
+  "limitations": [
+    "Provider SSO remains off; no actual Hyvor SSO acceptance.",
+    "No comments, reactions, profile edits or Card changes made.",
+    "Temporary API response interception cleared. Native independent-radio test could not proceed after Mac locked."
+  ]
+}

@@ -15,7 +15,7 @@ function upstream({ authUser = user, profile = remote, authStatus = 200, profile
   const fetcher = async (url, options) => {
     calls.push({ url, options });
     assert.equal(options.headers.authorization, 'Bearer ' + token);
-    assert.equal(options.redirect, 'error');
+    assert.equal(options.redirect, 'manual');
     assert.equal(options.cache, 'no-store');
     assert.ok(options.signal instanceof AbortSignal);
     if (url.endsWith('/auth/v1/user')) return Response.json(authUser, { status: authStatus });
@@ -76,11 +76,11 @@ for (const disabled of [{}, { ...env, HYVOR_SSO_ENABLED: 'false' }, { ...env, HY
 test('cross-origin requests cannot obtain an assertion', async () => {
   assert.equal((await communitySso(request({ headers: { authorization: 'Bearer ' + token, origin: 'https://attacker.invalid' } }), env)).status, 403);
 });
-for (const authStatus of [401, 403, 500]) {
+for (const authStatus of [301, 302, 401, 403, 500]) {
   test('identity provider rejection cannot produce an assertion ' + authStatus, async () => {
     const mock = upstream({ authStatus });
     const response = await communitySso(request(), env, mock.fetcher);
-    assert.equal(response.status, authStatus === 500 ? 503 : 401);
+    assert.equal(response.status, [301, 302, 500].includes(authStatus) ? 503 : 401);
     assert.equal(mock.calls.length, 1);
     assert.equal((await response.json()).user, undefined);
   });
@@ -105,8 +105,11 @@ for (const name of ['<img>', 'x'.repeat(31), 'name\ncontrol', ' padded ']) {
 test('profile state must be from the authenticated contract', async () => {
   assert.equal((await communitySso(request(), env, upstream({ profile: { ...remote, state: 'device-local-card' } }).fetcher)).status, 401);
 });
-test('profile provider rejection cannot produce an assertion', async () => {
-  assert.equal((await communitySso(request(), env, upstream({ profileStatus: 401 }).fetcher)).status, 401);
+test('profile provider redirect or rejection cannot produce an assertion', async () => {
+  for (const profileStatus of [301, 302, 401, 403, 500]) {
+    const status = (await communitySso(request(), env, upstream({ profileStatus }).fetcher)).status;
+    assert.equal(status, [301, 302, 500].includes(profileStatus) ? 503 : 401);
+  }
 });
 test('unreadable or oversized upstream output fails closed', async () => {
   for (const body of ['not json', 'x'.repeat(65537)]) {

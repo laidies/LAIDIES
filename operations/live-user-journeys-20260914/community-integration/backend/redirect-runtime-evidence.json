@@ -1,0 +1,29 @@
+{
+  "schema": "laidies.community-sso-runtime-evidence.v1",
+  "createdAt": "2026-09-15T05:05:44.246Z",
+  "scope": "Workerd-compatible redirect repair only",
+  "runtime": {
+    "engine": "Miniflare 5.20260903.0-alpha / workerd 1.20260903.1",
+    "compatibilityDate": "2026-07-24",
+    "compatibilityFlags": []
+  },
+  "source": {
+    "path": "community-sso.mjs",
+    "sha256": "5dc1ad892061feaadb0a5d0f5e75092ee192aba0fe00d1bfd66d7d922f52a423",
+    "change": "Both identity subrequests use redirect: 'manual'; !ok retains fail-closed rejection of 3xx."
+  },
+  "bundle": {
+    "path": "bundled-worker.js",
+    "sha256": "ac0588d23def411c62e2936121b85a8702f01ba0d3c6f4893a3b0f281b34e230",
+    "entry": "candidate-worker.mjs",
+    "bundler": "esbuild 0.28.1 --bundle --format=esm --target=es2022"
+  },
+  "verification": {
+    "tests": "node --test community-sso.test.mjs community-sso.workerd.test.mjs worker-integration.test.mjs",
+    "result": "44 passed, 0 failed",
+    "workerdSmoke": "Synthetic /auth/v1/user plus RPC returned 200; synthetic upstream 302 made one call and returned 503 without assertion."
+  },
+  "limits": [
+    "Synthetic token and local outbound service only. No real Resident token, Supabase request, Hyvor request, deployment, or provider setting was used."
+  ]
+}

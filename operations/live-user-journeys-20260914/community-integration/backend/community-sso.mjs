@@ -58,7 +58,7 @@ export async function communitySso(request, env, fetcher = fetch) {
   const headers = { authorization, apikey: SUPABASE_PUBLIC_KEY, accept: 'application/json' };
   try {
     const auth = await fetcher(SUPABASE_URL + '/auth/v1/user', {
-      method: 'GET', headers, cache: 'no-store', redirect: 'error', signal: controller.signal
+      method: 'GET', headers, cache: 'no-store', redirect: 'manual', signal: controller.signal
     });
     if (auth.status === 401 || auth.status === 403) return reply(401, 'resident_signin_required');
     if (!auth.ok) return reply(503, 'resident_service_unavailable');
@@ -70,7 +70,7 @@ export async function communitySso(request, env, fetcher = fetch) {
     }
     const profileResponse = await fetcher(SUPABASE_URL + '/rest/v1/rpc/get_my_resident_state_v1', {
       method: 'POST', headers: { ...headers, 'content-type': 'application/json' },
-      body: '{}', cache: 'no-store', redirect: 'error', signal: controller.signal
+      body: '{}', cache: 'no-store', redirect: 'manual', signal: controller.signal
     });
     if (profileResponse.status === 401 || profileResponse.status === 403) return reply(401, 'resident_signin_required');
     if (!profileResponse.ok) return reply(503, 'resident_service_unavailable');

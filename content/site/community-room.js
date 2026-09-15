@@ -66,6 +66,14 @@
   }
 
   function boundaryMarkup(state, roomHref) {
+    return (
+      stateMarkup(state) +
+      boundaryDetailsMarkup(roomHref) +
+      "</div>"
+    );
+  }
+
+  function stateMarkup(state) {
     var copy = stateCopy(state);
     return (
       '<div class="community-provider-state" data-community-state="' +
@@ -76,7 +84,12 @@
       copy.title +
       "</strong><p>" +
       copy.body +
-      "</p>" +
+      "</p>"
+    );
+  }
+
+  function boundaryDetailsMarkup(roomHref) {
+    return (
       '<p class="community-provider-state__safety">This is a public room. Keep confidential work, private messages, personal identifiers, high-stakes personal details, and other people’s information out of comments.</p>' +
       '<p class="community-provider-state__boundary">LAiDIES privacy applies on this site. Hyvor hosts and moderates the discussion; use its reporting controls for a comment that needs attention.</p>' +
       '<div class="community-provider-state__links">' +
@@ -86,7 +99,16 @@
       '<a href="https://talk.hyvor.com/terms" target="_blank" rel="noopener noreferrer">Hyvor Talk terms</a>' +
       '<a href="https://talk.hyvor.com/docs/moderation" target="_blank" rel="noopener noreferrer">Hyvor moderation and reporting guide</a>' +
       (roomHref ? '<a href="' + roomHref + '">Open the direct room</a>' : "") +
-      "</div></div>"
+      "</div>"
+    );
+  }
+
+  function interactiveMarkup(roomHref) {
+    return (
+      '<div data-community-account-mount="true"></div>' +
+      '<div class="community-provider-boundary">' +
+      boundaryDetailsMarkup(roomHref) +
+      "</div>"
     );
   }
 
@@ -128,22 +150,44 @@
     mountNode.communityMountVersion = version;
     var current = function () { return mountNode.isConnected && mountNode.communityMountVersion === version; };
     if (mountNode.communityAccount) {
-      var clean = await mountNode.communityAccount.dispose();
+      var previous = mountNode.communityAccount;
+      var previousMount = mountNode.communityAccountMount;
+      mountNode.communityAccount = null;
+      if (previousMount && previousMount.communityAccount === previous) previousMount.communityAccount = null;
+      var clean = await previous.dispose();
       if (!current()) return;
       if (!clean) { mountNode.innerHTML = boundaryMarkup("unavailable", roomHref); return; }
+    } else if (mountNode.communityAccountMount && mountNode.communityAccountMount.communityAccount) {
+      var pendingMount = mountNode.communityAccountMount;
+      var pending = pendingMount.communityAccount;
+      pendingMount.communityAccount = null;
+      var pendingClean = await pending.dispose();
+      if (!current()) return;
+      if (!pendingClean) { mountNode.innerHTML = boundaryMarkup("unavailable", roomHref); return; }
     }
     removeProviderNodes(mountNode);
     var state = fixtureState();
     if (!state && LOCAL_HOST.test(window.location.hostname)) state = "local-preview";
     if (!state && !APPROVED_HOST.test(window.location.hostname)) state = "unsupported-host";
     if (state) { mountNode.innerHTML = boundaryMarkup(state, roomHref); return; }
-    mountNode.innerHTML = boundaryMarkup("loading", roomHref);
+    mountNode.innerHTML = interactiveMarkup(roomHref);
+    var accountMount = mountNode.querySelector("[data-community-account-mount]");
+    mountNode.communityAccountMount = accountMount;
+    accountMount.innerHTML = stateMarkup("loading") + "</div>";
     try {
       var account = await import("/content/site/community-account-ui.mjs");
       if (!current()) return;
-      await account.mountCommunity({ mount: mountNode, pageId: pageId, loadProvider: loadProviderScript, isCurrent: current });
+      var instance = await account.mountCommunity({ mount: accountMount, pageId: pageId, loadProvider: loadProviderScript, isCurrent: current });
+      if (!current()) {
+        if (instance && instance.dispose && accountMount.communityAccount === instance) {
+          accountMount.communityAccount = null;
+          await instance.dispose();
+        }
+        return;
+      }
+      mountNode.communityAccount = instance;
     } catch (_) {
-      if (current()) mountNode.innerHTML = boundaryMarkup("unavailable", roomHref);
+      if (current() && accountMount) accountMount.innerHTML = stateMarkup("unavailable") + "</div>";
     }
   }
 

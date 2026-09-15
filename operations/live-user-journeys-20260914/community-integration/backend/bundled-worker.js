@@ -53,7 +53,7 @@ async function communitySso(request, env, fetcher = fetch) {
       method: "GET",
       headers,
       cache: "no-store",
-      redirect: "error",
+      redirect: "manual",
       signal: controller.signal
     });
     if (auth.status === 401 || auth.status === 403) return reply(401, "resident_signin_required");
@@ -67,7 +67,7 @@ async function communitySso(request, env, fetcher = fetch) {
       headers: { ...headers, "content-type": "application/json" },
       body: "{}",
       cache: "no-store",
-      redirect: "error",
+      redirect: "manual",
       signal: controller.signal
     });
     if (profileResponse.status === 401 || profileResponse.status === 403) return reply(401, "resident_signin_required");
