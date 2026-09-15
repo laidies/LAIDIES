@@ -22,3 +22,8 @@ Implementation started. No fixes deployed yet. Audit is heuristic desktop/mobile
 
 ## First release boundary
 Navigation repairs proceed independently. Full Episode04 field-trip presentation is retained at field-trip-prose/try-on-candidate.html, committed, and locally tested. It is not in the first release: observed-reader evidence required by check-prose-quality-admission.mjs is requested and pending. Navigation-only try-on.html changes its return URL and removes the proven transport-injected analytics duplicate. No new teaching prose in this release.
+
+## First public result
+Verified public navigation release 2c4746f7-b544-405b-aa5d-41555cb6cd16, source5ec2b613. Eleven provider asset changes plus redirect-control change;800 unrelated provider asset identities preserved, unchanged Worker carried from validated archive and unchanged production configuration. Twenty-two immutable/custom-origin checks pass; custom-domain transit analytics is normalized explicitly. Actual browser journeys in release-01/browser-verification.json. Plain old .html alias remained cached as301 in the audit browser; clean route and fresh HTTP are correct, current homepage links bypass it.
+
+Remaining: required real-reader response for retained field-trip candidate; complete missing Study Pack materials; mobile/shared controls and broader audit recommendations. Next independent implementation slice requires verification of actual mounted shared-header controls: one discovery agent described an old bottom-deck policy, conflicting with current header-only rule, so do not apply that suggestion without DOM/current-rule reconciliation. No overall completion claim.

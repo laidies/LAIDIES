@@ -1,56 +1,27 @@
 {
   "schemaVersion": "laidies-independent-semantic-review-record.v1",
   "candidateId": "TRYON-EP04-FIELD-TRIP-PRACTICE-20260914",
-  "reviewedAt": "2026-09-15T00:00:00-07:00",
-  "reviewer": {
-    "id": "release-discovery",
-    "principalId": "release-discovery",
-    "role": "independent semantic reviewer",
-    "independentFromMaker": true,
-    "artifactFirst": true
-  },
+  "reviewedAt": "2026-09-14T20:32:11-07:00",
+  "reviewer": {"id": "release-discovery", "principalId": "release-discovery", "role": "independent semantic reviewer", "independentFromMaker": true, "artifactFirst": true},
   "reviewMode": "EXACT_PROSE_AND_RENDERED_INTERFACE",
   "artifact": {
-    "prose": "../field-trip-prose/practice-validation-root/content/episode04-field-trip-practice.md",
-    "implementation": "../../../try-on.html",
-    "renderedEvidence": [
-      "../field-trip-phone-action.png",
-      "../field-trip-phone-save.png"
-    ]
+    "prose": {"path": "../field-trip-prose/practice-validation-root/content/episode04-field-trip-practice.md", "sha256": "90b7383d3880627a005f234ad5acc61427dec642b01e8a1a6475332e41b56e92"},
+    "proseManifest": {"path": "../field-trip-prose/practice-validation-root/content/manifest.json", "sha256": "256a4002fe0018ad256fe004a57770c79c15e0e05bb09cc12d282e58513af3ad"},
+    "implementation": {"path": "../field-trip-prose/try-on-candidate.html", "sha256": "ce38dfa1e8e7ed10505c74332d10e68f67330fa74ace896b599d7b83b1075aa0"},
+    "renderedEvidence": ["../field-trip-phone-save.png", "../field-trip-desktop-save.png"]
   },
-  "verdict": "HOLD",
-  "semanticFindings": [
-    {
-      "id": "EP04-FIELD-TRIP-SOCIAL-ACTION",
-      "severity": "blocking",
-      "finding": "The Issue 04 discovery card retains the generic Share in Community action.",
-      "evidence": [
-        "field-trip-phone-save.png visibly places Share in Community between Save discovery note and the authored quiz action.",
-        "try-on.html:919 defines the inherited community control and try-on.html:1231 configures it for every issue.",
-        "episode04-field-trip-practice.md:47-49 prohibits a social product in this Issue 04 substitution."
-      ],
-      "requiredRepair": "Hide the inherited community action when issue=4. Keep the MAiVENS visit, device-local save, and matching Episode 04 quiz action."
-    }
-  ],
+  "verdict": "PROVISIONAL_HOLD",
+  "semanticVerdict": "PASS_PENDING_OBSERVED_READER_EVIDENCE",
+  "semanticFindings": [],
   "verified": [
-    "The exact lede, title, instruction, four authored steps, visit route, note copy, save label, and successful-save wording match the field-trip artifact.",
-    "The generic prompt block is hidden for Issue 04 and the butterfly-clip rating is hidden.",
-    "The supplied phone captures show the MAiVENS action, discovery note, explicit device-only save wording, and Episode 04 quiz action.",
+    "The exact authored lede, title, instruction, four steps, visit route, note copy, save label, and successful-save wording match the field-trip artifact.",
+    "The prompt block, butterfly-clip rating, Share in Community action, generic desk reminder, and ritual text are absent for Issue 04.",
+    "The refreshed phone and desktop captures show the MAiVENS action, discovery note, explicit device-only save wording, and Episode 04 quiz action.",
     "The direct quiz return preserves numeric issue=4 in script.js:4341-4350; Blend and Snap selects only a requested validated published episode in blend-snap.html:1090-1130.",
-    "The final public diff is bounded to the stated journey repairs. Cloudflare beacon removal is confined to blend-snap.html and try-on.html."
+    "The final public diff remains bounded to the stated journey repairs. Cloudflare beacon removal is confined to blend-snap.html and try-on.html."
   ],
-  "factualIntegrity": {
-    "status": "NO_NEW_MATERIAL_FACTS_FOUND",
-    "scope": "The implementation repeats the approved field-trip language and routes; it adds no biography or historical claim."
-  },
-  "schemaCompatibility": {
-    "applicableSchema": "laidies-prose-quality-review.v1",
-    "status": "CANNOT_EMIT_PASS",
-    "reason": "An independent PRACTICE PASS requires observed-human explain-back and unseen-transfer evidence. This lane received implementation and viewport evidence, not those observations. The separate MICROCOPY path also has no registry-approved positive exemplar."
-  },
-  "learningDisposition": {
-    "disposition": "CANDIDATE_REPAIR_ONLY",
-    "rationale": "The defect is a single inherited Issue 04 interface control; no reusable prose rule needs to be added."
-  },
-  "nextTrigger": "Re-review after the Issue 04 Community action is hidden and the saved phone action evidence is refreshed."
+  "factualIntegrity": {"status": "NO_NEW_MATERIAL_FACTS_FOUND", "scope": "The implementation repeats approved field-trip language and routes; it adds no biography or historical claim."},
+  "schemaCompatibility": {"applicableSchema": "laidies-prose-quality-review.v1", "status": "PROVISIONAL_HOLD_REQUIRED", "reason": "An independent PRACTICE PASS requires observed-human unseen-transfer evidence. Ali's requested response is pending and is neither fabricated nor waived. The separate MICROCOPY path also has no registry-approved positive exemplar."},
+  "learningDisposition": {"disposition": "EVIDENCE_GAP", "rationale": "The candidate-only interface defect is repaired. Formal admission remains pending observed-reader evidence."},
+  "nextTrigger": "Attach the requested observed-reader unseen-transfer response, then run independent PRACTICE admission with exact evidence bindings."
 }
