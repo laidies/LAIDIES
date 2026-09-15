@@ -98,7 +98,7 @@
 
   /* ---------- latest-episode links: published index, static fallback in HTML ---------- */
   (function () {
-    var links = document.querySelectorAll('[data-latest-episode-link]');
+    var links = document.querySelectorAll('[data-latest-episode-link], [data-current-episode-link]');
     if (!links.length) return;
     fetch('/content/episode-index.json').then(function (response) {
       if (!response.ok) throw new Error('Episode index unavailable (' + response.status + ')');
@@ -106,7 +106,8 @@
     }).then(function (data) {
       var published = (data.episodes || []).filter(function (episode) {
         return episode.status === 'published' &&
-          Number.isFinite(Number(episode.number)) &&
+          Number.isInteger(Number(episode.number)) && Number(episode.number) > 0 &&
+          typeof episode.title === 'string' && episode.title.trim() &&
           typeof episode.issueUrl === 'string' &&
           /^issues\/issue-[a-z0-9-]+\.html$/i.test(episode.issueUrl);
       }).sort(function (a, b) {
@@ -114,10 +115,25 @@
       });
       if (!published.length) return;
       var latest = published[published.length - 1];
+      var number = String(latest.number).padStart(2, '0');
+      var title = 'Episode ' + number + ' · ' + latest.title;
       links.forEach(function (link) {
+        // Account continuation owns both the destination and its accessible name.
+        if (link.hasAttribute('data-episode-continuation')) return;
         link.href = '/' + latest.issueUrl;
-        link.setAttribute('aria-label', 'Latest Episode: ' + latest.title);
+        if (link.hasAttribute('data-latest-episode-link')) {
+          link.setAttribute('aria-label', 'Latest Episode: ' + latest.title);
+        }
+        var summary = link.querySelector('[data-intent-episode-summary]');
+        if (summary) summary.textContent = title;
       });
+      var heading = document.querySelector('.fc-default h3');
+      var read = document.querySelector('.fc-default .fc-btn-teal');
+      var listen = document.querySelector('.fc-default .fc-btn-coral');
+      if (heading) heading.textContent = title;
+      if (read) { read.href = '/' + latest.issueUrl; read.textContent = 'Read Episode ' + number; }
+      if (listen) { listen.href = '/watch.html?ep=' + number; listen.textContent = 'Listen to Episode ' + number; }
+
     }).catch(function () {
       /* Keep the last known published route already present in the HTML. */
     });
@@ -307,21 +323,6 @@
     document.addEventListener('sv:tour-checkin', paint);
   })();
 
-  /* ---------- season panel: fixed published fallback ---------- */
-  (function () {
-    var track = document.querySelector('.season-track');
-    var heading = document.querySelector('.fc-default h3');
-    if (!track || !heading) return;
-    heading.textContent = 'Episode 04 · The Founding Mothers';
-    track.querySelectorAll('.st-current em').forEach(function (label) {
-      label.textContent = 'Previously published';
-    });
-    var readBtn = document.querySelector('.fc-default .fc-btn-teal');
-    var listenBtn = document.querySelector('.fc-default .fc-btn-coral');
-    if (readBtn) { readBtn.href = '/issues/issue-04.html'; readBtn.textContent = 'Read Episode 04'; }
-    if (listenBtn) { listenBtn.href = '/watch.html?ep=04'; listenBtn.textContent = 'Listen to Episode 04'; }
-  })();
-
   /* ---------- signed-in Resident continuation ---------- */
   window.svShowResume = function (epTitle, href) {
     var d = document.querySelector('.fc-default'), r = document.querySelector('.fc-resume');
@@ -337,6 +338,8 @@
     }
     var intentEpisode = document.querySelector('[data-intent-episode]');
     if (intentEpisode) {
+      intentEpisode.setAttribute('data-episode-continuation', '');
+      intentEpisode.removeAttribute('aria-label');
       intentEpisode.href = href || '#this-week';
       var intentTitle = intentEpisode.querySelector('[data-intent-episode-title]');
       var intentSummary = intentEpisode.querySelector('[data-intent-episode-summary]');

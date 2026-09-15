@@ -4344,7 +4344,7 @@ function getQuizReturnConfig() {
   if (source === "blend-snap") {
     return {
       source,
-      href: new URL("blend-snap.html#the-study-pack", getSiteRootUrl()).toString(),
+      href: new URL("blend-snap.html" + (/^\d+$/.test(params.get("issue") || "") ? "?issue=" + Number(params.get("issue")) : "") + "#the-study-pack", getSiteRootUrl()).toString(),
       label: "\u2190 Back to Blend & Snap",
       bodyClass: "from-blend-snap",
     };

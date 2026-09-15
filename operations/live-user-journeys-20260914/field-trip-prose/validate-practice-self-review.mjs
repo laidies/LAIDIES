@@ -1,0 +1,3 @@
+import fs from "node:fs"; import path from "node:path"; import { fileURLToPath } from "node:url";
+import { inspectProseQualityReview } from "/Users/alisoneakin/Library/Mobile Documents/com~apple~CloudDocs/LAIDIES/Website-homepage/scripts/check-prose-quality-admission.mjs";
+const here = path.dirname(fileURLToPath(import.meta.url)); const root = path.join(here, "practice-validation-root"); const review = JSON.parse(fs.readFileSync(path.join(root, "producer-self-review.json"), "utf8")); const result = inspectProseQualityReview(review, { root }); if (result.errors.length) { console.error(result.errors.join("\n")); process.exit(1); } console.log("PRACTICE PRODUCER SELF-REVIEW PASS verdict=" + result.verdict);
