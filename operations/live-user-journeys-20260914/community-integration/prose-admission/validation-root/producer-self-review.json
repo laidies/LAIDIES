@@ -1,0 +1,437 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "COMMUNITY-RESIDENT-ROOM-SIGNIN-20260914",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "INTERACTIVE",
+  "surface": "COMMUNITY ROOM / Resident to Hyvor sign-in",
+  "maker": "release_discovery",
+  "reviewer": {
+    "id": "release_discovery",
+    "principalId": "release_discovery",
+    "role": "producer",
+    "modelFamily": "gpt-5.6-terra"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-15T04:43:03.162Z",
+  "artifact": {
+    "reviewText": {
+      "path": "content/review-text.json",
+      "sha256": "3f3c87771e527fd75751d374a428672fc614b986ba27db53372361311c18001f"
+    },
+    "manifest": {
+      "path": "content/manifest.json",
+      "sha256": "95e04c7d5cc5d9d16a301887dc65710ff85e83d214fbb15b5325fb7fefefcf0f"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e02cfa8221ae19b2121f7628cd3d04f66988bdec9938b23993ab29e3a0da98de",
+    "reviewerPrincipalId": "release_discovery",
+    "reviewedAt": "2026-09-15T04:32:00.153Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "You ask an AI product to compare",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "The article had sourced facts",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/front-paige-data-centre-policy-memo-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "one bounded action",
+        "reader judgment remains central"
+      ],
+      "evidence": [
+        {
+          "excerpt": "You onboard it, manage it, review its work.",
+          "locator": "content/episodes/episode-01.canon.md"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "How do I join this room with my LAiDIES account and return safely?",
+    "promisedPayoff": "Sign in once, choose a public display name if needed, and return to the selected conversation.",
+    "priorKnowledge": "The visitor is on a community room and may have a Resident account.",
+    "centralMentalModel": "LAiDIES authenticates the Resident account; Hyvor hosts public comments and moderation.",
+    "dailyLifeConnection": "A person can sign in, name themselves for a public room, and know whether the conversation actually opened.",
+    "surfaceJob": "Make the existing one-account community handoff understandable, truthful and recoverable.",
+    "desiredFeeling": "I know what I am signing into, where I will return, and what did or did not happen.",
+    "desiredReaderFeeling": "I know what I am signing into, where I will return, and what did or did not happen."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Every room state is short and action-centered. The shared boundary gives one public-room privacy instruction and one provider/reporting instruction without repeated outcome caveats.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a public room. Keep confidential work, private messages, personal identifiers, high-stakes personal details, and other people’s information out of comments.",
+          "locator": "content/review-text.json sharedRoomBoundary"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The flow names the visitor’s practical next step: enter through the existing LAiDIES sign-in and then write in the selected conversation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use the same LAiDIES sign-in you use elsewhere in town, then write in this conversation.",
+          "locator": "changedRoomStatusMessages signed out"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The copy uses direct, ordinary actions and town language without a technical handoff explanation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Sign in with your LAiDIES account to join the conversation.",
+          "locator": "changedRoomStatusMessages signed out"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The state copy stays brief enough to leave attention with the conversation, rather than turning the sign-in boundary into a policy notice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Conversation available.",
+          "locator": "changedRoomStatusMessages ready"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The reviewed artifact distinguishes inherited Sept. 7 candidate text from the revised current room-state and shared-boundary copy.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Sept. 7 candidate sign-in, house, and HTML strings are reused verbatim. The listed community-room state and shared-boundary strings were revised in this integration’s prose-admission repair; all are extracted verbatim from their current source.",
+          "locator": "provenance.rule"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Each string is located in its current source and provider responsibility is stated in the visible status and boundary copy.",
+      "artifactEvidence": [
+        {
+          "excerpt": "LAiDIES handles sign-in. Hyvor hosts and moderates comments.",
+          "locator": "changedRoomStatusMessages loading"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "The copy describes a public room while keeping the existing sign-in, display-name, provider, return, and recovery controls as the interaction mechanism.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The name people will see beside your comments",
+          "locator": "interactiveSignIn display-name prompt"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "It makes the immediate real-world choice clear: use the same account used elsewhere in town, then write in this room.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use the same LAiDIES sign-in you use elsewhere in town, then write in this conversation.",
+          "locator": "changedRoomStatusMessages signed out"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The interaction reveals the otherwise invisible division of responsibility in one short status, then returns the visitor to the available controls.",
+      "artifactEvidence": [
+        {
+          "excerpt": "LAiDIES handles sign-in. Hyvor hosts and moderates comments.",
+          "locator": "changedRoomStatusMessages loading"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The actual controls supply a bounded sequence: sign in, choose a public display name when asked, and save it.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Sign in with LAiDIES →",
+          "locator": "content/review-text.json interactiveSignIn signed out action"
+        },
+        {
+          "excerpt": "Save my display name",
+          "locator": "content/review-text.json interactiveSignIn display-name save action"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "The state inventory gives observable feedback for the main interaction outcomes: sign-in checking, provider confirmation/rejection, display-name save failure, and sign-out completion failure.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You’re signed in with LAiDIES. Comments here are public.",
+          "locator": "content/review-text.json interactiveSignIn provider SSO success"
+        },
+        {
+          "excerpt": "The conversation could not confirm your LAiDIES sign-in. Please reload to try again.",
+          "locator": "content/review-text.json interactiveSignIn provider SSO rejection"
+        },
+        {
+          "excerpt": "Your display name could not be saved. Please try again.",
+          "locator": "content/review-text.json interactiveSignIn display-name save error"
+        },
+        {
+          "excerpt": "Sign-out did not complete. Please try again.",
+          "locator": "content/review-text.json interactiveSignIn logout error"
+        }
+      ]
+    },
+    "honestLimits": {
+      "verdict": "PASS",
+      "observation": "The persistent boundary keeps public-room privacy guidance and directs a visitor to Hyvor’s reporting controls without promising an outcome.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is a public room. Keep confidential work, private messages, personal identifiers, high-stakes personal details, and other people’s information out of comments.",
+          "locator": "content/review-text.json sharedRoomBoundary"
+        },
+        {
+          "excerpt": "LAiDIES privacy applies on this site. Hyvor hosts and moderates the discussion; use its reporting controls for a comment that needs attention.",
+          "locator": "content/review-text.json sharedRoomBoundary"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The revised room states remove “receipt” and “frame” and name the conversation, post and reply plainly.",
+      "artifactLocator": "content/review-text.json changedRoomStatusMessages"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "No candidate-specific instance found in the exact extracted interaction text.",
+      "artifactLocator": "content/review-text.json"
+    }
+  },
+  "factualReview": {
+    "disposition": "NO_MATERIAL_CLAIMS",
+    "rationale": "The artifact is an exact UI-copy inventory; runtime and provider claims require separate functional/provider evidence.",
+    "claimScan": {
+      "observation": "The inventory contains account, provider and public-comment status language rather than new factual instruction.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use your LAiDIES Resident account to join the conversation.",
+          "locator": "content/review-text.json interactiveSignIn and changedHtmlProse"
+        }
+      ]
+    },
+    "reviewedThrough": "2026-09-15T04:32:01.153Z",
+    "nextTrigger": "Any source or provider-state change; repair jargon before independent admission.",
+    "correctionOwner": "Community integration producer"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 1,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First producer admission for this interactive candidate."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The candidate-specific jargon repair is complete in the exact bound artifact."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer review only; no independent admission.",
+    "No actual provider acceptance, observed visitor comprehension, or browser interaction is claimed."
+  ]
+}

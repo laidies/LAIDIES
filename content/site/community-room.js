@@ -46,20 +46,20 @@
         body: "This copy of the page is not an approved LAiDIES community host, so the external provider was not contacted."
       },
       "signed-out": {
-        title: "Sign in with your LAiDIES Resident account to participate.",
-        body: "Use the same LAiDIES sign-in you use elsewhere in town. Opening or signing in does not prove a comment was submitted, published or moderated."
+        title: "Sign in with your LAiDIES account to join the conversation.",
+        body: "Use the same LAiDIES sign-in you use elsewhere in town, then write in this conversation."
       },
       held: {
-        title: "A contribution may be held by the provider.",
-        body: "A held contribution is not published or moderated by implication. Follow the provider status and reporting controls; LAiDIES does not guarantee review or reply."
+        title: "A contribution may be held by Hyvor.",
+        body: "Use the provider status and reporting controls."
       },
       loading: {
-        title: "Loading the external discussion…",
-        body: "LAiDIES provides your sign-in; Hyvor hosts comments and moderation. A visible frame is not a receipt that any contribution was accepted."
+        title: "Loading the conversation…",
+        body: "LAiDIES handles sign-in. Hyvor hosts and moderates comments."
       },
       ready: {
-        title: "External discussion frame available.",
-        body: "LAiDIES provides your sign-in; Hyvor hosts comments and moderation. LAiDIES cannot confirm a post, review, reply or moderation outcome from this page."
+        title: "Conversation available.",
+        body: "The conversation is ready to use. Hyvor hosts and moderates comments."
       }
     };
     return copies[state] || copies.unavailable;
@@ -77,8 +77,8 @@
       "</strong><p>" +
       copy.body +
       "</p>" +
-      '<p class="community-provider-state__safety">Public room: do not post confidential work, private messages, personal identifiers, high-stakes personal details, or another person’s information. Participation, publication, moderation and reply are not guaranteed.</p>' +
-      '<p class="community-provider-state__boundary">LAiDIES privacy covers this site. Hyvor’s policies cover its external discussion, account, comment and provider data. Use Hyvor’s in-frame flag or reporting controls when available; neither provider nor LAiDIES review or outcome is guaranteed.</p>' +
+      '<p class="community-provider-state__safety">This is a public room. Keep confidential work, private messages, personal identifiers, high-stakes personal details, and other people’s information out of comments.</p>' +
+      '<p class="community-provider-state__boundary">LAiDIES privacy applies on this site. Hyvor hosts and moderates the discussion; use its reporting controls for a comment that needs attention.</p>' +
       '<div class="community-provider-state__links">' +
       '<a href="/sorority-house.html">Back to the house</a>' +
       '<a href="/privacy.html">LAiDIES privacy</a>' +

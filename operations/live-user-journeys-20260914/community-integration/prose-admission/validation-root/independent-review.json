@@ -1,0 +1,420 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "COMMUNITY-RESIDENT-ROOM-SIGNIN-20260914",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "INTERACTIVE",
+  "surface": "COMMUNITY ROOM / Resident to Hyvor sign-in",
+  "maker": "release_discovery",
+  "reviewer": {
+    "id": "root-astra-community-review",
+    "principalId": "root",
+    "role": "independent semantic reviewer",
+    "modelFamily": "gpt-6-astra",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-15T04:48:30.432158+00:00",
+  "artifact": {
+    "reviewText": {
+      "path": "content/review-text.json",
+      "sha256": "3f3c87771e527fd75751d374a428672fc614b986ba27db53372361311c18001f"
+    },
+    "manifest": {
+      "path": "content/manifest.json",
+      "sha256": "95e04c7d5cc5d9d16a301887dc65710ff85e83d214fbb15b5325fb7fefefcf0f"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e02cfa8221ae19b2121f7628cd3d04f66988bdec9938b23993ab29e3a0da98de",
+    "reviewerPrincipalId": "root",
+    "reviewedAt": "2026-09-15T04:48:30.432022+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "You ask an AI product to compare",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "The article had sourced facts",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/front-paige-data-centre-policy-memo-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-EPISODE-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The visitor remains in control of one concrete action.",
+        "Plain verbs connect the instruction to an observable result."
+      ],
+      "evidence": [
+        {
+          "excerpt": "You onboard it, manage it, review its work.",
+          "locator": "content/episodes/episode-01.canon.md"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "How do I join this room with my LAiDIES account and return safely?",
+    "promisedPayoff": "Sign in once, choose a public display name if needed, and return to the selected conversation.",
+    "priorKnowledge": "The visitor is on a community room and may have a Resident account.",
+    "centralMentalModel": "LAiDIES authenticates the Resident account; Hyvor hosts public comments and moderation.",
+    "dailyLifeConnection": "A person can sign in, name themselves for a public room, and know whether the conversation actually opened.",
+    "surfaceJob": "Make the existing one-account community handoff understandable, truthful and recoverable.",
+    "desiredFeeling": "I know what I am signing into, where I will return, and what did or did not happen.",
+    "desiredReaderFeeling": "I know what I am signing into, where I will return, and what did or did not happen."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The display-name label explains exactly who sees the name. Sign-in, saving and retry controls use ordinary verbs. Earlier frame/receipt jargon is absent.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The name people will see beside your comments",
+          "locator": "content/review-text.json"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The account page promises return to the selected conversation, directly addressing the interruption that signing in creates. The separate runtime test must prove this promise.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Check your email for the LAiDIES sign-in link. It will bring you back to the conversation.",
+          "locator": "content/review-text.json"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Town language in the house remains light and recognizable; account controls speak directly to the visitor. No invented character voice or technical authentication vocabulary is introduced.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Every wing and room is open to explore.",
+          "locator": "content/review-text.json"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Short checking/opening states let the room prompt remain the focus. The interaction invites participation without making account setup a lesson. This is appropriate restraint for sign-in, not a claim that authentication itself is entertaining.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Opening the conversation with your LAiDIES account…",
+          "locator": "content/review-text.json"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The text distinguishes an account from a device Card and names the public nature of comments. Success wording is reserved for provider confirmation in the candidate logic; prose admission alone does not prove that confirmation works.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your Resident Card is optional.",
+          "locator": "content/review-text.json"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The inventory binds each message to a file and state, and explicitly identifies current revisions. Provider responsibilities are stable role statements but must be rechecked if hosting or authentication changes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The listed community-room state and shared-boundary strings were revised in this integration’s prose-admission repair",
+          "locator": "content/review-text.json"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Display-name choice, pending status, retry and sign-out failures correspond to distinct interaction states. Messages remain short enough for the room panel and account page.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your display name could not be saved. Please try again.",
+          "locator": "content/review-text.json"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The public-name prompt makes a real social consequence understandable: this is the name other participants will see beside comments.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The name people will see beside your comments",
+          "locator": "content/review-text.json"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "The account/Card distinction explains the invisible mechanism only as far as a visitor needs: a saved Card does not sign someone in. The UI then provides the account action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "a Card saved only in this browser does not sign you in.",
+          "locator": "content/review-text.json"
+        }
+      ]
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Sign in and Save my display name identify concrete controls. The email instruction says where to continue and what the link returns to; no vague invitation to explore replaces the action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Save my display name",
+          "locator": "content/review-text.json"
+        }
+      ]
+    },
+    "practiceFeedback": {
+      "verdict": "PASS",
+      "observation": "The inventory distinguishes success from provider rejection and failed logout. In particular, failed logout is not described as completed. These are useful observable outcomes for an interaction rather than a teaching exercise.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Sign-out did not complete. Please try again.",
+          "locator": "content/review-text.json"
+        }
+      ]
+    },
+    "honestLimits": {
+      "verdict": "PASS",
+      "observation": "The persistent public-room notice names confidential material to keep out and points to reporting. The Burn Book text explicitly withholds promises of publication or rewards. Runtime acceptance remains outside this review.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A comment does not guarantee LAiDIES review, moderation, publication, a new Mall shop, or a reward.",
+          "locator": "content/review-text.json"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: Repeated room instructions are shared navigation context across separate pages, not repeated paragraphs in one lesson.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: The account versus device Card distinction and visible sign-in controls explain the necessary mechanism.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: The revised text says conversation and comments; frame and receipt no longer appear in public strings.",
+      "artifactLocator": "content/review-text.json changedRoomStatusMessages"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: Provider rejection and failed logout have explicit failure text; success remains conditional on runtime acceptance.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: One persistent public-room boundary remains; transient states no longer repeat administrative disclaimers.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "Reviewed across the complete state inventory: No instance of this defect found in the short account actions, conditional status messages, house invitation or public-room boundary.",
+      "artifactLocator": "content/review-text.json"
+    }
+  },
+  "factualReview": {
+    "disposition": "NO_MATERIAL_CLAIMS",
+    "rationale": "No new AI teaching or news claims. This is conditional interface language for a candidate account flow; provider acceptance and the return promise require separate browser evidence before release.",
+    "claimScan": {
+      "observation": "The inventory contains account, provider and public-comment status language rather than new factual instruction.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Use your LAiDIES Resident account to join the conversation.",
+          "locator": "content/review-text.json interactiveSignIn and changedHtmlProse"
+        }
+      ]
+    },
+    "reviewedThrough": "2026-09-15T04:48:30.432156+00:00",
+    "nextTrigger": "Any account, provider, return-flow or public-text change; verify candidate behavior before production.",
+    "correctionOwner": "Community integration producer"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 3,
+    "reviewCycles": 4,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First completed independent admission for this exact repaired artifact; prior root feedback held jargon, repeated caveats and inaccurate provenance."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The candidate-specific jargon repair is complete in the exact bound artifact."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "PASS is limited to exact prose and state design. It is not provider acceptance or authorization to claim community sign-in live.",
+    "No real comment submitted, email return observed, or visitor comprehension test performed in this semantic review.",
+    "Independent reviewer read the exact artifact and calibration examples; producer observations were not used as a substitute for judgment."
+  ]
+}
