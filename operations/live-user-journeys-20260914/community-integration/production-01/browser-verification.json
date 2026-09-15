@@ -1,0 +1,54 @@
+{
+  "recordedAt": "2026-09-15T18:02:10.898282+00:00",
+  "deployment": "bbd8bfef-739e-444c-804d-022d06599cc7",
+  "publicName": "LAiDIES Test Account",
+  "authorization": "Ali: use laidies test account",
+  "profile": {
+    "saved": true,
+    "privateCardUnchanged": true,
+    "member_card_is_public": false,
+    "baselineFalseFailure": "mutation returned four matching fields; subsequent read added resident_number",
+    "repair": "strict read-back comparison of four mutation fields; preserves read-only fields"
+  },
+  "provider": {
+    "site": 15519,
+    "ssoEnabled": true,
+    "mode": "stateless",
+    "keyless": false,
+    "existingKeyRetained": true,
+    "loginUrl": "https://laidies.ai/resident-card?community_return=$PATH_ENCODED#rcAccountTitle",
+    "guestCommenting": false,
+    "settingsVerifiedAfterNavigation": true
+  },
+  "liveBrowser": {
+    "origin": "https://laidies.ai",
+    "acceptedSso": "Actual UI reached success status, gated in reviewed runtime by providerUser.type === sso",
+    "directRoom": "/community/ask-the-room",
+    "house": "/sorority-house",
+    "roomSwitch": "Ask the Room to Wins of the Week retained accepted sign-in and empty composer",
+    "phone": {
+      "width": 390,
+      "scrollWidth": 390,
+      "composerOpenedWithoutTyping": true
+    },
+    "logout": "Actual Sign out of LAiDIES removed composer; Hyvor and LAiDIES login links both retained selected room",
+    "loginReturn": "Clicked room sign-in; Resident account form displays optional Card and preserved community_return",
+    "privacyReportingLinksVisible": true,
+    "commentsPosted": 0,
+    "reactionsAdded": 0,
+    "emulationCleared": true
+  },
+  "checks": {
+    "communityTests": 69,
+    "profileRuntimeTests": 3,
+    "dualOriginHashes": 34,
+    "staticPathsPreserved": 800
+  },
+  "limits": [
+    "Did not post or delete a comment, react, or submit a report.",
+    "No new sign-in email requested in this acceptance; real email return was verified during the preceding preview work.",
+    "Actual browser checked Ask the Room and house switching to Wins; all seven direct room documents passed exact live byte checks.",
+    "Phone verification uses browser emulation, not a physical phone.",
+    "Listening rewards and other pre-existing held content remain outside this community release."
+  ]
+}

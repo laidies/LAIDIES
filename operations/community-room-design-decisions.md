@@ -48,3 +48,7 @@ The current painterly Sorority House interior is a structural bridge only. It
 does not replace the pending bright, dimensional graphic-novel house artwork
 and must not become a future generation reference. The rejected pink-tracksuit
 June image is absent.
+
+
+## 2026-09-15 — Approved community test identity and live activation
+Ali explicitly instructed “use laidies test account” for the outstanding public-name choice. Save and use **LAiDIES Test Account** on the existing test account for community acceptance. This does not authorize publishing its private Resident Card or posting test comments. The name is saved with member_card_is_public=false; live SSO acceptance and sign-out were verified without comments or reactions. Existing Hyvor site15519 now uses keyed stateless Resident SSO, retains its existing key, returns login to the selected room, and has guest commenting disabled. Evidence: operations/live-user-journeys-20260914/community-integration/production-01/. Broader product decisions and listener rewards are not changed by this test identity approval.
