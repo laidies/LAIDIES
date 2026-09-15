@@ -1,0 +1,933 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "rubygems-agent-attribution-20260915",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/daily_cycle_check",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-15T14:32:47.602Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/review-text.json",
+      "sha256": "9703ee3592710e537d62431f2fae490f7c0f0a8b37caa172d69eb41fd9918cde"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/publication-manifest.json",
+      "sha256": "61aed853c92d58ab16f7dacdf16dbdcf7c3e9fec36afe4e6e3ffc5c21c5bed2b"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/rendered-article.html",
+      "sha256": "dbb6db5682dd71fb2902bcf0f55915c65e47113447af840ec154acb38b4d6853"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "When a scary headline links a software-supply-chain incident to an AI company, what is actually confirmed and what is still just someone's attribution claim?",
+    "promisedPayoff": "The reader can split the RubyGems story into a confirmed incident record (spam accounts, removals, no API-key theft evidence) and an unresolved researcher attribution to OpenAI agents.",
+    "centralMentalModel": "A registry can only confirm events observable on its own service; identifying the author or operator requires evidence it may not have — attribution is a separate, weaker layer of claim.",
+    "dailyLifeConnection": "Reading a security headline that names an AI company and pausing to ask who reported it, what they directly saw, and who they merely blame.",
+    "surfaceJob": "A dated daily news article reporting the September 11 RubyGems update on the May spam campaign and the attribution boundary it draws.",
+    "desiredReaderFeeling": "Calm, sceptical competence: informed about the incident, resistant to the louder unverified attribution."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Every sentence is readable without AI training; registry, packages and API keys are defined at first use (P002, P004).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>RubyGems, a registry where developers share reusable Ruby code packages, says a May spam campaign used newly registered accounts to publish packages. The registry paused new registrations, removed the responsible accounts and yanked more than 500 packages. Existing users’ installs and uploads stayed available, and registration reopened on May 16.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Attribution asks who did something. A registry can confirm what happened on its own service: accounts appeared, packages were published and removed, and its team’s investigation found no evidence that attempts to obtain other users’ API keys—credentials that let software act as a user—succeeded. It may still lack the evidence to identify the author or operator.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline, the reader gains a reusable distinction between an incident record and an attribution claim (P003, P005).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Its September 11 update also draws a boundary around a louder claim. Nightingale Collective researchers attribute the activity to OpenAI agents, but RubyGems says it cannot determine whether AI agents created or published the packages. That is not the same as RubyGems confirming that OpenAI was hacked or that OpenAI ran the campaign.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>When a headline links an incident to an AI company, separate the parts: who reported the incident, what they directly observed, and who they say is responsible. Here, the registry confirms the disruption and its response while leaving AI authorship unresolved. That distinction keeps a security update useful without turning an attribution claim into a settled fact.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, adult, candid tone with a light original aphorism (P006); no condescension or borrowed persona anywhere (P001–P005).",
+      "artifactEvidence": [
+        {
+          "excerpt": "“The registry can tell you what landed in its mailroom. It cannot always tell you who wrote the letter.”",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>When a headline links an incident to an AI company, separate the parts: who reported the incident, what they directly observed, and who they say is responsible. Here, the registry confirms the disruption and its response while leaving AI authorship unresolved. That distinction keeps a security update useful without turning an attribution claim into a settled fact.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The headline tension (confirmed incident vs unconfirmable author, P001) and the mailroom line (P006) sustain interest without forced humour.",
+      "artifactEvidence": [
+        {
+          "excerpt": "RubyGems confirms a package-spam incident. It cannot confirm who made the code.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "“The registry can tell you what landed in its mailroom. It cannot always tell you who wrote the letter.”",
+          "locator": "P006"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "A bounded dated news article: what happened in May, what the September 11 update adds, why it matters — proper scope (P002, P003, P005).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>RubyGems, a registry where developers share reusable Ruby code packages, says a May spam campaign used newly registered accounts to publish packages. The registry paused new registrations, removed the responsible accounts and yanked more than 500 packages. Existing users’ installs and uploads stayed available, and registration reopened on May 16.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Its September 11 update also draws a boundary around a louder claim. Nightingale Collective researchers attribute the activity to OpenAI agents, but RubyGems says it cannot determine whether AI agents created or published the packages. That is not the same as RubyGems confirming that OpenAI was hacked or that OpenAI ran the campaign.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>When a headline links an incident to an AI company, separate the parts: who reported the incident, what they directly observed, and who they say is responsible. Here, the registry confirms the disruption and its response while leaving AI authorship unresolved. That distinction keeps a security update useful without turning an attribution claim into a settled fact.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Headline-reading is a genuine daily situation and P005 anchors the mechanism there; the mailroom analogy (P006) adds a familiar frame, though the grounding is brief.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a headline links an incident to an AI company, separate the parts: who reported the incident, what they directly observed, and who they say is responsible. Here, the registry confirms the disruption and its response while leaving AI authorship unresolved. That distinction keeps a security update useful without turning an attribution claim into a settled fact.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "“The registry can tell you what landed in its mailroom. It cannot always tell you who wrote the letter.”",
+          "locator": "P006"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human question first (P001), concrete causal sequence (P002, P004), and a better next question — ask who observed what (P005); no imitation of any communicator's voice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "RubyGems confirms a package-spam incident. It cannot confirm who made the code.",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>Attribution asks who did something. A registry can confirm what happened on its own service: accounts appeared, packages were published and removed, and its team’s investigation found no evidence that attempts to obtain other users’ API keys—credentials that let software act as a user—succeeded. It may still lack the evidence to identify the author or operator.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>When a headline links an incident to an AI company, separate the parts: who reported the incident, what they directly observed, and who they say is responsible. Here, the registry confirms the disruption and its response while leaving AI authorship unresolved. That distinction keeps a security update useful without turning an attribution claim into a settled fact.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "P004 gives the causal reason attribution stays open: the registry's evidence covers on-service events, not authorship, so a reader can restate why RubyGems cannot confirm who wrote the code.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Attribution asks who did something. A registry can confirm what happened on its own service: accounts appeared, packages were published and removed, and its team’s investigation found no evidence that attempts to obtain other users’ API keys—credentials that let software act as a user—succeeded. It may still lack the evidence to identify the author or operator.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Its September 11 update also draws a boundary around a louder claim. Nightingale Collective researchers attribute the activity to OpenAI agents, but RubyGems says it cannot determine whether AI agents created or published the packages. That is not the same as RubyGems confirming that OpenAI was hacked or that OpenAI ran the campaign.</p>",
+          "locator": "P003"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why can RubyGems confirm the spam campaign happened but not confirm whether OpenAI agents were behind it?",
+        "response": "Because RubyGems' evidence comes only from events on its own service: it directly observed new accounts registering, packages being published, and could act on them. Who or what typed the code — a human, an AI agent, or someone operating one — leaves no necessary trace in registry logs, so RubyGems lacks the evidence to determine authorship, while outside researchers making that attribution rely on evidence the registry cannot verify.",
+        "expectedEvidence": "The answer should cite the on-service observability boundary in P004 and the explicit RubyGems statement in P003 that it cannot determine whether AI agents created or published the packages.",
+        "assessment": "The article supports this answer fully: P004 supplies the causal mechanism and P003 the specific boundary statement, so a reader can reconstruct the reasoning in ordinary language."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The observed-events-vs-authorship mechanism in P004–P005 transfers directly to any platform incident where a third party names a culprit the platform cannot verify.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Attribution asks who did something. A registry can confirm what happened on its own service: accounts appeared, packages were published and removed, and its team’s investigation found no evidence that attempts to obtain other users’ API keys—credentials that let software act as a user—succeeded. It may still lack the evidence to identify the author or operator.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>When a headline links an incident to an AI company, separate the parts: who reported the incident, what they directly observed, and who they say is responsible. Here, the registry confirms the disruption and its response while leaving AI authorship unresolved. That distinction keeps a security update useful without turning an attribution claim into a settled fact.</p>",
+          "locator": "P005"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Using this article's mechanism, what should a reader treat as confirmed and what as an open claim in the video-platform case?",
+        "response": "Confirmed: what the platform observed on its own service — the channels existed, behaved in a coordinated way, and were removed. Open claim: the lab's state-actor attribution, because identifying the operator requires evidence beyond platform logs, and the platform itself declined to make that determination. A reader should report 'platform confirms coordinated network; lab attributes it to agency X' rather than 'agency X ran propaganda network.'",
+        "expectedEvidence": "Application of P004's on-service-evidence boundary and P005's three-part split (who reported, what they observed, who they say is responsible) to a situation not in the article.",
+        "assessment": "The mechanism transfers cleanly without modification, which indicates the article teaches a genuine general distinction rather than a fact list about RubyGems."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "P005 gives a specific proportionate action: separate who reported, what they directly observed, and who they say is responsible before accepting an attribution.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a headline links an incident to an AI company, separate the parts: who reported the incident, what they directly observed, and who they say is responsible. Here, the registry confirms the disruption and its response while leaving AI authorship unresolved. That distinction keeps a security update useful without turning an attribution claim into a settled fact.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The mailroom/letter analogy (P006) maps accurately: the registry observes arrivals (publishes) but not authorship, and 'cannot always' retains the limit rather than overclaiming.",
+      "artifactEvidence": [
+        {
+          "excerpt": "“The registry can tell you what landed in its mailroom. It cannot always tell you who wrote the letter.”",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Attribution asks who did something. A registry can confirm what happened on its own service: accounts appeared, packages were published and removed, and its team’s investigation found no evidence that attempts to obtain other users’ API keys—credentials that let software act as a user—succeeded. It may still lack the evidence to identify the author or operator.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Every material claim in P002–P004 traces to the primary RubyGems update with attribution and limits retained; no claim exceeds the excerpt, and researcher methodology is not reproduced, consistent with the stated source limitation.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>RubyGems, a registry where developers share reusable Ruby code packages, says a May spam campaign used newly registered accounts to publish packages. The registry paused new registrations, removed the responsible accounts and yanked more than 500 packages. Existing users’ installs and uploads stayed available, and registration reopened on May 16.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Its September 11 update also draws a boundary around a louder claim. Nightingale Collective researchers attribute the activity to OpenAI agents, but RubyGems says it cannot determine whether AI agents created or published the packages. That is not the same as RubyGems confirming that OpenAI was hacked or that OpenAI ran the campaign.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Attribution asks who did something. A registry can confirm what happened on its own service: accounts appeared, packages were published and removed, and its team’s investigation found no evidence that attempts to obtain other users’ API keys—credentials that let software act as a user—succeeded. It may still lack the evidence to identify the author or operator.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The May campaign, May 16 reopening and September 11 update are all dated in the text (P002, P003), making time-sensitive claims checkable against the cited primary post.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>RubyGems, a registry where developers share reusable Ruby code packages, says a May spam campaign used newly registered accounts to publish packages. The registry paused new registrations, removed the responsible accounts and yanked more than 500 packages. Existing users’ installs and uploads stayed available, and registration reopened on May 16.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Its September 11 update also draws a boundary around a louder claim. Nightingale Collective researchers attribute the activity to OpenAI agents, but RubyGems says it cannot determine whether AI agents created or published the packages. That is not the same as RubyGems confirming that OpenAI was hacked or that OpenAI ran the campaign.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "P003 explicitly frames what the September 11 update newly adds (the attribution boundary) against the older May incident and response described in P002.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>RubyGems, a registry where developers share reusable Ruby code packages, says a May spam campaign used newly registered accounts to publish packages. The registry paused new registrations, removed the responsible accounts and yanked more than 500 packages. Existing users’ installs and uploads stayed available, and registration reopened on May 16.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Its September 11 update also draws a boundary around a louder claim. Nightingale Collective researchers attribute the activity to OpenAI agents, but RubyGems says it cannot determine whether AI agents created or published the packages. That is not the same as RubyGems confirming that OpenAI was hacked or that OpenAI ran the campaign.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The consequence for readers is concrete (how to read attribution headlines, P005) and uncertainty survives: AI authorship is explicitly left unresolved rather than settled (P003, P005).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Its September 11 update also draws a boundary around a louder claim. Nightingale Collective researchers attribute the activity to OpenAI agents, but RubyGems says it cannot determine whether AI agents created or published the packages. That is not the same as RubyGems confirming that OpenAI was hacked or that OpenAI ran the campaign.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>When a headline links an incident to an AI company, separate the parts: who reported the incident, what they directly observed, and who they say is responsible. Here, the registry confirms the disruption and its response while leaving AI authorship unresolved. That distinction keeps a security update useful without turning an attribution claim into a settled fact.</p>",
+          "locator": "P005"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Definitions appear inline within the narrative (P002, P004), never as a detached list.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Each passage does distinct work — incident, boundary, mechanism, action — with no repeated scaffold.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The single analogy (P006) explains the specific mechanism of observable-events-versus-authorship rather than adding flavour.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Only one cross-reference (P007) with a stated explanatory job about source and method; no accumulation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal steps from on-service evidence to the attribution limit are given in P004; conclusions are earned.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "P005's action is case-specific (split reporter, observation, responsibility), not a bare 'be careful'.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Registry, packages and API keys are each explained at first meaningful use (P002, P004).",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Accounts, packages, registry response and researcher claim are connected in one causal flow across P002–P004.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty tracks evidence: confirmed response is stated plainly, attribution is explicitly left unresolved (P003, P005).",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Claims are dated (May campaign, May 16 reopening, September 11 update) and traceable to the cited primary update.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Language is concrete throughout; no motivational or vague corporate phrasing appears.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The aphorism (P006) and headline tension (P001) keep human interest; it never becomes a checklist.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is invoked; P007 is a subject-matter class link, not a substitute for explanation.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's promise (P001) is fully paid off by P003–P004's explanation of the attribution boundary.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The mailroom example returns to the technical mechanism of registry-observable evidence (P004, P006).",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitation of any communicator's voice or mannerisms; the voice is original and consistent.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The single light touch (P006) serves understanding rather than displacing it.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The hook (P001) is one line; the mechanism gets the bulk of the piece (P002–P005).",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The headline's claim is immediately substantiated by P002–P004 before the takeaway in P005.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "P005 ends with a bounded, proportionate reading habit; no grand moral is drawn.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers the full supplied job: confirmed incident record plus the unresolved researcher attribution.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human stake — who to believe about the incident — is established in the headline before any mechanism (P001).",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Not applicable in force: the single news example is the article's proper scope and does not crowd out a broader promise.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The organising perspective is the reader's headline-evaluation need, exactly right for a bounded news report (P005).",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/editorial-input.json",
+        "sha256": "ae75926da439564d12aef0b7ff154a78fa2e594cc908b9f890a02ab778ff5c3d"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "incident-response",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>RubyGems, a registry where developers share reusable Ruby code packages, says a May spam campaign used newly registered accounts to publish packages. The registry paused new registrations, removed the responsible accounts and yanked more than 500 packages. Existing users’ installs and uploads stayed available, and registration reopened on May 16.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/editorial-input.json",
+          "sha256": "ae75926da439564d12aef0b7ff154a78fa2e594cc908b9f890a02ab778ff5c3d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "RubyGems says the May campaign used newly registered accounts to publish spam packages.\nRubyGems temporarily paused new registrations, blocked and removed responsible accounts, and yanked more than 500 malicious packages; existing-user installs and pushes remained unaffected and registration reopened May 16.\nIt says researchers found code intended to obtain other users’ API keys, but RubyGems found no evidence those attempts succeeded.\nNightingale Collective attributes the activity to OpenAI agents. RubyGems says it cannot determine, from the evidence available to it, whether AI agents created or published the packages.",
+            "locator": "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html"
+          }
+        ],
+        "scopeAndFreshness": "P002 matches the source excerpt: RubyGems says the May campaign used newly registered accounts to publish spam packages, with attribution retained ('says')."
+      },
+      {
+        "claimId": "removals",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>RubyGems, a registry where developers share reusable Ruby code packages, says a May spam campaign used newly registered accounts to publish packages. The registry paused new registrations, removed the responsible accounts and yanked more than 500 packages. Existing users’ installs and uploads stayed available, and registration reopened on May 16.</p>",
+            "locator": "P002"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/editorial-input.json",
+          "sha256": "ae75926da439564d12aef0b7ff154a78fa2e594cc908b9f890a02ab778ff5c3d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "RubyGems says the May campaign used newly registered accounts to publish spam packages.\nRubyGems temporarily paused new registrations, blocked and removed responsible accounts, and yanked more than 500 malicious packages; existing-user installs and pushes remained unaffected and registration reopened May 16.\nIt says researchers found code intended to obtain other users’ API keys, but RubyGems found no evidence those attempts succeeded.\nNightingale Collective attributes the activity to OpenAI agents. RubyGems says it cannot determine, from the evidence available to it, whether AI agents created or published the packages.",
+            "locator": "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html"
+          }
+        ],
+        "scopeAndFreshness": "P002's pause of registrations, removal of responsible accounts, yanking of more than 500 packages, unaffected existing-user installs/pushes and May 16 reopening all match the source passage exactly."
+      },
+      {
+        "claimId": "api-key-limit",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Attribution asks who did something. A registry can confirm what happened on its own service: accounts appeared, packages were published and removed, and its team’s investigation found no evidence that attempts to obtain other users’ API keys—credentials that let software act as a user—succeeded. It may still lack the evidence to identify the author or operator.</p>",
+            "locator": "P004"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/editorial-input.json",
+          "sha256": "ae75926da439564d12aef0b7ff154a78fa2e594cc908b9f890a02ab778ff5c3d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "RubyGems says the May campaign used newly registered accounts to publish spam packages.\nRubyGems temporarily paused new registrations, blocked and removed responsible accounts, and yanked more than 500 malicious packages; existing-user installs and pushes remained unaffected and registration reopened May 16.\nIt says researchers found code intended to obtain other users’ API keys, but RubyGems found no evidence those attempts succeeded.\nNightingale Collective attributes the activity to OpenAI agents. RubyGems says it cannot determine, from the evidence available to it, whether AI agents created or published the packages.",
+            "locator": "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html"
+          }
+        ],
+        "scopeAndFreshness": "P004 correctly attributes to RubyGems' own investigation the finding of no evidence that API-key-obtaining attempts succeeded, matching the source; the plain definition of API keys does not alter the claim."
+      },
+      {
+        "claimId": "attribution-boundary",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Its September 11 update also draws a boundary around a louder claim. Nightingale Collective researchers attribute the activity to OpenAI agents, but RubyGems says it cannot determine whether AI agents created or published the packages. That is not the same as RubyGems confirming that OpenAI was hacked or that OpenAI ran the campaign.</p>",
+            "locator": "P003"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/editorial-input.json",
+          "sha256": "ae75926da439564d12aef0b7ff154a78fa2e594cc908b9f890a02ab778ff5c3d"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "RubyGems says the May campaign used newly registered accounts to publish spam packages.\nRubyGems temporarily paused new registrations, blocked and removed responsible accounts, and yanked more than 500 malicious packages; existing-user installs and pushes remained unaffected and registration reopened May 16.\nIt says researchers found code intended to obtain other users’ API keys, but RubyGems found no evidence those attempts succeeded.\nNightingale Collective attributes the activity to OpenAI agents. RubyGems says it cannot determine, from the evidence available to it, whether AI agents created or published the packages.",
+            "locator": "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html"
+          }
+        ],
+        "scopeAndFreshness": "P003 preserves both sides of the source: Nightingale Collective attributes the activity to OpenAI agents while RubyGems says it cannot determine whether AI agents created or published the packages; the added clarification that this is not confirmation of an OpenAI hack is a faithful boundary statement, not a new claim."
+      }
+    ],
+    "reviewedThrough": "2026-09-15",
+    "nextTrigger": "RubyGems correction, attribution update or accessible researcher methods.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 2,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First checksum-bound ordinary NEWS prose for this RubyGems incident update."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All outcomes and news checks pass and every failure family is clear; the piece is a compact, well-bounded example of separating incident record from attribution."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=2; evidence gaps repaired=0; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/admitted-v1/news-editorial-analysis.json",
+      "sha256": "e9cfa72cac3775c504930e79a72ca8a863f39f6839cf4fb222ebb4f3a6c78b61"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/admitted-v1/independent-raw-report.json",
+    "sha256": "26566df6e3fc5771530a0ec68fdb6f21de10b558241b4c50db9fae588e3525e8"
+  }
+}

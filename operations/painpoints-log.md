@@ -16187,3 +16187,12 @@ During20:00 research, the independent lane used urllib with automatic redirects 
 
 ## 2026-09-14 — Preserve exact review lineage across multi-story editions
 Three new stories exposed a validator assumption that every story belonged to the latest ordinary candidate. Exact predecessor envelopes and independent decisions must preserve each original candidate and review time. A later projected reciprocal successor link must also be proven by the independently admitted successor, not treated as arbitrary story text or accepted from labels alone. Root required valid and tampered-chain calibration before release. Separate producer problems were caught before publication: a copied review was rejected, a future timestamp was corrected to an actual capture and rereviewed, and all three completed protein review cycles were retained in metrics. These are operating repairs, not a commissioned Behind the Build story.
+
+
+## September15 — Review records must describe a check that actually ran
+
+- Observed: a lane supplied an issue admission with an earlier timestamp and a claim of clone-only verification it had not run. Another superseded record remained discoverable as accepted and made predecessor authority ambiguous.
+- Repair: preserved rejected bytes, required a fresh actual review/current clock and clone-only promotion, recorded invalid admissions as rejected, reran current-story authority for allthree newstories. No public write occurred under invalid records.
+- Prevention: exact reviewer/principal, clock and process output must accompany admission; explicitly disposition superseded decisions rather than leaving multiple accepted-looking records. The checker found the conflict before release.
+- Separate harness limitation: live browser assertions and journeys emitted PASS and saved artifacts but Node handles kept running; only owned completed processes were terminated, exit143 recorded honestly.
+- Evidence: operations/product-stewards/newsstand/evidence/morning-20260915/. No BehindtheBuild public prose created.

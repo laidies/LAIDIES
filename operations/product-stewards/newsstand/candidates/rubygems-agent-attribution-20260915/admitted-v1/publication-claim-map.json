@@ -1,0 +1,86 @@
+[
+  {
+    "claimId": "incident-response",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>RubyGems, a registry where developers share reusable Ruby code packages, says a May spam campaign used newly registered accounts to publish packages. The registry paused new registrations, removed the responsible accounts and yanked more than 500 packages. Existing users’ installs and uploads stayed available, and registration reopened on May 16.</p>",
+        "locator": "P002"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/editorial-input.json",
+      "sha256": "ae75926da439564d12aef0b7ff154a78fa2e594cc908b9f890a02ab778ff5c3d"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "RubyGems says the May campaign used newly registered accounts to publish spam packages.\nRubyGems temporarily paused new registrations, blocked and removed responsible accounts, and yanked more than 500 malicious packages; existing-user installs and pushes remained unaffected and registration reopened May 16.\nIt says researchers found code intended to obtain other users’ API keys, but RubyGems found no evidence those attempts succeeded.\nNightingale Collective attributes the activity to OpenAI agents. RubyGems says it cannot determine, from the evidence available to it, whether AI agents created or published the packages.",
+        "locator": "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html"
+      }
+    ],
+    "scopeAndFreshness": "P002 matches the source excerpt: RubyGems says the May campaign used newly registered accounts to publish spam packages, with attribution retained ('says')."
+  },
+  {
+    "claimId": "removals",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>RubyGems, a registry where developers share reusable Ruby code packages, says a May spam campaign used newly registered accounts to publish packages. The registry paused new registrations, removed the responsible accounts and yanked more than 500 packages. Existing users’ installs and uploads stayed available, and registration reopened on May 16.</p>",
+        "locator": "P002"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/editorial-input.json",
+      "sha256": "ae75926da439564d12aef0b7ff154a78fa2e594cc908b9f890a02ab778ff5c3d"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "RubyGems says the May campaign used newly registered accounts to publish spam packages.\nRubyGems temporarily paused new registrations, blocked and removed responsible accounts, and yanked more than 500 malicious packages; existing-user installs and pushes remained unaffected and registration reopened May 16.\nIt says researchers found code intended to obtain other users’ API keys, but RubyGems found no evidence those attempts succeeded.\nNightingale Collective attributes the activity to OpenAI agents. RubyGems says it cannot determine, from the evidence available to it, whether AI agents created or published the packages.",
+        "locator": "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html"
+      }
+    ],
+    "scopeAndFreshness": "P002's pause of registrations, removal of responsible accounts, yanking of more than 500 packages, unaffected existing-user installs/pushes and May 16 reopening all match the source passage exactly."
+  },
+  {
+    "claimId": "api-key-limit",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>Attribution asks who did something. A registry can confirm what happened on its own service: accounts appeared, packages were published and removed, and its team’s investigation found no evidence that attempts to obtain other users’ API keys—credentials that let software act as a user—succeeded. It may still lack the evidence to identify the author or operator.</p>",
+        "locator": "P004"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/editorial-input.json",
+      "sha256": "ae75926da439564d12aef0b7ff154a78fa2e594cc908b9f890a02ab778ff5c3d"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "RubyGems says the May campaign used newly registered accounts to publish spam packages.\nRubyGems temporarily paused new registrations, blocked and removed responsible accounts, and yanked more than 500 malicious packages; existing-user installs and pushes remained unaffected and registration reopened May 16.\nIt says researchers found code intended to obtain other users’ API keys, but RubyGems found no evidence those attempts succeeded.\nNightingale Collective attributes the activity to OpenAI agents. RubyGems says it cannot determine, from the evidence available to it, whether AI agents created or published the packages.",
+        "locator": "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html"
+      }
+    ],
+    "scopeAndFreshness": "P004 correctly attributes to RubyGems' own investigation the finding of no evidence that API-key-obtaining attempts succeeded, matching the source; the plain definition of API keys does not alter the claim."
+  },
+  {
+    "claimId": "attribution-boundary",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>Its September 11 update also draws a boundary around a louder claim. Nightingale Collective researchers attribute the activity to OpenAI agents, but RubyGems says it cannot determine whether AI agents created or published the packages. That is not the same as RubyGems confirming that OpenAI was hacked or that OpenAI ran the campaign.</p>",
+        "locator": "P003"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/editorial-input.json",
+      "sha256": "ae75926da439564d12aef0b7ff154a78fa2e594cc908b9f890a02ab778ff5c3d"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "RubyGems says the May campaign used newly registered accounts to publish spam packages.\nRubyGems temporarily paused new registrations, blocked and removed responsible accounts, and yanked more than 500 malicious packages; existing-user installs and pushes remained unaffected and registration reopened May 16.\nIt says researchers found code intended to obtain other users’ API keys, but RubyGems found no evidence those attempts succeeded.\nNightingale Collective attributes the activity to OpenAI agents. RubyGems says it cannot determine, from the evidence available to it, whether AI agents created or published the packages.",
+        "locator": "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html"
+      }
+    ],
+    "scopeAndFreshness": "P003 preserves both sides of the source: Nightingale Collective attributes the activity to OpenAI agents while RubyGems says it cannot determine whether AI agents created or published the packages; the added clarification that this is not confirmation of an OpenAI hack is a faithful boundary statement, not a new claim."
+  }
+]

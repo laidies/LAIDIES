@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-14T23:32:53.516Z",
+  "updatedAt": "2026-09-15T14:52:32.180Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -1195,6 +1195,186 @@
         "customAndImmutableMatch": true,
         "readerJourneyPassed": true,
         "verifiedAt": "2026-09-14T23:32:53.516Z"
+      }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "microsoft-humanist-code-20260915",
+      "producerPrincipal": "/root/puzzle_visual_reconcile",
+      "sourceIdentitySha256": "1004b1331e2acab65cf6a2742d14f2adf69013257da6c00648db9c1ca015a227",
+      "artifactSha256": "d78344a94f89ab9d2d4fc9e0efcc65f539f624aa5c711e1d72a9d8b39a8c6201",
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-15T14:05:54.056356Z",
+      "lastReviewedAt": "2026-09-15T14:23:59.442Z",
+      "attempts": [
+        {
+          "artifactSha256": "d78344a94f89ab9d2d4fc9e0efcc65f539f624aa5c711e1d72a9d8b39a8c6201",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-15T14:23:59.442Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/microsoft-humanist-code-20260915/admitted-v1/independent-review.json",
+            "sha256": "c5800a20834346780758c81b668f3c962db091f101b726b33826e18f99a99e54"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/microsoft-humanist-code-20260915/admitted-v1/independent-raw-report.json",
+            "sha256": "7636053f564f9f2fa6e08ff143c0147e8a4d0d3754ff694d114e77df80733b1c"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "MONITOR_CORRECTIONS",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/microsoft-humanist-code-20260915/admitted-v1/ordinary-candidate.json",
+        "sha256": "f08a8dae0f88aff2591f9b9876bcaa88373e885b1fd2de6058fe8640fddae356"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "1004b1331e2acab65cf6a2742d14f2adf69013257da6c00648db9c1ca015a227",
+        "artifactSha256": "d78344a94f89ab9d2d4fc9e0efcc65f539f624aa5c711e1d72a9d8b39a8c6201",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-humanist-code-20260915/admitted-v1/independent-review.json",
+          "sha256": "c5800a20834346780758c81b668f3c962db091f101b726b33826e18f99a99e54"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-humanist-code-20260915/admitted-v1/independent-raw-report.json",
+          "sha256": "7636053f564f9f2fa6e08ff143c0147e8a4d0d3754ff694d114e77df80733b1c"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "d3c44d5a-2a8c-4923-9de2-f0a2dc9928b9",
+        "immutableUrl": "https://d3c44d5a.laidies-sunnyvaile.pages.dev/newsstand#microsoft-humanist-code-20260915",
+        "customUrl": "https://laidies.ai/newsstand#microsoft-humanist-code-20260915",
+        "artifactIdentitySha256": "f721eedb2bbb9385230f51c09e020c165f417c091be28dbfe39d51e20452656d",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-15T14:52:32.180Z"
+      }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "rubygems-agent-attribution-20260915",
+      "producerPrincipal": "/root/daily_cycle_check",
+      "sourceIdentitySha256": "ffaeca7fa820c8ed64fcd29c9c27f4b6c4d45ce915f2b46276653bf449c39d54",
+      "artifactSha256": "9703ee3592710e537d62431f2fae490f7c0f0a8b37caa172d69eb41fd9918cde",
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-15T14:04:00Z",
+      "lastReviewedAt": "2026-09-15T14:32:47.602Z",
+      "attempts": [
+        {
+          "artifactSha256": "9703ee3592710e537d62431f2fae490f7c0f0a8b37caa172d69eb41fd9918cde",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-15T14:32:47.602Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/admitted-v1/independent-review.json",
+            "sha256": "d9e1d4e284e76ab7056677630e3cc4bd2943239418ab0826b5b83f103bc6c471"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/admitted-v1/independent-raw-report.json",
+            "sha256": "26566df6e3fc5771530a0ec68fdb6f21de10b558241b4c50db9fae588e3525e8"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "MONITOR_CORRECTIONS",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/admitted-v1/ordinary-candidate.json",
+        "sha256": "60b43012dbfa8f38b067e8c8f296f3c6bbc7c0ac125be892698aa5839186e687"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "ffaeca7fa820c8ed64fcd29c9c27f4b6c4d45ce915f2b46276653bf449c39d54",
+        "artifactSha256": "9703ee3592710e537d62431f2fae490f7c0f0a8b37caa172d69eb41fd9918cde",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/admitted-v1/independent-review.json",
+          "sha256": "d9e1d4e284e76ab7056677630e3cc4bd2943239418ab0826b5b83f103bc6c471"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/admitted-v1/independent-raw-report.json",
+          "sha256": "26566df6e3fc5771530a0ec68fdb6f21de10b558241b4c50db9fae588e3525e8"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "d3c44d5a-2a8c-4923-9de2-f0a2dc9928b9",
+        "immutableUrl": "https://d3c44d5a.laidies-sunnyvaile.pages.dev/newsstand#rubygems-agent-attribution-20260915",
+        "customUrl": "https://laidies.ai/newsstand#rubygems-agent-attribution-20260915",
+        "artifactIdentitySha256": "f721eedb2bbb9385230f51c09e020c165f417c091be28dbfe39d51e20452656d",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-15T14:52:32.180Z"
+      }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "china-amodei-response-20260915",
+      "producerPrincipal": "/root/puzzle_visual_reconcile",
+      "sourceIdentitySha256": "f584ad475caeacaaecbb3bb19eae656412eb5fa225a267903c6fbe3e70014c71",
+      "artifactSha256": "a92a6e500fcf0ab549a4adb154a7600c15316cf0c2da95c50f113c21ab6ca044",
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-15T14:24:00Z",
+      "lastReviewedAt": "2026-09-15T14:36:21.450Z",
+      "attempts": [
+        {
+          "artifactSha256": "a92a6e500fcf0ab549a4adb154a7600c15316cf0c2da95c50f113c21ab6ca044",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-15T14:36:21.450Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/admitted-v1/independent-review.json",
+            "sha256": "1e468733e34552c08a03aebf28ed813b4c63f7db2c75e78254de143ad591daf2"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/admitted-v1/independent-raw-report.json",
+            "sha256": "78ed9561ede6ed990e1e86c59f24d940e2521490f3e676a19c0ba1dcc3ebb36e"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "MONITOR_CORRECTIONS",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/admitted-v1/ordinary-candidate.json",
+        "sha256": "85a721950472a4ee737eae8b4163f3f2cf05d887737578093d4318470f11c0c2"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "f584ad475caeacaaecbb3bb19eae656412eb5fa225a267903c6fbe3e70014c71",
+        "artifactSha256": "a92a6e500fcf0ab549a4adb154a7600c15316cf0c2da95c50f113c21ab6ca044",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/admitted-v1/independent-review.json",
+          "sha256": "1e468733e34552c08a03aebf28ed813b4c63f7db2c75e78254de143ad591daf2"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/admitted-v1/independent-raw-report.json",
+          "sha256": "78ed9561ede6ed990e1e86c59f24d940e2521490f3e676a19c0ba1dcc3ebb36e"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "d3c44d5a-2a8c-4923-9de2-f0a2dc9928b9",
+        "immutableUrl": "https://d3c44d5a.laidies-sunnyvaile.pages.dev/newsstand#china-amodei-response-20260915",
+        "customUrl": "https://laidies.ai/newsstand#china-amodei-response-20260915",
+        "artifactIdentitySha256": "f721eedb2bbb9385230f51c09e020c165f417c091be28dbfe39d51e20452656d",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-15T14:52:32.180Z"
       }
     }
   ]

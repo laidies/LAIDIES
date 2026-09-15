@@ -1,0 +1,14 @@
+{
+  "proseReview": {"reviewIssues": 2, "reviewCycles": 2},
+  "evidencePacket": {"rounds": 2, "gaps": 0},
+  "ratchet": {"repeatedKnownDefects": 0, "objectiveDefectsFirstFoundAtReview": 0, "reviewIssues": 2, "reviewCycles": 2, "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"},
+  "observation": "Two actual Claude editorial calls are retained. The first completed provider call had session 085fb42f-831d-4b35-80dd-449f-ab8a-fcf90bc51fef but the local normalizer rejected its internally contradictory learning-disposition result; it nevertheless identified two candidate repairs: define API keys and name Nightingale Collective. The corrected second call completed PASS for reader and facts. No source-packet gap was found; the two rounds are prose-review iterations, not a claim that the source changed.",
+  "attempts": [
+    {"path":"operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/bounded-claude-v1/article-editorial-provider.raw.json","status":"PROVIDER_COMPLETED_PROTOCOL_FAILURE","issues":2},
+    {"path":"operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/bounded-claude-v2/article-result.json","status":"PASS","issues":0}
+  ],
+  "resultPath": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/bounded-claude-v2/article-result.json",
+  "startedAt": "2026-09-15T14:31:27.082Z",
+  "completedAt": "2026-09-15T14:32:47.602Z",
+  "reviewTextSha256": "9703ee3592710e537d62431f2fae490f7c0f0a8b37caa172d69eb41fd9918cde"
+}

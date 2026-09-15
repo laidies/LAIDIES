@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "laidies-newsstand-combined-editorial-raw.v1",
+  "candidateId": "microsoft-humanist-code-20260915",
+  "storySha256": "e9afad9bf86a2c4213f09a824aedcbe1a340817469d6ffd9f08b3e94e1420aff",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "verdict": "PASS",
+  "findings": {
+    "reader": "A disciplined, well-bounded news article: it answers the invitation question first, defines terms at first use, keeps the cancelled-message example mechanically faithful to the draft's safe-stopping language, and preserves the crucial distinction between published intent and implemented behavior. Explain-back and a novel transfer scenario both resolve correctly from the article alone. No failure families present.",
+    "facts": "All ten claims are supported verbatim or near-verbatim by the supplied Microsoft announcement and draft code texts, including the September 14 date, six-week window, MAI-only scope, not-training-today status, safe-stopping language, and the acknowledged gap between written objectives and behavior. Dates, limits and attribution are preserved throughout; no factual defects found."
+  },
+  "readerProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/microsoft-humanist-code-20260915/editorial-review-v1/article-editorial-provider.raw.json",
+    "sha256": "222cc029be233b8f9b7566916c92a4e56f33dd916ab2d83644c73bf69ea22af9"
+  },
+  "factualJudgment": {
+    "path": "operations/product-stewards/newsstand/candidates/microsoft-humanist-code-20260915/editorial-review-v1/article-editorial-judgment.json",
+    "sha256": "59fbf057069ebb5bcbed2580e292dd2c239b544c78ce6c4d60f8be7f746a816e"
+  },
+  "factualProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/microsoft-humanist-code-20260915/editorial-review-v1/article-editorial-provider.raw.json",
+    "sha256": "222cc029be233b8f9b7566916c92a4e56f33dd916ab2d83644c73bf69ea22af9"
+  },
+  "calibration": {
+    "path": "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/calibration-result.json",
+    "sha256": "006b3ff3300c856daee21a482d77003064a03b79591a72c75026c2c07a042e10"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "newsstand-independent-morning-check.v1",
+  "checkedAt": "2026-09-15T14:04:00Z",
+  "asOfVancouver": "2026-09-15",
+  "scope": "Normal-web independent six-desk check against current published IDs and recorded source holds.",
+  "evidence": "operations/product-stewards/newsstand/evidence/morning-20260915/independent-normal-web-captures.json",
+  "excludedNonretryableRoutes": [
+    "Nature s41593-026-02446-2, s41586-026-11001-9 and d41586-026-02845-2",
+    "Reuters AI index",
+    "AP China short URL 3da458d2c078da3e60900728d59f1ae8 and risk-debate short URL 98316b0d64de17191f33c0fbf1d37858",
+    "rubyhack.ai and exact X endpoints"
+  ],
+  "deskResults": [
+    {
+      "desk": "Associated Press AI",
+      "result": "NO_NEW_EVENT_BEYOND_EXISTING_RECONCILIATION",
+      "comparison": "Trump maps to trump-ai-guardrails-response-20260914; China remains the distinct diplomatic lead already retained by root; risk explainer remains context only."
+    },
+    {
+      "desk": "Nature machine learning",
+      "result": "ONE_NEW_RESEARCH_LEAD_ON_HOLD",
+      "candidateId": "emaf-controlled-release-design-20260915",
+      "primaryUrl": "https://www.nature.com/articles/s41467-026-77619-5",
+      "hold": "operations/product-stewards/newsstand/evidence/morning-20260915/independent-emaf-research-hold.json"
+    },
+    {
+      "desk": "FTC press releases",
+      "result": "NO_NEW_AI_RELEASE"
+    },
+    {
+      "desk": "EFF AI",
+      "result": "NO_NEW_ITEM; September 8 Medicare records item remains wiser-records-20260910."
+    },
+    {
+      "desk": "BleepingComputer AI",
+      "result": "NO_NEW_EVENT; September 11 Android-secret misuse maps to anthropic-threat-report-20260910, September 10 PaperCut maps to papercut-campaign-20260911, and September 9 distillation maps to cisa-distillation-20260910."
+    }
+  ],
+  "existingSourceHolds": [
+    "ProteinTalks still lacks accessible independent methods/results and retains its existing source hold.",
+    "Cognition/Devin and Grok exact-X original-evidence holds remain; no substitute source was claimed.",
+    "The new E-MAF primary URL is a concrete access hold after one normal click."
+  ],
+  "result": "ONE_NEW_NAMED_RESEARCH_HOLD; no source-complete new candidate.",
+  "mutations": {
+    "publicContent": false,
+    "canonicalContent": false,
+    "coverageProgress": false,
+    "providerReview": false
+  }
+}

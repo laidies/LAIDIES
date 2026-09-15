@@ -149,3 +149,41 @@ Internal authority repairs `a372dff4`, `aa77d168`, `54794ae8` follow exact prede
 At23:33:27UTC completion exits0 DATED_DELIVERY_PRESENT / COVERAGE_SOURCE_HOLDS, no actionablepending leads, no overdueDaily/Weekly. Named primary-source/blocked-route holds remain; next existing20:00Vancouver/03:00UTC phase rechecks admissible new/distinct evidence, never bypasses recorded nonretryable URL blocks. Beehiiv archive recovery alone does not establish Devin/Grok announcements.
 
 Daily timing remains unresolved: config already ACTIVE at07/10/13/16/20 Vancouver; no07:00invocation receipt found and first recorded recovery13:46. `evidence/news-20260914/schedule-diagnostic.json` distinguishes missing dispatch/wake/recording possibilities; no speculative scheduler change. Late recovery is not proof of timely unattended publication. NativeVoiceOver complete/off, BehindtheBuild PARKED, old provenance gaps remain. Mac lock prevented reopening Ali's existing browser tab; public automated readers and actual screenshot inspection succeeded. Next unmet operational evidence is the next actual scheduled invocation and publication receipt.
+
+Closeout4282b46f backed up on sanitized remote branch atda6e2d3c; exact remaining tree and remote head verified. One existing captured-credential file excluded, original local history preserved. Git emitted nested-alternate depth warnings but push and verification succeeded; recorded in backup receipt. Pages slot returned with6f903222. No user action needed for this cycle.
+
+
+## September14 16:35 recovery invocation — no duplicate work due
+
+Actual heartbeat23:35:27.811UTC /16:35:27Vancouver. Entry public delivery/coverage check exits0:3news/5services, no missingDaily dates, Weekly current, COVERAGE_SOURCE_HOLDS with no pending leads. Existing recovery selector returns NO_ACTIVE_RECOVERY. The preceding recovery completed research and release at23:33; no source hold is due before20:00Vancouver. Per existing recovery rule, no repeated source sweep, editorial review or deployment. Source observation timestamps and release6f903222 remain unchanged. Exact next unmet scheduled step is September14 20:00Vancouver /September15 03:00UTC private next-day preparation and due admissible source recovery. Full-build checkpoint remains the preceding paragraph: historical provenance limitations and morning dispatch cause/timely unattended proof unresolved; BehindtheBuild parked. This invocation proves a later heartbeat arrived, not that07:00 ran.
+
+
+## September14 20:01 evening invocation — ACTIVE
+
+Actual invocation September15 03:01:58.631UTC /September14 20:01:58Vancouver. Entry check exit2: due source sweep requires actual renewal. Today3news/5services already live; no overdue Weekly. Tier1 research/private preparation; no new public work assumed. Next unmet step: provider and six-desk source refresh, complete AIDB/held-source reconciliation, and tomorrow private proposal. Source route guard passed6desks8sources; no research certification.
+
+
+## September14 evening preparation complete — publication work remains
+
+Actual evening research and private preparation recorded September15 03:18UTC. Final delivery check exits1: DATED_DELIVERY_PRESENT / COVERAGE_WORK_REMAINS. September14 remains3news/5services and Weekly current. Two new named source-bound candidates remain IN_PRODUCTION for September15: Microsoft draft code consultation and RubyGems incident with researcher attribution explicitly separated from registry confirmation. No public prose, image, admission, canonical future issue or deployment was created in this phase.
+
+Actual AIDB inventory.v2 and selector run return HOLD_AIDB_RELEASE_REVIEW, quietAllowed=false, podcast/newsletter PARTIAL. New publisher notes fully inspected as21sections, not full audio. New37-minute Apple episode separately captured. Cursor unchanged. Root reconciliation supersedes the lane China exclusion/formal-action requirement: a diplomatic statement can be a distinct news event; complete supporting source access is the present gap. Embedded-evaluator terms also remain source-held. Nonretryable endpoint restrictions retained.
+
+Private September15 service proposal has4ready/3candidates/2gaps; September16 weekly input34candidates needs editorial selection. Existing September15 07:00Vancouver/14:00UTC phase must refresh and advance qualified candidates through producer, independent admission and release. Today live head remains6f903222. This preparation is not proof of timely unattended morning delivery, nor closure of historical provenance gaps or parked BehindtheBuild. Evidence: evening-20260914/root-reconciliation.json, aidb-select-execution.json and delivery-check.json.
+
+
+## September15 07:01 scheduled invocation — ACTIVE
+
+Actual trigger2026-09-15T14:01:02.097Z /07:01:02Vancouver. Entry exit2 stale dated intake. Tier1 morning freshness/publication. Next unmet step: actual provider/six-desk/AIDB refresh and complete two prepared candidates, then exact service/news admission, scoped release and public checks. Arrival proves today morning trigger, not successful publication.
+
+
+## September15 morning integration in progress
+
+Actual source refresh captured in evidence/morning-20260915. Microsoft, RubyGems and newly recovered China response have completed actual qualified prose review. Two new illustrations plus one reused discussion illustration bind final companions; Ruby first raster HOLD retained and repaired. Microsoft first issue locally promoted/projected with five services, independent issue admission-v2 and idempotence verified. Ruby and China successor integration remains in progress; live head f3eb0db3 still unchanged. Initial local reader checks67 passed. Not a public completion receipt. Initial issue maker mismatch was rejected before any canonical write; corrected independent reviewer and actual ordinary maker then passed.
+
+
+## September15 morning publication publicly verified
+
+Verified 2026-09-15T14:54:28.514119+00:00 at d3c44d5a-2a8c-4923-9de2-f0a2dc9928b9, source23f78628454a98bb30e7c4fc1d6efa0e7dff1e94. Three news and five services live. Nine public files changed,804 other provider identities preserved,zero removals,18 immutable/custom byte matches. Local69 and live69 assertions passed; allthree articles at1440/390/320 opened with loaded art/nooverflow, phone keyboard Library destinations verified, representative pixels reviewed. Live harnesses emitted PASS and saved results but required explicit process cleanup; do not call their exit143 a normalexit0. Release evidence morning-20260915/release.json.
+
+Delivery checker exits0: DATED_DELIVERY_PRESENT / COVERAGE_SOURCE_HOLDS, zero pending leads. AIDB newer channels remain PARTIAL and quietAllowedfalse; named source restrictions remain. Source observation times were not refreshed by publication. Existing next recovery10:00Vancouver/17:00UTC. Today07:01trigger arrived and morning publication finished; user interaction means this is not uninterrupted unattended proof. VoiceOver remains completed/off, BehindtheBuild parked, legacy provenance limitations remain. No user help needed for this cycle.

@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "rubygems-agent-attribution-20260915-art",
+  "stage": "INDEPENDENT_VISUAL_ADMISSION",
+  "verdict": "HOLD",
+  "reviewer": {
+    "principalId": "/root/puzzle_visual_reconcile",
+    "reviewedAt": "2026-09-15T14:18:10.785630Z",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true,
+    "independentFromMaker": true,
+    "calibration": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/art/calibration.json",
+      "sha256": "23e22914577a740eba52651780baf93519ab12e5190392502b0a45d56fc0ae6e"
+    }
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/art/producer-contract-final.json",
+    "sha256": "830ea7bfed53d0bbb3f4f7e59f912b2f69ec7fb3f858e97f5e577f14a422bf89"
+  },
+  "producerReview": {
+    "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/art/producer-self-review.json",
+    "sha256": "9956e57da4095e3ad1aa6e634a487b71d947dce055d77e58291288883c0099f2"
+  },
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/art/illustration-v1.png",
+    "sha256": "310fa2a011dc49f3d8bc9d92a712c1d0c17cb67532178bb064efbb2b182e064b",
+    "kind": "STILL"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/story.json",
+    "sha256": "0c68746f8299e7aab53665e6c75a27be6c2d5f443fb44afba1c87f15321bee5f",
+    "kind": "TEXT",
+    "locator": "headline",
+    "exactTextOrSilentPurpose": "RubyGems confirms a package-spam incident. It cannot confirm who made the code."
+  },
+  "renderedEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/art/illustration-v1.png",
+    "sha256": "310fa2a011dc49f3d8bc9d92a712c1d0c17cb67532178bb064efbb2b182e064b"
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "PASS",
+      "observation": "Shared cabinet holds red/cyan modular package boxes; a separate orange tray holds red boxes. No attacker is depicted, so the image does not attribute code authorship.",
+      "artifactLocator": "cabinet and lower-right tray"
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "Navy hatching and halftone, cyan circuit marks and pink burst with warm yellow/orange accents match the viewed adult editorial reference’s print grammar.",
+      "artifactLocator": "full image"
+    },
+    {
+      "id": "characterAndTownIdentity",
+      "result": "PASS",
+      "observation": "No people, named characters, logos, town map or named location are visible.",
+      "artifactLocator": "full image"
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "Cabinet stands on the desk; drawers and tray support boxes in coherent perspective. No bodies require anatomy judgment.",
+      "artifactLocator": "cabinet drawers and tray"
+    },
+    {
+      "id": "textIntegrity",
+      "result": "FAIL",
+      "observation": "Unplanned generated mathematical/alphanumeric scribbles appear on tan papers beside diagrams and along their margins. Ruler and book spines have small letter/digit-like marks. These violate NO_VISIBLE_TEXT and no-lettering bindings even though no coherent prose is readable.",
+      "artifactLocator": "left upright tan paper; lower-left/lower-edge diagram sheets; yellow rulers and left book spines"
+    },
+    {
+      "id": "periodWardrobeAndProps",
+      "result": "PASS",
+      "observation": "No historical setting or wardrobe claim is made; contemporary conceptual workshop objects do not create a period contradiction.",
+      "artifactLocator": "full image"
+    },
+    {
+      "id": "objectPurpose",
+      "result": "HOLD",
+      "observation": "Cabinet, modular boxes and separate tray make registry removal concrete. Large technical diagram sheets and measuring implements add unsupported drafting imagery rather than explaining package removal; removal would also eliminate the text defect.",
+      "artifactLocator": "tan papers and yellow measuring implements"
+    },
+    {
+      "id": "renderedSizeLegibility",
+      "result": "PASS",
+      "observation": "The cabinet and bright separate tray are distinct large shapes at the displayed source-art size, and cube icons carry the metaphor without needing labels. An integrated article/phone render is outside this source-art review.",
+      "artifactLocator": "full displayed 1536x1024 image"
+    }
+  ],
+  "visibleDefects": [
+    {
+      "family": "TEXT_GIBBERISH_OR_FALSE_TEXT",
+      "observation": "Unplanned generated mathematical/alphanumeric scribbles appear on tan papers beside diagrams and along their margins. Ruler and book spines have small letter/digit-like marks. These violate NO_VISIBLE_TEXT and no-lettering bindings even though no coherent prose is readable.",
+      "artifactLocator": "left upright tan paper; lower-left/lower-edge diagram sheets; yellow rulers and left book spines"
+    }
+  ],
+  "learningDisposition": {
+    "kind": "CANDIDATE_REPAIR_ONLY",
+    "rationale": "Known registered text failure surfaced in exact candidate pixels; remove generated lettering/diagram props and preserve cabinet/tray metaphor before a successor inspection. No new shared defect is asserted."
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First exact independent inspection of this Ruby package-removal illustration."
+  },
+  "ratchet": {
+    "reviewIssues": 2,
+    "reviewCycles": 1,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "repeatedKnownDefects": 1
+  },
+  "limitations": [
+    "Inspected actual source-art pixels before maker receipts; no integrated article/phone or native accessibility result claimed.",
+    "Calibration reads current failure descriptions because registry fixtures provide no bound negative raster; no empirical blind negative-pixel test is claimed.",
+    "Style reference admits print grammar only; its own background notation does not override this candidate’s no-text contract."
+  ],
+  "negativeControl": {
+    "checkedAt": "2026-09-15T14:18:32.670Z",
+    "mutation": "Changed only verdict to PASS while retained observed text FAIL/visible defects",
+    "rejectedErrors": [
+      "PASS cannot contain held/failed outcomes or visible defects",
+      "PASS must record NO_NEW_DEFECT"
+    ]
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "schemaVersion": "newsstand-ordinary-story-candidate-v2",
+  "candidateStatus": "READY_FOR_ISSUE_ADMISSION",
+  "candidateId": "rubygems-agent-attribution-20260915",
+  "editionDate": "2026-09-15",
+  "story": {
+    "id": "rubygems-agent-attribution-20260915",
+    "slug": "rubygems-agent-attribution-20260915",
+    "edition": "daily",
+    "status": "hold",
+    "publishedAt": null,
+    "updatedAt": "2026-09-15T14:04:00Z",
+    "lastCheckedAt": "2026-09-15T14:04:00Z",
+    "sourceApproval": {
+      "record": "newsstand:source-approval:rubygems-agent-attribution-20260915",
+      "status": "independent-review-required"
+    },
+    "headline": "RubyGems confirms a package-spam incident. It cannot confirm who made the code.",
+    "heroVisual": {
+      "src": "/assets/newsstand/rubygems-packages-20260915.png",
+      "alt": "An illustrated parts cabinet with red software-package boxes set aside in a separate tray.",
+      "credit": "Illustration: LAiDIES"
+    },
+    "the_story": "<p>RubyGems, a registry where developers share reusable Ruby code packages, says a May spam campaign used newly registered accounts to publish packages. The registry paused new registrations, removed the responsible accounts and yanked more than 500 packages. Existing users’ installs and uploads stayed available, and registration reopened on May 16.</p><p>Its September 11 update also draws a boundary around a louder claim. Nightingale Collective researchers attribute the activity to OpenAI agents, but RubyGems says it cannot determine whether AI agents created or published the packages. That is not the same as RubyGems confirming that OpenAI was hacked or that OpenAI ran the campaign.</p>",
+    "laidies_read": "<p>Attribution asks who did something. A registry can confirm what happened on its own service: accounts appeared, packages were published and removed, and its team’s investigation found no evidence that attempts to obtain other users’ API keys—credentials that let software act as a user—succeeded. It may still lack the evidence to identify the author or operator.</p>",
+    "what_this_means": "<p>When a headline links an incident to an AI company, separate the parts: who reported the incident, what they directly observed, and who they say is responsible. Here, the registry confirms the disruption and its response while leaving AI authorship unresolved. That distinction keeps a security update useful without turning an attribution claim into a settled fact.</p>",
+    "cocktail_party": "“The registry can tell you what landed in its mailroom. It cannot always tell you who wrote the letter.”",
+    "class_notes": "<a href=\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains why the source and method behind a claim matter.",
+    "sources": [
+      {
+        "id": "rubygems-may-spam-update-20260911",
+        "label": "RubyGems — An update on the May spam-publishing campaign on rubygems.org",
+        "url": "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html",
+        "publisherType": "registry-primary-incident-update",
+        "accessedAt": "2026-09-15",
+        "approvalStatus": "reviewed"
+      }
+    ],
+    "themes": [
+      "cybersecurity",
+      "AI accountability"
+    ],
+    "concepts": [
+      "attribution",
+      "source evidence",
+      "package registry"
+    ],
+    "tags": [
+      "RubyGems",
+      "OpenAI",
+      "security",
+      "attribution"
+    ],
+    "correction": null,
+    "correctionHistory": [],
+    "retraction": null,
+    "predecessorStoryIds": [],
+    "successorStoryIds": [],
+    "relationshipType": null,
+    "bigPicture": null,
+    "thread": null,
+    "thread_subtitle": null,
+    "thread_entry": null,
+    "aidb_credit": null,
+    "saint_lane": "Elle Woods · Receipts",
+    "badge": "THE LATEST"
+  },
+  "storyTypeCoverage": {
+    "schema": "laidies.newsstand-story-type-coverage.v1",
+    "candidateId": "rubygems-agent-attribution-20260915",
+    "primaryType": "safety-incident",
+    "overlays": [],
+    "universalAnswers": {
+      "whatHappened": "RubyGems says a May spam campaign used newly registered accounts to publish packages and it issued a September 11 update.",
+      "plainLanguageIdentity": "RubyGems is a registry where developers share reusable Ruby code packages, and its update separates a service record from an attribution claim.",
+      "evidenceBasis": "The complete primary RubyGems incident update records its response, API-key investigation and the limit of what it can determine about authorship.",
+      "evidenceLimits": "Researchers attribute the activity to OpenAI agents, but RubyGems says it cannot determine whether AI agents created or published the packages.",
+      "readerRelevance": "A company name in an AI-linked incident headline can be mistaken for proof of a breach or operation when the record only contains a researcher attribution.",
+      "affectedPeople": "Ruby package users and maintainers could encounter malicious packages, while RubyGems says existing-user installs and uploads remained available during its response.",
+      "changesNow": "The September update clarifies the registry's evidence boundary; it does not announce a new action for ordinary RubyGems users.",
+      "uncertainty": "RubyGems cannot determine from its evidence whether AI agents created or published the packages, and the accessible record does not resolve the operator.",
+      "readerAction": "Before sharing an AI-incident claim, identify which sentence is the reporting organization's direct observation and which is an attribution.",
+      "betterQuestion": "Which organization observed the event directly, and what can its available evidence actually establish about responsibility?"
+    },
+    "typeAnswers": {
+      "safety-incident": {
+        "incident": "RubyGems says a May spam campaign used newly registered accounts to publish packages, leading it to pause registrations and remove accounts and packages.",
+        "harm": "RubyGems yanked more than 500 malicious packages and says researchers found code intended to obtain other users' API keys, but it found no evidence those attempts succeeded.",
+        "affectedPeople": "Ruby package users and maintainers could encounter malicious packages, while the registry says existing-user installs and pushes remained unaffected during the incident response.",
+        "failedControl": "Newly registered accounts could publish spam packages before the registry paused registrations, blocked responsible accounts and removed the packages.",
+        "responsibility": "RubyGems controls its registry response and statement; Nightingale Collective makes the attribution to OpenAI agents; the available registry evidence does not establish who authored or operated the code.",
+        "confirmedUnknown": "RubyGems confirms activity and response on its own service but says it cannot determine whether AI agents created or published the packages from evidence available to it.",
+        "remediation": "RubyGems temporarily paused new registrations, blocked and removed responsible accounts, yanked more than 500 packages, and reopened registration on May 16.",
+        "recurrenceRisk": "The accessible update does not establish the operator or researcher methodology, so it cannot establish whether this incident can recur through the same actor or method."
+      }
+    },
+    "translation": {
+      "schema": "laidies.newsstand-reader-translation.v1",
+      "newsVersionExact": "Researchers attribute the activity to OpenAI agents, but RubyGems says it cannot determine whether AI agents created or published the packages.",
+      "actualMeaningExact": "That is not the same as RubyGems confirming that OpenAI was hacked or that OpenAI ran the campaign.",
+      "mechanismExact": "accounts appeared, packages were published and removed",
+      "familiarExampleExact": "The registry can tell you what landed in its mailroom. It cannot always tell you who wrote the letter.",
+      "jargon": [
+        {
+          "term": "attribution",
+          "plainMeaning": "Attribution asks who did something."
+        }
+      ],
+      "learningConnections": [
+        {
+          "concept": "Evidence and source limits in AI-linked claims",
+          "learningPayoff": "AI Fundamentals 101 explains why the source and method behind a claim matter.",
+          "disposition": "link",
+          "destination": "/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed"
+        }
+      ]
+    }
+  },
+  "storySha256": "5429193f22caa8a55f55e7c1ad49bbe50e4707c29967caba5388a838711cd0c9",
+  "publicationBase": {
+    "path": "operations/product-stewards/newsstand/evidence/morning-20260915/after-microsoft-stories.js",
+    "sha256": "d7a532b42845b604920609b0e01f0c45d582c7fb1d278d9c3dfc75bf555d7480"
+  },
+  "sourceText": {
+    "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/review-text.json",
+    "sha256": "9703ee3592710e537d62431f2fae490f7c0f0a8b37caa172d69eb41fd9918cde"
+  },
+  "claimMap": {
+    "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/admitted-v1/publication-claim-map.json",
+    "sha256": "4f57f69d6ffef31b1b6c3f88d7b06d4ebf07e07f710982a12efa7b3f0c154211"
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/producer-contract.json",
+    "sha256": "1c47100e934a2e7d26c96bbf35743cc922226d85e17c4145bf42e798b769d0cb"
+  },
+  "draftPreparation": {
+    "writerInput": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/writer-input-current.json",
+      "sha256": "ac113912369346cf2cc99c4c3a98e49cf1bd72ac2b45577b2d574231532e7f51"
+    },
+    "observations": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/producer-observations.json",
+      "sha256": "801e5b934ac38bd18f776b1de2b280238a5da50993913ff19e6797d671774756"
+    }
+  },
+  "sources": [
+    {
+      "id": "rubygems-may-spam-update-20260911",
+      "url": "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html",
+      "evidence": {
+        "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/editorial-input.json",
+        "sha256": "ae75926da439564d12aef0b7ff154a78fa2e594cc908b9f890a02ab778ff5c3d"
+      }
+    }
+  ],
+  "reviewEvidence": {
+    "producer": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/producer-publication-review.json",
+      "sha256": "694b5aecbfd4d6819697e1ee84318ae6aaa1a1d4d9f1fa6e7a9de3673c083bfc"
+    },
+    "independent": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/admitted-v1/independent-review.json",
+      "sha256": "d9e1d4e284e76ab7056677630e3cc4bd2943239418ab0826b5b83f103bc6c471"
+    },
+    "independentRawReport": {
+      "path": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915/admitted-v1/independent-raw-report.json",
+      "sha256": "26566df6e3fc5771530a0ec68fdb6f21de10b558241b4c50db9fae588e3525e8"
+    }
+  },
+  "lineage": null
+}

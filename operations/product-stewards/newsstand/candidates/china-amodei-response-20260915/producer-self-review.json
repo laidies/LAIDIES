@@ -1,0 +1,560 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "china-amodei-response-20260915",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/puzzle_visual_reconcile",
+  "reviewer": {
+    "id": "/root/puzzle_visual_reconcile",
+    "principalId": "/root/puzzle_visual_reconcile",
+    "role": "Producer actual complete prose read",
+    "modelFamily": "openai"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-15T14:34:32.543942Z",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/publication-manifest.json",
+      "sha256": "978d186c2862f976c41340a8e536c28f8a25adf9528cc9ef6f6b404346448a0b"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/review-text.json",
+      "sha256": "a92a6e500fcf0ab549a4adb154a7600c15316cf0c2da95c50f113c21ab6ca044"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/rendered-article.html",
+      "sha256": "29c983e8b8e7e99cabda4aadbe624b684193e6a0a43d8e3f2096571947c6fe36"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/puzzle_visual_reconcile",
+    "reviewedAt": "2026-09-15T14:12:13Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.”",
+            "locator": "opening"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check",
+            "locator": "AI system entry"
+          }
+        ],
+        "actualObservation": "Read the entire current registered artifact. It walks through nine adjacent term entries with repeated definition, comparison, In real life and role-sentence moves. Team, taxi, Clueless wardrobe, Walkman, toolbox, collage and Miss Jeeves compete for attention without one request developing across the parts. The opening command supplies terminology before a learner-owned problem. Individual role assertions do not show how to find and repair a failure; the promised what-to-fix payoff is unearned. The repeated instructional structure becomes dry despite references."
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "introduction ending"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully",
+            "locator": "chapter ending"
+          }
+        ],
+        "actualObservation": "Read the entire current registered artifact. Northstar and Juniper carry a connected and understandable technical diagnosis, but the broad book is framed around fixing one private decision. The opening does not establish judging public hype or informed participation before tracing context, inference and tools. The worked example dominates; the final future-topic list returns to machinery rather than earning the missing civic and public-claim motivations. Reject for the foundational destination, while retaining the useful causal explanation as a strength rather than pretending every sentence is poor."
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "Its origin-versus-truth distinction is demonstrated and returned to the actual AI-label job.",
+        "The train example converts a broad check-sources instruction into line, stations and day."
+      ],
+      "evidence": [
+        {
+          "excerpt": "The first helps you decide what you are looking at. It cannot do the second for you.",
+          "locator": "LAiDIES Read ending"
+        },
+        {
+          "excerpt": "that means confirming which line, which stations and which day.",
+          "locator": "What This Means"
+        }
+      ]
+    },
+    "limits": [
+      "Own producer calibration from actual artifact reads; not independent calibration or present-day legal validation."
+    ],
+    "reuseDisclosure": "No prior story's qualitative observations, principal or time was reused. The independent Claude route retains its separately qualified calibration."
+  },
+  "reverseBrief": {
+    "humanQuestion": "What did China actually say in the AI slowdown debate, and is that a new rule?",
+    "promisedPayoff": "Identify the ministry response, distinguish it from a company proposal and know what evidence would establish an implemented rule.",
+    "centralMentalModel": "A company proposal, a government response and an implemented rule are different events; the ministry answer states a position.",
+    "dailyLifeConnection": "A reader hearing that China responded can explain the response accurately without assuming her AI tools changed.",
+    "surfaceJob": "Short dated ordinary governance news, not a geopolitical prediction or product tutorial.",
+    "desiredReaderFeeling": "I can follow the disagreement without inflating what this statement changed."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The only necessary governance term is explained at first use; no technical prerequisite.",
+      "artifactEvidence": [
+        {
+          "excerpt": "how AI development is guided by rules and oversight",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "A reader can identify which actor spoke without promoting words into implemented rules.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep three events separate",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "A direct adult conversational question provides a useful route through a charged headline.",
+      "artifactEvidence": [
+        {
+          "excerpt": "what did it actually say?",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "A concrete authority question makes diplomatic disagreement readable without spectacle.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The disagreement includes who gets to set the pace.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Exact relevant Q&A supports attribution; Global Times agenda claims deliberately excluded.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Guo’s quoted answer sets out China’s position on cooperation.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Dated event is supported by current primary search Q&A and complete publisher capture, with full-page restriction stated.",
+      "artifactEvidence": [
+        {
+          "excerpt": "China’s Foreign Ministry responded on September 14",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Short ordinary news fields carry one new diplomatic response, not a long geopolitical analysis.",
+      "artifactEvidence": [
+        {
+          "excerpt": "China answers the AI slowdown calls with a call for cooperation.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "New event is this actor response, separate from prior company proposal or Trump response.",
+      "artifactEvidence": [
+        {
+          "excerpt": "China’s Foreign Ministry responded on September 14",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "The limit concerns this quoted answer only; no claim that China has no other AI policy.",
+      "artifactEvidence": [
+        {
+          "excerpt": "It is not evidence that China agreed to slow development or that a new rule took effect.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "A familiar conversational shorthand becomes a precise explainable statement.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If someone says “China responded,”",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Visible statements are connected to the less visible implementation evidence, preserving the limit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "a company leader’s proposal, a government’s public position, and a rule being implemented",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Reader simulation identifies the response and avoids agreed slowdown or implemented policy.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Here, the ministry called for cooperation and criticized confrontation.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What did Guo say, and did this establish China agreed to a slowdown?",
+        "probeResponse": "Guo called for open inclusive AI and criticized fear-mongering. That records China’s position in response to slowdown calls; it does not establish agreed slowdown or a requirement taking effect.",
+        "expectedEvidence": "Open inclusive AI and criticism of confrontation; no established agreement or requirement."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The same evidence distinction applies to another government announcement without assuming Chinese facts.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ask what requirement took effect, who it applies to and how it is enforced",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Another government states it favors safe AI. Has a new rule taken effect?",
+        "probeResponse": "If another government says it supports safe AI, I would look for an exact requirement, who it applies to and enforcement evidence before calling that statement an implemented rule.",
+        "expectedEvidence": "Seek exact requirement, affected parties and enforcement rather than infer implementation."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Precise evidence questions replace generic check-the-news instruction or unnecessary account advice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "what requirement took effect, who it applies to and how it is enforced",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No analogy substitutes for diplomatic facts; the statement/proposal/rule categories are literal.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep three events separate",
+          "locator": "complete exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Public prose does not name the communication benchmark.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Original direct news wording; no presenter persona copied.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No promotional company or nationalist editorial rhetoric adopted.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Who sets the pace is answered through attributed restrictions and ministry response.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Literal proposal/position/rule distinction; no cultural analogy.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Company proposal, ministry position and implementation are explicitly separate.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No geopolitical spectacle or joke replaces attribution.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The no-agreement conclusion is bounded to evidence in this response.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "China responded shorthand reconnects immediately to exact ministry words.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Three concrete evidence questions identify what would substantiate a rule claim.",
+      "artifactLocator": "complete exact story"
+    },
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "One inline governance definition; no detached glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Cocktail repeats only ministry position and limits, no grand prediction.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Governance is defined immediately as rules and oversight.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Who sets the pace and a conversational correction give a useful human point.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Dated response and disagreement precede evidence questions.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Meaning of governance and evidence needed for implementation appear in short connected paragraphs.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Implementation requires an actual requirement, scope and enforcement; statement alone does not supply those.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Dated news answer comes first; rule distinction follows its factual basis.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "International rule-making is civic context, not limited to workplace accounts.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "One complete relevant Q&A and one complete publisher report; no unrelated namedrops.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "September14 statement supported by September15 normal source surfaces and explicit access limits.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Ordinary proposal, position and rule terms carry the explanation.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Story advances response, disputed access proposal and evidentiary effect.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "One conversational sentence within a short news item.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/editorial-input.json",
+        "sha256": "c16b2b12850b7ed48d37bf4db5db0efe27c533fdc9e450b830d8ece1bbbbcca4"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "date-response",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "China’s Foreign Ministry responded on September 14 to calls by AI company leaders to slow development.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "ministry-qa"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Reuters: Dario Amodei, Sam Altman and Elon Musk all over the weekend called on AI companies to slow down frontier development",
+            "locator": "https://www.fmprc.gov.cn/eng./xw/fyrbt/202609/t20260914_12021997.html"
+          }
+        ],
+        "scopeAndFreshness": "The primary result title explicitly dates press conference September14; complete relevant question retained, not full page.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/editorial-input.json",
+          "sha256": "c16b2b12850b7ed48d37bf4db5db0efe27c533fdc9e450b830d8ece1bbbbcca4"
+        }
+      },
+      {
+        "claimId": "cooperation",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Spokesperson Guo Jiakun called for open, inclusive AI development that benefits everyone.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "ministry-qa"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "All parties should jointly promote the open and inclusive development of AI for good and for all.",
+            "locator": "https://www.fmprc.gov.cn/eng./xw/fyrbt/202609/t20260914_12021997.html"
+          }
+        ],
+        "scopeAndFreshness": "Attributed position, not proven safety.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/editorial-input.json",
+          "sha256": "c16b2b12850b7ed48d37bf4db5db0efe27c533fdc9e450b830d8ece1bbbbcca4"
+        }
+      },
+      {
+        "claimId": "criticism",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Guo said fear-mongering, confrontation and vicious competition would hamper efforts toward sound global AI governance",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "ministry-qa"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Fear-mongering, confrontation and vicious competition will only hamper efforts toward sound global AI governance, which serves no one’s interest.",
+            "locator": "https://www.fmprc.gov.cn/eng./xw/fyrbt/202609/t20260914_12021997.html"
+          }
+        ],
+        "scopeAndFreshness": "Attributed opinion, not a finding about intentions.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/editorial-input.json",
+          "sha256": "c16b2b12850b7ed48d37bf4db5db0efe27c533fdc9e450b830d8ece1bbbbcca4"
+        }
+      },
+      {
+        "claimId": "amodei-restrictions",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "El País reports that Amodei, Anthropic’s chief executive, also called for keeping China from accessing the most advanced chips and chipmaking equipment.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "elpais-report"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "Por eso reclama mantener fuera del alcance de China los chips más avanzados y la maquinaria necesaria para fabricarlos",
+            "locator": "https://elpais.com/tecnologia/2026-09-14/china-reacciona-a-las-alertas-por-la-ia-denunciando-una-agenda-oculta-para-estrangular-su-tecnologia.html"
+          }
+        ],
+        "scopeAndFreshness": "Complete report L78 plus chief executive identity L63; proposal attributed, no new restriction enacted claim.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/editorial-input.json",
+          "sha256": "c16b2b12850b7ed48d37bf4db5db0efe27c533fdc9e450b830d8ece1bbbbcca4"
+        }
+      },
+      {
+        "claimId": "bounded-effect",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "It is not evidence that China agreed to slow development or that a new rule took effect.",
+            "locator": "complete exact story"
+          }
+        ],
+        "sourceIds": [
+          "ministry-qa"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "All parties should jointly promote the open and inclusive development of AI for good and for all.",
+            "locator": "https://www.fmprc.gov.cn/eng./xw/fyrbt/202609/t20260914_12021997.html"
+          }
+        ],
+        "scopeAndFreshness": "A bounded evidentiary inference about this answer only, not a claim no other Chinese policy exists.",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/china-amodei-response-20260915/editorial-input.json",
+          "sha256": "c16b2b12850b7ed48d37bf4db5db0efe27c533fdc9e450b830d8ece1bbbbcca4"
+        }
+      }
+    ],
+    "reviewedThrough": "2026-09-15",
+    "nextTrigger": "Actual official agreement, policy requirement or implementation evidence; any corrected transcript or publisher correction.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First checksum-bound ordinary prose for this ministry response; earlier research HOLD had no completed prose candidate."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "No reusable prose defect found in actual full read. Root exact reuse-art admission remains an upstream dependency until bound."
+  },
+  "verdict": "PASS",
+  "limits": [],
+  "limitations": [
+    "Producer assessment only, not independent admission.",
+    "AI simulated comprehension; no observed human readers.",
+    "Complete relevant Q&A from actual search-display transcription, not full primary page.",
+    "No assembly, queue, canonical or public writes."
+  ]
+}

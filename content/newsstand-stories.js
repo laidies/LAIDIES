@@ -1,8 +1,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-14T23:03:17.295Z",
-  "lastCheckedAt": "2026-09-14T23:03:17.295Z",
+  "generatedAt": "2026-09-15T14:43:00.097Z",
+  "lastCheckedAt": "2026-09-15T14:43:00.097Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -16,7 +16,7 @@ window.NEWSSTAND_DATA = {
     },
     "daily": {
       "edition": "daily",
-      "editionDate": "2026-09-14",
+      "editionDate": "2026-09-15",
       "editorialTimeZone": "America/Vancouver",
       "issue": {
         "status": "complete",
@@ -24,25 +24,25 @@ window.NEWSSTAND_DATA = {
         "frontPaigeStoryId": "front-paige-accountable-systems-2026-08-24",
         "weeklyStoryId": "weekly-control-layers-20260909",
         "storyIds": [
-          "trump-ai-guardrails-response-20260914",
-          "brain-implant-speech-gestures-20260914",
-          "protein-data-20260914"
+          "microsoft-humanist-code-20260915",
+          "rubygems-agent-attribution-20260915",
+          "china-amodei-response-20260915"
         ],
         "serviceRecordIds": [
-          "DAILY-2026-09-14-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
-          "DAILY-2026-09-14-CAREER-LIFE-CORNER-02-PRIORITIES",
+          "DAILY-2026-09-15-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
+          "DAILY-2026-09-15-CAREER-LIFE-CORNER-02-PRIORITIES",
           "DAILY-2026-09-09-CONCEPT-WEEK-CONCEPT-02-TOKEN",
-          "DAILY-2026-09-14-DEAR-MISS-JEEVES-JEEVES-02-CITATION",
-          "DAILY-2026-09-14-CURIOSITY-CURIOSITY-04-FIND-ORIGINAL"
+          "DAILY-2026-09-15-DEAR-MISS-JEEVES-JEEVES-02-CITATION",
+          "DAILY-2026-09-15-CURIOSITY-CURIOSITY-05-INVITE-QUESTION"
         ]
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-14T23:03:17.295Z",
-      "updatedAt": "2026-09-14T23:03:17.295Z",
-      "lastCheckedAt": "2026-09-14T23:03:17.295Z",
+      "publishedAt": "2026-09-15T14:43:00.097Z",
+      "updatedAt": "2026-09-15T14:43:00.097Z",
+      "lastCheckedAt": "2026-09-15T14:43:00.097Z",
       "maxAgeHours": 36,
-      "note": "The Daily for 2026-09-14."
+      "note": "The Daily for 2026-09-15."
     },
     "weekly": {
       "edition": "weekly",
@@ -5343,6 +5343,208 @@ window.NEWSSTAND_DATA = {
         "drug discovery",
         "proteins",
         "medical AI"
+      ],
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "aidb_credit": null,
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "microsoft-humanist-code-20260915",
+      "slug": "microsoft-humanist-code-20260915",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-15T14:33:00Z",
+      "updatedAt": "2026-09-15T14:09:29.702273Z",
+      "lastCheckedAt": "2026-09-15T14:05:54.056356Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:microsoft-humanist-code-20260915"
+      },
+      "headline": "Microsoft asks the public to help shape its future AI rules.",
+      "heroVisual": {
+        "src": "/assets/newsstand/microsoft-code-consultation-20260915.png",
+        "alt": "An illustrated draft sheet, fountain pen and coloured comment slips on a desk.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>Microsoft AI opened a six-week public consultation on September 14 about how its future MAI models should behave. A model is the trained component that produces AI outputs; MAI means the models developed by Microsoft AI, not every model or product Microsoft offers.</p><p>The draft Humanist AI Code of Conduct is not being used to train models today. Microsoft plans a revised version later in 2026 to guide development from 2027 onward.</p>",
+      "laidies_read": "<p>The proposed rules say MAI models should accept interruption, correction and shutdown, and stay within the work people authorize. Imagine asking an AI to prepare a message, then cancelling. The proposed principle is that it should stop through any predefined safe-stopping procedure, rather than make your intervention harder or restart without permission.</p><p>Publishing that rule makes the intention inspectable. It does not show that a model reliably follows it. Microsoft acknowledges that gap: written objectives cannot ensure the intended behavior, and building, testing and revision remain necessary.</p>",
+      "what_this_means": "<p>This is an invitation to comment, not a current account or settings change. Microsoft welcomes views from the general public as well as researchers and governments. You can flag a particular passage or question the overall approach.</p><p>If you want to contribute, choose one situation you know well: what should an AI do when you say “stop”? Read the relevant draft passage, describe where it is unclear or misses your situation, and use <a href=\"https://forms.cloud.microsoft/r/qrsWVA6gEZ\">Microsoft’s linked feedback form</a>. That question is a starting point, not a required submission format.</p><p>Microsoft plans to report what it learned and changed, but does not promise to incorporate each suggestion. You do not need to arrive as an AI expert to bring a concrete concern.</p>",
+      "cocktail_party": "“Microsoft is asking people to comment on rules for future MAI models. A written promise is something to inspect—not proof that today’s AI already behaves that way.”",
+      "class_notes": "<a href=\"/library.html#ai-fundamentals-101::%403-from-whatever-to-rsvp-yes-i-have-notes\">AI Fundamentals 101: From “Whatever” to “RSVP: Yes. I have notes.”</a> explains why understanding AI helps you participate in decisions about its future.",
+      "watch_fors": null,
+      "closing_note": null,
+      "sources": [
+        {
+          "id": "microsoft-announcement",
+          "label": "Microsoft AI — An AI Code of Conduct",
+          "url": "https://microsoft.ai/news/mai-code-of-conduct/",
+          "publisherType": "provider",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "microsoft-draft",
+          "label": "Microsoft AI — Humanist AI Code of Conduct draft",
+          "url": "https://microsoft.ai/code-of-conduct/",
+          "publisherType": "provider",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "themes": [
+        "AI governance",
+        "Public participation"
+      ],
+      "concepts": [
+        "Model behavior",
+        "Human control"
+      ],
+      "tags": [
+        "Microsoft AI",
+        "MAI",
+        "public consultation"
+      ],
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "aidb_credit": null,
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "rubygems-agent-attribution-20260915",
+      "slug": "rubygems-agent-attribution-20260915",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-15T14:38:27Z",
+      "updatedAt": "2026-09-15T14:04:00Z",
+      "lastCheckedAt": "2026-09-15T14:04:00Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:rubygems-agent-attribution-20260915"
+      },
+      "headline": "RubyGems confirms a package-spam incident. It cannot confirm who made the code.",
+      "heroVisual": {
+        "src": "/assets/newsstand/rubygems-packages-20260915.png",
+        "alt": "An illustrated parts cabinet with red software-package boxes set aside in a separate tray.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>RubyGems, a registry where developers share reusable Ruby code packages, says a May spam campaign used newly registered accounts to publish packages. The registry paused new registrations, removed the responsible accounts and yanked more than 500 packages. Existing users’ installs and uploads stayed available, and registration reopened on May 16.</p><p>Its September 11 update also draws a boundary around a louder claim. Nightingale Collective researchers attribute the activity to OpenAI agents, but RubyGems says it cannot determine whether AI agents created or published the packages. That is not the same as RubyGems confirming that OpenAI was hacked or that OpenAI ran the campaign.</p>",
+      "laidies_read": "<p>Attribution asks who did something. A registry can confirm what happened on its own service: accounts appeared, packages were published and removed, and its team’s investigation found no evidence that attempts to obtain other users’ API keys—credentials that let software act as a user—succeeded. It may still lack the evidence to identify the author or operator.</p>",
+      "what_this_means": "<p>When a headline links an incident to an AI company, separate the parts: who reported the incident, what they directly observed, and who they say is responsible. Here, the registry confirms the disruption and its response while leaving AI authorship unresolved. That distinction keeps a security update useful without turning an attribution claim into a settled fact.</p>",
+      "cocktail_party": "“The registry can tell you what landed in its mailroom. It cannot always tell you who wrote the letter.”",
+      "class_notes": "<a href=\"/library.html#ai-fundamentals-101::%40ch-12-12-3-why-benchmarks-are-useful-but-flawed\">AI Fundamentals 101: Why Benchmarks Are Useful But Flawed</a> explains why the source and method behind a claim matter.",
+      "sources": [
+        {
+          "id": "rubygems-may-spam-update-20260911",
+          "label": "RubyGems — An update on the May spam-publishing campaign on rubygems.org",
+          "url": "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html",
+          "publisherType": "registry-primary-incident-update",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "themes": [
+        "cybersecurity",
+        "AI accountability"
+      ],
+      "concepts": [
+        "attribution",
+        "source evidence",
+        "package registry"
+      ],
+      "tags": [
+        "RubyGems",
+        "OpenAI",
+        "security",
+        "attribution"
+      ],
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "aidb_credit": null,
+      "saint_lane": "Elle Woods · Receipts",
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "china-amodei-response-20260915",
+      "slug": "china-amodei-response-20260915",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-15T14:43:00.097Z",
+      "updatedAt": "2026-09-15T14:30:49Z",
+      "lastCheckedAt": "2026-09-15T14:24:00Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:china-amodei-response-20260915"
+      },
+      "headline": "China answers the AI slowdown calls with a call for cooperation.",
+      "heroVisual": {
+        "src": "/assets/newsstand/trump-public-discussion-20260914.png",
+        "alt": "Two illustrated speech bubbles facing an AI chip, representing debate about AI development.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>China’s Foreign Ministry responded on September 14 to calls by AI company leaders to slow development. Spokesperson Guo Jiakun called for open, inclusive AI development that benefits everyone.</p><p>Asked about Dario Amodei, Sam Altman and Elon Musk’s calls, Guo said fear-mongering, confrontation and vicious competition would hamper efforts toward sound global AI governance: how AI development is guided by rules and oversight.</p>",
+      "laidies_read": "<p>The disagreement includes who gets to set the pace. El País reports that Amodei, Anthropic’s chief executive, also called for keeping China from accessing the most advanced chips and chipmaking equipment.</p><p>Guo’s quoted answer sets out China’s position on cooperation. It is not evidence that China agreed to slow development or that a new rule took effect.</p>",
+      "what_this_means": "<p>If someone says “China responded,” the useful follow-up is: what did it actually say? Here, the ministry called for cooperation and criticized confrontation.</p><p>Keep three events separate: a company leader’s proposal, a government’s public position, and a rule being implemented. To establish the third, ask what requirement took effect, who it applies to and how it is enforced. This response alone does not answer those questions.</p>",
+      "cocktail_party": "“China called for cooperation in response to the AI slowdown debate. That tells us its position—not that it agreed to a slowdown.”",
+      "class_notes": "<a href=\"/library.html#ai-fundamentals-101::%403-from-whatever-to-rsvp-yes-i-have-notes\">AI Fundamentals 101: From “Whatever” to “RSVP: Yes. I have notes.”</a> explains why understanding AI helps you participate in decisions about its future.",
+      "watch_fors": null,
+      "closing_note": null,
+      "sources": [
+        {
+          "id": "ministry-qa",
+          "label": "China Foreign Ministry — September14 press conference, relevant Q&A",
+          "url": "https://www.fmprc.gov.cn/eng./xw/fyrbt/202609/t20260914_12021997.html",
+          "publisherType": "government",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "elpais-report",
+          "label": "El País — China responds to AI warnings",
+          "url": "https://elpais.com/tecnologia/2026-09-14/china-reacciona-a-las-alertas-por-la-ia-denunciando-una-agenda-oculta-para-estrangular-su-tecnologia.html",
+          "publisherType": "publication",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "themes": [
+        "AI governance",
+        "International cooperation"
+      ],
+      "concepts": [
+        "Policy evidence",
+        "Public statements"
+      ],
+      "tags": [
+        "China",
+        "Guo Jiakun",
+        "AI slowdown"
       ],
       "correction": null,
       "correctionHistory": [],

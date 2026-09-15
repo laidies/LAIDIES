@@ -4,8 +4,11 @@
   if (root) root.NewsstandSelection = api;
 })(typeof window !== "undefined" ? window : null, function () {
   "use strict";
-  // Reviewed September 14. Newest Vancouver date first; relevance within each day.
+  // Reviewed September 15. Newest Vancouver date first; relevance within each day.
   var order = [
+  "china-amodei-response-20260915",
+  "microsoft-humanist-code-20260915",
+  "rubygems-agent-attribution-20260915",
   "trump-ai-guardrails-response-20260914",
   "brain-implant-speech-gestures-20260914",
   "protein-data-20260914",

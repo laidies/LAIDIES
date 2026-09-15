@@ -1,0 +1,76 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "rubygems-agent-attribution-20260915",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "9703ee3592710e537d62431f2fae490f7c0f0a8b37caa172d69eb41fd9918cde",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can RubyGems confirm the spam campaign happened but not confirm whether OpenAI agents were behind it?",
+      "response": "Because RubyGems' evidence comes only from events on its own service: it directly observed new accounts registering, packages being published, and could act on them. Who or what typed the code — a human, an AI agent, or someone operating one — leaves no necessary trace in registry logs, so RubyGems lacks the evidence to determine authorship, while outside researchers making that attribution rely on evidence the registry cannot verify.",
+      "expectedEvidence": "The answer should cite the on-service observability boundary in P004 and the explicit RubyGems statement in P003 that it cannot determine whether AI agents created or published the packages.",
+      "assessment": "The article supports this answer fully: P004 supplies the causal mechanism and P003 the specific boundary statement, so a reader can reconstruct the reasoning in ordinary language."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using this article's mechanism, what should a reader treat as confirmed and what as an open claim in the video-platform case?",
+      "response": "Confirmed: what the platform observed on its own service — the channels existed, behaved in a coordinated way, and were removed. Open claim: the lab's state-actor attribution, because identifying the operator requires evidence beyond platform logs, and the platform itself declined to make that determination. A reader should report 'platform confirms coordinated network; lab attributes it to agency X' rather than 'agency X ran propaganda network.'",
+      "expectedEvidence": "Application of P004's on-service-evidence boundary and P005's three-part split (who reported, what they observed, who they say is responsible) to a situation not in the article.",
+      "assessment": "The mechanism transfers cleanly without modification, which indicates the article teaches a genuine general distinction rather than a fact list about RubyGems."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The causal sequence is complete: new accounts published spam, registrations paused, accounts removed, 500+ packages yanked, registration reopened May 16 (P002), with the API-key finding in P004.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>RubyGems, a registry where developers share reusable Ruby code packages, says a May spam campaign used newly registered accounts to publish packages. The registry paused new registrations, removed the responsible accounts and yanked more than 500 packages. Existing users’ installs and uploads stayed available, and registration reopened on May 16.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Attribution asks who did something. A registry can confirm what happened on its own service: accounts appeared, packages were published and removed, and its team’s investigation found no evidence that attempts to obtain other users’ API keys—credentials that let software act as a user—succeeded. It may still lack the evidence to identify the author or operator.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Registry and packages explained inline at first use (P002); API keys defined as 'credentials that let software act as a user' (P004).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>RubyGems, a registry where developers share reusable Ruby code packages, says a May spam campaign used newly registered accounts to publish packages. The registry paused new registrations, removed the responsible accounts and yanked more than 500 packages. Existing users’ installs and uploads stayed available, and registration reopened on May 16.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Attribution asks who did something. A registry can confirm what happened on its own service: accounts appeared, packages were published and removed, and its team’s investigation found no evidence that attempts to obtain other users’ API keys—credentials that let software act as a user—succeeded. It may still lack the evidence to identify the author or operator.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is grounded in the specific reader situation of encountering headlines linking incidents to AI companies and needing to weigh them (P005).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a headline links an incident to an AI company, separate the parts: who reported the incident, what they directly observed, and who they say is responsible. Here, the registry confirms the disruption and its response while leaving AI authorship unresolved. That distinction keeps a security update useful without turning an attribution claim into a settled fact.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or process details leak into passages; the only advice (P005) follows directly from the sourced attribution boundary in P003.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>When a headline links an incident to an AI company, separate the parts: who reported the incident, what they directly observed, and who they say is responsible. Here, the registry confirms the disruption and its response while leaving AI authorship unresolved. That distinction keeps a security update useful without turning an attribution claim into a settled fact.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>Its September 11 update also draws a boundary around a louder claim. Nightingale Collective researchers attribute the activity to OpenAI agents, but RubyGems says it cannot determine whether AI agents created or published the packages. That is not the same as RubyGems confirming that OpenAI was hacked or that OpenAI ran the campaign.</p>",
+          "locator": "P003"
+        }
+      ]
+    }
+  }
+}
