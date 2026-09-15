@@ -23,7 +23,7 @@ function dependency(src, installed) {
 function runtime() {
   if (!runtimePromise) runtimePromise = (async () => {
     await dependency('/content/site/supabase-config.js', () => window.LAIDIES_SUPABASE_CONFIG);
-    await dependency('/content/site/identity-client-v1.js', () => window.LAIDIESIdentityV1);
+    await dependency('/content/site/identity-client-v1.js?v=20260915-profile-verification-1', () => window.LAIDIESIdentityV1);
     await dependency('/content/site/resident-account-runtime-v1.js', () => window.LAIDIESResidentAccountRuntime);
     return window.LAIDIESResidentAccountRuntime.get();
   })();

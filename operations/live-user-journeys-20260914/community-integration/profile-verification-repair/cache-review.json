@@ -1,0 +1,9 @@
+{
+  "schema":"laidies.community-identity-cache-review.v1",
+  "verdict":"PASS",
+  "reviewedPaths":10,
+  "findings":["Seven room pages and Sorority House add one synchronous identity-client script at the start of head, before deferred header/bootstrap scripts.","Resident Card updates its existing synchronous identity-client URL only; its order relative to Supabase and resident runtime remains unchanged.","community-account-ui.mjs requests the identical versioned identity client before resolving the resident runtime, covering pages where a head preload is unavailable or bypassed."],
+  "preservation":"The diff contains only nine HTML identity-client URL/load changes and one module dependency URL change; existing routes, listeners, deferred community-room scripts, header versions, and history-return player URLs are unchanged.",
+  "limits":"Source review only; browser cache and SSO journeys require the root verification pass. The helper may accept unknown fields, but this is not a defect while its four contract fields remain strict.",
+  "notPerformed":["No public-file edit, deployment, or assembler change."]
+}

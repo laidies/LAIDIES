@@ -11,7 +11,7 @@ test("Community rooms mount the Resident SSO UI without stale Hyvor-login copy",
   for (const file of ["ask-the-room", "burn-book", "dear-laidies", "mix-cd-exchange", "send-it-energy", "try-on-debrief", "wins"]) {
     const html = await read(`community/${file}.html`);
     assert.match(html, /Use your LAiDIES Resident account to join this conversation/);
-    assert.match(html, /community-room\.js\?v=20260911-header-controls-2/);
+    assert.match(html, /community-room\.js\?v=20260915-resident-sso-1/);
   }
 });
 test("Resident account and house preserve existing boundaries while adding SSO entry", async () => {
@@ -20,7 +20,7 @@ test("Resident account and house preserve existing boundaries while adding SSO e
   assert.match(account, /community-return\.mjs/);
   assert.match(account, /window\.location\.replace\(communityReturn\)/);
   assert.match(house, /Making a Resident Card is optional/);
-  assert.match(house, /community-room\.js\?v=20260911-header-controls-2/);
+  assert.match(house, /community-room\.js\?v=20260915-resident-sso-1/);
 });
 
 test("Every existing frontend baseline capture is byte-bound to the immutable Pages manifest", async () => {

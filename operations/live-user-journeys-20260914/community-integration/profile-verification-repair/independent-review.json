@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS",
+  "reviewer": "root/Astra",
+  "candidateSha256": "7a15e3d13eb8849550bc81a716ba2f02998fd15d55a9e30c317f5ca325b9b2df",
+  "reviewedAt": "2026-09-15T17:49:24.069849+00:00",
+  "rationale": "The four profile mutation fields are independently read back and must be present/equal. The added read-only resident_number no longer causes false failure. Mutation inputs, Card and authentication behavior remain intact. Candidate derives from current live source and preserves newer email-code methods.",
+  "evidence": "Actual successful mutation and state RPC responses have identical four fields plus resident_number only on read. Full-runtime baseline/candidate tests exercise updateProfile and reject field mismatches/errors.",
+  "limits": "Browser repair verification and scoped publication still required; HTML/module cache-loading changes require separate review."
+}

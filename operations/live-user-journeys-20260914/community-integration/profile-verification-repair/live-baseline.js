@@ -223,16 +223,6 @@
       return result.data;
     }
 
-    function sameProfileMutation(verifiedProfile, mutationProfile) {
-      var fields = ["display_name", "card_username", "member_card_status", "member_card_is_public"];
-      if (!verifiedProfile || !mutationProfile || typeof verifiedProfile !== "object" || typeof mutationProfile !== "object") return false;
-      return fields.every(function (field) {
-        return Object.prototype.hasOwnProperty.call(verifiedProfile, field) &&
-          Object.prototype.hasOwnProperty.call(mutationProfile, field) &&
-          verifiedProfile[field] === mutationProfile[field];
-      });
-    }
-
     async function updateProfile(profile, idempotencyKey) {
       var requested = profile || {};
       var mutation = await mutationRpc("update_my_resident_profile_v1", {
@@ -250,7 +240,7 @@
       var verified = await client.rpc("get_my_resident_state_v1");
       if (verified.error ||
           !verified.data ||
-          !sameProfileMutation(verified.data.profile, mutation.data)) {
+          !sameDocument(verified.data.profile, mutation.data)) {
         throw new Error("profile-read-after-write-failed");
       }
       return {
