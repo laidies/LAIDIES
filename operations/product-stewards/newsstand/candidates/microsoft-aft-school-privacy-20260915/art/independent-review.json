@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "microsoft-aft-school-privacy-20260915-art",
+  "stage": "INDEPENDENT_VISUAL_ADMISSION",
+  "verdict": "PASS",
+  "reviewer": {
+    "principalId": "/root/puzzle_visual_reconcile",
+    "reviewedAt": "2026-09-15T23:23:21Z",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true,
+    "independentFromMaker": true,
+    "calibration": {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/art/calibration.json",
+      "sha256": "e20872c46b89343f4f7b2760a377cfacd299c90054555e916917ca9dfec0e163"
+    }
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/art/producer-contract-render.json",
+    "sha256": "e6bcc4b7742584e943367f22a142b6a87050b0eaf6ca11c93fc7c03488de1e06"
+  },
+  "producerReview": {
+    "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/art/producer-self-review.json",
+    "sha256": "0e4349d2ebe3f1000cd56f43e2027643e28bdfff0742291ae4623b27d512a268"
+  },
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/art/illustration-v1.png",
+    "sha256": "6a32e01a49bfd59feca58a12b6f4f0e5542bfd79fd8e9a32060a4e95324b5f59",
+    "kind": "STILL"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/story.json",
+    "sha256": "4d698dbf1a586fac2ac7c67e218d2605b8fc8c3cf79c96e45b95593a7f197094",
+    "kind": "TEXT",
+    "locator": "headline and complete article",
+    "exactTextOrSilentPurpose": "Microsoft signed school AI privacy terms. Schools must request the protections."
+  },
+  "renderedEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/art/mobile-preview.png",
+    "sha256": "f1d651e69fd940749b1e2f4c36c334f5ae901d975b768a1bf8be2dd8f0c49190"
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "PASS",
+      "observation": "Tablet and ruled form share a school desk with exercise books; school software and written terms are visible without an implemented guarantee.",
+      "artifactLocator": "tablet, form and books"
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "Navy ink hatching, halftone, warm paper/wood and cyan/pink accents match the viewed editorial reference. Blackboard, chalk tray and classroom chairs establish an unnamed school.",
+      "artifactLocator": "whole image"
+    },
+    {
+      "id": "characterAndTownIdentity",
+      "result": "PASS",
+      "observation": "No people, named characters, town geography, school names or brand logos visible.",
+      "artifactLocator": "whole image"
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "Tablet screen faces viewer and is supported by triangular case; books, paper, pencil and ruler rest on desktop. Furniture overlaps coherently; cropping lower legs does not show floating objects.",
+      "artifactLocator": "tablet stand and desktop objects"
+    },
+    {
+      "id": "textIntegrity",
+      "result": "PASS",
+      "observation": "Tablet and blackboard blank; paper has deliberate ruled lines and an empty header box. Ruler has ticks and simple dot marks, no numerals or letters; book-cover mottling contains no text.",
+      "artifactLocator": "screen, blackboard, form, ruler and book covers"
+    },
+    {
+      "id": "periodWardrobeAndProps",
+      "result": "PASS",
+      "observation": "Contemporary school tablet and ordinary stationery fit an unnamed classroom; no clothing or historical era claim.",
+      "artifactLocator": "classroom and desktop"
+    },
+    {
+      "id": "objectPurpose",
+      "result": "PASS",
+      "observation": "Tablet denotes school software; form denotes written terms; books, pencil and ruler ground classroom work. No locks, shields, seals, checkmarks or consultation slips.",
+      "artifactLocator": "all dominant objects"
+    },
+    {
+      "id": "renderedSizeLegibility",
+      "result": "PASS",
+      "observation": "Actually viewed390x260 supplied preview: tablet, ruled form, two books, pencil and ruler remain recognizable. Meaning does not depend on tiny lettering.",
+      "artifactLocator": "mobile-preview.png"
+    }
+  ],
+  "visibleDefects": [],
+  "learningDisposition": {
+    "kind": "NO_NEW_DEFECT",
+    "rationale": "No new reusable pixel defect. Stale consultation prompt reference found and removed by root before final admission; actual school pixels unchanged."
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First school-specific rendered illustration; rejected generic consultation reuse was a proposal and its history remains untouched."
+  },
+  "ratchet": {
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "objectiveDefectsFirstFoundAtReview": 1,
+    "repeatedKnownDefects": 0
+  },
+  "reviewHistory": {
+    "independentInspectionCycles": 1,
+    "cumulativeContractIssues": 1,
+    "currentUnresolvedIssues": 0,
+    "repair": "Root removed stale Exact prompt reference and rebound maker review; no rerender or second pixel cycle."
+  },
+  "limitations": [
+    "Source-art and proportional mobile preview only, not an integrated live article crop or runtime review.",
+    "Negative calibration uses complete registered failure descriptions; no bound blind negative raster exists and none is fabricated.",
+    "Maker receipts were task inputs; independent pixel judgments derive from full/mobile viewing, not maker conclusions."
+  ]
+}

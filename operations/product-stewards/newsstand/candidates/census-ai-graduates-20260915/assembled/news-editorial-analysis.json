@@ -1,0 +1,88 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "census-ai-graduates-20260915",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "978cef1ac7a622ed7277aacb28c874b0076d7f7acc9de4880daba9ad8a5348b1",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why does this result not prove AI rejected one graduate's applications?",
+      "response": "The study compares groups of majors, not people: the most AI-exposed tenth of majors had about five percentage points lower employment than the least-exposed 60%, after netting out their 2022 gap. Exposure itself only estimates how much AI could help with tasks in occupations tied to a major — it counts no actual replacements. The authors cannot rule out other field-specific changes that coincided with ChatGPT, and their records miss self-employment and graduate school. So a single graduate's rejections could reflect any of these things or plain individual variation; the study measures pressure on a group, not causes of one person's outcome.",
+      "expectedEvidence": "An accurate answer should cite the group comparison and 2022 baseline adjustment (P004), the capability-not-replacement definition of exposure (P003), and the confounding/omission caveats (P007), while distinguishing group averages from individual diagnosis (P010, P011).",
+      "assessment": "The article fully supports this answer: every element of the causal chain and its limits appears in P003, P004, P007 and P010, so a reader can explain back correctly in ordinary language."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Does the study's employment decline show that graduates like her were displaced by AI?",
+      "response": "No, on two grounds the article supplies. First, the study's employment records omit self-employment entirely (P007), so a working freelancer would be recorded as not employed — she may be counted in the decline without being jobless at all, and the authors flag this as a reason the employment estimate needs care. Second, the five-point figure is a group-level difference between exposure deciles after a 2022 adjustment (P004); it assigns no cause to any individual, and exposure measures capability, not actual replacement (P003). Her situation is one the data cannot classify, let alone diagnose.",
+      "expectedEvidence": "Correct transfer requires invoking the omitted self-employment coverage (P007), the group-comparison structure (P004), and the exposure definition (P003), rather than treating the headline number as an individual displacement count.",
+      "assessment": "The article's mechanism transfers cleanly to this new scenario absent from the text; a reader who absorbed P003, P004 and P007 can resolve it correctly, so transfer passes."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "What happened is clear: a September Census working paper compared post-ChatGPT outcomes across exposure deciles (P002, P004), with the exposure construction explained (P003).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A September working paper by Census Bureau researchers follows bachelor’s graduates from 2016–2024 at participating US institutions—about 29% of degrees in those years. Employment records run through September 2025.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>“AI exposure” estimates how much AI could help with tasks in occupations associated with a major. It does not count jobs AI actually replaced.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>After ChatGPT arrived, the most-exposed tenth of majors—largely computing—had about five percentage points lower employment in the quarter after graduation relative to the least-exposed 60%, after accounting for their 2022 difference.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'AI exposure' (P003), percentage points vs percent (P005), and 'full-quarter job' (P006) are each given plain meaning at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>“AI exposure” estimates how much AI could help with tasks in occupations associated with a major. It does not count jobs AI actually replaced.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>For the arithmetic alone, a move from 80% to 75% is five percentage points. That is a 6.25% relative decrease. These illustrative rates are not the study’s starting employment rates. “Five points” and “five percent” answer different questions.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>Initial earnings were about 13% lower in the main full-quarter job—a job spanning the whole quarter—two quarters after graduation. That is a group comparison, not an annual pay cut for every graduate.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequence is grounded in a specific recognizable situation: a graduate and parent reviewing unanswered applications and deciding what to ask next (P009, P010).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Picture a graduate and parent looking at a spreadsheet of unanswered applications. The useful question is not “Is this degree finished?” It is “What first jobs are recent graduates in this subject actually finding, and how long did that take?” Ask the career office for the group, time window and destinations behind its answer.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>A difficult search deserves practical help without a diagnosis invented from a headline. Use the study to sharpen that conversation, rather than turn a group average into a verdict on one person’s prospects. It supplies no demonstrated remedy of switching majors.</p>",
+          "locator": "P010"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; the advice given is proportionate and the article explicitly declines to invent a remedy the study does not demonstrate (P009, P010).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Picture a graduate and parent looking at a spreadsheet of unanswered applications. The useful question is not “Is this degree finished?” It is “What first jobs are recent graduates in this subject actually finding, and how long did that take?” Ask the career office for the group, time window and destinations behind its answer.</p>",
+          "locator": "P009"
+        },
+        {
+          "excerpt": "<p>A difficult search deserves practical help without a diagnosis invented from a headline. Use the study to sharpen that conversation, rather than turn a group average into a verdict on one person’s prospects. It supplies no demonstrated remedy of switching majors.</p>",
+          "locator": "P010"
+        }
+      ]
+    }
+  }
+}

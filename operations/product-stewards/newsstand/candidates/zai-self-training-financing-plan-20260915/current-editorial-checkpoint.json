@@ -1,0 +1,125 @@
+{
+  "status": "ACTUAL_QUALIFIED_EDITORIAL_PASS_BOUND_ART",
+  "candidateId": "zai-self-training-financing-plan-20260915",
+  "checkedAt": "2026-09-16T00:17:11.610Z",
+  "story": {
+    "path": "operations/product-stewards/newsstand/candidates/zai-self-training-financing-plan-20260915/story.json",
+    "sha256": "f3e977c17d42fbb8284cd55badefee8d94732898a739493294f8b9e5966e9ba0"
+  },
+  "reviewText": {
+    "path": "operations/product-stewards/newsstand/candidates/zai-self-training-financing-plan-20260915/review-text.json",
+    "sha256": "4d30f251cb708bcff62ce886fa35ab914f6cc540204c04f11f3b093a60dc1a3b"
+  },
+  "producerReview": {
+    "path": "operations/product-stewards/newsstand/candidates/zai-self-training-financing-plan-20260915/producer-publication-review.json",
+    "sha256": "a04adc67729ac308d50f685541f8e2dbe7147cb655bffcf286800407adc4ac11"
+  },
+  "visualAdmission": {
+    "path": "operations/product-stewards/newsstand/candidates/zai-self-training-financing-plan-20260915/art/independent-review.json",
+    "sha256": "b6cfd7f08c59004d627ad8651cae0231b2ce838d6d69fe2cc2921e4d01d47ba9"
+  },
+  "actualProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/zai-self-training-financing-plan-20260915/editorial-review-v1/article-editorial-provider.raw.json",
+    "sha256": "c64db2ca78363477c9dd2953f996402c662fcf712cab64290cd3a624fb1b79ee"
+  },
+  "editorialResult": {
+    "path": "operations/product-stewards/newsstand/candidates/zai-self-training-financing-plan-20260915/editorial-review-v1/article-result.json",
+    "sha256": "f7b8f91ec20adb4f9e90c513b8f68ee7853585e9e03a9d08c97d723081f3e966"
+  },
+  "sourceBudget": {
+    "path": "operations/product-stewards/newsstand/candidates/zai-self-training-financing-plan-20260915/source-budget-final.json",
+    "sha256": "de352c87b8c068105c81bc273c74a08176c19c2325036b255c5cbaed987a5fa8"
+  },
+  "preflight": {
+    "path": "operations/product-stewards/newsstand/candidates/zai-self-training-financing-plan-20260915/art-bound-preflight.json",
+    "sha256": "96319a9a4e8806efdbc8f0056e6ec95c8a3551289e618dbbca65023498373710"
+  },
+  "subscriptionRoute": {
+    "path": "operations/product-stewards/newsstand/candidates/zai-self-training-financing-plan-20260915/editorial-subscription-route.json",
+    "sha256": "b9470a926b281a5d3a282f51116fc2c3e2a9ad0ce5c38758643f74deb597d1dc"
+  },
+  "providerModels": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "durationMs": 94363,
+  "editorialAttempts": 1,
+  "predispatchValidationFailuresNotProviderAttempts": 0,
+  "LibraryBackgroundBoundBeforeQualification": true,
+  "visualHistory": {
+    "renders": 2,
+    "makerIssues": 1,
+    "overallReviewCycles": 3,
+    "independentReviewCycles": 1,
+    "independentIssues": 0,
+    "initialHold": "art/maker-hold-v1.json",
+    "overallFirstPass": false
+  },
+  "actualFactClaims": [
+    {
+      "id": "identity",
+      "state": "supported",
+      "reason": "Filing describes the Company as 'a leading AI company in China, dedicated to developing general-purpose large models'; 'AI-model developer Z.AI' in P002 is an accurate plain restatement."
+    },
+    {
+      "id": "financing",
+      "state": "supported",
+      "reason": "Placing net proceeds ~HK$15,664.13M plus bond net proceeds ~US$3,010.77M (~HK$23,610.24M) total ~HK$39.3B \u2248 US$5.0B; both transactions are explicitly conditional ('may or may not proceed'/'may or may not be issued'), matching P002's 'conditional... roughly US$5 billion'."
+    },
+    {
+      "id": "allocation",
+      "state": "supported",
+      "reason": "Use of Proceeds states 'Approximately 60% of the net proceeds will be used for the R&D of the Company's next-generation GLM foundation models and its Fully Self Training system, as well as the deployment and upgrade of... computing resources and related technology infrastructure', matching P002 exactly."
+    },
+    {
+      "id": "placing",
+      "state": "supported",
+      "reason": "Filing: placing agents procure placees, professional/institutional investors, 'to subscribe for up to 21,965,000 new H Shares' at the Placing Price; P003's gloss 'selling newly issued shares to investors' is a faithful plain-language rendering."
+    },
+    {
+      "id": "bonds",
+      "state": "supported",
+      "reason": "The Bonds are zero coupon convertible bonds with a Conversion Right to convert into new H Shares at HK$892.50 initial Conversion Price; P003's 'borrowing that can later become shares' is accurate."
+    },
+    {
+      "id": "conditions",
+      "state": "supported",
+      "reason": "Filing states 'The Placing and the issue of the Bonds are independent of each other and are not inter-conditional' and lists distinct conditions precedent for each, supporting P003's 'separate completion conditions'."
+    },
+    {
+      "id": "vision",
+      "state": "supported",
+      "reason": "Definitions section: 'Fully Self Training \u2014 the Group's technical vision that the next generation of GLM models will be trained in environments built by the previous generation of GLM models', matching P004 including the 'explicitly a technical vision' framing."
+    },
+    {
+      "id": "mechanism",
+      "state": "supported",
+      "reason": "Use of Proceeds lists data self-generation, task-environment self-generation and infrastructure self-optimization ('intends to leverage the models' capabilities... to assist in developing and optimizing... training and inference systems'), matching P004's three activities."
+    },
+    {
+      "id": "checks",
+      "state": "supported",
+      "reason": "Data self-generation passage lists 'rule-based verification, execution verification, model review and manual spot-checking'; P004's 'proposed checks include manual spot-checking' is directly supported and correctly framed as proposed."
+    },
+    {
+      "id": "boundary",
+      "state": "supported",
+      "reason": "The filing frames everything as intent ('intends to explore a technical loop') and discloses financing conditions; it contains no measured self-improvement result, so P005's negative claim that it does not demonstrate self-improvement or change today's chatbot is accurate."
+    }
+  ],
+  "canonicalWrites": false,
+  "queueWrites": false,
+  "ordinaryCandidateAssembledByThisLane": false,
+  "limitations": [
+    "Actual AI editorial/fact assessment, no human comprehension test.",
+    "Independent source-art/mobile exact companion admission, integrated live runtime owned by root.",
+    "Parent root owns admission assembly and public release."
+  ],
+  "publicAsset": {
+    "path": "assets/newsstand/zai-model-research-plan-20260915.png",
+    "sha256": "bae9d23d0901022aecb97c30bc98fedf645988acc21fa847d02079dc0b0e6535"
+  },
+  "filingDerivedWords": 178,
+  "budget": 200,
+  "unresolvedEditorialIssues": 0
+}

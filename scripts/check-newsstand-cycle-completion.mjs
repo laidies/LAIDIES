@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const datePattern=/^\d{4}-\d{2}-\d{2}$/;
 function date(value){if(!datePattern.test(value)||new Date(value+'T12:00:00Z').toISOString().slice(0,10)!==value)throw Error('Invalid date: '+value);return value;}
@@ -34,10 +35,35 @@ export function inspectCycle({issues,stories,from,now=new Date().toISOString()})
 }
 // This checks intake disposition, not whether the editor discovered every story.
 // The independent source sweep remains necessary; a delivered issue is insufficient.
-export function inspectCoverage({coverage,stories,now=new Date().toISOString()}) {
+export function inspectCoverage({coverage,stories,now=new Date().toISOString(),evidenceRoot=root}) {
  const fail=message=>{throw Error('Coverage: '+message);};
  const nonempty=value=>typeof value==='string'&&value.trim().length>0;
  const instant=Date.parse(now);if(!Number.isFinite(instant))fail('invalid now');
+ const fresh=value=>Number.isFinite(Date.parse(value))&&Date.parse(value)<=instant&&instant-Date.parse(value)<=24*3600000;
+ const boundEvidence=binding=>{
+  if(!nonempty(binding?.path)||path.isAbsolute(binding.path)||!/^([a-f0-9]{64})$/.test(binding.sha256||''))fail('recovery evidence binding required');
+  let raw;
+  try {
+   const base=fs.realpathSync(evidenceRoot),file=fs.realpathSync(path.resolve(base,binding.path));
+   if(!file.startsWith(base+path.sep))fail('recovery evidence outside root');
+   raw=fs.readFileSync(file);
+  }catch(error){fail('recovery evidence unavailable: '+error.message);}
+  if(createHash('sha256').update(raw).digest('hex')!==binding.sha256)fail('recovery evidence checksum mismatch');
+  return raw;
+ };
+ // This is a review of recovery options, never a new observation of the blocked route.
+ const retainedBlockReviewed=source=>{
+  if(source.status!=='BLOCKED'||source.retryPolicy!=='NONRETRYABLE'||!source.recoveryReview)return false;
+  let review;try{review=JSON.parse(boundEvidence(source.recoveryReview));}catch(error){fail('invalid recovery review: '+error.message);}
+  if(review.schemaVersion!=='newsstand-source-recovery-review-v1'||review.url!==source.url||review.originalCheckedAt!==source.checkedAt||review.originalNotRetried!==true||!fresh(review.reviewedAt)||Date.parse(review.reviewedAt)<Date.parse(source.checkedAt)||!nonempty(review.reviewedBy)||!nonempty(review.assessment)||review.missingInput!==source.missingInput||review.nextCheckAt!==source.nextCheckAt||!nonempty(review.nextRecoveryStep))fail('unsupported or stale retained-block recovery review: '+source.url);
+  boundEvidence(review.originalCapture);
+  if(!Array.isArray(review.recoverySources)||!review.recoverySources.length)fail('distinct recovery sources required');
+  for(const alternative of review.recoverySources){
+   if(!nonempty(alternative.url)||alternative.url===source.url||!['CHECKED','BLOCKED'].includes(alternative.status)||!fresh(alternative.checkedAt)||Date.parse(alternative.checkedAt)>Date.parse(review.reviewedAt)||!nonempty(alternative.assessment))fail('invalid distinct recovery observation');
+   boundEvidence(alternative.capture);
+  }
+  return true;
+ };
  const day=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Vancouver',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(instant));
  if(coverage?.schemaVersion!=='newsstand-coverage-progress-v1'||coverage.asOf!==day)fail('missing or stale dated intake');
  if(!Number.isFinite(Date.parse(coverage.checkedAt))||Date.parse(coverage.checkedAt)>instant||instant-Date.parse(coverage.checkedAt)>24*3600000||!Number.isFinite(Date.parse(coverage.nextReviewAt))||Date.parse(coverage.nextReviewAt)<=instant)fail('source sweep stale or undated');
@@ -45,7 +71,7 @@ export function inspectCoverage({coverage,stories,now=new Date().toISOString()})
  const pending=[];const holds=[];const ids=new Set();
  for(const source of coverage.sourceChecks){
   const observed=Date.parse(source.checkedAt);
-  if(!Number.isFinite(observed)||observed>instant||instant-observed>24*3600000)fail('source observation missing, stale or future: '+source.url);
+  if(!Number.isFinite(observed)||observed>instant||(instant-observed>24*3600000&&!retainedBlockReviewed(source)))fail('source observation missing, stale or future: '+source.url);
   if(!nonempty(source.url)||!nonempty(source.assessment)||!['CHECKED','BLOCKED'].includes(source.status))fail('invalid source check');
   if(source.status==='BLOCKED'){if(!nonempty(source.missingInput)||!Number.isFinite(Date.parse(source.nextCheckAt)))fail('source hold requires missing input and retry');holds.push(source.url);if(Date.parse(source.nextCheckAt)<=instant)pending.push({id:source.url,status:'SOURCE_RECHECK_DUE',nextAction:source.missingInput});}
  }

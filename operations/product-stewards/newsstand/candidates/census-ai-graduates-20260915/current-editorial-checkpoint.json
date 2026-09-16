@@ -1,0 +1,109 @@
+{
+  "status": "ACTUAL_QUALIFIED_EDITORIAL_PASS_BOUND_ART",
+  "candidateId": "census-ai-graduates-20260915",
+  "checkedAt": "2026-09-16T00:04:06.860Z",
+  "story": {
+    "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/story.json",
+    "sha256": "f224a964a5ee1ff45a281e744a8f0ebeb6882a4052e178ef05a7d58adb6e1e75"
+  },
+  "reviewText": {
+    "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/review-text.json",
+    "sha256": "31df8e916a3b078fd56442a1b0084e4463d104263e2af284724a45b95c2338ef"
+  },
+  "producerReview": {
+    "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/producer-publication-review.json",
+    "sha256": "73a5b8f767eb7c211aec0f424a0aab97d068b68a4e51345d6c27ceae3e5075e3"
+  },
+  "visualAdmission": {
+    "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/art/new-v1/independent-review-library-v2.json",
+    "sha256": "33e675e0955721d9928e6c489edfa14b09d9d2baa506fdbd8c90c217fc0d1ca6"
+  },
+  "actualProviderRaw": {
+    "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/editorial-review-v2/article-editorial-provider.raw.json",
+    "sha256": "3b85bee14932f13c74e0fc85de9ea8bcb05faeb431d54da7f81fd89bd5bf6cc0"
+  },
+  "editorialResult": {
+    "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/editorial-review-v2/article-result.json",
+    "sha256": "4690baf89deac196ff36736dd20755ba57c82172892ebeb394712bdea15f1171"
+  },
+  "sourceBudget": {
+    "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/source-budget-final.json",
+    "sha256": "f7da39cebf1f6c4b46b91ee528f79b759b79921eacbb98bcb2443dd4aadcac27"
+  },
+  "preflight": {
+    "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/art-bound-preflight.json",
+    "sha256": "8e050ce152709afdab92d9f5bfa358c0f33de4e21fb6e0eff6d9438ebf3380c4"
+  },
+  "subscriptionRoute": {
+    "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/editorial-subscription-route.json",
+    "sha256": "03565e9312247b703ff1abef9cd47c7aa7ed5b2252111b03ae5fdce808eb55b9"
+  },
+  "providerModels": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "durationMs": 101221,
+  "editorialAttempts": 2,
+  "predispatchValidationFailuresNotProviderAttempts": 1,
+  "libraryAnchorRepair": {
+    "defectIssues": 1,
+    "knownRequirementRepeated": true,
+    "priorRecordsPreserved": "pre-library-anchor/",
+    "freshReview": true
+  },
+  "actualFactClaims": [
+    {
+      "id": "sample",
+      "state": "supported",
+      "reason": "Paper states the sample covers 'roughly 29% of U.S. bachelor's degrees conferred from 2016 to 2024' from PSEO partner institutions, matching P002 exactly, including the September 2026 working-paper date."
+    },
+    {
+      "id": "period",
+      "state": "supported",
+      "reason": "Paper: LEHD data available 'for every quarter between Q1 2016 and Q3 2025', i.e., employment records through September 2025 as P002 states."
+    },
+    {
+      "id": "exposure",
+      "state": "supported",
+      "reason": "Paper describes the Eloundou GPT-4 Beta measure as based on AI's capacity to perform tasks, 'not necessarily reflective of its actual usage' — capability, not counted replacements, matching P003."
+    },
+    {
+      "id": "employment",
+      "state": "supported",
+      "reason": "Paper reports a five-percentage-point decline for the top decile relative to the bottom six deciles with 2022 as the absorbed reference period ('net of the difference... in calendar year 2022'), matching P004's 'after accounting for their 2022 difference'."
+    },
+    {
+      "id": "earnings",
+      "state": "supported",
+      "reason": "Paper: 'full-quarter initial earnings declined by thirteen percent', defined as dominant-job earnings with positive earnings in preceding and subsequent quarters, measured two quarters post-graduation — matching P006 including the full-quarter definition."
+    },
+    {
+      "id": "causal-limit",
+      "state": "supported",
+      "reason": "Paper concedes 'our design cannot rule out other time-varying shocks to particular fields that coincide with the diffusion of generative AI', matching P007's statement that coinciding field-specific changes cannot be ruled out."
+    },
+    {
+      "id": "missing",
+      "state": "supported",
+      "reason": "Paper: 'LEHD data do not include information on self-employment, nor do they contain information on graduate school enrollment', matching P007's omissions claim."
+    },
+    {
+      "id": "representation",
+      "state": "supported",
+      "reason": "Paper's Table A2 discussion shows sample institutions are disproportionately public, urban, large and research-intensive, and warns estimates 'may only be representative of this subset of institutions' — supporting P007's non-representativeness statement."
+    },
+    {
+      "id": "review",
+      "state": "supported",
+      "reason": "Paper cover page: 'The papers have not undergone the review accorded Census Bureau publications and no endorsement should be inferred', matching P008's review and endorsement caveats."
+    }
+  ],
+  "canonicalWrites": false,
+  "queueWrites": false,
+  "ordinaryCandidateAssembledByThisLane": false,
+  "limitations": [
+    "Actual AI editorial/fact assessment, no human comprehension test.",
+    "Independent source-art/mobile exact companion admission, integrated live runtime owned by root.",
+    "Parent root owns admission assembly and public release."
+  ]
+}

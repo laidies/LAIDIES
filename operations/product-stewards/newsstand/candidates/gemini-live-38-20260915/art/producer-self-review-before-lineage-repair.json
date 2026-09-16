@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "gemini-live-38-20260915-art",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "verdict": "PASS",
+  "reviewer": {
+    "principalId": "/root",
+    "reviewedAt": "2026-09-15T23:08:07.363623+00:00",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/art/producer-contract-final.json",
+    "sha256": "bdde5d8122e48523ce7f9833bec5b3e96b84a91858a2c7cdd5ea00e67361fbee"
+  },
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/art/illustration-v2.png",
+    "sha256": "b7e54e28876b055184723ad2749acda5d485efe4d87de972e2d82313819b27fe",
+    "kind": "STILL"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/story.json",
+    "sha256": "aa42019b6e35a6e71546f36bbc19b2f667e991cac074531610752ee83e36c2cc",
+    "kind": "TEXT",
+    "locator": "headline",
+    "exactTextOrSilentPurpose": "Gemini\u2019s new voice models can keep talking while they work."
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "PASS",
+      "observation": "Smartphone speech wave beside unfinished route shows ongoing conversation and planning, without a booking confirmation.",
+      "artifactLocator": "full rendered illustration"
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "Fine navy hatching, warm paper and tangerine with cyan/pink accents match destination editorial style.",
+      "artifactLocator": "full rendered illustration"
+    },
+    {
+      "id": "characterAndTownIdentity",
+      "result": "PASS",
+      "observation": "No people, likenesses, towns, brands or logos.",
+      "artifactLocator": "full rendered illustration"
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "Phone and paper sit on a desk in coherent perspective; pencil touches paper. Waveform is a conceptual overlay.",
+      "artifactLocator": "full rendered illustration"
+    },
+    {
+      "id": "textIntegrity",
+      "result": "PASS",
+      "observation": "No letters or numbers visible; failed compass lettering removed.",
+      "artifactLocator": "full rendered illustration"
+    },
+    {
+      "id": "periodWardrobeAndProps",
+      "result": "PASS",
+      "observation": "Contemporary conceptual phone and map, no era claim.",
+      "artifactLocator": "full rendered illustration"
+    },
+    {
+      "id": "objectPurpose",
+      "result": "PASS",
+      "observation": "Only required phone, route sketch and pencil remain, with speech waveform.",
+      "artifactLocator": "full rendered illustration"
+    },
+    {
+      "id": "renderedSizeLegibility",
+      "result": "PASS",
+      "observation": "Root viewed actual390x260 preview: phone screen waveform, separate pink voice wave and blue dashed route remain distinct; no small lettering required.",
+      "artifactLocator": "art/independent-mobile-preview-v2.png"
+    }
+  ],
+  "visibleDefects": [],
+  "limitations": [
+    "Conceptual illustration; independent admission required."
+  ],
+  "renderedEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/art/illustration-v2.png",
+    "sha256": "b7e54e28876b055184723ad2749acda5d485efe4d87de972e2d82313819b27fe"
+  },
+  "learningDisposition": {
+    "kind": "REPAIRED_KNOWN_DEFECT"
+  },
+  "lineage": {
+    "kind": "REVISION",
+    "previousReview": {
+      "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/art/independent-generated-artifact-review-v1.json"
+    },
+    "repair": "Removed unwanted compass lettering and peripheral props."
+  }
+}

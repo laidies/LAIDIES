@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "congress-ai-oversight-response-20260915-art",
+  "stage": "INDEPENDENT_VISUAL_ADMISSION",
+  "verdict": "PASS",
+  "reviewer": {
+    "principalId": "/root/puzzle_visual_reconcile",
+    "reviewedAt": "2026-09-15T23:56:40Z",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true,
+    "independentFromMaker": true,
+    "calibration": {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/art/calibration.json",
+      "sha256": "e20872c46b89343f4f7b2760a377cfacd299c90054555e916917ca9dfec0e163"
+    }
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/art/producer-contract.json",
+    "sha256": "d7fbea074bfc08c1437943325e8a52271b35d79f4284db2fb7ce059b7e203236"
+  },
+  "producerReview": {
+    "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/art/producer-self-review.json",
+    "sha256": "1942066df1df933f7c5d046b44d378315f9cfab0a10e59cc2b676c8af97e18ed"
+  },
+  "artifact": {
+    "path": "operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914/art/trump-public-discussion-v1.png",
+    "sha256": "245fa496a7286f1ef9c09a636cde4ffcfb8cd2726fe8c1c88a9645b74058cc4a",
+    "kind": "STILL"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/story.json",
+    "sha256": "c7adf8a03a33823234ea6c6221cb18dd67c375790ccc6e8d6bd681f1cfac95e6",
+    "kind": "TEXT",
+    "locator": "headlineandcompletearticle",
+    "exactTextOrSilentPurpose": "Congress discusses AI protections. Reported plans are not new law."
+  },
+  "renderedEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/art/mobile-preview.png",
+    "sha256": "f962ee2dedfd7bf63d97e64821864e913776b4005027346689140ec3de8f562f"
+  },
+  "outcomes": [
+    {
+      "id": "semanticAlignment",
+      "result": "PASS",
+      "observation": "Opposing blank coral and cyan speech forms surround an abstract computing module. This establishes differing public positions about AI, the same ongoing policy debate; it does not depict a legislative meeting, enacted protection or shutdown mechanism.",
+      "artifactLocator": "three dominant objects"
+    },
+    {
+      "id": "styleAndLocationFit",
+      "result": "PASS",
+      "observation": "Navy ink outlines, halftone and print texture with cream, coral, cyan and yellow match the actual approved destination style viewed this session. Composition is conceptual and unnamed.",
+      "artifactLocator": "whole image"
+    },
+    {
+      "id": "characterAndTownIdentity",
+      "result": "PASS",
+      "observation": "No people, hands, named politicians, government marks, canonical buildings or town geography.",
+      "artifactLocator": "whole image"
+    },
+    {
+      "id": "anatomyAndPhysics",
+      "result": "PASS",
+      "observation": "Each speech form stands on its own coherent plinth; module rests on a separate stepped base. Table plane, edges, occlusions and shadows support the objects plausibly.",
+      "artifactLocator": "plinths and module/base contacts"
+    },
+    {
+      "id": "textIntegrity",
+      "result": "PASS",
+      "observation": "Speech faces are blank. Module has abstract circuit-like traces, without readable words, digits, UI, signatures, seals, logos or generated technical labels.",
+      "artifactLocator": "speech faces and module"
+    },
+    {
+      "id": "periodWardrobeAndProps",
+      "result": "PASS",
+      "observation": "Generic contemporary abstract electronics and editorial forms, with no costume, historical identity or literal hardware design claim.",
+      "artifactLocator": "whole image"
+    },
+    {
+      "id": "objectPurpose",
+      "result": "PASS",
+      "observation": "Module supplies AI topic cue; opposing forms supply discussion cue. No wire or switch links imply the module is controlled by the forms, and no depicted certificate or law implies the reported intentions operate.",
+      "artifactLocator": "module and opposing forms"
+    },
+    {
+      "id": "renderedSizeLegibility",
+      "result": "PASS",
+      "observation": "Actual 390x260 preview retains all three dominant objects and their bases; opposing forms and computing topic remain distinct without tiny text.",
+      "artifactLocator": "mobile-preview.png"
+    }
+  ],
+  "visibleDefects": [],
+  "learningDisposition": {
+    "kind": "NO_NEW_DEFECT",
+    "rationale": "No new reusable visual defect. Reuse is admitted for this exact ESTABLISH companion only; previous topic admission supplies pixel history, not inherited new companion approval."
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First independent Congress companion review of an existing policy-discussion original; historical Trump admission is retained separately and is not new Congress approval."
+  },
+  "ratchet": {
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "repeatedKnownDefects": 0
+  },
+  "reviewHistory": {
+    "priorAdmission": {
+      "path": "operations/product-stewards/newsstand/candidates/trump-ai-guardrails-response-20260914/art/independent-review-final-v2.json",
+      "sha256": "56439323ed86ac024022cd7ea48b2cfe663c47eb9b8fbc3d9dd20fa5e72a4d45"
+    },
+    "currentCompanionReviewCycles": 1,
+    "newImageGeneration": false
+  },
+  "limitations": [
+    "Actually inspected full 1536x1024 original and 390x260 preview; integrated live crop/runtime not covered.",
+    "Same reviewer calibration, unchanged current registry/fixtures/style authority reused with original completion time; no new blind negative-raster calibration claimed.",
+    "Source-art ESTABLISH meaning/craft only; article editorial quality and Library-link completeness are not admitted by this visual verdict. Any changed companion bytes require a fresh exact binding."
+  ]
+}

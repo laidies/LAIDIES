@@ -1,4 +1,8 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
 import {inspectCycle,parseStories,inspectCoverage} from './check-newsstand-cycle-completion.mjs';
 const story={id:'w',status:'published',edition:'weekly'};
 const stories={publications:{weekly:{editionDate:'2026-09-09',storyId:'w'}},stories:[story]};
@@ -47,3 +51,40 @@ console.log('Coverage calibration: delivered-but-unfinished, wrong-event Weekly,
 
 for (const checkedAt of [undefined,'invalid','2026-09-09T16:00:00Z','2026-09-10T18:01:00Z']) { const bad=clone(); bad.coverage.sourceChecks[0].checkedAt=checkedAt; assert.throws(()=>inspectCoverage(bad),/source observation/); }
 console.log('Per-source freshness: missing, invalid, stale and future observations rejected even when the overall sweep date is fresh.');
+
+// A historical nonretryable failure stays BLOCKED. Only an actual bound recovery
+// review may keep its scheduling disposition current; it cannot replace a sweep.
+const evidenceRoot=fs.mkdtempSync(path.join(os.tmpdir(),'newsstand-recovery-test-'));
+try {
+ const write=(name,value)=>{const raw=typeof value==='string'?value:JSON.stringify(value);fs.writeFileSync(path.join(evidenceRoot,name),raw);return {path:name,sha256:createHash('sha256').update(raw).digest('hex')};};
+ const originalCapture=write('original.txt','Original route denied. No retry permitted.');
+ const alternativeCapture=write('alternative.txt','Distinct publisher index inspected; complete held report still absent.');
+ const blocked={url:'https://example.org/blocked',role:'INDEPENDENT_REPORTING',status:'BLOCKED',checkedAt:'2026-09-08T17:00:00Z',assessment:'Original access restriction retained.',retryPolicy:'NONRETRYABLE',missingInput:'Complete accessible report.',nextCheckAt:'2026-09-10T19:00:00Z'};
+ const review={schemaVersion:'newsstand-source-recovery-review-v1',url:blocked.url,originalCheckedAt:blocked.checkedAt,originalNotRetried:true,reviewedAt:'2026-09-10T17:00:00Z',reviewedBy:'independent-scout',assessment:'Distinct publisher inspected; source gap remains.',missingInput:blocked.missingInput,nextCheckAt:blocked.nextCheckAt,nextRecoveryStep:'Seek a legitimate distinct institutional report; do not retry original.',originalCapture,recoverySources:[{url:'https://example.net/publisher',checkedAt:'2026-09-10T16:55:00Z',status:'CHECKED',assessment:'No complete report available.',capture:alternativeCapture}]};
+ const held=()=>{const test=clone();test.evidenceRoot=evidenceRoot;test.coverage.leads=[];test.coverage.sourceChecks.push({...blocked,recoveryReview:write('review.json',review)});return test;};
+ let valid=held();const result=inspectCoverage(valid);assert.equal(result.status,'COVERAGE_SOURCE_HOLDS');assert.deepEqual(result.holds,[blocked.url]);assert.equal(valid.coverage.sourceChecks.at(-1).checkedAt,blocked.checkedAt);assert.equal(valid.coverage.sourceChecks.at(-1).status,'BLOCKED');
+ // Without a genuinely CHECKED independent desk, the retained block is insufficient.
+ valid=held();valid.coverage.sourceChecks=valid.coverage.sourceChecks.filter(s=>s.role!=='INDEPENDENT_REPORTING'||s.status==='BLOCKED');assert.throws(()=>inspectCoverage(valid),/independent/);
+ for(const mutate of [
+  test=>delete test.coverage.sourceChecks.at(-1).retryPolicy,
+  test=>delete test.coverage.sourceChecks.at(-1).recoveryReview,
+  test=>test.coverage.sourceChecks.at(-1).status='CHECKED',
+  test=>test.coverage.sourceChecks.at(-1).recoveryReview.sha256='0'.repeat(64),
+  test=>test.coverage.sourceChecks.at(-1).recoveryReview.path='absent.json',
+ ]){const bad=held();mutate(bad);assert.throws(()=>inspectCoverage(bad));}
+ for(const mutate of [
+  r=>r.reviewedAt='2026-09-09T16:00:00Z',
+  r=>r.reviewedAt='2026-09-10T18:01:00Z',
+  r=>r.originalCheckedAt='2026-09-08T18:00:00Z',
+  r=>r.originalNotRetried=false,
+  r=>r.missingInput='A different gap.',
+  r=>r.nextCheckAt='2026-09-10T20:00:00Z',
+  r=>r.recoverySources=[],
+  r=>r.recoverySources[0].url=blocked.url,
+  r=>r.recoverySources[0].checkedAt='2026-09-09T16:00:00Z',
+  r=>r.recoverySources[0].capture.sha256='0'.repeat(64),
+  r=>r.originalCapture.path='../outside.txt',
+ ]){const bad=held(),record=structuredClone(review);mutate(record);bad.coverage.sourceChecks.at(-1).recoveryReview=write('review.json',record);assert.throws(()=>inspectCoverage(bad));}
+ const due=held(),record=structuredClone(review);record.nextCheckAt='2026-09-10T17:30:00Z';due.coverage.sourceChecks.at(-1).nextCheckAt=record.nextCheckAt;due.coverage.sourceChecks.at(-1).recoveryReview=write('review.json',record);assert.equal(inspectCoverage(due).status,'COVERAGE_WORK_REMAINS');
+ console.log('Retained-block calibration: bound fresh distinct recovery preserves BLOCKED; stale/future/hollow/mismatched/tampered reviews, changed original observations and missing checked desks rejected; due recovery still pending.');
+}finally{fs.rmSync(evidenceRoot,{recursive:true,force:true});}

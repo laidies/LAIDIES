@@ -1,6 +1,6 @@
 # NewsStand current cycle — BUILDING
 
-Updated September13, 2026, after the 20:00 Vancouver private research/preparation cycle. Earlier checkpoints are preserved byte-for-byte in `evidence/full-build-20260910/current-cycle-history-through-20260912-1525.md`; their “current” labels are historical.
+Current checkpoint: September15 recovery is publicly verified at689fc0d7, with nine news stories and five services. The current intake has no actionable pending lead; source holds and unattended-delivery proof remain open. Next existing phase: September15 20:00Vancouver /September16 03:00UTC. Latest evidence and exact next step are at the end of this file. All earlier dated checkpoints below are historical, including their “immediate continuation” labels.
 
 ## Governing objective
 Ali authorizes completing and releasing the full NewsStand, correcting missing major coverage and stabilizing daily delivery. Continue until complete or an actual user/access dependency remains. Preserve the newest direct reader rulings: newest Vancouver publication date first, relevance within each date; suppress the exact rejected incident artwork everywhere; no MAiVEN or TRAiLBLAZER substitutes; Homepage Try This Today was explicitly rejected and removed. Behind the Build remains PARKED. Do not substitute adjacent redesigns for this objective.
@@ -187,3 +187,56 @@ Actual source refresh captured in evidence/morning-20260915. Microsoft, RubyGems
 Verified 2026-09-15T14:54:28.514119+00:00 at d3c44d5a-2a8c-4923-9de2-f0a2dc9928b9, source23f78628454a98bb30e7c4fc1d6efa0e7dff1e94. Three news and five services live. Nine public files changed,804 other provider identities preserved,zero removals,18 immutable/custom byte matches. Local69 and live69 assertions passed; allthree articles at1440/390/320 opened with loaded art/nooverflow, phone keyboard Library destinations verified, representative pixels reviewed. Live harnesses emitted PASS and saved results but required explicit process cleanup; do not call their exit143 a normalexit0. Release evidence morning-20260915/release.json.
 
 Delivery checker exits0: DATED_DELIVERY_PRESENT / COVERAGE_SOURCE_HOLDS, zero pending leads. AIDB newer channels remain PARTIAL and quietAllowedfalse; named source restrictions remain. Source observation times were not refreshed by publication. Existing next recovery10:00Vancouver/17:00UTC. Today07:01trigger arrived and morning publication finished; user interaction means this is not uninterrupted unattended proof. VoiceOver remains completed/off, BehindtheBuild parked, legacy provenance limitations remain. No user help needed for this cycle.
+
+Closeout72f6909b backed up on the existing sanitized remote branch at77a85d4603b66cd6627a77e4307a983d6331fc8f; exact remaining tree and remote head verified. Prior excluded captured-credential path remains excluded; original local history preserved. Alternate-store depth warnings recorded. Release slot returned with d3c44d5a.
+
+
+## September15 13:01 scheduled recovery — ACTIVE
+
+Actual invocation2026-09-15T20:01:03.258Z /13:01:03Vancouver. Entry delivery checker exit2 UNVERIFIED: Coverage: source sweep stale or undated. Morning publication remains the last verified release; the due10:00source recovery was not completed. Exact next unmet step: actual provider, six-desk and AIDB/Allie/Mollick recovery observations, reconcile held reporting inputs and all new leads, produce/review/publish independently eligible news, then final live delivery check. No quiet or complete-cycle claim.
+
+
+## September15 16:00 scheduled recovery — ACTIVE
+
+Actual invocation2026-09-15T23:00:50.511Z /16:00:50Vancouver. Entry delivery checker exit2: source sweep stale or undated. The13:00 source captures and Gemini draft exist, but source reconciliation, visual admission, editorial admission and release were not completed. Independent production agent reported a usage-limit error; this is not source evidence or publication completion. Foreground resumes owned repair and reconciliation. Exact next unmet step: inspect generated art, complete evidence intake for Google/Gates/AFT and held sources, then ordinary review/admission and scoped live release. No quiet claim, no new scheduler.
+
+
+## September15 Gemini recovery publication publicly verified
+
+Deployment96393984-bcf1-4c76-8c6c-b27ee9003543, source01aae3403dfce47348d1af5fb865e7ae824fd2e3: seven scoped public paths,811 unrelated provider identities preserved,zero removals,14 dual-origin exact byte checks. Live70 assertions and actual1440/390/320 article plus390 keyboard Library10.6 journey passed; root inspected screenshots. Current community changes/worker preserved. Four news/five services. Receipt evidence/recovery-1600-20260915/google-release.json. Recovery remains ACTIVE: AFT/Gates qualified but unpublished, Census production and other named leads/source holds remain; coverage checker still rejects an old restricted Cognition source observation. No completed-cycle claim.
+
+
+## September15 school privacy publication publicly verified
+
+Releasee1766d00, source6c18802a193d7ff465c05c5f9bfd07e90ddc6279: seven scoped paths,812 unrelated provider identities retained,zero removals,14 dual-origin byte matches. Local71/live71 reader checks and1440/390/320 story plus390keyboardLibrary12.1 passed. First screenshot-save directory error repaired, failurelog preserved. Five news/five services. Gates/Census/Congress production and source-reconciliation remain ACTIVE; no completecycleclaim. Receipt evidence/recovery-1600-20260915/aft-release.json.
+
+
+## September15 Gates access publication publicly verified
+
+Release04b179e1,source2eb27d4ed6099e3aabb79597b6c55a6c8b73debb: seven scoped paths,813 otherprovideridentities preserved,zero removals,14 dual-origin exactmatches. Local72/live72readerchecks and actual1440/390/320story plus390keyboardLibrary10.6 passed. Six news/five services. Censusqualified and Congressproduction remain; sourceholds retained. Sourcefreshness guard now distinguishes evidence-bound legitimate recovery from an original blocked observation; blockednevercountsasread. Receipt evidence/recovery-1600-20260915/gates-release.json.
+
+
+## September15 Census graduate-jobs publication publicly verified
+
+Release655c4ec8,source52a6598a: seven scoped paths,814 unrelated provider identities preserved,zero removals,14 dual-origin exact comparisons. Local73/live73 and actual1440/390/320 story plus390keyboardLibrary19.4 passed; phone/book pixels inspected. Seven news/five services. Congress/ZAI remain actionable. Receipt evidence/recovery-1600-20260915/census-release.json.
+
+
+## September15 Congress publication publicly verified
+
+Releasec0ba656b,sourceb779e515: six scoped paths,815 otherprovideridentities preserved,zero removals,12 dual-origin exact comparisons. Local74/live74 plus1440/390/320 article and390keyboardLibrary14.1 passed; phone/bookpixels inspected. Eight news/five services. ZAI remains actionable. Receipt evidence/recovery-1600-20260915/congress-release.json.
+
+
+## September15 ZAI publication publicly verified
+
+Release689fc0d7,sourcead791c39: seven scoped paths,815 unrelated provider identities preserved,zero removals,14 dual-origin byte matches. Local75/live75 and actual1440/390/320 article plus390keyboardLibrary5.2 passed; phone/bookpixels inspected. Nine news/five services. Allsix recovery stories now public; final source-cursor reconciliation, queue checks and backup remain. Receipt evidence/recovery-1600-20260915/zai-release.json.
+
+
+## September15 recovery closeout — reviewed publication queue cleared; operational limits remain
+
+Allsix eligible recovery stories were independently admitted and publicly verified. Final head689fc0d7-6e07-4400-943b-da33d471856a/sourcead791c39135bd45c2d28769878cab96c93077889; exact final manifest/private scoped stage in evidence/recovery-1600-20260915/zai-release-stage.json. Final cyclecheck exits0 DATED_DELIVERY_PRESENT /COVERAGE_SOURCE_HOLDS, no pending leads, no overdueDaily/Weekly; recoveryselector NO_ACTIVE_RECOVERY. This is not a quiet-news claim: AIDB selector remains HOLD_AIDB_RELEASE_REVIEW/quietAllowedfalse and newer channels incomplete. Original restricted source observations were preserved, not falsely renewed; actual distinct recovery evidence and source identity corrections are bound.
+
+Gemini Apps exact fresh index read has no new dated item beyond the already coveredSeptember10Windows release. Bleeping cursor corrected to the actually read tag route; the earlier mislabeled news-route entry is preserved as history, with no invented redirect equivalence. Census discovery landing page now also names the actual reviewed/cited PDF, fixing the final coverage identity check.
+
+Runtime telemetry proves this thread started aroundSeptember15 10:00:32Vancouver, but doesnotestablish the invocation trigger or why production didnotcomplete then. September14 morning cause remains unknown; missingrecords arenotproof of failed dispatch/sleep. Actual localautomation row ACTIVE, latest16:00run and next20:00run; immutableROdatabase observation excludesWAL and doesnotreconstructhistoricaldispatches. No speculative automationchange or unattendedsuccessclaim.
+
+Next unmet action is the existing20:00Vancouver phase: current-source recovery and September16 private service/Weekly preparation, advancing any newly eligible news through the ordinary pipeline. Do not repeat completedVoiceOver/native checks, reopenparkedBehindtheBuild, backdatearticles, bypassnonretryableURLs or inventmissinghistoricalprovenance. Fullbuild remains BUILDING for reliableunattended outcome; no Ali inputneeded for currentcompletedrecovery.

@@ -1,8 +1,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-15T14:43:00.097Z",
-  "lastCheckedAt": "2026-09-15T14:43:00.097Z",
+  "generatedAt": "2026-09-16T00:23:22Z",
+  "lastCheckedAt": "2026-09-16T00:23:22Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -26,7 +26,13 @@ window.NEWSSTAND_DATA = {
         "storyIds": [
           "microsoft-humanist-code-20260915",
           "rubygems-agent-attribution-20260915",
-          "china-amodei-response-20260915"
+          "china-amodei-response-20260915",
+          "gemini-live-38-20260915",
+          "microsoft-aft-school-privacy-20260915",
+          "gates-ai-access-pledge-20260915",
+          "census-ai-graduates-20260915",
+          "congress-ai-oversight-response-20260915",
+          "zai-self-training-financing-plan-20260915"
         ],
         "serviceRecordIds": [
           "DAILY-2026-09-15-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
@@ -38,9 +44,9 @@ window.NEWSSTAND_DATA = {
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-15T14:43:00.097Z",
-      "updatedAt": "2026-09-15T14:43:00.097Z",
-      "lastCheckedAt": "2026-09-15T14:43:00.097Z",
+      "publishedAt": "2026-09-16T00:23:22Z",
+      "updatedAt": "2026-09-16T00:23:22Z",
+      "lastCheckedAt": "2026-09-16T00:23:22Z",
       "maxAgeHours": 36,
       "note": "The Daily for 2026-09-15."
     },
@@ -5557,6 +5563,417 @@ window.NEWSSTAND_DATA = {
       "thread_subtitle": null,
       "thread_entry": null,
       "aidb_credit": null,
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "gemini-live-38-20260915",
+      "slug": "gemini-live-38-20260915",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-15T23:21:39.730Z",
+      "updatedAt": "2026-09-15T20:11:26.760Z",
+      "lastCheckedAt": "2026-09-15T20:04:35Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:gemini-live-38-20260915"
+      },
+      "headline": "Gemini’s new voice models can keep talking while they work.",
+      "heroVisual": {
+        "src": "/assets/newsstand/gemini-live-conversation-20260915.png",
+        "alt": "An illustrated smartphone with flowing speech waves beside an unfinished route sketch.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>Google announced Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking on September 15. These are models—the trained components behind AI responses—built for live voice conversations. Google says 3.8 Live is rolling out in Search Live, while Extended Thinking is rolling out in Gemini Live.</p><p>The difference is in what happens while Gemini speaks. Google’s documentation describes 3.8 Live as the default for quick dialogue; Extended Thinking is designed for more demanding, multi-step problems. It can perform <strong>background reasoning</strong>: processing a problem while the spoken conversation continues.</p>",
+      "laidies_read": "<p>Imagine discussing a family day trip, then adding: “It might rain, and we need to be home by five.” The aim is to keep that conversation moving while the system works through the changed plan. That is more useful for a back-and-forth discussion than a simple question you could type and read once.</p><p>But a spoken reply is not proof that the work is finished. Extended Thinking’s developer documentation explicitly separates a completed speaking turn from finished background processing. Nor does finishing establish that the answer is right. A smooth explanation of a route still needs checking against the actual opening hours and travel times.</p>",
+      "what_this_means": "<p>Google also lists Extended Thinking for Workspace: Docs for Google AI Pro and Ultra subscribers, and Gmail and Keep for all Google AI subscribers. Those are paid-plan boundaries, not a claim that every account received every feature today. Consumer features are rolling out; the announcement does not establish availability on your particular account.</p><p>If the upgraded experience reaches you, try a harmless day-trip outline. Change one constraint mid-conversation, then inspect whether the final plan actually reflects it. For a routine email or one-line question, an existing typed chat may be enough; there is no need to buy a plan just to test the idea.</p>",
+      "cocktail_party": "“Gemini can keep talking while it works through a problem. That still doesn’t tell you whether the final answer is right.”",
+      "class_notes": "<a href=\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\">Working with AI 101: Trusting the Output (And Checking It)</a> helps you check what an answer actually establishes.",
+      "watch_fors": null,
+      "closing_note": null,
+      "sources": [
+        {
+          "id": "google-blog",
+          "label": "Google — Introducing Gemini 3.8 Live and Extended Thinking",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
+          "publisherType": "provider",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "google-live-doc",
+          "label": "Google AI documentation — Gemini 3.8 Live",
+          "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live",
+          "publisherType": "provider",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "google-thinking-doc",
+          "label": "Google AI documentation — Gemini 3.8 Live Extended Thinking",
+          "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking",
+          "publisherType": "provider",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "themes": [
+        "Model capabilities"
+      ],
+      "concepts": [
+        "Background reasoning",
+        "Voice interaction"
+      ],
+      "tags": [
+        "Gemini",
+        "voice AI",
+        "feature release"
+      ],
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "aidb_credit": null,
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "microsoft-aft-school-privacy-20260915",
+      "slug": "microsoft-aft-school-privacy-20260915",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-15T23:39:55Z",
+      "updatedAt": "2026-09-15T23:09:53.858Z",
+      "lastCheckedAt": "2026-09-15T20:08:51Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:microsoft-aft-school-privacy-20260915"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "Microsoft signed school AI privacy terms. Schools must request the protections.",
+      "heroVisual": {
+        "src": "/assets/newsstand/school-ai-privacy-terms-20260915.png",
+        "alt": "An illustrated school desk with a tablet, exercise books and a paper form.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>Microsoft and the American Federation of Teachers signed a school AI safety and privacy agreement on September 7 and announced it with the United Federation of Teachers on September 9. US school districts can incorporate the protections into their Microsoft agreements, making them contractually enforceable.</p><p>The scope matters. Schools must opt in, and the agreement covers primarily education-designed generative AI: software that creates text or other content from instructions. General productivity, communications, search and workplace-assistance products are excluded, even when a school licenses them.</p>",
+      "laidies_read": "<p>The agreement prohibits using covered student and educator information for training—changing an AI model for future use—with a narrow safety and security exception. That exception cannot feed general model improvement, advertising or unrelated commercial uses. It also bans companion features designed to create attachment or keep students engaged beyond the learning task.</p><p>There is a separate category called telemetry: anonymous technical records about how a service operates. Those records may support reliability and product improvements, but not generative-model training or individual student profiling. “No training” does not mean “no data processing.”</p><p>Nor does a privacy agreement certify a good lesson. Associated Press reports that Fairplay’s Josh Golin welcomed meaningful protections but warned they leave unanswered whether classroom AI is appropriate, and at what age. AP also reports that OpenAI and Anthropic are discussing their own agreements; Google has not said whether it will offer similar protections. This is not an industry-wide settlement.</p>",
+      "what_this_means": "<p>Imagine a child is assigned an AI tutor. Ask which exact product is being assigned and whether the school incorporated these standards into its agreement. A general work assistant used by a teacher is not covered simply because Microsoft supplies it.</p><p>The agreement requires notices that AI answers may be incorrect. Privacy protection does not establish learning value.</p>",
+      "cocktail_party": "“Request school-specific terms for covered education AI. Privacy commitments do not guarantee correct answers.”",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "<a href=\"/library.html#ai-fundamentals-101::%40ch-12-12-1-the-problem-how-do-you-measure-good\">AI Fundamentals 101: Testing and Evaluation</a> explains why the question an evaluation tests matters. Privacy protection and learning value require different evidence.",
+      "sources": [
+        {
+          "id": "ap-report",
+          "label": "Associated Press — school AI privacy reporting",
+          "url": "https://apnews.com/article/ai-school-student-data-privacy-microsoft-google-89b040631d635e0d8673f1e9aa9a6e28",
+          "publisherType": "INDEPENDENT_REPORT",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "independent-review-required"
+        },
+        {
+          "id": "microsoft-announcement",
+          "label": "Microsoft — AFT/UFT school privacy announcement",
+          "url": "https://news.microsoft.com/source/2026/09/09/aft-uft-and-microsoft-announce-national-ai-safety-privacy-standard-for-schools-to-protect-students-families-and-educators/",
+          "publisherType": "PARTICIPANT_PRIMARY",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "independent-review-required"
+        },
+        {
+          "id": "signed-moa",
+          "label": "AFT/Microsoft — signed School AI Privacy Standard",
+          "url": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf",
+          "publisherType": "SIGNED_AGREEMENT_PRIMARY",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "independent-review-required"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "education policy",
+        "student privacy"
+      ],
+      "concepts": [
+        "purpose-limited data use",
+        "product scope"
+      ],
+      "tags": [
+        "Microsoft",
+        "AFT",
+        "education",
+        "privacy"
+      ],
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "gates-ai-access-pledge-20260915",
+      "slug": "gates-ai-access-pledge-20260915",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-15T23:48:03.664Z",
+      "updatedAt": "2026-09-15T23:29:01.477465+00:00",
+      "lastCheckedAt": "2026-09-15T20:08:51Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:gates-ai-access-pledge-20260915"
+      },
+      "headline": "Gates Foundation pledges $1B for AI access. Useful for whom?",
+      "heroVisual": {
+        "src": "/assets/newsstand/gates-ai-local-context-20260915.png",
+        "alt": "An illustrated phone, open book and local map.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>The Gates Foundation is pledging $1 billion over two years for AI access in health, education, agriculture and local languages, AP reported on September 15. It is a funding pledge, not evidence of benefits already delivered.</p>",
+      "laidies_read": "<p>The foundation’s 2026 Goalkeepers report argues that AI tools need to work in local languages and reflect local circumstances. An answer can be understandable and still be unusable: imagine a health worker receiving clear guidance that depends on a clinic or treatment unavailable where she works. Translating the words would not create that missing service.</p><p>That is why the report calls for local language data—examples that represent how people actually speak—and evaluation in the settings the tools are meant to serve. Its proposed goal is useful support for health workers, teachers and farmers, rather than replacing their judgment.</p>",
+      "what_this_means": "<p>AP reports University of Vermont sociologist Jonathan Shaffer warning that marginalized people may remain missing from the data and weak health infrastructure remains a barrier.</p><p>Many promising tools are still pilots, the foundation says. Funding, deployment and a demonstrated benefit are different things. For a project announced under this pledge, ask: who and where was it tested, compared with what, and what improved? A classroom pilot does not become effective simply because it won a grant.</p><p>AP discloses Gates Foundation funding for Africa health and development coverage; it retains editorial responsibility.</p>",
+      "cocktail_party": "“AI access means more than being able to open a chatbot. Can it actually help in the place you live?”",
+      "class_notes": "Follow the evidence distinction in <a href=\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\">Working with AI 101: Trusting the Output (And Checking It)</a>.",
+      "watch_fors": null,
+      "closing_note": null,
+      "sources": [
+        {
+          "id": "ap-gates",
+          "label": "Associated Press — Gates Foundation AI-access pledge (September 15)",
+          "url": "https://apnews.com/article/bill-gates-foundation-ai-united-nations-26ce25f9be20574a4fa04a5f983521ae",
+          "publisherType": "independent-reporting",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "foundation-report",
+          "label": "Gates Foundation — 2026 Goalkeepers report",
+          "url": "https://goalkeepers.gatesfoundation.org/report/2026-report/",
+          "publisherType": "primary-report",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "themes": [
+        "AI access and equity"
+      ],
+      "concepts": [
+        "Local context",
+        "Evidence and outcomes"
+      ],
+      "tags": [
+        "Gates Foundation",
+        "AI access",
+        "languages",
+        "health",
+        "education"
+      ],
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "aidb_credit": null,
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "census-ai-graduates-20260915",
+      "slug": "census-ai-graduates-20260915",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-16T00:07:30Z",
+      "updatedAt": "2026-09-15T23:58:34.404Z",
+      "lastCheckedAt": "2026-09-15T23:18:48Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:census-ai-graduates-20260915"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "A graduate study finds a tougher start in AI-exposed majors.",
+      "heroVisual": {
+        "src": "/assets/newsstand/census-graduate-applications-20260915.png",
+        "alt": "An illustrated laptop, blank application tracker and application papers on a desk.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>A September working paper by Census Bureau researchers follows bachelor’s graduates from 2016–2024 at participating US institutions—about 29% of degrees in those years. Employment records run through September 2025.</p><p>“AI exposure” estimates how much AI could help with tasks in occupations associated with a major. It does not count jobs AI actually replaced.</p>",
+      "laidies_read": "<p>After ChatGPT arrived, the most-exposed tenth of majors—largely computing—had about five percentage points lower employment in the quarter after graduation relative to the least-exposed 60%, after accounting for their 2022 difference.</p><p>For the arithmetic alone, a move from 80% to 75% is five percentage points. That is a 6.25% relative decrease. These illustrative rates are not the study’s starting employment rates. “Five points” and “five percent” answer different questions.</p><p>Initial earnings were about 13% lower in the main full-quarter job—a job spanning the whole quarter—two quarters after graduation. That is a group comparison, not an annual pay cut for every graduate.</p><p>The authors argue AI played an important role. They cannot rule out coinciding field-specific changes. Their employment records omit self-employment and graduate school; the college sample is not nationally representative.</p><p>Author conclusions are not Census endorsements; this working paper has not undergone the review given Census publications. Independent replication is not established here.</p>",
+      "what_this_means": "<p>Picture a graduate and parent looking at a spreadsheet of unanswered applications. The useful question is not “Is this degree finished?” It is “What first jobs are recent graduates in this subject actually finding, and how long did that take?” Ask the career office for the group, time window and destinations behind its answer.</p><p>A difficult search deserves practical help without a diagnosis invented from a headline. Use the study to sharpen that conversation, rather than turn a group average into a verdict on one person’s prospects. It supplies no demonstrated remedy of switching majors.</p>",
+      "cocktail_party": "“Worse relative graduate outcomes are evidence of pressure, not a personal diagnosis.”",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "Read a result by asking who was counted, what was compared and what was left out. Background on AI job titles: <a href=\"/library.html#ai-fundamentals-101::%40ch-19-19-4-how-to-read-this-industry\">AI Fundamentals 101 §19.4 — How to Read This Industry</a>. This is background on job titles, not the study findings.",
+      "sources": [
+        {
+          "id": "census-paper",
+          "label": "Census Bureau — Graduating into Disruption, CES 26-56",
+          "url": "https://www2.census.gov/library/working-papers/2026/adrm/ces/CES-WP-26-56.pdf",
+          "publisherType": "research",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "independent-review-required"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "research",
+        "employment"
+      ],
+      "concepts": [
+        "AI exposure",
+        "percentage points",
+        "observational comparison"
+      ],
+      "tags": [
+        "graduates",
+        "jobs",
+        "Census"
+      ],
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "congress-ai-oversight-response-20260915",
+      "slug": "congress-ai-oversight-response-20260915",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-16T00:18:38Z",
+      "updatedAt": "2026-09-15T23:58:34.495Z",
+      "lastCheckedAt": "2026-09-15T23:03:58Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:congress-ai-oversight-response-20260915"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "Congress discusses AI protections. Reported plans are not new law.",
+      "heroVisual": {
+        "src": "/assets/newsstand/trump-public-discussion-20260914.png",
+        "alt": "An illustrated AI computing module between two blank speech-bubble forms.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>AP reports House Democrats meeting privately Tuesday, September 15, about AI; Senator Bernie Sanders plans an expert briefing Wednesday. Senate leader John Thune says he discussed a legislative path with Amy Klobuchar. John Kennedy plans a Wednesday measure requiring developers to be able to shut systems down if needed. House Speaker Mike Johnson favors an AI-leaders meeting.</p>",
+      "laidies_read": "<p>This report describes meetings and intentions, not enacted protections. Shutdown capability means the ability to stop a system if needed.</p><p>Keep the stages separate. A briefing can help people understand a problem. A planned measure tells you what someone wants to offer. Neither description supplies the text of an operative obligation, its start date or evidence that a developer has implemented it. Nor does the shutdown proposal tell you how a particular AI product would be stopped.</p>",
+      "what_this_means": "<p>For a parent or worker reading about AI protections, the useful question is: who would have to do what, when, and what makes that obligation operative? An announcement of intent is a reason to follow the next step, rather than assume your workplace software or a child’s chatbot has changed.</p><p>When the next report appears, look for the actual proposal and the status of the decision. “Approved” still needs a subject: approved by whom, for which step? Keep a promise, a decision and evidence of implementation separate. This story does not establish new protections for a particular account or activity.</p>",
+      "cocktail_party": "“Ask what has actually changed, not only who promised to act.”",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "Track who proposes a protection, what it would require and what establishes that it operates. Related reporting: <a href=\"/newsstand.html?story=trump-ai-safeguards-20260913\">September 13 remarks</a> and <a href=\"/newsstand.html?story=trump-ai-guardrails-response-20260914\">September 14 response</a>. Background on why AI can act, not just answer: <a href=\"/library.html#ai-fundamentals-101::%40ch-14-14-1-what-makes-an-agent-different-from-a-chatbot\">AI Fundamentals 101 §14.1 — What Makes an Agent Different From a Chatbot</a>.",
+      "sources": [
+        {
+          "id": "ap-congress",
+          "label": "Associated Press — congressional AI oversight response",
+          "url": "https://apnews.com/article/ai-regulation-trump-congress-tech-politics-d2d1bac8e8666c681937665596a4f603",
+          "publisherType": "independent-reporting",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "independent-review-required"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "regulation"
+      ],
+      "concepts": [
+        "proposal versus operative obligation"
+      ],
+      "tags": [
+        "Congress",
+        "AI oversight"
+      ],
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "zai-self-training-financing-plan-20260915",
+      "slug": "zai-self-training-financing-plan-20260915",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-16T00:23:22Z",
+      "updatedAt": "2026-09-16T00:08:07.401Z",
+      "lastCheckedAt": "2026-09-15T23:17:38Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:zai-self-training-financing-plan-20260915"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "Z.AI proposes financing for a self-training vision. A plan is not a demonstrated capability.",
+      "heroVisual": {
+        "src": "/assets/newsstand/zai-model-research-plan-20260915.png",
+        "alt": "An illustrated computing tower beside a blank research notebook and pen.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>AI-model developer Z.AI’s September 13 filing proposes conditional share and bond financing totalling roughly US$5 billion. About 60% of intended net proceeds would support next-generation GLM language models, its Fully Self Training research and computing infrastructure.</p><p>Share placing means selling newly issued shares to investors; convertible bonds are borrowing that can later become shares. The transactions have separate completion conditions.</p>",
+      "laidies_read": "<p>Fully Self Training is explicitly a technical vision: earlier GLM models would help build training environments for later ones. The company wants models to generate training data, develop tasks and help improve computing systems. Its proposed checks include manual spot-checking.</p><p>That is ambition to automate parts of model development. The filing does not demonstrate successful self-improvement or establish a change to your chatbot today.</p><p>Keep three questions separate: will financing complete, what research will it support, and what capability has actually been shown? A large proposed sum cannot answer the last question.</p>",
+      "what_this_means": "<p>Suppose a colleague forwards “AI can now improve itself” while you are choosing a tool for a work task. Ask whether the report describes an investment plan or a test of a named system.</p><p>You do not need to predict whether the entire ambition will succeed to read this announcement accurately. For a later capability claim, ask: which model changed, what improved, and how was the improvement checked? Look for the measured result and its limits before treating the ambition as an available feature.</p>",
+      "cocktail_party": "“Money for a self-training vision is not proof that self-training has worked.”",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "Background on language-model training: <a href=\"/library.html#ai-fundamentals-101::%40ch-5-5-2-the-core-idea-guess-check-adjust\">AI Fundamentals 101 §5.2 — The Core Idea: Guess, Check, Adjust</a>. This explains the training loop, not proof that Z.AI’s proposed self-training vision works.",
+      "sources": [
+        {
+          "id": "zai-filing",
+          "label": "Z.AI — September 13 conditional financing announcement",
+          "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0913/2026091300025.pdf",
+          "publisherType": "vendor",
+          "accessedAt": "2026-09-15",
+          "approvalStatus": "independent-review-required"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "funding",
+        "business"
+      ],
+      "concepts": [
+        "proposed financing",
+        "technical vision versus capability"
+      ],
+      "tags": [
+        "Z.AI",
+        "GLM",
+        "self-training"
+      ],
       "saint_lane": null,
       "badge": "THE LATEST"
     }

@@ -1,0 +1,770 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "microsoft-aft-school-privacy-20260915",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/aft_school_story",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/aft_school_story",
+    "principalId": "/root/aft_school_story",
+    "role": "Producer exact complete prose read",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-15T23:25:22.124Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/publication-manifest.json",
+      "sha256": "0c27ccd6a110fcd62412e215bab529ae3930ac7140ef1030c2d03ae9ed26fe1f"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/review-text.json",
+      "sha256": "3fcaf467612ad41fed6548af8705101dae530487ed609337077b88ffed50b4ba"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/rendered-article.html",
+      "sha256": "7871715e1a0c0c644bbf7ac8748886c5813f482a97153eeaee84084173037323"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/aft_school_story",
+    "reviewedAt": "2026-09-15T23:13:39.848Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "What protections can a US school request for education AI, and which tools remain outside this agreement?",
+    "promisedPayoff": "Know what a US school must request, which education AI is covered, and why privacy promises do not prove learning value or correct answers.",
+    "centralMentalModel": "The protection follows the specific product and school agreement; it does not follow the company name everywhere.",
+    "dailyLifeConnection": "A parent or teacher may be asked to trust an AI school assignment without knowing where the conversation goes.",
+    "surfaceJob": "September15 independent-report-led bounded Daily report on September9 announcement and September7 signed agreement.",
+    "desiredReaderFeeling": "Know the covered product and incorporated agreement."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Dates are separate and opt-in product scope is stated before details.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Schools must opt in",
+          "locator": "complete public story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The assignment question gives a family a concrete boundary to ask about.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The scope matters.",
+          "locator": "complete public story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Direct practical invitation; no corporate promotional language.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Imagine a child is assigned an AI tutor.",
+          "locator": "complete public story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The no-training versus processing distinction gives a small explanatory surprise without a joke.",
+      "artifactEvidence": [
+        {
+          "excerpt": "“No training” does not mean “no data processing.”",
+          "locator": "complete public story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Narrow safety and telemetry boundaries sit beside the promise.",
+      "artifactEvidence": [
+        {
+          "excerpt": "with a narrow safety and security exception",
+          "locator": "complete public story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The exact source captures bind September15 observations; November1 is omitted.",
+      "artifactEvidence": [
+        {
+          "excerpt": "on September 7 and announced it",
+          "locator": "complete public story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Short dated story retains all five public sections.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Microsoft signed school AI privacy terms. Schools must request the protections.",
+          "locator": "complete public story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "Signature and announcement dates are distinct.",
+      "artifactEvidence": [
+        {
+          "excerpt": "United Federation of Teachers on September 9",
+          "locator": "complete public story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Incorrect-answer notices and learning-value limits retain uncertainty.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Privacy protection does not establish learning value.",
+          "locator": "complete public story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "A school tutoring assignment gives ordinary stakes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Imagine a child is assigned an AI tutor.",
+          "locator": "complete public story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "An excluded work assistant makes the product-definition boundary concrete.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A general work assistant used by a teacher is not covered simply because Microsoft supplies it.",
+          "locator": "complete public story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Producer simulation distinguishes request, product scope and data boundaries.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Schools must opt in",
+          "locator": "complete public story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What does a school request cover?",
+        "probeResponse": "The school must request the protections for a covered education product. Data-use restrictions protect information, while accuracy and teaching value need separate checks.",
+        "expectedEvidence": "Specific product and incorporated agreement, not vendor-wide coverage.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Producer simulation applies exclusions to a school-licensed work assistant.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A general work assistant used by a teacher is not covered simply because Microsoft supplies it.",
+          "locator": "complete public story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "Does a general work assistant on a school licence inherit these terms?",
+        "probeResponse": "A teacher using a general work assistant on a school account cannot infer coverage from the vendor name or licence. Check the product definition and incorporated agreement.",
+        "expectedEvidence": "General-purpose exclusions still matter.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Ask the school about exact assigned product and incorporated terms.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask which exact product is being assigned and whether the school incorporated these standards into its agreement.",
+          "locator": "complete public story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "No analogy; hypothetical assignment is explicitly imagined.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Imagine a child is assigned an AI tutor.",
+          "locator": "complete public story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "The exact story avoids glossaryAccumulation: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "The exact story avoids templateRepetition: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The exact story avoids decorativeAnalogy: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "The exact story avoids referenceConfetti: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The exact story avoids missingMechanism: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "The exact story avoids genericAction: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "The exact story avoids jargonBeforeMeaning: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "The exact story avoids disconnectedSystem: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "The exact story avoids factlessConfidence: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "The exact story avoids staleUnreviewableClaims: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "The exact story avoids corporateSludge: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The exact story avoids joylessInstruction: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "The exact story avoids benchmarkNameDrop: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The exact story avoids curiosityWithoutPayoff: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The exact story avoids familiarExampleWithoutTechnicalReturn: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "The exact story avoids communicationPastiche: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "The exact story avoids entertainmentBeforeUnderstanding: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The exact story avoids mechanismCompressedBehindHook: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The exact story avoids prematureClickBeforeMechanism: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The exact story avoids inflatedTakeawayEnding: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The exact story avoids purposeTooNarrow: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The exact story avoids mechanismBeforeMotivation: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The exact story avoids workedExampleOvertakesBookPurpose: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The exact story avoids technicalExplainerVoice: scope and data-use limits stay connected to the school-assignment question; no analogy, persona, grand moral or loose glossary.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/editorial-input.json",
+        "sha256": "804016b4724ccf681457fcf3d77c9979714e9c208c10bf2458d5611150d5a48f"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "signature-date",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "signed a school AI safety and privacy agreement on September 7",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "signed-moa"
+        ],
+        "scopeAndFreshness": "September15 supplied source passages only; not implementation or legal-compliance analysis.",
+        "supports": [
+          {
+            "sourceId": "signed-moa",
+            "excerpt": "L710@P18: 09/07/2026",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/editorial-input.json",
+          "sha256": "804016b4724ccf681457fcf3d77c9979714e9c208c10bf2458d5611150d5a48f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L710@P18: 09/07/2026",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "announcement",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "announced it with the United Federation of Teachers on September 9",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "microsoft-announcement"
+        ],
+        "scopeAndFreshness": "September15 supplied source passages only; not implementation or legal-compliance analysis.",
+        "supports": [
+          {
+            "sourceId": "microsoft-announcement",
+            "excerpt": "L11:   * cite4†Microsoft Source L12: NEW YORK — Sept. 9, 2026 — After months of intense negotiations and in the absence of any meaningful federal and state rules governing artificial intelligence in schools, AFT President Randi Weingarten, United Federation of Teachers President Michael Mulgrew, and Microsoft Vice Chair and President Brad Smith today announced a “cite5†National AI Safety & Privacy Standard†cdn-dynmedia-1.microsoft.com ” establishing legally enforceable protections to ensure the safety of students, families and educators.",
+            "locator": "https://news.microsoft.com/source/2026/09/09/aft-uft-and-microsoft-announce-national-ai-safety-privacy-standard-for-schools-to-protect-students-families-and-educators/"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/editorial-input.json",
+          "sha256": "804016b4724ccf681457fcf3d77c9979714e9c208c10bf2458d5611150d5a48f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L11:   * cite4†Microsoft Source L12: NEW YORK — Sept. 9, 2026 — After months of intense negotiations and in the absence of any meaningful federal and state rules governing artificial intelligence in schools, AFT President Randi Weingarten, United Federation of Teachers President Michael Mulgrew, and Microsoft Vice Chair and President Brad Smith today announced a “cite5†National AI Safety & Privacy Standard†cdn-dynmedia-1.microsoft.com ” establishing legally enforceable protections to ensure the safety of students, families and educators.",
+            "locator": "https://news.microsoft.com/source/2026/09/09/aft-uft-and-microsoft-announce-national-ai-safety-privacy-standard-for-schools-to-protect-students-families-and-educators/"
+          }
+        ]
+      },
+      {
+        "claimId": "enforceable-request",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "US school districts can incorporate the protections into their Microsoft agreements, making them contractually enforceable.",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "microsoft-announcement"
+        ],
+        "scopeAndFreshness": "September15 supplied source passages only; not implementation or legal-compliance analysis.",
+        "supports": [
+          {
+            "sourceId": "microsoft-announcement",
+            "excerpt": "L14: school districts can incorporate these protections directly into their Microsoft customer agreements, making them contractually enforceable.",
+            "locator": "https://news.microsoft.com/source/2026/09/09/aft-uft-and-microsoft-announce-national-ai-safety-privacy-standard-for-schools-to-protect-students-families-and-educators/"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/editorial-input.json",
+          "sha256": "804016b4724ccf681457fcf3d77c9979714e9c208c10bf2458d5611150d5a48f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L14: school districts can incorporate these protections directly into their Microsoft customer agreements, making them contractually enforceable.",
+            "locator": "https://news.microsoft.com/source/2026/09/09/aft-uft-and-microsoft-announce-national-ai-safety-privacy-standard-for-schools-to-protect-students-families-and-educators/"
+          }
+        ]
+      },
+      {
+        "claimId": "opt-in",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Schools must opt in",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "signed-moa"
+        ],
+        "scopeAndFreshness": "September15 supplied source passages only; not implementation or legal-compliance analysis.",
+        "supports": [
+          {
+            "sourceId": "signed-moa",
+            "excerpt": "L98@P2: every AI Provider Educational Product it provides to an EDU Customer who has opted in to the",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/editorial-input.json",
+          "sha256": "804016b4724ccf681457fcf3d77c9979714e9c208c10bf2458d5611150d5a48f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L98@P2: every AI Provider Educational Product it provides to an EDU Customer who has opted in to the",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "scope",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "General productivity, communications, search and workplace-assistance products are excluded, even when a school licenses them.",
+            "locator": "P003"
+          }
+        ],
+        "sourceIds": [
+          "signed-moa"
+        ],
+        "scopeAndFreshness": "September15 supplied source passages only; not implementation or legal-compliance analysis.",
+        "supports": [
+          {
+            "sourceId": "signed-moa",
+            "excerpt": "L70@P1: avoidance of doubt, general-purpose productivity, collaboration, communication, search,",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/editorial-input.json",
+          "sha256": "804016b4724ccf681457fcf3d77c9979714e9c208c10bf2458d5611150d5a48f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L70@P1: avoidance of doubt, general-purpose productivity, collaboration, communication, search,",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "training-limits",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "That exception cannot feed general model improvement, advertising or unrelated commercial uses.",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "signed-moa"
+        ],
+        "scopeAndFreshness": "September15 supplied source passages only; not implementation or legal-compliance analysis.",
+        "supports": [
+          {
+            "sourceId": "signed-moa",
+            "excerpt": "L165@P4: • No General Model Improvement. Nothing in this exception permits Covered Data to be",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          },
+          {
+            "sourceId": "signed-moa",
+            "excerpt": "L146@P3: • Purpose-Limited Use. Covered Data processed under this exception may be used",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/editorial-input.json",
+          "sha256": "804016b4724ccf681457fcf3d77c9979714e9c208c10bf2458d5611150d5a48f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L165@P4: • No General Model Improvement. Nothing in this exception permits Covered Data to be",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          },
+          {
+            "excerpt": "L146@P3: • Purpose-Limited Use. Covered Data processed under this exception may be used",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "companion",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "It also bans companion features designed to create attachment or keep students engaged beyond the learning task.",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "signed-moa"
+        ],
+        "scopeAndFreshness": "September15 supplied source passages only; not implementation or legal-compliance analysis.",
+        "supports": [
+          {
+            "sourceId": "signed-moa",
+            "excerpt": "L319@P8: relationship-oriented features that are designed to foster emotional attachment or",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/editorial-input.json",
+          "sha256": "804016b4724ccf681457fcf3d77c9979714e9c208c10bf2458d5611150d5a48f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L319@P8: relationship-oriented features that are designed to foster emotional attachment or",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "telemetry",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Those records may support reliability and product improvements, but not generative-model training or individual student profiling.",
+            "locator": "P005"
+          }
+        ],
+        "sourceIds": [
+          "signed-moa"
+        ],
+        "scopeAndFreshness": "September15 supplied source passages only; not implementation or legal-compliance analysis.",
+        "supports": [
+          {
+            "sourceId": "signed-moa",
+            "excerpt": "L51@P1: Provider Educational Products. Covered Data does not include Telemetry Data (as",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/editorial-input.json",
+          "sha256": "804016b4724ccf681457fcf3d77c9979714e9c208c10bf2458d5611150d5a48f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L51@P1: Provider Educational Products. Covered Data does not include Telemetry Data (as",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          }
+        ]
+      },
+      {
+        "claimId": "criticism",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "whether classroom AI is appropriate, and at what age",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "ap-report"
+        ],
+        "scopeAndFreshness": "September15 supplied source passages only; not implementation or legal-compliance analysis.",
+        "supports": [
+          {
+            "sourceId": "ap-report",
+            "excerpt": "L1787: The safety provisions in the agreement are meaningful, but the standards will only be effective if all AI companies, especially the tech giants, sign on, said Josh Golin, executive director of online safety nonprofit Fairplay. He said the agreement sidesteps the question of whether cite192†AI products even belong in classrooms, or at what age they should be introduced.",
+            "locator": "https://apnews.com/article/ai-school-student-data-privacy-microsoft-google-89b040631d635e0d8673f1e9aa9a6e28"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/editorial-input.json",
+          "sha256": "804016b4724ccf681457fcf3d77c9979714e9c208c10bf2458d5611150d5a48f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L1787: The safety provisions in the agreement are meaningful, but the standards will only be effective if all AI companies, especially the tech giants, sign on, said Josh Golin, executive director of online safety nonprofit Fairplay. He said the agreement sidesteps the question of whether cite192†AI products even belong in classrooms, or at what age they should be introduced.",
+            "locator": "https://apnews.com/article/ai-school-student-data-privacy-microsoft-google-89b040631d635e0d8673f1e9aa9a6e28"
+          }
+        ]
+      },
+      {
+        "claimId": "other-vendors",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI and Anthropic are discussing their own agreements; Google has not said whether it will offer similar protections.",
+            "locator": "P006"
+          }
+        ],
+        "sourceIds": [
+          "ap-report"
+        ],
+        "scopeAndFreshness": "September15 supplied source passages only; not implementation or legal-compliance analysis.",
+        "supports": [
+          {
+            "sourceId": "ap-report",
+            "excerpt": "L1789: The AFT said the agreement, which is legally binding and requires third-party audits for compliance, could set an industry standard. Two other leading AI companies, cite193†OpenAI and cite194†Anthropic , said they also were discussing safety and privacy pacts with the AFT. But cite195†Google , the dominant provider of education technology for America’s schools, has not said whether it plans to offer similar protections.",
+            "locator": "https://apnews.com/article/ai-school-student-data-privacy-microsoft-google-89b040631d635e0d8673f1e9aa9a6e28"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/editorial-input.json",
+          "sha256": "804016b4724ccf681457fcf3d77c9979714e9c208c10bf2458d5611150d5a48f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L1789: The AFT said the agreement, which is legally binding and requires third-party audits for compliance, could set an industry standard. Two other leading AI companies, cite193†OpenAI and cite194†Anthropic , said they also were discussing safety and privacy pacts with the AFT. But cite195†Google , the dominant provider of education technology for America’s schools, has not said whether it plans to offer similar protections.",
+            "locator": "https://apnews.com/article/ai-school-student-data-privacy-microsoft-google-89b040631d635e0d8673f1e9aa9a6e28"
+          }
+        ]
+      },
+      {
+        "claimId": "accuracy",
+        "status": "QUALIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "The agreement requires notices that AI answers may be incorrect.",
+            "locator": "P008"
+          }
+        ],
+        "sourceIds": [
+          "signed-moa"
+        ],
+        "scopeAndFreshness": "September15 supplied source passages only; not implementation or legal-compliance analysis.",
+        "supports": [
+          {
+            "sourceId": "signed-moa",
+            "excerpt": "L339@P8: • The product must provide clear, age-appropriate notices that AI outputs may be",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/editorial-input.json",
+          "sha256": "804016b4724ccf681457fcf3d77c9979714e9c208c10bf2458d5611150d5a48f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L339@P8: • The product must provide clear, age-appropriate notices that AI outputs may be",
+            "locator": "https://www.aft.org/sites/default/files/media/documents/2026/NAfAI-School_AI_Privacy_Standards.pdf"
+          }
+        ]
+      }
+    ],
+    "reviewedThrough": "2026-09-15",
+    "nextTrigger": "Refresh exact sources if publishing after September15 or implementation changes.",
+    "correctionOwner": "LAiDIES NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First reporting of this school-specific signed agreement; separate MAI consultation covers a distinct event."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Known opt-in, product-scope, training-exception and accuracy risks prevented before independent review."
+  },
+  "limitations": [
+    "Producer simulated explain-back and transfer; no human comprehension test.",
+    "Source art and supplied mobile preview admitted; integrated runtime not reviewed."
+  ]
+}

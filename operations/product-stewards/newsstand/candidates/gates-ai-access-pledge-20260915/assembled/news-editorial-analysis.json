@@ -1,0 +1,80 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "gates-ai-access-pledge-20260915",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "a73511de8ee3a24ddeea43873eaf0c627a86ab6ac0a7d8fde3c8ac3c9290c76d",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can an AI tool give a health worker a perfectly clear, well-translated answer and still fail to help her patients?",
+      "response": "Because the usefulness of the advice depends on what exists around her, not just on the words. If the guidance assumes a diagnostic test, referral clinic or medicine that is not available where she works, translating it into her language changes nothing about the missing service. The tool was trained and evaluated in settings with different resources, so its clear answer is calibrated to a world she is not in. Fixing this requires local language data reflecting how her community actually speaks, plus testing the tool against the real decisions and resources of her setting — which is why a funding pledge is only the start, not evidence the tool works.",
+      "expectedEvidence": "An accurate answer must distinguish linguistic clarity from local suitability, identify unavailable services/resources as the causal gap, and name local data plus in-setting evaluation as the remedy, per P003-P004.",
+      "assessment": "The article's mechanism fully supports this answer in ordinary language; P003 supplies the causal gap and P004 the remedy, so the explain-back succeeds without importing outside knowledge."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, why did the translated chatbot fail these residents, and what should the city demand before renewing the contract?",
+      "response": "Translation solved only the language layer. The advice was calibrated to another city's infrastructure — car parks, alert systems, mapped streets — so it is understandable but unusable, exactly like clear clinical guidance that presumes an unavailable clinic. The chatbot also lacks local data: informal settlements are missing from its flood maps, so the people with the most to lose get the least accurate guidance, mirroring the warning that marginalized people may be missing from the data. Before renewing, the city should apply the article's evidence questions: who was the tool tested with, in which neighbourhoods, compared with what baseline, and what measurably improved — a deployment or grant announcement is not proof of benefit.",
+      "expectedEvidence": "A correct solution maps translation-vs-suitability from P003, the missing-populations data gap from P005, and the tested-where/compared-with-what/what-improved questions from P006 onto the new flood scenario.",
+      "assessment": "The article's mechanism transfers cleanly and completely to this unseen scenario; every step of the solution derives from P003, P005 and P006 without strain, confirming genuine transfer value."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The pledge (what, how much, over what period, for which areas, per AP on September 15) and the causal rationale behind it are both understandable.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The Gates Foundation is pledging $1 billion over two years for AI access in health, education, agriculture and local languages, AP reported on September 15. It is a funding pledge, not evidence of benefits already delivered.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The foundation’s 2026 Goalkeepers report argues that AI tools need to work in local languages and reflect local circumstances. An answer can be understandable and still be unusable: imagine a health worker receiving clear guidance that depends on a clinic or treatment unavailable where she works. Translating the words would not create that missing service.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'AI access' and 'local language data' gain plain meaning at first use — access means usable help where you live, and local data means examples of how people actually speak.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>That is why the report calls for local language data—examples that represent how people actually speak—and evaluation in the settings the tools are meant to serve. Its proposed goal is useful support for health workers, teachers and farmers, rather than replacing their judgment.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "“AI access means more than being able to open a chatbot. Can it actually help in the place you live?”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is grounded in a specific recognizable situation: a health worker whose clear guidance depends on an unavailable clinic or treatment.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The foundation’s 2026 Goalkeepers report argues that AI tools need to work in local languages and reflect local circumstances. An answer can be understandable and still be unusable: imagine a health worker receiving clear guidance that depends on a clinic or treatment unavailable where she works. Translating the words would not create that missing service.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>Many promising tools are still pilots, the foundation says. Funding, deployment and a demonstrated benefit are different things. For a project announced under this pledge, ask: who and where was it tested, compared with what, and what improved? A classroom pilot does not become effective simply because it won a grant.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or invented advice; the class-notes link points to reader-facing library content and all advice traces to the sourced distinction between pledge and proven benefit.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Many promising tools are still pilots, the foundation says. Funding, deployment and a demonstrated benefit are different things. For a project announced under this pledge, ask: who and where was it tested, compared with what, and what improved? A classroom pilot does not become effective simply because it won a grant.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "Follow the evidence distinction in <a href=\\\"/library.html#working-with-ai-101::%4010-6-trusting-the-output-and-checking-it\\\">Working with AI 101: Trusting the Output (And Checking It)</a>.",
+          "locator": "P009"
+        }
+      ]
+    }
+  }
+}

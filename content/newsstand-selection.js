@@ -7,6 +7,12 @@
   // Reviewed September 15. Newest Vancouver date first; relevance within each day.
   var order = [
   "china-amodei-response-20260915",
+  "gemini-live-38-20260915",
+  "congress-ai-oversight-response-20260915",
+  "microsoft-aft-school-privacy-20260915",
+  "census-ai-graduates-20260915",
+  "gates-ai-access-pledge-20260915",
+  "zai-self-training-financing-plan-20260915",
   "microsoft-humanist-code-20260915",
   "rubygems-agent-attribution-20260915",
   "trump-ai-guardrails-response-20260914",

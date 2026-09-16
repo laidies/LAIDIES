@@ -1,7 +1,7 @@
 {
   "schema": "laidies.newsstand-story-recovery-queue.v1",
   "policyVersion": "2026-09-04.1",
-  "updatedAt": "2026-09-15T14:52:32.180Z",
+  "updatedAt": "2026-09-16T00:22:45.920Z",
   "items": [
     {
       "schema": "laidies.newsstand-story-recovery.v1",
@@ -1375,6 +1375,445 @@
         "customAndImmutableMatch": true,
         "readerJourneyPassed": true,
         "verifiedAt": "2026-09-15T14:52:32.180Z"
+      }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "gemini-live-38-20260915",
+      "producerPrincipal": "/root/recovery_aidb",
+      "sourceIdentitySha256": "c6812d835bd9d3f96c4722e8a617951f4d73048e83416bed23d65aac275a1b40",
+      "artifactSha256": "2dcb20f77f8b9eac23aa3fba0dd2fe40b8021014080cba9da1e8e1b882e93e52",
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-15T20:04:35Z",
+      "lastReviewedAt": "2026-09-15T23:12:04.416Z",
+      "attempts": [
+        {
+          "artifactSha256": "2dcb20f77f8b9eac23aa3fba0dd2fe40b8021014080cba9da1e8e1b882e93e52",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-15T23:12:04.416Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/assembled/independent-review.json",
+            "sha256": "6e136b9eff8a978ae805a90b2f45eb90a75b35c3c35536d9334ebcac19fe68a1"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/assembled/independent-raw-report.json",
+            "sha256": "7e66e9a0106cb7fb18897728b4f9649a95e00e86bca59577ff90498c6a83949c"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "MONITOR_CORRECTIONS",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/assembled/ordinary-candidate.json",
+        "sha256": "72aa83264869abcdc8fcfd71922cca287bf4698eaa5696a54212104bf0b5efea"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "c6812d835bd9d3f96c4722e8a617951f4d73048e83416bed23d65aac275a1b40",
+        "artifactSha256": "2dcb20f77f8b9eac23aa3fba0dd2fe40b8021014080cba9da1e8e1b882e93e52",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/assembled/independent-review.json",
+          "sha256": "6e136b9eff8a978ae805a90b2f45eb90a75b35c3c35536d9334ebcac19fe68a1"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/assembled/independent-raw-report.json",
+          "sha256": "7e66e9a0106cb7fb18897728b4f9649a95e00e86bca59577ff90498c6a83949c"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "96393984-bcf1-4c76-8c6c-b27ee9003543",
+        "immutableUrl": "https://96393984.laidies-sunnyvaile.pages.dev",
+        "customUrl": "https://laidies.ai/newsstand#gemini-live-38-20260915",
+        "artifactIdentitySha256": "15341a354033daab3c0773d83b2bbe686a5e59072d551caabce87fe2392e0dfe",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-15T23:30:34.122Z",
+        "evidence": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/google-release.json"
+      }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "microsoft-aft-school-privacy-20260915",
+      "producerPrincipal": "/root/aft_school_story",
+      "sourceIdentitySha256": "49fa731abbdd6eb22663c880a36a4dc97a55e7785807f13eea5f3061b3f60698",
+      "artifactSha256": "3fcaf467612ad41fed6548af8705101dae530487ed609337077b88ffed50b4ba",
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-15T20:08:51Z",
+      "lastReviewedAt": "2026-09-15T23:26:55.592Z",
+      "attempts": [
+        {
+          "artifactSha256": "3fcaf467612ad41fed6548af8705101dae530487ed609337077b88ffed50b4ba",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-15T23:26:55.592Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/assembled/independent-review.json",
+            "sha256": "a3ef7e3db887820b9abd102be5f8a49cdb1ec37380b9c76ebe299f82f6258e77"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/assembled/independent-raw-report.json",
+            "sha256": "1cedd1f55d190eea3db6847d81c7d472ab4929842eae43e02b6de21b021668a1"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "MONITOR_CORRECTIONS",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/assembled/ordinary-candidate.json",
+        "sha256": "1a8fc9e1e5f0c20fe0e6306f097b31995b56dedacb15c59ca1b6e59916ab591d"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "49fa731abbdd6eb22663c880a36a4dc97a55e7785807f13eea5f3061b3f60698",
+        "artifactSha256": "3fcaf467612ad41fed6548af8705101dae530487ed609337077b88ffed50b4ba",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/assembled/independent-review.json",
+          "sha256": "a3ef7e3db887820b9abd102be5f8a49cdb1ec37380b9c76ebe299f82f6258e77"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/assembled/independent-raw-report.json",
+          "sha256": "1cedd1f55d190eea3db6847d81c7d472ab4929842eae43e02b6de21b021668a1"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "e1766d00-f127-4035-9f4f-2d8410c4f497",
+        "immutableUrl": "https://e1766d00.laidies-sunnyvaile.pages.dev",
+        "customUrl": "https://laidies.ai/newsstand#microsoft-aft-school-privacy-20260915",
+        "artifactIdentitySha256": "a415c786dbb8b7a2f32e22f3b9c43b4959256ffc0494ca81ca4bf6ed119da62e",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-15T23:43:52.805Z",
+        "evidence": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/aft-release.json"
+      }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "gates-ai-access-pledge-20260915",
+      "producerPrincipal": "/root/puzzle_visual_reconcile",
+      "sourceIdentitySha256": "49a1b39c6743b0f6fd6276f4ea06796eb3b77c1651181ebeb0fb05ec71d281cb",
+      "artifactSha256": "a73511de8ee3a24ddeea43873eaf0c627a86ab6ac0a7d8fde3c8ac3c9290c76d",
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-15T20:08:51Z",
+      "lastReviewedAt": "2026-09-15T23:32:38.485Z",
+      "attempts": [
+        {
+          "artifactSha256": "a73511de8ee3a24ddeea43873eaf0c627a86ab6ac0a7d8fde3c8ac3c9290c76d",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-15T23:32:38.485Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/assembled/independent-review.json",
+            "sha256": "5af2ba29d3f670cc4cad474d43f156fc47a9402ee3c36b09aae2a150f3b26387"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/assembled/independent-raw-report.json",
+            "sha256": "cbfcceb910ad082161a43c6bbc3ee130cbb370ddfd31cd0d7a428ddf67e8cc97"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "MONITOR_CORRECTIONS",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/assembled/ordinary-candidate.json",
+        "sha256": "58eb448e0eca56c275cc9a0a60d2c836bd42ab9a6232959d9a92b800393c1ef3"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "49a1b39c6743b0f6fd6276f4ea06796eb3b77c1651181ebeb0fb05ec71d281cb",
+        "artifactSha256": "a73511de8ee3a24ddeea43873eaf0c627a86ab6ac0a7d8fde3c8ac3c9290c76d",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/assembled/independent-review.json",
+          "sha256": "5af2ba29d3f670cc4cad474d43f156fc47a9402ee3c36b09aae2a150f3b26387"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/gates-ai-access-pledge-20260915/assembled/independent-raw-report.json",
+          "sha256": "cbfcceb910ad082161a43c6bbc3ee130cbb370ddfd31cd0d7a428ddf67e8cc97"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "04b179e1-b5bc-432e-ade5-0d5d64c6b6f6",
+        "immutableUrl": "https://04b179e1.laidies-sunnyvaile.pages.dev",
+        "customUrl": "https://laidies.ai/newsstand#gates-ai-access-pledge-20260915",
+        "artifactIdentitySha256": "c5b458c28134f0c4393a59f413a352ac7b0ad8db63835d2130bbd9dbbf6d9e52",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-15T23:51:21.683Z",
+        "evidence": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/gates-release.json"
+      }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "census-ai-graduates-20260915",
+      "producerPrincipal": "/root/aft_school_story",
+      "sourceIdentitySha256": "181da0096e30e3cf0dcd154126a5d1f99cb5ff3ba24037e05f09fc4989993884",
+      "artifactSha256": "31df8e916a3b078fd56442a1b0084e4463d104263e2af284724a45b95c2338ef",
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-15T23:18:48Z",
+      "lastReviewedAt": "2026-09-16T00:03:53.401Z",
+      "attempts": [
+        {
+          "artifactSha256": "978cef1ac7a622ed7277aacb28c874b0076d7f7acc9de4880daba9ad8a5348b1",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-15T23:46:16.264Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/assembled/independent-review.json",
+            "sha256": "73b92609ce676363f80908e991036300e46b1b0b75fce37a4ce07376cf77119b"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/assembled/independent-raw-report.json",
+            "sha256": "0b41a072e3158dc7f74d9bf065e2998d85175fabe70ee1363b1fdcbd78e059f8"
+          }
+        },
+        {
+          "artifactSha256": "31df8e916a3b078fd56442a1b0084e4463d104263e2af284724a45b95c2338ef",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-16T00:03:53.401Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/assembled-v2/independent-review.json",
+            "sha256": "dc50a34454a5ecb38c4e365fd01ef3547737047f0e9ce98e208a46f90eebf3bb"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/assembled-v2/independent-raw-report.json",
+            "sha256": "8abfeacfc7611ec0fe71883526d033d7dd064732cc241fdeeb742096a4adcbfc"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "MONITOR_CORRECTIONS",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/assembled-v2/ordinary-candidate.json",
+        "sha256": "91443ecbb78b06d9e98a4f388976f17cf2cfcb25fb14db5d5bf4bc4f39d084b0"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "181da0096e30e3cf0dcd154126a5d1f99cb5ff3ba24037e05f09fc4989993884",
+        "artifactSha256": "31df8e916a3b078fd56442a1b0084e4463d104263e2af284724a45b95c2338ef",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/assembled-v2/independent-review.json",
+          "sha256": "dc50a34454a5ecb38c4e365fd01ef3547737047f0e9ce98e208a46f90eebf3bb"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/assembled-v2/independent-raw-report.json",
+          "sha256": "8abfeacfc7611ec0fe71883526d033d7dd064732cc241fdeeb742096a4adcbfc"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "reconciliations": [
+        {
+          "at": "2026-09-16T00:07:04.664Z",
+          "by": "/root",
+          "reason": "Root identified missing required Library class-note link. Producer repaired; fresh qualified full-prose and exact companion PASS supersedes unpromoted initial package. Old attempt and envelope retained.",
+          "previousState": {
+            "schema": "laidies.newsstand-story-recovery.v1",
+            "candidateId": "census-ai-graduates-20260915",
+            "producerPrincipal": "/root/aft_school_story",
+            "sourceIdentitySha256": "82939de311afb5a16b9e5402e5ba63876776dafad2b7179c9cfdba652a244a73",
+            "artifactSha256": "978cef1ac7a622ed7277aacb28c874b0076d7f7acc9de4880daba9ad8a5348b1",
+            "status": "READY_FOR_ADMISSION",
+            "active": true,
+            "consequencePriority": 0,
+            "firstSeenAt": "2026-09-15T23:18:48Z",
+            "lastReviewedAt": "2026-09-15T23:46:16.264Z",
+            "attempts": [
+              {
+                "artifactSha256": "978cef1ac7a622ed7277aacb28c874b0076d7f7acc9de4880daba9ad8a5348b1",
+                "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+                "reviewedAt": "2026-09-15T23:46:16.264Z",
+                "verdict": "PASS",
+                "defects": [],
+                "independentReceipt": {
+                  "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/assembled/independent-review.json",
+                  "sha256": "73b92609ce676363f80908e991036300e46b1b0b75fce37a4ce07376cf77119b"
+                },
+                "independentRawReport": {
+                  "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/assembled/independent-raw-report.json",
+                  "sha256": "0b41a072e3158dc7f74d9bf065e2998d85175fabe70ee1363b1fdcbd78e059f8"
+                }
+              }
+            ],
+            "unresolvedDefects": [],
+            "nextAction": "COMPOSE_AND_ADMIT_EXACT_ARTIFACT",
+            "terminalDisposition": null,
+            "assembledCandidate": {
+              "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/assembled/ordinary-candidate.json",
+              "sha256": "67c065782836da9104e3f797962264dda1db44ece0bfcb77ea10268ae4e4742f"
+            },
+            "assembledReviewIdentity": {
+              "sourceIdentitySha256": "82939de311afb5a16b9e5402e5ba63876776dafad2b7179c9cfdba652a244a73",
+              "artifactSha256": "978cef1ac7a622ed7277aacb28c874b0076d7f7acc9de4880daba9ad8a5348b1",
+              "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+              "independentReceipt": {
+                "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/assembled/independent-review.json",
+                "sha256": "73b92609ce676363f80908e991036300e46b1b0b75fce37a4ce07376cf77119b"
+              },
+              "independentRawReport": {
+                "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/assembled/independent-raw-report.json",
+                "sha256": "0b41a072e3158dc7f74d9bf065e2998d85175fabe70ee1363b1fdcbd78e059f8"
+              }
+            },
+            "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval."
+          },
+          "newCandidate": {
+            "path": "operations/product-stewards/newsstand/candidates/census-ai-graduates-20260915/assembled-v2/ordinary-candidate.json",
+            "sha256": "91443ecbb78b06d9e98a4f388976f17cf2cfcb25fb14db5d5bf4bc4f39d084b0"
+          }
+        }
+      ],
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "655c4ec8-d88a-450f-863f-44ee23839740",
+        "immutableUrl": "https://655c4ec8.laidies-sunnyvaile.pages.dev",
+        "customUrl": "https://laidies.ai/newsstand#census-ai-graduates-20260915",
+        "artifactIdentitySha256": "8f61fc72c8b778d912346d9f0debd7bd89a212987b6fbeb657a37bc3fc51f80a",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-16T00:16:43.273Z"
+      }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "congress-ai-oversight-response-20260915",
+      "producerPrincipal": "/root/aft_school_story",
+      "sourceIdentitySha256": "ec49552143a303fe16eefbe3838dc8adf6d5aee329fbf98f9d98e009a4dcbb65",
+      "artifactSha256": "8b9739bb671ba75266d67c582f485f1c7b57cdbc2cce51624d27bbce3350baf4",
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-15T23:03:58Z",
+      "lastReviewedAt": "2026-09-16T00:03:39.942Z",
+      "attempts": [
+        {
+          "artifactSha256": "8b9739bb671ba75266d67c582f485f1c7b57cdbc2cce51624d27bbce3350baf4",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-16T00:03:39.942Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/assembled/independent-review.json",
+            "sha256": "eb64ffd056f61bc5e0994fc63fe8a058a9fb8894fbe85c42a0a28d553b4258b6"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/assembled/independent-raw-report.json",
+            "sha256": "2feca077d8833e990838cbe55344acc149ba48323321e52e1100c651e461345f"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "MONITOR_CORRECTIONS",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/assembled/ordinary-candidate.json",
+        "sha256": "cba3fea2ce5b0344e18f632d18e26205db78f7e7cd2a72f917805ca713b632f4"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "ec49552143a303fe16eefbe3838dc8adf6d5aee329fbf98f9d98e009a4dcbb65",
+        "artifactSha256": "8b9739bb671ba75266d67c582f485f1c7b57cdbc2cce51624d27bbce3350baf4",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/assembled/independent-review.json",
+          "sha256": "eb64ffd056f61bc5e0994fc63fe8a058a9fb8894fbe85c42a0a28d553b4258b6"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/congress-ai-oversight-response-20260915/assembled/independent-raw-report.json",
+          "sha256": "2feca077d8833e990838cbe55344acc149ba48323321e52e1100c651e461345f"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "c0ba656b-7858-499b-8dc9-a0239db91975",
+        "immutableUrl": "https://c0ba656b.laidies-sunnyvaile.pages.dev",
+        "customUrl": "https://laidies.ai/newsstand#congress-ai-oversight-response-20260915",
+        "artifactIdentitySha256": "3bef70dd925d2d021ecb16d4942bedd384a0f551fec61cabaef567d00c9d2d68",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-16T00:21:49.502Z"
+      }
+    },
+    {
+      "schema": "laidies.newsstand-story-recovery.v1",
+      "candidateId": "zai-self-training-financing-plan-20260915",
+      "producerPrincipal": "/root/aft_school_story",
+      "sourceIdentitySha256": "b58ec0892bf5065d9abb45725ac05fc9aadc7d6eb0ce9e1aa0e137714135111c",
+      "artifactSha256": "4d30f251cb708bcff62ce886fa35ab914f6cc540204c04f11f3b093a60dc1a3b",
+      "status": "PUBLISHED_VERIFIED",
+      "active": false,
+      "consequencePriority": 0,
+      "firstSeenAt": "2026-09-15T23:17:38Z",
+      "lastReviewedAt": "2026-09-16T00:16:48.025Z",
+      "attempts": [
+        {
+          "artifactSha256": "4d30f251cb708bcff62ce886fa35ab914f6cc540204c04f11f3b093a60dc1a3b",
+          "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+          "reviewedAt": "2026-09-16T00:16:48.025Z",
+          "verdict": "PASS",
+          "defects": [],
+          "independentReceipt": {
+            "path": "operations/product-stewards/newsstand/candidates/zai-self-training-financing-plan-20260915/assembled/independent-review.json",
+            "sha256": "b5f162c0874c48df06ba8a1c3d6a5e5507c11455448010c9770c30dc5edadccb"
+          },
+          "independentRawReport": {
+            "path": "operations/product-stewards/newsstand/candidates/zai-self-training-financing-plan-20260915/assembled/independent-raw-report.json",
+            "sha256": "55589da08d7bd41750790ff17e1804a33373c20ba90565f4ae428d7ab3c4bce3"
+          }
+        }
+      ],
+      "unresolvedDefects": [],
+      "nextAction": "MONITOR_CORRECTIONS",
+      "terminalDisposition": null,
+      "assembledCandidate": {
+        "path": "operations/product-stewards/newsstand/candidates/zai-self-training-financing-plan-20260915/assembled/ordinary-candidate.json",
+        "sha256": "c8c92e2688878a95b48d5ebd651391c925d86f0c02d197edd28dae9a1fb68b52"
+      },
+      "assembledReviewIdentity": {
+        "sourceIdentitySha256": "b58ec0892bf5065d9abb45725ac05fc9aadc7d6eb0ce9e1aa0e137714135111c",
+        "artifactSha256": "4d30f251cb708bcff62ce886fa35ab914f6cc540204c04f11f3b093a60dc1a3b",
+        "reviewerPrincipal": "anthropic:claude-fable-5:newsstand-editorial:medium",
+        "independentReceipt": {
+          "path": "operations/product-stewards/newsstand/candidates/zai-self-training-financing-plan-20260915/assembled/independent-review.json",
+          "sha256": "b5f162c0874c48df06ba8a1c3d6a5e5507c11455448010c9770c30dc5edadccb"
+        },
+        "independentRawReport": {
+          "path": "operations/product-stewards/newsstand/candidates/zai-self-training-financing-plan-20260915/assembled/independent-raw-report.json",
+          "sha256": "55589da08d7bd41750790ff17e1804a33373c20ba90565f4ae428d7ab3c4bce3"
+        }
+      },
+      "registrationBoundary": "Validated assembled candidate only. Recheck actual freshness and edition date before issue admission; no publication or next-day approval.",
+      "published": {
+        "schema": "laidies.newsstand-publication-verification.v1",
+        "deploymentId": "689fc0d7-6e07-4400-943b-da33d471856a",
+        "immutableUrl": "https://689fc0d7.laidies-sunnyvaile.pages.dev",
+        "customUrl": "https://laidies.ai/newsstand#zai-self-training-financing-plan-20260915",
+        "artifactIdentitySha256": "36c508be3eb4df14bca70c1a709b4dc8d669a16e2f412630ee0de3bffac0c8a0",
+        "customAndImmutableMatch": true,
+        "readerJourneyPassed": true,
+        "verifiedAt": "2026-09-16T00:26:53.674Z"
       }
     }
   ]

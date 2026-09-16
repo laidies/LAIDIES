@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "newsstand-source-bound-research-v1",
+  "candidateId": "zai-self-training-financing-plan-20260915",
+  "observedAt": "2026-09-15T23:54:36Z",
+  "timestampMeaning": "Actual clock after reading preserved normal-web filing and extracting its downloaded complete PDF; reconciliation time, not request start.",
+  "reviewedBy": "independent:/root/puzzle_visual_reconcile",
+  "disposition": "KEEP",
+  "event": "Z.AI issuer discloses conditional share placing and convertible bond financing plan, with intended investment in next-generation GLM, self-training research and computing infrastructure.",
+  "readerQuestion": "Does funding self-training research mean an AI has already learned to improve itself without people?",
+  "readerConsequence": "Interpret a financing disclosure as a plan and technical ambition; it does not demonstrate a shipped capability or tell readers to change tools.",
+  "primarySource": {
+    "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0913/2026091300025.pdf",
+    "issuer": "Z.AI Co., Ltd.",
+    "stockCode": "2513",
+    "announcementDate": "2026-09-13",
+    "pages": 31,
+    "capture": {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/zai-research-filing.pdf",
+      "sha256": "503a97a5ee5e0c4b2e92a57bd1295cc8f00ea8823992fc2fbf94cbe9403876ae"
+    },
+    "fullExtractedText": {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/zai-research-filing.txt",
+      "sha256": "cea56c0d07bd6b92eb9160fca024330512b469c60bd9ec7878050dd2f8a52b20"
+    },
+    "extraction": "pypdf complete 31-page extraction. Some Chinese glyphs imperfect; English factual passages readable.",
+    "derivedWordBudget": 200
+  },
+  "supportedClaims": [
+    {
+      "claim": "Agreements signed September12 for up to21,965,000 new H shares atHK$714 plus concurrent proposedRMB20.14bn US-dollar-settled zero-coupon convertible bonds.",
+      "locator": "PDFpp2\u20134"
+    },
+    {
+      "claim": "Share placing expectedgrossHK$15,683.01m; bonds expectedgrossUS$3,015.64m, conditional on completion. RoughlyUS$5bn is approximate plannedcombinedfinancing, not closedcash.",
+      "locator": "PDFpp2,4,20"
+    },
+    {
+      "claim": "Placing subject to conditions and scheduledSeptember16; bonds also conditional, definedIssueDateSeptember18.",
+      "locator": "PDFpp3,7\u20138,18,29"
+    },
+    {
+      "claim": "Approximately60% intendedfornext-generationGLM/FullySelfTraining and training/inference/compute infrastructure;15% expansion/investments/acquisitions;25% capitalstructure/workingcapital.",
+      "locator": "PDFpp20\u201324"
+    },
+    {
+      "claim": "FullySelfTraining explicitlya technicalvision; companyintends toexplore modelparticipation inbuildingtraining systems/data/taskenvironments/infrastructure. Manualspotchecking remainsin stateddataR&D plan.",
+      "locator": "PDFpp21\u201322,28"
+    }
+  ],
+  "unsupportedClaims": [
+    {
+      "claim": "Z.ai alreadycloseda$5bnroundonSeptember13or14.",
+      "disposition": "HOLD",
+      "missingInput": "Subsequent exactissuer completionannouncement; recoveredSep13filing is conditional."
+    },
+    {
+      "claim": "Z.ai demonstrated genuine recursive self-improvement, fullautonomousselftraining orreleasedGLM6.",
+      "disposition": "HOLD",
+      "missingInput": "Exactreleasedmodel/technicalreportandresultsevidence; fundingplan/visionisnotdemonstration. NoGLM6namein recoveredfundingfiling."
+    },
+    {
+      "claim": "arXiv2609.11873 proves Z.ai capability.",
+      "disposition": "EXCLUDE_FROM_THIS_EVENT",
+      "reason": "Different researchroadmap; not evidence issuerdemonstrated fundedcapability."
+    }
+  ],
+  "sourceChecks": [
+    {
+      "url": "https://www.zhipuai.cn/en",
+      "status": "BLOCKED",
+      "assessment": "One normalwebopen returned400 Timeout fetching. Notretried. Searchsnippet is discoveryonly, notfullcompanybody.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/zai-research-primary-search-open.json",
+        "sha256": "792e257a984d73055f8c43f57b24cf3120c2fd2807a5ed061fabc446e4b518de"
+      }
+    },
+    {
+      "url": "https://agenccy.ai/news/zhipu-is-raising-5bn-at-less-than-half-its-july-share-price/",
+      "status": "CHECKED_DISCOVERY_ONLY",
+      "assessment": "Fulldistinctreport usedto identify clickableexactHKEXissuerfiling; claimproofcomesfromprimaryPDF.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/zai-research-filing-link-discovery.json",
+        "sha256": "ace82497d5985db5cecf04a41a2f20882c492085a48f7f5c1ac6cbd91fe4c057"
+      }
+    },
+    {
+      "url": "https://www1.hkexnews.hk/listedco/listconews/sehk/2026/0913/2026091300025.pdf",
+      "status": "CHECKED",
+      "assessment": "Normalwebopen allowed; exactsameprimaryPDF downloadednormallyandcompleteEnglishclaimsectionsinspected.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/zai-research-filing.pdf",
+        "sha256": "503a97a5ee5e0c4b2e92a57bd1295cc8f00ea8823992fc2fbf94cbe9403876ae"
+      }
+    }
+  ],
+  "exclusions": [
+    {
+      "url": "https://www.reuters.com/technology/artificial-intelligence/",
+      "action": "NOT_RETRIED",
+      "reason": "Recordednonretryableoriginalindexblockretained; noalternateproxy/transport."
+    },
+    {
+      "url": "https://goldsea.com/article_details/chinas-zai-raises-5-billion-for-recursive-self-improvement-progress",
+      "action": "NOT_OPENED",
+      "reason": "Root-savedReuterssyndicatedsearchleadusedfordiscoveryonly; notfetchedasblockedcontentworkaround."
+    }
+  ],
+  "productionBoundary": "Researchonly; no publicprose, editorialadmission, sharedcoverage, cursor or canonicalwrite. Fundingplan canproducewithoutwaitingforRSIdemonstration if exactconditional/visionboundaryretained.",
+  "captures": [
+    {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/zai-research-discovery-search.json",
+      "sha256": "811cba0d1f0c2a998039c7077ef0fd05857f875acc619d559da3d421e61f061c"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/zai-research-filing-link-discovery.json",
+      "sha256": "ace82497d5985db5cecf04a41a2f20882c492085a48f7f5c1ac6cbd91fe4c057"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/zai-research-filing-use-web.json",
+      "sha256": "9bd2bb2016ce687bd64e53ae421cb90d54fece99f0f6f0350e12a98af45e33f3"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/zai-research-filing-web.json",
+      "sha256": "cf52941172801664737905155ad1fa3dee54eed2fd27554b6564fcd8566adf57"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/zai-research-filing.pdf",
+      "sha256": "503a97a5ee5e0c4b2e92a57bd1295cc8f00ea8823992fc2fbf94cbe9403876ae"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/zai-research-filing.txt",
+      "sha256": "cea56c0d07bd6b92eb9160fca024330512b469c60bd9ec7878050dd2f8a52b20"
+    },
+    {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1600-20260915/zai-research-primary-search-open.json",
+      "sha256": "792e257a984d73055f8c43f57b24cf3120c2fd2807a5ed061fabc446e4b518de"
+    }
+  ],
+  "toolDetour": "pdftotext unavailable exit127; installedpypdf extractedcomplete31pages withoutnewinstallation orcost."
+}

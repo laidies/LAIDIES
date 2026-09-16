@@ -1,0 +1,13 @@
+import fs from 'node:fs';import crypto from 'node:crypto';
+const d='operations/product-stewards/newsstand/candidates/gemini-live-38-20260915/',p='operations/product-stewards/newsstand/evidence/recovery-1300-20260915/provider-captures.json';
+const j=JSON.parse(fs.readFileSync(p)),section=j.result.split('--------------------------------------------------------------------------------').find(x=>x.includes('# Release notes')&&x.includes('Gemini 3.8 Live'));
+if(!section)throw Error('Missing actual API changelog capture');
+fs.writeFileSync(d+'api-changelog-full.txt',section);
+const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
+fs.writeFileSync(d+'source-checks.json',JSON.stringify({checkedAt:new Date().toISOString(),sourceChecks:[{url:'https://ai.google.dev/gemini-api/docs/changelog',observedAt:'2026-09-15T20:03:46Z',raw:{path:p,sha256:sha(fs.readFileSync(p))},retainedText:{path:d+'api-changelog-full.txt',sha256:sha(section)},assessment:'September15 two audio-to-audio Live API models generally available. API GA is not used as proof that all consumer accounts received upgraded features.',disposition:'CORROBORATES_MODEL_RELEASE_DATE_ONLY'},...JSON.parse(fs.readFileSync(d+'source-collection.json')).records.map(x=>({url:x.url,observedAt:x.observedAt,retainedText:x.renderedText,assessment:'Read actual full primary page. Blog generated summary blocks excluded; model documentation supplies the mechanism. Rollout, current account access and task reliability remain distinct.',disposition:'SOURCE_BOUND_TO_CLAIMS'}))]},null,2)+'\n');
+const s=JSON.parse(fs.readFileSync(d+'story.json'));const words=x=>x.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().split(' ').length;
+const paragraphs=x=>x.match(/<p>[\s\S]*?<\/p>/g)||[];
+const b=paragraphs(s.the_story)[0]+' '+paragraphs(s.what_this_means)[0]+' '+s.headline+' '+s.sources[0].label;
+const t=paragraphs(s.the_story)[1]+' '+paragraphs(s.laidies_read)[1]+' '+s.cocktail_party+' '+s.sources[2].label;
+fs.writeFileSync(d+'source-word-budget.json',JSON.stringify({limitsPerSource:200,countingScope:'Conservative complete-paragraph allocation includes repetitions, headline and source labels; public personal-example/action prose is original interpretation.',googleBlogConservativeWords:words(b),googleThinkingDocConservativeWords:words(t),googleLiveDocWordsUpperBound:words(paragraphs(s.the_story)[0]+' '+paragraphs(s.the_story)[1]+' '+s.sources[1].label),verbatimQuotationLimitWords:25,sourceBudgetLimitsMet:words(b)<=200&&words(t)<=200},null,2)+'\n');
+console.log(fs.readFileSync(d+'source-word-budget.json','utf8'));

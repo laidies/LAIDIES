@@ -1,0 +1,98 @@
+{
+  "recordKind": "SOURCE_BOUND_PRIVATE_RESEARCH_CANDIDATE",
+  "id": "census-ai-graduates-20260915",
+  "researcherPrincipal": "/root/aft_school_story",
+  "checkedAt": "2026-09-15T23:18:48Z",
+  "productionStatus": "NOT_DRAFTED_NOT_REVIEWED_NOT_ADMITTED",
+  "publicWrites": false,
+  "coverageWrites": false,
+  "disposition": "KEEP_DISTINCT_MATERIAL_RESEARCH",
+  "readerQuestion": "What does a new study actually show about starting a career with an AI-exposed college major, and how confidently can it attribute the change to AI?",
+  "readerRelevance": "Adults entering or returning to study, parents of new graduates and teachers advising students need to distinguish harder career entry in particular fields from a forecast that all college degrees or all jobs are doomed.",
+  "intendedProminence": "Consequential public-interest labor-market research; review against the whole same-day pool. Not a product-use tip.",
+  "eventDate": "September 2026 working paper; landing page last revised September10. September15 is discovery/reporting day, not a claimed paper publication day.",
+  "sources": [
+    {
+      "role": "PRIMARY_WORKING_PAPER_LANDING",
+      "url": "https://www.census.gov/library/working-papers/2026/adrm/CES-WP-26-56.html",
+      "capture": "census-landing.html",
+      "readScope": "Complete relevant publication body and abstract inspected through web; full HTML downloaded successfully.",
+      "derivedWordBudget": 200
+    },
+    {
+      "role": "PRIMARY_FULL_RESEARCH_WORKING_PAPER",
+      "url": "https://www2.census.gov/library/working-papers/2026/adrm/ces/CES-WP-26-56.pdf",
+      "legitimateLink": "Landing page download link86, opened directly; no guessed alternate endpoint.",
+      "capture": "census-full-paper.pdf",
+      "extraction": "census-full-paper.txt",
+      "pages": 79,
+      "readScope": "Full PDF captured and all79 pages extracted. Main text, definitions, design, results, alternative explanations and discussion inspected through PDF pages1-50; appendix tables/robustness are captured but not independently audited row-by-row. No claim of complete mathematical replication or peer review.",
+      "derivedWordBudget": 200
+    }
+  ],
+  "population": {
+    "degreeLevel": "Bachelor’s graduates only, not all students or all workers.",
+    "graduateRecords": 6665500,
+    "institutions": "27 voluntary PSEO data partners across24 states, over350 institutions; restricted to institutions with at least one bachelor graduate each year2012-2024.",
+    "shareOfDegrees": "Approximately29% of US bachelor degrees conferred2016-2024.",
+    "exclusions": "Three-or-more majors, colleges not continuously present2012-2024, and majors supplied by only one college excluded; double majors treated as combined major.",
+    "representativeness": "Sample overrepresents public, large, city-based doctoral research institutions and graduates slightly more likely male and non-Hispanic white; findings may not generalize to all institutions.",
+    "employmentCoverage": "UI-covered wage-and-salary employment in states other than Alaska/Michigan among people neither residing nor employed there during analyzed period. No employment record is not a full unemployment classification: self-employment and graduate school are not measured in LEHD."
+  },
+  "studyPeriod": {
+    "degreeCohorts": "2016-2024 bachelor degrees; continuity criterion2012-2024 is a sample restriction, not the main outcome cohort range.",
+    "employmentRecords": "2016Q1-2025Q3 for all included states.",
+    "reference": "Quarter-of-year comparisons net of corresponding2022 quarters; post introduction of ChatGPT November2022.",
+    "exposureMapping": "ACS2018-2022 workers ages21-29 with only bachelor degrees supply pre-period major-to-occupation distribution. That age range defines mapping survey sample, not a stated age restriction on all PSEO graduates."
+  },
+  "exposureMeaning": "Task-capability scores (whether GPT4 could halve task time, with additional software weighted differently) mapped from occupations to each major using pre-period occupational distributions. Fixed predictive exposure is not observed AI adoption, actual automation, or a count of positions replaced. Top decile largely computer science/information systems/software-adjacent majors.",
+  "magnitude": [
+    {
+      "measure": "Initial employment",
+      "result": "Abstract and main results report about5 percentage points lower likelihood in quarter immediately after graduation for highest exposure decile relative to bottom six deciles, net of2022 difference. This is percentage points, not5% and not5% of all graduates losing jobs.",
+      "locator": "PDF pages2,4,18-20"
+    },
+    {
+      "measure": "Initial full-quarter earnings",
+      "result": "Abstract/discussion report roughly13% lower; dominant-job full-quarter measure at two quarters postgraduation requires positive earnings in same job in previous/current/subsequent quarters. Not annual pay of every graduate and not a within-person pay cut.",
+      "locator": "PDF pages2,11-12,21-22,46"
+    },
+    {
+      "measure": "Sector composition",
+      "result": "About half of earnings decline explained by movement toward lower-paying sectors, with remainder from lower within-sector earnings. Industry is not occupation; no formal underemployment measure built.",
+      "locator": "PDF pages5,23-26"
+    },
+    {
+      "measure": "Longer horizon",
+      "result": "Effects shrink at one/two years but top decile remains negative. Main section4.2 gives two-year employment average -2.0 percentage points from2024 onward and earnings -3.3 log points for that period; introduction summarizes about5% after two years. Do not mix these windows or present a precise long-run number until reconciled.",
+      "locator": "PDF pages4,27-30"
+    }
+  ],
+  "associationVsCausation": {
+    "design": "Observational event-time difference-in-differences with institution-major, institution-quarter and major-quarter-of-year fixed effects; clustered standard errors by major. Authors investigate remote work, supply and alternative activities; they argue joint evidence supports an important AI role.",
+    "assumptions": "Parallel trends absent ChatGPT, no anticipation/endogenous major switching, and no cross-unit spillover interference. These are identifying assumptions, not randomized assignment.",
+    "remainingConfounding": "Authors explicitly cannot rule out contemporaneous time-varying major-specific shocks correlated with AI; post-pandemic hiring normalization, technology-sector contraction and skill-demand shifts are difficult to separate. Remote-work correlation0.88 at major level limits disentangling despite robustness exercises.",
+    "mechanismUnknown": "Cannot identify a single pathway: task substitution, changed training/hiring or weaker signals from grades/work samples are proposed possibilities. No evidence here that named employers replaced named graduates with AI.",
+    "approvedPublicFraming": "Researchers found worsening relative career-entry outcomes concentrated in most AI-exposed majors after ChatGPT appeared; the design supports a possible substantial AI role but cannot isolate it from every coinciding field-specific change.",
+    "locators": "PDF pages14-18,41-50"
+  },
+  "additionalLimits": [
+    "Working paper has not undergone review accorded Census publications; author conclusions are not official Census endorsement; disclosure review protects confidential data and does not validate economic conclusions.",
+    "Self-employment and graduate enrollment shifts might explain up to half the initial employment decline taken at face value. Authors caution these alternative activities may themselves reflect weak demand; ACS comparison is not identical sample and lacks graduation date.",
+    "Partial-period jobs excluded from full-quarter earnings. Recession comparison uses different quarterly versus annual measures, so it is a scale comparison rather than directly identical estimates.",
+    "Short postperiod cannot establish permanent career damage or whether graduates ultimately catch up.",
+    "Exposure measures predate many model and agent advances and cannot become current career rankings by simple extrapolation."
+  ],
+  "liveCoverageComparison": {
+    "capture": "census-current-public-stories.js",
+    "origin": "https://laidies.ai/content/newsstand-stories.js",
+    "exactSourceMatch": false,
+    "relatedStoryIds": ["front-paige-accountable-systems-2026-08-24", "weekly-accountable-systems-2026-08-24", "big-picture-data-centre-deal-2026-08-24"],
+    "coverageReason": "August24 pieces cite earlier Census AI-use survey and Stanford labor findings, not CES26-56. Big Picture already distinguishes no economy-wide displacement from pressure on younger workers; new study asks distinct degree-major/career-entry/sector-sorting question. Exact study not sufficiently covered.",
+    "futureEditorialFollowup": "The Big Picture’s broad opening 'Not yet' is qualified later by 'AI has displaced some work'. New research is not proof of economy-wide displacement, but a future review should consider tightening that opening if linking this career-entry evidence. No correction drafted or applied here."
+  },
+  "doNotClaim": ["All college graduates lost5% employment", "AI proven sole cause", "13% annual pay cut for each graduate", "All AI-exposed professions equally harmed", "Women-specific estimate", "Census officially endorses conclusions", "Permanent degree devaluation", "Switching majors now is demonstrated remedy"],
+  "nextAction": "After current AFT production gate passes, prepare one named ordinary research story candidate census-ai-graduates-20260915 using initial employment/earnings scope and causal limitations; collect current independent expert assessment before claiming broad causal consensus. Omit unresolved precise two-year magnitude unless source-period reconciliation completes.",
+  "holds": ["No hold on reporting bounded working-paper findings. Precise two-year summary requires reconciliation; stronger causal or career-advice claim requires additional evidence."],
+  "skipped": ["No draft", "No complete appendix mathematical audit", "No peer-review verification", "No queue/coverage/public mutation"]
+}

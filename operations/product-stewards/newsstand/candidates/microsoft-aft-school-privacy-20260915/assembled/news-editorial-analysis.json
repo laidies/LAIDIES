@@ -1,0 +1,84 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "microsoft-aft-school-privacy-20260915",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "3fcaf467612ad41fed6548af8705101dae530487ed609337077b88ffed50b4ba",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why doesn't a school's existing Microsoft subscription automatically protect student data in every Microsoft tool teachers and students use?",
+      "response": "Two gates must both open. First, the agreement only covers education-designed generative AI products; general productivity, communications, search and workplace-assistance tools are excluded by definition even when the school licenses them. Second, the protections are not automatic: the district must opt in by requesting that the standard's terms be incorporated into its own Microsoft agreement, which is what makes them contractually enforceable. A teacher's general work assistant fails the first gate; a district that never requested incorporation fails the second.",
+      "expectedEvidence": "The article's scope definition and exclusion (P003), the incorporation-makes-enforceable mechanism (P002), and the tutor-versus-work-assistant illustration (P007).",
+      "assessment": "Accurate and complete from article content alone; the two-gate causal structure is stated explicitly in P002-P003 and dramatized in P007, so the mechanism supports explain-back without external sources."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Which tool's student data is covered by the no-training and companion-feature protections, and why?",
+      "response": "Only the writing tutor. The district cleared the opt-in gate by incorporating the standard, but the standard attaches per product: the tutor is an education-designed generative AI product, so student prompts and outputs in it cannot be used for model training (beyond the narrow safety exception) and companion-style features are banned. The general search assistant is excluded by the scope definition even though the same district licenses it from the same vendor, so its protections come only from whatever ordinary terms govern that product.",
+      "expectedEvidence": "P003's exclusion of general search and workplace-assistance products, P002's incorporation mechanism, and P004's training prohibition applying to covered information.",
+      "assessment": "The article's mechanism resolves this new scenario decisively: product scope and opt-in operate independently, and applying both gates yields a specific, correct answer — genuine transfer succeeded."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The signing (Sept 7), announcement (Sept 9), and the contractual mechanism by which districts obtain protections are all explained in sequence.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Microsoft and the American Federation of Teachers signed a school AI safety and privacy agreement on September 7 and announced it with the United Federation of Teachers on September 9. US school districts can incorporate the protections into their Microsoft agreements, making them contractually enforceable.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The scope matters. Schools must opt in, and the agreement covers primarily education-designed generative AI: software that creates text or other content from instructions. General productivity, communications, search and workplace-assistance products are excluded, even when a school licenses them.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Training ('changing an AI model for future use'), generative AI ('software that creates text... from instructions'), and telemetry ('anonymous technical records') are each defined at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The scope matters. Schools must opt in, and the agreement covers primarily education-designed generative AI: software that creates text or other content from instructions. General productivity, communications, search and workplace-assistance products are excluded, even when a school licenses them.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>The agreement prohibits using covered student and educator information for training—changing an AI model for future use—with a narrow safety and security exception. That exception cannot feed general model improvement, advertising or unrelated commercial uses. It also bans companion features designed to create attachment or keep students engaged beyond the learning task.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>There is a separate category called telemetry: anonymous technical records about how a service operates. Those records may support reliability and product improvements, but not generative-model training or individual student profiling. “No training” does not mean “no data processing.”</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is grounded in a specific situation: a child assigned an AI tutor, and the exact questions the parent should ask.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Imagine a child is assigned an AI tutor. Ask which exact product is being assigned and whether the school incorporated these standards into its agreement. A general work assistant used by a teacher is not covered simply because Microsoft supplies it.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>The agreement requires notices that AI answers may be incorrect. Privacy protection does not establish learning value.</p>",
+          "locator": "P008"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; the advice (request terms, ask which product) follows directly from the sourced request/opt-in mechanism.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Imagine a child is assigned an AI tutor. Ask which exact product is being assigned and whether the school incorporated these standards into its agreement. A general work assistant used by a teacher is not covered simply because Microsoft supplies it.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "“Request school-specific terms for covered education AI. Privacy commitments do not guarantee correct answers.”",
+          "locator": "P009"
+        }
+      ]
+    }
+  }
+}

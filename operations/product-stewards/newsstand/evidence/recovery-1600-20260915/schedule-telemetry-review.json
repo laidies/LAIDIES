@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "newsstand-schedule-telemetry-review-v1",
+  "observedAt": "2026-09-16T00:28:12Z",
+  "reviewedBy": "independent:/root/puzzle_visual_reconcile",
+  "automationId": "daily-allie-k-miller-and-ethan-mollick-source-check",
+  "targetThreadId": "01a071e7-db55-7a22-8c99-04eba5060355",
+  "verdict": "CAUSE_NOT_PROVABLE_FROM_RECOVERED_TELEMETRY",
+  "summary": "Sep15 10:00 has exact-thread runtime startup at17:00:32.872UTC; origin/dispatch linkage absent. Sep14 07:00 window lacks recovered log activity but absence does not prove sleep, missed dispatch or lost recording.",
+  "windows": [
+    {
+      "scheduledLocalWindow": "2026-09-14 07:00 America/Vancouver",
+      "inspectionStartUTC": "2026-09-14T13:30:00Z",
+      "inspectionEndUTC": "2026-09-14T15:00:00Z",
+      "counts": {
+        "allRuntimeLinesInWindow": 0,
+        "exactThreadLinesInWindow": 0,
+        "explicitSchedulerOrPowerEventsInWindow": 0
+      },
+      "safeExactThreadExcerpts": [],
+      "causeVerdict": "UNKNOWN",
+      "reason": "No explicit matching dispatch/suppression/error/power-state event recovered. Missing log rows alone do not establish a missed dispatch or sleep state."
+    },
+    {
+      "scheduledLocalWindow": "2026-09-15 10:00 America/Vancouver",
+      "inspectionStartUTC": "2026-09-15T16:30:00Z",
+      "inspectionEndUTC": "2026-09-15T18:00:00Z",
+      "counts": {
+        "allRuntimeLinesInWindow": 700,
+        "exactThreadLinesInWindow": 22,
+        "explicitSchedulerOrPowerEventsInWindow": 0
+      },
+      "safeExactThreadExcerpts": [
+        {
+          "file": "/Users/alisoneakin/Library/Logs/com.openai.codex/2026/09/15/codex-desktop-5d5312ff-8701-44e9-b806-e82386dcf76a-784-t0-i1-000152-0.log",
+          "line": 11699,
+          "exactExcerpt": "2026-09-15T17:00:32.872Z info [AppServerConnection] mcp_server_startup_status_updated error=null failureReason=null hostId=local server=agentopus status=starting threadId=01a071e7-db55-7a22-8c99-04eba5060355"
+        },
+        {
+          "file": "/Users/alisoneakin/Library/Logs/com.openai.codex/2026/09/15/codex-desktop-5d5312ff-8701-44e9-b806-e82386dcf76a-784-t0-i1-000152-0.log",
+          "line": 11700,
+          "exactExcerpt": "2026-09-15T17:00:32.872Z info [AppServerConnection] mcp_server_startup_status_updated error=null failureReason=null hostId=local server=node_repl status=starting threadId=01a071e7-db55-7a22-8c99-04eba5060355"
+        },
+        {
+          "file": "/Users/alisoneakin/Library/Logs/com.openai.codex/2026/09/15/codex-desktop-5d5312ff-8701-44e9-b806-e82386dcf76a-784-t0-i1-000152-0.log",
+          "line": 11701,
+          "exactExcerpt": "2026-09-15T17:00:32.872Z info [AppServerConnection] mcp_server_startup_status_updated error=null failureReason=null hostId=local server=codex_apps status=starting threadId=01a071e7-db55-7a22-8c99-04eba5060355"
+        },
+        {
+          "file": "/Users/alisoneakin/Library/Logs/com.openai.codex/2026/09/15/codex-desktop-5d5312ff-8701-44e9-b806-e82386dcf76a-784-t0-i1-000152-0.log",
+          "line": 11702,
+          "exactExcerpt": "2026-09-15T17:00:32.872Z info [AppServerConnection] mcp_server_startup_status_updated error=null failureReason=null hostId=local server=openaiDeveloperDocs status=starting threadId=01a071e7-db55-7a22-8c99-04eba5060355"
+        }
+      ],
+      "causeVerdict": "UNKNOWN",
+      "reason": "No explicit matching dispatch/suppression/error/power-state event recovered. Missing log rows alone do not establish a missed dispatch or sleep state."
+    }
+  ],
+  "desktopLogSources": [
+    {
+      "path": "/Users/alisoneakin/Library/Logs/com.openai.codex/2026/09/14/codex-desktop-5d5312ff-8701-44e9-b806-e82386dcf76a-784-t0-i1-000130-0.log",
+      "bytes": 2158362,
+      "sha256": "1184afd20e9a411317c54ef354386d84f27feeb8930c665ddf8894e0ac2a6b04",
+      "capturePolicy": "Safe metadata/excerpts only; complete raw application log intentionally not copied."
+    },
+    {
+      "path": "/Users/alisoneakin/Library/Logs/com.openai.codex/2026/09/14/codex-desktop-5d5312ff-8701-44e9-b806-e82386dcf76a-784-t1-i1-202733-0.log",
+      "bytes": 1057,
+      "sha256": "2f9ae23ceaa16b1bd1322555790c1b4b9d44888128e624beaffe5e7146f67373",
+      "capturePolicy": "Safe metadata/excerpts only; complete raw application log intentionally not copied."
+    },
+    {
+      "path": "/Users/alisoneakin/Library/Logs/com.openai.codex/2026/09/15/codex-desktop-5d5312ff-8701-44e9-b806-e82386dcf76a-784-t0-i1-000152-0.log",
+      "bytes": 6100124,
+      "sha256": "94f58f454e654084db9e41474806acc99174940e77db588d8f2d731b2160b44d",
+      "capturePolicy": "Safe metadata/excerpts only; complete raw application log intentionally not copied."
+    },
+    {
+      "path": "/Users/alisoneakin/Library/Logs/com.openai.codex/2026/09/15/codex-desktop-5d5312ff-8701-44e9-b806-e82386dcf76a-784-t1-i1-025653-0.log",
+      "bytes": 141905,
+      "sha256": "a23e693fa2a0e41098bd1b07d0a0e4f1ed6d7b78421b03582d899d20610429a8",
+      "capturePolicy": "Safe metadata/excerpts only; complete raw application log intentionally not copied."
+    }
+  ],
+  "automationDatabaseMetadata": {
+    "path": "/Users/alisoneakin/.codex/sqlite/codex-dev.db",
+    "readMode": "mode=ro&immutable=1; SELECT only; no database writes or checkpoints",
+    "automation": {
+      "id": "daily-allie-k-miller-and-ethan-mollick-source-check",
+      "name": "Daily LAiDIES NewsStand research and publication cycle",
+      "status": "ACTIVE",
+      "next_run_at": 1789527602000,
+      "last_run_at": 1789513250496,
+      "rrule": "FREQ=DAILY;BYHOUR=7,10,13,16,20;BYMINUTE=0",
+      "kind": "heartbeat",
+      "target_thread_id": "01a071e7-db55-7a22-8c99-04eba5060355",
+      "created_at": 1787509369302,
+      "updated_at": 1789097062100,
+      "next_run_at_utc": "2026-09-16T03:00:02+00:00",
+      "last_run_at_utc": "2026-09-15T23:00:50.496000+00:00",
+      "created_at_utc": "2026-08-23T18:22:49.302000+00:00",
+      "updated_at_utc": "2026-09-11T03:24:22.100000+00:00"
+    },
+    "exactAutomationRunMetadataRows": [],
+    "exactThreadTimelineMetadataRowCount": 0,
+    "interpretation": "Current last_run_at/next_run_at are mutable latest-state metadata, not a per-window dispatch ledger. No targeted automation_runs rows were present in this snapshot; not proof a heartbeat failed."
+  },
+  "otherReadOnlyChecks": [
+    {
+      "path": "/Users/alisoneakin/.codex/logs_2.sqlite",
+      "readMode": "immutable read-only",
+      "checks": "Schema and narrow14:00/17:00 timestamp target counts; exact thread_id within both windows; exact-ID body match16:55\u201317:10UTC Sep15, with no body disclosed.",
+      "result": "No exact-thread column/body rows recovered for these windows; general runtime rows present Sep15. No inferred cause."
+    },
+    {
+      "path": "/Users/alisoneakin/.codex/state_5.sqlite",
+      "readMode": "immutable read-only",
+      "checks": "Exact thread SELECT id/rollout_path/timestamps/source/thread_source only.",
+      "result": "Target exists; source=vscode, thread_source=agent_created_thread. These do not identify scheduler dispatch for either window."
+    },
+    {
+      "path": "/Users/alisoneakin/.codex/automations/daily-allie-k-miller-and-ethan-mollick-source-check/automation.toml",
+      "checks": "Selected schedule/id/status/target fields only; prompt and credentials not disclosed.",
+      "result": "ACTIVE heartbeat, expected target, configured7,10,13,16,20hours. Configuration does not prove execution."
+    }
+  ],
+  "limitations": [
+    "Immutable SQLite reads exclude any uncheckpointed WAL contents; no checkpoint, database mutation or alternate writable connection used.",
+    "No conversation messages, prompt text, archived assistant/user messages, credentials, account identifiers or unrelated payloads dumped.",
+    "No automation changes or OS power-state diagnosis performed. Explicit dispatcher event tied to automation/due time/target, or correlated authoritative power-state telemetry, would be needed to establish cause.",
+    "Desktop exact-thread startup is positive runtime evidence, not proof the heartbeat originated or that scheduled work was completed."
+  ],
+  "repositoryMutation": "Only this private review record; no shared records, public changes, runtime or automation mutation.",
+  "timestampMeaning": "Actual clock after targeted metadata and safe excerpt collection; observation reconciliation time, not scheduler event time."
+}

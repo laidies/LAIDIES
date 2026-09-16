@@ -1,0 +1,164 @@
+{
+  "schema": "newsstand-recovery-source-receipt.v1",
+  "checkedAt": "2026-09-15T20:05:59.062Z",
+  "asOfVancouver": "2026-09-15",
+  "result": "HOLD_AIDB_RELEASE_REVIEW",
+  "newEligibleLeads": [],
+  "sourceDeltas": [
+    {
+      "source": "AIDB website",
+      "disposition": "UNCHANGED_LATEST_SEP14",
+      "generated": "2026-09-15T20:04:44.082Z"
+    },
+    {
+      "source": "Sep15 JSON/transcript",
+      "disposition": "HOLD_404",
+      "nextCheckAt": "2026-09-15T23:00:00Z"
+    },
+    {
+      "source": "Beehiiv archive",
+      "disposition": "NEW_ACCESS_HOLD_403",
+      "previous": "200 in morning",
+      "nextAction": "No original-route retry or bypass; distinct legitimate publisher evidence only."
+    },
+    {
+      "source": "Apple",
+      "disposition": "UNCHANGED_LATEST_SEP14_METADATA_ONLY"
+    },
+    {
+      "source": "Mollick feed/homepage",
+      "disposition": "ACCESS_RECOVERED_NO_NEW_EVENT",
+      "latest": {
+        "title": "Agency and Agents",
+        "url": "https://www.oneusefulthing.org/p/agency-and-agents",
+        "publishedAt": "Mon, 31 Aug 2026 00:24:35 GMT"
+      },
+      "reason": "Latest Aug31 Agency and Agents identity matches Sep14 1300 actual inventory. Latest complete feed article inspected; four human-involvement ideas are durable context, not a new Sep15 release. Historical Hugging Face claims remain attributed and require current primary sources for publication."
+    },
+    {
+      "source": "Allie resources",
+      "disposition": "UNDATED_INDEX_NO_NEW_EVENT",
+      "reason": "Readable200 resource index, same named resources including Claude Cowork quick start/AI Context Vault; no independent dated announcement verified."
+    }
+  ],
+  "itemDispositions": [
+    {
+      "item": "RubyGems attribution",
+      "status": "EXISTING_PUBLISHED",
+      "storyId": "rubygems-agent-attribution-20260915"
+    },
+    {
+      "item": "China diplomatic response",
+      "status": "EXISTING_PUBLISHED",
+      "storyId": "china-amodei-response-20260915"
+    },
+    {
+      "item": "Microsoft humanist code",
+      "status": "EXISTING_PUBLISHED",
+      "storyId": "microsoft-humanist-code-20260915"
+    },
+    {
+      "item": "Cross-lab pacing support",
+      "status": "EXISTING_CONTEXT",
+      "storyId": "amodei-ai-pacing-20260912"
+    },
+    {
+      "item": "Open Alignment/evaluator independence",
+      "status": "EXISTING_EVIDENCE_HOLD",
+      "reason": "No fresh full primary announcement inspected in this lane."
+    },
+    {
+      "item": "Mollick Aug31 Agency and Agents",
+      "status": "UNCHANGED_HISTORICAL_CONTEXT",
+      "reason": "Latest feed identity matches previous actual sweep; no newly dated event."
+    },
+    {
+      "item": "Allie undated resource list",
+      "status": "NO_VERIFIED_NEW_EVENT"
+    }
+  ],
+  "coverageComparison": [
+    {
+      "id": "china-amodei-ai-governance-response-20260914",
+      "event": "China Foreign Ministry response to Amodei",
+      "sourceUrls": [
+        "https://apnews.com/article/china-anthropic-ai-us-amodei-3da458d2c078da3e60900728d59f1ae8",
+        "https://elpais.com/tecnologia/2026-09-14/china-reacciona-a-las-alertas-por-la-ia-denunciando-una-agenda-oculta-para-estrangular-su-tecnologia.html"
+      ],
+      "status": "PUBLISHED",
+      "reviewedBy": "/root",
+      "reviewedAt": "2026-09-14T22:35:15.522283+00:00",
+      "missingInput": "Accessible complete original statement or complete independent reporting; known AP short URL now nonretryable.",
+      "attemptedRecovery": "Independent normal-web search identified distinct diplomatic response; exact AP source returned nonretryable error. Not conflated with Trump or conditioned on a new policy action.",
+      "nextCheckAt": "2026-09-15T17:00:00Z",
+      "sourceReview": "operations/product-stewards/newsstand/evidence/morning-20260915/recovery-captures.json",
+      "recoveryDecisionAt": "2026-09-15T14:21:09.751900+00:00",
+      "owner": "/root",
+      "nextAction": "Monitor substantive follow-up and corrections; preserve actual source observation dates.",
+      "storyId": "china-amodei-response-20260915",
+      "releaseEvidence": "operations/product-stewards/newsstand/evidence/morning-20260915/release.json",
+      "coverageReason": "Reports China ministry response without conflating a public position with implemented international rules."
+    },
+    {
+      "id": "microsoft-humanist-code-20260915",
+      "event": "September14 Microsoft draft Humanist AI code and public consultation",
+      "sourceUrls": [
+        "https://microsoft.ai/news/mai-code-of-conduct/"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "candidatePath": "operations/product-stewards/newsstand/candidates/microsoft-humanist-code-20260915",
+      "nextAction": "Monitor substantive follow-up and corrections; preserve actual source observation dates.",
+      "discoveredAt": "2026-09-15T03:11:11.615838+00:00",
+      "storyId": "microsoft-humanist-code-20260915",
+      "releaseEvidence": "operations/product-stewards/newsstand/evidence/morning-20260915/release.json",
+      "coverageReason": "Explains proposed Microsoft MAI code and public feedback without claiming implemented guarantees."
+    },
+    {
+      "id": "rubygems-agent-attribution-20260915",
+      "event": "September11 RubyGems update on May incident and disputed AI attribution",
+      "sourceUrls": [
+        "https://blog.rubygems.org/2026/09/11/update-may-spam-publishing-campaign.html"
+      ],
+      "status": "PUBLISHED",
+      "owner": "/root",
+      "candidatePath": "operations/product-stewards/newsstand/candidates/rubygems-agent-attribution-20260915",
+      "nextAction": "Monitor substantive follow-up and corrections; preserve actual source observation dates.",
+      "discoveredAt": "2026-09-15T03:11:11.615838+00:00",
+      "storyId": "rubygems-agent-attribution-20260915",
+      "releaseEvidence": "operations/product-stewards/newsstand/evidence/morning-20260915/release.json",
+      "coverageReason": "Separates registry-confirmed incident from researcher attribution and defines API keys."
+    },
+    {
+      "id": "embedded-evaluator-independence-20260915",
+      "event": "September12 outside-evaluator volunteer and cross-lab commitment reporting",
+      "sourceUrls": [
+        "https://thenextweb.com/news/hugging-face-open-alignment-initiative-embedded-evaluators"
+      ],
+      "status": "EVIDENCE_BLOCKED",
+      "owner": "/root",
+      "candidatePath": "operations/product-stewards/newsstand/candidates/embedded-evaluator-independence-20260915",
+      "nextAction": "Recover exact original announcement or complete interview through legitimate accessible source.",
+      "discoveredAt": "2026-09-15T03:11:11.615838+00:00",
+      "missingInput": "Exact accessible primary announcement/terms; named original X posts403.",
+      "attemptedRecovery": "Read complete TNW reporting, searched official OpenAI/HuggingFace sources, opened original Altman and Delangue posts normally; both403.",
+      "nextCheckAt": "2026-09-15T17:00:00Z",
+      "recoveryDecisionAt": "2026-09-15T14:21:09.751900+00:00"
+    }
+  ],
+  "fullNewestEpisodeReviewed": false,
+  "cursorUnchanged": true,
+  "cursorSha256": "54127a6e6e8313673e6c421016f27cf9cb5d5bbd9900c4d0724bec601d007ba7",
+  "nextCheckAt": "2026-09-15T23:00:00Z",
+  "forbiddenRoutesNotRequested": [
+    "Sep12 and Sep14 JSON/transcripts",
+    "Exact Sep14 Beehiiv post403"
+  ],
+  "sharedOrPublicMutation": false,
+  "paidReviewSpend": false,
+  "limitations": [
+    "No complete newest podcast reviewed; metadata not transcript.",
+    "Beehiiv archive403 prevents fresh enumeration; prior newsletter observations not refreshed.",
+    "No public editing, cursor advancement or canonical shared record mutation."
+  ]
+}

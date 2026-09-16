@@ -6,8 +6,9 @@ Current resume point: [CURRENT-CYCLE.md](CURRENT-CYCLE.md). This table reconcile
 
 | Work | Current result | Next completion condition |
 |---|---|---|
-| Major-story coverage and daily delivery | September13 now has two reviewed news stories/five ready services; Gemini release942dd77c and Pets release6536f842 are publicly verified. September12 nine/five, September11 thirteen/five, September10 six/four; September9 remains service-only. | At21:07UTC checker reports zero actionable pending leads and named source holds. Retry at16:00Vancouver; full reporting for Trump safeguards remains unavailable. Gemini local/live68 checks, exact seven-file preservation and keyboard Library journey passed. Use actual coverage dispositions, not a story quota. |
-| Unattended operation | Existing heartbeat is configured; September10 recovery invocation observed. September11 morning checks happened during active foreground work. | Observe an actual unattended research-to-publication cycle and its dated result. Configuration and a manual recovery do not establish that outcome. |
+| Major-story coverage and daily delivery | September15 has nine reviewed news stories/five services. Six recovery stories publicly verified: Gemini Live, school privacy, Gates access, graduate jobs, Congress and ZAI. Final release689fc0d7 preserves815 other provider identities;75 live reader assertions and article/book journeys pass. | Current60-lead intake has no actionable pending lead; named source holds and AIDB partial-channel review remain. Next existing20:00Vancouver phase checks due admissible sources and prepares September16, including Weekly. No quota or quiet-news claim. See evidence/recovery-1600-20260915/final-delivery-check.json. |
+| Unattended operation | Existing heartbeat ACTIVE; September15 07:01trigger and07:54publication observed. Runtime startup at10:00:32 for this task is recorded, but trigger identity and unfinished-cycle cause are not established. | Observe an actual unattended research-to-publication cycle and its dated result. Existing next run03:00UTC/20:00Vancouver; no speculative scheduler change. See evidence/recovery-1600-20260915/schedule-telemetry-review.json. |
+
 
 ## Delivered with bounded evidence
 

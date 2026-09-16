@@ -16196,3 +16196,7 @@ Three new stories exposed a validator assumption that every story belonged to th
 - Prevention: exact reviewer/principal, clock and process output must accompany admission; explicitly disposition superseded decisions rather than leaving multiple accepted-looking records. The checker found the conflict before release.
 - Separate harness limitation: live browser assertions and journeys emitted PASS and saved artifacts but Node handles kept running; only owned completed processes were terminated, exit143 recorded honestly.
 - Evidence: operations/product-stewards/newsstand/evidence/morning-20260915/. No BehindtheBuild public prose created.
+
+
+## September15 recovery — preserve source truth and complete reader links
+Root caught missing required Librarylinks in Census/Congress producer outputs before publication, repaired/reviewed finalprose and rebound art. ZAI included its bookbackground before review. GenericCensus reusedart and extraZAIdiagrams were held/repaired with originalattempts retained. Sourcefreshness now admits only checksum-bound legitimate recovery review of a retained nonretryableblock; it never labels that blockedpage asread. Meaningful missing/tampered/future/wrong-source negatives passed. Finalcoverage detected discoverylandingpage versus citedPDF mismatch; exactPDFidentity added without rewriting discoveryhistory. The operatingclock remains unresolved: target startupat10:00isobserved, not proof of dispatchorigin or successful unattendedpublication. Evidence: recovery-1600-20260915/. No publicBehindtheBuild invented.

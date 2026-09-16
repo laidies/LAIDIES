@@ -1,0 +1,84 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "gemini-live-38-20260915",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "2dcb20f77f8b9eac23aa3fba0dd2fe40b8021014080cba9da1e8e1b882e93e52",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why can Gemini's voice sound finished with your day-trip plan while the actual work is not done, and why does even a finished plan still need checking?",
+      "response": "Because the spoken conversation and the problem-solving run on separate tracks: Extended Thinking keeps streaming speech while background reasoning continues, so the end of a spoken turn is a conversational signal, not a completion signal — Google's own developer documentation separates the two. And even once processing genuinely finishes, the output is a plan the model produced, not a verified fact, so real-world details like opening hours and travel times still need independent checking.",
+      "expectedEvidence": "P003 establishes background reasoning while conversation continues; P005 states the documentation explicitly separates a completed speaking turn from finished background processing and adds that finishing does not establish correctness.",
+      "assessment": "The article's mechanism fully supports this answer in ordinary language; a reader who absorbed P003 and P005 can reconstruct both halves of the causal chain unaided."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Should she treat the confident spoken confirmation as proof the booking reflects eight people and an outside table?",
+      "response": "No. The article's mechanism says speech and background work are decoupled: the assistant can acknowledge and narrate while the booking task is still processing, and a completed spoken turn does not mean the system is idle. She should check the actual booking confirmation — the emailed or in-app reservation record — to verify party size and the outside table, exactly as the article advises inspecting whether the final plan reflects the changed constraint.",
+      "expectedEvidence": "P003 (processing while conversation continues), P005 (spoken reply is not proof work is finished, and finishing is not proof of correctness), P007 (change one constraint, then inspect the final result).",
+      "assessment": "The transfer succeeds without any information beyond the article: the narration-vs-result distinction and the inspect-the-final-artifact action apply directly to this new booking situation."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "Who (Google), what (two live voice models), when (September 15), where each rolls out, and the causal difference between them are all clear (P002, P003).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google announced Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking on September 15. These are models—the trained components behind AI responses—built for live voice conversations. Google says 3.8 Live is rolling out in Search Live, while Extended Thinking is rolling out in Gemini Live.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The difference is in what happens while Gemini speaks. Google’s documentation describes 3.8 Live as the default for quick dialogue; Extended Thinking is designed for more demanding, multi-step problems. It can perform <strong>background reasoning</strong>: processing a problem while the spoken conversation continues.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'Models' glossed as the trained components behind responses; 'background reasoning' glossed as processing while the spoken conversation continues, both at first meaningful use (P002, P003).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google announced Gemini 3.8 Live and Gemini 3.8 Live Extended Thinking on September 15. These are models—the trained components behind AI responses—built for live voice conversations. Google says 3.8 Live is rolling out in Search Live, while Extended Thinking is rolling out in Gemini Live.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The difference is in what happens while Gemini speaks. Google’s documentation describes 3.8 Live as the default for quick dialogue; Extended Thinking is designed for more demanding, multi-step problems. It can perform <strong>background reasoning</strong>: processing a problem while the spoken conversation continues.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequence is grounded in a specific reader situation: a voice-planned family trip with a mid-conversation constraint change and a check of the final plan (P004, P006, P007).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Imagine discussing a family day trip, then adding: “It might rain, and we need to be home by five.” The aim is to keep that conversation moving while the system works through the changed plan. That is more useful for a back-and-forth discussion than a simple question you could type and read once.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Google also lists Extended Thinking for Workspace: Docs for Google AI Pro and Ultra subscribers, and Gmail and Keep for all Google AI subscribers. Those are paid-plan boundaries, not a claim that every account received every feature today. Consumer features are rolling out; the announcement does not establish availability on your particular account.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>If the upgraded experience reaches you, try a harmless day-trip outline. Change one constraint mid-conversation, then inspect whether the final plan actually reflects it. For a routine email or one-line question, an existing typed chat may be enough; there is no need to buy a plan just to test the idea.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes appear; all advice follows from sourced facts (paid-plan boundaries, turn-vs-completion documentation) rather than invention (P006, P007).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Google also lists Extended Thinking for Workspace: Docs for Google AI Pro and Ultra subscribers, and Gmail and Keep for all Google AI subscribers. Those are paid-plan boundaries, not a claim that every account received every feature today. Consumer features are rolling out; the announcement does not establish availability on your particular account.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>If the upgraded experience reaches you, try a harmless day-trip outline. Change one constraint mid-conversation, then inspect whether the final plan actually reflects it. For a routine email or one-line question, an existing typed chat may be enough; there is no need to buy a plan just to test the idea.</p>",
+          "locator": "P007"
+        }
+      ]
+    }
+  }
+}
