@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "newsstand-breast-hold-identity-review-v1",
+  "recordedAt": "2026-09-16T03:13:40.721436+00:00",
+  "reviewer": "/root/aft_school_story",
+  "disposition": "SAME_UNDERLYING_STUDY_PRESERVE_BOTH_LEAD_IDENTITIES_PENDING_ROOT_RECONCILIATION",
+  "noNewWebSweep": true,
+  "reasonNoNewSweep": "Existing complete recovery already establishes the event family and exact independent clinical-limit source; root instructed no redundant sweep once identity confirmed.",
+  "coverageSource": {
+    "path": "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+    "sha256": "e34f687f22d87859981f39a0fa205d7547e7f7f5e95733ad845855b8c3385d3b"
+  },
+  "coverageRows": [
+    {
+      "id": "proteintalks-20260909",
+      "event": "September9 virtual-cell proteomics study",
+      "sourceUrls": [
+        "https://www.nature.com/articles/s41586-026-11001-9"
+      ],
+      "status": "EVIDENCE_BLOCKED",
+      "attemptedRecovery": "Normal permitted distinct-source recovery at 2026-09-14T22:57:56Z; Admissible full methods/results and independent clinical-limit verification. September15 13:00 legitimate distinct-source recovery captured under evidence/recovery-1300-20260915; exact blockedoriginals were not retried; source gaps remain.",
+      "missingInput": "Admissible full methods/results and independent clinical-limit verification.",
+      "nextCheckAt": "2026-09-16T03:00:00Z",
+      "owner": "/root",
+      "sourceReview": "operations/product-stewards/newsstand/evidence/news-20260914/late-source-holds.json",
+      "nextAction": "Continue single ProteinTalks candidate only when missing scientific evidence becomes admissible; both intake records are one family.",
+      "candidatePath": "operations/product-stewards/newsstand/candidates/proteintalks-20260914/research-hold.json",
+      "recoveryDecisionAt": "2026-09-15T23:12:33.426361+00:00",
+      "sourceRecoveryEvidence": "operations/product-stewards/newsstand/evidence/recovery-1300-20260915/independent-proteintalks-recovery.json"
+    },
+    {
+      "id": "nature-breast-cancer-drug-prediction-20260909",
+      "event": "Nature news report, September 9: AI model predicts which breast-cancer drugs work best",
+      "sourceUrls": [
+        "https://www.nature.com/articles/d41586-026-02845-2"
+      ],
+      "status": "EVIDENCE_BLOCKED",
+      "attemptedRecovery": "Normal permitted distinct-source recovery at 2026-09-14T22:57:56Z; Accessible independent medical reporting or expert context that verifies the clinical limits of the research. September15 13:00 legitimate distinct-source recovery captured under evidence/recovery-1300-20260915; exact blockedoriginals were not retried; source gaps remain.",
+      "missingInput": "Accessible independent medical reporting or expert context that verifies the clinical limits of the research.",
+      "nextCheckAt": "2026-09-16T03:00:00Z",
+      "owner": "/root",
+      "sourceReview": "operations/product-stewards/newsstand/evidence/news-20260914/late-source-holds.json",
+      "nextAction": "Continue single ProteinTalks candidate only when missing scientific evidence becomes admissible; both intake records are one family.",
+      "candidatePath": "operations/product-stewards/newsstand/candidates/proteintalks-20260914/research-hold.json",
+      "recoveryDecisionAt": "2026-09-15T23:12:33.426361+00:00",
+      "sourceRecoveryEvidence": "operations/product-stewards/newsstand/evidence/recovery-1300-20260915/independent-proteintalks-recovery.json"
+    }
+  ],
+  "identityEvidence": {
+    "natureNewsRowUrl": "https://www.nature.com/articles/d41586-026-02845-2",
+    "proteinTalksPrimaryStudyUrl": "https://www.nature.com/articles/s41586-026-11001-9",
+    "studyTitle": "An operational perturbation proteomics-based virtual cell model",
+    "doi": "10.1038/s41586-026-11001-9",
+    "pubmedId": "42717098",
+    "sameStudyBasis": [
+      "The Nature news row describes an AI model predicting breast-cancer drug response and routes by nextAction/candidatePath to the single ProteinTalks candidate.",
+      "The ProteinTalks recovery binds the primary study title/DOI/PMID and the same September9 event.",
+      "The independent La Vanguardia report explicitly names ProteinTalks and links its report to the same Nature study."
+    ],
+    "limitation": "This establishes shared underlying study identity, not equivalence of the two Nature URLs or duplicate coverage-record identity."
+  },
+  "exactRequestedMissingInput": "Accessible independent medical reporting or expert context that verifies the clinical limits of the research.",
+  "clinicalLimitRecovery": {
+    "url": "https://www.lavanguardia.com/neo/ia/20260914/11634020/ia-crea-celula-virtual-probar-farmacos-cancer-administrarlos-epm.html",
+    "role": "Distinct independent publisher reporting on exact ProteinTalks study",
+    "readScope": "Complete core body lines132\u2013177 in preserved normal-web capture; boundary lines153\u2013176 distinguish laboratory cell-response classification and retrospective biopsy analysis from prospective treatment selection and improved patient outcomes.",
+    "capture": {
+      "path": "operations/product-stewards/newsstand/evidence/evening-20260915/independent-capture-complete.json",
+      "sha256": "166fb3567ae763c8a100fae817b7b238c365b908898fed1ff15e251486fa8573"
+    },
+    "assessment": "Satisfies the coverage row\u2019s narrow request for accessible independent medical reporting/context on clinical limits. It does not satisfy the unified candidate\u2019s separate primary-methods requirement because it is reporting, not the full paper.",
+    "specificBoundaries": [
+      "Reported approximately88% classification concerns unseen-drug cellular response, not correct treatment for88% of patients.",
+      "Patient biopsy analysis was retrospective.",
+      "No prospective study showed model-selected therapy improved patient outcomes.",
+      "Model covers protein abundance and omits important tumor complexity described by the report."
+    ],
+    "dedicatedExtract": {
+      "path": "operations/product-stewards/newsstand/evidence/evening-20260915/extra-recovery-breast-clinical-limit-capture.json",
+      "sha256": "8b8bae2368a58f1a33756884de12d1baed1b08754d7e990468f9c55e6edd85be",
+      "timestampMeaning": "Derived record creation, not a renewed source read."
+    }
+  },
+  "unifiedCandidateHold": {
+    "path": "operations/product-stewards/newsstand/candidates/proteintalks-20260914/research-hold.json",
+    "sha256": "120c3670c1983783251feb0a51cb6ad30c77a144baf134a3c1731a592239abb8",
+    "status": "REMAINS_HELD",
+    "remainingInput": "Complete accessible primary methods/results and train/test conditions, plus exact benchmark/clinical-claim verification.",
+    "priorRecovery": {
+      "path": "operations/product-stewards/newsstand/evidence/recovery-1300-20260915/independent-proteintalks-recovery.json",
+      "sha256": "54b169eec3511e3e83cc80aa4750924e238762bca222239321cde4ac18f78cab"
+    }
+  },
+  "recordHandling": {
+    "preserveLeadIds": [
+      "proteintalks-20260909",
+      "nature-breast-cancer-drug-prediction-20260909"
+    ],
+    "sharedCoverageMutation": false,
+    "sourceCursorMutation": false,
+    "publicWrite": false,
+    "rootNextAction": "Reconcile both lead identities to one event family while retaining each historical identity; distinguish narrow row recovery from unified candidate production hold."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "laidies-content-producer-contract-check-execution.v1",
+  "candidateId": "mathematicians-ai-research-values-20260916",
+  "command": "node scripts/check-content-producer-contract.mjs operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/producer-contract.json",
+  "exitCode": 0,
+  "stdout": "CONTENT PRODUCER CONTRACT INTEGRITY MATCH status=READY_TO_DRAFT quality_authority=none",
+  "stderr": "",
+  "result": "PASS",
+  "calibration": {
+    "mutation": "draftArchitecture.analogyPlan changed from array to string",
+    "exitCode": 1,
+    "result": "REJECTED",
+    "output": "file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/scripts/check-content-producer-contract.mjs:112\n  for (const [index, analogy] of (architecture?.analogyPlan || []).entries()) {\n                                                                   ^\n\nTypeError: ((intermediate value) || []).entries is not a function or its return value is not iterable\n    at inspectContentProducerContract (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/scripts/check-content-producer-contract.mjs:112:68)\n    at main (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/scripts/check-content-producer-contract.mjs:180:18)\n    at file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/scripts/check-content-producer-contract.mjs:189:90\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:643:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.18.0"
+  }
+}
