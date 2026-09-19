@@ -1,0 +1,84 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "claude-cowork-merge-20260916",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "b665d947c5d535c4c15c2099b2d097b8f79052103e89915befefdc61a30c74a7",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "If Chat and Cowork are now one conversation, why does Claude still sometimes stop and ask me before doing things, and why might a task die when I close my laptop?",
+      "response": "The merge only removed the up-front choice of which mode to open; it did not remove the permission layer that governs actions. On the default Manual setting, Claude asks before each action and you approve or refuse it; switching that conversation to Auto reduces those check-ins. The setting applies to the whole conversation, so one choice governs all its actions. Separately, where the work runs determines survival: tasks touching files or apps on your computer need Claude Desktop open, so closing the laptop stops them, while tasks running in the cloud can keep going after the lid closes.",
+      "expectedEvidence": "An accurate answer must use P005 (Manual asks before actions, Auto reduces check-ins, conversation-level scope), P007 (Desktop open for local work, cloud continues), and P004/P008 (doorway removed, decisions remain), without claiming the merge guarantees success or autonomy.",
+      "assessment": "The article fully supports this answer: every causal step comes from P004, P005, P007 and P008 with no gaps or invented material, so explain-back passes."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using only the article's mechanism, what should she set and expect, and where will her plan break?",
+      "response": "She should keep the conversation on Manual so Claude asks before acting on each receipt file, name exactly which folder it may read, and verify every extracted amount against the original PDFs before trusting the spreadsheet. Her plan breaks at the train: because the receipts live on her laptop, this is local work that needs Claude Desktop open, so closing the lid stops it. Only cloud-run work continues after closure. She should either let the task finish before leaving or move the files to a cloud-accessible location first. Auto for the whole conversation would reduce check-ins but would apply to every action in it, so it is disproportionate for financial documents.",
+      "expectedEvidence": "Correct application of P005 (Manual default, Auto scope, conversation-wide setting), P006's pattern of named inputs plus verification against originals, and P007's local-versus-cloud continuation rule to a situation the article never mentions.",
+      "assessment": "The mechanism transfers cleanly with no additional facts required; the article's permission and execution model fully determines the answer, so unseen transfer passes."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The event, its date, what merges, and the staged rollout sequence are all stated causally and understandably.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Anthropic announced September 16 that it is merging Claude chat and Cowork into one Claude experience. A person can ask a quick question or hand over a longer, multi-step task without choosing a mode first.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Rollout is gradual: Pro and Max first across web, desktop and mobile. Team and Free follow; Enterprise gets at least 30 days’ notice. Same-plan accounts may differ.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Manual, Auto, conversation scope, and local versus cloud execution each gain plain meaning at first meaningful use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>LAiDIES would use the longer-work option when a task has named inputs and a document to check. Anthropic says Manual asks before actions; Auto reduces check-ins. The setting covers the conversation. Those are vendor descriptions, not proof a task will finish well.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>Local work needs Claude Desktop open; cloud work may continue after the laptop closes. If separate Chat and Cowork choices remain, keep using them.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequence is grounded in a specific situation: a household maintenance checklist from three attached manuals, verified against originals.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Once the new experience reaches your account, attach three appliance manuals and ask Claude to make an editable seasonal-maintenance checklist. Keep the conversation on Manual, name the manuals it may use and inspect every date or safety instruction against the originals.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Local work needs Claude Desktop open; cloud work may continue after the laptop closes. If separate Chat and Cowork choices remain, keep using them.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or process details; all advice follows from documented Manual/Auto and execution behavior, flagged as vendor descriptions.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>LAiDIES would use the longer-work option when a task has named inputs and a document to check. Anthropic says Manual asks before actions; Auto reduces check-ins. The setting covers the conversation. Those are vendor descriptions, not proof a task will finish well.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>Once the new experience reaches your account, attach three appliance manuals and ask Claude to make an editable seasonal-maintenance checklist. Keep the conversation on Manual, name the manuals it may use and inspect every date or safety instruction against the originals.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "Background: <a href=\\\"/library.html#working-with-ai-101::%40add-to-your-working-with-ai-kit-10\\\">Working with AI 101 — Add to Your Working With AI Kit</a> shows how to write one authority line: what an agent may do, when it must ask and when it must stop.",
+          "locator": "P009"
+        }
+      ]
+    }
+  }
+}

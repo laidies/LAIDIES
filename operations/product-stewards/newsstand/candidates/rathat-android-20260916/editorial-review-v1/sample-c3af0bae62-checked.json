@@ -1,0 +1,491 @@
+{
+  "kind": "calibration",
+  "startedAt": "2026-09-19T17:36:47.916Z",
+  "replayedAt": null,
+  "completedAt": "2026-09-19T17:37:53.606Z",
+  "requestedModel": "claude-fable-5",
+  "providerModel": [
+    "claude-haiku-4-5-20251001",
+    "claude-fable-5"
+  ],
+  "providerId": "af15d901-9f28-4202-8773-51f62a76f64e",
+  "usage": {
+    "input_tokens": 2,
+    "cache_creation_input_tokens": 18858,
+    "cache_read_input_tokens": 0,
+    "output_tokens": 5258,
+    "output_tokens_details": {
+      "thinking_tokens": 2566
+    },
+    "server_tool_use": {
+      "web_search_requests": 0,
+      "web_fetch_requests": 0
+    },
+    "service_tier": "standard",
+    "cache_creation": {
+      "ephemeral_1h_input_tokens": 18858,
+      "ephemeral_5m_input_tokens": 0
+    },
+    "inference_geo": "not_available",
+    "iterations": [
+      {
+        "input_tokens": 2,
+        "output_tokens": 5258,
+        "cache_read_input_tokens": 0,
+        "cache_creation_input_tokens": 18858,
+        "cache_creation": {
+          "ephemeral_5m_input_tokens": 0,
+          "ephemeral_1h_input_tokens": 18858
+        },
+        "type": "message",
+        "model": null
+      }
+    ],
+    "speed": "standard"
+  },
+  "attestations": {
+    "artifactFirst": true,
+    "independentFromMaker": true,
+    "completeTextRead": true
+  },
+  "requestSha256": "6a30cdde2109bf44a9b9be4a2beef6649cb5cc1d0d4acf1d362c490c7d32c2aa",
+  "rawSha256": "205fc64841a450ea21e76f7d362dc9ba1510de7d5a8177be0d92815d971d3701",
+  "protocolSha256": "7d5c9426f84748a80fce818b4d4bb85a41666f70ba8cebb0a9c680e21151e837",
+  "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+  "families": {
+    "glossaryAccumulation": {
+      "state": "uncertain",
+      "reason": "Nine successive term definitions dominate the chapter; one-line placement sentences and the handover thread supply some system connection, but the connective tissue stays thin relative to the accumulated definitions.",
+      "passages": [
+        "P003",
+        "P019",
+        "P027"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "Model types\nDifferent models are built for different transformations: language generation, image generation, speech recognition, classification, forecasting, recommendation, ranking, object detection or control.",
+          "locator": "P019"
+        },
+        {
+          "excerpt": "Generative AI\nGenerative AI produces new content—such as text, images, audio, video or code—from learned patterns and current input.",
+          "locator": "P027"
+        }
+      ],
+      "artifactLocator": "P003, P019, P027"
+    },
+    "templateRepetition": {
+      "state": "present",
+      "reason": "Every entry repeats the identical scaffold—definition, analogy with 'Where it stops:', 'In real life.', boundary sentence—so a fixed template substitutes for a developing explanation.",
+      "passages": [
+        "P004",
+        "P008",
+        "P016"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+          "locator": "P008"
+        },
+        {
+          "excerpt": "Think of the mechanism inside a Walkman: essential to what happens, but not the cassette you chose, the buttons you pressed or the headphones you hear through. Where it stops: models perform learned mathematical transformations; generative models such as LLMs use probabilities to produce content, while other model types may classify, rank, forecast or detect.",
+          "locator": "P016"
+        }
+      ],
+      "artifactLocator": "P004, P008, P016"
+    },
+    "decorativeAnalogy": {
+      "state": "clear",
+      "reason": "Each analogy (team, Walkman, toolbox, librarian) maps to a specific component role and explicitly states where the comparison stops, so they carry explanatory weight rather than flavour.",
+      "passages": [
+        "P016",
+        "P020",
+        "P036"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Think of the mechanism inside a Walkman: essential to what happens, but not the cassette you chose, the buttons you pressed or the headphones you hear through. Where it stops: models perform learned mathematical transformations; generative models such as LLMs use probabilities to produce content, while other model types may classify, rank, forecast or detect.",
+          "locator": "P016"
+        },
+        {
+          "excerpt": "A toolbox contains different tools for different jobs. Where it stops: models are not fixed hand tools; one model may perform several tasks and products may combine models.",
+          "locator": "P020"
+        },
+        {
+          "excerpt": "Miss Jeeves can answer from what is on her desk or use the catalogue, calculator or scanner. Each tool changes what she can do. Where it stops: AI tools can carry permissions, external data and automated consequences; the model using one is not a responsible librarian.",
+          "locator": "P036"
+        }
+      ],
+      "artifactLocator": "P016, P020, P036"
+    },
+    "referenceConfetti": {
+      "state": "uncertain",
+      "reason": "Clueless, the Walkman and an unintroduced 'Miss Jeeves' accumulate as period pop references; each is given a mapping job, but Miss Jeeves arrives without context and the density edges toward confetti.",
+      "passages": [
+        "P012",
+        "P016",
+        "P036"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+          "locator": "P012"
+        },
+        {
+          "excerpt": "Think of the mechanism inside a Walkman: essential to what happens, but not the cassette you chose, the buttons you pressed or the headphones you hear through. Where it stops: models perform learned mathematical transformations; generative models such as LLMs use probabilities to produce content, while other model types may classify, rank, forecast or detect.",
+          "locator": "P016"
+        },
+        {
+          "excerpt": "Miss Jeeves can answer from what is on her desk or use the catalogue, calculator or scanner. Each tool changes what she can do. Where it stops: AI tools can carry permissions, external data and automated consequences; the model using one is not a responsible librarian.",
+          "locator": "P036"
+        }
+      ],
+      "artifactLocator": "P012, P016, P036"
+    },
+    "missingMechanism": {
+      "state": "clear",
+      "reason": "For a parts-map chapter the causal placements (context assembled, model transforms, tools connect around it) are supplied, and deeper mechanism like tokens is explicitly deferred to Chapter 2 rather than omitted.",
+      "passages": [
+        "P014",
+        "P018",
+        "P038"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "The product receives your request and assembles what reaches the model.",
+          "locator": "P014"
+        },
+        {
+          "excerpt": "The model sits inside the product, after context is assembled and before the output returns to you.",
+          "locator": "P018"
+        },
+        {
+          "excerpt": "Tools connect around the model. Having one available does not prove it was used, or used well.",
+          "locator": "P038"
+        }
+      ],
+      "artifactLocator": "P014, P018, P038"
+    },
+    "genericAction": {
+      "state": "clear",
+      "reason": "Advice is concrete for the case, such as checking names, dates and small labels against originals rather than a bare 'verify'.",
+      "passages": [
+        "P033"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "In real life. You can give the product a photographed whiteboard and typed policy, but must still check names, dates and small labels against the originals.",
+          "locator": "P033"
+        }
+      ],
+      "artifactLocator": "P033"
+    },
+    "jargonBeforeMeaning": {
+      "state": "clear",
+      "reason": "Technical terms are defined at first meaningful use, and 'tokens' is flagged with an explicit forward pointer rather than left unexplained.",
+      "passages": [
+        "P023",
+        "P015"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Large language model (LLM)\nAn LLM is a model trained to work with language. It reads and produces text in small pieces called tokens; Chapter 2 explains tokens in full.",
+          "locator": "P023"
+        },
+        {
+          "excerpt": "Model\nA model is the trained mathematical component that transforms input into output.",
+          "locator": "P015"
+        }
+      ],
+      "artifactLocator": "P023, P015"
+    },
+    "disconnectedSystem": {
+      "state": "clear",
+      "reason": "Placement sentences trace how the request, assembled context, model output and tools relate, so the named parts are connected into a flow.",
+      "passages": [
+        "P014",
+        "P018",
+        "P038"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "The product receives your request and assembles what reaches the model.",
+          "locator": "P014"
+        },
+        {
+          "excerpt": "The model sits inside the product, after context is assembled and before the output returns to you.",
+          "locator": "P018"
+        },
+        {
+          "excerpt": "Tools connect around the model. Having one available does not prove it was used, or used well.",
+          "locator": "P038"
+        }
+      ],
+      "artifactLocator": "P014, P018, P038"
+    },
+    "factlessConfidence": {
+      "state": "clear",
+      "reason": "Claims are hedged proportionately ('may', 'does not prove') and the prose repeatedly limits rather than overclaims.",
+      "passages": [
+        "P024",
+        "P030"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "It is an extremely capable pattern-completion system for language. Where it stops: “completion” does not mean simple autocomplete, and fluent language does not prove understanding or truth.",
+          "locator": "P024"
+        },
+        {
+          "excerpt": "“Generative” describes the kind of output; it does not mean verified, original in the legal sense or correct.",
+          "locator": "P030"
+        }
+      ],
+      "artifactLocator": "P024, P030"
+    },
+    "staleUnreviewableClaims": {
+      "state": "clear",
+      "reason": "No dated or time-sensitive factual claims are made that would require tracing to a source.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "state": "clear",
+      "reason": "Language is plain and concrete throughout, with no motivational or corporate filler obscuring meaning.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "state": "uncertain",
+      "reason": "The warm second person and playful analogies partially offset it, but the rigid definition-per-entry format still reads in stretches like a terminology manual.",
+      "passages": [
+        "P019",
+        "P031"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Model types\nDifferent models are built for different transformations: language generation, image generation, speech recognition, classification, forecasting, recommendation, ranking, object detection or control.",
+          "locator": "P019"
+        },
+        {
+          "excerpt": "Multimodal\nA multimodal system can work with more than one kind of material, such as text, images and audio.",
+          "locator": "P031"
+        }
+      ],
+      "artifactLocator": "P019, P031"
+    },
+    "benchmarkNameDrop": {
+      "state": "clear",
+      "reason": "No communication benchmark or famous explainer is invoked anywhere in the artifact as a substitute for explanation.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "state": "clear",
+      "reason": "The chapter raises no unresolved hooks; its opening claim that the distinction 'tells you what to fix' is served by the subsequent parts map.",
+      "passages": [
+        "P002"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+          "locator": "P002"
+        }
+      ],
+      "artifactLocator": "P002"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "state": "clear",
+      "reason": "Each familiar comparison explicitly returns to the technical component via its 'Where it stops' boundary and an 'In real life' application.",
+      "passages": [
+        "P012",
+        "P016"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+          "locator": "P012"
+        },
+        {
+          "excerpt": "Think of the mechanism inside a Walkman: essential to what happens, but not the cassette you chose, the buttons you pressed or the headphones you hear through. Where it stops: models perform learned mathematical transformations; generative models such as LLMs use probabilities to produce content, while other model types may classify, rank, forecast or detect.",
+          "locator": "P016"
+        }
+      ],
+      "artifactLocator": "P012, P016"
+    },
+    "communicationPastiche": {
+      "state": "clear",
+      "reason": "The voice is its own plain register with no imitation of a named communicator's persona, mannerisms or structure.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "state": "clear",
+      "reason": "Humour and pop references are brief and subordinate to the definitions; nothing obstructs understanding.",
+      "passages": [
+        "P012"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+          "locator": "P012"
+        }
+      ],
+      "artifactLocator": "P012"
+    },
+    "mechanismCompressedBehindHook": {
+      "state": "clear",
+      "reason": "There is no attention-grabbing hook consuming the piece; explanation occupies essentially all of the text.",
+      "passages": [],
+      "artifactEvidence": [],
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "state": "clear",
+      "reason": "Boundary conclusions in each entry follow their definitions and placements rather than preceding them.",
+      "passages": [
+        "P026",
+        "P034"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "An LLM is one model type, not a synonym for every kind of AI.",
+          "locator": "P026"
+        },
+        {
+          "excerpt": "Multimodal input broadens what can enter the model; it does not remove the evidence check.",
+          "locator": "P034"
+        }
+      ],
+      "artifactLocator": "P026, P034"
+    },
+    "inflatedTakeawayEnding": {
+      "state": "clear",
+      "reason": "The chapter ends on a bounded, precise caution about tools rather than a grand moral.",
+      "passages": [
+        "P038"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Tools connect around the model. Having one available does not prove it was used, or used well.",
+          "locator": "P038"
+        }
+      ],
+      "artifactLocator": "P038"
+    },
+    "purposeTooNarrow": {
+      "state": "present",
+      "reason": "The opening serves only the fix-your-own-AI-result task; the promised transformations of judging public hype/panic and informed civic/workplace participation never appear.",
+      "passages": [
+        "P002",
+        "P005",
+        "P037"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+          "locator": "P037"
+        }
+      ],
+      "artifactLocator": "P002, P005, P037"
+    },
+    "mechanismBeforeMotivation": {
+      "state": "present",
+      "reason": "This opening launches directly into system taxonomy at P002–P003 without first establishing the three destination-level reader transformations, and the reader job forbids assuming an unseen preface supplied them.",
+      "passages": [
+        "P001",
+        "P002",
+        "P003"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "Chapter 1 — Meet the parts of the system",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+          "locator": "P003"
+        }
+      ],
+      "artifactLocator": "P001, P002, P003"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "state": "present",
+      "reason": "The single handover-draft example carries every 'In real life' beat, crowding out the broader cross-context orientation—public claims, decisions, civic stakes—the book promises.",
+      "passages": [
+        "P005",
+        "P025",
+        "P037"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+          "locator": "P025"
+        },
+        {
+          "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+          "locator": "P037"
+        }
+      ],
+      "artifactLocator": "P005, P025, P037"
+    },
+    "technicalExplainerVoice": {
+      "state": "present",
+      "reason": "Despite second-person warmth, what the reader is asked to care about is tracing components and workflow ('tells you what to fix', what 'reaches the model'), not the promised practical and civic orientation.",
+      "passages": [
+        "P002",
+        "P014",
+        "P018"
+      ],
+      "artifactEvidence": [
+        {
+          "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "The product receives your request and assembles what reaches the model.",
+          "locator": "P014"
+        },
+        {
+          "excerpt": "The model sits inside the product, after context is assembled and before the output returns to you.",
+          "locator": "P018"
+        }
+      ],
+      "artifactLocator": "P002, P014, P018"
+    }
+  },
+  "verdict": "REJECT",
+  "summary": "A carefully bounded, honest parts-map chapter with real connective structure and a useful running example, but as the book's actual opening it fails the supplied reader job: technical taxonomy begins before the three promised reader transformations are established, a rigid nine-entry template replaces a developing explanation, and one workplace worked example plus a workflow-inspection orientation crowd out the broader hype-judging and civic-participation purpose the destination promises.",
+  "strengths": [
+    "Consistent 'Where it stops' discipline gives every analogy an honest limitation, preserving technical truth and pre-empting hype.",
+    "The recurring handover-email example makes each abstract component concrete and traceable through one lived situation.",
+    "Explicit dataflow placement sentences (P014, P018, P038) connect the parts into a working system rather than a bare word list.",
+    "Boundary claims are proportionate and hedged, avoiding factless confidence about what models or tools guarantee."
+  ]
+}

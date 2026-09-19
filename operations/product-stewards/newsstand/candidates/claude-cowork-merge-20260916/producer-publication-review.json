@@ -12,20 +12,20 @@
     "role": "Producer exact complete prose read",
     "modelFamily": "openai"
   },
-  "reviewedAt": "2026-09-19T17:28:21.294Z",
+  "reviewedAt": "2026-09-19T17:41:30.769Z",
   "verdict": "PASS",
   "artifact": {
     "manifest": {
       "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/publication-manifest.json",
-      "sha256": "ae7628a67f9a6ac92d16526fc76169521389eeaa19e37c302dab75b56af3573a"
+      "sha256": "55038509dacc6a319d6711f09e8a4965ca00a5d5b8aee9aedc8eabf6b9ecdf3b"
     },
     "reviewText": {
       "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/review-text.json",
-      "sha256": "cea38efe432648fea42d9620a0c2a3f22a7cba49cf4ae3503d9a60ed8061fbdd"
+      "sha256": "b665d947c5d535c4c15c2099b2d097b8f79052103e89915befefdc61a30c74a7"
     },
     "rendered": {
       "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/rendered-article.html",
-      "sha256": "025845ecf4c9cb0e58d848173609929b0ea11eaa466de3733d2dc5e32cbb91d2"
+      "sha256": "5ef171467bc5c10c386e769379fa1476a3c206999f9df47b7f1ebae259ce3674"
     }
   },
   "reviewMetricsPolicy": {
@@ -114,7 +114,7 @@
       "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
       "artifactEvidence": [
         {
-          "excerpt": "The setting covers the whole conversation, so check it before a longer task.",
+          "excerpt": "LAiDIES would use the longer-work option when a task has named inputs and a document to check.",
           "locator": "complete exact story"
         }
       ]
@@ -134,7 +134,7 @@
       "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
       "artifactEvidence": [
         {
-          "excerpt": "The change removes a doorway; it does not promise that every task will succeed.",
+          "excerpt": "The change removes a doorway; it does not promise every task will succeed.",
           "locator": "complete exact story"
         }
       ]
@@ -144,7 +144,7 @@
       "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
       "artifactEvidence": [
         {
-          "excerpt": "Local folders or apps require Claude Desktop to stay open; a cloud task may continue after you close the laptop.",
+          "excerpt": "Those are vendor descriptions, not proof a task will finish well.",
           "locator": "complete exact story"
         }
       ]
@@ -214,8 +214,8 @@
       "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
       "artifactEvidence": [
         {
-          "excerpt": "One conversation may answer, then use tools and several steps to produce a file.",
-          "locator": "LAiDIES Read"
+          "excerpt": "A person can ask a quick question or hand over a longer, multi-step task without choosing a mode first.",
+          "locator": "The Story"
         }
       ],
       "simulatedReaderProbe": {
@@ -230,7 +230,7 @@
       "observation": "The complete producer read keeps the removed mode choice, staged rollout, permission boundary and one low-risk household task connected without promising performance.",
       "artifactEvidence": [
         {
-          "excerpt": "The setting covers the whole conversation, so check it before a longer task.",
+          "excerpt": "Anthropic says Manual asks before actions; Auto reduces check-ins.",
           "locator": "LAiDIES Read"
         }
       ],
@@ -389,7 +389,7 @@
     "sourceBindings": [
       {
         "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-input.json",
-        "sha256": "c0ddae9c10dc87dc3cf74515c28cb56e7a08987c2e4b3aa56e816c1dc40d6386"
+        "sha256": "6d135d85c69dd0289db87da55a65404264fdeffd5d06075835b4749d7873f440"
       },
       {
         "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/source-packet.json",
@@ -423,7 +423,7 @@
         "status": "QUALIFIED",
         "sourceBinding": {
           "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-input.json",
-          "sha256": "c0ddae9c10dc87dc3cf74515c28cb56e7a08987c2e4b3aa56e816c1dc40d6386"
+          "sha256": "6d135d85c69dd0289db87da55a65404264fdeffd5d06075835b4749d7873f440"
         }
       },
       {
@@ -431,7 +431,7 @@
         "claim": "Rollout is gradual, beginning with Pro and Max; same-plan accounts can differ; Team and Free follow; Enterprise receives at least 30 days notice.",
         "candidateEvidence": [
           {
-            "excerpt": "Rollout is gradual: Pro and Max first across web, desktop and mobile. Same-plan accounts may differ. Team and Free follow; Enterprise gets at least 30 days’ notice.",
+            "excerpt": "Rollout is gradual: Pro and Max first across web, desktop and mobile. Team and Free follow; Enterprise gets at least 30 days’ notice. Same-plan accounts may differ.",
             "locator": "The Story"
           }
         ],
@@ -441,31 +441,27 @@
         ],
         "sourceEvidence": [
           {
-            "excerpt": "This is rolling out to Pro and Max plans first, in the Claude app on web, desktop, and mobile",
+            "excerpt": "This is rolling out to Pro and Max plans first, in the Claude app on web, desktop, and mobile over the coming weeks to existing and new users on these plans. There’s nothing to turn on. Team and Free plans will follow soon, and Enterprise admins will hear from us at least 30 days before anything changes for their organizations.",
             "locator": "https://claude.com/blog/cowork-is-now-claude"
           },
           {
             "excerpt": "even accounts on the same plan will see the changes at different times",
             "locator": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude"
-          },
-          {
-            "excerpt": "Enterprise admins will hear from us at least 30 days before anything changes",
-            "locator": "https://claude.com/blog/cowork-is-now-claude"
           }
         ],
         "scopeAndFreshness": "Staged provider rollout, not universal availability; reread September 19.",
         "status": "QUALIFIED",
         "sourceBinding": {
           "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-input.json",
-          "sha256": "c0ddae9c10dc87dc3cf74515c28cb56e7a08987c2e4b3aa56e816c1dc40d6386"
+          "sha256": "6d135d85c69dd0289db87da55a65404264fdeffd5d06075835b4749d7873f440"
         }
       },
       {
         "claimId": "permissions",
-        "claim": "Manual is default and asks before actions; Auto can work with fewer check-ins; the setting covers the whole conversation.",
+        "claim": "Manual asks before actions; Auto reduces check-ins; the setting covers the conversation.",
         "candidateEvidence": [
           {
-            "excerpt": "Manual is the default and asks before actions. Auto can work with fewer check-ins. The setting covers the whole conversation",
+            "excerpt": "Anthropic says Manual asks before actions; Auto reduces check-ins. The setting covers the conversation.",
             "locator": "LAiDIES Read"
           }
         ],
@@ -474,11 +470,7 @@
         ],
         "sourceEvidence": [
           {
-            "excerpt": "Manual (default): Claude asks before it takes actions",
-            "locator": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude"
-          },
-          {
-            "excerpt": "The setting applies to the whole conversation.",
+            "excerpt": "Auto: Claude keeps working without stopping to ask about each step, and automated safety checks run before it takes an action.\nManual (default): Claude asks before it takes actions, and you choose whether to allow each one.\nThe setting applies to the whole conversation.",
             "locator": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude"
           }
         ],
@@ -486,15 +478,15 @@
         "status": "QUALIFIED",
         "sourceBinding": {
           "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-input.json",
-          "sha256": "c0ddae9c10dc87dc3cf74515c28cb56e7a08987c2e4b3aa56e816c1dc40d6386"
+          "sha256": "6d135d85c69dd0289db87da55a65404264fdeffd5d06075835b4749d7873f440"
         }
       },
       {
         "claimId": "execution",
-        "claim": "Local folders or apps require Desktop open; a cloud task may continue after laptop closure.",
+        "claim": "Local work requires Desktop open; cloud work may continue after laptop closure.",
         "candidateEvidence": [
           {
-            "excerpt": "Local folders or apps require Claude Desktop to stay open; a cloud task may continue after you close the laptop.",
+            "excerpt": "Local work needs Claude Desktop open; cloud work may continue after the laptop closes.",
             "locator": "What This Means"
           }
         ],
@@ -503,11 +495,7 @@
         ],
         "sourceEvidence": [
           {
-            "excerpt": "Tasks that use files or apps on your computer need Claude Desktop open.",
-            "locator": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude"
-          },
-          {
-            "excerpt": "More involved tasks keep running in the cloud even if you close your laptop",
+            "excerpt": "Tasks that use files or apps on your computer need Claude Desktop open.\nMore involved tasks keep running in the cloud even if you close your laptop",
             "locator": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude"
           }
         ],
@@ -515,7 +503,7 @@
         "status": "QUALIFIED",
         "sourceBinding": {
           "path": "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-input.json",
-          "sha256": "c0ddae9c10dc87dc3cf74515c28cb56e7a08987c2e4b3aa56e816c1dc40d6386"
+          "sha256": "6d135d85c69dd0289db87da55a65404264fdeffd5d06075835b4749d7873f440"
         }
       }
     ],

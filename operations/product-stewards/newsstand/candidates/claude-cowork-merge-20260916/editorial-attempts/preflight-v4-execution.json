@@ -1,0 +1,19 @@
+{
+  "startedAt": "2026-09-19T17:35:17.564Z",
+  "completedAt": "2026-09-19T17:35:17.737Z",
+  "exitCode": 1,
+  "command": [
+    "node",
+    "operations/product-stewards/newsstand/review-runtime/run-pilot.mjs",
+    "article",
+    "claude",
+    "--candidate-dir",
+    "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/",
+    "--calibration",
+    "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/",
+    "--output",
+    "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-review-v1/"
+  ],
+  "stdout": "",
+  "stderr": "file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/scripts/compact-newsstand-editorial-input.mjs:114\n        throw new Error('Unmatched source evidence for ' + claimId + ' at ' + evidence.locator + '.');\n              ^\n\nError: Unmatched source evidence for event at https://claude.com/blog/cowork-is-now-claude.\n    at file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/scripts/compact-newsstand-editorial-input.mjs:114:15\n    at Array.map (<anonymous>)\n    at compactNewsstandEditorialInput (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/scripts/compact-newsstand-editorial-input.mjs:97:33)\n    at resolveNewsstandEditorialPacket (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/scripts/compact-newsstand-editorial-input.mjs:131:20)\n    at run (file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:73:47)\n    at file:///Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907/operations/product-stewards/newsstand/review-runtime/run-pilot.mjs:179:22\n\nNode.js v24.18.0\n"
+}

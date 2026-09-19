@@ -1,0 +1,19 @@
+{
+  "startedAt": "2026-09-19T17:41:37.737Z",
+  "completedAt": "2026-09-19T17:43:02.133Z",
+  "exitCode": 0,
+  "command": [
+    "node",
+    "operations/product-stewards/newsstand/review-runtime/run-pilot.mjs",
+    "article",
+    "claude",
+    "--candidate-dir",
+    "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/",
+    "--calibration",
+    "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/",
+    "--output",
+    "operations/product-stewards/newsstand/candidates/claude-cowork-merge-20260916/editorial-review-v3/"
+  ],
+  "stdout": "{\"name\":\"article-editorial\",\"verdict\":\"PASS\",\"model\":[\"claude-haiku-4-5-20251001\",\"claude-fable-5\"],\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":7219,\"cache_read_input_tokens\":11585,\"output_tokens\":7071,\"output_tokens_details\":{\"thinking_tokens\":834},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":7219,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"not_available\",\"iterations\":[{\"input_tokens\":2,\"output_tokens\":7071,\"cache_read_input_tokens\":11585,\"cache_creation_input_tokens\":7219,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":7219},\"type\":\"message\",\"model\":null}],\"speed\":\"standard\"},\"replayed\":false}\n",
+  "stderr": ""
+}

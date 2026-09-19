@@ -6,7 +6,7 @@ Current resume point: [CURRENT-CYCLE.md](CURRENT-CYCLE.md). This table reconcile
 
 | Work | Current result | Next completion condition |
 |---|---|---|
-| Major-story coverage and daily delivery | September19 recovery and OpenAI disclosure story are publicly verified: one news story, five service columns and recovered Weekly, actual September19 publication date. Existing features pass67 live browser checks. | Claude merge and RatHat candidates are in production; institutional biology-access followup is source-qualified. September17–18 remain historical delivery gaps. Source holds and incomplete AIDB transcripts remain explicit. |
+| Major-story coverage and daily delivery | September19 recovery is publicly verified: four news stories, five service columns, recovered Weekly and repaired book link. Final70 live checks and actual article-to-book journeys passed. | Current actionable leads are published. Named source holds and incomplete AIDB transcripts remain explicit; retry only through permitted routes. September17–18 remain historical delivery gaps. |
 | Unattended operation | Nine September17–18 scheduled attempts failed; account usage cap is the likely cause, not proven for each attempt. Existing heartbeat catch-up resumed September19 and current recovery is public. | Observe fully unattended publication after capacity returns. Runtime failed-run cause retention is an external app limitation; changing schedule cannot remove usage caps. Evidence: recovery-20260919/reliability-investigation.json. |
 
 

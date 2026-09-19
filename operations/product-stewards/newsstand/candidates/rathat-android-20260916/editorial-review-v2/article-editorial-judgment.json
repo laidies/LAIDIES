@@ -1,0 +1,358 @@
+{
+  "facts": {
+    "attestations": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    },
+    "claims": {
+      "undefined": {
+        "state": "supported",
+        "reason": "All three material claims match supplied excerpts. P002 mirrors Zimperium's smishing/malvertising-to-manual-APK chain with attribution and no remote-infection implication. P003/P005 retain the Accessibility capability description and the legitimate disability-tool caveat from Google's restricted-settings guidance. P004/P006 match Google's Play Protect scan/warn/disable/remove description and keep-it-on and trust-the-developer advice. Scope limits (vendor report, not prevalence; guidance, not guarantee) are preserved in P002 and P007.",
+        "passages": [
+          "P002",
+          "P004",
+          "P005"
+        ],
+        "sourceIds": [
+          "zimperium-rathat-20260916",
+          "google-play-protect-20260919",
+          "google-restricted-settings-20260919"
+        ]
+      }
+    },
+    "outcomes": {
+      "factualIntegrity": {
+        "state": "pass",
+        "reason": "Every material claim is attributed ('Zimperium says', 'Google says') and matches the supplied source passages; nothing is asserted beyond the excerpts, and P007 explicitly bounds what the report does not prove.",
+        "passages": [
+          "P002",
+          "P004",
+          "P007"
+        ]
+      },
+      "freshnessReviewability": {
+        "state": "pass",
+        "reason": "The report date (September 16) is stated in the text, all three sources carry 2026-09-19 access dates and URLs, so each time-sensitive claim is traceable and checkable.",
+        "passages": [
+          "P002",
+          "P004",
+          "P005"
+        ]
+      },
+      "datedChange": {
+        "state": "pass",
+        "reason": "The new event (Zimperium's September 16 disclosure) is clearly distinguished from standing Google guidance about Play Protect and restricted settings; the article does not conflate the new report with older Android features.",
+        "passages": [
+          "P002",
+          "P004",
+          "P005"
+        ]
+      },
+      "consequenceAndUncertainty": {
+        "state": "pass",
+        "reason": "Consequences are concrete (an app link asking for Accessibility/restricted settings) and uncertainty survives: P007 states the report does not prove infection from a message and does not make legitimate accessibility tools suspicious.",
+        "passages": [
+          "P006",
+          "P007",
+          "P002"
+        ]
+      }
+    },
+    "learningDisposition": {
+      "disposition": "NO_NEW_DEFECT",
+      "rationale": "All fact-side checks pass; claims are supported with attribution and preserved limits, and no new reusable failure pattern was observed."
+    },
+    "summary": "Factually sound dated news item: the RatHat delivery chain, Accessibility capability and Google guidance all match the supplied source excerpts with correct attribution, preserved limitations, explicit negation of the remote-infection misreading, and fully dated, checkable sourcing."
+  },
+  "reader": {
+    "attestations": {
+      "artifactFirst": true,
+      "independentFromMaker": true,
+      "completeTextRead": true
+    },
+    "reverseBrief": {
+      "humanQuestion": "A scary Android malware headline is circulating — do I need to worry that a text message alone can infect my phone, and what should I actually check?",
+      "promisedPayoff": "Understand the real infection route (manual sideload plus persuaded Accessibility access) and get bounded, Google-supported checks before installing or granting anything.",
+      "centralMentalModel": "The threat is a persuasion chain, not a remote exploit: link → manual APK download outside Play → coaxed Accessibility/restricted-settings grant; each step is a checkpoint you control.",
+      "dailyLifeConnection": "A text, ad or pop-up urging you to download an app — a situation nearly every smartphone owner encounters — is the moment where the reader applies the check.",
+      "surfaceJob": "A dated daily news article explaining what Zimperium reported on September 16 and what a reader should do about it, within the report's limits.",
+      "desiredReaderFeeling": "Calm and equipped: alert to the real warning sign without fearing every message or distrusting legitimate accessibility tools."
+    },
+    "outcomes": {
+      "plainClarity": {
+        "state": "pass",
+        "reason": "Each technical element — Accessibility, Play Protect, restricted settings — is explained in ordinary language at first meaningful use; sentences are short and concrete.",
+        "passages": [
+          "P003",
+          "P004",
+          "P005"
+        ]
+      },
+      "readerValue": {
+        "state": "pass",
+        "reason": "Beyond the headline, the reader gains the actual infection route, why Accessibility matters, and specific decision rules for downloads and permission grants.",
+        "passages": [
+          "P002",
+          "P005",
+          "P006"
+        ]
+      },
+      "laidiesVoice": {
+        "state": "pass",
+        "reason": "Warm, candid adult tone ('stop and find the app', 'the useful question is which app is asking') with no condescension or borrowed persona.",
+        "passages": [
+          "P003",
+          "P006",
+          "P008"
+        ]
+      },
+      "engagingEnjoyable": {
+        "state": "pass",
+        "reason": "The corrective tension — 'not a report that any phone can be infected from a message alone' — sustains interest, and P008 delivers a crisp memorable landing.",
+        "passages": [
+          "P002",
+          "P008"
+        ]
+      },
+      "surfaceFit": {
+        "state": "pass",
+        "reason": "Answers what happened (dated report), why it matters, and what to do, staying within the report's evidence and the daily-news scope.",
+        "passages": [
+          "P002",
+          "P006",
+          "P007"
+        ]
+      },
+      "dailyLifeConnection": {
+        "state": "pass",
+        "reason": "Grounded in the recognizable moment of a text, ad or pop-up pushing an app download, and the on-screen permission prompt that follows.",
+        "passages": [
+          "P006",
+          "P002"
+        ]
+      },
+      "communicationBenchmark": {
+        "state": "pass",
+        "reason": "Proportional adaptation for news: warning-first ordering is declared in the headline, the causal chain is fully explained, limits survive, and a better next question ('which app is asking and why') is routed — no Fry imitation.",
+        "passages": [
+          "P001",
+          "P003",
+          "P008"
+        ]
+      },
+      "explainBack": {
+        "state": "pass",
+        "reason": "The article supplies enough causal material (manual install → persuaded Accessibility grant → screen reading/interaction) to answer why the grant, not the message, is the dangerous step.",
+        "passages": [
+          "P002",
+          "P003",
+          "P005"
+        ]
+      },
+      "unseenTransfer": {
+        "state": "pass",
+        "reason": "The persuasion-chain model transfers cleanly to new sideload-plus-permission scenarios not in the article, as demonstrated in my transfer exercise below.",
+        "passages": [
+          "P002",
+          "P003",
+          "P006"
+        ]
+      },
+      "usefulAction": {
+        "state": "pass",
+        "reason": "Actions are specific and proportionate: source apps via Play or official site, withhold Accessibility/restricted-settings approval pending developer check, keep Play Protect on and follow its flags.",
+        "passages": [
+          "P006",
+          "P004",
+          "P005"
+        ]
+      },
+      "analogyIntegrity": {
+        "state": "pass",
+        "reason": "The piece uses almost no analogy; 'extra pause' for restricted settings and the P008 framing map the mechanism accurately and keep the legitimate-use limit intact.",
+        "passages": [
+          "P005",
+          "P008",
+          "P007"
+        ]
+      }
+    },
+    "newsChecks": {
+      "incidentExplained": {
+        "state": "pass",
+        "reason": "The causal sequence — phishing/ad link, deceptive download page, manual APK install, coaxed Accessibility grant — is laid out in order and attributed to Zimperium.",
+        "passages": [
+          "P002",
+          "P003"
+        ]
+      },
+      "termsExplainedInContext": {
+        "state": "pass",
+        "reason": "Accessibility, Play Protect and restricted settings each get a plain-language definition at their first meaningful use, tied to what they do for the reader.",
+        "passages": [
+          "P003",
+          "P004",
+          "P005"
+        ]
+      },
+      "readerConsequenceSpecific": {
+        "state": "pass",
+        "reason": "The consequence is anchored in a specific recognizable situation: a text, ad or pop-up asking for a download, then an installed app requesting sensitive access.",
+        "passages": [
+          "P006",
+          "P002"
+        ]
+      },
+      "noInternalNotesOrInventedAdvice": {
+        "state": "pass",
+        "reason": "No internal operating notes appear; every piece of advice traces to Google's supplied guidance (Play Protect, restricted settings, official-source installation).",
+        "passages": [
+          "P004",
+          "P005",
+          "P006"
+        ]
+      }
+    },
+    "families": {
+      "glossaryAccumulation": {
+        "state": "clear",
+        "reason": "Definitions are woven into the causal chain rather than listed; each term is defined at the point it does work.",
+        "passages": []
+      },
+      "templateRepetition": {
+        "state": "clear",
+        "reason": "Sections have distinct jobs (event, mechanism, guidance, limits) with no repeated paragraph scaffold.",
+        "passages": []
+      },
+      "decorativeAnalogy": {
+        "state": "clear",
+        "reason": "No decorative comparisons; the sparse framing language maps directly to the mechanism.",
+        "passages": []
+      },
+      "referenceConfetti": {
+        "state": "clear",
+        "reason": "The single class-notes link states its explanatory relevance; no accumulated references.",
+        "passages": []
+      },
+      "missingMechanism": {
+        "state": "clear",
+        "reason": "The full causal chain from link to install to Accessibility grant to screen access is present.",
+        "passages": []
+      },
+      "genericAction": {
+        "state": "clear",
+        "reason": "Advice is concrete and case-specific: named settings, named checks, named fallback sources.",
+        "passages": []
+      },
+      "jargonBeforeMeaning": {
+        "state": "clear",
+        "reason": "Every technical term is explained in plain language at first meaningful use.",
+        "passages": []
+      },
+      "disconnectedSystem": {
+        "state": "clear",
+        "reason": "The piece shows how effects move between components: link, download page, APK, Accessibility, Play Protect.",
+        "passages": []
+      },
+      "factlessConfidence": {
+        "state": "clear",
+        "reason": "Certainty is bounded throughout; P007 explicitly states what the report does not prove.",
+        "passages": []
+      },
+      "staleUnreviewableClaims": {
+        "state": "clear",
+        "reason": "The report date and source access dates are stated; all time-sensitive claims are traceable.",
+        "passages": []
+      },
+      "corporateSludge": {
+        "state": "clear",
+        "reason": "Language is concrete and direct throughout; no vague motivational filler.",
+        "passages": []
+      },
+      "joylessInstruction": {
+        "state": "clear",
+        "reason": "Human stakes and the corrective tension keep the guidance from reading as a bare checklist.",
+        "passages": []
+      },
+      "benchmarkNameDrop": {
+        "state": "clear",
+        "reason": "No communication benchmark or famous explainer is mentioned anywhere in the artifact.",
+        "passages": []
+      },
+      "curiosityWithoutPayoff": {
+        "state": "clear",
+        "reason": "The headline's promise of a warning-first framing is delivered immediately and explained fully.",
+        "passages": []
+      },
+      "familiarExampleWithoutTechnicalReturn": {
+        "state": "clear",
+        "reason": "The familiar text/ad/pop-up situation reconnects directly to the technical mechanism and checks.",
+        "passages": []
+      },
+      "communicationPastiche": {
+        "state": "clear",
+        "reason": "The voice is original LAiDIES prose; no imitated persona or mannerisms.",
+        "passages": []
+      },
+      "entertainmentBeforeUnderstanding": {
+        "state": "clear",
+        "reason": "No humour or spectacle competes with the explanation; the one quip in P008 sharpens the distinction.",
+        "passages": []
+      },
+      "mechanismCompressedBehindHook": {
+        "state": "clear",
+        "reason": "The hook is one headline sentence; the causal explanation occupies the bulk of the piece.",
+        "passages": []
+      },
+      "prematureClickBeforeMechanism": {
+        "state": "clear",
+        "reason": "Warning-first ordering is a legitimate safety adaptation, and the mechanism follows immediately to earn it.",
+        "passages": []
+      },
+      "inflatedTakeawayEnding": {
+        "state": "clear",
+        "reason": "The ending is a bounded limitation statement and a precise heuristic, not a grand moral.",
+        "passages": []
+      },
+      "purposeTooNarrow": {
+        "state": "clear",
+        "reason": "Covers the full supplied job: the report, the misreading to avoid, and both Google-supported checks.",
+        "passages": []
+      },
+      "mechanismBeforeMotivation": {
+        "state": "clear",
+        "reason": "The human stake (a threat asking you to install a fake app) is established in the headline before machinery.",
+        "passages": []
+      },
+      "workedExampleOvertakesBookPurpose": {
+        "state": "clear",
+        "reason": "Not applicable as a defect here; the single incident is the article's proper scope and no broader promise is crowded out.",
+        "passages": []
+      },
+      "technicalExplainerVoice": {
+        "state": "clear",
+        "reason": "The organising perspective is reader decisions (what to install, what to grant), which is exactly right for a bounded news report.",
+        "passages": []
+      }
+    },
+    "explainBack": {
+      "question": "Why can't a RatHat text message alone infect an Android phone, and where in the chain does the real danger occur?",
+      "answer": "The message only carries a link to a deceptive download page. Nothing happens unless the person manually downloads and installs the app file outside Google Play, and even then the malware still needs the person to grant Accessibility access before it can read the screen and act inside other apps. The danger sits at those two human approval steps — the sideload install and the Accessibility grant — not in receiving the message.",
+      "expectedEvidence": "An accurate answer must cite the manual-download step outside the Play Store (P002), the persuaded Accessibility activation and what that access enables (P003), and the explicit limit that the report does not prove infection from a message (P002/P007).",
+      "assessment": "The article fully supports this answer: P002 supplies the manual-install dependency and the negation of message-only infection, P003 supplies the Accessibility grant and its capability, and P007 restates the limit. Explain-back succeeds in ordinary language."
+    },
+    "unseenTransfer": {
+      "scenario": "A reader's teenager wants a 'free coins mod' for a popular game. A YouTube description links to a site offering the APK; after install, the app displays a screen saying 'Enable Accessibility to activate the mod' and walks through disabling the restricted-settings block.",
+      "question": "Using the article's mechanism, what should the reader conclude about this app before any coins or symptoms appear, and what should they do?",
+      "answer": "The chain matches the article's model exactly: an off-Play sideload followed by a coached Accessibility grant. A game mod has no legitimate need to read the screen and operate other apps, so the Accessibility request itself is the warning sign, regardless of whether anything bad has happened yet. The reader should refuse the grant, not walk around the restricted-settings pause, check whether the developer exists on Google Play, run/keep Play Protect on, and remove the app if flagged or if the developer cannot be verified.",
+      "expectedEvidence": "Application of the sideload-plus-grant model (P002/P003), the restricted-settings 'trust the developer' rule (P005), and the Play/official-source and Play Protect actions (P006).",
+      "assessment": "The article's mechanism transfers cleanly: the reader can classify a novel lure (game mod via video description) and act correctly using only the causal model and checks the article taught. Transfer succeeds."
+    },
+    "learningDisposition": {
+      "disposition": "NO_NEW_DEFECT",
+      "rationale": "All reader outcomes and news checks pass, all failure families are clear, and both explain-back and transfer exercises succeed; no new reusable defect pattern observed."
+    },
+    "summary": "A well-executed bounded news explainer: it corrects the message-infects-phone misreading up front, teaches the full persuasion chain in plain language, defines every term in context, gives specific Google-supported actions, and preserves limits. Both explain-back and a novel transfer scenario succeed; no defect families present."
+  }
+}

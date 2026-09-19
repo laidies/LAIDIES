@@ -6,7 +6,10 @@
   "use strict";
   // Reviewed September 19. Newest Vancouver date first; relevance within each day.
   var order = [
+  "anthropic-lsvp-beta-20260917",
   "openai-misalignment-reporting-20260916",
+  "claude-cowork-merge-20260916",
+  "rathat-android-20260916",
   "chatgpt-sponsored-agents-20260916",
   "mathematicians-ai-research-values-20260916",
   "china-amodei-response-20260915",

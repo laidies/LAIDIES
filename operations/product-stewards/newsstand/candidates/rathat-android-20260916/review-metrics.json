@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "laidies-newsstand-review-metrics.v1",
+  "candidateId": "rathat-android-20260916",
+  "proseReview": {
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "explanation": "The v3 pass is the first valid full prose review; the v2 provider result is preserved as an evidence-packet protocol failure, not a prose defect."
+  },
+  "evidencePacket": {
+    "rounds": 2,
+    "gaps": 1,
+    "explanation": "The initial v2 packet used id instead of claimId, which collapsed factual claims under undefined. The repaired v3 packet uses three named claims and was independently reviewed."
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  }
+}

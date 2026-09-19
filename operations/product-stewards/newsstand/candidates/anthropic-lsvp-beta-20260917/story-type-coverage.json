@@ -1,0 +1,68 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "primaryType": "model-tool-release",
+  "overlays": [
+    "health-science"
+  ],
+  "universalAnswers": {
+    "whatHappened": "Anthropic opened applications for a beta with more permissive biology access for vetted institutions.",
+    "plainLanguageIdentity": "A provider-run access program for approved life-science teams, not a public consumer feature.",
+    "evidenceBasis": "Complete Anthropic announcement.",
+    "evidenceLimits": "No independent outcome, safety or effectiveness evidence.",
+    "readerRelevance": "The phrase fewer biology blocks does not mean public, unmonitored or suitable for personal health data.",
+    "affectedPeople": "Institutional life-science teams and administrators; individual plans are not yet supported.",
+    "changesNow": "Organizations may apply; approved teams can receive Standard or project-specific High-risk access.",
+    "uncertainty": "Anthropic has not supplied independent program outcomes.",
+    "readerAction": "Before institutional use, confirm grant, use case, review path and retention rule.",
+    "betterQuestion": "Who was verified, what work was approved and what monitoring remains?"
+  },
+  "typeAnswers": {
+    "model-tool-release": {
+      "productRange": "LSVP is a verified-access program layered onto Anthropic models for institutional life-science work.",
+      "newCapabilities": "Approved teams can make biology requests that generally available models block.",
+      "bestFitTasks": "The provider names institutional research and development work; the story does not endorse a particular scientific task.",
+      "notFor": "It is not consumer health advice, a patient tool or proof of correct research.",
+      "nearestAlternatives": "The nearest alternative is the generally available Claude experience with stricter biology request blocks.",
+      "availability": "Approved organizations can use the first-party API console and Enterprise or Team plans; individual and third-party access are unavailable at launch.",
+      "freePaidBoundary": "This is an application-based institutional beta, not a general Free, Pro or Max feature.",
+      "costBoundary": "The announcement does not state pricing, so the story makes no cost claim.",
+      "limitations": "The monitoring design and research outcomes have no independent evidence in the supplied source.",
+      "technicalExampleProportionality": "No benchmark or spectacular biology example is used.",
+      "vendorEvidenceBoundary": "All program, access and monitoring claims come from Anthropic and remain attributed."
+    },
+    "health-science": {
+      "aiRole": "Claude may assist approved institutional life-science work under a scoped access grant; no specific scientific result is reported.",
+      "professionalRole": "Qualified organizations define intended work, maintain oversight and respond to flagged activity.",
+      "evidenceLevel": "This is a provider beta announcement, not a study, clinical trial, approval or routine clinical use.",
+      "benefitClaim": "No measured research or health benefit is claimed.",
+      "risksAndFalseResults": "More permissive access does not establish that an answer or research result is correct, and sensitive-data rules still apply.",
+      "availability": "The beta is for approved institutions, not patients or individual subscribers.",
+      "readerBoundary": "Readers must not treat the announcement as personal medical advice or permission to upload patient information."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "Anthropic announced its Life Sciences Verification Program on September 17.",
+    "actualMeaningExact": "This changes access for vetted research institutions, not your personal Claude account.",
+    "mechanismExact": "Vetting happens before access; monitoring happens after requests run.",
+    "familiarExampleExact": "For the next headline, ask whether it concerns a public account or a verified program, whether a safeguard blocks a request before it runs or reviews activity later, and what evidence shows the control worked.",
+    "jargon": [
+      {
+        "term": "vetted access",
+        "plainMeaning": "Applicants are reviewed for research credentials, security and ethical oversight."
+      },
+      {
+        "term": "monitoring",
+        "plainMeaning": "looking for patterns after activity runs"
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "Runtime guardrails",
+        "learningPayoff": "Distinguish a request-time block from a later review, and remember either control can miss a problem.",
+        "disposition": "link",
+        "destination": "/library.html#ai-fundamentals-101::%40ch-11-11-2-guardrails-the-runtime-safety-net"
+      }
+    ]
+  }
+}

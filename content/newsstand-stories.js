@@ -1,8 +1,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-19T17:19:25.958Z",
-  "lastCheckedAt": "2026-09-19T17:19:25.958Z",
+  "generatedAt": "2026-09-19T18:09:33.965Z",
+  "lastCheckedAt": "2026-09-19T18:09:33.965Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -24,7 +24,10 @@ window.NEWSSTAND_DATA = {
         "frontPaigeStoryId": "front-paige-accountable-systems-2026-08-24",
         "weeklyStoryId": "weekly-promises-and-proof-20260916",
         "storyIds": [
-          "openai-misalignment-reporting-20260916"
+          "openai-misalignment-reporting-20260916",
+          "claude-cowork-merge-20260916",
+          "rathat-android-20260916",
+          "anthropic-lsvp-beta-20260917"
         ],
         "serviceRecordIds": [
           "DAILY-2026-09-19-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
@@ -36,9 +39,9 @@ window.NEWSSTAND_DATA = {
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-19T17:19:25.958Z",
-      "updatedAt": "2026-09-19T17:19:25.958Z",
-      "lastCheckedAt": "2026-09-19T17:19:25.958Z",
+      "publishedAt": "2026-09-19T18:09:33.965Z",
+      "updatedAt": "2026-09-19T18:09:33.965Z",
+      "lastCheckedAt": "2026-09-19T18:09:33.965Z",
       "maxAgeHours": 36,
       "note": "The Daily for 2026-09-19."
     },
@@ -6296,6 +6299,214 @@ window.NEWSSTAND_DATA = {
       "aidb_credit": null,
       "saint_lane": null,
       "badge": "THE LATEST"
+    },
+    {
+      "id": "claude-cowork-merge-20260916",
+      "slug": "claude-cowork-merge-20260916",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-19T17:47:15.353Z",
+      "updatedAt": "2026-09-19T17:26:32Z",
+      "lastCheckedAt": "2026-09-19T17:26:32Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:claude-cowork-merge-20260916"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "Claude is folding quick questions and longer Cowork jobs into one conversation",
+      "heroVisual": {
+        "src": "/assets/newsstand/claude-one-conversation-20260916.png",
+        "alt": "An illustrated tablet beside appliance manuals shows one blank conversation leading to a checklist.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>Anthropic announced September 16 that it is merging Claude chat and Cowork into one Claude experience. A person can ask a quick question or hand over a longer, multi-step task without choosing a mode first.</p><p>Rollout is gradual: Pro and Max first across web, desktop and mobile. Team and Free follow; Enterprise gets at least 30 days’ notice. Same-plan accounts may differ.</p>",
+      "laidies_read": "<p>The change removes a doorway; it does not promise every task will succeed. Until your account moves, the closest alternative is separate Claude Chat for questions and Cowork for longer jobs.</p><p>LAiDIES would use the longer-work option when a task has named inputs and a document to check. Anthropic says Manual asks before actions; Auto reduces check-ins. The setting covers the conversation. Those are vendor descriptions, not proof a task will finish well.</p>",
+      "what_this_means": "<p>Once the new experience reaches your account, attach three appliance manuals and ask Claude to make an editable seasonal-maintenance checklist. Keep the conversation on Manual, name the manuals it may use and inspect every date or safety instruction against the originals.</p><p>Local work needs Claude Desktop open; cloud work may continue after the laptop closes. If separate Chat and Cowork choices remain, keep using them.</p>",
+      "cocktail_party": "“Claude is removing the mode choice, not the need to choose permissions.”",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "Background: <a href=\"/library.html#working-with-ai-101::%40add-to-your-working-with-ai-kit-10\">Working with AI 101 — Add to Your Working With AI Kit</a> shows how to write one authority line: what an agent may do, when it must ask and when it must stop.",
+      "sources": [
+        {
+          "id": "anthropic-cowork-merge-blog-20260916",
+          "label": "Claude — Cowork and chat are now one Claude",
+          "url": "https://claude.com/blog/cowork-is-now-claude",
+          "publisherType": "provider-product-announcement",
+          "accessedAt": "2026-09-19",
+          "approvalStatus": "independent-review-required"
+        },
+        {
+          "id": "anthropic-cowork-merge-help-20260919",
+          "label": "Claude Help Center — Cowork and chat are one Claude",
+          "url": "https://support.claude.com/en/articles/16761823-claude-cowork-and-chat-are-one-claude",
+          "publisherType": "provider-help-documentation",
+          "accessedAt": "2026-09-19",
+          "approvalStatus": "independent-review-required"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "personal AI",
+        "product changes"
+      ],
+      "concepts": [
+        "agentic task",
+        "permission setting"
+      ],
+      "tags": [
+        "Claude",
+        "Cowork",
+        "personal AI"
+      ],
+      "saint_lane": null,
+      "badge": "THE LATEST",
+      "retraction": null
+    },
+    {
+      "id": "rathat-android-20260916",
+      "slug": "rathat-android-20260916",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-19T18:02:04.276Z",
+      "updatedAt": "2026-09-19T17:43:35Z",
+      "lastCheckedAt": "2026-09-19T17:43:35Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:rathat-android-20260916"
+      },
+      "headline": "A new Android threat asks people to install a fake app. The important warning comes first.",
+      "heroVisual": {
+        "src": "/assets/newsstand/rathat-android-20260916.png",
+        "alt": "Editorial illustration of a blank app card stopping at a boundary before a generic smartphone.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.</p><p>Zimperium says the malware then tries to persuade the person to turn on Accessibility access. That setting can let an app read what is on screen and interact with apps on a person’s behalf. Accessibility is also used by legitimate disability tools, so the useful question is which app is asking, why it needs that access and whether you trust its developer.</p>",
+      "laidies_read": "<p>An app file downloaded from a link is not the same as an app installed from Google Play. <strong>Play Protect</strong> is Google’s built-in app safety check: Google says it scans apps from Play and other sources and can warn, disable or remove potentially harmful apps. Keep it on.</p><p><strong>Restricted settings</strong> are Android’s extra pause for sensitive access from an app installed outside Google Play. Google says not to allow them unless you trust the developer. A real accessibility app may need access to read a screen or help someone interact with it; that is why this is a review step, not a reason to switch accessibility off everywhere.</p>",
+      "what_this_means": "<p>If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead. If you already installed one from a link and it asks for Accessibility or restricted settings, do not approve the request until you have checked the developer and why that specific app needs it. Turn on Play Protect and follow its warning or removal instruction if it flags the app.</p><p>This report describes a malware family and a deceptive installation chain. It does not prove a message has infected your phone, or mean a legitimate accessibility tool is suspicious simply because it uses Accessibility.</p>",
+      "cocktail_party": "“The warning sign is not ‘Android has a new virus.’ It is: a surprise link wants you to install an app and hand it extra control.”",
+      "class_notes": "<a href=\"/library.html#ai-fundamentals-101::%40chapter-10\">AI Fundamentals 101: the model is only one part of the system</a> explains why a safety control only covers the actions it actually checks.",
+      "sources": [
+        {
+          "id": "zimperium-rathat-20260916",
+          "label": "Zimperium — RatHat: AI-Powered Mobile Threat",
+          "url": "https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts",
+          "publisherType": "vendor research",
+          "accessedAt": "2026-09-19",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "google-play-protect-20260919",
+          "label": "Google Play Help — Play Protect",
+          "url": "https://support.google.com/googleplay/answer/2812853?hl=en",
+          "publisherType": "primary guidance",
+          "accessedAt": "2026-09-19",
+          "approvalStatus": "reviewed"
+        },
+        {
+          "id": "google-restricted-settings-20260919",
+          "label": "Android Help — Restricted settings",
+          "url": "https://support.google.com/android/answer/12623953?hl=en",
+          "publisherType": "primary guidance",
+          "accessedAt": "2026-09-19",
+          "approvalStatus": "reviewed"
+        }
+      ],
+      "themes": [
+        "Android security",
+        "consumer safety"
+      ],
+      "concepts": [
+        "Play Protect",
+        "restricted settings",
+        "Accessibility"
+      ],
+      "tags": [
+        "Android",
+        "malware",
+        "mobile security",
+        "Accessibility"
+      ],
+      "correction": null,
+      "correctionHistory": [],
+      "retraction": null,
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "relationshipType": null,
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "aidb_credit": null,
+      "saint_lane": null,
+      "badge": "THE LATEST"
+    },
+    {
+      "id": "anthropic-lsvp-beta-20260917",
+      "slug": "anthropic-lsvp-beta-20260917",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-19T18:09:33.965Z",
+      "updatedAt": "2026-09-19T17:48:07Z",
+      "lastCheckedAt": "2026-09-19T17:48:07Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:anthropic-lsvp-beta-20260917"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "Anthropic is easing Claude’s biology restrictions for vetted research teams",
+      "heroVisual": {
+        "src": "/assets/newsstand/anthropic-lsvp-lab-access-20260919.png",
+        "alt": "An illustrated laboratory desk with a blank access form, sample rack and two separate safeguard lanes.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>Anthropic announced its Life Sciences Verification Program on September 17. The beta gives verified life-science teams versions of Claude that allow more biology requests than general Claude.</p><p>Teams and institutions come first; individual Pro and Max access is planned later. Applicants are reviewed for research credentials, security and ethical oversight.</p>",
+      "laidies_read": "<p>Anthropic says the program is designed for life-science work that general Claude blocks. The closest alternative is general Claude with stricter biology restrictions; special access is unnecessary when an ordinary request already works there.</p><p>Standard Use covers a team and renews yearly. High-risk Use is an extra six-month grant for one project that removes life-science request blocks. Anthropic says other safeguards remain.</p><p>Less blocking does not mean no monitoring. Anthropic says LSVP replaces immediate refusals with looking for patterns after activity runs. Access is tied to an approved use case. The company says it keeps LSVP traffic for 30 days so monitoring can happen.</p>",
+      "what_this_means": "<p>If you hear that Claude has dropped its biology safeguards, the important qualifier is who gets access. This changes access for vetted research institutions, not your personal Claude account. Vetting happens before access; monitoring happens after requests run.</p><p>The announcement explains how Anthropic intends the system to work. It does not prove that the controls have prevented misuse. For the next headline, ask whether it concerns a public account or a verified program, whether a safeguard blocks a request before it runs or reviews activity later, and what evidence shows the control worked.</p>",
+      "cocktail_party": "“Anthropic loosened some biology blocks for vetted institutional teams, while replacing immediate refusals with monitored, scoped access.”",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "Background: <a href=\"/library.html#ai-fundamentals-101::%40ch-11-11-2-guardrails-the-runtime-safety-net\">AI Fundamentals 101 §11.2 — Guardrails: The Runtime Safety Net</a> explains that a product check may allow, refuse, limit or escalate a request—and may still miss a problem.",
+      "sources": [
+        {
+          "id": "anthropic-lsvp-20260917",
+          "label": "Anthropic — Introducing the Life Sciences Verification Program",
+          "url": "https://www.anthropic.com/news/life-sciences-verification-program",
+          "publisherType": "provider-program-announcement",
+          "accessedAt": "2026-09-19",
+          "approvalStatus": "independent-review-required"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "life sciences",
+        "access controls"
+      ],
+      "concepts": [
+        "verified access",
+        "offline monitoring"
+      ],
+      "tags": [
+        "Anthropic",
+        "life sciences",
+        "safeguards"
+      ],
+      "saint_lane": null,
+      "badge": "THE LATEST",
+      "retraction": null
     }
   ]
 };

@@ -1,0 +1,84 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "rathat-android-20260916",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "cb878a29ecec8f91670d9187dd920fc86bc92900c508038b155a8d84dd3097fc",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why does the RatHat report say the danger comes from granting Accessibility access, rather than from receiving the phishing text itself?",
+      "response": "The text or ad only opens a deceptive download page; nothing happens until the person manually downloads and installs the app file outside Google Play. Even then the app is limited until the person grants Accessibility access, which lets it read whatever is on screen — like banking passwords — and tap and type inside other apps on the person's behalf. Each step needs the person's consent, so the message alone cannot infect the phone; the grant is what hands over control.",
+      "expectedEvidence": "An accurate answer must reproduce the chain in P002 (message → deceptive page → manual install outside Play), the capability description in P003 (read screen, interact with apps), and the P002/P007 boundary that a message alone cannot infect.",
+      "assessment": "The article's mechanism fully supports this answer in ordinary language; every causal link and the boundary condition are stated in P002, P003 and P007, so explain-back passes."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, which steps in this parking scenario are the warning signs, and what should the person do at each one?",
+      "response": "The first warning sign is the sideload pressure: a claim that a mainstream city payment app must be installed from a direct APK link matches the deceptive-download-page route, so the person should stop and search Google Play or the city's official website instead. If the app is already installed, the Accessibility request is the second checkpoint: a parking-payment app has no plausible need to read the screen or act inside other apps, so under the trust-the-developer rule the person should refuse, keep Play Protect on and follow its instruction if it flags the app. Nothing about scanning the QR code alone infected the phone.",
+      "expectedEvidence": "Correct transfer applies P002's manual-install-outside-Play route, P006's find-it-on-Play-or-official-site and check-the-developer actions, and P005's needs-based test for whether an access request is plausible for the app's job.",
+      "assessment": "The mechanism transfers cleanly: the chain-of-consent model identifies both checkpoints and the proportionate action in a situation nowhere in the article, so unseen transfer passes."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The incident (Zimperium's Sept 16 RatHat disclosure) and its causal sequence — phishing/ad → deceptive page → manual APK → Accessibility persuasion — are laid out step by step.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Zimperium reported RatHat on September 16: an Android malware family it says is spread through deceptive download pages reached from text phishing or malicious ads. Its reported route starts when someone manually downloads an app file outside the Play Store; it is not a report that any Android phone can be infected from a message alone.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>Zimperium says the malware then tries to persuade the person to turn on Accessibility access. That setting can let an app read what is on screen and interact with apps on a person’s behalf. Accessibility is also used by legitimate disability tools, so the useful question is which app is asking, why it needs that access and whether you trust its developer.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "Play Protect, restricted settings and Accessibility each receive a plain-language definition at first meaningful use, tied to what they do in this incident.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Zimperium says the malware then tries to persuade the person to turn on Accessibility access. That setting can let an app read what is on screen and interact with apps on a person’s behalf. Accessibility is also used by legitimate disability tools, so the useful question is which app is asking, why it needs that access and whether you trust its developer.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>An app file downloaded from a link is not the same as an app installed from Google Play. <strong>Play Protect</strong> is Google’s built-in app safety check: Google says it scans apps from Play and other sources and can warn, disable or remove potentially harmful apps. Keep it on.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p><strong>Restricted settings</strong> are Android’s extra pause for sensitive access from an app installed outside Google Play. Google says not to allow them unless you trust the developer. A real accessibility app may need access to read a screen or help someone interact with it; that is why this is a review step, not a reason to switch accessibility off everywhere.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "Consequence is grounded in the specific recognizable situation of a text/ad/pop-up pushing an install, with the concrete stake of an app reading the screen and acting on your behalf.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Zimperium says the malware then tries to persuade the person to turn on Accessibility access. That setting can let an app read what is on screen and interact with apps on a person’s behalf. Accessibility is also used by legitimate disability tools, so the useful question is which app is asking, why it needs that access and whether you trust its developer.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead. If you already installed one from a link and it asks for Accessibility or restricted settings, do not approve the request until you have checked the developer and why that specific app needs it. Turn on Play Protect and follow its warning or removal instruction if it flags the app.</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "All advice traces to Google guidance or the Zimperium report; the class-notes line (P009) is a reader-facing library link, not an internal operating note or distinctive process detail.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>If a text, ad or pop-up asks you to download an Android app, stop and find the app through Google Play or the organization’s official website instead. If you already installed one from a link and it asks for Accessibility or restricted settings, do not approve the request until you have checked the developer and why that specific app needs it. Turn on Play Protect and follow its warning or removal instruction if it flags the app.</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<a href=\\\"/library.html#ai-fundamentals-101::%40chapter-10\\\">AI Fundamentals 101: the model is only one part of the system</a> explains why a safety control only covers the actions it actually checks.",
+          "locator": "P009"
+        }
+      ]
+    }
+  }
+}

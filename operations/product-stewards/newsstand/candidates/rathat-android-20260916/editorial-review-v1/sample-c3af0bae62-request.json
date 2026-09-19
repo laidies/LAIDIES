@@ -1,0 +1,1801 @@
+{
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "attestations": {
+        "type": "object",
+        "properties": {
+          "artifactFirst": {
+            "type": "boolean"
+          },
+          "independentFromMaker": {
+            "type": "boolean"
+          },
+          "completeTextRead": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "artifactFirst",
+          "independentFromMaker",
+          "completeTextRead"
+        ],
+        "additionalProperties": false
+      },
+      "families": {
+        "type": "object",
+        "properties": {
+          "glossaryAccumulation": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "templateRepetition": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "decorativeAnalogy": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "referenceConfetti": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "missingMechanism": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "genericAction": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "jargonBeforeMeaning": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "disconnectedSystem": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "factlessConfidence": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "staleUnreviewableClaims": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "corporateSludge": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "joylessInstruction": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "benchmarkNameDrop": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "curiosityWithoutPayoff": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "communicationPastiche": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "entertainmentBeforeUnderstanding": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "mechanismCompressedBehindHook": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "prematureClickBeforeMechanism": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "inflatedTakeawayEnding": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "purposeTooNarrow": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "mechanismBeforeMotivation": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          },
+          "technicalExplainerVoice": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "clear",
+                  "present",
+                  "uncertain"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 15
+              },
+              "passages": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "P001",
+                    "P002",
+                    "P003",
+                    "P004",
+                    "P005",
+                    "P006",
+                    "P007",
+                    "P008",
+                    "P009",
+                    "P010",
+                    "P011",
+                    "P012",
+                    "P013",
+                    "P014",
+                    "P015",
+                    "P016",
+                    "P017",
+                    "P018",
+                    "P019",
+                    "P020",
+                    "P021",
+                    "P022",
+                    "P023",
+                    "P024",
+                    "P025",
+                    "P026",
+                    "P027",
+                    "P028",
+                    "P029",
+                    "P030",
+                    "P031",
+                    "P032",
+                    "P033",
+                    "P034",
+                    "P035",
+                    "P036",
+                    "P037",
+                    "P038"
+                  ]
+                },
+                "minItems": 0,
+                "maxItems": 3
+              }
+            },
+            "required": [
+              "state",
+              "reason",
+              "passages"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "factlessConfidence",
+          "staleUnreviewableClaims",
+          "corporateSludge",
+          "joylessInstruction",
+          "benchmarkNameDrop",
+          "curiosityWithoutPayoff",
+          "familiarExampleWithoutTechnicalReturn",
+          "communicationPastiche",
+          "entertainmentBeforeUnderstanding",
+          "mechanismCompressedBehindHook",
+          "prematureClickBeforeMechanism",
+          "inflatedTakeawayEnding",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "additionalProperties": false
+      },
+      "strengths": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "minLength": 15
+        },
+        "minItems": 1,
+        "maxItems": 4
+      },
+      "summary": {
+        "type": "string",
+        "minLength": 15
+      }
+    },
+    "required": [
+      "attestations",
+      "families",
+      "strengths",
+      "summary"
+    ],
+    "additionalProperties": false
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are an independent editorial reviewer. Inspect the exact artifact before judging. Be specific, proportionate and honest. A real defect, insufficient evidence and an execution failure are different. Return final structured judgments only; never invent human observations."
+    },
+    {
+      "role": "user",
+      "content": "Read the COMPLETE ARTIFACT first:\n[P001] Chapter 1 — Meet the parts of the system\n\n[P002] First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.\n\n[P003] AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.\n\n[P004] Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.\n\n[P005] In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”\n\n[P006] This is the complete container around every other concept in this book.\n\n[P007] Provider\nA provider develops or operates an AI model, product or service.\n\n[P008] A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.\n\n[P009] In real life. A provider may set which models an app offers, what data controls exist and which tools are available.\n\n[P010] The provider sits behind parts of the system; it is not the model, product or answer itself.\n\n[P011] Product / app\nThe product or app is what you open. It can control the interface, account, model choices, instructions, available context, tools and settings.\n\n[P012] Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.\n\n[P013] In real life. Two apps can use related models yet give different handover drafts because one app supplies web search, saved preferences or different instructions.\n\n[P014] The product receives your request and assembles what reaches the model.\n\n[P015] Model\nA model is the trained mathematical component that transforms input into output.\n\n[P016] Think of the mechanism inside a Walkman: essential to what happens, but not the cassette you chose, the buttons you pressed or the headphones you hear through. Where it stops: models perform learned mathematical transformations; generative models such as LLMs use probabilities to produce content, while other model types may classify, rank, forecast or detect.\n\n[P017] In real life. The language model turns the supplied handover instructions and context into a draft. It does not automatically know which policy is current.\n\n[P018] The model sits inside the product, after context is assembled and before the output returns to you.\n\n[P019] Model types\nDifferent models are built for different transformations: language generation, image generation, speech recognition, classification, forecasting, recommendation, ranking, object detection or control.\n\n[P020] A toolbox contains different tools for different jobs. Where it stops: models are not fixed hand tools; one model may perform several tasks and products may combine models.\n\n[P021] In real life. One product might transcribe a recorded meeting with a speech model, summarize it with a language model and classify follow-up tasks with another model.\n\n[P022] Model type tells you what transformation is being attempted, not whether the whole product is suitable or accurate.\n\n[P023] Large language model (LLM)\nAn LLM is a model trained to work with language. It reads and produces text in small pieces called tokens; Chapter 2 explains tokens in full.\n\n[P024] It is an extremely capable pattern-completion system for language. Where it stops: “completion” does not mean simple autocomplete, and fluent language does not prove understanding or truth.\n\n[P025] In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.\n\n[P026] An LLM is one model type, not a synonym for every kind of AI.\n\n[P027] Generative AI\nGenerative AI produces new content—such as text, images, audio, video or code—from learned patterns and current input.\n\n[P028] It resembles creating a new collage from patterns learned across many examples. Where it stops: the model is not literally cutting and storing pieces of original works, and the output may not trace cleanly to a source.\n\n[P029] In real life. The draft email is newly generated language, not a policy passage retrieved word for word.\n\n[P030] “Generative” describes the kind of output; it does not mean verified, original in the legal sense or correct.\n\n[P031] Multimodal\nA multimodal system can work with more than one kind of material, such as text, images and audio.\n\n[P032] It is like receiving a written brief, a photograph and a voice note for the same job. Where it stops: accepting a format does not guarantee complete or correct interpretation.\n\n[P033] In real life. You can give the product a photographed whiteboard and typed policy, but must still check names, dates and small labels against the originals.\n\n[P034] Multimodal input broadens what can enter the model; it does not remove the evidence check.\n\n[P035] Tool\nA tool gives the system a capability beyond generating from the model alone: search, retrieval, calculation, code execution or action in another service.\n\n[P036] Miss Jeeves can answer from what is on her desk or use the catalogue, calculator or scanner. Each tool changes what she can do. Where it stops: AI tools can carry permissions, external data and automated consequences; the model using one is not a responsible librarian.\n\n[P037] In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.\n\n[P038] Tools connect around the model. Having one available does not prove it was used, or used well.\n\nTASK:\nAssess editorial craft against the supplied reader job. This is a blind sample: no expected verdict is supplied. Identify every actual failure, without inventing defects merely because a rubric names them. Review explanation and voice, not current external factual accuracy. Sources are not supplied for factual checking in this calibration. A relevant technical term explained in context is not itself jargon. A useful bounded worked example is not automatically too narrow: compare it with the stated purpose.\n\nREADER JOB AND RUBRIC / EVIDENCE:\n{\"readerJob\":\"The introduction and opening of a broad AI Fundamentals reference book for smart professional women without technical training. The opening must establish all three reader transformations in the supplied purpose authority before technical machinery: understanding a failed AI result, judging hype or panic in public claims, and informed participation in workplace/public decisions about AI. A future technical-topic list is not itself an explanation of these reader payoffs. Warmth is necessary, and the explanation must also serve this broad practical and civic purpose. Examples serve that purpose. Judge the actual opening provided; do not assume an unseen preface already supplied its required motivation.\",\"purposeAuthority\":{\"path\":\"operations/library-decisions.md\",\"sha256\":\"0ef23fd14909ae0a3c74e5c1aedbccc09547809e67fbc6445c917c053e85c2a6\",\"text\":\"- AI Fundamentals opens with Ali's purpose-led preface built around three reader transformations: from frustration to understanding why an AI result went off track; from hype or panic to judging claims; and, exactly, from “Whatever” to “RSVP: Yes. I have notes.” for informed participation in work and public decisions. The accepted preface source is `content/library-books/sources/ai-fundamentals-101.preface.md`; do not replace it with the flatter standalone “How This Book Works” front matter, the unrelated August 24 system-map substitute or a chapter-list wall before Chapter 1. The rough draft's three reading modes are not a public promise unless the reader actually implements them. Ali corrected the exact third transformation on 2026-08-24.\"},\"communicationAuthority\":{\"sha256\":\"7d61a0e17d5ad6809d1d1e6931d297b42e443a3027a97fb7c16432f3f8aecff3\",\"text\":\"# Hannah Fry communication benchmark\\n\\n**Status:** ACTIVE INTERNAL EXPLANATION LENS\\n**Benchmark ID:** `HANNAH_FRY_COMMUNICATION_LENS_V2`\\n**Owner:** Learning System & Concepts Director\\n\\n## Purpose and boundary\\n\\nThis benchmark adapts communication mechanics previously analysed from Hannah\\nFry's public science communication. It is not permission to imitate her voice,\\npersona, mannerisms, identity or the structure of a particular talk or book.\\nHer name is not evidence that a draft is clear or engaging.\\n\\nThe LAiDIES producer must translate the useful mechanics into the cognitive job\\nand scale of the destination. A class can support prediction, demonstration and\\ntransfer. A book can create curiosity, make a hidden process concrete and route\\na better next question without becoming a lecture. A reference, FAQ, practice\\nitem, interactive or NewsStand explanation uses only the moves that improve its\\nown job. Promotional copy and microcopy declare the lens not applicable rather\\nthan manufacturing teaching.\\n\\n## Communication dimensions\\n\\n1. **Human question:** begin from a reason the learner already has to care,\\n   choose, notice or challenge—not from terminology for its own sake.\\n2. **Useful curiosity:** invite a prediction, tension, surprise or question\\n   only when the answer will reveal the mechanism. A hook without explanatory\\n   payoff fails.\\n3. **Invisible process made concrete:** use the smallest faithful case,\\n   demonstration, diagram, comparison or sequence that lets the learner see\\n   what otherwise happens out of view.\\n4. **Familiar and technical movement:** connect ordinary experience to the\\n   correct abstraction and then return to the real system. A familiar example\\n   that never reconnects to the mechanism is decoration.\\n5. **Limitations and consequences:** retain where the explanation stops, what\\n   can go wrong, uncertainty, misuse and why the distinction matters.\\n6. **Humour and surprise:** use them only when they sharpen attention,\\n   distinction or recall without making the learner or subject childish.\\n   `NOT_APPLICABLE` is often the right choice.\\n7. **Better next question:** leave the learner able to ask, test or notice\\n   something more precise than before.\\n\\n## Default substantial-explanation arc\\n\\nAli's supplied [analysis reel](https://www.instagram.com/reel/DazjzEQo4gP/)\\nadds an ordering rule to the dimensions above. The direct Instagram fetch was\\nthrottled during the 2026-08-08 evidence check; a public\\n[cross-platform transcript](https://tokscribe.com/t/cmrm19jj202oi140r806a97qv)\\nrecords the creator's observational analysis of 30 high-performing Hannah Fry\\nvideos. Treat that analysis as a communication-pattern source, not an\\nexperimental proof of learning effectiveness.\\n\\nFor an episode, class or substantial explanation, the default arc is:\\n\\n1. **Shared starting point and live question:** begin with a physical,\\n   everyday or work experience the learner can picture, then open a precise\\n   gap she has a reason to resolve.\\n2. **Mechanism, link by link:** spend the centre and largest share of the\\n   explanation on cause and effect. Let the learner follow the discovery; do\\n   not substitute suspense, analogy or personality for the mechanism.\\n3. **Earned click:** after the mechanism, resolve the gap with the distinction,\\n   correction or consequence that makes her think “oh, I get it now.” Do not\\n   hide a direct safety-critical answer merely to manufacture a reveal.\\n4. **Small landing:** finish with a precise observation, useful action, better\\n   question or earned joke. Do not inflate a bounded explanation into a grand\\n   inspirational moral.\\n\\nThis is a default explanatory sequence, not a sentence template. An FAQ,\\nreference, breaking-news item or safety instruction may need the direct answer\\nfirst; it records a proportional adaptation rather than distorting its real\\njob to imitate a reel.\\n\\n## Generation rule\\n\\nBefore drafting, the producer records which dimensions apply, why, the exact\\nexperience or prose move planned for each, the destination-specific adaptation\\nand the no-imitation boundary. Full explanations apply at least six dimensions\\nand bind the four-part arc's shared starting point, curiosity gap, causal\\nsequence, earned click and small landing. Proportional formats apply at least\\ntwo dimensions and either adapt named arc moves or explain why the sequence\\nwould obstruct their job. The record fails if it merely says \\\"Hannah Fry\\ninspired.\\\"\\n\\n## Review and learning-loop rule\\n\\nThe producer and independent reviewer inspect the exact artifact for evidence\\nthat the applied moves improve understanding and engagement while preserving\\ntechnical truth. For a full explanation, they also locate the actual starting\\npoint, causal sequence, earned click and landing in the artifact. They reject\\nname-dropping, curiosity without payoff, a familiar example with no technical\\nreturn, pastiche, a reveal before the mechanism earns it, a hook that receives\\nmore attention than the explanation, entertainment before understanding and\\nan inflated ending. Any newly observed reusable failure follows the shared\\nlearning-disposition route; feedback cannot automatically rewrite, retire or\\nunpublish content.\\n\\n## Existing basis\\n\\nVersion 1 consolidated the already adopted analysis in\\n`operations/classes/CLASS-MEDIA-PRODUCTION-STANDARD.md` and\\n`operations/product-stewards/LEARNING-CONTENT-STANDARD.md`. The research basis\\nand its 2026-08-02 check date remain in the Classes standard. Version 2 adds\\nAli's 2026-08-08 ordering decision from the supplied reel analysis. Because\\nproducer contracts bind the exact benchmark bytes, this revision invalidates\\nstale communication designs before further drafting. A future evidence refresh\\nmay revise this lens through Learning-owner admission; it may not silently\\nchange an in-flight producer contract.\\n\"},\"failureDefinitions\":{\"glossaryAccumulation\":\"Separate definitions accumulate without connecting how the system works.\",\"templateRepetition\":\"Repeated paragraph scaffolds replace a developing explanation.\",\"decorativeAnalogy\":\"A familiar comparison adds flavour but fails to explain a specific causal mechanism.\",\"referenceConfetti\":\"Pop-culture or other references accumulate without a useful explanatory job.\",\"missingMechanism\":\"The reader gets labels or conclusions without the necessary causal steps.\",\"genericAction\":\"Advice such as verify or be careful lacks a concrete useful action for this case.\",\"jargonBeforeMeaning\":\"Necessary technical language is left unexplained in its first meaningful context.\",\"disconnectedSystem\":\"Parts are named separately without showing how information or effects move between them.\",\"factlessConfidence\":\"Certainty exceeds the evidence actually available.\",\"staleUnreviewableClaims\":\"A material time-sensitive claim cannot be traced and checked for its stated date.\",\"corporateSludge\":\"Vague corporate or motivational language obscures the concrete meaning.\",\"joylessInstruction\":\"The prose becomes a dry checklist or terminology manual with little human interest.\",\"benchmarkNameDrop\":\"Mentioning a communication benchmark or famous explainer substitutes for clear explanation.\",\"curiosityWithoutPayoff\":\"A hook raises curiosity but never delivers the promised explanation.\",\"familiarExampleWithoutTechnicalReturn\":\"A familiar example never reconnects to the actual technical mechanism.\",\"communicationPastiche\":\"Wording, persona or mannerisms imitate a communicator instead of original clear explanation.\",\"entertainmentBeforeUnderstanding\":\"Humour or spectacle gets in the way of understanding.\",\"mechanismCompressedBehindHook\":\"The hook occupies the piece while the causal explanation is rushed.\",\"prematureClickBeforeMechanism\":\"The conclusion or reveal is asserted before its explanation earns understanding.\",\"inflatedTakeawayEnding\":\"The ending inflates a bounded finding into a grand claim or moral.\",\"purposeTooNarrow\":\"The scope is narrower than the supplied reader job; one task becomes the whole purpose.\",\"mechanismBeforeMotivation\":\"Technical machinery begins before the artifact establishes the destination-level human reason for this knowledge. Stakes inside one worked example do not satisfy this when the destination promises broader cross-context orientation; the reader must first see why the knowledge matters beyond that example.\",\"workedExampleOvertakesBookPurpose\":\"One worked example crowds out the broader foundational orientation the book promises.\",\"technicalExplainerVoice\":\"The organising perspective is specialist taxonomy or workflow inspection instead of the reader orientation promised by the destination. Judge what the prose asks the reader to care about, not just friendly vocabulary: for a broad foundational opening, second-person warmth and a lived example do not clear this defect when tracing technical operations remains the main reason for learning, without the promised practical and civic orientation. In a bounded news report or how-to, explaining its specific mechanism can be exactly the right perspective.\"}}\n\nOUTPUT CONTRACT (all required keys; each reason is one concise sentence):\n{\"type\":\"object\",\"properties\":{\"attestations\":{\"type\":\"object\",\"properties\":{\"artifactFirst\":{\"type\":\"boolean\"},\"independentFromMaker\":{\"type\":\"boolean\"},\"completeTextRead\":{\"type\":\"boolean\"}},\"required\":[\"artifactFirst\",\"independentFromMaker\",\"completeTextRead\"],\"additionalProperties\":false},\"families\":{\"type\":\"object\",\"properties\":{\"glossaryAccumulation\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"templateRepetition\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"decorativeAnalogy\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"referenceConfetti\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"missingMechanism\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"genericAction\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"jargonBeforeMeaning\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"disconnectedSystem\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"factlessConfidence\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"staleUnreviewableClaims\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"corporateSludge\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"joylessInstruction\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"benchmarkNameDrop\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"curiosityWithoutPayoff\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"familiarExampleWithoutTechnicalReturn\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"communicationPastiche\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"entertainmentBeforeUnderstanding\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"mechanismCompressedBehindHook\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"prematureClickBeforeMechanism\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"inflatedTakeawayEnding\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"purposeTooNarrow\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"mechanismBeforeMotivation\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"workedExampleOvertakesBookPurpose\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false},\"technicalExplainerVoice\":{\"type\":\"object\",\"properties\":{\"state\":{\"type\":\"string\",\"enum\":[\"clear\",\"present\",\"uncertain\"]},\"reason\":{\"type\":\"string\",\"minLength\":15},\"passages\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"enum\":[\"select an actual paragraph ID from the article\"]},\"minItems\":0,\"maxItems\":3}},\"required\":[\"state\",\"reason\",\"passages\"],\"additionalProperties\":false}},\"required\":[\"glossaryAccumulation\",\"templateRepetition\",\"decorativeAnalogy\",\"referenceConfetti\",\"missingMechanism\",\"genericAction\",\"jargonBeforeMeaning\",\"disconnectedSystem\",\"factlessConfidence\",\"staleUnreviewableClaims\",\"corporateSludge\",\"joylessInstruction\",\"benchmarkNameDrop\",\"curiosityWithoutPayoff\",\"familiarExampleWithoutTechnicalReturn\",\"communicationPastiche\",\"entertainmentBeforeUnderstanding\",\"mechanismCompressedBehindHook\",\"prematureClickBeforeMechanism\",\"inflatedTakeawayEnding\",\"purposeTooNarrow\",\"mechanismBeforeMotivation\",\"workedExampleOvertakesBookPurpose\",\"technicalExplainerVoice\"],\"additionalProperties\":false},\"strengths\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":15},\"minItems\":1,\"maxItems\":4},\"summary\":{\"type\":\"string\",\"minLength\":15}},\"required\":[\"attestations\",\"families\",\"strengths\",\"summary\"],\"additionalProperties\":false}\n\nReturn only the requested judgments as a compact JSON object. For each judgment select the paragraph IDs that actually support your reason. A clear failure-family judgment may instead use an empty passage array to assess absence across the complete artifact; present or uncertain failures and all outcomes/claims require actual passages. Cite at least one real passage somewhere in the calibration. IDs are references, not preassigned answers. Code will attach exact passages and metadata. No overall verdict, dates, file paths or hashes are requested. For article reviews, NO_NEW_DEFECT is valid only when every required assessment passes; otherwise identify candidate repair or evidence gap without inventing a registered learning. You are an independent reviewer; the artifact maker is OpenAI /root. Attest truthfully. Do not read prior reviews, imitate their verdicts, or diagnose review paperwork."
+    }
+  ],
+  "response_format": {
+    "type": "json_object"
+  },
+  "max_completion_tokens": 5000,
+  "temperature": 0.05,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}

@@ -4,19 +4,19 @@
 
 Anthropic announced September 16 that it is merging Claude chat and Cowork into one Claude experience. A person can ask a quick question or hand over a longer, multi-step task without choosing a mode first.
 
-Rollout is gradual: Pro and Max first across web, desktop and mobile. Same-plan accounts may differ. Team and Free follow; Enterprise gets at least 30 days’ notice.
+Rollout is gradual: Pro and Max first across web, desktop and mobile. Team and Free follow; Enterprise gets at least 30 days’ notice. Same-plan accounts may differ.
 
 ## LAiDIES Read
 
-The change removes a doorway; it does not promise that every task will succeed. One conversation may answer, then use tools and several steps to produce a file.
+The change removes a doorway; it does not promise every task will succeed. Until your account moves, the closest alternative is separate Claude Chat for questions and Cowork for longer jobs.
 
-Manual is the default and asks before actions. Auto can work with fewer check-ins. The setting covers the whole conversation, so check it before a longer task.
+LAiDIES would use the longer-work option when a task has named inputs and a document to check. Anthropic says Manual asks before actions; Auto reduces check-ins. The setting covers the conversation. Those are vendor descriptions, not proof a task will finish well.
 
 ## What This Means for You
 
 Once the new experience reaches your account, attach three appliance manuals and ask Claude to make an editable seasonal-maintenance checklist. Keep the conversation on Manual, name the manuals it may use and inspect every date or safety instruction against the originals.
 
-Local folders or apps require Claude Desktop to stay open; a cloud task may continue after you close the laptop. Separate Chat and Cowork choices mean your account has not moved yet.
+Local work needs Claude Desktop open; cloud work may continue after the laptop closes. If separate Chat and Cowork choices remain, keep using them.
 
 ## Cocktail Party
 

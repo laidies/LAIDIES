@@ -1,0 +1,143 @@
+[
+  {
+    "claimId": "event",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>Anthropic announced its Life Sciences Verification Program on September 17. The beta gives verified life-science teams versions of Claude that allow more biology requests than general Claude.</p>",
+        "locator": "P002"
+      },
+      {
+        "excerpt": "Anthropic is easing Claude’s biology restrictions for vetted research teams",
+        "locator": "P001"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/editorial-input.json",
+      "sha256": "4a98154eea949bb9aba3c063a5ec271712b68f0bd4feed8b07b3955629cccd99"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Today, we are introducing the Life Sciences Verification Program (LSVP), which gives life science professionals access to our Mythos, Opus, and Sonnet models with a refined set of safeguards more permissive for biology-related work.",
+        "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+      },
+      {
+        "excerpt": "The program is launching in beta, initially for teams and institutions.",
+        "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+      },
+      {
+        "excerpt": "The program is launching in beta, initially for teams and institutions.",
+        "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+      }
+    ],
+    "scopeAndFreshness": "P002 matches the source: LSVP introduced (event-1), launching in beta initially for teams/institutions (event-2), with more permissive biology safeguards for verified life-science professionals; the September 17 date is consistent with the announcement identity and September 19 recheck."
+  },
+  {
+    "claimId": "purpose",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>Anthropic says the program is designed for life-science work that general Claude blocks. The closest alternative is general Claude with stricter biology restrictions; special access is unnecessary when an ordinary request already works there.</p>",
+        "locator": "P004"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/editorial-input.json",
+      "sha256": "4a98154eea949bb9aba3c063a5ec271712b68f0bd4feed8b07b3955629cccd99"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "The LSVP is designed to enable life science professionals to use our models across a wide range of tasks that are currently blocked in our generally available Fable models",
+        "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+      }
+    ],
+    "scopeAndFreshness": "P004's attributed purpose matches purpose-1: LSVP enables tasks currently blocked in generally available models; the 'ordinary request already works' point is a bounded, clearly editorial consequence, not presented as source fact."
+  },
+  {
+    "claimId": "access",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>Standard Use covers a team and renews yearly. High-risk Use is an extra six-month grant for one project that removes life-science request blocks. Anthropic says other safeguards remain.</p>",
+        "locator": "P005"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/editorial-input.json",
+      "sha256": "4a98154eea949bb9aba3c063a5ec271712b68f0bd4feed8b07b3955629cccd99"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "These grants can be extended to entire teams and are renewed once a year.",
+        "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+      },
+      {
+        "excerpt": "High-risk Use is an add-on grant for teams working in areas blocked under Standard Use. It removes all safeguards that block life sciences requests. This grant applies to a single research project and must be renewed every six months.",
+        "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+      },
+      {
+        "excerpt": "All other safeguards, such as cyber classifiers, will remain in place under LSVP grants.",
+        "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+      }
+    ],
+    "scopeAndFreshness": "P005 matches access-1 (team-wide, renewed yearly), access-2 (High-risk add-on, single project, six-month renewal, removes safeguards blocking life-science requests) and access-3 (other safeguards like cyber classifiers remain), with 'Anthropic says' attribution retained."
+  },
+  {
+    "claimId": "monitoring",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>Less blocking does not mean no monitoring. Anthropic says LSVP replaces immediate refusals with looking for patterns after activity runs. Access is tied to an approved use case. The company says it keeps LSVP traffic for 30 days so monitoring can happen.</p>",
+        "locator": "P006"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/editorial-input.json",
+      "sha256": "4a98154eea949bb9aba3c063a5ec271712b68f0bd4feed8b07b3955629cccd99"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "Each entity’s access is tied to the use cases it has specified in its grant applications",
+        "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+      },
+      {
+        "excerpt": "LSVP shifts safeguards from real-time blocking to offline monitoring.",
+        "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+      },
+      {
+        "excerpt": "this requires 30-day retention for LSVP traffic",
+        "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+      }
+    ],
+    "scopeAndFreshness": "P006 matches monitoring-2 (shift from real-time blocking to offline monitoring), monitoring-1 (access tied to specified use cases) and monitoring-3 (30-day retention for LSVP traffic), all attributed to the company; effectiveness is not overstated."
+  },
+  {
+    "claimId": "availability",
+    "status": "VERIFIED",
+    "candidateEvidence": [
+      {
+        "excerpt": "<p>Teams and institutions come first; individual Pro and Max access is planned later. Applicants are reviewed for research credentials, security and ethical oversight.</p>",
+        "locator": "P003"
+      }
+    ],
+    "sourceBinding": {
+      "path": "operations/product-stewards/newsstand/candidates/anthropic-lsvp-beta-20260917/editorial-input.json",
+      "sha256": "4a98154eea949bb9aba3c063a5ec271712b68f0bd4feed8b07b3955629cccd99"
+    },
+    "sourceEvidence": [
+      {
+        "excerpt": "The program is launching in beta, initially for teams and institutions.",
+        "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+      },
+      {
+        "excerpt": "We will continue to improve the program and expand access to individual Pro and Max plans over time.",
+        "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+      },
+      {
+        "excerpt": "The program is launching in beta, initially for teams and institutions.",
+        "locator": "https://www.anthropic.com/news/life-sciences-verification-program"
+      }
+    ],
+    "scopeAndFreshness": "P003 matches availability-1 (beta initially for teams and institutions) and availability-2 (expand access to individual Pro and Max plans over time); 'planned later' correctly renders an intention, not a commitment date."
+  }
+]

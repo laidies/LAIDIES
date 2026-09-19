@@ -1,9 +1,7 @@
 {
   "schema": "laidies.newsstand-story-type-coverage.v1",
   "primaryType": "model-tool-release",
-  "overlays": [
-    "personal-use"
-  ],
+  "overlays": [],
   "universalAnswers": {
     "whatHappened": "Anthropic announced one Claude experience for chat and Cowork.",
     "plainLanguageIdentity": "The same conversation can handle a short answer or a longer job.",
@@ -18,12 +16,38 @@
   },
   "typeAnswers": {
     "model-tool-release": {
-      "whatChanged": "Separate Chat and Cowork choices are merging into one conversation experience.",
-      "whereAvailable": "Gradual rollout beginning with Pro and Max on web, desktop and mobile.",
-      "whoControlsIt": "The user briefs the task and chooses Manual or Auto permissions; Enterprise administrators control organizational timing.",
-      "separation": "Local file or app work requires Claude Desktop open; cloud tasks may continue after the laptop closes.",
-      "evidenceLimit": "Provider announcement and help documentation only.",
-      "realWorldTransfer": "Turn a few appliance manuals into a checklist and verify safety details against the originals."
+      "productRange": "One Claude conversation is replacing the separate Chat and Cowork choices as each account migrates.",
+      "newCapabilities": "Cowork-style multi-step tasks and finished-file creation become available from an ordinary conversation.",
+      "bestFitTasks": "A low-risk task with clear inputs and a result the reader can inspect, such as a household maintenance checklist.",
+      "notFor": "The sources do not establish reliable task completion, universal access, safety, privacy or independent quality.",
+      "nearestAlternatives": "Until migration, people who still see separate Chat and Cowork choices can keep using them as before.",
+      "availability": "Gradual rollout begins with Pro and Max on web, desktop and mobile; same-plan accounts may differ.",
+      "freePaidBoundary": "Pro and Max are first; Team and Free are due to follow; Enterprise organizations receive advance notice.",
+      "costBoundary": "The sources name plan order but do not announce a new price for the merged experience.",
+      "limitations": "Provider announcement and help documentation only; no independent usage or outcome evidence.",
+      "technicalExampleProportionality": "The article uses one original appliance-manual task and explains only the permission and execution boundaries needed for it.",
+      "vendorEvidenceBoundary": "Anthropic is the source for its own product, rollout and permission behavior; the article makes no performance claim."
     }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "Anthropic announced September 16 that it is merging Claude chat and Cowork into one Claude experience.",
+    "actualMeaningExact": "A person can ask a quick question or hand over a longer, multi-step task without choosing a mode first.",
+    "mechanismExact": "Anthropic says Manual asks before actions; Auto reduces check-ins.",
+    "familiarExampleExact": "Once the new experience reaches your account, attach three appliance manuals and ask Claude to make an editable seasonal-maintenance checklist.",
+    "jargon": [
+      {
+        "term": "Manual",
+        "plainMeaning": "Manual asks before actions"
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "Set an authority line before delegating an agent task.",
+        "learningPayoff": "Name what the agent may do, when it must ask and when it must stop.",
+        "disposition": "link",
+        "destination": "/library.html#working-with-ai-101::%40add-to-your-working-with-ai-kit-10"
+      }
+    ]
   }
 }
