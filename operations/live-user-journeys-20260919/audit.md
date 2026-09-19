@@ -23,3 +23,7 @@ PNG files01–17 are saved in this directory. **04-book-reader-phone.png is reje
 4. Complete quiz validation/scoring and linked-learning continuation acceptance; reward development is still a separate unfinished product capability.
 
 No release or code repair is claimed by this initial audit record.
+
+## Completed repair
+
+Miss Jeeves current-index, source-result and phone readability repair is publicly verified on September19. Final Dictionary anchor repair also verified. See status.md and production/ for exact scope and limits. Original observations above remain the pre-repair audit, not current claims about repaired behavior.

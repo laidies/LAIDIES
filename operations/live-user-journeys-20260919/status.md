@@ -1,15 +1,17 @@
-# September19 six-route audit and Miss Jeeves repair
+# September 19 six-route audit and Miss Jeeves repair
 
-Goal: preserve the six homepage entrances and fix the highest-impact observed failure. Tier1.
+Status: PUBLICLY_VERIFIED bounded repair. Overall six-route goal remains ACTIVE and incomplete.
 
-Current: LOCAL_VERIFIED; production pending exact release and live verification.
+Final deployment: c470424a-d006-4968-810c-e3d257a97ffe. Source: 0b3b8317a0b00686313b2606433cd7c371fbf19b. Live: https://laidies.ai/library.html#miss-jeeves
 
-Observed: production used the August24 Working with AI index while the reader served admitted August29 bytes; old automatic Workers AI synthesis also violated September5 free-initial-search direction. The repair restores the already-built current index, uses free lookup, retains attributed source previews and exact links, replaces the broad featured tool-choice chip with the existing context-window question, and fixes narrow phone result rendering. Paid research remains outside this release.
+Published: current admitted book search index; free initial source lookup without automatic model synthesis; useful existing homepage examples; attributed excerpts and exact source sections; readable full-width phone results. Unsupported Fundamentals 15.3 percentage excerpt excluded from search pending correction to the book itself. Dictionary IDs live on article nodes; final follow-up fixes exact term scroll and keyboard focus without changing prose.
 
-Scope: index.html one promise sentence, Library question UI, search index, PagesWorker lookup. Community and other endpoints preserved bytewise; no new services, costs, accounts or provider configuration.
+Verification: 14 dual-origin health/query checks on initial deployment; final deployment preserves identical Worker and index. Final dual-origin exact bytes and provider manifest checks pass; production configuration unchanged. Final follow-up changes only Library and preserves 824 static files. Cumulative repair changes four paths, with no removals. Desktop and 390px live work-document source journeys pass; final phone Dictionary direct link and keyboard result link both focus Context window at 119.9px with no horizontal overflow. Unmatched question stays in field and shows honest no-match plus unchecked editorial consent; no submission made.
 
-Evidence: audit.md; live-book-hashes.json; local-verification.json; backend-regression.mjs; preservation.test.mjs; prose/. Screenshot04 transientresize and19 narrowcandidate are rejected.
+Tests: Worker lookup/no-model-call and invalid-input tests, backend regression, 51 calibrated Library rejection fixtures, community/other-endpoint preservation tests, admitted four-book byte hashes, independent prose and functional reviews pass. Final two-line Dictionary fix independently reviewed PASS. Code whitespace checks pass. Archived unchanged writing-lock reference retains original Markdown hard-break whitespace for exact reference hash; that archive was excluded from the code whitespace check.
 
-Remaining six-route work: broader question-answer service, radio remote-Resume recovery, held artwork, useful community participation, quiz complete scoring/empty submission and news-to-book continuation. Earlier community test-account acceptance was September15; no comments or account changes today.
+Evidence: production/ initial and final receipts; live-api-checks.json; tests.json; live-book-hashes.json; prose/. Screenshots in /Users/alisoneakin/Documents/Codex/laidies-live-audit-20260919. 23 is live desktop work-document source, 25 exact phone source, 29 corrected live Dictionary phone; 30 corrected live Dictionary desktop (focus on Context window, term at183.2px, width1440 with no overflow). 24 is rejected resize-position evidence; 27 records the caught Dictionary defect, superseded by29. Earlier local snapshots are historical, not final exact-byte proof.
 
-Final local corrections: homepage examples now use three verified existing Library questions. The current context-window example returns its exact Dictionary entry; the unsupported percentage row in Fundamentals15.3 is held out of search for all queries. Source-book correction remains open. Screenshot19 is superseded by21/22.
+Not completed: broader researched question service; correction of unsupported percentage in the source book; radio remote-Resume recovery; useful ongoing community participation and held artwork; complete quiz scoring/empty-submission validation; news-to-book continuation; listening rewards. No public posts, account changes or new spending. Signed-in community acceptance from September15 was not repeated today. Canonical iCloud repository was not mutated.
+
+Release slot and full current manifest/control archive returned to NewsStand task 01a071e7-db55-7a22-8c99-04eba5060355 for preservation in its next overlay.
