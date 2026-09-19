@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "newsstand-weekly-late-recovery-plan-v1",
+  "candidateId": "weekly-promises-and-proof-20260916",
+  "preparedAt": "2026-09-19T14:21:26.089532Z",
+  "status": "AWAITING_ROOT_REVISED_PROSE_AND_GENUINE_PRODUCER_RECEIPT",
+  "route": {
+    "publicationDate": "2026-09-19",
+    "recoveryPublication": {
+      "mode": "MISSED_WEDNESDAY",
+      "editionDate": "2026-09-16"
+    },
+    "period": {
+      "startDate": "2026-09-09",
+      "endDate": "2026-09-16"
+    },
+    "elapsedDays": 3,
+    "authorizedWindow": "1\u20136 days after missed Wednesday",
+    "pointerNote": "The 2026-09-09\u20132026-09-16 Weekly."
+  },
+  "preservedAttempt": {
+    "meaning": "Actual qualified Claude PASS on the unrevised September 16 prose. It cannot admit a September 19 revision.",
+    "completedAt": "2026-09-16T15:18:04.318Z",
+    "raw": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/independent-review-v1/article-editorial-provider.raw.json",
+      "sha256": "26904736d3894027d883a1472d7052f536602fddba863083795261313cde027c"
+    },
+    "checked": {
+      "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/independent-review-v1/article-editorial-checked.json",
+      "sha256": "340159db207df06e793574faddbf1f27090f66b205c1664eb31002c3d4f1baef"
+    }
+  },
+  "requiredSequence": [
+    "Root revises the story with a clearly dated post-period update about the September 18 Anthropic evaluator partnership; no implication that it occurred inside the covered period.",
+    "Mechanical package rebuild updates exact review text, manifest, claim map, source budget, source observations and story-type coverage without overwriting the preserved v1 attempt.",
+    "Root performs a genuine full-prose producer self-review against the new hashes.",
+    "A new qualified Claude Max review runs in independent-review-v2 with actual current completion time; any HOLD is preserved and repaired through a new version.",
+    "Assembly binds the current canonical publication base, the current prior Weekly story, exact selected development dates inside September 9\u201316, the six-desk assessment, source-reuse manifest, producer and independent receipts, raw report and all source observations.",
+    "Check-only publish-newsstand-weekly validates publicationDate September 19 with recoveryPublication MISSED_WEDNESDAY editionDate September 16. No --write is used in this lane."
+  ],
+  "currentSourceRecheck": {
+    "path": "operations/product-stewards/newsstand/candidates/weekly-20260916/late-recovery-source-recheck.json",
+    "sha256": "f74f0da90d7d07644456ad3db533e21f0c0a65642830b6f088de7c0db714b5cc"
+  },
+  "openDefects": [
+    "Current OpenAI direct read returned HTTP 403; September 16 complete capture remains valid historical evidence but must not be relabelled as a September 19 full read.",
+    "Root revised prose and current producer receipt do not yet exist.",
+    "The preserved September 16 Claude PASS is stale for any revised story and cannot be reused."
+  ],
+  "noCanonicalWrite": true,
+  "noPublicWrite": true
+}

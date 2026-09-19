@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "newsstand-independent-sweep-v1",
+  "lane": "/root/aft_school_story",
+  "triggerAt": "2026-09-16T14:01:00Z",
+  "recordFinalizedAt": "2026-09-16T14:11:13Z",
+  "nextCheckAt": "2026-09-16T17:00:00Z",
+  "scope": "Fresh bounded checks of AP AI, Nature machine-learning research, Nature machine-learning news/comment, FTC releases, EFF AI and BleepingComputer AI, plus legitimate distinct-source recovery for due evidence holds.",
+  "scopeLimit": "Six fixed desks only; no discovery-exhaustiveness or generic all-clear claim.",
+  "comparison": {
+    "coveragePath": "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json",
+    "coverageSha256": "a0d35a7b1d3269c178594cfb93381ff7701959832f1f52dd0a513af50167d103",
+    "coverageLeadCount": 63,
+    "publicDatasetPath": "content/newsstand-stories.js",
+    "publicDatasetSha256": "34354b108cefadb31ba877b929525b6f51634d13eb47431e6037e1583975a8ba",
+    "currentDailyStoryIds": [
+      "microsoft-humanist-code-20260915",
+      "rubygems-agent-attribution-20260915",
+      "china-amodei-response-20260915",
+      "gemini-live-38-20260915",
+      "microsoft-aft-school-privacy-20260915",
+      "gates-ai-access-pledge-20260915",
+      "census-ai-graduates-20260915",
+      "congress-ai-oversight-response-20260915",
+      "zai-self-training-financing-plan-20260915"
+    ],
+    "relatedPublishedStories": [
+      "epa-public-participation-20260911",
+      "amodei-ai-pacing-20260912",
+      "trump-ai-safeguards-20260913",
+      "trump-ai-guardrails-response-20260914",
+      "china-amodei-response-20260915",
+      "congress-ai-oversight-response-20260915"
+    ]
+  },
+  "newLeads": [
+    {
+      "leadId": "ai-data-center-public-concern-20260916",
+      "disposition": "PRIVATE_SOURCE_BOUND_RESEARCH_CANDIDATE",
+      "confidence": "certain on source identity and poll method; editorial value likely",
+      "readerRelevance": "People hearing local AI-infrastructure arguments need to distinguish public concern from measured project effects and enacted policy.",
+      "distinctness": "New US public-opinion measure. Related to, but not the same event or claim as, the published EPA public-participation proposal.",
+      "sourceUrl": "https://apnews.com/article/ai-environmental-impact-data-centers-trump-228d625ab7c62cd583bc67d65074f7d4",
+      "capturePath": "operations/product-stewards/newsstand/evidence/morning-20260916/independent-ap-capture.json",
+      "candidatePath": "operations/product-stewards/newsstand/candidates/ai-data-center-public-concern-20260916/research-candidate.json",
+      "budget": "AP/AP-NORC same-family aggregate maximum 100 source-derived words across all visitor-visible fields.",
+      "nextAction": "Editorial distinctness decision, then exact poll questionnaire/topline recovery and ordinary producer gates if selected."
+    },
+    {
+      "leadId": "zuckerberg-slowdown-response-20260916",
+      "disposition": "SUCCESSOR_ONLY_EDITORIAL_HOLD",
+      "confidence": "certain on AP report; likely too incremental for a standalone story",
+      "readerRelevance": "Adds Meta's company-by-company position to the public pacing debate.",
+      "distinctness": "A new named response, but the practical slowdown/governance issue is already covered by Amodei, Trump, China and Congress stories.",
+      "sourceUrl": "https://apnews.com/article/ai-zuckerberg-meta-slowdown-2f4eab05b1e931456d00ebc2fe93c989",
+      "nextAction": "Use only as successor context if the debate materially changes; no standalone candidate now."
+    }
+  ],
+  "recoveryInputs": [
+    {
+      "leadId": "embedded-evaluator-independence-20260915",
+      "disposition": "USEFUL_COMPLETE_INDEPENDENT_REPORT_RECOVERED_PRIMARY_GAP_REMAINS",
+      "sourceUrl": "https://apnews.com/article/ai-slowdown-challenges-anthropic-openai-trump-b61f28b6212338e88c0baec31f661701"
+    }
+  ],
+  "deskEvidence": {
+    "path": "operations/product-stewards/newsstand/evidence/morning-20260916/independent-six-desk-captures.json",
+    "sha256": "16f6a72c83965e613a8aae9415c51806ecaa70eb186667e3d53510353f404446"
+  },
+  "apEvidence": {
+    "path": "operations/product-stewards/newsstand/evidence/morning-20260916/independent-ap-capture.json",
+    "sha256": "d80afe934808a0a5acccd8a9141b4f0a64c5ce5544a12e4a9ceee07f91256741"
+  },
+  "holdRecoveryEvidence": {
+    "path": "operations/product-stewards/newsstand/evidence/morning-20260916/independent-hold-recovery.json",
+    "sha256": "4b19895cc9c39c2da15b12b8452d29cb51c0c21a07cce714da3b0f9e5eea5c6f"
+  },
+  "candidateEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-data-center-public-concern-20260916/research-candidate.json",
+    "sha256": "3aaf3feb622337c3dad103c20a246865bdd2925b53ac13379e45723969d7c0ea"
+  },
+  "newNonretryable": [
+    "https://www.biorxiv.org/content/10.1101/2025.02.07.637070v2",
+    "https://www.youtube.com/embed/qCZbbCWS8DQ?enablejsapi=1&feature=oembed",
+    "Nature index link 26 for the 16 September attribution editorial; target URL was not exposed by the failed reader"
+  ],
+  "excludedOrHeld": [
+    "Nature Rider RNA-virus discovery: specialised index-only research without an established beginner action or availability claim.",
+    "Nature attribution editorial: relevant but article unreadable; title/deck overlap the private mathematics candidate and cannot support new claims.",
+    "FTC: no new AI-specific item in the bounded current release index.",
+    "EFF: no item newer than the already covered Wisconsin WISeR report.",
+    "BleepingComputer: 16 September item was a commercial deals promotion, excluded.",
+    "ProteinTalks/breast-cancer duplicate study family: full primary methods gap remains.",
+    "Devin Voice: exact dated launch record remains missing.",
+    "GrokBot sales integrations: official capability evidence recovered, but exact claimed 10 September event identity remains missing.",
+    "E-MAF: complete accessible primary methods/results remain missing.",
+    "Blanche response: official page has no transcript and embedded official video was throttled."
+  ],
+  "notDone": [
+    "No public prose, art, qualified review, publication, issue, queue, source-cursor or coverage-progress mutation.",
+    "No prohibited original was deliberately reopened and no proxy, mirror or alternate path was used to bypass a failed source.",
+    "No provider/AIDB lane work; root retained that ownership."
+  ],
+  "repositoryMutation": "OWNED_PRIVATE_EVIDENCE_AND_ONE_PRIVATE_RESEARCH_CANDIDATE_ONLY"
+}

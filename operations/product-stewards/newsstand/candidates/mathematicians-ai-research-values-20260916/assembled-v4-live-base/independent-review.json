@@ -1,0 +1,927 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "mathematicians-ai-research-values-20260916",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "NEWS",
+  "surface": "NEWSSTAND_DAILY",
+  "maker": "/root/aft_school_story",
+  "reviewer": {
+    "id": "claude-fable-newsstand-editorial",
+    "principalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "role": "independent ordinary NewsStand editorial reviewer",
+    "modelFamily": "anthropic",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-16T14:32:08.786Z",
+  "artifact": {
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/review-text.json",
+      "sha256": "228a0c542e360da3689aa25401ad94d21906ba688e5dbe7c608c144e516896e9"
+    },
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/publication-manifest.json",
+      "sha256": "305ae38e64b1faa09b98317960c679efbda01460d1d05e8d9f11e8050978415a"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/rendered-article.html",
+      "sha256": "3251f82dae7fe230d3a77fa37aa773d9e2e703fc413dffd984ec7f9e0b932bf4"
+    }
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+    "reviewedAt": "2026-09-05T22:59:31.082Z",
+    "mode": "ORDINARY_NEWS_BLIND_REJECTION_V1",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "templateRepetition",
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "uncertain",
+            "observation": "Ten definition blocks accumulate in sequence; short placement lines (product assembles context, model transforms, tools connect around) give some system flow, but no integrated walkthrough ever shows the whole system working end to end.",
+            "artifactLocator": "P003, P007, P011"
+          },
+          "templateRepetition": {
+            "state": "present",
+            "observation": "Every concept repeats the identical scaffold of definition, analogy with 'Where it stops', 'In real life' and a one-line placement, so the chapter reads as a filled-in template rather than a developing explanation.",
+            "artifactLocator": "P004, P008, P012"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "Each analogy (Walkman mechanism, wardrobe computer, librarian with tools) maps onto a specific structural point and carries an explicit boundary where it stops.",
+            "artifactLocator": "P016, P036"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "Clueless, the Walkman and Miss Jeeves each perform a defined explanatory job with stated limits rather than accumulating as flavour.",
+            "artifactLocator": "P012, P016, P036"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "For a parts-map chapter the causal placement is adequate: request assembly, model transformation and tool action are traced, and deeper token mechanics are explicitly deferred to Chapter 2.",
+            "artifactLocator": "P014, P018, P023"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "Advice is concrete for the case, e.g. checking names, dates and small labels against original documents rather than a bare 'verify'.",
+            "artifactLocator": "P033"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term is defined in plain language at first meaningful use, and tokens are flagged with a forward pointer before being relied on.",
+            "artifactLocator": "P023, P027"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Placement sentences and the recurring handover example show how the request, context, model output and tools relate to one another.",
+            "artifactLocator": "P014, P018, P038"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "Claims are bounded and hedged appropriately; limitations sections repeatedly restrain overreach.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No dated or time-sensitive factual claims are asserted that would require external verification.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "The prose is concrete throughout with no vague corporate or motivational filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "Despite the rigid structure, warmth, second-person address and playful references keep the prose from being a dry manual.",
+            "artifactLocator": "P012, P036"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is named anywhere in the artifact.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening claim that the distinction 'tells you what to fix' is modest and is partially serviced by the component distinctions that follow.",
+            "artifactLocator": "P002"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "Each familiar comparison returns to the technical point via an explicit 'Where it stops' boundary and an 'In real life' application.",
+            "artifactLocator": "P016, P028"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and structural; it does not imitate any named communicator's persona or mannerisms.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour and references are sparse and subordinate to the explanatory content throughout.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "There is no oversized hook; the piece is almost entirely explanatory content.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "No reveal is asserted ahead of its support; each claim is bounded and immediately grounded.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The chapter ends on a small precise caution about tools rather than a grand moral.",
+            "artifactLocator": "P038"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening serves only the diagnose-your-own-AI-result transformation via one workplace task, with no orientation toward judging public hype or panic and no civic-participation payoff the destination promises.",
+            "artifactLocator": "P002, P005, P037"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "The chapter opens directly into taxonomy at the first definition without first establishing the destination-level reasons this knowledge matters, and the handover example's stakes do not supply the promised cross-context motivation.",
+            "artifactLocator": "P001, P002, P003"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The single handover-email example carries nearly every 'In real life' beat and stands in for the book's broader practical and civic orientation, which never appears.",
+            "artifactLocator": "P005, P025, P037"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "The organising perspective is a component taxonomy for tracing where a workflow output came from; second-person warmth does not supply the promised orientation toward judging claims and participating in decisions.",
+            "artifactLocator": "P001, P002, P010"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "Think of a workplace team: the finished work depends on the people, information, equipment and approval process together. Where it stops: an AI system is software and machines, not a team of people with judgment or responsibility.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "A car manufacturer and a taxi company can both affect your journey. Where it stops: AI providers may build several layers at once, so the roles are not always cleanly separated.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "Cher’s wardrobe computer in Clueless is a useful product analogy: the screen, clothing catalogue, matching rules and selection mechanism work together to create the experience. Where it stops: an AI product can generate and act, not merely match stored outfits, and its model is only one component.",
+            "locator": "P012"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "AI system\nAn AI system receives input and produces an output such as content, a prediction, a recommendation or a decision. The system you experience may combine models, an interface, instructions, data sources, tools, permissions and human controls.",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "In real life. An LLM can draft the handover email in your preferred tone while still inventing a plausible commitment that the policy never made.",
+            "locator": "P025"
+          },
+          {
+            "excerpt": "In real life. A search tool can fetch the current service policy; an email tool could save or send the handover.",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "Chapter 1 — Meet the parts of the system",
+            "locator": "P001"
+          },
+          {
+            "excerpt": "First, stop calling the whole thing “the AI.” The app you open, the model inside it, the company behind it and the tools it can reach are different parts. That distinction is not pedantry; it tells you what to fix.",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "The provider sits behind parts of the system; it is not the model, product or answer itself.",
+            "locator": "P010"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "familyAssessments": {
+          "glossaryAccumulation": {
+            "state": "clear",
+            "observation": "Terms like context, inference and tools are defined inside the working example where each changes what happens next, not as a stacked glossary.",
+            "artifactLocator": "P022, P028, P032"
+          },
+          "templateRepetition": {
+            "state": "clear",
+            "observation": "Sections vary in structure and each advances a different stage of the request's journey rather than reusing one paragraph scaffold.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "decorativeAnalogy": {
+            "state": "clear",
+            "observation": "The prose relies on the literal worked case rather than comparisons; the lone 'osmosis' quip is a light aside, not a load-bearing analogy.",
+            "artifactLocator": "P023"
+          },
+          "referenceConfetti": {
+            "state": "clear",
+            "observation": "No pop-culture or external references appear; the text stays inside the job-offer scenario.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "missingMechanism": {
+            "state": "clear",
+            "observation": "The causal chain from what reached context, to what the model could and could not do, to how a tool result enters the answer is traced step by step.",
+            "artifactLocator": "P024, P029, P033"
+          },
+          "genericAction": {
+            "state": "clear",
+            "observation": "The advice is concrete for the case: attach the benefits guide, state priorities, inspect the returned commute estimate, and the four closing questions each name a specific check.",
+            "artifactLocator": "P040, P045, P052"
+          },
+          "jargonBeforeMeaning": {
+            "state": "clear",
+            "observation": "Each technical term (system, model, context, inference, tools) is explained in plain language at its first meaningful use.",
+            "artifactLocator": "P004, P022, P028"
+          },
+          "disconnectedSystem": {
+            "state": "clear",
+            "observation": "Parts are shown moving information between them—product to context to model to tools to output—rather than being named in isolation.",
+            "artifactLocator": "P033, P054"
+          },
+          "factlessConfidence": {
+            "state": "clear",
+            "observation": "The text repeatedly bounds its own claims, marking the revised answer as better for this decision rather than objectively correct.",
+            "artifactLocator": "P043, P046, P055"
+          },
+          "staleUnreviewableClaims": {
+            "state": "clear",
+            "observation": "No time-sensitive external factual claims are made; the scenario is hypothetical and self-contained.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "corporateSludge": {
+            "state": "clear",
+            "observation": "Language is concrete and specific throughout, with no vague motivational or corporate filler.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "joylessInstruction": {
+            "state": "clear",
+            "observation": "The lived stakes (father's physiotherapy, surprise bills, commute hours) keep the instruction warm and human rather than a dry checklist.",
+            "artifactLocator": "P012, P030"
+          },
+          "benchmarkNameDrop": {
+            "state": "clear",
+            "observation": "No communication benchmark or famous explainer is invoked as a substitute for explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "curiosityWithoutPayoff": {
+            "state": "clear",
+            "observation": "The opening gap about what happened between question and answer is fully paid off by the traced mechanism and repair pattern.",
+            "artifactLocator": "P003, P044"
+          },
+          "familiarExampleWithoutTechnicalReturn": {
+            "state": "clear",
+            "observation": "The job-offer example continuously returns to technical machinery—context contents, inference limits, tool operations—rather than staying anecdotal.",
+            "artifactLocator": "P024, P029, P036"
+          },
+          "communicationPastiche": {
+            "state": "clear",
+            "observation": "The voice is original and consistent; no imitation of a named communicator's persona or mannerisms is detectable.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "entertainmentBeforeUnderstanding": {
+            "state": "clear",
+            "observation": "Humour is minimal and never displaces or delays the explanation.",
+            "artifactLocator": "Complete artifact read; absence judgment"
+          },
+          "mechanismCompressedBehindHook": {
+            "state": "clear",
+            "observation": "The hook is brief and the large central share of the piece is spent on the causal explanation, matching healthy proportions.",
+            "artifactLocator": "P003, P026"
+          },
+          "prematureClickBeforeMechanism": {
+            "state": "clear",
+            "observation": "The tidy early recommendation is deliberately presented as inadequate and the real resolution arrives only after the mechanism is traced.",
+            "artifactLocator": "P015, P041"
+          },
+          "inflatedTakeawayEnding": {
+            "state": "clear",
+            "observation": "The ending lands on a precise bounded distinction rather than a grand moral.",
+            "artifactLocator": "P055, P057"
+          },
+          "purposeTooNarrow": {
+            "state": "present",
+            "observation": "The opening establishes only the first promised transformation (diagnosing a failed result) and never introduces judging hype or panic in public claims or informed participation in workplace and public decisions, leaving one personal task as the whole stated purpose.",
+            "artifactLocator": "P007, P018, P056"
+          },
+          "mechanismBeforeMotivation": {
+            "state": "present",
+            "observation": "System/model machinery begins in the introduction with stakes supplied only by the single worked example, before the destination-level motivation—why this knowledge matters for judging public claims and civic/workplace decisions—is ever established.",
+            "artifactLocator": "P004, P005, P008"
+          },
+          "workedExampleOvertakesBookPurpose": {
+            "state": "present",
+            "observation": "The job-offer comparison occupies essentially the entire opening, and even the generalising map and chapter preview stay within diagnosing one's own AI answers, crowding out the broader hype-judging and civic orientation the book promises.",
+            "artifactLocator": "P009, P053, P056"
+          },
+          "technicalExplainerVoice": {
+            "state": "present",
+            "observation": "Despite second-person warmth, what the reader is asked to care about is tracing which operation ran and inspecting system components—a workflow-inspection orientation—without the promised practical-and-civic frame for evaluating claims and participating in decisions about AI.",
+            "artifactLocator": "P037, P052, P054"
+          }
+        },
+        "evidence": [
+          {
+            "excerpt": "This book will help you find the weak part instead of blaming “AI” as though it were one indivisible object. Read the chapters in order to build the complete picture. Use the separate Concept Index when you need to look up one term—such as token, context, memory, routing or agent—and then jump to the chapter where that term does real work.",
+            "locator": "P007"
+          },
+          {
+            "excerpt": "This is the first lesson of the whole book: the quality of an AI result depends on more than the wording of one prompt. It depends on what the system is trying to help you do, what information reached it, what operations ran, what the model produced and what you checked before acting.",
+            "locator": "P018"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "You did not consult one all-knowing thing. You used an **AI system**: the whole working arrangement that received your request and produced the result. That arrangement includes the product you opened, the instructions and material available for this task, at least one trained model, and the software that presents the answer. Some systems can also search, calculate, retrieve documents or take actions. The exact arrangement varies from product to product.",
+            "locator": "P004"
+          },
+          {
+            "excerpt": "The **model** is an important part of that system, but it is not the whole system. It is the trained component that processes input and produces an output. The product and surrounding software shape what reaches it, which other capabilities are available and what you eventually see.",
+            "locator": "P005"
+          },
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through. Nothing floats around as a loose definition. Every part earns its name by changing what happens next.",
+            "locator": "P008"
+          },
+          {
+            "excerpt": "## Chapter 1 — One request, from question to decision",
+            "locator": "P009"
+          },
+          {
+            "excerpt": "That is the map we will use throughout this book:",
+            "locator": "P053"
+          },
+          {
+            "excerpt": "Later chapters will open each part carefully: how models are trained and run; how tokens and context windows affect what fits; how session and memory differ; what retrieval, tools, permissions, routing and wrappers add; how agents and multi-step loops work; and why convincing answers can still fail. The Concept Index will let you find any one term without turning the book itself into a dictionary.",
+            "locator": "P056"
+          },
+          {
+            "excerpt": "Not every AI product has the same tools, and not every available tool runs on every request. The useful question is not “Does this AI have tools?” It is “What operation actually ran for this answer, and can I inspect what came back?”",
+            "locator": "P037"
+          },
+          {
+            "excerpt": "1. **What decision am I actually trying to make?** If the system solved a narrower problem, restate the real one.\n2. **What information did this answer actually use?** Check the messages, files, dates and missing facts that mattered.\n3. **What current source or operation supports the consequential claims?** Inspect the returned evidence; do not treat fluency as a citation.\n4. **What must remain my decision or another person’s responsibility?** Name the value judgment, permission or professional check that cannot be delegated.",
+            "locator": "P052"
+          },
+          {
+            "excerpt": "**your goal → the product and available context → the trained model → any retrieval or tools → the output → evidence checking and human decision**",
+            "locator": "P054"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "The caller-ID analogy is explicitly cashed out into the precise causal distinction—origin signalling versus truth verification—rather than left as flavour (P006–P008).",
+        "Uncertainty and limits are handled honestly: labels do not guarantee accuracy, absence of a label proves nothing, and the piece disclaims being a compliance checklist (P003, P010).",
+        "The next action is genuinely concrete: check the original source's date and exact scope, illustrated down to line, stations and day (P009).",
+        "Time-sensitive claims are dated and anchored (Article 50, August 2 and December 2, 2026 transition), making them reviewable at the stated date (P002, P005)."
+      ],
+      "evidence": [
+        {
+          "excerpt": "<p>People and organisations using AI professionally have separate duties. Some concern systems that infer emotions from features such as a face or voice, called <strong>emotion recognition</strong>. Others concern systems that sort people into groups using such features—for example, estimating an age group from a face—called <strong>biometric categorisation</strong>. These names describe what the systems attempt to do; they do not guarantee that their conclusions are accurate.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "“Europe’s AI transparency rules started on August 2. They require disclosure in particular situations, but an AI label tells you about origin, not whether the content is true. Think caller ID: useful before answering, no guarantee about what comes next.”",
+          "locator": "P011"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "If an AI produces a correct mathematical result, why are leading mathematicians still worried?",
+    "promisedPayoff": "The reader can separate a correct answer from the slower human work of explaining, attributing, teaching and building shared understanding, and can test this on their own AI use.",
+    "centralMentalModel": "A benchmark measures answer production on a chosen task; understanding is a different, slower process of isolating ideas, connecting prior work and transmitting knowledge, so a correct output does not finish that work.",
+    "dailyLifeConnection": "An AI solving a percentage problem for you: the displayed answer finishes one task, but your learning is tested by explaining the method and solving a changed version.",
+    "surfaceJob": "A dated daily news article reporting the September 11 declaration and the September 14 Figalli interview, with limits and one small reader check.",
+    "desiredReaderFeeling": "Informed and equipped rather than alarmed: the tool is not rejected, but the reader gains a concrete way to check whether an AI answer became usable knowledge."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Benchmark is defined in plain words at first use, and every sentence in the story and takeaway is followable without technical training.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A benchmark is a defined test used to compare performance on a chosen task. A correct proof may still require people to identify its useful idea, connect earlier work and explain it.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration. They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>The distinction matters in ordinary learning. If an AI solves a percentage problem for you, the displayed answer finishes one task. Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Beyond the headline the reader gets the benchmark-scope distinction plus a concrete two-pass self-check for their own AI use.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A benchmark is a defined test used to compare performance on a chosen task. A correct proof may still require people to identify its useful idea, connect earlier work and explain it.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>The distinction matters in ordinary learning. If an AI solves a percentage problem for you, the displayed answer finishes one task. Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Try a small two-pass check. First ask the AI for a solution. Then hide it and explain the method in your own words. Change one number or condition and solve again. Compare your reasoning with the original. The point is not to reject the tool; it is to check whether the answer became knowledge you can use.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Warm, candid, adult register; 'The point is not to reject the tool' addresses the reader as a capable adult without condescension or borrowed persona.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The distinction matters in ordinary learning. If an AI solves a percentage problem for you, the displayed answer finishes one task. Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Try a small two-pass check. First ask the AI for a solution. Then hide it and explain the method in your own words. Change one number or condition and solve again. Compare your reasoning with the original. The point is not to reject the tool; it is to check whether the answer became knowledge you can use.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "“A correct answer does not finish the work of understanding it.”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The answer-versus-understanding tension is a genuine human question sustained from headline through the epigram; no forced humour, interest is intrinsic.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Leading mathematicians say a correct answer is not the whole job",
+          "locator": "P001"
+        },
+        {
+          "excerpt": "<p>In an ETH Zurich interview, declaration signatory Alessio Figalli said AI can accelerate results, especially where established methods and literature exist. His concern is that faster output can outrun the slower work of judging which results matter and training people to formulate good questions. That is his assessment, not a settled measure of what AI understands.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "“A correct answer does not finish the work of understanding it.”",
+          "locator": "P008"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Proper dated news scope: what happened (declaration, interview), why it matters, and a bounded reader application without overreach.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration. They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>In an ETH Zurich interview, declaration signatory Alessio Figalli said AI can accelerate results, especially where established methods and literature exist. His concern is that faster output can outrun the slower work of judging which results matter and training people to formulate good questions. That is his assessment, not a settled measure of what AI understands.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The distinction matters in ordinary learning. If an AI solves a percentage problem for you, the displayed answer finishes one task. Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "The percentage-problem example is a recognizable everyday learning situation that carries the exact mechanism (answer produced vs. understanding tested).",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The distinction matters in ordinary learning. If an AI solves a percentage problem for you, the displayed answer finishes one task. Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Try a small two-pass check. First ask the AI for a solution. Then hide it and explain the method in your own words. Change one number or condition and solve again. Compare your reasoning with the original. The point is not to reject the tool; it is to check whether the answer became knowledge you can use.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Human purpose is clear, the causal chain (benchmark scope → skipped human work → learning risk) is concrete, and P007 supplies a better next question; no imitation of any communicator's voice.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A benchmark is a defined test used to compare performance on a chosen task. A correct proof may still require people to identify its useful idea, connect earlier work and explain it.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>In an ETH Zurich interview, declaration signatory Alessio Figalli said AI can accelerate results, especially where established methods and literature exist. His concern is that faster output can outrun the slower work of judging which results matter and training people to formulate good questions. That is his assessment, not a settled measure of what AI understands.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>Try a small two-pass check. First ask the AI for a solution. Then hide it and explain the method in your own words. Change one number or condition and solve again. Compare your reasoning with the original. The point is not to reject the tool; it is to check whether the answer became knowledge you can use.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "The article supplies enough mechanism to answer why a correct proof leaves work undone: benchmark scope in P004 plus the judgment/training gap in P005.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>A benchmark is a defined test used to compare performance on a chosen task. A correct proof may still require people to identify its useful idea, connect earlier work and explain it.</p>",
+          "locator": "P004"
+        },
+        {
+          "excerpt": "<p>In an ETH Zurich interview, declaration signatory Alessio Figalli said AI can accelerate results, especially where established methods and literature exist. His concern is that faster output can outrun the slower work of judging which results matter and training people to formulate good questions. That is his assessment, not a settled measure of what AI understands.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration. They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.</p>",
+          "locator": "P002"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "Why are leading mathematicians worried even when an AI produces a mathematically correct proof, and what causal step is being skipped?",
+        "response": "Because a benchmark only tests whether a correct output is produced on a chosen task. In mathematics the correct answer starts, rather than finishes, the valuable work: people must isolate the genuinely new idea, connect it to and credit prior work, and explain it until students can learn from it. When AI output arrives faster than that human process runs, two things degrade: the community's ability to judge which results matter, and the training by which people learn to formulate good questions. The correctness is not in dispute; the transmission of understanding is what gets skipped.",
+        "expectedEvidence": "The answer should use P004's benchmark definition and the proof-still-requires-people step, P002's list of displaced activities (explanation, attribution, discussion, teaching), and P005's pace-versus-judgment concern, while retaining P003/P005 limits that this is an attributed argument and one expert's assessment.",
+        "assessment": "The article fully supports this explain-back: the causal chain from benchmark scope through skipped human work to learning risk is stated in the reader's own vocabulary, with attribution and limits intact, so the reconstruction required no outside material."
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "The two-pass check (explain from scratch, perturb one condition, re-solve) is a portable procedure applicable to domains absent from the article.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Try a small two-pass check. First ask the AI for a solution. Then hide it and explain the method in your own words. Change one number or condition and solve again. Compare your reasoning with the original. The point is not to reject the tool; it is to check whether the answer became knowledge you can use.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>The distinction matters in ordinary learning. If an AI solves a percentage problem for you, the displayed answer finishes one task. Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?</p>",
+          "locator": "P006"
+        }
+      ],
+      "aiEditorialAnalysis": {
+        "evidenceType": "AI_EDITORIAL_ANALYSIS",
+        "prompt": "The formula's output is verifiably correct for the sample. Using the article's mechanism, what work remains before this answer is safe to rely on, and how would she do it?",
+        "response": "Correct output on the sample is a benchmark-style result: it shows performance on one chosen task, not understanding. The remaining work is the article's slower half: she should hide the formula and explain in her own words what each term does and what assumptions (compounding period, payment timing, rate convention) it encodes; then change one condition, say monthly to fortnightly payments, and rebuild the calculation herself before comparing against the AI version. If she cannot explain or adapt it, colleagues adapting the shared model inherit a correct-looking artifact nobody can vet, the workplace analogue of a proof whose decisive idea no one can identify or teach.",
+        "expectedEvidence": "A correct application maps P004's benchmark scope (sample match ≠ understanding), P006's transfer test (explain each step, notice a bad assumption, solve a changed version) and P007's two-pass procedure onto the new domain, and preserves the article's proportionate stance of using rather than rejecting the tool.",
+        "assessment": "The mechanism transfers cleanly with no strain: the article's answer-versus-understanding distinction and its two-pass check generate a specific, correct course of action in a domain the article never mentions, which is strong evidence the explanation taught a portable model rather than a memorized example."
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "The two-pass check is specific, low-stakes, proportionate to the reported evidence, and directly follows from the mechanism.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Try a small two-pass check. First ask the AI for a solution. Then hide it and explain the method in your own words. Change one number or condition and solve again. Compare your reasoning with the original. The point is not to reject the tool; it is to check whether the answer became knowledge you can use.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "<p>The distinction matters in ordinary learning. If an AI solves a percentage problem for you, the displayed answer finishes one task. Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?</p>",
+          "locator": "P006"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "The only comparison, the percentage-problem parallel, maps the mechanism accurately (correct output vs. transferable understanding) and keeps its limits; no decorative metaphor used.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The distinction matters in ordinary learning. If an AI solves a percentage problem for you, the displayed answer finishes one task. Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>This is an attributed argument, not evidence that AI cannot produce correct mathematics or a rule for researchers or students.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Both material claims are verified verbatim-close against the supplied excerpts with correct attribution, correct dates, and explicit limits preserved in P003 and P005; nothing in the artifact exceeds the sources.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration. They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>In an ETH Zurich interview, declaration signatory Alessio Figalli said AI can accelerate results, especially where established methods and literature exist. His concern is that faster output can outrun the slower work of judging which results matter and training people to formulate good questions. That is his assessment, not a settled measure of what AI understands.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>This is an attributed argument, not evidence that AI cannot produce correct mathematics or a rule for researchers or students.</p>",
+          "locator": "P003"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The declaration date (September 11), interview provenance (ETH Zurich) and named, URL-bearing sources with accessedAt 2026-09-16 make every time-sensitive claim checkable as of the reporting date.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration. They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>In an ETH Zurich interview, declaration signatory Alessio Figalli said AI can accelerate results, especially where established methods and literature exist. His concern is that faster output can outrun the slower work of judging which results matter and training people to formulate good questions. That is his assessment, not a settled measure of what AI understands.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "The article distinguishes the September 11 collective declaration from the subsequent individual interview response, presenting the newer expert assessment as building on rather than duplicating the earlier event.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration. They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>In an ETH Zurich interview, declaration signatory Alessio Figalli said AI can accelerate results, especially where established methods and literature exist. His concern is that faster output can outrun the slower work of judging which results matter and training people to formulate good questions. That is his assessment, not a settled measure of what AI understands.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Consequences are concrete (skipped explanation, attribution and training; a learner who cannot adapt a solution) while uncertainty survives twice over: 'attributed argument, not evidence' and 'his assessment, not a settled measure.'",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>This is an attributed argument, not evidence that AI cannot produce correct mathematics or a rule for researchers or students.</p>",
+          "locator": "P003"
+        },
+        {
+          "excerpt": "<p>In an ETH Zurich interview, declaration signatory Alessio Figalli said AI can accelerate results, especially where established methods and literature exist. His concern is that faster output can outrun the slower work of judging which results matter and training people to formulate good questions. That is his assessment, not a settled measure of what AI understands.</p>",
+          "locator": "P005"
+        },
+        {
+          "excerpt": "<p>The distinction matters in ordinary learning. If an AI solves a percentage problem for you, the displayed answer finishes one task. Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?</p>",
+          "locator": "P006"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Only two terms are defined (Fields Medal, benchmark) and each is immediately put to explanatory work.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Paragraphs develop sequentially from event to limit to mechanism to application; no repeated scaffold.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "The percentage-problem example is load-bearing, carrying the answer-versus-understanding mechanism rather than adding flavour.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "No pop-culture or gratuitous references; both citations do evidentiary work.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "The causal chain is present: benchmark scope, what a correct proof still requires, and why faster output strains judgment and training.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "P007's two-pass check names concrete steps (hide, explain, change one condition, re-solve, compare) rather than 'be careful.'",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Benchmark and Fields Medal are both explained at first meaningful use; no unexplained technical language.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Declaration, interview, benchmark concept and reader check are explicitly linked into one argument about answers versus understanding.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Certainty is repeatedly bounded: 'attributed argument, not evidence' and 'his assessment, not a settled measure.'",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Both time-sensitive claims carry dates (September 11 declaration, ETH interview) and named, checkable sources.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "No vague motivational or corporate language; prose is concrete throughout.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "The piece keeps human stakes (learning, judgment, students) alongside its one small procedure; not a checklist manual.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "No communication benchmark or famous explainer is invoked in place of explanation; 'benchmark' here is the article's actual subject and is explained.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "The headline's tension is resolved by P004–P005's mechanism and P006–P007's application.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "The percentage-problem example returns directly to the technical point about benchmark scope versus transferable understanding.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "No imitation of any communicator's persona or mannerisms; the voice is plain and original.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "No spectacle or humour competes with the explanation; the epigram serves the thesis.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "The mechanism receives most of the article; the headline is brief and the explanation is not rushed.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "The headline claim is earned by P002's reported argument and P004–P005's explanation before the takeaway.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "The ending stays bounded: 'The point is not to reject the tool,' explicitly a small personal check, not a grand moral.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "The piece covers the collective event, the expert view, evidence limits and reader application—full scope for its destination.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "The human reason (what a correct answer leaves undone for learning and research) is established in the headline and story before any machinery.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "The percentage example occupies two short paragraphs and serves the news purpose rather than crowding it out.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "The organising perspective is the reader's learning and judgment, not specialist taxonomy; appropriate mechanism focus for a bounded news report.",
+      "artifactLocator": "Complete artifact read; absence judgment"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/editorial-input.json",
+        "sha256": "1927087cce9ef0bf4d9a63ba462bfa80fcd93c7553b4ed015eae3c6ce35b727a"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "collective-declaration",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration. They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.</p>",
+            "locator": "P002"
+          },
+          {
+            "excerpt": "<p>This is an attributed argument, not evidence that AI cannot produce correct mathematics or a rule for researchers or students.</p>",
+            "locator": "P003"
+          },
+          {
+            "excerpt": "Leading mathematicians say a correct answer is not the whole job",
+            "locator": "P001"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/editorial-input.json",
+          "sha256": "1927087cce9ef0bf4d9a63ba462bfa80fcd93c7553b4ed015eae3c6ce35b727a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L176: # 25 Fields medalists warn: 'The goals of the AI companies and the goals of the mathematical community are severely misaligned'\nL177: ## cite113†Op-Ed L178: \nL179: cite117†Collectif L180: \nL181: Despite the mathematical feats achieved by artificial intelligence, a group of 25 Fields Medal recipients expressed concern, in an op-ed published in Le Monde, about the harm these technologies are causing to their discipline.\nL182: \nL183: Published on September 11, 2026, at 8:01 pm (Paris) 3 min read cite118†Lire en français L184: \nL185: Subscribers only\nL186: O ver the last few months, the mathematical capabilities of large language models (LLMs) have improved dramatically, to the point that they can solve major outstanding problems in many fields of mathematics. However, the push by AI companies to solve mathematical problems as a benchmark is detrimental to the science of mathematics and to the mathematical community.\nL187: The goals of the AI companies and the goals of the mathematical community are severely misaligned. We see these as part of broader alignment issues impacting other scientific and creative professions, as well as the whole society.\nL188: Research mathematics deals with understanding basic structures of shapes, numbers, and natural phenomena. Over the course of generations, it has built a large corpus of sophisticated ideas, methods, abstractions, and other tools to comprehend the mathematical landscape. In turn, modern technologies and sciences are based on mathematical tools.\nL189: Famous problems have often served as landmarks and lighthouses against which one can measure an improved understanding of this landscape. Solving one of these problems has been a certain sign of new insights and interesting methods, which would then be studied by a community of mathematicians, through a long and arduous process of talks, discussions, simplifications.\nL190: At the end of this process, one will ideally find a textbook presentation of the results suitable for any graduate or even undergraduate student to study. Some of the mathematical ideas pursue their journey even further to become, decades or centuries after, tools that are understood and used by the whole population.\nL191: Opinion Subscribers only cite119†'Public opinion is ahead of the media discourse on AI' L192: \nL193: The mathematical community functions, in many ways, as a miniature version of humanity. It consists of individuals using a wide variety of different approaches, joined by core values. The most precious resources of our profession are students and ideas, and these we nurture with great care. We feel responsible to let them grow to their full potential, until they can live a life of their own in the mathematical world.\nL194: For students, we often suggest problems with the core intention of developing skills making them well-positioned for advances in research and elsewhere. We disseminate our ideas in talks, private discussions and careful writeups, connecting them to the previous ideas of others. These processes invariably take time and are based on human interaction.\nL195: ## General threat\nL196: \nL197: In recent months, the success of AI in solving major mathematical problems has made headlines even outside mathematical circles. But solving problems is only a tool and proxy for achieving the primary goal of conceptual understanding and insight. Forgetting it in the AI-world may turn this tool against the primary goal. Indeed, the mass production at faster and faster pace of \"true/false\" statements could destroy fertile grounds instead of breathing life into new ideas.\nL198: Often these solutions are announced in a rush, leaving no time for a proper writeup, the isolation of new methods and ideas, and citing relevant previous work of others. As in all creative professions, this raises severe attribution and plagiarism questions.\nL199: Moreover, without the willing mathematicians who must take care of their development and integration into the mathematical canon, AI-conceived ideas would never become fully alive and the crucial human transmission chain between mathematicians would be lost.\nL200: Read more Subscribers only cite120†France's education system struggles to adapt to the challenges of AI: 'An immediate answer kills the desire to learn' L201: We are witnessing a general threat to intellectual work, with misalignment between the outcome of the use of AI and its initial purpose. In many fields and activities, years of training have traditionally served not only to produce a final answer or product, but also to develop understanding and the ability to formulate new questions and ideas.\nL202: However, building on a vast body of previous human work, AI systems are becoming increasingly capable of producing the results of such work directly, and these goals cease to align.\nL203: The issues the mathematical community faces now are similar to issues that other scientific and creative professions are facing, and indicate issues that all of humanity might face: how to make sure that, as AI changes the way work is done, we do not lose sight of what that work was meant to achieve in the first place.\nL204: AI offers the potential of enhancing and accelerating genuine mathematical study and understanding. Mathematics as a profession will need to adapt to these changes in several ways. However, whether these changes ultimately benefit the field or have a destructive effect will in large part be determined by the decisions of the humans in control of this new technology.\nL205: These issues must be addressed urgently, in the mathematical community, by the companies developing these technologies and, more broadly, by a society that will confront similar problems in many other forms of intellectual work.\nL206: The signatories of this op-ed are all Fields Medal recipients, one of the most prestigious awards in mathematics: Artur Avila, Manjul Bhargava, Caucher Birkar, Pierre Deligne, Yu Deng, Simon Donaldson, Hugo Duminil-Copin, Alessio Figalli, Martin Hairer, June Huh, Maxim Kontsevich, Elon Lindenstrauss, Pierre-Louis Lions, James Maynard, Curt McMullen, Shigefumi Mori, Ngô Bảo Châu, Andrei Okounkov, Peter Scholze, Stanislav Smirnov, Terence Tao, Maryna Viazovska, Cédric Villani, Wendelin Werner and Efim Zelmanov.\nL207: cite117†Collectif L208: \nL209: Translation of an original article published in French on cite121†lemonde.fr†lemonde.fr ; the publisher may only be liable for the French version.\n",
+            "locator": "https://www.lemonde.fr/en/opinion/article/2026/09/11/25-fields-medalists-warn-the-goals-of-the-ai-companies-and-the-goals-of-the-mathematical-community-are-severely-misaligned_6757433_23.html"
+          }
+        ],
+        "scopeAndFreshness": "Le Monde excerpt confirms 25 named Fields Medal recipients published the declaration on September 11, 2026 (L183, L206), that the benchmark push is called 'detrimental' (L186), and that rushed solutions leave no time for proper writeups, isolating ideas and citing prior work while threatening the human transmission chain (L197–L199), matching the article's 'explanation, attribution, discussion and teaching' framing; P003 correctly retains the limit that this is an authored argument."
+      },
+      {
+        "claimId": "figalli-assessment",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "<p>In an ETH Zurich interview, declaration signatory Alessio Figalli said AI can accelerate results, especially where established methods and literature exist. His concern is that faster output can outrun the slower work of judging which results matter and training people to formulate good questions. That is his assessment, not a settled measure of what AI understands.</p>",
+            "locator": "P005"
+          }
+        ],
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/editorial-input.json",
+          "sha256": "1927087cce9ef0bf4d9a63ba462bfa80fcd93c7553b4ed015eae3c6ce35b727a"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "L30: # “No AI will replace mathematicians, but I am concerned about education”\nL31: \nL32:   * cite13†Mathematics L33:   * cite14†Research L34: \nL35: AI models are increasingly solving mathematical problems that have occupied human researchers for decades. What does this mean for mathematics? Fields Medallist Alessio Figalli reflects on the implications and, together with 24 other leading mathematicians, warns of emerging pitfalls in the use of AI.\nL36: \nL37: 14.09.2026 by cite15†Florian Meyer, Corporate Communications L38:   * cite16†Read†app-eu.readspeaker.com L39:   * cite17†Image: Mathematician Alessio Figall standing in front of a whiteboard with mathematical symbols L40: \nL41: The mathematician Alessio Figalli has published a declaration with 24 other Fields Medal winners, warning of problematic developments in the use of AI in mathematics. (Photograph: ETH Zurich / Alessandro Della Bella)\nL42: AI recently made headlines for producing a proof related to the Navier-Stokes equations. This is one of the greatest unsolved problems in mathematics, which researchers have been working on for decades. Did that surprise you?\nL43: Alessio Figalli: The Navier-Stokes problem is one of the seven Millennium Prize Problems, a collection of exceptionally difficult mathematical challenges. So far, only one of them has been solved. At its heart lies the question of whether fluid flows always remain orderly and predictable, or whether seemingly harmless flows can develop extreme states. OpenAI’s proof claims that, under certain conditions, such extreme states can indeed arise.\nL44: How did we get to this point?\nL45: For a long time, researchers tried to prove that such extreme states, known in mathematics as singularities, could never occur. In recent years, however, important progress has been made in understanding how they might arise. The AI proof builds on this body of work. That is why I was not entirely surprised by the result.\nL46: Will AI transform mathematics in the same way that the microscope transformed biology by revealing entirely new phenomena?\nL47: I don’t think so. Unlike a microscope, AI does not make previously invisible phenomena observable for researchers to interpret. Its main contribution is to accelerate the production of results. That was true in the Navier-Stokes case as well: many researchers expected a result of this kind, but AI probably accelerated the process by years.\nL48: What can AI realistically achieve in mathematics?\nL49: AI primarily combines existing knowledge and builds on established work, methods and tools. When there are no recognised approaches, substantial literature or prior results to draw on, it reaches its limits.\nL50: \nL51: More importantly, the purpose of mathematics is not simply to find answers as quickly as possible. Our goal is to uncover deep structures and understand relationships. That requires time, experience and creativity.\nL52: Even so, AI challenges the notion that only the human mind can solve exceptionally difficult mathematical problems.\nL53: Truly groundbreaking ideas often come from unconventional perspectives. People frequently learn more from failing to solve a problem than from obtaining an immediate answer. New tools, methods and insights emerge from those detours.\nL54: That is why, in mathematics, the answer itself is not the only thing that matters. The path towards it matters too. Major challenges such as the Millennium Prize Problems serve not only as goals but also as signposts, guiding entire fields towards new ways of solving difficult problems.\nL55: Looking ahead, will AI make mathematicians obsolete?\nL56: I don't think AI will replace mathematicians. AI is already very good at answering questions posed by humans, but as said, mathematics is not only about finding answers. A central part of research is identifying the right questions to ask, questions that open new directions and advance our understanding.\nL57: Developing that judgement requires learning how to do research, a process that involves struggle, failure, and time. Unfortunately, AI can create a temptation to bypass that struggle and failure, and this is where I see one of the greatest challenges, particularly for young researchers.\nL58: How is AI changing mathematical research?\nL59: AI could change research culture in significant ways. One major challenge is the enormous volume of AI-generated publications. It becomes increasingly difficult to identify which papers genuinely matter and advance knowledge.\nL60: \nL61: The paradox is that this flood of publications could ultimately result in us learning less rather than more. The Navier–Stokes proof likewise illustrates both the remarkable capabilities and the current limitations of AI.\nL62: In what sense?\nL63: Human beings construct proofs through a clear sequence of logical steps. OpenAI’s published proof may span 166 readable pages, yet it is not written in the way a human mathematician would normally construct and present a proof. Definitions suddenly appear without it being obvious why they matter, how they contribute to the proof, or what the genuinely new idea is.\nL64: AI cannot explain which insight made the decisive breakthrough possible or which parts of the proof are truly original. Nor can I invite an AI to give a seminar and ask it to explain the new ideas involved or clarify the logic behind its strategy. And when I encounter AI-generated proofs, I sometimes ask myself: who actually wants to read them?\nL65: You mentioned education. What risks do you see there in the age of AI?\nL66: Knowing when, how and whether AI should be used effectively requires considerable experience. In education, we guide students over many years towards tackling demanding problems. Along the way, they learn not only how to find solutions, but also how to fail, understand mistakes and develop new approaches.\nL67: Students who merely present solutions generated by AI do not gain those experiences. That is why universities and professors must now define which skills the next generation of mathematicians should acquire, rather than leaving that task to AI companies.\nL68: \nL69: How do you see students using AI today?\nL70: Some students use AI constructively, for example by generating additional practice problems. This can strengthen their problem-solving abilities.\nL71: What concerns me is when students submit impeccably written assignments generated with AI but cannot explain how they arrived at their conclusions. As a lecturer, I therefore wonder whether we should increasingly rely on oral examinations in the future.\nL72: \nL73: At the same time, many students feel pressured because they fear falling behind if they do not use AI while others do. Is that really the kind of pressure that promotes learning and the meaningful application of knowledge?\nL74: You also address this issue in the declaration “A Severe Misalignment of AI in Mathematics”. One of its central messages is that we must not lose sight of the fundamental goals of our work, or of its value for people, amid all the changes brought about by AI.\nL75: The purpose of the declaration is to raise awareness and encourage discussion. Our concern is that, as AI becomes increasingly capable, we may begin optimising for outcomes that are easy to measure while overlooking what the activity itself was meant to achieve.\nL76: This is not only a question for mathematics. As we argue in the declaration, many intellectual and creative professions face the same challenge: how can we use AI to enhance what we do without losing sight of why we do it in the first place?\nL77: ## Fields medallists caution against AI misalignment in mathematics\nL78: \nL79: In a declaration, 25 Fields Medal laureates, recipients of mathematics' highest honour, warn of problematic developments in the use of AI. As AI transforms mathematical research, they urge the community not to lose sight of the true purpose of mathematics.\nL80: They argue that using mathematical problem-solving as a benchmark for AI development risks harming the discipline. Furthermore, they argue that the goals of AI companies and those of the mathematical community are becoming increasingly misaligned.\nL81: \nL82: cite18†external page A Severe Misalignment of AI in Mathematics†mathandai.org L83: ## About the Author\nL84: \nL85: Alessio Figalli is Professor of Mathematics at ETH Zurich and Director of the Institute for Mathematical Research (FIM). A specialist in partial differential equations and optimal transport theory, he has been honoured with the Fields Medal, the EMS Prize, and the Stampacchia Gold Medal. In recognition of his commitment to teaching, he has also received a Golden Owl award from VSETH.\n",
+            "locator": "https://ethz.ch/en/news-and-events/eth-news/news/2026/09/no-ai-will-replace-mathematicians-but-i-am-concerned-about-education.html"
+          }
+        ],
+        "scopeAndFreshness": "ETH interview confirms each element: AI 'primarily combines existing knowledge and builds on established work, methods and tools' and accelerates results (L47–L49); the publication flood makes it 'increasingly difficult to identify which papers genuinely matter' (L59); and research judgment requires learning to formulate the right questions, which AI tempts learners to bypass (L56–L57). The article correctly labels this 'his assessment, not a settled measure,' matching the source's single-expert scope."
+      }
+    ],
+    "reviewedThrough": "2026-09-16",
+    "nextTrigger": "Material source change, adopted research or education policy, empirical evidence of effects, or publication after September 16.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 2,
+    "reviewCycles": 3,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First prose review for the September 11 collective declaration; the earlier Navier–Stokes capability story is a distinct event."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "All eleven reader outcomes and four news checks pass and all twenty-four failure families are clear with specific evidence; both comprehension probes succeeded, so no defect or repair candidate exists in the reader lane."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "AI editorial assessment only; no observed human-comprehension evidence is claimed.",
+    "Evidence-packet rounds=1; evidence gaps repaired=0; these are not prose review cycles."
+  ],
+  "newsEditorialReview": {
+    "policy": {
+      "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+      "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+    },
+    "analysis": {
+      "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/assembled-v4-live-base/news-editorial-analysis.json",
+      "sha256": "8d7dffbb93076d7158e88655888ba24af620531151c6d2bfe012c267f5f58f82"
+    }
+  },
+  "reportBinding": {
+    "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/assembled-v4-live-base/independent-raw-report.json",
+    "sha256": "90c66bedf0499114af2dbaa99209bb23338552114abd5c8543b0e719c63df2ed"
+  }
+}

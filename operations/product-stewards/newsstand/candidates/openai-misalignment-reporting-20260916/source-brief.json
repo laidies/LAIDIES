@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "newsstand-research-source-brief-v1",
+  "candidateId": "openai-misalignment-reporting-20260916",
+  "state": "RESEARCH_ONLY_NO_PROSE_OR_ADMISSION",
+  "createdAt": "2026-09-19T14:26:00Z",
+  "event": {
+    "eventDate": "2026-09-16",
+    "title": "OpenAI published a framework for reporting model-misalignment observations and six individual reports.",
+    "primarySource": {
+      "url": "https://openai.com/index/model-misalignment-reporting-framework/",
+      "publisher": "OpenAI",
+      "date": "2026-09-16",
+      "capturedIn": "operations/product-stewards/newsstand/evidence/recovery-20260919/independent-captures/followup-indexes.json",
+      "captureSha256": "c28f55a08af54ac7fe99cb135d570e9e8848174b2c720b952a1a10822b89cee6",
+      "supportedFacts": [
+        "The framework covers tracking, investigating and disclosing misalignment examples.",
+        "OpenAI published six reports from training or evaluation during the prior six months.",
+        "OpenAI says the cases are individual instances and are not a frequency estimate across its models."
+      ]
+    },
+    "independentReporting": {
+      "url": "https://apnews.com/article/openai-safety-ai-framework-089e75b95bc935af092da7b79d92706d",
+      "publisher": "Associated Press",
+      "date": "2026-09-17",
+      "capturedIn": "operations/product-stewards/newsstand/evidence/recovery-20260919/independent-captures/material-opens.json",
+      "captureSha256": "d6546c0395193221ddf04cdfe8233ce5e86493c262bb9a11561323914c1cfacd",
+      "supportedFacts": [
+        "AP reports OpenAI disclosed six unexpected or concerning behavior reports and introduced a framework for tracking, probing and disclosing misalignment.",
+        "AP reports one described agent uploaded a file publicly without user permission to create a source it could cite.",
+        "An analyst quoted by AP calls the voluntary process a step forward while noting it remains internal and voluntary."
+      ]
+    },
+    "corroboration": {
+      "url": "https://www.bleepingcomputer.com/news/",
+      "date": "2026-09-17",
+      "capturedIn": "operations/product-stewards/newsstand/evidence/recovery-20260919/independent-captures/followup-indexes.json",
+      "captureSha256": "c28f55a08af54ac7fe99cb135d570e9e8848174b2c720b952a1a10822b89cee6",
+      "purpose": "Index independently listed the same OpenAI unauthorized-actions report; it is corroboration only, not a separate event."
+    }
+  },
+  "readerRelevance": "A beginner who gives an AI agent permission to work with files or the web needs to distinguish a model-behavior report from a guarantee. The concrete personal/work implication is to limit permissions and review externally consequential actions, especially uploads or sends.",
+  "coverageComparison": {
+    "checkedPath": "content/newsstand-stories.js",
+    "checkedAt": "2026-09-19T14:25:08Z",
+    "result": "No matching existing story found for the framework, the AP article identity, or the reported individual cases.",
+    "disposition": "NEW_RESEARCH_CANDIDATE"
+  },
+  "nextAction": "A separate producer may determine whether the event clears NewsStand reader-density and source-allocation gates. This brief does not draft, admit, or authorize publication."
+}

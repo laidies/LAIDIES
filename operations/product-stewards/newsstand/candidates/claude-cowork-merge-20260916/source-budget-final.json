@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "newsstand-source-budget-v1",
+  "candidateId": "claude-cowork-merge-20260916",
+  "method": "Conservative whitespace count of every Anthropic-derived phrase across visible fields. Both official pages share one 200-word Anthropic aggregate. Article.md mirrors story.json and is not counted twice.",
+  "limits": {
+    "Anthropic": 200
+  },
+  "allocations": [
+    {
+      "allocationId": "headline",
+      "publisher": "Anthropic",
+      "field": "headline",
+      "exactDerivedText": "Claude is folding quick questions and longer Cowork jobs into one conversation",
+      "words": 12
+    },
+    {
+      "allocationId": "merge",
+      "publisher": "Anthropic",
+      "field": "the_story",
+      "exactDerivedText": "Anthropic announced September 16 that it is merging Claude chat and Cowork into one Claude experience.",
+      "words": 16
+    },
+    {
+      "allocationId": "same-conversation",
+      "publisher": "Anthropic",
+      "field": "the_story",
+      "exactDerivedText": "A person can ask a quick question or hand over a longer, multi-step task without choosing a mode first.",
+      "words": 19
+    },
+    {
+      "allocationId": "rollout",
+      "publisher": "Anthropic",
+      "field": "the_story",
+      "exactDerivedText": "Rollout is gradual: Pro and Max first across web, desktop and mobile. Same-plan accounts may differ. Team and Free follow; Enterprise gets at least 30 days’ notice.",
+      "words": 27
+    },
+    {
+      "allocationId": "capability",
+      "publisher": "Anthropic",
+      "field": "laidies_read",
+      "exactDerivedText": "One conversation may answer, then use tools and several steps to produce a file.",
+      "words": 14
+    },
+    {
+      "allocationId": "permissions",
+      "publisher": "Anthropic",
+      "field": "laidies_read",
+      "exactDerivedText": "Manual is the default and asks before actions. Auto can work with fewer check-ins. The setting covers the whole conversation, so check it before a longer task.",
+      "words": 27
+    },
+    {
+      "allocationId": "desktop-cloud",
+      "publisher": "Anthropic",
+      "field": "what_this_means",
+      "exactDerivedText": "Local folders or apps require Claude Desktop to stay open; a cloud task may continue after you close the laptop. Separate Chat and Cowork choices mean your account has not moved yet.",
+      "words": 32
+    },
+    {
+      "allocationId": "cocktail",
+      "publisher": "Anthropic",
+      "field": "cocktail_party",
+      "exactDerivedText": "Claude is removing the mode choice, not the need to choose permissions.",
+      "words": 12
+    },
+    {
+      "allocationId": "source1",
+      "publisher": "Anthropic",
+      "field": "sources[0].label",
+      "exactDerivedText": "Claude — Cowork and chat are now one Claude",
+      "words": 9
+    },
+    {
+      "allocationId": "source2",
+      "publisher": "Anthropic",
+      "field": "sources[1].label",
+      "exactDerivedText": "Claude Help Center — Cowork and chat are one Claude",
+      "words": 10
+    }
+  ],
+  "totals": {
+    "Anthropic": 178
+  },
+  "quoteDerivedWords": 0,
+  "withinLimits": true,
+  "unmappedSourceDerivedClaims": [],
+  "otherVisibleOrigins": [
+    {
+      "fields": [
+        "laidies_read",
+        "what_this_means"
+      ],
+      "origin": "Producer analysis and original appliance-manual example",
+      "treatment": "Practical consequence, bounded by exact provider permissions and execution facts."
+    },
+    {
+      "fields": [
+        "class_notes"
+      ],
+      "origin": "Verified current live Library index entry",
+      "treatment": "Background on authority lines, not evidence about Claude."
+    },
+    {
+      "fields": [
+        "heroVisual.alt"
+      ],
+      "origin": "Planned illustration scene",
+      "treatment": "Visual description, not product fact."
+    }
+  ]
+}

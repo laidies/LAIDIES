@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "newsstand-independent-six-desk-sweep-v1",
+  "cycle": "2026-09-19 Vancouver current sweep",
+  "checkedAt": "2026-09-19T14:26:00Z",
+  "owner": "/root/evening_sources",
+  "scope": "Independent AP, Nature, FTC, EFF and BleepingComputer public-interest checks for material items dated 2026-09-16 through 2026-09-19. No listed nonretryable/prohibited original was reopened, proxied or mirrored.",
+  "transport": "normal web search/open/click only",
+  "priorSafetyHoldsRead": [
+    "operations/product-stewards/newsstand/evidence/morning-20260916/independent-hold-recovery.json",
+    "operations/product-stewards/newsstand/editorial-intake/coverage-progress.json"
+  ],
+  "captureFiles": [
+    {"path":"operations/product-stewards/newsstand/evidence/recovery-20260919/independent-captures/search-ap-nature-ftc-eff.json","capturedAt":"2026-09-19T14:21:00.921Z","bytes":36365,"sha256":"9d55508d3254a0ce54f08ec14576a8eda5101de2c8d0b7793b537b28b9169807"},
+    {"path":"operations/product-stewards/newsstand/evidence/recovery-20260919/independent-captures/search-bleeping-ftc-eff.json","capturedAt":"2026-09-19T14:21:14.602Z","bytes":30130,"sha256":"56b6d00408ed1973f4e37c7ed55d93c77ea2c90bef4aee93206de988e1e40497"},
+    {"path":"operations/product-stewards/newsstand/evidence/recovery-20260919/independent-captures/material-opens.json","capturedAt":"2026-09-19T14:21:33.818Z","bytes":31262,"sha256":"d6546c0395193221ddf04cdfe8233ce5e86493c262bb9a11561323914c1cfacd"},
+    {"path":"operations/product-stewards/newsstand/evidence/recovery-20260919/independent-captures/primary-followthrough.json","capturedAt":"2026-09-19T14:23:55.829Z","bytes":31305,"sha256":"6e66891461288eeb11018d12d735993b1a64b80ab8ea7148eb25de13b287b224"},
+    {"path":"operations/product-stewards/newsstand/evidence/recovery-20260919/independent-captures/followup-indexes.json","capturedAt":"2026-09-19T14:24:17.755Z","bytes":37891,"sha256":"c28f55a08af54ac7fe99cb135d570e9e8848174b2c720b952a1a10822b89cee6"}
+  ],
+  "sourceChecks": [
+    {"source":"Associated Press","url":"https://apnews.com/hub/artificial-intelligence","checkedAt":"2026-09-19T14:21:33.818Z","accessResult":"ACCESSIBLE","materialEvents":["OpenAI framework and six reports, official date 2026-09-16; AP report published 2026-09-17"],"disposition":"NEW_RESEARCH_CANDIDATE","candidate":"operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/source-brief.json"},
+    {"source":"Nature machine-learning index","url":"https://www.nature.com/subjects/machine-learning/nature","checkedAt":"2026-09-19T14:23:55.829Z","accessResult":"INDEX_ACCESSIBLE; selected lung-cancer article returned a cookie-error redirect with no readable article body","materialEvents":["Nature index dated 2026-09-17: virtual-biotech story about up to 37,000 agents and a promising lung-cancer drug"],"disposition":"HOLD_SOURCE_COMPLETENESS","missingInput":"A readable original article or cited study, including study status, results and limits. Index headline/dek alone is insufficient. No redirect workaround or alternate transport was used."},
+    {"source":"Federal Trade Commission","url":"https://www.ftc.gov/news-events/news/press-releases","checkedAt":"2026-09-19T14:24:17.755Z","accessResult":"ACCESSIBLE","materialEvents":[],"disposition":"NO_QUALIFYING_AI_ITEM_RETURNED","assessment":"The current press-release index listed September 17 consumer/competition actions; its newest AI-specific item shown was August 27. This check does not infer that the FTC issued no AI material elsewhere."},
+    {"source":"Electronic Frontier Foundation","url":"https://www.eff.org/issues/ai","checkedAt":"2026-09-19T14:21:14.602Z","accessResult":"SEARCH_RESULTS_INSUFFICIENT","materialEvents":[],"disposition":"SOURCE_ENUMERATION_HOLD","missingInput":"A current accessible EFF AI index or dated EFF primary item. The normal-web query returned older document results, not an enumerated current AI desk."},
+    {"source":"BleepingComputer","url":"https://www.bleepingcomputer.com/news/","checkedAt":"2026-09-19T14:24:17.755Z","accessResult":"ACCESSIBLE","materialEvents":["September 17 index item on OpenAI unauthorized actions duplicates the AP/OpenAI event.","September 19 Tilly Norwood report describes an age-verification face scan and other data handling claimed by the service."],"disposition":"OPENAI_DUPLICATE; TILLY_EXCLUDED","assessment":"The OpenAI item corroborates the same event. The Tilly service is short-lived and a single report's operational/account terms need direct service documentation before a potentially sensitive privacy story; no candidate was opened."}
+  ],
+  "materialLeads": [
+    {"id":"openai-misalignment-reporting-20260916","eventDate":"2026-09-16","independentReportDate":"2026-09-17","sourceUrls":["https://openai.com/index/model-misalignment-reporting-framework/","https://apnews.com/article/openai-safety-ai-framework-089e75b95bc935af092da7b79d92706d"],"readerRelevance":"Permission and review are practical safeguards when AI agents can act with files or on the web.","existingCoverageDisposition":"No exact current story identity match in content/newsstand-stories.js","disposition":"NEW_RESEARCH_CANDIDATE","privateBrief":"operations/product-stewards/newsstand/candidates/openai-misalignment-reporting-20260916/source-brief.json"}
+  ],
+  "nextCheckAt":"2026-09-20T14:00:00Z",
+  "repositoryMutation":"Private evidence and a private research brief only; no canonical, coverage-progress, public, release, or admission record changed."
+}

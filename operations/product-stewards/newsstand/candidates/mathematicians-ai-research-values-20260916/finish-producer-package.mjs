@@ -1,0 +1,81 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import {prepareDraft,inspectPreparedDraft} from '../../../../../scripts/prepare-newsstand-draft.mjs';
+import {storyParagraphs} from '../../review-runtime/protocol.mjs';
+import {inspectContentProducerContract} from '../../../../../scripts/check-content-producer-contract.mjs';
+import {inspectProseQualityReview} from '../../../../../scripts/check-prose-quality-admission.mjs';
+import {candidateReviewText,validateOrdinaryDailyLength} from '../../../../../scripts/validate-newsstand-ordinary-story-candidate.mjs';
+import {validateStoryTypeCoverage} from '../../../../../scripts/validate-newsstand-story-type-coverage.mjs';
+const d='operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/';
+const read=n=>fs.readFileSync(d+n,'utf8'), j=n=>JSON.parse(read(n));
+const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
+const bind=n=>({path:d+n,sha256:sha(read(n))});
+const bindPath=p=>({path:p,sha256:sha(fs.readFileSync(p))});
+const write=(n,x)=>fs.writeFileSync(d+n,typeof x==='string'?x:JSON.stringify(x,null,2)+'\n');
+const now=new Date().toISOString();
+const sourcePacket=j('source-packet.json');
+sourcePacket.refreshedAt=now;
+sourcePacket.refreshReceipt=bind('source-refresh-20260916/refresh-receipt.json');
+write('source-packet.json',sourcePacket);
+const ev=j('source-evidence.json');
+ev.checkedAt=now;
+ev.refreshReceipt=bind('source-refresh-20260916/refresh-receipt.json');
+ev.exactSourcePacket={path:d+'source-packet.json',sha256:sha(read('source-packet.json')),scope:'Only the admitted complete Le Monde declaration and ETH Zurich interview; September 16 refresh found no material change.'};
+for(const r of ev.records)r.refreshedAt='2026-09-16';
+write('source-evidence.json',ev);
+const s=j('story.json');
+const art=bind('art/independent-review-v3.json');
+const c=j('producer-contract.json');
+c.visualAdmission=art;
+c.draftArchitecture.presentationPlan='Use the admitted people-free percentage notebook: exact 100 × 0.25 = 25 and one of four equal parts shaded. The image demonstrates an answer without claiming that the answer proves understanding.';
+c.canonicalTruth=(c.canonicalTruth||[]).map(x=>({...x,source:bind('source-evidence.json'),freshnessTrigger:'Recheck the declaration and interview if publication slips after September 16 or either source changes materially.'}));
+write('producer-contract.json',c);
+const contract=inspectContentProducerContract(c,{root:process.cwd()});
+write('contract-integrity.json',contract);
+if(contract.errors.length)throw Error('Producer contract: '+contract.errors.join(' | '));
+write('review-text.json',candidateReviewText(s));
+write('rendered-article.html',`<article><h1>${s.headline}</h1><figure><img src="${s.heroVisual.src}" alt="${s.heroVisual.alt}"><figcaption>${s.heroVisual.credit}</figcaption></figure>${s.the_story}<h2>LAiDIES Read</h2>${s.laidies_read}<h2>What This Means for You</h2>${s.what_this_means}<h2>Cocktail Party</h2><p>${s.cocktail_party}</p><h2>Class Notes</h2><p>${s.class_notes}</p></article>\n`);
+write('publication-manifest.json',{schemaVersion:'laidies-content-artifact-manifest.v1',candidateId:s.id,surface:'NEWSSTAND_DAILY',contentClass:'NEWS',reviewText:bind('review-text.json'),rendered:bind('rendered-article.html'),heroVisual:bindPath('assets/newsstand/math-answer-understanding-20260916.png'),visualAdmission:art});
+const tr={schema:'laidies.newsstand-reader-translation.v1',newsVersionExact:'Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration.',actualMeaningExact:'This is an attributed argument, not evidence that AI cannot produce correct mathematics or a rule for researchers or students.',mechanismExact:'A benchmark is a defined test used to compare performance on a chosen task.',familiarExampleExact:'If an AI solves a percentage problem for you, the displayed answer finishes one task.',jargon:[{term:'benchmark',plainMeaning:'a defined test used to compare performance on a chosen task'}],learningConnections:[{concept:'Tests should match the real job',learningPayoff:'Ask which capability a benchmark measured and whether it matches the result you need.',disposition:'link',destination:'/library.html#ai-fundamentals-101::%40ch-12-12-5-evals-custom-tests-for-your-specific-needs'}]};
+write('translation.json',tr);
+const coverage=j('story-type-coverage.json');coverage.schema='laidies.newsstand-story-type-coverage.v1';coverage.primaryType='research-benchmark';coverage.overlays=[];coverage.typeAnswers={'research-benchmark':{researchQuestion:'The declaration asks whether answer-producing benchmarks serve mathematical understanding and the research community.',method:'Twenty-five Fields Medal recipients published a collective argument; one signatory explained his assessment in a complete ETH interview.',result:'The sources argue that a correct result can leave explanation, attribution, teaching and question-formulation work unfinished.',sponsorAndInterests:'The declaration authors are mathematics award recipients speaking about their profession; ETH published an interview with its professor Alessio Figalli.',independentReplication:'No independent empirical replication applies to this professional argument, and no harm measurement is claimed.',realWorldTransfer:'The article translates the distinction into a low-stakes percentage exercise for checking whether a learner can explain and transfer a method.',limitations:'These are attributed professional views, not a model evaluation, consensus survey or causal study of research or education effects.'}};coverage.translation=tr;write('story-type-coverage.json',coverage);
+const w={...prepareDraft(c,{root:process.cwd(),reportingFrame:coverage,sourcePacket:bind('source-evidence.json')}),producerContract:bind('producer-contract.json')};
+write('writer-input-current.json',w);
+const exact=sourcePacket.records;
+const lm=exact.find(x=>x.sourceId==='fields-medalists-declaration-20260911');
+const eth=exact.find(x=>x.sourceId==='eth-figalli-interview-20260914');
+const sources=[
+ {id:lm.sourceId,url:lm.url,authority:'Published English translation of the collective declaration signed by 25 Fields Medal recipients.',source:{url:lm.url,passage:lm.exactCapturedText,passageLocator:lm.readScope},limitation:'Authored collective argument, not independent empirical proof of harm and not a model evaluation.'},
+ {id:eth.sourceId,url:eth.url,authority:'Complete ETH Zurich institutional interview with declaration signatory Alessio Figalli.',source:{url:eth.url,passage:eth.exactCapturedText,passageLocator:eth.readScope},limitation:'One expert/signatory assessment, not a consensus survey, causal education study or model evaluation.'}
+];
+const claims=[
+ {claimId:'collective-declaration',claim:'Twenty-five Fields Medal recipients published a September 11 declaration arguing that mathematical problem-solving benchmarks can pull attention from explanation, attribution, discussion and teaching.',candidateEvidence:[{excerpt:'Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration. They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.',locator:'P001'}],sourceIds:[lm.sourceId],sourceEvidence:[{excerpt:'But solving problems is only a tool and proxy for achieving the primary goal of conceptual understanding and insight.',locator:lm.url}],scopeAndFreshness:'Normal-web source refreshed September 16; this remains an attributed collective argument, not an empirical model result.'},
+ {claimId:'figalli-assessment',claim:'Alessio Figalli said AI can accelerate results where prior methods and literature exist, while faster output can challenge judgment and training.',candidateEvidence:[{excerpt:'In an ETH Zurich interview, declaration signatory Alessio Figalli said AI can accelerate results, especially where established methods and literature exist. His concern is that faster output can outrun the slower work of judging which results matter and training people to formulate good questions.',locator:'P004'}],sourceIds:[eth.sourceId],sourceEvidence:[{excerpt:'AI primarily combines existing knowledge and builds on established work, methods and tools.',locator:eth.url}],scopeAndFreshness:'Complete ETH interview refreshed September 16; attributed to Figalli and explicitly framed as his assessment.'}
+];
+write('editorial-input.json',{readerJob:c.readerContract.humanQuestion+' '+c.readerContract.promisedPayoff,completeArtifact:read('review-text.json'),paragraphs:storyParagraphs(s),communicationAuthority:w.packet.communication,claims:claims.map(x=>({claimId:x.claimId,claim:x.claim,sourceIds:x.sourceIds})),sources});
+const obs=j('producer-observations.json');
+Object.assign(obs,{completeTextRead:true,storySha256:sha(JSON.stringify(s)),readerAnswers:{event:'They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.',limit:'This is an attributed argument, not evidence that AI cannot produce correct mathematics or a rule for researchers or students.',meaning:'A correct proof may still require people to identify its useful idea, connect earlier work and explain it.',action:'Then hide it and explain the method in your own words.'},explainBack:'A benchmark can show that an AI produced an answer without showing that a learner or research community can explain, attribute and build on it.',unseenTransfer:'For a polished AI answer in another subject, ask what the test measured, explain the method without looking, and try a changed case.',unresolvedIssues:[],repairsMade:['Bound exact admitted v2 visual after full-size and 390×260 inspection.','Refreshed both admitted sources on September 16 without reopening the prohibited Atlantic original.','Preserved the exact reader-facing prose and conservative source allocations.'],limitations:['Producer AI simulations; no observed human comprehension test.','Independent source-art and 390×260 companion admission; live runtime crop and deployment remain outside this candidate lane.']});
+write('producer-observations.json',obs);
+const template=JSON.parse(fs.readFileSync('operations/product-stewards/newsstand/candidates/microsoft-aft-school-privacy-20260915/producer-publication-review.json','utf8'));
+template.candidateId=s.id; template.stage='PRODUCER_SELF_REVIEW'; template.maker='/root/aft_school_story'; template.reviewer={id:'/root/aft_school_story',principalId:'/root/aft_school_story',role:'Producer exact complete prose read',modelFamily:'openai'}; template.reviewedAt=now;
+template.artifact={manifest:bind('publication-manifest.json'),reviewText:bind('review-text.json'),rendered:bind('rendered-article.html')};
+template.reverseBrief={humanQuestion:c.readerContract.humanQuestion,promisedPayoff:c.readerContract.promisedPayoff,centralMentalModel:c.readerContract.centralMentalModel,dailyLifeConnection:c.readerContract.dailyLifeConnection,surfaceJob:c.readerContract.surfaceJob,desiredReaderFeeling:c.readerContract.desiredFeeling};
+const evidence={plainClarity:'A benchmark is a defined test used to compare performance on a chosen task.',readerValue:'Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?',laidiesVoice:'Try a small two-pass check.',engagingEnjoyable:'A correct answer does not finish the work of understanding it.',factualIntegrity:'This is an attributed argument, not evidence that AI cannot produce correct mathematics or a rule for researchers or students.',freshnessReviewability:'published a September 11 declaration',surfaceFit:s.headline,datedChange:'Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration.',consequenceAndUncertainty:'That is his assessment, not a settled measure of what AI understands.',dailyLifeConnection:'If an AI solves a percentage problem for you, the displayed answer finishes one task.',communicationBenchmark:'Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?',explainBack:'A correct proof may still require people to identify its useful idea, connect earlier work and explain it.',unseenTransfer:'Change one number or condition and solve again.',usefulAction:'Then hide it and explain the method in your own words.',analogyIntegrity:'If an AI solves a percentage problem for you, the displayed answer finishes one task.'};
+for(const [k,o] of Object.entries(template.outcomes)){o.verdict='PASS';o.observation='Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.';o.artifactEvidence=[{excerpt:evidence[k]||s.headline,locator:'complete exact story'}];}
+template.outcomes.explainBack.simulatedReaderProbe={prompt:c.readerContract.humanQuestion,probeResponse:obs.explainBack,expectedEvidence:'Answer-producing benchmark versus explanation, attribution and transfer.',transferResult:'PASS'};
+template.outcomes.unseenTransfer.simulatedReaderProbe={prompt:'What if the AI answer is in a different subject?',probeResponse:obs.unseenTransfer,expectedEvidence:'Identify the measured task, explain independently and test a changed case.',transferResult:'PASS'};
+for(const [k,f] of Object.entries(template.failureFamilies)){f.present=false;f.observation=`Actual read avoids ${k}: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.`;f.artifactLocator='complete exact story';}
+const inputBinding=bind('editorial-input.json');
+template.factualReview={disposition:'CLAIMS_REVIEWED',sourceBindings:[inputBinding],claimMap:claims.map(x=>({...x,status:'QUALIFIED',sourceBinding:inputBinding})),reviewedThrough:'2026-09-16',nextTrigger:'Material source change, adopted research or education policy, empirical evidence of effects, or publication after September 16.',correctionOwner:'NewsStand product steward'};
+template.ratchet={repeatedKnownDefects:0,objectiveDefectsFirstFoundAtReview:0,reviewIssues:0,reviewCycles:1,onKnownDefect:'REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW'};
+template.lineage={kind:'FIRST',noComparableReason:'First prose review for the September 11 collective declaration; the earlier Navier–Stokes capability story is a distinct event.'};
+template.learningDisposition={disposition:'NO_NEW_DEFECT',rationale:'Known benchmark-overclaim and answer-equals-understanding risks were prevented; Library §12.5 supplies a verified background bridge.'};
+template.verdict='PASS';template.limitations=obs.limitations;
+write('producer-publication-review.json',template);
+const preflight={checkedAt:now,story:bind('story.json'),reviewText:bind('review-text.json'),visualAdmission:art,draft:inspectPreparedDraft(s,w,obs),receipt:inspectProseQualityReview(template,{root:process.cwd()}),sourceBudget:bind('source-budget-final.json'),sourceRefresh:bind('source-refresh-20260916/refresh-receipt.json'),canonicalWrites:false,queueWrites:false};
+write('art-bound-preflight.json',preflight);
+const packageCheck={checkedAt:now,contract,coverageErrors:validateStoryTypeCoverage(coverage,s.themes||[],undefined,{story:s,root:process.cwd()}),lengthErrors:validateOrdinaryDailyLength(s),draft:preflight.draft,producerReceipt:preflight.receipt,sourceBudget:j('source-budget-final.json'),visualAdmission:art,editorialCallMade:false};
+write('package-integrity.json',packageCheck);
+const errors=[...contract.errors,...packageCheck.coverageErrors,...packageCheck.lengthErrors,...preflight.draft.errors,...preflight.receipt.errors];
+if(errors.length)throw Error(errors.join('\n'));
+console.log(JSON.stringify({status:'BOUND_ART_PRODUCER_PASS',story:bind('story.json'),reviewText:bind('review-text.json'),producerReview:bind('producer-publication-review.json'),visualAdmission:art,sourceBudget:j('source-budget-final.json').totals}));

@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "newsstand-retained-block-recovery-review-v1",
+  "reviewedAt": "2026-09-19T17:02:13Z",
+  "scope": "Substantive recovery review only where a fresh, legitimate, distinct observation adds evidence. Original blocked timestamps and statuses remain authoritative.",
+  "reviews": [
+    {
+      "blockedUrls": [
+        "https://aidailybrief.ai/e/2026-09-14.json",
+        "https://aidailybrief.ai/e/2026-09-14/transcript.md"
+      ],
+      "originalCheckedAt": "2026-09-14T23:02:12Z",
+      "originalRetryPolicy": "NONRETRYABLE",
+      "originalRetried": false,
+      "freshDistinctEvidence": {
+        "url": "https://aidailybrief.ai/agent.json",
+        "webRef": "turn851view0",
+        "generatedAt": "2026-09-19T16:59:11.150Z",
+        "finding": "Publisher index lists the September 14 episode and transcript URL. It does not supply transcript text in the index."
+      },
+      "decision": "RETAIN_BLOCK",
+      "missingInput": "An actually opened complete September 14 edition or transcript from a legitimate accessible source."
+    },
+    {
+      "blockedUrls": [
+        "https://aidailybrief.ai/e/2026-09-15.json",
+        "https://aidailybrief.ai/e/2026-09-15/transcript.md"
+      ],
+      "originalCheckedAt": "2026-09-16T03:03:53Z",
+      "originalRetried": false,
+      "freshDistinctEvidence": {
+        "url": "https://aidailybrief.ai/agent.json",
+        "webRef": "turn851view0",
+        "finding": "Publisher index now lists the September 15 episode and transcript URL, but no full transcript content was read."
+      },
+      "decision": "RETAIN_BLOCK",
+      "missingInput": "Complete legitimate September 15 edition or transcript."
+    },
+    {
+      "blockedUrls": [
+        "https://aidailybrief.ai/e/2026-09-16.json",
+        "https://aidailybrief.ai/e/2026-09-16/transcript.md"
+      ],
+      "originalCheckedAt": "2026-09-16T14:32:02.743130+00:00",
+      "originalRetried": false,
+      "freshDistinctEvidence": [
+        {
+          "url": "https://aidailybrief.ai/agent.json",
+          "webRef": "turn851view0",
+          "finding": "Publisher index lists the episode and transcript URL; it does not expose transcript text."
+        },
+        {
+          "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+          "webRef": "turn853search8",
+          "finding": "Apple corroborates September 16 date, 19:57 UTC publication time, 25-minute duration, and summary metadata only."
+        },
+        {
+          "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+          "webRef": "turn855view0",
+          "finding": "The primary company post substantiates the Jev announcement and its limitations, but it is not the AIDB transcript."
+        }
+      ],
+      "decision": "RETAIN_BLOCK_AND_ROUTE_DISTINCT_PRIMARY",
+      "missingInput": "Complete AIDB September 16 edition or transcript; independent validation for TypeSafe performance claims."
+    },
+    {
+      "blockedUrls": [
+        "https://aidailybrief.ai/e/2026-09-17.json",
+        "https://aidailybrief.ai/e/2026-09-17/transcript.md"
+      ],
+      "originalCheckedAt": "2026-09-19T17:02:13Z",
+      "originalObservation": "First normal-web opens returned not accessible via this tool.",
+      "retryPolicyForThisLane": "NO_RETRY",
+      "freshDistinctEvidence": [
+        {
+          "url": "https://aidailybrief.ai/agent.json",
+          "webRef": "turn851view0",
+          "finding": "Publisher index lists the September 17 episode and artifact URLs."
+        },
+        {
+          "url": "https://podcasts.apple.com/us/podcast/the-ai-daily-brief-artificial-intelligence-news/id1680633614",
+          "webRef": "turn853search0",
+          "finding": "Apple corroborates September 17 date, 19:41 UTC publication time, 30-minute duration, and summary metadata only."
+        }
+      ],
+      "decision": "BLOCK_NEW_EXACT_ENDPOINTS",
+      "missingInput": "Complete legitimate September 17 edition or transcript."
+    }
+  ],
+  "unchangedBlocksWithoutNewSubstantiveRecoveryReview": [
+    {
+      "url": "https://aidailybrief.beehiiv.com/",
+      "originalCheckedAt": "2026-09-15T20:04:44.720Z",
+      "retryPolicy": "NONRETRYABLE",
+      "reason": "No distinct fresh source resolved the full newsletter archive."
+    },
+    {
+      "url": "https://aidailybrief.beehiiv.com/p/even-other-ai-labs-are-rallying-around-anthropic-s-slowdown-proposal",
+      "originalCheckedAt": "2026-09-15T14:03:57.244942+00:00",
+      "retryPolicy": "NONRETRYABLE",
+      "reason": "The agent index confirms episode identity only; it does not recover the blocked Beehiiv article body."
+    }
+  ],
+  "alternateTransportUsed": false,
+  "sharedStateMutated": false
+}

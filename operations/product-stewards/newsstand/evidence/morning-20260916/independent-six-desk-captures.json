@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "newsstand-six-desk-source-check-v1",
+  "lane": "/root/aft_school_story",
+  "triggerAt": "2026-09-16T14:01:00Z",
+  "observationRecordedAt": "2026-09-16T14:08:13Z",
+  "scopeClaim": "Bounded inspection of the six fixed desks. This is not a claim of exhaustive discovery.",
+  "desks": [
+    {
+      "desk": "AP AI hub",
+      "url": "https://apnews.com/hub/artificial-intelligence",
+      "access": "NORMAL_RENDERED_SUCCESS",
+      "result": "Three new relevant AP items were read in full. The AP-NORC data-centre poll is a distinct source-bound candidate; the Zuckerberg response is a possible successor in an already covered debate; the slowdown explainer supplies useful recovery evidence for the evaluator hold.",
+      "capture": "independent-ap-capture.json"
+    },
+    {
+      "desk": "Nature machine-learning research index",
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "access": "NORMAL_RENDERED_SUCCESS",
+      "readScope": "Latest Research and Reviews through the 16 September Rider listing and the retained 15 September E-MAF listing.",
+      "result": "New 16 September RNA-virus discovery research was index-only and highly specialised, with no established beginner action or availability claim. E-MAF remained a due evidence hold. No story candidate created."
+    },
+    {
+      "desk": "Nature machine-learning news/comment index",
+      "url": "https://www.nature.com/subjects/machine-learning",
+      "access": "INDEX_SUCCESS_ARTICLE_CLICK_FAILED",
+      "readScope": "News and Comment listings through 16 September.",
+      "result": "A new Nature editorial, 'AI companies must work with the research community to protect attribution', overlaps the private mathematics candidate and was visible only by title/deck. Its exact article click returned Internal Error and was not retried; no source-bound claim or candidate was created.",
+      "newNonretryable": "Nature index link 26 for the 16 September attribution editorial; the failed reader did not expose a stable target URL, so none is invented."
+    },
+    {
+      "desk": "FTC press releases",
+      "url": "https://www.ftc.gov/news-events/news/press-releases",
+      "access": "NORMAL_RENDERED_SUCCESS",
+      "readScope": "Current press-release index through 15 September.",
+      "result": "Latest release concerned automobile pricing FAQs; no new AI-specific enforcement, rule or consumer advisory found in the bounded index."
+    },
+    {
+      "desk": "EFF AI issue index",
+      "url": "https://www.eff.org/issues/ai",
+      "access": "NORMAL_RENDERED_SUCCESS",
+      "readScope": "Current issue-page article listings through 8 September.",
+      "result": "No item newer than the already covered Wisconsin WISeR reporting."
+    },
+    {
+      "desk": "BleepingComputer AI tag",
+      "url": "https://www.bleepingcomputer.com/tag/artificial-intelligence/",
+      "access": "NORMAL_RENDERED_SUCCESS",
+      "readScope": "Current tag listing through 16 September.",
+      "result": "The only 16 September item was a BleepingComputer Deals lifetime multi-model promotion. Excluded as a paid commercial offer without an independent product development. Latest editorial security items were already represented by existing threat/PaperCut coverage."
+    }
+  ]
+}

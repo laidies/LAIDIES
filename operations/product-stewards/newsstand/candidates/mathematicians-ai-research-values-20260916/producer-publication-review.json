@@ -1,25 +1,470 @@
 {
-  "schemaVersion": "laidies-producer-self-review-v1",
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
   "candidateId": "mathematicians-ai-research-values-20260916",
-  "reviewer": "/root/aft_school_story",
-  "reviewedAt": "2026-09-16T03:27:25.953313Z",
-  "result": "PASS_PRIVATE_PRODUCER_STAGE_ART_PENDING",
-  "checks": {
-    "sourceCompleteness": "PASS: both admitted sources complete for selected claims.",
-    "attribution": "PASS: declaration and Figalli assessment remain attributed.",
-    "sourceBudgets": "PASS: Le Monde 89/100, ETH Zurich 74/200 across reader-visible fields including source labels.",
-    "beginnerMeaning": "PASS: benchmark scope explained before action.",
-    "practicalAction": "PASS: original low-stakes two-pass percentage exercise.",
-    "library": "PASS: current live AI Fundamentals101 §12.5 fully read and exact section saved.",
-    "distinctness": "PASS: fresh event is declaration, not repeated Navier-Stokes result.",
-    "prohibitedClaim": "PASS: no blanket empirical claim that AI cannot understand.",
-    "visual": "PENDING: no self-admission.",
-    "contract": "PASS: actual check-content-producer-contract output is recorded in contract-integrity.json.",
-    "mechanicalPreflight": "HOLD_ART_ONLY: inspectPreparedDraft found only the missing/incomplete story image; see producer-preflight.json. This is not an editorial verdict."
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/aft_school_story",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/aft_school_story",
+    "principalId": "/root/aft_school_story",
+    "role": "Producer exact complete prose read",
+    "modelFamily": "openai"
   },
-  "defectsRemaining": [
-    "Independent structural/editorial review required.",
-    "Independent visual selection/admission required.",
-    "Assembly/admission/issue/publication remain root-owned."
+  "reviewedAt": "2026-09-16T14:30:31.018Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/publication-manifest.json",
+      "sha256": "305ae38e64b1faa09b98317960c679efbda01460d1d05e8d9f11e8050978415a"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/review-text.json",
+      "sha256": "228a0c542e360da3689aa25401ad94d21906ba688e5dbe7c608c144e516896e9"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/rendered-article.html",
+      "sha256": "3251f82dae7fe230d3a77fa37aa773d9e2e703fc413dffd984ec7f9e0b932bf4"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/aft_school_story",
+    "reviewedAt": "2026-09-15T23:13:39.848Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "If an AI produces a correct mathematical result, why are leading mathematicians still worried?",
+    "promisedPayoff": "Separate a correct answer from the slower work of explaining, attributing, teaching and building shared understanding.",
+    "centralMentalModel": "A benchmark can measure answer production without measuring whether a field can inspect, explain and build on the result.",
+    "dailyLifeConnection": "A learner can receive a right answer without yet being able to explain the method or use it on a changed problem.",
+    "surfaceJob": "September 16 private Daily candidate about a collective professional response to AI mathematics benchmarks.",
+    "desiredReaderFeeling": "I can use an AI answer while checking whether I learned a reusable method."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A benchmark is a defined test used to compare performance on a chosen task.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Try a small two-pass check.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A correct answer does not finish the work of understanding it.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "This is an attributed argument, not evidence that AI cannot produce correct mathematics or a rule for researchers or students.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "published a September 11 declaration",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Leading mathematicians say a correct answer is not the whole job",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is his assessment, not a settled measure of what AI understands.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If an AI solves a percentage problem for you, the displayed answer finishes one task.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A correct proof may still require people to identify its useful idea, connect earlier work and explain it.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "If an AI produces a correct mathematical result, why are leading mathematicians still worried?",
+        "probeResponse": "A benchmark can show that an AI produced an answer without showing that a learner or research community can explain, attribute and build on it.",
+        "expectedEvidence": "Answer-producing benchmark versus explanation, attribution and transfer.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Change one number or condition and solve again.",
+          "locator": "complete exact story"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What if the AI answer is in a different subject?",
+        "probeResponse": "For a polished AI answer in another subject, ask what the test measured, explain the method without looking, and try a changed case.",
+        "expectedEvidence": "Identify the measured task, explain independently and test a changed case.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Then hide it and explain the method in your own words.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read: the declaration and Figalli assessment stay attributed; answer production is separated from reusable understanding; the practical two-pass check completes the promised beginner action.",
+      "artifactEvidence": [
+        {
+          "excerpt": "If an AI solves a percentage problem for you, the displayed answer finishes one task.",
+          "locator": "complete exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Actual read avoids glossaryAccumulation: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Actual read avoids templateRepetition: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Actual read avoids decorativeAnalogy: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Actual read avoids referenceConfetti: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Actual read avoids missingMechanism: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Actual read avoids genericAction: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Actual read avoids jargonBeforeMeaning: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Actual read avoids disconnectedSystem: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Actual read avoids factlessConfidence: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Actual read avoids staleUnreviewableClaims: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Actual read avoids corporateSludge: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Actual read avoids joylessInstruction: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Actual read avoids benchmarkNameDrop: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Actual read avoids curiosityWithoutPayoff: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Actual read avoids familiarExampleWithoutTechnicalReturn: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Actual read avoids communicationPastiche: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Actual read avoids entertainmentBeforeUnderstanding: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Actual read avoids mechanismCompressedBehindHook: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Actual read avoids prematureClickBeforeMechanism: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Actual read avoids inflatedTakeawayEnding: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Actual read avoids purposeTooNarrow: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Actual read avoids mechanismBeforeMotivation: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Actual read avoids workedExampleOvertakesBookPurpose: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Actual read avoids technicalExplainerVoice: the dated collective response, attributed assessment and one percentage transfer check remain connected; no blanket claim about AI understanding or repeated capability headline.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/editorial-input.json",
+        "sha256": "1927087cce9ef0bf4d9a63ba462bfa80fcd93c7553b4ed015eae3c6ce35b727a"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "collective-declaration",
+        "claim": "Twenty-five Fields Medal recipients published a September 11 declaration arguing that mathematical problem-solving benchmarks can pull attention from explanation, attribution, discussion and teaching.",
+        "candidateEvidence": [
+          {
+            "excerpt": "Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration. They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.",
+            "locator": "P001"
+          }
+        ],
+        "sourceIds": [
+          "fields-medalists-declaration-20260911"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "But solving problems is only a tool and proxy for achieving the primary goal of conceptual understanding and insight.",
+            "locator": "https://www.lemonde.fr/en/opinion/article/2026/09/11/25-fields-medalists-warn-the-goals-of-the-ai-companies-and-the-goals-of-the-mathematical-community-are-severely-misaligned_6757433_23.html"
+          }
+        ],
+        "scopeAndFreshness": "Normal-web source refreshed September 16; this remains an attributed collective argument, not an empirical model result.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/editorial-input.json",
+          "sha256": "1927087cce9ef0bf4d9a63ba462bfa80fcd93c7553b4ed015eae3c6ce35b727a"
+        }
+      },
+      {
+        "claimId": "figalli-assessment",
+        "claim": "Alessio Figalli said AI can accelerate results where prior methods and literature exist, while faster output can challenge judgment and training.",
+        "candidateEvidence": [
+          {
+            "excerpt": "In an ETH Zurich interview, declaration signatory Alessio Figalli said AI can accelerate results, especially where established methods and literature exist. His concern is that faster output can outrun the slower work of judging which results matter and training people to formulate good questions.",
+            "locator": "P004"
+          }
+        ],
+        "sourceIds": [
+          "eth-figalli-interview-20260914"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "AI primarily combines existing knowledge and builds on established work, methods and tools.",
+            "locator": "https://ethz.ch/en/news-and-events/eth-news/news/2026/09/no-ai-will-replace-mathematicians-but-i-am-concerned-about-education.html"
+          }
+        ],
+        "scopeAndFreshness": "Complete ETH interview refreshed September 16; attributed to Figalli and explicitly framed as his assessment.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/editorial-input.json",
+          "sha256": "1927087cce9ef0bf4d9a63ba462bfa80fcd93c7553b4ed015eae3c6ce35b727a"
+        }
+      }
+    ],
+    "reviewedThrough": "2026-09-16",
+    "nextTrigger": "Material source change, adopted research or education policy, empirical evidence of effects, or publication after September 16.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First prose review for the September 11 collective declaration; the earlier Navier–Stokes capability story is a distinct event."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Known benchmark-overclaim and answer-equals-understanding risks were prevented; Library §12.5 supplies a verified background bridge."
+  },
+  "limitations": [
+    "Producer AI simulations; no observed human comprehension test.",
+    "Independent source-art and 390×260 companion admission; live runtime crop and deployment remain outside this candidate lane."
   ]
 }

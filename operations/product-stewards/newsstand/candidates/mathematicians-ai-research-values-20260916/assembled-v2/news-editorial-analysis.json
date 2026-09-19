@@ -1,0 +1,80 @@
+{
+  "evidenceType": "AI_EDITORIAL_ANALYSIS",
+  "candidateId": "mathematicians-ai-research-values-20260916",
+  "reviewerPrincipalId": "anthropic:claude-fable-5:newsstand-editorial:medium",
+  "reviewTextSha256": "ce4325d6f67cb0e9107054bd8f7ab2b26d13bf66df8c18bf5e0ca33ff446fcda",
+  "outcomes": {
+    "explainBack": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Why does a correct AI-produced proof or answer not resolve the mathematicians' concern, according to this article?",
+      "response": "Because the benchmark only measures whether a defined task was completed, not whether anyone understands the result. After a correct proof, people still must isolate the useful idea, connect it to earlier work, attribute it, and explain it so it can be taught. When AI accelerates output, that slower human work gets outrun: results pile up faster than the community can judge which matter, and learners who receive answers skip the struggle that builds the ability to formulate good questions.",
+      "expectedEvidence": "An accurate account should distinguish task completion from understanding (P004), name the slower downstream work of explanation, attribution and teaching (P002), and include the pace mismatch Figalli describes (P005), without claiming AI cannot produce correct mathematics (P003).",
+      "assessment": "The article supports this answer fully in ordinary language; every causal step in my answer traces to a specific passage, so the explain-back outcome passes."
+    },
+    "unseenTransfer": {
+      "evidenceType": "AI_EDITORIAL_ANALYSIS",
+      "prompt": "Using the article's mechanism, what has the correct-looking clause actually finished, and what work remains for the lawyer?",
+      "response": "The clause finishes one task: producing acceptable text. It does not finish the lawyer's understanding. Applying the article's two-pass check: hide the draft, explain in her own words what risk each phrase allocates and why; then change one condition, say the supplier is now overseas, and redraft without consulting the original. If she cannot, the answer never became knowledge she can use, and she will be unable to spot a bad assumption when a future clause is subtly wrong, the exact gap Figalli describes when output outruns judgment.",
+      "expectedEvidence": "A correct transfer should reuse the benchmark-scope idea (the deliverable measures one task), the answer-versus-understanding split, and the perturb-and-re-solve check, applied to material absent from the article.",
+      "assessment": "The mechanism transfers cleanly and completely to this new domain with no strain, so the unseen-transfer outcome passes."
+    }
+  },
+  "checks": {
+    "incidentExplained": {
+      "verdict": "PASS",
+      "observation": "The incident (25 medalists, September 11 declaration, its argument about benchmarks) and the follow-on Figalli interview are stated with dates and causal content.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration. They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>In an ETH Zurich interview, declaration signatory Alessio Figalli said AI can accelerate results, especially where established methods and literature exist. His concern is that faster output can outrun the slower work of judging which results matter and training people to formulate good questions. That is his assessment, not a settled measure of what AI understands.</p>",
+          "locator": "P005"
+        }
+      ]
+    },
+    "termsExplainedInContext": {
+      "verdict": "PASS",
+      "observation": "'Benchmark' and 'Fields Medal' are given plain meanings at first meaningful use; no unexplained jargon remains.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Twenty-five recipients of the Fields Medal, a leading mathematics award, published a September 11 declaration. They argue that using mathematical problem-solving as an AI benchmark can pull attention from explanation, attribution, discussion and teaching.</p>",
+          "locator": "P002"
+        },
+        {
+          "excerpt": "<p>A benchmark is a defined test used to compare performance on a chosen task. A correct proof may still require people to identify its useful idea, connect earlier work and explain it.</p>",
+          "locator": "P004"
+        }
+      ]
+    },
+    "readerConsequenceSpecific": {
+      "verdict": "PASS",
+      "observation": "The consequence is grounded in a specific recognizable situation: a learner using AI for a percentage problem and testing whether learning occurred.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>The distinction matters in ordinary learning. If an AI solves a percentage problem for you, the displayed answer finishes one task. Your learning has a different test: can you explain each step, notice a bad assumption and solve a changed version without copying the first response?</p>",
+          "locator": "P006"
+        },
+        {
+          "excerpt": "<p>Try a small two-pass check. First ask the AI for a solution. Then hide it and explain the method in your own words. Change one number or condition and solve again. Compare your reasoning with the original. The point is not to reject the tool; it is to check whether the answer became knowledge you can use.</p>",
+          "locator": "P007"
+        }
+      ]
+    },
+    "noInternalNotesOrInventedAdvice": {
+      "verdict": "PASS",
+      "observation": "No internal operating notes or unsupported advice; the Library reference is reader-facing background, and the two-pass check follows directly from the explained mechanism.",
+      "artifactEvidence": [
+        {
+          "excerpt": "<p>Try a small two-pass check. First ask the AI for a solution. Then hide it and explain the method in your own words. Change one number or condition and solve again. Compare your reasoning with the original. The point is not to reject the tool; it is to check whether the answer became knowledge you can use.</p>",
+          "locator": "P007"
+        },
+        {
+          "excerpt": "Use the Library test below to ask which capability a benchmark measured and whether it matches the result you need. Background: <a href=\\\"/library.html#ai-fundamentals-101::%40ch-12-12-5-evals-custom-tests-for-your-specific-needs\\\">AI Fundamentals 101 §12.5 — Evals: Custom Tests for Your Specific Needs</a>.",
+          "locator": "P009"
+        }
+      ]
+    }
+  }
+}

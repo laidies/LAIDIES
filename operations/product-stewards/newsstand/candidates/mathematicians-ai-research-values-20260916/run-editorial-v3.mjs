@@ -1,0 +1,11 @@
+import fs from 'node:fs';import crypto from 'node:crypto';import {spawnSync,spawn} from 'node:child_process';
+const d='operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/',sha=x=>crypto.createHash('sha256').update(x).digest('hex');
+const c=JSON.parse(fs.readFileSync(d+'producer-contract.json'));
+if(!c.visualAdmission||sha(fs.readFileSync(c.visualAdmission.path))!==c.visualAdmission.sha256)throw Error('Checksum-bound independent visual admission required before provider dispatch.');
+if(process.env.ANTHROPIC_API_KEY||process.env.ANTHROPIC_AUTH_TOKEN||process.env.ANTHROPIC_BASE_URL)throw Error('New API transport is outside the existing authorized subscription route.');
+const auth=spawnSync('claude',['auth','status'],{encoding:'utf8'});const status=JSON.parse(auth.stdout);if(auth.status!==0||status.authMethod!=='claude.ai'||status.subscriptionType!=='max')throw Error('Existing Claude Max subscription not verified.');
+const args=['operations/product-stewards/newsstand/review-runtime/run-pilot.mjs','article','claude','--candidate-dir',d,'--calibration','operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/','--output',d+'editorial-review-v3/'];
+const startedAt=new Date().toISOString();
+fs.writeFileSync(d+'editorial-subscription-route-v3.json',JSON.stringify({checkedAt:startedAt,authMethod:status.authMethod,subscriptionType:status.subscriptionType,newApiCost:false,apiKeyPresent:false,scope:'Actual qualified cross-family Claude editorial review on existing Max subscription; no publication or queue authority.'},null,2)+'\n');
+const child=spawn('node',args,{stdio:['ignore','pipe','pipe']});let stdout='',stderr='';child.stdout.on('data',s=>{stdout+=s;process.stdout.write(s)});child.stderr.on('data',s=>{stderr+=s;process.stderr.write(s)});
+child.on('close',code=>{fs.writeFileSync(d+'editorial-execution-v3.json',JSON.stringify({startedAt,completedAt:new Date().toISOString(),exitCode:code,command:['node',...args],stdout,stderr},null,2)+'\n');process.exitCode=code;});

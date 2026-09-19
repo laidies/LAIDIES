@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "laidies-newsstand-source-refresh.v1",
+  "candidateId": "mathematicians-ai-research-values-20260916",
+  "observedAt": "2026-09-16T14:22:30.014836Z",
+  "observationDateVancouver": "2026-09-16",
+  "status": "REFRESHED_NO_MATERIAL_CHANGE",
+  "records": [
+    {
+      "sourceId": "fields-medalists-declaration-20260911",
+      "url": "https://www.lemonde.fr/en/opinion/article/2026/09/11/25-fields-medalists-warn-the-goals-of-the-ai-companies-and-the-goals-of-the-mathematical-community-are-severely-misaligned_6757433_23.html",
+      "method": "normal web open",
+      "httpCapture": {
+        "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/source-refresh-20260916/le-monde.html",
+        "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea"
+      },
+      "httpCaptureScope": "Direct curl returned only a challenge shell and is not treated as a full-body refresh.",
+      "readScope": "Normal web rendering exposed lines 176–209: headline, publication date, complete visible declaration body, signatory list and translation note. Compared with the preserved exact source packet; no material change found.",
+      "sourceBudgetWords": 100,
+      "limits": "Collective argument, not empirical proof or model evaluation."
+    },
+    {
+      "sourceId": "eth-figalli-interview-20260914",
+      "url": "https://ethz.ch/en/news-and-events/eth-news/news/2026/09/no-ai-will-replace-mathematicians-but-i-am-concerned-about-education.html",
+      "method": "normal web open plus direct HTML capture",
+      "htmlCapture": {
+        "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/source-refresh-20260916/eth-zurich.html",
+        "sha256": "b7b2e5a3ad8ec0c01e5cf11a56e2ee6c209ac98687067553312c8f6214c670d7"
+      },
+      "textCapture": {
+        "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/source-refresh-20260916/eth-zurich.txt",
+        "sha256": "db4c21d76da9ca845ffe3b7777eed3ef313994b8e42ce86bf7d5ca8726b26605"
+      },
+      "readScope": "Complete article/interview lines 30–85 in normal web rendering and direct page text through the biography. No material change found.",
+      "sourceBudgetWords": 200,
+      "limits": "Institutional interview with one declaration signatory, not a consensus survey, causal education study or model evaluation."
+    }
+  ],
+  "preservedExactPacket": {
+    "path": "operations/product-stewards/newsstand/candidates/mathematicians-ai-research-values-20260916/source-packet.json",
+    "sha256": "6b38fc69610f10d222bd2e64834d9c3dc9b589d40379921394ff123c6ffd717f"
+  },
+  "prohibitedSourceNotAccessed": "The prior Atlantic original was not opened, retried through an alternate path or proxied.",
+  "effectOnStory": "Access dates and bindings refreshed; reader-facing prose and conservative 89/100 Le Monde and 74/200 ETH allocations remain unchanged."
+}

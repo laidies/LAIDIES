@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "newsstand-source-recovery-review-v1",
+  "url": "https://aidailybrief.ai/e/2026-09-15/transcript.md",
+  "originalCheckedAt": "2026-09-16T03:03:53Z",
+  "originalNotRetried": true,
+  "reviewedAt": "2026-09-19T17:35:09.777510+00:00",
+  "reviewedBy": "/root",
+  "assessment": "Fresh publisher index enumerates September13\u201317 identities but contains no full transcript/body. Exact blocked route not retried, cursor not advanced; complete content remains missing.",
+  "missingInput": "Complete legitimate September15 edition or transcript; index/podcast metadata is insufficient.",
+  "nextCheckAt": "2026-09-20T00:00:00Z",
+  "nextRecoveryStep": "Review legitimate distinct publisher evidence at next source sweep; never retry the prohibited original or infer complete content from metadata.",
+  "originalCapture": {
+    "path": "operations/product-stewards/newsstand/evidence/evening-20260915/scout-captures.json",
+    "sha256": "6adc9bc5b4c0bb1f9e0191f7a48e9872decfac848b1f0b48893231bdb0875c2d"
+  },
+  "recoverySources": [
+    {
+      "url": "https://aidailybrief.ai/agent.json",
+      "status": "CHECKED",
+      "checkedAt": "2026-09-19T17:02:13Z",
+      "assessment": "Index generated September 19 16:59:11.150Z lists five September 13-17 episodes and none for September 18-19. Transcript URLs are publisher listings; only September 13 has a saved complete transcript read.",
+      "capture": {
+        "path": "operations/product-stewards/newsstand/evidence/recovery-20260919/continuity-aidb-rolling-window.json",
+        "sha256": "8b99afa45e3384a47ff133d9aae20ca754e20637c794adbe038dbf8237aca0a4"
+      }
+    }
+  ]
+}

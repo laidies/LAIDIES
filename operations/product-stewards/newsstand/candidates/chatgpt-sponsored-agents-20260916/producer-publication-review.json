@@ -1,0 +1,496 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "candidateId": "chatgpt-sponsored-agents-20260916",
+  "surface": "NEWSSTAND_DAILY",
+  "contentClass": "NEWS",
+  "maker": "/root/aft_school_story",
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewer": {
+    "id": "/root/aft_school_story",
+    "principalId": "/root/aft_school_story",
+    "role": "Producer exact complete prose read",
+    "modelFamily": "openai"
+  },
+  "reviewedAt": "2026-09-16T14:53:27.376Z",
+  "verdict": "PASS",
+  "artifact": {
+    "manifest": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-sponsored-agents-20260916/publication-manifest.json",
+      "sha256": "dafe814b9d23d7cff485b573dc67b9abd1bc3f2acde500c36148217a81dbdc09"
+    },
+    "reviewText": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-sponsored-agents-20260916/review-text.json",
+      "sha256": "41055484692191d540f2fe8380635b9f5f739f479771f0242a38d47fb0a2707d"
+    },
+    "rendered": {
+      "path": "operations/product-stewards/newsstand/candidates/chatgpt-sponsored-agents-20260916/rendered-article.html",
+      "sha256": "926fc4489d5a80bcd2e57d15f42daf6edef962af29fcac166419073a54c4443a"
+    }
+  },
+  "reviewMetricsPolicy": {
+    "path": "operations/product-stewards/newsstand/ordinary-news-editorial-policy.json",
+    "sha256": "cf9b18549711b0e14633b3d2d9f55d4cf2a791c547200e818588a94f48050a1e"
+  },
+  "calibration": {
+    "registrySha256": "591a4691ceb5fefb58fba3c6bd6ac88f1a16b85241954110fa99c2d873873bc3",
+    "reviewerPrincipalId": "/root/aft_school_story",
+    "reviewedAt": "2026-09-15T23:13:39.848Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "In real life. The handover draft depends on the app, model, notes, policy, tool access and your check—not on one invisible “AI brain.”",
+            "locator": "known-bad Chapter 1"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "We will begin with one decision and follow it all the way through.",
+            "locator": "known-bad job-offer framing"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-NEWS-002",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "One useful distinction connects evidence to reader judgment.",
+        "Limitations remain beside the claim they qualify."
+      ],
+      "evidence": [
+        {
+          "excerpt": "There are two separate jobs here: signalling AI involvement and checking the underlying claim.",
+          "locator": "approved NEWS-002 reference"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "If an ad in ChatGPT opens another conversation, who am I talking to?",
+    "promisedPayoff": "Recognize the hand-off into a seller-sponsored conversation and keep its product claims in the right context.",
+    "centralMentalModel": "An ad click can move a person from an original chat into a separate conversation sponsored by the seller.",
+    "dailyLifeConnection": "A shopper can ask whether a lamp fits, while remembering the answers come from the seller.",
+    "surfaceJob": "September 16 private Daily candidate about OpenAI’s Sponsored Agents test with select US advertisers.",
+    "desiredReaderFeeling": "I can tell when a chat has become a seller’s conversation."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read keeps the optional seller hand-off clear, attributes product claims to OpenAI, and ends with one low-stakes shopping check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You are talking to a seller about what it offers, through an AI agent inside ChatGPT.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read keeps the optional seller hand-off clear, attributes product claims to OpenAI, and ends with one low-stakes shopping check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep the original answer, the sponsored conversation and the seller’s product page as three different sources.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read keeps the optional seller hand-off clear, attributes product claims to OpenAI, and ends with one low-stakes shopping check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Imagine an ad for a desk lamp catches your eye.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read keeps the optional seller hand-off clear, attributes product claims to OpenAI, and ends with one low-stakes shopping check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "After the ad click, you’re chatting with the seller.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read keeps the optional seller hand-off clear, attributes product claims to OpenAI, and ends with one low-stakes shopping check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "The announcement does not give broader availability details.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read keeps the optional seller hand-off clear, attributes product claims to OpenAI, and ends with one low-stakes shopping check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI announced September 16",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read keeps the optional seller hand-off clear, attributes product claims to OpenAI, and ends with one low-stakes shopping check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "A new ChatGPT ad can open a separate conversation with the seller",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "datedChange": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read keeps the optional seller hand-off clear, attributes product claims to OpenAI, and ends with one low-stakes shopping check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "OpenAI announced September 16 that it is testing Sponsored Agents with select US advertisers.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "consequenceAndUncertainty": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read keeps the optional seller hand-off clear, attributes product claims to OpenAI, and ends with one low-stakes shopping check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "That is useful context: a fluent answer can still be part of a sales conversation.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "dailyLifeConnection": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read keeps the optional seller hand-off clear, attributes product claims to OpenAI, and ends with one low-stakes shopping check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "ask for its base width, shade height and return terms",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "communicationBenchmark": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read keeps the optional seller hand-off clear, attributes product claims to OpenAI, and ends with one low-stakes shopping check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Pause there long enough to notice the label and who is speaking.",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "explainBack": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read keeps the optional seller hand-off clear, attributes product claims to OpenAI, and ends with one low-stakes shopping check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "You are talking to a seller about what it offers, through an AI agent inside ChatGPT.",
+          "locator": "LAiDIES Read"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "If an ad in ChatGPT opens another conversation, who am I talking to?",
+        "probeResponse": "After a person clicks an ad, she can choose a separate labelled conversation with the seller’s sponsored agent; it is not the original chat or an independent ChatGPT answer.",
+        "expectedEvidence": "Optional seller-sponsored conversation after an ad click, separate from original and independent answers.",
+        "transferResult": "PASS"
+      }
+    },
+    "unseenTransfer": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read keeps the optional seller hand-off clear, attributes product claims to OpenAI, and ends with one low-stakes shopping check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Keep the original answer, the sponsored conversation and the seller’s product page as three different sources.",
+          "locator": "What This Means"
+        }
+      ],
+      "simulatedReaderProbe": {
+        "prompt": "What if a different app opens a brand conversation?",
+        "probeResponse": "If another app moves me from an answer into a brand chat, I should identify the new speaker and check its claims against the underlying product page.",
+        "expectedEvidence": "Identify the speaker and incentive, then compare the claim with the underlying product source.",
+        "transferResult": "PASS"
+      }
+    },
+    "usefulAction": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read keeps the optional seller hand-off clear, attributes product claims to OpenAI, and ends with one low-stakes shopping check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Then compare those claims with the product page",
+          "locator": "complete exact story"
+        }
+      ]
+    },
+    "analogyIntegrity": {
+      "verdict": "PASS",
+      "observation": "Actual complete producer read keeps the optional seller hand-off clear, attributes product claims to OpenAI, and ends with one low-stakes shopping check.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Imagine an ad for a desk lamp catches your eye.",
+          "locator": "complete exact story"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Actual read avoids glossaryAccumulation: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Actual read avoids templateRepetition: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Actual read avoids decorativeAnalogy: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Actual read avoids referenceConfetti: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Actual read avoids missingMechanism: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Actual read avoids genericAction: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Actual read avoids jargonBeforeMeaning: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Actual read avoids disconnectedSystem: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Actual read avoids factlessConfidence: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Actual read avoids staleUnreviewableClaims: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Actual read avoids corporateSludge: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Actual read avoids joylessInstruction: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Actual read avoids benchmarkNameDrop: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Actual read avoids curiosityWithoutPayoff: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Actual read avoids familiarExampleWithoutTechnicalReturn: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Actual read avoids communicationPastiche: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Actual read avoids entertainmentBeforeUnderstanding: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Actual read avoids mechanismCompressedBehindHook: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Actual read avoids prematureClickBeforeMechanism: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Actual read avoids inflatedTakeawayEnding: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Actual read avoids purposeTooNarrow: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Actual read avoids mechanismBeforeMotivation: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Actual read avoids workedExampleOvertakesBookPurpose: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Actual read avoids technicalExplainerVoice: the dated product test, seller identity, separation and one lamp example stay connected without unsupported privacy or availability claims.",
+      "artifactLocator": "complete exact story"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "sourceBindings": [
+      {
+        "path": "operations/product-stewards/newsstand/candidates/chatgpt-sponsored-agents-20260916/editorial-input.json",
+        "sha256": "109b0579bdc463b86b4db033a4d6425e9e7ea20e3f7c9d17191f1dbe32934aab"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "test",
+        "claim": "OpenAI announced September 16 that it is testing Sponsored Agents with select US advertisers.",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI announced September 16 that it is testing Sponsored Agents with select US advertisers.",
+            "locator": "P001"
+          }
+        ],
+        "sourceIds": [
+          "openai-sponsored-agents-20260916"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "L46: Sponsored Agents are now being tested with select advertisers in the United States.",
+            "locator": "https://openai.com/index/reimagining-advertising-with-ai/"
+          }
+        ],
+        "scopeAndFreshness": "Provider announcement observed September 16; no broader availability claim.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-sponsored-agents-20260916/editorial-input.json",
+          "sha256": "109b0579bdc463b86b4db033a4d6425e9e7ea20e3f7c9d17191f1dbe32934aab"
+        }
+      },
+      {
+        "claimId": "interaction",
+        "claim": "After clicking an ad, a person can choose a clearly labelled conversation with an agent sponsored by that business.",
+        "candidateEvidence": [
+          {
+            "excerpt": "After clicking an ad in ChatGPT, a person can choose to open a clearly labelled conversation with an agent sponsored by that business.",
+            "locator": "P001"
+          }
+        ],
+        "sourceIds": [
+          "openai-sponsored-agents-20260916"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "After seeing a relevant ad, a user can choose to start a clearly labeled conversation with a business-sponsored agent in ChatGPT.",
+            "locator": "https://openai.com/index/reimagining-advertising-with-ai/"
+          }
+        ],
+        "scopeAndFreshness": "Described product design, not independent observed use.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-sponsored-agents-20260916/editorial-input.json",
+          "sha256": "109b0579bdc463b86b4db033a4d6425e9e7ea20e3f7c9d17191f1dbe32934aab"
+        }
+      },
+      {
+        "claimId": "separation",
+        "claim": "OpenAI says the sponsored conversation is separate from the original chat and independent answers.",
+        "candidateEvidence": [
+          {
+            "excerpt": "OpenAI says the sponsored conversation is separate from the person’s original chat and from ChatGPT’s independent answers.",
+            "locator": "P002"
+          }
+        ],
+        "sourceIds": [
+          "openai-sponsored-agents-20260916"
+        ],
+        "sourceEvidence": [
+          {
+            "excerpt": "The conversation with a Sponsored Agent is distinct from ChatGPT’s independent answers and separate from the original conversation that the user started in ChatGPT.",
+            "locator": "https://openai.com/index/reimagining-advertising-with-ai/"
+          }
+        ],
+        "scopeAndFreshness": "Attributed provider statement; no inference about privacy or data handling.",
+        "status": "QUALIFIED",
+        "sourceBinding": {
+          "path": "operations/product-stewards/newsstand/candidates/chatgpt-sponsored-agents-20260916/editorial-input.json",
+          "sha256": "109b0579bdc463b86b4db033a4d6425e9e7ea20e3f7c9d17191f1dbe32934aab"
+        }
+      }
+    ],
+    "reviewedThrough": "2026-09-16",
+    "nextTrigger": "Material product-announcement change, broader rollout details, or publication after September 16.",
+    "correctionOwner": "NewsStand product steward"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 2,
+    "reviewIssues": 0,
+    "reviewCycles": 2,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First story on the September 16 Sponsored Agents test; earlier ChatGPT ads coverage concerned a distinct event."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The known risks of mistaking seller speech for independent advice and inventing availability or privacy claims were prevented."
+  },
+  "limitations": [
+    "Producer AI simulations; no observed human comprehension test.",
+    "Primary provider source describes its own test; no independent usage or effectiveness evidence.",
+    "Independent art source/mobile admission; live runtime crop and deployment remain outside this candidate lane."
+  ]
+}

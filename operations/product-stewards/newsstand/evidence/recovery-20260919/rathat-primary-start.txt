@@ -1,0 +1,177 @@
+RatHat: AI-Powered Mobile Threat is Here for Your Credentials & Bank Accounts (https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts)
+citeturn866view0 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://zimperium.com/blog/rathat-ai-powered-mobile-threat-is-here-for-your-credentials-bank-accounts","lineno":null}); Total lines: 324
+L0: cite0†iframe†www.googletagmanager.com L1: 
+L2:   *   *   *   * cite1†CONTACT US L3: 
+L4: ☰
+L5: #### Menu
+L6: 
+L7: Mobile Applications ›
+L8: 
+L9: Mobile Application Security ›
+L10: 
+L11: cite2†Mobile Application Protection Suite | MAPS L12: 
+L13: cite3†Mobile App Response Agent L14: 
+L15: cite4†Application Security Testing L16: 
+L17: cite5†Cryptographic Key Protection L18: 
+L19: cite6†Application Shielding L20: 
+L21: cite7†Runtime Protection L22: 
+L23: Mobile Devices ›
+L24: 
+L25: Mobile Device Security ›
+L26: 
+L27: cite8†Mobile Threat Defense (MTD) L28: 
+L29: cite9†Mobile SOC Agent L30: 
+L31: cite10†Mobile Phishing Protection L32: 
+L33: cite11†Mobile App Vetting L34: 
+L35: cite12†Mobile BYOD Security L36: 
+L37: cite13†MTD for Chromebooks L38: 
+L39: cite14†zSecure Resident Safety L40: Solutions ›
+L41: 
+L42: Mobile Security Solutions by Industry ›
+L43: 
+L44: cite15†Automotive L45: 
+L46: cite16†Aviation L47: 
+L48: cite17†Banking L49: 
+L50: cite18†Federal L51: 
+L52: cite19†Financial Services L53: 
+L54: cite20†Government L55: 
+L56: cite21†Healthcare L57: 
+L58: cite22†Media & Entertainment L59: 
+L60: cite23†Retail L61: 
+L62: Mobile Security Solutions by Use Case ›
+L63: 
+L64: cite24†Regulatory Compliance L65: 
+L66: Company ›
+L67: 
+L68: Company ›
+L69: 
+L70: cite25†About Us L71: 
+L72: cite26†Blog†www.zimperium.com L73: 
+L74: cite27†Careers L75: 
+L76: cite28†Events L77: 
+L78: cite29†Newsroom L79: 
+L80: cite30†Support†www.zimperium.com L81: 
+L82: Partners ›
+L83: 
+L84: cite31†Partner Network L85: 
+L86: cite32†Become a Partner L87: cite33†zPartner Login†learning.zimperium.com L88: 
+L89: cite34†blog L90: 
+L91: Sep 16, 2026
+L92: # RatHat: AI-Powered Mobile Threat is Here for Your Credentials & Bank Accounts
+L93: 
+L94: cite35†Gianluca Braga | cite36†Vishnu Pratapagiri | cite37†Fernando Ortega L95: ## Executive Summary
+L96: 
+L97: The zLabs team has uncovered RatHat, a novel Android malware strain linked to threat actors that appear to be operating in China. RatHat incorporates novel techniques for persistence and leverage generative AI for operational control.
+L98: Distributed primarily via targeted smishing (SMS/text phishing) and malvertising campaigns leading to deceptive third-party download portals, RatHat uses an automated multi-stage infection pipeline. Once deployed, it pairs Accessibility abuse with autonomous local ADB (Android Debug Bridge) self-pairing to break out of the standard Android application sandbox, staging independent native daemons that execute with shell-level privileges.
+L99: ### Key Technical Findings
+L100:   * Global Financial Targeting: The malware deploys sophisticated, fake interfaces designed to mimic legitimate banking and payment apps, tricking users into providing their financial login credentials, while also intercepting OTP/2FA codes.
+L101:   * AI-Driven Automation: RatHat uses AI to intelligently navigate and control the device interface in real-time, making its operations more adaptable and harder for security software to detect than traditional, scripted automation.
+L102:   * Hardware-Level Credential Theft: By monitoring raw touch input at the hardware level, the malware bypasses standard security protections, allowing it to reconstruct PINs, passwords, and unlock patterns by tracking finger movements directly.
+L103:   * Self-Escalating Privileges: The malware automatically grants itself deep, administrative-level control over the device without needing a host computer, enabling unrestricted access to critical system functions.
+L104:   * Persistent & Self-Restoring Access: The malware installs a hidden background service that operates independently of the main app. If a user uninstalls the app, this service remains active, silently reinstalling the malware and restoring its malicious permissions.
+L105:   * Stealthy Communication Channels: It establishes a covert, permanent connection to the attacker's server, bypassing network security measures to maintain continuous, unauthorized remote control.
+L106: RatHat highlights a distinct paradigm shift in the mobile threat landscape: moving away from static, easily disrupted automation toward adaptive, AI-assisted execution chains that operate outside the constraints of traditional mobile app sandboxes.
+L107: ## Delivery Vectors
+L108: 
+L109: Threat actors are constantly refining their malware to gain undetected, unauthorized access to sensitive financial information. To succeed, malware developers must overcome two primary obstacles: neutralizing modern OS security controls and deceiving increasingly cautious users.
+L110: Initial compromise relies on hybrid delivery channels that combine social engineering with technical obfuscation. During this research we have discovered how the malware has been adapting itself and improving in order to maximize infection rates.
+L111: RatHat is primarily distributed through deceptive phishing sites promoted via malvertising, smishing campaigns, and third-party forums, luring victims into manually downloading malicious APKs that appear to be legitimate apps (Figure 1).
+L112: cite38†Image: image8-2 L113: Fig.1: Phishing site distributing RatHat malware
+L114: ## Installation & Anti-analysis Techniques
+L115: 
+L116: In response to continuous improvements in Android's security architecture, threat actors have refined their deployment methods to bypass real-time detection and ensure persistent access to compromised endpoints.
+L117: 
+L118: To remain silent, the installation is done by a dropper and the malware contains four anti-analysis layers and one anti-debug layer. All these stages are described below.
+L119: ### Dropper
+L120: 
+L121: The dropper carries its payload in two encrypted assets. Both use the same trivial transform: skip a 24-byte header, read a big-endian length, then per byte ((b ^ 0x4A) - 0xD2) ^ 0xF1, then gunzip. The stage 2 is an in-memory DEX loaded by reflection that contains the code inside to unpack and install the malware payload.
+L122: Droppers exploit native SessionInstaller APIs to bypass Android’s restricted settings and Accessibility Service protections, enabling the installation of the malicious payload and subsequent access to protected APIs.
+L123: ### Four Anti-Analysis layers
+L124: 
+L125: Droppers and payloads incorporate multiple sophisticated anti-analysis mechanisms to complicate static and dynamic inspection. These defenses span four distinct technical layers: container tampering, manifest manipulation, DEX bytecode poisoning, and dual string-encryption schemes.
+L126: #### Layer 1: Container Tampering
+L127: 
+L128: The container tampering layer consists of declaring some files as directories in the zip, or setting the ZIP general-purpose encryption bit on some files. These modifications are ignored by Android libziparchive but not by unzip, apktool and other tools. A similar technique is used by other malware families we cite39†blogged about in the past .
+L129: #### Layer 2: Manifest Bomb
+L130: 
+L131: The AndroidManifest.xml file is of 61MB and the 99% of it is composed by 2 chunks of undocumented type 0x9999 placed between string pool and the real element stream. This exploits a parse differential: Android’s native runtime simply skips the unknown 0x9999 chunk headers, whereas decompilers and static analyzers fail to parse the non-standard structure or exhaust their memory limits, causing automated analysis pipelines to crash or time out.
+L132: #### Layer 3: DEX Bytecode Poisoning
+L133: 
+L134: A substantial portion of the Dex code incorporates pseudo-instructions configured with an invalid element_width attribute. Although the Android Runtime (ART) never executes these payloads, disassemblers attempt to calculate the payload length. Consequently, while the application operates normally, the disassembly process fails.
+L135: #### Layer 4: String-Encryption Scheme
+L136: 
+L137: General strings use StringFog (a string encryption library for Android) that is based on a base64 ciphertext XORed with a per-string base64 key. In order to prevent the analysis, this malware uses a scheme called StringCrypto: base64. On top of this, the malware swaps adjacent byte pairs and XOR the result with a 16-byte key.
+L138: ### Anti-debugging Layer
+L139: 
+L140: The malware contains six runtime checks for avoiding the debugging:
+L141:   * JDWP debugger check: Debug.isDebuggerConnected() and Debug.waitingForDebugger()
+L142:   * Ptrace attach check: reads /proc/self/status and locates the “TracerPid:” line. Catches gdb, lldb and any native attach.
+L143:   * Presence of FLAG_DEBUGGABLE: this is catching if an analyst is repackaging the APK.
+L144:   * Properties check: checks for getprop ro.debuggable == "1" and getprop ro.secure == "0".
+L145:   * Frida Check: TCP probe to port 27042, ps output and grepping for “frida” and scan of the /proc/self/maps for libfrida-agent.so presence.
+L146:   * Xposed, root or emulator checks: 20 root paths and packages, three Xposed manager packages plus persist.sys.xposed.enable, Build fingerprint and QEMU device nodes
+L147: ## Architecture
+L148: 
+L149: The architecture of this Android threat can be broken down into three primary operational parts: the Malicious Android Application, the Go Agent (liblocal-service.so), and the FRP Client (libmedia_codec.so).
+L150: 
+L151: cite40†Image: image2-Sep-15-2026-07-11-59-6412-PM L152: 
+L153: Fig.2: Architecture and Operational Flow
+L154: ### The Android App
+L155: 
+L156: Its main role is to act as the primary interface with the user, acquire critical system permissions, and bootstrap the rest of the infection chain:
+L157:   * Lure & Delivery (UI Layer): This component uses sophisticated social engineering. In one build, server_config.json is set to pose as a well known streaming app, hiding behind that app's icon and label. The APK contains dynamic configuration that allows the operator to restyle the launcher icon later by enabling different activity aliases, such as one labeled "Chrome."
+L158:   * Permissions Acquisition Engine: The critical dependency for everything else is the Accessibility Service. The app uses a localized HTML lure (svc_config.html) driven by pageStyleConfig. In some countries, it claims permission is needed "due to network restrictions" and offers financial bait.
+L159:   * The Accessibility Service Activation (SystemHelper): once the service is granted, SystemHelperService becomes the engine for every automated system change. This service is used to:
+L160:     * Unlock Developer Options by tapping the "Build Number" 7 times.
+L161:     * Enable Wireless Debugging.
+L162:     * Scrape critical connection data from the UI, such as the 6-digit ADB Pairing Code and the dynamic port from the pairing dialog, falling back to scanning all TextViews if resource IDs are absent (Figure 3).
+L163: cite41†Image: Screenshot 2026-09-15 at 12.04.41 PM L164: Fig.3: Enable Wireless debugging and get pairing code
+L165:   * Spyware Capabilities: Beyond orchestration, the APK has powerful direct-access capabilities:
+L166:     * Credential Theft: An advanced WebView overlay injection engine targets specific apps, primarily to steal banking credentials.
+L167:     * Screen and Input Capture: A combination of MediaProjection Screen streaming and a Lock-screen credential capture mechanism.
+L168:     * Data Interception: An SMS receiver and notification listener work in tandem to intercept 2FA/OTP codes.
+L169:     * Device Admin & Anti-Uninstall: The app can request Device Admin rights, which grants it the capability to wipe the device if an uninstall attempt is made.
+L170:   * Generative AI UI-Automation Engine: This is a particularly unique feature. The malware serializes the device's live Accessibility tree to XML and communicates with one of the world’s most popular Generative AI assistants (Figure 4). This AI is used for non-malicious actions including:
+L171:     * Resolving a named target's centre coordinates on the screen as JSON to direct synthetic clicks.
+L172:     * Resolving a target's actual on-screen text from the XML (without translating).
+L173:     * Signaling automatic navigation commands like SCROLL_DOWN.
+L174: cite42†Image: image9-2 L175: Fig.4: AI Prompts used by RatHat indicating potential of China-based threat actors
+L176: ### The Local Privileged Executor: liblocal-service.so Go Agent
+L177: 
+L178: The malware includes a sophisticated agent written in Go, which is dropped and executed by the APK once a shell is acquired via the local ADB daemon. It is shipped disguised as a native library (liblocal-service.so) and staged to /data/local/tmp.
+L179: 
+L180: The agent is the command-and-control brain executing commands from an ADB shell context, bypassing security limitations that the user-facing app faces.
+L181: It is responsible for applying critical system-level persistence and power management exemptions. These are crucial for steady-state operation but are absent from the APK's DEX file, existing only within the Go binary. These commands are visible in the Go agent's strings:
+L182:   * dumpsys deviceidle whitelist +%s: Exempts the app from Doze mode (battery saving).
+L183:   * am set-standby-bucket %s active: Puts the app in the "active" standby bucket, prioritizing its background execution.
+L184:   * pm disable-user --user 0 %s: Allows the operator to disable arbitrary packages on the system.
+L185:   * pm uninstall -k --user 0 %s: Allows full uninstallation of security or other packages.
+L186: ### The Stealth Persistence Tunnel: libmedia_codec.so FRP Client
+L187: 
+L188: The third main part is the reverse-proxy client, frpc (derived from fatedier/frp). This is also a Go binary, shipped disguised as libmedia_codec.so. Once staged to /data/local/tmp/frpc, its only function is to establish a secure, persistent reverse tunnel back to the C2 server. It connects back to the attacker using configuration data (IP, Port, and Token) fetched from the C2 server by the Go Agent (main.fetchFrpcConfigFromServer).
+L189: This connection is used by attackers to have access to the ADB daemon: it's a general-purpose road into the device that carries whatever the operator wants, independent of the malware's own feature set.
+L190: ### Operational Flow
+L191: 
+L192: The infection and operational flow illustrates the precise sequence through which these components interact.
+L193: Initially, the Android application secures Accessibility service access and employs synthetic tap gestures to enable Developer Options and access the Wireless Debugging pairing interface. Subsequently, the application leverages its Accessibility service to extract the local pairing PIN and dynamic port from the user interface.
+L194: Utilizing the embedded libadb-android library, the application authenticates against the local device's ADB daemon, thereby securing shell-level access to the /data/local/tmp directory.
+L195: Via this established ADB connection, the application executes commands to stage and launch both the Go Agent and the FRP Client.
+L196: 
+L197: The application interacts with the active Go Agent over a local loopback HTTP interface. Operating within its elevated shell context, the Go Agent executes key system commands—including pm grant and deviceidle—to grant the application persistent operation and WRITE_SECURE_SETTINGS permissions.
+L198: Finally, the Go Agent retrieves the FRP tunnel configuration from the C2 server, enabling the FRP Client to establish a persistent, active reverse tunnel to the operator.
+L199: ## Persistence
+L200: 
+L201: The App intercepts the uninstall confirmation dialog and renders a fake failure overlay styled as Google Play, cancelling the uninstallation. But even if the user manages to uninstall it, there is another mechanism in place: the local-service is running outside the package lifecycle, so it is not removed when the app is uninstalled.
+L202: After the uninstallation, the attacker still has a shell on the device. The service checks if the app is still installed and if the presence is not confirmed, then the app is reinstalled.
+L203: 
+L204: The service launches the following commands that allow the reinstallation of the apk, granting every runtime permission automatically and re-granting the accessibility without interacting with the UI:
+L205: > pm install -r -g -i com.android.packageinstaller /data/local/tmp/app.apk
+L206: > settings put secure enabled_accessibility_services '%s'
+L207: > settings put secure accessibility_enabled 1
+L208: 
+L209: 
+L210: 
+L211: On the other side, until the app is present and running, it runs a heartbeat that redeploys and relaunches local-service if it stops responding, rescanning the ADB port ladder and re-enabling debugging settings if needed.
+L212: ## C&C Communication Channels
+L213: 
+

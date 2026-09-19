@@ -1,6 +1,6 @@
 # NewsStand current cycle — BUILDING
 
-Current checkpoint: September15 recovery is publicly verified at689fc0d7, with nine news stories and five services. The current intake has no actionable pending lead; source holds and unattended-delivery proof remain open. Next existing phase: September15 20:00Vancouver /September16 03:00UTC. Latest evidence and exact next step are at the end of this file. All earlier dated checkpoints below are historical, including their “immediate continuation” labels.
+Current checkpoint: September19 OpenAI story and Daily projection PUBLICLY VERIFIED at release a5e9b7f7. One current news story, five service columns and the recovered Weekly are live. Claude and RatHat candidate production, source reconciliation and missed-run reliability remain ACTIVE. September17–18 are historical delivery gaps; no backdated completion claim.
 
 ## Governing objective
 Ali authorizes completing and releasing the full NewsStand, correcting missing major coverage and stabilizing daily delivery. Continue until complete or an actual user/access dependency remains. Preserve the newest direct reader rulings: newest Vancouver publication date first, relevance within each date; suppress the exact rejected incident artwork everywhere; no MAiVEN or TRAiLBLAZER substitutes; Homepage Try This Today was explicitly rejected and removed. Behind the Build remains PARKED. Do not substitute adjacent redesigns for this objective.
@@ -258,3 +258,40 @@ Private September16 service proposal:8 proposed,5 ready for independent admissio
 Fresh live delivery check confirms September15 has9news5services, no overdueDaily/Weekly. Exit1 COVERAGE_WORK_REMAINS now reflects the eligible mathematics candidate, not stale source records. AIDB selector remains HOLD_AIDB_RELEASE_REVIEW/quietAllowedfalse:29 unresolved channel entries are not29 verified missing news stories. No public/code delta from the last verified release, no deployment and no repeat nativeVoiceOver test during this private phase.
 
 Next existing phase: September16 07:00Vancouver/14:00UTC. Recheck current sources, complete mathematics editorial/visual admission and any overnight eligible news, finish the Wednesday Weekly synthesis and admit currentDaily services, then ordinary scoped live publication and reader verification. Do not promote future-dated canonical records tonight. Uninterrupted unattended publication remains unproved; BehindtheBuild stays parked.
+
+Evening private source0ede96d1 backed up on the existing sanitized remote branch atc44d88f5ec1dc94b40dd3cc3cecb79e6b5e7cf33; exact remaining tree and remotehead verified. Existing captured-credential path remains excluded; original local history and unrelated dirty files preserved. Nested alternate warnings recorded; push exited0. No new public deployment. Resume the exact morning gates above.
+
+
+## September16 07:01 scheduled morning publication — ACTIVE
+
+Actual invocation2026-09-16T14:01:54.484Z /07:01:54Vancouver. Entry check exit2 missing/stale dated intake. Exact next unmet step: fresh six-desk/provider/AIDB observations and dueholds; mathematics art/editorial admission; currentDaily service admission/publication and separately dueWednesdayWeekly synthesis/admission/release. Preserve unrelated work, original blocked-source observations and current public provider assets. No dated-delivery or completed-cycle claim.
+
+
+## September16 initial Daily services publicly verified
+
+Release602fd0c8-f35a-4801-b2f4-7ab5119bd4d8/source402d7346: six scoped paths,816 other provider identities preserved,zero removals,12 dual-origin exact matches. Local66/live66 at1440/390/320 passed; actual in-app-browser September16 Miss Jeeves open/body/rendered pixels/back journey passed. Five current services; no September16 news published in this initial release. Mathematics/Sponsored Agents/AP poll qualification, source intake reconciliation and Wednesday Weekly remain ACTIVE. Receipt evidence/morning-20260916/services-release.json. No repeated native VoiceOver work.
+
+
+## September16 mathematics article publicly verified
+
+Releasef01b57a2-8090-4465-b635-47ef4a7574e5/sourcefdcc774c: seven scoped paths,816 unrelated provider identities preserved,zero removals,14 exact immutable/custom matches. Local67/live67 desktop1440/phones390,320 passed. Root inspected live article pixels and keyboard-linked Library12.5 exact destination. One news/five services. Initial issue reviewer principal error was rejected before canonical write; invalid agent attempt preserved, fresh root independent review of agent-produced article and deterministic transfer bound. Sponsored Agents production and Wednesday Weekly still ACTIVE; poll exact questionnaire recovery remains incomplete. Receipt evidence/morning-20260916/math-release.json.
+
+
+## September16 Sponsored Agents article publicly verified
+
+Release75412c7e-1fe1-4b51-a996-2441dbf9c320/source349c1b3a: seven scoped paths,817 unrelated provider identities preserved,zero removals,14 dual-origin exact matches. Local68/live68 at1440/390/320 passed; actual article and keyboard Library20.8 destination pixels inspected. Two news/five services. Wednesday Weekly remains ACTIVE; poll held on source/date conflict and inaccessible exact questionnaire. Receipt evidence/morning-20260916/sponsored-release.json.
+
+
+## September19 07:11 scheduled recovery — ACTIVE
+
+Actual trigger2026-09-19T14:11:58.870Z; entry check exit2 missing/stale dated intake. September16 maker review was written but independent-review agent reports usage-limit interruption. No completed September17–18 research/publication evidence is present in this checkout. Exact next unmet steps: current source sweep, eligible current Daily service/news admission and independent Weekly recovery review with current-day source evidence. Preserve interrupted candidate and receipts; do not backdate.
+
+
+## September19 initial recovery publicly verified
+
+Release0807b725-1c69-4f0c-972f-c7e40f998ce4/source52d1540d: six scoped public paths,818 unrelated identities preserved,zero removals,12 dual-origin exact matches. Local66/live66 desktop1440/phones390,320 passed. Actual Weekly article and keyboard Library10.6 destination observed. Five current services; recovered Weekly coversSeptember9–16 and honestly publishedSeptember19. No new Daily news in this initial release. OpenAI revised candidate, source reconciliation and reliability investigation continue. Receipt evidence/recovery-20260919/initial-release.json. NativeVoiceOver was not repeated.
+
+
+## September19 missed-run investigation
+
+Independent receipt evidence/recovery-20260919/reliability-investigation.json verifies nine generic heartbeat failures over September17–18 and one unbound phase. Same-app account usage-limit response specified September19 reset; cause is LIKELY, not certain per attempt. Existing heartbeat already catches up at later invocations and did resume today. Do not duplicate scheduler or promise that prompt changes bypass account limits. Typed per-window failure telemetry/retry requires app-runtime support. Current account capacity permits foreground continuation; fully unattended end-to-end delivery remains unproved.
