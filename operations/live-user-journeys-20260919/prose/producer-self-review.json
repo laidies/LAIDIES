@@ -1,0 +1,412 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "JEEVES-FREE-SEARCH-LIVE-20260919",
+  "stage": "PRODUCER_SELF_REVIEW",
+  "contentClass": "MICROCOPY",
+  "surface": "Library question desk and homepage question continuation",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root",
+    "principalId": "/root",
+    "role": "producer",
+    "modelFamily": "gpt-6-astra"
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-19T17:38:28.250117+00:00",
+  "artifact": {
+    "reviewText": {
+      "path": "content/review-text.json",
+      "sha256": "91d3d9ab0d4b0606da335050bf327e32b24b08b00577df0a29566514a9deae56"
+    },
+    "manifest": {
+      "path": "content/manifest.json",
+      "sha256": "881b10ecc2a799e672755042d08de54fcaf7e445d56f86808f485887f27ffa4f"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e02cfa8221ae19b2121f7628cd3d04f66988bdec9938b23993ab29e3a0da98de",
+    "reviewerPrincipalId": "/root",
+    "reviewedAt": "2026-09-19T17:22:48.973438+00:00",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "You ask an AI product to compare",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "The article had sourced facts",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/front-paige-data-centre-policy-memo-known-bad.md"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-INVITATION-ALI-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "plain adult-facing invitation",
+        "specific useful action without filler"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Remember Dream Phone -- that incredible game from the 90s",
+          "locator": "operations/product-stewards/learning-content-ecosystem/content-quality-exemplars.json CQX-GOOD-INVITATION-ALI-001"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Can I find a useful explanation for my AI question here?",
+    "promisedPayoff": "Read relevant LAiDIES explanations with exact section links and understand when they cover only part of the question.",
+    "priorKnowledge": "Adult beginner with an ordinary question; no catalogue or technical vocabulary assumed.",
+    "centralMentalModel": "Initial search retrieves admitted explanations without inventing tailored advice or silently making a model call.",
+    "dailyLifeConnection": "A visitor needs to understand an AI term or check how to handle a work document.",
+    "surfaceJob": "Match the current free-search service and preserve the question beside useful excerpts.",
+    "desiredFeeling": "I understand what this material tells me and can open its full explanation.",
+    "desiredReaderFeeling": "I understand what this material tells me and can open its full explanation."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "Names the available explanation and complete source in ordinary words.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Read relevant explanations from LAiDIES, then open the full source.",
+          "locator": "content/review-text.json copyChanges[0].after"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The answer material and exact destination are visible without implying personalization.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Read relevant explanations from LAiDIES, then open the full source.",
+          "locator": "content/review-text.json copyChanges[0].after"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "Short adult invitation; no policy memo or technical model labels.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Read relevant explanations from LAiDIES, then open the full source.",
+          "locator": "content/review-text.json copyChanges[0].after"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "The next action is immediate reading, with no homework or new joke.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Read relevant explanations from LAiDIES, then open the full source.",
+          "locator": "content/review-text.json copyChanges[0].after"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "These are service/navigation claims only; technical question is an example, not an asserted answer.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Read relevant explanations from LAiDIES, then open the full source.",
+          "locator": "content/review-text.json copyChanges[0].after"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "Source artifact and September5 service authority are bound; recheck when service changes.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Read relevant explanations from LAiDIES, then open the full source.",
+          "locator": "content/review-text.json copyChanges[0].after"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Small replacement strings preserve the existing desk and homepage layout.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Read relevant explanations from LAiDIES, then open the full source.",
+          "locator": "content/review-text.json copyChanges[0].after"
+        }
+      ]
+    },
+    "truthfulPromise": {
+      "verdict": "PASS",
+      "observation": "Partial coverage wording avoids claiming an exact tailored answer. No unavailable research promise added.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Read relevant explanations from LAiDIES, then open the full source.",
+          "locator": "content/review-text.json copyChanges[0].after"
+        }
+      ]
+    },
+    "clearAction": {
+      "verdict": "PASS",
+      "observation": "Read the excerpt and open the full source.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Read relevant explanations from LAiDIES, then open the full source.",
+          "locator": "content/review-text.json copyChanges[0].after"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "templateRepetition": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "decorativeAnalogy": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "referenceConfetti": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "missingMechanism": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "genericAction": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "jargonBeforeMeaning": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "disconnectedSystem": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "factlessConfidence": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "staleUnreviewableClaims": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "corporateSludge": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "joylessInstruction": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "benchmarkNameDrop": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "curiosityWithoutPayoff": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "familiarExampleWithoutTechnicalReturn": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "communicationPastiche": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "entertainmentBeforeUnderstanding": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "mechanismCompressedBehindHook": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "prematureClickBeforeMechanism": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "inflatedTakeawayEnding": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "purposeTooNarrow": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "mechanismBeforeMotivation": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "workedExampleOvertakesBookPurpose": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "technicalExplainerVoice": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "policyMemoVoice": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "glossaryInterruptsStory": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "checklistTurnsNewsIntoHomework": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "missingHumanTension": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    },
+    "scaffoldingVisible": {
+      "present": false,
+      "observation": "Short source-bound interface copy; no invented factual answer, decorative analogy, future promise, generic advice or model jargon.",
+      "artifactLocator": "content/review-text.json"
+    }
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "rationale": "Bounded claims describe free lookup and exact existing source navigation; no new technical explanation.",
+    "sourceBindings": [
+      {
+        "path": "content/worker-evidence.js",
+        "sha256": "6cdc1665d0c79ed9d4971d447274218dfb07ad61f99264f0f39998e72a4edf1b"
+      },
+      {
+        "path": "content/library-decisions.md",
+        "sha256": "e889d482f1c9a72d51faa7956c6675d00130f987d1afce27e34c7eb498de721f"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "SOURCE-LOOKUP",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "These references may answer part of your question.",
+            "locator": "serviceResultLabels"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/worker-evidence.js",
+          "sha256": "6cdc1665d0c79ed9d4971d447274218dfb07ad61f99264f0f39998e72a4edf1b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "results: matches.map(publicResult)",
+            "locator": "missJeeves return"
+          }
+        ],
+        "scopeAndFreshness": "Current candidate returns existing source material; no tailored answer asserted."
+      }
+    ],
+    "reviewedThrough": "2026-09-19T17:22:48.973438+00:00",
+    "nextTrigger": "Any source, service or interface change",
+    "correctionOwner": "Miss Jeeves"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First source-bound interface repair for the observed September19 production automatic-answer mismatch; earlier community packet is schema reuse only."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "Known overclaiming and source-condition-loss patterns already governed; no new registry lesson."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Producer microcopy judgment only. Functional excerpt quality and browser verification are separate gates.",
+    "No new factual answer or paid research admission.",
+    "Homepage examples reuse three existing Library questions with verified current routes; broader unanswered examples replaced after local zero-result check."
+  ]
+}

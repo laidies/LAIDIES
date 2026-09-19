@@ -124,11 +124,10 @@ var TOPIC_RULES = [
 ];
 var TOPIC_IDS = /* @__PURE__ */ new Set([...TOPIC_RULES.map(([id]) => id), "other"]);
 var COMMON_QUESTION_TARGETS = /* @__PURE__ */ new Map([
-  ["what is a context window", "book-section-ai-dictionary-term-context-window"],
-  ["which ai should i use", "book-section-working-with-ai-101-chapter-7-which-ai-for-which-job-7-1-three-layers-not-one-choice"],
-  ["can i upload a work document", "book-section-working-with-ai-101-chapter-2-giving-it-what-it-needs-without-drowning-it-2-4-upload-paste-or-describe"],
-  ["how do i check an ai answer", "book-section-working-with-ai-101-chapter-11-is-this-output-actually-good-11-3-a-practical-evaluation-framework"],
-  ["what can ai help me do at work", "book-section-working-with-ai-101-chapter-8-what-ai-is-great-at-and-what-it-isnt-8-2-what-ai-is-genuinely-good-at"]
+  ["which ai should i use", "book-section-working-with-ai-101-chapter-7"],
+  ["can i upload a work document", "book-section-working-with-ai-101-4-4-upload-paste-or-describe"],
+  ["how do i check an ai answer", "book-section-working-with-ai-101-11-3-a-practical-evaluation-framework"],
+  ["what can ai help me do at work", "book-section-working-with-ai-101-8-2-what-ai-is-genuinely-good-at"]
 ]);
 var SAFE_EVENT_ID = /^[a-z0-9][a-z0-9._:-]{0,159}$/i;
 var PRIVATE_CONTENT_PATTERNS = [
@@ -164,10 +163,7 @@ function classifyTopic(query, matches = []) {
   const evidence = `${query} ${matches.slice(0, 4).flatMap((match) => [match.entry?.title, ...match.entry?.topics || []]).join(" ")}`;
   return TOPIC_RULES.find(([, pattern]) => pattern.test(evidence))?.[0] || "other";
 }
-// Hold this excerpt until its unsupported percentage claim is corrected in the source book.
-const HELD_SEARCH_RECORDS = new Set(['book-section-ai-fundamentals-101-ch-15-15-3-context-engineering-mid-2025-everything-it-can-see']);
 function safeEntry(entry) {
-  if (HELD_SEARCH_RECORDS.has(entry?.id)) return false;
   if (!entry || entry.status !== "live" || typeof entry.url !== "string" || !entry.url.startsWith("/") || entry.url.startsWith("//")) return false;
   if (entry.url.startsWith("/grimoire/")) return false;
   if (!LEARNER_JOBS.has(entry.learnerJob)) return false;
@@ -217,47 +213,6 @@ function retrieve(query, entries) {
   }
   return selected;
 }
-// Free catalogue search needs a close match, not one result from every learner job.
-// Weight distinctive words and require coverage of the question before ranking.
-function searchTokens(value) {
-  return [...new Set(tokens(value).map(token => token.length > 4 && /s$/.test(token) && !/ss$/.test(token) ? token.slice(0, -1) : token))];
-}
-
-function searchCatalogue(query, entries) {
-  var terms = searchTokens(query);
-  var key = terms.join(' ');
-  var targetId = COMMON_QUESTION_TARGETS.get(normalize(query)) || (key && [...COMMON_QUESTION_TARGETS].find(([question]) => searchTokens(question).join(' ') === key)?.[1]);
-  if (!terms.length) {
-    var entry = entries.find(entry => entry.id === targetId && safeEntry(entry));
-    return entry ? [{ entry, score: 1 }] : [];
-  }
-  var catalogue = entries.filter(safeEntry).map(entry => ({
-    entry,
-    title: new Set(searchTokens([entry.title, ...entry.aliases].join(' '))),
-    topics: new Set(searchTokens(entry.topics.join(' '))),
-    all: new Set(searchTokens([entry.title, entry.summary, ...entry.aliases, ...entry.topics].join(' ')))
-  }));
-  var weights = new Map(terms.map(term => [term, 1 + Math.log((catalogue.length + 1) / (1 + catalogue.filter(item => item.all.has(term)).length))]));
-  var totalWeight = [...weights.values()].reduce((sum, weight) => sum + weight, 0);
-  var ranked = catalogue.map(item => {
-    var score = 0, matchedWeight = 0;
-    for (var term of terms) {
-      if (!item.all.has(term)) continue;
-      var weight = weights.get(term);
-      matchedWeight += weight;
-      score += weight * (item.title.has(term) ? 4 : item.topics.has(term) ? 2 : 1);
-    }
-    var exact = [item.entry.title, ...item.entry.aliases].some(value => searchTokens(value).join(' ') === key);
-    var phrase = terms.length > 1 && [item.entry.title, ...item.entry.aliases].some(value => searchTokens(value).join(' ').includes(key));
-    return { entry: item.entry, score: score + (exact ? totalWeight * 4 : phrase ? totalWeight * 2 : 0), coverage: matchedWeight / totalWeight, preferred: item.entry.id === targetId };
-  }).filter(item => item.preferred || item.coverage >= 0.6)
-    .sort((a, b) => Number(b.preferred) - Number(a.preferred) || b.score - a.score || a.entry.title.localeCompare(b.entry.title));
-  if (ranked[0]?.preferred) return [ranked[0]];
-  var bestScore = ranked[0]?.score || 0;
-  return ranked.filter(item => item.preferred || item.score >= bestScore * 0.3).slice(0, 12);
-}
-
-
 function hasExactCatalogueMatch(query, matches) {
   const normalized = normalize(query);
   const canonical = tokens(normalized).join(" ");
@@ -460,22 +415,33 @@ async function missJeeves(request, env) {
     writeQuestionSignal(env, { placement, outcome: "unavailable", topicId: classifyTopic(query) });
     return json({ status: "unavailable", answer: "Miss Jeeves cannot check the catalogue right now. Your question is still here.", results: [] }, 503);
   }
-  // Every initial request is a free catalogue lookup. Deliberate research is a separate,
-  // future interaction; this path must not invoke either Workers AI or FAIRY guidance.
-  const matches = searchCatalogue(query, entries);
-  const topicId = classifyTopic(query, matches);
-  writeQuestionSignal(env, { placement, outcome: matches.length ? "related_coverage" : "not_covered", topicId, matches });
-  return json({
-    status: "search_results",
-    mode: "site-search",
-    coverage: matches.length ? "related" : "none",
-    topic_id: topicId,
-    answer: matches.length
-      ? "Here is what I found in LAiDIES. These references may answer part of your question."
-      : "I could not find a close match in LAiDIES.",
-    results: matches.map(publicResult),
-    research_available: false
+  let reasoned = null;
+  try {
+    reasoned = await reasonAcrossCatalogue(query, entries, env);
+  } catch {
+    reasoned = null;
+  }
+  const matches = reasoned ? reasoned.matches : retrieve(query, entries);
+  if (!matches.length) {
+    writeQuestionSignal(env, { placement, outcome: "not_covered", topicId: reasoned?.topicId || classifyTopic(query) });
+    return json({
+      status: "not_covered",
+      mode: reasoned ? "grounded-ai" : "retrieval",
+      topic_id: reasoned?.topicId || classifyTopic(query),
+      answer: reasoned?.answer || "LAiDIES does not cover that clearly enough yet. Miss Jeeves will not invent an answer. Try another phrase or browse the current shelves.",
+      results: []
+    });
+  }
+  const coverage = reasoned?.coverage || (hasExactCatalogueMatch(query, matches) ? "exact" : "related");
+  const first = matches[0].entry;
+  const generated = reasoned ? { mode: "grounded-ai", answer: reasoned.answer } : coverage === "exact" ? { mode: "retrieval", answer: `${first.title}: ${first.summary}` } : { mode: "retrieval", answer: `LAiDIES does not have an exact answer to that question yet. Here is everything currently available on ${first.topics[0] || first.title}.` };
+  writeQuestionSignal(env, {
+    placement,
+    outcome: coverage === "exact" ? "answered" : "related_coverage",
+    topicId: reasoned?.topicId || classifyTopic(query, matches),
+    matches
   });
+  return json({ status: coverage === "exact" ? "ok" : "related", coverage, topic_id: reasoned?.topicId || classifyTopic(query, matches), ...generated, results: matches.map(publicResult) });
 }
 function missJeevesDb(env) {
   const db = env.MISS_JEEVES_DB || env.LIBRARY_CORRECTIONS_DB;
@@ -599,7 +565,7 @@ async function missJeevesHealth(request, env) {
     catalogue = "unavailable";
   }
   const requests = missJeevesDb(env) ? "healthy" : "unavailable";
-  return json({ status: catalogue === "healthy" ? "ok" : "degraded", service: "miss-jeeves", version: "2", catalogue, topic_requests: requests, grounded_ai: "disabled", initial_lookup: "site-search", aggregate_measurement: env.MISS_JEEVES_SIGNALS ? "available" : "off" }, catalogue === "healthy" ? 200 : 503);
+  return json({ status: catalogue === "healthy" ? "ok" : "degraded", service: "miss-jeeves", version: "2", catalogue, topic_requests: requests, grounded_ai: env.AI ? "configured" : "fallback", aggregate_measurement: env.MISS_JEEVES_SIGNALS ? "available" : "off" }, catalogue === "healthy" ? 200 : 503);
 }
 var CORRECTION_ID = /^[a-z0-9][a-z0-9._:-]{0,95}$/i;
 var CORRECTION_CATEGORIES = /* @__PURE__ */ new Set(["factual-error", "source-mismatch", "stale-source", "missing-qualification", "broken-source", "other"]);

@@ -19,7 +19,7 @@ const good = `<style>body{background:#fffdfb}.library-hero{background:linear-gra
 <style>@media(max-width:700px){.library-room-unit{background-size:100% 100%,100% 100%,auto 6%}.shelf-unit.is-compact .brow{height:35%;min-height:120px}.shelf-unit.is-compact .brow--1{bottom:65%}.shelf-unit.is-compact .brow--2{bottom:5%}.bk img{transform:translateY(-4%)}}</style>
 <style>@media(max-width:900px){.library-intro{grid-template-columns:minmax(250px,.82fr) minmax(0,1.18fr);gap:28px;padding:22px 32px}}@media(max-width:700px){.library-intro{grid-template-columns:1fr;gap:12px;padding:20px}}</style>
 <script>/* BOOK_VISIBLE_SIZE_CONTRACT */const LIBRARY_CASE_ANCHOR_CONTRACT={};const BOOK_PREVIEW_CHOICE_CONTRACT={};/* CATALOGUE_QUIET_DEFAULT_CONTRACT */const catalogueHasActiveFilter=false;const visible={length:4};const compactClass=visible.length>0&&visible.length<=4?' is-compact':'';result.textContent=!catalogueHasActiveFilter?'':'1 book found.';function resetBookPreview(){};resetBookPreview(true);returnTarget.focus({preventScroll:true});</script>
-<div class="jv-chips"><button>Which AI should I use?</button><button>Can I upload a work document?</button><button>How do I check an AI answer?</button><button>What can AI help me do at work?</button></div>
+<div class="jv-chips"><button>What is a context window?</button><button>Can I upload a work document?</button><button>How do I check an AI answer?</button><button>What can AI help me do at work?</button></div>
 <script>const answer='<article data-answer-id="service-answer"><a data-source-id="governed-source"></a></article>';</script>
 <button id="book-preview-back">Back to the shelf</button><button>Open this book</button>
 <h1 id="library-title">The LIBR<span class="ai">Ai</span>RY</h1><small>Not sure where to start? Ask Miss Jeeves. Looking for a specific topic? Browse the shelves.</small><p class="visitor-state" id="puffyVisitorState" aria-live="polite" hidden></p><a class="catalogue-closet" hidden><span id="library-saved-count"></span></a><script>const closet=output.closest('.catalogue-closet');closet.hidden=!count;</script><div class="shelf-guide-heading"></div><div class="shelf-captions"></div><script>section.books.filter(book=>book.listed!==false&&book.img).slice(0,3);const guide='<a class="shelf-caption" href="#library-shelf-\${sectionIndex}" data-shelf-jump="\${sectionIndex}"><div class="shelf-caption-art"></div></a>';const room='<div id="library-shelf-\${sectionIndex}"></div>';</script><p class="library-status sr-only" id="library-status"></p><div class="library-room-unit"><div class="shelf-unit"><div class="brow brow--1" data-book-count="1"><button class="bk" data-preview-book data-visible-scale="1"><span class="sr-only">Preview book</span></button></div></div></div>${assets}`;
@@ -41,7 +41,7 @@ const fixtures = [
   [good.replace('Not sure where to start? Ask Miss Jeeves. Looking for a specific topic? Browse the shelves.', 'Ask Miss Jeeves when you only know the question.'), 'ask-or-browse orientation'],
   [good.replace('aria-live="polite" hidden', 'aria-live="polite"'), 'Resident Card setup copy'],
   [good.replace('113,55,214', '65,209,227'), 'Miss Jeeves background'],
-  [good.replace('Which AI should I use?', 'how do I write a better prompt?'), 'prompt-first or browser-hardcoded Miss Jeeves answer'],
+  [good.replace('What is a context window?', 'how do I write a better prompt?'), 'prompt-first or browser-hardcoded Miss Jeeves answer'],
   [good.replace('const answer=', "const JEEVES_ANSWERS=[{id:'prompt-brief'}];const answer="), 'prompt-first or browser-hardcoded Miss Jeeves answer'],
   [good.replace('data-answer-id', 'data-answer-removed'), 'answer/source evidence attributes'],
   [good.replaceAll('assets/library/episode-01-pop-comic-bg-v1.png', 'assets/library/missing-comic.png'), 'pop-comic catalogue background'],
@@ -87,7 +87,7 @@ for (const [fixture, expected] of fixtures) {
 const currentLibrary=fs.readFileSync('library.html','utf8');
 assert.doesNotMatch(currentLibrary,/how do i write a better prompt|\bbetter prompt\b|JEEVES_ANSWERS|id:\s*['"]prompt-brief['"]/i,'current Library must not restore prompt-first or browser-hardcoded Miss Jeeves answers');
 const currentChipBlock=currentLibrary.match(/<div class=["']jv-chips["'][^>]*>([\s\S]*?)<\/div>/i)?.[1]||'';
-for(const question of ['Which AI should I use?','Can I upload a work document?','How do I check an AI answer?','What can AI help me do at work?']) assert.ok(currentChipBlock.includes(`>${question}</button>`),`current Library must show tested common question: ${question}`);
+for(const question of ['What is a context window?','Can I upload a work document?','How do I check an AI answer?','What can AI help me do at work?']) assert.ok(currentChipBlock.includes(`>${question}</button>`),`current Library must show tested common question: ${question}`);
 assert.match(currentLibrary,/placeholder="Ask your question about AI or using it at work"/,'current Library must invite the visitor’s own ordinary-language question');
 
 console.log('LIBRARY KNOWN-FAILURE TEST PASS');

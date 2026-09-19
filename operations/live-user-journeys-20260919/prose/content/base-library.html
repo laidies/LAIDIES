@@ -138,12 +138,6 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
 .jv-reference{background:#007ea8}.jv-activity{background:#a32fbd}.jv-building{background:#5650c7}
 .jv-t{font-family:'Playfair Display',serif;font-size:16px;color:var(--ink);align-self:end}
 .jv-s{font-size:13px;color:#6b4b60;line-height:1.4}
-.jv-search-results .jv-s{font-size:16px;line-height:1.6;white-space:pre-line}
-.jv-search-results{background:var(--cream);color:var(--ink)}
-.jv-search-results .jv-card{width:100%;min-width:0;grid-template-columns:minmax(0,1fr);grid-template-rows:auto;gap:10px;padding:16px;overflow-wrap:anywhere;text-decoration:none;background:var(--cream);border:2px solid var(--ink);color:var(--ink)}
-.jv-search-results .jv-type{grid-row:auto;justify-self:start;background:var(--cyan);color:var(--ink)}
-.jv-search-results .jv-t{text-decoration:underline;text-underline-offset:3px}
-.jv-search-results .jv-s{color:var(--ink)}
 .jv-none{display:block;margin:0;padding:12px 14px;background:#fff;color:var(--midnight);font-size:14px;font-weight:700;line-height:1.5;border-left:5px solid var(--cyan)}
 .jv-request{display:grid;gap:10px;margin-top:10px;padding:14px 16px;background:#eefbfc;color:#07142f;border:2px solid #18c6d8;border-radius:10px}
 .jv-request p{margin:0;line-height:1.5}.jv-request-consent{display:flex;align-items:flex-start;gap:9px;font-size:13px;line-height:1.45}.jv-request-consent input{width:18px;height:18px;margin-top:1px;flex:0 0 auto}
@@ -996,7 +990,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
   <section class="jv" id="miss-jeeves" aria-labelledby="miss-jeeves-title">
     <div class="jv-head">
       <span class="jv-kicker">Reference desk</span>
-      <div class="h" id="miss-jeeves-title">Ask Miss Jeeves<small>Ask in plain words. Read relevant explanations from LAiDIES, then open the full source.</small></div>
+      <div class="h" id="miss-jeeves-title">Ask Miss Jeeves<small>Ask in plain words. Get a direct answer, then open the most useful available place.</small></div>
     </div>
     <p class="jv-beta"><strong>Miss Jeeves is in beta.</strong> She works best with questions about LAiDIES, its lessons and its trusted resources. We&rsquo;re still testing and improving how she researches and explains broader questions about AI. Please check the sources she provides and tell us when an answer misses the mark.</p>
     <form class="jv-form">
@@ -1006,7 +1000,7 @@ button.jv-card{font:inherit;text-align:left;cursor:pointer;width:100%}
     <p class="jv-privacy">Do not include private, confidential or account information. Miss Jeeves does not save ordinary search wording. <a href="/privacy.html#miss-jeeves">Privacy details</a>.</p>
     <div class="jv-chips" aria-label="Common questions for Miss Jeeves">
       <b>Common questions:</b>
-      <button class="jv-chip" type="button">What is a context window?</button>
+      <button class="jv-chip" type="button">Which AI should I use?</button>
       <button class="jv-chip" type="button">Can I upload a work document?</button>
       <button class="jv-chip" type="button">How do I check an AI answer?</button>
       <button class="jv-chip" type="button">What can AI help me do at work?</button>
@@ -1354,7 +1348,7 @@ function renderJeevesService(payload,query){
   if(payload.status==='unavailable'){
     renderJeevesServiceError(query);return;
   }
-  if(payload.status==='not_covered'||(payload.status==='search_results'&&Array.isArray(payload.results)&&!payload.results.length)){
+  if(payload.status==='not_covered'){
     const topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
     box.innerHTML=`<div class="jv-none" role="status">${escapeJeevesText(payload.answer)}</div>
       <form class="jv-request" id="jv-topic-request" data-topic-id="${escapeJeevesText(topicId)}">
@@ -1365,7 +1359,7 @@ function renderJeevesService(payload,query){
     document.getElementById('jv-topic-request').addEventListener('submit',event=>submitJeevesTopicRequest(event,query));
     return;
   }
-  if(!['ok','related','search_results'].includes(payload.status)||!Array.isArray(payload.results)){
+  if(!['ok','related'].includes(payload.status)||!Array.isArray(payload.results)){
     renderJeevesServiceError(query);return;
   }
   const results=payload.results.map(entry=>{
@@ -1375,22 +1369,13 @@ function renderJeevesService(payload,query){
   }).filter(Boolean);
   const links=results.map(entry=>entry.destination.kind==='book'
     ? `<button type="button" class="jv-card" data-result-id="${escapeJeevesText(entry.id)}" data-open-book="${escapeJeevesText(entry.destination.bookId)}" data-open-heading="${escapeJeevesText(entry.destination.heading||'')}">
-        <span class="jv-type jv-${escapeJeevesText(entry.type)}">${escapeJeevesText(payload.status==='search_results' ? (entry.section||entry.type) : entry.type)}</span>
+        <span class="jv-type jv-${escapeJeevesText(entry.type)}">${escapeJeevesText(entry.type)}</span>
         <span class="jv-t">${escapeJeevesText(entry.title)}</span>
         <span class="jv-s">${escapeJeevesText(entry.summary)}</span></button>`
     : `<a class="jv-card" data-result-id="${escapeJeevesText(entry.id)}" href="${escapeJeevesText(entry.destination.url)}">
-        <span class="jv-type jv-${escapeJeevesText(entry.type)}">${escapeJeevesText(payload.status==='search_results' ? (entry.section||entry.type) : entry.type)}</span>
+        <span class="jv-type jv-${escapeJeevesText(entry.type)}">${escapeJeevesText(entry.type)}</span>
         <span class="jv-t">${escapeJeevesText(entry.title)}</span>
         <span class="jv-s">${escapeJeevesText(entry.summary)}</span></a>`).join('');
-  if(payload.status==='search_results'){
-    box.dataset.topicId=/^[a-z0-9-]+$/.test(payload.topic_id||'')?payload.topic_id:'other';
-    box.innerHTML=`<article class="jv-answer jv-search-results" aria-label="LAiDIES search results">
-      <span class="jv-answer-kicker">Your question</span><h3>${escapeJeevesText(query)}</h3>
-      <div class="jv-answer-copy"><p>${escapeJeevesText(payload.answer)}</p></div>
-      <div class="jv-answer-links"><b>From LAiDIES</b>${links}</div>
-    </article>`;
-    return;
-  }
   const citations=(Array.isArray(payload.citations)?payload.citations:[]).map(source=>{
     if(!source||typeof source.url!=='string'||typeof source.title!=='string')return '';
     let url;try{url=new URL(source.url);}catch(error){return '';}
@@ -1457,18 +1442,21 @@ let jeevesServiceRequest=0;
 let jeevesPlacement='library';
 async function askMissJeeves(value){
   const query=String(value||'').trim().slice(0,240);
-  document.getElementById('jv-q').value=query;
   const normalized=normalizeJeevesQuery(query);
   const box=document.getElementById('jv-results');
   if(!normalized){box.innerHTML='';document.getElementById('jv-q').focus();return;}
   const requestId=++jeevesServiceRequest;
-  box.innerHTML='<p class="jv-none" role="status">Miss Jeeves is searching LAiDIES…</p>';
+  box.innerHTML='<p class="jv-none" role="status">Miss Jeeves is checking the town Library…</p>';
   try{
+    const accessToken=await jeevesAccessToken();
+    const guestToken=jeevesGuestToken();
     const headers={'content-type':'application/json','accept':'application/json'};
+    if(accessToken)headers.authorization=`Bearer ${accessToken}`;
+    else if(guestToken)headers['x-laidies-guest-token']=guestToken;
     const response=await fetch('/api/miss-jeeves',{
       method:'POST',credentials:'same-origin',redirect:'error',cache:'no-store',
       headers,
-      body:JSON.stringify({query,intent:'search',placement:jeevesPlacement})
+      body:JSON.stringify({query,placement:jeevesPlacement,guestToken:accessToken?'':guestToken})
     });
     const payload=await response.json();
     if(requestId!==jeevesServiceRequest)return;

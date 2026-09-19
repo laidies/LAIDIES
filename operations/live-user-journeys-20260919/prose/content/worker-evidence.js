@@ -124,11 +124,10 @@ var TOPIC_RULES = [
 ];
 var TOPIC_IDS = /* @__PURE__ */ new Set([...TOPIC_RULES.map(([id]) => id), "other"]);
 var COMMON_QUESTION_TARGETS = /* @__PURE__ */ new Map([
-  ["what is a context window", "book-section-ai-dictionary-term-context-window"],
-  ["which ai should i use", "book-section-working-with-ai-101-chapter-7-which-ai-for-which-job-7-1-three-layers-not-one-choice"],
-  ["can i upload a work document", "book-section-working-with-ai-101-chapter-2-giving-it-what-it-needs-without-drowning-it-2-4-upload-paste-or-describe"],
-  ["how do i check an ai answer", "book-section-working-with-ai-101-chapter-11-is-this-output-actually-good-11-3-a-practical-evaluation-framework"],
-  ["what can ai help me do at work", "book-section-working-with-ai-101-chapter-8-what-ai-is-great-at-and-what-it-isnt-8-2-what-ai-is-genuinely-good-at"]
+  ["which ai should i use", "book-section-working-with-ai-101-7-1-three-layers-not-one-choice"],
+  ["can i upload a work document", "book-section-working-with-ai-101-4-4-upload-paste-or-describe"],
+  ["how do i check an ai answer", "book-section-working-with-ai-101-11-3-a-practical-evaluation-framework"],
+  ["what can ai help me do at work", "book-section-working-with-ai-101-8-2-what-ai-is-genuinely-good-at"]
 ]);
 var SAFE_EVENT_ID = /^[a-z0-9][a-z0-9._:-]{0,159}$/i;
 var PRIVATE_CONTENT_PATTERNS = [
@@ -164,10 +163,7 @@ function classifyTopic(query, matches = []) {
   const evidence = `${query} ${matches.slice(0, 4).flatMap((match) => [match.entry?.title, ...match.entry?.topics || []]).join(" ")}`;
   return TOPIC_RULES.find(([, pattern]) => pattern.test(evidence))?.[0] || "other";
 }
-// Hold this excerpt until its unsupported percentage claim is corrected in the source book.
-const HELD_SEARCH_RECORDS = new Set(['book-section-ai-fundamentals-101-ch-15-15-3-context-engineering-mid-2025-everything-it-can-see']);
 function safeEntry(entry) {
-  if (HELD_SEARCH_RECORDS.has(entry?.id)) return false;
   if (!entry || entry.status !== "live" || typeof entry.url !== "string" || !entry.url.startsWith("/") || entry.url.startsWith("//")) return false;
   if (entry.url.startsWith("/grimoire/")) return false;
   if (!LEARNER_JOBS.has(entry.learnerJob)) return false;
@@ -252,7 +248,6 @@ function searchCatalogue(query, entries) {
     return { entry: item.entry, score: score + (exact ? totalWeight * 4 : phrase ? totalWeight * 2 : 0), coverage: matchedWeight / totalWeight, preferred: item.entry.id === targetId };
   }).filter(item => item.preferred || item.coverage >= 0.6)
     .sort((a, b) => Number(b.preferred) - Number(a.preferred) || b.score - a.score || a.entry.title.localeCompare(b.entry.title));
-  if (ranked[0]?.preferred) return [ranked[0]];
   var bestScore = ranked[0]?.score || 0;
   return ranked.filter(item => item.preferred || item.score >= bestScore * 0.3).slice(0, 12);
 }
@@ -599,7 +594,7 @@ async function missJeevesHealth(request, env) {
     catalogue = "unavailable";
   }
   const requests = missJeevesDb(env) ? "healthy" : "unavailable";
-  return json({ status: catalogue === "healthy" ? "ok" : "degraded", service: "miss-jeeves", version: "2", catalogue, topic_requests: requests, grounded_ai: "disabled", initial_lookup: "site-search", aggregate_measurement: env.MISS_JEEVES_SIGNALS ? "available" : "off" }, catalogue === "healthy" ? 200 : 503);
+  return json({ status: catalogue === "healthy" ? "ok" : "degraded", service: "miss-jeeves", version: "2", catalogue, topic_requests: requests, grounded_ai: env.AI ? "configured" : "fallback", aggregate_measurement: env.MISS_JEEVES_SIGNALS ? "available" : "off" }, catalogue === "healthy" ? 200 : 503);
 }
 var CORRECTION_ID = /^[a-z0-9][a-z0-9._:-]{0,95}$/i;
 var CORRECTION_CATEGORIES = /* @__PURE__ */ new Set(["factual-error", "source-mismatch", "stale-source", "missing-qualification", "broken-source", "other"]);

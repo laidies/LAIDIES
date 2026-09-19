@@ -1,0 +1,349 @@
+{
+  "schemaVersion": "laidies-prose-quality-review.v1",
+  "candidateId": "JEEVES-FREE-SEARCH-LIVE-20260919",
+  "stage": "INDEPENDENT_SEMANTIC_ADMISSION",
+  "contentClass": "MICROCOPY",
+  "surface": "Library question desk and homepage question continuation",
+  "maker": "/root",
+  "reviewer": {
+    "id": "/root/search_review",
+    "principalId": "/root/search_review",
+    "role": "independent prose and service-contract reviewer",
+    "modelFamily": "gpt-5.6-sol",
+    "independentFromMaker": true,
+    "artifactFirst": true
+  },
+  "reviewMode": "EXACT_PROSE_IN_FULL",
+  "reviewedAt": "2026-09-19T17:39:26Z",
+  "artifact": {
+    "reviewText": {
+      "path": "content/review-text.json",
+      "sha256": "91d3d9ab0d4b0606da335050bf327e32b24b08b00577df0a29566514a9deae56"
+    },
+    "manifest": {
+      "path": "content/manifest.json",
+      "sha256": "881b10ecc2a799e672755042d08de54fcaf7e445d56f86808f485887f27ffa4f"
+    }
+  },
+  "calibration": {
+    "registrySha256": "e02cfa8221ae19b2121f7628cd3d04f66988bdec9938b23993ab29e3a0da98de",
+    "reviewerPrincipalId": "/root/search_review",
+    "reviewedAt": "2026-09-19T17:26:00Z",
+    "negatives": [
+      {
+        "exemplarId": "CQX-BAD-001",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "glossaryAccumulation",
+          "templateRepetition",
+          "decorativeAnalogy",
+          "referenceConfetti",
+          "missingMechanism",
+          "genericAction",
+          "jargonBeforeMeaning",
+          "disconnectedSystem",
+          "joylessInstruction"
+        ],
+        "evidence": [
+          {
+            "excerpt": "First, stop calling the whole thing",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-chapter-1-known-bad.txt opening"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-002",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "purposeTooNarrow",
+          "mechanismBeforeMotivation",
+          "workedExampleOvertakesBookPurpose",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "You ask an AI product to compare",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/ai-fundamentals-101-job-offer-framing-known-bad.md introduction"
+          }
+        ]
+      },
+      {
+        "exemplarId": "CQX-BAD-003",
+        "verdict": "REJECT",
+        "identifiedFailureFamilies": [
+          "policyMemoVoice",
+          "glossaryInterruptsStory",
+          "checklistTurnsNewsIntoHomework",
+          "missingHumanTension",
+          "scaffoldingVisible",
+          "technicalExplainerVoice"
+        ],
+        "evidence": [
+          {
+            "excerpt": "The article had sourced facts",
+            "locator": "operations/product-stewards/learning-content-ecosystem/quality-exemplars/front-paige-data-centre-policy-memo-known-bad.md failure summary"
+          }
+        ]
+      }
+    ],
+    "positive": {
+      "exemplarId": "CQX-GOOD-INVITATION-ALI-001",
+      "verdict": "PASS",
+      "strengthsRetained": [
+        "plain adult-facing invitation",
+        "specific useful action without filler"
+      ],
+      "evidence": [
+        {
+          "excerpt": "Remember Dream Phone -- that incredible game from the 90s",
+          "locator": "operations/voice/laidies-writing-lock.md Ali's Dream Phone invitation example"
+        }
+      ]
+    }
+  },
+  "reverseBrief": {
+    "humanQuestion": "Can I find a useful explanation for my AI question here?",
+    "promisedPayoff": "See relevant LAiDIES material, understand that it may cover only part of the question and open the full source.",
+    "priorKnowledge": "Adult beginner asking in ordinary words; no catalogue or technical vocabulary assumed.",
+    "centralMentalModel": "The first step searches existing LAiDIES material and does not generate a tailored AI answer.",
+    "dailyLifeConnection": "A visitor needs a plain explanation of an AI term or guidance about a work document.",
+    "surfaceJob": "Set honest expectations for the free search and carry the visitor from her question to attributed material.",
+    "desiredReaderFeeling": "I know what Miss Jeeves found, what it may not settle and where to read the complete source."
+  },
+  "outcomes": {
+    "plainClarity": {
+      "verdict": "PASS",
+      "observation": "The invitation uses ordinary verbs and describes the available result without service jargon.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Ask in plain words. Read relevant explanations from LAiDIES, then open the full source.",
+          "locator": "copyChanges[0].after"
+        }
+      ]
+    },
+    "readerValue": {
+      "verdict": "PASS",
+      "observation": "The copy tells the visitor what she receives and where the next useful action leads.",
+      "artifactEvidence": [
+        {
+          "excerpt": "She shows you relevant explanations from LAiDIES and the exact place to read more.",
+          "locator": "copyChanges[3].after"
+        }
+      ]
+    },
+    "laidiesVoice": {
+      "verdict": "PASS",
+      "observation": "The text is direct, adult and calm; it does not add a slogan, school-task tone or technical explainer scaffolding.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Miss Jeeves is searching LAiDIES\\u2026",
+          "locator": "copyChanges[2].after"
+        }
+      ]
+    },
+    "engagingEnjoyable": {
+      "verdict": "PASS",
+      "observation": "For four short service strings, usefulness carries the experience; an added joke or analogy would slow the task.",
+      "artifactEvidence": [
+        {
+          "excerpt": "What is a context window?",
+          "locator": "copyChanges[1].after"
+        }
+      ]
+    },
+    "factualIntegrity": {
+      "verdict": "PASS",
+      "observation": "The prose claims only site search, attributed LAiDIES material, partial coverage and a route to the source; the homepage examples are questions rather than asserted answers.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Here is what I found in LAiDIES. These references may answer part of your question.",
+          "locator": "serviceResultLabels[0]"
+        }
+      ]
+    },
+    "freshnessReviewability": {
+      "verdict": "PASS",
+      "observation": "The copy has no time-sensitive product detail; its service promises can be rechecked against the bound September 5 decision and runtime snapshot.",
+      "artifactEvidence": [
+        {
+          "excerpt": "I could not find a close match in LAiDIES.",
+          "locator": "serviceResultLabels[1]"
+        }
+      ]
+    },
+    "surfaceFit": {
+      "verdict": "PASS",
+      "observation": "Each replacement fits its existing invitation, homepage example, loading-state or result-label slot and keeps the question-led flow intact.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Miss Jeeves is searching LAiDIES\\u2026",
+          "locator": "copyChanges[2].after"
+        },
+        {
+          "excerpt": "How do I check an AI answer?",
+          "locator": "homepageExamples[2].after"
+        }
+      ]
+    },
+    "truthfulPromise": {
+      "verdict": "PASS",
+      "observation": "The words relevant, references and may answer part explicitly prevent the old direct-answer overclaim.",
+      "artifactEvidence": [
+        {
+          "excerpt": "These references may answer part of your question.",
+          "locator": "serviceResultLabels[0]"
+        }
+      ]
+    },
+    "clearAction": {
+      "verdict": "PASS",
+      "observation": "The visitor is told to read the returned explanation and open its full source.",
+      "artifactEvidence": [
+        {
+          "excerpt": "Read relevant explanations from LAiDIES, then open the full source.",
+          "locator": "copyChanges[0].after"
+        }
+      ]
+    }
+  },
+  "failureFamilies": {
+    "glossaryAccumulation": {"present": false, "observation": "One example question names one useful term; the interface does not accumulate definitions.", "artifactLocator": "copyChanges[1].after"},
+    "templateRepetition": {"present": false, "observation": "The four strings perform distinct invitation, example, loading and result jobs.", "artifactLocator": "copyChanges and serviceResultLabels"},
+    "decorativeAnalogy": {"present": false, "observation": "No analogy appears.", "artifactLocator": "content/review-text.json"},
+    "referenceConfetti": {"present": false, "observation": "No cultural reference appears.", "artifactLocator": "content/review-text.json"},
+    "missingMechanism": {"present": false, "observation": "For microcopy, searching LAiDIES and opening its source is the complete necessary mechanism.", "artifactLocator": "copyChanges[0], copyChanges[2]"},
+    "genericAction": {"present": false, "observation": "Open the full source is a concrete next action tied to the result.", "artifactLocator": "copyChanges[0].after"},
+    "jargonBeforeMeaning": {"present": false, "observation": "Context window appears only as a visitor question, not unexplained instructional prose.", "artifactLocator": "copyChanges[1].after"},
+    "disconnectedSystem": {"present": false, "observation": "Question, search, returned explanation and source route form one connected flow.", "artifactLocator": "content/review-text.json"},
+    "factlessConfidence": {"present": false, "observation": "The result label says the references may cover only part of the question.", "artifactLocator": "serviceResultLabels[0]"},
+    "staleUnreviewableClaims": {"present": false, "observation": "No dated product fact or technical answer is introduced by this microcopy.", "artifactLocator": "content/review-text.json"},
+    "corporateSludge": {"present": false, "observation": "The language uses short familiar words and direct actions.", "artifactLocator": "content/review-text.json"},
+    "joylessInstruction": {"present": false, "observation": "The copy is a compact invitation rather than an imposed exercise.", "artifactLocator": "copyChanges[0].after"},
+    "benchmarkNameDrop": {"present": false, "observation": "No communication benchmark or authority name appears publicly.", "artifactLocator": "content/review-text.json"},
+    "curiosityWithoutPayoff": {"present": false, "observation": "The example question is paired with an explicit search-and-source payoff.", "artifactLocator": "copyChanges[0], copyChanges[1]"},
+    "familiarExampleWithoutTechnicalReturn": {"present": false, "observation": "No teaching example or analogy is attempted.", "artifactLocator": "content/review-text.json"},
+    "communicationPastiche": {"present": false, "observation": "The copy does not imitate an external communicator or persona.", "artifactLocator": "content/review-text.json"},
+    "entertainmentBeforeUnderstanding": {"present": false, "observation": "The interface leads with its practical job.", "artifactLocator": "copyChanges[0].after"},
+    "mechanismCompressedBehindHook": {"present": false, "observation": "There is no hook; the invitation states the mechanism directly.", "artifactLocator": "copyChanges[0].after"},
+    "prematureClickBeforeMechanism": {"present": false, "observation": "The wording explains what the search returns before directing the visitor onward.", "artifactLocator": "copyChanges[0].after"},
+    "inflatedTakeawayEnding": {"present": false, "observation": "The result labels end with bounded coverage, not a broad claim.", "artifactLocator": "serviceResultLabels"},
+    "purposeTooNarrow": {"present": false, "observation": "The example question illustrates the desk without redefining its full purpose.", "artifactLocator": "copyChanges[1].after"},
+    "mechanismBeforeMotivation": {"present": false, "observation": "This interface microcopy needs no explanatory narrative; it answers what the visitor can do now.", "artifactLocator": "copyChanges[0].after"},
+    "workedExampleOvertakesBookPurpose": {"present": false, "observation": "No worked example or book argument is present.", "artifactLocator": "content/review-text.json"},
+    "technicalExplainerVoice": {"present": false, "observation": "The copy does not define context windows or explain search mechanics technically.", "artifactLocator": "content/review-text.json"},
+    "policyMemoVoice": {"present": false, "observation": "No policy framing, administrative language or qualification stack appears.", "artifactLocator": "content/review-text.json"},
+    "glossaryInterruptsStory": {"present": false, "observation": "No story or glossary block exists in this microcopy.", "artifactLocator": "content/review-text.json"},
+    "checklistTurnsNewsIntoHomework": {"present": false, "observation": "There is no checklist, news article or homework request.", "artifactLocator": "content/review-text.json"},
+    "missingHumanTension": {"present": false, "observation": "Human-tension narrative is not required for this corrective service microcopy.", "artifactLocator": "content/review-text.json"},
+    "scaffoldingVisible": {"present": false, "observation": "No internal workflow, model or review scaffolding leaks into public copy.", "artifactLocator": "content/review-text.json"}
+  },
+  "factualReview": {
+    "disposition": "CLAIMS_REVIEWED",
+    "rationale": "The candidate makes bounded claims about initial site search, partial coverage and source navigation.",
+    "sourceBindings": [
+      {
+        "path": "content/worker-evidence.js",
+        "sha256": "6cdc1665d0c79ed9d4971d447274218dfb07ad61f99264f0f39998e72a4edf1b"
+      },
+      {
+        "path": "content/library-decisions.md",
+        "sha256": "e889d482f1c9a72d51faa7956c6675d00130f987d1afce27e34c7eb498de721f"
+      },
+      {
+        "path": "content/base-library.html",
+        "sha256": "4936cd2d370cde888f67cbfca92ac566e33428ebc15d22e7c515551a0dbad1c6"
+      }
+    ],
+    "claimMap": [
+      {
+        "claimId": "INITIAL-LAIDIES-SEARCH",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "Miss Jeeves is searching LAiDIES\\u2026",
+            "locator": "copyChanges[2].after"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/worker-evidence.js",
+          "sha256": "6cdc1665d0c79ed9d4971d447274218dfb07ad61f99264f0f39998e72a4edf1b"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "Every initial request is a free catalogue lookup.",
+            "locator": "missJeeves implementation comment"
+          }
+        ],
+        "scopeAndFreshness": "Verified for the bound backend snapshot; recheck after any Miss Jeeves routing change."
+      },
+      {
+        "claimId": "PARTIAL-COVERAGE-LABEL",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "These references may answer part of your question.",
+            "locator": "serviceResultLabels[0]"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/library-decisions.md",
+          "sha256": "e889d482f1c9a72d51faa7956c6675d00130f987d1afce27e34c7eb498de721f"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "some matches do not prove a complete answer",
+            "locator": "Miss Jeeves free site search and optional paid research ruling"
+          }
+        ],
+        "scopeAndFreshness": "Current September 5 authority; recheck if Ali changes the free-search contract."
+      },
+      {
+        "claimId": "SOURCE-CONTINUATION",
+        "status": "VERIFIED",
+        "candidateEvidence": [
+          {
+            "excerpt": "the exact place to read more.",
+            "locator": "copyChanges[3].after"
+          }
+        ],
+        "sourceBinding": {
+          "path": "content/base-library.html",
+          "sha256": "4936cd2d370cde888f67cbfca92ac566e33428ebc15d22e7c515551a0dbad1c6"
+        },
+        "sourceEvidence": [
+          {
+            "excerpt": "return admittedBook(id)?{kind:'book',bookId:id,heading}:null;",
+            "locator": "safeIndexDestination exact-heading route"
+          }
+        ],
+        "scopeAndFreshness": "Verified for the bound Library interface snapshot; browser navigation remains a separate functional gate."
+      }
+    ],
+    "reviewedThrough": "2026-09-19T17:27:28Z",
+    "nextTrigger": "Any change to the review text, free-search contract, backend response shape or Library source-routing code",
+    "correctionOwner": "Miss Jeeves"
+  },
+  "ratchet": {
+    "repeatedKnownDefects": 0,
+    "objectiveDefectsFirstFoundAtReview": 0,
+    "reviewIssues": 0,
+    "reviewCycles": 1,
+    "onKnownDefect": "REPAIR_PRODUCER_BEFORE_ANOTHER_REVIEW"
+  },
+  "lineage": {
+    "kind": "FIRST",
+    "noComparableReason": "First independent review of the source-bound September 19 free-search microcopy correction."
+  },
+  "learningDisposition": {
+    "disposition": "NO_NEW_DEFECT",
+    "rationale": "The exact prose avoids the already governed overclaiming and technical-explainer failures; functional index and answer-quality holds remain outside this semantic verdict."
+  },
+  "verdict": "PASS",
+  "limitations": [
+    "Independent semantic admission covers only the checksum-bound microcopy, not rendered layout, browser operation, backend deployment or public state.",
+    "Search-index freshness and exact live-book hash alignment require separate backend evidence before release.",
+    "The quality, factual freshness and condition preservation of returned excerpts are not admitted by this review.",
+    "Optional paid research remains unfinished and outside this bounded free-search review.",
+    "Homepage examples are limited to three existing Library questions with verified current free-search routes; they do not expand the broader question-answering promise."
+  ]
+}
