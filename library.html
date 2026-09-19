@@ -1742,6 +1742,8 @@ function findBookHeading(txt,headingReference){
     const headings=[...txt.querySelectorAll('h1,h2,h3,h4')];
     const exact=headings.find(h=>h.id===sectionId);
     if(exact)return exact;
+    const term=[...txt.querySelectorAll('article.term[id]')].find(node=>node.id===sectionId);
+    if(term)return term.querySelector('h3')||term;
     // Older learning-index links predate chapter-prefixed rendered anchors.
     // Preserve them only when the old anchor identifies one heading uniquely.
     if(!/^\d+-\d+(?:-[a-z0-9]+)+$/.test(sectionId))return null;

@@ -11,7 +11,7 @@ const files=(await get(`/deployments/${head.id}/files`)).files;
 if(process.argv[2]==='verify'){
  const dir=process.argv[3],meta=JSON.parse(fs.readFileSync(path.join(dir,'release.json'))),before=JSON.parse(fs.readFileSync(path.join(dir,'provider-base.json'))),candidate=JSON.parse(fs.readFileSync(path.join(dir,'candidate-manifest.json')));
  const changed=Object.keys(files).filter(p=>files[p]!==before[p]).sort(),removed=Object.keys(before).filter(p=>!files[p]).sort();
- assert.deepEqual(changed,paths.filter(p=>p!=='_worker.js').map(p=>'/'+p).sort());assert.deepEqual(removed,[]);assert.equal(sha(JSON.stringify(provider.deployment_configs.production)),meta.productionConfigSha256);
+ assert.deepEqual(changed,meta.delta.filter(p=>p.path!=='_worker.js'&&p.baseSha256!==p.candidateSha256).map(p=>'/'+p.path).sort());assert.deepEqual(removed,[]);assert.equal(sha(JSON.stringify(provider.deployment_configs.production)),meta.productionConfigSha256);
  const checks=[];for(const origin of [head.url,'https://laidies.ai'])for(const p of paths.filter(p=>p!=='_worker.js')){
   let b=cp.execFileSync('curl',['-fLsS',origin+'/'+p+'?release=jeeves-20260919'],{maxBuffer:12e6});
   if(origin==='https://laidies.ai'&&p.endsWith('.html'))b=Buffer.from(b.toString().replace(/<script type="module" src="https:\/\/static\.cloudflareinsights\.com\/beacon\.min\.js[^]*?<\/script>\n/g,''));
