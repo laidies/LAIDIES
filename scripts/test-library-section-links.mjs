@@ -11,6 +11,15 @@ const verify=find=>{
  assert.equal(find(book,'@10-6-trusting-the-output-and-checking-it'),target,'historical section route must reach its full heading');
  assert.equal(find(book,'@'+target.id),target,'current exact route must remain valid');
  for(const invalid of ['@checking-it','@6','@','@unknown','@10-6-not-present'])assert.equal(find(book,invalid),null,`unresolved fragment must not guess: ${invalid}`);
+ const kit10={id:'chapter-10-your-first-ai-agent-add-to-your-working-with-ai-kit',textContent:'Add to Your Working With AI Kit'};
+ const kit1={id:'chapter-1-the-inconsistency-problem-add-to-your-working-with-ai-kit',textContent:kit10.textContent};
+ headings.push(kit1,kit10);
+ assert.equal(find(book,'@add-to-your-working-with-ai-kit-10'),kit10,'historical kit chapter10 must not select chapter1');
+ assert.equal(find(book,'@add-to-your-working-with-ai-kit-1'),kit1);
+ for(const invalid of ['@add-to-your-working-with-ai-kit','@add-to-your-working-with-ai-kit-0','@add-to-your-working-with-ai-kit-99'])assert.equal(find(book,invalid),null);
+ headings.push({...kit10,id:'chapter-10-other-add-to-your-working-with-ai-kit'});
+ assert.equal(find(book,'@add-to-your-working-with-ai-kit-10'),null,'ambiguous kit chapter must not guess');
+ headings.splice(1);
  const exact={id:'10-6-trusting-the-output-and-checking-it',textContent:'Exact'}; headings.push(exact);
  assert.equal(find(book,'@'+exact.id),exact,'exact heading takes precedence over a historical alias');
  headings.pop(); headings.push({...target,id:'chapter-99-other-10-6-trusting-the-output-and-checking-it'});

@@ -1744,6 +1744,12 @@ function findBookHeading(txt,headingReference){
     if(exact)return exact;
     const term=[...txt.querySelectorAll('article.term[id]')].find(node=>node.id===sectionId);
     if(term)return term.querySelector('h3')||term;
+    // Historical kit links used a chapter number after the repeated heading.
+    const kit=sectionId.match(/^add-to-your-working-with-ai-kit-([1-9]\d*)$/);
+    if(kit){
+      const matches=headings.filter(h=>h.id.startsWith('chapter-'+kit[1]+'-')&&h.id.endsWith('-add-to-your-working-with-ai-kit'));
+      return matches.length===1?matches[0]:null;
+    }
     // Older learning-index links predate chapter-prefixed rendered anchors.
     // Preserve them only when the old anchor identifies one heading uniquely.
     if(!/^\d+-\d+(?:-[a-z0-9]+)+$/.test(sectionId))return null;
