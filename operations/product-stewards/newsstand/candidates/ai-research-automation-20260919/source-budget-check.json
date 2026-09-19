@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "newsstand-source-budget-check-v2",
+  "candidateId": "ai-research-automation-20260919",
+  "limits": {
+    "Anthropic": 200,
+    "OpenAI": 200
+  },
+  "totals": {
+    "Anthropic": 189,
+    "OpenAI": 153
+  },
+  "exactFragmentSubstringChecks": [
+    {
+      "allocationId": "shared-headline-anthropic",
+      "status": "PASS",
+      "words": 12
+    },
+    {
+      "allocationId": "shared-headline-openai",
+      "status": "PASS",
+      "words": 12
+    },
+    {
+      "allocationId": "shared-opening-anthropic",
+      "status": "PASS",
+      "words": 6
+    },
+    {
+      "allocationId": "shared-opening-openai",
+      "status": "PASS",
+      "words": 6
+    },
+    {
+      "allocationId": "anthropic-index",
+      "status": "PASS",
+      "words": 30
+    },
+    {
+      "allocationId": "openai-agent-runtime",
+      "status": "PASS",
+      "words": 27
+    },
+    {
+      "allocationId": "anthropic-supervision",
+      "status": "PASS",
+      "words": 32
+    },
+    {
+      "allocationId": "openai-human-role-and-intervention",
+      "status": "PASS",
+      "words": 34
+    },
+    {
+      "allocationId": "shared-preliminary-anthropic",
+      "status": "PASS",
+      "words": 6
+    },
+    {
+      "allocationId": "shared-preliminary-openai",
+      "status": "PASS",
+      "words": 6
+    },
+    {
+      "allocationId": "anthropic-method-limits",
+      "status": "PASS",
+      "words": 16
+    },
+    {
+      "allocationId": "openai-method-limits",
+      "status": "PASS",
+      "words": 18
+    },
+    {
+      "allocationId": "anthropic-autonomy-takeaway",
+      "status": "PASS",
+      "words": 39
+    },
+    {
+      "allocationId": "shared-cocktail-anthropic",
+      "status": "PASS",
+      "words": 18
+    },
+    {
+      "allocationId": "shared-cocktail-openai",
+      "status": "PASS",
+      "words": 18
+    },
+    {
+      "allocationId": "anthropic-source-label",
+      "status": "PASS",
+      "words": 13
+    },
+    {
+      "allocationId": "openai-source-label",
+      "status": "PASS",
+      "words": 8
+    },
+    {
+      "allocationId": "anthropic-claim-limitations",
+      "status": "PASS",
+      "words": 17
+    },
+    {
+      "allocationId": "openai-claim-limitations",
+      "status": "PASS",
+      "words": 24
+    }
+  ],
+  "visitorFields": [
+    "headline",
+    "heroVisual.alt",
+    "the_story",
+    "laidies_read",
+    "what_this_means",
+    "cocktail_party",
+    "class_notes",
+    "sources[0].label",
+    "sources[1].label"
+  ],
+  "allVisitorFieldsAccountedFor": true,
+  "allClaimLimitationsAccountedFor": true,
+  "quoteBudget": {
+    "limitPerSource": 25,
+    "Anthropic": 1,
+    "OpenAI": 0,
+    "note": "Only the quoted label “led” is reproduced as direct provider wording; the article paraphrases all other evidence.",
+    "status": "PASS"
+  },
+  "status": "PASS"
+}

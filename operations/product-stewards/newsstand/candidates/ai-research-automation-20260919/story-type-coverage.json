@@ -1,0 +1,53 @@
+{
+  "schema": "laidies.newsstand-story-type-coverage.v1",
+  "primaryType": "research-benchmark",
+  "overlays": [],
+  "universalAnswers": {
+    "whatHappened": "Anthropic and OpenAI published internal measurements showing greater use of AI agents in frontier-lab research.",
+    "plainLanguageIdentity": "Measurements of supervised research work inside two AI companies, not a consumer feature launch.",
+    "evidenceBasis": "Two primary provider reports with methods and limitations.",
+    "evidenceLimits": "Self-reported internal measurements with different methods; no independent cross-lab comparison.",
+    "readerRelevance": "The numbers are evidence of changed research practice, not proof of autonomous recursive self-improvement.",
+    "affectedPeople": "Frontier-lab researchers directly; the public indirectly through the pace and governance of model development.",
+    "changesNow": "Agents perform more bounded research work and longer tasks under human direction.",
+    "uncertainty": "Overall research acceleration, cross-lab comparability and independent verification remain unresolved.",
+    "readerAction": "Ask what work was counted, what humans still decide and who checked the measure.",
+    "betterQuestion": "Which decision rights remain human as task execution becomes more automated?"
+  },
+  "typeAnswers": {
+    "research-benchmark": {
+      "researchQuestion": "How much defined research work are agents performing inside Anthropic and OpenAI, and how much human involvement remains?",
+      "method": "Anthropic built a prototype internal automation index with a Claude judge; OpenAI combined internal task estimates, interventions and agent runtime across its research organization.",
+      "result": "Anthropic reports Claude led 26% of measured research work, performed at least collaboratively in more than 90%, and was fully autonomous in none; OpenAI reports 3.1 eight-hour agent runtime units per human workday by mid-August.",
+      "sponsorAndInterests": "Each company performed and published its own measurement of systems it develops and uses.",
+      "independentReplication": "Neither supplied source provides independent replication or a common cross-company measurement method.",
+      "realWorldTransfer": "The measurements describe internal lab practice and do not establish a change to an everyday ChatGPT or Claude account or an overall productivity multiplier.",
+      "limitations": "Anthropic reports judge disagreement and no common cross-company method; OpenAI reports incomplete coverage and says runtime, code and experiment counts do not directly measure overall research progress."
+    }
+  },
+  "translation": {
+    "schema": "laidies.newsstand-reader-translation.v1",
+    "newsVersionExact": "Two companies report different internal snapshots.",
+    "actualMeaningExact": "These figures describe work inside the companies that made the systems. They are not a change to an everyday ChatGPT or Claude account.",
+    "mechanismExact": "OpenAI says people still set priorities, judge results and decide whether to scale, pause or deploy.",
+    "familiarExampleExact": "Bounded investigations can run for hours, which may speed up a lab without transferring authority over the next model, evidence or deployment.",
+    "jargon": [
+      {
+        "term": "fully autonomous",
+        "plainMeaning": "Fully autonomous work removes the human"
+      },
+      {
+        "term": "recursive self-improvement",
+        "plainMeaning": "a model independently building its successor without a human in the loop"
+      }
+    ],
+    "learningConnections": [
+      {
+        "concept": "Delegation and evaluation",
+        "learningPayoff": "See why giving an agent more of a task does not remove the human responsibility to define success and judge the result.",
+        "disposition": "link",
+        "destination": "/library.html#working-with-ai-101::%4012-4-the-mirror-evaluation-and-delegation-are-the-same-skill"
+      }
+    ]
+  }
+}

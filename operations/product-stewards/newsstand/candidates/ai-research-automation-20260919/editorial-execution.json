@@ -1,0 +1,19 @@
+{
+  "startedAt": "2026-09-19T23:26:59.709Z",
+  "completedAt": "2026-09-19T23:28:10.140Z",
+  "exitCode": 0,
+  "command": [
+    "node",
+    "operations/product-stewards/newsstand/review-runtime/run-pilot.mjs",
+    "article",
+    "claude",
+    "--candidate-dir",
+    "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/",
+    "--calibration",
+    "operations/product-stewards/newsstand/review-runtime/calibration/qualified-news-metrics-policy-20260905/",
+    "--output",
+    "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/editorial-review-v1/"
+  ],
+  "stdout": "{\"name\":\"article-editorial\",\"verdict\":\"PASS\",\"model\":[\"claude-haiku-4-5-20251001\",\"claude-fable-5\"],\"usage\":{\"input_tokens\":2,\"cache_creation_input_tokens\":21718,\"cache_read_input_tokens\":0,\"output_tokens\":5973,\"output_tokens_details\":{\"thinking_tokens\":175},\"server_tool_use\":{\"web_search_requests\":0,\"web_fetch_requests\":0},\"service_tier\":\"standard\",\"cache_creation\":{\"ephemeral_1h_input_tokens\":21718,\"ephemeral_5m_input_tokens\":0},\"inference_geo\":\"not_available\",\"iterations\":[{\"input_tokens\":2,\"output_tokens\":5973,\"cache_read_input_tokens\":0,\"cache_creation_input_tokens\":21718,\"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":21718},\"type\":\"message\",\"model\":null}],\"speed\":\"standard\"},\"replayed\":false}\n",
+  "stderr": ""
+}

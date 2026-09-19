@@ -1,8 +1,8 @@
 window.NEWSSTAND_DATA = {
   "schemaVersion": "2.0.0",
   "datasetStatus": "published",
-  "generatedAt": "2026-09-19T18:09:33.965Z",
-  "lastCheckedAt": "2026-09-19T18:09:33.965Z",
+  "generatedAt": "2026-09-19T23:30:23.939Z",
+  "lastCheckedAt": "2026-09-19T23:30:23.939Z",
   "publications": {
     "breaking": {
       "edition": "breaking",
@@ -27,7 +27,8 @@ window.NEWSSTAND_DATA = {
           "openai-misalignment-reporting-20260916",
           "claude-cowork-merge-20260916",
           "rathat-android-20260916",
-          "anthropic-lsvp-beta-20260917"
+          "anthropic-lsvp-beta-20260917",
+          "ai-research-automation-20260919"
         ],
         "serviceRecordIds": [
           "DAILY-2026-09-19-PAIGE-TIP-PAIGE-02-FIX-ONE-THING",
@@ -39,9 +40,9 @@ window.NEWSSTAND_DATA = {
       },
       "job": "A clear explanation of what changed and why it matters.",
       "status": "current",
-      "publishedAt": "2026-09-19T18:09:33.965Z",
-      "updatedAt": "2026-09-19T18:09:33.965Z",
-      "lastCheckedAt": "2026-09-19T18:09:33.965Z",
+      "publishedAt": "2026-09-19T23:30:23.939Z",
+      "updatedAt": "2026-09-19T23:30:23.939Z",
+      "lastCheckedAt": "2026-09-19T23:30:23.939Z",
       "maxAgeHours": 36,
       "note": "The Daily for 2026-09-19."
     },
@@ -6506,6 +6507,76 @@ window.NEWSSTAND_DATA = {
       ],
       "saint_lane": null,
       "badge": "THE LATEST",
+      "retraction": null
+    },
+    {
+      "id": "ai-research-automation-20260919",
+      "slug": "ai-research-automation-20260919",
+      "edition": "daily",
+      "status": "published",
+      "publishedAt": "2026-09-19T23:30:23.939Z",
+      "updatedAt": "2026-09-19T20:15:12.003Z",
+      "lastCheckedAt": "2026-09-19T20:15:12.003Z",
+      "sourceApproval": {
+        "status": "approved",
+        "record": "newsstand:source-approval:ai-research-automation-20260919"
+      },
+      "correction": null,
+      "correctionHistory": [],
+      "predecessorStoryIds": [],
+      "successorStoryIds": [],
+      "bigPicture": null,
+      "thread": null,
+      "thread_subtitle": null,
+      "thread_entry": null,
+      "headline": "AI agents are doing more research work. Humans still set the course.",
+      "heroVisual": {
+        "src": "/assets/newsstand/ai-research-automation-20260919.png",
+        "alt": "An editorial illustration of a woman reviewing experiment reports and placing one selected result into a final tray while bounded computer workspaces run behind her.",
+        "credit": "Illustration: LAiDIES"
+      },
+      "the_story": "<p>Two companies report different internal snapshots. Anthropic says that in its August 2026 internal index, Claude led 26% of AI research work, performed at least collaboratively in more than 90%, and was fully autonomous in none.</p><p>OpenAI reports a different measure: by mid-August, its agents’ total runtime across the research organization was equivalent to 3.1 standard eight-hour agent workdays for each human workday. These figures describe work inside the companies that made the systems. They are not a change to an everyday ChatGPT or Claude account.</p>",
+      "laidies_read": "<p>The crucial distinction is between doing a research task and deciding what research should happen. In Anthropic’s scale, “led” means completing most of a defined task from a high-level prompt while a human supervises. Fully autonomous work removes the human; Anthropic says no measured subset reached it.</p><p>OpenAI says people still set priorities, judge results and decide whether to scale, pause or deploy. In the six months it studied, more than half of successful four-to-eight-hour tasks needed at least one intervention.</p><p>Both reports are preliminary internal measurements. Anthropic used a Claude judge, found borderline disagreement and says cross-company comparison lacks a common method. OpenAI says coverage is incomplete; agent runtime, code and experiment counts do not directly measure overall research progress.</p>",
+      "what_this_means": "<p>This does not establish recursive self-improvement—a model independently building its successor without a human in the loop. Bounded investigations can run for hours, which may speed up a lab without transferring authority over the next model, evidence or deployment.</p><p>When you see the next dramatic percentage, ask three questions: Which work was counted? What did the human still decide? Was the measure independently checked? Those questions separate a real change in research practice from a claim that the machines are running the laboratory.</p>",
+      "cocktail_party": "“Inside Anthropic and OpenAI, agents do more hands-on research work, but people still control goals, judgment and deployment.”",
+      "watch_fors": null,
+      "closing_note": null,
+      "class_notes": "The <a href=\"/library.html#working-with-ai-101::%4012-4-the-mirror-evaluation-and-delegation-are-the-same-skill\">Working with AI 101 section on delegation and evaluation</a> explains why defining the job and judging the result are two sides of the same human responsibility.",
+      "sources": [
+        {
+          "id": "anthropic-measuring-pace-20260919",
+          "label": "Anthropic — Measurements for understanding the pace of AI development inside frontier labs",
+          "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+          "publisherType": "provider-measurement-report",
+          "accessedAt": "2026-09-19",
+          "approvalStatus": "independent-review-required"
+        },
+        {
+          "id": "openai-research-acceleration-20260906",
+          "label": "OpenAI — Research acceleration: The view inside OpenAI",
+          "url": "https://openai.com/index/research-acceleration-view-inside-openai/",
+          "publisherType": "provider-measurement-report",
+          "accessedAt": "2026-09-19",
+          "approvalStatus": "independent-review-required"
+        }
+      ],
+      "aidb_credit": null,
+      "themes": [
+        "AI research",
+        "human oversight"
+      ],
+      "concepts": [
+        "research automation",
+        "human decision rights"
+      ],
+      "tags": [
+        "Anthropic",
+        "OpenAI",
+        "AI agents",
+        "research"
+      ],
+      "saint_lane": null,
+      "badge": "THE DAILY",
       "retraction": null
     }
   ]

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "newsstand-source-evidence-v1",
+  "candidateId": "ai-research-automation-20260919",
+  "checkedAt": "2026-09-19T23:11:21.058Z",
+  "exactSourcePacket": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/source-packet.json",
+    "sha256": "1ac67450e01273669bbf10a93eabc1a3b1e822d05c2a39f03f1ae91bdb0ab382",
+    "scope": "Both complete accessible primary provider articles read from untouched web-tool captures; every claim-bearing passage is an exact verified substring."
+  },
+  "passages": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/source-passages.json",
+    "sha256": "59f658bde0b78bbfe1bc28032cdbe19bb75f4e163efbf8151a5f35b5ec537770",
+    "checks": 18,
+    "status": "ALL_EXACT_SUBSTRINGS_MATCH"
+  },
+  "records": [
+    {
+      "sourceId": "anthropic-measuring-pace-20260919",
+      "status": "COMPLETE_ACCESSIBLE_PRIMARY_PROVIDER_SOURCE",
+      "authority": "Anthropic report for its own internal measurements and stated limitations.",
+      "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+      "readScope": "Complete accessible primary article lines 0-146 read from the untouched primary capture. The bounded exact claim passages are individually substring-verified and remain below 200 words.",
+      "limits": "Provider measures its own internal work. Claude helped construct and judge the index. The frozen task basket and person-time weights are approximations. No common cross-lab methodology or independent verification is supplied in this article.",
+      "accessedAt": "2026-09-19",
+      "sourceCapture": {
+        "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/source-capture-primary.json",
+        "sha256": "1701e5ec6d4233cc736733cdb4c0b54696b652a0f3c6586dc8777de64b81766c",
+        "capturedAt": "2026-09-19T16:04:57-07:00",
+        "serialization": "JSON.stringify untouched web-tool result"
+      }
+    },
+    {
+      "sourceId": "openai-research-acceleration-20260906",
+      "status": "COMPLETE_ACCESSIBLE_PRIMARY_PROVIDER_SOURCE",
+      "authority": "OpenAI report for its own internal measurements and stated limitations.",
+      "url": "https://openai.com/index/research-acceleration-view-inside-openai/",
+      "readScope": "Complete accessible primary article lines 0-134 and appendix read across the untouched primary and continuation captures. The bounded exact claim passages are individually substring-verified and remain below 200 words.",
+      "limits": "Provider measures its own internal research organization. Agent-use coverage is incomplete. Agent runtime, code and experiment counts do not directly establish overall research progress. Available compute also changed during the measured period.",
+      "accessedAt": "2026-09-19",
+      "sourceCapture": {
+        "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/source-capture-continuation.json",
+        "sha256": "0c5dae1cefe32e8beb58ae45dc97e5d1c05217fbbc1e1acc15d4acc76b06f8c1",
+        "capturedAt": "2026-09-19T16:05:22-07:00",
+        "serialization": "JSON.stringify untouched web-tool result"
+      }
+    }
+  ]
+}

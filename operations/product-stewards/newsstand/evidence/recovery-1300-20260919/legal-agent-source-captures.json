@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "newsstand-source-capture-v1",
+  "captureRecordCreatedAt": "2026-09-19T20:01:00Z",
+  "actualSuccessfulRetrievalTimestamp": null,
+  "scope": "Read-only recovery evidence for Root's separate legal candidate; no editorial conclusion or publication authority.",
+  "accessMethod": {
+    "blockedOriginalsNotRetried": [
+      "https://apnews.com/article/960af4308161eaf4ed13c383b0ce1c1b",
+      "https://apnews.com/article/1526da03842cfeef12d0fb69b6b7ad28"
+    ],
+    "successfulRoute": "Normal web search found an independently hosted article. Normal web open of that article exposed a numbered link to a CourtListener RECAP PDF. Normal web click of that link returned the PDF text.",
+    "intermediateUrl": "https://tech.iheartgeek.com/news/four-ai-giants-sued-pace-the-frontier-agreement",
+    "sourceUrl": "https://storage.courtlistener.com/recap/gov.uscourts.cand.479357/gov.uscourts.cand.479357.1.0.pdf"
+  },
+  "document": {
+    "title": "Buist et al. v. Anthropic PBC et al., Case No. 3:26-cv-10693, Complaint",
+    "court": "United States District Court for the Northern District of California, San Francisco Division",
+    "filedDate": "2026-09-18",
+    "pageCountReturnedByTool": 29,
+    "readBoundary": "EXCERPTS_ONLY: first normal-web PDF response was read through returned lines 0-485, covering PDF pages 1-8; a later normal-web PDF response was read through returned lines 1043-1260, covering PDF pages 20-24. Pages 9-19 and 25-29 were not read. This is not a claim to have read all 29 pages."
+  },
+  "reviewStatus": "SOURCE_EVIDENCE_INVALID_FOR_PUBLICATION",
+  "invalidReason": "The first two retained entries paraphrased portions of an earlier successful normal-web PDF response instead of preserving raw tool output. The raw response was not persisted before this recovery request. A fresh direct normal-web open of the CourtListener URL at this recovery step returned 'URL ... is not accessible via this tool.' Do not treat any paraphrase in this file as source evidence or quote it in a legal candidate.",
+  "nonVerbatimRecoveryNotes": [
+    {
+      "pdfPages": "1-2",
+      "toolLines": "54-70, 100-124, 153-169",
+      "text": "INVALID — non-verbatim summary removed from usable evidence. Recover raw CourtListener/RECAP text or an equally admissible primary filing before legal publication."
+    },
+    {
+      "pdfPages": "3-5",
+      "toolLines": "205-222, 253-270",
+      "text": "INVALID — non-verbatim summary removed from usable evidence. Recover raw CourtListener/RECAP text or an equally admissible primary filing before legal publication."
+    },
+    {
+      "pdfPages": "20-22",
+      "toolLines": "1043-1049, 1080-1101, 1137-1149",
+      "text": "INVALID — non-verbatim summary removed from usable evidence. Recover raw CourtListener/RECAP text or an equally admissible primary filing before legal publication."
+    },
+    {
+      "pdfPages": "23-24",
+      "toolLines": "1199-1248",
+      "text": "INVALID — non-verbatim summary removed from usable evidence. Recover raw CourtListener/RECAP text or an equally admissible primary filing before legal publication."
+    }
+  ],
+  "useLimit": "All statements above are allegations in a newly filed complaint unless separately established by another source. This capture does not establish collusion, liability, damages, class certification, or a court finding."
+}

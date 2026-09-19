@@ -1,0 +1,17 @@
+file:///private/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/newsstand-ordinary-fixture-paux0i/scripts/publish-daily-edition.mjs:20
+const reject = (message) => { throw new Error(`DAILY_CANONICAL_PUBLICATION_REJECT: ${message}`); };
+                                    ^
+
+Error: DAILY_CANONICAL_PUBLICATION_REJECT: publication base changed after review; retry is not exact projected output
+    at reject (file:///private/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/newsstand-ordinary-fixture-paux0i/scripts/publish-daily-edition.mjs:20:37)
+    at projectDailySourceRaw (file:///private/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/newsstand-ordinary-fixture-paux0i/scripts/publish-daily-edition.mjs:174:132)
+    at validateEnvelope (file:///private/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/newsstand-ordinary-fixture-paux0i/scripts/promote-daily-edition.mjs:186:11)
+    at promoteDailyIssue (file:///private/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/newsstand-ordinary-fixture-paux0i/scripts/promote-daily-edition.mjs:303:3)
+    at main (file:///private/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/newsstand-ordinary-fixture-paux0i/scripts/promote-daily-edition.mjs:549:18)
+    at file:///private/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/newsstand-ordinary-fixture-paux0i/scripts/promote-daily-edition.mjs:558:57
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.18.0
+ORDINARY NEWS PIPELINE PASS private_composition=1 first_issue=1 same_day_append=1 published_only_after_admission=1 overnight_real_projection=1 premature_morning_admission_rejected=1 incumbents_preserved=1 repeat_and_resume=1 base_drift_rejected=1 draft_preparation_required=1 changed_observations_rejected=1 review_mutations_rejected=17 human_gate_preserved=1 real_cli=1 feed_archive_reader=1 fixture=/private/var/folders/bj/tk6944ns7gn13syvg4d93cp00000gn/T/newsstand-ordinary-fixture-paux0i REAL_PUBLIC_WRITES=0

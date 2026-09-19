@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0.0",
+  "candidateId": "ai-research-automation-20260919-art",
+  "stage": "INDEPENDENT_VISUAL_ADMISSION",
+  "verdict": "REJECT",
+  "reviewer": {
+    "principalId": "/root",
+    "role": "Independent visual reviewer",
+    "reviewedAt": "2026-09-19T23:01:52.753620+00:00",
+    "artifactFirst": true,
+    "viewedAtIntendedSize": true,
+    "independentFromMaker": true
+  },
+  "artifact": {
+    "path": "proposed/assets/newsstand/ai-research-automation-20260919.png",
+    "sha256": "0ee89e448053f251da628e32a65f42cc747a1c10b5bb237fc5d76e3af56783e8"
+  },
+  "producerContract": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/art/producer-contract.json",
+    "sha256": "26cf6a89023c9f9eb176099a55e6b1fa558a6b5d6ad21cad675c0beba3361a6e"
+  },
+  "producerReview": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/art/maker-inspection.json",
+    "sha256": "2dca7b82c15a45c36ec407b0a6df81f0427526be097ae899cef8a0a155cdabd8"
+  },
+  "companion": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/story.json",
+    "sha256": "109eb2ecdeadc0f6bad7a881d51f68f3c6f3437b4e2cd32584e2c2d0983cae33"
+  },
+  "renderedEvidence": {
+    "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/art/mobile-preview.png",
+    "sha256": "615f695af34a867ca64144945cf494f01f2a38cd5ba473de41ec894cfd70b53d"
+  },
+  "visibleDefects": [
+    "One woman has three arms: board-reaching arm at left, central hand holding pencil against her torso, and right arm holding a page above the tray."
+  ],
+  "outcomes": [
+    {
+      "id": "anatomyAndPhysics",
+      "result": "REJECT",
+      "observation": "Three simultaneous hands/arms belonging to one person are visible at full and mobile size. Maker anatomy PASS is contradicted by pixels."
+    }
+  ],
+  "learningDisposition": {
+    "kind": "CANDIDATE_REPAIR",
+    "requiredRepair": "Show only two arms and at most two hand actions. Leave goal pinned without hand contact. Reinspect exact successor full and mobile before review."
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "newsstand-exact-source-packet-v1",
+  "candidateId": "ai-research-automation-20260919",
+  "capturedAt": "2026-09-19T20:15:12.003Z",
+  "records": [
+    {
+      "sourceId": "anthropic-measuring-pace-20260919",
+      "publisher": "Anthropic",
+      "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+      "publisherType": "provider-measurement-report",
+      "budgetWords": 200,
+      "quoteBudgetWords": 25,
+      "readScope": "Fresh normal web open, complete accessible page lines 0-146; selected claim-bearing passages retained.",
+      "exactCapturedText": "L41: We built a prototype index of how much of Anthropic’s AI research and development (R&D) is performed by Claude, called the Anthropic R&D Automation Index.\nL42-L43: The scale runs from AL0 (no AI involvement) to AL5 (AI operates fully autonomously, with no human in the loop). In AL3, AI “collaborates”: it can do large chunks of work under close human direction. In AL4, AI “leads”: it can complete most of the task end-to-end from a high-level prompt, while the human supervises.\nL44-L49: As of August 2026, Claude is not operating fully autonomously for any measured subset of AI R&D work; Claude “leads” 26% of Anthropic’s AI R&D work; the share at or above “AI collaborates” is above 90%.\nL52: Cross-lab comparison is limited by the lack of a common methodology and by Anthropic using its own models to evaluate its systems.\nL89-L101: Anthropic constructed a task list from internal work records, sampled staff work, used Claude agents to organize and research tasks, and used an independent Claude judge to assign automation levels. The basket is frozen and person-time weighting is a crude approximation. Human checks showed room for disagreement, especially at the boundary between “collaborates” and “leads.”",
+      "sourceCapture": {
+        "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/source-raw-normal-web.txt",
+        "sha256": "1582a2eba6cc0de95716367ae4ac6670e0e05ad1830320201d066ef0ae3cca17"
+      },
+      "limitations": [
+        "Provider measures its own internal work.",
+        "Claude helped construct and judge the index.",
+        "The frozen task basket and person-time weights are approximations.",
+        "No common cross-lab methodology or independent verification is supplied in this article."
+      ]
+    },
+    {
+      "sourceId": "openai-research-acceleration-20260906",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/research-acceleration-view-inside-openai/",
+      "publisherType": "provider-measurement-report",
+      "budgetWords": 200,
+      "quoteBudgetWords": 25,
+      "readScope": "Fresh normal web opens covering the complete accessible article; selected claim-bearing passages retained.",
+      "exactCapturedText": "L38-L41: OpenAI describes a “research intern” as a system that performs well-defined research tasks under human direction, including tasks that would take a skilled researcher a few days. It says people still set research priorities, judge which ideas and results to pursue, and decide whether to scale, pause, or deploy systems.\nL53-L58: By mid-August, OpenAI says the median researcher was integrating coding agents daily. Across the research organization, it reports 3.1 agent-workdays of effort for every workday of human labor, using a standard eight-hour workday.\nL70-L71: OpenAI says these metrics are easy to measure but hard to interpret; available compute also grew significantly.\nL95-L101: High-level planning remained a minimal fraction of agent output tokens. Agents still required significant human steering, especially on more complex work. Over half of successful four-to-eight-hour tasks in the previous six months involved at least one intervention.\nL127-L133: OpenAI calls the measurement effort preliminary. It says coding and experiment counts are hard to connect directly to research progress, and its agent-use metrics cover most but not all usage.",
+      "sourceCapture": {
+        "path": "operations/product-stewards/newsstand/candidates/ai-research-automation-20260919/source-raw-normal-web.txt",
+        "sha256": "1582a2eba6cc0de95716367ae4ac6670e0e05ad1830320201d066ef0ae3cca17"
+      },
+      "limitations": [
+        "Provider measures its own internal research organization.",
+        "Agent-use coverage is incomplete.",
+        "Code, experiment and runtime measures do not directly establish overall research progress.",
+        "Available compute also changed during the measured period."
+      ]
+    }
+  ],
+  "sourceFamilyAggregate": {
+    "Anthropic": 200,
+    "OpenAI": 200
+  },
+  "quoteBudgetAggregate": {
+    "Anthropic": 25,
+    "OpenAI": 25
+  }
+}
