@@ -6,7 +6,9 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 const sha = value => crypto.createHash('sha256').update(value).digest('hex');
-const LIMIT=2_500_000;
+// The first real report page exceeded 2.5 MB because of its HTML payload.
+// Retain the complete response rather than silently truncating source evidence.
+export const MAX_SOURCE_BYTES=8_000_000;
 
 function approvedUrl(value, hosts) {
   const u=new URL(value);
@@ -44,7 +46,7 @@ export async function captureSources({sources,approvedHosts,outputDirectory,fetc
         while(true) {
           const {done,value}=await reader.read(); if(done) break;
           size+=value.byteLength;
-          if(size>LIMIT) throw Error('SOURCE_BODY_EXCEEDS_LIMIT');
+          if(size>MAX_SOURCE_BYTES) throw Error('SOURCE_BODY_EXCEEDS_LIMIT');
           chunks.push(value);
         }
       } catch(e) {await reader.cancel(); throw e;} finally {reader.releaseLock();}
