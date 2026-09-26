@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 import { prepareHostedRelease } from './prepare-newsstand-hosted-release.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const MODERN = '/Users/alisoneakin/Projects/laidies-newsstand-overheard-20260907';
+const MODERN = process.env.NEWSSTAND_SCOPE_TEST_ROOT ? path.resolve(process.env.NEWSSTAND_SCOPE_TEST_ROOT) : ROOT;
 const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'laidies-newsstand-hosted-release-'));
 const digest = value => crypto.createHash('sha256').update(value).digest('hex');
 const record = (filePath, value) => ({ path: filePath, bytes: Buffer.byteLength(value), sha256: digest(value) });
@@ -39,7 +39,7 @@ const predecessor = put('predecessor.json', {
 });
 const current = put('current.json', { id: '12345678-1234-1234-1234-123456789abc', branch: 'homepage-redesign' });
 const knownScopeChecker = path.join(MODERN, 'scripts/check-newsstand-release-scope.mjs');
-assert.ok(fs.existsSync(knownScopeChecker), 'modern verified scope controller is required for the synthetic byte test');
+assert.ok(fs.existsSync(knownScopeChecker), 'checked-out scope controller is required for the synthetic byte test');
 
 let result = prepareHostedRelease({ baseManifestPath: base, candidateManifestPath: candidate, scopePath: scope, admissionPath: admission, predecessorPath: predecessor, currentProviderHeadPath: current, scopeCheckerPath: knownScopeChecker });
 assert.equal(result.result, 'PREPARED_FOR_SEPARATE_DEPLOYMENT', JSON.stringify(result));
