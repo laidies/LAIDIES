@@ -20,7 +20,7 @@ assert.doesNotMatch(serialised, /private article|private rubric|review output|fa
 assert.doesNotMatch(serialised, /providerRaw|structured_output/i);
 
 assert.equal((await runHostedEditorial({packet, protocol, protocolIdentity: {...QUALIFIED_PROTOCOL, sha256: '0'.repeat(64)}, execute: async () => provider})).status, 'PROTOCOL_BINDING_MISMATCH');
-assert.equal((await runHostedEditorial({packet, protocol, protocolIdentity: QUALIFIED_PROTOCOL, execute: async () => ({...provider, modelUsage: {'other-model': {}})})).status, 'MODEL_MISMATCH');
+assert.equal((await runHostedEditorial({packet, protocol, protocolIdentity: QUALIFIED_PROTOCOL, execute: async () => ({...provider, modelUsage: {'other-model': {}}})})).status, 'MODEL_MISMATCH');
 assert.equal((await runHostedEditorial({packet, protocol, protocolIdentity: QUALIFIED_PROTOCOL, execute: async () => ({...provider, subtype: 'incomplete'})})).status, 'PROVIDER_INCOMPLETE');
 assert.equal((await runHostedEditorial({packet, protocol, protocolIdentity: QUALIFIED_PROTOCOL, execute: async () => ({...provider, structured_output: null})})).status, 'INVALID_PROVIDER_OUTPUT');
 assert.equal((await runHostedEditorial({packet, protocol: {...protocol, normalize: () => { throw Error('bad private draft'); }}, protocolIdentity: QUALIFIED_PROTOCOL, execute: async () => provider})).status, 'NORMALIZATION_REJECTED');
