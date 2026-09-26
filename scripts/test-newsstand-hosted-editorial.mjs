@@ -15,7 +15,7 @@ assert.equal(success.status, 'EDITORIAL_TRANSPORT_SUCCESS');
 assert.equal(success.verdict, 'HOLD');
 assert.deepEqual(seen.model, 'claude-fable-5'); assert.equal(seen.effort, 'medium');
 assert.equal(success.privateResult.provider, provider);
-const serialised = JSON.stringify({...success, privateResult: undefined});
+const serialised = JSON.stringify(success);
 assert.doesNotMatch(serialised, /private article|private rubric|review output|fact output|normalized review/);
 assert.doesNotMatch(serialised, /structured_output|privateResult/i);
 

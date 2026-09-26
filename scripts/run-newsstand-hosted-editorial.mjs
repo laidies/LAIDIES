@@ -64,14 +64,15 @@ export async function runHostedEditorial({packet, protocol, protocolIdentity, ex
   const requestSha256 = sha256(stable(request));
   const providerRawSha256 = sha256(stable(provider));
   const judgmentSha256 = sha256(stable(provider.structured_output));
-  return publicResult('EDITORIAL_TRANSPORT_SUCCESS', {
+  const outcome = publicResult('EDITORIAL_TRANSPORT_SUCCESS', {
     model: models,
     effort: QUALIFIED_PROTOCOL.effort,
     verdict: normalized.verdict,
     requestSha256,
     providerRawSha256,
-    judgmentSha256,
-    // This field is private process memory, never a safe workflow/log artifact.
-    privateResult: {request, provider, judgment: provider.structured_output, normalized}
+    judgmentSha256
   });
+  // Deliberately non-enumerable: JSON logging emits only the public summary.
+  Object.defineProperty(outcome, 'privateResult', {value: {request, provider, judgment: provider.structured_output, normalized}});
+  return outcome;
 }
