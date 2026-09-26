@@ -12,16 +12,40 @@ const MAX_CAPTURE_BYTES = 1_000_000;
 const ROLE_SCHEMAS = {
   writer: {
     type: "object", additionalProperties: false, required: ["role", "draft"],
-    properties: {role: {const: "writer"}, draft: {type: "object"}}
+    properties: {
+      role: {const: "writer"},
+      draft: {
+        type: "object", additionalProperties: false, required: ["headline", "body"],
+        properties: {headline: {type: "string", minLength: 1}, body: {type: "string", minLength: 1}}
+      }
+    }
   },
   reviewer: {
     type: "object", additionalProperties: false, required: ["role", "verdict", "findings"],
-    properties: {role: {const: "reviewer"}, verdict: {enum: ["PASS", "HOLD", "REJECT"]}, findings: {type: "array"}}
+    properties: {
+      role: {const: "reviewer"},
+      verdict: {enum: ["PASS", "HOLD", "REJECT"]},
+      findings: {
+        type: "array", minItems: 1,
+        items: {
+          type: "object", additionalProperties: false, required: ["claim", "reason"],
+          properties: {claim: {type: "string", minLength: 15}, reason: {type: "string", minLength: 15}}
+        }
+      }
+    }
   }
 };
 
 const digest = value => crypto.createHash("sha256").update(value).digest("hex");
 const redact = (value, token) => String(value || "").split(token).join("[REDACTED]");
+const substantiveText = value => typeof value === "string" && value.trim().length >= 15;
+const validWriterDraft = draft => draft && typeof draft === "object" && !Array.isArray(draft)
+  && Object.keys(draft).every(key => ["headline", "body"].includes(key))
+  && typeof draft.headline === "string" && draft.headline.trim().length > 0
+  && typeof draft.body === "string" && draft.body.trim().length > 0;
+const validReviewerFinding = finding => finding && typeof finding === "object" && !Array.isArray(finding)
+  && Object.keys(finding).every(key => ["claim", "reason"].includes(key))
+  && substantiveText(finding.claim) && substantiveText(finding.reason);
 
 export function validateRequest(request) {
   const errors = [];
@@ -98,7 +122,7 @@ export async function runHostedClaude({request, token, cli = "claude", timeoutMs
     if (!details.model.includes(MODEL) || !details.model.every(model => model.startsWith("claude-"))) return result({role: request.role, status: "MODEL_MISMATCH", token, provider: {...details, error: "Claude did not report the pinned model"}});
     const output = provider.structured_output;
     const allowedKeys = request.role === "writer" ? ["role", "draft"] : ["role", "verdict", "findings"];
-    if (!output || typeof output !== "object" || Array.isArray(output) || Object.keys(output).some(key => !allowedKeys.includes(key)) || output.role !== request.role || (request.role === "writer" && (typeof output.draft !== "object" || output.draft === null || Array.isArray(output.draft))) || (request.role === "reviewer" && (!["PASS", "HOLD", "REJECT"].includes(output.verdict) || !Array.isArray(output.findings)))) {
+    if (!output || typeof output !== "object" || Array.isArray(output) || Object.keys(output).some(key => !allowedKeys.includes(key)) || output.role !== request.role || (request.role === "writer" && !validWriterDraft(output.draft)) || (request.role === "reviewer" && (!["PASS", "HOLD", "REJECT"].includes(output.verdict) || !Array.isArray(output.findings) || output.findings.length === 0 || !output.findings.every(validReviewerFinding)))) {
       return result({role: request.role, status: "ROLE_OUTPUT_INVALID", token, provider: {...details, error: "structured output does not match the allowlisted role envelope"}});
     }
     return result({role: request.role, status: "TRANSPORT_SUCCESS", token, provider: details, output});
