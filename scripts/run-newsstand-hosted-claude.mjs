@@ -149,7 +149,15 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
   const request = JSON.parse(fs.readFileSync(args.requestPath, "utf8"));
   const outcome = await runHostedClaude({request, token: process.env.CLAUDE_CODE_OAUTH_TOKEN, cli: args.cli, timeoutMs: args.timeoutMs, maxTurns: args.maxTurns});
-  process.stdout.write(`${JSON.stringify(outcome, null, 2)}\n`);
+  // CLI output can enter public Actions logs. Keep private prose/provider bytes
+  // available only to the in-process orchestrator, never to stdout.
+  const summary = {
+    role: outcome.role, status: outcome.status,
+    transportSuccess: outcome.transportSuccess,
+    model: outcome.provider?.model ?? null,
+    qualification: "NOT_ESTABLISHED", admissionAuthority: false
+  };
+  process.stdout.write(`${JSON.stringify(summary, null, 2)}\n`);
   if (!outcome.transportSuccess) process.exitCode = 2;
 }
 

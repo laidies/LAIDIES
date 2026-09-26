@@ -55,9 +55,9 @@ assert.equal(wrongFindings.status, 2); assert.equal(parsed(wrongFindings).status
 
 const success = invoke(writeRequest("success", "reviewer", "reviewer success"), {CLAUDE_CODE_OAUTH_TOKEN: "test-token"});
 assert.equal(success.status, 0); const output = parsed(success);
-assert.equal(output.status, "TRANSPORT_SUCCESS"); assert.equal(output.qualification, "NOT_ESTABLISHED"); assert.equal(output.admissionAuthority, false); assert.equal(output.output.verdict, "HOLD"); assert.equal(typeof output.output.findings[0].claim, "string");
+assert.equal(output.status, "TRANSPORT_SUCCESS"); assert.equal(output.qualification, "NOT_ESTABLISHED"); assert.equal(output.admissionAuthority, false); assert.equal(output.role, "reviewer"); assert.equal(output.output, undefined); assert.equal(output.provider, undefined);
 const writerSuccess = invoke(writeRequest("writer-success", "writer", "writer success"), {CLAUDE_CODE_OAUTH_TOKEN: "test-token"});
-assert.equal(writerSuccess.status, 0); assert.equal(parsed(writerSuccess).output.role, "writer"); assert.equal(parsed(writerSuccess).output.draft.headline, "Synthetic headline");
-for (const result of [missing, timeout, refusal, rateLimited, emptyWriter, wrongFindings, success, writerSuccess]) assert.doesNotMatch(`${result.stdout}\n${result.stderr}`, /test-token/, "credential must not be emitted");
+assert.equal(writerSuccess.status, 0); assert.equal(parsed(writerSuccess).role, "writer"); assert.equal(parsed(writerSuccess).output, undefined);
+for (const result of [missing, timeout, refusal, rateLimited, emptyWriter, wrongFindings, success, writerSuccess]) assert.doesNotMatch(`${result.stdout}\n${result.stderr}`, /test-token|Synthetic headline|Synthetic body|The article gives|The supplied source|structured_output/, "credentials and private draft/review/provider text must not be emitted");
 fs.rmSync(temp, {recursive: true, force: true});
 console.log("NEWSSTAND HOSTED CLAUDE TEST PASS auth_missing=1 timeout=1 provider_error=1 rate_limit=1 empty_writer_rejection=1 typed_findings_rejection=1 writer_transport=1 reviewer_transport=1");
