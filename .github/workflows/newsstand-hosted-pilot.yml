@@ -35,6 +35,7 @@ jobs:
       - name: Test hosted failure handling
         run: |
           node scripts/test-newsstand-hosted-readiness.mjs
+          node scripts/test-newsstand-hosted-claude.mjs
       - name: Report actual migration readiness
         shell: bash
         run: |
@@ -51,3 +52,24 @@ jobs:
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
           exit "$result"
+
+  model-transport:
+    # Enable only after Ali authorizes the new persistent Claude token.
+    if: vars.NEWSSTAND_HOSTED_MODEL_PROBE_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: scripts
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install pinned Claude CLI
+        run: npm install --global @anthropic-ai/claude-code@2.1.251
+      - name: Exercise isolated writer and reviewer sessions
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: node scripts/probe-newsstand-hosted-claude.mjs
